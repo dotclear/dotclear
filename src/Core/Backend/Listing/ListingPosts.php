@@ -145,8 +145,8 @@ class ListingPosts extends Listing
      */
     private function postLine(bool $checked): string
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CATEGORIES,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CATEGORIES,
         ]), Core::blog()->id)) {
             $cat_link = '<a href="' . Core::backend()->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
@@ -224,7 +224,7 @@ class ListingPosts extends Listing
             Core::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), Core::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',

@@ -108,9 +108,9 @@ class BackendBehaviors
             'url'         => My::manageUrl(['m' => 'tags']),
             'small-icon'  => My::icons(),
             'large-icon'  => My::icons(),
-            'permissions' => dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_USAGE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            'permissions' => Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_USAGE,
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
         ]);
     }
@@ -201,9 +201,9 @@ class BackendBehaviors
             [BackendBehaviors::class, 'adminAddTags']
         );
 
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_DELETE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [My::name() => [__('Remove tags') => 'tags_remove']],
@@ -248,7 +248,7 @@ class BackendBehaviors
             );
             $ap->redirect(true);
         } else {
-            $opts = dcCore::app()->auth->getOptions();
+            $opts = Core::auth()->getOptions();
             $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
@@ -305,9 +305,9 @@ class BackendBehaviors
      */
     public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
-        if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (!empty($post['meta_id']) && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_DELETE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $meta  = dcCore::app()->meta;
             $posts = $ap->getRS();
@@ -387,7 +387,7 @@ class BackendBehaviors
      */
     public static function postHeaders(): string
     {
-        $opts = dcCore::app()->auth->getOptions();
+        $opts = Core::auth()->getOptions();
         $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [
@@ -419,7 +419,7 @@ class BackendBehaviors
      */
     public static function adminUserForm(): void
     {
-        $opts = dcCore::app()->auth->getOptions();
+        $opts = Core::auth()->getOptions();
 
         $combo = [
             __('Short')    => 'more',

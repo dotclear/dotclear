@@ -8,6 +8,8 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\Core\Core;
+
 $this->registerModule(
     'buildtools',                             // Name
     'Internal build tools for dotclear team', // Description
@@ -15,8 +17,8 @@ $this->registerModule(
     '2.0',                                    // Version
     [
         'type'        => 'plugin',
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+        'permissions' => Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]),
     ]
 );

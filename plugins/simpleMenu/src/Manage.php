@@ -407,7 +407,7 @@ class Manage extends Process
                         }
                         $menu = $newmenu;
 
-                        if (dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+                        if (Core::auth()->user_prefs->accessibility->nodragdrop) {
                             # Order menu items
                             $order = [];
                             if (empty($_POST['im_order']) && !empty($_POST['order'])) {
@@ -463,7 +463,7 @@ class Manage extends Process
         }
 
         $head = '';
-        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+        if (!Core::auth()->user_prefs->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('simplemenu');
@@ -588,7 +588,7 @@ class Manage extends Process
                     __('Label of item menu:') . '</label>' .
                     form::field('item_label', 20, 255, [
                         'default'    => Core::backend()->item_label,
-                        'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                        'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                     ]) .
                     '</p>' .
                     '<p class="field"><label for="item_descr" class="classic">' .
@@ -598,7 +598,7 @@ class Manage extends Process
                         255,
                         [
                             'default'    => Core::backend()->item_descr,
-                            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                            'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>' .
@@ -706,7 +706,7 @@ class Manage extends Process
                         255,
                         [
                             'default'    => Html::escapeHTML($m['label']),
-                            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                            'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) . '</td>' .
                     '<td class="nowrap">' . form::field(
@@ -715,7 +715,7 @@ class Manage extends Process
                         255,
                         [
                             'default'    => Html::escapeHTML($m['descr']),
-                            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                            'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) . '</td>' .
                     '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, Html::escapeHTML($m['url'])) . '</td>' .

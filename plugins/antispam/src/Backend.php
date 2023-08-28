@@ -54,8 +54,8 @@ class Backend extends Process
                         'url'         => My::manageUrl(),
                         'small-icon'  => My::icons(),
                         'large-icon'  => My::icons(),
-                        'permissions' => dcCore::app()->auth->makePermissions([
-                            dcCore::app()->auth::PERMISSION_ADMIN,
+                        'permissions' => Core::auth()->makePermissions([
+                            Core::auth()::PERMISSION_ADMIN,
                         ]), ]
                 );
             },
@@ -71,7 +71,7 @@ class Backend extends Process
             },
         ]);
 
-        if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
+        if (!DC_ANTISPAM_CONF_SUPER || Core::auth()->isSuperAdmin()) {
             Core::behavior()->addBehaviors([
                 'adminBlogPreferencesFormV2'    => [BackendBehaviors::class, 'adminBlogPreferencesForm'],
                 'adminBeforeBlogSettingsUpdate' => [BackendBehaviors::class, 'adminBeforeBlogSettingsUpdate'],

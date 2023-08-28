@@ -239,7 +239,7 @@ class Maintenance
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';
-        $cur->user_id   = dcCore::app()->auth->userID();
+        $cur->user_id   = Core::auth()->userID();
 
         dcCore::app()->log->addLog($cur);
     }

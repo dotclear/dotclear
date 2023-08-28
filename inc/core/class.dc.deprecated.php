@@ -73,7 +73,7 @@ class dcDeprecated extends Deprecated
         $cursor = Core::con()->openCursor(Core::con()->prefix() . dcLog::LOG_TABLE_NAME);
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
-        $cursor->setField('user_id', isset(dcCore::app()->auth) ? dcCore::app()->auth->userID() : 'unknown');
+        $cursor->setField('user_id', isset(Core::auth()) ? Core::auth()->userID() : 'unknown');
         $log->addLog($cursor);
     }
 

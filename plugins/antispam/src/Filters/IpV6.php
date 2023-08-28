@@ -142,7 +142,7 @@ class IpV6 extends SpamFilter
         # Add IP to list
         if (!empty($_POST['addip'])) {
             try {
-                $global = !empty($_POST['globalip']) && dcCore::app()->auth->isSuperAdmin();
+                $global = !empty($_POST['globalip']) && Core::auth()->isSuperAdmin();
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
                 Notices::addSuccessNotice(__('IP address has been successfully added.'));
@@ -188,7 +188,7 @@ class IpV6 extends SpamFilter
         form::hidden(['ip_type'], $type) .
         '<label class="classic" for="addip_' . $type . '">' . __('Add an IP address: ') . '</label> ' .
         form::field(['addip', 'addip_' . $type], 18, 255);
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $res .= '<label class="classic" for="globalip_' . $type . '">' . form::checkbox(['globalip', 'globalip_' . $type], 1) . ' ' .
             __('Global IP (used for all blogs)') . '</label> ';
         }
@@ -215,7 +215,7 @@ class IpV6 extends SpamFilter
                 $disabled_ip = false;
                 $p_style     = '';
                 if (!$rs->blog_id) {
-                    $disabled_ip = !dcCore::app()->auth->isSuperAdmin();
+                    $disabled_ip = !Core::auth()->isSuperAdmin();
                     $p_style .= ' global';
                 }
 
@@ -280,7 +280,7 @@ class IpV6 extends SpamFilter
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $pattern;
 
-            if ($global && dcCore::app()->auth->isSuperAdmin()) {
+            if ($global && Core::auth()->isSuperAdmin()) {
                 $cur->blog_id = null;
             } else {
                 $cur->blog_id = Core::blog()->id;
@@ -381,7 +381,7 @@ class IpV6 extends SpamFilter
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             $strReq .= "AND blog_id = '" . Core::blog()->id . "' ";
         }
 

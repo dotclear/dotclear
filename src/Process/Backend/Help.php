@@ -22,9 +22,9 @@ class Help extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         return self::status(true);

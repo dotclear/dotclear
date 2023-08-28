@@ -51,7 +51,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
     {
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
 
                 return false;

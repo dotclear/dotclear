@@ -25,15 +25,15 @@ class HelpCharte extends Process
     public static function init(): bool
     {
         Page::check(
-            dcCore::app()->auth->makePermissions([
+            Core::auth()->makePermissions([
                 dcAuth::PERMISSION_USAGE,
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ])
         );
 
-        Core::backend()->data_theme = dcCore::app()->auth->user_prefs->interface->theme;
+        Core::backend()->data_theme = Core::auth()->user_prefs->interface->theme;
         Core::backend()->js         = [
-            'htmlFontSize' => dcCore::app()->auth->user_prefs->interface->htmlfontsize,
+            'htmlFontSize' => Core::auth()->user_prefs->interface->htmlfontsize,
             'debug'        => !!DC_DEBUG,
         ];
 

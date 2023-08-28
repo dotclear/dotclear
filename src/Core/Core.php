@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use dcAuth;
 use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
@@ -91,6 +92,11 @@ final class Core
 
     /// @name Core container methods
     //@{
+    public static function auth(): dcAuth
+    {
+        return self::$instance->get('auth');
+    }
+
     public static function behavior(): Behavior
     {
         return self::$instance->get('behavior');

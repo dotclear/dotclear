@@ -32,9 +32,9 @@ class Media extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_MEDIA,
-            dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_MEDIA,
+            Core::auth()::PERMISSION_MEDIA_ADMIN,
         ]));
 
         Core::backend()->page = new MediaPage();
@@ -45,8 +45,8 @@ class Media extends Process
     public static function process(): bool
     {
         # Zip download
-        if (!empty($_GET['zipdl']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
+        if (!empty($_GET['zipdl']) && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
             try {
                 if (strpos(realpath(dcCore::app()->media->root . '/' . Core::backend()->page->d), (string) realpath(dcCore::app()->media->root)) === 0) {
@@ -202,7 +202,7 @@ class Media extends Process
         }
 
         # Build missing directory thumbnails
-        if (Core::backend()->page->getDirs() && dcCore::app()->auth->isSuperAdmin() && !empty($_POST['complete'])) {
+        if (Core::backend()->page->getDirs() && Core::auth()->isSuperAdmin() && !empty($_POST['complete'])) {
             try {
                 dcCore::app()->media->rebuildThumbnails(Core::backend()->page->d);
 
@@ -463,7 +463,7 @@ class Media extends Process
             }
 
             // Rebuild directory
-            if (dcCore::app()->auth->isSuperAdmin() && !Core::backend()->page->popup && Core::backend()->page->mediaWritable()) {
+            if (Core::auth()->isSuperAdmin() && !Core::backend()->page->popup && Core::backend()->page->mediaWritable()) {
                 echo
                 '<form action="' . Core::backend()->url->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .

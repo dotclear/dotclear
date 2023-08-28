@@ -34,8 +34,8 @@ class BlogTheme extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]));
 
         // Loading themes
@@ -165,7 +165,7 @@ class BlogTheme extends Process
         );
 
         // Display themes lists --
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             if (null == Core::blog()->settings->system->store_theme_url) {
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
@@ -228,7 +228,7 @@ class BlogTheme extends Process
             echo
             '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
             '<h3>' .
-            (dcCore::app()->auth->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
+            (Core::auth()->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
             (Core::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed themes from this list.') . '</p>';
@@ -271,7 +271,7 @@ class BlogTheme extends Process
             '</div>';
         }
 
-        if (dcCore::app()->auth->isSuperAdmin() && Core::backend()->list->isWritablePath()) {
+        if (Core::auth()->isSuperAdmin() && Core::backend()->list->isWritablePath()) {
             // New modules from repo
             $search  = Core::backend()->list->getSearch();
             $defines = $search ? Core::backend()->list->store->searchDefines($search) : Core::backend()->list->store->getDefines();
@@ -321,7 +321,7 @@ class BlogTheme extends Process
         Core::behavior()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin
-        if (dcCore::app()->auth->isSuperAdmin() && !Core::backend()->list->isWritablePath()) {
+        if (Core::auth()->isSuperAdmin() && !Core::backend()->list->isWritablePath()) {
             echo
             '<p class="warning">' . __('Some functions are disabled, please give write access to your themes directory to enable them.') . '</p>';
         }

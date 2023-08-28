@@ -43,8 +43,8 @@ class User extends Process
         Core::backend()->user_displayname = '';
         Core::backend()->user_email       = '';
         Core::backend()->user_url         = '';
-        Core::backend()->user_lang        = dcCore::app()->auth->getInfo('user_lang');
-        Core::backend()->user_tz          = dcCore::app()->auth->getInfo('user_tz');
+        Core::backend()->user_lang        = Core::auth()->getInfo('user_lang');
+        Core::backend()->user_tz          = Core::auth()->getInfo('user_tz');
         Core::backend()->user_post_status = dcBlog::POST_PENDING; // Pending
 
         Core::backend()->user_options = Core::users()->userDefaults();
@@ -99,7 +99,7 @@ class User extends Process
             // Add or update user
 
             try {
-                if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+                if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
                 }
 
@@ -116,11 +116,11 @@ class User extends Process
                 $cur->user_tz          = Core::backend()->user_tz = Html::escapeHTML($_POST['user_tz']);
                 $cur->user_post_status = Core::backend()->user_post_status = (int) $_POST['user_post_status'];
 
-                if (Core::backend()->user_id && $cur->user_id == dcCore::app()->auth->userID() && dcCore::app()->auth->isSuperAdmin()) {
+                if (Core::backend()->user_id && $cur->user_id == Core::auth()->userID() && Core::auth()->isSuperAdmin()) {
                     // force super_user to true if current user
                     $cur->user_super = Core::backend()->user_super = true;
                 }
-                if (dcCore::app()->auth->allowPassChange()) {
+                if (Core::auth()->allowPassChange()) {
                     $cur->user_change_pwd = !empty($_POST['user_change_pwd']) ? 1 : 0;
                 }
 
@@ -168,7 +168,7 @@ class User extends Process
                     # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                     Core::behavior()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
-                    if (Core::backend()->user_id == dcCore::app()->auth->userID() && Core::backend()->user_id != $new_id) {
+                    if (Core::backend()->user_id == Core::auth()->userID() && Core::backend()->user_id != $new_id) {
                         Core::session()->destroy();
                     }
 
@@ -265,7 +265,7 @@ class User extends Process
         '</p>' .
         '<p class="form-note info" id="user_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
 
-        if (Core::backend()->user_id == dcCore::app()->auth->userID()) {
+        if (Core::backend()->user_id == Core::auth()->userID()) {
             echo
             '<p class="warning" id="user_id_warning">' . __('Warning:') . ' ' .
             __('If you change your username, you will have to log in again.') . '</p>';
@@ -301,14 +301,14 @@ class User extends Process
         ) .
         '</p>';
 
-        if (dcCore::app()->auth->allowPassChange()) {
+        if (Core::auth()->allowPassChange()) {
             echo
             '<p><label for="user_change_pwd" class="classic">' .
             form::checkbox('user_change_pwd', '1', Core::backend()->user_change_pwd) . ' ' .
             __('Password change required to connect') . '</label></p>';
         }
 
-        $super_disabled = Core::backend()->user_super && Core::backend()->user_id == dcCore::app()->auth->userID();
+        $super_disabled = Core::backend()->user_super && Core::backend()->user_id == Core::auth()->userID();
 
         echo
         '<p><label for="user_super" class="classic">' .
@@ -446,7 +446,7 @@ class User extends Process
                 '</form>';
 
                 $permissions = Core::users()->getUserPermissions(Core::backend()->user_id);
-                $perm_types  = dcCore::app()->auth->getPermissionsTypes();
+                $perm_types  = Core::auth()->getPermissionsTypes();
 
                 if ((is_countable($permissions) ? count($permissions) : 0) == 0) {  // @phpstan-ignore-line
                     echo

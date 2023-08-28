@@ -50,8 +50,8 @@ class BlogPref extends Process
          */
         $da->standalone = !(isset($da->edit_blog_mode) && $da->edit_blog_mode);
         if ($da->standalone) {
-            Page::check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
+            Page::check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_ADMIN,
             ]));
 
             $da->blog_id       = Core::blog()->id;
@@ -229,9 +229,9 @@ class BlogPref extends Process
          */
         $da = Core::backend();
 
-        if ($da->blog_id && !empty($_POST) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions(
+        if ($da->blog_id && !empty($_POST) && Core::auth()->check(Core::auth()->makePermissions(
             [
-                dcCore::app()->auth::PERMISSION_ADMIN,
+                Core::auth()::PERMISSION_ADMIN,
             ]
         ), $da->blog_id)) {
             // Update a blog
@@ -242,7 +242,7 @@ class BlogPref extends Process
             $cur->blog_name = $_POST['blog_name'];
             $cur->blog_desc = $_POST['blog_desc'];
 
-            if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['blog_status'], $da->status_combo)) {
+            if (Core::auth()->isSuperAdmin() && in_array($_POST['blog_status'], $da->status_combo)) {
                 $cur->blog_status = (int) $_POST['blog_status'];
             }
 
@@ -308,7 +308,7 @@ class BlogPref extends Process
 
                 Core::blogs()->updBlog($da->blog_id, $cur);
 
-                if (dcCore::app()->auth->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
+                if (Core::auth()->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
                     // Remove this blog from user default blog
                     Core::users()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
@@ -380,7 +380,7 @@ class BlogPref extends Process
                 # --BEHAVIOR-- adminBeforeBlogSettingsUpdate -- dcSettings
                 Core::behavior()->callBehavior('adminBeforeBlogSettingsUpdate', $da->blog_settings);
 
-                if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
+                if (Core::auth()->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
                     $da->blog_settings->system->put('url_scan', $_POST['url_scan']);
                 }
                 Notices::addSuccessNotice(__('Blog has been successfully updated.'));
@@ -421,9 +421,9 @@ class BlogPref extends Process
             );
         }
 
-        $desc_editor = dcCore::app()->auth->getOption('editor');
+        $desc_editor = Core::auth()->getOption('editor');
         $rte_flag    = true;
-        $rte_flags   = @dcCore::app()->auth->user_prefs->interface->rte_flags;
+        $rte_flags   = @Core::auth()->user_prefs->interface->rte_flags;
         if (is_array($rte_flags) && in_array('blog_descr', $rte_flags)) {
             $rte_flag = $rte_flags['blog_descr'];
         }
@@ -482,7 +482,7 @@ class BlogPref extends Process
                 ]
             ) . '</p>';
 
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 echo
                 '<p><label for="blog_status">' . __('Blog status:') . '</label>' .
                 form::combo('blog_status', $da->status_combo, $da->blog_status) . '</p>';
@@ -778,7 +778,7 @@ class BlogPref extends Process
 
             '<div id="advanced-pref"><h3>' . __('Advanced parameters') . '</h3>';
 
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 echo '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
 
                 '<p><label for="blog_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label>' .
@@ -906,7 +906,7 @@ class BlogPref extends Process
             '</p>' .
             '</form>';
 
-            if (dcCore::app()->auth->isSuperAdmin() && $da->blog_id != Core::blog()->id) {
+            if (Core::auth()->isSuperAdmin() && $da->blog_id != Core::blog()->id) {
                 echo
                 '<form action="' . Core::backend()->url->get('admin.blog.del') . '" method="post">' .
                 '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
@@ -926,8 +926,8 @@ class BlogPref extends Process
             #
             # Users on the blog (with permissions)
 
-            $da->blog_users = Core::blogs()->getBlogPermissions($da->blog_id, dcCore::app()->auth->isSuperAdmin());
-            $perm_types     = dcCore::app()->auth->getPermissionsTypes();
+            $da->blog_users = Core::blogs()->getBlogPermissions($da->blog_id, Core::auth()->isSuperAdmin());
+            $perm_types     = Core::auth()->getPermissionsTypes();
 
             echo
             '<div class="multi-part" id="users" title="' . __('Users') . '">' .
@@ -936,7 +936,7 @@ class BlogPref extends Process
             if (empty($da->blog_users)) {
                 echo '<p>' . __('No users') . '</p>';
             } else {
-                if (dcCore::app()->auth->isSuperAdmin()) {
+                if (Core::auth()->isSuperAdmin()) {
                     $user_url_p = '<a href="' . Core::backend()->url->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
                 } else {
                     $user_url_p = '%1$s';
@@ -967,7 +967,7 @@ class BlogPref extends Process
                             $v['displayname']
                         )) . ')</h4>';
 
-                        if (dcCore::app()->auth->isSuperAdmin()) {
+                        if (Core::auth()->isSuperAdmin()) {
                             echo
                             '<p>' . __('Email:') . ' ' .
                             ($v['email'] != '' ? '<a href="mailto:' . $v['email'] . '">' . $v['email'] . '</a>' : __('(none)')) .
@@ -1009,7 +1009,7 @@ class BlogPref extends Process
                         echo
                         '</ul>';
 
-                        if (!$v['super'] && dcCore::app()->auth->isSuperAdmin()) {
+                        if (!$v['super'] && Core::auth()->isSuperAdmin()) {
                             echo
                             '<form action="' . Core::backend()->url->get('admin.user.actions') . '" method="post">' .
                             '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .

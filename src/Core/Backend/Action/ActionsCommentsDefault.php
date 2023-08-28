@@ -27,9 +27,9 @@ class ActionsCommentsDefault
      */
     public static function adminCommentsActionsPage(ActionsComments $ap)
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Status') => [
@@ -42,9 +42,9 @@ class ActionsCommentsDefault
             );
         }
 
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_DELETE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Delete') => [
@@ -64,7 +64,7 @@ class ActionsCommentsDefault
 
         if ($ip_filter_active) {
             $blocklist_actions = [__('Blocklist IP') => 'blocklist'];
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 $blocklist_actions[__('Blocklist IP (global)')] = 'blocklist_global';
             }
 
@@ -145,7 +145,7 @@ class ActionsCommentsDefault
         }
 
         $action = $ap->getAction();
-        $global = !empty($action) && $action == 'blocklist_global' && dcCore::app()->auth->isSuperAdmin();
+        $global = !empty($action) && $action == 'blocklist_global' && Core::auth()->isSuperAdmin();
 
         $filters_opt  = Core::blog()->settings->antispam->antispam_filters;
         $filterActive = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;

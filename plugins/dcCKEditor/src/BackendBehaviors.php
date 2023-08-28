@@ -51,7 +51,7 @@ class BackendBehaviors
             'admin_base_url'        => DC_ADMIN_URL,
             'base_url'              => Core::blog()->host,
             'dcckeditor_plugin_url' => DC_ADMIN_URL . My::fileURL(''),
-            'user_language'         => dcCore::app()->auth->getInfo('user_lang'),
+            'user_language'         => Core::auth()->getInfo('user_lang'),
         ]) .
         Page::jsJson('ck_editor_var', [
             'CKEDITOR_BASEPATH' => DC_ADMIN_URL . My::fileURL('js/ckeditor/'),

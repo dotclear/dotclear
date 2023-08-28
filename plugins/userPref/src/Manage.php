@@ -64,7 +64,7 @@ class Manage extends Process
                         if ($_POST['s_type'][$ws][$k] === dcWorkspace::WS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        dcCore::app()->auth->user_prefs->$ws->put($k, $v);
+                        Core::auth()->user_prefs->$ws->put($k, $v);
                     }
                 }
 
@@ -83,7 +83,7 @@ class Manage extends Process
                         if ($_POST['gs_type'][$ws][$k] === dcWorkspace::WS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        dcCore::app()->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
+                        Core::auth()->user_prefs->$ws->put($k, $v, null, null, true, true);
                     }
                 }
 
@@ -112,7 +112,7 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 __('System')                                    => '',
-                Html::escapeHTML(dcCore::app()->auth->userID()) => '',
+                Html::escapeHTML(Core::auth()->userID()) => '',
                 My::name()                                      => '',
             ]
         ) .
@@ -158,7 +158,7 @@ class Manage extends Process
         $table_footer = '</tbody></table></div>';
 
         /** @var array<string|dcWorkspace> */
-        $workspaces = dcCore::app()->auth->user_prefs->dumpWorkspaces();
+        $workspaces = Core::auth()->user_prefs->dumpWorkspaces();
         $prefs      = [];
         if ($global) {
             $prefix     = 'g_';

@@ -53,14 +53,14 @@ class Page
      */
     public static function check(string $permissions, bool $home = false)
     {
-        if (Core::blog() && dcCore::app()->auth->check($permissions, Core::blog()->id)) {
+        if (Core::blog() && Core::auth()->check($permissions, Core::blog()->id)) {
             return;
         }
 
         // Check if dashboard is not the current page et if it is granted for the user
-        if (!$home && Core::blog() && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$home && Core::blog() && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             // Go back to the dashboard
             Http::redirect(DC_ADMIN_URL);
@@ -79,11 +79,11 @@ class Page
      */
     public static function checkSuper(bool $home = false)
     {
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
-            if (!$home && Core::blog() && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_USAGE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            if (!$home && Core::blog() && Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_USAGE,
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id)) {
                 // Go back to the dashboard
                 Http::redirect(DC_ADMIN_URL);
@@ -109,11 +109,11 @@ class Page
         $js = [];
 
         # List of user's blogs
-        if (dcCore::app()->auth->getBlogCount() == 1 || dcCore::app()->auth->getBlogCount() > 20) {
+        if (Core::auth()->getBlogCount() == 1 || Core::auth()->getBlogCount() > 20) {
             $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(Core::blog()->url) . '">' .
             Html::escapeHTML(Core::blog()->name) . '</strong>';
 
-            if (dcCore::app()->auth->getBlogCount() > 20) {
+            if (Core::auth()->getBlogCount() > 20) {
                 $blog_box .= ' - <a href="' . Core::backend()->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
             }
             $blog_box .= '</p>';
@@ -205,11 +205,11 @@ class Page
             header($value);
         }
 
-        $data_theme = dcCore::app()->auth->user_prefs->interface->theme;
+        $data_theme = Core::auth()->user_prefs->interface->theme;
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . dcCore::app()->auth->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . Core::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
@@ -223,28 +223,28 @@ class Page
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (!dcCore::app()->auth->user_prefs->interface->hide_std_favicon) {
+        if (!Core::auth()->user_prefs->interface->hide_std_favicon) {
             echo
                 '<link rel="icon" type="image/png" href="images/favicon96-login.png" />' . "\n" .
                 '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n";
         }
-        if (dcCore::app()->auth->user_prefs->interface->htmlfontsize) {
-            $js['htmlFontSize'] = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
+        if (Core::auth()->user_prefs->interface->htmlfontsize) {
+            $js['htmlFontSize'] = Core::auth()->user_prefs->interface->htmlfontsize;
         }
-        if (dcCore::app()->auth->user_prefs->interface->systemfont) {
+        if (Core::auth()->user_prefs->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
+        $js['hideMoreInfo']   = (bool) Core::auth()->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) Core::auth()->user_prefs->interface->showajaxloader;
         $js['servicesUri']    = Core::backend()->url->get('admin.rest');
         $js['servicesOff']    = !dcCore::app()->rest->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) Core::auth()->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
-        $js['showIp'] = Core::blog() && Core::blog()->id ? dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        $js['showIp'] = Core::blog() && Core::blog()->id ? Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id) : false;
 
         // Set some JSON data
@@ -282,7 +282,7 @@ class Page
         '<ul id="top-info-user">' .
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote(Core::backend()->url->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . Core::backend()->url->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . Core::backend()->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
+        '<li><a href="' . Core::backend()->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), Core::auth()->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
@@ -450,7 +450,7 @@ class Page
     public static function close()
     {
         if (!Core::backend()->resources->context()) {
-            if (!dcCore::app()->auth->user_prefs->interface->hidehelpbutton) {
+            if (!Core::auth()->user_prefs->interface->hidehelpbutton) {
                 echo
                 '<p id="help-button"><a href="' . Core::backend()->url->get('admin.help') . '" class="outgoing" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
@@ -535,11 +535,11 @@ class Page
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-        $data_theme = dcCore::app()->auth->user_prefs->interface->theme;
+        $data_theme = Core::auth()->user_prefs->interface->theme;
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . dcCore::app()->auth->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . Core::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
@@ -553,18 +553,18 @@ class Page
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (dcCore::app()->auth->user_prefs->interface->htmlfontsize) {
-            $js['htmlFontSize'] = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
+        if (Core::auth()->user_prefs->interface->htmlfontsize) {
+            $js['htmlFontSize'] = Core::auth()->user_prefs->interface->htmlfontsize;
         }
-        if (dcCore::app()->auth->user_prefs->interface->systemfont) {
+        if (Core::auth()->user_prefs->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
+        $js['hideMoreInfo']   = (bool) Core::auth()->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) Core::auth()->user_prefs->interface->showajaxloader;
         $js['servicesUri']    = Core::backend()->url->get('admin.rest');
         $js['servicesOff']    = !dcCore::app()->rest->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) Core::auth()->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
@@ -764,7 +764,7 @@ class Page
      */
     public static function helpBlock(...$params)
     {
-        if (dcCore::app()->auth->user_prefs->interface->hidehelpbutton) {
+        if (Core::auth()->user_prefs->interface->hidehelpbutton) {
             return;
         }
 
@@ -923,8 +923,8 @@ class Page
     public static function jsToggles(): string
     {
         $js = [];
-        if (dcCore::app()->auth->user_prefs->toggles) {
-            $unfolded_sections = explode(',', (string) dcCore::app()->auth->user_prefs->toggles->unfolded_sections);
+        if (Core::auth()->user_prefs->toggles) {
+            $unfolded_sections = explode(',', (string) Core::auth()->user_prefs->toggles->unfolded_sections);
             foreach ($unfolded_sections as $section => &$v) {
                 if ($v !== '') {
                     $js[$unfolded_sections[$section]] = true;
@@ -1055,8 +1055,8 @@ class Page
         $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true);
         if ($adblockcheck) {
             // May not be set (auth page for example)
-            if (isset(dcCore::app()->auth->user_prefs)) {
-                $adblockcheck = dcCore::app()->auth->user_prefs->interface->nocheckadblocker !== true;
+            if (isset(Core::auth()->user_prefs)) {
+                $adblockcheck = Core::auth()->user_prefs->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;
             }
@@ -1204,7 +1204,7 @@ class Page
 
         return
         self::jsJson('filter_controls', $js) .
-        self::jsJson('filter_options', ['auto_filter' => dcCore::app()->auth->user_prefs->interface->auto_filter]) .
+        self::jsJson('filter_options', ['auto_filter' => Core::auth()->user_prefs->interface->auto_filter]) .
         self::jsLoad('js/filter-controls.js');
     }
 
@@ -1290,7 +1290,7 @@ class Page
          *     'name'  => 'my_editor_css',  // Editor id (should be unique)
          *     'id'    => 'css_content',    // Textarea id
          *     'mode'  => 'css',            // Codemirror mode ()
-         *     'theme' => dcCore::app()->auth->user_prefs->interface->colorsyntax_theme ?: 'default'
+         *     'theme' => Core::auth()->user_prefs->interface->colorsyntax_theme ?: 'default'
          * ]);
          */
         $alt = new ArrayObject();

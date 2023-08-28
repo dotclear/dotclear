@@ -25,7 +25,7 @@ class ActionsBlogsDefault
      */
     public static function adminBlogsActionsPage(ActionsBlogs $ap)
     {
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             return;
         }
 
@@ -53,7 +53,7 @@ class ActionsBlogsDefault
      */
     public static function doChangeBlogStatus(ActionsBlogs $ap)
     {
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             return;
         }
 
@@ -90,7 +90,7 @@ class ActionsBlogsDefault
      */
     public static function doDeleteBlog(ActionsBlogs $ap)
     {
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             return;
         }
 
@@ -99,7 +99,7 @@ class ActionsBlogsDefault
             throw new Exception(__('No blog selected'));
         }
 
-        if (!dcCore::app()->auth->checkPassword($_POST['pwd'])) {
+        if (!Core::auth()->checkPassword($_POST['pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
 

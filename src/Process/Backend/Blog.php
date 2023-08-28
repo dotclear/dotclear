@@ -65,8 +65,8 @@ class Blog extends Process
 
                 # Default settings and override some
                 $blog_settings = new dcSettings($cur->blog_id);
-                $blog_settings->system->put('lang', dcCore::app()->auth->getInfo('user_lang'));
-                $blog_settings->system->put('blog_timezone', dcCore::app()->auth->getInfo('user_tz'));
+                $blog_settings->system->put('lang', Core::auth()->getInfo('user_lang'));
+                $blog_settings->system->put('blog_timezone', Core::auth()->getInfo('user_tz'));
 
                 if (substr(Core::backend()->blog_url, -1) == '?') {
                     $blog_settings->system->put('url_scan', 'query_string');
@@ -139,7 +139,7 @@ class Blog extends Process
                                 ->maxlength(255)
                                 ->required(true)
                                 ->placeholder(__('Blog name'))
-                                ->lang(dcCore::app()->auth->getInfo('user_lang'))
+                                ->lang(Core::auth()->getInfo('user_lang'))
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(
@@ -172,7 +172,7 @@ class Blog extends Process
                             (new Textarea('blog_desc'))
                                 ->cols(60)
                                 ->rows(5)
-                                ->lang(dcCore::app()->auth->getInfo('user_lang'))
+                                ->lang(Core::auth()->getInfo('user_lang'))
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(

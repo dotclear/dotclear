@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\userPref;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
@@ -23,6 +24,6 @@ class My extends MyPlugin
     {
         // allways limit to super admin
         return defined('DC_CONTEXT_ADMIN')
-            && dcCore::app()->auth->isSuperAdmin();
+            && Core::auth()->isSuperAdmin();
     }
 }

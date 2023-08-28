@@ -171,7 +171,7 @@ class dcMedia extends Manager
 
         if (!is_dir($root)) {
             # Check public directory
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 throw new Exception(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
             }
 
@@ -345,10 +345,10 @@ class dcMedia extends Manager
             $fi->media_image   = false;
             $fi->media_preview = false;
 
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            if (!Core::auth()->check(Core::auth()->makePermissions([
                 dcAuth::PERMISSION_MEDIA_ADMIN,
             ]), Core::blog()->id)
-                && dcCore::app()->auth->userID() != $fi->media_user) {
+                && Core::auth()->userID() != $fi->media_user) {
                 $fi->del      = false;
                 $fi->editable = false;
             }
@@ -594,11 +594,11 @@ class dcMedia extends Manager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_dir = ' . $sql->quote($media_dir));
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
             $list = ['media_private <> 1'];
-            if ($user_id = dcCore::app()->auth->userID()) {
+            if ($user_id = Core::auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -698,7 +698,7 @@ class dcMedia extends Manager
         }
 
         # Check files that don't exist in database and create them
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -746,11 +746,11 @@ class dcMedia extends Manager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_id = ' . (int) $id);
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
             $list = ['media_private <> 1'];
-            if ($user_id = dcCore::app()->auth->userID()) {
+            if ($user_id = Core::auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -796,11 +796,11 @@ class dcMedia extends Manager
                 $sql->like('media_meta', '%<Description>%' . $sql->escape($query) . '%</Description>%'),
             ]));
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
             $list = ['media_private <> 1'];
-            if ($user_id = dcCore::app()->auth->userID()) {
+            if ($user_id = Core::auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -872,7 +872,7 @@ class dcMedia extends Manager
      */
     public function rebuild(string $pwd = '', bool $recursive = false): void
     {
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
         }
 
@@ -909,7 +909,7 @@ class dcMedia extends Manager
      */
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void
     {
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
         }
 
@@ -1021,7 +1021,7 @@ class dcMedia extends Manager
      */
     public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true)
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -1060,7 +1060,7 @@ class dcMedia extends Manager
                 $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
-                $cur->user_id      = (string) dcCore::app()->auth->userID();
+                $cur->user_id      = (string) Core::auth()->userID();
                 $cur->media_path   = (string) $this->path;
                 $cur->media_file   = (string) $media_file;
                 $cur->media_dir    = (string) dirname($media_file);
@@ -1115,7 +1115,7 @@ class dcMedia extends Manager
      */
     public function updateFile(File $file, File $newFile)
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -1128,10 +1128,10 @@ class dcMedia extends Manager
             throw new Exception('No file ID');
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)
-            && dcCore::app()->auth->userID() != $file->media_user) {
+            && Core::auth()->userID() != $file->media_user) {
             throw new Exception(__('You are not the file owner.'));
         }
 
@@ -1192,7 +1192,7 @@ class dcMedia extends Manager
      */
     public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -1218,7 +1218,7 @@ class dcMedia extends Manager
      */
     public function uploadBits(string $name, string $bits): string
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -1243,7 +1243,7 @@ class dcMedia extends Manager
      */
     public function removeFile(?string $file): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -1258,10 +1258,10 @@ class dcMedia extends Manager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_file = ' . $sql->quote($media_file));
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
-            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $sql->delete();
@@ -1564,7 +1564,7 @@ class dcMedia extends Manager
             # We set picture time to user timezone
             $media_ts = strtotime($meta['DateTimeOriginal']);
             if ($media_ts !== false) {
-                $o           = Date::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'), $media_ts);
+                $o           = Date::getTimeOffset(Core::auth()->getInfo('user_tz'), $media_ts);
                 $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
             }
         }

@@ -35,15 +35,15 @@ class Blogs extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         /* Actions
         -------------------------------------------------------- */
         Core::backend()->blogs_actions_page = null;
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             Core::backend()->blogs_actions_page = new ActionsBlogs(Core::backend()->url->get('admin.blogs'));
             if (Core::backend()->blogs_actions_page->process()) {
                 return false;
@@ -87,7 +87,7 @@ class Blogs extends Process
     public static function render(): void
     {
         // Nullsafe before header sent
-        if (!isset(dcCore::app()->auth)) {
+        if (!isset(Core::auth())) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -103,7 +103,7 @@ class Blogs extends Process
         );
 
         if (!dcCore::app()->error->flag()) {
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 // Create blog button
                 echo (new Para())
                     ->class('top-add')
@@ -120,7 +120,7 @@ class Blogs extends Process
 
             // Show blogs
             $form = null;
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 $form = (new Form('form-blogs'))
                         ->action(Core::backend()->url->get('admin.blogs'))
                         ->method('post')
@@ -168,7 +168,7 @@ class Blogs extends Process
             Core::backend()->blog_list->display(
                 Core::backend()->blog_filter->page,
                 Core::backend()->blog_filter->nb,
-                dcCore::app()->auth->isSuperAdmin() ? $form->render() : '%s',
+                Core::auth()->isSuperAdmin() ? $form->render() : '%s',
                 Core::backend()->blog_filter->show()
             );
         }

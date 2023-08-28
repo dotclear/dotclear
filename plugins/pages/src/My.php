@@ -27,9 +27,9 @@ class My extends MyPlugin
         return in_array($context, [self::BACKEND, self::MANAGE, self::MENU]) ? // allow pages permissions
             defined('DC_CONTEXT_ADMIN')
             && !is_null(Core::blog())
-            && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            && Core::auth()->check(Core::auth()->makePermissions([
                 My::PERMISSION_PAGES,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id)
             : null;
     }

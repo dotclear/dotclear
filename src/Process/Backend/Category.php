@@ -35,8 +35,8 @@ class Category extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CATEGORIES,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CATEGORIES,
         ]));
 
         $blog_settings = new dcSettings(Core::blog()->id);
@@ -207,9 +207,9 @@ class Category extends Process
         }
         $elements[$title] = '';
 
-        $category_editor = dcCore::app()->auth->getOption('editor');
+        $category_editor = Core::auth()->getOption('editor');
         $rte_flag        = true;
-        $rte_flags       = @dcCore::app()->auth->user_prefs->interface->rte_flags;
+        $rte_flags       = @Core::auth()->user_prefs->interface->rte_flags;
         if (is_array($rte_flags) && in_array('cat_descr', $rte_flags)) {
             $rte_flag = $rte_flags['cat_descr'];
         }

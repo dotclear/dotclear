@@ -382,7 +382,7 @@ class Manage extends Process
             '</div>';
 
             // System tab
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 echo
                 '<div id="system" class="multi-part" title="' . __('System') . '">' .
                 '<h3>' . __('System settings') . '</h3>' .

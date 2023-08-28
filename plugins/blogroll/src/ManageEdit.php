@@ -152,7 +152,7 @@ class ManageEdit extends Process
                 '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
                 form::field('link_desc', 30, 255, [
                     'default'    => Html::escapeHTML(Core::backend()->link_desc),
-                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
 
                 form::hidden('edit', 1) .
@@ -170,7 +170,7 @@ class ManageEdit extends Process
                 '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
                 form::field('link_title', 30, 255, [
                     'default'    => Html::escapeHTML(Core::backend()->link_title),
-                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>' .
 
@@ -189,7 +189,7 @@ class ManageEdit extends Process
                     255,
                     [
                         'default'    => Html::escapeHTML(Core::backend()->link_desc),
-                        'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                        'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                     ]
                 ) . '</p>' .
 

@@ -150,8 +150,8 @@ class MaintenanceTask
             $this->id = array_pop($path);
         }
 
-        if ($this->perm() === null && !dcCore::app()->auth->isSuperAdmin()
-            || !dcCore::app()->auth->check($this->perm(), Core::blog()->id)) {
+        if ($this->perm() === null && !Core::auth()->isSuperAdmin()
+            || !Core::auth()->check($this->perm(), Core::blog()->id)) {
             return;
         }
 

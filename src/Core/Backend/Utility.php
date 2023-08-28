@@ -94,10 +94,10 @@ class Utility extends Process
         /* @deprecated since 2.27, use Core::backend()->url instead */
         dcCore::app()->adminurl = Core::backend()->url;
 
-        if (dcCore::app()->auth->sessionExists()) {
+        if (Core::auth()->sessionExists()) {
             // If we have a session we launch it now
             try {
-                if (!dcCore::app()->auth->checkSession()) {
+                if (!Core::auth()->checkSession()) {
                     // Avoid loop caused by old cookie
                     $p    = Core::session()->getCookieParameters(false, -600);
                     $p[3] = '/';
@@ -130,7 +130,7 @@ class Utility extends Process
             }
 
             // Switch blog
-            if (!empty($_REQUEST['switchblog']) && dcCore::app()->auth->getPermissions($_REQUEST['switchblog']) !== false) {
+            if (!empty($_REQUEST['switchblog']) && Core::auth()->getPermissions($_REQUEST['switchblog']) !== false) {
                 $_SESSION['sess_blog_id'] = $_REQUEST['switchblog'];
 
                 if (!empty($_REQUEST['redir'])) {
@@ -143,7 +143,7 @@ class Utility extends Process
                     $redir = (string) preg_replace('/\?$/', '', $redir);
                 }
 
-                dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
+                Core::auth()->user_prefs->interface->drop('media_manager_dir');
 
                 if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || strstr($redir, 'media.php') !== false) {
                     // Remove current media dir from media manager URL
@@ -156,11 +156,11 @@ class Utility extends Process
 
             // Check blog to use and log out if no result
             if (isset($_SESSION['sess_blog_id'])) {
-                if (dcCore::app()->auth->getPermissions($_SESSION['sess_blog_id']) === false) {
+                if (Core::auth()->getPermissions($_SESSION['sess_blog_id']) === false) {
                     unset($_SESSION['sess_blog_id']);
                 }
             } else {
-                if (($b = dcCore::app()->auth->findUserBlog(dcCore::app()->auth->getInfo('user_default_blog'), false)) !== false) {
+                if (($b = Core::auth()->findUserBlog(Core::auth()->getInfo('user_default_blog'), false)) !== false) {
                     $_SESSION['sess_blog_id'] = $b;
                     unset($b);
                 }
@@ -188,7 +188,7 @@ class Utility extends Process
         Core::postTypes()->set(new PostType('post', urldecode(Core::backend()->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
-        if (!(dcCore::app()->auth->userID() && Core::blog() !== null)) {
+        if (!(Core::auth()->userID() && Core::blog() !== null)) {
             return true;
         }
 
@@ -212,7 +212,7 @@ class Utility extends Process
         // Contextual help flag
         Core::backend()->resources->context(false);
 
-        $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
+        $user_ui_nofavmenu = Core::auth()->user_prefs->interface->nofavmenu;
 
         Core::backend()->favs  = new Favorites();
         Core::backend()->menus = new Menus();

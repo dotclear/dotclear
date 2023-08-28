@@ -43,8 +43,8 @@ class Backend extends Process
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_ADMIN,
+                    'permissions' => Core::auth()->makePermissions([
+                        Core::auth()::PERMISSION_ADMIN,
                     ]),
                 ]);
             },

@@ -49,12 +49,12 @@ class Auth extends Process
             Core::backend()->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
         }
 
-        Core::backend()->change_pwd = dcCore::app()->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
+        Core::backend()->change_pwd = Core::auth()->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 
         Core::backend()->login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : null;
 
-        Core::backend()->recover = dcCore::app()->auth->allowPassChange() && !empty($_REQUEST['recover']);
-        Core::backend()->akey    = dcCore::app()->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
+        Core::backend()->recover = Core::auth()->allowPassChange() && !empty($_REQUEST['recover']);
+        Core::backend()->akey    = Core::auth()->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
 
         Core::backend()->safe_mode = !empty($_REQUEST['safe_mode']);
 
@@ -114,7 +114,7 @@ class Auth extends Process
             // Recover password
 
             try {
-                $recover_key = dcCore::app()->auth->setRecoverKey(Core::backend()->user_id, Core::backend()->user_email);
+                $recover_key = Core::auth()->setRecoverKey(Core::backend()->user_id, Core::backend()->user_email);
 
                 $subject = mail::B64Header('Dotclear ' . __('Password reset'));
                 $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . Core::backend()->page_url . "\n" . __('Username:') . ' ' . Core::backend()->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . Core::backend()->page_url . '&akey=' . $recover_key;
@@ -131,7 +131,7 @@ class Auth extends Process
             // Send new password
 
             try {
-                $recover_res = dcCore::app()->auth->recoverUserPassword(Core::backend()->akey);
+                $recover_res = Core::auth()->recoverUserPassword(Core::backend()->akey);
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
                 $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) Core::backend()->page_url);
@@ -168,14 +168,14 @@ class Auth extends Process
                     if (is_array($user_id)) {
                         $user_id                       = trim((string) $data['user_id']);
                         Core::backend()->user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user                    = dcCore::app()->auth->checkUser($user_id, null, Core::backend()->user_key) === true;
+                        $check_user                    = Core::auth()->checkUser($user_id, null, Core::backend()->user_key) === true;
                     } else {
                         $user_id = trim((string) $user_id);
                     }
                     Core::backend()->user_id = $user_id;
                 }
 
-                if (!dcCore::app()->auth->allowPassChange() || !$check_user) {
+                if (!Core::auth()->allowPassChange() || !$check_user) {
                     Core::backend()->change_pwd = false;
 
                     throw new Exception();
@@ -185,14 +185,14 @@ class Auth extends Process
                     throw new Exception(__("Passwords don't match"));
                 }
 
-                if (dcCore::app()->auth->checkUser(Core::backend()->user_id, $_POST['new_pwd']) === true) {
+                if (Core::auth()->checkUser(Core::backend()->user_id, $_POST['new_pwd']) === true) {
                     throw new Exception(__("You didn't change your password."));
                 }
 
                 $cur                  = Core::con()->openCursor(Core::con()->prefix() . dcAuth::USER_TABLE_NAME);
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
-                Core::users()->updUser(dcCore::app()->auth->userID(), $cur);
+                Core::users()->updUser(Core::auth()->userID(), $cur);
 
                 Core::session()->start();
                 $_SESSION['sess_user_id']     = Core::backend()->user_id;
@@ -210,7 +210,7 @@ class Auth extends Process
             // Try to log
 
             // We check the user
-            $check_user = dcCore::app()->auth->checkUser(
+            $check_user = Core::auth()->checkUser(
                 Core::backend()->user_id,
                 Core::backend()->user_pwd,
                 Core::backend()->user_key,
@@ -219,14 +219,14 @@ class Auth extends Process
 
             if ($check_user) {
                 // Check user permissions
-                $check_perms = dcCore::app()->auth->findUserBlog() !== false;
+                $check_perms = Core::auth()->findUserBlog() !== false;
             } else {
                 $check_perms = false;
             }
 
-            $cookie_admin = Http::browserUID(DC_MASTER_KEY . Core::backend()->user_id . dcCore::app()->auth->cryptLegacy(Core::backend()->user_id)) . bin2hex(pack('a32', Core::backend()->user_id));
+            $cookie_admin = Http::browserUID(DC_MASTER_KEY . Core::backend()->user_id . Core::auth()->cryptLegacy(Core::backend()->user_id)) . bin2hex(pack('a32', Core::backend()->user_id));
 
-            if ($check_perms && dcCore::app()->auth->mustChangePassword()) {
+            if ($check_perms && Core::auth()->mustChangePassword()) {
                 // User need to change password
 
                 Core::backend()->login_data = join('/', [
@@ -235,13 +235,13 @@ class Auth extends Process
                     empty($_POST['user_remember']) ? '0' : '1',
                 ]);
 
-                if (!dcCore::app()->auth->allowPassChange()) {
+                if (!Core::auth()->allowPassChange()) {
                     Core::backend()->err = __('You have to change your password before you can login.');
                 } else {
                     Core::backend()->err        = __('In order to login, you have to change your password now.');
                     Core::backend()->change_pwd = true;
                 }
-            } elseif ($check_perms && Core::backend()->safe_mode && !dcCore::app()->auth->isSuperAdmin()) {
+            } elseif ($check_perms && Core::backend()->safe_mode && !Core::auth()->isSuperAdmin()) {
                 // Non super-admin user cannot use safe mode
 
                 Core::backend()->err = __('Safe Mode can only be used for super administrators.');
@@ -256,7 +256,7 @@ class Auth extends Process
                     $_SESSION['sess_blog_id'] = $_POST['blog'];
                 }
 
-                if (Core::backend()->safe_mode && dcCore::app()->auth->isSuperAdmin()) {
+                if (Core::backend()->safe_mode && Core::auth()->isSuperAdmin()) {
                     $_SESSION['sess_safe_mode'] = true;
                 }
 
@@ -294,7 +294,7 @@ class Auth extends Process
     public static function render(): void
     {
         // nullsafe before header sent
-        if (!isset(dcCore::app()->auth)) {
+        if (!isset(Core::auth())) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -423,10 +423,10 @@ class Auth extends Process
         } else {
             // Authentication
 
-            if (is_callable([dcCore::app()->auth, 'authForm'])) {
+            if (is_callable([Core::auth(), 'authForm'])) {
                 // User-defined authentication form
 
-                echo dcCore::app()->auth->authForm(Core::backend()->user_id);
+                echo Core::auth()->authForm(Core::backend()->user_id);
             } else {
                 // Standard authentication form
 
@@ -492,7 +492,7 @@ class Auth extends Process
                 } else {
                     echo
                     '<summary>' . __('Connection issue?') . '</summary>' . "\n";
-                    if (dcCore::app()->auth->allowPassChange()) {
+                    if (Core::auth()->allowPassChange()) {
                         echo
                         '<p><a href="' . Core::backend()->url->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
                     }

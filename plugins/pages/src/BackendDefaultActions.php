@@ -29,9 +29,9 @@ class BackendDefaultActions
      */
     public static function adminPagesActionsPage(BackendActions $ap): void
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Status') => [
@@ -43,9 +43,9 @@ class BackendDefaultActions
                 [ActionsPostsDefault::class, 'doChangePostStatus']
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('First publication') => [
@@ -55,8 +55,8 @@ class BackendDefaultActions
                 [ActionsPostsDefault::class, 'doChangePostFirstPub']
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Change') => [
@@ -64,9 +64,9 @@ class BackendDefaultActions
                 [ActionsPostsDefault::class, 'doChangePostAuthor']
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_DELETE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Delete') => [
@@ -92,9 +92,9 @@ class BackendDefaultActions
     public static function doReorderPages(BackendActions $ap, ArrayObject $post): void
     {
         foreach ($post['order'] as $post_id => $value) {
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_PUBLISH,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            if (!Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_PUBLISH,
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id)) {
                 throw new Exception(__('You are not allowed to change this entry status'));
             }
@@ -103,10 +103,10 @@ class BackendDefaultActions
             'AND post_id ' . Core::con()->in($post_id);
 
             #If user can only publish, we need to check the post's owner
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            if (!Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id)) {
-                $strReq .= "AND user_id = '" . Core::con()->escape(dcCore::app()->auth->userID()) . "' ";
+                $strReq .= "AND user_id = '" . Core::con()->escape(Core::auth()->userID()) . "' ";
             }
 
             $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);

@@ -89,7 +89,7 @@ $(() => {
 
   CKEDITOR.config.skin = `dotclear,${dotclear.dcckeditor_plugin_url}/js/ckeditor-skins/dotclear/`;
   CKEDITOR.config.baseHref = dotclear.base_url;
-  CKEDITOR.config.height = '<?php echo dcCore::app()->auth->getOption('edit_size') * 14; ?>px';
+  CKEDITOR.config.height = '<?php echo Core::auth()->getOption('edit_size') * 14; ?>px';
 
 <?php if (!empty(Core::backend()->editor_cke_cancollapse_button)): ?>
   CKEDITOR.config.toolbarCanCollapse = true;

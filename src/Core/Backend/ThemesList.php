@@ -256,7 +256,7 @@ class ThemesList extends ModulesList
         if (!$count && $this->getSearch() === null) {
             echo
             '<p class="message">' . __('No themes matched your search.') . '</p>';
-        } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && dcCore::app()->auth->isSuperAdmin()) {
+        } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && Core::auth()->isSuperAdmin()) {
             $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
 
             if (!empty($buttons)) {
@@ -298,12 +298,12 @@ class ThemesList extends ModulesList
                 $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
             if (in_array('try', $actions)) {
-                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('try', dcCore::app()->auth->userID() . '/' . Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . $id);
+                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('try', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . $id);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
+                $blank_preview = Core::auth()->user_prefs->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : ' modal';
                 $preview_target = $blank_preview ? '' : ' target="_blank"';
@@ -350,7 +350,7 @@ class ThemesList extends ModulesList
                 # Update (from store)
                 case 'update':
 
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="update" value="' . (
                             $with_selection ?
                             __('Update selected themes') :
@@ -411,7 +411,7 @@ class ThemesList extends ModulesList
                 return;
             }
 
-            if (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['activate'])) {
+            if (Core::auth()->isSuperAdmin() && !empty($_POST['activate'])) {
                 if (is_array($_POST['activate'])) {
                     $modules = array_keys($_POST['activate']);
                 }
@@ -442,7 +442,7 @@ class ThemesList extends ModulesList
                     __('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
                 );
                 Http::redirect($this->getURL());
-            } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
+            } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['deactivate'])) {
                 if (is_array($_POST['deactivate'])) {
                     $modules = array_keys($_POST['deactivate']);
                 }
@@ -484,7 +484,7 @@ class ThemesList extends ModulesList
                     );
                 }
                 Http::redirect($this->getURL());
-            } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['clone'])) {
+            } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['clone'])) {
                 if (is_array($_POST['clone'])) {
                     $modules = array_keys($_POST['clone']);
                 }
@@ -515,7 +515,7 @@ class ThemesList extends ModulesList
                     __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
                 );
                 Http::redirect($this->getURL());
-            } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['delete'])) {
+            } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['delete'])) {
                 if (is_array($_POST['delete'])) {
                     $modules = array_keys($_POST['delete']);
                 }
@@ -558,7 +558,7 @@ class ThemesList extends ModulesList
                     );
                 }
                 Http::redirect($this->getURL());
-            } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['install'])) {
+            } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['install'])) {
                 if (is_array($_POST['install'])) {
                     $modules = array_keys($_POST['install']);
                 }
@@ -590,7 +590,7 @@ class ThemesList extends ModulesList
                     __('Theme has been successfully installed.', 'Themes have been successfully installed.', $count)
                 );
                 Http::redirect($this->getURL());
-            } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['update'])) {
+            } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['update'])) {
                 if (is_array($_POST['update'])) {
                     $modules = array_keys($_POST['update']);
                 }
@@ -641,7 +641,7 @@ class ThemesList extends ModulesList
             # Manual actions
             elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
                 || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
-                if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+                if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
                 }
 

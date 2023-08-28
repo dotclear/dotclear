@@ -150,7 +150,7 @@ class Words extends SpamFilter
 
         # Adding a word
         if (!empty($_POST['swa'])) {
-            $globalsw = !empty($_POST['globalsw']) && dcCore::app()->auth->isSuperAdmin();
+            $globalsw = !empty($_POST['globalsw']) && Core::auth()->isSuperAdmin();
 
             try {
                 $this->addRule($_POST['swa'], $globalsw);
@@ -177,7 +177,7 @@ class Words extends SpamFilter
         $res = '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label class="classic" for="swa">' . __('Add a word ') . '</label> ' . form::field('swa', 20, 128);
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $res .= '<label class="classic" for="globalsw">' . form::checkbox('globalsw', 1) .
             __('Global word (used for all blogs)') . '</label> ';
         }
@@ -203,7 +203,7 @@ class Words extends SpamFilter
                 $p_style = '';
 
                 if (!$rs->blog_id) {
-                    $disabled_word = !dcCore::app()->auth->isSuperAdmin();
+                    $disabled_word = !Core::auth()->isSuperAdmin();
                     $p_style .= ' global';
                 }
 
@@ -242,7 +242,7 @@ class Words extends SpamFilter
                 '</form>';
         }
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
             '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
             form::hidden(['spamwords'], 1) .
@@ -297,7 +297,7 @@ class Words extends SpamFilter
         $cur->rule_type    = 'word';
         $cur->rule_content = (string) $content;
 
-        if ($general && dcCore::app()->auth->isSuperAdmin()) {
+        if ($general && Core::auth()->isSuperAdmin()) {
             $cur->blog_id = null;
         } else {
             $cur->blog_id = Core::blog()->id;
@@ -331,7 +331,7 @@ class Words extends SpamFilter
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             $strReq .= "AND blog_id = '" . Core::con()->escape(Core::blog()->id) . "' ";
         }
 

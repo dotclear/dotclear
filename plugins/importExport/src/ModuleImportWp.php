@@ -656,7 +656,7 @@ class ModuleImportWp extends Module
     {
         $post_date = !@strtotime($rs->post_date) ? '1970-01-01 00:00' : $rs->post_date;
         if (!isset($this->vars['user_ids'][$rs->post_author])) {
-            $user_id = dcCore::app()->auth->userID();
+            $user_id = Core::auth()->userID();
         } else {
             $user_id = $this->vars['user_ids'][$rs->post_author];
         }

@@ -35,9 +35,9 @@ class Search extends Process
 
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         Core::behavior()->addBehaviors([
@@ -240,9 +240,9 @@ class Search extends Process
         }
 
         // IP are available only for super-admin and admin
-        $show_ip = dcCore::app()->auth->check(
-            dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        $show_ip = Core::auth()->check(
+            Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
             Core::blog()->id
         );

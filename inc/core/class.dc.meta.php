@@ -171,7 +171,7 @@ class dcMeta
     {
         $post_id = (int) $post_id;
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
@@ -179,7 +179,7 @@ class dcMeta
         }
 
         # If user can only publish, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $sql = new SelectStatement();
@@ -187,7 +187,7 @@ class dcMeta
                 ->from(Core::con()->prefix() . dcBlog::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
-                ->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+                ->and('user_id = ' . $sql->quote(Core::auth()->userID()));
 
             $rs = $sql->select();
 
@@ -361,10 +361,10 @@ class dcMeta
             $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
-            $user_id = dcCore::app()->auth->userID();
+            $user_id = Core::auth()->userID();
 
             $and = ['post_status = ' . (string) dcBlog::POST_PUBLISHED];
             if (Core::blog()->without_password) {
@@ -523,10 +523,10 @@ class dcMeta
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote(Core::blog()->id));
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
-            $sql->and('P.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('P.user_id = ' . $sql->quote(Core::auth()->userID()));
         }
         if ($post_type !== null) {
             $sql->and('P.post_type = ' . $sql->quote($post_type));

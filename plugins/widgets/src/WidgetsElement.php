@@ -395,7 +395,7 @@ class WidgetsElement
                 form::field([$iname, $wfid], 20, 255, [
                     'default'    => Html::escapeHTML((string) $s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -405,7 +405,7 @@ class WidgetsElement
                 form::textarea([$iname, $wfid], 30, 8, [
                     'default'    => Html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 

@@ -96,6 +96,8 @@ final class dcCore
     /**
      * dcAuth instance
      *
+     * @deprecated since 2.28, use Core::auth() instead
+     *
      * @var dcAuth
      */
     public readonly dcAuth $auth;
@@ -327,7 +329,7 @@ final class dcCore
         $this->con        = Core::con();
         $this->prefix     = Core::con()->prefix();
         $this->error      = new dcError();
-        $this->auth       = dcAuth::init();
+        $this->auth       = Core::auth();
         $this->session    = Core::session();
         $this->url        = new Url();
         $this->plugins    = new dcPlugins();

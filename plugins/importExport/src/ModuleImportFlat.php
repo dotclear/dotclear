@@ -120,8 +120,8 @@ class ModuleImportFlat extends Module
             $full_upl = true;
         }
 
-        if ($full_upl !== null && dcCore::app()->auth->isSuperAdmin()) {
-            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+        if ($full_upl !== null && Core::auth()->isSuperAdmin()) {
+            if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
 
@@ -225,7 +225,7 @@ class ModuleImportFlat extends Module
 
             '</form>';
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             echo
             '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" id="formfull" class="fieldset">' .
             '<h3>' . __('Multiple blogs') . '</h3>' .

@@ -520,7 +520,7 @@ class dcBlog
         if (isset($params['without_empty'])) {
             $without_empty = (bool) $params['without_empty'];
         } else {
-            $without_empty = !dcCore::app()->auth->userID(); // Get all categories if in admin display
+            $without_empty = !Core::auth()->userID(); // Get all categories if in admin display
         }
 
         $start = isset($params['start']) ? (int) $params['start'] : 0;
@@ -703,7 +703,7 @@ class dcBlog
             )
             ->where('C.blog_id = ' . $sql->quote($this->id));
 
-        if (!dcCore::app()->auth->userID()) {
+        if (!Core::auth()->userID()) {
             $sql->and('P.post_status = ' . (string) self::POST_PUBLISHED);
         }
 
@@ -734,7 +734,7 @@ class dcBlog
      */
     public function addCategory(Cursor $cur, int $parent = 0): int
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to add categories'));
@@ -790,7 +790,7 @@ class dcBlog
      */
     public function updCategory(int $id, Cursor $cur): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to update categories'));
@@ -874,7 +874,7 @@ class dcBlog
      */
     public function delCategory(int $id): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to delete categories'));
@@ -902,7 +902,7 @@ class dcBlog
      */
     public function resetCategoriesOrder(): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to reset categories order'));
@@ -1149,10 +1149,10 @@ class dcBlog
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $user_id = dcCore::app()->auth->userID();
+            $user_id = Core::auth()->userID();
 
             $and = ['post_status = ' . (string) self::POST_PUBLISHED];
             if ($this->without_password) {
@@ -1406,7 +1406,7 @@ class dcBlog
             ->and('post_lang <> ' . $sql->quote(''))
             ->and('post_lang IS NOT NULL');
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $and = ['post_status = ' . (string) self::POST_PUBLISHED];
@@ -1414,8 +1414,8 @@ class dcBlog
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if (dcCore::app()->auth->userID()) {
-                $or[] = 'user_id = ' . $sql->quote(dcCore::app()->auth->userID());
+            if (Core::auth()->userID()) {
+                $or[] = 'user_id = ' . $sql->quote(Core::auth()->userID());
             }
             $sql->and($sql->orGroup($or));
         }
@@ -1509,7 +1509,7 @@ class dcBlog
             $sql->and('P.post_lang = ' . $sql->quote($params['post_lang']));
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $and = ['post_status = ' . (string) self::POST_PUBLISHED];
@@ -1517,8 +1517,8 @@ class dcBlog
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if (dcCore::app()->auth->userID()) {
-                $or[] = 'P.user_id = ' . $sql->quote(dcCore::app()->auth->userID());
+            if (Core::auth()->userID()) {
+                $or[] = 'P.user_id = ' . $sql->quote(Core::auth()->userID());
             }
             $sql->and($sql->orGroup($or));
         }
@@ -1582,7 +1582,7 @@ class dcBlog
      */
     public function addPost(Cursor $cur): int
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1603,7 +1603,7 @@ class dcBlog
             $cur->blog_id     = (string) $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
-            $cur->post_tz     = dcCore::app()->auth->getInfo('user_tz');
+            $cur->post_tz     = Core::auth()->getInfo('user_tz');
 
             # Post excerpt and content
             $this->getPostContent($cur, $cur->post_id);
@@ -1612,7 +1612,7 @@ class dcBlog
 
             $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            if (!Core::auth()->check(Core::auth()->makePermissions([
                 dcAuth::PERMISSION_PUBLISH,
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
@@ -1650,7 +1650,7 @@ class dcBlog
      */
     public function updPost($id, Cursor $cur): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1672,7 +1672,7 @@ class dcBlog
             $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $id);
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1682,7 +1682,7 @@ class dcBlog
         $cur->post_upddt = date('Y-m-d H:i:s');
 
         #If user is only "usage", we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql = new SelectStatement();
@@ -1690,7 +1690,7 @@ class dcBlog
                 ->column('post_id')
                 ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_id = ' . (int) $id)
-                ->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+                ->and('user_id = ' . $sql->quote(Core::auth()->userID()));
 
             if ($sql->select()->isEmpty()) {
                 throw new Exception(__('You are not allowed to edit this entry'));
@@ -1731,7 +1731,7 @@ class dcBlog
      */
     public function updPostsStatus($ids, $status): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1747,10 +1747,10 @@ class dcBlog
             ->and('post_id' . $sql->in($posts_ids));
 
         #If user can only publish, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
@@ -1774,7 +1774,7 @@ class dcBlog
      */
     public function updPostsFirstPub($ids, int $status): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1790,10 +1790,10 @@ class dcBlog
             ->and('post_id' . $sql->in($posts_ids));
 
         #If user can only publish, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
@@ -1828,7 +1828,7 @@ class dcBlog
      */
     public function updPostsSelected($ids, $selected): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1844,10 +1844,10 @@ class dcBlog
             ->and('post_id' . $sql->in($posts_ids));
 
         # If user is only usage, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
@@ -1880,7 +1880,7 @@ class dcBlog
      */
     public function updPostsCategory($ids, $cat_id): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1896,10 +1896,10 @@ class dcBlog
             ->and('post_id' . $sql->in($posts_ids));
 
         # If user is only usage, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
@@ -1921,7 +1921,7 @@ class dcBlog
      */
     public function changePostsCategory($old_cat_id, $new_cat_id): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1964,7 +1964,7 @@ class dcBlog
      */
     public function delPosts($ids): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_DELETE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -1984,10 +1984,10 @@ class dcBlog
             ->and('post_id' . $sql->in($posts_ids));
 
         #If user can only delete, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $sql->delete();
@@ -2226,7 +2226,7 @@ class dcBlog
         }
 
         if ($cur->post_dt == '') {
-            $offset       = Date::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'));
+            $offset       = Date::getTimeOffset(Core::auth()->getInfo('user_tz'));
             $now          = time() + $offset;
             $cur->post_dt = date('Y-m-d H:i:00', $now);
         }
@@ -2523,10 +2523,10 @@ class dcBlog
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $user_id = dcCore::app()->auth->userID();
+            $user_id = Core::auth()->userID();
 
             $and = [
                 'comment_status = ' . (string) self::COMMENT_PUBLISHED,
@@ -2708,7 +2708,7 @@ class dcBlog
      */
     public function updComment($id, Cursor $cur): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -2728,10 +2728,10 @@ class dcBlog
         }
 
         #If user is only usage, we need to check the post's owner
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            if ($rs->user_id != dcCore::app()->auth->userID()) {
+            if ($rs->user_id != Core::auth()->userID()) {
                 throw new Exception(__('You are not allowed to update this comment'));
             }
         }
@@ -2740,7 +2740,7 @@ class dcBlog
 
         $cur->comment_upddt = date('Y-m-d H:i:s');
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -2783,7 +2783,7 @@ class dcBlog
      */
     public function updCommentsStatus($ids, $status): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -2804,10 +2804,10 @@ class dcBlog
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2836,7 +2836,7 @@ class dcBlog
      */
     public function delComments($ids): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_DELETE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -2873,10 +2873,10 @@ class dcBlog
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2893,7 +2893,7 @@ class dcBlog
      */
     public function delJunkComments(): void
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_DELETE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
@@ -2910,10 +2910,10 @@ class dcBlog
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote(Core::auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));

@@ -11,12 +11,14 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use dcAuth;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
 
 interface CoreFactoryInterface
 {
+	public function auth(): dcAuth;
 	public function behavior(): Behavior;
 	public function blogs(): Blogs;
 	public function con(): AbstractHandler;

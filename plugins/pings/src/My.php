@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
@@ -23,7 +24,7 @@ class My extends MyPlugin
     {
         return in_array($context, [self::MANAGE, self::MENU]) ? // only super admin can manage pings
             defined('DC_CONTEXT_ADMIN')
-            && dcCore::app()->auth->isSuperAdmin()
+            && Core::auth()->isSuperAdmin()
             : null;
     }
 }

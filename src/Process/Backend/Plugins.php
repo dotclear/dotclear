@@ -137,7 +137,7 @@ class Plugins extends Process
         }
 
         // -- Display modules lists --
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             if (null == Core::blog()->settings->system->store_plugin_url) {
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
@@ -203,7 +203,7 @@ class Plugins extends Process
         if (!empty($defines)) {
             echo
             '<h3>' .
-            (dcCore::app()->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
+            (Core::auth()->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
             (Core::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
@@ -221,7 +221,7 @@ class Plugins extends Process
         }
 
         # Deactivated modules
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $defines = Core::backend()->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
             if (!empty($defines)) {
                 echo
@@ -244,7 +244,7 @@ class Plugins extends Process
         echo
         '</div>';
 
-        if (dcCore::app()->auth->isSuperAdmin() && Core::backend()->list->isWritablePath()) {
+        if (Core::auth()->isSuperAdmin() && Core::backend()->list->isWritablePath()) {
             # New modules from repo
             $search  = Core::backend()->list->getSearch();
             $defines = $search ? Core::backend()->list->store->searchDefines($search) : Core::backend()->list->store->getDefines();
@@ -295,7 +295,7 @@ class Plugins extends Process
         Core::behavior()->callBehavior('pluginsToolsTabsV2');
 
         # -- Notice for super admin --
-        if (dcCore::app()->auth->isSuperAdmin() && !Core::backend()->list->isWritablePath()) {
+        if (Core::auth()->isSuperAdmin() && !Core::backend()->list->isWritablePath()) {
             echo
             '<p class="warning">' . __('Some functions are disabled, please give write access to your plugins directory to enable them.') . '</p>';
         }

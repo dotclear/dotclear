@@ -40,9 +40,9 @@ class ActionsPostsDefault
      */
     public static function adminPostsActionsPage(ActionsPosts $ap)
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Status') => [
@@ -54,9 +54,9 @@ class ActionsPostsDefault
                 [self::class, 'doChangePostStatus']
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('First publication') => [
@@ -85,8 +85,8 @@ class ActionsPostsDefault
             ]],
             [self::class, 'doChangePostLang']
         );
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Change') => [
@@ -94,9 +94,9 @@ class ActionsPostsDefault
                 [self::class, 'doChangePostAuthor']
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_DELETE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Delete') => [
@@ -297,8 +297,8 @@ class ActionsPostsDefault
                 throw new Exception(__('No entry selected'));
             }
             $new_cat_id = (int) $post['new_cat_id'];
-            if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CATEGORIES,
+            if (!empty($post['new_cat_title']) && Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CATEGORIES,
             ]), Core::blog()->id)) {
                 $cur_cat            = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
                 $cur_cat->cat_title = $post['new_cat_title'];
@@ -362,8 +362,8 @@ class ActionsPostsDefault
                     ]),
             ];
 
-            if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CATEGORIES,
+            if (Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CATEGORIES,
             ]), Core::blog()->id)) {
                 $items[] = (new Div())
                     ->items([
@@ -418,8 +418,8 @@ class ActionsPostsDefault
      */
     public static function doChangePostAuthor(ActionsPosts $ap, ArrayObject $post)
     {
-        if (isset($post['new_auth_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
+        if (isset($post['new_auth_id']) && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]), Core::blog()->id)) {
             $new_user_id = $post['new_auth_id'];
             $ids         = $ap->getIDs();
@@ -448,8 +448,8 @@ class ActionsPostsDefault
             $ap->redirect(true);
         } else {
             $usersList = [];
-            if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
+            if (Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_ADMIN,
             ]), Core::blog()->id)) {
                 $params = [
                     'limit' => 100,

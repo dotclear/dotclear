@@ -49,7 +49,7 @@ class ListingBlogs extends Listing
 
             $cols = [
                 'blog' => '<th' .
-                (dcCore::app()->auth->isSuperAdmin() ? ' colspan="2"' : '') .
+                (Core::auth()->isSuperAdmin() ? ' colspan="2"' : '') .
                 ' scope="col" abbr="comm" class="first nowrap">' . __('Blog id') . '</th>',
                 'name'   => '<th scope="col" abbr="name">' . __('Blog name') . '</th>',
                 'url'    => '<th scope="col" class="nowrap">' . __('URL') . '</th>',
@@ -118,12 +118,12 @@ class ListingBlogs extends Listing
         $blog_id = Html::escapeHTML($this->rs->blog_id);
 
         $cols = [
-            'check' => (dcCore::app()->auth->isSuperAdmin() ?
+            'check' => (Core::auth()->isSuperAdmin() ?
                 '<td class="nowrap">' .
                 form::checkbox(['blogs[]'], $this->rs->blog_id, $checked) .
                 '</td>' : ''),
             'blog' => '<td class="nowrap">' .
-            (dcCore::app()->auth->isSuperAdmin() ?
+            (Core::auth()->isSuperAdmin() ?
                 '<a href="' . Core::backend()->url->get('admin.blog', ['id' => $blog_id]) . '"  ' .
                 'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
                 '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '" /> ' . $blog_id . '</a> ' :
@@ -142,8 +142,8 @@ class ListingBlogs extends Listing
             Core::blogs()->countBlogPosts($this->rs->blog_id) .
             '</td>',
             'upddt' => '<td class="nowrap count">' .
-            '<time datetime="' . Date::iso8601(strtotime($this->rs->blog_upddt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-            Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'))) .
+            '<time datetime="' . Date::iso8601(strtotime($this->rs->blog_upddt), Core::auth()->getInfo('user_tz')) . '">' .
+            Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(Core::auth()->getInfo('user_tz'))) .
             '</time>' .
             '</td>',
             'status' => '<td class="nowrap status txt-center">' .

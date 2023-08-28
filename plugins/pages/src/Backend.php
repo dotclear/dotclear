@@ -35,7 +35,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->auth->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
+        Core::auth()->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
 
         My::addBackendMenuItem(Menus::MENU_BLOG);
 
@@ -63,8 +63,8 @@ class Backend extends Process
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                    'permissions' => Core::auth()->makePermissions([
+                        Core::auth()::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
@@ -83,8 +83,8 @@ class Backend extends Process
                     'url'         => My::manageUrl(['act' => 'page']),
                     'small-icon'  => My::icons('np'),
                     'large-icon'  => My::icons('np'),
-                    'permissions' => dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                    'permissions' => Core::auth()->makePermissions([
+                        Core::auth()::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
                     'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',

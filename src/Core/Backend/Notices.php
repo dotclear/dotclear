@@ -135,7 +135,7 @@ class Notices
         $cur = Core::con()->openCursor(Core::con()->prefix() . dcCore::app()->notices->getTable());
 
         $now = function () {
-            Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');    // Set user TZ
+            Date::setTZ(Core::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
             $dt = date('Y-m-d H:i:s');
             Date::setTZ('UTC');                                               // Back to default TZ
 
@@ -254,8 +254,8 @@ class Notices
             $ts = '';
             if ($timestamp) {
                 $ts = '<span class="notice-ts">' .
-                    '<time datetime="' . Date::iso8601(time(), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-                    Date::str(__('%H:%M:%S'), null, dcCore::app()->auth->getInfo('user_tz')) .
+                    '<time datetime="' . Date::iso8601(time(), Core::auth()->getInfo('user_tz')) . '">' .
+                    Date::str(__('%H:%M:%S'), null, Core::auth()->getInfo('user_tz')) .
                     '</time>' .
                     '</span> ';
             }

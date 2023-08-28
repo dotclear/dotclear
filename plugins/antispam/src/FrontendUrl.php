@@ -54,7 +54,7 @@ class FrontendUrl extends Url
             self::p404();
         }
 
-        dcCore::app()->auth->checkUser($user_id, null, null);
+        Core::auth()->checkUser($user_id, null, null);
 
         header('Content-Type: application/xml; charset=UTF-8');
 

@@ -228,7 +228,7 @@ class ListingComments extends Listing
             'author' => '<td class="nowrap maximal"><a href="' . $author_url . '">' .
             Html::escapeHTML($this->rs->comment_author) . '</a></td>',
             'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->comment_dt), Core::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt) .
                 '</time>' .
                 '</td>',

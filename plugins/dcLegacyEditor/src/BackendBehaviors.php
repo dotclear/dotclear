@@ -136,7 +136,7 @@ class BackendBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('toolbar_bottom'),
+            'toolbar_bottom' => (bool) (!is_null(Core::auth()) && Core::auth()->getOption('toolbar_bottom')),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',
@@ -148,9 +148,9 @@ class BackendBehaviors
         $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_MEDIA,
-            dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
+        if (!Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_MEDIA,
+            Core::auth()::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }
@@ -159,7 +159,7 @@ class BackendBehaviors
         My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 
-        if (isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('enable_wysiwyg')) {
+        if (!is_null(Core::auth()) && Core::auth()->getOption('enable_wysiwyg')) {
             $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 

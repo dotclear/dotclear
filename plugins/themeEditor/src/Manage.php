@@ -49,8 +49,8 @@ class Manage extends Process
         ]);
 
         # Get interface setting
-        Core::backend()->user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsyntax;
-        Core::backend()->user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
+        Core::backend()->user_ui_colorsyntax       = Core::auth()->user_prefs->interface->colorsyntax;
+        Core::backend()->user_ui_colorsyntax_theme = Core::auth()->user_prefs->interface->colorsyntax_theme;
 
         # Loading themes // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
@@ -82,14 +82,14 @@ class Manage extends Process
                 throw $e;
             }
 
-            if (dcCore::app()->auth->isSuperAdmin()
+            if (Core::auth()->isSuperAdmin()
                 && !empty($_POST['lock'])
                 && is_string(Core::backend()->theme->get('root'))
             ) {
                 file_put_contents(Core::backend()->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED, '');
                 Notices::addSuccessNotice(__('The theme update has been locked.'));
             }
-            if (dcCore::app()->auth->isSuperAdmin()
+            if (Core::auth()->isSuperAdmin()
                 && !empty($_POST['unlock'])
                 && is_string(Core::backend()->theme->get('root'))
                 && file_exists(Core::backend()->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED)
@@ -139,7 +139,7 @@ class Manage extends Process
             return;
         }
 
-        $lock_form = (dcCore::app()->auth->isSuperAdmin()) ?
+        $lock_form = (Core::auth()->isSuperAdmin()) ?
             '<fieldset id="lock-form"><legend>' . __('Update') . '</legend>' .
             '<form id="lock-update" method="post" action="' . Core::backend()->getPageURL() . '">' .
                 '<p>' .

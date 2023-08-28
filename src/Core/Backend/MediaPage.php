@@ -57,7 +57,7 @@ class MediaPage extends FilterMedia
     {
         parent::__construct('media');
 
-        $this->media_uploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
+        $this->media_uploader = Core::auth()->user_prefs->interface->enhanceduploader;
 
         // try to load core media and themes
         try {
@@ -123,8 +123,8 @@ class MediaPage extends FilterMedia
         if ($this->media_archivable === null) {
             $rs = $this->getDirsRecord();
 
-            $this->media_archivable = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
+            $this->media_archivable = Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_MEDIA_ADMIN,
             ]), Core::blog()->id)
                 && !((is_countable($rs) ? count($rs) : 0) === 0 || ((is_countable($rs) ? count($rs) : 0) === 1 && $rs->parent)); // @phpstan-ignore-line
         }
@@ -201,7 +201,7 @@ class MediaPage extends FilterMedia
      */
     public function showLast(): int
     {
-        return abs((int) dcCore::app()->auth->user_prefs->interface->media_nb_last_dirs);
+        return abs((int) Core::auth()->user_prefs->interface->media_nb_last_dirs);
     }
 
     /**
@@ -212,7 +212,7 @@ class MediaPage extends FilterMedia
     public function getLast(): array
     {
         if ($this->media_last === null) {
-            $m = dcCore::app()->auth->user_prefs->interface->media_last_dirs;
+            $m = Core::auth()->user_prefs->interface->media_last_dirs;
             if (!is_array($m)) {
                 $m = [];
             }
@@ -268,7 +268,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_last = $last_dirs;
-            dcCore::app()->auth->user_prefs->interface->put('media_last_dirs', $last_dirs, 'array');
+            Core::auth()->user_prefs->interface->put('media_last_dirs', $last_dirs, 'array');
         }
 
         return $done;
@@ -282,7 +282,7 @@ class MediaPage extends FilterMedia
     public function getFav(): array
     {
         if ($this->media_fav === null) {
-            $m = dcCore::app()->auth->user_prefs->interface->media_fav_dirs;
+            $m = Core::auth()->user_prefs->interface->media_fav_dirs;
             if (!is_array($m)) {
                 $m = [];
             }
@@ -323,7 +323,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_fav = $fav_dirs;
-            dcCore::app()->auth->user_prefs->interface->put('media_fav_dirs', $fav_dirs, 'array');
+            Core::auth()->user_prefs->interface->put('media_fav_dirs', $fav_dirs, 'array');
         }
 
         return $done;

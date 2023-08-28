@@ -48,8 +48,8 @@ class ModuleExportFlat extends Module
     public function process(string $do): void
     {
         // Export a blog
-        if ($do === 'export_blog' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
+        if ($do === 'export_blog' && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]), Core::blog()->id)) {
             $fullname = Core::blog()->public_path . '/.backup_' . sha1(uniqid());
             $blog_id  = Core::con()->escape(Core::blog()->id);
@@ -127,7 +127,7 @@ class ModuleExportFlat extends Module
         }
 
         // Export all content
-        if ($do === 'export_all' && dcCore::app()->auth->isSuperAdmin()) {
+        if ($do === 'export_all' && Core::auth()->isSuperAdmin()) {
             $fullname = Core::blog()->public_path . '/.backup_' . sha1(uniqid());
 
             try {
@@ -241,7 +241,7 @@ class ModuleExportFlat extends Module
         '</p>' .
         '</form>';
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             echo
             '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
             '<h3>' . __('Multiple blogs') . '</h3>' .

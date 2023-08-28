@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use dcAuth;
 use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
@@ -23,6 +24,11 @@ class CoreFactory implements CoreFactoryInterface
     ) {
     }
 
+    public function auth(): dcAuth
+    {
+        return dcAuth::init();
+    }
+
     public function behavior(): Behavior
     {
         return new Behavior();
@@ -32,7 +38,7 @@ class CoreFactory implements CoreFactoryInterface
     {
         return new Blogs(
             con: $this->core->get('con'),
-            auth: dcCore::app()->auth,
+            auth: $this->core->get('auth'),
         );
     }
 
@@ -62,7 +68,7 @@ class CoreFactory implements CoreFactoryInterface
     public function nonce(): Nonce
     {
         return new Nonce(
-            auth: dcCore::app()->auth
+            auth: $this->core->get('auth')
         );
     }
 
@@ -86,7 +92,7 @@ class CoreFactory implements CoreFactoryInterface
     {
         return new Users(
             con: $this->core->get('con'),
-            auth: dcCore::app()->auth,
+            auth: $this->core->get('auth'),
             behavior: $this->core->get('behavior')
         );
     }

@@ -95,9 +95,9 @@ class ManagePosts extends Process
             }
         }
 
-        if (!empty($_POST['delete']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (!empty($_POST['delete']) && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             // Delete a tag
 
@@ -168,8 +168,8 @@ class ManagePosts extends Process
                 '</p></form>';
 
                 // Remove tag
-                if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                if (Core::auth()->check(Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), Core::blog()->id)) {
                     echo
                     '<form id="tag_delete" action="' . $this_url . '" method="post">' .

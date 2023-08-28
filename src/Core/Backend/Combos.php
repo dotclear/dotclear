@@ -281,9 +281,9 @@ class Combos
         ];
 
         // IP are available only for super-admin and admin
-        $show_ip = dcCore::app()->auth->check(
-            dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        $show_ip = Core::auth()->check(
+            Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
             Core::blog()->id
         );
@@ -314,7 +314,7 @@ class Combos
     public static function getUsersSortbyCombo(): array
     {
         $sortby_combo = [];
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $sortby_combo = [
                 __('Username')          => 'user_id',
                 __('Last Name')         => 'user_name',

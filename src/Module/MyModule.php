@@ -113,14 +113,14 @@ abstract class MyModule
             // Installation of module
             self::INSTALL => defined('DC_CONTEXT_ADMIN')
                     // Manageable only by super-admin
-                    && dcCore::app()->auth->isSuperAdmin()
+                    && Core::auth()->isSuperAdmin()
                     // And only if new version of module
                     && Core::version()->newerVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
             self::UNINSTALL => defined('DC_RC_PATH')
                     // Manageable only by super-admin
-                    && dcCore::app()->auth->isSuperAdmin(),
+                    && Core::auth()->isSuperAdmin(),
 
             // Prepend and Frontend context
             self::PREPEND,
@@ -130,9 +130,9 @@ abstract class MyModule
             self::BACKEND => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
                     && !is_null(Core::blog())
-                    && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_USAGE,
-                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                    && Core::auth()->check(Core::auth()->makePermissions([
+                        Core::auth()::PERMISSION_USAGE,
+                        Core::auth()::PERMISSION_CONTENT_ADMIN,
                     ]), Core::blog()->id),
 
             // Main page of module, Admin menu, Blog widgets
@@ -141,14 +141,14 @@ abstract class MyModule
             self::WIDGETS => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
                     && !is_null(Core::blog())
-                    && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_ADMIN,  // Admin+
+                    && Core::auth()->check(Core::auth()->makePermissions([
+                        Core::auth()::PERMISSION_ADMIN,  // Admin+
                     ]), Core::blog()->id),
 
             // Config page of module
             self::CONFIG => defined('DC_CONTEXT_ADMIN')
                     // Manageable only by super-admin
-                    && dcCore::app()->auth->isSuperAdmin(),
+                    && Core::auth()->isSuperAdmin(),
 
             default => false,
         };
@@ -205,7 +205,7 @@ abstract class MyModule
      */
     final public static function prefs(): ?dcWorkspace
     {
-        return dcCore::app()->auth->user_prefs->get(static::id());
+        return Core::auth()->user_prefs->get(static::id());
     }
 
     /**

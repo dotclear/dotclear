@@ -59,7 +59,7 @@ class Favorites
     public function __construct()
     {
         $this->favorites      = new ArrayObject();
-        $this->workspace      = dcCore::app()->auth->user_prefs->dashboard;
+        $this->workspace      = Core::auth()->user_prefs->dashboard;
         $this->user_favorites = [];
 
         if ($this->workspace->prefExists('favorites')) {
@@ -120,10 +120,10 @@ class Favorites
                 if (!$favorite['permissions']) {
                     return false;
                 }
-            } elseif (!dcCore::app()->auth->check($favorite['permissions'], Core::blog()->id)) {
+            } elseif (!Core::auth()->check($favorite['permissions'], Core::blog()->id)) {
                 return false;
             }
-        } elseif (!dcCore::app()->auth->isSuperAdmin()) {
+        } elseif (!Core::auth()->isSuperAdmin()) {
             return false;
         }
 
@@ -206,7 +206,7 @@ class Favorites
      */
     protected function migrateFavorites()
     {
-        $favorites_workspace        = dcCore::app()->auth->user_prefs->favorites;
+        $favorites_workspace        = Core::auth()->user_prefs->favorites;
         $this->local_favorites_ids  = [];
         $this->global_favorites_ids = [];
         foreach ($favorites_workspace->dumpPrefs() as $pref) {
@@ -411,9 +411,9 @@ class Favorites
                 'url'         => Core::backend()->url->get('admin.post'),
                 'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'large-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_USAGE,
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_USAGE,
+                    Core::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'active_cb' => ['defaultFavorites', fn (string $request_uri, array $request_params): bool => 'post.php' === $request_uri && !isset($request_params['id'])], ],
             'posts' => [
@@ -421,9 +421,9 @@ class Favorites
                 'url'         => Core::backend()->url->get('admin.posts'),
                 'small-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'large-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_USAGE,
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_USAGE,
+                    Core::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
                     $post_count    = Core::blog()->getPosts([], true)->f(0);
@@ -435,9 +435,9 @@ class Favorites
                 'url'         => Core::backend()->url->get('admin.comments'),
                 'small-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'large-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_USAGE,
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_USAGE,
+                    Core::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
                     $comment_count = Core::blog()->getComments([], true)->f(0);
@@ -449,51 +449,51 @@ class Favorites
                 'url'         => Core::backend()->url->get('admin.search'),
                 'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'large-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_USAGE,
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_USAGE,
+                    Core::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), ],
             'categories' => [
                 'title'       => __('Categories'),
                 'url'         => Core::backend()->url->get('admin.categories'),
                 'small-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_CATEGORIES,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_CATEGORIES,
                 ]), ],
             'media' => [
                 'title'       => __('Media manager'),
                 'url'         => Core::backend()->url->get('admin.media'),
                 'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'large-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_MEDIA,
-                    dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_MEDIA,
+                    Core::auth()::PERMISSION_MEDIA_ADMIN,
                 ]), ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),
                 'url'         => Core::backend()->url->get('admin.blog.pref'),
                 'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_ADMIN,
                 ]), ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
                 'url'         => Core::backend()->url->get('admin.blog.theme'),
                 'small-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'large-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
-                'permissions' => dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_ADMIN,
+                'permissions' => Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_ADMIN,
                 ]), ],
             'blogs' => [
                 'title'       => __('Blogs'),
                 'url'         => Core::backend()->url->get('admin.blogs'),
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
-                'permissions' => !dcCore::app()->auth->isSuperAdmin() && dcCore::app()->auth->getBlogCount() > 1 ? dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_USAGE,
-                    dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                'permissions' => !Core::auth()->isSuperAdmin() && Core::auth()->getBlogCount() > 1 ? Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_USAGE,
+                    Core::auth()::PERMISSION_CONTENT_ADMIN,
                 ]) : null, ],
             'users' => [
                 'title'      => __('Users'),

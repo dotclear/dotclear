@@ -91,8 +91,8 @@ class FilterComments extends Filters
      */
     public function getCommentIpFilter(): ?Filter
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (!Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             return null;
         }

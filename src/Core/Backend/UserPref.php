@@ -66,7 +66,7 @@ class UserPref
             ],
         ];
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $cols['users'] = [
                 __('Users'),
                 [
@@ -113,7 +113,7 @@ class UserPref
         Core::behavior()->callBehavior('adminColumnsListsV2', $cols);
 
         // Load user settings
-        $cols_user = @dcCore::app()->auth->user_prefs->interface->cols;
+        $cols_user = @Core::auth()->user_prefs->interface->cols;
         if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
             /*
              * $ct = type (blogs, users, posts, …)
@@ -166,13 +166,13 @@ class UserPref
         $nb_per_page = fn ($setting, $default = 30) => $setting ? ((int) $setting > 0 ? $setting : $default) : $default;
 
         $users = [null, null, null, null, null];
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $users = [
                 __('Users'),
                 Combos::getUsersSortbyCombo(),
                 'user_id',
                 'asc',
-                [__('users per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_users_per_page)],
+                [__('users per page'), $nb_per_page(Core::auth()->user_prefs->interface->nb_users_per_page)],
             ] ;
         }
 
@@ -182,21 +182,21 @@ class UserPref
                 Combos::getPostsSortbyCombo(),
                 'post_dt',
                 'desc',
-                [__('entries per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_posts_per_page)],
+                [__('entries per page'), $nb_per_page(Core::auth()->user_prefs->interface->nb_posts_per_page)],
             ],
             'comments' => [
                 __('Comments'),
                 Combos::getCommentsSortbyCombo(),
                 'comment_dt',
                 'desc',
-                [__('comments per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_comments_per_page)],
+                [__('comments per page'), $nb_per_page(Core::auth()->user_prefs->interface->nb_comments_per_page)],
             ],
             'blogs' => [
                 __('Blogs'),
                 Combos::getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
-                [__('blogs per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_blogs_per_page)],
+                [__('blogs per page'), $nb_per_page(Core::auth()->user_prefs->interface->nb_blogs_per_page)],
             ],
             'users' => $users,
             'media' => [
@@ -208,14 +208,14 @@ class UserPref
                 ],
                 'name',
                 'asc',
-                [__('media per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->media_by_page)],
+                [__('media per page'), $nb_per_page(Core::auth()->user_prefs->interface->media_by_page)],
             ],
             'search' => [
                 __('Search'),
                 null,
                 null,
                 null,
-                [__('results per page'), $nb_per_page(dcCore::app()->auth->user_prefs->interface->nb_searchresults_per_page, 20)],
+                [__('results per page'), $nb_per_page(Core::auth()->user_prefs->interface->nb_searchresults_per_page, 20)],
             ],
         ];
     }
@@ -237,7 +237,7 @@ class UserPref
             # --BEHAVIOR-- adminFiltersLists -- ArrayObject
             Core::behavior()->callBehavior('adminFiltersListsV2', $sorts);
 
-            $sorts_user = dcCore::app()->auth->user_prefs->interface->sorts;
+            $sorts_user = Core::auth()->user_prefs->interface->sorts;
             if (is_array($sorts_user)) {
                 foreach ($sorts_user as $stype => $sdata) {
                     if (!isset($sorts[$stype])) {

@@ -8,14 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\Core\Core;
+
 $this->registerModule(
     'Pages',                             // Name
     'Serve entries as simple web pages', // Description
     'Olivier Meunier',                   // Author
     '2.0',                               // Version
     [
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+        'permissions' => Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
             initPages::PERMISSION_PAGES,
         ]),
         'priority'    => 999,

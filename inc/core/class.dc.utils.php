@@ -353,7 +353,7 @@ class dcUtils
             // Switch to appropriate locale depending on $ns
             match ($namespace) {
                 // Set locale with user prefs
-                self::ADMIN_LOCALE => setlocale(LC_COLLATE, dcCore::app()->auth->getInfo('user_lang')),
+                self::ADMIN_LOCALE => setlocale(LC_COLLATE, Core::auth()->getInfo('user_lang')),
                 // Set locale with blog params
                 self::PUBLIC_LOCALE => setlocale(LC_COLLATE, Core::blog()->settings->system->lang),
                 // Set locale with arg

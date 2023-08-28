@@ -46,27 +46,27 @@ class ManagePage extends Process
         }
 
         $params = [];
-        Page::check(dcCore::app()->auth->makePermissions([
+        Page::check(Core::auth()->makePermissions([
             My::PERMISSION_PAGES,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
+        Date::setTZ(Core::auth()->getInfo('user_tz') ?? 'UTC');
 
         Core::backend()->post_id            = '';
         Core::backend()->post_dt            = '';
-        Core::backend()->post_format        = dcCore::app()->auth->getOption('post_format');
-        Core::backend()->post_editor        = dcCore::app()->auth->getOption('editor');
+        Core::backend()->post_format        = Core::auth()->getOption('post_format');
+        Core::backend()->post_editor        = Core::auth()->getOption('editor');
         Core::backend()->post_password      = '';
         Core::backend()->post_url           = '';
-        Core::backend()->post_lang          = dcCore::app()->auth->getInfo('user_lang');
+        Core::backend()->post_lang          = Core::auth()->getInfo('user_lang');
         Core::backend()->post_title         = '';
         Core::backend()->post_excerpt       = '';
         Core::backend()->post_excerpt_xhtml = '';
         Core::backend()->post_content       = '';
         Core::backend()->post_content_xhtml = '';
         Core::backend()->post_notes         = '';
-        Core::backend()->post_status        = dcCore::app()->auth->getInfo('user_post_status');
+        Core::backend()->post_status        = Core::auth()->getInfo('user_post_status');
         Core::backend()->post_position      = 0;
         Core::backend()->post_open_comment  = false;
         Core::backend()->post_open_tb       = false;
@@ -77,14 +77,14 @@ class ManagePage extends Process
         Core::backend()->page_title = __('New page');
 
         Core::backend()->can_view_page = true;
-        Core::backend()->can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        Core::backend()->can_edit_page = Core::auth()->check(Core::auth()->makePermissions([
             My::PERMISSION_PAGES,
-            dcCore::app()->auth::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_USAGE,
         ]), Core::blog()->id);
-        Core::backend()->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        Core::backend()->can_publish = Core::auth()->check(Core::auth()->makePermissions([
             My::PERMISSION_PAGES,
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            Core::auth()::PERMISSION_PUBLISH,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id);
         Core::backend()->can_delete = false;
 
@@ -349,7 +349,7 @@ class ManagePage extends Process
                     dcCore::app()->error->add($e->getMessage());
                 }
             } else {
-                $cur->user_id = dcCore::app()->auth->userID();
+                $cur->user_id = Core::auth()->userID();
 
                 try {
                     # --BEHAVIOR-- adminBeforePageCreate -- Cursor
@@ -628,7 +628,7 @@ class ManagePage extends Process
                     form::textarea(
                         'post_content',
                         50,
-                        dcCore::app()->auth->getOption('edit_size'),
+                        Core::auth()->getOption('edit_size'),
                         [
                             'default'    => Html::escapeHTML(Core::backend()->post_content),
                             'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . Core::backend()->post_lang . '" spellcheck="true"',
@@ -678,15 +678,15 @@ class ManagePage extends Process
                 $preview_url = Core::blog()->url .
                     dcCore::app()->url->getURLFor(
                         'pagespreview',
-                        dcCore::app()->auth->userID() . '/' .
-                        Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) .
+                        Core::auth()->userID() . '/' .
+                        Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) .
                         '/' . Core::backend()->post->post_url
                     );
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
+                $blank_preview = Core::auth()->user_prefs->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : ' modal';
                 $preview_target = $blank_preview ? '' : ' target="_blank"';
@@ -821,7 +821,7 @@ class ManagePage extends Process
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => Html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
+                'default'    => Html::escapeHTML(Core::auth()->getInfo('user_cn')),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
@@ -829,7 +829,7 @@ class ManagePage extends Process
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
             form::email('comment_email', [
                 'size'         => 30,
-                'default'      => Html::escapeHTML(dcCore::app()->auth->getInfo('user_email')),
+                'default'      => Html::escapeHTML(Core::auth()->getInfo('user_email')),
                 'autocomplete' => 'email',
             ]) .
             '</p>' .
@@ -837,7 +837,7 @@ class ManagePage extends Process
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
             form::url('comment_site', [
                 'size'         => 30,
-                'default'      => Html::escapeHTML(dcCore::app()->auth->getInfo('user_url')),
+                'default'      => Html::escapeHTML(Core::auth()->getInfo('user_url')),
                 'autocomplete' => 'url',
             ]) .
             '</p>' .
@@ -900,9 +900,9 @@ class ManagePage extends Process
     protected static function showComments($rs, bool $has_action): void
     {
         // IP are available only for super-admin and admin
-        $show_ip = dcCore::app()->auth->check(
-            dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        $show_ip = Core::auth()->check(
+            Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
             Core::blog()->id
         );

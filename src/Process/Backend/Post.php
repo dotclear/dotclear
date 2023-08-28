@@ -38,16 +38,16 @@ class Post extends Process
     public static function init(): bool
     {
         $params = [];
-        Page::check(dcCore::app()->auth->makePermissions([
+        Page::check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
+        Date::setTZ(Core::auth()->getInfo('user_tz') ?? 'UTC');
 
         // IP are available only for super-admin and admin
-        Core::backend()->show_ip = dcCore::app()->auth->check(
-            dcCore::app()->auth->makePermissions([
+        Core::backend()->show_ip = Core::auth()->check(
+            Core::auth()->makePermissions([
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ]),
             Core::blog()->id
@@ -56,18 +56,18 @@ class Post extends Process
         Core::backend()->post_id            = '';
         Core::backend()->cat_id             = '';
         Core::backend()->post_dt            = '';
-        Core::backend()->post_format        = dcCore::app()->auth->getOption('post_format');
-        Core::backend()->post_editor        = dcCore::app()->auth->getOption('editor');
+        Core::backend()->post_format        = Core::auth()->getOption('post_format');
+        Core::backend()->post_editor        = Core::auth()->getOption('editor');
         Core::backend()->post_password      = '';
         Core::backend()->post_url           = '';
-        Core::backend()->post_lang          = dcCore::app()->auth->getInfo('user_lang');
+        Core::backend()->post_lang          = Core::auth()->getInfo('user_lang');
         Core::backend()->post_title         = '';
         Core::backend()->post_excerpt       = '';
         Core::backend()->post_excerpt_xhtml = '';
         Core::backend()->post_content       = '';
         Core::backend()->post_content_xhtml = '';
         Core::backend()->post_notes         = '';
-        Core::backend()->post_status        = dcCore::app()->auth->getInfo('user_post_status');
+        Core::backend()->post_status        = Core::auth()->getInfo('user_post_status');
         Core::backend()->post_selected      = false;
         Core::backend()->post_open_comment  = Core::blog()->settings->system->allow_comments;
         Core::backend()->post_open_tb       = Core::blog()->settings->system->allow_trackbacks;
@@ -75,11 +75,11 @@ class Post extends Process
         Core::backend()->page_title = __('New post');
 
         Core::backend()->can_view_page = true;
-        Core::backend()->can_edit_post = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        Core::backend()->can_edit_post = Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id);
-        Core::backend()->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        Core::backend()->can_publish = Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id);
@@ -369,7 +369,7 @@ class Post extends Process
         if (!empty($_POST) && !empty($_POST['save']) && Core::backend()->can_edit_post && !Core::backend()->bad_dt) {
             // Create or update post
 
-            if (!empty($_POST['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            if (!empty($_POST['new_cat_title']) && Core::auth()->check(Core::auth()->makePermissions([
                 dcAuth::PERMISSION_CATEGORIES,
             ]), Core::blog()->id)) {
                 // Create category
@@ -437,7 +437,7 @@ class Post extends Process
                     dcCore::app()->error->add($e->getMessage());
                 }
             } else {
-                $cur->user_id = dcCore::app()->auth->userID();
+                $cur->user_id = Core::auth()->userID();
 
                 try {
                     # --BEHAVIOR-- adminBeforePostCreate -- Cursor
@@ -664,7 +664,7 @@ class Post extends Process
                         '<p><label for="cat_id">' . __('Category:') . '</label>' .
                         form::combo('cat_id', Core::backend()->categories_combo, Core::backend()->cat_id, 'maximal') .
                         '</p>' .
-                        (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                        (Core::auth()->check(Core::auth()->makePermissions([
                             dcAuth::PERMISSION_CATEGORIES,
                         ]), Core::blog()->id) ?
                             '<div>' .
@@ -743,7 +743,7 @@ class Post extends Process
                     form::textarea(
                         'post_content',
                         50,
-                        dcCore::app()->auth->getOption('edit_size'),
+                        Core::auth()->getOption('edit_size'),
                         [
                             'default'    => Html::escapeHTML(Core::backend()->post_content),
                             'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . Core::backend()->post_lang . '" spellcheck="true"',
@@ -791,12 +791,12 @@ class Post extends Process
             'accesskey="s" name="save" /> ';
 
             if (Core::backend()->post_id) {
-                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('preview', dcCore::app()->auth->userID() . '/' . Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . Core::backend()->post->post_url);
+                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('preview', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . Core::backend()->post->post_url);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
+                $blank_preview = Core::auth()->user_prefs->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : ' modal';
                 $preview_target = $blank_preview ? '' : ' target="_blank"';
@@ -897,17 +897,17 @@ class Post extends Process
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => Html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
+                'default'    => Html::escapeHTML(Core::auth()->getInfo('user_cn')),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
 
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, Html::escapeHTML(dcCore::app()->auth->getInfo('user_email'))) .
+            form::email('comment_email', 30, 255, Html::escapeHTML(Core::auth()->getInfo('user_email'))) .
             '</p>' .
 
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, Html::escapeHTML(dcCore::app()->auth->getInfo('user_url'))) .
+            form::url('comment_site', 30, 255, Html::escapeHTML(Core::auth()->getInfo('user_url'))) .
             '</p>' .
 
             '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
@@ -916,7 +916,7 @@ class Post extends Process
                 'comment_content',
                 50,
                 8,
-                ['extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"']
+                ['extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"']
             ) .
             '</p>' .
 
@@ -1131,7 +1131,7 @@ class Post extends Process
             '</td>' .
             '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
             '<td class="nowrap">' .
-                '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), Core::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
                 '</time>' .
             '</td>';

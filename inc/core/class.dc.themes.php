@@ -89,7 +89,7 @@ class dcThemes extends dcModules
     protected function defineModule(dcModuleDefine $define)
     {
         // Themes specifics properties
-        $define->set('permissions', dcCore::app()->auth->makePermissions([
+        $define->set('permissions', Core::auth()->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]));
 

@@ -29,9 +29,9 @@ class Comments extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         if (!empty($_POST['delete_all_spam'])) {
@@ -76,9 +76,9 @@ class Comments extends Process
         // Actions
 
         Core::backend()->default_action = '';
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_DELETE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id) && Core::backend()->comment_filter->status == -2) {
             Core::backend()->default_action = 'delete';
         }
@@ -108,9 +108,9 @@ class Comments extends Process
     public static function render(): void
     {
         // IP are available only for super-admin and admin
-        $show_ip = dcCore::app()->auth->check(
-            dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        $show_ip = Core::auth()->check(
+            Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
             Core::blog()->id
         );

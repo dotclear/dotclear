@@ -278,7 +278,7 @@ class ModulesList
     {
         return $this->path_writable
         && (preg_match('!^' . $this->path_pattern . '!', $root) || defined('DC_DEV') && DC_DEV)
-        && dcCore::app()->auth->isSuperAdmin();
+        && Core::auth()->isSuperAdmin();
     }
 
     //@}
@@ -811,7 +811,7 @@ class ModulesList
                 '<th' . (in_array('desc', $cols) ? '' : ' class="maximal"') . '></th>';
         }
 
-        if (!empty($actions) && dcCore::app()->auth->isSuperAdmin()) {
+        if (!empty($actions) && Core::auth()->isSuperAdmin()) {
             echo
             '<th class="minimal nowrap">' . __('Action') . '</th>';
         }
@@ -970,7 +970,7 @@ class ModulesList
                         : '')) . '</td>';
             }
 
-            if (!empty($actions) && dcCore::app()->auth->isSuperAdmin()) {
+            if (!empty($actions) && Core::auth()->isSuperAdmin()) {
                 $buttons = $this->getActions($define, $actions);
 
                 $tds++;
@@ -1066,7 +1066,7 @@ class ModulesList
         if (!$count && $this->getSearch() === null) {
             echo
             '<p class="message">' . __('No plugins matched your search.') . '</p>';
-        } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && dcCore::app()->auth->isSuperAdmin()) {
+        } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && Core::auth()->isSuperAdmin()) {
             $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
 
             if (!empty($buttons)) {
@@ -1108,7 +1108,7 @@ class ModulesList
         }
         if ($config || $index || !empty($settings)) {
             if ($config) {
-                if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                     $params = ['module' => $id, 'conf' => '1'];
                     if (!dcCore::app()->plugins->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = Core::backend()->url->get('admin.plugin.' . $id);
@@ -1122,7 +1122,7 @@ class ModulesList
                 foreach ($settings as $sk => $sv) {
                     switch ($sk) {
                         case 'blog':
-                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                            if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(Core::auth()->makePermissions([
                                 dcAuth::PERMISSION_ADMIN,
                             ]), Core::blog()->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
@@ -1132,7 +1132,7 @@ class ModulesList
 
                             break;
                         case 'pref':
-                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+                            if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(Core::auth()->makePermissions([
                                 dcAuth::PERMISSION_USAGE,
                                 dcAuth::PERMISSION_CONTENT_ADMIN,
                             ]), Core::blog()->id)) {
@@ -1144,7 +1144,7 @@ class ModulesList
                             break;
                         case 'self':
                             if ($self) {
-                                if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                                     $settings_urls[] = '<a class="module-config" href="' .
                                     Core::backend()->url->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
@@ -1155,7 +1155,7 @@ class ModulesList
 
                             break;
                         case 'other':
-                            if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                            if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 $sv .
                                 '">' . __('Plugin settings') . '</a>';
@@ -1166,7 +1166,7 @@ class ModulesList
                 }
             }
             if ($index && $self) {
-                if (!$check || dcCore::app()->auth->isSuperAdmin() || dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
+                if (!$check || Core::auth()->isSuperAdmin() || Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)) {
                     $settings_urls[] = '<a class="module-config" href="' .
                     Core::backend()->url->get('admin.plugin.' . $id) .
                     '">' . __('Plugin main page') . '</a>';
@@ -1202,7 +1202,7 @@ class ModulesList
                 case 'activate':
                     // do not allow activation of duplciate modules already activated
                     $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => dcModuleDefine::STATE_ENABLED])) > 0;
-                    if (dcCore::app()->auth->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
+                    if (Core::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
                         $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
                     }
 
@@ -1210,7 +1210,7 @@ class ModulesList
 
                     # Activate
                 case 'deactivate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $define->get('root_writable') && empty($define->getUsing())) {
+                    if (Core::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getUsing())) {
                         $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
                     }
 
@@ -1218,7 +1218,7 @@ class ModulesList
 
                     # Delete
                 case 'delete':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
+                    if (Core::auth()->isSuperAdmin() && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
                         $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }
@@ -1227,7 +1227,7 @@ class ModulesList
 
                     # Clone
                 case 'clone':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" class="button clone" name="clone[' . Html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
                     }
 
@@ -1235,7 +1235,7 @@ class ModulesList
 
                     # Install (from store)
                 case 'install':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
                     }
 
@@ -1243,7 +1243,7 @@ class ModulesList
 
                     # Update (from store)
                 case 'update':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable && !$define->updLocked()) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable && !$define->updLocked()) {
                         $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
                     }
 
@@ -1283,7 +1283,7 @@ class ModulesList
             switch ($action) {
                 # Deactivate
                 case 'activate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="activate" value="' . (
                             $with_selection ?
                             __('Activate selected plugins') :
@@ -1295,7 +1295,7 @@ class ModulesList
 
                     # Activate
                 case 'deactivate':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="deactivate" value="' . (
                             $with_selection ?
                             __('Deactivate selected plugins') :
@@ -1307,7 +1307,7 @@ class ModulesList
 
                     # Update (from store)
                 case 'update':
-                    if (dcCore::app()->auth->isSuperAdmin() && $this->path_writable) {
+                    if (Core::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = '<input type="submit" name="update" value="' . (
                             $with_selection ?
                             __('Update selected plugins') :
@@ -1350,7 +1350,7 @@ class ModulesList
 
         $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : [];
 
-        if (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['delete'])) {
+        if (Core::auth()->isSuperAdmin() && !empty($_POST['delete'])) {
             if (is_array($_POST['delete'])) {
                 $modules = array_keys($_POST['delete']);
             }
@@ -1391,7 +1391,7 @@ class ModulesList
                 );
             }
             Http::redirect($this->getURL());
-        } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['install'])) {
+        } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['install'])) {
             if (is_array($_POST['install'])) {
                 $modules = array_keys($_POST['install']);
             }
@@ -1423,7 +1423,7 @@ class ModulesList
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
             Http::redirect($this->getURL());
-        } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['activate'])) {
+        } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['activate'])) {
             if (is_array($_POST['activate'])) {
                 $modules = array_keys($_POST['activate']);
             }
@@ -1454,7 +1454,7 @@ class ModulesList
                 __('Plugin has been successfully activated.', 'Plugins have been successuflly activated.', $count)
             );
             Http::redirect($this->getURL());
-        } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
+        } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['deactivate'])) {
             if (is_array($_POST['deactivate'])) {
                 $modules = array_keys($_POST['deactivate']);
             }
@@ -1496,7 +1496,7 @@ class ModulesList
                 );
             }
             Http::redirect($this->getURL());
-        } elseif (dcCore::app()->auth->isSuperAdmin() && !empty($_POST['update'])) {
+        } elseif (Core::auth()->isSuperAdmin() && !empty($_POST['update'])) {
             if (is_array($_POST['update'])) {
                 $modules = array_keys($_POST['update']);
             }
@@ -1554,7 +1554,7 @@ class ModulesList
         # Manual actions
         elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
             || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
-            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
 
@@ -1598,7 +1598,7 @@ class ModulesList
      */
     public function displayManualForm()
     {
-        if (!dcCore::app()->auth->isSuperAdmin() || !$this->isWritablePath()) {
+        if (!Core::auth()->isSuperAdmin() || !$this->isWritablePath()) {
             return;
         }
 
@@ -1698,8 +1698,8 @@ class ModulesList
             return false;
         }
 
-        if (!dcCore::app()->auth->isSuperAdmin()
-            && !dcCore::app()->auth->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)
+        if (!Core::auth()->isSuperAdmin()
+            && !Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)
         ) {
             dcCore::app()->error->add(__('Insufficient permissions'));
 

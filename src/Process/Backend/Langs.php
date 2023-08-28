@@ -127,7 +127,7 @@ class Langs extends Process
         # Download a language pack
         if (Core::backend()->is_writable && !empty($_POST['pkg_url'])) {
             try {
-                if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+                if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
                 }
 
@@ -168,7 +168,7 @@ class Langs extends Process
         # Upload a language pack
         if (Core::backend()->is_writable && !empty($_POST['upload_pkg'])) {
             try {
-                if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+                if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
                 }
 

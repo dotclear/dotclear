@@ -29,13 +29,13 @@ class Comment extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Core::backend()->show_ip = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Core::backend()->show_ip = Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id);
 
         Core::backend()->comment_id      = null;
@@ -51,7 +51,7 @@ class Comment extends Process
         Core::backend()->comment_spam_status = '';
         //
 
-        Core::backend()->comment_editor = dcCore::app()->auth->getOption('editor');
+        Core::backend()->comment_editor = Core::auth()->getOption('editor');
 
         // Status combo
         Core::backend()->status_combo = Combos::getCommentStatusesCombo();
@@ -134,21 +134,21 @@ class Comment extends Process
         $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = false;
 
         if (!dcCore::app()->error->flag() && isset(Core::backend()->rs)) {
-            $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id);
 
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id) && dcCore::app()->auth->userID() == Core::backend()->rs->user_id) {
+            if (!Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), Core::blog()->id) && Core::auth()->userID() == Core::backend()->rs->user_id) {
                 $can_edit = true;
-                if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_DELETE,
+                if (Core::auth()->check(Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_DELETE,
                 ]), Core::blog()->id)) {
                     Core::backend()->can_delete = true;
                 }
-                if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_PUBLISH,
+                if (Core::auth()->check(Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_PUBLISH,
                 ]), Core::blog()->id)) {
                     Core::backend()->can_publish = true;
                 }
@@ -298,7 +298,7 @@ class Comment extends Process
                 10,
                 [
                     'default'    => Html::escapeHTML(Core::backend()->comment_content),
-                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) .
             '</p>' .

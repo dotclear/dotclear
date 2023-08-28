@@ -32,7 +32,7 @@ class rsExtPost
     public static function isEditable(MetaRecord $rs): bool
     {
         # If user is admin or contentadmin, true
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             return true;
@@ -44,10 +44,10 @@ class rsExtPost
         }
 
         # If user is usage and owner of the entry
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
         ]), Core::blog()->id)
-            && $rs->user_id == dcCore::app()->auth->userID()) {
+            && $rs->user_id == Core::auth()->userID()) {
             return true;
         }
 
@@ -64,7 +64,7 @@ class rsExtPost
     public static function isDeletable(MetaRecord $rs): bool
     {
         # If user is admin, or contentadmin, true
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             return true;
@@ -76,10 +76,10 @@ class rsExtPost
         }
 
         # If user has delete rights and is owner of the entrie
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_DELETE,
         ]), Core::blog()->id)
-            && $rs->user_id == dcCore::app()->auth->userID()) {
+            && $rs->user_id == Core::auth()->userID()) {
             return true;
         }
 

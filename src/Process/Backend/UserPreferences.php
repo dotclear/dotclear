@@ -32,56 +32,56 @@ class UserPreferences extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
+        Page::check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
         Core::backend()->page_title = __('My preferences');
 
-        Core::backend()->user_name        = dcCore::app()->auth->getInfo('user_name');
-        Core::backend()->user_firstname   = dcCore::app()->auth->getInfo('user_firstname');
-        Core::backend()->user_displayname = dcCore::app()->auth->getInfo('user_displayname');
-        Core::backend()->user_email       = dcCore::app()->auth->getInfo('user_email');
-        Core::backend()->user_url         = dcCore::app()->auth->getInfo('user_url');
-        Core::backend()->user_lang        = dcCore::app()->auth->getInfo('user_lang');
-        Core::backend()->user_tz          = dcCore::app()->auth->getInfo('user_tz');
-        Core::backend()->user_post_status = dcCore::app()->auth->getInfo('user_post_status');
+        Core::backend()->user_name        = Core::auth()->getInfo('user_name');
+        Core::backend()->user_firstname   = Core::auth()->getInfo('user_firstname');
+        Core::backend()->user_displayname = Core::auth()->getInfo('user_displayname');
+        Core::backend()->user_email       = Core::auth()->getInfo('user_email');
+        Core::backend()->user_url         = Core::auth()->getInfo('user_url');
+        Core::backend()->user_lang        = Core::auth()->getInfo('user_lang');
+        Core::backend()->user_tz          = Core::auth()->getInfo('user_tz');
+        Core::backend()->user_post_status = Core::auth()->getInfo('user_post_status');
 
-        $user_options = dcCore::app()->auth->getOptions();
+        $user_options = Core::auth()->getOptions();
         if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
             $user_options['editor'] = [];
         }
 
-        Core::backend()->user_profile_mails = dcCore::app()->auth->user_prefs->profile->mails;
-        Core::backend()->user_profile_urls  = dcCore::app()->auth->user_prefs->profile->urls;
+        Core::backend()->user_profile_mails = Core::auth()->user_prefs->profile->mails;
+        Core::backend()->user_profile_urls  = Core::auth()->user_prefs->profile->urls;
 
-        Core::backend()->user_dm_doclinks   = dcCore::app()->auth->user_prefs->dashboard->doclinks;
-        Core::backend()->user_dm_dcnews     = dcCore::app()->auth->user_prefs->dashboard->dcnews;
-        Core::backend()->user_dm_quickentry = dcCore::app()->auth->user_prefs->dashboard->quickentry;
-        Core::backend()->user_dm_nofavicons = dcCore::app()->auth->user_prefs->dashboard->nofavicons;
+        Core::backend()->user_dm_doclinks   = Core::auth()->user_prefs->dashboard->doclinks;
+        Core::backend()->user_dm_dcnews     = Core::auth()->user_prefs->dashboard->dcnews;
+        Core::backend()->user_dm_quickentry = Core::auth()->user_prefs->dashboard->quickentry;
+        Core::backend()->user_dm_nofavicons = Core::auth()->user_prefs->dashboard->nofavicons;
         Core::backend()->user_dm_nodcupdate = false;
-        if (dcCore::app()->auth->isSuperAdmin()) {
-            Core::backend()->user_dm_nodcupdate = dcCore::app()->auth->user_prefs->dashboard->nodcupdate;
+        if (Core::auth()->isSuperAdmin()) {
+            Core::backend()->user_dm_nodcupdate = Core::auth()->user_prefs->dashboard->nodcupdate;
         }
 
-        Core::backend()->user_acc_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
+        Core::backend()->user_acc_nodragdrop = Core::auth()->user_prefs->accessibility->nodragdrop;
 
-        Core::backend()->user_ui_theme            = dcCore::app()->auth->user_prefs->interface->theme;
-        Core::backend()->user_ui_enhanceduploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
-        Core::backend()->user_ui_blank_preview    = dcCore::app()->auth->user_prefs->interface->blank_preview;
-        Core::backend()->user_ui_hidemoreinfo     = dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
-        Core::backend()->user_ui_hidehelpbutton   = dcCore::app()->auth->user_prefs->interface->hidehelpbutton;
-        Core::backend()->user_ui_showajaxloader   = dcCore::app()->auth->user_prefs->interface->showajaxloader;
-        Core::backend()->user_ui_htmlfontsize     = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
-        Core::backend()->user_ui_systemfont       = dcCore::app()->auth->user_prefs->interface->systemfont;
+        Core::backend()->user_ui_theme            = Core::auth()->user_prefs->interface->theme;
+        Core::backend()->user_ui_enhanceduploader = Core::auth()->user_prefs->interface->enhanceduploader;
+        Core::backend()->user_ui_blank_preview    = Core::auth()->user_prefs->interface->blank_preview;
+        Core::backend()->user_ui_hidemoreinfo     = Core::auth()->user_prefs->interface->hidemoreinfo;
+        Core::backend()->user_ui_hidehelpbutton   = Core::auth()->user_prefs->interface->hidehelpbutton;
+        Core::backend()->user_ui_showajaxloader   = Core::auth()->user_prefs->interface->showajaxloader;
+        Core::backend()->user_ui_htmlfontsize     = Core::auth()->user_prefs->interface->htmlfontsize;
+        Core::backend()->user_ui_systemfont       = Core::auth()->user_prefs->interface->systemfont;
         Core::backend()->user_ui_hide_std_favicon = false;
-        if (dcCore::app()->auth->isSuperAdmin()) {
-            Core::backend()->user_ui_hide_std_favicon = dcCore::app()->auth->user_prefs->interface->hide_std_favicon;
+        if (Core::auth()->isSuperAdmin()) {
+            Core::backend()->user_ui_hide_std_favicon = Core::auth()->user_prefs->interface->hide_std_favicon;
         }
-        Core::backend()->user_ui_nofavmenu          = dcCore::app()->auth->user_prefs->interface->nofavmenu;
-        Core::backend()->user_ui_media_nb_last_dirs = dcCore::app()->auth->user_prefs->interface->media_nb_last_dirs;
-        Core::backend()->user_ui_nocheckadblocker   = dcCore::app()->auth->user_prefs->interface->nocheckadblocker;
+        Core::backend()->user_ui_nofavmenu          = Core::auth()->user_prefs->interface->nofavmenu;
+        Core::backend()->user_ui_media_nb_last_dirs = Core::auth()->user_prefs->interface->media_nb_last_dirs;
+        Core::backend()->user_ui_nocheckadblocker   = Core::auth()->user_prefs->interface->nocheckadblocker;
 
         Core::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -146,7 +146,7 @@ class UserPreferences extends Process
         # --BEHAVIOR-- adminRteFlagsV2 -- ArrayObject
         Core::behavior()->callBehavior('adminRteFlagsV2', $rte);
         // Load user settings
-        $rte_flags = @dcCore::app()->auth->user_prefs->interface->rte_flags;
+        $rte_flags = @Core::auth()->user_prefs->interface->rte_flags;
         if (is_array($rte_flags)) {
             foreach ($rte_flags as $fk => $fv) {
                 if (isset($rte[$fk])) {
@@ -167,7 +167,7 @@ class UserPreferences extends Process
             __('Ascending')  => 'asc',
         ];
         // All filters
-        Core::backend()->auto_filter = dcCore::app()->auth->user_prefs->interface->auto_filter;
+        Core::backend()->auto_filter = Core::auth()->user_prefs->interface->auto_filter;
 
         return self::status(true);
     }
@@ -178,9 +178,9 @@ class UserPreferences extends Process
             // Update user
 
             try {
-                $pwd_check = !empty($_POST['cur_pwd']) && dcCore::app()->auth->checkPassword($_POST['cur_pwd']);
+                $pwd_check = !empty($_POST['cur_pwd']) && Core::auth()->checkPassword($_POST['cur_pwd']);
 
-                if (dcCore::app()->auth->allowPassChange() && !$pwd_check && Core::backend()->user_email != $_POST['user_email']) {
+                if (Core::auth()->allowPassChange() && !$pwd_check && Core::backend()->user_email != $_POST['user_email']) {
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
@@ -196,7 +196,7 @@ class UserPreferences extends Process
 
                 $cur->user_options = new ArrayObject(Core::backend()->user_options);
 
-                if (dcCore::app()->auth->allowPassChange() && !empty($_POST['new_pwd'])) {
+                if (Core::auth()->allowPassChange() && !empty($_POST['new_pwd'])) {
                     if (!$pwd_check) {
                         throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                     }
@@ -209,10 +209,10 @@ class UserPreferences extends Process
                 }
 
                 # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
-                Core::behavior()->callBehavior('adminBeforeUserProfileUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminBeforeUserProfileUpdate', $cur, Core::auth()->userID());
 
                 // Update user
-                Core::users()->updUser(dcCore::app()->auth->userID(), $cur);
+                Core::users()->updUser(Core::auth()->userID(), $cur);
 
                 // Update profile
                 // Sanitize list of secondary mails and urls if any
@@ -223,11 +223,11 @@ class UserPreferences extends Process
                 if (!empty($_POST['user_profile_urls'])) {
                     $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                 }
-                dcCore::app()->auth->user_prefs->profile->put('mails', $mails, 'string');
-                dcCore::app()->auth->user_prefs->profile->put('urls', $urls, 'string');
+                Core::auth()->user_prefs->profile->put('mails', $mails, 'string');
+                Core::auth()->user_prefs->profile->put('urls', $urls, 'string');
 
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
-                Core::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, Core::auth()->userID());
 
                 Notices::addSuccessNotice(__('Personal information has been successfully updated.'));
 
@@ -270,26 +270,26 @@ class UserPreferences extends Process
                 $cur->user_options = new ArrayObject(Core::backend()->user_options);
 
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, string
-                Core::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, Core::auth()->userID());
 
                 // Update user prefs
-                dcCore::app()->auth->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
-                dcCore::app()->auth->user_prefs->interface->put('theme', $_POST['user_ui_theme'], 'string');
-                dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
-                dcCore::app()->auth->user_prefs->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), 'boolean');
-                dcCore::app()->auth->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
-                dcCore::app()->auth->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
-                dcCore::app()->auth->user_prefs->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
-                dcCore::app()->auth->user_prefs->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
-                dcCore::app()->auth->user_prefs->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
-                if (dcCore::app()->auth->isSuperAdmin()) {
+                Core::auth()->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
+                Core::auth()->user_prefs->interface->put('theme', $_POST['user_ui_theme'], 'string');
+                Core::auth()->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
+                Core::auth()->user_prefs->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), 'boolean');
+                Core::auth()->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
+                Core::auth()->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
+                Core::auth()->user_prefs->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
+                Core::auth()->user_prefs->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
+                Core::auth()->user_prefs->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
+                if (Core::auth()->isSuperAdmin()) {
                     # Applied to all users
-                    dcCore::app()->auth->user_prefs->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
+                    Core::auth()->user_prefs->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
                 }
-                dcCore::app()->auth->user_prefs->interface->put('media_nb_last_dirs', (int) $_POST['user_ui_media_nb_last_dirs'], 'integer');
-                dcCore::app()->auth->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
-                dcCore::app()->auth->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
-                dcCore::app()->auth->user_prefs->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
+                Core::auth()->user_prefs->interface->put('media_nb_last_dirs', (int) $_POST['user_ui_media_nb_last_dirs'], 'integer');
+                Core::auth()->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
+                Core::auth()->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
+                Core::auth()->user_prefs->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
 
                 // Update user columns (lists)
                 $cu = [];
@@ -308,7 +308,7 @@ class UserPreferences extends Process
                         $cu[$col_type] = $ct;
                     }
                 }
-                dcCore::app()->auth->user_prefs->interface->put('cols', $cu, 'array');
+                Core::auth()->user_prefs->interface->put('cols', $cu, 'array');
 
                 // Update user lists options
                 $su = [];
@@ -329,22 +329,22 @@ class UserPreferences extends Process
                         $su[$sort_type][2] = isset($_POST[$k]) ? abs((int) $_POST[$k]) : $sort_data[4][1];
                     }
                 }
-                dcCore::app()->auth->user_prefs->interface->put('sorts', $su, 'array');
+                Core::auth()->user_prefs->interface->put('sorts', $su, 'array');
                 // All filters
-                dcCore::app()->auth->user_prefs->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), 'boolean');
+                Core::auth()->user_prefs->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), 'boolean');
 
                 // Update user HTML editor flags
                 $rf = [];
                 foreach (Core::backend()->rte as $rk => $rv) {
                     $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true) ? true : false;
                 }
-                dcCore::app()->auth->user_prefs->interface->put('rte_flags', $rf, 'array');
+                Core::auth()->user_prefs->interface->put('rte_flags', $rf, 'array');
 
                 // Update user
-                Core::users()->updUser(dcCore::app()->auth->userID(), $cur);
+                Core::users()->updUser(Core::auth()->userID(), $cur);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
-                Core::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, Core::auth()->userID());
 
                 Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-options');
@@ -358,20 +358,20 @@ class UserPreferences extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- string
-                Core::behavior()->callBehavior('adminBeforeDashboardOptionsUpdate', dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminBeforeDashboardOptionsUpdate', Core::auth()->userID());
 
                 // Update user prefs
-                dcCore::app()->auth->user_prefs->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), 'boolean');
-                dcCore::app()->auth->user_prefs->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), 'boolean');
-                dcCore::app()->auth->user_prefs->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), 'boolean');
-                dcCore::app()->auth->user_prefs->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), 'boolean');
-                if (dcCore::app()->auth->isSuperAdmin()) {
-                    dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), 'boolean');
+                Core::auth()->user_prefs->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), 'boolean');
+                Core::auth()->user_prefs->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), 'boolean');
+                Core::auth()->user_prefs->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), 'boolean');
+                Core::auth()->user_prefs->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), 'boolean');
+                if (Core::auth()->isSuperAdmin()) {
+                    Core::auth()->user_prefs->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), 'boolean');
                 }
-                dcCore::app()->auth->user_prefs->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
+                Core::auth()->user_prefs->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
-                Core::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', Core::auth()->userID());
 
                 Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
@@ -457,7 +457,7 @@ class UserPreferences extends Process
             }
         }
 
-        if (!empty($_POST['replace']) && dcCore::app()->auth->isSuperAdmin()) {
+        if (!empty($_POST['replace']) && Core::auth()->isSuperAdmin()) {
             // Replace default favorites by current set (super admin only)
 
             $user_favs = Core::backend()->favs->getFavoriteIDs(false);
@@ -472,10 +472,10 @@ class UserPreferences extends Process
         if (!empty($_POST['resetorder'])) {
             // Reset dashboard items order
 
-            dcCore::app()->auth->user_prefs->dashboard->drop('main_order');
-            dcCore::app()->auth->user_prefs->dashboard->drop('boxes_order');
-            dcCore::app()->auth->user_prefs->dashboard->drop('boxes_items_order');
-            dcCore::app()->auth->user_prefs->dashboard->drop('boxes_contents_order');
+            Core::auth()->user_prefs->dashboard->drop('main_order');
+            Core::auth()->user_prefs->dashboard->drop('boxes_order');
+            Core::auth()->user_prefs->dashboard->drop('boxes_items_order');
+            Core::auth()->user_prefs->dashboard->drop('boxes_contents_order');
 
             if (!dcCore::app()->error->flag()) {
                 Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
@@ -508,7 +508,7 @@ class UserPreferences extends Process
             Core::behavior()->callBehavior('adminPreferencesHeaders'),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->auth->userID()) => '',
+                    Html::escapeHTML(Core::auth()->userID()) => '',
                     Core::backend()->page_title                => '',
                 ]
             )
@@ -576,7 +576,7 @@ class UserPreferences extends Process
         '<p><label for="user_tz">' . __('My timezone:') . '</label>' .
         form::combo('user_tz', Date::getZones(true, true), Core::backend()->user_tz) . '</p>';
 
-        if (dcCore::app()->auth->allowPassChange()) {
+        if (Core::auth()->allowPassChange()) {
             echo
             '<h4 class="vertical-separator pretty-title">' . __('Change my password') . '</h4>' .
             '<p><label for="new_pwd">' . __('New password:') . '</label>' .
@@ -668,7 +668,7 @@ class UserPreferences extends Process
         form::number('user_ui_media_nb_last_dirs', 0, 999, (string) Core::backend()->user_ui_media_nb_last_dirs, '', '', false, 'aria-describedby="user_ui_media_nb_last_dirs_help"') . '</p>' .
         '<p class="clear form-note" id="user_ui_media_nb_last_dirs_help">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             echo
             '<p><label for="user_ui_hide_std_favicon" class="classic">' .
             form::checkbox('user_ui_hide_std_favicon', 1, Core::backend()->user_ui_hide_std_favicon, '', '', false, 'aria-describedby="user_ui_hide_std_favicon_help"') . ' ' .
@@ -859,7 +859,7 @@ class UserPreferences extends Process
                 __('Are you sure you want to remove selected favorites?')
             ) . '\');" /></p>' .
 
-            (dcCore::app()->auth->isSuperAdmin() ?
+            (Core::auth()->isSuperAdmin() ?
                 '<div class="info">' .
                 '<p>' . __('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.') . '</p>' .
                 '<p><input class="reset action" type="submit" name="replace" value="' . __('Define as default favorites') . '" />' . '</p>' .
@@ -958,7 +958,7 @@ class UserPreferences extends Process
         form::checkbox('user_dm_quickentry', 1, Core::backend()->user_dm_quickentry) . ' ' .
         __('Display quick entry form') . '</label></p>';
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             echo
             '<p><label for="user_dm_nodcupdate" class="classic">' .
             form::checkbox('user_dm_nodcupdate', 1, Core::backend()->user_dm_nodcupdate) . ' ' .

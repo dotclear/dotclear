@@ -35,7 +35,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->auth->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
+        Core::auth()->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
 
         Core::behavior()->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
@@ -44,10 +44,10 @@ class Backend extends Process
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => dcCore::app()->auth->makePermissions([
+                    'permissions' => Core::auth()->makePermissions([
                         initBlogroll::PERMISSION_BLOGROLL,
-                        dcCore::app()->auth::PERMISSION_USAGE,
-                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                        Core::auth()::PERMISSION_USAGE,
+                        Core::auth()::PERMISSION_CONTENT_ADMIN,
                     ]),
                 ]);
             },

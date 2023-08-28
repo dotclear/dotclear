@@ -63,7 +63,7 @@ class BlogDel extends Process
     {
         if (!dcCore::app()->error->flag() && Core::backend()->blog_id && !empty($_POST['del'])) {
             // Delete the blog
-            if (!dcCore::app()->auth->checkPassword($_POST['pwd'])) {
+            if (!Core::auth()->checkPassword($_POST['pwd'])) {
                 dcCore::app()->error->add(__('Password verification failed'));
             } else {
                 try {

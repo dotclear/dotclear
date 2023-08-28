@@ -139,7 +139,7 @@ class FlatImportV2 extends FlatBackup
             throw new Exception(__('File is not a single blog export.'));
         }
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
@@ -262,7 +262,7 @@ class FlatImportV2 extends FlatBackup
             throw new Exception(__('File is not a full export.'));
         }
 
-        if (!dcCore::app()->auth->isSuperAdmin()) {
+        if (!Core::auth()->isSuperAdmin()) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -739,7 +739,7 @@ class FlatImportV2 extends FlatBackup
     public function getUserId($user_id)
     {
         if (!$this->userExists($user_id)) {
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (Core::auth()->isSuperAdmin()) {
                 # Sanitizes user_id and create a lambda user
                 $user_id = preg_replace('/[^A-Za-z0-9]$/', '', (string) $user_id);
                 $user_id .= strlen($user_id) < 2 ? '-a' : '';
@@ -756,7 +756,7 @@ class FlatImportV2 extends FlatBackup
                 }
             } else {
                 # Returns current user id
-                $user_id = dcCore::app()->auth->userID();
+                $user_id = Core::auth()->userID();
             }
         }
 

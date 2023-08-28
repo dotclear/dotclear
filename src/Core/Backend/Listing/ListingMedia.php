@@ -214,7 +214,7 @@ class ListingMedia extends Listing
             if (!$file->d) {
                 $lst .= '<li>' . ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
                 '<li>' .
-                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), Core::auth()->getInfo('user_tz')) . '">' .
                 $file->media_dtstr .
                 '</time>' .
                 ' - ' .
@@ -239,7 +239,7 @@ class ListingMedia extends Listing
                 '<br />' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
             $res .= '<td class="nowrap count">' . (
                 $file->d ? '' :
-                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), Core::auth()->getInfo('user_tz')) . '">' .
                 $file->media_dtstr .
                 '</time>'
             ) . '</td>';

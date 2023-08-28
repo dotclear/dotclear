@@ -63,7 +63,7 @@ class IpLookup extends SpamFilter
     {
         parent::__construct();
 
-        if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !dcCore::app()->auth->isSuperAdmin()) {
+        if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !Core::auth()->isSuperAdmin()) {
             $this->has_gui = false;
         }
     }

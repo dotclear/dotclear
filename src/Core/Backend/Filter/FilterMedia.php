@@ -99,13 +99,13 @@ class FilterMedia extends Filters
 
     protected function getDirFilter(): Filter
     {
-        $get = $_REQUEST['d'] ?? dcCore::app()->auth->user_prefs->interface->media_manager_dir ?? null;
+        $get = $_REQUEST['d'] ?? Core::auth()->user_prefs->interface->media_manager_dir ?? null;
         if ($get) {
             // Store current dir in user pref
-            dcCore::app()->auth->user_prefs->interface->put('media_manager_dir', $get, 'string');
+            Core::auth()->user_prefs->interface->put('media_manager_dir', $get, 'string');
         } else {
             // Remove current dir from user pref
-            dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
+            Core::auth()->user_prefs->interface->drop('media_manager_dir');
         }
 
         return new Filter('d', $get);
@@ -113,13 +113,13 @@ class FilterMedia extends Filters
 
     protected function getFileModeFilter(): Filter
     {
-        $get = $_REQUEST['file_mode'] ?? $get = dcCore::app()->auth->user_prefs->interface->media_file_mode ?? null;
+        $get = $_REQUEST['file_mode'] ?? $get = Core::auth()->user_prefs->interface->media_file_mode ?? null;
         if ($get) {
             // Store current view in user pref
-            dcCore::app()->auth->user_prefs->interface->put('media_file_mode', $get, 'string');
+            Core::auth()->user_prefs->interface->put('media_file_mode', $get, 'string');
         } else {
             // Remove current view from user pref
-            dcCore::app()->auth->user_prefs->interface->drop('media_file_mode');
+            Core::auth()->user_prefs->interface->drop('media_file_mode');
             $get = 'grid';
         }
 

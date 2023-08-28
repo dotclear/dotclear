@@ -184,8 +184,8 @@ class SpamFilter
      */
     public function hasGUI(): bool
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
+        if (!Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_ADMIN,
         ]), Core::blog()->id)) {
             return false;
         }

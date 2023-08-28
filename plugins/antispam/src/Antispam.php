@@ -194,8 +194,8 @@ class Antispam extends initAntispam
      */
     public static function getUserCode(): string
     {
-        $code = pack('a32', dcCore::app()->auth->userID()) .
-        hash(DC_CRYPT_ALGO, dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->getInfo('user_pwd')));
+        $code = pack('a32', Core::auth()->userID()) .
+        hash(DC_CRYPT_ALGO, Core::auth()->cryptLegacy(Core::auth()->getInfo('user_pwd')));
 
         return bin2hex($code);
     }
@@ -228,7 +228,7 @@ class Antispam extends initAntispam
             return false;
         }
 
-        if (hash(DC_CRYPT_ALGO, dcCore::app()->auth->cryptLegacy($rs->user_pwd)) != $pwd) {
+        if (hash(DC_CRYPT_ALGO, Core::auth()->cryptLegacy($rs->user_pwd)) != $pwd) {
             return false;
         }
 

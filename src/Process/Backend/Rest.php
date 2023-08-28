@@ -112,7 +112,7 @@ class Rest extends Process
             'ret'   => __('Dotclear news not available'),
         ];
 
-        if (dcCore::app()->auth->user_prefs->dashboard->dcnews) {
+        if (Core::auth()->user_prefs->dashboard->dcnews) {
             try {
                 if ('' == ($rss_news = Core::backend()->resources->entry('rss_news', 'Dotclear'))) {
                     throw new Exception();
@@ -166,7 +166,7 @@ class Rest extends Process
             'ret'   => __('Dotclear update not available'),
         ];
 
-        if (dcCore::app()->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !dcCore::app()->auth->user_prefs->dashboard->nodcupdate) {
+        if (Core::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !Core::auth()->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);
             $version_info = $new_v ? $updater->getInfoURL() : '';
@@ -196,7 +196,7 @@ class Rest extends Process
                 ];
             } else {
                 if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
-                    if (!dcCore::app()->auth->user_prefs->interface->hidemoreinfo) {
+                    if (!Core::auth()->user_prefs->interface->hidemoreinfo) {
                         $ret = '<p class="info">' .
                         sprintf(
                             __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
@@ -397,9 +397,9 @@ class Rest extends Process
 
             'comment_display_content' => $rs->getContent(true),
 
-            'comment_ip'        => dcCore::app()->auth->userID() ? $rs->comment_ip : '',
-            'comment_email'     => dcCore::app()->auth->userID() ? $rs->comment_email : '',
-            'comment_spam_disp' => dcCore::app()->auth->userID() ? Antispam::statusMessage($rs) : '',
+            'comment_ip'        => Core::auth()->userID() ? $rs->comment_ip : '',
+            'comment_email'     => Core::auth()->userID() ? $rs->comment_email : '',
+            'comment_spam_disp' => Core::auth()->userID() ? Antispam::statusMessage($rs) : '',
         ];
 
         return $data;
@@ -416,7 +416,7 @@ class Rest extends Process
     public static function quickPost(array $get, array $post): array
     {
         # Create category
-        if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!empty($post['new_cat_title']) && Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
         ]), Core::blog()->id)) {
             $cur_cat            = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
@@ -437,7 +437,7 @@ class Rest extends Process
         $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
-        $cur->user_id           = dcCore::app()->auth->userID();
+        $cur->user_id           = Core::auth()->userID();
         $cur->post_content      = !empty($post['post_content']) ? $post['post_content'] : '';
         $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
@@ -480,7 +480,7 @@ class Rest extends Process
 
         $id = (int) $get['id'];
 
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!Core::auth()->check(Core::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
@@ -745,8 +745,8 @@ class Rest extends Process
         }
         $section = $post['section'];
         $status  = isset($post['value']) && ($post['value'] != 0);
-        if (dcCore::app()->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
-            $toggles = explode(',', trim((string) dcCore::app()->auth->user_prefs->toggles->unfolded_sections));
+        if (Core::auth()->user_prefs->toggles->prefExists('unfolded_sections')) {
+            $toggles = explode(',', trim((string) Core::auth()->user_prefs->toggles->unfolded_sections));
         } else {
             $toggles = [];
         }
@@ -762,7 +762,7 @@ class Rest extends Process
                 $toggles[] = $section;
             }
         }
-        dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
+        Core::auth()->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
 
         return true;
     }
@@ -789,7 +789,7 @@ class Rest extends Process
         $zone  = $post['id'];
         $order = $post['list'];
 
-        dcCore::app()->auth->user_prefs->dashboard->put($zone, $order);
+        Core::auth()->user_prefs->dashboard->put($zone, $order);
 
         return true;
     }
@@ -832,7 +832,7 @@ class Rest extends Process
             }
         }
 
-        dcCore::app()->auth->user_prefs->interface->put('sorts', $su, 'array');
+        Core::auth()->user_prefs->interface->put('sorts', $su, 'array');
 
         return [
             'msg' => __('List options saved'),

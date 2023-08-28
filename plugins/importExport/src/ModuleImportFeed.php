@@ -186,7 +186,7 @@ class ModuleImportFeed extends Module
         Core::con()->begin();
         foreach ($feed->items as $item) {
             $cur->clean();
-            $cur->user_id      = dcCore::app()->auth->userID();
+            $cur->user_id      = Core::auth()->userID();
             $cur->post_content = $item->content ?: $item->description;
             $cur->post_title   = $item->title ?: Text::cutString(Html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';

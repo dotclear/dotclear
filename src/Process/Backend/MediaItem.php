@@ -34,9 +34,9 @@ class MediaItem extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_MEDIA,
-            dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_MEDIA,
+            Core::auth()::PERMISSION_MEDIA_ADMIN,
         ]));
 
         Core::backend()->tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
@@ -1013,7 +1013,7 @@ class MediaItem extends Process
                 255,
                 [
                     'default'    => Html::escapeHTML(Core::backend()->file->media_title),
-                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) . '</p>';
 
@@ -1026,7 +1026,7 @@ class MediaItem extends Process
                     255,
                     [
                         'default'    => Html::escapeHTML($getImageDescription(Core::backend()->file, '')),
-                        'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                        'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
                     ]
                 ) . '</p>' .
                 '<p><label for="media_dt">' . __('File date:') . '</label>';

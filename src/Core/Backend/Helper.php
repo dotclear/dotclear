@@ -61,7 +61,7 @@ class Helper
      */
     public static function loadLocales()
     {
-        dcCore::app()->lang = (string) dcCore::app()->auth->getInfo('user_lang');
+        dcCore::app()->lang = (string) Core::auth()->getInfo('user_lang');
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
         L10n::lang(dcCore::app()->lang);

@@ -649,7 +649,7 @@ class Url extends UrlHandler
             $user_id  = $m[1];
             $user_key = $m[2];
             $post_url = $m[3];
-            if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
+            if (!Core::auth()->checkUser($user_id, null, $user_key)) {
                 // The user has no access to the entry.
                 self::p404();
             } else {
@@ -681,7 +681,7 @@ class Url extends UrlHandler
             $user_id  = $m[1];
             $user_key = $m[2];
             $theme    = $m[3];
-            if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
+            if (!Core::auth()->checkUser($user_id, null, $user_key)) {
                 // The user has no access to the theme preview.
                 self::p404();
             } else {

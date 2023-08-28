@@ -42,7 +42,7 @@ class Install extends Process
                 My::settings()->put('firstpage', true, 'boolean');
 
                 $cur                     = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
-                $cur->user_id            = dcCore::app()->auth->userID();
+                $cur->user_id            = Core::auth()->userID();
                 $cur->post_type          = 'page';
                 $cur->post_format        = 'xhtml';
                 $cur->post_lang          = Core::blog()->settings->system->lang;

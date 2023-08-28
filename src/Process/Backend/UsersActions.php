@@ -85,7 +85,7 @@ class UsersActions extends Process
                 // Delete users
                 foreach (Core::backend()->users as $u) {
                     try {
-                        if ($u == dcCore::app()->auth->userID()) {
+                        if ($u == Core::auth()->userID()) {
                             throw new Exception(__('You cannot delete yourself.'));
                         }
 
@@ -106,7 +106,7 @@ class UsersActions extends Process
             if (Core::backend()->action == 'updateperm' && !empty(Core::backend()->users) && !empty(Core::backend()->blogs)) {
                 // Update users perms
                 try {
-                    if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+                    if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
                         throw new Exception(__('Password verification failed'));
                     }
 
@@ -289,7 +289,7 @@ class UsersActions extends Process
                 '<h3>' . ('Blog:') . ' <a href="' . Core::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
                 $unknown_perms = $user_perm;
-                foreach (dcCore::app()->auth->getPermissionsTypes() as $perm_id => $perm) {
+                foreach (Core::auth()->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;
 
                     if ((is_countable(Core::backend()->users) ? count(Core::backend()->users) : 0) == 1) {

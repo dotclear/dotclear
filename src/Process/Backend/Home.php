@@ -36,16 +36,16 @@ class Home extends Process
 
         if (!empty($_GET['default_blog'])) {
             try {
-                Core::users()->setUserDefaultBlog(dcCore::app()->auth->userID(), Core::blog()->id);
+                Core::users()->setUserDefaultBlog(Core::auth()->userID(), Core::blog()->id);
                 Core::backend()->url->redirect('admin.home');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
         }
 
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         $disabled = dcCore::app()->plugins->disableDepModules();
@@ -89,34 +89,34 @@ class Home extends Process
     public static function render(): void
     {
         // Check dashboard module prefs
-        if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('doclinks')) {
-            if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('doclinks', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
+        if (!Core::auth()->user_prefs->dashboard->prefExists('doclinks')) {
+            if (!Core::auth()->user_prefs->dashboard->prefExists('doclinks', true)) {
+                Core::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
             }
-            dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean');
+            Core::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean');
         }
-        if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('dcnews')) {
-            if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('dcnews', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
+        if (!Core::auth()->user_prefs->dashboard->prefExists('dcnews')) {
+            if (!Core::auth()->user_prefs->dashboard->prefExists('dcnews', true)) {
+                Core::auth()->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
             }
-            dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean');
+            Core::auth()->user_prefs->dashboard->put('dcnews', true, 'boolean');
         }
-        if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('quickentry')) {
-            if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('quickentry', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('quickentry', false, 'boolean', '', false, true);
+        if (!Core::auth()->user_prefs->dashboard->prefExists('quickentry')) {
+            if (!Core::auth()->user_prefs->dashboard->prefExists('quickentry', true)) {
+                Core::auth()->user_prefs->dashboard->put('quickentry', false, 'boolean', '', false, true);
             }
-            dcCore::app()->auth->user_prefs->dashboard->put('quickentry', false, 'boolean');
+            Core::auth()->user_prefs->dashboard->put('quickentry', false, 'boolean');
         }
-        if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('nodcupdate')) {
-            if (!dcCore::app()->auth->user_prefs->dashboard->prefExists('nodcupdate', true)) {
-                dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+        if (!Core::auth()->user_prefs->dashboard->prefExists('nodcupdate')) {
+            if (!Core::auth()->user_prefs->dashboard->prefExists('nodcupdate', true)) {
+                Core::auth()->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
             }
-            dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean');
+            Core::auth()->user_prefs->dashboard->put('nodcupdate', false, 'boolean');
         }
 
         // Handle folded/unfolded sections in admin from user preferences
-        if (!dcCore::app()->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
-            dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
+        if (!Core::auth()->user_prefs->toggles->prefExists('unfolded_sections')) {
+            Core::auth()->user_prefs->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
         }
 
         // Dashboard icons
@@ -128,7 +128,7 @@ class Home extends Process
         $dashboardItem     = 0;
 
         // Documentation links
-        if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(Core::backend()->resources->entries('doc'))) {
+        if (Core::auth()->user_prefs->dashboard->doclinks && !empty(Core::backend()->resources->entries('doc'))) {
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
             foreach (Core::backend()->resources->entries('doc') as $k => $v) {
@@ -151,13 +151,13 @@ class Home extends Process
         // Editor stuff
         $quickentry          = '';
         $admin_post_behavior = '';
-        if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
-            if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_USAGE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->user_prefs->dashboard->quickentry) {
+            if (Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_USAGE,
+                Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id)) {
-                $post_format = dcCore::app()->auth->getOption('post_format');
-                $post_editor = dcCore::app()->auth->getOption('editor');
+                $post_format = Core::auth()->getOption('post_format');
+                $post_editor = Core::auth()->getOption('editor');
                 if ($post_editor && !empty($post_editor[$post_format])) {
                     # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
                     $admin_post_behavior = Core::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
@@ -172,7 +172,7 @@ class Home extends Process
         // Dashboard drag'n'drop switch for its elements
         $dragndrop      = '';
         $dragndrop_head = '';
-        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+        if (!Core::auth()->user_prefs->accessibility->nodragdrop) {
             $dragndrop_msg = [
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
@@ -207,7 +207,7 @@ class Home extends Process
             )
         );
 
-        if (dcCore::app()->auth->getInfo('user_default_blog') != Core::blog()->id && dcCore::app()->auth->getBlogCount() > 1) {
+        if (Core::auth()->getInfo('user_default_blog') != Core::blog()->id && Core::auth()->getBlogCount() > 1) {
             echo
             '<p><a href="' . Core::backend()->url->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
         }
@@ -237,7 +237,7 @@ class Home extends Process
         $err = [];
 
         // Check cache directory
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
                 $err[] = __('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.');
             }
@@ -248,7 +248,7 @@ class Home extends Process
         }
 
         // Check public directory
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             if (!is_dir(Core::blog()->public_path) || !is_writable(Core::blog()->public_path)) {
                 $err[] = __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).');
             }
@@ -301,7 +301,7 @@ class Home extends Process
         }
 
         // Errors modules notifications
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (Core::auth()->isSuperAdmin()) {
             $list = dcCore::app()->plugins->getErrors();
             if (!empty($list)) {
                 Notices::error(
@@ -314,19 +314,19 @@ class Home extends Process
         }
 
         // Get current main orders
-        $main_order = dcCore::app()->auth->user_prefs->dashboard->main_order;
+        $main_order = Core::auth()->user_prefs->dashboard->main_order;
         $main_order = ($main_order != '' ? explode(',', $main_order) : []);
 
         // Get current boxes orders
-        $boxes_order = dcCore::app()->auth->user_prefs->dashboard->boxes_order;
+        $boxes_order = Core::auth()->user_prefs->dashboard->boxes_order;
         $boxes_order = ($boxes_order != '' ? explode(',', $boxes_order) : []);
 
         // Get current boxes items orders
-        $boxes_items_order = dcCore::app()->auth->user_prefs->dashboard->boxes_items_order;
+        $boxes_items_order = Core::auth()->user_prefs->dashboard->boxes_items_order;
         $boxes_items_order = ($boxes_items_order != '' ? explode(',', $boxes_items_order) : []);
 
         // Get current boxes contents orders
-        $boxes_contents_order = dcCore::app()->auth->user_prefs->dashboard->boxes_contents_order;
+        $boxes_contents_order = Core::auth()->user_prefs->dashboard->boxes_contents_order;
         $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
         $composeItems = function ($list, $blocks, $flat = false) {
@@ -399,7 +399,7 @@ class Home extends Process
 
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
-        if (!dcCore::app()->auth->user_prefs->dashboard->nofavicons) {
+        if (!Core::auth()->user_prefs->dashboard->nofavicons) {
             // Dashboard icons
 
             $dashboardIcons = '<div id="icons">';
@@ -411,9 +411,9 @@ class Home extends Process
             $__dashboard_main[] = $dashboardIcons;
         }
 
-        if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        if (Core::auth()->user_prefs->dashboard->quickentry && Core::auth()->check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_USAGE,
+            Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
             // Quick entry
 
@@ -423,7 +423,7 @@ class Home extends Process
             );
 
             $__dashboard_main[] = '<div id="quick">' .
-                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(dcCore::app()->auth->getOption('post_format'))) . '</h3>' .
+                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(Core::auth()->getOption('post_format'))) . '</h3>' .
                 '<form id="quick-entry" action="' . Core::backend()->url->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
                 '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
@@ -438,8 +438,8 @@ class Home extends Process
                 '</div>' .
                 '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
                 form::combo('cat_id', $categories_combo) . '</p>' .
-                (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_CATEGORIES,
+                (Core::auth()->check(Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_CATEGORIES,
                 ]), Core::blog()->id)
                     ? '<div>' .
                     '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
@@ -452,16 +452,16 @@ class Home extends Process
                     '</div>'
                     : '') .
                 '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
-                (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                    dcCore::app()->auth::PERMISSION_PUBLISH,
+                (Core::auth()->check(Core::auth()->makePermissions([
+                    Core::auth()::PERMISSION_PUBLISH,
                 ]), Core::blog()->id)
                     ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
                     : '') .
                 Core::nonce()->getFormNonce() .
                 form::hidden('post_status', dcBlog::POST_PENDING) .
-                form::hidden('post_format', dcCore::app()->auth->getOption('post_format')) .
+                form::hidden('post_format', Core::auth()->getOption('post_format')) .
                 form::hidden('post_excerpt', '') .
-                form::hidden('post_lang', dcCore::app()->auth->getInfo('user_lang')) .
+                form::hidden('post_lang', Core::auth()->getInfo('user_lang')) .
                 form::hidden('post_notes', '') .
                 '</p>' .
                 '</form>' .

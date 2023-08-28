@@ -26,8 +26,8 @@ class Categories extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CATEGORIES,
+        Page::check(Core::auth()->makePermissions([
+            Core::auth()::PERMISSION_CATEGORIES,
         ]));
 
         return self::status(true);
@@ -125,9 +125,9 @@ class Categories extends Process
 
         $starting_script = '';
 
-        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop
-            && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CATEGORIES,
+        if (!Core::auth()->user_prefs->accessibility->nodragdrop
+            && Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CATEGORIES,
             ]), Core::blog()->id)
             && $rs->count() > 1) {
             $starting_script .= Page::jsLoad('js/jquery/jquery-ui.custom.js');
@@ -224,10 +224,10 @@ class Categories extends Process
 
             echo '<div class="clear">';
 
-            if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CATEGORIES,
+            if (Core::auth()->check(Core::auth()->makePermissions([
+                Core::auth()::PERMISSION_CATEGORIES,
             ]), Core::blog()->id) && $rs->count() > 1) {
-                if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+                if (!Core::auth()->user_prefs->accessibility->nodragdrop) {
                     echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
                 }
                 echo

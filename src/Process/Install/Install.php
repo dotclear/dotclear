@@ -152,7 +152,7 @@ class Install extends Process
                 $cur                 = Core::con()->openCursor(Core::con()->prefix() . dcAuth::USER_TABLE_NAME);
                 $cur->user_id        = self::$u_login;
                 $cur->user_super     = 1;
-                $cur->user_pwd       = dcCore::app()->auth->crypt(self::$u_pwd);
+                $cur->user_pwd       = Core::auth()->crypt(self::$u_pwd);
                 $cur->user_name      = (string) self::$u_name;
                 $cur->user_firstname = (string) self::$u_firstname;
                 $cur->user_email     = (string) self::$u_email;
@@ -163,7 +163,7 @@ class Install extends Process
                 $cur->user_options   = serialize(Core::users()->userDefaults());
                 $cur->insert();
 
-                dcCore::app()->auth->checkUser(self::$u_login);
+                Core::auth()->checkUser(self::$u_login);
 
                 self::$admin_url = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
                 self::$root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
@@ -287,16 +287,16 @@ class Install extends Process
                 self::$plugins_install = dcCore::app()->plugins->installModules();
 
                 # Add dashboard module options
-                dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
-                dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
-                dcCore::app()->auth->user_prefs->dashboard->put('quickentry', true, 'boolean', '', false, true);
-                dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+                Core::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
+                Core::auth()->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
+                Core::auth()->user_prefs->dashboard->put('quickentry', true, 'boolean', '', false, true);
+                Core::auth()->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
 
                 # Add accessibility options
-                dcCore::app()->auth->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
+                Core::auth()->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
 
                 # Add user interface options
-                dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', false, true);
+                Core::auth()->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', false, true);
 
                 # Add default favorites
                 $favs      = new Favorites();
