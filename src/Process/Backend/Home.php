@@ -73,7 +73,7 @@ class Home extends Process
                 dcCore::app()->rest->enableRestServer(true);
             }
             // Kill admin session
-            dcCore::app()->killAdminSession();
+            dcCore::app()->admin->killAdminSession();
             // Logout
             dcCore::app()->admin->url->redirect('admin.auth');
             exit;

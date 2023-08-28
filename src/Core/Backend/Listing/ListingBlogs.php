@@ -149,7 +149,7 @@ class ListingBlogs extends Listing
             sprintf(
                 '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
                 ($this->rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
-                dcCore::app()->getBlogStatus((int) $this->rs->blog_status)
+                dcCore::app()->blogs->getBlogStatus((int) $this->rs->blog_status)
             ) .
             '</td>',
         ];
