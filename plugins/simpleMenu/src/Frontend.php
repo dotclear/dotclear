@@ -32,7 +32,7 @@ class Frontend extends Process
         Core::behavior()->addBehavior('initWidgets', [Widgets::class, 'initWidgets']);
 
         // Simple menu template functions
-        dcCore::app()->tpl->addValue('SimpleMenu', [FrontendTemplate::class, 'simpleMenu']);
+        Core::frontend()->tpl->addValue('SimpleMenu', [FrontendTemplate::class, 'simpleMenu']);
 
         return true;
     }

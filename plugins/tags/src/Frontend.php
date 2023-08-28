@@ -29,30 +29,30 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->tpl->addBlock('Tags', [FrontendTemplate::class, 'Tags']);
-        dcCore::app()->tpl->addBlock('TagsHeader', [FrontendTemplate::class, 'TagsHeader']);
-        dcCore::app()->tpl->addBlock('TagsFooter', [FrontendTemplate::class, 'TagsFooter']);
-        dcCore::app()->tpl->addBlock('EntryTags', [FrontendTemplate::class, 'EntryTags']);
-        dcCore::app()->tpl->addBlock('TagIf', [FrontendTemplate::class, 'TagIf']);
-        dcCore::app()->tpl->addValue('TagID', [FrontendTemplate::class, 'TagID']);
-        dcCore::app()->tpl->addValue('TagCount', [FrontendTemplate::class, 'TagCount']);
-        dcCore::app()->tpl->addValue('TagPercent', [FrontendTemplate::class, 'TagPercent']);
-        dcCore::app()->tpl->addValue('TagRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
-        dcCore::app()->tpl->addValue('TagURL', [FrontendTemplate::class, 'TagURL']);
-        dcCore::app()->tpl->addValue('TagCloudURL', [FrontendTemplate::class, 'TagCloudURL']);
-        dcCore::app()->tpl->addValue('TagFeedURL', [FrontendTemplate::class, 'TagFeedURL']);
+        Core::frontend()->tpl->addBlock('Tags', [FrontendTemplate::class, 'Tags']);
+        Core::frontend()->tpl->addBlock('TagsHeader', [FrontendTemplate::class, 'TagsHeader']);
+        Core::frontend()->tpl->addBlock('TagsFooter', [FrontendTemplate::class, 'TagsFooter']);
+        Core::frontend()->tpl->addBlock('EntryTags', [FrontendTemplate::class, 'EntryTags']);
+        Core::frontend()->tpl->addBlock('TagIf', [FrontendTemplate::class, 'TagIf']);
+        Core::frontend()->tpl->addValue('TagID', [FrontendTemplate::class, 'TagID']);
+        Core::frontend()->tpl->addValue('TagCount', [FrontendTemplate::class, 'TagCount']);
+        Core::frontend()->tpl->addValue('TagPercent', [FrontendTemplate::class, 'TagPercent']);
+        Core::frontend()->tpl->addValue('TagRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
+        Core::frontend()->tpl->addValue('TagURL', [FrontendTemplate::class, 'TagURL']);
+        Core::frontend()->tpl->addValue('TagCloudURL', [FrontendTemplate::class, 'TagCloudURL']);
+        Core::frontend()->tpl->addValue('TagFeedURL', [FrontendTemplate::class, 'TagFeedURL']);
 
         /*
         # Kept for backward compatibility (for now)
-        dcCore::app()->tpl->addBlock('MetaData', [FrontendTemplate::class, 'Tags']);
-        dcCore::app()->tpl->addBlock('MetaDataHeader', [FrontendTemplate::class, 'TagsHeader']);
-        dcCore::app()->tpl->addBlock('MetaDataFooter', [FrontendTemplate::class, 'TagsFooter']);
-        dcCore::app()->tpl->addValue('MetaID', [FrontendTemplate::class, 'TagID']);
-        dcCore::app()->tpl->addValue('MetaPercent', [FrontendTemplate::class, 'TagPercent']);
-        dcCore::app()->tpl->addValue('MetaRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
-        dcCore::app()->tpl->addValue('MetaURL', [FrontendTemplate::class, 'TagURL']);
-        dcCore::app()->tpl->addValue('MetaAllURL', [FrontendTemplate::class, 'TagCloudURL']);
-        dcCore::app()->tpl->addBlock('EntryMetaData', [FrontendTemplate::class, 'EntryTags']);
+        Core::frontend()->tpl->addBlock('MetaData', [FrontendTemplate::class, 'Tags']);
+        Core::frontend()->tpl->addBlock('MetaDataHeader', [FrontendTemplate::class, 'TagsHeader']);
+        Core::frontend()->tpl->addBlock('MetaDataFooter', [FrontendTemplate::class, 'TagsFooter']);
+        Core::frontend()->tpl->addValue('MetaID', [FrontendTemplate::class, 'TagID']);
+        Core::frontend()->tpl->addValue('MetaPercent', [FrontendTemplate::class, 'TagPercent']);
+        Core::frontend()->tpl->addValue('MetaRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
+        Core::frontend()->tpl->addValue('MetaURL', [FrontendTemplate::class, 'TagURL']);
+        Core::frontend()->tpl->addValue('MetaAllURL', [FrontendTemplate::class, 'TagCloudURL']);
+        Core::frontend()->tpl->addBlock('EntryMetaData', [FrontendTemplate::class, 'EntryTags']);
         */
 
         Core::behavior()->addBehaviors([

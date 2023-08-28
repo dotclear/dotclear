@@ -50,6 +50,13 @@ class Utility extends Process
     public context $ctx;
 
     /**
+     * Tpl instance
+     *
+     * @var Tpl
+     */
+    public Tpl $tpl;
+
+    /**
      * Searched term
      *
      * @var string|null
@@ -194,7 +201,8 @@ class Utility extends Process
         $GLOBALS['_ctx'] = Core::frontend()->ctx;
 
         try {
-            dcCore::app()->tpl = new Tpl(DC_TPL_CACHE, 'dcCore::app()->tpl');
+            Core::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'Core::frontend()->tpl');
+            dcCore::app()->tpl    = Core::frontend()->tpl; // deprecated
         } catch (Exception $e) {
             new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }
@@ -291,15 +299,15 @@ class Utility extends Process
         $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
-            dcCore::app()->tpl->setPath(
+            Core::frontend()->tpl->setPath(
                 $tpl_path,
                 $dir,
-                dcCore::app()->tpl->getPath()
+                Core::frontend()->tpl->getPath()
             );
         } else {
-            dcCore::app()->tpl->setPath(
+            Core::frontend()->tpl->setPath(
                 $tpl_path,
-                dcCore::app()->tpl->getPath()
+                Core::frontend()->tpl->getPath()
             );
         }
         dcCore::app()->url->mode = Core::blog()->settings->system->url_scan;

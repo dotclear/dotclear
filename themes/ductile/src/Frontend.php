@@ -37,11 +37,11 @@ class Frontend extends Process
         ]);
 
         # Templates
-        dcCore::app()->tpl->addValue('ductileEntriesList', [self::class, 'ductileEntriesList']);
-        dcCore::app()->tpl->addBlock('EntryIfContentIsCut', [self::class, 'EntryIfContentIsCut']);
-        dcCore::app()->tpl->addValue('ductileNbEntryPerPage', [self::class, 'ductileNbEntryPerPage']);
-        dcCore::app()->tpl->addValue('ductileLogoSrc', [self::class, 'ductileLogoSrc']);
-        dcCore::app()->tpl->addBlock('IfPreviewIsNotMandatory', [self::class, 'IfPreviewIsNotMandatory']);
+        Core::frontend()->tpl->addValue('ductileEntriesList', [self::class, 'ductileEntriesList']);
+        Core::frontend()->tpl->addBlock('EntryIfContentIsCut', [self::class, 'EntryIfContentIsCut']);
+        Core::frontend()->tpl->addValue('ductileNbEntryPerPage', [self::class, 'ductileNbEntryPerPage']);
+        Core::frontend()->tpl->addValue('ductileLogoSrc', [self::class, 'ductileLogoSrc']);
+        Core::frontend()->tpl->addBlock('IfPreviewIsNotMandatory', [self::class, 'IfPreviewIsNotMandatory']);
 
         return true;
     }
@@ -107,10 +107,10 @@ class Frontend extends Process
             $urls = '1';
         }
 
-        $short              = dcCore::app()->tpl->getFilters($attr);
+        $short              = Core::frontend()->tpl->getFilters($attr);
         $cut                = $attr['cut_string'];
         $attr['cut_string'] = 0;
-        $full               = dcCore::app()->tpl->getFilters($attr);
+        $full               = Core::frontend()->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
         return '<?php if (strlen(' . sprintf($full, 'Core::frontend()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
@@ -140,7 +140,7 @@ class Frontend extends Process
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
             '?>' . "\n" .
-            dcCore::app()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
+            Core::frontend()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
                 '<?php ' . "\n" .
                 '       break;' . "\n";
         }

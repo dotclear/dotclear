@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\breadcrumb;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -28,7 +29,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->tpl->addValue('Breadcrumb', [FrontendTemplate::class, 'breadcrumb']);
+        Core::frontend()->tpl->addValue('Breadcrumb', [FrontendTemplate::class, 'breadcrumb']);
 
         return true;
     }

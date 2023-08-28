@@ -186,7 +186,7 @@ class FrontendTemplate
      */
     public static function TagID(ArrayObject $attr): string
     {
-        $f = dcCore::app()->tpl->getFilters($attr);
+        $f = Core::frontend()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'Core::frontend()->ctx->meta->meta_id') . '; ?>';
     }
@@ -234,7 +234,7 @@ class FrontendTemplate
      */
     public static function TagURL($attr)
     {
-        $f = dcCore::app()->tpl->getFilters($attr);
+        $f = Core::frontend()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag",' .
             'rawurlencode(Core::frontend()->ctx->meta->meta_id))') . '; ?>';
@@ -253,7 +253,7 @@ class FrontendTemplate
      */
     public static function TagCloudURL($attr)
     {
-        $f = dcCore::app()->tpl->getFilters($attr);
+        $f = Core::frontend()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tags")') . '; ?>';
     }
@@ -278,7 +278,7 @@ class FrontendTemplate
             $type = 'rss2';
         }
 
-        $f = dcCore::app()->tpl->getFilters($attr);
+        $f = Core::frontend()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag_feed",' .
             'rawurlencode(Core::frontend()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';

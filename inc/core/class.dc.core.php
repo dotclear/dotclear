@@ -290,7 +290,7 @@ final class dcCore
     /**
      * Tpl instance
      *
-     * May be transfered as property of frontend Utility instance in future
+     * @deprecated since 2.28, Use Core::frontend()->tpl instead
      *
      * @var Tpl
      */

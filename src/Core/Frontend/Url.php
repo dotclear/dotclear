@@ -142,7 +142,7 @@ class Url extends UrlHandler
             Core::frontend()->ctx->nb_entry_first_page = Core::frontend()->ctx->nb_entry_per_page;
         }
 
-        $tpl_file = dcCore::app()->tpl->getFilePath($tpl_name);
+        $tpl_file = Core::frontend()->tpl->getFilePath($tpl_name);
 
         if (!$tpl_file) {
             throw new Exception('Unable to find template ');
@@ -190,7 +190,7 @@ class Url extends UrlHandler
         }
 
         $result = new ArrayObject([
-            'content'      => dcCore::app()->tpl->getData(Core::frontend()->ctx->current_tpl),
+            'content'      => Core::frontend()->tpl->getData(Core::frontend()->ctx->current_tpl),
             'content_type' => Core::frontend()->ctx->content_type,
             'tpl'          => Core::frontend()->ctx->current_tpl,
             'blogupddt'    => Core::blog()->upddt,
@@ -278,7 +278,7 @@ class Url extends UrlHandler
         Core::frontend()->ctx->current_tpl  = '404.html';
         Core::frontend()->ctx->content_type = 'text/html';
 
-        echo dcCore::app()->tpl->getData(Core::frontend()->ctx->current_tpl);
+        echo Core::frontend()->tpl->getData(Core::frontend()->ctx->current_tpl);
 
         # --BEHAVIOR-- publicAfterDocument --
         Core::behavior()->callBehavior('publicAfterDocumentV2');
@@ -715,21 +715,21 @@ class Url extends UrlHandler
                 $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
                 $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
-                    dcCore::app()->tpl->setPath(
+                    Core::frontend()->tpl->setPath(
                         $tpl_path,
                         $dir,
-                        dcCore::app()->tpl->getPath()
+                        Core::frontend()->tpl->getPath()
                     );
                 } else {
-                    dcCore::app()->tpl->setPath(
+                    Core::frontend()->tpl->setPath(
                         $tpl_path,
-                        dcCore::app()->tpl->getPath()
+                        Core::frontend()->tpl->getPath()
                     );
                 }
                 // ------------------------------------------------------
 
                 // Don't use template cache
-                dcCore::app()->tpl->use_cache = false;
+                Core::frontend()->tpl->use_cache = false;
                 // Reset HTTP cache
                 Core::frontend()->cache()->resetTimes();
                 if (defined('DC_ADMIN_URL')) {

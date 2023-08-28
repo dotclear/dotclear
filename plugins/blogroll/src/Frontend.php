@@ -29,8 +29,8 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->tpl->addValue('Blogroll', [FrontendTemplate::class, 'blogroll']);
-        dcCore::app()->tpl->addValue('BlogrollXbelLink', [FrontendTemplate::class, 'blogrollXbelLink']);
+        Core::frontend()->tpl->addValue('Blogroll', [FrontendTemplate::class, 'blogroll']);
+        Core::frontend()->tpl->addValue('BlogrollXbelLink', [FrontendTemplate::class, 'blogrollXbelLink']);
 
         Core::behavior()->addBehaviors([
             'initWidgets'        => [Widgets::class, 'initWidgets'],
