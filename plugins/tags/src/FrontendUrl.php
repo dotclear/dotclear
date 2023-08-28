@@ -33,8 +33,8 @@ class FrontendUrl extends Url
             $type = $m[2] == 'atom' ? 'atom' : 'rss2';
             $mime = 'application/xml';
 
-            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
-                dcCore::app()->meta->getMetadata([
+            dcCore::app()->ctx->meta = Core::meta()->computeMetaStats(
+                Core::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $m[1], ])
             );
@@ -55,8 +55,8 @@ class FrontendUrl extends Url
                 Core::frontend()->setPageNumber($n);
             }
 
-            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
-                dcCore::app()->meta->getMetadata([
+            dcCore::app()->ctx->meta = Core::meta()->computeMetaStats(
+                Core::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $args, ])
             );
@@ -91,8 +91,8 @@ class FrontendUrl extends Url
             $type     = (string) $m[2];
             $comments = !empty($m[3]);
 
-            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
-                dcCore::app()->meta->getMetadata([
+            dcCore::app()->ctx->meta = Core::meta()->computeMetaStats(
+                Core::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $tag, ])
             );

@@ -526,12 +526,12 @@ class Rest extends Process
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = dcCore::app()->meta->getMetadata([
+        $rs = Core::meta()->getMetadata([
             'meta_type' => $metaType,
             'limit'     => $limit,
             'meta_id'   => $metaId,
             'post_id'   => $postid, ]);
-        $rs = dcCore::app()->meta->computeMetaStats($rs);
+        $rs = Core::meta()->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -584,7 +584,7 @@ class Rest extends Process
         }
 
         # Get previous meta for post
-        $post_meta = dcCore::app()->meta->getMetadata([
+        $post_meta = Core::meta()->getMetadata([
             'meta_type' => $post['metaType'],
             'post_id'   => $post['postId'], ]);
         $pm = [];
@@ -592,9 +592,9 @@ class Rest extends Process
             $pm[] = $post_meta->meta_id;
         }
 
-        foreach (dcCore::app()->meta->splitMetaValues($post['meta']) as $m) {
+        foreach (Core::meta()->splitMetaValues($post['meta']) as $m) {
             if (!in_array($m, $pm)) {
-                dcCore::app()->meta->setPostMeta($post['postId'], $post['metaType'], $m);
+                Core::meta()->setPostMeta($post['postId'], $post['metaType'], $m);
             }
         }
 
@@ -623,7 +623,7 @@ class Rest extends Process
             throw new Exception('No meta type');
         }
 
-        dcCore::app()->meta->delPostMeta($post['postId'], $post['metaType'], $post['metaId']);
+        Core::meta()->delPostMeta($post['postId'], $post['metaType'], $post['metaId']);
 
         return true;
     }
@@ -645,8 +645,8 @@ class Rest extends Process
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = dcCore::app()->meta->getMetadata(['meta_type' => $metaType]);
-        $rs = dcCore::app()->meta->computeMetaStats($rs);
+        $rs = Core::meta()->getMetadata(['meta_type' => $metaType]);
+        $rs = Core::meta()->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -696,8 +696,8 @@ class Rest extends Process
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = dcCore::app()->meta->getMetadata(['meta_type' => $metaType]);
-        $rs = dcCore::app()->meta->computeMetaStats($rs);
+        $rs = Core::meta()->getMetadata(['meta_type' => $metaType]);
+        $rs = Core::meta()->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];

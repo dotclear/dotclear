@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcError;
 use dcLog;
+use dcMeta;
 use dcNotices;
 //
 use dcCore;
@@ -78,6 +79,11 @@ class CoreFactory implements CoreFactoryInterface
     public function log(): dcLog
     {
         return new dcLog();
+    }
+
+    public function meta(): dcMeta
+    {
+        return new dcMeta();
     }
 
     public function nonce(): Nonce

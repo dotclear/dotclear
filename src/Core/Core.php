@@ -16,6 +16,7 @@ use dcAuth;
 use dcBlog;
 use dcError;
 use dcLog;
+use dcMeta;
 use dcNotices;
 //
 use dcCore;
@@ -135,6 +136,11 @@ final class Core
     public static function log(): dcLog
     {
         return self::$instance->get('log');
+    }
+
+    public static function meta(): dcMeta
+    {
+        return self::$instance->get('meta');
     }
 
     public static function nonce(): Nonce

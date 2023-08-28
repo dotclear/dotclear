@@ -769,7 +769,7 @@ class ModuleImportWp extends Module
         if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
             $old_cat_ids->moveStart();
             while ($old_cat_ids->fetch()) {
-                dcCore::app()->meta->setPostMeta($cur->post_id, 'tag', Text::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
+                Core::meta()->setPostMeta($cur->post_id, 'tag', Text::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
             }
         }
     }
@@ -895,7 +895,7 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            dcCore::app()->meta->setPostMeta($new_post_id, 'tag', Text::cleanStr($rs->name));
+            Core::meta()->setPostMeta($new_post_id, 'tag', Text::cleanStr($rs->name));
         }
     }
 }

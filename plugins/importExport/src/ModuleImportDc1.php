@@ -722,7 +722,7 @@ class ModuleImportDc1 extends Module
         }
 
         while ($rs->fetch()) {
-            dcCore::app()->meta->setPostMeta($new_post_id, Text::cleanStr($rs->meta_key), Text::cleanStr($rs->meta_value));
+            Core::meta()->setPostMeta($new_post_id, Text::cleanStr($rs->meta_key), Text::cleanStr($rs->meta_value));
         }
     }
 }

@@ -202,7 +202,7 @@ class ModuleImportFeed extends Module
             }
 
             foreach ($item->subject as $subject) {
-                dcCore::app()->meta->setPostMeta($post_id, 'tag', dcMeta::sanitizeMetaID($subject));
+                Core::meta()->setPostMeta($post_id, 'tag', dcMeta::sanitizeMetaID($subject));
             }
         }
 

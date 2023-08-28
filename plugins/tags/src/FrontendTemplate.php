@@ -56,7 +56,7 @@ class FrontendTemplate
         }
 
         $res = "<?php\n" .
-        "dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(dcCore::app()->meta->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
+        "dcCore::app()->ctx->meta = Core::meta()->computeMetaStats(Core::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
         "dcCore::app()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
         'while (dcCore::app()->ctx->meta->fetch()) : ?>' . "\n" .
         $content .
@@ -129,7 +129,7 @@ class FrontendTemplate
         }
 
         $res = "<?php\n" .
-            "dcCore::app()->ctx->meta = dcCore::app()->meta->getMetaRecordset(dcCore::app()->ctx->posts->post_meta,'" . $type . "'); " .
+            "dcCore::app()->ctx->meta = Core::meta()->getMetaRecordset(dcCore::app()->ctx->posts->post_meta,'" . $type . "'); " .
             "dcCore::app()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
@@ -324,8 +324,8 @@ class FrontendTemplate
             $params['limit'] = abs((int) $widget->limit);
         }
 
-        $rs = dcCore::app()->meta->computeMetaStats(
-            dcCore::app()->meta->getMetadata($params)
+        $rs = Core::meta()->computeMetaStats(
+            Core::meta()->getMetadata($params)
         );
 
         if ($rs->isEmpty()) {
@@ -341,7 +341,7 @@ class FrontendTemplate
             '<ul>';
 
         if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord) {
-            dcCore::app()->ctx->meta = dcCore::app()->meta->getMetaRecordset(dcCore::app()->ctx->posts->post_meta, 'tag');
+            dcCore::app()->ctx->meta = Core::meta()->getMetaRecordset(dcCore::app()->ctx->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';

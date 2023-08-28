@@ -157,7 +157,7 @@ class BackendBehaviors
      */
     public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
-        $meta = dcCore::app()->meta;
+        $meta = Core::meta();
 
         if (!empty($_POST['post_tags'])) {
             $value = $_POST['post_tags'];
@@ -180,7 +180,7 @@ class BackendBehaviors
 
         if (isset($_POST['post_tags'])) {
             $tags = $_POST['post_tags'];
-            $meta = dcCore::app()->meta;
+            $meta = Core::meta();
             $meta->delPostMeta($post_id, 'tag');
 
             foreach ($meta->splitMetaValues($tags) as $tag) {
@@ -221,7 +221,7 @@ class BackendBehaviors
     public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
         if (!empty($post['new_tags'])) {
-            $meta  = dcCore::app()->meta;
+            $meta  = Core::meta();
             $tags  = $meta->splitMetaValues($post['new_tags']);
             $posts = $ap->getRS();
             while ($posts->fetch()) {
@@ -309,7 +309,7 @@ class BackendBehaviors
             Core::auth()::PERMISSION_DELETE,
             Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]), Core::blog()->id)) {
-            $meta  = dcCore::app()->meta;
+            $meta  = Core::meta();
             $posts = $ap->getRS();
             while ($posts->fetch()) {
                 foreach ($_POST['meta_id'] as $v) {
@@ -325,7 +325,7 @@ class BackendBehaviors
             );
             $ap->redirect(true);
         } else {
-            $meta = dcCore::app()->meta;
+            $meta = Core::meta();
             $tags = [];
 
             foreach ($ap->getIDS() as $id) {

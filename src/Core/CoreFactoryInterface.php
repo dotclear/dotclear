@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcError;
 use dcLog;
+use dcMeta;
 use dcNotices;
 //
 use Dotclear\Database\AbstractHandler;
@@ -31,6 +32,7 @@ interface CoreFactoryInterface
     public function filter(): Filter;
     public function formater(): Formater;
     public function log(): dcLog;
+    public function meta(): dcMeta;
     public function nonce(): Nonce;
     public function notice(): dcNotices;
     public function postTypes(): PostTypes;

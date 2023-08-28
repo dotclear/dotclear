@@ -100,7 +100,7 @@ class Manage extends Process
         $tags_combo = [];
 
         try {
-            $rs                         = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
+            $rs                         = Core::meta()->getMetadata(['meta_type' => 'tag']);
             $tags_combo[__('All tags')] = '-';
             while ($rs->fetch()) {
                 $tags_combo[$rs->meta_id] = $rs->meta_id;

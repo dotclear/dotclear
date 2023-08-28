@@ -58,8 +58,8 @@ class ManagePosts extends Process
         Core::backend()->post_list = null;
 
         try {
-            Core::backend()->posts     = dcCore::app()->meta->getPostsByMeta($params);
-            $counter                        = dcCore::app()->meta->getPostsByMeta($params, true);
+            Core::backend()->posts     = Core::meta()->getPostsByMeta($params);
+            $counter                        = Core::meta()->getPostsByMeta($params, true);
             Core::backend()->post_list = new ListingPosts(Core::backend()->posts, $counter->f(0));
         } catch (Exception $e) {
             Core::error()->add($e->getMessage());
@@ -83,7 +83,7 @@ class ManagePosts extends Process
             $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
 
             try {
-                if (dcCore::app()->meta->updateMeta(Core::backend()->tag, $new_id, 'tag')) {
+                if (Core::meta()->updateMeta(Core::backend()->tag, $new_id, 'tag')) {
                     Notices::addSuccessNotice(__('Tag has been successfully renamed'));
                     My::redirect([
                         'm'   => 'tag_posts',
@@ -102,7 +102,7 @@ class ManagePosts extends Process
             // Delete a tag
 
             try {
-                dcCore::app()->meta->delMeta(Core::backend()->tag, 'tag');
+                Core::meta()->delMeta(Core::backend()->tag, 'tag');
                 Notices::addSuccessNotice(__('Tag has been successfully removed'));
                 My::redirect([
                     'm' => 'tags',

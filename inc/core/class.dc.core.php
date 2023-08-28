@@ -174,6 +174,8 @@ final class dcCore
     /**
      * dcMeta instance
      *
+     * @deprecated since 2.28, use Core::meta() instead
+     *
      * @var dcMeta
      */
     public readonly dcMeta $meta;
@@ -340,7 +342,7 @@ final class dcCore
         $this->url        = new Url();
         $this->plugins    = new dcPlugins();
         $this->rest       = new dcRestServer();
-        $this->meta       = new dcMeta();
+        $this->meta       = Core::meta();
         $this->log        = Core::log();
         $this->notices    = Core::notice();
 

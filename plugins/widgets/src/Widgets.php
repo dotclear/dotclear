@@ -562,7 +562,7 @@ class Widgets
 
         if ($widget->tag) {
             $params['meta_id'] = $widget->tag;
-            $rs                = dcCore::app()->meta->getPostsByMeta($params);
+            $rs                = Core::meta()->getPostsByMeta($params);
         } else {
             $rs = Core::blog()->getPosts($params);
         }

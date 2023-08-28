@@ -40,8 +40,8 @@ class Manage extends Process
             return ManagePosts::process();
         }
 
-        Core::backend()->tags = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
-        Core::backend()->tags = dcCore::app()->meta->computeMetaStats(Core::backend()->tags);
+        Core::backend()->tags = Core::meta()->getMetadata(['meta_type' => 'tag']);
+        Core::backend()->tags = Core::meta()->computeMetaStats(Core::backend()->tags);
         Core::backend()->tags->sort('meta_id_lower', 'asc');
 
         return true;
