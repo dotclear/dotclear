@@ -27,7 +27,7 @@ class Url extends UrlHandler
     /**
      * URI arguments (depends on URL representation)
      */
-    public string $args;
+    public ?string $args;
 
     /**
      * Gets the home type set for the blog.

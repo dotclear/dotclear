@@ -24,18 +24,17 @@ class Version
     /** @var     string  Versions database table name */
     public const VERSION_TABLE_NAME = 'version';
 
-    /** @var    AbstractHandler     The dc connection instance */
-    private AbstractHandler $con;
-
     /** @var    array<string,string>    The version stack */
     private array $stack = [];
 
     /**
      * Constructor.
+     *
+     * @param   AbstractHandler     The dc connection instance
      */
-    public function __construct()
-    {
-        $this->con = dcCore::app()->con;
+    public function __construct(
+        private AbstractHandler $con
+    ) {
         $this->loadVersions();
     }
 

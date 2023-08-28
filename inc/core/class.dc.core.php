@@ -12,6 +12,8 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
+
 use Dotclear\Core\Blogs;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
@@ -356,7 +358,7 @@ final class dcCore
     /**
      * dcCore constructor inits everything related to Dotclear.
      */
-    public function __construct()
+    public function __construct(Core $core)
     {
         // Singleton mode
         if (isset(self::$instance)) {
@@ -368,14 +370,14 @@ final class dcCore
         $this->autoload = Autoloader::me();
 
         $this->behavior   = new Behavior();
-        $this->con        = AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
+        $this->con        = $core->con;//AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
         $this->prefix     = $this->con->prefix();
         $this->error      = new dcError();
         $this->auth       = dcAuth::init();
         $this->blogs      = new Blogs();
         $this->session    = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
         $this->nonce      = new Nonce();
-        $this->version    = new Version();
+        $this->version    = $core->version;//$this->version();
         $this->post_types = new PostTypes();
         $this->filter     = new Filter();
         $this->formater   = new Formater();

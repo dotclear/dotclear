@@ -11,6 +11,8 @@ namespace Dotclear {
     use Autoloader;
     use dcCore;
     use dcUtils;
+    use Dotclear\Core\Container;
+    use Dotclear\Core\Core;
     use Dotclear\Core\Process;
     use Dotclear\Core\PostType;
     use Dotclear\Core\Frontend\Url;
@@ -453,6 +455,10 @@ namespace Dotclear {
                 define('DC_UPGRADE', dcUtils::path([DC_ROOT, 'inc', 'upgrade']));
             }
 
+            if (!defined('DC_CORE_FACTORY_CLASS')) {
+                define('DC_CORE_FACTORY_CLASS', 'Dotclear\Core\CoreFactory');
+            }
+
             L10n::init();
 
             try {
@@ -463,7 +469,7 @@ namespace Dotclear {
                  *
                  * @deprecated since 2.23, use dcCore::app() instead
                  */
-                $core            = new dcCore();
+                $core            = new dcCore(new Core(DC_CORE_FACTORY_CLASS)); // instanciate new Core and send it to old dcCore
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
                 // Loading locales for detected language

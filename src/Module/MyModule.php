@@ -26,6 +26,7 @@ use dcModuleDefine;
 use dcNamespace;
 use dcUtils;
 use dcWorkspace;
+use Dotclear\Core\Core;
 use Dotclear\Helper\L10n;
 use Exception;
 
@@ -114,7 +115,7 @@ abstract class MyModule
                     // Manageable only by super-admin
                     && dcCore::app()->auth->isSuperAdmin()
                     // And only if new version of module
-                    && dcCore::app()->newVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version')),
+                    && Core::from('version')->newerVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
             self::UNINSTALL => defined('DC_RC_PATH')
@@ -258,7 +259,7 @@ abstract class MyModule
         $ext  = strpos($resource, '.css') === false ? '.css' : '';
 
         if (is_null($version) || $version === '') {
-            $version = dcCore::app()->version->getVersion(self::id());
+            $version = Core::app()->get('version')->getVersion(self::id());
         }
 
         return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
@@ -285,7 +286,7 @@ abstract class MyModule
         }
 
         if (is_null($version) || $version === '') {
-            $version = dcCore::app()->version->getVersion(self::id());
+            $version = Core::app()->get('version')->getVersion(self::id());
         }
 
         return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
