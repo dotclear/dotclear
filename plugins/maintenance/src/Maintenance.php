@@ -231,7 +231,7 @@ class Maintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            dcCore::app()->log->delLogs($logs);
+            Core::log()->delLogs($logs);
         }
 
         // Add new log
@@ -241,7 +241,7 @@ class Maintenance
         $cur->log_table = 'maintenance';
         $cur->user_id   = Core::auth()->userID();
 
-        dcCore::app()->log->addLog($cur);
+        Core::log()->addLog($cur);
     }
 
     /**
@@ -250,7 +250,7 @@ class Maintenance
     public function delLogs(): void
     {
         // Retrieve logs from this task
-        $rs = dcCore::app()->log->getLogs([
+        $rs = Core::log()->getLogs([
             'log_table' => 'maintenance',
             'blog_id'   => '*',
         ]);
@@ -262,7 +262,7 @@ class Maintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            dcCore::app()->log->delLogs($logs);
+            Core::log()->delLogs($logs);
         }
     }
 
@@ -281,7 +281,7 @@ class Maintenance
     public function getLogs(): array
     {
         if ($this->logs === null) {
-            $rs = dcCore::app()->log->getLogs([
+            $rs = Core::log()->getLogs([
                 'log_table' => 'maintenance',
                 'blog_id'   => '*',
             ]);

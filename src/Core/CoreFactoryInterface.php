@@ -14,6 +14,7 @@ namespace Dotclear\Core;
 // classes that move to \Dotclear\Core
 use dcAuth;
 use dcError;
+use dcLog;
 use dcNotices;
 //
 use Dotclear\Database\AbstractHandler;
@@ -29,8 +30,9 @@ interface CoreFactoryInterface
     public function error(): dcError;
     public function filter(): Filter;
     public function formater(): Formater;
+    public function log(): dcLog;
     public function nonce(): Nonce;
-    public function notices(): dcNotices;
+    public function notice(): dcNotices;
     public function postTypes(): PostTypes;
     public function session(): Session;
     public function users(): Users;

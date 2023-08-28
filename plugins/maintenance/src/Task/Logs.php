@@ -63,7 +63,7 @@ class Logs extends MaintenanceTask
                 "WHERE log_table <> 'maintenance' "
             );
         } else {
-            dcCore::app()->log->delLogs(null, true);
+            Core::log()->delLogs(null, true);
         }
 
         return true;

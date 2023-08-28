@@ -190,7 +190,7 @@ final class dcCore
     /**
      * dcNotices instance
      *
-     * @deprecated since 2.28, Use Core::notice()->favs
+     * @deprecated since 2.28, Use Core::notice() instead
      *
      * @var dcNotices
      */
@@ -198,6 +198,8 @@ final class dcCore
 
     /**
      * dcLog instance
+     *
+     * @deprecated since 2.28, Use Core::log() instead
      *
      * @var dcLog
      */
@@ -224,7 +226,7 @@ final class dcCore
     /**
      * Backend Utility instance
      *
-     * @deprecated since 2.28, Use Core::backend()
+     * @deprecated since 2.28, Use Core::backend() instead
      *
      * @var \Dotclear\Core\Backend\Utility
      */
@@ -233,7 +235,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.28, Use Core::backend()->url
+     * @deprecated since 2.28, Use Core::backend()->url instead
      *
      * @var \Dotclear\Core\Backend\Url
      */
@@ -242,7 +244,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.28, Use Core::backend()->favs
+     * @deprecated since 2.28, Use Core::backend()->favs instead
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
@@ -251,7 +253,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.28, Use Core::backend()->menus
+     * @deprecated since 2.28, Use Core::backend()->menus instead
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -271,7 +273,7 @@ final class dcCore
     /**
      * Frontend Utility instance
      *
-     * @deprecated since 2.28, Use Core::frontend()
+     * @deprecated since 2.28, Use Core::frontend() instead
      *
      * @var \Dotclear\Core\Frontend\Utility
      */
@@ -339,7 +341,7 @@ final class dcCore
         $this->plugins    = new dcPlugins();
         $this->rest       = new dcRestServer();
         $this->meta       = new dcMeta();
-        $this->log        = new dcLog();
+        $this->log        = Core::log();
         $this->notices    = Core::notice();
 
         if (defined('DC_CONTEXT_ADMIN')) {
@@ -384,7 +386,6 @@ final class dcCore
     public function setBlog($id): void
     {
         Core::setBlog($id);
-        $this->blog = Core::blog();
     }
 
     /**
@@ -395,7 +396,6 @@ final class dcCore
     public function unsetBlog(): void
     {
         Core::unsetBlog();
-        $this->blog = null;
     }
     //@}
 

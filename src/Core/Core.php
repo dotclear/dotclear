@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcBlog;
 use dcError;
+use dcLog;
 use dcNotices;
 //
 use dcCore;
@@ -129,6 +130,11 @@ final class Core
     public static function formater(): Formater
     {
         return self::$instance->get('formater');
+    }
+
+    public static function log(): dcLog
+    {
+        return self::$instance->get('log');
     }
 
     public static function nonce(): Nonce

@@ -14,7 +14,8 @@ namespace Dotclear\Core;
 // classes that move to \Dotclear\Core
 use dcAuth;
 use dcError;
-use dcNotices
+use dcLog;
+use dcNotices;
 //
 use dcCore;
 use Dotclear\Database\AbstractHandler;
@@ -72,6 +73,11 @@ class CoreFactory implements CoreFactoryInterface
     public function formater(): Formater
     {
         return new Formater();
+    }
+
+    public function log(): dcLog
+    {
+        return new dcLog();
     }
 
     public function nonce(): Nonce

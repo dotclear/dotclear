@@ -41,7 +41,7 @@ class dcDeprecated extends Deprecated
      */
     public static function get($limit, bool $count_only = false): MetaRecord
     {
-        return dcCore::app()->log->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
+        return Core::log()->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
     }
 
     protected static function log(string $title, array $lines): void
@@ -53,7 +53,7 @@ class dcDeprecated extends Deprecated
 
         // to early to use core
         try {
-            $log = dcCore::app()->log;
+            $log = Core::log();
             if (!($log instanceof dcLog)) {
                 throw new Exception('too early');
             }
