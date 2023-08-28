@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use dcCore;
+use Dotclear\Core\Core;
 
 class DeleteStatement extends SqlStatement
 {
@@ -26,7 +27,7 @@ class DeleteStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeDeleteStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreBeforeDeleteStatement', $this);
+            Core::behavior()->callBehavior('coreBeforeDeleteStatement', $this);
         }
 
         // Check if source given
@@ -65,7 +66,7 @@ class DeleteStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertDeleteStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreAfterDeleteStatement', $this, $query);
+            Core::behavior()->callBehavior('coreAfterDeleteStatement', $this, $query);
         }
 
         return $query;

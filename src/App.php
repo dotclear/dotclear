@@ -462,6 +462,9 @@ namespace Dotclear {
             L10n::init();
 
             try {
+                // instanciate once new core
+                new Core(DC_CORE_FACTORY_CLASS);
+
                 /**
                  * Core instance
                  *
@@ -469,7 +472,7 @@ namespace Dotclear {
                  *
                  * @deprecated since 2.23, use dcCore::app() instead
                  */
-                $core            = new dcCore(new Core(DC_CORE_FACTORY_CLASS)); // instanciate new Core and send it to old dcCore
+                $core            = new dcCore();
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
                 // Loading locales for detected language
@@ -520,7 +523,7 @@ namespace Dotclear {
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    dcCore::app()->behavior->addBehavior($b[0], $b[1]);
+                    Core::behavior()->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
@@ -548,7 +551,7 @@ namespace Dotclear {
             dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [Url::class, 'wpfaker']);
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            dcCore::app()->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
+            Core::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
 
             # Store upload_max_filesize in bytes
             $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));

@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\pings;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
@@ -36,7 +37,7 @@ class Backend extends Process
 
         My::addBackendMenuItem(Menus::MENU_BLOG, [], '');
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'adminPostHeaders'     => fn () => My::jsLoad('post'),
             'adminPostFormItems'   => [BackendBehaviors::class, 'pingsFormItems'],
             'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],

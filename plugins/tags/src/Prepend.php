@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -32,7 +33,7 @@ class Prepend extends Process
         dcCore::app()->url->register('tags', 'tags', '^tags$', [FrontendUrl::class, 'tags']);
         dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', [FrontendUrl::class, 'tagFeed']);
 
-        dcCore::app()->behavior->addBehavior('coreInitWikiPost', [BackendBehaviors::class, 'coreInitWikiPost']);
+        Core::behavior()->addBehavior('coreInitWikiPost', [BackendBehaviors::class, 'coreInitWikiPost']);
 
         return true;
     }

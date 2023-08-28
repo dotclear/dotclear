@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use dcCore;
 use dcMedia;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -143,7 +144,7 @@ class ListingMedia extends Listing
             unset($params['process']); // move to media item
 
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
-            dcCore::app()->behavior->callBehavior('adminMediaURLParams', $params);
+            Core::behavior()->callBehavior('adminMediaURLParams', $params);
 
             $link = dcCore::app()->admin->url->get('admin.media.item', (array) $params);
             if ($file->media_priv) {

@@ -15,6 +15,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
 use Dotclear\Helper\Date;
@@ -204,7 +205,7 @@ class rsExtPost
      */
     public static function getURL(MetaRecord $rs): string
     {
-        return dcCore::app()->blog->url . dcCore::app()->post_types->get((string) $rs->post_type)->publicUrl(
+        return dcCore::app()->blog->url . Core::postTypes()->get((string) $rs->post_type)->publicUrl(
             Html::sanitizeURL($rs->post_url)
         );
     }
@@ -696,7 +697,7 @@ class rsExtComment
      */
     public static function getPostURL(MetaRecord $rs): string
     {
-        return dcCore::app()->blog->url . dcCore::app()->post_types->get($rs->post_type)->publicUrl(
+        return dcCore::app()->blog->url . Core::postTypes()->get($rs->post_type)->publicUrl(
             Html::sanitizeURL($rs->post_url)
         );
     }

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 
@@ -33,7 +34,7 @@ class Prepend extends Process
         dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', [FrontendUrl::class, 'pagespreview']);
 
         $admin_url = defined('DC_CONTEXT_ADMIN') ? urldecode(dcCore::app()->admin->url->get('admin.plugin', ['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')) : '';
-        dcCore::app()->post_types->set(new PostType('page', $admin_url, dcCore::app()->url->getURLFor('pages', '%s'), 'Pages'));
+        Core::postTypes()->set(new PostType('page', $admin_url, dcCore::app()->url->getURLFor('pages', '%s'), 'Pages'));
 
         return true;
     }

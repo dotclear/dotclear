@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -34,10 +35,10 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         if (My::settings()->active) {
-            dcCore::app()->formater->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
-            dcCore::app()->formater->addFormaterName('xhtml', __('HTML'));
+            Core::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            Core::formater()->addFormaterName('xhtml', __('HTML'));
 
-            dcCore::app()->behavior->addBehaviors([
+            Core::behavior()->addBehaviors([
                 'adminPostEditor'        => [BackendBehaviors::class, 'adminPostEditor'],
                 'adminPopupMedia'        => [BackendBehaviors::class, 'adminPopupMedia'],
                 'adminPopupLink'         => [BackendBehaviors::class, 'adminPopupLink'],

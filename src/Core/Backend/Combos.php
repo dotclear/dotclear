@@ -17,6 +17,7 @@ namespace Dotclear\Core\Backend;
 
 use dcCore;
 use dcUtils;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
@@ -179,7 +180,7 @@ class Combos
     {
         $editors_combo = [];
 
-        foreach (dcCore::app()->formater->getEditors() as $v) {
+        foreach (Core::formater()->getEditors() as $v) {
             $editors_combo[$v] = $v;
         }
 
@@ -198,11 +199,11 @@ class Combos
         $formaters_combo = [];
 
         if (!empty($editor_id)) {
-            foreach (dcCore::app()->formater->getFormater($editor_id) as $formater) {
+            foreach (Core::formater()->getFormater($editor_id) as $formater) {
                 $formaters_combo[$formater] = $formater;
             }
         } else {
-            foreach (dcCore::app()->formater->getFormaters() as $editor => $formaters) {
+            foreach (Core::formater()->getFormaters() as $editor => $formaters) {
                 foreach ($formaters as $formater) {
                     $formaters_combo[$editor][$formater] = $formater;
                 }
@@ -263,7 +264,7 @@ class Combos
             __('Number of trackbacks') => 'nb_trackback',
         ];
         # --BEHAVIOR-- adminPostsSortbyCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
+        Core::behavior()->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -291,7 +292,7 @@ class Combos
         }
 
         # --BEHAVIOR-- adminCommentsSortbyCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
+        Core::behavior()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -305,7 +306,7 @@ class Combos
             __('Status')      => 'blog_status',
         ];
         # --BEHAVIOR-- adminBlogsSortbyCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
+        Core::behavior()->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -322,7 +323,7 @@ class Combos
                 __('Number of entries') => 'nb_post',
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo -- array<int,array<string,string>>
-            dcCore::app()->behavior->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
+            Core::behavior()->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
         }
 
         return $sortby_combo;

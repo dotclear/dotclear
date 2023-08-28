@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use dcCore;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -181,7 +182,7 @@ class Words extends SpamFilter
             __('Global word (used for all blogs)') . '</label> ';
         }
 
-        $res .= dcCore::app()->nonce->getFormNonce() .
+        $res .= Core::nonce()->getFormNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -236,7 +237,7 @@ class Words extends SpamFilter
 
             $res .= '</div>' .
             '<p>' . form::hidden(['spamwords'], 1) .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>' .
                 '</form>';
         }
@@ -246,7 +247,7 @@ class Words extends SpamFilter
             '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
             form::hidden(['spamwords'], 1) .
             form::hidden(['createlist'], 1) .
-            dcCore::app()->nonce->getFormNonce() . '</p>' .
+            Core::nonce()->getFormNonce() . '</p>' .
                 '</form>';
         }
 

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -29,7 +30,7 @@ class Prepend extends Process
         }
 
         // Add default cleaners to Uninstaller
-        dcCore::app()->behavior->addBehavior('UninstallerCleanersConstruct', function (CleanersStack $cleaners): void {
+        Core::behavior()->addBehavior('UninstallerCleanersConstruct', function (CleanersStack $cleaners): void {
             $cleaners
                 ->set(new Cleaner\Settings())
                 ->set(new Cleaner\Preferences())

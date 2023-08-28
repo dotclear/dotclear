@@ -17,6 +17,7 @@ use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -53,7 +54,7 @@ class Posts extends Process
             'user_id'    => 'P.user_id', ];
 
         # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
+        Core::behavior()->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(dcCore::app()->admin->post_filter->sortby, $sortby_lex) ?
             dcCore::app()->con->lexFields($sortby_lex[dcCore::app()->admin->post_filter->sortby]) :
@@ -116,7 +117,7 @@ class Posts extends Process
                 form::combo('action', dcCore::app()->admin->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.posts', dcCore::app()->admin->post_filter->values()) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</div>' .
                 '</form>',
                 dcCore::app()->admin->post_filter->show()

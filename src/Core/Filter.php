@@ -28,7 +28,7 @@ class Filter
     public function __construct()
     {
         // dot not get blog here as it can change during script execution
-        $this->behavior = dcCore::app()->behavior;
+        $this->behavior = Core::behavior();
     }
 
     /// @name WikiToHtml methods

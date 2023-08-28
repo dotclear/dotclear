@@ -17,6 +17,7 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -76,22 +77,22 @@ class Comment extends Process
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
                 $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = dcCore::app()->filter->HTMLfilter($_POST['comment_content']);
+                $cur->comment_content = Core::filter()->HTMLfilter($_POST['comment_content']);
                 $cur->post_id         = (int) $_POST['post_id'];
 
                 # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
-                dcCore::app()->behavior->callBehavior('adminBeforeCommentCreate', $cur);
+                Core::behavior()->callBehavior('adminBeforeCommentCreate', $cur);
 
                 dcCore::app()->admin->comment_id = dcCore::app()->blog->addComment($cur);
 
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
-                dcCore::app()->behavior->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
+                Core::behavior()->callBehavior('adminAfterCommentCreate', $cur, dcCore::app()->admin->comment_id);
 
                 Notices::addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
-            Http::redirect(dcCore::app()->post_types->get(dcCore::app()->admin->rs->post_type)->adminUrl(dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
+            Http::redirect(Core::postTypes()->get(dcCore::app()->admin->rs->post_type)->adminUrl(dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
         }
 
         dcCore::app()->admin->rs         = null;
@@ -161,7 +162,7 @@ class Comment extends Process
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
                 $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = dcCore::app()->filter->HTMLfilter($_POST['comment_content']);
+                $cur->comment_content = Core::filter()->HTMLfilter($_POST['comment_content']);
 
                 if (isset($_POST['comment_status'])) {
                     $cur->comment_status = (int) $_POST['comment_status'];
@@ -169,12 +170,12 @@ class Comment extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentUpdate -- Cursor
-                    dcCore::app()->behavior->callBehavior('adminBeforeCommentUpdate', $cur, dcCore::app()->admin->comment_id);
+                    Core::behavior()->callBehavior('adminBeforeCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->updComment(dcCore::app()->admin->comment_id, $cur);
 
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
-                    dcCore::app()->behavior->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
+                    Core::behavior()->callBehavior('adminAfterCommentUpdate', $cur, dcCore::app()->admin->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully updated.'));
                     dcCore::app()->admin->url->redirect('admin.comment', ['id' => dcCore::app()->admin->comment_id]);
@@ -188,12 +189,12 @@ class Comment extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentDelete -- string|int
-                    dcCore::app()->behavior->callBehavior('adminBeforeCommentDelete', dcCore::app()->admin->comment_id);
+                    Core::behavior()->callBehavior('adminBeforeCommentDelete', dcCore::app()->admin->comment_id);
 
                     dcCore::app()->blog->delComment(dcCore::app()->admin->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully deleted.'));
-                    Http::redirect(dcCore::app()->post_types->get(dcCore::app()->admin->rs->post_type)->adminUrl(dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
+                    Http::redirect(Core::postTypes()->get(dcCore::app()->admin->rs->post_type)->adminUrl(dcCore::app()->admin->rs->post_id, false, ['co' => 1]));
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -213,13 +214,13 @@ class Comment extends Process
             Html::escapeHTML(dcCore::app()->blog->name) => '',
         ];
 
-        if (dcCore::app()->post_types->exists(dcCore::app()->admin->post_type)) {
-            $breadcrumb[Html::escapeHTML(__(dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->label))] = '';
+        if (Core::postTypes()->exists(dcCore::app()->admin->post_type)) {
+            $breadcrumb[Html::escapeHTML(__(Core::postTypes()->get(dcCore::app()->admin->post_type)->label))] = '';
         }
         if (dcCore::app()->admin->comment_id) {
-            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = Core::postTypes()->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id) . '&amp;co=1#c' . dcCore::app()->admin->comment_id;
         } else {
-            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = dcCore::app()->post_types->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id);
+            $breadcrumb[Html::escapeHTML(dcCore::app()->admin->post_title)] = Core::postTypes()->get(dcCore::app()->admin->post_type)->adminUrl(dcCore::app()->admin->post_id);
         }
         $breadcrumb[__('Edit comment')] = '';
 
@@ -228,9 +229,9 @@ class Comment extends Process
             Page::jsConfirmClose('comment-form') .
             Page::jsLoad('js/_comment.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-            dcCore::app()->behavior->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
+            Core::behavior()->callBehavior('adminPostEditor', dcCore::app()->admin->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders --
-            dcCore::app()->behavior->callBehavior('adminCommentHeaders'),
+            Core::behavior()->callBehavior('adminCommentHeaders'),
             Page::breadcrumb($breadcrumb)
         );
 
@@ -288,7 +289,7 @@ class Comment extends Process
             '</p>' .
 
             # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
-            dcCore::app()->behavior->callBehavior('adminAfterCommentDesc', dcCore::app()->admin->rs) .
+            Core::behavior()->callBehavior('adminAfterCommentDesc', dcCore::app()->admin->rs) .
 
             '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .
             form::textarea(
@@ -303,7 +304,7 @@ class Comment extends Process
             '</p>' .
 
             '<p>' . form::hidden('id', dcCore::app()->admin->comment_id) .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
 

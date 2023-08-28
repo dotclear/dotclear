@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -219,7 +220,7 @@ class dcMedia extends Manager
         $this->thumb_sizes['t'][0] = abs(dcCore::app()->blog->settings->system->media_img_t_size);
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager
-        dcCore::app()->behavior->callBehavior('coreMediaConstruct', $this);
+        Core::behavior()->callBehavior('coreMediaConstruct', $this);
 
         // Sort thumb_sizes DESC on largest sizes
         $sizes = [];
@@ -986,7 +987,7 @@ class dcMedia extends Manager
         parent::makeDir($name);
 
         # --BEHAVIOR-- coreAfterMediaDirCreate -- string|null
-        dcCore::app()->behavior->callBehavior('coreAfterMediaDirCreate', $name);
+        Core::behavior()->callBehavior('coreAfterMediaDirCreate', $name);
     }
 
     /**
@@ -1001,7 +1002,7 @@ class dcMedia extends Manager
         parent::removeDir($directory);
 
         # --BEHAVIOR-- coreAfterMediaDirDelete - string|null
-        dcCore::app()->behavior->callBehavior('coreAfterMediaDirDelete', $directory);
+        Core::behavior()->callBehavior('coreAfterMediaDirDelete', $directory);
     }
 
     /**
@@ -1569,7 +1570,7 @@ class dcMedia extends Manager
         }
 
         # --BEHAVIOR-- coreBeforeImageMetaCreate -- Cursor
-        dcCore::app()->behavior->callBehavior('coreBeforeImageMetaCreate', $c);
+        Core::behavior()->callBehavior('coreBeforeImageMetaCreate', $c);
 
         $sql = new UpdateStatement();
         $sql->where('media_id = ' . $id);

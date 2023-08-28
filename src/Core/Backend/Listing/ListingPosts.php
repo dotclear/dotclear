@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -96,7 +97,7 @@ class ListingPosts extends Listing
             ];
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
+            Core::behavior()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -220,7 +221,7 @@ class ListingPosts extends Listing
             ) .
             '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
-            dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
+            Core::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
                 '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
@@ -235,7 +236,7 @@ class ListingPosts extends Listing
         ];
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPostListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPostListValueV2', $this->rs, $cols);
+        Core::behavior()->callBehavior('adminPostListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);

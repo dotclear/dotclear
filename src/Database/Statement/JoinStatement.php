@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use dcCore;
+use Dotclear\Core\Core;
 
 class JoinStatement extends SqlStatement
 {
@@ -85,7 +86,7 @@ class JoinStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeJoinStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreBeforeJoinStatement', $this);
+            Core::behavior()->callBehavior('coreBeforeJoinStatement', $this);
         }
 
         // Check if source given
@@ -125,7 +126,7 @@ class JoinStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertJoinStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreAfterJoinStatement', $this, $query);
+            Core::behavior()->callBehavior('coreAfterJoinStatement', $this, $query);
         }
 
         return $query;

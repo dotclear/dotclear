@@ -16,6 +16,7 @@ namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 
 class FilterMedia extends Filters
@@ -42,7 +43,7 @@ class FilterMedia extends Filters
         ]);
 
         # --BEHAVIOR-- adminMediaFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminMediaFilterV2', $filters);
+        Core::behavior()->callBehavior('adminMediaFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -59,7 +60,7 @@ class FilterMedia extends Filters
         $values = new ArrayObject($this->values());
 
         # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminMediaURLParams', $values);
+        Core::behavior()->callBehavior('adminMediaURLParams', $values);
 
         foreach ($values->getArrayCopy() as $filter => $new_value) {
             if (isset($this->filters[$filter])) {

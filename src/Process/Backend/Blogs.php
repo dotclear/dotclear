@@ -17,6 +17,7 @@ use dcCore;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
@@ -64,10 +65,10 @@ class Blogs extends Process
             # --BEHAVIOR-- adminGetBlogs
             $params = new ArrayObject($params);
             # --BEHAVIOR-- adminGetBlogs -- ArrayObject
-            dcCore::app()->behavior->callBehavior('adminGetBlogs', $params);
+            Core::behavior()->callBehavior('adminGetBlogs', $params);
 
-            $counter  = dcCore::app()->blogs->getBlogs($params, true);
-            $rs       = dcCore::app()->blogs->getBlogs($params);
+            $counter  = Core::blogs()->getBlogs($params, true);
+            $rs       = Core::blogs()->getBlogs($params);
             $rsStatic = $rs->toStatic();
             if ((dcCore::app()->admin->blog_filter->sortby != 'blog_upddt') && (dcCore::app()->admin->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
@@ -142,7 +143,7 @@ class Blogs extends Process
                                                 ->class('classic')
                                             )
                                             ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
-                                        dcCore::app()->nonce->formNonce(),
+                                        Core::nonce()->formNonce(),
                                         (new Submit('do-action'))
                                             ->value(__('ok')),
                                     ]),

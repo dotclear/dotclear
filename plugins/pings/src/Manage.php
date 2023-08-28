@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\pings;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -124,7 +125,7 @@ class Manage extends Process
 
         '<p><input type="submit" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        Core::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
         '<p><a class="button" href="' . dcCore::app()->admin->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';

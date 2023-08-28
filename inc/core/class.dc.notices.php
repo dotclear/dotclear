@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -148,7 +149,7 @@ class dcNotices
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, Cursor
-            dcCore::app()->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            Core::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
             dcCore::app()->con->unlock();
@@ -159,7 +160,7 @@ class dcNotices
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }

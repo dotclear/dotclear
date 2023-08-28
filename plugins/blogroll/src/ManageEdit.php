@@ -17,6 +17,7 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -156,7 +157,7 @@ class ManageEdit extends Process
 
                 form::hidden('edit', 1) .
                 form::hidden('id', dcCore::app()->admin->id) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input type="submit" name="edit_cat" value="' . __('Save') . '"/></p>' .
                 '</form>';
             } else {
@@ -342,7 +343,7 @@ class ManageEdit extends Process
                 '<p class="clear">' . form::hidden('p', My::id()) .
                 form::hidden('edit', 1) .
                 form::hidden('id', dcCore::app()->admin->id) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input type="submit" name="edit_link" value="' . __('Save') . '"/></p>' .
                 '</form>';
             }

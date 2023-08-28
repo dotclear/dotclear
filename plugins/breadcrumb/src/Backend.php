@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\breadcrumb;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -31,7 +32,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'adminBlogPreferencesFormV2'    => [BackendBehaviors::class, 'adminBlogPreferencesForm'],
             'adminBeforeBlogSettingsUpdate' => [BackendBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
         ]);

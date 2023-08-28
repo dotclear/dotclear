@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -31,7 +32,7 @@ class Frontend extends Process
         dcCore::app()->tpl->addValue('Blogroll', [FrontendTemplate::class, 'blogroll']);
         dcCore::app()->tpl->addValue('BlogrollXbelLink', [FrontendTemplate::class, 'blogrollXbelLink']);
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'initWidgets'        => [Widgets::class, 'initWidgets'],
             'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
         ]);

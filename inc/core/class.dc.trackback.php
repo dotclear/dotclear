@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -504,12 +505,12 @@ class dcTrackback
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
-        dcCore::app()->behavior->callBehavior('publicBeforeTrackbackCreate', $cur);
+        Core::behavior()->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id) {
             $comment_id = dcCore::app()->blog->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
-            dcCore::app()->behavior->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
+            Core::behavior()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
         }
     }
 
@@ -587,7 +588,7 @@ class dcTrackback
         # Does the targeted URL look like a registered post type?
         $url_part   = $m[1];
         $p_type     = '';
-        $post_types = dcCore::app()->post_types->dump();
+        $post_types = Core::postTypes()->dump();
         $post_url   = '';
         foreach ($post_types as $v) {
             $reg = '!^' . preg_quote(str_replace('%s', '', $v->public_url)) . '(.*)!';

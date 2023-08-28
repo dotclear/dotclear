@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
 
 class dcXmlRpc extends IntrospectionServer
@@ -193,7 +194,7 @@ class dcXmlRpc extends IntrospectionServer
         $this->setBlog();
 
         # --BEHAVIOR-- publicBeforeReceiveTrackback -- array<string,string>
-        dcCore::app()->behavior->callBehavior('publicBeforeReceiveTrackbackV2', $args);
+        Core::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
         return (new dcTrackback())->receivePingback($from_url, $to_url);
     }

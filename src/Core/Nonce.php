@@ -17,12 +17,9 @@ use Dotclear\Helper\Html\Form\Hidden;
 
 class Nonce
 {
-    /** @var    dcAuth  The auth instance */
-    private dcAuth $auth;
-
-    public function __construct()
-    {
-        $this->auth = dcCore::app()->auth;
+    public function __construct(
+        private dcAuth $auth
+    ) {
     }
 
     /**

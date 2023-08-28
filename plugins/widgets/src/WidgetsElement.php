@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\widgets;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use form;
 
@@ -93,7 +94,7 @@ class WidgetsElement
         if (!is_callable($callback)) {
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
             # --BEHAVIOR-- widgetGetCallback -- ArrayObject
-            dcCore::app()->behavior->callBehavior('widgetGetCallback', $widget);
+            Core::behavior()->callBehavior('widgetGetCallback', $widget);
             $callback = is_callable($widget['callback']) ? $widget['callback'] : null;
         }
 

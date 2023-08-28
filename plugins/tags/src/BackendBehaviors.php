@@ -19,6 +19,7 @@ use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
@@ -287,7 +288,7 @@ class BackendBehaviors
             '<div><label for="new_tags" class="area">' . __('Tags to add:') . '</label> ' .
             form::textarea('new_tags', 60, 3) .
             '</div>' .
-            dcCore::app()->nonce->getFormNonce() . $ap->getHiddenFields() .
+            Core::nonce()->getFormNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags') .
             '<p><input type="submit" value="' . __('Save') . '" ' .
                 'name="save_tags" /></p>' .
@@ -374,7 +375,7 @@ class BackendBehaviors
             echo
             '<p><input type="submit" value="' . __('ok') . '" />' .
 
-            dcCore::app()->nonce->getFormNonce() . $ap->getHiddenFields() .
+            Core::nonce()->getFormNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags_remove') .
                 '</p></div></form>';
             $ap->endPage();

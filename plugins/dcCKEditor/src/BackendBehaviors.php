@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\dcCKEditor;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 
 class BackendBehaviors
@@ -41,7 +42,7 @@ class BackendBehaviors
 
         $alt_tags = new ArrayObject($tags);
         # --BEHAVIOR-- adminPostEditorTags -- string, string, string, ArrayObject, string
-        dcCore::app()->behavior->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, 'xhtml');
+        Core::behavior()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, 'xhtml');
 
         return
         Page::jsJson('ck_editor_ctx', [

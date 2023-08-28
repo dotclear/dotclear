@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 
@@ -41,7 +42,7 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'coreAfterCommentUpdate'    => [Antispam::class, 'trainFilters'],
             'adminAfterCommentDesc'     => [Antispam::class, 'statusMessage'],
             'adminDashboardHeaders'     => [Antispam::class, 'dashboardHeaders'],
@@ -71,7 +72,7 @@ class Backend extends Process
         ]);
 
         if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->behavior->addBehaviors([
+            Core::behavior()->addBehaviors([
                 'adminBlogPreferencesFormV2'    => [BackendBehaviors::class, 'adminBlogPreferencesForm'],
                 'adminBeforeBlogSettingsUpdate' => [BackendBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
                 'adminCommentsSpamFormV2'       => [BackendBehaviors::class, 'adminCommentsSpamForm'],

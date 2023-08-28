@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -60,7 +61,7 @@ class ListingBlogs extends Listing
             $cols = new ArrayObject($cols);
 
             # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
+            Core::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('blogs', $cols);
@@ -138,7 +139,7 @@ class ListingBlogs extends Listing
             Html::escapeHTML($this->rs->blog_url) . '">' . Html::escapeHTML($this->rs->blog_url) .
             ' <img src="images/outgoing-link.svg" alt="" /></a></td>',
             'posts' => '<td class="nowrap count">' .
-            dcCore::app()->blogs->countBlogPosts($this->rs->blog_id) .
+            Core::blogs()->countBlogPosts($this->rs->blog_id) .
             '</td>',
             'upddt' => '<td class="nowrap count">' .
             '<time datetime="' . Date::iso8601(strtotime($this->rs->blog_upddt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
@@ -156,7 +157,7 @@ class ListingBlogs extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminBlogListValueV2', $this->rs, $cols);
+        Core::behavior()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('blogs', $cols);

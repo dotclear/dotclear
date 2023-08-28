@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
@@ -43,7 +44,7 @@ class FrontendUrl extends Url
                 'post_url'  => $args, ]);
 
             # --BEHAVIOR-- publicPagesBeforeGetPosts -- ArrayObject, string
-            dcCore::app()->behavior->callBehavior('publicPagesBeforeGetPosts', $params, $args);
+            Core::behavior()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
             dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
@@ -114,18 +115,18 @@ class FrontendUrl extends Url
 
                     if ($content != '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
-                        $buffer = dcCore::app()->behavior->callBehavior('publicBeforeCommentTransform', $content);
+                        $buffer = Core::behavior()->callBehavior('publicBeforeCommentTransform', $content);
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
                             if (dcCore::app()->blog->settings->system->wiki_comments) {
-                                dcCore::app()->filter->initWikiComment();
+                                Core::filter()->initWikiComment();
                             } else {
-                                dcCore::app()->filter->initWikiSimpleComment();
+                                Core::filter()->initWikiSimpleComment();
                             }
-                            $content = dcCore::app()->filter->wikiTransform($content);
+                            $content = Core::filter()->wikiTransform($content);
                         }
-                        $content = dcCore::app()->filter->HTMLfilter($content);
+                        $content = Core::filter()->HTMLfilter($content);
                     }
 
                     dcCore::app()->ctx->comment_preview['content']    = $content;
@@ -136,7 +137,7 @@ class FrontendUrl extends Url
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
-                        dcCore::app()->behavior->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
+                        Core::behavior()->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
 
                         dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
@@ -160,12 +161,12 @@ class FrontendUrl extends Url
                             }
 
                             # --BEHAVIOR-- publicBeforeCommentCreate -- Cursor
-                            dcCore::app()->behavior->callBehavior('publicBeforeCommentCreate', $cur);
+                            Core::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
                                 $comment_id = dcCore::app()->blog->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate -- Cursor, int
-                                dcCore::app()->behavior->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
+                                Core::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
                             if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {

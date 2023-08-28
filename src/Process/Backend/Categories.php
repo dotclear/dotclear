@@ -16,6 +16,7 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -241,7 +242,7 @@ class Categories extends Process
             echo
             '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '" />' .
             '<input type="hidden" name="process" value="Categories"/>' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p>' .
             '</div></form>';
         }

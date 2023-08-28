@@ -3,6 +3,8 @@
 namespace Dotclear\Core;
 
 use dcBlog;
+use Dotclear\Database\AbstractHandler;
+use Dotclear\Helper\Behavior;
 use Exception;
 
 final class Core
@@ -14,8 +16,11 @@ final class Core
     private array $stack = [];
 
     /** @var    null|dcBlog     dcBlog instance */
-    public ?dcBlog $blog;
+    private ?dcBlog $blog;
 
+
+    /// @name Container methods
+    //@{
     /**
      * Constructor.
      *
@@ -36,38 +41,6 @@ final class Core
         self::$instance = $this;
     }
 
-    /// @name Container methods
-    //@{
-    /**
-     * Get Core unique instance
-     *
-     * @return  Core
-     */
-    public static function app(): Core
-    {
-        return self::$instance;
-    }
-
-    /**
-     * Static alias of self::get().
-     *
-     * @param   string  $id The object ID.
-     */
-    public static function from(string $id)
-    {
-        return self::$instance->get($id);
-    }
-
-    /**
-     * Magic alias of self::get().
-     *
-     * @param   string  $id The object ID.
-     */
-    public function __get(string $id)
-    {
-        return $this->get($id);
-    }
-
     /**
      * Get unique instance of a core object.
      *
@@ -82,14 +55,84 @@ final class Core
         throw new Exception('Can not call ' . $id . ' on Core factory class ' . $this->factory_class);
     }
 
+    /**
+     * Check if core object exists.
+     *
+     * @param   string  $id The object ID.
+     *
+     * @return  bool    True if it exists
+     */
     public function has(string $id): bool
     {
         return method_exists($this->factory_class, $id);
     }
     //@}
 
-    /// @name Blog init methods
+    /// @name Core methods
     //@{
+    /**
+     * Get Core unique instance
+     *
+     * @return  Core
+     */
+    public static function app(): Core
+    {
+        return self::$instance;
+    }
+
+    public static function behavior(): Behavior
+    {
+        return self::$instance->get('behavior');
+    }
+
+    public static function blogs(): Blogs
+    {
+        return self::$instance->get('blogs');
+    }
+
+    public static function con(): AbstractHandler
+    {
+        return self::$instance->get('con');
+    }
+
+    public static function filter(): Filter
+    {
+        return self::$instance->get('filter');
+    }
+
+    public static function formater(): Formater
+    {
+        return self::$instance->get('formater');
+    }
+
+    public static function nonce(): Nonce
+    {
+        return self::$instance->get('nonce');
+    }
+
+    public static function postTypes(): PostTypes
+    {
+        return self::$instance->get('postTypes');
+    }
+
+    public static function version(): Version
+    {
+        return self::$instance->get('version');
+    }
+    //@}
+
+    /// @name Current blog methods
+    //@{
+    /**
+     * Get current blog
+     *
+     * @return null|dcBlog
+     */
+    public function blog(): ?dcBlog
+    {
+        return $this->blog;
+    }
+
     /**
      * Sets the blog to use.
      *
@@ -106,6 +149,7 @@ final class Core
     public function unsetBlog(): void
     {
         $this->blog = null;
+        dcCore::app()->blog = null;
     }
     //@}
 }

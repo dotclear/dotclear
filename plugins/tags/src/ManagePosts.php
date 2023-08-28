@@ -17,6 +17,7 @@ use dcMeta;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -163,7 +164,7 @@ class ManagePosts extends Process
                 form::field('new_tag_id', 20, 255, Html::escapeHTML(dcCore::app()->admin->tag)) .
                 '<input type="submit" value="' . __('OK') . '" />' .
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</p></form>';
 
                 // Remove tag
@@ -173,7 +174,7 @@ class ManagePosts extends Process
                     echo
                     '<form id="tag_delete" action="' . $this_url . '" method="post">' .
                     '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
-                    dcCore::app()->nonce->getFormNonce() .
+                    Core::nonce()->getFormNonce() .
                     '</p></form>';
                 }
 
@@ -198,7 +199,7 @@ class ManagePosts extends Process
                 form::hidden('p', My::id()) .
                 form::hidden('m', 'tag_posts') .
                 form::hidden('tag', dcCore::app()->admin->tag) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</div>' .
                 '</form>'
             );

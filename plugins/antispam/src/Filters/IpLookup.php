@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use dcCore;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
@@ -157,7 +158,7 @@ class IpLookup extends SpamFilter
             '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
                 form::textarea('bls', 40, 3, Html::escapeHTML($bls), 'maximal') .
             '</p>' .
-            '<p><input type="submit" value="' . __('Save') . '" />' . dcCore::app()->nonce->getFormNonce() . '</p>' .
+            '<p><input type="submit" value="' . __('Save') . '" />' . Core::nonce()->getFormNonce() . '</p>' .
         '</form>';
     }
 

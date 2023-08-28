@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 
 class SelectStatement extends SqlStatement
@@ -234,7 +235,7 @@ class SelectStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeSelectStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreBeforeSelectStatement', $this);
+            Core::behavior()->callBehavior('coreBeforeSelectStatement', $this);
         }
 
         // Check if source given
@@ -319,7 +320,7 @@ class SelectStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertSelectStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreAfterSelectStatement', $this, $query);
+            Core::behavior()->callBehavior('coreAfterSelectStatement', $this, $query);
         }
 
         return $query;

@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\importExport;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -217,7 +218,7 @@ class ModuleImportFlat extends Module
 
         echo
         '<p>' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         form::hidden(['do'], 1) .
         form::hidden(['MAX_FILE_SIZE'], (int) DC_MAX_UPLOAD_SIZE) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
@@ -255,7 +256,7 @@ class ModuleImportFlat extends Module
             ) . '</p>' .
 
             '<p>' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             form::hidden(['do'], 1) .
             form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
             '<input type="submit" value="' . __('Import') . '" /></p>' .

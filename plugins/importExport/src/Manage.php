@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Exception;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -29,7 +30,7 @@ class Manage extends Process
         $modules = new ArrayObject(['import' => [], 'export' => []]);
 
         # --BEHAVIOR-- importExportModules -- ArrayObject
-        dcCore::app()->behavior->callBehavior('importExportModulesV2', $modules);
+        Core::behavior()->callBehavior('importExportModulesV2', $modules);
 
         dcCore::app()->admin->type = null;
         if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'])) {

@@ -19,6 +19,7 @@ use dcThemes;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -145,7 +146,7 @@ class Manage extends Process
                 (dcCore::app()->admin->theme->updLocked() ?
                 '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '" />' :
                 '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '" />') .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</p>' .
                 '<p class="info">' .
                 __('Lock update of the theme does not prevent to modify its files, only to update it globally.') .
@@ -213,7 +214,7 @@ class Manage extends Process
                     echo
                     '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
                     (dcCore::app()->admin->editor->deletableFile(dcCore::app()->admin->file['type'], dcCore::app()->admin->file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
-                    dcCore::app()->nonce->getFormNonce() .
+                    Core::nonce()->getFormNonce() .
                         (dcCore::app()->admin->file['type'] ? form::hidden([dcCore::app()->admin->file['type']], dcCore::app()->admin->file['f']) : '') .
                         '</p>';
                 } else {

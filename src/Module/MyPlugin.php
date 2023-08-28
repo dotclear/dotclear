@@ -18,6 +18,7 @@ namespace Dotclear\Module;
 
 use dcCore;
 use dcModuleDefine;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -125,7 +126,7 @@ abstract class MyPlugin extends MyModule
             foreach ($params as $key => $value) {
                 $fields[] = new Hidden([$key], (string) $value);
             }
-            $fields[] = dcCore::app()->nonce->formNonce();
+            $fields[] = Core::nonce()->formNonce();
         }
 
         return $fields;

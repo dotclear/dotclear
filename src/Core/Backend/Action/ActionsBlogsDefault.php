@@ -12,6 +12,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Exception;
 
@@ -113,10 +114,10 @@ class ActionsBlogsDefault
 
         if (!empty($checked_ids)) {
             # --BEHAVIOR-- adminBeforeBlogsDelete -- array<int,string>
-            dcCore::app()->behavior->callBehavior('adminBeforeBlogsDelete', $checked_ids);
+            Core::behavior()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 
             foreach ($checked_ids as $id) {
-                dcCore::app()->blogs->delBlog($id);
+                Core::blogs()->delBlog($id);
             }
 
             Notices::addSuccessNotice(

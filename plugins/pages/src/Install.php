@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\pages;
 
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Install extends Process
@@ -29,7 +30,7 @@ class Install extends Process
             return false;
         }
 
-        if (dcCore::app()->version->getVersion(My::id()) === '') {
+        if (Core::version()->getVersion(My::id()) === '') {
             // Create a first pending page, only on a new installation of this plugin
             $params = [
                 'post_type'  => 'page',

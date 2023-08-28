@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 
@@ -17,7 +18,7 @@ class rsExtendPublic
      */
     public static function init()
     {
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'publicHeadContent'   => [self::class, 'publicHeadContent'],
             'coreBlogGetPosts'    => [self::class, 'coreBlogGetPosts'],
             'coreBlogGetComments' => [self::class, 'coreBlogGetComments'],

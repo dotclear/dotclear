@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 
 class Favorites
 {
@@ -86,7 +87,7 @@ class Favorites
         $this->initDefaultFavorites();
         $this->legacyFavorites();
         # --BEHAVIOR-- adminDashboardFavoritesV2 -- Favorites
-        dcCore::app()->behavior->callBehavior('adminDashboardFavoritesV2', $this);
+        Core::behavior()->callBehavior('adminDashboardFavoritesV2', $this);
         $this->setUserPrefs();
     }
 
@@ -230,7 +231,7 @@ class Favorites
     {
         $favorites = new ArrayObject();
         # --BEHAVIOR-- adminDashboardFavsV2 -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminDashboardFavsV2', $favorites);
+        Core::behavior()->callBehavior('adminDashboardFavsV2', $favorites);
         foreach ($favorites as $favorite) {
             $favorite_data = [
                 'title'       => __($favorite[1]),
@@ -339,7 +340,7 @@ class Favorites
             }
             $icons[$icon_id] = new ArrayObject([$icon_data['title'], $icon_data['url'], $icon_data['large-icon']]);
             # --BEHAVIOR-- adminDashboardFavsIconV2 -- string, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminDashboardFavsIconV2', $icon_id, $icons[$icon_id]);
+            Core::behavior()->callBehavior('adminDashboardFavsIconV2', $icon_id, $icons[$icon_id]);
         }
     }
 

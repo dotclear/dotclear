@@ -18,6 +18,7 @@ use dcBlog;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -43,7 +44,7 @@ class UsersActions extends Process
         $blogs = [];
         if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
             foreach ($_POST['blogs'] as $b) {
-                if (dcCore::app()->blogs->blogExists($b)) {
+                if (Core::blogs()->blogExists($b)) {
                     $blogs[] = $b;
                 }
             }
@@ -78,7 +79,7 @@ class UsersActions extends Process
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
-            dcCore::app()->behavior->callBehavior('adminUsersActions', dcCore::app()->admin->users, dcCore::app()->admin->blogs, dcCore::app()->admin->action, dcCore::app()->admin->redir);
+            Core::behavior()->callBehavior('adminUsersActions', dcCore::app()->admin->users, dcCore::app()->admin->blogs, dcCore::app()->admin->action, dcCore::app()->admin->redir);
 
             if (dcCore::app()->admin->action == 'deleteuser' && !empty(dcCore::app()->admin->users)) {
                 // Delete users
@@ -89,7 +90,7 @@ class UsersActions extends Process
                         }
 
                         # --BEHAVIOR-- adminBeforeUserDelete -- string
-                        dcCore::app()->behavior->callBehavior('adminBeforeUserDelete', $u);
+                        Core::behavior()->callBehavior('adminBeforeUserDelete', $u);
 
                         dcCore::app()->delUser($u);
                     } catch (Exception $e) {
@@ -161,7 +162,7 @@ class UsersActions extends Process
             __('Users'),
             Page::jsLoad('js/_users_actions.js') .
             # --BEHAVIOR-- adminUsersActionsHeaders --
-            dcCore::app()->behavior->callBehavior('adminUsersActionsHeaders'),
+            Core::behavior()->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
         );
 
@@ -189,7 +190,7 @@ class UsersActions extends Process
         '<p><a class="back" href="' . Html::escapeURL(dcCore::app()->admin->redir) . '">' . __('Back to user profile') . '</a></p>';
 
         # --BEHAVIOR-- adminUsersActionsContent -- string, string
-        dcCore::app()->behavior->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
+        Core::behavior()->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
 
         if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {
             // Blog list where to set permissions
@@ -198,7 +199,7 @@ class UsersActions extends Process
             $nb_blog = 0;
 
             try {
-                $rs      = dcCore::app()->blogs->getBlogs();
+                $rs      = Core::blogs()->getBlogs();
                 $nb_blog = $rs->count();
             } catch (Exception $e) {
                 // Ignore exceptions
@@ -249,7 +250,7 @@ class UsersActions extends Process
                     '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
                     '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
                     ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
-                    '<td class="nowrap">' . dcCore::app()->blogs->countBlogPosts($rs->blog_id) . '</td>' .
+                    '<td class="nowrap">' . Core::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
                     '<td class="status">' . $img_status . '</td>' .
                     '</tr>';
                 }
@@ -260,7 +261,7 @@ class UsersActions extends Process
                 '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '" />' .
                 $hidden_fields .
                 form::hidden(['action'], 'perms') .
-                dcCore::app()->nonce->getFormNonce() . '</p>' .
+                Core::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }
         } elseif (!empty(dcCore::app()->admin->blogs) && !empty(dcCore::app()->admin->users) && dcCore::app()->admin->action == 'perms') {
@@ -340,7 +341,7 @@ class UsersActions extends Process
             '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
             $hidden_fields .
             form::hidden(['action'], 'updateperm') .
-            dcCore::app()->nonce->getFormNonce() . '</p>' .
+            Core::nonce()->getFormNonce() . '</p>' .
             '</div>' .
             '</form>';
         }

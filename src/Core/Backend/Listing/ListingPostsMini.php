@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -45,7 +46,7 @@ class ListingPostsMini extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
+            Core::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -126,7 +127,7 @@ class ListingPostsMini extends Listing
 
         $cols = [
             'title' => '<td scope="row" class="maximal"><a href="' .
-            dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '" ' .
+            Core::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '" ' .
             'title="' . Html::escapeHTML($this->rs->getURL()) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
@@ -140,7 +141,7 @@ class ListingPostsMini extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
+        Core::behavior()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);

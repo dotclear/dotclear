@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -35,7 +36,7 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         // Admin behaviors
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'dcMaintenanceInit'                => [BackendBehaviors::class, 'dcMaintenanceInit'],
             'adminDashboardFavoritesV2'        => [BackendBehaviors::class, 'adminDashboardFavorites'],
             'adminDashboardHeaders'            => [BackendBehaviors::class, 'adminDashboardHeaders'],

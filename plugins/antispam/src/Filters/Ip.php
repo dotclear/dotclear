@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use dcCore;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -193,7 +194,7 @@ class Ip extends SpamFilter
             __('Global IP (used for all blogs)') . '</label> ';
         }
 
-        $res .= dcCore::app()->nonce->getFormNonce() .
+        $res .= Core::nonce()->getFormNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -249,7 +250,7 @@ class Ip extends SpamFilter
 
             $res .= '</div>' .
             '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             form::hidden(['ip_type'], $type) .
                 '</p>' .
                 '</form>';

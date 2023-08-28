@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -266,7 +267,7 @@ class Langs extends Process
                     echo
                     '<form action="' . dcCore::app()->admin->url->get('admin.langs') . '" method="post">' .
                     '<div>' .
-                    dcCore::app()->nonce->getFormNonce() .
+                    Core::nonce()->getFormNonce() .
                     form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
                     '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
                     '</div>' .
@@ -312,7 +313,7 @@ class Langs extends Process
                     'autocomplete' => 'current-password', ]
             ) . '</p>' .
             '<p><input type="submit" value="' . __('Install language') . '" />' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p>' .
             '</form>';
         }
@@ -335,7 +336,7 @@ class Langs extends Process
                     'autocomplete' => 'current-password', ]
             ) . '</p>' .
             '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p>' .
             '</form>';
         }

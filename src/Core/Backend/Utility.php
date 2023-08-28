@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use dcCore;
 use dcTraitDynamicProperties;
+use Dotclear\Core\Core;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
@@ -126,7 +127,7 @@ class Utility extends Process
             }
 
             // Check nonce from POST requests
-            if (!empty($_POST) && (empty($_POST['xd_check']) || !dcCore::app()->nonce->checkNonce($_POST['xd_check']))) {
+            if (!empty($_POST) && (empty($_POST['xd_check']) || !Core::nonce()->checkNonce($_POST['xd_check']))) {
                 new Fault('Precondition Failed', __('Precondition Failed'), 412);
             }
 
@@ -186,7 +187,7 @@ class Utility extends Process
         dcCore::app()->admin->url->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        dcCore::app()->post_types->set(new PostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
+        Core::postTypes()->set(new PostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
         if (!(dcCore::app()->auth->userID() && dcCore::app()->blog !== null)) {
@@ -250,7 +251,7 @@ class Utility extends Process
         }
 
         // Admin behaviors
-        dcCore::app()->behavior->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
+        Core::behavior()->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
 
         return true;
     }

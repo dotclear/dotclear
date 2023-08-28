@@ -18,6 +18,7 @@ use Dotclear\Core\Backend\Filter\FilterUsers;
 use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -41,7 +42,7 @@ class Users extends Process
         ];
 
         # --BEHAVIOR-- adminUsersActionsCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminUsersActionsCombo', [& $combo_action]);
+        Core::behavior()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 
         dcCore::app()->admin->combo_action = $combo_action;
 
@@ -60,7 +61,7 @@ class Users extends Process
             'user_displayname' => 'user_displayname', ];
 
         # --BEHAVIOR-- adminUsersSortbyLexCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
+        Core::behavior()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(dcCore::app()->admin->user_filter->sortby, $sortby_lex) ?
             dcCore::app()->con->lexFields($sortby_lex[dcCore::app()->admin->user_filter->sortby]) :
@@ -73,7 +74,7 @@ class Users extends Process
             # --BEHAVIOR-- adminGetUsers
             $params = new ArrayObject($params);
             # --BEHAVIOR-- adminGetUsers -- ArrayObject
-            dcCore::app()->behavior->callBehavior('adminGetUsers', $params);
+            Core::behavior()->callBehavior('adminGetUsers', $params);
 
             $rs       = dcCore::app()->getUsers($params);
             $counter  = dcCore::app()->getUsers($params, true);
@@ -142,7 +143,7 @@ class Users extends Process
                                              ->class('classic')
                                          )
                                          ->items(dcCore::app()->admin->combo_action),
-                                     dcCore::app()->nonce->formNonce(),
+                                     Core::nonce()->formNonce(),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
                                      ...dcCore::app()->admin->url->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),

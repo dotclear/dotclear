@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use dcThemes;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -38,7 +39,7 @@ class PostsPopup extends Process
 
         dcCore::app()->admin->type = !empty($_GET['type']) ? $_GET['type'] : null;
 
-        $post_types = dcCore::app()->post_types->dump();
+        $post_types = Core::postTypes()->dump();
         $type_combo = [];
         foreach (array_keys($post_types) as $k) {
             $type_combo[__($k)] = (string) $k;
@@ -79,7 +80,7 @@ class PostsPopup extends Process
             __('Add a link to an entry'),
             Page::jsLoad('js/_posts_list.js') .
             Page::jsLoad('js/_popup_posts.js') .
-            dcCore::app()->behavior->callBehavior('adminPopupPosts', dcCore::app()->admin->plugin_id)
+            Core::behavior()->callBehavior('adminPopupPosts', dcCore::app()->admin->plugin_id)
         );
 
         echo

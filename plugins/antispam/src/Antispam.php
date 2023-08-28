@@ -12,10 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\Database\Cursor;
 use dcAuth;
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use initAntispam;
 
@@ -231,7 +232,7 @@ class Antispam extends initAntispam
             return false;
         }
 
-        $permissions = dcCore::app()->blogs->getBlogPermissions(dcCore::app()->blog->id);
+        $permissions = Core::blogs()->getBlogPermissions(dcCore::app()->blog->id);
 
         if (empty($permissions[$rs->user_id])) {
             return false;

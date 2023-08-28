@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
 use Dotclear\Helper\File\Path;
@@ -233,12 +234,12 @@ class context
         $args[0] = &$str;
 
         # --BEHAVIOR-- publicBeforeContentFilter -- string, array
-        dcCore::app()->behavior->callBehavior('publicBeforeContentFilterV2', $tag, $args);
+        Core::behavior()->callBehavior('publicBeforeContentFilterV2', $tag, $args);
         $str = $args[0];
 
         foreach ($filters as $filter) {
             # --BEHAVIOR-- publicContentFilter -- string, array, array<int,string>
-            switch (dcCore::app()->behavior->callBehavior('publicContentFilterV2', $tag, $args, $filter)) {
+            switch (Core::behavior()->callBehavior('publicContentFilterV2', $tag, $args, $filter)) {
                 case '1':
                     // 3rd party filter applied and must stop
                     break;
@@ -253,7 +254,7 @@ class context
         }
 
         # --BEHAVIOR-- publicAfterContentFilter -- string, array
-        dcCore::app()->behavior->callBehavior('publicAfterContentFilterV2', $tag, $args);
+        Core::behavior()->callBehavior('publicAfterContentFilterV2', $tag, $args);
 
         return $args[0];
     }

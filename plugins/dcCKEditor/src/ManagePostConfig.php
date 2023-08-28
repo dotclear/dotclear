@@ -8,6 +8,8 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\Core\Core;
+
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
@@ -18,7 +20,7 @@ $context = $_GET['context'] ?? '';
 
 $__extraPlugins = new ArrayObject();
 # --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject, string
-dcCore::app()->behavior->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
+Core::behavior()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
 $extraPlugins = $__extraPlugins->getArrayCopy();
 
 ?>

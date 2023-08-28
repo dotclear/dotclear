@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use dcModuleDefine;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -96,7 +97,7 @@ class Plugins extends Process
             Page::jsPageTabs() .
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
-            dcCore::app()->behavior->callBehavior('pluginsToolsHeadersV2', false),
+            Core::behavior()->callBehavior('pluginsToolsHeadersV2', false),
             Page::breadcrumb(
                 [
                     __('System')             => '',
@@ -291,7 +292,7 @@ class Plugins extends Process
         }
 
         # --BEHAVIOR-- pluginsToolsTabs --
-        dcCore::app()->behavior->callBehavior('pluginsToolsTabsV2');
+        Core::behavior()->callBehavior('pluginsToolsTabsV2');
 
         # -- Notice for super admin --
         if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->list->isWritablePath()) {
@@ -322,7 +323,7 @@ class Plugins extends Process
             __('Plugins management'),
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
-            dcCore::app()->behavior->callBehavior('pluginsToolsHeadersV2', true),
+            Core::behavior()->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name)                          => '',

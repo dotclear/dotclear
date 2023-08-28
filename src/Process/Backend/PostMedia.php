@@ -17,6 +17,7 @@ use dcMedia;
 use dcPostMedia;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -61,10 +62,10 @@ class PostMedia extends Process
                 $pm->addPostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
-                    echo json_encode(['url' => dcCore::app()->post_types->get($rs->post_type)->adminurl(dcCore::app()->admin->post_id, false)], JSON_THROW_ON_ERROR);
+                    echo json_encode(['url' => Core::postTypes()->get($rs->post_type)->adminurl(dcCore::app()->admin->post_id, false)], JSON_THROW_ON_ERROR);
                     exit();
                 }
-                Http::redirect(dcCore::app()->post_types->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
             }
 
             dcCore::app()->media = new dcMedia();
@@ -88,9 +89,9 @@ class PostMedia extends Process
                 $pm->removePostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
 
                 Notices::addSuccessNotice(__('Attachment has been successfully removed.'));
-                Http::redirect(dcCore::app()->post_types->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
             } elseif (isset($_POST['post_id'])) {
-                Http::redirect(dcCore::app()->post_types->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
             }
 
             if (!empty($_GET['remove'])) {
@@ -115,7 +116,7 @@ class PostMedia extends Process
                         ]),
                     (new Hidden('post_id', (string) dcCore::app()->admin->post_id)),
                     (new Hidden('media_id', (string) dcCore::app()->admin->media_id)),
-                    dcCore::app()->nonce->formNonce(),
+                    Core::nonce()->formNonce(),
                 ])
                 ->render();
 

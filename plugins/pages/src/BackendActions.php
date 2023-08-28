@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
@@ -90,7 +91,7 @@ class BackendActions extends ActionsPosts
         // We could have added a behavior here, but we want default action to be setup first
         BackendDefaultActions::adminPagesActionsPage($this);
         # --BEHAVIOR-- adminPagesActions -- Actions
-        dcCore::app()->behavior->callBehavior('adminPagesActions', $this);
+        Core::behavior()->callBehavior('adminPagesActions', $this);
     }
 
     /**

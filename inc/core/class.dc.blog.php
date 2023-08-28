@@ -11,6 +11,7 @@
  * Dotclear blog class instance is provided by dcCore $blog property.
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -233,7 +234,7 @@ class dcBlog
             $this->comment_status[(string) self::COMMENT_PUBLISHED]   = __('Published');
 
             # --BEHAVIOR-- coreBlogConstruct -- dcBlog
-            dcCore::app()->behavior->callBehavior('coreBlogConstruct', $this);
+            Core::behavior()->callBehavior('coreBlogConstruct', $this);
         }
     }
 
@@ -380,7 +381,7 @@ class dcBlog
         $sql->update($cur);
 
         # --BEHAVIOR-- coreBlogAfterTriggerBlog -- Cursor
-        dcCore::app()->behavior->callBehavior('coreBlogAfterTriggerBlog', $cur);
+        Core::behavior()->callBehavior('coreBlogAfterTriggerBlog', $cur);
     }
 
     /**
@@ -761,7 +762,7 @@ class dcBlog
         $cur->blog_id = (string) $this->id;
 
         # --BEHAVIOR-- coreBeforeCategoryCreate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreBeforeCategoryCreate', $this, $cur);
+        Core::behavior()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
 
         $id = $this->categories()->addNode($cur, $parent);
 
@@ -773,7 +774,7 @@ class dcBlog
         }
 
         # --BEHAVIOR-- coreAfterCategoryCreate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterCategoryCreate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
         return $cur->cat_id;
@@ -811,7 +812,7 @@ class dcBlog
         $this->fillCategoryCursor($cur, $id);
 
         # --BEHAVIOR-- coreBeforeCategoryUpdate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
+        Core::behavior()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
         $sql = new UpdateStatement();
         $sql
@@ -821,7 +822,7 @@ class dcBlog
         $sql->update($cur);
 
         # --BEHAVIOR-- coreAfterCategoryUpdate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterCategoryUpdate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterCategoryUpdate', $this, $cur);
 
         $this->triggerBlog();
     }
@@ -1010,7 +1011,7 @@ class dcBlog
         $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
 
         if ($cur->cat_desc !== null) {
-            $cur->cat_desc = dcCore::app()->filter->HTMLfilter($cur->cat_desc);
+            $cur->cat_desc = Core::filter()->HTMLfilter($cur->cat_desc);
         }
     }
 
@@ -1061,7 +1062,7 @@ class dcBlog
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
         # --BEHAVIOR-- coreBlogBeforeGetPosts -- ArrayObject
-        dcCore::app()->behavior->callBehavior('coreBlogBeforeGetPosts', $params);
+        Core::behavior()->callBehavior('coreBlogBeforeGetPosts', $params);
 
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
 
@@ -1265,9 +1266,9 @@ class dcBlog
 
             if (!empty($words)) {
                 # --BEHAVIOR-- corePostSearch
-                if (dcCore::app()->behavior->hasBehavior('corePostSearch') || dcCore::app()->behavior->hasBehavior('corePostSearchV2')) {
+                if (Core::behavior()->hasBehavior('corePostSearch') || Core::behavior()->hasBehavior('corePostSearchV2')) {
                     # --BEHAVIOR-- corePostSearchV2 -- array<int,mixed>
-                    dcCore::app()->behavior->callBehavior('corePostSearchV2', [&$words, &$params, $sql]);
+                    Core::behavior()->callBehavior('corePostSearchV2', [&$words, &$params, $sql]);
                 }
 
                 foreach ($words as $i => $w) {
@@ -1313,11 +1314,11 @@ class dcBlog
         $rs->extend('rsExtPost');
 
         # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
-        dcCore::app()->behavior->callBehavior('coreBlogGetPosts', $rs);
+        Core::behavior()->callBehavior('coreBlogGetPosts', $rs);
 
         # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
         $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
-        dcCore::app()->behavior->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
+        Core::behavior()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
         if ($alt['rs']) {
             if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
                 $rs = new MetaRecord($alt['rs']);
@@ -1619,7 +1620,7 @@ class dcBlog
             }
 
             # --BEHAVIOR-- coreBeforePostCreate -- dcBlog, Cursor
-            dcCore::app()->behavior->callBehavior('coreBeforePostCreate', $this, $cur);
+            Core::behavior()->callBehavior('coreBeforePostCreate', $this, $cur);
 
             $cur->insert();
             $this->con->unlock();
@@ -1630,7 +1631,7 @@ class dcBlog
         }
 
         # --BEHAVIOR-- coreAfterPostCreate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterPostCreate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterPostCreate', $this, $cur);
 
         $this->triggerBlog();
 
@@ -1697,12 +1698,12 @@ class dcBlog
         }
 
         # --BEHAVIOR-- coreBeforePostUpdate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreBeforePostUpdate', $this, $cur);
+        Core::behavior()->callBehavior('coreBeforePostUpdate', $this, $cur);
 
         $cur->update('WHERE post_id = ' . $id . ' ');
 
         # --BEHAVIOR-- coreAfterPostUpdate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterPostUpdate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterPostUpdate', $this, $cur);
 
         $this->triggerBlog();
 
@@ -2032,7 +2033,7 @@ class dcBlog
         }
         if (count($to_change)) {
             # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- dcBlog, ArrayObject
-            dcCore::app()->behavior->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
+            Core::behavior()->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
             $sql = new UpdateStatement();
             $sql
@@ -2045,7 +2046,7 @@ class dcBlog
             $this->triggerBlog();
 
             # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- dcBlog, ArrayObject
-            dcCore::app()->behavior->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
+            Core::behavior()->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
 
             $this->firstPublicationEntries($to_change);
         }
@@ -2080,7 +2081,7 @@ class dcBlog
             $sql->update();
 
             # --BEHAVIOR-- coreFirstPublicationEntries -- dcBlog, ArrayObject
-            dcCore::app()->behavior->callBehavior('coreFirstPublicationEntries', $this, $to_change);
+            Core::behavior()->callBehavior('coreFirstPublicationEntries', $this, $to_change);
         }
     }
 
@@ -2301,38 +2302,38 @@ class dcBlog
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {
         if ($format == 'wiki') {
-            dcCore::app()->filter->initWikiPost();
-            dcCore::app()->filter->wiki->setOpt('note_prefix', 'pnote-' . $post_id);
+            Core::filter()->initWikiPost();
+            Core::filter()->wiki->setOpt('note_prefix', 'pnote-' . $post_id);
             $tag = match ($this->settings->system->note_title_tag) {
                 1       => 'h3',
                 2       => 'p',
                 default => 'h4',
             };
-            dcCore::app()->filter->wiki->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+            Core::filter()->wiki->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Notes') . '</' . $tag . '>%s</div>');
-            dcCore::app()->filter->wiki->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+            Core::filter()->wiki->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Note') . '</' . $tag . '>%s</div>');
             if (strpos($lang, 'fr') === 0) {
-                dcCore::app()->filter->wiki->setOpt('active_fr_syntax', 1);
+                Core::filter()->wiki->setOpt('active_fr_syntax', 1);
             }
         }
 
         if ($excerpt) {
-            $excerpt_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $format, $excerpt);
-            $excerpt_xhtml = dcCore::app()->filter->HTMLfilter($excerpt_xhtml);
+            $excerpt_xhtml = Core::formater()->callEditorFormater('dcLegacyEditor', $format, $excerpt);
+            $excerpt_xhtml = Core::filter()->HTMLfilter($excerpt_xhtml);
         } else {
             $excerpt_xhtml = '';
         }
 
         if ($content) {
-            $content_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $format, $content);
-            $content_xhtml = dcCore::app()->filter->HTMLfilter($content_xhtml);
+            $content_xhtml = Core::formater()->callEditorFormater('dcLegacyEditor', $format, $content);
+            $content_xhtml = Core::filter()->HTMLfilter($content_xhtml);
         } else {
             $content_xhtml = '';
         }
 
         # --BEHAVIOR-- coreAfterPostContentFormat -- arra<string,string>
-        dcCore::app()->behavior->callBehavior('coreAfterPostContentFormat', [
+        Core::behavior()->callBehavior('coreAfterPostContentFormat', [
             'excerpt'       => &$excerpt,
             'content'       => &$content,
             'excerpt_xhtml' => &$excerpt_xhtml,
@@ -2605,9 +2606,9 @@ class dcBlog
 
             if (!empty($words)) {
                 # --BEHAVIOR coreCommentSearch
-                if (dcCore::app()->behavior->hasBehavior('coreCommentSearch') || dcCore::app()->behavior->hasBehavior('coreCommentSearchV2')) {
+                if (Core::behavior()->hasBehavior('coreCommentSearch') || Core::behavior()->hasBehavior('coreCommentSearchV2')) {
                     # --BEHAVIOR-- coreCommentSearchV2 -- array<int,mixed>
-                    dcCore::app()->behavior->callBehavior('coreCommentSearchV2', [&$words, &$sql, &$params]);
+                    Core::behavior()->callBehavior('coreCommentSearchV2', [&$words, &$sql, &$params]);
                 }
 
                 foreach ($words as $i => $w) {
@@ -2637,7 +2638,7 @@ class dcBlog
         $rs->extend('rsExtComment');
 
         # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
-        dcCore::app()->behavior->callBehavior('coreBlogGetComments', $rs);
+        Core::behavior()->callBehavior('coreBlogGetComments', $rs);
 
         return $rs;
     }
@@ -2676,7 +2677,7 @@ class dcBlog
             }
 
             # --BEHAVIOR-- coreBeforeCommentCreate -- dcBlog, Cursor
-            dcCore::app()->behavior->callBehavior('coreBeforeCommentCreate', $this, $cur);
+            Core::behavior()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
             $cur->insert();
             $this->con->unlock();
@@ -2687,7 +2688,7 @@ class dcBlog
         }
 
         # --BEHAVIOR-- coreAfterCommentCreate -- dcBlog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterCommentCreate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
         if ($cur->comment_status != self::COMMENT_JUNK) {
@@ -2747,7 +2748,7 @@ class dcBlog
         }
 
         # --BEHAVIOR-- coreBeforeCommentUpdate -- dcBlog, Cursor, MetaRecord
-        dcCore::app()->behavior->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
+        Core::behavior()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
         $sql = new UpdateStatement();
         $sql->where('comment_id = ' . $id);
@@ -2755,7 +2756,7 @@ class dcBlog
         $sql->update($cur);
 
         # --BEHAVIOR-- coreAfterCommentUpdate -- dcBlog, Cursor, MetaRecord
-        dcCore::app()->behavior->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
+        Core::behavior()->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
 
         $this->triggerComment($id);
         $this->triggerBlog();

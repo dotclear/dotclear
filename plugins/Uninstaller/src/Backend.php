@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\Uninstaller;
 
 use dcCore;
 use dcModuleDefine;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
@@ -32,7 +33,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             // add "unsinstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, dcModuleDefine $define): string {
                 // do not unsintall current theme

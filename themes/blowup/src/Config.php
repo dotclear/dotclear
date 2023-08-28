@@ -15,6 +15,7 @@ use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -470,7 +471,7 @@ class Config extends Process
         '</div>' .
 
         '<p class="clear"><input type="submit" value="' . __('Save') . '" />' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '</p>' .
         '</form>';
 

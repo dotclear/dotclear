@@ -19,6 +19,7 @@ use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -39,14 +40,14 @@ class Search extends Process
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'adminSearchPageComboV2' => [static::class,'typeCombo'],
             'adminSearchPageHeadV2'  => [static::class,'pageHead'],
             // posts search
             'adminSearchPageProcessV2' => [static::class,'processPosts'],
             'adminSearchPageDisplayV2' => [static::class,'displayPosts'],
         ]);
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             // comments search
             'adminSearchPageProcessV2' => [static::class,'processComments'],
             'adminSearchPageDisplayV2' => [static::class,'displayComments'],
@@ -54,7 +55,7 @@ class Search extends Process
 
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
-        dcCore::app()->behavior->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
+        Core::behavior()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
         dcCore::app()->admin->qtype_combo = $qtype_combo;
 
         return self::status(true);
@@ -83,11 +84,11 @@ class Search extends Process
         $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
 
         # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
-        $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->behavior->callBehavior('adminSearchPageHeadV2', $args) : '';
+        $starting_scripts = dcCore::app()->admin->q ? Core::behavior()->callBehavior('adminSearchPageHeadV2', $args) : '';
 
         if (dcCore::app()->admin->q) {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
-            dcCore::app()->behavior->callBehavior('adminSearchPageProcessV2', $args);
+            Core::behavior()->callBehavior('adminSearchPageProcessV2', $args);
         }
 
         Page::open(
@@ -119,7 +120,7 @@ class Search extends Process
             ob_start();
 
             # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
-            dcCore::app()->behavior->callBehavior('adminSearchPageDisplayV2', $args);
+            Core::behavior()->callBehavior('adminSearchPageDisplayV2', $args);
 
             $res = ob_get_contents();
             ob_end_clean();
@@ -196,7 +197,7 @@ class Search extends Process
             '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
@@ -259,7 +260,7 @@ class Search extends Process
             '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>',

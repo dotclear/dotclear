@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
 use Dotclear\Core\Backend\Menus;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\WikiToHtml;
 
@@ -36,17 +37,17 @@ class Backend extends Process
         My::addBackendMenuItem(Menus::MENU_PLUGINS, [], '');
 
         if (My::settings()->active) {
-            if (!isset(dcCore::app()->filter->wiki)) {
-                dcCore::app()->filter->initWikiPost();
+            if (!isset(Core::filter()->wiki)) {
+                Core::filter()->initWikiPost();
             }
 
-            dcCore::app()->formater->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
-            dcCore::app()->formater->addFormaterName('xhtml', __('HTML'));
+            Core::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            Core::formater()->addFormaterName('xhtml', __('HTML'));
 
-            dcCore::app()->formater->addEditorFormater(My::id(), 'wiki', [dcCore::app()->filter->wiki, 'transform']);
-            dcCore::app()->formater->addFormaterName('wiki', __('Dotclear wiki'));
+            Core::formater()->addEditorFormater(My::id(), 'wiki', [Core::filter()->wiki, 'transform']);
+            Core::formater()->addFormaterName('wiki', __('Dotclear wiki'));
 
-            dcCore::app()->behavior->addBehaviors([
+            Core::behavior()->addBehaviors([
                 'adminPostEditor' => [BackendBehaviors::class, 'adminPostEditor'],
                 'adminPopupMedia' => [BackendBehaviors::class, 'adminPopupMedia'],
                 'adminPopupLink'  => [BackendBehaviors::class, 'adminPopupLink'],

@@ -17,6 +17,7 @@ use dcCore;
 use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -204,7 +205,7 @@ class Manage extends Process
             form::combo($nav_id, $ns_combo, ['class' => 'navigation']) .
             ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
             '<input type="hidden" name="p" value="' . My::id() . '" />' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p></form>';
         }
 
@@ -224,7 +225,7 @@ class Manage extends Process
         '<p><input type="submit" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '<input type="hidden" name="p" value="' . My::id() . '" />' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '</p>' .
         '</form>';
     }

@@ -16,6 +16,7 @@ use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -145,7 +146,7 @@ class Manage extends Process
                 form::hidden(['post_type'], 'page') .
                 form::hidden(['p'], My::id()) .
                 form::hidden(['act'], 'list') .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</p></div>' .
                 '<p class="clear form-note hidden-if-js">' .
                 __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .

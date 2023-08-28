@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -40,7 +41,7 @@ class BlogDel extends Process
             $rs = null;
 
             try {
-                $rs = dcCore::app()->blogs->getBlog($_POST['blog_id']);
+                $rs = Core::blogs()->getBlog($_POST['blog_id']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -66,7 +67,7 @@ class BlogDel extends Process
                 dcCore::app()->error->add(__('Password verification failed'));
             } else {
                 try {
-                    dcCore::app()->blogs->delBlog(dcCore::app()->admin->blog_id);
+                    Core::blogs()->delBlog(dcCore::app()->admin->blog_id);
                     Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
 
                     dcCore::app()->admin->url->redirect('admin.blogs');
@@ -111,7 +112,7 @@ class BlogDel extends Process
             ->action(dcCore::app()->admin->url->get('admin.blog.del'))
             ->method('post')
             ->fields([
-                dcCore::app()->nonce->formNonce(),
+                Core::nonce()->formNonce(),
                 (new Para())
                     ->items([
                         (new Password('pwd'))

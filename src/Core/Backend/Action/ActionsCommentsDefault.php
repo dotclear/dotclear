@@ -12,6 +12,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
 use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
@@ -117,11 +118,11 @@ class ActionsCommentsDefault
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforeCommentDelete -- string
-            dcCore::app()->behavior->callBehavior('adminBeforeCommentDelete', $id);
+            Core::behavior()->callBehavior('adminBeforeCommentDelete', $id);
         }
 
         # --BEHAVIOR-- adminBeforeCommentsDelete -- array<int,string>
-        dcCore::app()->behavior->callBehavior('adminBeforeCommentsDelete', $ids);
+        Core::behavior()->callBehavior('adminBeforeCommentsDelete', $ids);
 
         dcCore::app()->blog->delComments($ids);
 

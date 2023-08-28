@@ -18,6 +18,7 @@ use ArrayObject;
 use dcCore;
 use dcUtils;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -29,7 +30,7 @@ class FilterPosts extends Filters
     {
         parent::__construct($type);
 
-        if (dcCore::app()->post_types->exists($post_type)) {
+        if (Core::postTypes()->exists($post_type)) {
             $this->post_type = $post_type;
             $this->add((new Filter('post_type', $post_type))->param('post_type'));
         }
@@ -51,7 +52,7 @@ class FilterPosts extends Filters
         ]);
 
         # --BEHAVIOR-- adminPostFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPostFilterV2', $filters);
+        Core::behavior()->callBehavior('adminPostFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -145,11 +146,11 @@ class FilterPosts extends Filters
      */
     public function getPostFormatFilter(): Filter
     {
-        $core_formaters    = dcCore::app()->formater->getFormaters();
+        $core_formaters    = Core::formater()->getFormaters();
         $available_formats = [];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[dcCore::app()->formater->getFormaterName($format)] = $format;
+                $available_formats[Core::formater()->getFormaterName($format)] = $format;
             }
         }
 

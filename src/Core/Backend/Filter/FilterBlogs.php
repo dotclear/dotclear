@@ -16,6 +16,7 @@ namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Combos;
 
 class FilterBlogs extends Filters
@@ -31,7 +32,7 @@ class FilterBlogs extends Filters
         ]);
 
         # --BEHAVIOR-- adminBlogFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminBlogFilterV2', $filters);
+        Core::behavior()->callBehavior('adminBlogFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

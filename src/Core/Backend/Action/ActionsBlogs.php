@@ -12,6 +12,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Link;
@@ -43,7 +44,7 @@ class ActionsBlogs extends Actions
 
         $this->loadDefaults();
         # --BEHAVIOR-- adminBlogsActions -- Actions
-        dcCore::app()->behavior->callBehavior('adminBlogsActions', $this);
+        Core::behavior()->callBehavior('adminBlogsActions', $this);
     }
 
     /**
@@ -171,7 +172,7 @@ class ActionsBlogs extends Actions
             $params['blog_id'] = $from['blogs'];
         }
 
-        $rs = dcCore::app()->blogs->getBlogs($params);
+        $rs = Core::blogs()->getBlogs($params);
         while ($rs->fetch()) {
             $this->entries[$rs->blog_id] = [
                 'blog' => $rs->blog_id,

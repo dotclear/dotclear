@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcAuth;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
@@ -321,7 +322,7 @@ class Auth extends Process
         $buffer . Page::jsCommon();
 
         # --BEHAVIOR-- loginPageHTMLHead --
-        dcCore::app()->behavior->callBehavior('loginPageHTMLHead');
+        Core::behavior()->callBehavior('loginPageHTMLHead');
 
         echo
         Page::jsJson('pwstrength', [

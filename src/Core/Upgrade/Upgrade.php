@@ -16,6 +16,7 @@ use dcCore;
 use dcNamespace;
 use dcUtils;
 use dcWorkspace;
+use Dotclear\Core\Core;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
 use Dotclear\Core\Install\Utils;
@@ -32,7 +33,7 @@ class Upgrade
      */
     public static function dotclearUpgrade()
     {
-        $version = dcCore::app()->version->getVersion('core');
+        $version = Core::version()->getVersion('core');
 
         if ($version === '') {
             return false;
@@ -151,7 +152,7 @@ class Upgrade
         }
 
         // set dc version
-        dcCore::app()->version->setVersion('core', DC_VERSION);
+        Core::version()->setVersion('core', DC_VERSION);
         Utils::blogDefaults();
 
         return $cleanup_sessions;

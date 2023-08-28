@@ -14,6 +14,7 @@ namespace Dotclear\Theme\berlin;
 
 use dcCore;
 use dcUtils;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -29,7 +30,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehavior('publicHeadContent', function () {
+        Core::behavior()->addBehavior('publicHeadContent', function () {
             echo
             dcUtils::jsJson('dotclear_berlin', [
                 'show_menu'  => __('Show menu'),

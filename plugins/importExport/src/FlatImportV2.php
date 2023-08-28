@@ -24,6 +24,7 @@ use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
 use dcWorkspace;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
@@ -124,7 +125,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
         # --BEHAVIOR-- importInit -- FlatBackup
-        dcCore::app()->behavior->callBehavior('importInitV2', $this);
+        Core::behavior()->callBehavior('importInitV2', $this);
     }
 
     public function getMode()
@@ -235,7 +236,7 @@ class FlatImportV2 extends FlatBackup
                 }
 
                 # --BEHAVIOR-- importSingle -- string, FlatBackup
-                dcCore::app()->behavior->callBehavior('importSingleV2', $line, $this);
+                Core::behavior()->callBehavior('importSingleV2', $line, $this);
             }
 
             if ($this->con->syntax() == 'mysql') {
@@ -297,7 +298,7 @@ class FlatImportV2 extends FlatBackup
                 } catch (UnhandledMatchError) {
                 }
                 # --BEHAVIOR-- importFull -- line, FlatBackup
-                dcCore::app()->behavior->callBehavior('importFullV2', $line, $this);
+                Core::behavior()->callBehavior('importFullV2', $line, $this);
             }
         } catch (Exception $e) {
             @fclose($this->fp);
@@ -872,6 +873,6 @@ class FlatImportV2 extends FlatBackup
         }
 
         # --BEHAVIOR-- importPrepareDC12 -- line, FlatBackup
-        dcCore::app()->behavior->callBehavior('importPrepareDC12V2', $line, $this);
+        Core::behavior()->callBehavior('importPrepareDC12V2', $line, $this);
     }
 }

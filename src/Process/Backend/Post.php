@@ -23,6 +23,7 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -105,11 +106,11 @@ class Post extends Process
         dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formats combo
-        $core_formaters    = dcCore::app()->formater->getFormaters();
+        $core_formaters    = Core::formater()->getFormaters();
         $available_formats = ['' => ''];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[dcCore::app()->formater->getFormaterName($format)] = $format;
+                $available_formats[Core::formater()->getFormaterName($format)] = $format;
             }
         }
         dcCore::app()->admin->available_formats = $available_formats;
@@ -251,7 +252,7 @@ class Post extends Process
                 foreach (explode("\n", dcCore::app()->admin->tb_urls) as $tb_url) {
                     try {
                         # --BEHAVIOR-- adminBeforePingTrackback -- string, string, string, string, string
-                        dcCore::app()->behavior->callBehavior(
+                        Core::behavior()->callBehavior(
                             'adminBeforePingTrackback',
                             $tb_url,
                             dcCore::app()->admin->post_id,
@@ -357,7 +358,7 @@ class Post extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforePostDelete -- string|int
-                dcCore::app()->behavior->callBehavior('adminBeforePostDelete', dcCore::app()->admin->post_id);
+                Core::behavior()->callBehavior('adminBeforePostDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
                 dcCore::app()->admin->url->redirect('admin.posts');
             } catch (Exception $e) {
@@ -381,12 +382,12 @@ class Post extends Process
                 $parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-                dcCore::app()->behavior->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+                Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
                 dcCore::app()->admin->cat_id = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string|int
-                dcCore::app()->behavior->callBehavior('adminAfterCategoryCreate', $cur_cat, dcCore::app()->admin->cat_id);
+                Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, dcCore::app()->admin->cat_id);
             }
 
             $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
@@ -421,12 +422,12 @@ class Post extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforePostUpdate -- Cursor, int
-                    dcCore::app()->behavior->callBehavior('adminBeforePostUpdate', $cur, (int) dcCore::app()->admin->post_id);
+                    Core::behavior()->callBehavior('adminBeforePostUpdate', $cur, (int) dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
-                    dcCore::app()->behavior->callBehavior('adminAfterPostUpdate', $cur, (int) dcCore::app()->admin->post_id);
+                    Core::behavior()->callBehavior('adminAfterPostUpdate', $cur, (int) dcCore::app()->admin->post_id);
                     Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     dcCore::app()->admin->url->redirect(
                         'admin.post',
@@ -440,12 +441,12 @@ class Post extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforePostCreate -- Cursor
-                    dcCore::app()->behavior->callBehavior('adminBeforePostCreate', $cur);
+                    Core::behavior()->callBehavior('adminBeforePostCreate', $cur);
 
                     $return_id = dcCore::app()->blog->addPost($cur);
 
                     # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
-                    dcCore::app()->behavior->callBehavior('adminAfterPostCreate', $cur, $return_id);
+                    Core::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
                     Notices::addSuccessNotice(__('Entry has been successfully created.'));
                     dcCore::app()->admin->url->redirect(
@@ -507,7 +508,7 @@ class Post extends Process
             }
             if ($p_edit == $c_edit) {
                 # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
+                $admin_post_behavior .= Core::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'post',
@@ -516,7 +517,7 @@ class Post extends Process
                 );
             } else {
                 # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
+                $admin_post_behavior .= Core::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'post',
@@ -524,7 +525,7 @@ class Post extends Process
                     dcCore::app()->admin->post_format
                 );
                 # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
+                $admin_post_behavior .= Core::behavior()->callBehavior(
                     'adminPostEditor',
                     $c_edit,
                     'comment',
@@ -542,7 +543,7 @@ class Post extends Process
             Page::jsLoad('js/_post.js') .
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPostHeaders --
-            dcCore::app()->behavior->callBehavior('adminPostHeaders') .
+            Core::behavior()->callBehavior('adminPostHeaders') .
             Page::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink,
             Page::breadcrumb(
@@ -606,7 +607,7 @@ class Post extends Process
             }
 
             # --BEHAVIOR-- adminPostNavLinks -- MetaRecord|null, string
-            dcCore::app()->behavior->callBehavior('adminPostNavLinks', dcCore::app()->admin->post ?? null, 'post');
+            Core::behavior()->callBehavior('adminPostNavLinks', dcCore::app()->admin->post ?? null, 'post');
 
             echo
             '</p>';
@@ -766,11 +767,11 @@ class Post extends Process
             );
 
             # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null, string
-            dcCore::app()->behavior->callBehavior('adminPostFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null, 'post');
+            Core::behavior()->callBehavior('adminPostFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null, 'post');
 
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit post') : __('New post')) .
-            sprintf(' &rsaquo; %s', dcCore::app()->formater->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
+            sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
             '<form action="' . dcCore::app()->admin->url->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
@@ -781,7 +782,7 @@ class Post extends Process
             }
 
             # --BEHAVIOR-- adminPostForm (may be deprecated) -- MetaRecord|null, string
-            dcCore::app()->behavior->callBehavior('adminPostForm', dcCore::app()->admin->post ?? null, 'post');
+            Core::behavior()->callBehavior('adminPostForm', dcCore::app()->admin->post ?? null, 'post');
 
             echo
             '<p class="border-top">' .
@@ -809,7 +810,7 @@ class Post extends Process
             }
 
             echo(dcCore::app()->admin->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p>';
 
             echo
@@ -830,14 +831,14 @@ class Post extends Process
             }
 
             # --BEHAVIOR-- adminPostFormSidebar (may be deprecated) -- MetaRecord|null, string
-            dcCore::app()->behavior->callBehavior('adminPostFormSidebar', dcCore::app()->admin->post ?? null, 'post');
+            Core::behavior()->callBehavior('adminPostFormSidebar', dcCore::app()->admin->post ?? null, 'post');
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
             # --BEHAVIOR-- adminPostAfterForm -- MetaRecord|null, string
-            dcCore::app()->behavior->callBehavior('adminPostAfterForm', dcCore::app()->admin->post ?? null, 'post');
+            Core::behavior()->callBehavior('adminPostAfterForm', dcCore::app()->admin->post ?? null, 'post');
 
             echo
             '</div>';
@@ -880,7 +881,7 @@ class Post extends Process
                 form::combo('action', $combo_action) .
                 form::hidden(['section'], 'comments') .
                 form::hidden(['id'], dcCore::app()->admin->post_id) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
@@ -921,7 +922,7 @@ class Post extends Process
 
             '<p>' .
             form::hidden('post_id', dcCore::app()->admin->post_id) .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
             '</div>' . #constrained
 
@@ -972,7 +973,7 @@ class Post extends Process
                 form::combo('action', $combo_action) .
                 form::hidden('id', dcCore::app()->admin->post_id) .
                 form::hidden(['section'], 'trackbacks') .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
@@ -995,7 +996,7 @@ class Post extends Process
                 form::textarea('tb_excerpt', 60, 5, dcCore::app()->admin->tb_excerpt) . '</p>' .
 
                 '<p>' .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
                 (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . dcCore::app()->admin->url->get('admin.post', ['id' => dcCore::app()->admin->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
                     '') .

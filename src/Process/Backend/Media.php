@@ -18,6 +18,7 @@ use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
@@ -230,7 +231,7 @@ class Media extends Process
             '<p><input type="submit" value="' . __('Cancel') . '" /> ' .
             ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '" />' .
             dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             form::hidden('remove', Html::escapeHTML($_GET['remove'])) . '</p>' .
             '</form>';
 
@@ -307,7 +308,7 @@ class Media extends Process
         $starting_scripts = '';
         if (dcCore::app()->admin->page->popup && (dcCore::app()->admin->page->plugin_id !== '')) {
             # --BEHAVIOR-- adminPopupMediaManager -- string
-            $starting_scripts .= dcCore::app()->behavior->callBehavior('adminPopupMediaManager', dcCore::app()->admin->page->plugin_id);
+            $starting_scripts .= Core::behavior()->callBehavior('adminPopupMediaManager', dcCore::app()->admin->page->plugin_id);
         }
 
         dcCore::app()->admin->page->openPage(
@@ -354,7 +355,7 @@ class Media extends Process
                 echo
                 '<div class="form-note info"><p>' . sprintf(
                     __('Choose a file to attach to entry %s by clicking on %s'),
-                    '<a href="' . dcCore::app()->post_types->get(dcCore::app()->admin->page->getPostType())->adminUrl(dcCore::app()->admin->page->post_id) . '">' . Html::escapeHTML(dcCore::app()->admin->page->getPostTitle()) . '</a>',
+                    '<a href="' . Core::postTypes()->get(dcCore::app()->admin->page->getPostType())->adminUrl(dcCore::app()->admin->page->post_id) . '">' . Html::escapeHTML(dcCore::app()->admin->page->getPostTitle()) . '</a>',
                     '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
                 );
                 if (dcCore::app()->admin->page->mediaWritable()) {
@@ -398,7 +399,7 @@ class Media extends Process
         $fmt_form_media = '<form action="' . dcCore::app()->admin->url->get('admin.media') . '" method="post" id="form-medias">' .
             '<div class="files-group">%s</div>' .
             '<p class="hidden">' .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
             '</p>';
 
@@ -451,7 +452,7 @@ class Media extends Process
                 '<form action="' . dcCore::app()->admin->url->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<div id="new-dir-f">' .
                 '<h4 class="pretty-title">' . __('Create new directory') . '</h4>' .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<p><label for="newdir">' . __('Directory Name:') . '</label>' .
                 form::field('newdir', 35, 255) . '</p>' .
                 '<p><input type="submit" value="' . __('Create') . '" />' .
@@ -466,7 +467,7 @@ class Media extends Process
                 echo
                 '<form action="' . dcCore::app()->admin->url->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<p><input type="submit" value="' . __('Build') . '" />' .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.media', array_merge(dcCore::app()->admin->page->values(), ['complete' => 1])) .
                 '</p>' .
@@ -505,7 +506,7 @@ class Media extends Process
             '<p class="more-info">' . __('Please take care to publish media that you own and that are not protected by copyright.') . '</p>' .
             '<form id="fileupload" action="' . Html::escapeURL(dcCore::app()->admin->url->get('admin.media', dcCore::app()->admin->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
             '<p>' . form::hidden(['MAX_FILE_SIZE'], (string) DC_MAX_UPLOAD_SIZE) .
-            dcCore::app()->nonce->getFormNonce() . '</p>' .
+            Core::nonce()->getFormNonce() . '</p>' .
                 '<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>' .
 
             '<div class="fileupload-buttonbar clear">' .
@@ -548,7 +549,7 @@ class Media extends Process
         form::hidden('rmyes', 1) .
         dcCore::app()->admin->url->getHiddenFormFields('admin.media', dcCore::app()->admin->page->values()) .
         form::hidden('remove', '') .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '</div>' .
         '</form>';
 

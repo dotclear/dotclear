@@ -20,6 +20,7 @@ use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -140,12 +141,12 @@ class Home extends Process
         }
 
         # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminDashboardItemsV2', $__dashboard_items);
+        Core::behavior()->callBehavior('adminDashboardItemsV2', $__dashboard_items);
 
         // Dashboard content
         $__dashboard_contents = new ArrayObject([new ArrayObject(), new ArrayObject()]);
         # --BEHAVIOR-- adminDashboardContentsV2 -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminDashboardContentsV2', $__dashboard_contents);
+        Core::behavior()->callBehavior('adminDashboardContentsV2', $__dashboard_contents);
 
         // Editor stuff
         $quickentry          = '';
@@ -159,7 +160,7 @@ class Home extends Process
                 $post_editor = dcCore::app()->auth->getOption('editor');
                 if ($post_editor && !empty($post_editor[$post_format])) {
                     # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                    $admin_post_behavior = dcCore::app()->behavior->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
+                    $admin_post_behavior = Core::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
             $quickentry = Page::jsJson('dotclear_quickentry', [
@@ -197,7 +198,7 @@ class Home extends Process
             Page::jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminDashboardHeaders --
-            dcCore::app()->behavior->callBehavior('adminDashboardHeaders'),
+            Core::behavior()->callBehavior('adminDashboardHeaders'),
             Page::breadcrumb(
                 [
                     __('Dashboard') . ' : ' . Html::escapeHTML(dcCore::app()->blog->name) => '',
@@ -422,7 +423,7 @@ class Home extends Process
             );
 
             $__dashboard_main[] = '<div id="quick">' .
-                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', dcCore::app()->formater->getFormaterName(dcCore::app()->auth->getOption('post_format'))) . '</h3>' .
+                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(dcCore::app()->auth->getOption('post_format'))) . '</h3>' .
                 '<form id="quick-entry" action="' . dcCore::app()->admin->url->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
                 '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
@@ -456,7 +457,7 @@ class Home extends Process
                 ]), dcCore::app()->blog->id)
                     ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
                     : '') .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 form::hidden('post_status', dcBlog::POST_PENDING) .
                 form::hidden('post_format', dcCore::app()->auth->getOption('post_format')) .
                 form::hidden('post_excerpt', '') .

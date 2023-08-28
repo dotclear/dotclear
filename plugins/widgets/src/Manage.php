@@ -16,6 +16,7 @@ use dcCore;
 use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -245,7 +246,7 @@ class Manage extends Process
         }
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            $head .= dcCore::app()->behavior->callBehavior(
+            $head .= Core::behavior()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],
                 'widget',
@@ -293,7 +294,7 @@ class Manage extends Process
 
         echo
         '</ul>' .
-        '<p>' . dcCore::app()->nonce->getFormNonce() . '</p>' .
+        '<p>' . Core::nonce()->getFormNonce() . '</p>' .
         '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
         '</form>' .
 
@@ -315,7 +316,7 @@ class Manage extends Process
         '</div>' .
 
         '<p id="sidebarsControl">' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
         '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
         '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .

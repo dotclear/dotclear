@@ -17,6 +17,7 @@ use dcCore;
 use dcSettings;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -156,12 +157,12 @@ class Category extends Process
                     // Update category
 
                     # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
-                    dcCore::app()->behavior->callBehavior('adminBeforeCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
+                    Core::behavior()->callBehavior('adminBeforeCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
                     dcCore::app()->blog->updCategory((int) $_POST['id'], $cur);
 
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
-                    dcCore::app()->behavior->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
+                    Core::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
 
                     Notices::addSuccessNotice(__('The category has been successfully updated.'));
 
@@ -170,12 +171,12 @@ class Category extends Process
                     // Create category
 
                     # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-                    dcCore::app()->behavior->callBehavior('adminBeforeCategoryCreate', $cur);
+                    Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur);
 
                     $id = dcCore::app()->blog->addCategory($cur, (int) $_POST['new_cat_parent']);
 
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
-                    dcCore::app()->behavior->callBehavior('adminAfterCategoryCreate', $cur, $id);
+                    Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
                     Notices::addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
@@ -218,7 +219,7 @@ class Category extends Process
             Page::jsConfirmClose('category-form') .
             Page::jsLoad('js/_category.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            ($rte_flag ? dcCore::app()->behavior->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
+            ($rte_flag ? Core::behavior()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
             Page::breadcrumb($elements)
         );
 
@@ -274,7 +275,7 @@ class Category extends Process
         '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         (dcCore::app()->admin->cat_id ? \form::hidden('id', dcCore::app()->admin->cat_id) : '') .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '</p>' .
         '</form>';
 
@@ -305,7 +306,7 @@ class Category extends Process
                                     ->accesskey('s')
                                     ->value(__('Save')),
                                 new Hidden('id', (string) dcCore::app()->admin->cat_id),
-                                dcCore::app()->nonce->formNonce(),
+                                Core::nonce()->formNonce(),
                             ]),
                         ]),
                 ])
@@ -339,7 +340,7 @@ class Category extends Process
                                         ->accesskey('s')
                                         ->value(__('Save')),
                                     new Hidden('id', (string) dcCore::app()->admin->cat_id),
-                                    dcCore::app()->nonce->formNonce(),
+                                    Core::nonce()->formNonce(),
                                 ]),
                             ]),
                     ])

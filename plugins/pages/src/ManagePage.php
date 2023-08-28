@@ -19,6 +19,7 @@ use dcMedia;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -102,11 +103,11 @@ class ManagePage extends Process
         dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
 
         // Formaters combo
-        $core_formaters    = dcCore::app()->formater->getFormaters();
+        $core_formaters    = Core::formater()->getFormaters();
         $available_formats = ['' => ''];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[dcCore::app()->formater->getFormaterName($format)] = $format;
+                $available_formats[Core::formater()->getFormaterName($format)] = $format;
             }
         }
         dcCore::app()->admin->available_formats = $available_formats;
@@ -291,7 +292,7 @@ class ManagePage extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforePageDelete -- int
-                dcCore::app()->behavior->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
+                Core::behavior()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
                 dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
                 My::redirect();
             } catch (Exception $e) {
@@ -336,12 +337,12 @@ class ManagePage extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforePageUpdate -- Cursor, int
-                    dcCore::app()->behavior->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
+                    Core::behavior()->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
 
                     # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
-                    dcCore::app()->behavior->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
+                    Core::behavior()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
 
                     My::redirect(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'upd' => '1']);
                 } catch (Exception $e) {
@@ -352,12 +353,12 @@ class ManagePage extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforePageCreate -- Cursor
-                    dcCore::app()->behavior->callBehavior('adminBeforePageCreate', $cur);
+                    Core::behavior()->callBehavior('adminBeforePageCreate', $cur);
 
                     $return_id = dcCore::app()->blog->addPost($cur);
 
                     # --BEHAVIOR-- adminAfterPageCreate -- Cursor, int
-                    dcCore::app()->behavior->callBehavior('adminAfterPageCreate', $cur, $return_id);
+                    Core::behavior()->callBehavior('adminAfterPageCreate', $cur, $return_id);
 
                     My::redirect(['act' => 'page', 'id' => $return_id, 'crea' => '1']);
                 } catch (Exception $e) {
@@ -403,7 +404,7 @@ class ManagePage extends Process
             }
             if ($p_edit == $c_edit) {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
+                $admin_post_behavior .= Core::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'page',
@@ -412,7 +413,7 @@ class ManagePage extends Process
                 );
             } else {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
+                $admin_post_behavior .= Core::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'page',
@@ -420,7 +421,7 @@ class ManagePage extends Process
                     dcCore::app()->admin->post_format
                 );
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-                $admin_post_behavior .= dcCore::app()->behavior->callBehavior(
+                $admin_post_behavior .= Core::behavior()->callBehavior(
                     'adminPostEditor',
                     $c_edit,
                     'comment',
@@ -439,7 +440,7 @@ class ManagePage extends Process
             $admin_post_behavior .
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --
-            dcCore::app()->behavior->callBehavior('adminPageHeaders') .
+            Core::behavior()->callBehavior('adminPageHeaders') .
             Page::jsPageTabs(dcCore::app()->admin->default_tab) .
             dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink
         );
@@ -512,7 +513,7 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageNavLinks -- MetaRecord|null
-            dcCore::app()->behavior->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
 
             echo
             '</p>';
@@ -651,11 +652,11 @@ class ManagePage extends Process
             );
 
             # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null
-            dcCore::app()->behavior->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
 
             echo
             '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
-            sprintf(' &rsaquo; %s', dcCore::app()->formater->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
+            sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
             '<form action="' . My::manageUrl(['act' => 'page']) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
@@ -666,7 +667,7 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageForm -- MetaRecord|null
-            dcCore::app()->behavior->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
 
             echo
             '<p class="border-top">' .
@@ -701,7 +702,7 @@ class ManagePage extends Process
             echo(dcCore::app()->admin->can_delete ?
                 ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' :
                 '') .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p>';
 
             echo
@@ -722,14 +723,14 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageFormSidebar -- MetaRecord|null
-            dcCore::app()->behavior->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
             # --BEHAVIOR-- adminPostForm -- MetaRecord|null
-            dcCore::app()->behavior->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
 
             echo
             '</div>'; // End
@@ -741,7 +742,7 @@ class ManagePage extends Process
                 form::hidden(['post_id'], dcCore::app()->admin->post_id) .
                 form::hidden(['media_id'], '') .
                 form::hidden(['remove'], 1) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</div>' .
                 '</form>';
             }
@@ -847,7 +848,7 @@ class ManagePage extends Process
             '</p>' .
 
             '<p>' . form::hidden('post_id', dcCore::app()->admin->post_id) .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
             '</div>' . #constrained
 

@@ -14,6 +14,7 @@ use ArrayObject;
 use dcAntispam;
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -121,7 +122,7 @@ class ListingComments extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
+            Core::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('comments', $cols);
@@ -173,7 +174,7 @@ class ListingComments extends Listing
             'author' => $this->rs->comment_author,
         ]);
 
-        $post_url = dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id);
+        $post_url = Core::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id);
 
         $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $this->rs->comment_id]);
 
@@ -255,7 +256,7 @@ class ListingComments extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminCommentListValueV2', $this->rs, $cols);
+        Core::behavior()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('comments', $cols);

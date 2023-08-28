@@ -15,6 +15,7 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\Database\Cursor;
 use dcCore;
+use Dotclear\Core\Core;
 
 class UpdateStatement extends SqlStatement
 {
@@ -144,7 +145,7 @@ class UpdateStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeUpdateWhereStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreBeforeUpdateWhereStatement', $this);
+            Core::behavior()->callBehavior('coreBeforeUpdateWhereStatement', $this);
         }
 
         $query = '';
@@ -172,7 +173,7 @@ class UpdateStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertUpdateWhereStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
+            Core::behavior()->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
         }
 
         return $query;
@@ -187,7 +188,7 @@ class UpdateStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeUpdateStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreBeforeUpdateStatement', $this);
+            Core::behavior()->callBehavior('coreBeforeUpdateStatement', $this);
         }
 
         // Check if source given
@@ -228,7 +229,7 @@ class UpdateStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertUpdateStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreAfterUpdateStatement', $this, $query);
+            Core::behavior()->callBehavior('coreAfterUpdateStatement', $this, $query);
         }
 
         return $query;

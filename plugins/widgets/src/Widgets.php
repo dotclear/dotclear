@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -149,7 +150,7 @@ class Widgets
             ->addOffline();
 
         # --BEHAVIOR-- initWidgets -- WidgetsStack
-        dcCore::app()->behavior->callBehavior('initWidgets', dcCore::app()->widgets);
+        Core::behavior()->callBehavior('initWidgets', dcCore::app()->widgets);
 
         # Default widgets
         dcCore::app()->default_widgets = [
@@ -164,7 +165,7 @@ class Widgets
         dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM]->append(dcCore::app()->widgets->subscribe);
 
         # --BEHAVIOR-- initDefaultWidgets -- WidgetsStack, array<string,WidgetsStack>
-        dcCore::app()->behavior->callBehavior('initDefaultWidgets', dcCore::app()->widgets, dcCore::app()->default_widgets);
+        Core::behavior()->callBehavior('initDefaultWidgets', dcCore::app()->widgets, dcCore::app()->default_widgets);
     }
 
     /**

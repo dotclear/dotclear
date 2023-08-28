@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\Files;
 use form;
@@ -104,7 +105,7 @@ class BackendBehaviors
             form::hidden(['media_id'], '') .
             form::hidden(['link_type'], 'attachment') .
             form::hidden(['remove'], 1) .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</div>' .
             '</form>';
         }

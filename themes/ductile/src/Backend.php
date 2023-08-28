@@ -12,6 +12,7 @@
 namespace Dotclear\Theme\ductile;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
@@ -28,7 +29,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehavior('adminPageHTMLHead', function () {
+        Core::behavior()->addBehavior('adminPageHTMLHead', function () {
             if (dcCore::app()->blog->settings->system->theme !== My::id()) {
                 return;
             }

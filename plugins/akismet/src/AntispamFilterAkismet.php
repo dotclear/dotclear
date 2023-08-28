@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\akismet;
 
 use dcCore;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -238,7 +239,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         $res .= '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
         '<p><input type="submit" value="' . __('Save') . '" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        Core::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
         return $res;

@@ -15,6 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcCore;
 use dcModuleDefine;
 use dcThemes;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
@@ -81,7 +82,7 @@ class BlogTheme extends Process
                 Page::jsPageTabs() .
 
                 # --BEHAVIOR-- themesToolsHeaders -- bool
-                dcCore::app()->behavior->callBehavior('themesToolsHeadersV2', true),
+                Core::behavior()->callBehavior('themesToolsHeadersV2', true),
                 Page::breadcrumb(
                     [
                         // Active links
@@ -154,7 +155,7 @@ class BlogTheme extends Process
             Page::jsPageTabs() .
 
             # --BEHAVIOR-- themesToolsHeaders -- bool
-            dcCore::app()->behavior->callBehavior('themesToolsHeadersV2', false),
+            Core::behavior()->callBehavior('themesToolsHeadersV2', false),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->blog->name)                     => '',
@@ -317,7 +318,7 @@ class BlogTheme extends Process
         }
 
         # --BEHAVIOR-- themesToolsTabs --
-        dcCore::app()->behavior->callBehavior('themesToolsTabsV2');
+        Core::behavior()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin
         if (dcCore::app()->auth->isSuperAdmin() && !dcCore::app()->admin->list->isWritablePath()) {

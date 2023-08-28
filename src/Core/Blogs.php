@@ -25,16 +25,13 @@ use Exception;
 
 class Blogs
 {
-    private dcAuth $auth;
-    private AbstractHandler $con;
-
     /**
      * Constructor grabs all we need.
      */
-    public function __construct()
-    {
-        $this->auth = dcCore::app()->auth;
-        $this->con  = dcCore::app()->con;
+    public function __construct(
+        private AbstractHandler $con,
+        private dcAuth $auth
+    ) {
     }
 
     /**

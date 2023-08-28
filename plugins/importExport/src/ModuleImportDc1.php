@@ -19,6 +19,7 @@ use dcBlog;
 use dcCategories;
 use dcCore;
 use dcTrackback;
+use Dotclear\Core\Core;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -292,7 +293,7 @@ class ModuleImportDc1 extends Module
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . dcCore::app()->nonce->getFormNonce() .
+        '<div>' . Core::nonce()->getFormNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '" /></p>' .

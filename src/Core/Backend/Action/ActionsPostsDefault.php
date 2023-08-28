@@ -17,6 +17,7 @@ use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -259,11 +260,11 @@ class ActionsPostsDefault
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforePostDelete -- int
-            dcCore::app()->behavior->callBehavior('adminBeforePostDelete', (int) $id);
+            Core::behavior()->callBehavior('adminBeforePostDelete', (int) $id);
         }
 
         # --BEHAVIOR-- adminBeforePostsDelete -- array<int,string>
-        dcCore::app()->behavior->callBehavior('adminBeforePostsDelete', $ids);
+        Core::behavior()->callBehavior('adminBeforePostsDelete', $ids);
 
         dcCore::app()->blog->delPosts($ids);
         Notices::addSuccessNotice(
@@ -307,12 +308,12 @@ class ActionsPostsDefault
                 $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-                dcCore::app()->behavior->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+                Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
                 $new_cat_id = (int) dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
-                dcCore::app()->behavior->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
+                Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
             }
 
             dcCore::app()->blog->updPostsCategory($ids, $new_cat_id);
@@ -390,7 +391,7 @@ class ActionsPostsDefault
 
             $items[] = (new Para())
                 ->items([
-                    dcCore::app()->nonce->formNonce(),
+                    Core::nonce()->formNonce(),
                     ... $ap->hiddenFields(),
                     (new Hidden('action', 'category')),
                     (new Submit('save'))
@@ -490,7 +491,7 @@ class ActionsPostsDefault
                         ]),
                     (new Para())
                         ->items([
-                            dcCore::app()->nonce->formNonce(),
+                            Core::nonce()->formNonce(),
                             ... $ap->hiddenFields(),
                             (new Hidden('action', 'author')),
                             (new Submit('save'))
@@ -575,7 +576,7 @@ class ActionsPostsDefault
                         ]),
                     (new Para())
                         ->items([
-                            dcCore::app()->nonce->formNonce(),
+                            Core::nonce()->formNonce(),
                             ... $ap->hiddenFields(),
                             (new Hidden('action', 'lang')),
                             (new Submit('save'))

@@ -16,6 +16,7 @@ namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
 use dcLog;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 
 class Maintenance
@@ -59,7 +60,7 @@ class Maintenance
     protected function init(): void
     {
         # --BEHAVIOR-- dcMaintenanceInit -- Maintenance
-        dcCore::app()->behavior->callBehavior('dcMaintenanceInit', $this);
+        Core::behavior()->callBehavior('dcMaintenanceInit', $this);
     }
 
     /// @name Tab methods

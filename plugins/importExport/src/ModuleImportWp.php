@@ -20,6 +20,7 @@ use dcCategories;
 use dcCore;
 use dcTrackback;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Core;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -338,7 +339,7 @@ class ModuleImportWp extends Module
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . dcCore::app()->nonce->getFormNonce() .
+        '<div>' . Core::nonce()->getFormNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p><input type="submit" value="' . $submit_value . '" /></p>' .
@@ -722,8 +723,8 @@ class ModuleImportWp extends Module
             $cur->post_content = Text::cleanStr(array_shift($_post_content));
         }
 
-        $cur->post_content_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
-        $cur->post_excerpt_xhtml = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
+        $cur->post_content_xhtml = Core::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
+        $cur->post_excerpt_xhtml = Core::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
 
         switch ($rs->post_status) {
             case 'publish':
@@ -796,7 +797,7 @@ class ModuleImportWp extends Module
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
             $cur->comment_email     = Text::cleanStr($rs->comment_author_email);
-            $cur->comment_content   = dcCore::app()->formater->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
+            $cur->comment_content   = Core::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
             $cur->comment_site      = substr(Text::cleanStr($rs->comment_author_url), 0, 255);

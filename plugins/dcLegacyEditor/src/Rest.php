@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\WikiToHtml;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
@@ -35,10 +36,10 @@ class Rest
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
-            if (!isset(dcCore::app()->filter->wiki)) {
-                dcCore::app()->filter->initWikiPost();
+            if (!isset(Core::filter()->wiki)) {
+                Core::filter()->initWikiPost();
             }
-            $html = dcCore::app()->formater->callEditorFormater(My::id(), 'wiki', $wiki);
+            $html = Core::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
             $ret  = strlen($html) > 0;
 
             if ($ret) {

@@ -19,6 +19,7 @@ use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -60,7 +61,7 @@ class Comments extends Process
             'comment_spam_filter' => 'comment_spam_filter', ];
 
         # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
+        Core::behavior()->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(dcCore::app()->admin->comment_filter->sortby, $sortby_lex) ?
             dcCore::app()->con->lexFields($sortby_lex[dcCore::app()->admin->comment_filter->sortby]) :
@@ -153,11 +154,11 @@ class Comments extends Process
 
                 echo
                 '<p>' .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
 
                 # --BEHAVIOR-- adminCommentsSpamForm --
-                dcCore::app()->behavior->callBehavior('adminCommentsSpamForm');
+                Core::behavior()->callBehavior('adminCommentsSpamForm');
 
                 echo
                 '</form>';
@@ -183,7 +184,7 @@ class Comments extends Process
                     dcCore::app()->admin->comments_actions_page->getCombo(),
                     ['default' => dcCore::app()->admin->default_action, 'extra_html' => 'title="' . __('Actions') . '"']
                 ) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
                 dcCore::app()->admin->url->getHiddenFormFields('admin.comments', dcCore::app()->admin->comment_filter->values(true)) .
                 '</div>' .

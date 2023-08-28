@@ -17,6 +17,7 @@ use dcBlog;
 use dcCore;
 use dcMeta;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -226,7 +227,7 @@ class ModuleImportFeed extends Module
         form::url('feed_url', 50, 300, Html::escapeHTML($this->feed_url)) . '</p>' .
 
         '<p>' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         form::hidden(['do'], 1) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 

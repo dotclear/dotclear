@@ -20,6 +20,7 @@ use dcMedia;
 use dcStore;
 use dcThemes;
 use dcUpdate;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -257,7 +258,7 @@ class Rest extends Process
             $url = dcCore::app()->blog->settings->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
-            dcCore::app()->behavior->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
+            Core::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
                 throw new Exception('Unknown store type');
@@ -425,12 +426,12 @@ class Rest extends Process
             $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
             # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-            dcCore::app()->behavior->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+            Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
             $post['cat_id'] = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
             # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
-            dcCore::app()->behavior->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
+            Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
         $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
@@ -446,12 +447,12 @@ class Rest extends Process
         $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor
-        dcCore::app()->behavior->callBehavior('adminBeforePostCreate', $cur);
+        Core::behavior()->callBehavior('adminBeforePostCreate', $cur);
 
         $return_id = dcCore::app()->blog->addPost($cur);
 
         # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
-        dcCore::app()->behavior->callBehavior('adminAfterPostCreate', $cur, $return_id);
+        Core::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
         $post = dcCore::app()->blog->getPosts(['post_id' => $return_id]);
 

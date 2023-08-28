@@ -13,8 +13,17 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Database\AbstractHandler;
+use Dotclear\Helper\Behavior;
+
 interface CoreFactoryInterface
 {
-	public function con(): \Dotclear\Database\AbstractHandler;
-	public function version(): \Dotclear\Core\Version;
+	public function behavior(): Behavior;
+	public function blogs(): Blogs;
+	public function con(): AbstractHandler;
+	public function filter(): Filter;
+	public function formater(): Formater;
+	public function nonce(): Nonce;
+	public function postTypes(): PostTypes;
+	public function version(): Version;
 }

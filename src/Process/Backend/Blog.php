@@ -16,6 +16,7 @@ use dcBlog;
 use dcCore;
 use dcSettings;
 use Dotclear\App;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -58,9 +59,9 @@ class Blog extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string
-                dcCore::app()->behavior->callBehavior('adminBeforeBlogCreate', $cur, dcCore::app()->admin->blog_id);
+                Core::behavior()->callBehavior('adminBeforeBlogCreate', $cur, dcCore::app()->admin->blog_id);
 
-                dcCore::app()->blogs->addBlog($cur);
+                Core::blogs()->addBlog($cur);
 
                 # Default settings and override some
                 $blog_settings = new dcSettings($cur->blog_id);
@@ -74,7 +75,7 @@ class Blog extends Process
                 }
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
-                dcCore::app()->behavior->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
+                Core::behavior()->callBehavior('adminAfterBlogCreate', $cur, dcCore::app()->admin->blog_id, $blog_settings);
                 Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 dcCore::app()->admin->url->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
@@ -110,7 +111,7 @@ class Blog extends Process
                 ->method('post')
                 ->fields([
                     // Form Nonce
-                    dcCore::app()->nonce->formNonce(),
+                    Core::nonce()->formNonce(),
                     // Blog ID
                     (new Para())
                         ->items([

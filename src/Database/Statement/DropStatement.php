@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use dcCore;
+use Dotclear\Core\Core;
 
 class DropStatement extends SqlStatement
 {
@@ -26,7 +27,7 @@ class DropStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeDropStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreBeforeDropStatement', $this);
+            Core::behavior()->callBehavior('coreBeforeDropStatement', $this);
         }
 
         // Check if source given
@@ -46,7 +47,7 @@ class DropStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertDropStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            dcCore::app()->behavior->callBehavior('coreAfterDropStatement', $this, $query);
+            Core::behavior()->callBehavior('coreAfterDropStatement', $this, $query);
         }
 
         return $query;

@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\buildtools;
 
 use dcCore;
 use dcMedia;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Date;
 
 class l10nFaker
@@ -53,7 +54,7 @@ class l10nFaker
             $main .= $this->fake_l10n($v[3]);
         }
 
-        $post_types = dcCore::app()->post_types->dump();
+        $post_types = Core::postTypes()->dump();
         $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v->label);

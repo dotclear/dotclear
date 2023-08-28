@@ -20,6 +20,7 @@ use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -94,7 +95,7 @@ class UserPreferences extends Process
         }
 
         // Format by editors
-        $formaters         = dcCore::app()->formater->getFormaters();
+        $formaters         = Core::formater()->getFormaters();
         $format_by_editors = [];
         foreach ($formaters as $editor => $formats) {
             foreach ($formats as $format) {
@@ -103,7 +104,7 @@ class UserPreferences extends Process
         }
         $available_formats = ['' => ''];
         foreach (array_keys($format_by_editors) as $format) {
-            $available_formats[dcCore::app()->formater->getFormaterName($format)] = $format;
+            $available_formats[Core::formater()->getFormaterName($format)] = $format;
             if (!isset($user_options['editor'][$format])) {
                 $user_options['editor'][$format] = '';
             }
@@ -143,7 +144,7 @@ class UserPreferences extends Process
         ];
         $rte = new ArrayObject($rte);
         # --BEHAVIOR-- adminRteFlagsV2 -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminRteFlagsV2', $rte);
+        Core::behavior()->callBehavior('adminRteFlagsV2', $rte);
         // Load user settings
         $rte_flags = @dcCore::app()->auth->user_prefs->interface->rte_flags;
         if (is_array($rte_flags)) {
@@ -208,7 +209,7 @@ class UserPreferences extends Process
                 }
 
                 # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
-                dcCore::app()->behavior->callBehavior('adminBeforeUserProfileUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminBeforeUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user
                 dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
@@ -226,7 +227,7 @@ class UserPreferences extends Process
                 dcCore::app()->auth->user_prefs->profile->put('urls', $urls, 'string');
 
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
-                dcCore::app()->behavior->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 Notices::addSuccessNotice(__('Personal information has been successfully updated.'));
 
@@ -269,7 +270,7 @@ class UserPreferences extends Process
                 $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
 
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, string
-                dcCore::app()->behavior->callBehavior('adminBeforeUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user prefs
                 dcCore::app()->auth->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
@@ -343,7 +344,7 @@ class UserPreferences extends Process
                 dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
-                dcCore::app()->behavior->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-options');
@@ -357,7 +358,7 @@ class UserPreferences extends Process
 
             try {
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- string
-                dcCore::app()->behavior->callBehavior('adminBeforeDashboardOptionsUpdate', dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminBeforeDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
                 // Update user prefs
                 dcCore::app()->auth->user_prefs->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), 'boolean');
@@ -370,7 +371,7 @@ class UserPreferences extends Process
                 dcCore::app()->auth->user_prefs->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
-                dcCore::app()->behavior->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
+                Core::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
                 Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
@@ -504,7 +505,7 @@ class UserPreferences extends Process
             Page::jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminPreferencesHeaders --
-            dcCore::app()->behavior->callBehavior('adminPreferencesHeaders'),
+            Core::behavior()->callBehavior('adminPreferencesHeaders'),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->auth->userID()) => '',
@@ -611,7 +612,7 @@ class UserPreferences extends Process
 
         echo
         '<p class="clear vertical-separator">' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '<input type="submit" accesskey="s" value="' . __('Update my profile') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -747,7 +748,7 @@ class UserPreferences extends Process
         '<div class="two-boxes odd">';
         foreach (dcCore::app()->admin->format_by_editors as $format => $editors) {
             echo
-            '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), dcCore::app()->formater->getFormaterName($format)) . '</label>' .
+            '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), Core::formater()->getFormaterName($format)) . '</label>' .
             form::combo(
                 ['user_editor[' . $format . ']', 'user_editor_' . $format],
                 array_merge([__('Choose an editor') => ''], $editors),
@@ -790,11 +791,11 @@ class UserPreferences extends Process
         '<h4 class="pretty-title">' . __('Other options') . '</h4>';
 
         # --BEHAVIOR-- adminPreferencesForm --
-        dcCore::app()->behavior->callBehavior('adminPreferencesFormV2');
+        Core::behavior()->callBehavior('adminPreferencesFormV2');
 
         echo
         '<p class="clear vertical-separator">' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -849,7 +850,7 @@ class UserPreferences extends Process
             echo
             '<div class="clear">' .
             '<p>' . form::hidden('favs_order', '') .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '<input type="submit" name="saveorder" value="' . __('Save order') . '" /> ' .
 
             '<input type="submit" class="delete" name="removeaction" ' .
@@ -920,7 +921,7 @@ class UserPreferences extends Process
 
         echo
         '<p>' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '<input type="submit" name="appendaction" value="' . __('Add to my favorites') . '" /></p>' .
         '</div>' . // /available favorites
 
@@ -968,12 +969,12 @@ class UserPreferences extends Process
         '</div>';
 
         # --BEHAVIOR-- adminDashboardOptionsForm --
-        dcCore::app()->behavior->callBehavior('adminDashboardOptionsFormV2');
+        Core::behavior()->callBehavior('adminDashboardOptionsFormV2');
 
         echo
         '<p>' .
         form::hidden('db-options', '-') .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -983,7 +984,7 @@ class UserPreferences extends Process
         '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">' .
         '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>' .
         '<p>' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '<input type="submit" name="resetorder" value="' . __('Reset dashboard items order') . '" /></p>' .
         '</div>' .
         '</form>' .

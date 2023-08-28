@@ -16,6 +16,7 @@ use dcCore;
 use dcUpdate;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -212,7 +213,7 @@ class Update extends Process
                 dcCore::app()->error->add($msg);
 
                 # --BEHAVIOR-- adminDCUpdateException -- Exception
-                dcCore::app()->behavior->callBehavior('adminDCUpdateException', $e);
+                Core::behavior()->callBehavior('adminDCUpdateException', $e);
             }
         }
 
@@ -321,7 +322,7 @@ class Update extends Process
                 sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)) . '</p>' .
                 '<p><input type="submit" class="delete" name="b_del" value="' . __('Delete selected file') . '" /> ' .
                 '<input type="submit" name="b_revert" value="' . __('Revert to selected file') . '" />' .
-                dcCore::app()->nonce->getFormNonce() . '</p>' .
+                Core::nonce()->getFormNonce() . '</p>' .
                 '</form></div>';
             }
         } elseif (dcCore::app()->admin->step == 'unzip' && !dcCore::app()->error->flag()) {

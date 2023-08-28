@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -28,7 +29,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'publicBeforeCommentCreate'   => [Antispam::class, 'isSpam'],
             'publicBeforeTrackbackCreate' => [Antispam::class, 'isSpam'],
             'publicBeforeDocumentV2'      => [Antispam::class, 'purgeOldSpam'],

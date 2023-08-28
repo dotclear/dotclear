@@ -12,6 +12,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Link;
@@ -43,7 +44,7 @@ class ActionsComments extends Actions
 
         $this->loadDefaults();
         # --BEHAVIOR-- adminCommentsActions -- Actions
-        dcCore::app()->behavior->callBehavior('adminCommentsActions', $this);
+        Core::behavior()->callBehavior('adminCommentsActions', $this);
     }
 
     /**

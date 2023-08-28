@@ -140,20 +140,6 @@ final class dcCore
     public $wiki2xhtml;
 
     /**
-     * Blogs instance
-     *
-     * @var Blogs
-     */
-    public readonly Blogs $blogs;
-
-    /**
-     * Filter instance (wiki, HTML)
-     *
-     * @var Filter
-     */
-    public readonly Filter $filter;
-
-    /**
      * Plugins
      *
      * @var dcPlugins
@@ -318,47 +304,10 @@ final class dcCore
      */
     public $spamfilters = [];
 
-    // Private
-
-    /**
-     * Versions registration management instance.
-     *
-     * @var       Version
-     */
-    public readonly Version $version;
-
-    /**
-     * Nonce instance.
-     *
-     * @var       Nonce
-     */
-    public readonly Nonce $nonce;
-
-    /**
-     * Stack of registered content formaters
-     *
-     * @var        Formater
-     */
-    public readonly Formater $formater;
-
-    /**
-     * Behaviors registration management instance.
-     *
-     * @var        Behavior
-     */
-    public readonly Behavior $behavior;
-
-    /**
-     * PostTypes instance
-     *
-     * @var        PostTypes
-     */
-    public readonly PostTypes $post_types;
-
     /**
      * dcCore constructor inits everything related to Dotclear.
      */
-    public function __construct(Core $core)
+    public function __construct()
     {
         // Singleton mode
         if (isset(self::$instance)) {
@@ -369,18 +318,11 @@ final class dcCore
         // Deprecated since 2.26
         $this->autoload = Autoloader::me();
 
-        $this->behavior   = new Behavior();
-        $this->con        = $core->con;//AbstractHandler::init(DC_DBDRIVER, DC_DBHOST, DC_DBNAME, DC_DBUSER, DC_DBPASSWORD, DC_DBPERSIST, DC_DBPREFIX);
-        $this->prefix     = $this->con->prefix();
+        $this->con        = Core::con();
+        $this->prefix     = Core::con()->prefix();
         $this->error      = new dcError();
         $this->auth       = dcAuth::init();
-        $this->blogs      = new Blogs();
         $this->session    = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
-        $this->nonce      = new Nonce();
-        $this->version    = $core->version;//$this->version();
-        $this->post_types = new PostTypes();
-        $this->filter     = new Filter();
-        $this->formater   = new Formater();
         $this->url        = new Url();
         $this->plugins    = new dcPlugins();
         $this->rest       = new dcRestServer();
@@ -430,7 +372,8 @@ final class dcCore
      */
     public function setBlog($id): void
     {
-        $this->blog = new dcBlog($id);
+        Core::app()->setBlog($id);
+        $this->blog = Core::app()->blog;
     }
 
     /**
@@ -438,6 +381,7 @@ final class dcCore
      */
     public function unsetBlog(): void
     {
+        Core::app()->unsetBlog();
         $this->blog = null;
     }
     //@}
@@ -483,19 +427,19 @@ final class dcCore
     /**
      * Gets the nonce.
      *
-     * @deprecated since 2.28, use dcCore::app()->nonce->getNonce() instead
+     * @deprecated since 2.28, use Core::nonce()->getNonce() instead
      *
      * @return     string
      */
     public function getNonce(): string
     {
-        return $this->nonce->getNonce();
+        return Core::nonce()->getNonce();
     }
 
     /**
      * Check the nonce.
      *
-     * @deprecated since 2.28, use dcCore::app()->nonce->checkNonce() instead
+     * @deprecated since 2.28, use Core::nonce()->checkNonce() instead
      *
      * @param      string  $secret  The nonce
      *
@@ -503,13 +447,13 @@ final class dcCore
      */
     public function checkNonce(string $secret): bool
     {
-        return $this->nonce->checkNonce($secret);
+        return Core::nonce()->checkNonce($secret);
     }
 
     /**
      * Get the nonce HTML code.
      *
-     * @deprecated since 2.28, use dcCore::app()->nonce->formNonce() or dcCore::app()->nonce->getFormNonce()instead
+     * @deprecated since 2.28, use Core::nonce()->formNonce() or Core::nonce()->getFormNonce()instead
      *
      * @param      bool     $render     Should render element?
      *
@@ -517,7 +461,7 @@ final class dcCore
      */
     public function formNonce(bool $render = true)
     {
-        return $render ? $this->nonce->getFormNonce() : $this->nonce->formNonce();
+        return $render ? Core::nonce()->getFormNonce() : Core::nonce()->formNonce();
     }
     //@}
 
@@ -526,7 +470,7 @@ final class dcCore
     /**
      * Adds a new text formater.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->addEditorFormater() instead
+     * @deprecated since 2.28, use Core::formater()->addEditorFormater() instead
      *
      * @param      string    $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string    $name       The formater name
@@ -534,39 +478,39 @@ final class dcCore
      */
     public function addEditorFormater(string $editor_id, string $name, $func): void
     {
-        $this->formater->addEditorFormater($editor_id, $name, $func);
+        Core::formater()->addEditorFormater($editor_id, $name, $func);
     }
 
     /**
      * Adds a new dcLegacyEditor text formater.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->addEditorFormater('dcLegacyEditor', ...) instead
+     * @deprecated since 2.28, use Core::formater()->addEditorFormater('dcLegacyEditor', ...) instead
      *
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
     public function addFormater(string $name, $func): void
     {
-        $this->formater->addEditorFormater('dcLegacyEditor', $name, $func);
+        Core::formater()->addEditorFormater('dcLegacyEditor', $name, $func);
     }
 
     /**
      * Adds a formater name.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->addFormaterName() instead
+     * @deprecated since 2.28, use Core::formater()->addFormaterName() instead
      *
      * @param      string  $format  The format
      * @param      string  $name    The name
      */
     public function addFormaterName(string $format, string $name): void
     {
-        $this->formater->addFormaterName($format, $name);
+        Core::formater()->addFormaterName($format, $name);
     }
 
     /**
      * Gets the formater name.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->getFormaterName() instead
+     * @deprecated since 2.28, use Core::formater()->getFormaterName() instead
      *
      * @param      string  $format  The format
      *
@@ -574,25 +518,25 @@ final class dcCore
      */
     public function getFormaterName(string $format): string
     {
-        return $this->formater->getFormaterName($format);
+        return Core::formater()->getFormaterName($format);
     }
 
     /**
      * Gets the editors list.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->getEditors() instead
+     * @deprecated since 2.28, use Core::formater()->getEditors() instead
      *
      * @return     array
      */
     public function getEditors(): array
     {
-        return $this->formater->getEditors();
+        return Core::formater()->getEditors();
     }
 
     /**
      * Gets the formaters.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->getFormaters() or dcCore::app()->formater->getFormater(xxx) instead
+     * @deprecated since 2.28, use Core::formater()->getFormaters() or Core::formater()->getFormater(xxx) instead
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
@@ -600,13 +544,13 @@ final class dcCore
      */
     public function getFormaters(string $editor_id = ''): array
     {
-        return empty($editor_id) ? $this->formater->getFormaters() : $this->formater->getFormater($editor_id);
+        return empty($editor_id) ? Core::formater()->getFormaters() : Core::formater()->getFormater($editor_id);
     }
 
     /**
      * Call editor formater.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->callEditorFormater() instead
+     * @deprecated since 2.28, use Core::formater()->callEditorFormater() instead
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string  $name       The formater name
@@ -616,13 +560,13 @@ final class dcCore
      */
     public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
-        return $this->formater->callEditorFormater($editor_id, $name, $str);
+        return Core::formater()->callEditorFormater($editor_id, $name, $str);
     }
 
     /**
      * Call formater.
      *
-     * @deprecated since 2.28, use dcCore::app()->formater->callEditorFormater('dcLegacyEditor', ...) instead
+     * @deprecated since 2.28, use Core::formater()->callEditorFormater('dcLegacyEditor', ...) instead
      *
      * @param      string  $name   The name
      * @param      string  $str    The string
@@ -631,7 +575,7 @@ final class dcCore
      */
     public function callFormater(string $name, string $str): string
     {
-        return $this->formater->callEditorFormater('dcLegacyEditor', $name, $str);
+        return Core::formater()->callEditorFormater('dcLegacyEditor', $name, $str);
     }
     //@}
 
@@ -640,57 +584,57 @@ final class dcCore
     /**
      * Adds a new behavior to behaviors stack.
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->addBehavior() instead
+     * @deprecated since 2.28, use Core::behavior()->addBehavior() instead
      *
      * @param      string           $behavior  The behavior
      * @param      callable|array   $func      The function
      */
     public function addBehavior(string $behavior, $func): void
     {
-        $this->behavior->addBehavior($behavior, $func);
+        Core::behavior()->addBehavior($behavior, $func);
     }
 
     /**
      * Adds a behaviour (alias).
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->addBehavior() instead
+     * @deprecated since 2.28, use Core::behavior()->addBehavior() instead
      *
      * @param      string           $behaviour  The behaviour
      * @param      callable|array   $func       The function
      */
     public function addBehaviour(string $behaviour, $func): void
     {
-        $this->behavior->addBehavior($behaviour, $func);
+        Core::behavior()->addBehavior($behaviour, $func);
     }
 
     /**
      * Adds new behaviors to behaviors stack.
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->addBehaviors() instead
+     * @deprecated since 2.28, use Core::behavior()->addBehaviors() instead
      *
      * @param      array    $behaviors  The behaviors
      */
     public function addBehaviors(array $behaviors): void
     {
-        $this->behavior->addBehaviors($behaviors);
+        Core::behavior()->addBehaviors($behaviors);
     }
 
     /**
      * Adds behaviours (alias).
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->addBehaviors() instead
+     * @deprecated since 2.28, use Core::behavior()->addBehaviors() instead
      *
      * @param      array    $behaviours  The behaviours
      */
     public function addBehaviours(array $behaviours): void
     {
-        $this->behavior->addBehaviors($behaviours);
+        Core::behavior()->addBehaviors($behaviours);
     }
 
     /**
      * Determines if behavior exists in behaviors stack.
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->hasBehavior() instead
+     * @deprecated since 2.28, use Core::behavior()->hasBehavior() instead
      *
      * @param      string  $behavior  The behavior
      *
@@ -698,13 +642,13 @@ final class dcCore
      */
     public function hasBehavior(string $behavior): bool
     {
-        return $this->behavior->hasBehavior($behavior);
+        return Core::behavior()->hasBehavior($behavior);
     }
 
     /**
      * Determines if behaviour exists (alias).
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->hasBehavior() instead
+     * @deprecated since 2.28, use Core::behavior()->hasBehavior() instead
      *
      * @param      string  $behaviour  The behavior
      *
@@ -712,13 +656,13 @@ final class dcCore
      */
     public function hasBehaviour(string $behaviour): bool
     {
-        return $this->behavior->hasBehavior($behaviour);
+        return Core::behavior()->hasBehavior($behaviour);
     }
 
     /**
      * Gets the behaviors stack (or part of).
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->getBehaviors() or dcCore::app()->behavior->getBehavior()instead
+     * @deprecated since 2.28, use Core::behavior()->getBehaviors() or Core::behavior()->getBehavior()instead
      *
      * @param      string  $behavior  The behavior
      *
@@ -726,13 +670,13 @@ final class dcCore
      */
     public function getBehaviors(string $behavior = '')
     {
-        return empty($behavior) ? $this->behavior->getBehaviors() : $this->behavior->getBehavior($behavior);
+        return empty($behavior) ? Core::behavior()->getBehaviors() : Core::behavior()->getBehavior($behavior);
     }
 
     /**
      * Gets the behaviours stack (alias).
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->getBehaviors() or dcCore::app()->behavior->getBehavior()instead
+     * @deprecated since 2.28, use Core::behavior()->getBehaviors() or Core::behavior()->getBehavior()instead
      *
      * @param      string  $behaviour  The behaviour
      *
@@ -740,14 +684,14 @@ final class dcCore
      */
     public function getBehaviours(string $behaviour = '')
     {
-        return empty($behaviour) ? $this->behavior->getBehaviors() : $this->behavior->getBehavior($behaviour);
+        return empty($behaviour) ? Core::behavior()->getBehaviors() : Core::behavior()->getBehavior($behaviour);
     }
 
     /**
      * Calls every function in behaviors stack for a given behavior and returns
      * concatened result of each function.
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->callBehavior() instead
+     * @deprecated since 2.28, use Core::behavior()->callBehavior() instead
      *
      * @param      string  $behavior  The behavior
      * @param      mixed   ...$args   The arguments
@@ -756,13 +700,13 @@ final class dcCore
      */
     public function callBehavior(string $behavior, ...$args)
     {
-        return $this->behavior->callBehavior($behavior, ...$args);
+        return Core::behavior()->callBehavior($behavior, ...$args);
     }
 
     /**
      * Calls every function in behaviours stack (alias).
      *
-     * @deprecated since 2.28, use dcCore::app()->behavior->callBehavior() instead
+     * @deprecated since 2.28, use Core::behavior()->callBehavior() instead
      *
      * @param      string  $behaviour  The behaviour
      * @param      mixed   ...$args    The arguments
@@ -771,7 +715,7 @@ final class dcCore
      */
     public function callBehaviour(string $behaviour, ...$args)
     {
-        return $this->behavior->callBehavior($behaviour, ...$args);
+        return Core::behavior()->callBehavior($behaviour, ...$args);
     }
     //@}
 
@@ -781,7 +725,7 @@ final class dcCore
     /**
      * Gets the post admin url.
      *
-     * @deprecated since 2.28, use dcCore::app()->post_types->get($type)->adminUrl() instead
+     * @deprecated since 2.28, use Core::postTypes()->get($type)->adminUrl() instead
      *
      * @param      string               $type     The type
      * @param      int|string           $post_id  The post identifier
@@ -792,13 +736,13 @@ final class dcCore
      */
     public function getPostAdminURL(string $type, int|string $post_id, bool $escaped = true, array $params = []): string
     {
-        return $this->post_types->get($type)->adminUrl($post_id, $escaped, $params);
+        return Core::postTypes()->get($type)->adminUrl($post_id, $escaped, $params);
     }
 
     /**
      * Gets the post public url.
      *
-     * @deprecated since 2.28, use dcCore::app()->post_types->get($type)->publicUrl() instead
+     * @deprecated since 2.28, use Core::postTypes()->get($type)->publicUrl() instead
      *
      * @param      string  $type      The type
      * @param      string  $post_url  The post url
@@ -808,13 +752,13 @@ final class dcCore
      */
     public function getPostPublicURL(string $type, string $post_url, bool $escaped = true): string
     {
-        return $this->post_types->get($type)->publicUrl($post_url, $escaped);
+        return Core::postTypes()->get($type)->publicUrl($post_url, $escaped);
     }
 
     /**
      * Sets the post type.
      *
-     * @deprecated since 2.28, use dcCore::app()->post_types->set(new PostType()) instead
+     * @deprecated since 2.28, use Core::postTypes()->set(new PostType()) instead
      *
      * @param      string  $type        The type
      * @param      string  $admin_url   The admin url
@@ -823,19 +767,19 @@ final class dcCore
      */
     public function setPostType(string $type, string $admin_url, string $public_url, string $label = ''): void
     {
-        $this->post_types->set(new PostType($type, $admin_url, $public_url, $label));
+        Core::postTypes()->set(new PostType($type, $admin_url, $public_url, $label));
     }
 
     /**
      * Gets the post types.
      *
-     * @deprecated since 2.28, use dcCore::app()->post_types->dump() instead
+     * @deprecated since 2.28, use Core::postTypes()->dump() instead
      *
      * @return     array  The post types.
      */
     public function getPostTypes(): array
     {
-        return $this->post_types->getPostTypes();
+        return Core::postTypes()->getPostTypes();
     }
     //@}
 
@@ -844,7 +788,7 @@ final class dcCore
     /**
      * Gets the version of a module.
      *
-     * @deprecated since 2.28, use dcCore::app()->version->getVersion() instead
+     * @deprecated since 2.28, use Core::version()->getVersion() instead
      *
      * @param      string  $module  The module
      *
@@ -852,7 +796,7 @@ final class dcCore
      */
     public function getVersion(string $module = 'core')
     {
-        $v = $this->version->getVersion($module);
+        $v = Core::version()->getVersion($module);
 
         // keep compatibility with old return type
         return $v === '' ? null : $v;
@@ -861,32 +805,32 @@ final class dcCore
     /**
      * Gets all known versions.
      *
-     * @deprecated since 2.28, use dcCore::app()->version->getVersions() instead
+     * @deprecated since 2.28, use Core::version()->getVersions() instead
      *
      * @return     array
      */
     public function getVersions(): array
     {
-        return $this->version->getVersions();
+        return Core::version()->getVersions();
     }
 
     /**
      * Sets the version of a module.
      *
-     * @deprecated since 2.28, use dcCore::app()->version->setVersion() instead
+     * @deprecated since 2.28, use Core::version()->setVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
      */
     public function setVersion(string $module, string $version)
     {
-        $this->version->setVersion($module, $version);
+        Core::version()->setVersion($module, $version);
     }
 
     /**
      * Compare the given version of a module with the registered one.
      *
-     * @deprecated since 2.28, use dcCore::app()->version->compareVersion() instead
+     * @deprecated since 2.28, use Core::version()->compareVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
@@ -895,13 +839,13 @@ final class dcCore
      */
     public function testVersion(string $module, string $version): int
     {
-        return $this->version->compareVersion($module, $version);
+        return Core::version()->compareVersion($module, $version);
     }
 
     /**
      * Test if a version is a new one.
      *
-     * @deprecated since 2.28, use dcCore::app()->version->newerVersion() instead
+     * @deprecated since 2.28, use Core::version()->newerVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
@@ -910,19 +854,19 @@ final class dcCore
      */
     public function newVersion(string $module, string $version): bool
     {
-        return $this->version->newerVersion($module, $version);
+        return Core::version()->newerVersion($module, $version);
     }
 
     /**
      * Remove a module version entry
      *
-     * @deprecated since 2.28, use dcCore::app()->version->unsetVersion() instead
+     * @deprecated since 2.28, use Core::version()->unsetVersion() instead
      *
      * @param      string  $module  The module
      */
     public function delVersion(string $module)
     {
-        $this->version->unsetVersion($module);
+        Core::version()->unsetVersion($module);
     }
     //@}
 
@@ -1415,7 +1359,7 @@ final class dcCore
     /**
      * Returns all blog permissions (users) as an array.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->getBlogPermissions() instead
+     * @deprecated since 2.28, use Core::blogs()->getBlogPermissions() instead
      *
      * @param      string  $id          The blog identifier
      * @param      bool    $with_super  Includes super admins in result
@@ -1424,13 +1368,13 @@ final class dcCore
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
-        return $this->blogs->getBlogPermissions($id, $with_super);
+        return Core::blogs()->getBlogPermissions($id, $with_super);
     }
 
     /**
      * Gets the blog.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->getBlogPermissions() instead
+     * @deprecated since 2.28, use Core::blogs()->getBlogPermissions() instead
      *
      * @param      string  $id     The blog identifier
      *
@@ -1438,13 +1382,13 @@ final class dcCore
      */
     public function getBlog(string $id)
     {
-        return $this->blogs->getBlog($id);
+        return Core::blogs()->getBlog($id);
     }
 
     /**
      * Returns a MetaRecord of blogs.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->getBlogs() instead
+     * @deprecated since 2.28, use Core::blogs()->getBlogs() instead
      *
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
@@ -1453,13 +1397,13 @@ final class dcCore
      */
     public function getBlogs($params = [], bool $count_only = false): MetaRecord
     {
-        return $this->blogs->getBlogs($params, $count_only);
+        return Core::blogs()->getBlogs($params, $count_only);
     }
 
     /**
      * Adds a new blog.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->addBlog() instead
+     * @deprecated since 2.28, use Core::blogs()->addBlog() instead
      *
      * @param      Cursor     $cur    The blog Cursor
      *
@@ -1467,26 +1411,26 @@ final class dcCore
      */
     public function addBlog(Cursor $cur): void
     {
-        $this->blogs->addBlog($cur);
+        Core::blogs()->addBlog($cur);
     }
 
     /**
      * Updates a given blog.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->updBlog() instead
+     * @deprecated since 2.28, use Core::blogs()->updBlog() instead
      *
      * @param      string  $id     The blog identifier
      * @param      Cursor  $cur    The Cursor
      */
     public function updBlog(string $id, Cursor $cur): void
     {
-        $this->blogs->updBlog($id, $cur);
+        Core::blogs()->updBlog($id, $cur);
     }
 
     /**
      * Removes a given blog.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->delBlog() instead
+     * @deprecated since 2.28, use Core::blogs()->delBlog() instead
      *
      * @param      string     $id     The blog identifier
      *
@@ -1494,13 +1438,13 @@ final class dcCore
      */
     public function delBlog(string $id): void
     {
-        $this->blogs->delBlog($id);
+        Core::blogs()->delBlog($id);
     }
 
     /**
      * Determines if blog exists.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->blogExists() instead
+     * @deprecated since 2.28, use Core::blogs()->blogExists() instead
      *
      * @param      string  $id     The blog identifier
      *
@@ -1508,13 +1452,13 @@ final class dcCore
      */
     public function blogExists(string $id): bool
     {
-        return $this->blogs->blogExists($id);
+        return Core::blogs()->blogExists($id);
     }
 
     /**
      * Counts the number of blog posts.
      *
-     * @deprecated since 2.28, use dcCore::app()->blogs->countBlogPosts() instead
+     * @deprecated since 2.28, use Core::blogs()->countBlogPosts() instead
      *
      * @param      string        $id     The blog identifier
      * @param      null|string   $type   The post type
@@ -1523,7 +1467,7 @@ final class dcCore
      */
     public function countBlogPosts(string $id, $type = null): int
     {
-        return $this->blogs->countBlogPosts($id, $type);
+        return Core::blogs()->countBlogPosts($id, $type);
     }
     //@}
 
@@ -1532,7 +1476,7 @@ final class dcCore
     /**
      * Calls HTML filter to drop bad tags and produce valid HTML output.
      *
-     * @deprecated since 2.28, use dcCore::app()->filter->HTMLfilter() instead
+     * @deprecated since 2.28, use Core::filter()->HTMLfilter() instead
      *
      * @param      string  $str    The string
      *
@@ -1540,7 +1484,7 @@ final class dcCore
      */
     public function HTMLfilter(string $str): string
     {
-        return $this->filter->HTMLfilter($str);
+        return Core::filter()->HTMLfilter($str);
     }
     //@}
 
@@ -1549,7 +1493,7 @@ final class dcCore
     /**
      * Returns a transformed string with WikiToHtml.
      *
-     * @deprecated since 2.28, use dcCore::app()->filter->wikiTransform() instead
+     * @deprecated since 2.28, use Core::filter()->wikiTransform() instead
      *
      * @param      string  $str    The string
      *
@@ -1557,43 +1501,43 @@ final class dcCore
      */
     public function wikiTransform(string $str): string
     {
-        return $this->filter->wikiTransform($str);
+        return Core::filter()->wikiTransform($str);
     }
 
     /**
      * Inits <var>wiki</var> property for blog post.
      *
-     * @deprecated since 2.28, use dcCore::app()->filter->initWikiPost() instead
+     * @deprecated since 2.28, use Core::filter()->initWikiPost() instead
      */
     public function initWikiPost(): void
     {
-        $this->filter->initWikiPost();
+        Core::filter()->initWikiPost();
     }
 
     /**
      * Inits <var>wiki</var> property for simple blog comment (basic syntax).
      *
-     * @deprecated since 2.28, use dcCore::app()->filter->initWikiSimpleComment() instead
+     * @deprecated since 2.28, use Core::filter()->initWikiSimpleComment() instead
      */
     public function initWikiSimpleComment(): void
     {
-        $this->filter->initWikiSimpleComment();
+        Core::filter()->initWikiSimpleComment();
     }
 
     /**
      * Inits <var>wiki</var> property for blog comment.
      *
-     * @deprecated since 2.28, use dcCore::app()->filter->initWikiComment() instead
+     * @deprecated since 2.28, use Core::filter()->initWikiComment() instead
      */
     public function initWikiComment(): void
     {
-        $this->filter->initWikiComment();
+        Core::filter()->initWikiComment();
     }
 
     /**
      * Get info about a post:id wiki macro.
      *
-     * @deprecated since 2.28, use dcCore::app()->filter->wikiPostLink() instead
+     * @deprecated since 2.28, use Core::filter()->wikiPostLink() instead
      *
      * @param      string  $url      The post url
      * @param      string  $content  The content
@@ -1602,7 +1546,7 @@ final class dcCore
      */
     public function wikiPostLink(string $url, string $content): array
     {
-        return $this->filter->wikiPostLink($url, $content);
+        return Core::filter()->wikiPostLink($url, $content);
     }
     //@}
 

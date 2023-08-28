@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\attachments;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -43,7 +44,7 @@ class Frontend extends Process
 
         dcCore::app()->tpl->addValue('EntryAttachmentCount', [FrontendTemplate::class, 'EntryAttachmentCount']);
 
-        dcCore::app()->behavior->addBehavior('tplIfConditions', [FrontendBehaviors::class, 'tplIfConditions']);
+        Core::behavior()->addBehavior('tplIfConditions', [FrontendBehaviors::class, 'tplIfConditions']);
 
         return true;
     }

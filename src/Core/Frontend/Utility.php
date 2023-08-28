@@ -20,6 +20,7 @@ use dcTemplate;
 use dcThemes;
 use dcUtils;
 use dcTraitDynamicProperties;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
@@ -249,7 +250,7 @@ class Utility extends Process
         dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
 
         # --BEHAVIOR-- publicPrepend --
-        dcCore::app()->behavior->callBehavior('publicPrependV2');
+        Core::behavior()->callBehavior('publicPrependV2');
 
         # Prepare the HTTP cache thing
         dcCore::app()->cache['mod_files'] = get_included_files();
@@ -293,12 +294,12 @@ class Utility extends Process
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --
-            dcCore::app()->behavior->callBehavior('publicBeforeDocumentV2');
+            Core::behavior()->callBehavior('publicBeforeDocumentV2');
 
             dcCore::app()->url->getDocument();
 
             # --BEHAVIOR-- publicAfterDocument --
-            dcCore::app()->behavior->callBehavior('publicAfterDocumentV2');
+            Core::behavior()->callBehavior('publicAfterDocumentV2');
         } catch (Exception $e) {
             new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
         }

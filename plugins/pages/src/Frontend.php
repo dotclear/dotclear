@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -29,7 +30,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'publicPrependV2' => function (): void {
                 // Localized string we find in template
                 __('Published on');

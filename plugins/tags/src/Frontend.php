@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -54,7 +55,7 @@ class Frontend extends Process
         dcCore::app()->tpl->addBlock('EntryMetaData', [FrontendTemplate::class, 'EntryTags']);
         */
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'publicPrependV2'        => [FrontendBehaviors::class, 'publicPrepend'],
             'templateBeforeBlockV2'  => [FrontendBehaviors::class, 'templateBeforeBlock'],
             'publicBeforeDocumentV2' => [FrontendBehaviors::class, 'addTplPath'],

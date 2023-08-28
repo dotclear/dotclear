@@ -12,6 +12,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
@@ -45,7 +46,7 @@ class ActionsPosts extends Actions
         // We could have added a behavior here, but we want default action to be setup first
         ActionsPostsDefault::adminPostsActionsPage($this);
         # --BEHAVIOR-- adminPostsActions -- Actions
-        dcCore::app()->behavior->callBehavior('adminPostsActions', $this);
+        Core::behavior()->callBehavior('adminPostsActions', $this);
     }
 
     /**

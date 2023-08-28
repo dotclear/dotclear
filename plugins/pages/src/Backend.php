@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
@@ -38,7 +39,7 @@ class Backend extends Process
 
         My::addBackendMenuItem(Menus::MENU_BLOG);
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {
                 $cols['pages'] = [My::name(), [
                     'date'       => [true, __('Date')],

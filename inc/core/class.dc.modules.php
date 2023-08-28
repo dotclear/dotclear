@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -509,7 +510,7 @@ class dcModules
         if (!empty($ns)) {
             // Give opportunity to do something before loading context (admin,public,xmlrpc) files
             # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- dcModules, string|null
-            dcCore::app()->behavior->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
+            Core::behavior()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
             $this->loadModulesContext($ignored, $ns, $lang);
         }
@@ -927,11 +928,11 @@ class dcModules
 
             if ($install === true || $install === null) {
                 // Register new version if necessary
-                $old_version = dcCore::app()->version->getVersion($id);
+                $old_version = Core::version()->getVersion($id);
                 $new_version = $module->version;
                 if (version_compare($old_version, $new_version, '<')) {
                     // Register new version
-                    dcCore::app()->version->setVersion($id, $new_version);
+                    Core::version()->setVersion($id, $new_version);
                 }
 
                 if ($install === true) {

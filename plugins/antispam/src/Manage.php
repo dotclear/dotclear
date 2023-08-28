@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\antispam;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -183,7 +184,7 @@ class Manage extends Process
 
             if ($spam_count > 0) {
                 echo
-                '<p>' . dcCore::app()->nonce->getFormNonce() .
+                '<p>' . Core::nonce()->getFormNonce() .
                 form::hidden('ts', time()) .
                 '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
             }
@@ -261,7 +262,7 @@ class Manage extends Process
             echo
             '</tbody></table></div>' .
             '<p>' . form::hidden('filters_order', '') .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '<input type="submit" name="filters_upd" value="' . __('Save') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .

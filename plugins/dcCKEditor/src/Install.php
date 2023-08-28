@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Install extends Process
@@ -29,7 +30,7 @@ class Install extends Process
         }
 
         // Rename settings namespace
-        if (version_compare(dcCore::app()->version->getVersion(My::id()), '2.0', '<=')
+        if (version_compare(Core::version()->getVersion(My::id()), '2.0', '<=')
             && dcCore::app()->blog->settings->exists('dcckeditor')
         ) {
             dcCore::app()->blog->settings->delNamespace(My::id());

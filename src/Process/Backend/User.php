@@ -20,6 +20,7 @@ use dcPrefs;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -147,7 +148,7 @@ class User extends Process
                     // Update user
 
                     # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
-                    dcCore::app()->behavior->callBehavior('adminBeforeUserUpdate', $cur, dcCore::app()->admin->user_id);
+                    Core::behavior()->callBehavior('adminBeforeUserUpdate', $cur, dcCore::app()->admin->user_id);
 
                     $new_id = dcCore::app()->updUser(dcCore::app()->admin->user_id, $cur);
 
@@ -165,7 +166,7 @@ class User extends Process
                     $user_prefs->profile->put('urls', $urls, 'string');
 
                     # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
-                    dcCore::app()->behavior->callBehavior('adminAfterUserUpdate', $cur, $new_id);
+                    Core::behavior()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
                     if (dcCore::app()->admin->user_id == dcCore::app()->auth->userID() && dcCore::app()->admin->user_id != $new_id) {
                         dcCore::app()->session->destroy();
@@ -181,7 +182,7 @@ class User extends Process
                     }
 
                     # --BEHAVIOR-- adminBeforeUserCreate -- Cursor
-                    dcCore::app()->behavior->callBehavior('adminBeforeUserCreate', $cur);
+                    Core::behavior()->callBehavior('adminBeforeUserCreate', $cur);
 
                     $new_id = dcCore::app()->addUser($cur);
 
@@ -199,7 +200,7 @@ class User extends Process
                     $user_prefs->profile->put('urls', $urls, 'string');
 
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
-                    dcCore::app()->behavior->callBehavior('adminAfterUserCreate', $cur, $new_id);
+                    Core::behavior()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
                     Notices::addSuccessNotice(__('User has been successfully created.'));
                     Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
@@ -230,7 +231,7 @@ class User extends Process
             Page::jsLoad('js/pwstrength.js') .
             Page::jsLoad('js/_user.js') .
             # --BEHAVIOR-- adminUserHeaders --
-            dcCore::app()->behavior->callBehavior('adminUserHeaders'),
+            Core::behavior()->callBehavior('adminUserHeaders'),
             Page::breadcrumb(
                 [
                     __('System')                     => '',
@@ -401,7 +402,7 @@ class User extends Process
         '</p>';
 
         # --BEHAVIOR-- adminUserForm -- MetaRecord|null
-        dcCore::app()->behavior->callBehavior('adminUserForm', dcCore::app()->admin->rs ?? null);
+        Core::behavior()->callBehavior('adminUserForm', dcCore::app()->admin->rs ?? null);
 
         echo
         '</div>' .
@@ -423,7 +424,7 @@ class User extends Process
         (dcCore::app()->admin->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
         (dcCore::app()->admin->user_id != '' ? form::hidden('id', dcCore::app()->admin->user_id) : '') .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '</p>' .
 
         '</form>';
@@ -440,7 +441,7 @@ class User extends Process
                 form::hidden(['redir'], dcCore::app()->admin->url->get('admin.user', ['id' => dcCore::app()->admin->user_id])) .
                 form::hidden(['action'], 'blogs') .
                 form::hidden(['users[]'], dcCore::app()->admin->user_id) .
-                dcCore::app()->nonce->getFormNonce() .
+                Core::nonce()->getFormNonce() .
                 '</p>' .
                 '</form>';
 
@@ -474,7 +475,7 @@ class User extends Process
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], dcCore::app()->admin->user_id) .
                             form::hidden(['blogs[]'], $k) .
-                            dcCore::app()->nonce->getFormNonce() .
+                            Core::nonce()->getFormNonce() .
                             '</p>' .
                             '</form>';
                         }

@@ -23,6 +23,7 @@ use dcDeprecated;
 use dcModuleDefine;
 use dcModules;
 use dcStore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -901,7 +902,7 @@ class ModulesList
                 form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id));
             }
             echo
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</td>';
 
             # Display score only for debug purpose
@@ -1252,7 +1253,7 @@ class ModulesList
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetActions -- ModulesList, dcModuleDefine
-                    $tmp = dcCore::app()->behavior->callBehavior('adminModulesListGetActionsV2', $this, $define);
+                    $tmp = Core::behavior()->callBehavior('adminModulesListGetActionsV2', $this, $define);
 
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
@@ -1320,7 +1321,7 @@ class ModulesList
                 case 'behavior':
 
                     # --BEHAVIOR-- adminModulesListGetGlobalActions -- ModulesList, bool
-                    $tmp = dcCore::app()->behavior->callBehavior('adminModulesListGetGlobalActions', $this, $with_selection);
+                    $tmp = Core::behavior()->callBehavior('adminModulesListGetGlobalActions', $this, $with_selection);
 
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
@@ -1370,12 +1371,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeDelete -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginBeforeDeleteV2', $define);
+                Core::behavior()->callBehavior('pluginBeforeDeleteV2', $define);
 
                 $this->modules->deleteModule($define->getId(), $disabled);
 
                 # --BEHAVIOR-- moduleAfterDelete -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginAfterDeleteV2', $define);
+                Core::behavior()->callBehavior('pluginAfterDeleteV2', $define);
 
                 $count++;
             }
@@ -1404,12 +1405,12 @@ class ModulesList
                 $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
 
                 # --BEHAVIOR-- moduleBeforeAdd -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginBeforeAddV2', $define);
+                Core::behavior()->callBehavior('pluginBeforeAddV2', $define);
 
                 $this->store->process($define->get('file'), $dest);
 
                 # --BEHAVIOR-- moduleAfterAdd -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginAfterAddV2', $define);
+                Core::behavior()->callBehavior('pluginAfterAddV2', $define);
 
                 $count++;
             }
@@ -1435,12 +1436,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeActivate -- string
-                dcCore::app()->behavior->callBehavior('pluginBeforeActivate', $define->getId());
+                Core::behavior()->callBehavior('pluginBeforeActivate', $define->getId());
 
                 $this->modules->activateModule($define->getId());
 
                 # --BEHAVIOR-- moduleAfterActivate -- string
-                dcCore::app()->behavior->callBehavior('pluginAfterActivate', $define->getId());
+                Core::behavior()->callBehavior('pluginAfterActivate', $define->getId());
 
                 $count++;
             }
@@ -1473,12 +1474,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeDeactivate -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginBeforeDeactivateV2', $define);
+                Core::behavior()->callBehavior('pluginBeforeDeactivateV2', $define);
 
                 $this->modules->deactivateModule($define->getId());
 
                 # --BEHAVIOR-- moduleAfterDeactivate -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginAfterDeactivateV2', $define);
+                Core::behavior()->callBehavior('pluginAfterDeactivateV2', $define);
 
                 $count++;
             }
@@ -1524,12 +1525,12 @@ class ModulesList
                 }
 
                 # --BEHAVIOR-- moduleBeforeUpdate -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginBeforeUpdateV2', $define);
+                Core::behavior()->callBehavior('pluginBeforeUpdateV2', $define);
 
                 $this->store->process($define->get('file'), $dest);
 
                 # --BEHAVIOR-- moduleAfterUpdate -- dcModuleDefine
-                dcCore::app()->behavior->callBehavior('pluginAfterUpdateV2', $define);
+                Core::behavior()->callBehavior('pluginAfterUpdateV2', $define);
 
                 $count++;
             }
@@ -1571,12 +1572,12 @@ class ModulesList
             }
 
             # --BEHAVIOR-- moduleBeforeAdd --
-            dcCore::app()->behavior->callBehavior('pluginBeforeAdd', null);
+            Core::behavior()->callBehavior('pluginBeforeAdd', null);
 
             $ret_code = $this->store->install($dest);
 
             # --BEHAVIOR-- moduleAfterAdd --
-            dcCore::app()->behavior->callBehavior('pluginAfterAdd', null);
+            Core::behavior()->callBehavior('pluginAfterAdd', null);
 
             Notices::addSuccessNotice(
                 $ret_code === dcModules::PACKAGE_UPDATED ?
@@ -1586,7 +1587,7 @@ class ModulesList
             Http::redirect($this->getURL() . '#plugins');
         } else {
             # --BEHAVIOR-- adminModulesListDoActions -- ModulesList, array<int,string>, string
-            dcCore::app()->behavior->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
+            Core::behavior()->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
         }
     }
 
@@ -1618,7 +1619,7 @@ class ModulesList
             ]
         ) . '</p>' .
         '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        Core::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
         # 'Fetch module' form
@@ -1641,7 +1642,7 @@ class ModulesList
             ]
         ) . '</p>' .
         '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        Core::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
         return $this;
@@ -1786,7 +1787,7 @@ class ModulesList
                 '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '" />' .
                 form::hidden('module', $this->config_define->getId()) .
                 form::hidden('redir', $this->getRedir()) .
-                dcCore::app()->nonce->getFormNonce() . '</p>' .
+                Core::nonce()->getFormNonce() . '</p>' .
                     '</form>';
             }
         }

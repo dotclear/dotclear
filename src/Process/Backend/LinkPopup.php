@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use dcThemes;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -50,7 +51,7 @@ class LinkPopup extends Process
     public static function render(): void
     {
         # --BEHAVIOR-- adminPopupLink -- string
-        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . dcCore::app()->behavior->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
+        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . Core::behavior()->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
 
         echo '<h2 class="page-title">' . __('Add a link') . '</h2>';
 

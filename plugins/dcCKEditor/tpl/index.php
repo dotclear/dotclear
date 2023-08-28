@@ -122,7 +122,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
   <?php endif;?>
   <p>
     <input name="p" type="hidden" value="dcCKEditor"/>
-    <?php echo dcCore::app()->nonce->getFormNonce(); ?>
+    <?php echo \Dotclear\Core\Core::nonce()->getFormNonce(); ?>
     <input name="saveconfig" type="submit" value="<?php echo __('Save configuration'); ?>"/>
     <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
   </p>

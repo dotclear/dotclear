@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 use Dotclear\Plugin\maintenance\Maintenance;
@@ -35,7 +36,7 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'       => My::name(),

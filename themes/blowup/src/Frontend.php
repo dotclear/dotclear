@@ -12,6 +12,7 @@
 namespace Dotclear\Theme\blowup;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -27,7 +28,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehavior('publicHeadContent', function () {
+        Core::behavior()->addBehavior('publicHeadContent', function () {
             $url = Blowup::publicCssUrlHelper();
             if ($url) {
                 echo '<link rel="stylesheet" href="' . $url . '" type="text/css" />';

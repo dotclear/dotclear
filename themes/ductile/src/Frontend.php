@@ -13,6 +13,7 @@ namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 
@@ -30,7 +31,7 @@ class Frontend extends Process
         }
 
         # Behaviors
-        dcCore::app()->behavior->addBehaviors([
+        Core::behavior()->addBehaviors([
             'publicHeadContent'  => [self::class, 'publicHeadContent'],
             'publicInsideFooter' => [self::class, 'publicInsideFooter'],
         ]);

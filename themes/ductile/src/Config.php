@@ -16,6 +16,7 @@ use dcUtils;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -469,7 +470,7 @@ class Config extends Process
 
         '<p><input type="hidden" name="conf_tab" value="html" /></p>' .
         '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        Core::nonce()->getFormNonce() . '</p>' .
 
         '</form>' .
         '</div>'; // Close tab
@@ -643,7 +644,7 @@ class Config extends Process
         '</div>' .
 
         '<p><input type="hidden" name="conf_tab" value="css" /></p>' .
-        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . dcCore::app()->nonce->getFormNonce() . '</p>' .
+        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . Core::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
         '</div>'; // Close tab

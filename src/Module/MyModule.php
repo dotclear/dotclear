@@ -115,7 +115,7 @@ abstract class MyModule
                     // Manageable only by super-admin
                     && dcCore::app()->auth->isSuperAdmin()
                     // And only if new version of module
-                    && Core::from('version')->newerVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version')),
+                    && Core::version()->newerVersion(self::id(), (string) dcCore::app()->plugins->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
             self::UNINSTALL => defined('DC_RC_PATH')

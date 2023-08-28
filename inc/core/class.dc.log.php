@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -167,7 +168,7 @@ class dcLog
             $this->fillLogCursor($cur);
 
             # --BEHAVIOR-- coreBeforeLogCreate -- dcLog, Cursor
-            dcCore::app()->behavior->callBehavior('coreBeforeLogCreate', $this, $cur);
+            Core::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
             dcCore::app()->con->unlock();
@@ -178,7 +179,7 @@ class dcLog
         }
 
         # --BEHAVIOR-- coreAfterLogCreate -- dcLog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterLogCreate', $this, $cur);
+        Core::behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }

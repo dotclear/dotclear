@@ -17,6 +17,7 @@ use dcSettings;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Install\Utils;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
@@ -172,7 +173,7 @@ class Install extends Process
                 $cur->blog_id   = 'default';
                 $cur->blog_url  = Http::getHost() . self::$root_url . '/index.php?';
                 $cur->blog_name = __('My first blog');
-                dcCore::app()->blogs->addBlog($cur);
+                Core::blogs()->addBlog($cur);
 
                 # Create global blog settings
                 Utils::blogDefaults();

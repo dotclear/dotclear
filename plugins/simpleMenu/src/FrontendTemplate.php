@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -180,7 +181,7 @@ class FrontendTemplate
                 ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
-                dcCore::app()->behavior->callBehavior('publicSimpleMenuItem', $i, $item);
+                Core::behavior()->callBehavior('publicSimpleMenuItem', $i, $item);
 
                 $ret .= '<li class="li' . ($i + 1) .
                     ($item['active'] ? ' active' : '') .

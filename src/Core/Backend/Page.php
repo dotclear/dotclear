@@ -15,6 +15,7 @@ use Autoloader;
 use dcCore;
 use dcDeprecated;
 use dcUtils;
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -117,13 +118,13 @@ class Page
             }
             $blog_box .= '</p>';
         } else {
-            $rs_blogs = dcCore::app()->blogs->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => 20]);
+            $rs_blogs = Core::blogs()->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => 20]);
             $blogs    = [];
             while ($rs_blogs->fetch()) {
                 $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
-            dcCore::app()->nonce->getFormNonce() . form::combo('switchblog', $blogs, dcCore::app()->blog->id) .
+            Core::nonce()->getFormNonce() . form::combo('switchblog', $blogs, dcCore::app()->blog->id) .
             form::hidden(['redir'], $_SERVER['REQUEST_URI']) .
             '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
         }
@@ -182,7 +183,7 @@ class Page
             $csp['frame-src'] = '*';
 
             # --BEHAVIOR-- adminPageHTTPHeaderCSP -- ArrayObject
-            dcCore::app()->behavior->callBehavior('adminPageHTTPHeaderCSP', $csp);
+            Core::behavior()->callBehavior('adminPageHTTPHeaderCSP', $csp);
 
             // Construct CSP header
             $directives = [];
@@ -199,7 +200,7 @@ class Page
         }
 
         # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPageHTTPHeaders', $headers);
+        Core::behavior()->callBehavior('adminPageHTTPHeaders', $headers);
         foreach ($headers as $key => $value) {
             header($value);
         }
@@ -255,7 +256,7 @@ class Page
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead
-        dcCore::app()->behavior->callBehavior('adminPageHTMLHead');
+        Core::behavior()->callBehavior('adminPageHTMLHead');
 
         echo
         "</head>\n" .
@@ -475,7 +476,7 @@ class Page
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');
 
         # --BEHAVIOR-- adminPageFooter --
-        $textAlt = dcCore::app()->behavior->callBehavior('adminPageFooterV2', $text);
+        $textAlt = Core::behavior()->callBehavior('adminPageFooterV2', $text);
         if ($textAlt != '') {
             $text = $textAlt;
         }
@@ -576,7 +577,7 @@ class Page
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead --
-        dcCore::app()->behavior->callBehavior('adminPageHTMLHead');
+        Core::behavior()->callBehavior('adminPageHTMLHead');
 
         echo
             "</head>\n" .
@@ -770,7 +771,7 @@ class Page
         $args = new ArrayObject($params);
 
         # --BEHAVIOR-- adminPageHelpBlock -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPageHelpBlock', $args);
+        Core::behavior()->callBehavior('adminPageHelpBlock', $args);
 
         if (!count($args)) {
             return;
@@ -944,7 +945,7 @@ class Page
     public static function jsCommon(): string
     {
         $js = [
-            'nonce' => dcCore::app()->nonce->getNonce(),
+            'nonce' => Core::nonce()->getNonce(),
 
             'img_plus_src' => 'images/expand.svg',
             'img_plus_txt' => '▶',
@@ -1131,7 +1132,7 @@ class Page
         $params = array_merge($params, [
             'sess_id=' . session_id(),
             'sess_uid=' . $_SESSION['sess_browser_uid'],
-            'xd_check=' . dcCore::app()->nonce->getNonce(),
+            'xd_check=' . Core::nonce()->getNonce(),
         ]);
 
         $js_msg = [
@@ -1231,7 +1232,7 @@ class Page
          */
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminLoadCodeMirror -- array
-        dcCore::app()->behavior->callBehavior('adminLoadCodeMirror', $alt);
+        Core::behavior()->callBehavior('adminLoadCodeMirror', $alt);
         foreach ($alt as $item) {
             if (!in_array($item, $modes)) {
                 $modes[] = $item;
@@ -1294,7 +1295,7 @@ class Page
          */
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminRunCodeMirror -- array
-        dcCore::app()->behavior->callBehavior('adminRunCodeMirror', $alt);
+        Core::behavior()->callBehavior('adminRunCodeMirror', $alt);
         foreach ($alt as $item) {
             $js[] = [
                 'name'  => $item['name'],

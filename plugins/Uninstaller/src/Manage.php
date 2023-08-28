@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\Uninstaller;
 use dcCore;
 use dcModuleDefine;
 use dcThemes;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Core\Backend\{
     Notices,
@@ -160,7 +161,7 @@ class Manage extends Process
             My::jsLoad('manage') .
 
             # --BEHAVIOR-- UninstallerHeader
-            dcCore::app()->behavior->callBehavior('UninstallerHeader')
+            Core::behavior()->callBehavior('UninstallerHeader')
         );
 
         echo

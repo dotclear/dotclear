@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
 use initAntispam;
@@ -54,7 +55,7 @@ class Install extends Process
         (new Structure(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
 
         // Creating default wordslist
-        if (dcCore::app()->version->getVersion(My::id()) === '') {
+        if (Core::version()->getVersion(My::id()) === '') {
             (new Filters\Words())->defaultWordsList();
         }
 

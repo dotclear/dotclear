@@ -21,6 +21,7 @@ use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -112,7 +113,7 @@ class ModuleExportFlat extends Module
                 );
 
                 # --BEHAVIOR-- exportSingle -- FlatExport, string
-                dcCore::app()->behavior->callBehavior('exportSingleV2', $exp, $blog_id);
+                Core::behavior()->callBehavior('exportSingleV2', $exp, $blog_id);
 
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
@@ -150,7 +151,7 @@ class ModuleExportFlat extends Module
                 $exp->exportTable('version');
 
                 # --BEHAVIOR-- exportFull -- FlatExport
-                dcCore::app()->behavior->callBehavior('exportFullV2', $exp);
+                Core::behavior()->callBehavior('exportFullV2', $exp);
 
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
@@ -236,7 +237,7 @@ class ModuleExportFlat extends Module
 
         '<p><input type="submit" value="' . __('Export') . '" />' .
         form::hidden(['do'], 'export_blog') .
-        dcCore::app()->nonce->getFormNonce() .
+        Core::nonce()->getFormNonce() .
         '</p>' .
         '</form>';
 
@@ -257,7 +258,7 @@ class ModuleExportFlat extends Module
 
             '<p><input type="submit" value="' . __('Export') . '" />' .
             form::hidden(['do'], 'export_all') .
-            dcCore::app()->nonce->getFormNonce() .
+            Core::nonce()->getFormNonce() .
             '</p>' .
             '</form>';
         }
