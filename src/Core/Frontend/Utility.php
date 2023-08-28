@@ -40,14 +40,14 @@ class Utility extends Process
      *
      * @var HttpCacheStack;
      */
-    private $cache;
+    private HttpCacheStack $cache;
 
     /**
      * Context
      *
-     * @var context|null
+     * @var context
      */
-    public $ctx;
+    public context $ctx;
 
     /**
      * Searched term

@@ -74,7 +74,7 @@ class HttpCacheStack
      */
     public function addTime(int $time): void
     {
-        $this->times[] = (string) $time;
+        $this->times[] = $time;
     }
 
     /**
