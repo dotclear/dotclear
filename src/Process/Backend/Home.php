@@ -36,7 +36,7 @@ class Home extends Process
 
         if (!empty($_GET['default_blog'])) {
             try {
-                dcCore::app()->setUserDefaultBlog(dcCore::app()->auth->userID(), dcCore::app()->blog->id);
+                dcCore::app()->users->setUserDefaultBlog(dcCore::app()->auth->userID(), dcCore::app()->blog->id);
                 dcCore::app()->admin->url->redirect('admin.home');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -74,7 +74,7 @@ class Home extends Process
                 dcCore::app()->rest->enableRestServer(true);
             }
             // Kill admin session
-            dcCore::app()->killAdminSession();
+            dcCore::app()->admin->killAdminSession();
             // Logout
             dcCore::app()->admin->url->redirect('admin.auth');
             exit;

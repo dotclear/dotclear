@@ -160,7 +160,7 @@ class Install extends Process
                 $cur->user_tz        = $default_tz;
                 $cur->user_creadt    = date('Y-m-d H:i:s');
                 $cur->user_upddt     = date('Y-m-d H:i:s');
-                $cur->user_options   = serialize(dcCore::app()->userDefaults());
+                $cur->user_options   = serialize(dcCore::app()->users->userDefaults());
                 $cur->insert();
 
                 dcCore::app()->auth->checkUser(self::$u_login);

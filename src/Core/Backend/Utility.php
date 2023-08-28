@@ -120,7 +120,7 @@ class Utility extends Process
                     dcCore::app()->rest->enableRestServer(true);
                 }
                 // Kill admin session
-                dcCore::app()->killAdminSession();
+                dcCore::app()->admin->killAdminSession();
                 // Logout
                 dcCore::app()->admin->url->redirect('admin.auth');
                 exit;
@@ -277,5 +277,20 @@ class Utility extends Process
     public function getPageURL(): string
     {
         return $this->p_url;
+    }
+
+    /**
+     * Kill admin session helper
+     */
+    public function killAdminSession(): void
+    {
+        // Kill session
+        dcCore::app()->session->destroy();
+
+        // Unset cookie if necessary
+        if (isset($_COOKIE['dc_admin'])) {
+            unset($_COOKIE['dc_admin']);
+            setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
+        }
     }
 }

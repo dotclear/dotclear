@@ -17,7 +17,6 @@
 
 use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Database\Record;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
@@ -939,7 +938,7 @@ class rsExtDates
 
 This class adds new methods to database dates results.
 You can call them on every record comming from dcAuth::checkUser and
-dcCore::getUsers.
+Users::getUsers.
 
 @warning You should not give the first argument (usualy $rs) of every described
 function.

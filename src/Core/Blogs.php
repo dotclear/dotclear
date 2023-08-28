@@ -35,6 +35,41 @@ class Blogs
     }
 
     /**
+     * Gets all blog status.
+     *
+     * @return     array<int,string>    An array of available blog status codes and names.
+     */
+    public function getAllBlogStatus(): array
+    {
+        return [
+            dcBlog::BLOG_ONLINE  => __('online'),
+            dcBlog::BLOG_OFFLINE => __('offline'),
+            dcBlog::BLOG_REMOVED => __('removed'),
+        ];
+    }
+
+    /**
+     * Returns a blog status name given to a code.
+     *
+     * This is intended to be human-readable 
+     * and will be translated, so never use it for tests.
+     * If status code does not exist, returns <i>offline</i>.
+     *
+     * @param      int      $s      Status code
+     *
+     * @return     string   The blog status name.
+     */
+    public function getBlogStatus(int $s): string
+    {
+        $r = $this->getAllBlogStatus();
+        if (isset($r[$s])) {
+            return $r[$s];
+        }
+
+        return $r[0];
+    }
+
+    /**
      * Returns all blog permissions (users).
      *
      * Retrun permissions as an array which looks like:

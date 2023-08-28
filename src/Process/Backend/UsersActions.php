@@ -34,7 +34,7 @@ class UsersActions extends Process
         $users = [];
         if (!empty($_POST['users']) && is_array($_POST['users'])) {
             foreach ($_POST['users'] as $u) {
-                if (dcCore::app()->userExists($u)) {
+                if (dcCore::app()->users->userExists($u)) {
                     $users[] = $u;
                 }
             }
@@ -92,7 +92,7 @@ class UsersActions extends Process
                         # --BEHAVIOR-- adminBeforeUserDelete -- string
                         Core::behavior()->callBehavior('adminBeforeUserDelete', $u);
 
-                        dcCore::app()->delUser($u);
+                        dcCore::app()->users->delUser($u);
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
                     }
@@ -232,7 +232,7 @@ class UsersActions extends Process
 
                 while ($rs->fetch()) {
                     $img_status = $rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
-                    $txt_status = dcCore::app()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : dcBlog::BLOG_ONLINE);
+                    $txt_status = dcCore::app()->blogs->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : dcBlog::BLOG_ONLINE);
                     $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
 
                     echo
@@ -269,7 +269,7 @@ class UsersActions extends Process
 
             $user_perm = [];
             if ((is_countable(dcCore::app()->admin->users) ? count(dcCore::app()->admin->users) : 0) == 1) {
-                $user_perm = dcCore::app()->getUserPermissions(dcCore::app()->admin->users[0]);
+                $user_perm = dcCore::app()->users->getUserPermissions(dcCore::app()->admin->users[0]);
             }
 
             $user_list = [];
