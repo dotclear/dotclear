@@ -27,18 +27,14 @@ use Exception;
 
 class Users
 {
-    private dcAuth $auth;
-    private AbstractHandler $con;
-    private Behavior $behavior;
-
     /**
      * Constructor grabs all we need.
      */
-    public function __construct()
-    {
-        $this->auth     = dcCore::app()->auth;
-        $this->con      = dcCore::app()->con;
-        $this->behavior = dcCore::app()->behavior;
+    public function __construct(
+        private AbstractHandler $con,
+        private dcAuth $auth,
+        private Behavior $behavior
+    ) {
     }
 
     /**

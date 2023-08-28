@@ -82,6 +82,15 @@ class CoreFactory implements CoreFactoryInterface
         );
     }
 
+    public function users(): Users
+    {
+        return new Users(
+            con: $this->core->get('con'),
+            auth: dcCore::app()->auth,
+            behavior: $this->core->get('behavior')
+        );
+    }
+
     public function version(): Version
     {
         return new Version(

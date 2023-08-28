@@ -750,7 +750,7 @@ class FlatImportV2 extends FlatBackup
                     $this->cur_user->user_id  = (string) $user_id;
                     $this->cur_user->user_pwd = md5(uniqid());
 
-                    dcCore::app()->users->addUser($this->cur_user);
+                    Core::users()->addUser($this->cur_user);
 
                     $this->stack['users'][$user_id] = true;
                 }

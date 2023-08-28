@@ -76,8 +76,8 @@ class Users extends Process
             # --BEHAVIOR-- adminGetUsers -- ArrayObject
             Core::behavior()->callBehavior('adminGetUsers', $params);
 
-            $rs       = dcCore::app()->users->getUsers($params);
-            $counter  = dcCore::app()->users->getUsers($params, true);
+            $rs       = Core::users()->getUsers($params);
+            $counter  = Core::users()->getUsers($params, true);
             $rsStatic = $rs->toStatic();
             if (dcCore::app()->admin->user_filter->sortby != 'nb_post') {
                 // Sort user list using lexical order if necessary

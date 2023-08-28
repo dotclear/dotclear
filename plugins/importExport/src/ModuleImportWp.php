@@ -414,7 +414,7 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
                 $this->vars['user_ids'][$rs->ID] = $user_login;
-                if (!dcCore::app()->users->userExists($user_login)) {
+                if (!Core::users()->userExists($user_login)) {
                     $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
                     $cur->user_id          = $user_login;
                     $cur->user_pwd         = Crypt::createPassword();
@@ -487,8 +487,8 @@ class ModuleImportWp extends Module
                                 break;
                         }
                     }
-                    dcCore::app()->users->addUser($cur);
-                    dcCore::app()->users->setUserBlogPermissions(
+                    Core::users()->addUser($cur);
+                    Core::users()->setUserBlogPermissions(
                         $cur->user_id,
                         $this->blog_id,
                         $permissions

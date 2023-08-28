@@ -364,7 +364,7 @@ class ModuleImportDc1 extends Module
             $this->con->begin();
 
             while ($rs->fetch()) {
-                if (!dcCore::app()->users->userExists($rs->user_id)) {
+                if (!Core::users()->userExists($rs->user_id)) {
                     $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
                     $cur->user_id          = $rs->user_id;
                     $cur->user_name        = $rs->user_nom;
@@ -402,8 +402,8 @@ class ModuleImportDc1 extends Module
                             break;
                     }
 
-                    dcCore::app()->users->addUser($cur);
-                    dcCore::app()->users->setUserBlogPermissions(
+                    Core::users()->addUser($cur);
+                    Core::users()->setUserBlogPermissions(
                         $rs->user_id,
                         $this->blog_id,
                         $permissions

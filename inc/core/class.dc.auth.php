@@ -327,7 +327,7 @@ class dcAuth
             $rs->user_displayname
         );
 
-        $this->user_options = array_merge(dcCore::app()->users->userDefaults(), $rs->options());
+        $this->user_options = array_merge(Core::users()->userDefaults(), $rs->options());
 
         $this->user_prefs = new dcPrefs($this->user_id);
 

@@ -862,7 +862,7 @@ final class dcCore
     /**
      * Gets the user by its ID.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->getUser() instead
+     * @deprecated since 2.28, use Core::users()->getUser() instead
      *
      * @param      string  $id     The identifier
      *
@@ -870,13 +870,13 @@ final class dcCore
      */
     public function getUser(string $id): MetaRecord
     {
-        return $this->users->getUser($id);
+        return Core::users()->getUser($id);
     }
 
     /**
      * Returns a users list.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->getUsers() instead
+     * @deprecated since 2.28, use Core::users()->getUsers() instead
      *
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
@@ -885,13 +885,13 @@ final class dcCore
      */
     public function getUsers($params = [], bool $count_only = false): MetaRecord
     {
-        return $this->users->getUsers($params, $count_only);
+        return Core::users()->getUsers($params, $count_only);
     }
 
     /**
      * Adds a new user.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->addUser() instead
+     * @deprecated since 2.28, use Core::users()->addUser() instead
      *
      * @param      Cursor     $cur    The user Cursor
      *
@@ -901,13 +901,13 @@ final class dcCore
      */
     public function addUser(Cursor $cur): string
     {
-        return $this->users->addUser($cur);
+        return Core::users()->addUser($cur);
     }
 
     /**
      * Updates an existing user. Returns the user ID.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->updUser() instead
+     * @deprecated since 2.28, use Core::users()->updUser() instead
      *
      * @param      string     $id     The user identifier
      * @param      Cursor     $cur    The Cursor
@@ -918,13 +918,13 @@ final class dcCore
      */
     public function updUser(string $id, Cursor $cur): string
     {
-        return $this->users->updUser($id, $cur);
+        return Core::users()->updUser($id, $cur);
     }
 
     /**
      * Deletes a user.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->delUser() instead
+     * @deprecated since 2.28, use Core::users()->delUser() instead
      *
      * @param      string     $id     The user identifier
      *
@@ -932,13 +932,13 @@ final class dcCore
      */
     public function delUser(string $id): void
     {
-        $this->users->delUser($id);
+        Core::users()->delUser($id);
     }
 
     /**
      * Determines if user exists.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->userExists() instead
+     * @deprecated since 2.28, use Core::users()->userExists() instead
      *
      * @param      string  $id     The identifier
      *
@@ -946,14 +946,14 @@ final class dcCore
      */
     public function userExists(string $id): bool
     {
-        return $this->users->userExists($id);
+        return Core::users()->userExists($id);
         ;
     }
 
     /**
      * Returns all user permissions as an array.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->getUserPermissions() instead
+     * @deprecated since 2.28, use Core::users()->getUserPermissions() instead
      *
      * @param      string  $id     The user identifier
      *
@@ -961,13 +961,13 @@ final class dcCore
      */
     public function getUserPermissions(string $id): array
     {
-        return $this->users->getUserPermissions($id);
+        return Core::users()->getUserPermissions($id);
     }
 
     /**
      * Sets user permissions.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->setUserPermissions() instead
+     * @deprecated since 2.28, use Core::users()->setUserPermissions() instead
      *
      * @param      string     $id     The user identifier
      * @param      array      $perms  The permissions
@@ -976,13 +976,13 @@ final class dcCore
      */
     public function setUserPermissions(string $id, array $perms): void
     {
-        $this->users->setUserPermissions($id, $perms);
+        Core::users()->setUserPermissions($id, $perms);
     }
 
     /**
      * Sets the user blog permissions.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->setUserBlogPermissions() instead
+     * @deprecated since 2.28, use Core::users()->setUserBlogPermissions() instead
      *
      * @param      string     $id            The user identifier
      * @param      string     $blog_id       The blog identifier
@@ -993,44 +993,44 @@ final class dcCore
      */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
-        $this->users->setUserBlogPermissions($id, $blog_id, $perms, $delete_first);
+        Core::users()->setUserBlogPermissions($id, $blog_id, $perms, $delete_first);
     }
 
     /**
      * Sets the user default blog. This blog will be selected when user log in.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->setUserDefaultBlog() instead
+     * @deprecated since 2.28, use Core::users()->setUserDefaultBlog() instead
      *
      * @param      string  $id       The user identifier
      * @param      string  $blog_id  The blog identifier
      */
     public function setUserDefaultBlog(string $id, string $blog_id): void
     {
-        $this->users->setUserDefaultBlog($id, $blog_id);
+        Core::users()->setUserDefaultBlog($id, $blog_id);
     }
 
     /**
      * Removes users default blogs.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->removeUsersDefaultBlogs() instead
+     * @deprecated since 2.28, use Core::users()->removeUsersDefaultBlogs() instead
      *
      * @param      array  $ids    The blogs to remove
      */
     public function removeUsersDefaultBlogs(array $ids): void
     {
-        $this->users->removeUsersDefaultBlogs($ids);
+        Core::users()->removeUsersDefaultBlogs($ids);
     }
 
     /**
      * Returns user default settings in an associative array with setting names in keys.
      *
-     * @deprecated since 2.28, use dcCore::app()->users->userDefaults() instead
+     * @deprecated since 2.28, use Core::users()->userDefaults() instead
      *
      * @return     array
      */
     public function userDefaults(): array
     {
-        return $this->users->userDefaults();
+        return Core::users()->userDefaults();
     }
     //@}
 

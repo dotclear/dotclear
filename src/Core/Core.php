@@ -132,6 +132,11 @@ final class Core
         return self::$instance->get('session');
     }
 
+    public static function users(): Users
+    {
+        return self::$instance->get('users');
+    }
+
     public static function version(): Version
     {
         return self::$instance->get('version');

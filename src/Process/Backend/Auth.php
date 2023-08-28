@@ -192,7 +192,7 @@ class Auth extends Process
                 $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
-                dcCore::app()->users->updUser(dcCore::app()->auth->userID(), $cur);
+                Core::users()->updUser(dcCore::app()->auth->userID(), $cur);
 
                 dcCore::app()->session->start();
                 $_SESSION['sess_user_id']     = dcCore::app()->admin->user_id;

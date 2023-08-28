@@ -14,6 +14,7 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcBlog;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Database\Statement\SelectStatement;
 
@@ -31,7 +32,7 @@ class GrowUp_2_25_lt
             $ids[] = $rs->blog_id;
         }
         if (count($ids)) {
-            dcCore::app()->users->removeUsersDefaultBlogs($ids);
+            Core::users()->removeUsersDefaultBlogs($ids);
         }
 
         // A bit of housecleaning for no longer needed folders

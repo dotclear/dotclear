@@ -36,7 +36,7 @@ class Home extends Process
 
         if (!empty($_GET['default_blog'])) {
             try {
-                dcCore::app()->users->setUserDefaultBlog(dcCore::app()->auth->userID(), dcCore::app()->blog->id);
+                Core::users()->setUserDefaultBlog(dcCore::app()->auth->userID(), dcCore::app()->blog->id);
                 dcCore::app()->admin->url->redirect('admin.home');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

@@ -17,10 +17,10 @@ use dcCore;
 use dcMedia;
 use dcSettings;
 use dcUtils;
-use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -310,7 +310,7 @@ class BlogPref extends Process
 
                 if (dcCore::app()->auth->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
                     // Remove this blog from user default blog
-                    dcCore::app()->users->removeUsersDefaultBlogs([$cur->blog_id]);
+                    Core::users()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
 
                 # --BEHAVIOR-- adminAfterBlogUpdate -- Cursor, string

@@ -25,5 +25,6 @@ interface CoreFactoryInterface
 	public function nonce(): Nonce;
 	public function postTypes(): PostTypes;
 	public function session(): Session;
+	public function users(): Users;
 	public function version(): Version;
 }
