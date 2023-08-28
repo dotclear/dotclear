@@ -238,6 +238,18 @@ class Tpl extends Template
     }
 
     /**
+     * Add on the fly custom header to all files.
+     *
+     * Add namespace to use short class calls
+     *
+     * @return     string  The custom content
+     */
+    protected function addFileHeader(): string
+    {
+        return "<?php\nuse Dotclear\Core\Core;\n?>\n";
+    }
+
+    /**
      * Gets the template file content.
      *
      * @param      string  $________  The template filename
