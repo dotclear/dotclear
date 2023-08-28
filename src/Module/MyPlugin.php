@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcCore;
 use dcModuleDefine;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Menu;

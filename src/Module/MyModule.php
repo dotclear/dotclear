@@ -20,7 +20,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcCore;
 use dcModules;
 use dcModuleDefine;
 use dcNamespace;

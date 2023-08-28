@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Database\MetaRecord;

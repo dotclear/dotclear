@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use dcModuleDefine;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;

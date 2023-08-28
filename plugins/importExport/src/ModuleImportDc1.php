@@ -17,7 +17,6 @@ use Exception;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcCore;
 use dcTrackback;
 use Dotclear\Core\Core;
 use Dotclear\Database\AbstractHandler;

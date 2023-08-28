@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
@@ -65,7 +64,7 @@ class Home extends Process
 
     public static function process(): bool
     {
-        /**
+        /*
          * @deprecated since 2.27 Use Core::backend()->url->redirect('admin.logout');
          */
         if (!empty($_GET['logout'])) {

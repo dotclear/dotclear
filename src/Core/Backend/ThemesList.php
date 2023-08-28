@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Autoloader;
-use dcCore;
 use dcModuleDefine;
 use dcModules;
 use Dotclear\Core\Core;

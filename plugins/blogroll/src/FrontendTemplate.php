@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\blogroll;
 
 use ArrayObject;
 use Exception;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;

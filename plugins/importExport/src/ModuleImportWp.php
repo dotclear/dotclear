@@ -17,7 +17,6 @@ use Exception;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcCore;
 use dcTrackback;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Core;

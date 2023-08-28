@@ -189,7 +189,7 @@ class Utility extends Process
 
         # Creating template context
         Core::frontend()->ctx = new context();
-        dcCore::app()->ctx = Core::frontend()->ctx; // deprecated
+        dcCore::app()->ctx    = Core::frontend()->ctx; // deprecated
 
         /*
          * Template context

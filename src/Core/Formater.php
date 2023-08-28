@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
-use Dotclear\Core\Core;
-
 class Formater
 {
     /** @var     array<string,array<string,callable>>    Stack of registered content formaters */

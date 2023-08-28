@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\breadcrumb;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;

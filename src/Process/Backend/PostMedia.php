@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use dcMedia;
-use dcPostMedia;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;

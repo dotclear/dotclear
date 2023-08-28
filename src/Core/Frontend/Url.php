@@ -274,7 +274,7 @@ class Url extends UrlHandler
         header('Content-Type: text/html; charset=UTF-8');
         Http::head(404, 'Not Found');
 
-        Core::url()->type         = '404';
+        Core::url()->type                   = '404';
         Core::frontend()->ctx->current_tpl  = '404.html';
         Core::frontend()->ctx->content_type = 'text/html';
 
@@ -706,7 +706,7 @@ class Url extends UrlHandler
                 // Prepare the HTTP cache thing
                 Core::frontend()->cache()->resetFiles();
                 Core::frontend()->cache()->addFiles(get_included_files());
-                $tpl_path                         = [
+                $tpl_path = [
                     Core::blog()->themes_path . '/' . Core::frontend()->theme . '/tpl',
                 ];
                 if (Core::frontend()->parent_theme) {

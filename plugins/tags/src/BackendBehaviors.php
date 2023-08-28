@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use dcCore;
 use dcMeta;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;

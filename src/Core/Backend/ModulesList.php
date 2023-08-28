@@ -18,7 +18,6 @@ namespace Dotclear\Core\Backend;
 
 use Autoloader;
 use dcAuth;
-use dcCore;
 use dcDeprecated;
 use dcModuleDefine;
 use dcModules;

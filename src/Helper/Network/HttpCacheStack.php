@@ -44,7 +44,7 @@ class HttpCacheStack
      */
     public function addFiles(array $files): void
     {
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $this->addFile($file);
         }
     }
@@ -84,7 +84,7 @@ class HttpCacheStack
      */
     public function addTimes(array $times): void
     {
-        foreach($times as $time) {
+        foreach ($times as $time) {
             $this->addTime($time);
         }
     }

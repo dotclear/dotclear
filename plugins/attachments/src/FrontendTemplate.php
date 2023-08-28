@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Helper\File\Files;
