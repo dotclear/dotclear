@@ -293,7 +293,7 @@ class Auth extends Process
     public static function render(): void
     {
         // nullsafe before header sent
-        if (!isset(Core::auth())) {
+        if (is_null(Core::auth())) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
