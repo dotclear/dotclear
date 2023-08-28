@@ -50,6 +50,9 @@ final class Core
     /** @var Core   Core unique instance */
     private static Core $instance;
 
+    /** @var string     The current lang */
+    private static string $lang = 'en';
+
     /// @name Container methods
     //@{
     /**
@@ -257,6 +260,30 @@ final class Core
     {
         self::$blog         = null;
         dcCore::app()->blog = null; // deprecated
+    }
+    //@}
+
+    /// @name Current blog methods
+    //@{
+    /**
+     * Get current lang
+     *
+     * @return string
+     */
+    public static function lang(): string
+    {
+        return self::$lang;
+    }
+
+    /**
+     * Sets the lang to use.
+     *
+     * @param      string  $id     The lang ID
+     */
+    public static function setLang($id): void
+    {
+        self::$lang         = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
+        dcCore::app()->lang = self::$lang; //deprecated
     }
     //@}
 }

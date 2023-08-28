@@ -48,7 +48,7 @@ class Config extends Process
         Core::backend()->standalone_config = (bool) dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
 
         // Load contextual help
-        dcCore::app()->themes->loadModuleL10Nresources(My::id(), dcCore::app()->lang);
+        dcCore::app()->themes->loadModuleL10Nresources(My::id(), Core::lang());
 
         $list_types = [
             __('Title') => 'title',

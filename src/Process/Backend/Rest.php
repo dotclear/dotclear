@@ -248,7 +248,7 @@ class Rest extends Process
             if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
                 dcCore::app()->themes = new dcThemes();
                 if (!is_null(Core::blog())) {
-                    dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', dcCore::app()->lang);
+                    dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
                 }
             }
             $mod = dcCore::app()->themes;

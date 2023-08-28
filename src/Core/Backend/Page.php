@@ -219,7 +219,7 @@ class Page
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(Core::lang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -549,7 +549,7 @@ class Page
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(Core::lang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 

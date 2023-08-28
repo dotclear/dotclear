@@ -37,7 +37,7 @@ class Config extends Process
         }
 
         // Load contextual help
-        dcCore::app()->themes->loadModuleL10Nresources(My::id(), dcCore::app()->lang);
+        dcCore::app()->themes->loadModuleL10Nresources(My::id(), Core::lang());
 
         Core::backend()->standalone_config = (bool) dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
 

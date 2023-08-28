@@ -215,7 +215,7 @@ abstract class MyModule
      */
     final public static function l10n(string $process): void
     {
-        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', dcCore::app()->lang, $process]));
+        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', Core::lang(), $process]));
     }
 
     /**

@@ -144,7 +144,7 @@ class BackendBehaviors
             ],
         ];
 
-        $rtl              = L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl' ? 'direction: rtl;' : '';
+        $rtl              = L10n::getLanguageTextDirection(Core::lang()) == 'rtl' ? 'direction: rtl;' : '';
         $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 

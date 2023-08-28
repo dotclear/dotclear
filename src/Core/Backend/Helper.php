@@ -61,19 +61,18 @@ class Helper
      */
     public static function loadLocales()
     {
-        dcCore::app()->lang = (string) Core::auth()->getInfo('user_lang');
-        dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
+        Core::setLang((string) Core::auth()->getInfo('user_lang'));
 
-        L10n::lang(dcCore::app()->lang);
-        if (L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+        L10n::lang(Core::lang());
+        if (L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/date') === false && Core::lang() != 'en') {
             L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/main');
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/main');
+        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('admin', dcCore::app()->lang);
+        dcUtils::setlexicalLang('admin', Core::lang());
     }
 
     /**

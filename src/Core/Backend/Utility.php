@@ -169,8 +169,8 @@ class Utility extends Process
             // Load locales
             Helper::loadLocales();
 
-            /* @deprecated Since 2.23, use dcCore::app()->lang instead */
-            $GLOBALS['_lang'] = &dcCore::app()->lang;
+            /* @deprecated Since 2.23, use Core::lang() instead */
+            $GLOBALS['_lang'] = Core::lang();
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
@@ -196,15 +196,15 @@ class Utility extends Process
         Core::backend()->resources = new Resources();
 
         require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
+        if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', Core::lang())) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help']))) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, Core::lang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    Core::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help', $hfile]));
+                    Core::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, Core::lang(), 'help', $hfile]));
                 }
             }
         }
@@ -234,7 +234,7 @@ class Utility extends Process
         }
 
         // Load plugins
-        Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
+        Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'admin', Core::lang());
         Core::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {

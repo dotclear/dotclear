@@ -208,29 +208,28 @@ class Utility extends Process
         }
 
         # Loading locales
-        dcCore::app()->lang = (string) Core::blog()->settings->system->lang;
-        dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
+        Core::setLang((string) Core::blog()->settings->system->lang);
 
         /*
          * @var        string
          *
-         * @deprecated Since 2.23, use dcCore::app()->lang instead
+         * @deprecated Since 2.23, use Core::lang() instead
          */
-        $GLOBALS['_lang'] = &dcCore::app()->lang;
+        $GLOBALS['_lang'] = Core::lang();
 
-        L10n::lang(dcCore::app()->lang);
-        if (L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+        L10n::lang(Core::lang());
+        if (L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/date') === false && Core::lang() != 'en') {
             L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('public', dcCore::app()->lang);
+        dcUtils::setlexicalLang('public', Core::lang());
 
         # Loading plugins
         try {
-            Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', dcCore::app()->lang);
+            Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', Core::lang());
         } catch (Exception $e) {
             // Ignore
         }
@@ -266,9 +265,9 @@ class Utility extends Process
 
         # Loading translations for selected theme
         if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme)) {
-            dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, dcCore::app()->lang, 'main');
+            dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, Core::lang(), 'main');
         }
-        dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, dcCore::app()->lang, 'main');
+        dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, Core::lang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
         Core::behavior()->callBehavior('publicPrependV2');

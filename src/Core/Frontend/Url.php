@@ -698,9 +698,9 @@ class Url extends UrlHandler
                 dcCore::app()->themes->loadNsFile(Core::frontend()->theme, 'public');
                 // Loading translations for selected theme
                 if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme)) {
-                    dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, dcCore::app()->lang, 'main');
+                    dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, Core::lang(), 'main');
                 }
-                dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, dcCore::app()->lang, 'main');
+                dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, Core::lang(), 'main');
                 // --BEHAVIOR-- publicPrepend --
                 Core::behavior()->callBehavior('publicPrependV2');
                 // Prepare the HTTP cache thing

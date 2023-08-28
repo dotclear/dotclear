@@ -86,7 +86,7 @@ class MediaPage extends FilterMedia
             if (dcCore::app()->themes === null) {
                 # -- Loading themes, may be useful for some configurable theme --
                 dcCore::app()->themes = new dcThemes();
-                dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', dcCore::app()->lang);
+                dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
             }
         } catch (Exception $e) {
             Core::error()->add($e->getMessage());
