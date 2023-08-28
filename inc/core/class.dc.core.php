@@ -29,10 +29,7 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
-use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
-use Dotclear\Helper\Text;
 
 final class dcCore
 {

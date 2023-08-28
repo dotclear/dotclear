@@ -16,7 +16,6 @@
  */
 
 use Dotclear\Database\MetaRecord;
-use Dotclear\Database\Record;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
