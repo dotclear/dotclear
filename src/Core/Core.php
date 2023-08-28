@@ -12,6 +12,9 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcBlog;
+use dcCore;
+use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
@@ -22,14 +25,20 @@ final class Core
     /** @var    string  Session table name */
     public const SESSION_TABLE_NAME = 'session';
 
-    /** @var Core   Core unique instance */
-    private static Core $instance;
-
     /** @var array<string,mixed> Unique instances stack */
     private array $stack = [];
 
+    /** @var    \Dotclear\Core\Backend\Utility  Backend Utility instance  */
+    private static Backend $backend;
+
     /** @var    null|dcBlog     dcBlog instance */
-    private ?dcBlog $blog;
+    private static ?dcBlog $blog;
+
+    /** @var    \Dotclear\Core\Frontend\Utility  Frontend Utility instance  */
+    private static Frontend $frontend;
+
+    /** @var Core   Core unique instance */
+    private static Core $instance;
 
     /// @name Container methods
     //@{
@@ -80,18 +89,8 @@ final class Core
     }
     //@}
 
-    /// @name Core methods
+    /// @name Core container methods
     //@{
-    /**
-     * Get Core unique instance
-     *
-     * @return  Core
-     */
-    public static function app(): Core
-    {
-        return self::$instance;
-    }
-
     public static function behavior(): Behavior
     {
         return self::$instance->get('behavior');
@@ -143,6 +142,41 @@ final class Core
     }
     //@}
 
+    /// @name Core methods
+    //@{
+    /**
+     * Get backend Utility.
+     *
+     * @return  Backend
+     */
+    public static function backend(): Backend
+    {
+        // Instanciate Backend instance
+        if (!isset(self::$backend)) {
+            self::$backend = new Backend();
+            dcCore::app()->admin = self::$backend; // deprecated
+        }
+
+        return self::$backend;
+    }
+
+    /**
+     * Get frontend Utility.
+     *
+     * @return  Backend
+     */
+    public static function frontend(): Frontend
+    {
+        // Instanciate Backend instance
+        if (!isset(self::$frontend)) {
+            self::$frontend = new Frontend();
+            dcCore::app()->public = self::$frontend; // deprecated
+        }
+
+        return self::$frontend;
+    }
+    //@}
+
     /// @name Current blog methods
     //@{
     /**
@@ -150,9 +184,9 @@ final class Core
      *
      * @return null|dcBlog
      */
-    public function blog(): ?dcBlog
+    public static function blog(): ?dcBlog
     {
-        return $this->blog;
+        return self::$blog;
     }
 
     /**
@@ -160,18 +194,19 @@ final class Core
      *
      * @param      string  $id     The blog ID
      */
-    public function setBlog($id): void
+    public static function setBlog($id): void
     {
-        $this->blog = new dcBlog($id);
+        self::$blog = new dcBlog($id);
+        dcCore::app()->blog = self::$blog; // deprecated
     }
 
     /**
      * Unsets blog property
      */
-    public function unsetBlog(): void
+    public static function unsetBlog(): void
     {
-        $this->blog = null;
-        dcCore::app()->blog = null;
+        self::$blog = null;
+        dcCore::app()->blog = null; // deprecated
     }
     //@}
 }

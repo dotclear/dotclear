@@ -68,6 +68,8 @@ final class dcCore
     /**
      * Database connection
      *
+     * @deprecated since 2.28, use Core::con() instead
+     *
      * @var AbstractHandler
      */
     public readonly AbstractHandler $con;
@@ -75,7 +77,7 @@ final class dcCore
     /**
      * Database tables prefix
      *
-     * May be deprecated as 2.28 con->prefix() method
+     * @deprecated since 2.28, use Core::con()->prefix() instead
      *
      * @var string
      */
@@ -83,6 +85,8 @@ final class dcCore
 
     /**
      * dcBlog instance
+     *
+     * @deprecated since 2.28, use Core::blog() instead
      *
      * @var dcBlog|null
      */
@@ -97,6 +101,8 @@ final class dcCore
 
     /**
      * Session in database instance
+     *
+     * @deprecated since 2.28, use Core::session() instead
      *
      * @var Session
      */
@@ -119,7 +125,7 @@ final class dcCore
     /**
      * WikiToHtml instance
      *
-     * @deprecated since 2.27, use dcCora::app()->filter->wiki instead
+     * @deprecated since 2.27, use Core::filter()->wiki instead
      *
      * @var WikiToHtml
      */
@@ -128,7 +134,7 @@ final class dcCore
     /**
      * WikiToHtml instance
      *
-     * @deprecated since 2.27, use dcCora::app()->filtre->wiki instead
+     * @deprecated since 2.27, use Core::filter()->wiki instead
      *
      * @var WikiToHtml
      */
@@ -211,6 +217,8 @@ final class dcCore
     /**
      * Backend Utility instance
      *
+     * @deprecated since 2.28, Use Core::backend()
+     *
      * @var \Dotclear\Core\Backend\Utility
      */
     public Backend $admin;
@@ -255,6 +263,8 @@ final class dcCore
 
     /**
      * Frontend Utility instance
+     *
+     * @deprecated since 2.28, Use Core::frontend()
      *
      * @var \Dotclear\Core\Frontend\Utility
      */
@@ -358,24 +368,24 @@ final class dcCore
     /**
      * Sets the blog to use.
      *
-     * @deprecated since 2.28, use Core::app()->setBlog() instead
+     * @deprecated since 2.28, use Core::setBlog() instead
      *
      * @param      string  $id     The blog ID
      */
     public function setBlog($id): void
     {
-        Core::app()->setBlog($id);
-        $this->blog = Core::app()->blog();
+        Core::setBlog($id);
+        $this->blog = Core::blog();
     }
 
     /**
      * Unsets blog property.
      *
-     * @deprecated since 2.28, use Core::app()->setBlog() instead
+     * @deprecated since 2.28, use Core::unsetBlog() instead
      */
     public function unsetBlog(): void
     {
-        Core::app()->unsetBlog();
+        Core::unsetBlog();
         $this->blog = null;
     }
     //@}

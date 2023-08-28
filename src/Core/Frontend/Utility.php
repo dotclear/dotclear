@@ -106,10 +106,8 @@ class Utility extends Process
      */
     public static function process(): bool
     {
-        if (!isset(dcCore::app()->public)) {
-            // Init singleton
-            dcCore::app()->public = new self();
-        }
+        // Instanciate Frontend instance
+        Core::frontend();
 
         // Loading blog
         if (defined('DC_BLOG_ID')) {

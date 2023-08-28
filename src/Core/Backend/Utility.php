@@ -86,9 +86,7 @@ class Utility extends Process
     public static function process(): bool
     {
         // Instanciate Backend instance
-        if (!isset(dcCore::app()->admin)) {
-            dcCore::app()->admin = new self();
-        }
+        Core::backend();
 
         // New admin url instance
         dcCore::app()->admin->url = new Url();
