@@ -373,7 +373,7 @@ final class dcCore
     public function setBlog($id): void
     {
         Core::app()->setBlog($id);
-        $this->blog = Core::app()->blog;
+        $this->blog = Core::app()->blog();
     }
 
     /**
