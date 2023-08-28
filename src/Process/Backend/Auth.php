@@ -97,8 +97,8 @@ class Auth extends Process
         }
 
         // Enable REST service if disabled
-        if (!dcCore::app()->rest->serveRestRequests()) {
-            dcCore::app()->rest->enableRestServer(true);
+        if (!Core::rest()->serveRestRequests()) {
+            Core::rest()->enableRestServer(true);
         }
 
         return self::status(true);

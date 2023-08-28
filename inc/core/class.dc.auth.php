@@ -175,6 +175,7 @@ class dcAuth
             throw new Exception('Authentication class ' . $class . ' does not inherit dcAuth.');
         }
 
+        // todo remove dcCore from methods
         return new $class(dcCore::app());
     }
 

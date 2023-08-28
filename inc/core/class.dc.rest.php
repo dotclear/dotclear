@@ -3,7 +3,7 @@
  * @brief Dotclear REST server extension
  *
  * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
- * Instance of this class is provided by dcCore::app()->rest.
+ * Instance of this class is provided by Core::rest().
  *
  * @package Dotclear
  * @subpackage Core
@@ -34,6 +34,7 @@ class dcRestServer extends RestServer
             return parent::serve($encoding, parent::JSON_RESPONSE);
         }
 
+        // todo remove dcCore from methods
         // Use dcCore::app() as supplemental parameter to ensure retro-compatibility
         return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
     }

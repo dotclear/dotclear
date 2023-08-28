@@ -188,7 +188,7 @@ class Update extends Process
                         );
 
                         // Disable REST service until next authentication
-                        dcCore::app()->rest->enableRestServer(false);
+                        Core::rest()->enableRestServer(false);
 
                         break;
                 }

@@ -121,6 +121,8 @@ final class dcCore
     /**
      * dcRestServer instance
      *
+     * @deprecated since 2.28, use Core::rest() instead
+     *
      * @var dcRestServer
      */
     public readonly dcRestServer $rest;
@@ -341,7 +343,7 @@ final class dcCore
         $this->session    = Core::session();
         $this->url        = new Url();
         $this->plugins    = new dcPlugins();
-        $this->rest       = new dcRestServer();
+        $this->rest       = Core::rest();
         $this->meta       = Core::meta();
         $this->log        = Core::log();
         $this->notices    = Core::notice();
@@ -1311,25 +1313,25 @@ final class dcCore
     /**
      * Serve or not the REST requests.
      *
-     * @deprecated since 2.28, use dcCore::app()->rest->enableRestServer() instead
+     * @deprecated since 2.28, use Core::rest()->enableRestServer() instead
      *
      * @param      bool  $serve  The flag
      */
     public function enableRestServer(bool $serve = true)
     {
-        $this->rest->enableRestServer($serve);
+        Core::rest()->enableRestServer($serve);
     }
 
     /**
      * Check if we need to serve REST requests.
      *
-     * @deprecated since 2.28, use dcCore::app()->rest->serveRestRequests() instead
+     * @deprecated since 2.28, use Core::rest()->serveRestRequests() instead
      *
      * @return     bool
      */
     public function serveRestRequests(): bool
     {
-        return $this->rest->serveRestRequests();
+        return Core::rest()->serveRestRequests();
     }
     //@}
 }

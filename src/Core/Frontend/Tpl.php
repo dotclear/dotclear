@@ -4269,7 +4269,7 @@ class Tpl extends Template
 
         $behavior = addslashes($attr['behavior']);
 
-        // todo: fix dcCore passed to behavior
+        // todo remove dcCore from methods
         return
             '<?php if (Core::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
             'Core::behavior()->callBehavior(\'' . $behavior . '\',dcCore::app(),dcCore::app()->ctx);' .

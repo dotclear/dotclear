@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -45,7 +46,7 @@ class Prepend extends Process
 
         if (defined('DC_CONTEXT_ADMIN')) {
             // Register REST methods
-            dcCore::app()->rest->addFunction('getSpamsCount', [Rest::class, 'getSpamsCount']);
+            Core::rest()->addFunction('getSpamsCount', [Rest::class, 'getSpamsCount']);
         }
 
         return true;

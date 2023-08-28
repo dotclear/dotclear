@@ -237,7 +237,7 @@ class Page
         $js['hideMoreInfo']   = (bool) Core::auth()->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) Core::auth()->user_prefs->interface->showajaxloader;
         $js['servicesUri']    = Core::backend()->url->get('admin.rest');
-        $js['servicesOff']    = !dcCore::app()->rest->serveRestRequests();
+        $js['servicesOff']    = !Core::rest()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) Core::auth()->user_prefs->accessibility->nodragdrop;
 
@@ -562,7 +562,7 @@ class Page
         $js['hideMoreInfo']   = (bool) Core::auth()->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) Core::auth()->user_prefs->interface->showajaxloader;
         $js['servicesUri']    = Core::backend()->url->get('admin.rest');
-        $js['servicesOff']    = !dcCore::app()->rest->serveRestRequests();
+        $js['servicesOff']    = !Core::rest()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) Core::auth()->user_prefs->accessibility->nodragdrop;
 

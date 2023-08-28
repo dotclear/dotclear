@@ -18,6 +18,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcRestServer;
 //
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
@@ -156,6 +157,11 @@ final class Core
     public static function postTypes(): PostTypes
     {
         return self::$instance->get('postTypes');
+    }
+
+    public static function rest(): dcRestServer
+    {
+        return self::$instance->get('rest');
     }
 
     public static function session(): Session

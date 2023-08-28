@@ -55,7 +55,7 @@ class Backend extends Process
             ]);
 
             // Register REST methods
-            dcCore::app()->rest->addFunction('wikiConvert', [Rest::class, 'convert']);
+            Core::rest()->addFunction('wikiConvert', [Rest::class, 'convert']);
         }
 
         return true;

@@ -47,8 +47,8 @@ class Backend extends Process
         ]);
 
         // Rest method
-        dcCore::app()->rest->addFunction('dcMaintenanceStep', [Rest::class, 'step']);
-        dcCore::app()->rest->addFunction('dcMaintenanceTaskExpired', [Rest::class, 'countExpired']);
+        Core::rest()->addFunction('dcMaintenanceStep', [Rest::class, 'step']);
+        Core::rest()->addFunction('dcMaintenanceTaskExpired', [Rest::class, 'countExpired']);
 
         return true;
     }

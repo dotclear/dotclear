@@ -17,6 +17,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcRestServer;
 //
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
@@ -36,6 +37,7 @@ interface CoreFactoryInterface
     public function nonce(): Nonce;
     public function notice(): dcNotices;
     public function postTypes(): PostTypes;
+    public function rest(): dcRestServer;
     public function session(): Session;
     public function users(): Users;
     public function version(): Version;
