@@ -17,6 +17,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcPostMedia;
 use dcRestServer;
 //
 use Dotclear\Database\AbstractHandler;
@@ -96,6 +97,11 @@ class CoreFactory implements CoreFactoryInterface
     public function notice(): dcNotices
     {
         return new dcNotices();
+    }
+
+    public function postMedia(): dcPostMedia
+    {
+        return new dcPostMedia();
     }
 
     public function postTypes(): PostTypes

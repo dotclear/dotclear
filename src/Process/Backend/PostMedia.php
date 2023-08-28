@@ -55,10 +55,11 @@ class PostMedia extends Process
         }
 
         try {
+            $pm = Core::postMedia();
+
             if (Core::backend()->media_id && !empty($_REQUEST['attach'])) {
                 // Attach a media to an entry
 
-                $pm = new dcPostMedia();
                 $pm->addPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
@@ -85,7 +86,6 @@ class PostMedia extends Process
             // Remove a media from entry
 
             if (!empty($_POST['remove'])) {
-                $pm = new dcPostMedia();
                 $pm->removePostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
 
                 Notices::addSuccessNotice(__('Attachment has been successfully removed.'));

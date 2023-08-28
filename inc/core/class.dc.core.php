@@ -169,6 +169,8 @@ final class dcCore
     /**
      * dcPostMedia instance
      *
+     * @deprecated since 2.28, use Core::postMedia() instead
+     *
      * @var dcPostMedia
      */
     public $postmedia;

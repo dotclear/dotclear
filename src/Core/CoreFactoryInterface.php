@@ -17,6 +17,7 @@ use dcError;
 use dcLog;
 use dcMeta;
 use dcNotices;
+use dcPostMedia;
 use dcRestServer;
 //
 use Dotclear\Database\AbstractHandler;
@@ -36,6 +37,7 @@ interface CoreFactoryInterface
     public function meta(): dcMeta;
     public function nonce(): Nonce;
     public function notice(): dcNotices;
+    public function postMedia(): dcPostMedia;
     public function postTypes(): PostTypes;
     public function rest(): dcRestServer;
     public function session(): Session;

@@ -154,7 +154,7 @@ class dcMedia extends Manager
     public function __construct(string $type = '')
     {
         $this->con       = Core::con();
-        $this->postmedia = new dcPostMedia();
+        $this->postmedia = Core::postMedia();
 
         if (Core::blog() == null) {
             throw new Exception(__('No blog defined.'));
