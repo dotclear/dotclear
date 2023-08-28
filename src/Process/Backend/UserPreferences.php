@@ -211,7 +211,7 @@ class UserPreferences extends Process
                 dcCore::app()->behavior->callBehavior('adminBeforeUserProfileUpdate', $cur, dcCore::app()->auth->userID());
 
                 // Update user
-                dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
+                dcCore::app()->users->updUser(dcCore::app()->auth->userID(), $cur);
 
                 // Update profile
                 // Sanitize list of secondary mails and urls if any
@@ -340,7 +340,7 @@ class UserPreferences extends Process
                 dcCore::app()->auth->user_prefs->interface->put('rte_flags', $rf, 'array');
 
                 // Update user
-                dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
+                dcCore::app()->users->updUser(dcCore::app()->auth->userID(), $cur);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 dcCore::app()->behavior->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());

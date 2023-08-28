@@ -33,7 +33,7 @@ class UsersActions extends Process
         $users = [];
         if (!empty($_POST['users']) && is_array($_POST['users'])) {
             foreach ($_POST['users'] as $u) {
-                if (dcCore::app()->userExists($u)) {
+                if (dcCore::app()->users->userExists($u)) {
                     $users[] = $u;
                 }
             }
@@ -91,7 +91,7 @@ class UsersActions extends Process
                         # --BEHAVIOR-- adminBeforeUserDelete -- string
                         dcCore::app()->behavior->callBehavior('adminBeforeUserDelete', $u);
 
-                        dcCore::app()->delUser($u);
+                        dcCore::app()->users->delUser($u);
                     } catch (Exception $e) {
                         dcCore::app()->error->add($e->getMessage());
                     }
@@ -268,7 +268,7 @@ class UsersActions extends Process
 
             $user_perm = [];
             if ((is_countable(dcCore::app()->admin->users) ? count(dcCore::app()->admin->users) : 0) == 1) {
-                $user_perm = dcCore::app()->getUserPermissions(dcCore::app()->admin->users[0]);
+                $user_perm = dcCore::app()->users->getUserPermissions(dcCore::app()->admin->users[0]);
             }
 
             $user_list = [];
