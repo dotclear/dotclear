@@ -29,17 +29,17 @@ class Manage extends Process
     public static function init(): bool
     {
         if (self::status(My::checkContext(My::MANAGE))) {
-            dcCore::app()->admin->blogroll = new Blogroll(dcCore::app()->blog);
+            Core::backend()->blogroll = new Blogroll(Core::blog());
 
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
                 self::$edit = ManageEdit::init();
             } else {
-                dcCore::app()->admin->default_tab = '';
-                dcCore::app()->admin->link_title  = '';
-                dcCore::app()->admin->link_href   = '';
-                dcCore::app()->admin->link_desc   = '';
-                dcCore::app()->admin->link_lang   = '';
-                dcCore::app()->admin->cat_title   = '';
+                Core::backend()->default_tab = '';
+                Core::backend()->link_title  = '';
+                Core::backend()->link_href   = '';
+                Core::backend()->link_desc   = '';
+                Core::backend()->link_lang   = '';
+                Core::backend()->cat_title   = '';
             }
         }
 
@@ -59,7 +59,7 @@ class Manage extends Process
         if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
             // Import links - download file
 
-            dcCore::app()->admin->default_tab = 'import-links';
+            Core::backend()->default_tab = 'import-links';
 
             try {
                 Files::uploadStatus($_FILES['links_file']);
@@ -69,7 +69,7 @@ class Manage extends Process
                 }
 
                 try {
-                    dcCore::app()->admin->imported = UtilsImport::loadFile($ifile);
+                    Core::backend()->imported = UtilsImport::loadFile($ifile);
                     @unlink($ifile);
                 } catch (Exception $e) {
                     @unlink($ifile);
@@ -77,8 +77,8 @@ class Manage extends Process
                     throw $e;
                 }
 
-                if (empty(dcCore::app()->admin->imported)) {
-                    unset(dcCore::app()->admin->imported);
+                if (empty(Core::backend()->imported)) {
+                    unset(Core::backend()->imported);
 
                     throw new Exception(__('Nothing to import'));
                 }
@@ -91,15 +91,15 @@ class Manage extends Process
             // Import links - import entries
 
             foreach ($_POST['entries'] as $idx) {
-                dcCore::app()->admin->link_title = Html::escapeHTML($_POST['title'][$idx]);
-                dcCore::app()->admin->link_href  = Html::escapeHTML($_POST['url'][$idx]);
-                dcCore::app()->admin->link_desc  = Html::escapeHTML($_POST['desc'][$idx]);
+                Core::backend()->link_title = Html::escapeHTML($_POST['title'][$idx]);
+                Core::backend()->link_href  = Html::escapeHTML($_POST['url'][$idx]);
+                Core::backend()->link_desc  = Html::escapeHTML($_POST['desc'][$idx]);
 
                 try {
-                    dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, '');
+                    Core::backend()->blogroll->addLink(Core::backend()->link_title, Core::backend()->link_href, Core::backend()->link_desc, '');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
-                    dcCore::app()->admin->default_tab = 'import-links';
+                    Core::backend()->default_tab = 'import-links';
                 }
             }
 
@@ -111,40 +111,40 @@ class Manage extends Process
             // Cancel import
 
             dcCore::app()->error->add(__('Import operation cancelled.'));
-            dcCore::app()->admin->default_tab = 'import-links';
+            Core::backend()->default_tab = 'import-links';
         }
 
         if (!empty($_POST['add_link'])) {
             // Add link
 
-            dcCore::app()->admin->link_title = Html::escapeHTML($_POST['link_title']);
-            dcCore::app()->admin->link_href  = Html::escapeHTML($_POST['link_href']);
-            dcCore::app()->admin->link_desc  = Html::escapeHTML($_POST['link_desc']);
-            dcCore::app()->admin->link_lang  = Html::escapeHTML($_POST['link_lang']);
+            Core::backend()->link_title = Html::escapeHTML($_POST['link_title']);
+            Core::backend()->link_href  = Html::escapeHTML($_POST['link_href']);
+            Core::backend()->link_desc  = Html::escapeHTML($_POST['link_desc']);
+            Core::backend()->link_lang  = Html::escapeHTML($_POST['link_lang']);
 
             try {
-                dcCore::app()->admin->blogroll->addLink(dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang);
+                Core::backend()->blogroll->addLink(Core::backend()->link_title, Core::backend()->link_href, Core::backend()->link_desc, Core::backend()->link_lang);
 
                 Notices::addSuccessNotice(__('Link has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
-                dcCore::app()->admin->default_tab = 'add-link';
+                Core::backend()->default_tab = 'add-link';
             }
         }
 
         if (!empty($_POST['add_cat'])) {
             // Add category
 
-            dcCore::app()->admin->cat_title = Html::escapeHTML($_POST['cat_title']);
+            Core::backend()->cat_title = Html::escapeHTML($_POST['cat_title']);
 
             try {
-                dcCore::app()->admin->blogroll->addCategory(dcCore::app()->admin->cat_title);
+                Core::backend()->blogroll->addCategory(Core::backend()->cat_title);
                 Notices::addSuccessNotice(__('category has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
-                dcCore::app()->admin->default_tab = 'add-cat';
+                Core::backend()->default_tab = 'add-cat';
             }
         }
 
@@ -153,7 +153,7 @@ class Manage extends Process
 
             foreach ($_POST['remove'] as $k => $v) {
                 try {
-                    dcCore::app()->admin->blogroll->delItem($v);
+                    Core::backend()->blogroll->delItem($v);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
 
@@ -185,7 +185,7 @@ class Manage extends Process
                 $pos = ((int) $pos) + 1;
 
                 try {
-                    dcCore::app()->admin->blogroll->updateOrder($l, (string) $pos);
+                    Core::backend()->blogroll->updateOrder($l, (string) $pos);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -216,7 +216,7 @@ class Manage extends Process
         $rs = null;
 
         try {
-            $rs = dcCore::app()->admin->blogroll->getLinks();
+            $rs = Core::backend()->blogroll->getLinks();
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -227,14 +227,14 @@ class Manage extends Process
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('blogroll');
         }
-        $head .= Page::jsPageTabs(dcCore::app()->admin->default_tab);
+        $head .= Page::jsPageTabs(Core::backend()->default_tab);
 
         Page::openModule(My::name(), $head);
 
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(Core::blog()->name) => '',
                 My::name()                                  => '',
             ]
         ) .
@@ -244,7 +244,7 @@ class Manage extends Process
 
         if (!$rs->isEmpty()) {
             echo
-            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="links-form">' .
+            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="links-form">' .
             '<div class="table-outer">' .
             '<table class="dragable">' .
             '<thead>' .
@@ -280,11 +280,11 @@ class Manage extends Process
 
                 if ($rs->is_cat) {
                     echo
-                    '<td colspan="5"><strong><a href="' . dcCore::app()->admin->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+                    '<td colspan="5"><strong><a href="' . Core::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
                     Html::escapeHTML($rs->link_desc) . '</a></strong></td>';
                 } else {
                     echo
-                    '<td><a href="' . dcCore::app()->admin->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+                    '<td><a href="' . Core::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
                     Html::escapeHTML($rs->link_title) . '</a></td>' .
                     '<td>' . Html::escapeHTML($rs->link_desc) . '</td>' .
                     '<td>' . Html::escapeHTML($rs->link_href) . '</td>' .
@@ -320,28 +320,28 @@ class Manage extends Process
         '</div>' .
 
         '<div class="multi-part clear" id="add-link" title="' . __('Add a link') . '">' .
-        '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="add-link-form">' .
+        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="add-link-form">' .
         '<h3>' . __('Add a new link') . '</h3>' .
         '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
         form::field('link_title', 30, 255, [
-            'default'    => dcCore::app()->admin->link_title,
+            'default'    => Core::backend()->link_title,
             'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
 
         '<p class="col"><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
         form::field('link_href', 30, 255, [
-            'default'    => dcCore::app()->admin->link_href,
+            'default'    => Core::backend()->link_href,
             'extra_html' => 'required placeholder="' . __('URL') . '"',
         ]) .
         '</p>' .
 
         '<p class="col"><label for="link_desc">' . __('Description:') . '</label> ' .
-        form::field('link_desc', 30, 255, dcCore::app()->admin->link_desc) .
+        form::field('link_desc', 30, 255, Core::backend()->link_desc) .
         '</p>' .
 
         '<p class="col"><label for="link_lang">' . __('Language:') . '</label> ' .
-        form::field('link_lang', 5, 5, dcCore::app()->admin->link_lang) .
+        form::field('link_lang', 5, 5, Core::backend()->link_lang) .
         '</p>' .
         '<p>' . form::hidden(['p'], 'blogroll') .
         Core::nonce()->getFormNonce() .
@@ -352,11 +352,11 @@ class Manage extends Process
         '</div>' .
 
         '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
-        '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="add-category-form">' .
+        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="add-category-form">' .
         '<h3>' . __('Add a new category') . '</h3>' .
         '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
         form::field('cat_title', 30, 255, [
-            'default'    => dcCore::app()->admin->cat_title,
+            'default'    => Core::backend()->cat_title,
             'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
@@ -370,9 +370,9 @@ class Manage extends Process
 
         '<div class="multi-part" id="import-links" title="' . __('Import links') . '">';
 
-        if (!isset(dcCore::app()->admin->imported)) {
+        if (!isset(Core::backend()->imported)) {
             echo
-            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
+            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
             '<h3>' . __('Import links') . '</h3>' .
             '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
             '<input type="file" id="links_file" name="links_file" required /></p>' .
@@ -384,9 +384,9 @@ class Manage extends Process
             '</form>';
         } else {
             echo
-            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" id="import-links-form">' .
+            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="import-links-form">' .
             '<h3>' . __('Import links') . '</h3>';
-            if (empty(dcCore::app()->admin->imported)) {
+            if (empty(Core::backend()->imported)) {
                 echo
                 '<p>' . __('Nothing to import') . '</p>';
             } else {
@@ -397,7 +397,7 @@ class Manage extends Process
                 '</tr>';
 
                 $i = 0;
-                foreach (dcCore::app()->admin->imported as $entry) {
+                foreach (Core::backend()->imported as $entry) {
                     $url   = Html::escapeHTML($entry->link);
                     $title = Html::escapeHTML($entry->title);
                     $desc  = Html::escapeHTML($entry->desc);

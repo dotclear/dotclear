@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
@@ -199,7 +200,7 @@ class dcUtils
     {
         dcDeprecated::set('My::cssLoad()', '2.27');
 
-        return self::cssLoad(dcCore::app()->blog->getPF($src), $media, $version);
+        return self::cssLoad(Core::blog()->getPF($src), $media, $version);
     }
 
     /**
@@ -234,7 +235,7 @@ class dcUtils
     {
         dcDeprecated::set('My::jsLoad()', '2.27');
 
-        return self::jsLoad(dcCore::app()->blog->getPF($src), $version);
+        return self::jsLoad(Core::blog()->getPF($src), $version);
     }
 
     /**
@@ -286,7 +287,7 @@ class dcUtils
      */
     public static function jsJson(string $id, $vars): string
     {
-        // Use echo dcUtils::jsLoad(dcCore::app()->blog->getPF('util.js'));
+        // Use echo dcUtils::jsLoad(Core::blog()->getPF('util.js'));
         // to call the JS dotclear.getData() decoder in public mode
         return '<script type="application/json" id="' . Html::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
@@ -354,7 +355,7 @@ class dcUtils
                 // Set locale with user prefs
                 self::ADMIN_LOCALE => setlocale(LC_COLLATE, dcCore::app()->auth->getInfo('user_lang')),
                 // Set locale with blog params
-                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, dcCore::app()->blog->settings->system->lang),
+                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, Core::blog()->settings->system->lang),
                 // Set locale with arg
                 self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
             };

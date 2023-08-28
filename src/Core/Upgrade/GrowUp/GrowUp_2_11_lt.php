@@ -15,6 +15,7 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 use dcBlog;
 use dcCore;
 use dcNamespace;
+use Dotclear\Core\Core;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_11_lt
@@ -22,57 +23,57 @@ class GrowUp_2_11_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        dcCore::app()->con->execute(
+        Core::con()->execute(
             sprintf($strReq, 'csp_admin_report_only', (string) false, 'boolean', 'CSP Report only violations (admin)')
         );
 
         // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
         // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-        $csp_prefix = dcCore::app()->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-        $csp_suffix = dcCore::app()->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+        $csp_prefix = Core::con()->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+        $csp_suffix = Core::con()->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
         # Try to fix some CSP directive wrongly stored for SQLite drivers
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_default' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self' ";
-        dcCore::app()->con->execute($strReq);
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        Core::con()->execute($strReq);
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline'' ''unsafe-eval''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_script' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' ''unsafe-inline'' ''unsafe-eval' ";
-        dcCore::app()->con->execute($strReq);
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        Core::con()->execute($strReq);
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_style' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' ''unsafe-inline' ";
-        dcCore::app()->con->execute($strReq);
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        Core::con()->execute($strReq);
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' data: media.dotaddict.org' ";
-        dcCore::app()->con->execute($strReq);
+        Core::con()->execute($strReq);
 
         # Update CSP img-src default directive
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = '''self'' data: media.dotaddict.org' ";
-        dcCore::app()->con->execute($strReq);
+        Core::con()->execute($strReq);
 
         # Update first publication on published posts
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME .
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME .
             ' SET post_firstpub = 1' .
             ' WHERE post_status = ' . (string) dcBlog::POST_PUBLISHED;
-        dcCore::app()->con->execute($strReq);
+        Core::con()->execute($strReq);
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(

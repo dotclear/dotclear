@@ -31,10 +31,10 @@ class Install extends Process
 
         // Rename settings namespace
         if (version_compare(Core::version()->getVersion(My::id()), '1.0', '<=')
-            && dcCore::app()->blog->settings->exists('dclegacyeditor')
+            && Core::blog()->settings->exists('dclegacyeditor')
         ) {
-            dcCore::app()->blog->settings->delNamespace(My::id());
-            dcCore::app()->blog->settings->renNamespace('dclegacyeditor', My::id());
+            Core::blog()->settings->delNamespace(My::id());
+            Core::blog()->settings->renNamespace('dclegacyeditor', My::id());
         }
 
         My::settings()->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);

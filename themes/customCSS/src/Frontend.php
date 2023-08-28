@@ -28,7 +28,7 @@ class Frontend extends Process
             Core::behavior()->addBehavior('publicHeadContent', function () {
                 echo 
                 '<link rel="stylesheet" type="text/css" href="' . 
-                dcCore::app()->blog->settings->system->public_url . 
+                Core::blog()->settings->system->public_url . 
                 '/custom_style.css" media="screen">' . "\n";
             });
         }

@@ -34,7 +34,7 @@ class rsExtPost
         # If user is admin or contentadmin, true
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             return true;
         }
 
@@ -46,7 +46,7 @@ class rsExtPost
         # If user is usage and owner of the entry
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
-        ]), dcCore::app()->blog->id)
+        ]), Core::blog()->id)
             && $rs->user_id == dcCore::app()->auth->userID()) {
             return true;
         }
@@ -66,7 +66,7 @@ class rsExtPost
         # If user is admin, or contentadmin, true
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             return true;
         }
 
@@ -78,7 +78,7 @@ class rsExtPost
         # If user has delete rights and is owner of the entrie
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_DELETE,
-        ]), dcCore::app()->blog->id)
+        ]), Core::blog()->id)
             && $rs->user_id == dcCore::app()->auth->userID()) {
             return true;
         }
@@ -138,9 +138,9 @@ class rsExtPost
     public static function commentsActive(MetaRecord $rs): bool
     {
         return
-        dcCore::app()->blog->settings->system->allow_comments
+        Core::blog()->settings->system->allow_comments
             && $rs->post_open_comment
-            && (dcCore::app()->blog->settings->system->comments_ttl == 0 || time() - (dcCore::app()->blog->settings->system->comments_ttl * 86400) < $rs->getTS());
+            && (Core::blog()->settings->system->comments_ttl == 0 || time() - (Core::blog()->settings->system->comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -153,9 +153,9 @@ class rsExtPost
     public static function trackbacksActive(MetaRecord $rs): bool
     {
         return
-        dcCore::app()->blog->settings->system->allow_trackbacks
+        Core::blog()->settings->system->allow_trackbacks
             && $rs->post_open_tb
-            && (dcCore::app()->blog->settings->system->trackbacks_ttl == 0 || time() - (dcCore::app()->blog->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
+            && (Core::blog()->settings->system->trackbacks_ttl == 0 || time() - (Core::blog()->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -204,7 +204,7 @@ class rsExtPost
      */
     public static function getURL(MetaRecord $rs): string
     {
-        return dcCore::app()->blog->url . Core::postTypes()->get((string) $rs->post_type)->publicUrl(
+        return Core::blog()->url . Core::postTypes()->get((string) $rs->post_type)->publicUrl(
             Html::sanitizeURL($rs->post_url)
         );
     }
@@ -218,7 +218,7 @@ class rsExtPost
      */
     public static function getCategoryURL(MetaRecord $rs): string
     {
-        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', Html::sanitizeURL($rs->cat_url));
+        return Core::blog()->url . dcCore::app()->url->getURLFor('category', Html::sanitizeURL($rs->cat_url));
     }
 
     /**
@@ -299,7 +299,7 @@ class rsExtPost
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = dcCore::app()->blog->settings->system->date_format;
+            $format = Core::blog()->settings->system->date_format;
         }
 
         if ($type == 'upddt') {
@@ -324,7 +324,7 @@ class rsExtPost
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = dcCore::app()->blog->settings->system->time_format;
+            $format = Core::blog()->settings->system->time_format;
         }
 
         if ($type == 'upddt') {
@@ -399,7 +399,7 @@ class rsExtPost
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        return 'urn:md5:' . md5(dcCore::app()->blog->uid . $rs->post_id);
+        return 'urn:md5:' . md5(Core::blog()->uid . $rs->post_id);
     }
 
     /**
@@ -437,7 +437,7 @@ class rsExtPost
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('trackback', (string) $rs->post_id);
+        return Core::blog()->url . dcCore::app()->url->getURLFor('trackback', (string) $rs->post_id);
     }
 
     /**
@@ -490,13 +490,13 @@ class rsExtPost
             return (int) $rs->_nb_media[$rs->index()];
         }
         $strReq = 'SELECT count(media_id) ' .
-            'FROM ' . dcCore::app()->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME . ' ' .
+            'FROM ' . Core::con()->prefix() . dcPostMedia::POST_MEDIA_TABLE_NAME . ' ' .
             'WHERE post_id = ' . (int) $rs->post_id . ' ';
         if ($link_type) {
-            $strReq .= "AND link_type = '" . dcCore::app()->con->escape($link_type) . "'";
+            $strReq .= "AND link_type = '" . Core::con()->escape($link_type) . "'";
         }
 
-        $res = (int) (new MetaRecord(dcCore::app()->con->select($strReq)))->f(0);
+        $res = (int) (new MetaRecord(Core::con()->select($strReq)))->f(0);
 
         $rs->_nb_media[$rs->index()] = $res;
 
@@ -513,7 +513,7 @@ class rsExtPost
      */
     public static function underCat(MetaRecord $rs, string $cat_url): bool
     {
-        return dcCore::app()->blog->IsInCatSubtree((string) $rs->cat_url, $cat_url);
+        return Core::blog()->IsInCatSubtree((string) $rs->cat_url, $cat_url);
     }
 }
 
@@ -543,7 +543,7 @@ class rsExtComment
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = dcCore::app()->blog->settings->system->date_format;
+            $format = Core::blog()->settings->system->date_format;
         }
 
         if ($type === 'upddt') {
@@ -566,7 +566,7 @@ class rsExtComment
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = dcCore::app()->blog->settings->system->time_format;
+            $format = Core::blog()->settings->system->time_format;
         }
 
         if ($type === 'upddt') {
@@ -640,7 +640,7 @@ class rsExtComment
     {
         $res = (string) $rs->comment_content;
 
-        if (dcCore::app()->blog->settings->system->comments_nofollow) {
+        if (Core::blog()->settings->system->comments_nofollow) {
             $res = preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function ($m) {
@@ -696,7 +696,7 @@ class rsExtComment
      */
     public static function getPostURL(MetaRecord $rs): string
     {
-        return dcCore::app()->blog->url . Core::postTypes()->get($rs->post_type)->publicUrl(
+        return Core::blog()->url . Core::postTypes()->get($rs->post_type)->publicUrl(
             Html::sanitizeURL($rs->post_url)
         );
     }
@@ -717,7 +717,7 @@ class rsExtComment
         }
 
         $rel = 'ugc';
-        if (dcCore::app()->blog->settings->system->comments_nofollow) {
+        if (Core::blog()->settings->system->comments_nofollow) {
             $rel .= ' nofollow';
         }
 
@@ -787,7 +787,7 @@ class rsExtComment
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        return 'urn:md5:' . md5(dcCore::app()->blog->uid . $rs->comment_id);
+        return 'urn:md5:' . md5(Core::blog()->uid . $rs->comment_id);
     }
 
     /**
@@ -883,7 +883,7 @@ class rsExtDates
     {
         $url = date('Y/m', strtotime((string) $rs->dt));
 
-        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('archive', $url);
+        return Core::blog()->url . dcCore::app()->url->getURLFor('archive', $url);
     }
 
     /**

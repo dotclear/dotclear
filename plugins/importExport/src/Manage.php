@@ -15,9 +15,9 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Exception;
 use dcCore;
-use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -32,18 +32,18 @@ class Manage extends Process
         # --BEHAVIOR-- importExportModules -- ArrayObject
         Core::behavior()->callBehavior('importExportModulesV2', $modules);
 
-        dcCore::app()->admin->type = null;
+        Core::backend()->type = null;
         if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'])) {
-            dcCore::app()->admin->type = $_REQUEST['type'];
+            Core::backend()->type = $_REQUEST['type'];
         }
 
-        dcCore::app()->admin->modules = $modules;
-        dcCore::app()->admin->module  = null;
+        Core::backend()->modules = $modules;
+        Core::backend()->module  = null;
 
         $module = $_REQUEST['module'] ?? false;
-        if (dcCore::app()->admin->type && $module !== false && isset(dcCore::app()->admin->modules[dcCore::app()->admin->type]) && in_array($module, dcCore::app()->admin->modules[dcCore::app()->admin->type])) {
-            dcCore::app()->admin->module = new $module(dcCore::app());
-            dcCore::app()->admin->module->init();
+        if (Core::backend()->type && $module !== false && isset(Core::backend()->modules[Core::backend()->type]) && in_array($module, Core::backend()->modules[Core::backend()->type])) {
+            Core::backend()->module = new $module(dcCore::app());
+            Core::backend()->module->init();
         }
 
         return self::status();
@@ -55,9 +55,9 @@ class Manage extends Process
             return false;
         }
 
-        if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null && !empty($_REQUEST['do'])) {
+        if (Core::backend()->type && Core::backend()->module !== null && !empty($_REQUEST['do'])) {
             try {
-                dcCore::app()->admin->module->process($_REQUEST['do']);
+                Core::backend()->module->process($_REQUEST['do']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -82,19 +82,19 @@ class Manage extends Process
             My::jsLoad('script')
         );
 
-        if (dcCore::app()->admin->type && dcCore::app()->admin->module !== null) {
+        if (Core::backend()->type && Core::backend()->module !== null) {
             echo
             Page::breadcrumb(
                 [
                     __('Plugins')                                        => '',
-                    My::name()                                           => dcCore::app()->admin->getPageURL(),
-                    Html::escapeHTML(dcCore::app()->admin->module->name) => '',
+                    My::name()                                           => Core::backend()->getPageURL(),
+                    Html::escapeHTML(Core::backend()->module->name) => '',
                 ]
             ) .
             Notices::getNotices() .
             '<div id="ie-gui">';
 
-            dcCore::app()->admin->module->gui();
+            Core::backend()->module->gui();
 
             echo
             '</div>';
@@ -109,12 +109,12 @@ class Manage extends Process
             Notices::getNotices() .
 
             '<h3>' . __('Import') . '</h3>' .
-            self::listImportExportModules(dcCore::app()->admin->modules['import']) .
+            self::listImportExportModules(Core::backend()->modules['import']) .
 
             '<h3>' . __('Export') . '</h3>' .
             '<p class="info">' . sprintf(
                 __('Export functions are in the page %s.'),
-                '<a href="' . dcCore::app()->admin->url->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' .
+                '<a href="' . Core::backend()->url->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' .
                 __('Maintenance') . '</a>'
             ) . '</p>';
         }

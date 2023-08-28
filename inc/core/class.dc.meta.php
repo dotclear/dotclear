@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
@@ -48,8 +49,8 @@ class dcMeta
      */
     public function __construct()
     {
-        $this->con   = dcCore::app()->con;
-        $this->table = dcCore::app()->prefix . self::META_TABLE_NAME;
+        $this->con   = Core::con();
+        $this->table = Core::con()->prefix() . self::META_TABLE_NAME;
     }
 
     /**
@@ -173,17 +174,17 @@ class dcMeta
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
         # If user can only publish, we need to check the post's owner
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $sql = new SelectStatement();
             $sql
-                ->from(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME)
+                ->from(Core::con()->prefix() . dcBlog::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
                 ->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
@@ -223,7 +224,7 @@ class dcMeta
 
         $post_meta = serialize($meta);
 
-        $cur            = $this->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+        $cur            = $this->con->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
         $cur->post_meta = $post_meta;
 
         $sql = new UpdateStatement();
@@ -231,7 +232,7 @@ class dcMeta
 
         $sql->update($cur);
 
-        dcCore::app()->blog->triggerBlog();
+        Core::blog()->triggerBlog();
     }
 
     /**
@@ -267,7 +268,7 @@ class dcMeta
 
         unset($params['meta_id']);
 
-        return dcCore::app()->blog->getPosts($params, $count_only, $sql);
+        return Core::blog()->getPosts($params, $count_only, $sql);
     }
 
     /**
@@ -301,7 +302,7 @@ class dcMeta
             unset($params['meta_type']);
         }
 
-        return dcCore::app()->blog->getComments($params, $count_only, $sql);
+        return Core::blog()->getComments($params, $count_only, $sql);
     }
 
     /**
@@ -342,11 +343,11 @@ class dcMeta
             ->join(
                 (new JoinStatement())
                 ->left()
-                ->from($sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'))
+                ->from($sql->as(Core::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
-            ->where('P.blog_id = ' . $sql->quote(dcCore::app()->blog->id));
+            ->where('P.blog_id = ' . $sql->quote(Core::blog()->id));
 
         if (isset($params['meta_type'])) {
             $sql->and('meta_type = ' . $sql->quote($params['meta_type']));
@@ -362,11 +363,11 @@ class dcMeta
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $user_id = dcCore::app()->auth->userID();
 
             $and = ['post_status = ' . (string) dcBlog::POST_PUBLISHED];
-            if (dcCore::app()->blog->without_password) {
+            if (Core::blog()->without_password) {
                 $and[] = 'post_password IS NULL';
             }
 
@@ -516,15 +517,15 @@ class dcMeta
         $sql
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'),
+                $sql->as(Core::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'),
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote(dcCore::app()->blog->id));
+            ->and('P.blog_id = ' . $sql->quote(Core::blog()->id));
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $sql->and('P.user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
         if ($post_type !== null) {
@@ -621,10 +622,10 @@ class dcMeta
             ->column('M.post_id')
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, 'P'),
+                $sql->as(Core::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote(dcCore::app()->blog->id))
+            ->and('P.blog_id = ' . $sql->quote(Core::blog()->id))
             ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {

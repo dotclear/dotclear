@@ -64,7 +64,7 @@ class Ip extends SpamFilter
     public function __construct()
     {
         parent::__construct();
-        $this->table = dcCore::app()->prefix . Antispam::SPAMRULE_TABLE_NAME;
+        $this->table = Core::con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
     }
 
     /**
@@ -137,7 +137,7 @@ class Ip extends SpamFilter
         if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'white') {
             $ip_type = 'white';
         }
-        dcCore::app()->admin->default_tab = 'tab_' . $ip_type;
+        Core::backend()->default_tab = 'tab_' . $ip_type;
 
         # Add IP to list
         if (!empty($_POST['addip'])) {
@@ -314,10 +314,10 @@ class Ip extends SpamFilter
         $content = $pattern . ':' . $ip . ':' . $mask;
 
         $old = $this->getRuleCIDR($type, $global, $ip, $mask);
-        $cur = dcCore::app()->con->openCursor($this->table);
+        $cur = Core::con()->openCursor($this->table);
 
         if ($old->isEmpty()) {
-            $id = (new MetaRecord(dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table)))->f(0) + 1;
+            $id = (new MetaRecord(Core::con()->select('SELECT MAX(rule_id) FROM ' . $this->table)))->f(0) + 1;
 
             $cur->rule_id      = $id;
             $cur->rule_type    = (string) $type;
@@ -326,7 +326,7 @@ class Ip extends SpamFilter
             if ($global && dcCore::app()->auth->isSuperAdmin()) {
                 $cur->blog_id = null;
             } else {
-                $cur->blog_id = dcCore::app()->blog->id;
+                $cur->blog_id = Core::blog()->id;
             }
 
             $cur->insert();
@@ -348,11 +348,11 @@ class Ip extends SpamFilter
     {
         $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . dcCore::app()->con->escape($type) . "' " .
-        "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
+        "WHERE rule_type = '" . Core::con()->escape($type) . "' " .
+        "AND (blog_id = '" . Core::blog()->id . "' OR blog_id IS NULL) " .
         'ORDER BY blog_id ASC, rule_content ASC ';
 
-        return new MetaRecord(dcCore::app()->con->select($strReq));
+        return new MetaRecord(Core::con()->select($strReq));
     }
 
     /**
@@ -368,11 +368,11 @@ class Ip extends SpamFilter
     private function getRuleCIDR(string $type, bool $global, $ip, $mask): MetaRecord
     {
         $strReq = 'SELECT * FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . dcCore::app()->con->escape($type) . "' " .
+        "WHERE rule_type = '" . Core::con()->escape($type) . "' " .
         "AND rule_content LIKE '%:" . (int) $ip . ':' . (int) $mask . "' " .
-        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . dcCore::app()->blog->id . "' ");
+        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . Core::blog()->id . "' ");
 
-        return new MetaRecord(dcCore::app()->con->select($strReq));
+        return new MetaRecord(Core::con()->select($strReq));
     }
 
     /**
@@ -387,11 +387,11 @@ class Ip extends SpamFilter
     {
         $strReq = 'SELECT DISTINCT(rule_content) ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . dcCore::app()->con->escape($type) . "' " .
-        "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
+        "WHERE rule_type = '" . Core::con()->escape($type) . "' " .
+        "AND (blog_id = '" . Core::blog()->id . "' OR blog_id IS NULL) " .
         'ORDER BY rule_content ASC ';
 
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(Core::con()->select($strReq));
         while ($rs->fetch()) {
             [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
             if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
@@ -422,9 +422,9 @@ class Ip extends SpamFilter
         }
 
         if (!dcCore::app()->auth->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . dcCore::app()->blog->id . "' ";
+            $strReq .= "AND blog_id = '" . Core::blog()->id . "' ";
         }
 
-        dcCore::app()->con->execute($strReq);
+        Core::con()->execute($strReq);
     }
 }

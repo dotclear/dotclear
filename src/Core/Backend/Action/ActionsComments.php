@@ -112,8 +112,8 @@ class ActionsComments extends Actions
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    __('Comments')                              => dcCore::app()->admin->url->get('admin.comments'),
+                    Html::escapeHTML(Core::blog()->name) => '',
+                    __('Comments')                              => Core::backend()->url->get('admin.comments'),
                     __('Comments actions')                      => '',
                 ]
             )
@@ -183,7 +183,7 @@ class ActionsComments extends Actions
         if (!isset($from['full_content']) || empty($from['full_content'])) {
             $params['no_content'] = true;
         }
-        $rs = dcCore::app()->blog->getComments($params);
+        $rs = Core::blog()->getComments($params);
         while ($rs->fetch()) {
             $this->entries[$rs->comment_id] = [
                 'title'  => $rs->post_title,

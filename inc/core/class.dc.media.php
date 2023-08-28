@@ -153,20 +153,20 @@ class dcMedia extends Manager
      */
     public function __construct(string $type = '')
     {
-        $this->con       = dcCore::app()->con;
+        $this->con       = Core::con();
         $this->postmedia = new dcPostMedia();
 
-        if (dcCore::app()->blog == null) {
+        if (Core::blog() == null) {
             throw new Exception(__('No blog defined.'));
         }
 
-        $this->table = dcCore::app()->prefix . self::MEDIA_TABLE_NAME;
-        $root        = dcCore::app()->blog->public_path;
+        $this->table = Core::con()->prefix() . self::MEDIA_TABLE_NAME;
+        $root        = Core::blog()->public_path;
 
-        if (preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->public_url)) {
-            $root_url = rawurldecode(dcCore::app()->blog->settings->system->public_url);
+        if (preg_match('#^http(s)?://#', (string) Core::blog()->settings->system->public_url)) {
+            $root_url = rawurldecode(Core::blog()->settings->system->public_url);
         } else {
-            $root_url = rawurldecode(dcCore::app()->blog->host . Path::clean(dcCore::app()->blog->settings->system->public_url));
+            $root_url = rawurldecode(Core::blog()->host . Path::clean(Core::blog()->settings->system->public_url));
         }
 
         if (!is_dir($root)) {
@@ -183,12 +183,12 @@ class dcMedia extends Manager
         parent::__construct($root, $root_url);
         $this->chdir('');
 
-        $this->path = dcCore::app()->blog->settings->system->public_path;
+        $this->path = Core::blog()->settings->system->public_path;
 
         $this->addExclusion(DC_RC_PATH);
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->exclude_pattern = dcCore::app()->blog->settings->system->media_exclusion;
+        $this->exclude_pattern = Core::blog()->settings->system->media_exclusion;
 
         # Event handlers
         $this->addFileHandler('image/jpeg', 'create', [$this, 'imageThumbCreate']);
@@ -215,9 +215,9 @@ class dcMedia extends Manager
         $this->addFileHandler('image/webp', 'recreate', [$this, 'imageThumbCreate']);
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs(dcCore::app()->blog->settings->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs(dcCore::app()->blog->settings->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs(dcCore::app()->blog->settings->system->media_img_t_size);
+        $this->thumb_sizes['m'][0] = abs(Core::blog()->settings->system->media_img_m_size);
+        $this->thumb_sizes['s'][0] = abs(Core::blog()->settings->system->media_img_s_size);
+        $this->thumb_sizes['t'][0] = abs(Core::blog()->settings->system->media_img_t_size);
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager
         Core::behavior()->callBehavior('coreMediaConstruct', $this);
@@ -347,7 +347,7 @@ class dcMedia extends Manager
 
             if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcAuth::PERMISSION_MEDIA_ADMIN,
-            ]), dcCore::app()->blog->id)
+            ]), Core::blog()->id)
                 && dcCore::app()->auth->userID() != $fi->media_user) {
                 $fi->del      = false;
                 $fi->editable = false;
@@ -596,7 +596,7 @@ class dcMedia extends Manager
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = dcCore::app()->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
@@ -701,7 +701,7 @@ class dcMedia extends Manager
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             foreach ($p_dir['files'] as $f) {
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
                 if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates)) {
@@ -748,7 +748,7 @@ class dcMedia extends Manager
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = dcCore::app()->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
@@ -798,7 +798,7 @@ class dcMedia extends Manager
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = dcCore::app()->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
@@ -1024,7 +1024,7 @@ class dcMedia extends Manager
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1118,7 +1118,7 @@ class dcMedia extends Manager
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1130,7 +1130,7 @@ class dcMedia extends Manager
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)
+        ]), Core::blog()->id)
             && dcCore::app()->auth->userID() != $file->media_user) {
             throw new Exception(__('You are not the file owner.'));
         }
@@ -1195,7 +1195,7 @@ class dcMedia extends Manager
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1221,7 +1221,7 @@ class dcMedia extends Manager
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1246,7 +1246,7 @@ class dcMedia extends Manager
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1260,7 +1260,7 @@ class dcMedia extends Manager
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
 
@@ -1551,7 +1551,7 @@ class dcMedia extends Manager
         $meta = ImageMeta::readMeta($file);
         $xml->insertNode($meta);
 
-        $c             = dcCore::app()->con->openCursor($this->table);
+        $c             = Core::con()->openCursor($this->table);
         $c->media_meta = $xml->toXML();
 
         if ($cur->media_title !== null && $cur->media_title == basename($cur->media_file)) {

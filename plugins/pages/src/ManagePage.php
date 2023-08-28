@@ -53,54 +53,54 @@ class ManagePage extends Process
 
         Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');
 
-        dcCore::app()->admin->post_id            = '';
-        dcCore::app()->admin->post_dt            = '';
-        dcCore::app()->admin->post_format        = dcCore::app()->auth->getOption('post_format');
-        dcCore::app()->admin->post_editor        = dcCore::app()->auth->getOption('editor');
-        dcCore::app()->admin->post_password      = '';
-        dcCore::app()->admin->post_url           = '';
-        dcCore::app()->admin->post_lang          = dcCore::app()->auth->getInfo('user_lang');
-        dcCore::app()->admin->post_title         = '';
-        dcCore::app()->admin->post_excerpt       = '';
-        dcCore::app()->admin->post_excerpt_xhtml = '';
-        dcCore::app()->admin->post_content       = '';
-        dcCore::app()->admin->post_content_xhtml = '';
-        dcCore::app()->admin->post_notes         = '';
-        dcCore::app()->admin->post_status        = dcCore::app()->auth->getInfo('user_post_status');
-        dcCore::app()->admin->post_position      = 0;
-        dcCore::app()->admin->post_open_comment  = false;
-        dcCore::app()->admin->post_open_tb       = false;
-        dcCore::app()->admin->post_selected      = false;
+        Core::backend()->post_id            = '';
+        Core::backend()->post_dt            = '';
+        Core::backend()->post_format        = dcCore::app()->auth->getOption('post_format');
+        Core::backend()->post_editor        = dcCore::app()->auth->getOption('editor');
+        Core::backend()->post_password      = '';
+        Core::backend()->post_url           = '';
+        Core::backend()->post_lang          = dcCore::app()->auth->getInfo('user_lang');
+        Core::backend()->post_title         = '';
+        Core::backend()->post_excerpt       = '';
+        Core::backend()->post_excerpt_xhtml = '';
+        Core::backend()->post_content       = '';
+        Core::backend()->post_content_xhtml = '';
+        Core::backend()->post_notes         = '';
+        Core::backend()->post_status        = dcCore::app()->auth->getInfo('user_post_status');
+        Core::backend()->post_position      = 0;
+        Core::backend()->post_open_comment  = false;
+        Core::backend()->post_open_tb       = false;
+        Core::backend()->post_selected      = false;
 
-        dcCore::app()->admin->post_media = [];
+        Core::backend()->post_media = [];
 
-        dcCore::app()->admin->page_title = __('New page');
+        Core::backend()->page_title = __('New page');
 
-        dcCore::app()->admin->can_view_page = true;
-        dcCore::app()->admin->can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        Core::backend()->can_view_page = true;
+        Core::backend()->can_edit_page = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_USAGE,
-        ]), dcCore::app()->blog->id);
-        dcCore::app()->admin->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        ]), Core::blog()->id);
+        Core::backend()->can_publish = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             My::PERMISSION_PAGES,
             dcCore::app()->auth::PERMISSION_PUBLISH,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id);
-        dcCore::app()->admin->can_delete = false;
+        ]), Core::blog()->id);
+        Core::backend()->can_delete = false;
 
         $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" />';
 
-        dcCore::app()->admin->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
+        Core::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
 
-        dcCore::app()->admin->next_link = dcCore::app()->admin->prev_link = dcCore::app()->admin->next_headlink = dcCore::app()->admin->prev_headlink = null;
+        Core::backend()->next_link = Core::backend()->prev_link = Core::backend()->next_headlink = Core::backend()->prev_headlink = null;
 
         // If user can't publish
-        if (!dcCore::app()->admin->can_publish) {
-            dcCore::app()->admin->post_status = dcBlog::POST_PENDING;
+        if (!Core::backend()->can_publish) {
+            Core::backend()->post_status = dcBlog::POST_PENDING;
         }
 
         // Status combo
-        dcCore::app()->admin->status_combo = Combos::getPostStatusesCombo();
+        Core::backend()->status_combo = Combos::getPostStatusesCombo();
 
         // Formaters combo
         $core_formaters    = Core::formater()->getFormaters();
@@ -110,64 +110,64 @@ class ManagePage extends Process
                 $available_formats[Core::formater()->getFormaterName($format)] = $format;
             }
         }
-        dcCore::app()->admin->available_formats = $available_formats;
+        Core::backend()->available_formats = $available_formats;
 
         // Languages combo
-        dcCore::app()->admin->lang_combo = Combos::getLangsCombo(
-            dcCore::app()->blog->getLangs(['order' => 'asc']),
+        Core::backend()->lang_combo = Combos::getLangsCombo(
+            Core::blog()->getLangs(['order' => 'asc']),
             true
         );
 
         // Validation flag
-        dcCore::app()->admin->bad_dt = false;
+        Core::backend()->bad_dt = false;
 
         // Get page informations
 
-        dcCore::app()->admin->post = null;
+        Core::backend()->post = null;
         if (!empty($_REQUEST['id'])) {
             $params['post_type'] = 'page';
             $params['post_id']   = $_REQUEST['id'];
 
-            dcCore::app()->admin->post = dcCore::app()->blog->getPosts($params);
+            Core::backend()->post = Core::blog()->getPosts($params);
 
-            if (dcCore::app()->admin->post->isEmpty()) {
+            if (Core::backend()->post->isEmpty()) {
                 dcCore::app()->error->add(__('This page does not exist.'));
-                dcCore::app()->admin->can_view_page = false;
+                Core::backend()->can_view_page = false;
             } else {
-                dcCore::app()->admin->post_id            = (int) dcCore::app()->admin->post->post_id;
-                dcCore::app()->admin->post_dt            = date('Y-m-d H:i', strtotime(dcCore::app()->admin->post->post_dt));
-                dcCore::app()->admin->post_format        = dcCore::app()->admin->post->post_format;
-                dcCore::app()->admin->post_password      = dcCore::app()->admin->post->post_password;
-                dcCore::app()->admin->post_url           = dcCore::app()->admin->post->post_url;
-                dcCore::app()->admin->post_lang          = dcCore::app()->admin->post->post_lang;
-                dcCore::app()->admin->post_title         = dcCore::app()->admin->post->post_title;
-                dcCore::app()->admin->post_excerpt       = dcCore::app()->admin->post->post_excerpt;
-                dcCore::app()->admin->post_excerpt_xhtml = dcCore::app()->admin->post->post_excerpt_xhtml;
-                dcCore::app()->admin->post_content       = dcCore::app()->admin->post->post_content;
-                dcCore::app()->admin->post_content_xhtml = dcCore::app()->admin->post->post_content_xhtml;
-                dcCore::app()->admin->post_notes         = dcCore::app()->admin->post->post_notes;
-                dcCore::app()->admin->post_status        = dcCore::app()->admin->post->post_status;
-                dcCore::app()->admin->post_position      = (int) dcCore::app()->admin->post->post_position;
-                dcCore::app()->admin->post_open_comment  = (bool) dcCore::app()->admin->post->post_open_comment;
-                dcCore::app()->admin->post_open_tb       = (bool) dcCore::app()->admin->post->post_open_tb;
-                dcCore::app()->admin->post_selected      = (bool) dcCore::app()->admin->post->post_selected;
+                Core::backend()->post_id            = (int) Core::backend()->post->post_id;
+                Core::backend()->post_dt            = date('Y-m-d H:i', strtotime(Core::backend()->post->post_dt));
+                Core::backend()->post_format        = Core::backend()->post->post_format;
+                Core::backend()->post_password      = Core::backend()->post->post_password;
+                Core::backend()->post_url           = Core::backend()->post->post_url;
+                Core::backend()->post_lang          = Core::backend()->post->post_lang;
+                Core::backend()->post_title         = Core::backend()->post->post_title;
+                Core::backend()->post_excerpt       = Core::backend()->post->post_excerpt;
+                Core::backend()->post_excerpt_xhtml = Core::backend()->post->post_excerpt_xhtml;
+                Core::backend()->post_content       = Core::backend()->post->post_content;
+                Core::backend()->post_content_xhtml = Core::backend()->post->post_content_xhtml;
+                Core::backend()->post_notes         = Core::backend()->post->post_notes;
+                Core::backend()->post_status        = Core::backend()->post->post_status;
+                Core::backend()->post_position      = (int) Core::backend()->post->post_position;
+                Core::backend()->post_open_comment  = (bool) Core::backend()->post->post_open_comment;
+                Core::backend()->post_open_tb       = (bool) Core::backend()->post->post_open_tb;
+                Core::backend()->post_selected      = (bool) Core::backend()->post->post_selected;
 
-                dcCore::app()->admin->page_title = __('Edit page');
+                Core::backend()->page_title = __('Edit page');
 
-                dcCore::app()->admin->can_edit_page = dcCore::app()->admin->post->isEditable();
-                dcCore::app()->admin->can_delete    = dcCore::app()->admin->post->isDeletable();
+                Core::backend()->can_edit_page = Core::backend()->post->isEditable();
+                Core::backend()->can_delete    = Core::backend()->post->isDeletable();
 
-                $next_rs = dcCore::app()->blog->getNextPost(dcCore::app()->admin->post, 1);
-                $prev_rs = dcCore::app()->blog->getNextPost(dcCore::app()->admin->post, -1);
+                $next_rs = Core::blog()->getNextPost(Core::backend()->post, 1);
+                $prev_rs = Core::blog()->getNextPost(Core::backend()->post, -1);
 
                 if ($next_rs !== null) {
-                    dcCore::app()->admin->next_link = sprintf(
-                        dcCore::app()->admin->post_link,
+                    Core::backend()->next_link = sprintf(
+                        Core::backend()->post_link,
                         $next_rs->post_id,
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         __('Next page') . '&nbsp;&#187;'
                     );
-                    dcCore::app()->admin->next_headlink = sprintf(
+                    Core::backend()->next_headlink = sprintf(
                         $post_headlink,
                         'next',
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
@@ -176,13 +176,13 @@ class ManagePage extends Process
                 }
 
                 if ($prev_rs !== null) {
-                    dcCore::app()->admin->prev_link = sprintf(
-                        dcCore::app()->admin->post_link,
+                    Core::backend()->prev_link = sprintf(
+                        Core::backend()->post_link,
                         $prev_rs->post_id,
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         '&#171;&nbsp;' . __('Previous page')
                     );
-                    dcCore::app()->admin->prev_headlink = sprintf(
+                    Core::backend()->prev_headlink = sprintf(
                         $post_headlink,
                         'previous',
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
@@ -192,85 +192,85 @@ class ManagePage extends Process
 
                 try {
                     dcCore::app()->media             = new dcMedia();
-                    dcCore::app()->admin->post_media = dcCore::app()->media->getPostMedia(dcCore::app()->admin->post_id);
+                    Core::backend()->post_media = dcCore::app()->media->getPostMedia(Core::backend()->post_id);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
             }
         }
 
-        dcCore::app()->admin->comments_actions_page = new BackendActionsComments(
+        Core::backend()->comments_actions_page = new BackendActionsComments(
             My::manageUrl([], '&'),
             [
                 'act'           => 'page',
-                'id'            => dcCore::app()->admin->post_id,
+                'id'            => Core::backend()->post_id,
                 'action_anchor' => 'comments',
                 'section'       => 'comments',
             ]
         );
 
-        dcCore::app()->admin->comments_actions_page_rendered = null;
-        if (dcCore::app()->admin->comments_actions_page->process()) {
-            dcCore::app()->admin->comments_actions_page_rendered = true;
+        Core::backend()->comments_actions_page_rendered = null;
+        if (Core::backend()->comments_actions_page->process()) {
+            Core::backend()->comments_actions_page_rendered = true;
 
             return true;
         }
 
-        if (!empty($_POST) && dcCore::app()->admin->can_edit_page) {
+        if (!empty($_POST) && Core::backend()->can_edit_page) {
             // Format content
 
-            dcCore::app()->admin->post_format  = $_POST['post_format'];
-            dcCore::app()->admin->post_excerpt = $_POST['post_excerpt'];
-            dcCore::app()->admin->post_content = $_POST['post_content'];
+            Core::backend()->post_format  = $_POST['post_format'];
+            Core::backend()->post_excerpt = $_POST['post_excerpt'];
+            Core::backend()->post_content = $_POST['post_content'];
 
-            dcCore::app()->admin->post_title = $_POST['post_title'];
+            Core::backend()->post_title = $_POST['post_title'];
 
             if (isset($_POST['post_status'])) {
-                dcCore::app()->admin->post_status = (int) $_POST['post_status'];
+                Core::backend()->post_status = (int) $_POST['post_status'];
             }
 
             if (empty($_POST['post_dt'])) {
-                dcCore::app()->admin->post_dt = '';
+                Core::backend()->post_dt = '';
             } else {
                 try {
-                    dcCore::app()->admin->post_dt = strtotime($_POST['post_dt']);
-                    if (!dcCore::app()->admin->post_dt || dcCore::app()->admin->post_dt == -1) {
-                        dcCore::app()->admin->bad_dt = true;
+                    Core::backend()->post_dt = strtotime($_POST['post_dt']);
+                    if (!Core::backend()->post_dt || Core::backend()->post_dt == -1) {
+                        Core::backend()->bad_dt = true;
 
                         throw new Exception(__('Invalid publication date'));
                     }
-                    dcCore::app()->admin->post_dt = date('Y-m-d H:i', dcCore::app()->admin->post_dt);
+                    Core::backend()->post_dt = date('Y-m-d H:i', Core::backend()->post_dt);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
             }
 
-            dcCore::app()->admin->post_open_comment = !empty($_POST['post_open_comment']);
-            dcCore::app()->admin->post_open_tb      = !empty($_POST['post_open_tb']);
-            dcCore::app()->admin->post_selected     = !empty($_POST['post_selected']);
-            dcCore::app()->admin->post_lang         = $_POST['post_lang'];
-            dcCore::app()->admin->post_password     = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
-            dcCore::app()->admin->post_position     = (int) $_POST['post_position'];
+            Core::backend()->post_open_comment = !empty($_POST['post_open_comment']);
+            Core::backend()->post_open_tb      = !empty($_POST['post_open_tb']);
+            Core::backend()->post_selected     = !empty($_POST['post_selected']);
+            Core::backend()->post_lang         = $_POST['post_lang'];
+            Core::backend()->post_password     = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
+            Core::backend()->post_position     = (int) $_POST['post_position'];
 
-            dcCore::app()->admin->post_notes = $_POST['post_notes'];
+            Core::backend()->post_notes = $_POST['post_notes'];
 
             if (isset($_POST['post_url'])) {
-                dcCore::app()->admin->post_url = $_POST['post_url'];
+                Core::backend()->post_url = $_POST['post_url'];
             }
 
             [
                 $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
             ] = [
-                dcCore::app()->admin->post_excerpt,
-                dcCore::app()->admin->post_excerpt_xhtml,
-                dcCore::app()->admin->post_content,
-                dcCore::app()->admin->post_content_xhtml,
+                Core::backend()->post_excerpt,
+                Core::backend()->post_excerpt_xhtml,
+                Core::backend()->post_content,
+                Core::backend()->post_content_xhtml,
             ];
 
-            dcCore::app()->blog->setPostContent(
-                dcCore::app()->admin->post_id,
-                dcCore::app()->admin->post_format,
-                dcCore::app()->admin->post_lang,
+            Core::blog()->setPostContent(
+                Core::backend()->post_id,
+                Core::backend()->post_format,
+                Core::backend()->post_lang,
                 $post_excerpt,
                 $post_excerpt_xhtml,
                 $post_content,
@@ -278,73 +278,73 @@ class ManagePage extends Process
             );
 
             [
-                dcCore::app()->admin->post_excerpt,
-                dcCore::app()->admin->post_excerpt_xhtml,
-                dcCore::app()->admin->post_content,
-                dcCore::app()->admin->post_content_xhtml
+                Core::backend()->post_excerpt,
+                Core::backend()->post_excerpt_xhtml,
+                Core::backend()->post_content,
+                Core::backend()->post_content_xhtml
             ] = [
                 $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml,
             ];
         }
 
-        if (!empty($_POST['delete']) && dcCore::app()->admin->can_delete) {
+        if (!empty($_POST['delete']) && Core::backend()->can_delete) {
             // Delete page
 
             try {
                 # --BEHAVIOR-- adminBeforePageDelete -- int
-                Core::behavior()->callBehavior('adminBeforePageDelete', dcCore::app()->admin->post_id);
-                dcCore::app()->blog->delPost(dcCore::app()->admin->post_id);
+                Core::behavior()->callBehavior('adminBeforePageDelete', Core::backend()->post_id);
+                Core::blog()->delPost(Core::backend()->post_id);
                 My::redirect();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
         }
 
-        if (!empty($_POST) && !empty($_POST['save']) && dcCore::app()->admin->can_edit_page && !dcCore::app()->admin->bad_dt) {
+        if (!empty($_POST) && !empty($_POST['save']) && Core::backend()->can_edit_page && !Core::backend()->bad_dt) {
             // Create or update page
 
-            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+            $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
             // Magic tweak :)
-            dcCore::app()->blog->settings->system->post_url_format = '{t}';
+            Core::blog()->settings->system->post_url_format = '{t}';
 
             $cur->post_type          = 'page';
-            $cur->post_dt            = dcCore::app()->admin->post_dt ? date('Y-m-d H:i:00', strtotime(dcCore::app()->admin->post_dt)) : '';
-            $cur->post_format        = dcCore::app()->admin->post_format;
-            $cur->post_password      = dcCore::app()->admin->post_password;
-            $cur->post_lang          = dcCore::app()->admin->post_lang;
-            $cur->post_title         = dcCore::app()->admin->post_title;
-            $cur->post_excerpt       = dcCore::app()->admin->post_excerpt;
-            $cur->post_excerpt_xhtml = dcCore::app()->admin->post_excerpt_xhtml;
-            $cur->post_content       = dcCore::app()->admin->post_content;
-            $cur->post_content_xhtml = dcCore::app()->admin->post_content_xhtml;
-            $cur->post_notes         = dcCore::app()->admin->post_notes;
-            $cur->post_status        = dcCore::app()->admin->post_status;
-            $cur->post_position      = dcCore::app()->admin->post_position;
-            $cur->post_open_comment  = (int) dcCore::app()->admin->post_open_comment;
-            $cur->post_open_tb       = (int) dcCore::app()->admin->post_open_tb;
-            $cur->post_selected      = (int) dcCore::app()->admin->post_selected;
+            $cur->post_dt            = Core::backend()->post_dt ? date('Y-m-d H:i:00', strtotime(Core::backend()->post_dt)) : '';
+            $cur->post_format        = Core::backend()->post_format;
+            $cur->post_password      = Core::backend()->post_password;
+            $cur->post_lang          = Core::backend()->post_lang;
+            $cur->post_title         = Core::backend()->post_title;
+            $cur->post_excerpt       = Core::backend()->post_excerpt;
+            $cur->post_excerpt_xhtml = Core::backend()->post_excerpt_xhtml;
+            $cur->post_content       = Core::backend()->post_content;
+            $cur->post_content_xhtml = Core::backend()->post_content_xhtml;
+            $cur->post_notes         = Core::backend()->post_notes;
+            $cur->post_status        = Core::backend()->post_status;
+            $cur->post_position      = Core::backend()->post_position;
+            $cur->post_open_comment  = (int) Core::backend()->post_open_comment;
+            $cur->post_open_tb       = (int) Core::backend()->post_open_tb;
+            $cur->post_selected      = (int) Core::backend()->post_selected;
 
             if (isset($_POST['post_url'])) {
-                $cur->post_url = dcCore::app()->admin->post_url;
+                $cur->post_url = Core::backend()->post_url;
             }
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
             Date::setTZ('UTC');
 
-            if (dcCore::app()->admin->post_id) {
+            if (Core::backend()->post_id) {
                 // Update post
 
                 try {
                     # --BEHAVIOR-- adminBeforePageUpdate -- Cursor, int
-                    Core::behavior()->callBehavior('adminBeforePageUpdate', $cur, dcCore::app()->admin->post_id);
+                    Core::behavior()->callBehavior('adminBeforePageUpdate', $cur, Core::backend()->post_id);
 
-                    dcCore::app()->blog->updPost(dcCore::app()->admin->post_id, $cur);
+                    Core::blog()->updPost(Core::backend()->post_id, $cur);
 
                     # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
-                    Core::behavior()->callBehavior('adminAfterPageUpdate', $cur, dcCore::app()->admin->post_id);
+                    Core::behavior()->callBehavior('adminAfterPageUpdate', $cur, Core::backend()->post_id);
 
-                    My::redirect(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'upd' => '1']);
+                    My::redirect(['act' => 'page', 'id' => Core::backend()->post_id, 'upd' => '1']);
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
@@ -355,7 +355,7 @@ class ManagePage extends Process
                     # --BEHAVIOR-- adminBeforePageCreate -- Cursor
                     Core::behavior()->callBehavior('adminBeforePageCreate', $cur);
 
-                    $return_id = dcCore::app()->blog->addPost($cur);
+                    $return_id = Core::blog()->addPost($cur);
 
                     # --BEHAVIOR-- adminAfterPageCreate -- Cursor, int
                     Core::behavior()->callBehavior('adminAfterPageCreate', $cur, $return_id);
@@ -379,28 +379,28 @@ class ManagePage extends Process
             return;
         }
 
-        if (dcCore::app()->admin->comments_actions_page_rendered) {
-            dcCore::app()->admin->comments_actions_page->render();
+        if (Core::backend()->comments_actions_page_rendered) {
+            Core::backend()->comments_actions_page->render();
 
             return;
         }
 
-        dcCore::app()->admin->default_tab = 'edit-entry';
-        if (!dcCore::app()->admin->can_edit_page) {
-            dcCore::app()->admin->default_tab = '';
+        Core::backend()->default_tab = 'edit-entry';
+        if (!Core::backend()->can_edit_page) {
+            Core::backend()->default_tab = '';
         }
         if (!empty($_GET['co'])) {
-            dcCore::app()->admin->default_tab = 'comments';
+            Core::backend()->default_tab = 'comments';
         }
 
         $admin_post_behavior = '';
-        if (dcCore::app()->admin->post_editor) {
+        if (Core::backend()->post_editor) {
             $p_edit = $c_edit = '';
-            if (!empty(dcCore::app()->admin->post_editor[dcCore::app()->admin->post_format])) {
-                $p_edit = dcCore::app()->admin->post_editor[dcCore::app()->admin->post_format];
+            if (!empty(Core::backend()->post_editor[Core::backend()->post_format])) {
+                $p_edit = Core::backend()->post_editor[Core::backend()->post_format];
             }
-            if (!empty(dcCore::app()->admin->post_editor['xhtml'])) {
-                $c_edit = dcCore::app()->admin->post_editor['xhtml'];
+            if (!empty(Core::backend()->post_editor['xhtml'])) {
+                $c_edit = Core::backend()->post_editor['xhtml'];
             }
             if ($p_edit == $c_edit) {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
@@ -409,7 +409,7 @@ class ManagePage extends Process
                     $p_edit,
                     'page',
                     ['#post_excerpt', '#post_content', '#comment_content'],
-                    dcCore::app()->admin->post_format
+                    Core::backend()->post_format
                 );
             } else {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
@@ -418,7 +418,7 @@ class ManagePage extends Process
                     $p_edit,
                     'page',
                     ['#post_excerpt', '#post_content'],
-                    dcCore::app()->admin->post_format
+                    Core::backend()->post_format
                 );
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
                 $admin_post_behavior .= Core::behavior()->callBehavior(
@@ -432,7 +432,7 @@ class ManagePage extends Process
         }
 
         Page::openModule(
-            dcCore::app()->admin->page_title . ' - ' . My::name(),
+            Core::backend()->page_title . ' - ' . My::name(),
             Page::jsModal() .
             Page::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
             Page::jsLoad('js/_post.js') .
@@ -441,16 +441,16 @@ class ManagePage extends Process
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPageHeaders --
             Core::behavior()->callBehavior('adminPageHeaders') .
-            Page::jsPageTabs(dcCore::app()->admin->default_tab) .
-            dcCore::app()->admin->next_headlink . "\n" . dcCore::app()->admin->prev_headlink
+            Page::jsPageTabs(Core::backend()->default_tab) .
+            Core::backend()->next_headlink . "\n" . Core::backend()->prev_headlink
         );
 
         $img_status         = '';
         $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
-        if (dcCore::app()->admin->post_id) {
+        if (Core::backend()->post_id) {
             try {
-                $img_status = match (dcCore::app()->admin->post_status) {
+                $img_status = match (Core::backend()->post_status) {
                     dcBlog::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
                     dcBlog::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
                     dcBlog::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
@@ -458,14 +458,14 @@ class ManagePage extends Process
                 };
             } catch (UnhandledMatchError) {
             }
-            $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title))) . '&rdquo;' . ' ' . $img_status;
+            $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(Core::backend()->post_title))) . '&rdquo;' . ' ' . $img_status;
         } else {
-            $edit_entry_title = dcCore::app()->admin->page_title;
+            $edit_entry_title = Core::backend()->page_title;
         }
         echo Page::breadcrumb(
             [
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
-                My::name()                                  => dcCore::app()->admin->getPageURL(),
+                Html::escapeHTML(Core::blog()->name) => '',
+                My::name()                                  => Core::backend()->getPageURL(),
                 $edit_entry_title                           => '',
             ]
         );
@@ -482,45 +482,45 @@ class ManagePage extends Process
 
         # HTML conversion
         if (!empty($_GET['xconv'])) {
-            dcCore::app()->admin->post_excerpt = dcCore::app()->admin->post_excerpt_xhtml;
-            dcCore::app()->admin->post_content = dcCore::app()->admin->post_content_xhtml;
-            dcCore::app()->admin->post_format  = 'xhtml';
+            Core::backend()->post_excerpt = Core::backend()->post_excerpt_xhtml;
+            Core::backend()->post_content = Core::backend()->post_content_xhtml;
+            Core::backend()->post_format  = 'xhtml';
 
             Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
-        if (dcCore::app()->admin->post_id && dcCore::app()->admin->post->post_status == dcBlog::POST_PUBLISHED) {
+        if (Core::backend()->post_id && Core::backend()->post->post_status == dcBlog::POST_PUBLISHED) {
             echo
-            '<p><a class="onblog_link outgoing" href="' . dcCore::app()->admin->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(dcCore::app()->admin->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+            '<p><a class="onblog_link outgoing" href="' . Core::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(Core::backend()->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
         }
 
         echo '';
 
-        if (dcCore::app()->admin->post_id) {
+        if (Core::backend()->post_id) {
             echo
             '<p class="nav_prevnext">';
-            if (dcCore::app()->admin->prev_link) {
+            if (Core::backend()->prev_link) {
                 echo
-                dcCore::app()->admin->prev_link;
+                Core::backend()->prev_link;
             }
-            if (dcCore::app()->admin->next_link && dcCore::app()->admin->prev_link) {
+            if (Core::backend()->next_link && Core::backend()->prev_link) {
                 echo
                 ' | ';
             }
-            if (dcCore::app()->admin->next_link) {
+            if (Core::backend()->next_link) {
                 echo
-                dcCore::app()->admin->next_link;
+                Core::backend()->next_link;
             }
 
             # --BEHAVIOR-- adminPageNavLinks -- MetaRecord|null
-            Core::behavior()->callBehavior('adminPageNavLinks', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageNavLinks', Core::backend()->post ?? null);
 
             echo
             '</p>';
         }
 
         # Exit if we cannot view page
-        if (!dcCore::app()->admin->can_view_page) {
+        if (!Core::backend()->can_view_page) {
             Page::closeModule();
 
             return;
@@ -528,7 +528,7 @@ class ManagePage extends Process
 
         /* Post form if we can edit page
         -------------------------------------------------------- */
-        if (dcCore::app()->admin->can_edit_page) {
+        if (Core::backend()->can_edit_page) {
             $sidebar_items = new ArrayObject([
                 'status-box' => [
                     'title' => __('Status'),
@@ -536,32 +536,32 @@ class ManagePage extends Process
                         'post_status' => '<p><label for="post_status">' . __('Page status') . '</label> ' .
                         form::combo(
                             'post_status',
-                            dcCore::app()->admin->status_combo,
-                            ['default' => dcCore::app()->admin->post_status, 'disabled' => !dcCore::app()->admin->can_publish]
+                            Core::backend()->status_combo,
+                            ['default' => Core::backend()->post_status, 'disabled' => !Core::backend()->can_publish]
                         ) .
                         '</p>',
                         'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
-                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(dcCore::app()->admin->post_dt))),
-                            'class'   => (dcCore::app()->admin->bad_dt ? 'invalid' : ''),
+                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(Core::backend()->post_dt))),
+                            'class'   => (Core::backend()->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
                         'post_lang' => '<p><label for="post_lang">' . __('Page language') . '</label>' .
-                        form::combo('post_lang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->post_lang) .
+                        form::combo('post_lang', Core::backend()->lang_combo, Core::backend()->post_lang) .
                         '</p>',
                         'post_format' => '<div>' .
                         '<h5 id="label_format"><label for="post_format" class="classic">' . __('Text formatting') . '</label></h5>' .
-                        '<p>' . form::combo('post_format', dcCore::app()->admin->available_formats, dcCore::app()->admin->post_format, 'maximal') . '</p>' .
+                        '<p>' . form::combo('post_format', Core::backend()->available_formats, Core::backend()->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_wiki">' .
-                        '<a id="convert-xhtml" class="button' . (dcCore::app()->admin->post_id && dcCore::app()->admin->post_format != 'wiki' ? ' hide' : '') .
-                        '" href="' . My::manageUrl(['act' => 'page', 'id' => dcCore::app()->admin->post_id, 'xconv' => '1']) . '">' .
+                        '<a id="convert-xhtml" class="button' . (Core::backend()->post_id && Core::backend()->post_format != 'wiki' ? ' hide' : '') .
+                        '" href="' . My::manageUrl(['act' => 'page', 'id' => Core::backend()->post_id, 'xconv' => '1']) . '">' .
                         __('Convert to HTML') . '</a></p></div>', ], ],
                 'metas-box' => [
                     'title' => __('Filing'),
                     'items' => [
                         'post_position' => '<p><label for="post_position" class="classic">' . __('Page position') . '</label> ' .
                         form::number('post_position', [
-                            'default' => dcCore::app()->admin->post_position,
+                            'default' => Core::backend()->post_position,
                         ]) .
                         '</p>', ], ],
                 'options-box' => [
@@ -570,30 +570,30 @@ class ManagePage extends Process
                         'post_open_comment_tb' => '<div>' .
                         '<h5 id="label_comment_tb">' . __('Comments and trackbacks list') . '</h5>' .
                         '<p><label for="post_open_comment" class="classic">' .
-                        form::checkbox('post_open_comment', 1, dcCore::app()->admin->post_open_comment) . ' ' .
+                        form::checkbox('post_open_comment', 1, Core::backend()->post_open_comment) . ' ' .
                         __('Accept comments') . '</label></p>' .
-                        (dcCore::app()->blog->settings->system->allow_comments ?
-                            (self::isContributionAllowed(dcCore::app()->admin->post_id, strtotime(dcCore::app()->admin->post_dt), true) ? '' : '<p class="form-note warn">' .
+                        (Core::blog()->settings->system->allow_comments ?
+                            (self::isContributionAllowed(Core::backend()->post_id, strtotime(Core::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
                             __('Warning: Comments are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' .
                             __('Comments are not accepted on this blog so far.') . '</p>') .
                         '<p><label for="post_open_tb" class="classic">' .
-                        form::checkbox('post_open_tb', 1, dcCore::app()->admin->post_open_tb) . ' ' .
+                        form::checkbox('post_open_tb', 1, Core::backend()->post_open_tb) . ' ' .
                         __('Accept trackbacks') . '</label></p>' .
-                        (dcCore::app()->blog->settings->system->allow_trackbacks ?
-                            (self::isContributionAllowed(dcCore::app()->admin->post_id, strtotime(dcCore::app()->admin->post_dt), false) ? '' : '<p class="form-note warn">' .
+                        (Core::blog()->settings->system->allow_trackbacks ?
+                            (self::isContributionAllowed(Core::backend()->post_id, strtotime(Core::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
                             __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
-                        'post_hide' => '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, dcCore::app()->admin->post_selected) . ' ' .
+                        'post_hide' => '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, Core::backend()->post_selected) . ' ' .
                         __('Hide in widget Pages') . '</label>' .
                         '</p>',
                         'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
-                        form::field('post_password', 10, 32, Html::escapeHTML(dcCore::app()->admin->post_password), 'maximal') .
+                        form::field('post_password', 10, 32, Html::escapeHTML(Core::backend()->post_password), 'maximal') .
                         '</p>',
                         'post_url' => '<div class="lockable">' .
                         '<p><label for="post_url">' . __('Edit basename') . '</label>' .
-                        form::field('post_url', 10, 255, Html::escapeHTML(dcCore::app()->admin->post_url), 'maximal') .
+                        form::field('post_url', 10, 255, Html::escapeHTML(Core::backend()->post_url), 'maximal') .
                         '</p>' .
                         '<p class="form-note warn">' .
                         __('Warning: If you set the URL manually, it may conflict with another page.') .
@@ -604,9 +604,9 @@ class ManagePage extends Process
                     'post_title' => '<p class="col">' .
                     '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
-                        'default'    => Html::escapeHTML(dcCore::app()->admin->post_title),
+                        'default'    => Html::escapeHTML(Core::backend()->post_title),
                         'class'      => 'maximal',
-                        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
+                        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . Core::backend()->post_lang . '" spellcheck="true"',
                     ]) .
                     '</p>',
 
@@ -617,8 +617,8 @@ class ManagePage extends Process
                         50,
                         5,
                         [
-                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_excerpt),
-                            'extra_html' => 'lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
+                            'default'    => Html::escapeHTML(Core::backend()->post_excerpt),
+                            'extra_html' => 'lang="' . Core::backend()->post_lang . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>',
@@ -630,8 +630,8 @@ class ManagePage extends Process
                         50,
                         dcCore::app()->auth->getOption('edit_size'),
                         [
-                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_content),
-                            'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
+                            'default'    => Html::escapeHTML(Core::backend()->post_content),
+                            'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . Core::backend()->post_lang . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>',
@@ -643,8 +643,8 @@ class ManagePage extends Process
                         50,
                         5,
                         [
-                            'default'    => Html::escapeHTML(dcCore::app()->admin->post_notes),
-                            'extra_html' => 'lang="' . dcCore::app()->admin->post_lang . '" spellcheck="true"',
+                            'default'    => Html::escapeHTML(Core::backend()->post_notes),
+                            'extra_html' => 'lang="' . Core::backend()->post_lang . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>',
@@ -652,11 +652,11 @@ class ManagePage extends Process
             );
 
             # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null
-            Core::behavior()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, Core::backend()->post ?? null);
 
             echo
-            '<div class="multi-part" title="' . (dcCore::app()->admin->post_id ? __('Edit page') : __('New page')) .
-            sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(dcCore::app()->admin->post_format)) . '" id="edit-entry">' .
+            '<div class="multi-part" title="' . (Core::backend()->post_id ? __('Edit page') : __('New page')) .
+            sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(Core::backend()->post_format)) . '" id="edit-entry">' .
             '<form action="' . My::manageUrl(['act' => 'page']) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
@@ -667,20 +667,20 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageForm -- MetaRecord|null
-            Core::behavior()->callBehavior('adminPageForm', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageForm', Core::backend()->post ?? null);
 
             echo
             '<p class="border-top">' .
-            (dcCore::app()->admin->post_id ? form::hidden('id', dcCore::app()->admin->post_id) : '') .
+            (Core::backend()->post_id ? form::hidden('id', Core::backend()->post_id) : '') .
             '<input type="submit" value="' . __('Save') . ' (s)" accesskey="s" name="save" /> ';
 
-            if (dcCore::app()->admin->post_id) {
-                $preview_url = dcCore::app()->blog->url .
+            if (Core::backend()->post_id) {
+                $preview_url = Core::blog()->url .
                     dcCore::app()->url->getURLFor(
                         'pagespreview',
                         dcCore::app()->auth->userID() . '/' .
                         Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) .
-                        '/' . dcCore::app()->admin->post->post_url
+                        '/' . Core::backend()->post->post_url
                     );
 
                 // Prevent browser caching on preview
@@ -696,10 +696,10 @@ class ManagePage extends Process
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
             } else {
                 echo
-                '<a id="post-cancel" href="' . dcCore::app()->admin->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                '<a id="post-cancel" href="' . Core::backend()->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
-            echo(dcCore::app()->admin->can_delete ?
+            echo(Core::backend()->can_delete ?
                 ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' :
                 '') .
             Core::nonce()->getFormNonce() .
@@ -723,23 +723,23 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageFormSidebar -- MetaRecord|null
-            Core::behavior()->callBehavior('adminPageFormSidebar', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageFormSidebar', Core::backend()->post ?? null);
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
             # --BEHAVIOR-- adminPostForm -- MetaRecord|null
-            Core::behavior()->callBehavior('adminPageAfterForm', dcCore::app()->admin->post ?? null);
+            Core::behavior()->callBehavior('adminPageAfterForm', Core::backend()->post ?? null);
 
             echo
             '</div>'; // End
 
-            if (dcCore::app()->admin->post_id && !empty(dcCore::app()->admin->post_media)) {
+            if (Core::backend()->post_id && !empty(Core::backend()->post_media)) {
                 echo
-                '<form action="' . dcCore::app()->admin->url->get('admin.post.media') . '" id="attachment-remove-hide" method="post">' .
+                '<form action="' . Core::backend()->url->get('admin.post.media') . '" id="attachment-remove-hide" method="post">' .
                 '<div>' .
-                form::hidden(['post_id'], dcCore::app()->admin->post_id) .
+                form::hidden(['post_id'], Core::backend()->post_id) .
                 form::hidden(['media_id'], '') .
                 form::hidden(['remove'], 1) .
                 Core::nonce()->getFormNonce() .
@@ -748,16 +748,16 @@ class ManagePage extends Process
             }
         }
 
-        if (dcCore::app()->admin->post_id) {
+        if (Core::backend()->post_id) {
             // Comments and trackbacks
 
-            $params = ['post_id' => dcCore::app()->admin->post_id, 'order' => 'comment_dt ASC'];
+            $params = ['post_id' => Core::backend()->post_id, 'order' => 'comment_dt ASC'];
 
-            $comments   = dcCore::app()->blog->getComments(array_merge($params, ['comment_trackback' => 0]));
-            $trackbacks = dcCore::app()->blog->getComments(array_merge($params, ['comment_trackback' => 1]));
+            $comments   = Core::blog()->getComments(array_merge($params, ['comment_trackback' => 0]));
+            $trackbacks = Core::blog()->getComments(array_merge($params, ['comment_trackback' => 1]));
 
             # Actions combo box
-            $combo_action = dcCore::app()->admin->comments_actions_page->getCombo();
+            $combo_action = Core::backend()->comments_actions_page->getCombo();
             $has_action   = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 
             echo
@@ -797,12 +797,12 @@ class ManagePage extends Process
                 form::combo('action', $combo_action) .
                 My::parsedHiddenFields([
                     'act'     => 'page',
-                    'id'      => dcCore::app()->admin->post_id,
+                    'id'      => Core::backend()->post_id,
                     'co'      => '1',
                     'section' => 'comments',
                     'redir'   => My::manageUrl([
                         'act' => 'page',
-                        'id'  => dcCore::app()->admin->post_id,
+                        'id'  => Core::backend()->post_id,
                         'co'  => '1',
                     ]),
                 ]) .
@@ -817,7 +817,7 @@ class ManagePage extends Process
             '<div class="fieldset clear">' .
             '<h3>' . __('Add a comment') . '</h3>' .
 
-            '<form action="' . dcCore::app()->admin->url->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . Core::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
@@ -847,7 +847,7 @@ class ManagePage extends Process
             form::textarea('comment_content', 50, 8, ['extra_html' => 'required placeholder="' . __('Comment') . '"']) .
             '</p>' .
 
-            '<p>' . form::hidden('post_id', dcCore::app()->admin->post_id) .
+            '<p>' . form::hidden('post_id', Core::backend()->post_id) .
             Core::nonce()->getFormNonce() .
             '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
             '</div>' . #constrained
@@ -879,11 +879,11 @@ class ManagePage extends Process
             return true;
         }
         if ($com) {
-            if ((dcCore::app()->blog->settings->system->comments_ttl == 0) || (time() - dcCore::app()->blog->settings->system->comments_ttl * 86400 < $dt)) {
+            if ((Core::blog()->settings->system->comments_ttl == 0) || (time() - Core::blog()->settings->system->comments_ttl * 86400 < $dt)) {
                 return true;
             }
         } else {
-            if ((dcCore::app()->blog->settings->system->trackbacks_ttl == 0) || (time() - dcCore::app()->blog->settings->system->trackbacks_ttl * 86400 < $dt)) {
+            if ((Core::blog()->settings->system->trackbacks_ttl == 0) || (time() - Core::blog()->settings->system->trackbacks_ttl * 86400 < $dt)) {
                 return true;
             }
         }
@@ -904,7 +904,7 @@ class ManagePage extends Process
             dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]),
-            dcCore::app()->blog->id
+            Core::blog()->id
         );
 
         echo
@@ -922,7 +922,7 @@ class ManagePage extends Process
         '</tr>';
 
         while ($rs->fetch()) {
-            $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $rs->comment_id]);
+            $comment_url = Core::backend()->url->get('admin.comment', ['id' => $rs->comment_id]);
 
             $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
             $sts_class = '';
@@ -972,7 +972,7 @@ class ManagePage extends Process
             if ($show_ip) {
                 echo
                 '<td class="nowrap">' .
-                '<a href="' . dcCore::app()->admin->url->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a>' .
+                '<a href="' . Core::backend()->url->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a>' .
                 '</td>';
             }
 

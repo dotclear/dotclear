@@ -11,6 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -69,7 +70,7 @@ class dcDeprecated extends Deprecated
         }
 
         // log deprecated to log table
-        $cursor = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
+        $cursor = Core::con()->openCursor(Core::con()->prefix() . dcLog::LOG_TABLE_NAME);
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
         $cursor->setField('user_id', isset(dcCore::app()->auth) ? dcCore::app()->auth->userID() : 'unknown');
@@ -96,12 +97,12 @@ class dcDeprecated extends Deprecated
         // check logs limit and delete them if it's required
         if ($count > self::DEPRECATED_PURGE_LIMIT) {
             $sql = new DeleteStatement();
-            $sql->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
+            $sql->from(Core::con()->prefix() . dcLog::LOG_TABLE_NAME)
                 ->where('log_table = ' . $sql->quote(self::DEPRECATED_LOG_TABLE));
 
             if (!$all) {
                 $sql_dt = new SelectStatement();
-                $rs     = $sql_dt->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
+                $rs     = $sql_dt->from(Core::con()->prefix() . dcLog::LOG_TABLE_NAME)
                     ->column('log_dt')
                     ->where('log_table = ' . $sql_dt->quote(self::DEPRECATED_LOG_TABLE))
                     ->order('log_dt DESC')

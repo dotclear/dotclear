@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 
 class dcThemes extends dcModules
@@ -32,9 +33,9 @@ class dcThemes extends dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        if ($ns == 'admin' && !is_null(dcCore::app()->blog)) {
+        if ($ns == 'admin' && !is_null(Core::blog())) {
             // Load current theme Backend process (and its parent)
-            $this->loadNsFile((string) dcCore::app()->blog->settings->system->theme, 'admin');
+            $this->loadNsFile((string) Core::blog()->settings->system->theme, 'admin');
         }
     }
 

@@ -39,7 +39,7 @@ class UsersActions extends Process
                 }
             }
         }
-        dcCore::app()->admin->users = $users;
+        Core::backend()->users = $users;
 
         $blogs = [];
         if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
@@ -49,23 +49,23 @@ class UsersActions extends Process
                 }
             }
         }
-        dcCore::app()->admin->blogs = $blogs;
+        Core::backend()->blogs = $blogs;
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        dcCore::app()->admin->action = null;
-        dcCore::app()->admin->redir  = null;
+        Core::backend()->action = null;
+        Core::backend()->redir  = null;
 
         if (!empty($_POST['action']) && !empty($_POST['users'])) {
-            dcCore::app()->admin->action = $_POST['action'];
+            Core::backend()->action = $_POST['action'];
 
             if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
-                dcCore::app()->admin->redir = $_POST['redir'];
+                Core::backend()->redir = $_POST['redir'];
             } else {
-                dcCore::app()->admin->redir = dcCore::app()->admin->url->get('admin.users', [
+                Core::backend()->redir = Core::backend()->url->get('admin.users', [
                     'q'      => $_POST['q']      ?? '',
                     'sortby' => $_POST['sortby'] ?? '',
                     'order'  => $_POST['order']  ?? '',
@@ -74,16 +74,16 @@ class UsersActions extends Process
                 ], '&');
             }
 
-            if (empty(dcCore::app()->admin->users)) {
+            if (empty(Core::backend()->users)) {
                 dcCore::app()->error->add(__('No blog or user given.'));
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
-            Core::behavior()->callBehavior('adminUsersActions', dcCore::app()->admin->users, dcCore::app()->admin->blogs, dcCore::app()->admin->action, dcCore::app()->admin->redir);
+            Core::behavior()->callBehavior('adminUsersActions', Core::backend()->users, Core::backend()->blogs, Core::backend()->action, Core::backend()->redir);
 
-            if (dcCore::app()->admin->action == 'deleteuser' && !empty(dcCore::app()->admin->users)) {
+            if (Core::backend()->action == 'deleteuser' && !empty(Core::backend()->users)) {
                 // Delete users
-                foreach (dcCore::app()->admin->users as $u) {
+                foreach (Core::backend()->users as $u) {
                     try {
                         if ($u == dcCore::app()->auth->userID()) {
                             throw new Exception(__('You cannot delete yourself.'));
@@ -99,19 +99,19 @@ class UsersActions extends Process
                 }
                 if (!dcCore::app()->error->flag()) {
                     Notices::addSuccessNotice(__('User has been successfully deleted.'));
-                    Http::redirect(dcCore::app()->admin->redir);
+                    Http::redirect(Core::backend()->redir);
                 }
             }
 
-            if (dcCore::app()->admin->action == 'updateperm' && !empty(dcCore::app()->admin->users) && !empty(dcCore::app()->admin->blogs)) {
+            if (Core::backend()->action == 'updateperm' && !empty(Core::backend()->users) && !empty(Core::backend()->blogs)) {
                 // Update users perms
                 try {
                     if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                         throw new Exception(__('Password verification failed'));
                     }
 
-                    foreach (dcCore::app()->admin->users as $u) {
-                        foreach (dcCore::app()->admin->blogs as $b) {
+                    foreach (Core::backend()->users as $u) {
+                        foreach (Core::backend()->blogs as $b) {
                             $set_perms = [];
 
                             if (!empty($_POST['perm'][$b])) {
@@ -130,7 +130,7 @@ class UsersActions extends Process
                 }
                 if (!dcCore::app()->error->flag()) {
                     Notices::addSuccessNotice(__('User has been successfully updated.'));
-                    Http::redirect(dcCore::app()->admin->redir);
+                    Http::redirect(Core::backend()->redir);
                 }
             }
         }
@@ -140,11 +140,11 @@ class UsersActions extends Process
 
     public static function render(): void
     {
-        if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {
+        if (!empty(Core::backend()->users) && empty(Core::backend()->blogs) && Core::backend()->action == 'blogs') {
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')      => '',
-                    __('Users')       => dcCore::app()->admin->url->get('admin.users'),
+                    __('Users')       => Core::backend()->url->get('admin.users'),
                     __('Permissions') => '',
                 ]
             );
@@ -152,7 +152,7 @@ class UsersActions extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')  => '',
-                    __('Users')   => dcCore::app()->admin->url->get('admin.users'),
+                    __('Users')   => Core::backend()->url->get('admin.users'),
                     __('Actions') => '',
                 ]
             );
@@ -166,13 +166,13 @@ class UsersActions extends Process
             $breadcrumb
         );
 
-        if (!isset(dcCore::app()->admin->action)) {
+        if (!isset(Core::backend()->action)) {
             Page::close();
             exit;
         }
 
         $hidden_fields = '';
-        foreach (dcCore::app()->admin->users as $u) {
+        foreach (Core::backend()->users as $u) {
             $hidden_fields .= form::hidden(['users[]'], $u);
         }
 
@@ -187,12 +187,12 @@ class UsersActions extends Process
         }
 
         echo
-        '<p><a class="back" href="' . Html::escapeURL(dcCore::app()->admin->redir) . '">' . __('Back to user profile') . '</a></p>';
+        '<p><a class="back" href="' . Html::escapeURL(Core::backend()->redir) . '">' . __('Back to user profile') . '</a></p>';
 
         # --BEHAVIOR-- adminUsersActionsContent -- string, string
-        Core::behavior()->callBehavior('adminUsersActionsContentV2', dcCore::app()->admin->action, $hidden_fields);
+        Core::behavior()->callBehavior('adminUsersActionsContentV2', Core::backend()->action, $hidden_fields);
 
-        if (!empty(dcCore::app()->admin->users) && empty(dcCore::app()->admin->blogs) && dcCore::app()->admin->action == 'blogs') {
+        if (!empty(Core::backend()->users) && empty(Core::backend()->blogs) && Core::backend()->action == 'blogs') {
             // Blog list where to set permissions
 
             $rs      = null;
@@ -206,8 +206,8 @@ class UsersActions extends Process
             }
 
             $user_list = [];
-            foreach (dcCore::app()->admin->users as $u) {
-                $user_list[] = '<a href="' . dcCore::app()->admin->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+            foreach (Core::backend()->users as $u) {
+                $user_list[] = '<a href="' . Core::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -220,7 +220,7 @@ class UsersActions extends Process
                 echo '<p><strong>' . __('No blog') . '</strong></p>';
             } else {
                 echo
-                '<form action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post" id="form-blogs">' .
+                '<form action="' . Core::backend()->url->get('admin.user.actions') . '" method="post" id="form-blogs">' .
                 '<div class="table-outer clear">' .
                 '<table><tr>' .
                 '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
@@ -232,7 +232,7 @@ class UsersActions extends Process
 
                 while ($rs->fetch()) {
                     $img_status = $rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
-                    $txt_status = dcCore::app()->blogs->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : dcBlog::BLOG_ONLINE);
+                    $txt_status = Core::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : dcBlog::BLOG_ONLINE);
                     $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
 
                     echo
@@ -264,17 +264,17 @@ class UsersActions extends Process
                 Core::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }
-        } elseif (!empty(dcCore::app()->admin->blogs) && !empty(dcCore::app()->admin->users) && dcCore::app()->admin->action == 'perms') {
+        } elseif (!empty(Core::backend()->blogs) && !empty(Core::backend()->users) && Core::backend()->action == 'perms') {
             // Permissions list for each selected blogs
 
             $user_perm = [];
-            if ((is_countable(dcCore::app()->admin->users) ? count(dcCore::app()->admin->users) : 0) == 1) {
-                $user_perm = Core::users()->getUserPermissions(dcCore::app()->admin->users[0]);
+            if ((is_countable(Core::backend()->users) ? count(Core::backend()->users) : 0) == 1) {
+                $user_perm = Core::users()->getUserPermissions(Core::backend()->users[0]);
             }
 
             $user_list = [];
-            foreach (dcCore::app()->admin->users as $u) {
-                $user_list[] = '<a href="' . dcCore::app()->admin->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+            foreach (Core::backend()->users as $u) {
+                $user_list[] = '<a href="' . Core::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -282,17 +282,17 @@ class UsersActions extends Process
                 __('You are about to change permissions on the following blogs for users %s.'),
                 implode(', ', $user_list)
             ) . '</p>' .
-            '<form id="permissions-form" action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post">';
+            '<form id="permissions-form" action="' . Core::backend()->url->get('admin.user.actions') . '" method="post">';
 
-            foreach (dcCore::app()->admin->blogs as $b) {
+            foreach (Core::backend()->blogs as $b) {
                 echo
-                '<h3>' . ('Blog:') . ' <a href="' . dcCore::app()->admin->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
+                '<h3>' . ('Blog:') . ' <a href="' . Core::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
                 $unknown_perms = $user_perm;
                 foreach (dcCore::app()->auth->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;
 
-                    if ((is_countable(dcCore::app()->admin->users) ? count(dcCore::app()->admin->users) : 0) == 1) {
+                    if ((is_countable(Core::backend()->users) ? count(Core::backend()->users) : 0) == 1) {
                         $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
                     }
                     if (isset($unknown_perms[$b]['p'][$perm_id])) {

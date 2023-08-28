@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated since 2.27 Use name "admin.user.actions" on dcCore::app()->admin->url methods
+ * @deprecated since 2.27 Use name "admin.user.actions" on Core::backend()->url methods
  *
  * @todo Move to backend Actions
  *

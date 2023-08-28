@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\attachments;
 use ArrayObject;
 use dcCore;
 use dcTemplate;
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 
 class FrontendTemplate
@@ -247,8 +248,8 @@ class FrontendTemplate
         '<?php ' . "\n" .
         'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
         '    $url = $attach_f->media_thumb[\'sq\'];' . "\n" .
-        '    if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
-        '        $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
+        '    if (substr($url, 0, strlen(Core::blog()->host)) === Core::blog()->host) {' . "\n" .
+        '        $url = substr($url, strlen(Core::blog()->host));' . "\n" .
         '    }' . "\n" .
         '    echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '}' . "\n" .
@@ -271,8 +272,8 @@ class FrontendTemplate
         return
         '<?php ' . "\n" .
         '$url = $attach_f->file_url;' . "\n" .
-        'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
-        '    $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
+        'if (substr($url, 0, strlen(Core::blog()->host)) === Core::blog()->host) {' . "\n" .
+        '    $url = substr($url, strlen(Core::blog()->host));' . "\n" .
         '}' . "\n" .
         'echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
@@ -294,8 +295,8 @@ class FrontendTemplate
         return
         '<?php ' . "\n" .
         '$url = dcCore::app()->ctx->file_url;' . "\n" .
-        'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
-        '    $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
+        'if (substr($url, 0, strlen(Core::blog()->host)) === Core::blog()->host) {' . "\n" .
+        '    $url = substr($url, strlen(Core::blog()->host));' . "\n" .
         '}' . "\n" .
         'echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';

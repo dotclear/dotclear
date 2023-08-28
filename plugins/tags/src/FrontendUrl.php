@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Url;
 
 class FrontendUrl extends Url
@@ -51,7 +52,7 @@ class FrontendUrl extends Url
             }
         } else {
             if ($n) {
-                dcCore::app()->public->setPageNumber($n);
+                Core::frontend()->setPageNumber($n);
             }
 
             dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
@@ -111,10 +112,10 @@ class FrontendUrl extends Url
                 $tpl = $type;
                 if ($comments) {
                     $tpl .= '-comments';
-                    dcCore::app()->ctx->nb_comment_per_page = dcCore::app()->blog->settings->system->nb_comment_per_feed;
+                    dcCore::app()->ctx->nb_comment_per_page = Core::blog()->settings->system->nb_comment_per_feed;
                 } else {
-                    dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_feed;
-                    dcCore::app()->ctx->short_feed_items  = dcCore::app()->blog->settings->system->short_feed_items;
+                    dcCore::app()->ctx->nb_entry_per_page = Core::blog()->settings->system->nb_post_per_feed;
+                    dcCore::app()->ctx->short_feed_items  = Core::blog()->settings->system->short_feed_items;
                 }
                 $tpl .= '.xml';
 

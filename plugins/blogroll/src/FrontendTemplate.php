@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use ArrayObject;
 use Exception;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -76,7 +77,7 @@ class FrontendTemplate
      */
     public static function blogrollXbelLink(ArrayObject $attr)
     {
-        return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("xbel")') . '; ?>';
+        return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("xbel")') . '; ?>';
     }
 
     /**
@@ -91,7 +92,7 @@ class FrontendTemplate
      */
     public static function getList(string $cat_title = '<h3>%s</h3>', string $block = '<ul>%s</ul>', string $item = '<li>%s</li>', ?string $category = null): string
     {
-        $blogroll = new Blogroll(dcCore::app()->blog);
+        $blogroll = new Blogroll(Core::blog());
 
         try {
             $links = $blogroll->getLinks();

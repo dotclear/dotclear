@@ -50,64 +50,64 @@ class ModuleExportFlat extends Module
         // Export a blog
         if ($do === 'export_blog' && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
-        ]), dcCore::app()->blog->id)) {
-            $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
-            $blog_id  = dcCore::app()->con->escape(dcCore::app()->blog->id);
+        ]), Core::blog()->id)) {
+            $fullname = Core::blog()->public_path . '/.backup_' . sha1(uniqid());
+            $blog_id  = Core::con()->escape(Core::blog()->id);
 
             try {
-                $exp = new FlatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
+                $exp = new FlatExport(Core::con(), $fullname, Core::con()->prefix());
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|single\n");
 
                 $exp->export(
                     'category',
-                    'SELECT * FROM ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . dcCore::app()->prefix . initBlogroll::LINK_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . Core::con()->prefix() . initBlogroll::LINK_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'setting',
-                    'SELECT * FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'post',
-                    'SELECT * FROM ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
-                    'FROM ' . dcCore::app()->prefix . dcMeta::META_TABLE_NAME . ' M, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . Core::con()->prefix() . dcMeta::META_TABLE_NAME . ' M, ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME . " WHERE media_path = '" .
-                    dcCore::app()->con->escape(dcCore::app()->blog->settings->system->public_path) . "'"
+                    'SELECT * FROM ' . Core::con()->prefix() . dcMedia::MEDIA_TABLE_NAME . " WHERE media_path = '" .
+                    Core::con()->escape(Core::blog()->settings->system->public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
                     'SELECT media_id, M.post_id ' .
-                    'FROM ' . dcCore::app()->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME . ' M, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . Core::con()->prefix() . dcPostMedia::POST_MEDIA_TABLE_NAME . ' M, ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
-                    'FROM ' . dcCore::app()->prefix . dcTrackback::PING_TABLE_NAME . ' ping, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . Core::con()->prefix() . dcTrackback::PING_TABLE_NAME . ' ping, ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'comment',
                     'SELECT C.* ' .
-                    'FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' C, ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' C, ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
@@ -128,10 +128,10 @@ class ModuleExportFlat extends Module
 
         // Export all content
         if ($do === 'export_all' && dcCore::app()->auth->isSuperAdmin()) {
-            $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
+            $fullname = Core::blog()->public_path . '/.backup_' . sha1(uniqid());
 
             try {
-                $exp = new FlatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
+                $exp = new FlatExport(Core::con(), $fullname, Core::con()->prefix());
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|full\n");
                 $exp->exportTable('blog');
                 $exp->exportTable('category');
@@ -221,10 +221,10 @@ class ModuleExportFlat extends Module
         echo
         '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . Html::escapeHTML(dcCore::app()->blog->name)) . '</strong>.</p>' .
+        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . Html::escapeHTML(Core::blog()->name)) . '</strong>.</p>' .
 
         '<p><label for="file_name">' . __('File name:') . '</label>' .
-        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . Html::escapeHTML(dcCore::app()->blog->id . '-backup.txt')) .
+        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . Html::escapeHTML(Core::blog()->id . '-backup.txt')) .
         '</p>' .
 
         '<p><label for="file_zip" class="classic">' .
@@ -232,7 +232,7 @@ class ModuleExportFlat extends Module
         __('Compress file') . '</label>' .
         '</p>' .
 
-        '<p class="zip-dl"><a href="' . dcCore::app()->admin->url->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
+        '<p class="zip-dl"><a href="' . Core::backend()->url->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
         __('You may also want to download your media directory as a zip file') . '</a></p>' .
 
         '<p><input type="submit" value="' . __('Export') . '" />' .

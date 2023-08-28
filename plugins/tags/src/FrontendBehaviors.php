@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
 
@@ -45,10 +46,10 @@ class FrontendBehaviors
             "if (!isset(\$params)) { \$params = []; }\n" .
             "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
             "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
-            "\$params['from'] .= ', '.dcCore::app()->prefix.'meta META ';\n" .
+            "\$params['from'] .= ', '.Core::con()->prefix().'meta META ';\n" .
             "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
             "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-            "\$params['sql'] .= \"AND META.meta_id = '" . dcCore::app()->con->escape($attr['tag']) . "' \";\n" .
+            "\$params['sql'] .= \"AND META.meta_id = '" . Core::con()->escape($attr['tag']) . "' \";\n" .
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($block == 'Entries' || $block == 'Comments')) {
             return
@@ -56,10 +57,10 @@ class FrontendBehaviors
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
-                "\$params['from'] .= ', '.dcCore::app()->prefix.'meta META ';\n" .
+                "\$params['from'] .= ', '.Core::con()->prefix().'meta META ';\n" .
                 "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
                 "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-                "\$params['sql'] .= \"AND META.meta_id = '\".dcCore::app()->con->escape(dcCore::app()->ctx->meta->meta_id).\"' \";\n" .
+                "\$params['sql'] .= \"AND META.meta_id = '\".Core::con()->escape(dcCore::app()->ctx->meta->meta_id).\"' \";\n" .
                 "} ?>\n";
         }
 
@@ -71,7 +72,7 @@ class FrontendBehaviors
      */
     public static function addTplPath(): void
     {
-        $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+        $tplset           = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
         $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
 
         if (!empty($tplset) && is_dir($default_template . $tplset)) {

@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 
 class Menus extends ArrayObject
 {
@@ -54,7 +55,7 @@ class Menus extends ArrayObject
             return;
         }
 
-        $url     = dcCore::app()->admin->url->get($adminurl);
+        $url     = Core::backend()->url->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
         $this->offsetGet($section)->prependItem(
             $desc,
@@ -74,7 +75,7 @@ class Menus extends ArrayObject
     public function setDefaultItems(): void
     {
         // nullsafe and context
-        if (!defined('DC_CONTEXT_ADMIN') || is_null(dcCore::app()->blog)) {
+        if (!defined('DC_CONTEXT_ADMIN') || is_null(Core::blog())) {
             return;
         }
 
@@ -91,7 +92,7 @@ class Menus extends ArrayObject
             ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'BlogTheme'
@@ -103,7 +104,7 @@ class Menus extends ArrayObject
             ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'BlogPref'
@@ -116,7 +117,7 @@ class Menus extends ArrayObject
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_MEDIA,
                 dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'Media'
@@ -128,7 +129,7 @@ class Menus extends ArrayObject
             ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CATEGORIES,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'Categories'
@@ -141,7 +142,7 @@ class Menus extends ArrayObject
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'Search'
@@ -154,7 +155,7 @@ class Menus extends ArrayObject
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'Comments'
@@ -167,7 +168,7 @@ class Menus extends ArrayObject
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             false,
             false,
             'Posts'
@@ -180,7 +181,7 @@ class Menus extends ArrayObject
             dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id),
+            ]), Core::blog()->id),
             true,
             true,
             'NewPost'
@@ -246,7 +247,7 @@ class Menus extends ArrayObject
                     dcCore::app()->auth::PERMISSION_USAGE,
                     dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]),
-                dcCore::app()->blog->id
+                Core::blog()->id
             ) && dcCore::app()->auth->getBlogCount() > 1,
             false,
             false,

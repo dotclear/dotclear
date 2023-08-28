@@ -81,7 +81,7 @@ $(() => {
    */
   CKEDITOR.timestamp = '';
 
-<?php if (!isset(dcCore::app()->admin->editor_cke_disable_native_spellchecker) || dcCore::app()->admin->editor_cke_disable_native_spellchecker): ?>
+<?php if (!isset(Core::backend()->editor_cke_disable_native_spellchecker) || Core::backend()->editor_cke_disable_native_spellchecker): ?>
   CKEDITOR.config.disableNativeSpellChecker = true;
 <?php else: ?>
   CKEDITOR.config.disableNativeSpellChecker = false;
@@ -91,7 +91,7 @@ $(() => {
   CKEDITOR.config.baseHref = dotclear.base_url;
   CKEDITOR.config.height = '<?php echo dcCore::app()->auth->getOption('edit_size') * 14; ?>px';
 
-<?php if (!empty(dcCore::app()->admin->editor_cke_cancollapse_button)): ?>
+<?php if (!empty(Core::backend()->editor_cke_cancollapse_button)): ?>
   CKEDITOR.config.toolbarCanCollapse = true;
 <?php endif;?>
 
@@ -100,13 +100,13 @@ $(() => {
   CKEDITOR.plugins.addExternal('media', `${dotclear.dcckeditor_plugin_url}/js/ckeditor-plugins/media/`);
   CKEDITOR.plugins.addExternal('img', `${dotclear.dcckeditor_plugin_url}/js/ckeditor-plugins/img/`);
 
-<?php if (!empty(dcCore::app()->admin->editor_cke_textcolor_button) || !empty(dcCore::app()->admin->editor_cke_background_textcolor_button)): ?>
+<?php if (!empty(Core::backend()->editor_cke_textcolor_button) || !empty(Core::backend()->editor_cke_background_textcolor_button)): ?>
   // button add "More Colors..." can be added if colordialog plugin is enabled
   CKEDITOR.config.colorButton_enableMore = true;
-<?php if (!empty(dcCore::app()->admin->editor_cke_custom_color_list)) : ?>
-  CKEDITOR.config.colorButton_colors = '<?php echo dcCore::app()->admin->editor_cke_custom_color_list; ?>';
+<?php if (!empty(Core::backend()->editor_cke_custom_color_list)) : ?>
+  CKEDITOR.config.colorButton_colors = '<?php echo Core::backend()->editor_cke_custom_color_list; ?>';
 <?php endif;?>
-  CKEDITOR.config.colorButton_colorsPerRow = <?php echo dcCore::app()->admin->editor_cke_colors_per_row ?: 6; // @phpstan-ignore-line?>;
+  CKEDITOR.config.colorButton_colorsPerRow = <?php echo Core::backend()->editor_cke_colors_per_row ?: 6; // @phpstan-ignore-line?>;
 <?php endif;?>
 
   CKEDITOR.config.defaultLanguage = dotclear.user_language;
@@ -141,10 +141,10 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
           dotclear.msg.img_select_accesskey.toUpperCase().charCodeAt(0),'mediaCommand' ],    // Ctrl+Alt+m
     ],
 
-<?php if (!empty(dcCore::app()->admin->editor_cke_format_select)): ?>
+<?php if (!empty(Core::backend()->editor_cke_format_select)): ?>
     // format tags
-<?php if (!empty(dcCore::app()->admin->editor_cke_format_tags)): ?>
-    format_tags: '<?php echo dcCore::app()->admin->editor_cke_format_tags; ?>',
+<?php if (!empty(Core::backend()->editor_cke_format_tags)): ?>
+    format_tags: '<?php echo Core::backend()->editor_cke_format_tags; ?>',
 <?php else: ?>
     format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
 <?php endif;?>
@@ -168,41 +168,41 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
       {
         name: 'basicstyles',
         items: [
-<?php if (!empty(dcCore::app()->admin->editor_cke_format_select)): ?>
+<?php if (!empty(Core::backend()->editor_cke_format_select)): ?>
           'Format',
 <?php endif;?>
           'Bold','Italic','Underline','Strike','Subscript','Superscript','Code','Blockquote',
-<?php if (!empty(dcCore::app()->admin->editor_cke_list_buttons)): ?>
+<?php if (!empty(Core::backend()->editor_cke_list_buttons)): ?>
           'NumberedList','BulletedList',
 <?php endif;?>
           'RemoveFormat',
-<?php if (!empty(dcCore::app()->admin->editor_cke_textcolor_button)): ?>
+<?php if (!empty(Core::backend()->editor_cke_textcolor_button)): ?>
           'TextColor',
 <?php endif;?>
-<?php if (!empty(dcCore::app()->admin->editor_cke_background_textcolor_button)): ?>
+<?php if (!empty(Core::backend()->editor_cke_background_textcolor_button)): ?>
           'BGColor',
 <?php endif;?>
         ]
       },
-<?php if (!empty(dcCore::app()->admin->editor_cke_clipboard_buttons)): ?>
+<?php if (!empty(Core::backend()->editor_cke_clipboard_buttons)): ?>
       {
         name: 'clipoard',
         items: ['Cut','Copy','Paste','PasteText','PasteFromWord']
       },
 <?php endif;?>
-<?php if (!empty(dcCore::app()->admin->editor_cke_action_buttons)): ?>
+<?php if (!empty(Core::backend()->editor_cke_action_buttons)): ?>
       {
         name: 'action',
         items: ['Undo','Redo']
       },
 <?php endif;?>
-<?php if (!empty(dcCore::app()->admin->editor_cke_alignment_buttons)): ?>
+<?php if (!empty(Core::backend()->editor_cke_alignment_buttons)): ?>
       {
         name: 'paragraph',
         items: ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
       },
 <?php endif;?>
-<?php if (!empty(dcCore::app()->admin->editor_cke_table_button)): ?>
+<?php if (!empty(Core::backend()->editor_cke_table_button)): ?>
       {
         name: 'table',
         items: ['Table']
@@ -228,7 +228,7 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
 ?>
     ],
 <?php // footnotes related
-$tag = match (dcCore::app()->blog->settings->system->note_title_tag) {
+$tag = match (Core::blog()->settings->system->note_title_tag) {
     1       => 'h3',
     2       => 'p',
     default => 'h4',

@@ -41,20 +41,20 @@ class Manage extends Process
         Widgets::init();
 
         // Loading navigation, extra widgets and custom widgets
-        dcCore::app()->admin->widgets_nav = null;
+        Core::backend()->widgets_nav = null;
         if (My::settings()->widgets_nav) {
-            dcCore::app()->admin->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
+            Core::backend()->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
-        dcCore::app()->admin->widgets_extra = null;
+        Core::backend()->widgets_extra = null;
         if (My::settings()->widgets_extra) {
-            dcCore::app()->admin->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
+            Core::backend()->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
-        dcCore::app()->admin->widgets_custom = null;
+        Core::backend()->widgets_custom = null;
         if (My::settings()->widgets_custom) {
-            dcCore::app()->admin->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
+            Core::backend()->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 
-        dcCore::app()->admin->append_combo = [
+        Core::backend()->append_combo = [
             '-'              => 0,
             __('navigation') => Widgets::WIDGETS_NAV,
             __('extra')      => Widgets::WIDGETS_EXTRA,
@@ -80,23 +80,23 @@ class Manage extends Process
 
             # Append widgets
             if (!empty($addw)) {
-                if (!(dcCore::app()->admin->widgets_nav instanceof WidgetsStack)) {
-                    dcCore::app()->admin->widgets_nav = new WidgetsStack();
+                if (!(Core::backend()->widgets_nav instanceof WidgetsStack)) {
+                    Core::backend()->widgets_nav = new WidgetsStack();
                 }
-                if (!(dcCore::app()->admin->widgets_extra instanceof WidgetsStack)) {
-                    dcCore::app()->admin->widgets_extra = new WidgetsStack();
+                if (!(Core::backend()->widgets_extra instanceof WidgetsStack)) {
+                    Core::backend()->widgets_extra = new WidgetsStack();
                 }
-                if (!(dcCore::app()->admin->widgets_custom instanceof WidgetsStack)) {
-                    dcCore::app()->admin->widgets_custom = new WidgetsStack();
+                if (!(Core::backend()->widgets_custom instanceof WidgetsStack)) {
+                    Core::backend()->widgets_custom = new WidgetsStack();
                 }
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         try {
                             match ($v) {
-                                Widgets::WIDGETS_NAV    => dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k}),
-                                Widgets::WIDGETS_EXTRA  => dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k}),
-                                Widgets::WIDGETS_CUSTOM => dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_NAV    => Core::backend()->widgets_nav->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_EXTRA  => Core::backend()->widgets_extra->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_CUSTOM => Core::backend()->widgets_custom->append(dcCore::app()->widgets->{$k}),
                             };
                         } catch (UnhandledMatchError) {
                         }
@@ -104,10 +104,10 @@ class Manage extends Process
                 }
 
                 try {
-                    My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store(), dcNamespace::NS_ARRAY);
-                    My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store(), dcNamespace::NS_ARRAY);
-                    My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store(), dcNamespace::NS_ARRAY);
-                    dcCore::app()->blog->triggerBlog();
+                    My::settings()->put('widgets_nav', Core::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_extra', Core::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_custom', Core::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
+                    Core::blog()->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
@@ -184,14 +184,14 @@ class Manage extends Process
                     $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
-                dcCore::app()->admin->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
+                Core::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], dcCore::app()->widgets);
+                Core::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
+                Core::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
 
-                My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store(), dcNamespace::NS_ARRAY);
-                My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store(), dcNamespace::NS_ARRAY);
-                My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store(), dcNamespace::NS_ARRAY);
-                dcCore::app()->blog->triggerBlog();
+                My::settings()->put('widgets_nav', Core::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_extra', Core::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_custom', Core::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
+                Core::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
                 My::redirect();
@@ -203,7 +203,7 @@ class Manage extends Process
                 My::settings()->put('widgets_nav', '');
                 My::settings()->put('widgets_extra', '');
                 My::settings()->put('widgets_custom', '');
-                dcCore::app()->blog->triggerBlog();
+                Core::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars have been resetting.'));
                 My::redirect();
@@ -261,14 +261,14 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(Core::blog()->name) => '',
                 My::name()                                  => '',
             ]
         ) .
         Notices::getNotices() .
 
         # All widgets
-        '<form id="listWidgets" action="' . dcCore::app()->admin->getPageURL() . '" method="post"  class="widgets">' .
+        '<form id="listWidgets" action="' . Core::backend()->getPageURL() . '" method="post"  class="widgets">' .
         '<h3>' . __('Available widgets') . '</h3>' .
         '<p>' . __('Drag widgets from this list to one of the sidebars, for add.') . '</p>' .
         '<ul id="widgets-ref">';
@@ -285,7 +285,7 @@ class Manage extends Process
             ' ' . $w->name() .
             ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
             '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
-            form::combo(['addw[' . $w->id() . ']'], dcCore::app()->admin->append_combo) .
+            form::combo(['addw[' . $w->id() . ']'], Core::backend()->append_combo) .
             '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '" /></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings('w[void][0]', $j) . '</div>' .
             '</li>';
@@ -298,21 +298,21 @@ class Manage extends Process
         '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
         '</form>' .
 
-        '<form id="sidebarsWidgets" action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
+        '<form id="sidebarsWidgets" action="' . Core::backend()->getPageURL() . '" method="post">' .
 
         // Nav sidebar
         '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), dcCore::app()->admin->widgets_nav, Widgets::WIDGETS_NAV, dcCore::app()->default_widgets[Widgets::WIDGETS_NAV], $j) .
+        self::sidebarWidgets('dndnav', __('Navigation sidebar'), Core::backend()->widgets_nav, Widgets::WIDGETS_NAV, dcCore::app()->default_widgets[Widgets::WIDGETS_NAV], $j) .
         '</div>' .
 
         // Extra sidebar
         '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), dcCore::app()->admin->widgets_extra, Widgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[Widgets::WIDGETS_EXTRA], $j) .
+        self::sidebarWidgets('dndextra', __('Extra sidebar'), Core::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[Widgets::WIDGETS_EXTRA], $j) .
         '</div>' .
 
         // Custom sidebar
         '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), dcCore::app()->admin->widgets_custom, Widgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
+        self::sidebarWidgets('dndcustom', __('Custom sidebar'), Core::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
         '<p id="sidebarsControl">' .

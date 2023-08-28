@@ -6,4 +6,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-dcCore::app()->admin->resources->set('help', 'dcLegacyEditor', __DIR__ . '/help/legacy_editor.html');
+\Dotclear\Core\Core::backend()->resources->set('help', 'dcLegacyEditor', __DIR__ . '/help/legacy_editor.html');

@@ -25,7 +25,7 @@ class GrowUp_2_25_lt
         // Remove removed blogs from users default blog
         $ids = [];
         $rs  = (new SelectStatement())
-            ->from(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME)
+            ->from(Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME)
             ->where('blog_status = ' . dcBlog::BLOG_REMOVED)
             ->select();
         while ($rs->fetch()) {

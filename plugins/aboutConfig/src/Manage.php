@@ -30,7 +30,7 @@ class Manage extends Process
     public static function init(): bool
     {
         if (self::status(My::checkContext(My::MANAGE))) {
-            dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
+            Core::backend()->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
         }
 
         return self::status();
@@ -61,9 +61,9 @@ class Manage extends Process
                         if ($_POST['s_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        dcCore::app()->blog->settings->$ns->put($k, $v);
+                        Core::blog()->settings->$ns->put($k, $v);
                     }
-                    dcCore::app()->blog->triggerBlog();
+                    Core::blog()->triggerBlog();
                 }
 
                 Notices::addSuccessNotice(__('Configuration successfully updated'));
@@ -81,9 +81,9 @@ class Manage extends Process
                         if ($_POST['gs_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        dcCore::app()->blog->settings->$ns->put($k, $v, null, null, true, true);
+                        Core::blog()->settings->$ns->put($k, $v, null, null, true, true);
                     }
-                    dcCore::app()->blog->triggerBlog();
+                    Core::blog()->triggerBlog();
                 }
 
                 Notices::addSuccessNotice(__('Configuration successfully updated'));
@@ -109,7 +109,7 @@ class Manage extends Process
 
         Page::openModule(
             My::name(),
-            Page::jsPageTabs(dcCore::app()->admin->part) .
+            Page::jsPageTabs(Core::backend()->part) .
             My::jsLoad('index.js')
         );
 
@@ -117,13 +117,13 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 __('System')                                => '',
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
+                Html::escapeHTML(Core::blog()->name) => '',
                 My::name()                                  => '',
             ]
         ) .
         Notices::getNotices() .
-        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '">' .
-        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(dcCore::app()->blog->name)) . '</h3>';
+        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(Core::blog()->name)) . '">' .
+        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(Core::blog()->name)) . '</h3>';
 
         self::settingsTable(false);
 
@@ -164,7 +164,7 @@ class Manage extends Process
         $table_footer = '</tbody></table></div>';
 
         /** @var array<string|dcNamespace> */
-        $namespaces = dcCore::app()->blog->settings->dumpNamespaces();
+        $namespaces = Core::blog()->settings->dumpNamespaces();
         $settings   = [];
         if ($global) {
             $prefix     = 'g_';
@@ -199,7 +199,7 @@ class Manage extends Process
                 $ns_combo[$ns] = $prefix_id . $ns;
             }
             echo
-            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
             '<p class="anchor-nav">' .
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ns_combo, ['class' => 'navigation']) .
@@ -210,7 +210,7 @@ class Manage extends Process
         }
 
         echo
-        '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post">';
+        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post">';
         foreach ($settings as $ns => $s) {
             ksort($s);
             echo sprintf($table_header, $prefix . $ns, $ns);

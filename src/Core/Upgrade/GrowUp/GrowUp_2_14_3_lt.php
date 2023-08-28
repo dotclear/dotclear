@@ -14,13 +14,14 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcCore;
 use dcNamespace;
+use Dotclear\Core\Core;
 
 class GrowUp_2_14_3_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         # Update flie exclusion upload regex
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             " SET setting_value = '/\\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i' " .
             " WHERE setting_id = 'media_exclusion' " .
             " AND setting_ns = 'system' " .
@@ -29,7 +30,7 @@ class GrowUp_2_14_3_lt
             "   OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*$/i' " .
             "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*$/i'" .
             "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*$/i'";
-        dcCore::app()->con->execute($strReq);
+        Core::con()->execute($strReq);
 
         return $cleanup_sessions;
     }

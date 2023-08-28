@@ -13,6 +13,7 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Behavior;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
@@ -227,7 +228,7 @@ class Filter
      */
     public function wikiPostLink(string $url, string $content): array
     {
-        if (is_null(dcCore::app()->blog)) {
+        if (is_null(Core::blog())) {
             return [];
         }
 
@@ -236,7 +237,7 @@ class Filter
             return [];
         }
 
-        $post = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
+        $post = Core::blog()->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
             return [];
         }
@@ -272,7 +273,7 @@ class Filter
      */
     public function HTMLfilter(string $str): string
     {
-        if (!is_null(dcCore::app()->blog) && !dcCore::app()->blog->settings->system->enable_html_filter) {
+        if (!is_null(Core::blog()) && !Core::blog()->settings->system->enable_html_filter) {
             return $str;
         }
 

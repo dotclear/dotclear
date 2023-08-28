@@ -53,23 +53,23 @@ class Page
      */
     public static function check(string $permissions, bool $home = false)
     {
-        if (dcCore::app()->blog && dcCore::app()->auth->check($permissions, dcCore::app()->blog->id)) {
+        if (Core::blog() && dcCore::app()->auth->check($permissions, Core::blog()->id)) {
             return;
         }
 
         // Check if dashboard is not the current page et if it is granted for the user
-        if (!$home && dcCore::app()->blog && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        if (!$home && Core::blog() && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             // Go back to the dashboard
             Http::redirect(DC_ADMIN_URL);
         }
 
         if (session_id()) {
-            dcCore::app()->session->destroy();
+            Core::session()->destroy();
         }
-        dcCore::app()->admin->url->redirect('admin.auth');
+        Core::backend()->url->redirect('admin.auth');
     }
 
     /**
@@ -81,18 +81,18 @@ class Page
     {
         if (!dcCore::app()->auth->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
-            if (!$home && dcCore::app()->blog && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            if (!$home && Core::blog() && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)) {
+            ]), Core::blog()->id)) {
                 // Go back to the dashboard
                 Http::redirect(DC_ADMIN_URL);
             }
 
             if (session_id()) {
-                dcCore::app()->session->destroy();
+                Core::session()->destroy();
             }
-            dcCore::app()->admin->url->redirect('admin.auth');
+            Core::backend()->url->redirect('admin.auth');
         }
     }
 
@@ -110,11 +110,11 @@ class Page
 
         # List of user's blogs
         if (dcCore::app()->auth->getBlogCount() == 1 || dcCore::app()->auth->getBlogCount() > 20) {
-            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(dcCore::app()->blog->url) . '">' .
-            Html::escapeHTML(dcCore::app()->blog->name) . '</strong>';
+            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(Core::blog()->url) . '">' .
+            Html::escapeHTML(Core::blog()->name) . '</strong>';
 
             if (dcCore::app()->auth->getBlogCount() > 20) {
-                $blog_box .= ' - <a href="' . dcCore::app()->admin->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
+                $blog_box .= ' - <a href="' . Core::backend()->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
             }
             $blog_box .= '</p>';
         } else {
@@ -124,7 +124,7 @@ class Page
                 $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
-            Core::nonce()->getFormNonce() . form::combo('switchblog', $blogs, dcCore::app()->blog->id) .
+            Core::nonce()->getFormNonce() . form::combo('switchblog', $blogs, Core::blog()->id) .
             form::hidden(['redir'], $_SERVER['REQUEST_URI']) .
             '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
         }
@@ -148,36 +148,36 @@ class Page
         }
 
         # Content-Security-Policy (only if safe mode if not active, it may help)
-        if (!$safe_mode && dcCore::app()->blog->settings->system->csp_admin_on) {
+        if (!$safe_mode && Core::blog()->settings->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults
             $csp = new ArrayObject([]);
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
             // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-            $csp_prefix = dcCore::app()->con->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
-            $csp_suffix = dcCore::app()->con->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_prefix = Core::con()->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_suffix = Core::con()->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
-            $csp['default-src'] = dcCore::app()->blog->settings->system->csp_admin_default ?:
+            $csp['default-src'] = Core::blog()->settings->system->csp_admin_default ?:
             $csp_prefix . "'self'" . $csp_suffix;
-            $csp['script-src'] = dcCore::app()->blog->settings->system->csp_admin_script ?:
+            $csp['script-src'] = Core::blog()->settings->system->csp_admin_script ?:
             $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix;
-            $csp['style-src'] = dcCore::app()->blog->settings->system->csp_admin_style ?:
+            $csp['style-src'] = Core::blog()->settings->system->csp_admin_style ?:
             $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix;
-            $csp['img-src'] = dcCore::app()->blog->settings->system->csp_admin_img ?:
+            $csp['img-src'] = Core::blog()->settings->system->csp_admin_img ?:
             $csp_prefix . "'self' data: https://media.dotaddict.org blob:";
 
             # Cope with blog post preview (via public URL in iframe)
-            if (dcCore::app()->blog->host) {
-                $csp['default-src'] .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
-                $csp['script-src']  .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
-                $csp['style-src']   .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
+            if (Core::blog()->host) {
+                $csp['default-src'] .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
+                $csp['script-src']  .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
+                $csp['style-src']   .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
             }
             # Cope with media display in media manager (via public URL)
             if (!is_null(dcCore::app()->media)) {
                 $csp['img-src'] .= ' ' . parse_url(dcCore::app()->media->root_url, PHP_URL_HOST);
-            } elseif (!is_null(dcCore::app()->blog->host)) {
+            } elseif (!is_null(Core::blog()->host)) {
                 // Let's try with the blog URL
-                $csp['img-src'] .= ' ' . parse_url(dcCore::app()->blog->host, PHP_URL_HOST);
+                $csp['img-src'] .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
             }
             # Allow everything in iframe (used by editors to preview public content)
             $csp['frame-src'] = '*';
@@ -193,8 +193,8 @@ class Page
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . dcCore::app()->admin->url->get('admin.csp.report');
-                $report_only    = (dcCore::app()->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . Core::backend()->url->get('admin.csp.report');
+                $report_only    = (Core::blog()->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
         }
@@ -215,7 +215,7 @@ class Page
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(dcCore::app()->blog->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
+        '  <title>' . $title . ' - ' . Html::escapeHTML(Core::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -236,16 +236,16 @@ class Page
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
-        $js['servicesUri']    = dcCore::app()->admin->url->get('admin.rest');
+        $js['servicesUri']    = Core::backend()->url->get('admin.rest');
         $js['servicesOff']    = !dcCore::app()->rest->serveRestRequests();
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
-        $js['showIp'] = dcCore::app()->blog && dcCore::app()->blog->id ? dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+        $js['showIp'] = Core::blog() && Core::blog()->id ? dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id) : false;
+        ]), Core::blog()->id) : false;
 
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
@@ -271,18 +271,18 @@ class Page
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
-        '<h1><a href="' . dcCore::app()->admin->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
+        '<h1><a href="' . Core::backend()->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
 
         echo
-        '<form action="' . dcCore::app()->admin->url->get('admin.home') . '" method="post" id="top-info-blog">' .
+        '<form action="' . Core::backend()->url->get('admin.home') . '" method="post" id="top-info-blog">' .
         $blog_box .
-        '<p><a href="' . dcCore::app()->blog->url . '" class="outgoing" title="' . __('Go to site') .
+        '<p><a href="' . Core::blog()->url . '" class="outgoing" title="' . __('Go to site') .
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(dcCore::app()->admin->url->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
-        '" href="' . dcCore::app()->admin->url->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . dcCore::app()->admin->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
+        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(Core::backend()->url->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
+        '" href="' . Core::backend()->url->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
+        '<li><a href="' . Core::backend()->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), dcCore::app()->auth->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
@@ -449,10 +449,10 @@ class Page
      */
     public static function close()
     {
-        if (!dcCore::app()->admin->resources->context()) {
+        if (!Core::backend()->resources->context()) {
             if (!dcCore::app()->auth->user_prefs->interface->hidehelpbutton) {
                 echo
-                '<p id="help-button"><a href="' . dcCore::app()->admin->url->get('admin.help') . '" class="outgoing" title="' .
+                '<p id="help-button"><a href="' . Core::backend()->url->get('admin.help') . '" class="outgoing" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
             }
         }
@@ -463,14 +463,14 @@ class Page
 
         '<nav id="main-menu" role="navigation">' . "\n" .
 
-        '<form id="search-menu" action="' . dcCore::app()->admin->url->get('admin.search') . '" method="get" role="search">' .
+        '<form id="search-menu" action="' . Core::backend()->url->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
         '<input type="hidden" name="process" value="Search" />' .
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
-        foreach (array_keys((array) dcCore::app()->admin->menus) as $k) {
-            echo dcCore::app()->admin->menus[$k]->draw();
+        foreach (array_keys((array) Core::backend()->menus) as $k) {
+            echo Core::backend()->menus[$k]->draw();
         }
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');
@@ -543,7 +543,7 @@ class Page
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(dcCore::app()->blog->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(Core::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
@@ -561,7 +561,7 @@ class Page
         }
         $js['hideMoreInfo']   = (bool) dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) dcCore::app()->auth->user_prefs->interface->showajaxloader;
-        $js['servicesUri']    = dcCore::app()->admin->url->get('admin.rest');
+        $js['servicesUri']    = Core::backend()->url->get('admin.rest');
         $js['servicesOff']    = !dcCore::app()->rest->serveRestRequests();
 
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
@@ -651,7 +651,7 @@ class Page
 
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2 role="navigation">' . ($with_home_link ?
-            '<a class="go_home" href="' . dcCore::app()->admin->url->get('admin.home') . '">' .
+            '<a class="go_home" href="' . Core::backend()->url->get('admin.home') . '">' .
             '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '" />' .
             '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '" />' .
             '</a>' :
@@ -777,7 +777,7 @@ class Page
             return;
         }
 
-        if (empty(dcCore::app()->admin->resources->entries('help'))) {
+        if (empty(Core::backend()->resources->entries('help'))) {
             return;
         }
 
@@ -789,7 +789,7 @@ class Page
                 continue;
             }
 
-            $file = dcCore::app()->admin->resources->entry('help', $arg);
+            $file = Core::backend()->resources->entry('help', $arg);
             if (empty($file) || !file_exists($file) || !is_readable($file)) {
                 continue;
             }
@@ -807,7 +807,7 @@ class Page
         }
 
         // Set contextual help global flag
-        dcCore::app()->admin->resources->context(true);
+        Core::backend()->resources->context(true);
 
         echo
         '<div id="help"><hr /><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .
@@ -815,7 +815,7 @@ class Page
         '</div>' .
         '<div id="helplink"><hr />' .
         '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="' . dcCore::app()->admin->url->get('admin.help') . '">%s</a>', __('the global help'))) .
+        sprintf(__('See also %s'), sprintf('<a href="' . Core::backend()->url->get('admin.help') . '">%s</a>', __('the global help'))) .
             '.</p>' .
             '</div></div>';
     }
@@ -1029,7 +1029,7 @@ class Page
         (
             DC_DEBUG ?
             self::jsJson('dotclear_jquery', [
-                'mute' => (empty(dcCore::app()->blog) || dcCore::app()->blog->settings->system->jquery_migrate_mute),
+                'mute' => (empty(Core::blog()) || Core::blog()->settings->system->jquery_migrate_mute),
             ]) .
             self::jsLoad('js/jquery-mute.js') .
             self::jsLoad('js/jquery/jquery-migrate.js') :
@@ -1342,7 +1342,7 @@ class Page
      */
     public static function getPF(string $file): string
     {
-        return dcCore::app()->admin->url->get('load.plugin.file', ['pf' => $file], '&');
+        return Core::backend()->url->get('load.plugin.file', ['pf' => $file], '&');
     }
 
     /**
@@ -1354,7 +1354,7 @@ class Page
      */
     public static function getVF(string $file): string
     {
-        return dcCore::app()->admin->url->get('load.var.file', ['vf' => $file], '&');
+        return Core::backend()->url->get('load.var.file', ['vf' => $file], '&');
     }
 
     /**

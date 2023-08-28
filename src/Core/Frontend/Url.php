@@ -35,7 +35,7 @@ class Url extends UrlHandler
      */
     protected function getHomeType(): string
     {
-        return dcCore::app()->blog->settings->system->static_home ? 'static' : 'default';
+        return Core::blog()->settings->system->static_home ? 'static' : 'default';
     }
 
     /**
@@ -136,7 +136,7 @@ class Url extends UrlHandler
     protected static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
         if (dcCore::app()->ctx->nb_entry_per_page === null) {
-            dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_page;
+            dcCore::app()->ctx->nb_entry_per_page = Core::blog()->settings->system->nb_post_per_page;
         }
         if (dcCore::app()->ctx->nb_entry_first_page === null) {
             dcCore::app()->ctx->nb_entry_first_page = dcCore::app()->ctx->nb_entry_per_page;
@@ -165,7 +165,7 @@ class Url extends UrlHandler
 
         // Additional headers
         $headers = new ArrayObject();
-        if (dcCore::app()->blog->settings->system->prevents_clickjacking) {
+        if (Core::blog()->settings->system->prevents_clickjacking) {
             // Prevents Clickjacking as far as possible
             $header = 'X-Frame-Options: SAMEORIGIN';
             if (dcCore::app()->ctx->exists('xframeoption')) {
@@ -193,7 +193,7 @@ class Url extends UrlHandler
             'content'      => dcCore::app()->tpl->getData(dcCore::app()->ctx->current_tpl),
             'content_type' => dcCore::app()->ctx->content_type,
             'tpl'          => dcCore::app()->ctx->current_tpl,
-            'blogupddt'    => dcCore::app()->blog->upddt,
+            'blogupddt'    => Core::blog()->upddt,
             'headers'      => headers_list(),
         ]);
 
@@ -293,7 +293,7 @@ class Url extends UrlHandler
     public static function home(?string $args): void
     {
         // Page number may have been set by self::lang() which ends with a call to self::home(null)
-        $page_number = $args ? self::getPageNumber($args) : dcCore::app()->public->getPageNumber();
+        $page_number = $args ? self::getPageNumber($args) : Core::frontend()->getPageNumber();
 
         if ($args && !$page_number) {
             // Then specified URL went unrecognized by all URL handlers and
@@ -302,18 +302,18 @@ class Url extends UrlHandler
         } else {
             dcCore::app()->url->type = 'default';
             if ($page_number) {
-                dcCore::app()->public->setPageNumber($page_number);
+                Core::frontend()->setPageNumber($page_number);
                 if ($page_number > 1) {
                     dcCore::app()->url->type = 'default-page';
                 }
             }
 
             if (empty($_GET['q'])) {
-                if (dcCore::app()->blog->settings->system->nb_post_for_home !== null) {
-                    dcCore::app()->ctx->nb_entry_first_page = dcCore::app()->blog->settings->system->nb_post_for_home;
+                if (Core::blog()->settings->system->nb_post_for_home !== null) {
+                    dcCore::app()->ctx->nb_entry_first_page = Core::blog()->settings->system->nb_post_for_home;
                 }
                 self::serveDocument('home.html');
-                dcCore::app()->blog->publishScheduledEntries();
+                Core::blog()->publishScheduledEntries();
             } else {
                 self::search();
             }
@@ -331,7 +331,7 @@ class Url extends UrlHandler
 
         if (empty($_GET['q'])) {
             self::serveDocument('static.html');
-            dcCore::app()->blog->publishScheduledEntries();
+            Core::blog()->publishScheduledEntries();
         } else {
             self::search();
         }
@@ -345,18 +345,18 @@ class Url extends UrlHandler
      */
     public static function search(): void
     {
-        if (dcCore::app()->blog->settings->system->no_search) {
+        if (Core::blog()->settings->system->no_search) {
             // Search is disabled for this blog.
             self::p404();
         } else {
             dcCore::app()->url->type = 'search';
 
-            dcCore::app()->public->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
-            if (dcCore::app()->public->search) {
-                $params = new ArrayObject(['search' => dcCore::app()->public->search]);
+            Core::frontend()->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
+            if (Core::frontend()->search) {
+                $params = new ArrayObject(['search' => Core::frontend()->search]);
                 # --BEHAVIOR-- publicBeforeSearchCount -- ArrayObject
                 Core::behavior()->callBehavior('publicBeforeSearchCount', $params);
-                dcCore::app()->public->search_count = dcCore::app()->blog->getPosts($params, true)->f(0);
+                Core::frontend()->search_count = Core::blog()->getPosts($params, true)->f(0);
             }
 
             self::serveDocument('search.html');
@@ -378,14 +378,14 @@ class Url extends UrlHandler
         );
         # --BEHAVIOR-- publicLangBeforeGetLangs -- ArrayObject, string|null
         Core::behavior()->callBehavior('publicLangBeforeGetLangs', $params, $args);
-        dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params);
+        dcCore::app()->ctx->langs = Core::blog()->getLangs($params);
 
         if (dcCore::app()->ctx->langs->isEmpty()) {
             # The specified language does not exist.
             self::p404();
         } else {
             if ($page_number) {
-                dcCore::app()->public->setPageNumber($page_number);
+                Core::frontend()->setPageNumber($page_number);
             }
             dcCore::app()->ctx->cur_lang = $args;
             self::home(null);
@@ -414,14 +414,14 @@ class Url extends UrlHandler
             );
             # --BEHAVIOR-- publicCategoryBeforeGetCategories -- ArrayObject, string|null
             Core::behavior()->callBehavior('publicCategoryBeforeGetCategories', $params, $args);
-            dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);
+            dcCore::app()->ctx->categories = Core::blog()->getCategories($params);
 
             if (dcCore::app()->ctx->categories->isEmpty()) {
                 // The specified category does no exist.
                 self::p404();
             } else {
                 if ($page_number) {
-                    dcCore::app()->public->setPageNumber($page_number);
+                    Core::frontend()->setPageNumber($page_number);
                 }
                 self::serveDocument('category.html');
             }
@@ -448,7 +448,7 @@ class Url extends UrlHandler
             );
             # --BEHAVIOR-- publicArchiveBeforeGetDates -- ArrayObject, string|null
             Core::behavior()->callBehavior('publicArchiveBeforeGetDates', $params, $args);
-            dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params);
+            dcCore::app()->ctx->archives = Core::blog()->getDates($params);
 
             if (dcCore::app()->ctx->archives->isEmpty()) {
                 // There is no entries for the specified month.
@@ -473,7 +473,7 @@ class Url extends UrlHandler
             // No entry was specified.
             self::p404();
         } else {
-            dcCore::app()->blog->withoutPassword(false);
+            Core::blog()->withoutPassword(false);
 
             $params = new ArrayObject(
                 [
@@ -482,7 +482,7 @@ class Url extends UrlHandler
             );
             # --BEHAVIOR-- publicPostBeforeGetPosts -- ArrayObject, string|null
             Core::behavior()->callBehavior('publicPostBeforeGetPosts', $params, $args);
-            dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
+            dcCore::app()->ctx->posts = Core::blog()->getPosts($params);
 
             $init_preview = [
                 'content'    => '',
@@ -495,7 +495,7 @@ class Url extends UrlHandler
             ];
             dcCore::app()->ctx->comment_preview = new ArrayObject($init_preview);
 
-            dcCore::app()->blog->withoutPassword(true);
+            Core::blog()->withoutPassword(true);
 
             if (dcCore::app()->ctx->posts->isEmpty()) {
                 // The specified entry does not exist.
@@ -558,7 +558,7 @@ class Url extends UrlHandler
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
-                            if (dcCore::app()->blog->settings->system->wiki_comments) {
+                            if (Core::blog()->settings->system->wiki_comments) {
                                 Core::filter()->initWikiComment();
                             } else {
                                 Core::filter()->initWikiSimpleComment();
@@ -581,18 +581,18 @@ class Url extends UrlHandler
                         dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
                         // Post the comment
-                        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
+                        $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
                         $cur->comment_author  = $name;
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
-                        $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+                        $cur->comment_status  = Core::blog()->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = dcCore::app()->ctx->posts->getURL();
-                        $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
+                        $redir .= Core::blog()->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -602,7 +602,7 @@ class Url extends UrlHandler
                             # --BEHAVIOR-- publicBeforeCommentCreate - Cursor
                             Core::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
-                                $comment_id = dcCore::app()->blog->addComment($cur);
+                                $comment_id = Core::blog()->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate - Cursor, int
                                 Core::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
@@ -627,8 +627,8 @@ class Url extends UrlHandler
                 // The entry
                 if (dcCore::app()->ctx->posts->trackbacksActive()) {
                     // Send additional headers if pingbacks/webmentions are allowed
-                    header('X-Pingback: ' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('xmlrpc', dcCore::app()->blog->id));
-                    header('Link: <' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('webmention') . '>; rel="webmention"');
+                    header('X-Pingback: ' . Core::blog()->url . dcCore::app()->url->getURLFor('xmlrpc', Core::blog()->id));
+                    header('Link: <' . Core::blog()->url . dcCore::app()->url->getURLFor('webmention') . '>; rel="webmention"');
                 }
                 self::serveDocument('post.html');
             }
@@ -669,9 +669,9 @@ class Url extends UrlHandler
      */
     public static function try(?string $args): void
     {
-        $page_number = $args ? self::getPageNumber($args) : dcCore::app()->public->getPageNumber();
+        $page_number = $args ? self::getPageNumber($args) : Core::frontend()->getPageNumber();
         if ($page_number) {
-            dcCore::app()->public->setPageNumber($page_number);
+            Core::frontend()->setPageNumber($page_number);
         }
 
         if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
@@ -685,33 +685,33 @@ class Url extends UrlHandler
                 // The user has no access to the theme preview.
                 self::p404();
             } else {
-                $current = dcCore::app()->blog->settings->system->theme;
+                $current = Core::blog()->settings->system->theme;
 
                 // Switch to theme to try
-                dcCore::app()->blog->settings->system->set('theme', $theme);
-                dcCore::app()->public->theme = $theme;
+                Core::blog()->settings->system->set('theme', $theme);
+                Core::frontend()->theme = $theme;
 
                 // Simulate Utility\Frontend::process() for theme preview
                 // ------------------------------------------------------
-                dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
+                Core::frontend()->parent_theme = dcCore::app()->themes->moduleInfo(Core::frontend()->theme, 'parent');
                 // Loading _public.php file for selected theme
-                dcCore::app()->themes->loadNsFile(dcCore::app()->public->theme, 'public');
+                dcCore::app()->themes->loadNsFile(Core::frontend()->theme, 'public');
                 // Loading translations for selected theme
-                if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme)) {
-                    dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->parent_theme, dcCore::app()->lang, 'main');
+                if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme)) {
+                    dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, dcCore::app()->lang, 'main');
                 }
-                dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
+                dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, dcCore::app()->lang, 'main');
                 // --BEHAVIOR-- publicPrepend --
                 Core::behavior()->callBehavior('publicPrependV2');
                 // Prepare the HTTP cache thing
                 dcCore::app()->cache['mod_files'] = get_included_files();
                 $tpl_path                         = [
-                    dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->theme . '/tpl',
+                    Core::blog()->themes_path . '/' . Core::frontend()->theme . '/tpl',
                 ];
-                if (dcCore::app()->public->parent_theme) {
-                    $tpl_path[] = dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->parent_theme . '/tpl';
+                if (Core::frontend()->parent_theme) {
+                    $tpl_path[] = Core::blog()->themes_path . '/' . Core::frontend()->parent_theme . '/tpl';
                 }
-                $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+                $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
                 $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     dcCore::app()->tpl->setPath(
@@ -739,7 +739,7 @@ class Url extends UrlHandler
                 self::home(null);
 
                 // And finally back to current theme
-                dcCore::app()->blog->settings->system->set('theme', $current);
+                Core::blog()->settings->system->set('theme', $current);
             }
         }
     }
@@ -769,7 +769,7 @@ class Url extends UrlHandler
             $args = $matches[3];
             # --BEHAVIOR-- publicFeedBeforeGetLangs -- ArrayObject, string|null
             Core::behavior()->callBehavior('publicFeedBeforeGetLangs', $params, $args);
-            dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params);
+            dcCore::app()->ctx->langs = Core::blog()->getLangs($params);
 
             if (dcCore::app()->ctx->langs->isEmpty()) {
                 // The specified language does not exist.
@@ -811,7 +811,7 @@ class Url extends UrlHandler
             );
             # --BEHAVIOR-- publicFeedBeforeGetCategories -- ArrayObject, string|null
             Core::behavior()->callBehavior('publicFeedBeforeGetCategories', $params, $args);
-            dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);
+            dcCore::app()->ctx->categories = Core::blog()->getCategories($params);
 
             if (dcCore::app()->ctx->categories->isEmpty()) {
                 // The specified category does no exist.
@@ -829,7 +829,7 @@ class Url extends UrlHandler
             );
             # --BEHAVIOR-- publicFeedBeforeGetPosts -- ArrayObject, string|null
             Core::behavior()->callBehavior('publicFeedBeforeGetPosts', $params, $args);
-            dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
+            dcCore::app()->ctx->posts = Core::blog()->getPosts($params);
 
             if (dcCore::app()->ctx->posts->isEmpty()) {
                 # The specified post does not exist.
@@ -843,11 +843,11 @@ class Url extends UrlHandler
         if ($comments) {
             // Comments feed
             $tpl .= '-comments';
-            dcCore::app()->ctx->nb_comment_per_page = dcCore::app()->blog->settings->system->nb_comment_per_feed;
+            dcCore::app()->ctx->nb_comment_per_page = Core::blog()->settings->system->nb_comment_per_feed;
         } else {
             // Posts feed
-            dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_feed;
-            dcCore::app()->ctx->short_feed_items  = dcCore::app()->blog->settings->system->short_feed_items;
+            dcCore::app()->ctx->nb_entry_per_page = Core::blog()->settings->system->nb_post_per_feed;
+            dcCore::app()->ctx->short_feed_items  = Core::blog()->settings->system->short_feed_items;
         }
         $tpl .= '.xml';
 
@@ -857,12 +857,12 @@ class Url extends UrlHandler
 
         dcCore::app()->ctx->feed_subtitle = $subtitle;
 
-        header('X-Robots-Tag: ' . context::robotsPolicy(dcCore::app()->blog->settings->system->robots_policy, ''));
+        header('X-Robots-Tag: ' . context::robotsPolicy(Core::blog()->settings->system->robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {
             // Check if some entries must be published
-            dcCore::app()->blog->publishScheduledEntries();
+            Core::blog()->publishScheduledEntries();
         }
     }
 

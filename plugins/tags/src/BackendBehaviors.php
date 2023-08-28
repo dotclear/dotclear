@@ -43,7 +43,7 @@ class BackendBehaviors
             return '';
         }
 
-        $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
+        $tag_url = Core::blog()->url . dcCore::app()->url->getURLFor('tag');
 
         if ($editor === 'dcLegacyEditor') {
             // dcLegacyEditor
@@ -141,7 +141,7 @@ class BackendBehaviors
             $content = substr($content, 4);
         }
 
-        $tag_url        = Html::stripHostURL(dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag'));
+        $tag_url        = Html::stripHostURL(Core::blog()->url . dcCore::app()->url->getURLFor('tag'));
         $res['url']     = $tag_url . '/' . rawurlencode(dcMeta::sanitizeMetaID($url));
         $res['content'] = $content;
 
@@ -204,7 +204,7 @@ class BackendBehaviors
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_DELETE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $ap->addAction(
                 [My::name() => [__('Remove tags') => 'tags_remove']],
                 [BackendBehaviors::class, 'adminRemoveTags']
@@ -252,7 +252,7 @@ class BackendBehaviors
             $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
-                'meta_url'            => dcCore::app()->admin->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
+                'meta_url'            => Core::backend()->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
                 'list_type'           => $type,
                 'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
                 'text_add_meta'       => __('Add a tag to this entry'),
@@ -270,7 +270,7 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(Core::blog()->name) => '',
                         __('Entries')                               => $ap->getRedirection(true),
                         __('Add tags to this selection')            => '',
                     ]
@@ -308,7 +308,7 @@ class BackendBehaviors
         if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_DELETE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $meta  = dcCore::app()->meta;
             $posts = $ap->getRS();
             while ($posts->fetch()) {
@@ -346,8 +346,8 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name)    => '',
-                        __('Entries')                                  => dcCore::app()->admin->url->get('admin.posts'),
+                        Html::escapeHTML(Core::blog()->name)    => '',
+                        __('Entries')                                  => Core::backend()->url->get('admin.posts'),
                         __('Remove selected tags from this selection') => '',
                     ]
                 )
@@ -391,7 +391,7 @@ class BackendBehaviors
         $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [
-            'meta_url'            => dcCore::app()->admin->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
+            'meta_url'            => Core::backend()->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
             'list_type'           => $type,
             'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
             'text_add_meta'       => __('Add a tag to this entry'),

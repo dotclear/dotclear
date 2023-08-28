@@ -37,7 +37,7 @@ class Backend extends Process
             // add "unsinstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, dcModuleDefine $define): string {
                 // do not unsintall current theme
-                if ($define->get('type') == 'theme' && $define->getId() == dcCore::app()->blog?->settings->get('system')->get('theme')) {
+                if ($define->get('type') == 'theme' && $define->getId() == Core::blog()?->settings->get('system')->get('theme')) {
                     return '';
                 }
 
@@ -106,9 +106,9 @@ class Backend extends Process
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
                 Notices::addSuccessNotice(implode('<br />', $done));
                 if ($define->get('type') == 'theme') {
-                    dcCore::app()->admin->url->redirect(name: 'admin.blog.theme', suffix: '#themes');
+                    Core::backend()->url->redirect(name: 'admin.blog.theme', suffix: '#themes');
                 } else {
-                    dcCore::app()->admin->url->redirect(name: 'admin.plugins', suffix: '#plugins');
+                    Core::backend()->url->redirect(name: 'admin.plugins', suffix: '#plugins');
                 }
             }
         } catch (Exception $e) {

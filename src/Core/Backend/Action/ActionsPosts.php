@@ -105,7 +105,7 @@ class ActionsPosts extends Actions
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(Core::blog()->name) => '',
                     $this->getCallerTitle()                     => $this->getRedirection(true),
                     __('Posts actions')                         => '',
                 ]
@@ -142,7 +142,7 @@ class ActionsPosts extends Actions
             $params['post_type'] = $from['post_type'];
         }
 
-        $rs = dcCore::app()->blog->getPosts($params);
+        $rs = Core::blog()->getPosts($params);
         while ($rs->fetch()) {
             $this->entries[$rs->post_id] = $rs->post_title;
         }

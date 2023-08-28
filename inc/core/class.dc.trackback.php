@@ -42,7 +42,7 @@ class dcTrackback
      */
     public function __construct()
     {
-        $this->table = dcCore::app()->prefix . self::PING_TABLE_NAME;
+        $this->table = Core::con()->prefix() . self::PING_TABLE_NAME;
     }
 
     /// @name Send
@@ -60,7 +60,7 @@ class dcTrackback
         'FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . (int) $post_id;
 
-        return new MetaRecord(dcCore::app()->con->select($strReq));
+        return new MetaRecord(Core::con()->select($strReq));
     }
 
     /**
@@ -78,16 +78,16 @@ class dcTrackback
      */
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url)
     {
-        if (dcCore::app()->blog === null) {
+        if (Core::blog() === null) {
             return false;
         }
 
         # Check for previously done trackback
         $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . $post_id . ' ' .
-        "AND ping_url = '" . dcCore::app()->con->escape($url) . "' ";
+        "AND ping_url = '" . Core::con()->escape($url) . "' ";
 
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(Core::con()->select($strReq));
 
         if (!$rs->isEmpty()) {
             throw new Exception(sprintf(__('%s has still been pinged'), $url));
@@ -127,7 +127,7 @@ class dcTrackback
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
-                'blog_name' => trim(Html::escapeHTML(Html::clean(dcCore::app()->blog->name))),
+                'blog_name' => trim(Html::escapeHTML(Html::clean(Core::blog()->name))),
                 //,'__debug' => false
             ];
 
@@ -170,7 +170,7 @@ class dcTrackback
             throw new Exception(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
         }
         # Notify ping result in database
-        $cur           = dcCore::app()->con->openCursor($this->table);
+        $cur           = Core::con()->openCursor($this->table);
         $cur->post_id  = $post_id;
         $cur->ping_url = $url;
         $cur->ping_dt  = date('Y-m-d H:i:s');
@@ -213,7 +213,7 @@ class dcTrackback
         $err = false;
         $msg = '';
 
-        if (dcCore::app()->blog === null) {
+        if (Core::blog() === null) {
             $err = true;
             $msg = 'No blog.';
         } elseif ($url == '') {
@@ -225,7 +225,7 @@ class dcTrackback
         }
 
         if (!$err) {
-            $post = dcCore::app()->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
+            $post = Core::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
 
             if ($post->isEmpty()) {
                 $err = true;
@@ -438,7 +438,7 @@ class dcTrackback
             $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
-            $code = dcCore::app()->blog->settings->system->trackbacks_pub ? 200 : 202;
+            $code = Core::blog()->settings->system->trackbacks_pub ? 200 : 202;
             Http::head($code);
 
             return;
@@ -466,7 +466,7 @@ class dcTrackback
             'comment_trackback' => 1,
         ];
 
-        $rs = dcCore::app()->blog->getComments($params, true);
+        $rs = Core::blog()->getComments($params, true);
         if (!$rs->isEmpty()) {
             return ($rs->f(0));
         }
@@ -495,19 +495,19 @@ class dcTrackback
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
-        $cur                    = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
+        $cur                    = Core::con()->openCursor(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
         $cur->comment_author    = (string) $blog_name;
         $cur->comment_site      = (string) $url;
         $cur->comment_content   = (string) $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = dcCore::app()->blog->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+        $cur->comment_status    = Core::blog()->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
         Core::behavior()->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id) {
-            $comment_id = dcCore::app()->blog->addComment($cur);
+            $comment_id = Core::blog()->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
             Core::behavior()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
@@ -522,10 +522,10 @@ class dcTrackback
      */
     private function delBacklink(int $post_id, string $url)
     {
-        dcCore::app()->con->execute(
-            'DELETE FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' ' .
+        Core::con()->execute(
+            'DELETE FROM ' . Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' ' .
             'WHERE post_id = ' . ((int) $post_id) . ' ' .
-            "AND comment_site = '" . dcCore::app()->con->escape((string) $url) . "' " .
+            "AND comment_site = '" . Core::con()->escape((string) $url) . "' " .
             'AND comment_trackback = 1 '
         );
     }
@@ -578,7 +578,7 @@ class dcTrackback
      */
     private function getTargetPost(string $to_url): MetaRecord
     {
-        $reg = '!^' . preg_quote(dcCore::app()->blog->url) . '(.*)!';
+        $reg = '!^' . preg_quote(Core::blog()->url) . '(.*)!';
 
         # Are you dumb?
         if (!preg_match($reg, $to_url, $m)) {
@@ -609,7 +609,7 @@ class dcTrackback
             'post_type' => $p_type,
             'post_url'  => $post_url,
         ];
-        $posts = dcCore::app()->blog->getPosts($params);
+        $posts = Core::blog()->getPosts($params);
 
         # Missed!
         if ($posts->isEmpty()) {

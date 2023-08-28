@@ -38,9 +38,9 @@ class Comments extends Process
             // Remove all spams
 
             try {
-                dcCore::app()->blog->delJunkComments();
+                Core::blog()->delJunkComments();
                 $_SESSION['comments_del_spam'] = true;
-                dcCore::app()->admin->url->redirect('admin.comments');
+                Core::backend()->url->redirect('admin.comments');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -48,10 +48,10 @@ class Comments extends Process
 
         // Filters
 
-        dcCore::app()->admin->comment_filter = new FilterComments();
+        Core::backend()->comment_filter = new FilterComments();
 
         // get list params
-        $params = dcCore::app()->admin->comment_filter->params();
+        $params = Core::backend()->comment_filter->params();
 
         // lexical sort
         $sortby_lex = [
@@ -63,41 +63,41 @@ class Comments extends Process
         # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
         Core::behavior()->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
 
-        $params['order'] = (array_key_exists(dcCore::app()->admin->comment_filter->sortby, $sortby_lex) ?
-            dcCore::app()->con->lexFields($sortby_lex[dcCore::app()->admin->comment_filter->sortby]) :
-            dcCore::app()->admin->comment_filter->sortby) . ' ' . dcCore::app()->admin->comment_filter->order;
+        $params['order'] = (array_key_exists(Core::backend()->comment_filter->sortby, $sortby_lex) ?
+            Core::con()->lexFields($sortby_lex[Core::backend()->comment_filter->sortby]) :
+            Core::backend()->comment_filter->sortby) . ' ' . Core::backend()->comment_filter->order;
 
         // default filter ? do not display spam
-        if (!dcCore::app()->admin->comment_filter->show() && dcCore::app()->admin->comment_filter->status == '') {
+        if (!Core::backend()->comment_filter->show() && Core::backend()->comment_filter->status == '') {
             $params['comment_status_not'] = dcBlog::COMMENT_JUNK;
         }
         $params['no_content'] = true;
 
         // Actions
 
-        dcCore::app()->admin->default_action = '';
+        Core::backend()->default_action = '';
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_DELETE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id) && dcCore::app()->admin->comment_filter->status == -2) {
-            dcCore::app()->admin->default_action = 'delete';
+        ]), Core::blog()->id) && Core::backend()->comment_filter->status == -2) {
+            Core::backend()->default_action = 'delete';
         }
 
-        dcCore::app()->admin->comments_actions_page = new ActionsComments(dcCore::app()->admin->url->get('admin.comments'));
+        Core::backend()->comments_actions_page = new ActionsComments(Core::backend()->url->get('admin.comments'));
 
-        if (dcCore::app()->admin->comments_actions_page->process()) {
+        if (Core::backend()->comments_actions_page->process()) {
             return self::status(false);
         }
 
         // List
 
-        dcCore::app()->admin->comment_list = null;
+        Core::backend()->comment_list = null;
 
         try {
-            $comments = dcCore::app()->blog->getComments($params);
-            $counter  = dcCore::app()->blog->getComments($params, true);
+            $comments = Core::blog()->getComments($params);
+            $counter  = Core::blog()->getComments($params, true);
 
-            dcCore::app()->admin->comment_list = new ListingComments($comments, $counter->f(0));
+            Core::backend()->comment_list = new ListingComments($comments, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -112,15 +112,15 @@ class Comments extends Process
             dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]),
-            dcCore::app()->blog->id
+            Core::blog()->id
         );
 
         Page::open(
             __('Comments and trackbacks'),
-            Page::jsLoad('js/_comments.js') . dcCore::app()->admin->comment_filter->js(dcCore::app()->admin->url->get('admin.comments')),
+            Page::jsLoad('js/_comments.js') . Core::backend()->comment_filter->js(Core::backend()->url->get('admin.comments')),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(Core::blog()->name) => '',
                     __('Comments and trackbacks')               => '',
                 ]
             )
@@ -137,18 +137,18 @@ class Comments extends Process
                 unset($_SESSION['comments_del_spam']);
             }
 
-            $spam_count = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+            $spam_count = Core::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
             if ($spam_count > 0) {
                 echo
-                '<form action="' . dcCore::app()->admin->url->get('admin.comments') . '" method="post" class="fieldset">';
+                '<form action="' . Core::backend()->url->get('admin.comments') . '" method="post" class="fieldset">';
 
-                if (!dcCore::app()->admin->comment_filter->show() || (dcCore::app()->admin->comment_filter->status != -2)) {
+                if (!Core::backend()->comment_filter->show() || (Core::backend()->comment_filter->status != -2)) {
                     if ($spam_count == 1) {
                         echo '<p>' . sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
+                        '<a href="' . Core::backend()->url->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
                     } elseif ($spam_count > 1) {
                         echo '<p>' . sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
+                        '<a href="' . Core::backend()->url->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
                     }
                 }
 
@@ -164,14 +164,14 @@ class Comments extends Process
                 '</form>';
             }
 
-            dcCore::app()->admin->comment_filter->display('admin.comments');
+            Core::backend()->comment_filter->display('admin.comments');
 
             // Show comments
 
-            dcCore::app()->admin->comment_list->display(
-                dcCore::app()->admin->comment_filter->page,
-                dcCore::app()->admin->comment_filter->nb,
-                '<form action="' . dcCore::app()->admin->url->get('admin.comments') . '" method="post" id="form-comments">' .
+            Core::backend()->comment_list->display(
+                Core::backend()->comment_filter->page,
+                Core::backend()->comment_filter->nb,
+                '<form action="' . Core::backend()->url->get('admin.comments') . '" method="post" id="form-comments">' .
 
                 '%s' .
 
@@ -181,17 +181,17 @@ class Comments extends Process
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo(
                     'action',
-                    dcCore::app()->admin->comments_actions_page->getCombo(),
-                    ['default' => dcCore::app()->admin->default_action, 'extra_html' => 'title="' . __('Actions') . '"']
+                    Core::backend()->comments_actions_page->getCombo(),
+                    ['default' => Core::backend()->default_action, 'extra_html' => 'title="' . __('Actions') . '"']
                 ) .
                 Core::nonce()->getFormNonce() .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-                dcCore::app()->admin->url->getHiddenFormFields('admin.comments', dcCore::app()->admin->comment_filter->values(true)) .
+                Core::backend()->url->getHiddenFormFields('admin.comments', Core::backend()->comment_filter->values(true)) .
                 '</div>' .
 
                 '</form>',
-                dcCore::app()->admin->comment_filter->show(),
-                (dcCore::app()->admin->comment_filter->show() || (dcCore::app()->admin->comment_filter->status == -2)),
+                Core::backend()->comment_filter->show(),
+                (Core::backend()->comment_filter->show() || (Core::backend()->comment_filter->status == -2)),
                 $show_ip
             );
         }

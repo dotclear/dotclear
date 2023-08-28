@@ -154,11 +154,11 @@ class dcXmlRpc extends IntrospectionServer
             return true;
         }
 
-        dcCore::app()->setBlog($this->blog_id);
+        Core::setBlog($this->blog_id);
         $this->blog_loaded = true;
 
-        if (!dcCore::app()->blog->id) {
-            dcCore::app()->blog = null;
+        if (!Core::blog()->id) {
+            Core::blog() = null;
 
             throw new Exception('Blog does not exist.');
         }

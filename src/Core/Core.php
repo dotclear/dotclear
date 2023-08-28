@@ -28,13 +28,13 @@ final class Core
     /** @var array<string,mixed> Unique instances stack */
     private array $stack = [];
 
-    /** @var    \Dotclear\Core\Backend\Utility  Backend Utility instance  */
+    /** @var    Backend  Backend Utility instance  */
     private static Backend $backend;
 
     /** @var    null|dcBlog     dcBlog instance */
     private static ?dcBlog $blog;
 
-    /** @var    \Dotclear\Core\Frontend\Utility  Frontend Utility instance  */
+    /** @var    Frontend  Frontend Utility instance  */
     private static Frontend $frontend;
 
     /** @var Core   Core unique instance */
@@ -163,7 +163,7 @@ final class Core
     /**
      * Get frontend Utility.
      *
-     * @return  Backend
+     * @return  Frontend
      */
     public static function frontend(): Frontend
     {

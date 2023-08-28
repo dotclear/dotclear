@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use form;
 
@@ -86,7 +87,7 @@ abstract class Module
         }
 
         $this->id  = get_class($this);
-        $this->url = sprintf(urldecode(dcCore::app()->admin->url->get('admin.plugin', ['p' => 'importExport', 'type' => '%s', 'module' => '%s'], '&')), $this->type, $this->id);
+        $this->url = sprintf(urldecode(Core::backend()->url->get('admin.plugin', ['p' => 'importExport', 'type' => '%s', 'module' => '%s'], '&')), $this->type, $this->id);
     }
 
     /**
@@ -162,12 +163,12 @@ abstract class Module
         '<ul>' .
         '<li>' .
         '<strong>' .
-        '<a href="' . dcCore::app()->admin->url->decode('admin.post') . '">' . __('Why don\'t you blog this now?') . '</a>' .
+        '<a href="' . Core::backend()->url->decode('admin.post') . '">' . __('Why don\'t you blog this now?') . '</a>' .
         '</strong>' .
         '</li>' .
         '<li>' .
         __('or') .
-        ' <a href="' . dcCore::app()->admin->url->decode('admin.home') . '">' . __('visit your dashboard') . '</a>' .
+        ' <a href="' . Core::backend()->url->decode('admin.home') . '">' . __('visit your dashboard') . '</a>' .
         '</li>' .
         '</ul>';
     }

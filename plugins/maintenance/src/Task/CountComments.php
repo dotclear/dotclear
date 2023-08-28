@@ -14,6 +14,7 @@ namespace Dotclear\Plugin\maintenance\Task;
 
 use dcCore;
 use dcBlog;
+use Dotclear\Core\Core;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -63,14 +64,14 @@ class CountComments extends MaintenanceTask
     {
         $sql_com = new UpdateStatement();
         $sql_com
-            ->ref($sql_com->alias(dcCore::app()->con->prefix() . dcBlog::POST_TABLE_NAME, 'P'));
+            ->ref($sql_com->alias(Core::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'));
 
         $sql_tb = clone $sql_com;
 
         $sql_count_com = new SelectStatement();
         $sql_count_com
             ->field($sql_count_com->count('C.comment_id'))
-            ->from($sql_count_com->alias(dcCore::app()->con->prefix() . dcBlog::COMMENT_TABLE_NAME, 'C'))
+            ->from($sql_count_com->alias(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME, 'C'))
             ->where('C.post_id = P.post_id')
             ->and('C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED);
 

@@ -118,7 +118,7 @@ class Antispam extends initAntispam
         if (($count = self::countSpam()) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
 
-            return '</span></a> <a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
+            return '</span></a> <a href="' . Core::backend()->url->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         }
 
@@ -142,7 +142,7 @@ class Antispam extends initAntispam
      */
     public static function countSpam(): int
     {
-        return (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+        return (int) Core::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
     }
 
     /**
@@ -152,7 +152,7 @@ class Antispam extends initAntispam
      */
     public static function countPublishedComments(): int
     {
-        return (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
+        return (int) Core::blog()->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
     }
 
     /**
@@ -163,15 +163,15 @@ class Antispam extends initAntispam
     public static function delAllSpam(?string $beforeDate = null): void
     {
         $strReq = 'SELECT comment_id ' .
-        'FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
-        'JOIN ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
-        "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
+        'FROM ' . Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' C ' .
+        'JOIN ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
+        "WHERE blog_id = '" . Core::con()->escape(Core::blog()->id) . "' " .
             'AND comment_status = ' . (string) dcBlog::COMMENT_JUNK . ' ';
         if ($beforeDate) {
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
 
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(Core::con()->select($strReq));
         $r  = [];
         while ($rs->fetch()) {
             $r[] = (int) $rs->comment_id;
@@ -181,10 +181,10 @@ class Antispam extends initAntispam
             return;
         }
 
-        $strReq = 'DELETE FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' ' .
-        'WHERE comment_id ' . dcCore::app()->con->in($r) . ' ';
+        $strReq = 'DELETE FROM ' . Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' ' .
+        'WHERE comment_id ' . Core::con()->in($r) . ' ';
 
-        dcCore::app()->con->execute($strReq);
+        Core::con()->execute($strReq);
     }
 
     /**
@@ -219,10 +219,10 @@ class Antispam extends initAntispam
         }
 
         $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . dcCore::app()->prefix . dcAuth::USER_TABLE_NAME . ' ' .
-        "WHERE user_id = '" . dcCore::app()->con->escape($user_id) . "' ";
+        'FROM ' . Core::con()->prefix() . dcAuth::USER_TABLE_NAME . ' ' .
+        "WHERE user_id = '" . Core::con()->escape($user_id) . "' ";
 
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(Core::con()->select($strReq));
 
         if ($rs->isEmpty()) {
             return false;
@@ -232,7 +232,7 @@ class Antispam extends initAntispam
             return false;
         }
 
-        $permissions = Core::blogs()->getBlogPermissions(dcCore::app()->blog->id);
+        $permissions = Core::blogs()->getBlogPermissions(Core::blog()->id);
 
         if (empty($permissions[$rs->user_id])) {
             return false;

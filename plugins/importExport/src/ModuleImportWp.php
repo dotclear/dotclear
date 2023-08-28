@@ -92,9 +92,9 @@ class ModuleImportWp extends Module
      */
     public function init(): void
     {
-        $this->con     = dcCore::app()->con;
-        $this->prefix  = dcCore::app()->prefix;
-        $this->blog_id = dcCore::app()->blog->id;
+        $this->con     = Core::con();
+        $this->prefix  = Core::con()->prefix();
+        $this->blog_id = Core::blog()->id;
 
         if (!isset($_SESSION['wp_import_vars'])) {
             $_SESSION['wp_import_vars'] = $this->base_vars;
@@ -192,7 +192,7 @@ class ModuleImportWp extends Module
                 break;
             case 'ok':
                 $this->resetVars();
-                dcCore::app()->blog->triggerBlog();
+                Core::blog()->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
 
@@ -216,7 +216,7 @@ class ModuleImportWp extends Module
                 echo
                 '<p>' . sprintf(
                     __('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(Core::blog()->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -422,8 +422,8 @@ class ModuleImportWp extends Module
                     $cur->user_email       = $rs->user_email;
                     $cur->user_url         = $rs->user_url;
                     $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = dcCore::app()->blog->settings->system->lang;
-                    $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
+                    $cur->user_lang        = Core::blog()->settings->system->lang;
+                    $cur->user_tz          = Core::blog()->settings->system->blog_timezone;
                     $permissions           = [];
 
                     $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
@@ -757,7 +757,7 @@ class ModuleImportWp extends Module
             'SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME
         )))->f(0) + 1;
 
-        $cur->post_url = dcCore::app()->blog->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
+        $cur->post_url = Core::blog()->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
         $cur->insert();
         $this->importComments($rs->ID, $cur->post_id, $db);

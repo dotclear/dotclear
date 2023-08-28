@@ -529,8 +529,8 @@ class dcModules
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
         if ($ns === 'admin') {
-            $base   = dcCore::app()->admin->url->getBase('admin.plugin');
-            $params = dcCore::app()->admin->url->getParams('admin.plugin');
+            $base   = Core::backend()->url->getBase('admin.plugin');
+            $params = Core::backend()->url->getParams('admin.plugin');
         }
 
         foreach ($this->defines as $module) {
@@ -545,7 +545,7 @@ class dcModules
                     $this->loadModuleL10Nresources($module->getId(), $lang);
                 }
                 // Create module admin URL
-                dcCore::app()->admin->url->register(
+                Core::backend()->url->register(
                     'admin.plugin.' . $module->getId(),
                     $base,                                  // @phpstan-ignore-line
                     [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
@@ -656,7 +656,7 @@ class dcModules
             // Check module perms on admin side
             $permissions = $this->define->permissions;
             if ($this->ns === 'admin') {
-                if (($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) || (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id))) {
+                if (($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) || (!dcCore::app()->auth->check($permissions, Core::blog()->id))) {
                     return;
                 }
             }

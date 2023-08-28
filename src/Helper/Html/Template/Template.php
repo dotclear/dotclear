@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper\Html\Template;
 
 use ArrayObject;
+use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;

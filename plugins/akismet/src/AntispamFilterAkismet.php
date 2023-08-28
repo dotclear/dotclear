@@ -103,7 +103,7 @@ class AntispamFilterAkismet extends SpamFilter
             return false;
         }
 
-        return new Akismet(dcCore::app()->blog->url, My::settings()->ak_key);
+        return new Akismet(Core::blog()->url, My::settings()->ak_key);
     }
 
     /**
@@ -130,7 +130,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         try {
             if ($ak->verify()) {
-                $post = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
+                $post = Core::blog()->getPosts(['post_id' => $post_id]);
 
                 $c = $ak->comment_check(
                     $post->getURL(),
@@ -214,7 +214,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         if (My::settings()->ak_key) {
             try {
-                $ak          = new Akismet(dcCore::app()->blog->url, My::settings()->ak_key);
+                $ak          = new Akismet(Core::blog()->url, My::settings()->ak_key);
                 $ak_verified = $ak->verify();
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());

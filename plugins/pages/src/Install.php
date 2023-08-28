@@ -36,16 +36,16 @@ class Install extends Process
                 'post_type'  => 'page',
                 'no_content' => true,
             ];
-            $counter = dcCore::app()->blog->getPosts($params, true);
+            $counter = Core::blog()->getPosts($params, true);
 
             if ($counter->f(0) == 0 && My::settings()->firstpage == null) {
                 My::settings()->put('firstpage', true, 'boolean');
 
-                $cur                     = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+                $cur                     = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
                 $cur->user_id            = dcCore::app()->auth->userID();
                 $cur->post_type          = 'page';
                 $cur->post_format        = 'xhtml';
-                $cur->post_lang          = dcCore::app()->blog->settings->system->lang;
+                $cur->post_lang          = Core::blog()->settings->system->lang;
                 $cur->post_title         = __('My first page');
                 $cur->post_content       = '<p>' . __('This is your first page. When you\'re ready to blog, log in to edit or delete it.') . '</p>';
                 $cur->post_content_xhtml = $cur->post_content;
@@ -54,7 +54,7 @@ class Install extends Process
                 $cur->post_status        = dcBlog::POST_PENDING; // Pending status
                 $cur->post_open_comment  = 0;
                 $cur->post_open_tb       = 0;
-                $post_id                 = dcCore::app()->blog->addPost($cur);
+                $post_id                 = Core::blog()->addPost($cur);
             }
         }
 

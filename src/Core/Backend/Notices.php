@@ -132,7 +132,7 @@ class Notices
      */
     public static function addNotice(string $type, string $message, array $options = [])
     {
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCore::app()->notices->getTable());
+        $cur = Core::con()->openCursor(Core::con()->prefix() . dcCore::app()->notices->getTable());
 
         $now = function () {
             Date::setTZ(dcCore::app()->auth->getInfo('user_tz') ?? 'UTC');    // Set user TZ

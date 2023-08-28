@@ -1,7 +1,7 @@
 <?php
 /**
  * This page serves all admin pages.
- * Note: since 2.27 Use name "admin.home" on dcCore::app()->admin->url methods
+ * Note: since 2.27 Use name "admin.home" on Core::backend()->url methods
  *
  * If no process found in _REQUEST, will use admin.home
  *

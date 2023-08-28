@@ -70,15 +70,15 @@ class Install extends Process
         }
 
         # Check if dotclear is already installed
-        $schema = AbstractSchema::init(dcCore::app()->con);
-        if (in_array(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME, $schema->getTables())) {
+        $schema = AbstractSchema::init(Core::con());
+        if (in_array(Core::con()->prefix() . dcBlog::POST_TABLE_NAME, $schema->getTables())) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
         }
 
         # Check system capabilites
         $_e = [];
-        if (!Utils::check(dcCore::app()->con, $_e)) {
+        if (!Utils::check(Core::con(), $_e)) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
@@ -140,16 +140,16 @@ class Install extends Process
                 }
 
                 # Create schema
-                $_s = new Structure(dcCore::app()->con, dcCore::app()->prefix);
+                $_s = new Structure(Core::con(), Core::con()->prefix());
 
                 # Fill database structrue
                 Utils::dbSchema($_s);
 
-                $si      = new Structure(dcCore::app()->con, dcCore::app()->prefix);
+                $si      = new Structure(Core::con(), Core::con()->prefix());
                 $changes = $si->synchronize($_s);
 
                 # Create user
-                $cur                 = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
+                $cur                 = Core::con()->openCursor(Core::con()->prefix() . dcAuth::USER_TABLE_NAME);
                 $cur->user_id        = self::$u_login;
                 $cur->user_super     = 1;
                 $cur->user_pwd       = dcCore::app()->auth->crypt(self::$u_pwd);
@@ -169,7 +169,7 @@ class Install extends Process
                 self::$root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
 
                 # Create blog
-                $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
+                $cur            = Core::con()->openCursor(Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
                 $cur->blog_id   = 'default';
                 $cur->blog_url  = Http::getHost() . self::$root_url . '/index.php?';
                 $cur->blog_name = __('My first blog');
@@ -210,8 +210,8 @@ class Install extends Process
                 /* SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                 so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
                  */
-                $csp_prefix = dcCore::app()->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-                $csp_suffix = dcCore::app()->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+                $csp_prefix = Core::con()->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+                $csp_suffix = Core::con()->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
                 $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
                 $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
@@ -249,15 +249,15 @@ class Install extends Process
                 );
 
                 # Add Dotclear version
-                $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCore::VERSION_TABLE_NAME);
+                $cur          = Core::con()->openCursor(Core::con()->prefix() . dcCore::VERSION_TABLE_NAME);
                 $cur->module  = 'core';
                 $cur->version = (string) DC_VERSION;
                 $cur->insert();
 
                 # Create first post
-                dcCore::app()->setBlog('default');
+                Core::setBlog('default');
 
-                $cur               = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+                $cur               = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
                 $cur->user_id      = self::$u_login;
                 $cur->post_format  = 'xhtml';
                 $cur->post_lang    = self::$dlang;
@@ -268,10 +268,10 @@ class Install extends Process
                 $cur->post_status        = dcBlog::POST_PUBLISHED;
                 $cur->post_open_comment  = 1;
                 $cur->post_open_tb       = 0;
-                $post_id                 = dcCore::app()->blog->addPost($cur);
+                $post_id                 = Core::blog()->addPost($cur);
 
                 # Add a comment to it
-                $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
+                $cur                  = Core::con()->openCursor(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
                 $cur->post_id         = $post_id;
                 $cur->comment_tz      = $default_tz;
                 $cur->comment_author  = __('Dotclear Team');
@@ -279,7 +279,7 @@ class Install extends Process
                 $cur->comment_site    = 'https://dotclear.org/';
                 $cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and " .
                     "view your blog's comments. Then you might remove or edit it.</p>");
-                dcCore::app()->blog->addComment($cur);
+                Core::blog()->addComment($cur);
 
                 #  Plugins initialization
                 define('DC_CONTEXT_ADMIN', true);

@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\maintenance\Task;
 use dcBlog;
 use dcCore;
 use dcMeta;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
@@ -127,27 +128,27 @@ class SynchPostsMeta extends MaintenanceTask
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {
         // Get number of posts
-        $rs    = new MetaRecord(dcCore::app()->con->select('SELECT COUNT(post_id) FROM ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME));
+        $rs    = new MetaRecord(Core::con()->select('SELECT COUNT(post_id) FROM ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME));
         $count = $rs->f(0);
 
         // Get posts ids to update
-        $req_limit = $start !== null && $limit !== null ? dcCore::app()->con->limit($start, $limit) : '';
-        $rs        = new MetaRecord(dcCore::app()->con->select('SELECT post_id FROM ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' ' . $req_limit));
+        $req_limit = $start !== null && $limit !== null ? Core::con()->limit($start, $limit) : '';
+        $rs        = new MetaRecord(Core::con()->select('SELECT post_id FROM ' . Core::con()->prefix() . dcBlog::POST_TABLE_NAME . ' ' . $req_limit));
 
         // Update posts meta
         while ($rs->fetch()) {
-            $rs_meta = new MetaRecord(dcCore::app()->con->select('SELECT meta_id, meta_type FROM ' . dcCore::app()->prefix . dcMeta::META_TABLE_NAME . ' WHERE post_id = ' . $rs->post_id . ' '));
+            $rs_meta = new MetaRecord(Core::con()->select('SELECT meta_id, meta_type FROM ' . Core::con()->prefix() . dcMeta::META_TABLE_NAME . ' WHERE post_id = ' . $rs->post_id . ' '));
 
             $meta = [];
             while ($rs_meta->fetch()) {
                 $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
             }
 
-            $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+            $cur            = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
             $cur->post_meta = serialize($meta);
             $cur->update('WHERE post_id = ' . $rs->post_id);
         }
-        dcCore::app()->blog->triggerBlog();
+        Core::blog()->triggerBlog();
 
         // Return next step
         return $start + $limit > $count ? null : $start + $limit;

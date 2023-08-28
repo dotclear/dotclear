@@ -71,9 +71,9 @@ class ModuleImportDc1 extends Module
      */
     public function init(): void
     {
-        $this->con     = dcCore::app()->con;
-        $this->prefix  = dcCore::app()->prefix;
-        $this->blog_id = dcCore::app()->blog->id;
+        $this->con     = Core::con();
+        $this->prefix  = Core::con()->prefix();
+        $this->blog_id = Core::blog()->id;
 
         if (!isset($_SESSION['dc1_import_vars'])) {
             $_SESSION['dc1_import_vars'] = $this->base_vars;
@@ -164,7 +164,7 @@ class ModuleImportDc1 extends Module
                 break;
             case 'ok':
                 $this->resetVars();
-                dcCore::app()->blog->triggerBlog();
+                Core::blog()->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
 
@@ -193,7 +193,7 @@ class ModuleImportDc1 extends Module
                 echo
                 '<p>' . sprintf(
                     __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(Core::blog()->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -373,7 +373,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_pwd         = Crypt::createPassword();
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
-                    $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
+                    $cur->user_tz          = Core::blog()->settings->system->blog_timezone;
                     $cur->user_post_status = $rs->user_post_pub ? dcBlog::POST_PUBLISHED : dcBlog::POST_PENDING;
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => (int) $rs->user_edit_size,

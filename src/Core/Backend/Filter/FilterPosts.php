@@ -67,7 +67,7 @@ class FilterPosts extends Filters
         $users = null;
 
         try {
-            $users = dcCore::app()->blog->getPostsUsers($this->post_type);
+            $users = Core::blog()->getPostsUsers($this->post_type);
             if ($users->isEmpty()) {
                 return null;
             }
@@ -98,7 +98,7 @@ class FilterPosts extends Filters
         $categories = null;
 
         try {
-            $categories = dcCore::app()->blog->getCategories(['post_type' => $this->post_type]);
+            $categories = Core::blog()->getCategories(['post_type' => $this->post_type]);
             if ($categories->isEmpty()) {
                 return null;
             }
@@ -219,7 +219,7 @@ class FilterPosts extends Filters
         $dates = null;
 
         try {
-            $dates = dcCore::app()->blog->getDates([
+            $dates = Core::blog()->getDates([
                 'type'      => 'month',
                 'post_type' => $this->post_type,
             ]);
@@ -250,7 +250,7 @@ class FilterPosts extends Filters
         $langs = null;
 
         try {
-            $langs = dcCore::app()->blog->getLangs(['post_type' => $this->post_type]);
+            $langs = Core::blog()->getLangs(['post_type' => $this->post_type]);
             if ($langs->isEmpty()) {
                 return null;
             }

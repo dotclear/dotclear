@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -123,8 +124,8 @@ class dcWorkspace
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
         }
 
-        $this->con     = dcCore::app()->con;
-        $this->table   = dcCore::app()->prefix . self::WS_TABLE_NAME;
+        $this->con     = Core::con();
+        $this->table   = Core::con()->prefix() . self::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {

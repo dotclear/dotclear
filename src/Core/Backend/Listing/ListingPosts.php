@@ -51,34 +51,34 @@ class ListingPosts extends Listing
             if ($filter) {
                 $html_block .= '<caption>' . sprintf(__('List of %s entries matching the filter.'), $this->rs_count) . '</caption>';
             } else {
-                $nb_published   = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_PUBLISHED], true)->f(0);
-                $nb_pending     = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_PENDING], true)->f(0);
-                $nb_programmed  = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_SCHEDULED], true)->f(0);
-                $nb_unpublished = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_UNPUBLISHED], true)->f(0);
+                $nb_published   = (int) Core::blog()->getPosts(['post_status' => dcBlog::POST_PUBLISHED], true)->f(0);
+                $nb_pending     = (int) Core::blog()->getPosts(['post_status' => dcBlog::POST_PENDING], true)->f(0);
+                $nb_programmed  = (int) Core::blog()->getPosts(['post_status' => dcBlog::POST_SCHEDULED], true)->f(0);
+                $nb_unpublished = (int) Core::blog()->getPosts(['post_status' => dcBlog::POST_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of entries (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_PUBLISHED]),
+                        Core::backend()->url->get('admin.posts', ['status' => dcBlog::POST_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_PENDING]),
+                        Core::backend()->url->get('admin.posts', ['status' => dcBlog::POST_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_programmed ?
                     sprintf(
                         __(', <a href="%s">programmed</a> (1)', ', <a href="%s">programmed</a> (%s)', $nb_programmed),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_SCHEDULED]),
+                        Core::backend()->url->get('admin.posts', ['status' => dcBlog::POST_SCHEDULED]),
                         $nb_programmed
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_UNPUBLISHED]),
+                        Core::backend()->url->get('admin.posts', ['status' => dcBlog::POST_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -147,8 +147,8 @@ class ListingPosts extends Listing
     {
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_CATEGORIES,
-        ]), dcCore::app()->blog->id)) {
-            $cat_link = '<a href="' . dcCore::app()->admin->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
+        ]), Core::blog()->id)) {
+            $cat_link = '<a href="' . Core::backend()->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
             $cat_link = '%2$s';
         }

@@ -43,7 +43,7 @@ class ActionsPostsDefault
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_PUBLISH,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -57,7 +57,7 @@ class ActionsPostsDefault
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_PUBLISH,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('First publication') => [
                     __('Never published')   => 'never',
@@ -87,7 +87,7 @@ class ActionsPostsDefault
         );
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
@@ -97,7 +97,7 @@ class ActionsPostsDefault
         if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_DELETE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -147,7 +147,7 @@ class ActionsPostsDefault
         }
 
         // Set status of remaining entries
-        dcCore::app()->blog->updPostsStatus($ids, $status);
+        Core::blog()->updPostsStatus($ids, $status);
 
         Notices::addSuccessNotice(
             sprintf(
@@ -157,7 +157,7 @@ class ActionsPostsDefault
                     count($ids)
                 ),
                 count($ids),
-                dcCore::app()->blog->getPostStatus($status)
+                Core::blog()->getPostStatus($status)
             )
         );
         $ap->redirect(true);
@@ -185,7 +185,7 @@ class ActionsPostsDefault
             }
 
             // Set first publication flag of entries
-            dcCore::app()->blog->updPostsFirstPub($ids, $status);
+            Core::blog()->updPostsFirstPub($ids, $status);
 
             Notices::addSuccessNotice(
                 sprintf(
@@ -217,7 +217,7 @@ class ActionsPostsDefault
         }
 
         $action = $ap->getAction();
-        dcCore::app()->blog->updPostsSelected($ids, $action === 'selected');
+        Core::blog()->updPostsSelected($ids, $action === 'selected');
         if ($action == 'selected') {
             Notices::addSuccessNotice(
                 sprintf(
@@ -266,7 +266,7 @@ class ActionsPostsDefault
         # --BEHAVIOR-- adminBeforePostsDelete -- array<int,string>
         Core::behavior()->callBehavior('adminBeforePostsDelete', $ids);
 
-        dcCore::app()->blog->delPosts($ids);
+        Core::blog()->delPosts($ids);
         Notices::addSuccessNotice(
             sprintf(
                 __(
@@ -299,8 +299,8 @@ class ActionsPostsDefault
             $new_cat_id = (int) $post['new_cat_id'];
             if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CATEGORIES,
-            ]), dcCore::app()->blog->id)) {
-                $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
+            ]), Core::blog()->id)) {
+                $cur_cat            = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
                 $cur_cat->cat_title = $post['new_cat_title'];
                 $cur_cat->cat_url   = '';
                 $title              = $cur_cat->cat_title;
@@ -310,16 +310,16 @@ class ActionsPostsDefault
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                $new_cat_id = (int) dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
+                $new_cat_id = (int) Core::blog()->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                 Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
             }
 
-            dcCore::app()->blog->updPostsCategory($ids, $new_cat_id);
+            Core::blog()->updPostsCategory($ids, $new_cat_id);
             $title = __('(No cat)');
             if ($new_cat_id) {
-                $title = dcCore::app()->blog->getCategory($new_cat_id)->cat_title;
+                $title = Core::blog()->getCategory($new_cat_id)->cat_title;
             }
             Notices::addSuccessNotice(
                 sprintf(
@@ -338,7 +338,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(Core::blog()->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change category for this selection')    => '',
                     ]
@@ -347,7 +347,7 @@ class ActionsPostsDefault
             # categories list
             # Getting categories
             $categories_combo = Combos::getCategoriesCombo(
-                dcCore::app()->blog->getCategories()
+                Core::blog()->getCategories()
             );
 
             $items = [
@@ -364,7 +364,7 @@ class ActionsPostsDefault
 
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CATEGORIES,
-            ]), dcCore::app()->blog->id)) {
+            ]), Core::blog()->id)) {
                 $items[] = (new Div())
                     ->items([
                         (new Text('p', __('Create a new category for the post(s)')))
@@ -420,7 +420,7 @@ class ActionsPostsDefault
     {
         if (isset($post['new_auth_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $new_user_id = $post['new_auth_id'];
             $ids         = $ap->getIDs();
             if (empty($ids)) {
@@ -430,9 +430,9 @@ class ActionsPostsDefault
                 throw new Exception(__('This user does not exist'));
             }
 
-            $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+            $cur          = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
             $cur->user_id = $new_user_id;
-            $cur->update('WHERE post_id ' . dcCore::app()->con->in($ids));
+            $cur->update('WHERE post_id ' . Core::con()->in($ids));
             Notices::addSuccessNotice(
                 sprintf(
                     __(
@@ -450,7 +450,7 @@ class ActionsPostsDefault
             $usersList = [];
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_ADMIN,
-            ]), dcCore::app()->blog->id)) {
+            ]), Core::blog()->id)) {
                 $params = [
                     'limit' => 100,
                     'order' => 'nb_post DESC',
@@ -467,7 +467,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(Core::blog()->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change author for this selection')      => '', ]
                 ),
@@ -521,9 +521,9 @@ class ActionsPostsDefault
         }
         if (isset($post['new_lang'])) {
             $new_lang       = $post['new_lang'];
-            $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+            $cur            = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
             $cur->post_lang = $new_lang;
-            $cur->update('WHERE post_id ' . dcCore::app()->con->in($post_ids));
+            $cur->update('WHERE post_id ' . Core::con()->in($post_ids));
             Notices::addSuccessNotice(
                 sprintf(
                     __(
@@ -540,7 +540,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name) => '',
+                        Html::escapeHTML(Core::blog()->name) => '',
                         $ap->getCallerTitle()                       => $ap->getRedirection(true),
                         __('Change language for this selection')    => '',
                     ]
@@ -548,7 +548,7 @@ class ActionsPostsDefault
             );
             # lang list
             # Languages combo
-            $rs         = dcCore::app()->blog->getLangs(['order' => 'asc']);
+            $rs         = Core::blog()->getLangs(['order' => 'asc']);
             $all_langs  = L10n::getISOcodes(false, true);
             $lang_combo = ['' => '', __('Most used') => [], __('Available') => L10n::getISOcodes(true, true)];
             while ($rs->fetch()) {

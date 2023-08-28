@@ -217,10 +217,10 @@ class Maintenance
         }
 
         // Get logs from this task
-        $rs = new MetaRecord(dcCore::app()->con->select(
+        $rs = new MetaRecord(Core::con()->select(
             'SELECT log_id ' .
-            'FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
-            "WHERE log_msg = '" . dcCore::app()->con->escape($id) . "' " .
+            'FROM ' . Core::con()->prefix() . dcLog::LOG_TABLE_NAME . ' ' .
+            "WHERE log_msg = '" . Core::con()->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         ));
 
@@ -235,7 +235,7 @@ class Maintenance
         }
 
         // Add new log
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
+        $cur = Core::con()->openCursor(Core::con()->prefix() . dcLog::LOG_TABLE_NAME);
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';
@@ -290,7 +290,7 @@ class Maintenance
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == dcCore::app()->blog->id,
+                    'blog' => $rs->blog_id == Core::blog()->id,
                 ];
             }
         }

@@ -204,8 +204,8 @@ class dcBlog
      */
     public function __construct($id)
     {
-        $this->con    = dcCore::app()->con;
-        $this->prefix = dcCore::app()->prefix;
+        $this->con    = Core::con();
+        $this->prefix = Core::con()->prefix();
 
         if (($blog = dcCore::app()->getBlog($id)) !== false) {
             $this->id     = $id;

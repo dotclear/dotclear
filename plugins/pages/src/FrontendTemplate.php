@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -53,7 +54,7 @@ class FrontendTemplate
         }
         $params['order'] = $sort . ' ' . $order;
 
-        $rs = dcCore::app()->blog->getPosts($params);
+        $rs = Core::blog()->getPosts($params);
 
         if ($rs->isEmpty()) {
             return '';

@@ -30,7 +30,7 @@ class Manage extends Process
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
-            dcCore::app()->admin->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
+            Core::backend()->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
             self::status(true);
         }
 
@@ -104,7 +104,7 @@ class Manage extends Process
     {
         Page::openModule(
             My::name(),
-            Page::jsPageTabs(dcCore::app()->admin->part) .
+            Page::jsPageTabs(Core::backend()->part) .
             My::jsLoad('index')
         );
 
@@ -193,7 +193,7 @@ class Manage extends Process
                 $ws_combo[$ws] = $prefix_id . $ws;
             }
             echo
-            '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
             '<p class="anchor-nav">' .
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ws_combo, ['class' => 'navigation']) .
@@ -204,7 +204,7 @@ class Manage extends Process
         }
 
         echo
-        '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post">';
+        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post">';
         foreach ($prefs as $ws => $s) {
             ksort($s);
             echo sprintf($table_header, $prefix . $ws, $ws);

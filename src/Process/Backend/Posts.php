@@ -34,17 +34,17 @@ class Posts extends Process
 
         // Actions
         // -------
-        dcCore::app()->admin->posts_actions_page = new ActionsPosts(dcCore::app()->admin->url->get('admin.posts'));
-        if (dcCore::app()->admin->posts_actions_page->process()) {
+        Core::backend()->posts_actions_page = new ActionsPosts(Core::backend()->url->get('admin.posts'));
+        if (Core::backend()->posts_actions_page->process()) {
             return self::status(false);
         }
 
         // Filters
         // -------
-        dcCore::app()->admin->post_filter = new FilterPosts();
+        Core::backend()->post_filter = new FilterPosts();
 
         // get list params
-        $params = dcCore::app()->admin->post_filter->params();
+        $params = Core::backend()->post_filter->params();
 
         // lexical sort
         $sortby_lex = [
@@ -56,21 +56,21 @@ class Posts extends Process
         # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
         Core::behavior()->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
 
-        $params['order'] = (array_key_exists(dcCore::app()->admin->post_filter->sortby, $sortby_lex) ?
-            dcCore::app()->con->lexFields($sortby_lex[dcCore::app()->admin->post_filter->sortby]) :
-            dcCore::app()->admin->post_filter->sortby) . ' ' . dcCore::app()->admin->post_filter->order;
+        $params['order'] = (array_key_exists(Core::backend()->post_filter->sortby, $sortby_lex) ?
+            Core::con()->lexFields($sortby_lex[Core::backend()->post_filter->sortby]) :
+            Core::backend()->post_filter->sortby) . ' ' . Core::backend()->post_filter->order;
 
         $params['no_content'] = true;
 
         // List
         // ----
-        dcCore::app()->admin->post_list = null;
+        Core::backend()->post_list = null;
 
         try {
-            $posts   = dcCore::app()->blog->getPosts($params);
-            $counter = dcCore::app()->blog->getPosts($params, true);
+            $posts   = Core::blog()->getPosts($params);
+            $counter = Core::blog()->getPosts($params, true);
 
-            dcCore::app()->admin->post_list = new ListingPosts($posts, $counter->f(0));
+            Core::backend()->post_list = new ListingPosts($posts, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -82,10 +82,10 @@ class Posts extends Process
     {
         Page::open(
             __('Posts'),
-            Page::jsLoad('js/_posts_list.js') . dcCore::app()->admin->post_filter->js(dcCore::app()->admin->url->get('admin.posts')),
+            Page::jsLoad('js/_posts_list.js') . Core::backend()->post_filter->js(Core::backend()->url->get('admin.posts')),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
+                    Html::escapeHTML(Core::blog()->name) => '',
                     __('Posts')                                 => '',
                 ]
             )
@@ -97,16 +97,16 @@ class Posts extends Process
         }
         if (!dcCore::app()->error->flag()) {
             echo
-            '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->url->get('admin.post') . '">' . __('New post') . '</a></p>';
+            '<p class="top-add"><a class="button add" href="' . Core::backend()->url->get('admin.post') . '">' . __('New post') . '</a></p>';
 
             # filters
-            dcCore::app()->admin->post_filter->display('admin.posts');
+            Core::backend()->post_filter->display('admin.posts');
 
             # Show posts
-            dcCore::app()->admin->post_list->display(
-                dcCore::app()->admin->post_filter->page,
-                dcCore::app()->admin->post_filter->nb,
-                '<form action="' . dcCore::app()->admin->url->get('admin.posts') . '" method="post" id="form-entries">' .
+            Core::backend()->post_list->display(
+                Core::backend()->post_filter->page,
+                Core::backend()->post_filter->nb,
+                '<form action="' . Core::backend()->url->get('admin.posts') . '" method="post" id="form-entries">' .
                 // List
                 '%s' .
 
@@ -114,13 +114,13 @@ class Posts extends Process
                 '<p class="col checkboxes-helpers"></p>' .
                 // Actions
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-                form::combo('action', dcCore::app()->admin->posts_actions_page->getCombo()) .
+                form::combo('action', Core::backend()->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
-                dcCore::app()->admin->url->getHiddenFormFields('admin.posts', dcCore::app()->admin->post_filter->values()) .
+                Core::backend()->url->getHiddenFormFields('admin.posts', Core::backend()->post_filter->values()) .
                 Core::nonce()->getFormNonce() .
                 '</div>' .
                 '</form>',
-                dcCore::app()->admin->post_filter->show()
+                Core::backend()->post_filter->show()
             );
         }
 

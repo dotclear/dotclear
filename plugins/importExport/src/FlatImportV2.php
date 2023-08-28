@@ -105,8 +105,8 @@ class FlatImportV2 extends FlatBackup
             $this->dc_major_version = '2.0';
         }
 
-        $this->con    = dcCore::app()->con;
-        $this->prefix = dcCore::app()->prefix;
+        $this->con    = Core::con();
+        $this->prefix = Core::con()->prefix();
 
         $this->cur_blog        = $this->con->openCursor($this->prefix . dcBlog::BLOG_TABLE_NAME);
         $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
@@ -141,11 +141,11 @@ class FlatImportV2 extends FlatBackup
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
-        $this->blog_id = dcCore::app()->blog->id;
+        $this->blog_id = Core::blog()->id;
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
@@ -173,12 +173,12 @@ class FlatImportV2 extends FlatBackup
 
         $rs = new MetaRecord($this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
-            "WHERE blog_id = '" . $this->con->escape(dcCore::app()->blog->id) . "'"
+            "WHERE blog_id = '" . $this->con->escape(Core::blog()->id) . "'"
         ));
 
         if ((int) $rs->cat_rgt > 0) {
             $this->has_categories                            = true;
-            $this->stack['cat_lft'][dcCore::app()->blog->id] = (int) $rs->cat_rgt + 1;
+            $this->stack['cat_lft'][Core::blog()->id] = (int) $rs->cat_rgt + 1;
         }
 
         $this->con->begin();
@@ -634,7 +634,7 @@ class FlatImportV2 extends FlatBackup
             $post->cat_id  = $cat_id;
             $post->blog_id = $this->blog_id;
 
-            $post->post_url = dcCore::app()->blog->getPostURL(
+            $post->post_url = Core::blog()->getPostURL(
                 $post->post_url,
                 $post->post_dt,
                 $post->post_title,
@@ -664,7 +664,7 @@ class FlatImportV2 extends FlatBackup
         $old_id   = $media->media_id;
 
         $media->media_id   = $media_id;
-        $media->media_path = dcCore::app()->blog->settings->system->public_path;
+        $media->media_path = Core::blog()->settings->system->public_path;
         $media->user_id    = $this->getUserId($media->user_id);
 
         $this->insertMedia($media);

@@ -30,7 +30,7 @@ class Version
     /**
      * Constructor.
      *
-     * @param   AbstractHandler     The dc connection instance
+     * @param   AbstractHandler     $con    The dc connection instance
      */
     public function __construct(
         private AbstractHandler $con

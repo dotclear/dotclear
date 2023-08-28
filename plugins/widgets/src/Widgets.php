@@ -120,7 +120,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        $rs         = dcCore::app()->blog->getCategories(['post_type' => 'post']);
+        $rs         = Core::blog()->getCategories(['post_type' => 'post']);
         $categories = ['' => '', __('Uncategorized') => 'null'];
         while ($rs->fetch()) {
             $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
@@ -177,7 +177,7 @@ class Widgets
      */
     public static function search(WidgetsElement $widget): string
     {
-        if (dcCore::app()->blog->settings->system->no_search) {
+        if (Core::blog()->settings->system->no_search) {
             return '';
         }
 
@@ -189,14 +189,14 @@ class Widgets
             return '';
         }
 
-        $value = dcCore::app()->public->search ?? '';
+        $value = Core::frontend()->search ?? '';
 
         return $widget->renderDiv(
             (bool) $widget->content_only,
             $widget->class,
             'id="search"',
             ($widget->title ? $widget->renderTitle('<label for="q">' . Html::escapeHTML($widget->title) . '</label>') : '') .
-            '<form action="' . dcCore::app()->blog->url . '" method="get" role="search">' .
+            '<form action="' . Core::blog()->url . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
             ($widget->placeholder ? 'placeholder="' . Html::escapeHTML($widget->placeholder) . '"' : '') .
             ' aria-label="' . __('Search') . '"/> ' .
@@ -228,23 +228,23 @@ class Widgets
         if (!dcCore::app()->url->isHome(dcCore::app()->url->type)) {
             // Not on home page (standard or static), add home link
             $res .= '<li class="topnav-home">' .
-            '<a href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a></li>';
-            if (dcCore::app()->blog->settings->system->static_home) {
+            '<a href="' . Core::blog()->url . '">' . __('Home') . '</a></li>';
+            if (Core::blog()->settings->system->static_home) {
                 // Static mode: add recent posts link
                 $res .= '<li class="topnav-posts">' .
-                '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
         } else {
             // On home page (standard or static)
-            if (dcCore::app()->blog->settings->system->static_home) {
+            if (Core::blog()->settings->system->static_home) {
                 // Static mode: add recent posts link
                 $res .= '<li class="topnav-posts">' .
-                '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
         }
 
         $res .= '<li class="topnav-arch">' .
-        '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('archive') . '">' .
+        '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('archive') . '">' .
         __('Archives') . '</a></li>' .
             '</ul></nav>';
 
@@ -268,7 +268,7 @@ class Widgets
             return '';
         }
 
-        $rs = dcCore::app()->blog->getCategories(['post_type' => 'post', 'without_empty' => !$widget->with_empty]);
+        $rs = Core::blog()->getCategories(['post_type' => 'post', 'without_empty' => !$widget->with_empty]);
         if ($rs->isEmpty()) {
             return '';
         }
@@ -293,7 +293,7 @@ class Widgets
                 $res .= '</li><li' . $class . '>';
             }
 
-            $res .= '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $rs->cat_url) . '">' .
+            $res .= '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('category', $rs->cat_url) . '">' .
             Html::escapeHTML($rs->cat_title) . '</a>' .
                 ($widget->postcount ? ' <span>(' . ($widget->subcatscount ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
 
@@ -330,7 +330,7 @@ class Widgets
             'order'         => 'post_dt ' . strtoupper($widget->orderby),
         ];
 
-        $rs = dcCore::app()->blog->getPosts($params);
+        $rs = Core::blog()->getPosts($params);
 
         if ($rs->isEmpty()) {
             return '';
@@ -369,7 +369,7 @@ class Widgets
             return '';
         }
 
-        $rs = dcCore::app()->blog->getLangs();
+        $rs = Core::blog()->getLangs();
 
         if ($rs->count() <= 1) {
             return '';
@@ -387,7 +387,7 @@ class Widgets
             $res .= ' <li>' .
             sprintf(
                 $l,
-                '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('lang', $rs->post_lang) . '" ' .
+                '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('lang', $rs->post_lang) . '" ' .
                 'class="lang-' . $rs->post_lang . '">' .
                 $lang_name . '</a>'
             ) .
@@ -429,13 +429,13 @@ class Widgets
             '<ul>';
 
         $res .= '<li><a type="' . $mime . '" ' .
-        'href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('feed', $type) . '" ' .
+        'href="' . Core::blog()->url . dcCore::app()->url->getURLFor('feed', $type) . '" ' .
         'title="' . sprintf($p_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
         __('Entries feed') . '</a></li>';
 
-        if (dcCore::app()->blog->settings->system->allow_comments || dcCore::app()->blog->settings->system->allow_trackbacks) {
+        if (Core::blog()->settings->system->allow_comments || Core::blog()->settings->system->allow_trackbacks) {
             $res .= '<li><a type="' . $mime . '" ' .
-            'href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('feed', $type . '/comments') . '" ' .
+            'href="' . Core::blog()->url . dcCore::app()->url->getURLFor('feed', $type . '/comments') . '" ' .
             'title="' . sprintf($c_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
             __('Comments feed') . '</a></li>';
         }
@@ -564,7 +564,7 @@ class Widgets
             $params['meta_id'] = $widget->tag;
             $rs                = dcCore::app()->meta->getPostsByMeta($params);
         } else {
-            $rs = dcCore::app()->blog->getPosts($params);
+            $rs = Core::blog()->getPosts($params);
         }
 
         if ($rs->isEmpty()) {
@@ -608,7 +608,7 @@ class Widgets
 
         $params['limit'] = abs((int) $widget->limit);
         $params['order'] = 'comment_dt desc';
-        $rs              = dcCore::app()->blog->getComments($params);
+        $rs              = Core::blog()->getComments($params);
 
         if ($rs->isEmpty()) {
             return '';

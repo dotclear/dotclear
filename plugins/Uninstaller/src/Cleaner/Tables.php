@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\{
     AbstractSchema,
     Structure
@@ -90,14 +91,14 @@ class Tables extends CleanerParent
 
     public function values(): array
     {
-        $schema = AbstractSchema::init(dcCore::app()->con);
+        $schema = AbstractSchema::init(Core::con());
         $tables = $schema->getTables();
 
         $stack = [];
         foreach ($tables as $k => $v) {
             // get only tables with dotclear prefix
-            if ('' != dcCore::app()->prefix) {
-                if (!preg_match('/^' . preg_quote(dcCore::app()->prefix) . '(.*?)$/', $v, $m)) {
+            if ('' != Core::con()->prefix()) {
+                if (!preg_match('/^' . preg_quote(Core::con()->prefix()) . '(.*?)$/', $v, $m)) {
                     continue;
                 }
                 $v = $m[1];
@@ -119,17 +120,17 @@ class Tables extends CleanerParent
     {
         if (in_array($action, ['empty', 'delete'])) {
             $sql = new DeleteStatement();
-            $sql->from(dcCore::app()->prefix . $ns)
+            $sql->from(Core::con()->prefix() . $ns)
                 ->delete();
         }
         if ($action == 'empty') {
             return true;
         }
         if ($action == 'delete') {
-            $struct = new Structure(dcCore::app()->con, dcCore::app()->prefix);
+            $struct = new Structure(Core::con(), Core::con()->prefix());
             if ($struct->tableExists($ns)) {
                 $sql = new DropStatement();
-                $sql->from(dcCore::app()->prefix . $ns)
+                $sql->from(Core::con()->prefix() . $ns)
                     ->drop();
             }
 

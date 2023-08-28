@@ -129,21 +129,21 @@ abstract class MyModule
             // Backend context
             self::BACKEND => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(dcCore::app()->blog)
+                    && !is_null(Core::blog())
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_USAGE,
                         dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-                    ]), dcCore::app()->blog->id),
+                    ]), Core::blog()->id),
 
             // Main page of module, Admin menu, Blog widgets
             self::MANAGE,
             self::MENU,
             self::WIDGETS => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(dcCore::app()->blog)
+                    && !is_null(Core::blog())
                     && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                         dcCore::app()->auth::PERMISSION_ADMIN,  // Admin+
-                    ]), dcCore::app()->blog->id),
+                    ]), Core::blog()->id),
 
             // Config page of module
             self::CONFIG => defined('DC_CONTEXT_ADMIN')
@@ -195,7 +195,7 @@ abstract class MyModule
      */
     final public static function settings(): ?dcNamespace
     {
-        return is_null(dcCore::app()->blog) ? null : dcCore::app()->blog->settings->get(static::id());
+        return is_null(Core::blog()) ? null : Core::blog()->settings->get(static::id());
     }
 
     /**
@@ -235,10 +235,10 @@ abstract class MyModule
             $resource = '/' . $resource;
         }
         if (defined('DC_CONTEXT_ADMIN') && DC_CONTEXT_ADMIN && !$frontend) {
-            return urldecode(dcCore::app()->admin->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
+            return urldecode(Core::backend()->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }
 
-        return is_null(dcCore::app()->blog) ? '' : urldecode(dcCore::app()->blog->getQmarkURL() . 'pf=' . self::id() . $resource);
+        return is_null(Core::blog()) ? '' : urldecode(Core::blog()->getQmarkURL() . 'pf=' . self::id() . $resource);
     }
 
     /**

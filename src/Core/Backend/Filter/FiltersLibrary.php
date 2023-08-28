@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use dcCore;
+use Dotclear\Core\Core;
 
 class FiltersLibrary
 {
@@ -75,7 +76,7 @@ class FiltersLibrary
     public static function getCurrentBlogFilter(string $id = 'current_blog'): Filter
     {
         return (new Filter($id))
-            ->value(dcCore::app()->con->escape(dcCore::app()->blog->id))
-            ->param('where', fn ($f) => " AND P.blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' ");
+            ->value(Core::con()->escape(Core::blog()->id))
+            ->param('where', fn ($f) => " AND P.blog_id = '" . Core::con()->escape(Core::blog()->id) . "' ");
     }
 }

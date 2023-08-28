@@ -14,6 +14,7 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcCore;
 use dcNamespace;
+use Dotclear\Core\Core;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_24_lt
@@ -131,10 +132,10 @@ class GrowUp_2_24_lt
         );
 
         // Global settings
-        $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        dcCore::app()->con->execute(
+        Core::con()->execute(
             sprintf($strReq, 'sleepmode_timeout', 31_536_000, 'integer', 'Sleep mode timeout')
         );
 

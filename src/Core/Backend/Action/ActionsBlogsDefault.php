@@ -68,9 +68,9 @@ class ActionsBlogsDefault
             default   => dcBlog::BLOG_ONLINE,
         };
 
-        $cur              = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
+        $cur              = Core::con()->openCursor(Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
         $cur->blog_status = $status;
-        $cur->update('WHERE blog_id ' . dcCore::app()->con->in($ids));
+        $cur->update('WHERE blog_id ' . Core::con()->in($ids));
 
         if ($status === dcBlog::BLOG_REMOVED) {
             // Remove these blogs from user default blog
@@ -105,7 +105,7 @@ class ActionsBlogsDefault
 
         $checked_ids = [];
         foreach ($ids as $id) {
-            if ($id === dcCore::app()->blog->id) {
+            if ($id === Core::blog()->id) {
                 Notices::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $checked_ids[] = $id;

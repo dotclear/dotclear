@@ -36,8 +36,8 @@ class Home extends Process
 
         if (!empty($_GET['default_blog'])) {
             try {
-                Core::users()->setUserDefaultBlog(dcCore::app()->auth->userID(), dcCore::app()->blog->id);
-                dcCore::app()->admin->url->redirect('admin.home');
+                Core::users()->setUserDefaultBlog(dcCore::app()->auth->userID(), Core::blog()->id);
+                Core::backend()->url->redirect('admin.home');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -56,7 +56,7 @@ class Home extends Process
                 ['divtag' => true, 'with_ts' => false]
             );
 
-            dcCore::app()->admin->url->redirect('admin.home');
+            Core::backend()->url->redirect('admin.home');
             exit;
         }
 
@@ -66,7 +66,7 @@ class Home extends Process
     public static function process(): bool
     {
         /**
-         * @deprecated since 2.27 Use dcCore::app()->admin->url->redirect('admin.logout');
+         * @deprecated since 2.27 Use Core::backend()->url->redirect('admin.logout');
          */
         if (!empty($_GET['logout'])) {
             // Enable REST service if disabled, for next requests
@@ -74,14 +74,14 @@ class Home extends Process
                 dcCore::app()->rest->enableRestServer(true);
             }
             // Kill admin session
-            dcCore::app()->admin->killAdminSession();
+            Core::backend()->killAdminSession();
             // Logout
-            dcCore::app()->admin->url->redirect('admin.auth');
+            Core::backend()->url->redirect('admin.auth');
             exit;
         }
 
         // Plugin install
-        dcCore::app()->admin->plugins_install = dcCore::app()->plugins->installModules();
+        Core::backend()->plugins_install = dcCore::app()->plugins->installModules();
 
         return true;
     }
@@ -121,17 +121,17 @@ class Home extends Process
 
         // Dashboard icons
         $__dashboard_icons = new ArrayObject();
-        dcCore::app()->admin->favs->appendDashboardIcons($__dashboard_icons);
+        Core::backend()->favs->appendDashboardIcons($__dashboard_icons);
 
         // Dashboard items
         $__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);
         $dashboardItem     = 0;
 
         // Documentation links
-        if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(dcCore::app()->admin->resources->entries('doc'))) {
+        if (dcCore::app()->auth->user_prefs->dashboard->doclinks && !empty(Core::backend()->resources->entries('doc'))) {
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
-            foreach (dcCore::app()->admin->resources->entries('doc') as $k => $v) {
+            foreach (Core::backend()->resources->entries('doc') as $k => $v) {
                 $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
             }
 
@@ -155,7 +155,7 @@ class Home extends Process
             if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_USAGE,
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)) {
+            ]), Core::blog()->id)) {
                 $post_format = dcCore::app()->auth->getOption('post_format');
                 $post_editor = dcCore::app()->auth->getOption('editor');
                 if ($post_editor && !empty($post_editor[$post_format])) {
@@ -201,20 +201,20 @@ class Home extends Process
             Core::behavior()->callBehavior('adminDashboardHeaders'),
             Page::breadcrumb(
                 [
-                    __('Dashboard') . ' : ' . Html::escapeHTML(dcCore::app()->blog->name) => '',
+                    __('Dashboard') . ' : ' . Html::escapeHTML(Core::blog()->name) => '',
                 ],
                 ['home_link' => false]
             )
         );
 
-        if (dcCore::app()->auth->getInfo('user_default_blog') != dcCore::app()->blog->id && dcCore::app()->auth->getBlogCount() > 1) {
+        if (dcCore::app()->auth->getInfo('user_default_blog') != Core::blog()->id && dcCore::app()->auth->getBlogCount() > 1) {
             echo
-            '<p><a href="' . dcCore::app()->admin->url->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
+            '<p><a href="' . Core::backend()->url->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
         }
 
-        if (dcCore::app()->blog->status == dcBlog::BLOG_OFFLINE) {
+        if (Core::blog()->status == dcBlog::BLOG_OFFLINE) {
             Notices::message(__('This blog is offline'), false);
-        } elseif (dcCore::app()->blog->status == dcBlog::BLOG_REMOVED) {
+        } elseif (Core::blog()->status == dcBlog::BLOG_REMOVED) {
             Notices::message(__('This blog is removed'), false);
         }
 
@@ -249,11 +249,11 @@ class Home extends Process
 
         // Check public directory
         if (dcCore::app()->auth->isSuperAdmin()) {
-            if (!is_dir(dcCore::app()->blog->public_path) || !is_writable(dcCore::app()->blog->public_path)) {
+            if (!is_dir(Core::blog()->public_path) || !is_writable(Core::blog()->public_path)) {
                 $err[] = __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).');
             }
         } else {
-            if (!is_dir(dcCore::app()->blog->public_path) || !is_writable(dcCore::app()->blog->public_path)) {
+            if (!is_dir(Core::blog()->public_path) || !is_writable(Core::blog()->public_path)) {
                 $err[] = __('There is no writable root directory for the media manager. You should contact your administrator.');
             }
         }
@@ -270,9 +270,9 @@ class Home extends Process
         }
 
         // Plugins install messages
-        if (!empty(dcCore::app()->admin->plugins_install['success'])) {
+        if (!empty(Core::backend()->plugins_install['success'])) {
             $success = [];
-            foreach (dcCore::app()->admin->plugins_install['success'] as $k => $v) {
+            foreach (Core::backend()->plugins_install['success'] as $k => $v) {
                 $info      = implode(' - ', ModulesList::getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
@@ -285,9 +285,9 @@ class Home extends Process
             );
             unset($success);
         }
-        if (!empty(dcCore::app()->admin->plugins_install['failure'])) {
+        if (!empty(Core::backend()->plugins_install['failure'])) {
             $failure = [];
-            foreach (dcCore::app()->admin->plugins_install['failure'] as $k => $v) {
+            foreach (Core::backend()->plugins_install['failure'] as $k => $v) {
                 $failure[] = $k . ' (' . $v . ')';
             }
 
@@ -414,17 +414,17 @@ class Home extends Process
         if (dcCore::app()->auth->user_prefs->dashboard->quickentry && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_USAGE,
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             // Quick entry
 
             // Get categories
             $categories_combo = Combos::getCategoriesCombo(
-                dcCore::app()->blog->getCategories([])
+                Core::blog()->getCategories([])
             );
 
             $__dashboard_main[] = '<div id="quick">' .
                 '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(dcCore::app()->auth->getOption('post_format'))) . '</h3>' .
-                '<form id="quick-entry" action="' . dcCore::app()->admin->url->get('admin.post') . '" method="post" class="fieldset">' .
+                '<form id="quick-entry" action="' . Core::backend()->url->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
                 '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                 form::field('post_title', 20, 255, [
@@ -440,7 +440,7 @@ class Home extends Process
                 form::combo('cat_id', $categories_combo) . '</p>' .
                 (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                     dcCore::app()->auth::PERMISSION_CATEGORIES,
-                ]), dcCore::app()->blog->id)
+                ]), Core::blog()->id)
                     ? '<div>' .
                     '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
                     '<p class="q-cat"><label for="new_cat_title">' . __('Title:') . '</label> ' .
@@ -454,7 +454,7 @@ class Home extends Process
                 '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
                 (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                     dcCore::app()->auth::PERMISSION_PUBLISH,
-                ]), dcCore::app()->blog->id)
+                ]), Core::blog()->id)
                     ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
                     : '') .
                 Core::nonce()->getFormNonce() .

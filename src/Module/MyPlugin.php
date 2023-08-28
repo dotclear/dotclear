@@ -45,11 +45,11 @@ abstract class MyPlugin extends MyModule
      */
     public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!defined('DC_CONTEXT_ADMIN') || !(dcCore::app()->admin->menus[$menu] instanceof Menu)) {
+        if (!defined('DC_CONTEXT_ADMIN') || !(Core::backend()->menus[$menu] instanceof Menu)) {
             return;
         }
 
-        dcCore::app()->admin->menus[$menu]->addItem(
+        Core::backend()->menus[$menu]->addItem(
             static::name(),
             static::manageUrl($params, '&'),
             static::icons(),
@@ -105,7 +105,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
-        return defined('DC_CONTEXT_ADMIN') ? dcCore::app()->admin->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
+        return defined('DC_CONTEXT_ADMIN') ? Core::backend()->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
     }
 
     /**
@@ -120,7 +120,7 @@ abstract class MyPlugin extends MyModule
         $fields = [];
         if (defined('DC_CONTEXT_ADMIN')) {
             $params = array_merge(
-                dcCore::app()->admin->url->getParams('admin.plugin.' . static::id()),
+                Core::backend()->url->getParams('admin.plugin.' . static::id()),
                 $params
             );
             foreach ($params as $key => $value) {
@@ -160,7 +160,7 @@ abstract class MyPlugin extends MyModule
     public static function redirect(array $params = [], string $suffix = ''): void
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            dcCore::app()->admin->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
+            Core::backend()->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
         }
     }
 }

@@ -142,7 +142,7 @@ class IpLookup extends SpamFilter
 
         if (isset($_POST['bls'])) {
             try {
-                dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
+                Core::blog()->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
                 Notices::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
                 Http::redirect($url);
             } catch (Exception $e) {
@@ -169,9 +169,9 @@ class IpLookup extends SpamFilter
      */
     private function getServers(): string
     {
-        $bls = dcCore::app()->blog->settings->antispam->antispam_dnsbls;
+        $bls = Core::blog()->settings->antispam->antispam_dnsbls;
         if ($bls === null) {
-            dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
+            Core::blog()->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
 
             return $this->default_bls;
         }

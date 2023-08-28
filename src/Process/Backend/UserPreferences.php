@@ -37,61 +37,61 @@ class UserPreferences extends Process
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->admin->page_title = __('My preferences');
+        Core::backend()->page_title = __('My preferences');
 
-        dcCore::app()->admin->user_name        = dcCore::app()->auth->getInfo('user_name');
-        dcCore::app()->admin->user_firstname   = dcCore::app()->auth->getInfo('user_firstname');
-        dcCore::app()->admin->user_displayname = dcCore::app()->auth->getInfo('user_displayname');
-        dcCore::app()->admin->user_email       = dcCore::app()->auth->getInfo('user_email');
-        dcCore::app()->admin->user_url         = dcCore::app()->auth->getInfo('user_url');
-        dcCore::app()->admin->user_lang        = dcCore::app()->auth->getInfo('user_lang');
-        dcCore::app()->admin->user_tz          = dcCore::app()->auth->getInfo('user_tz');
-        dcCore::app()->admin->user_post_status = dcCore::app()->auth->getInfo('user_post_status');
+        Core::backend()->user_name        = dcCore::app()->auth->getInfo('user_name');
+        Core::backend()->user_firstname   = dcCore::app()->auth->getInfo('user_firstname');
+        Core::backend()->user_displayname = dcCore::app()->auth->getInfo('user_displayname');
+        Core::backend()->user_email       = dcCore::app()->auth->getInfo('user_email');
+        Core::backend()->user_url         = dcCore::app()->auth->getInfo('user_url');
+        Core::backend()->user_lang        = dcCore::app()->auth->getInfo('user_lang');
+        Core::backend()->user_tz          = dcCore::app()->auth->getInfo('user_tz');
+        Core::backend()->user_post_status = dcCore::app()->auth->getInfo('user_post_status');
 
         $user_options = dcCore::app()->auth->getOptions();
         if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
             $user_options['editor'] = [];
         }
 
-        dcCore::app()->admin->user_profile_mails = dcCore::app()->auth->user_prefs->profile->mails;
-        dcCore::app()->admin->user_profile_urls  = dcCore::app()->auth->user_prefs->profile->urls;
+        Core::backend()->user_profile_mails = dcCore::app()->auth->user_prefs->profile->mails;
+        Core::backend()->user_profile_urls  = dcCore::app()->auth->user_prefs->profile->urls;
 
-        dcCore::app()->admin->user_dm_doclinks   = dcCore::app()->auth->user_prefs->dashboard->doclinks;
-        dcCore::app()->admin->user_dm_dcnews     = dcCore::app()->auth->user_prefs->dashboard->dcnews;
-        dcCore::app()->admin->user_dm_quickentry = dcCore::app()->auth->user_prefs->dashboard->quickentry;
-        dcCore::app()->admin->user_dm_nofavicons = dcCore::app()->auth->user_prefs->dashboard->nofavicons;
-        dcCore::app()->admin->user_dm_nodcupdate = false;
+        Core::backend()->user_dm_doclinks   = dcCore::app()->auth->user_prefs->dashboard->doclinks;
+        Core::backend()->user_dm_dcnews     = dcCore::app()->auth->user_prefs->dashboard->dcnews;
+        Core::backend()->user_dm_quickentry = dcCore::app()->auth->user_prefs->dashboard->quickentry;
+        Core::backend()->user_dm_nofavicons = dcCore::app()->auth->user_prefs->dashboard->nofavicons;
+        Core::backend()->user_dm_nodcupdate = false;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->user_dm_nodcupdate = dcCore::app()->auth->user_prefs->dashboard->nodcupdate;
+            Core::backend()->user_dm_nodcupdate = dcCore::app()->auth->user_prefs->dashboard->nodcupdate;
         }
 
-        dcCore::app()->admin->user_acc_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
+        Core::backend()->user_acc_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
-        dcCore::app()->admin->user_ui_theme            = dcCore::app()->auth->user_prefs->interface->theme;
-        dcCore::app()->admin->user_ui_enhanceduploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
-        dcCore::app()->admin->user_ui_blank_preview    = dcCore::app()->auth->user_prefs->interface->blank_preview;
-        dcCore::app()->admin->user_ui_hidemoreinfo     = dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
-        dcCore::app()->admin->user_ui_hidehelpbutton   = dcCore::app()->auth->user_prefs->interface->hidehelpbutton;
-        dcCore::app()->admin->user_ui_showajaxloader   = dcCore::app()->auth->user_prefs->interface->showajaxloader;
-        dcCore::app()->admin->user_ui_htmlfontsize     = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
-        dcCore::app()->admin->user_ui_systemfont       = dcCore::app()->auth->user_prefs->interface->systemfont;
-        dcCore::app()->admin->user_ui_hide_std_favicon = false;
+        Core::backend()->user_ui_theme            = dcCore::app()->auth->user_prefs->interface->theme;
+        Core::backend()->user_ui_enhanceduploader = dcCore::app()->auth->user_prefs->interface->enhanceduploader;
+        Core::backend()->user_ui_blank_preview    = dcCore::app()->auth->user_prefs->interface->blank_preview;
+        Core::backend()->user_ui_hidemoreinfo     = dcCore::app()->auth->user_prefs->interface->hidemoreinfo;
+        Core::backend()->user_ui_hidehelpbutton   = dcCore::app()->auth->user_prefs->interface->hidehelpbutton;
+        Core::backend()->user_ui_showajaxloader   = dcCore::app()->auth->user_prefs->interface->showajaxloader;
+        Core::backend()->user_ui_htmlfontsize     = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
+        Core::backend()->user_ui_systemfont       = dcCore::app()->auth->user_prefs->interface->systemfont;
+        Core::backend()->user_ui_hide_std_favicon = false;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->user_ui_hide_std_favicon = dcCore::app()->auth->user_prefs->interface->hide_std_favicon;
+            Core::backend()->user_ui_hide_std_favicon = dcCore::app()->auth->user_prefs->interface->hide_std_favicon;
         }
-        dcCore::app()->admin->user_ui_nofavmenu          = dcCore::app()->auth->user_prefs->interface->nofavmenu;
-        dcCore::app()->admin->user_ui_media_nb_last_dirs = dcCore::app()->auth->user_prefs->interface->media_nb_last_dirs;
-        dcCore::app()->admin->user_ui_nocheckadblocker   = dcCore::app()->auth->user_prefs->interface->nocheckadblocker;
+        Core::backend()->user_ui_nofavmenu          = dcCore::app()->auth->user_prefs->interface->nofavmenu;
+        Core::backend()->user_ui_media_nb_last_dirs = dcCore::app()->auth->user_prefs->interface->media_nb_last_dirs;
+        Core::backend()->user_ui_nocheckadblocker   = dcCore::app()->auth->user_prefs->interface->nocheckadblocker;
 
-        dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
+        Core::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
 
         if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
-            dcCore::app()->admin->default_tab = 'user-favorites';
+            Core::backend()->default_tab = 'user-favorites';
         } elseif (!empty($_GET['updated'])) {
-            dcCore::app()->admin->default_tab = 'user-options';
+            Core::backend()->default_tab = 'user-options';
         }
-        if ((dcCore::app()->admin->default_tab != 'user-profile') && (dcCore::app()->admin->default_tab != 'user-options') && (dcCore::app()->admin->default_tab != 'user-favorites')) {
-            dcCore::app()->admin->default_tab = 'user-profile';
+        if ((Core::backend()->default_tab != 'user-profile') && (Core::backend()->default_tab != 'user-options') && (Core::backend()->default_tab != 'user-favorites')) {
+            Core::backend()->default_tab = 'user-profile';
         }
 
         // Format by editors
@@ -109,20 +109,20 @@ class UserPreferences extends Process
                 $user_options['editor'][$format] = '';
             }
         }
-        dcCore::app()->admin->user_options      = $user_options;
-        dcCore::app()->admin->format_by_editors = $format_by_editors;
-        dcCore::app()->admin->available_formats = $available_formats;
-        dcCore::app()->admin->status_combo      = Combos::getPostStatusescombo();
+        Core::backend()->user_options      = $user_options;
+        Core::backend()->format_by_editors = $format_by_editors;
+        Core::backend()->available_formats = $available_formats;
+        Core::backend()->status_combo      = Combos::getPostStatusescombo();
 
         // Themes
-        dcCore::app()->admin->theme_combo = [
+        Core::backend()->theme_combo = [
             __('Light')     => 'light',
             __('Dark')      => 'dark',
             __('Automatic') => '',
         ];
 
         // Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
-        dcCore::app()->admin->htmlfontsize_combo = [
+        Core::backend()->htmlfontsize_combo = [
             __('Smallest') => '37.5%',
             __('Smaller')  => '50%',
             __('Default')  => '62.5%',
@@ -130,12 +130,12 @@ class UserPreferences extends Process
             __('Largest')  => '87.5%',
         ];
         // Ensure Font size is set to default is empty
-        if (dcCore::app()->admin->user_ui_htmlfontsize == '') {
-            dcCore::app()->admin->user_ui_htmlfontsize = '62.5%';
+        if (Core::backend()->user_ui_htmlfontsize == '') {
+            Core::backend()->user_ui_htmlfontsize = '62.5%';
         }
 
         // Language codes
-        dcCore::app()->admin->lang_combo = Combos::getAdminLangsCombo();
+        Core::backend()->lang_combo = Combos::getAdminLangsCombo();
 
         // Get 3rd parts HTML editor flags
         $rte = [
@@ -154,20 +154,20 @@ class UserPreferences extends Process
                 }
             }
         }
-        dcCore::app()->admin->rte = $rte;
+        Core::backend()->rte = $rte;
 
         // Get default colums (admin lists)
-        dcCore::app()->admin->cols = UserPref::getUserColumns();
+        Core::backend()->cols = UserPref::getUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        dcCore::app()->admin->sorts = UserPref::getUserFilters();
+        Core::backend()->sorts = UserPref::getUserFilters();
 
-        dcCore::app()->admin->order_combo = [
+        Core::backend()->order_combo = [
             __('Descending') => 'desc',
             __('Ascending')  => 'asc',
         ];
         // All filters
-        dcCore::app()->admin->auto_filter = dcCore::app()->auth->user_prefs->interface->auto_filter;
+        Core::backend()->auto_filter = dcCore::app()->auth->user_prefs->interface->auto_filter;
 
         return self::status(true);
     }
@@ -180,21 +180,21 @@ class UserPreferences extends Process
             try {
                 $pwd_check = !empty($_POST['cur_pwd']) && dcCore::app()->auth->checkPassword($_POST['cur_pwd']);
 
-                if (dcCore::app()->auth->allowPassChange() && !$pwd_check && dcCore::app()->admin->user_email != $_POST['user_email']) {
+                if (dcCore::app()->auth->allowPassChange() && !$pwd_check && Core::backend()->user_email != $_POST['user_email']) {
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
-                $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
+                $cur = Core::con()->openCursor(Core::con()->prefix() . dcAuth::USER_TABLE_NAME);
 
-                $cur->user_name        = dcCore::app()->admin->user_name = $_POST['user_name'];
-                $cur->user_firstname   = dcCore::app()->admin->user_firstname = $_POST['user_firstname'];
-                $cur->user_displayname = dcCore::app()->admin->user_displayname = $_POST['user_displayname'];
-                $cur->user_email       = dcCore::app()->admin->user_email = $_POST['user_email'];
-                $cur->user_url         = dcCore::app()->admin->user_url = $_POST['user_url'];
-                $cur->user_lang        = dcCore::app()->admin->user_lang = $_POST['user_lang'];
-                $cur->user_tz          = dcCore::app()->admin->user_tz = $_POST['user_tz'];
+                $cur->user_name        = Core::backend()->user_name = $_POST['user_name'];
+                $cur->user_firstname   = Core::backend()->user_firstname = $_POST['user_firstname'];
+                $cur->user_displayname = Core::backend()->user_displayname = $_POST['user_displayname'];
+                $cur->user_email       = Core::backend()->user_email = $_POST['user_email'];
+                $cur->user_url         = Core::backend()->user_url = $_POST['user_url'];
+                $cur->user_lang        = Core::backend()->user_lang = $_POST['user_lang'];
+                $cur->user_tz          = Core::backend()->user_tz = $_POST['user_tz'];
 
-                $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
+                $cur->user_options = new ArrayObject(Core::backend()->user_options);
 
                 if (dcCore::app()->auth->allowPassChange() && !empty($_POST['new_pwd'])) {
                     if (!$pwd_check) {
@@ -231,7 +231,7 @@ class UserPreferences extends Process
 
                 Notices::addSuccessNotice(__('Personal information has been successfully updated.'));
 
-                dcCore::app()->admin->url->redirect('admin.user.preferences');
+                Core::backend()->url->redirect('admin.user.preferences');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -243,7 +243,7 @@ class UserPreferences extends Process
             try {
                 // Prepare user options
 
-                $user_options              = dcCore::app()->admin->user_options;
+                $user_options              = Core::backend()->user_options;
                 $user_options['edit_size'] = (int) $_POST['user_edit_size'];
                 if ($user_options['edit_size'] < 1) {
                     $user_options['edit_size'] = 10;
@@ -253,21 +253,21 @@ class UserPreferences extends Process
                 $user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
                 $user_options['toolbar_bottom'] = !empty($_POST['user_toolbar_bottom']);
 
-                dcCore::app()->admin->user_options = $user_options;
+                Core::backend()->user_options = $user_options;
 
-                $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcAuth::USER_TABLE_NAME);
+                $cur = Core::con()->openCursor(Core::con()->prefix() . dcAuth::USER_TABLE_NAME);
 
-                $cur->user_name        = dcCore::app()->admin->user_name;
-                $cur->user_firstname   = dcCore::app()->admin->user_firstname;
-                $cur->user_displayname = dcCore::app()->admin->user_displayname;
-                $cur->user_email       = dcCore::app()->admin->user_email;
-                $cur->user_url         = dcCore::app()->admin->user_url;
-                $cur->user_lang        = dcCore::app()->admin->user_lang;
-                $cur->user_tz          = dcCore::app()->admin->user_tz;
+                $cur->user_name        = Core::backend()->user_name;
+                $cur->user_firstname   = Core::backend()->user_firstname;
+                $cur->user_displayname = Core::backend()->user_displayname;
+                $cur->user_email       = Core::backend()->user_email;
+                $cur->user_url         = Core::backend()->user_url;
+                $cur->user_lang        = Core::backend()->user_lang;
+                $cur->user_tz          = Core::backend()->user_tz;
 
-                $cur->user_post_status = dcCore::app()->admin->user_post_status = $_POST['user_post_status'];
+                $cur->user_post_status = Core::backend()->user_post_status = $_POST['user_post_status'];
 
-                $cur->user_options = new ArrayObject(dcCore::app()->admin->user_options);
+                $cur->user_options = new ArrayObject(Core::backend()->user_options);
 
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, string
                 Core::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
@@ -293,7 +293,7 @@ class UserPreferences extends Process
 
                 // Update user columns (lists)
                 $cu = [];
-                foreach (dcCore::app()->admin->cols as $col_type => $cols_list) {
+                foreach (Core::backend()->cols as $col_type => $cols_list) {
                     $ct = [];
                     foreach (array_keys($cols_list[1]) as $col_name) {
                         $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true) ? true : false;
@@ -312,7 +312,7 @@ class UserPreferences extends Process
 
                 // Update user lists options
                 $su = [];
-                foreach (dcCore::app()->admin->sorts as $sort_type => $sort_data) {
+                foreach (Core::backend()->sorts as $sort_type => $sort_data) {
                     if (null !== $sort_data[1]) {
                         $k = 'sorts_' . $sort_type . '_sortby';
 
@@ -335,7 +335,7 @@ class UserPreferences extends Process
 
                 // Update user HTML editor flags
                 $rf = [];
-                foreach (dcCore::app()->admin->rte as $rk => $rv) {
+                foreach (Core::backend()->rte as $rk => $rv) {
                     $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true) ? true : false;
                 }
                 dcCore::app()->auth->user_prefs->interface->put('rte_flags', $rf, 'array');
@@ -347,7 +347,7 @@ class UserPreferences extends Process
                 Core::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, dcCore::app()->auth->userID());
 
                 Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
-                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-options');
+                Core::backend()->url->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -374,7 +374,7 @@ class UserPreferences extends Process
                 Core::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', dcCore::app()->auth->userID());
 
                 Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
+                Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -387,17 +387,17 @@ class UserPreferences extends Process
                 if (empty($_POST['append'])) {
                     throw new Exception(__('No favorite selected'));
                 }
-                $user_favs = dcCore::app()->admin->favs->getFavoriteIDs(false);
+                $user_favs = Core::backend()->favs->getFavoriteIDs(false);
                 foreach ($_POST['append'] as $v) {
-                    if (dcCore::app()->admin->favs->exists($v)) {
+                    if (Core::backend()->favs->exists($v)) {
                         $user_favs[] = $v;
                     }
                 }
-                dcCore::app()->admin->favs->setFavoriteIDs($user_favs, false);
+                Core::backend()->favs->setFavoriteIDs($user_favs, false);
 
                 if (!dcCore::app()->error->flag()) {
                     Notices::addSuccessNotice(__('Favorites have been successfully added.'));
-                    dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
+                    Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -412,7 +412,7 @@ class UserPreferences extends Process
                     throw new Exception(__('No favorite selected'));
                 }
                 $user_fav_ids = [];
-                foreach (dcCore::app()->admin->favs->getFavoriteIDs(false) as $v) {
+                foreach (Core::backend()->favs->getFavoriteIDs(false) as $v) {
                     $user_fav_ids[$v] = true;
                 }
                 foreach ($_POST['remove'] as $v) {
@@ -420,10 +420,10 @@ class UserPreferences extends Process
                         unset($user_fav_ids[$v]);
                     }
                 }
-                dcCore::app()->admin->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
+                Core::backend()->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!dcCore::app()->error->flag()) {
                     Notices::addSuccessNotice(__('Favorites have been successfully removed.'));
-                    dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
+                    Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -446,26 +446,26 @@ class UserPreferences extends Process
             // Order favs
 
             foreach ($order as $k => $v) {
-                if (!dcCore::app()->admin->favs->exists($v)) {
+                if (!Core::backend()->favs->exists($v)) {
                     unset($order[$k]);
                 }
             }
-            dcCore::app()->admin->favs->setFavoriteIDs($order, false);
+            Core::backend()->favs->setFavoriteIDs($order, false);
             if (!dcCore::app()->error->flag()) {
                 Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
-                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
+                Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
 
         if (!empty($_POST['replace']) && dcCore::app()->auth->isSuperAdmin()) {
             // Replace default favorites by current set (super admin only)
 
-            $user_favs = dcCore::app()->admin->favs->getFavoriteIDs(false);
-            dcCore::app()->admin->favs->setFavoriteIDs($user_favs, true);
+            $user_favs = Core::backend()->favs->getFavoriteIDs(false);
+            Core::backend()->favs->setFavoriteIDs($user_favs, true);
 
             if (!dcCore::app()->error->flag()) {
                 Notices::addSuccessNotice(__('Default favorites have been successfully updated.'));
-                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
+                Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
 
@@ -479,7 +479,7 @@ class UserPreferences extends Process
 
             if (!dcCore::app()->error->flag()) {
                 Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
-                dcCore::app()->admin->url->redirect('admin.user.preferences', [], '#user-favorites');
+                Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
 
@@ -489,8 +489,8 @@ class UserPreferences extends Process
     public static function render(): void
     {
         Page::open(
-            dcCore::app()->admin->page_title,
-            (dcCore::app()->admin->user_acc_nodragdrop ? '' : Page::jsLoad('js/_preferences-dragdrop.js')) .
+            Core::backend()->page_title,
+            (Core::backend()->user_acc_nodragdrop ? '' : Page::jsLoad('js/_preferences-dragdrop.js')) .
             Page::jsLoad('js/jquery/jquery-ui.custom.js') .
             Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             Page::jsJson('pwstrength', [
@@ -500,7 +500,7 @@ class UserPreferences extends Process
             ]) .
             Page::jsLoad('js/pwstrength.js') .
             Page::jsLoad('js/_preferences.js') .
-            Page::jsPageTabs(dcCore::app()->admin->default_tab) .
+            Page::jsPageTabs(Core::backend()->default_tab) .
             Page::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
             Page::jsAdsBlockCheck() .
 
@@ -509,7 +509,7 @@ class UserPreferences extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(dcCore::app()->auth->userID()) => '',
-                    dcCore::app()->admin->page_title                => '',
+                    Core::backend()->page_title                => '',
                 ]
             )
         );
@@ -518,39 +518,39 @@ class UserPreferences extends Process
         echo '<div class="multi-part" id="user-profile" title="' . __('My profile') . '">' .
 
         '<h3>' . __('My profile') . '</h3>' .
-        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="user-form">' .
+        '<form action="' . Core::backend()->url->get('admin.user.preferences') . '" method="post" id="user-form">' .
 
         '<p><label for="user_name">' . __('Last Name:') . '</label>' .
         form::field('user_name', 20, 255, [
-            'default'      => Html::escapeHTML(dcCore::app()->admin->user_name),
+            'default'      => Html::escapeHTML(Core::backend()->user_name),
             'autocomplete' => 'family-name',
         ]) .
         '</p>' .
 
         '<p><label for="user_firstname">' . __('First Name:') . '</label>' .
         form::field('user_firstname', 20, 255, [
-            'default'      => Html::escapeHTML(dcCore::app()->admin->user_firstname),
+            'default'      => Html::escapeHTML(Core::backend()->user_firstname),
             'autocomplete' => 'given-name',
         ]) .
         '</p>' .
 
         '<p><label for="user_displayname">' . __('Display name:') . '</label>' .
         form::field('user_displayname', 20, 255, [
-            'default'      => Html::escapeHTML(dcCore::app()->admin->user_displayname),
+            'default'      => Html::escapeHTML(Core::backend()->user_displayname),
             'autocomplete' => 'nickname',
         ]) .
         '</p>' .
 
         '<p><label for="user_email">' . __('Email:') . '</label>' .
         form::email('user_email', [
-            'default'      => Html::escapeHTML(dcCore::app()->admin->user_email),
+            'default'      => Html::escapeHTML(Core::backend()->user_email),
             'autocomplete' => 'email',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
         form::field('user_profile_mails', 50, 255, [
-            'default' => Html::escapeHTML(dcCore::app()->admin->user_profile_mails),
+            'default' => Html::escapeHTML(Core::backend()->user_profile_mails),
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
@@ -558,23 +558,23 @@ class UserPreferences extends Process
         '<p><label for="user_url">' . __('URL:') . '</label>' .
         form::url('user_url', [
             'size'         => 30,
-            'default'      => Html::escapeHTML(dcCore::app()->admin->user_url),
+            'default'      => Html::escapeHTML(Core::backend()->user_url),
             'autocomplete' => 'url',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
         form::field('user_profile_urls', 50, 255, [
-            'default' => Html::escapeHTML(dcCore::app()->admin->user_profile_urls),
+            'default' => Html::escapeHTML(Core::backend()->user_profile_urls),
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
 
         '<p><label for="user_lang">' . __('Language for my interface:') . '</label>' .
-        form::combo('user_lang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->user_lang, 'l10n') . '</p>' .
+        form::combo('user_lang', Core::backend()->lang_combo, Core::backend()->user_lang, 'l10n') . '</p>' .
 
         '<p><label for="user_tz">' . __('My timezone:') . '</label>' .
-        form::combo('user_tz', Date::getZones(true, true), dcCore::app()->admin->user_tz) . '</p>';
+        form::combo('user_tz', Date::getZones(true, true), Core::backend()->user_tz) . '</p>';
 
         if (dcCore::app()->auth->allowPassChange()) {
             echo
@@ -623,55 +623,55 @@ class UserPreferences extends Process
 
         '<div class="multi-part" id="user-options" title="' . __('My options') . '">' .
 
-        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '#user-options" method="post" id="opts-forms">' .
+        '<form action="' . Core::backend()->url->get('admin.user.preferences') . '#user-options" method="post" id="opts-forms">' .
         '<h3>' . __('My options') . '</h3>' .
 
         '<div class="fieldset">' .
         '<h4 id="user_options_interface">' . __('Interface') . '</h4>' .
 
         '<p><label for="user_ui_theme" class="classic">' . __('Theme:') . '</label>' . ' ' .
-        form::combo('user_ui_theme', dcCore::app()->admin->theme_combo, dcCore::app()->admin->user_ui_theme) . '</p>' .
+        form::combo('user_ui_theme', Core::backend()->theme_combo, Core::backend()->user_ui_theme) . '</p>' .
 
         '<p><label for="user_ui_enhanceduploader" class="classic">' .
-        form::checkbox('user_ui_enhanceduploader', 1, dcCore::app()->admin->user_ui_enhanceduploader) . ' ' .
+        form::checkbox('user_ui_enhanceduploader', 1, Core::backend()->user_ui_enhanceduploader) . ' ' .
         __('Activate enhanced uploader in media manager') . '</label></p>' .
 
         '<p><label for="user_ui_blank_preview" class="classic">' .
-        form::checkbox('user_ui_blank_preview', 1, dcCore::app()->admin->user_ui_blank_preview) . ' ' .
+        form::checkbox('user_ui_blank_preview', 1, Core::backend()->user_ui_blank_preview) . ' ' .
         __('Preview the entry being edited in a blank window or tab (depending on your browser settings).') . '</label></p>' .
 
         '<p><label for="user_acc_nodragdrop" class="classic">' .
-        form::checkbox('user_acc_nodragdrop', 1, dcCore::app()->admin->user_acc_nodragdrop, '', '', false, 'aria-describedby="user_acc_nodragdrop_help"') . ' ' .
+        form::checkbox('user_acc_nodragdrop', 1, Core::backend()->user_acc_nodragdrop, '', '', false, 'aria-describedby="user_acc_nodragdrop_help"') . ' ' .
         __('Disable javascript powered drag and drop for ordering items') . '</label></p>' .
         '<p class="clear form-note" id="user_acc_nodragdrop_help">' . __('If checked, numeric fields will allow to type the elements\' ordering number.') . '</p>' .
 
         '<p><label for="user_ui_hidemoreinfo" class="classic">' .
-        form::checkbox('user_ui_hidemoreinfo', 1, dcCore::app()->admin->user_ui_hidemoreinfo) . ' ' .
+        form::checkbox('user_ui_hidemoreinfo', 1, Core::backend()->user_ui_hidemoreinfo) . ' ' .
         __('Hide all secondary information and notes') . '</label></p>' .
 
         '<p><label for="user_ui_hidehelpbutton" class="classic">' .
-        form::checkbox('user_ui_hidehelpbutton', 1, dcCore::app()->admin->user_ui_hidehelpbutton) . ' ' .
+        form::checkbox('user_ui_hidehelpbutton', 1, Core::backend()->user_ui_hidehelpbutton) . ' ' .
         __('Hide help button') . '</label></p>' .
 
         '<p><label for="user_ui_showajaxloader" class="classic">' .
-        form::checkbox('user_ui_showajaxloader', 1, dcCore::app()->admin->user_ui_showajaxloader) . ' ' .
+        form::checkbox('user_ui_showajaxloader', 1, Core::backend()->user_ui_showajaxloader) . ' ' .
         __('Show asynchronous requests indicator') . '</label></p>' .
 
         '<p><label for="user_ui_htmlfontsize" class="classic">' . __('Font size:') . '</label>' . ' ' .
-        form::combo('user_ui_htmlfontsize', dcCore::app()->admin->htmlfontsize_combo, dcCore::app()->admin->user_ui_htmlfontsize) . '</p>' .
+        form::combo('user_ui_htmlfontsize', Core::backend()->htmlfontsize_combo, Core::backend()->user_ui_htmlfontsize) . '</p>' .
 
         '<p><label for="user_ui_systemfont" class="classic">' .
-        form::checkbox('user_ui_systemfont', 1, dcCore::app()->admin->user_ui_systemfont) . ' ' .
+        form::checkbox('user_ui_systemfont', 1, Core::backend()->user_ui_systemfont) . ' ' .
         __('Use operating system font') . '</label></p>' .
 
         '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
-        form::number('user_ui_media_nb_last_dirs', 0, 999, (string) dcCore::app()->admin->user_ui_media_nb_last_dirs, '', '', false, 'aria-describedby="user_ui_media_nb_last_dirs_help"') . '</p>' .
+        form::number('user_ui_media_nb_last_dirs', 0, 999, (string) Core::backend()->user_ui_media_nb_last_dirs, '', '', false, 'aria-describedby="user_ui_media_nb_last_dirs_help"') . '</p>' .
         '<p class="clear form-note" id="user_ui_media_nb_last_dirs_help">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
 
         if (dcCore::app()->auth->isSuperAdmin()) {
             echo
             '<p><label for="user_ui_hide_std_favicon" class="classic">' .
-            form::checkbox('user_ui_hide_std_favicon', 1, dcCore::app()->admin->user_ui_hide_std_favicon, '', '', false, 'aria-describedby="user_ui_hide_std_favicon_help"') . ' ' .
+            form::checkbox('user_ui_hide_std_favicon', 1, Core::backend()->user_ui_hide_std_favicon, '', '', false, 'aria-describedby="user_ui_hide_std_favicon_help"') . ' ' .
             __('Do not use standard favicon') . '</label> ' .
             '<span class="clear form-note warn" id="user_ui_hide_std_favicon_help">' . __('This will be applied for all users') . '.</span>' .
             '</p>'; //Opera sucks;
@@ -679,7 +679,7 @@ class UserPreferences extends Process
 
         echo
         '<p><label for="user_ui_nocheckadblocker" class="classic">' .
-        form::checkbox('user_ui_nocheckadblocker', 1, dcCore::app()->admin->user_ui_nocheckadblocker, '', '', false, 'aria-describedby="user_ui_nocheckadblocker_help"') . ' ' .
+        form::checkbox('user_ui_nocheckadblocker', 1, Core::backend()->user_ui_nocheckadblocker, '', '', false, 'aria-describedby="user_ui_nocheckadblocker_help"') . ' ' .
         __('Disable Ad-blocker check') . '</label></p>' .
         '<p class="clear form-note" id="user_ui_nocheckadblocker_help">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>' .
 
@@ -688,7 +688,7 @@ class UserPreferences extends Process
         '<fieldset id="user_options_columns">' .
         '<legend>' . __('Optional columns displayed in lists') . '</legend>';
         $odd = true;
-        foreach (dcCore::app()->admin->cols as $col_type => $col_list) {
+        foreach (Core::backend()->cols as $col_type => $col_list) {
             echo
             '<div class="two-boxes ' . ($odd ? 'odd' : 'even') . '">' .
             '<h5>' . $col_list[0] . '</h5>';
@@ -707,11 +707,11 @@ class UserPreferences extends Process
         '<div class="fieldset">' .
         '<h4 id="user_options_lists">' . __('Options for lists') . '</h4>' .
         '<p><label for="user_ui_auto_filter" class="classic">' .
-        form::checkbox('user_ui_auto_filter', 1, dcCore::app()->admin->auto_filter) . ' ' .
+        form::checkbox('user_ui_auto_filter', 1, Core::backend()->auto_filter) . ' ' .
         __('Apply filters on the fly') . '</label></p>';
 
         $odd = true;
-        foreach (dcCore::app()->admin->sorts as $sort_type => $sort_data) {
+        foreach (Core::backend()->sorts as $sort_type => $sort_data) {
             if ($odd) {
                 echo
                 '<hr />';
@@ -727,7 +727,7 @@ class UserPreferences extends Process
             if (null !== $sort_data[3]) {
                 echo
                 '<p class="field"><label for="sorts_' . $sort_type . '_order">' . __('Sort:') . '</label> ' .
-                form::combo('sorts_' . $sort_type . '_order', dcCore::app()->admin->order_combo, $sort_data[3]) . '</p>';
+                form::combo('sorts_' . $sort_type . '_order', Core::backend()->order_combo, $sort_data[3]) . '</p>';
             }
             if (is_array($sort_data[4])) {
                 echo
@@ -746,32 +746,32 @@ class UserPreferences extends Process
         '<h4 id="user_options_edition">' . __('Edition') . '</h4>' .
 
         '<div class="two-boxes odd">';
-        foreach (dcCore::app()->admin->format_by_editors as $format => $editors) {
+        foreach (Core::backend()->format_by_editors as $format => $editors) {
             echo
             '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), Core::formater()->getFormaterName($format)) . '</label>' .
             form::combo(
                 ['user_editor[' . $format . ']', 'user_editor_' . $format],
                 array_merge([__('Choose an editor') => ''], $editors),
-                dcCore::app()->admin->user_options['editor'][$format]
+                Core::backend()->user_options['editor'][$format]
             ) .
             '</p>';
         }
         echo
         '<p class="field"><label for="user_post_format">' . __('Preferred format:') . '</label>' .
-        form::combo('user_post_format', dcCore::app()->admin->available_formats, dcCore::app()->admin->user_options['post_format']) . '</p>' .
+        form::combo('user_post_format', Core::backend()->available_formats, Core::backend()->user_options['post_format']) . '</p>' .
 
         '<p class="field"><label for="user_post_status">' . __('Default entry status:') . '</label>' .
-        form::combo('user_post_status', dcCore::app()->admin->status_combo, dcCore::app()->admin->user_post_status) . '</p>' .
+        form::combo('user_post_status', Core::backend()->status_combo, Core::backend()->user_post_status) . '</p>' .
 
         '<p class="field"><label for="user_edit_size">' . __('Entry edit field height:') . '</label>' .
-        form::number('user_edit_size', 10, 999, (string) dcCore::app()->admin->user_options['edit_size']) . '</p>' .
+        form::number('user_edit_size', 10, 999, (string) Core::backend()->user_options['edit_size']) . '</p>' .
 
         '<p><label for="user_wysiwyg" class="classic">' .
-        form::checkbox('user_wysiwyg', 1, dcCore::app()->admin->user_options['enable_wysiwyg']) . ' ' .
+        form::checkbox('user_wysiwyg', 1, Core::backend()->user_options['enable_wysiwyg']) . ' ' .
         __('Enable WYSIWYG mode') . '</label></p>' .
 
         '<p><label for="user_toolbar_bottom" class="classic">' .
-        form::checkbox('user_toolbar_bottom', 1, dcCore::app()->admin->user_options['toolbar_bottom']) . ' ' .
+        form::checkbox('user_toolbar_bottom', 1, Core::backend()->user_options['toolbar_bottom']) . ' ' .
         __('Display editor\'s toolbar at bottom of textarea (if possible)') . '</label></p>' .
 
         '</div>';
@@ -779,7 +779,7 @@ class UserPreferences extends Process
         echo
         '<div class="two-boxes even">' .
         '<h5>' . __('Use HTML editor for:') . '</h5>';
-        foreach (dcCore::app()->admin->rte as $rk => $rv) {
+        foreach (Core::backend()->rte as $rk => $rv) {
             echo
             '<p><label for="rte_' . $rk . '" class="classic">' .
             form::checkbox(['rte_flags[]', 'rte_' . $rk], $rk, $rv[0]) . $rv[1] . '</label>';
@@ -807,13 +807,13 @@ class UserPreferences extends Process
         '<h3>' . __('My dashboard') . '</h3>' .
 
         // Favorites
-        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="favs-form" class="two-boxes odd">' .
+        '<form action="' . Core::backend()->url->get('admin.user.preferences') . '" method="post" id="favs-form" class="two-boxes odd">' .
         '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
 
         $count    = 0;
-        $user_fav = dcCore::app()->admin->favs->getFavoriteIDs(false);
+        $user_fav = Core::backend()->favs->getFavoriteIDs(false);
         foreach ($user_fav as $id) {
-            if ($fav = dcCore::app()->admin->favs->getFavorite($id)) {
+            if ($fav = Core::backend()->favs->getFavorite($id)) {
                 // User favorites only
                 if ($count == 0) {
                     echo
@@ -872,9 +872,9 @@ class UserPreferences extends Process
             '<p>' . __('Currently no personal favorites.') . '</p>';
         }
 
-        $avail_fav       = dcCore::app()->admin->favs->getFavorites(dcCore::app()->admin->favs->getAvailableFavoritesIDs());
+        $avail_fav       = Core::backend()->favs->getFavorites(Core::backend()->favs->getAvailableFavoritesIDs());
         $default_fav_ids = [];
-        foreach (dcCore::app()->admin->favs->getFavoriteIDs(true) as $v) {
+        foreach (Core::backend()->favs->getFavoriteIDs(true) as $v) {
             $default_fav_ids[$v] = true;
         }
         echo
@@ -928,18 +928,18 @@ class UserPreferences extends Process
         '</form>' .
 
         // Dashboard items
-        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="db-forms" class="two-boxes even">' .
+        '<form action="' . Core::backend()->url->get('admin.user.preferences') . '" method="post" id="db-forms" class="two-boxes even">' .
 
         '<div class="fieldset">' .
         '<h4>' . __('Menu') . '</h4>' .
         '<p><label for="user_ui_nofavmenu" class="classic">' .
-        form::checkbox('user_ui_nofavmenu', 1, !dcCore::app()->admin->user_ui_nofavmenu) . ' ' .
+        form::checkbox('user_ui_nofavmenu', 1, !Core::backend()->user_ui_nofavmenu) . ' ' .
         __('Display favorites at the top of the menu') . '</label></p></div>' .
 
         '<div class="fieldset">' .
         '<h4>' . __('Dashboard icons') . '</h4>' .
         '<p><label for="user_dm_nofavicons" class="classic">' .
-        form::checkbox('user_dm_nofavicons', 1, !dcCore::app()->admin->user_dm_nofavicons) . ' ' .
+        form::checkbox('user_dm_nofavicons', 1, !Core::backend()->user_dm_nofavicons) . ' ' .
         __('Display dashboard icons') . '</label></p>' .
         '</div>' .
 
@@ -947,21 +947,21 @@ class UserPreferences extends Process
         '<h4>' . __('Dashboard modules') . '</h4>' .
 
         '<p><label for="user_dm_doclinks" class="classic">' .
-        form::checkbox('user_dm_doclinks', 1, dcCore::app()->admin->user_dm_doclinks) . ' ' .
+        form::checkbox('user_dm_doclinks', 1, Core::backend()->user_dm_doclinks) . ' ' .
         __('Display documentation links') . '</label></p>' .
 
         '<p><label for="user_dm_dcnews" class="classic">' .
-        form::checkbox('user_dm_dcnews', 1, dcCore::app()->admin->user_dm_dcnews) . ' ' .
+        form::checkbox('user_dm_dcnews', 1, Core::backend()->user_dm_dcnews) . ' ' .
         __('Display Dotclear news') . '</label></p>' .
 
         '<p><label for="user_dm_quickentry" class="classic">' .
-        form::checkbox('user_dm_quickentry', 1, dcCore::app()->admin->user_dm_quickentry) . ' ' .
+        form::checkbox('user_dm_quickentry', 1, Core::backend()->user_dm_quickentry) . ' ' .
         __('Display quick entry form') . '</label></p>';
 
         if (dcCore::app()->auth->isSuperAdmin()) {
             echo
             '<p><label for="user_dm_nodcupdate" class="classic">' .
-            form::checkbox('user_dm_nodcupdate', 1, dcCore::app()->admin->user_dm_nodcupdate) . ' ' .
+            form::checkbox('user_dm_nodcupdate', 1, Core::backend()->user_dm_nodcupdate) . ' ' .
             __('Do not display Dotclear updates') . '</label></p>';
         }
 
@@ -981,7 +981,7 @@ class UserPreferences extends Process
         '</form>' .
 
         // Dashboard items order (reset)
-        '<form action="' . dcCore::app()->admin->url->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">' .
+        '<form action="' . Core::backend()->url->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">' .
         '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>' .
         '<p>' .
         Core::nonce()->getFormNonce() .

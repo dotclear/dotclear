@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\themeEditor;
 use Exception;
 use dcCore;
 use dcModuleDefine;
+use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -105,16 +106,16 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->user_theme   = Path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
+        $this->user_theme   = Path::real(Core::blog()->themes_path . '/' . Core::blog()->settings->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
         if (null !== dcCore::app()->themes) {
-            $parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'parent');
+            $parent_theme = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'parent');
             if ($parent_theme) {
-                $this->parent_theme = Path::real(dcCore::app()->blog->themes_path . '/' . $parent_theme);
+                $this->parent_theme = Path::real(Core::blog()->themes_path . '/' . $parent_theme);
                 $this->parent_name  = $parent_theme;
             }
-            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+            $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
             if ($tplset) {
                 $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
                 $this->tplset_name  = $tplset;

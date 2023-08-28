@@ -33,7 +33,7 @@ class Install extends Process
 
         /* Database schema
         -------------------------------------------------------- */
-        $schema = new Structure(dcCore::app()->con, dcCore::app()->prefix);
+        $schema = new Structure(Core::con(), Core::con()->prefix());
 
         $schema->{initAntispam::SPAMRULE_TABLE_NAME}
             ->rule_id('bigint', 0, false)
@@ -52,7 +52,7 @@ class Install extends Process
         }
 
         // Schema installation
-        (new Structure(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
+        (new Structure(Core::con(), Core::con()->prefix()))->synchronize($schema);
 
         // Creating default wordslist
         if (Core::version()->getVersion(My::id()) === '') {

@@ -579,7 +579,7 @@ namespace Dotclear {
                         // Explicitly close session before DB connection
                         session_write_close();
                     }
-                    dcCore::app()->con->close();
+                    Core::con()->close();
                 } catch (Exception $e) {    // @phpstan-ignore-line
                     // Ignore exceptions
                 }

@@ -89,23 +89,23 @@ class Utility extends Process
         Core::backend();
 
         // New admin url instance
-        dcCore::app()->admin->url = new Url();
+        Core::backend()->url = new Url();
 
-        /* @deprecated since 2.27, use dcCore::app()->admin->url instead */
-        dcCore::app()->adminurl = dcCore::app()->admin->url;
+        /* @deprecated since 2.27, use Core::backend()->url instead */
+        dcCore::app()->adminurl = Core::backend()->url;
 
         if (dcCore::app()->auth->sessionExists()) {
             // If we have a session we launch it now
             try {
                 if (!dcCore::app()->auth->checkSession()) {
                     // Avoid loop caused by old cookie
-                    $p    = dcCore::app()->session->getCookieParameters(false, -600);
+                    $p    = Core::session()->getCookieParameters(false, -600);
                     $p[3] = '/';
                     setcookie(...$p);
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    dcCore::app()->admin->url->redirect('admin.auth', $params);
+                    Core::backend()->url->redirect('admin.auth', $params);
                 }
             } catch (Exception $e) {
                 new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
@@ -118,9 +118,9 @@ class Utility extends Process
                     dcCore::app()->rest->enableRestServer(true);
                 }
                 // Kill admin session
-                dcCore::app()->admin->killAdminSession();
+                Core::backend()->killAdminSession();
                 // Logout
-                dcCore::app()->admin->url->redirect('admin.auth');
+                Core::backend()->url->redirect('admin.auth');
                 exit;
             }
 
@@ -174,26 +174,26 @@ class Utility extends Process
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
-                dcCore::app()->setBlog($_SESSION['sess_blog_id']);
+                Core::setBlog($_SESSION['sess_blog_id']);
             } else {
-                dcCore::app()->session->destroy();
-                dcCore::app()->admin->url->redirect('admin.auth');
+                Core::session()->destroy();
+                Core::backend()->url->redirect('admin.auth');
             }
         }
 
         // Set default backend URLs
-        dcCore::app()->admin->url->setDefaultURLs();
+        Core::backend()->url->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        Core::postTypes()->set(new PostType('post', urldecode(dcCore::app()->admin->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
+        Core::postTypes()->set(new PostType('post', urldecode(Core::backend()->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
-        if (!(dcCore::app()->auth->userID() && dcCore::app()->blog !== null)) {
+        if (!(dcCore::app()->auth->userID() && Core::blog() !== null)) {
             return true;
         }
 
         // Load resources and help files
-        dcCore::app()->admin->resources = new Resources();
+        Core::backend()->resources = new Resources();
 
         require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
         if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', dcCore::app()->lang)) {
@@ -204,48 +204,48 @@ class Utility extends Process
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    dcCore::app()->admin->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help', $hfile]));
+                    Core::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, dcCore::app()->lang, 'help', $hfile]));
                 }
             }
         }
         unset($hfiles);
         // Contextual help flag
-        dcCore::app()->admin->resources->context(false);
+        Core::backend()->resources->context(false);
 
         $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;
 
-        dcCore::app()->admin->favs  = new Favorites();
-        dcCore::app()->admin->menus = new Menus();
+        Core::backend()->favs  = new Favorites();
+        Core::backend()->menus = new Menus();
 
-        /* @deprecated since 2.27, use dcCore::app()->admin->favs instead */
-        dcCore::app()->favs = dcCore::app()->admin->favs;
+        /* @deprecated since 2.27, use Core::backend()->favs instead */
+        dcCore::app()->favs = Core::backend()->favs;
 
-        /* @deprecated since 2.27, use dcCore::app()->admin->menus instead */
-        dcCore::app()->menu = dcCore::app()->admin->menus;
+        /* @deprecated since 2.27, use Core::backend()->menus instead */
+        dcCore::app()->menu = Core::backend()->menus;
 
-        /* @deprecated Since 2.23, use dcCore::app()->admin->menus instead */
-        $GLOBALS['_menu'] = dcCore::app()->admin->menus;
+        /* @deprecated Since 2.23, use Core::backend()->menus instead */
+        $GLOBALS['_menu'] = Core::backend()->menus;
 
         // Set default menu
-        dcCore::app()->admin->menus->setDefaultItems();
+        Core::backend()->menus->setDefaultItems();
 
         if (!$user_ui_nofavmenu) {
-            dcCore::app()->admin->favs->appendMenuSection(dcCore::app()->admin->menus);
+            Core::backend()->favs->appendMenuSection(Core::backend()->menus);
         }
 
         // Load plugins
         dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
-        dcCore::app()->admin->favs->setup();
+        Core::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {
-            dcCore::app()->admin->favs->appendMenu(dcCore::app()->admin->menus);
+            Core::backend()->favs->appendMenu(Core::backend()->menus);
         }
 
-        if (empty(dcCore::app()->blog->settings->system->jquery_migrate_mute)) {
-            dcCore::app()->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
+        if (empty(Core::blog()->settings->system->jquery_migrate_mute)) {
+            Core::blog()->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
         }
-        if (empty(dcCore::app()->blog->settings->system->jquery_allow_old_version)) {
-            dcCore::app()->blog->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
+        if (empty(Core::blog()->settings->system->jquery_allow_old_version)) {
+            Core::blog()->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
         // Admin behaviors
@@ -283,7 +283,7 @@ class Utility extends Process
     public function killAdminSession(): void
     {
         // Kill session
-        dcCore::app()->session->destroy();
+        Core::session()->destroy();
 
         // Unset cookie if necessary
         if (isset($_COOKIE['dc_admin'])) {

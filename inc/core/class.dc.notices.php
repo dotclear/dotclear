@@ -40,7 +40,7 @@ class dcNotices
      */
     public function __construct()
     {
-        $this->table = dcCore::app()->prefix . self::NOTICE_TABLE_NAME;
+        $this->table = Core::con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     /**
@@ -132,7 +132,7 @@ class dcNotices
      */
     public function addNotice(Cursor $cur): int
     {
-        dcCore::app()->con->writeLock($this->table);
+        Core::con()->writeLock($this->table);
 
         try {
             # Get ID
@@ -152,9 +152,9 @@ class dcNotices
             Core::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            dcCore::app()->con->unlock();
+            Core::con()->unlock();
         } catch (Exception $e) {
-            dcCore::app()->con->unlock();
+            Core::con()->unlock();
 
             throw $e;
         }

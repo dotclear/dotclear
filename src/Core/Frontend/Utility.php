@@ -112,7 +112,7 @@ class Utility extends Process
         // Loading blog
         if (defined('DC_BLOG_ID')) {
             try {
-                dcCore::app()->setBlog(DC_BLOG_ID);
+                Core::setBlog(DC_BLOG_ID);
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
@@ -132,12 +132,12 @@ class Utility extends Process
             }
         }
 
-        if (is_null(dcCore::app()->blog) || dcCore::app()->blog->id == null) {
+        if (is_null(Core::blog()) || Core::blog()->id == null) {
             new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
         }
 
-        if ((int) dcCore::app()->blog->status !== dcBlog::BLOG_ONLINE) {
-            dcCore::app()->unsetBlog();
+        if ((int) Core::blog()->status !== dcBlog::BLOG_ONLINE) {
+            Core::unsetBlog();
             new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
 
@@ -152,10 +152,10 @@ class Utility extends Process
         $GLOBALS['_page_number'] = 0;
 
         # Check blog sleep mode
-        dcCore::app()->blog->checkSleepmodeTimeout();
+        Core::blog()->checkSleepmodeTimeout();
 
         # Cope with static home page option
-        if (dcCore::app()->blog->settings->system->static_home) {
+        if (Core::blog()->settings->system->static_home) {
             dcCore::app()->url->registerDefault([Url::class, 'static_home']);
         }
 
@@ -185,7 +185,7 @@ class Utility extends Process
         }
 
         # Loading locales
-        dcCore::app()->lang = (string) dcCore::app()->blog->settings->system->lang;
+        dcCore::app()->lang = (string) Core::blog()->settings->system->lang;
         dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
         /*
@@ -214,38 +214,38 @@ class Utility extends Process
 
         # Loading themes
         dcCore::app()->themes = new dcThemes();
-        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
+        dcCore::app()->themes->loadModules(Core::blog()->themes_path);
 
         # Defining theme if not defined
-        if (!isset(dcCore::app()->public->theme)) {
-            dcCore::app()->public->theme = dcCore::app()->blog->settings->system->theme;
+        if (!isset(Core::frontend()->theme)) {
+            Core::frontend()->theme = Core::blog()->settings->system->theme;
         }
 
-        if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
-            dcCore::app()->public->theme = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
+        if (!dcCore::app()->themes->moduleExists(Core::frontend()->theme)) {
+            Core::frontend()->theme = Core::blog()->settings->system->theme = DC_DEFAULT_THEME;
         }
 
-        dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
-        if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme) && !dcCore::app()->themes->moduleExists(dcCore::app()->public->parent_theme)) {
-            dcCore::app()->public->theme        = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
-            dcCore::app()->public->parent_theme = null;
+        Core::frontend()->parent_theme = dcCore::app()->themes->moduleInfo(Core::frontend()->theme, 'parent');
+        if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme) && !dcCore::app()->themes->moduleExists(Core::frontend()->parent_theme)) {
+            Core::frontend()->theme        = Core::blog()->settings->system->theme = DC_DEFAULT_THEME;
+            Core::frontend()->parent_theme = null;
         }
 
         # If theme doesn't exist, stop everything
-        if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
+        if (!dcCore::app()->themes->moduleExists(Core::frontend()->theme)) {
             new Fault(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
             'path in your blog configuration. Please check theme_path value in ' .
-            'about:config module or reinstall default theme. (' . dcCore::app()->public->theme . ')'), Fault::THEME_ISSUE);
+            'about:config module or reinstall default theme. (' . Core::frontend()->theme . ')'), Fault::THEME_ISSUE);
         }
 
         # Loading _public.php file for selected theme
-        dcCore::app()->themes->loadNsFile(dcCore::app()->public->theme, 'public');
+        dcCore::app()->themes->loadNsFile(Core::frontend()->theme, 'public');
 
         # Loading translations for selected theme
-        if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme)) {
-            dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->parent_theme, dcCore::app()->lang, 'main');
+        if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme)) {
+            dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, dcCore::app()->lang, 'main');
         }
-        dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
+        dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, dcCore::app()->lang, 'main');
 
         # --BEHAVIOR-- publicPrepend --
         Core::behavior()->callBehavior('publicPrependV2');
@@ -260,7 +260,7 @@ class Utility extends Process
         $GLOBALS['mod_files'] = dcCore::app()->cache['mod_files'];
 
         dcCore::app()->cache['mod_ts']   = [];
-        dcCore::app()->cache['mod_ts'][] = dcCore::app()->blog->upddt;
+        dcCore::app()->cache['mod_ts'][] = Core::blog()->upddt;
         /*
          * @var        array
          *
@@ -269,12 +269,12 @@ class Utility extends Process
         $GLOBALS['mod_ts'] = dcCore::app()->cache['mod_ts'];
 
         $tpl_path = [
-            dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->theme . '/tpl',
+            Core::blog()->themes_path . '/' . Core::frontend()->theme . '/tpl',
         ];
-        if (dcCore::app()->public->parent_theme) {
-            $tpl_path[] = dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->parent_theme . '/tpl';
+        if (Core::frontend()->parent_theme) {
+            $tpl_path[] = Core::blog()->themes_path . '/' . Core::frontend()->parent_theme . '/tpl';
         }
-        $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+        $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
             dcCore::app()->tpl->setPath(
@@ -288,7 +288,7 @@ class Utility extends Process
                 dcCore::app()->tpl->getPath()
             );
         }
-        dcCore::app()->url->mode = dcCore::app()->blog->settings->system->url_scan;
+        dcCore::app()->url->mode = Core::blog()->settings->system->url_scan;
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --

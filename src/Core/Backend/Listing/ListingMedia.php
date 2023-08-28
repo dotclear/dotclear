@@ -131,7 +131,7 @@ class ListingMedia extends Listing
 
         if ($file->d) {
             // Folder
-            $link = dcCore::app()->admin->url->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
+            $link = Core::backend()->url->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
             if ($file->parent) {
                 $display_name = '..';
                 $class .= ' media-folder-up';
@@ -146,7 +146,7 @@ class ListingMedia extends Listing
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
             Core::behavior()->callBehavior('adminMediaURLParams', $params);
 
-            $link = dcCore::app()->admin->url->get('admin.media.item', (array) $params);
+            $link = Core::backend()->url->get('admin.media.item', (array) $params);
             if ($file->media_priv) {
                 $class .= ' media-private';
             }
@@ -173,7 +173,7 @@ class ListingMedia extends Listing
                 if ($filters->post_id) {
                     // Media attachment button
                     $act .= '<a class="attach-media" title="' . __('Attach this file to entry') . '" href="' .
-                    dcCore::app()->admin->url->get(
+                    Core::backend()->url->get(
                         'admin.post.media',
                         ['media_id' => $file->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
@@ -197,7 +197,7 @@ class ListingMedia extends Listing
                 }
             } else {
                 $act .= '<a class="media-remove" ' .
-                'href="' . dcCore::app()->admin->url->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
+                'href="' . Core::backend()->url->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
                 '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
             }
         }

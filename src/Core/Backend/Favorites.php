@@ -120,7 +120,7 @@ class Favorites
                 if (!$favorite['permissions']) {
                     return false;
                 }
-            } elseif (!dcCore::app()->auth->check($favorite['permissions'], dcCore::app()->blog->id)) {
+            } elseif (!dcCore::app()->auth->check($favorite['permissions'], Core::blog()->id)) {
                 return false;
             }
         } elseif (!dcCore::app()->auth->isSuperAdmin()) {
@@ -403,12 +403,12 @@ class Favorites
         $this->registerMultiple([
             'prefs' => [
                 'title'      => __('My preferences'),
-                'url'        => dcCore::app()->admin->url->get('admin.user.preferences'),
+                'url'        => Core::backend()->url->get('admin.user.preferences'),
                 'small-icon' => 'images/menu/user-pref.svg',
                 'large-icon' => 'images/menu/user-pref.svg', ],
             'new_post' => [
                 'title'       => __('New post'),
-                'url'         => dcCore::app()->admin->url->get('admin.post'),
+                'url'         => Core::backend()->url->get('admin.post'),
                 'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'large-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -418,7 +418,7 @@ class Favorites
                 'active_cb' => ['defaultFavorites', fn (string $request_uri, array $request_params): bool => 'post.php' === $request_uri && !isset($request_params['id'])], ],
             'posts' => [
                 'title'       => __('Posts'),
-                'url'         => dcCore::app()->admin->url->get('admin.posts'),
+                'url'         => Core::backend()->url->get('admin.posts'),
                 'small-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'large-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -426,13 +426,13 @@ class Favorites
                     dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
-                    $post_count    = dcCore::app()->blog->getPosts([], true)->f(0);
+                    $post_count    = Core::blog()->getPosts([], true)->f(0);
                     $str_entries   = __('%d post', '%d posts', $post_count);
                     $icon['title'] = sprintf($str_entries, $post_count);
                 }], ],
             'comments' => [
                 'title'       => __('Comments'),
-                'url'         => dcCore::app()->admin->url->get('admin.comments'),
+                'url'         => Core::backend()->url->get('admin.comments'),
                 'small-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'large-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -440,13 +440,13 @@ class Favorites
                     dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
-                    $comment_count = dcCore::app()->blog->getComments([], true)->f(0);
+                    $comment_count = Core::blog()->getComments([], true)->f(0);
                     $str_comments  = __('%d comment', '%d comments', $comment_count);
                     $icon['title'] = sprintf($str_comments, $comment_count);
                 }], ],
             'search' => [
                 'title'       => __('Search'),
-                'url'         => dcCore::app()->admin->url->get('admin.search'),
+                'url'         => Core::backend()->url->get('admin.search'),
                 'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'large-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -455,7 +455,7 @@ class Favorites
                 ]), ],
             'categories' => [
                 'title'       => __('Categories'),
-                'url'         => dcCore::app()->admin->url->get('admin.categories'),
+                'url'         => Core::backend()->url->get('admin.categories'),
                 'small-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -463,7 +463,7 @@ class Favorites
                 ]), ],
             'media' => [
                 'title'       => __('Media manager'),
-                'url'         => dcCore::app()->admin->url->get('admin.media'),
+                'url'         => Core::backend()->url->get('admin.media'),
                 'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'large-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -472,7 +472,7 @@ class Favorites
                 ]), ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),
-                'url'         => dcCore::app()->admin->url->get('admin.blog.pref'),
+                'url'         => Core::backend()->url->get('admin.blog.pref'),
                 'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -480,7 +480,7 @@ class Favorites
                 ]), ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
-                'url'         => dcCore::app()->admin->url->get('admin.blog.theme'),
+                'url'         => Core::backend()->url->get('admin.blog.theme'),
                 'small-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'large-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'permissions' => dcCore::app()->auth->makePermissions([
@@ -488,7 +488,7 @@ class Favorites
                 ]), ],
             'blogs' => [
                 'title'       => __('Blogs'),
-                'url'         => dcCore::app()->admin->url->get('admin.blogs'),
+                'url'         => Core::backend()->url->get('admin.blogs'),
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'permissions' => !dcCore::app()->auth->isSuperAdmin() && dcCore::app()->auth->getBlogCount() > 1 ? dcCore::app()->auth->makePermissions([
@@ -497,22 +497,22 @@ class Favorites
                 ]) : null, ],
             'users' => [
                 'title'      => __('Users'),
-                'url'        => dcCore::app()->admin->url->get('admin.users'),
+                'url'        => Core::backend()->url->get('admin.users'),
                 'small-icon' => 'images/menu/users.svg',
                 'large-icon' => 'images/menu/users.svg', ],
             'plugins' => [
                 'title'      => __('Plugins management'),
-                'url'        => dcCore::app()->admin->url->get('admin.plugins'),
+                'url'        => Core::backend()->url->get('admin.plugins'),
                 'small-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
                 'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'], ],
             'langs' => [
                 'title'      => __('Languages'),
-                'url'        => dcCore::app()->admin->url->get('admin.langs'),
+                'url'        => Core::backend()->url->get('admin.langs'),
                 'small-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
                 'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'], ],
             'help' => [
                 'title'      => __('Global help'),
-                'url'        => dcCore::app()->admin->url->get('admin.help'),
+                'url'        => Core::backend()->url->get('admin.help'),
                 'small-icon' => 'images/menu/help.svg',
                 'large-icon' => 'images/menu/help.svg', ],
         ]);

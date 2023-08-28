@@ -37,11 +37,11 @@ class Langs extends Process
     {
         Page::checkSuper();
 
-        dcCore::app()->admin->is_writable = is_dir(DC_L10N_ROOT) && is_writable(DC_L10N_ROOT);
-        dcCore::app()->admin->iso_codes   = L10n::getISOCodes();
+        Core::backend()->is_writable = is_dir(DC_L10N_ROOT) && is_writable(DC_L10N_ROOT);
+        Core::backend()->iso_codes   = L10n::getISOCodes();
 
         # Get languages list on Dotclear.net
-        dcCore::app()->admin->dc_langs = false;
+        Core::backend()->dc_langs = false;
 
         $feed_reader = new Reader();
 
@@ -52,7 +52,7 @@ class Langs extends Process
         try {
             $parse = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));
             if ($parse !== false) {
-                dcCore::app()->admin->dc_langs = $parse->items;
+                Core::backend()->dc_langs = $parse->items;
             }
         } catch (Exception $e) {
             // Ignore exceptions
@@ -102,10 +102,10 @@ class Langs extends Process
         };
 
         # Delete a language pack
-        if (dcCore::app()->admin->is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
+        if (Core::backend()->is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
             try {
                 $locale_id = $_POST['locale_id'];
-                if (!isset(dcCore::app()->admin->iso_codes[$locale_id]) || !is_dir(DC_L10N_ROOT . '/' . $locale_id)) {
+                if (!isset(Core::backend()->iso_codes[$locale_id]) || !is_dir(DC_L10N_ROOT . '/' . $locale_id)) {
                     throw new Exception(__('No such installed language'));
                 }
 
@@ -118,14 +118,14 @@ class Langs extends Process
                 }
 
                 Notices::addSuccessNotice(__('Language has been successfully deleted.'));
-                dcCore::app()->admin->url->redirect('admin.langs');
+                Core::backend()->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
         }
 
         # Download a language pack
-        if (dcCore::app()->admin->is_writable && !empty($_POST['pkg_url'])) {
+        if (Core::backend()->is_writable && !empty($_POST['pkg_url'])) {
             try {
                 if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
@@ -159,14 +159,14 @@ class Langs extends Process
                 } else {
                     Notices::addSuccessNotice(__('Language has been successfully installed.'));
                 }
-                dcCore::app()->admin->url->redirect('admin.langs');
+                Core::backend()->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
         }
 
         # Upload a language pack
-        if (dcCore::app()->admin->is_writable && !empty($_POST['upload_pkg'])) {
+        if (Core::backend()->is_writable && !empty($_POST['upload_pkg'])) {
             try {
                 if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
@@ -192,7 +192,7 @@ class Langs extends Process
                 } else {
                     Notices::addSuccessNotice(__('Language has been successfully installed.'));
                 }
-                dcCore::app()->admin->url->redirect('admin.langs');
+                Core::backend()->url->redirect('admin.langs');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -226,8 +226,8 @@ class Langs extends Process
         '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear installation.') . '</p>' .
         '<p>' . sprintf(
             __('You can change your user language in your <a href="%1$s">preferences</a> or change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-            dcCore::app()->admin->url->get('admin.user.preferences'),
-            dcCore::app()->admin->url->get('admin.blog.pref')
+            Core::backend()->url->get('admin.user.preferences'),
+            Core::backend()->url->get('admin.blog.pref')
         ) . '</p>';
 
         echo
@@ -236,7 +236,7 @@ class Langs extends Process
         $langs      = scandir(DC_L10N_ROOT);
         $langs_list = [];
         foreach ($langs as $lang) {
-            $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(DC_L10N_ROOT . '/' . $lang) || !isset(dcCore::app()->admin->iso_codes[$lang]));
+            $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(DC_L10N_ROOT . '/' . $lang) || !isset(Core::backend()->iso_codes[$lang]));
 
             if (!$check) {
                 $langs_list[$lang] = DC_L10N_ROOT . '/' . $lang;
@@ -255,17 +255,17 @@ class Langs extends Process
             '</tr>';
 
             foreach ($langs_list as $lang_code => $lang) {
-                $is_deletable = dcCore::app()->admin->is_writable && is_writable($lang);
+                $is_deletable = Core::backend()->is_writable && is_writable($lang);
 
                 echo
                 '<tr class="line wide">' .
                 '<td class="maximal nowrap" lang="' . $lang_code . '">(' . $lang_code . ') ' .
-                '<strong>' . Html::escapeHTML(dcCore::app()->admin->iso_codes[$lang_code]) . '</strong></td>' .
+                '<strong>' . Html::escapeHTML(Core::backend()->iso_codes[$lang_code]) . '</strong></td>' .
                 '<td class="nowrap action">';
 
                 if ($is_deletable) {
                     echo
-                    '<form action="' . dcCore::app()->admin->url->get('admin.langs') . '" method="post">' .
+                    '<form action="' . Core::backend()->url->get('admin.langs') . '" method="post">' .
                     '<div>' .
                     Core::nonce()->getFormNonce() .
                     form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
@@ -283,21 +283,21 @@ class Langs extends Process
 
         echo '<h3>' . __('Install or upgrade languages') . '</h3>';
 
-        if (!dcCore::app()->admin->is_writable) {
+        if (!Core::backend()->is_writable) {
             echo '<p>' . sprintf(__('You can install or remove a language by adding or ' .
         'removing the relevant directory in your %s folder.'), '<strong>locales</strong>') . '</p>';
         }
 
-        if (!empty(dcCore::app()->admin->dc_langs) && dcCore::app()->admin->is_writable) {
+        if (!empty(Core::backend()->dc_langs) && Core::backend()->is_writable) {
             $dc_langs_combo = [];
-            foreach (dcCore::app()->admin->dc_langs as $lang) {
-                if ($lang->link && isset(dcCore::app()->admin->iso_codes[$lang->title])) {
-                    $dc_langs_combo[Html::escapeHTML('(' . $lang->title . ') ' . dcCore::app()->admin->iso_codes[$lang->title])] = Html::escapeHTML($lang->link);
+            foreach (Core::backend()->dc_langs as $lang) {
+                if ($lang->link && isset(Core::backend()->iso_codes[$lang->title])) {
+                    $dc_langs_combo[Html::escapeHTML('(' . $lang->title . ') ' . Core::backend()->iso_codes[$lang->title])] = Html::escapeHTML($lang->link);
                 }
             }
 
             echo
-            '<form method="post" action="' . dcCore::app()->admin->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+            '<form method="post" action="' . Core::backend()->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Available languages') . '</h4>' .
             '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
                 'Proposed languages are based on your version: %s.'), '<strong>' . DC_VERSION . '</strong>') . '</p>' .
@@ -318,10 +318,10 @@ class Langs extends Process
             '</form>';
         }
 
-        if (dcCore::app()->admin->is_writable) {
+        if (Core::backend()->is_writable) {
             # 'Upload language pack' form
             echo
-            '<form method="post" action="' . dcCore::app()->admin->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+            '<form method="post" action="' . Core::backend()->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Upload a zip file') . '</h4>' .
             '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
             '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .

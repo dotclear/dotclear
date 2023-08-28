@@ -55,7 +55,7 @@ class Manage extends Process
         // load dcThemes if required
         if (self::getType() == 'theme' && !is_a(dcCore::app()->themes, 'dcThemes')) {
             dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules((string) dcCore::app()->blog?->themes_path);
+            dcCore::app()->themes->loadModules((string) Core::blog()?->themes_path);
         }
 
         // get selected module
@@ -197,11 +197,11 @@ class Manage extends Process
 
     private static function getRedirect(): string
     {
-        return (string) dcCore::app()->admin->url->get(self::getRedir()) . '#' . self::getType() . 's';
+        return (string) Core::backend()->url->get(self::getRedir()) . '#' . self::getType() . 's';
     }
 
     private static function doRedirect(): void
     {
-        dcCore::app()->admin->url->redirect(name: self::getRedir(), suffix: '#' . self::getType() . 's');
+        Core::backend()->url->redirect(name: self::getRedir(), suffix: '#' . self::getType() . 's');
     }
 }

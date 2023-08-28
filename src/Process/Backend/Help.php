@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -50,7 +51,7 @@ class Help extends Process
                 return $ret;
             }
 
-            if (empty(dcCore::app()->admin->resources->entries('help'))) {
+            if (empty(Core::backend()->resources->entries('help'))) {
                 // No available help
                 return $ret;
             }
@@ -64,7 +65,7 @@ class Help extends Process
                     continue;
                 }
 
-                $f = dcCore::app()->admin->resources->entry('help', $v);
+                $f = Core::backend()->resources->entry('help', $v);
                 if (empty($f) || !file_exists($f) || !is_readable($f)) {
                     continue;
                 }
@@ -103,7 +104,7 @@ class Help extends Process
         if ($content_array['title'] !== '') {
             $breadcrumb = Page::breadcrumb(
                 [
-                    __('Global help')       => dcCore::app()->admin->url->get('admin.help'),
+                    __('Global help')       => Core::backend()->url->get('admin.help'),
                     $content_array['title'] => '',
                 ]
             );
@@ -124,7 +125,7 @@ class Help extends Process
         echo $content_array['content'];
 
         // Prevents global help link display
-        dcCore::app()->admin->resources->context(true);
+        Core::backend()->resources->context(true);
 
         Page::close();
     }

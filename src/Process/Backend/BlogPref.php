@@ -34,11 +34,11 @@ class BlogPref extends Process
     public static function init(): bool
     {
         /**
-         * Alias for dcCore::app()->admin
+         * Alias for Core::backend()
          *
          * @var \Dotclear\Core\Backend\Utility
          */
-        $da = dcCore::app()->admin;
+        $da = Core::backend();
 
         /*
          * Is standalone blog preferences?
@@ -54,15 +54,15 @@ class BlogPref extends Process
                 dcCore::app()->auth::PERMISSION_ADMIN,
             ]));
 
-            $da->blog_id       = dcCore::app()->blog->id;
-            $da->blog_status   = dcCore::app()->blog->status;
-            $da->blog_name     = dcCore::app()->blog->name;
-            $da->blog_desc     = dcCore::app()->blog->desc;
-            $da->blog_settings = dcCore::app()->blog->settings;
-            $da->blog_url      = dcCore::app()->blog->url;
+            $da->blog_id       = Core::blog()->id;
+            $da->blog_status   = Core::blog()->status;
+            $da->blog_name     = Core::blog()->name;
+            $da->blog_desc     = Core::blog()->desc;
+            $da->blog_settings = Core::blog()->settings;
+            $da->blog_url      = Core::blog()->url;
 
-            $da->action = dcCore::app()->admin->url->get('admin.blog.pref');
-            $da->redir  = dcCore::app()->admin->url->get('admin.blog.pref');
+            $da->action = Core::backend()->url->get('admin.blog.pref');
+            $da->redir  = Core::backend()->url->get('admin.blog.pref');
         } else {
             Page::checkSuper();
 
@@ -93,8 +93,8 @@ class BlogPref extends Process
                 dcCore::app()->error->add($e->getMessage());
             }
 
-            $da->action = dcCore::app()->admin->url->get('admin.blog');
-            $da->redir  = dcCore::app()->admin->url->get('admin.blog', ['id' => '%s'], '&', true);
+            $da->action = Core::backend()->url->get('admin.blog');
+            $da->redir  = Core::backend()->url->get('admin.blog', ['id' => '%s'], '&', true);
         }
 
         // Language codes
@@ -223,11 +223,11 @@ class BlogPref extends Process
     public static function process(): bool
     {
         /**
-         * Alias for dcCore::app()->admin
+         * Alias for Core::backend()
          *
          * @var \Dotclear\Core\Backend\Utility
          */
-        $da = dcCore::app()->admin;
+        $da = Core::backend();
 
         if ($da->blog_id && !empty($_POST) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions(
             [
@@ -235,7 +235,7 @@ class BlogPref extends Process
             ]
         ), $da->blog_id)) {
             // Update a blog
-            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME);
+            $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
 
             $cur->blog_id   = $_POST['blog_id'];
             $cur->blog_url  = preg_replace('/\?+$/', '?', (string) $_POST['blog_url']);
@@ -317,10 +317,10 @@ class BlogPref extends Process
                 Core::behavior()->callBehavior('adminAfterBlogUpdate', $cur, $da->blog_id);
 
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
-                    if ($da->blog_id == dcCore::app()->blog->id) {
-                        dcCore::app()->setBlog($cur->blog_id);
+                    if ($da->blog_id == Core::blog()->id) {
+                        Core::setBlog($cur->blog_id);
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
-                        $da->blog_settings        = dcCore::app()->blog->settings;
+                        $da->blog_settings        = Core::blog()->settings;
                     } else {
                         $da->blog_settings = new dcSettings($cur->blog_id);
                     }
@@ -397,11 +397,11 @@ class BlogPref extends Process
     public static function render(): void
     {
         /**
-         * Alias for dcCore::app()->admin
+         * Alias for Core::backend()
          *
          * @var \Dotclear\Core\Backend\Utility
          */
-        $da = dcCore::app()->admin;
+        $da = Core::backend();
 
         // Display
         if ($da->standalone) {
@@ -415,7 +415,7 @@ class BlogPref extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')                                                   => '',
-                    __('Blogs')                                                    => dcCore::app()->admin->url->get('admin.blogs'),
+                    __('Blogs')                                                    => Core::backend()->url->get('admin.blogs'),
                     __('Blog settings') . ' : ' . Html::escapeHTML($da->blog_name) => '',
                 ]
             );
@@ -847,7 +847,7 @@ class BlogPref extends Process
             '<p><label for="post_url_format">' . __('New post URL format:') . '</label>' .
             form::combo('post_url_format', $da->post_url_combo, Html::escapeHTML($da->blog_settings->system->post_url_format), '', '', false, 'aria-describedby="post_url_format_help"') .
             '</p>' .
-            '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . dcCore::app()->blog->getPostURL('', date('Y-m-d H:i:00', $da->now), __('Dotclear'), 42) . '</p>' .
+            '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . Core::blog()->getPostURL('', date('Y-m-d H:i:00', $da->now), __('Dotclear'), 42) . '</p>' .
             '</p>' .
 
             '<p><label for="note_title_tag">' . __('HTML tag for the title of the notes on the blog:') . '</label>' .
@@ -906,15 +906,15 @@ class BlogPref extends Process
             '</p>' .
             '</form>';
 
-            if (dcCore::app()->auth->isSuperAdmin() && $da->blog_id != dcCore::app()->blog->id) {
+            if (dcCore::app()->auth->isSuperAdmin() && $da->blog_id != Core::blog()->id) {
                 echo
-                '<form action="' . dcCore::app()->admin->url->get('admin.blog.del') . '" method="post">' .
+                '<form action="' . Core::backend()->url->get('admin.blog.del') . '" method="post">' .
                 '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
                 form::hidden(['blog_id'], $da->blog_id) .
                 Core::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             } else {
-                if ($da->blog_id == dcCore::app()->blog->id) {
+                if ($da->blog_id == Core::blog()->id) {
                     echo '<p class="message">' . __('The current blog cannot be deleted.') . '</p>';
                 } else {
                     echo '<p class="message">' . __('Only superadmin can delete a blog.') . '</p>';
@@ -937,7 +937,7 @@ class BlogPref extends Process
                 echo '<p>' . __('No users') . '</p>';
             } else {
                 if (dcCore::app()->auth->isSuperAdmin()) {
-                    $user_url_p = '<a href="' . dcCore::app()->admin->url->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
+                    $user_url_p = '<a href="' . Core::backend()->url->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
                 } else {
                     $user_url_p = '%1$s';
                 }
@@ -949,9 +949,9 @@ class BlogPref extends Process
                 }
 
                 $post_types      = Core::postTypes()->dump();
-                $current_blog_id = dcCore::app()->blog->id;
-                if ($da->blog_id != dcCore::app()->blog->id) {
-                    dcCore::app()->setBlog($da->blog_id);
+                $current_blog_id = Core::blog()->id;
+                if ($da->blog_id != Core::blog()->id) {
+                    Core::setBlog($da->blog_id);
                 }
 
                 echo '<div>';
@@ -982,7 +982,7 @@ class BlogPref extends Process
                                 'post_type' => $pt->type,
                                 'user_id'   => $k,
                             ];
-                            echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt->label), dcCore::app()->blog->getPosts($params, true)->f(0)) . '</li>';
+                            echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt->label), Core::blog()->getPosts($params, true)->f(0)) . '</li>';
                         }
                         echo
                         '</ul>' .
@@ -1011,9 +1011,9 @@ class BlogPref extends Process
 
                         if (!$v['super'] && dcCore::app()->auth->isSuperAdmin()) {
                             echo
-                            '<form action="' . dcCore::app()->admin->url->get('admin.user.actions') . '" method="post">' .
+                            '<form action="' . Core::backend()->url->get('admin.user.actions') . '" method="post">' .
                             '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                            form::hidden(['redir'], dcCore::app()->admin->url->get('admin.blog.pref', ['id' => $k], '&')) .
+                            form::hidden(['redir'], Core::backend()->url->get('admin.blog.pref', ['id' => $k], '&')) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], $k) .
                             form::hidden(['blogs[]'], $da->blog_id) .
@@ -1025,8 +1025,8 @@ class BlogPref extends Process
                     }
                 }
                 echo '</div>';
-                if ($current_blog_id != dcCore::app()->blog->id) {
-                    dcCore::app()->setBlog($current_blog_id);
+                if ($current_blog_id != Core::blog()->id) {
+                    Core::setBlog($current_blog_id);
                 }
             }
 

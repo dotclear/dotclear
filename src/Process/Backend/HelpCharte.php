@@ -14,6 +14,7 @@ use dcAuth;
 use dcCore;
 use dcUtils;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class HelpCharte extends Process
@@ -30,8 +31,8 @@ class HelpCharte extends Process
             ])
         );
 
-        dcCore::app()->admin->data_theme = dcCore::app()->auth->user_prefs->interface->theme;
-        dcCore::app()->admin->js         = [
+        Core::backend()->data_theme = dcCore::app()->auth->user_prefs->interface->theme;
+        Core::backend()->js         = [
             'htmlFontSize' => dcCore::app()->auth->user_prefs->interface->htmlfontsize,
             'debug'        => !!DC_DEBUG,
         ];
@@ -46,7 +47,7 @@ class HelpCharte extends Process
      */
     public static function getTheme(): string
     {
-        return dcCore::app()->admin->data_theme ?? '';
+        return Core::backend()->data_theme ?? '';
     }
 
     /**
@@ -56,7 +57,7 @@ class HelpCharte extends Process
      */
     public static function getJS(): array
     {
-        return dcCore::app()->admin->js ?? [];
+        return Core::backend()->js ?? [];
     }
 
     /**

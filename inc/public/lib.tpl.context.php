@@ -451,8 +451,8 @@ class context
      */
     public static function PaginationPosition(int $offset = 0): int
     {
-        if ((int) dcCore::app()->public->getPageNumber() !== 0) {
-            $current_page = (int) dcCore::app()->public->getPageNumber();
+        if ((int) Core::frontend()->getPageNumber() !== 0) {
+            $current_page = (int) Core::frontend()->getPageNumber();
         } else {
             $current_page = 1;
         }
@@ -479,7 +479,7 @@ class context
      */
     public static function PaginationStart(): bool
     {
-        if ((int) dcCore::app()->public->getPageNumber() !== 0) {
+        if ((int) Core::frontend()->getPageNumber() !== 0) {
             return self::PaginationPosition() == 1;
         }
 
@@ -493,7 +493,7 @@ class context
      */
     public static function PaginationEnd(): bool
     {
-        if ((int) dcCore::app()->public->getPageNumber() !== 0) {
+        if ((int) Core::frontend()->getPageNumber() !== 0) {
             return self::PaginationPosition() == self::PaginationNbPages();
         }
 
@@ -515,7 +515,7 @@ class context
         $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
         $page_number = self::PaginationPosition($offset);
-        $url         = dcCore::app()->blog->url . $args;
+        $url         = Core::blog()->url . $args;
         if ($page_number > 1) {
             $url = preg_replace('#/$#', '', $url);
             $url .= '/page/' . $page_number;
@@ -579,10 +579,10 @@ class context
         $definitions = [];
 
         $paths = [];
-        if (isset(dcCore::app()->public->theme)) {
-            $paths[] = dcCore::app()->public->theme;
-            if (isset(dcCore::app()->public->parent_theme)) {
-                $paths[] = dcCore::app()->public->parent_theme;
+        if (isset(Core::frontend()->theme)) {
+            $paths[] = Core::frontend()->theme;
+            if (isset(Core::frontend()->parent_theme)) {
+                $paths[] = Core::frontend()->parent_theme;
             }
         }
 
@@ -600,7 +600,7 @@ class context
 
         // Use default set
         $definition = __DIR__ . '/../smilies/smilies.txt';
-        $base_url   = dcCore::app()->blog->getQmarkURL() . 'pf=';
+        $base_url   = Core::blog()->getQmarkURL() . 'pf=';
 
         if (file_exists($definition)) {
             return array_merge(self::smiliesDefinition($definition, $base_url), $definitions);
@@ -644,7 +644,7 @@ class context
      */
     public static function addSmilies(string $str): string
     {
-        if (!isset(dcCore::app()->public->smilies)) {
+        if (!isset(Core::frontend()->smilies)) {
             return $str;
         }
 
@@ -666,8 +666,8 @@ class context
                 if (!$in_pre) {
                     // Not inside a pre/code, replace smileys
                     $text = preg_replace(
-                        array_keys(dcCore::app()->public->smilies),
-                        array_values(dcCore::app()->public->smilies),
+                        array_keys(Core::frontend()->smilies),
+                        array_values(Core::frontend()->smilies),
                         $text
                     );
                 }
@@ -745,9 +745,9 @@ class context
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
-            $p_url  = dcCore::app()->blog->settings->system->public_url;
-            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', dcCore::app()->blog->url);
-            $p_root = dcCore::app()->blog->public_path;
+            $p_url  = Core::blog()->settings->system->public_url;
+            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', Core::blog()->url);
+            $p_root = Core::blog()->public_path;
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);

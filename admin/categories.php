@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated since 2.27 Use name "admin.categories" on dcCore::app()->admin->url methods
+ * @deprecated since 2.27 Use name "admin.categories" on Core::backend()->url methods
  *
  * @package Dotclear
  * @subpackage Backend

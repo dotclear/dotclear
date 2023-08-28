@@ -20,8 +20,8 @@ use dcMedia;
 use dcStore;
 use dcThemes;
 use dcUpdate;
-use Dotclear\Core\Core;
 use Dotclear\Core\Backend\UserPref;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -75,7 +75,7 @@ class Rest extends Process
      */
     public static function getPostsCount(): array
     {
-        $count = dcCore::app()->blog->getPosts([], true)->f(0);
+        $count = Core::blog()->getPosts([], true)->f(0);
 
         return [
             'ret' => sprintf(__('%d post', '%d posts', (int) $count), $count),
@@ -89,7 +89,7 @@ class Rest extends Process
      */
     public static function getCommentsCount(): array
     {
-        $count = dcCore::app()->blog->getComments([], true)->f(0);
+        $count = Core::blog()->getComments([], true)->f(0);
 
         return [
             'ret' => sprintf(__('%d comment', '%d comments', (int) $count), $count),
@@ -114,7 +114,7 @@ class Rest extends Process
 
         if (dcCore::app()->auth->user_prefs->dashboard->dcnews) {
             try {
-                if ('' == ($rss_news = dcCore::app()->admin->resources->entry('rss_news', 'Dotclear'))) {
+                if ('' == ($rss_news = Core::backend()->resources->entry('rss_news', 'Dotclear'))) {
                     throw new Exception();
                 }
                 $feed_reader = new Reader();
@@ -175,8 +175,8 @@ class Rest extends Process
                 // Check PHP version required
                 if (version_compare(phpversion(), $updater->getPHPVersion()) >= 0) {
                     $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
-                    '<p><a class="button submit" href="' . dcCore::app()->admin->url->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . dcCore::app()->admin->url->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
+                    '<p><a class="button submit" href="' . Core::backend()->url->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
+                    '<a class="button" href="' . Core::backend()->url->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
                         ($updater->getWarning() ? '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>' : '') .
@@ -247,15 +247,15 @@ class Rest extends Process
             // load once themes
             if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
                 dcCore::app()->themes = new dcThemes();
-                if (!is_null(dcCore::app()->blog)) {
-                    dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
+                if (!is_null(Core::blog())) {
+                    dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', dcCore::app()->lang);
                 }
             }
             $mod = dcCore::app()->themes;
-            $url = dcCore::app()->blog->settings->system->store_theme_url;
+            $url = Core::blog()->settings->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
             $mod = dcCore::app()->plugins;
-            $url = dcCore::app()->blog->settings->system->store_plugin_url;
+            $url = Core::blog()->settings->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
             Core::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
@@ -300,7 +300,7 @@ class Rest extends Process
             $params['post_type'] = $get['post_type'];
         }
 
-        $rs = dcCore::app()->blog->getPosts($params);
+        $rs = Core::blog()->getPosts($params);
 
         if ($rs->isEmpty()) {
             throw new Exception('No post for this ID');
@@ -373,7 +373,7 @@ class Rest extends Process
             throw new Exception('No comment ID');
         }
 
-        $rs = dcCore::app()->blog->getComments(['comment_id' => (int) $get['id']]);
+        $rs = Core::blog()->getComments(['comment_id' => (int) $get['id']]);
 
         if ($rs->isEmpty()) {
             throw new Exception('No comment for this ID');
@@ -418,8 +418,8 @@ class Rest extends Process
         # Create category
         if (!empty($post['new_cat_title']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
-        ]), dcCore::app()->blog->id)) {
-            $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
+        ]), Core::blog()->id)) {
+            $cur_cat            = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
 
@@ -428,13 +428,13 @@ class Rest extends Process
             # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
             Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-            $post['cat_id'] = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
+            $post['cat_id'] = Core::blog()->addCategory($cur_cat, (int) $parent_cat);
 
             # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
             Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+        $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
         $cur->user_id           = dcCore::app()->auth->userID();
@@ -443,18 +443,18 @@ class Rest extends Process
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
         $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
         $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : dcBlog::POST_UNPUBLISHED;
-        $cur->post_open_comment = (int) dcCore::app()->blog->settings->system->allow_comments;
-        $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
+        $cur->post_open_comment = (int) Core::blog()->settings->system->allow_comments;
+        $cur->post_open_tb      = (int) Core::blog()->settings->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor
         Core::behavior()->callBehavior('adminBeforePostCreate', $cur);
 
-        $return_id = dcCore::app()->blog->addPost($cur);
+        $return_id = Core::blog()->addPost($cur);
 
         # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
         Core::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-        $post = dcCore::app()->blog->getPosts(['post_id' => $return_id]);
+        $post = Core::blog()->getPosts(['post_id' => $return_id]);
 
         return [
             'id'     => $return_id,
@@ -483,7 +483,7 @@ class Rest extends Process
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             throw new Exception('Permission denied');
         }
 

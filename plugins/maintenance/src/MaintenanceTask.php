@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcCore;
+use Dotclear\Core\Core;
 
 class MaintenanceTask
 {
@@ -150,7 +151,7 @@ class MaintenanceTask
         }
 
         if ($this->perm() === null && !dcCore::app()->auth->isSuperAdmin()
-            || !dcCore::app()->auth->check($this->perm(), dcCore::app()->blog->id)) {
+            || !dcCore::app()->auth->check($this->perm(), Core::blog()->id)) {
             return;
         }
 

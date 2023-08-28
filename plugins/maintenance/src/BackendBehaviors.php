@@ -16,6 +16,7 @@ namespace Dotclear\Plugin\maintenance;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Date;
@@ -153,8 +154,8 @@ class BackendBehaviors
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    Date::dt2str(dcCore::app()->blog->settings->system->date_format, (string) $ts) . ' ' .
-                    Date::dt2str(dcCore::app()->blog->settings->system->time_format, (string) $ts)
+                    Date::dt2str(Core::blog()->settings->system->date_format, (string) $ts) . ' ' .
+                    Date::dt2str(Core::blog()->settings->system->time_format, (string) $ts)
                 )
             ) . '">' . $t->task() . '</li>';
         }

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Plugin\Uninstaller\{
     ActionDescriptor,
     CleanerDescriptor,
@@ -57,7 +58,7 @@ class Themes extends CleanerParent
 
     public function values(): array
     {
-        if (($path = dcCore::app()->blog?->themes_path) === null) {
+        if (($path = Core::blog()?->themes_path) === null) {
             return [];
         }
 
@@ -74,7 +75,7 @@ class Themes extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action != 'delete' || ($path = dcCore::app()->blog?->themes_path) === null) {
+        if ($action != 'delete' || ($path = Core::blog()?->themes_path) === null) {
             return false;
         }
 

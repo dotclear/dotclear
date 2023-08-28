@@ -124,13 +124,13 @@ class ListingBlogs extends Listing
                 '</td>' : ''),
             'blog' => '<td class="nowrap">' .
             (dcCore::app()->auth->isSuperAdmin() ?
-                '<a href="' . dcCore::app()->admin->url->get('admin.blog', ['id' => $blog_id]) . '"  ' .
+                '<a href="' . Core::backend()->url->get('admin.blog', ['id' => $blog_id]) . '"  ' .
                 'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
                 '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '" /> ' . $blog_id . '</a> ' :
                 $blog_id . ' ') .
             '</td>',
             'name' => '<td class="maximal">' .
-            '<a href="' . dcCore::app()->admin->url->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
+            '<a href="' . Core::backend()->url->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
             'title="' . sprintf(__('Switch to blog %s'), $this->rs->blog_id) . '">' .
             Html::escapeHTML($this->rs->blog_name) . '</a>' .
             '</td>',
@@ -150,7 +150,7 @@ class ListingBlogs extends Listing
             sprintf(
                 '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
                 ($this->rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
-                dcCore::app()->blogs->getBlogStatus((int) $this->rs->blog_status)
+                Core::blogs()->getBlogStatus((int) $this->rs->blog_status)
             ) .
             '</td>',
         ];

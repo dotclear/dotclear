@@ -40,7 +40,7 @@ class FrontendTemplate
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
-        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
+        if (!(bool) Core::blog()->settings->system->simpleMenu_active) {
             return '';
         }
 
@@ -70,7 +70,7 @@ class FrontendTemplate
     {
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
+        if (!(bool) Core::blog()->settings->system->simpleMenu_active) {
             return '';
         }
 
@@ -112,18 +112,18 @@ class FrontendTemplate
     {
         $ret = '';
 
-        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
+        if (!(bool) Core::blog()->settings->system->simpleMenu_active) {
             return $ret;
         }
 
-        $menu = dcCore::app()->blog->settings->system->simpleMenu;
+        $menu = Core::blog()->settings->system->simpleMenu;
         if (is_array($menu)) {
             // Current relative URL
             $url     = $_SERVER['REQUEST_URI'];
             $abs_url = Http::getHost() . $url;
 
             // Home recognition var
-            $home_url       = Html::stripHostURL(dcCore::app()->blog->url);
+            $home_url       = Html::stripHostURL(Core::blog()->url);
             $home_directory = dirname($home_url);
             if ($home_directory != '/') {
                 $home_directory = $home_directory . '/';

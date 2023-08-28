@@ -17,6 +17,7 @@ use dcMedia;
 use dcThemes;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\Listing\ListingMedia;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
@@ -85,7 +86,7 @@ class MediaPage extends FilterMedia
             if (dcCore::app()->themes === null) {
                 # -- Loading themes, may be useful for some configurable theme --
                 dcCore::app()->themes = new dcThemes();
-                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
+                dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', dcCore::app()->lang);
             }
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
@@ -124,7 +125,7 @@ class MediaPage extends FilterMedia
 
             $this->media_archivable = dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
-            ]), dcCore::app()->blog->id)
+            ]), Core::blog()->id)
                 && !((is_countable($rs) ? count($rs) : 0) === 0 || ((is_countable($rs) ? count($rs) : 0) === 1 && $rs->parent)); // @phpstan-ignore-line
         }
 
@@ -378,7 +379,7 @@ class MediaPage extends FilterMedia
 
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
-                $bc_url   = dcCore::app()->admin->url->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
+                $bc_url   = Core::backend()->url->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
                 $bc_media = dcCore::app()->media->breadCrumb($bc_url, '<span class="page-title">%s</span>');
                 if ($bc_media != '') {
                     $element[$bc_media] = '';
@@ -388,9 +389,9 @@ class MediaPage extends FilterMedia
         }
 
         $elements = [
-            Html::escapeHTML(dcCore::app()->blog->name) => '',
+            Html::escapeHTML(Core::blog()->name) => '',
             __('Media manager')                         => empty($param) ? '' :
-                dcCore::app()->admin->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
+                Core::backend()->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];
         $options = [
             'home_link' => !$this->popup,

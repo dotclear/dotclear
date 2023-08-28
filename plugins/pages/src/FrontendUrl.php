@@ -37,7 +37,7 @@ class FrontendUrl extends Url
             // No page was specified.
             self::p404();
         } else {
-            dcCore::app()->blog->withoutPassword(false);
+            Core::blog()->withoutPassword(false);
 
             $params = new ArrayObject([
                 'post_type' => 'page',
@@ -46,7 +46,7 @@ class FrontendUrl extends Url
             # --BEHAVIOR-- publicPagesBeforeGetPosts -- ArrayObject, string
             Core::behavior()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
-            dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
+            dcCore::app()->ctx->posts = Core::blog()->getPosts($params);
 
             dcCore::app()->ctx->comment_preview               = new ArrayObject();
             dcCore::app()->ctx->comment_preview['content']    = '';
@@ -57,7 +57,7 @@ class FrontendUrl extends Url
             dcCore::app()->ctx->comment_preview['preview']    = false;
             dcCore::app()->ctx->comment_preview['remember']   = false;
 
-            dcCore::app()->blog->withoutPassword(true);
+            Core::blog()->withoutPassword(true);
 
             if (dcCore::app()->ctx->posts->isEmpty()) {
                 # The specified page does not exist.
@@ -119,7 +119,7 @@ class FrontendUrl extends Url
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
-                            if (dcCore::app()->blog->settings->system->wiki_comments) {
+                            if (Core::blog()->settings->system->wiki_comments) {
                                 Core::filter()->initWikiComment();
                             } else {
                                 Core::filter()->initWikiSimpleComment();
@@ -142,18 +142,18 @@ class FrontendUrl extends Url
                         dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
-                        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
+                        $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
                         $cur->comment_author  = $name;
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
-                        $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+                        $cur->comment_status  = Core::blog()->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = dcCore::app()->ctx->posts->getURL();
-                        $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
+                        $redir .= Core::blog()->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -163,7 +163,7 @@ class FrontendUrl extends Url
                             # --BEHAVIOR-- publicBeforeCommentCreate -- Cursor
                             Core::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
-                                $comment_id = dcCore::app()->blog->addComment($cur);
+                                $comment_id = Core::blog()->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate -- Cursor, int
                                 Core::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
@@ -184,10 +184,10 @@ class FrontendUrl extends Url
 
                 # The entry
                 if (dcCore::app()->ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('xmlrpc', dcCore::app()->blog->id));
+                    header('X-Pingback: ' . Core::blog()->url . dcCore::app()->url->getURLFor('xmlrpc', Core::blog()->id));
                 }
 
-                $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+                $tplset           = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
                 $default_template = Path::real(dcCore::app()->plugins->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), $default_template . $tplset);

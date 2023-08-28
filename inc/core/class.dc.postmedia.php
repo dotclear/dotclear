@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
@@ -44,8 +45,8 @@ class dcPostMedia
      */
     public function __construct()
     {
-        $this->con   = dcCore::app()->con;
-        $this->table = dcCore::app()->prefix . self::POST_MEDIA_TABLE_NAME;
+        $this->con   = Core::con();
+        $this->table = Core::con()->prefix() . self::POST_MEDIA_TABLE_NAME;
     }
 
     /**
@@ -78,7 +79,7 @@ class dcPostMedia
         }
 
         $sql
-            ->from($sql->as(dcCore::app()->prefix . dcMedia::MEDIA_TABLE_NAME, 'M'))
+            ->from($sql->as(Core::con()->prefix() . dcMedia::MEDIA_TABLE_NAME, 'M'))
             ->join(
                 (new JoinStatement())
                 ->inner()
@@ -141,7 +142,7 @@ class dcPostMedia
         $cur->link_type = $link_type;
 
         $cur->insert();
-        dcCore::app()->blog->triggerBlog();
+        Core::blog()->triggerBlog();
     }
 
     /**
@@ -167,6 +168,6 @@ class dcPostMedia
         }
         $sql->delete();
 
-        dcCore::app()->blog->triggerBlog();
+        Core::blog()->triggerBlog();
     }
 }

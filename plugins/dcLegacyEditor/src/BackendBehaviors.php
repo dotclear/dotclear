@@ -83,7 +83,7 @@ class BackendBehaviors
     {
         $js = [
             'dialog_url'            => 'popup.php',
-            'base_url'              => dcCore::app()->blog->host,
+            'base_url'              => Core::blog()->host,
             'switcher_visual_title' => __('visual'),
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
@@ -169,7 +169,7 @@ class BackendBehaviors
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_MEDIA,
             dcCore::app()->auth::PERMISSION_MEDIA_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }
 

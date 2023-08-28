@@ -30,11 +30,11 @@ class rsExtendPublic
      */
     public static function publicHeadContent()
     {
-        if (!dcCore::app()->blog->settings->system->no_public_css) {
-            echo dcUtils::cssLoad(dcCore::app()->blog->getQmarkURL() . 'pf=public.css');
+        if (!Core::blog()->settings->system->no_public_css) {
+            echo dcUtils::cssLoad(Core::blog()->getQmarkURL() . 'pf=public.css');
         }
-        if (dcCore::app()->blog->settings->system->use_smilies) {
-            echo dcUtils::cssLoad(dcCore::app()->blog->getQmarkURL() . 'pf=smilies.css');
+        if (Core::blog()->settings->system->use_smilies) {
+            echo dcUtils::cssLoad(Core::blog()->getQmarkURL() . 'pf=smilies.css');
         }
     }
 
@@ -87,8 +87,8 @@ class rsExtPostPublic extends rsExtPost
             return $content;
         }
 
-        if (dcCore::app()->blog->settings->system->use_smilies) {
-            return self::smilies(parent::getContent($rs, $absolute_urls), dcCore::app()->blog);
+        if (Core::blog()->settings->system->use_smilies) {
+            return self::smilies(parent::getContent($rs, $absolute_urls), Core::blog());
         }
 
         return parent::getContent($rs, $absolute_urls);
@@ -106,8 +106,8 @@ class rsExtPostPublic extends rsExtPost
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
-        if (dcCore::app()->blog->settings->system->use_smilies) {
-            return self::smilies(parent::getExcerpt($rs, $absolute_urls), dcCore::app()->blog);
+        if (Core::blog()->settings->system->use_smilies) {
+            return self::smilies(parent::getExcerpt($rs, $absolute_urls), Core::blog());
         }
 
         return parent::getExcerpt($rs, $absolute_urls);
@@ -123,8 +123,8 @@ class rsExtPostPublic extends rsExtPost
      */
     protected static function smilies(string $content, dcBlog $blog): string
     {
-        if (!isset(dcCore::app()->public->smilies)) {
-            dcCore::app()->public->smilies = context::getSmilies($blog);
+        if (!isset(Core::frontend()->smilies)) {
+            Core::frontend()->smilies = context::getSmilies($blog);
         }
 
         return context::addSmilies($content);
@@ -145,11 +145,11 @@ class rsExtCommentPublic extends rsExtComment
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
-        if (dcCore::app()->blog->settings->system->use_smilies) {
+        if (Core::blog()->settings->system->use_smilies) {
             $content = parent::getContent($rs, $absolute_urls);
 
-            if (!isset(dcCore::app()->public->smilies)) {
-                dcCore::app()->public->smilies = context::getSmilies(dcCore::app()->blog);
+            if (!isset(Core::frontend()->smilies)) {
+                Core::frontend()->smilies = context::getSmilies(Core::blog());
             }
 
             return context::addSmilies($content);

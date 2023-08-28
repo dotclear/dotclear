@@ -17,8 +17,8 @@ use dcCore;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
-use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -42,24 +42,24 @@ class Blogs extends Process
 
         /* Actions
         -------------------------------------------------------- */
-        dcCore::app()->admin->blogs_actions_page = null;
+        Core::backend()->blogs_actions_page = null;
         if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->admin->url->get('admin.blogs'));
-            if (dcCore::app()->admin->blogs_actions_page->process()) {
+            Core::backend()->blogs_actions_page = new ActionsBlogs(Core::backend()->url->get('admin.blogs'));
+            if (Core::backend()->blogs_actions_page->process()) {
                 return false;
             }
         }
 
         /* Filters
         -------------------------------------------------------- */
-        dcCore::app()->admin->blog_filter = new FilterBlogs();
+        Core::backend()->blog_filter = new FilterBlogs();
 
         // get list params
-        $params = dcCore::app()->admin->blog_filter->params();
+        $params = Core::backend()->blog_filter->params();
 
         /* List
         -------------------------------------------------------- */
-        dcCore::app()->admin->blog_list = null;
+        Core::backend()->blog_list = null;
 
         try {
             # --BEHAVIOR-- adminGetBlogs
@@ -70,13 +70,13 @@ class Blogs extends Process
             $counter  = Core::blogs()->getBlogs($params, true);
             $rs       = Core::blogs()->getBlogs($params);
             $rsStatic = $rs->toStatic();
-            if ((dcCore::app()->admin->blog_filter->sortby != 'blog_upddt') && (dcCore::app()->admin->blog_filter->sortby != 'blog_status')) {
+            if ((Core::backend()->blog_filter->sortby != 'blog_upddt') && (Core::backend()->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
                 $rsStatic->extend('rsExtUser');
                 $rsStatic = $rsStatic->toExtStatic();
-                $rsStatic->lexicalSort((dcCore::app()->admin->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), dcCore::app()->admin->blog_filter->order);
+                $rsStatic->lexicalSort((Core::backend()->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), Core::backend()->blog_filter->order);
             }
-            dcCore::app()->admin->blog_list = new ListingBlogs($rs, $counter->f(0));
+            Core::backend()->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -93,7 +93,7 @@ class Blogs extends Process
 
         Page::open(
             __('List of blogs'),
-            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->admin->url->get('admin.blogs')),
+            Page::jsLoad('js/_blogs.js') . Core::backend()->blog_filter->js(Core::backend()->url->get('admin.blogs')),
             Page::breadcrumb(
                 [
                     __('System')        => '',
@@ -110,19 +110,19 @@ class Blogs extends Process
                     ->items([
                         (new Link())
                             ->class(['button', 'add'])
-                            ->href(dcCore::app()->admin->url->get('admin.blog'))
+                            ->href(Core::backend()->url->get('admin.blog'))
                             ->text(__('Create a new blog')),
                     ])
                     ->render();
             }
 
-            dcCore::app()->admin->blog_filter->display('admin.blogs');
+            Core::backend()->blog_filter->display('admin.blogs');
 
             // Show blogs
             $form = null;
             if (dcCore::app()->auth->isSuperAdmin()) {
                 $form = (new Form('form-blogs'))
-                        ->action(dcCore::app()->admin->url->get('admin.blogs'))
+                        ->action(Core::backend()->url->get('admin.blogs'))
                         ->method('post')
                         ->fields([
                             // sprintf pattern for blog list
@@ -142,7 +142,7 @@ class Blogs extends Process
                                                 ))
                                                 ->class('classic')
                                             )
-                                            ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
+                                            ->items(Core::backend()->blogs_actions_page->getCombo()),
                                         Core::nonce()->formNonce(),
                                         (new Submit('do-action'))
                                             ->value(__('ok')),
@@ -161,15 +161,15 @@ class Blogs extends Process
                                         ->class('classic')
                                     ),
                             ]),
-                            ...dcCore::app()->admin->url->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
+                            ...Core::backend()->url->hiddenFormFields('admin.blogs', Core::backend()->blog_filter->values(true)),
                         ]);
             }
 
-            dcCore::app()->admin->blog_list->display(
-                dcCore::app()->admin->blog_filter->page,
-                dcCore::app()->admin->blog_filter->nb,
+            Core::backend()->blog_list->display(
+                Core::backend()->blog_filter->page,
+                Core::backend()->blog_filter->nb,
                 dcCore::app()->auth->isSuperAdmin() ? $form->render() : '%s',
-                dcCore::app()->admin->blog_filter->show()
+                Core::backend()->blog_filter->show()
             );
         }
 

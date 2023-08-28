@@ -48,8 +48,8 @@ class dcLog
      */
     public function __construct()
     {
-        $this->log_table  = dcCore::app()->prefix . self::LOG_TABLE_NAME;
-        $this->user_table = dcCore::app()->prefix . dcAuth::USER_TABLE_NAME;
+        $this->log_table  = Core::con()->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = Core::con()->prefix() . dcAuth::USER_TABLE_NAME;
     }
 
     /**
@@ -110,7 +110,7 @@ class dcLog
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote(dcCore::app()->blog->id));
+            $sql->where('L.blog_id = ' . $sql->quote(Core::blog()->id));
         }
 
         if (!empty($params['user_id'])) {
@@ -150,7 +150,7 @@ class dcLog
      */
     public function addLog(Cursor $cur): int
     {
-        dcCore::app()->con->writeLock($this->log_table);
+        Core::con()->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -162,7 +162,7 @@ class dcLog
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) dcCore::app()->blog->id;
+            $cur->blog_id = (string) Core::blog()->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
             $this->fillLogCursor($cur);
@@ -171,9 +171,9 @@ class dcLog
             Core::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            dcCore::app()->con->unlock();
+            Core::con()->unlock();
         } catch (Exception $e) {
-            dcCore::app()->con->unlock();
+            Core::con()->unlock();
 
             throw $e;
         }

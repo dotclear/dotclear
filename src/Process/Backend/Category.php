@@ -39,54 +39,54 @@ class Category extends Process
             dcCore::app()->auth::PERMISSION_CATEGORIES,
         ]));
 
-        $blog_settings = new dcSettings(dcCore::app()->blog->id);
+        $blog_settings = new dcSettings(Core::blog()->id);
 
-        dcCore::app()->admin->cat_id    = '';
-        dcCore::app()->admin->cat_title = '';
-        dcCore::app()->admin->cat_url   = '';
-        dcCore::app()->admin->cat_desc  = '';
-        dcCore::app()->admin->blog_lang = $blog_settings->system->lang;
+        Core::backend()->cat_id    = '';
+        Core::backend()->cat_title = '';
+        Core::backend()->cat_url   = '';
+        Core::backend()->cat_desc  = '';
+        Core::backend()->blog_lang = $blog_settings->system->lang;
 
         // Getting existing category
-        dcCore::app()->admin->cat_parents         = null;
-        dcCore::app()->admin->cat_parent          = 0;
-        dcCore::app()->admin->cat_siblings        = [];
-        dcCore::app()->admin->cat_allowed_parents = [];
+        Core::backend()->cat_parents         = null;
+        Core::backend()->cat_parent          = 0;
+        Core::backend()->cat_siblings        = [];
+        Core::backend()->cat_allowed_parents = [];
 
         if (!empty($_REQUEST['id'])) {
             $rs = null;
 
             try {
-                $rs = dcCore::app()->blog->getCategory((int) $_REQUEST['id']);
+                $rs = Core::blog()->getCategory((int) $_REQUEST['id']);
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
 
             if (!dcCore::app()->error->flag() && !$rs->isEmpty()) {
-                dcCore::app()->admin->cat_id    = (int) $rs->cat_id;
-                dcCore::app()->admin->cat_title = $rs->cat_title;
-                dcCore::app()->admin->cat_url   = $rs->cat_url;
-                dcCore::app()->admin->cat_desc  = $rs->cat_desc;
+                Core::backend()->cat_id    = (int) $rs->cat_id;
+                Core::backend()->cat_title = $rs->cat_title;
+                Core::backend()->cat_url   = $rs->cat_url;
+                Core::backend()->cat_desc  = $rs->cat_desc;
             }
             unset($rs);
 
             // Getting hierarchy information
-            dcCore::app()->admin->cat_parents = dcCore::app()->blog->getCategoryParents(dcCore::app()->admin->cat_id);
-            $rs                               = dcCore::app()->blog->getCategoryParent(dcCore::app()->admin->cat_id);
-            dcCore::app()->admin->cat_parent  = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
+            Core::backend()->cat_parents = Core::blog()->getCategoryParents(Core::backend()->cat_id);
+            $rs                               = Core::blog()->getCategoryParent(Core::backend()->cat_id);
+            Core::backend()->cat_parent  = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
 
             // Allowed parents list
-            $children = dcCore::app()->blog->getCategories(['start' => dcCore::app()->admin->cat_id]);
+            $children = Core::blog()->getCategories(['start' => Core::backend()->cat_id]);
 
-            dcCore::app()->admin->cat_allowed_parents = [__('Top level') => 0];
+            Core::backend()->cat_allowed_parents = [__('Top level') => 0];
 
             $parents = [];
             while ($children->fetch()) {
                 $parents[$children->cat_id] = 1;
             }
 
-            $stack = dcCore::app()->admin->cat_allowed_parents;
-            $rs    = dcCore::app()->blog->getCategories();
+            $stack = Core::backend()->cat_allowed_parents;
+            $rs    = Core::blog()->getCategories();
             while ($rs->fetch()) {
                 if (!isset($parents[$rs->cat_id])) {
                     $stack[] = new Option(
@@ -95,17 +95,17 @@ class Category extends Process
                     );
                 }
             }
-            dcCore::app()->admin->cat_allowed_parents = $stack;
+            Core::backend()->cat_allowed_parents = $stack;
 
             // Allowed siblings list
-            $stack = dcCore::app()->admin->cat_siblings;
-            $rs    = dcCore::app()->blog->getCategoryFirstChildren(dcCore::app()->admin->cat_parent);
+            $stack = Core::backend()->cat_siblings;
+            $rs    = Core::blog()->getCategoryFirstChildren(Core::backend()->cat_parent);
             while ($rs->fetch()) {
-                if ($rs->cat_id != dcCore::app()->admin->cat_id) {
+                if ($rs->cat_id != Core::backend()->cat_id) {
                     $stack[Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
                 }
             }
-            dcCore::app()->admin->cat_siblings = $stack;
+            Core::backend()->cat_siblings = $stack;
         }
 
         return self::status(true);
@@ -113,26 +113,26 @@ class Category extends Process
 
     public static function process(): bool
     {
-        if (dcCore::app()->admin->cat_id && isset($_POST['cat_parent'])) {
+        if (Core::backend()->cat_id && isset($_POST['cat_parent'])) {
             // Changing parent
             $new_parent = (int) $_POST['cat_parent'];
-            if (dcCore::app()->admin->cat_parent != $new_parent) {
+            if (Core::backend()->cat_parent != $new_parent) {
                 try {
-                    dcCore::app()->blog->setCategoryParent(dcCore::app()->admin->cat_id, $new_parent);
+                    Core::blog()->setCategoryParent(Core::backend()->cat_id, $new_parent);
                     Notices::addSuccessNotice(__('The category has been successfully moved'));
-                    dcCore::app()->admin->url->redirect('admin.categories');
+                    Core::backend()->url->redirect('admin.categories');
                 } catch (Exception $e) {
                     dcCore::app()->error->add($e->getMessage());
                 }
             }
         }
 
-        if (dcCore::app()->admin->cat_id && isset($_POST['cat_sibling'])) {
+        if (Core::backend()->cat_id && isset($_POST['cat_sibling'])) {
             // Changing sibling
             try {
-                dcCore::app()->blog->setCategoryPosition(dcCore::app()->admin->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
+                Core::blog()->setCategoryPosition(Core::backend()->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
                 Notices::addSuccessNotice(__('The category has been successfully moved'));
-                dcCore::app()->admin->url->redirect('admin.categories');
+                Core::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
             }
@@ -140,40 +140,40 @@ class Category extends Process
 
         if (isset($_POST['cat_title'])) {
             // Create or update a category
-            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME);
+            $cur = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
 
-            $cur->cat_title = dcCore::app()->admin->cat_title = $_POST['cat_title'];
+            $cur->cat_title = Core::backend()->cat_title = $_POST['cat_title'];
             if (isset($_POST['cat_desc'])) {
-                $cur->cat_desc = dcCore::app()->admin->cat_desc = $_POST['cat_desc'];
+                $cur->cat_desc = Core::backend()->cat_desc = $_POST['cat_desc'];
             }
             if (isset($_POST['cat_url'])) {
-                $cur->cat_url = dcCore::app()->admin->cat_url = $_POST['cat_url'];
+                $cur->cat_url = Core::backend()->cat_url = $_POST['cat_url'];
             } else {
-                $cur->cat_url = dcCore::app()->admin->cat_url;
+                $cur->cat_url = Core::backend()->cat_url;
             }
 
             try {
-                if (dcCore::app()->admin->cat_id) {
+                if (Core::backend()->cat_id) {
                     // Update category
 
                     # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
-                    Core::behavior()->callBehavior('adminBeforeCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
+                    Core::behavior()->callBehavior('adminBeforeCategoryUpdate', $cur, Core::backend()->cat_id);
 
-                    dcCore::app()->blog->updCategory((int) $_POST['id'], $cur);
+                    Core::blog()->updCategory((int) $_POST['id'], $cur);
 
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
-                    Core::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, dcCore::app()->admin->cat_id);
+                    Core::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, Core::backend()->cat_id);
 
                     Notices::addSuccessNotice(__('The category has been successfully updated.'));
 
-                    dcCore::app()->admin->url->redirect('admin.category', ['id' => $_POST['id']]);
+                    Core::backend()->url->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
                     // Create category
 
                     # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                     Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur);
 
-                    $id = dcCore::app()->blog->addCategory($cur, (int) $_POST['new_cat_parent']);
+                    $id = Core::blog()->addCategory($cur, (int) $_POST['new_cat_parent']);
 
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur, $id);
@@ -182,7 +182,7 @@ class Category extends Process
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
-                    dcCore::app()->admin->url->redirect('admin.categories');
+                    Core::backend()->url->redirect('admin.categories');
                 }
             } catch (Exception $e) {
                 dcCore::app()->error->add($e->getMessage());
@@ -194,15 +194,15 @@ class Category extends Process
 
     public static function render(): void
     {
-        $title = dcCore::app()->admin->cat_id ? Html::escapeHTML(dcCore::app()->admin->cat_title) : __('New category');
+        $title = Core::backend()->cat_id ? Html::escapeHTML(Core::backend()->cat_title) : __('New category');
 
         $elements = [
-            Html::escapeHTML(dcCore::app()->blog->name) => '',
-            __('Categories')                            => dcCore::app()->admin->url->get('admin.categories'),
+            Html::escapeHTML(Core::blog()->name) => '',
+            __('Categories')                            => Core::backend()->url->get('admin.categories'),
         ];
-        if (dcCore::app()->admin->cat_id) {
-            while (dcCore::app()->admin->cat_parents->fetch()) {
-                $elements[Html::escapeHTML(dcCore::app()->admin->cat_parents->cat_title)] = dcCore::app()->admin->url->get('admin.category', ['id' => dcCore::app()->admin->cat_parents->cat_id]);
+        if (Core::backend()->cat_id) {
+            while (Core::backend()->cat_parents->fetch()) {
+                $elements[Html::escapeHTML(Core::backend()->cat_parents->cat_title)] = Core::backend()->url->get('admin.category', ['id' => Core::backend()->cat_parents->cat_id]);
             }
         }
         $elements[$title] = '';
@@ -228,17 +228,17 @@ class Category extends Process
         }
 
         echo
-        '<form action="' . dcCore::app()->admin->url->get('admin.category') . '" method="post" id="category-form">' .
+        '<form action="' . Core::backend()->url->get('admin.category') . '" method="post" id="category-form">' .
         '<h3>' . __('Category information') . '</h3>' .
         '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
         \form::field('cat_title', 40, 255, [
-            'default'    => Html::escapeHTML(dcCore::app()->admin->cat_title),
-            'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . dcCore::app()->admin->blog_lang . '" spellcheck="true"',
+            'default'    => Html::escapeHTML(Core::backend()->cat_title),
+            'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . Core::backend()->blog_lang . '" spellcheck="true"',
         ]) .
         '</p>';
 
-        if (!dcCore::app()->admin->cat_id) {
-            $rs = dcCore::app()->blog->getCategories();
+        if (!Core::backend()->cat_id) {
+            $rs = Core::blog()->getCategories();
             echo
             '<p><label for="new_cat_parent">' . __('Parent:') . ' ' .
             '<select id="new_cat_parent" name="new_cat_parent" >' .
@@ -254,7 +254,7 @@ class Category extends Process
         echo
         '<div class="lockable">' .
         '<p><label for="cat_url">' . __('URL:') . '</label> '
-        . \form::field('cat_url', 40, 255, Html::escapeHTML(dcCore::app()->admin->cat_url)) .
+        . \form::field('cat_url', 40, 255, Html::escapeHTML(Core::backend()->cat_url)) .
         '</p>' .
         '<p class="form-note warn" id="note-cat-url">' .
         __('Warning: If you set the URL manually, it may conflict with another category.') . '</p>' .
@@ -266,20 +266,20 @@ class Category extends Process
             50,
             8,
             [
-                'default'    => Html::escapeHTML(dcCore::app()->admin->cat_desc),
-                'extra_html' => 'lang="' . dcCore::app()->admin->blog_lang . '" spellcheck="true"',
+                'default'    => Html::escapeHTML(Core::backend()->cat_desc),
+                'extra_html' => 'lang="' . Core::backend()->blog_lang . '" spellcheck="true"',
             ]
         ) .
         '</p>' .
 
         '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        (dcCore::app()->admin->cat_id ? \form::hidden('id', dcCore::app()->admin->cat_id) : '') .
+        (Core::backend()->cat_id ? \form::hidden('id', Core::backend()->cat_id) : '') .
         Core::nonce()->getFormNonce() .
         '</p>' .
         '</form>';
 
-        if (dcCore::app()->admin->cat_id) {
+        if (Core::backend()->cat_id) {
             echo
             '<h3 class="border-top">' . __('Move this category') . '</h3>' .
             '<div class="two-cols">';
@@ -288,7 +288,7 @@ class Category extends Process
                 ->class('col')
                 ->items([
                     (new Form('cat-parent-form'))
-                        ->action(dcCore::app()->admin->url->get('admin.category'))
+                        ->action(Core::backend()->url->get('admin.category'))
                         ->method('post')
                         ->class('fieldset')
                         ->fields([
@@ -298,26 +298,26 @@ class Category extends Process
                                     ->for('cat_parent')
                                     ->class('classic'),
                                 (new Select('cat_parent'))
-                                    ->items(dcCore::app()->admin->cat_allowed_parents)
-                                    ->default((string) dcCore::app()->admin->cat_parent),
+                                    ->items(Core::backend()->cat_allowed_parents)
+                                    ->default((string) Core::backend()->cat_parent),
                             ]),
                             (new Para())->items([
                                 (new Submit('cat-parent-submit'))
                                     ->accesskey('s')
                                     ->value(__('Save')),
-                                new Hidden('id', (string) dcCore::app()->admin->cat_id),
+                                new Hidden('id', (string) Core::backend()->cat_id),
                                 Core::nonce()->formNonce(),
                             ]),
                         ]),
                 ])
                 ->render();
 
-            if (is_countable(dcCore::app()->admin->cat_siblings) ? count(dcCore::app()->admin->cat_siblings) : 0) {
+            if (is_countable(Core::backend()->cat_siblings) ? count(Core::backend()->cat_siblings) : 0) {
                 echo (new Div())
                     ->class('col')
                     ->items([
                         (new Form('cat-sibling-form'))
-                            ->action(dcCore::app()->admin->url->get('admin.category'))
+                            ->action(Core::backend()->url->get('admin.category'))
                             ->method('post')
                             ->class('fieldset')
                             ->fields([
@@ -333,13 +333,13 @@ class Category extends Process
                                         ])
                                         ->title(__('position: ')),
                                     (new Select('cat_sibling'))
-                                        ->items(dcCore::app()->admin->cat_siblings),
+                                        ->items(Core::backend()->cat_siblings),
                                 ]),
                                 (new Para())->items([
                                     (new Submit('cat-sibling-submit'))
                                         ->accesskey('s')
                                         ->value(__('Save')),
-                                    new Hidden('id', (string) dcCore::app()->admin->cat_id),
+                                    new Hidden('id', (string) Core::backend()->cat_id),
                                     Core::nonce()->formNonce(),
                                 ]),
                             ]),

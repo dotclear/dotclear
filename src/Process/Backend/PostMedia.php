@@ -36,11 +36,11 @@ class PostMedia extends Process
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->admin->post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
-        dcCore::app()->admin->media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;
-        dcCore::app()->admin->link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+        Core::backend()->post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
+        Core::backend()->media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;
+        Core::backend()->link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
 
-        if (!dcCore::app()->admin->post_id) {
+        if (!Core::backend()->post_id) {
             exit;
         }
 
@@ -49,30 +49,30 @@ class PostMedia extends Process
 
     public static function process(): bool
     {
-        $rs = dcCore::app()->blog->getPosts(['post_id' => dcCore::app()->admin->post_id, 'post_type' => '']);
+        $rs = Core::blog()->getPosts(['post_id' => Core::backend()->post_id, 'post_type' => '']);
         if ($rs->isEmpty()) {
             exit;
         }
 
         try {
-            if (dcCore::app()->admin->media_id && !empty($_REQUEST['attach'])) {
+            if (Core::backend()->media_id && !empty($_REQUEST['attach'])) {
                 // Attach a media to an entry
 
                 $pm = new dcPostMedia();
-                $pm->addPostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
+                $pm->addPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
-                    echo json_encode(['url' => Core::postTypes()->get($rs->post_type)->adminurl(dcCore::app()->admin->post_id, false)], JSON_THROW_ON_ERROR);
+                    echo json_encode(['url' => Core::postTypes()->get($rs->post_type)->adminurl(Core::backend()->post_id, false)], JSON_THROW_ON_ERROR);
                     exit();
                 }
-                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
             }
 
             dcCore::app()->media = new dcMedia();
 
-            $f = dcCore::app()->media->getPostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
+            $f = dcCore::app()->media->getPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
             if (empty($f)) {
-                dcCore::app()->admin->post_id = dcCore::app()->admin->media_id = null;
+                Core::backend()->post_id = Core::backend()->media_id = null;
 
                 throw new Exception(__('This attachment does not exist'));
             }
@@ -81,17 +81,17 @@ class PostMedia extends Process
             dcCore::app()->error->add($e->getMessage());
         }
 
-        if ((dcCore::app()->admin->post_id && dcCore::app()->admin->media_id) || dcCore::app()->error->flag()) {
+        if ((Core::backend()->post_id && Core::backend()->media_id) || dcCore::app()->error->flag()) {
             // Remove a media from entry
 
             if (!empty($_POST['remove'])) {
                 $pm = new dcPostMedia();
-                $pm->removePostMedia(dcCore::app()->admin->post_id, dcCore::app()->admin->media_id, dcCore::app()->admin->link_type);
+                $pm->removePostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
 
                 Notices::addSuccessNotice(__('Attachment has been successfully removed.'));
-                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
             } elseif (isset($_POST['post_id'])) {
-                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(dcCore::app()->admin->post_id, false));
+                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
             }
 
             if (!empty($_GET['remove'])) {
@@ -101,7 +101,7 @@ class PostMedia extends Process
 
                 echo
                 (new Form())
-                ->action(dcCore::app()->admin->url->get('admin.post.media'))
+                ->action(Core::backend()->url->get('admin.post.media'))
                 ->method('post')
                 ->fields([
                     (new Para())
@@ -114,8 +114,8 @@ class PostMedia extends Process
                             (new Submit('cancel'))->class('reset')->value(__('Cancel')),
                             (new Submit('remove'))->class('delete')->value(__('Yes')),
                         ]),
-                    (new Hidden('post_id', (string) dcCore::app()->admin->post_id)),
-                    (new Hidden('media_id', (string) dcCore::app()->admin->media_id)),
+                    (new Hidden('post_id', (string) Core::backend()->post_id)),
+                    (new Hidden('media_id', (string) Core::backend()->media_id)),
                     Core::nonce()->formNonce(),
                 ])
                 ->render();

@@ -75,7 +75,7 @@ class FilterMedia extends Filters
     {
         $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
         if ($post_id) {
-            $post = dcCore::app()->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
+            $post = Core::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
                 $post_id = null;
             }

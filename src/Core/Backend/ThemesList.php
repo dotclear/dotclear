@@ -44,7 +44,7 @@ class ThemesList extends ModulesList
     public function __construct(dcModules $modules, string $modules_root, string $xml_url, ?bool $force = false)
     {
         parent::__construct($modules, $modules_root, $xml_url, $force);
-        $this->page_url = dcCore::app()->admin->url->get('admin.blog.theme');
+        $this->page_url = Core::backend()->url->get('admin.blog.theme');
     }
 
     /**
@@ -83,7 +83,7 @@ class ThemesList extends ModulesList
                 }
             }
 
-            $current = dcCore::app()->blog->settings->system->theme == $id && $this->modules->moduleExists($id);
+            $current = Core::blog()->settings->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = $define->get('distributed') ? ' dc-box' : '';
 
             $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
@@ -118,7 +118,7 @@ class ThemesList extends ModulesList
                     $sshot = $define->get('sshot');
                 }
                 # Screenshot from installed module
-                elseif (file_exists(dcCore::app()->blog->themes_path . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . 'screenshot.jpg')) {
+                elseif (file_exists(Core::blog()->themes_path . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . 'screenshot.jpg')) {
                     $sshot = $this->getURL('shot=' . rawurlencode($id));
                 }
                 # Default screenshot
@@ -206,10 +206,10 @@ class ThemesList extends ModulesList
             # Plugins actions
             if ($current) {
                 # _GET actions
-                if (file_exists(Path::real(dcCore::app()->blog->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
-                    $theme_url = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
-                    Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . $id) :
-                    Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . $id);
+                if (file_exists(Path::real(Core::blog()->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
+                    $theme_url = preg_match('#^http(s)?://#', (string) Core::blog()->settings->system->themes_url) ?
+                    Http::concatURL(Core::blog()->settings->system->themes_url, '/' . $id) :
+                    Http::concatURL(Core::blog()->url, Core::blog()->settings->system->themes_url . '/' . $id);
                     $line .= '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';
                 }
 
@@ -221,7 +221,7 @@ class ThemesList extends ModulesList
                     $config = $class::init();
                     // by file name
                 } else {
-                    $config = file_exists(Path::real(dcCore::app()->blog->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+                    $config = file_exists(Path::real(Core::blog()->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
                 }
 
                 if ($config) {
@@ -292,13 +292,13 @@ class ThemesList extends ModulesList
             $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
         }
 
-        if ($id != dcCore::app()->blog->settings->system->theme) {
+        if ($id != Core::blog()->settings->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
                 $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
             if (in_array('try', $actions)) {
-                $preview_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('try', dcCore::app()->auth->userID() . '/' . Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . $id);
+                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('try', dcCore::app()->auth->userID() . '/' . Http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) . '/' . $id);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
@@ -400,8 +400,8 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                dcCore::app()->blog->settings->system->put('theme', $define->getId());
-                dcCore::app()->blog->triggerBlog();
+                Core::blog()->settings->system->put('theme', $define->getId());
+                Core::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
                 Http::redirect($this->getURL() . '#themes');

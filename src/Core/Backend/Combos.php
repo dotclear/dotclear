@@ -64,7 +64,7 @@ class Combos
     public static function getPostStatusesCombo(): array
     {
         $status_combo = [];
-        foreach (dcCore::app()->blog->getAllPostStatus() as $k => $v) {
+        foreach (Core::blog()->getAllPostStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -221,7 +221,7 @@ class Combos
     public static function getBlogStatusesCombo(): array
     {
         $status_combo = [];
-        foreach (dcCore::app()->blogs->getAllBlogStatus() as $k => $v) {
+        foreach (Core::blogs()->getAllBlogStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -236,7 +236,7 @@ class Combos
     public static function getCommentStatusesCombo(): array
     {
         $status_combo = [];
-        foreach (dcCore::app()->blog->getAllCommentStatus() as $k => $v) {
+        foreach (Core::blog()->getAllCommentStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -285,7 +285,7 @@ class Combos
             dcCore::app()->auth->makePermissions([
                 dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
             ]),
-            dcCore::app()->blog->id
+            Core::blog()->id
         );
         if ($show_ip) {
             $sortby_combo[__('IP')] = 'comment_ip';

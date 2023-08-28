@@ -226,7 +226,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.27, Use dcCore::app()->admin->url
+     * @deprecated since 2.27, Use Core::backend()->url
      *
      * @var \Dotclear\Core\Backend\Url
      */
@@ -235,7 +235,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.27, Use dcCore::app()->admin->favs
+     * @deprecated since 2.27, Use Core::backend()->favs
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
@@ -244,7 +244,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.27, Use dcCore::app()->admin->menus
+     * @deprecated since 2.27, Use Core::backend()->menus
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -253,7 +253,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * @deprecated since 2.28, Use dcCore::app()->admin->resources instance
+     * @deprecated since 2.28, Use Core::backend()->resources instance
      *
      * @var array
      */
@@ -346,6 +346,8 @@ final class dcCore
     /**
      * Get dcCore singleton instance
      *
+     * @deprecated since 2.28, nothing to use instead
+     *
      * @return     dcCore
      */
     public static function app(): dcCore
@@ -356,11 +358,11 @@ final class dcCore
     /**
      * Kill admin session helper.
      *
-     * @deprecated since 2.28, use dcCore::app()->admin->killAdminSession() instead
+     * @deprecated since 2.28, use Core::backend()->killAdminSession() instead
      */
     public function killAdminSession(): void
     {
-        $this->admin->killAdminSession();
+        Core::backend()->killAdminSession();
     }
 
     /// @name Blog init methods

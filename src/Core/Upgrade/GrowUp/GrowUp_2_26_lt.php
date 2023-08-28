@@ -14,6 +14,7 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcCore;
 use dcNamespace;
+use Dotclear\Core\Core;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Database\Statement\UpdateStatement;
 
@@ -24,7 +25,7 @@ class GrowUp_2_26_lt
         // Update file exclusion upload regex
         $sql = new UpdateStatement();
         $sql
-            ->ref(dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME)
+            ->ref(Core::con()->prefix() . dcNamespace::NS_TABLE_NAME)
             ->column('setting_value')
             ->value('/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i')
             ->where('setting_id = ' . $sql->quote('media_exclusion'))

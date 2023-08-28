@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 
@@ -97,8 +98,8 @@ class SpamFilter
             $this->name = $this->id;
         }
 
-        if (isset(dcCore::app()->admin->url)) {
-            $this->gui_url = dcCore::app()->admin->url->get('admin.plugin.antispam', ['f' => $this->id], '&');
+        if (isset(Core::backend()->url)) {
+            $this->gui_url = Core::backend()->url->get('admin.plugin.antispam', ['f' => $this->id], '&');
         }
     }
 
@@ -185,7 +186,7 @@ class SpamFilter
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             return false;
         }
 

@@ -1,13 +1,13 @@
 <?php echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
 
-<?php if (dcCore::app()->admin->editor_is_admin): ?>
+<?php if (\Dotclear\Core\Core::backend()->editor_is_admin): ?>
   <h3 class="hidden-if-js"><?php echo __('Settings'); ?></h3>
-  <form action="<?php echo dcCore::app()->admin->getPageURL(); ?>" method="post" enctype="multipart/form-data">
+  <form action="<?php echo \Dotclear\Core\Core::backend()->getPageURL(); ?>" method="post" enctype="multipart/form-data">
     <div class="fieldset">
       <h3><?php echo __('Plugin activation'); ?></h3>
       <p>
         <label class="classic" for="dclegacyeditor_active">
-          <?php echo form::checkbox('dclegacyeditor_active', 1, dcCore::app()->admin->editor_std_active); ?>
+          <?php echo form::checkbox('dclegacyeditor_active', 1, \Dotclear\Core\Core::backend()->editor_std_active); ?>
           <?php echo __('Enable dcLegacyEditor plugin'); ?>
         </label>
       </p>

@@ -183,10 +183,10 @@ class dcAuth
      */
     public function __construct()
     {
-        $this->con        = dcCore::app()->con;
-        $this->blog_table = dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME;
-        $this->user_table = dcCore::app()->prefix . self::USER_TABLE_NAME;
-        $this->perm_table = dcCore::app()->prefix . self::PERMISSIONS_TABLE_NAME;
+        $this->con        = Core::con();
+        $this->blog_table = Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME;
+        $this->user_table = Core::con()->prefix() . self::USER_TABLE_NAME;
+        $this->perm_table = Core::con()->prefix() . self::PERMISSIONS_TABLE_NAME;
 
         $this->perm_types = [
             self::PERMISSION_ADMIN         => __('administrator'),
@@ -399,7 +399,7 @@ class dcAuth
     public function checkSession(?string $uid = null): bool
     {
         $welcome = true;
-        dcCore::app()->session->start();
+        Core::session()->start();
 
         if (!isset($_SESSION['sess_user_id'])) {
             // If session does not exist, logout.
@@ -415,7 +415,7 @@ class dcAuth
         }
 
         if (!$welcome) {
-            dcCore::app()->session->destroy();
+            Core::session()->destroy();
         }
 
         return $welcome;

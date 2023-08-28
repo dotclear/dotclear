@@ -93,7 +93,7 @@ class FilterComments extends Filters
     {
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
             dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        ]), Core::blog()->id)) {
             return null;
         }
 

@@ -15,6 +15,7 @@ namespace Dotclear\Plugin\tags;
 use ArrayObject;
 use dcCore;
 use dcTemplate;
+use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -235,7 +236,7 @@ class FrontendTemplate
     {
         $f = dcCore::app()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("tag",' .
+        return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag",' .
             'rawurlencode(dcCore::app()->ctx->meta->meta_id))') . '; ?>';
     }
 
@@ -254,7 +255,7 @@ class FrontendTemplate
     {
         $f = dcCore::app()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("tags")') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tags")') . '; ?>';
     }
 
     /**
@@ -279,7 +280,7 @@ class FrontendTemplate
 
         $f = dcCore::app()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("tag_feed",' .
+        return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag_feed",' .
             'rawurlencode(dcCore::app()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
 
@@ -353,7 +354,7 @@ class FrontendTemplate
                     }
                 }
             }
-            $res .= '<li' . $class . '><a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
+            $res .= '<li' . $class . '><a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
             'class="tag' . $rs->roundpercent . '">' .
             $rs->meta_id . '</a> </li>';
         }
@@ -361,7 +362,7 @@ class FrontendTemplate
         $res .= '</ul>';
 
         if (dcCore::app()->url->getURLFor('tags') && !is_null($widget->alltagslinktitle) && $widget->alltagslinktitle !== '') {
-            $res .= '<p><strong><a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tags') . '">' .
+            $res .= '<p><strong><a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('tags') . '">' .
             Html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
         }
 
