@@ -1,14 +1,27 @@
 <?php
+/**
+ * Core.
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
 
 namespace Dotclear\Core;
 
 use dcBlog;
 use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
 use Exception;
 
 final class Core
 {
+    /** @var    string  Session table name */
+    public const SESSION_TABLE_NAME = 'session';
+
     /** @var Core   Core unique instance */
     private static Core $instance;
 
@@ -17,7 +30,6 @@ final class Core
 
     /** @var    null|dcBlog     dcBlog instance */
     private ?dcBlog $blog;
-
 
     /// @name Container methods
     //@{
@@ -113,6 +125,11 @@ final class Core
     public static function postTypes(): PostTypes
     {
         return self::$instance->get('postTypes');
+    }
+
+    public static function session(): Session
+    {
+        return self::$instance->get('session');
     }
 
     public static function version(): Version

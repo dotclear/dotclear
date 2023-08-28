@@ -1,8 +1,6 @@
 <?php
 /**
- * Version handler.
- *
- * Handle id,version pairs through database.
+ * Core default factory.
  *
  * @package Dotclear
  *
@@ -15,6 +13,7 @@ namespace Dotclear\Core;
 
 use dcCore;
 use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
 
 class CoreFactory implements CoreFactoryInterface
@@ -70,6 +69,17 @@ class CoreFactory implements CoreFactoryInterface
     public function postTypes(): PostTypes
     {
         return new PostTypes();
+    }
+
+    public function session(): Session
+    {
+        return new Session(
+            con: $this->core->get('con'),
+            table : $this->core->get('con')->prefix() . Core::SESSION_TABLE_NAME,
+            cookie_name: DC_SESSION_NAME,
+            cookie_secure: DC_ADMIN_SSL,
+            ttl: DC_SESSION_TTL
+        );
     }
 
     public function version(): Version

@@ -48,9 +48,11 @@ final class dcCore
     /**
      * Session table name
      *
+     * @deprecated since 2.28, use Core::VERSION_TABLE_NAME
+     *
      * @var string
      */
-    public const SESSION_TABLE_NAME = 'session';
+    public const SESSION_TABLE_NAME = Core::SESSION_TABLE_NAME;
 
     /**
      * Versions table name
@@ -322,7 +324,7 @@ final class dcCore
         $this->prefix     = Core::con()->prefix();
         $this->error      = new dcError();
         $this->auth       = dcAuth::init();
-        $this->session    = new Session($this->con, $this->prefix . self::SESSION_TABLE_NAME, DC_SESSION_NAME, '', null, DC_ADMIN_SSL, DC_SESSION_TTL);
+        $this->session    = Core::session();
         $this->url        = new Url();
         $this->plugins    = new dcPlugins();
         $this->rest       = new dcRestServer();
