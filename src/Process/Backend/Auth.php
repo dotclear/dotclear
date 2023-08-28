@@ -504,12 +504,17 @@ class Auth extends Process
             }
         }
 
-        $buffer = <<<HTML_END
+        echo self::html_end();
+    }
+
+    private static function html_end(): string
+    {
+        // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
+        // Warning: don't use <<< if there is some __() l10n calls after as xgettext will not find them
+        return <<<HTML_END
             </form>
             </body>
             </html>
             HTML_END;
-
-        echo $buffer;
     }
 }

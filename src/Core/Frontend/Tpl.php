@@ -1,19 +1,25 @@
 <?php
 /**
  * @package Dotclear
- * @subpackage Public
+ * @subpackage Frontend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Frontend;
+
+use ArrayObject;
+use dcCore;
+use dcDeprecated;
 use Dotclear\Core\Core;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Network\Http;
 
-class dcTemplate extends Template
+class Tpl extends Template
 {
     /**
      * Current tag
@@ -342,11 +348,11 @@ class dcTemplate extends Template
             $filter = preg_filter('/\w/', '$0', $filter);
             if ($filter) {
                 // addslashes protect var_export, str_replace protect sprintf;
-                $params[$filter] = str_replace('%', '%%', addslashes($value));
+                $params[$filter] = str_replace('%', '%%', addslashes((string) $value));
             }
         }
 
-        return 'context::global_filters(%s,' . var_export($params, true) . ",'" . addslashes($this->current_tag) . "')";
+        return 'context::global_filters(%s,' . var_export($params, true) . ",'" . addslashes((string) $this->current_tag) . "')";
     }
 
     /**
@@ -4263,6 +4269,7 @@ class dcTemplate extends Template
 
         $behavior = addslashes($attr['behavior']);
 
+        // todo: fix dcCore passed to behavior
         return
             '<?php if (Core::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
             'Core::behavior()->callBehavior(\'' . $behavior . '\',dcCore::app(),dcCore::app()->ctx);' .

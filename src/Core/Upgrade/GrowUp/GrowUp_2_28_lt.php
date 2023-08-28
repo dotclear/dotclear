@@ -24,6 +24,7 @@ class GrowUp_2_28_lt
             [
                 'src/Upgrade/dummy.txt',
                 'inc/public/lib.urlhandlers.php',
+                'inc/public/class.dc.template.php',
             ],
             // Folders
             [

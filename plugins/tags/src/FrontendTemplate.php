@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
 use dcCore;
-use dcTemplate;
 use Dotclear\Core\Core;
+use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -159,7 +159,7 @@ class FrontendTemplate
     public static function TagIf($attr, $content)
     {
         $if        = [];
-        $operateur = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
+        $operateur = isset($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '' : '!';

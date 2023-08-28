@@ -144,26 +144,8 @@ class BackendBehaviors
             ],
         ];
 
-        // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
-        $rtl = L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl' ? 'direction: rtl;' : '';
-        $css = <<<EOT
-            body {
-                color: #000;
-                background: #f9f9f9;
-                margin: 0;
-                padding: 2px;
-                border: none;
-                $rtl
-            }
-            code {
-                color: #666;
-                font-weight: bold;
-            }
-            body > p:first-child {
-                margin-top: 0;
-            }
-            EOT;
-        $js['iframe_css'] = $css;
+        $rtl              = L10n::getLanguageTextDirection(dcCore::app()->lang) == 'rtl' ? 'direction: rtl;' : '';
+        $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 
         if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
@@ -185,5 +167,28 @@ class BackendBehaviors
         My::jsLoad('jsToolBar/jsToolBar.config');
 
         return $res;
+    }
+
+    private static function css(string $rtl): string
+    {
+        // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
+        // Warning: don't use <<< if there is some __() l10n calls after as xgettext will not find them
+        return <<<EOT
+            body {
+                color: #000;
+                background: #f9f9f9;
+                margin: 0;
+                padding: 2px;
+                border: none;
+                $rtl
+            }
+            code {
+                color: #666;
+                font-weight: bold;
+            }
+            body > p:first-child {
+                margin-top: 0;
+            }
+            EOT;
     }
 }
