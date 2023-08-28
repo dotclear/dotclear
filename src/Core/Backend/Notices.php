@@ -49,25 +49,19 @@ class Notices
      */
     public static function getNotices(): string
     {
-        // Update transition from 2.22 to 2.23
-        if (version_compare(DC_VERSION, '2.23', '<')) {
-            global $core;
-        } else {
-            $core = dcCore::app();
-        }
-
         $res = '';
 
         // return error messages if any
-        if ($core->error->flag() && !self::$error_displayed) {
+        if (Core::error()->flag() && !self::$error_displayed) {
+            //todo remove dcCore from behavior
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, dcError
-            $notice_error = Core::behavior()->callBehavior('adminPageNotificationError', $core, $core->error);
+            $notice_error = Core::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), Core::error());
 
             if (isset($notice_error) && !empty($notice_error)) {
                 $res .= $notice_error;
             } else {
-                $res .= '<div role="alert"><p><strong>' . ($core->error->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>' .
-                    $core->error->toHTML() .
+                $res .= '<div role="alert"><p><strong>' . (Core::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>' .
+                    Core::error()->toHTML() .
                     '</div>';
             }
             self::$error_displayed = true;
@@ -91,8 +85,8 @@ class Notices
                     'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
-            if ($core->notices->getNotices($params, true)->f(0)) {
-                $lines = $core->notices->getNotices($params);
+            if (Core::notice()->getNotices($params, true)->f(0)) {
+                $lines = Core::notice()->getNotices($params);
                 while ($lines->fetch()) {
                     if (isset(self::$notice_types[$lines->notice_type])) {
                         $class = self::$notice_types[$lines->notice_type];
@@ -109,8 +103,9 @@ class Notices
                     if ($lines->notice_options !== null) {
                         $notification = array_merge($notification, @json_decode($lines->notice_options, true, 512, JSON_THROW_ON_ERROR));
                     }
+                    // todo remove dcCore from behavior
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
-                    $notice = Core::behavior()->callBehavior('adminPageNotification', $core, $notification);
+                    $notice = Core::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 
                     $res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
                 }
@@ -118,7 +113,7 @@ class Notices
         } while (--$step);
 
         // Delete returned notices
-        $core->notices->delNotices(null, true);
+        Core::notice()->delNotices(null, true);
 
         return $res;
     }
@@ -132,7 +127,7 @@ class Notices
      */
     public static function addNotice(string $type, string $message, array $options = [])
     {
-        $cur = Core::con()->openCursor(Core::con()->prefix() . dcCore::app()->notices->getTable());
+        $cur = Core::con()->openCursor(Core::con()->prefix() . Core::notice()->getTable());
 
         $now = function () {
             Date::setTZ(Core::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
@@ -154,7 +149,7 @@ class Notices
             $cur->notice_format = $options['format'];
         }
 
-        dcCore::app()->notices->addNotice($cur);
+        Core::notice()->addNotice($cur);
     }
 
     /**
@@ -210,19 +205,12 @@ class Notices
      */
     private static function getNotification(array $notice): string
     {
-        // Update transition from 2.22 to 2.23
-        if (version_compare(DC_VERSION, '2.23', '<')) {
-            global $core;
-        } else {
-            $core = dcCore::app();
-        }
-
         $container = (isset($notice['format']) && $notice['format'] === 'html') ? 'div' : 'p';
         $timestamp = '';
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
             $timestamp = '<span class="notice-ts">' .
-                '<time datetime="' . Date::iso8601(strtotime($notice['ts']), $core->auth->getInfo('user_tz')) . '">' .
-                Date::dt2str(__('%H:%M:%S'), $notice['ts'], $core->auth->getInfo('user_tz')) .
+                '<time datetime="' . Date::iso8601(strtotime($notice['ts']), Core::auth()->getInfo('user_tz')) . '">' .
+                Date::dt2str(__('%H:%M:%S'), $notice['ts'], Core::auth()->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';
         }

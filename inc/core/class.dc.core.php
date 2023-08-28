@@ -190,6 +190,8 @@ final class dcCore
     /**
      * dcNotices instance
      *
+     * @deprecated since 2.28, Use Core::notice()->favs
+     *
      * @var dcNotices
      */
     public readonly dcNotices $notices;
@@ -231,7 +233,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.27, Use Core::backend()->url
+     * @deprecated since 2.28, Use Core::backend()->url
      *
      * @var \Dotclear\Core\Backend\Url
      */
@@ -240,7 +242,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.27, Use Core::backend()->favs
+     * @deprecated since 2.28, Use Core::backend()->favs
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
@@ -249,7 +251,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.27, Use Core::backend()->menus
+     * @deprecated since 2.28, Use Core::backend()->menus
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -338,7 +340,7 @@ final class dcCore
         $this->rest       = new dcRestServer();
         $this->meta       = new dcMeta();
         $this->log        = new dcLog();
-        $this->notices    = new dcNotices();
+        $this->notices    = Core::notice();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*

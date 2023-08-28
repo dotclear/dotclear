@@ -11,10 +11,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-// classes to move to \Dotclear\Core
+// classes that move to \Dotclear\Core
 use dcAuth;
 use dcBlog;
 use dcError;
+use dcNotices;
 //
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
@@ -133,6 +134,11 @@ final class Core
     public static function nonce(): Nonce
     {
         return self::$instance->get('nonce');
+    }
+
+    public static function notice(): dcNotices
+    {
+        return self::$instance->get('notice');
     }
 
     public static function postTypes(): PostTypes

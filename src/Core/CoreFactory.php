@@ -11,9 +11,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+// classes that move to \Dotclear\Core
 use dcAuth;
-use dcCore;
 use dcError;
+use dcNotices
+//
+use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
@@ -76,6 +79,11 @@ class CoreFactory implements CoreFactoryInterface
         return new Nonce(
             auth: $this->core->get('auth')
         );
+    }
+
+    public function notice(): dcNotices
+    {
+        return new dcNotices();
     }
 
     public function postTypes(): PostTypes
