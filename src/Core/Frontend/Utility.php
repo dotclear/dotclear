@@ -177,7 +177,7 @@ class Utility extends Process
 
         # Cope with static home page option
         if (Core::blog()->settings->system->static_home) {
-            dcCore::app()->url->registerDefault([Url::class, 'static_home']);
+            Core::url()->registerDefault([Url::class, 'static_home']);
         }
 
         # Loading media
@@ -309,13 +309,13 @@ class Utility extends Process
                 Core::frontend()->tpl->getPath()
             );
         }
-        dcCore::app()->url->mode = Core::blog()->settings->system->url_scan;
+        Core::url()->mode = Core::blog()->settings->system->url_scan;
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --
             Core::behavior()->callBehavior('publicBeforeDocumentV2');
 
-            dcCore::app()->url->getDocument();
+            Core::url()->getDocument();
 
             # --BEHAVIOR-- publicAfterDocument --
             Core::behavior()->callBehavior('publicAfterDocumentV2');

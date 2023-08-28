@@ -432,7 +432,7 @@ class context
         }
 
         $nb_posts = Core::frontend()->ctx->pagination->f(0);
-        if ((dcCore::app()->url->type === 'default') || (dcCore::app()->url->type === 'default-page')) {
+        if ((Core::url()->type === 'default') || (Core::url()->type === 'default-page')) {
             // Home page (not static)
             $nb_pages = (int) ceil(($nb_posts - Core::frontend()->ctx->nb_entry_first_page) / Core::frontend()->ctx->nb_entry_per_page + 1);
         } else {

@@ -218,7 +218,7 @@ class rsExtPost
      */
     public static function getCategoryURL(MetaRecord $rs): string
     {
-        return Core::blog()->url . dcCore::app()->url->getURLFor('category', Html::sanitizeURL($rs->cat_url));
+        return Core::blog()->url . Core::url()->getURLFor('category', Html::sanitizeURL($rs->cat_url));
     }
 
     /**
@@ -437,7 +437,7 @@ class rsExtPost
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        return Core::blog()->url . dcCore::app()->url->getURLFor('trackback', (string) $rs->post_id);
+        return Core::blog()->url . Core::url()->getURLFor('trackback', (string) $rs->post_id);
     }
 
     /**
@@ -883,7 +883,7 @@ class rsExtDates
     {
         $url = date('Y/m', strtotime((string) $rs->dt));
 
-        return Core::blog()->url . dcCore::app()->url->getURLFor('archive', $url);
+        return Core::blog()->url . Core::url()->getURLFor('archive', $url);
     }
 
     /**

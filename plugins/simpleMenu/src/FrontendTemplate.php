@@ -78,7 +78,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (($widget->homeonly == 1 && !dcCore::app()->url->isHome(dcCore::app()->url->type)) || ($widget->homeonly == 2 && dcCore::app()->url->isHome(dcCore::app()->url->type))) {
+        if (($widget->homeonly == 1 && !Core::url()->isHome(Core::url()->type)) || ($widget->homeonly == 2 && Core::url()->isHome(Core::url()->type))) {
             return '';
         }
 

@@ -270,11 +270,11 @@ class Manage extends Process
 
             // Syndication
             if (DC_ADMIN_URL) {
-                $ham_feed = Core::blog()->url . dcCore::app()->url->getURLFor(
+                $ham_feed = Core::blog()->url . Core::url()->getURLFor(
                     'hamfeed',
                     Antispam::getUserCode()
                 );
-                $spam_feed = Core::blog()->url . dcCore::app()->url->getURLFor(
+                $spam_feed = Core::blog()->url . Core::url()->getURLFor(
                     'spamfeed',
                     Antispam::getUserCode()
                 );

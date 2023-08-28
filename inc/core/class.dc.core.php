@@ -114,6 +114,8 @@ final class dcCore
     /**
      * Url instance
      *
+     * @deprecated since 2.28, use Core::url() instead
+     *
      * @var Url
      */
     public readonly Url $url;
@@ -215,6 +217,8 @@ final class dcCore
 
     /**
      * Current language
+     *
+     * @deprecated since 2.28, Use Core::lang() and Core::setLang() instead
      *
      * @var string
      */
@@ -345,7 +349,7 @@ final class dcCore
         $this->error   = Core::error();
         $this->auth    = Core::auth();
         $this->session = Core::session();
-        $this->url     = new Url();
+        $this->url     = Core::url();
         $this->plugins = Core::plugins();
         $this->rest    = Core::rest();
         $this->meta    = Core::meta();

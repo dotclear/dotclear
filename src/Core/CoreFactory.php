@@ -21,6 +21,7 @@ use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
 //
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
@@ -129,6 +130,11 @@ class CoreFactory implements CoreFactoryInterface
             cookie_secure: DC_ADMIN_SSL,
             ttl: DC_SESSION_TTL
         );
+    }
+
+    public function url(): Url
+    {
+        return new Url();
     }
 
     public function users(): Users

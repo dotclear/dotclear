@@ -185,7 +185,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -218,33 +218,33 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<nav role="navigation"><ul>';
 
-        if (!dcCore::app()->url->isHome(dcCore::app()->url->type)) {
+        if (!Core::url()->isHome(Core::url()->type)) {
             // Not on home page (standard or static), add home link
             $res .= '<li class="topnav-home">' .
             '<a href="' . Core::blog()->url . '">' . __('Home') . '</a></li>';
             if (Core::blog()->settings->system->static_home) {
                 // Static mode: add recent posts link
                 $res .= '<li class="topnav-posts">' .
-                '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                '<a href="' . Core::blog()->url . Core::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
         } else {
             // On home page (standard or static)
             if (Core::blog()->settings->system->static_home) {
                 // Static mode: add recent posts link
                 $res .= '<li class="topnav-posts">' .
-                '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                '<a href="' . Core::blog()->url . Core::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
         }
 
         $res .= '<li class="topnav-arch">' .
-        '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('archive') . '">' .
+        '<a href="' . Core::blog()->url . Core::url()->getURLFor('archive') . '">' .
         __('Archives') . '</a></li>' .
             '</ul></nav>';
 
@@ -264,7 +264,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -278,8 +278,8 @@ class Widgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((dcCore::app()->url->type == 'category' && Core::frontend()->ctx->categories instanceof MetaRecord && Core::frontend()->ctx->categories->cat_id == $rs->cat_id)
-                || (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->cat_id == $rs->cat_id)) {
+            if ((Core::url()->type == 'category' && Core::frontend()->ctx->categories instanceof MetaRecord && Core::frontend()->ctx->categories->cat_id == $rs->cat_id)
+                || (Core::url()->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -293,7 +293,7 @@ class Widgets
                 $res .= '</li><li' . $class . '>';
             }
 
-            $res .= '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('category', $rs->cat_url) . '">' .
+            $res .= '<a href="' . Core::blog()->url . Core::url()->getURLFor('category', $rs->cat_url) . '">' .
             Html::escapeHTML($rs->cat_title) . '</a>' .
                 ($widget->postcount ? ' <span>(' . ($widget->subcatscount ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
 
@@ -320,7 +320,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -341,7 +341,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
+            if (Core::url()->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -365,7 +365,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -387,7 +387,7 @@ class Widgets
             $res .= ' <li>' .
             sprintf(
                 $l,
-                '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('lang', $rs->post_lang) . '" ' .
+                '<a href="' . Core::blog()->url . Core::url()->getURLFor('lang', $rs->post_lang) . '" ' .
                 'class="lang-' . $rs->post_lang . '">' .
                 $lang_name . '</a>'
             ) .
@@ -412,7 +412,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -429,13 +429,13 @@ class Widgets
             '<ul>';
 
         $res .= '<li><a type="' . $mime . '" ' .
-        'href="' . Core::blog()->url . dcCore::app()->url->getURLFor('feed', $type) . '" ' .
+        'href="' . Core::blog()->url . Core::url()->getURLFor('feed', $type) . '" ' .
         'title="' . sprintf($p_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
         __('Entries feed') . '</a></li>';
 
         if (Core::blog()->settings->system->allow_comments || Core::blog()->settings->system->allow_trackbacks) {
             $res .= '<li><a type="' . $mime . '" ' .
-            'href="' . Core::blog()->url . dcCore::app()->url->getURLFor('feed', $type . '/comments') . '" ' .
+            'href="' . Core::blog()->url . Core::url()->getURLFor('feed', $type . '/comments') . '" ' .
             'title="' . sprintf($c_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
             __('Comments feed') . '</a></li>';
         }
@@ -462,7 +462,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -519,7 +519,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -542,7 +542,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -576,7 +576,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
+            if (Core::url()->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
@@ -602,7 +602,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 

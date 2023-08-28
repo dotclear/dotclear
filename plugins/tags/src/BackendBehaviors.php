@@ -43,7 +43,7 @@ class BackendBehaviors
             return '';
         }
 
-        $tag_url = Core::blog()->url . dcCore::app()->url->getURLFor('tag');
+        $tag_url = Core::blog()->url . Core::url()->getURLFor('tag');
 
         if ($editor === 'dcLegacyEditor') {
             // dcLegacyEditor
@@ -141,7 +141,7 @@ class BackendBehaviors
             $content = substr($content, 4);
         }
 
-        $tag_url        = Html::stripHostURL(Core::blog()->url . dcCore::app()->url->getURLFor('tag'));
+        $tag_url        = Html::stripHostURL(Core::blog()->url . Core::url()->getURLFor('tag'));
         $res['url']     = $tag_url . '/' . rawurlencode(dcMeta::sanitizeMetaID($url));
         $res['content'] = $content;
 

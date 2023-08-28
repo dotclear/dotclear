@@ -77,7 +77,7 @@ class FrontendTemplate
      */
     public static function blogrollXbelLink(ArrayObject $attr)
     {
-        return '<?php echo ' . sprintf(Core::frontend()->tpl->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("xbel")') . '; ?>';
+        return '<?php echo ' . sprintf(Core::frontend()->tpl->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("xbel")') . '; ?>';
     }
 
     /**
@@ -186,7 +186,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 

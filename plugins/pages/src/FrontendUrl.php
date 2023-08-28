@@ -184,7 +184,7 @@ class FrontendUrl extends Url
 
                 # The entry
                 if (Core::frontend()->ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . Core::blog()->url . dcCore::app()->url->getURLFor('xmlrpc', Core::blog()->id));
+                    header('X-Pingback: ' . Core::blog()->url . Core::url()->getURLFor('xmlrpc', Core::blog()->id));
                 }
 
                 $tplset           = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');

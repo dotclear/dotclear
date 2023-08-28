@@ -676,7 +676,7 @@ class ManagePage extends Process
 
             if (Core::backend()->post_id) {
                 $preview_url = Core::blog()->url .
-                    dcCore::app()->url->getURLFor(
+                    Core::url()->getURLFor(
                         'pagespreview',
                         Core::auth()->userID() . '/' .
                         Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) .

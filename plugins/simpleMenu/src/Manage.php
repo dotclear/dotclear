@@ -230,21 +230,21 @@ class Manage extends Process
                             case 'posts':
                                 Core::backend()->item_label = __('Posts');
                                 Core::backend()->item_descr = __('Recent posts');
-                                Core::backend()->item_url .= dcCore::app()->url->getURLFor('posts');
+                                Core::backend()->item_url .= Core::url()->getURLFor('posts');
 
                                 break;
                             case 'lang':
                                 Core::backend()->item_select_label = array_search(Core::backend()->item_select, Core::backend()->langs_combo);
                                 Core::backend()->item_label        = Core::backend()->item_select_label;
                                 Core::backend()->item_descr        = sprintf(__('Switch to %s language'), Core::backend()->item_select_label);
-                                Core::backend()->item_url .= dcCore::app()->url->getURLFor('lang', Core::backend()->item_select);
+                                Core::backend()->item_url .= Core::url()->getURLFor('lang', Core::backend()->item_select);
 
                                 break;
                             case 'category':
                                 Core::backend()->item_select_label = Core::backend()->categories_label[Core::backend()->item_select];
                                 Core::backend()->item_label        = Core::backend()->item_select_label;
                                 Core::backend()->item_descr        = __('Recent Posts from this category');
-                                Core::backend()->item_url .= dcCore::app()->url->getURLFor('category', Core::backend()->item_select);
+                                Core::backend()->item_url .= Core::url()->getURLFor('category', Core::backend()->item_select);
 
                                 break;
                             case 'archive':
@@ -252,11 +252,11 @@ class Manage extends Process
                                 if (Core::backend()->item_select == '-') {
                                     Core::backend()->item_label = __('Archives');
                                     Core::backend()->item_descr = Core::backend()->first_year . (Core::backend()->first_year != Core::backend()->last_year ? ' - ' . Core::backend()->last_year : '');
-                                    Core::backend()->item_url .= dcCore::app()->url->getURLFor('archive');
+                                    Core::backend()->item_url .= Core::url()->getURLFor('archive');
                                 } else {
                                     Core::backend()->item_label = Core::backend()->item_select_label;
                                     Core::backend()->item_descr = sprintf(__('Posts from %s'), Core::backend()->item_select_label);
-                                    Core::backend()->item_url .= dcCore::app()->url->getURLFor('archive', substr(Core::backend()->item_select, 0, 4) . '/' . substr(Core::backend()->item_select, -2));
+                                    Core::backend()->item_url .= Core::url()->getURLFor('archive', substr(Core::backend()->item_select, 0, 4) . '/' . substr(Core::backend()->item_select, -2));
                                 }
 
                                 break;
@@ -272,11 +272,11 @@ class Manage extends Process
                                 if (Core::backend()->item_select == '-') {
                                     Core::backend()->item_label = __('All tags');
                                     Core::backend()->item_descr = '';
-                                    Core::backend()->item_url .= dcCore::app()->url->getURLFor('tags');
+                                    Core::backend()->item_url .= Core::url()->getURLFor('tags');
                                 } else {
                                     Core::backend()->item_label = Core::backend()->item_select_label;
                                     Core::backend()->item_descr = sprintf(__('Recent posts for %s tag'), Core::backend()->item_select_label);
-                                    Core::backend()->item_url .= dcCore::app()->url->getURLFor('tag', Core::backend()->item_select);
+                                    Core::backend()->item_url .= Core::url()->getURLFor('tag', Core::backend()->item_select);
                                 }
 
                                 break;

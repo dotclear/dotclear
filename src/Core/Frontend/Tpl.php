@@ -907,7 +907,7 @@ class Tpl extends Template
      */
     public function BlogArchiveURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("archive")') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("archive")') . '; ?>';
     }
 
     /**
@@ -993,7 +993,7 @@ class Tpl extends Template
             $type = 'atom';
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("feed","' . $type . '")') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("feed","' . $type . '")') . '; ?>';
     }
 
     /**
@@ -1044,7 +1044,7 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         return '<?php if (Core::frontend()->ctx->exists("cur_lang")) echo ' .
-            sprintf($filters, 'Core::blog()->url.dcCore::app()->url->getURLFor("lang",Core::frontend()->ctx->cur_lang)') .
+            sprintf($filters, 'Core::blog()->url.Core::url()->getURLFor("lang",Core::frontend()->ctx->cur_lang)') .
             '; else echo ' .
             sprintf($filters, 'Core::blog()->url') . '; ?>';
     }
@@ -1186,7 +1186,7 @@ class Tpl extends Template
     public function BlogXMLRPCURL(ArrayObject $attr): string
     {
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor(\'xmlrpc\',Core::blog()->id)') . '; ?>';
+            sprintf($this->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor(\'xmlrpc\',Core::blog()->id)') . '; ?>';
     }
 
     /**
@@ -1273,7 +1273,7 @@ class Tpl extends Template
      */
     public function BlogPostsURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), ('Core::blog()->settings->system->static_home ? Core::blog()->url.dcCore::app()->url->getURLFor("posts") : Core::blog()->url')) . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), ('Core::blog()->settings->system->static_home ? Core::blog()->url.Core::url()->getURLFor("posts") : Core::blog()->url')) . '; ?>';
     }
 
     /**
@@ -1577,7 +1577,7 @@ class Tpl extends Template
         }
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("feed","category/".' .
+            sprintf($this->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("feed","category/".' .
             'Core::frontend()->ctx->categories->cat_url."/' . $type . '")') . '; ?>';
     }
 
@@ -1611,7 +1611,7 @@ class Tpl extends Template
     public function CategoryURL(ArrayObject $attr): string
     {
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("category",' .
+            sprintf($this->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("category",' .
             'Core::frontend()->ctx->categories->cat_url)') . '; ?>';
     }
 
@@ -1743,7 +1743,7 @@ class Tpl extends Template
             } else {
                 // nb of entries per page not specified -> use ctx settings
                 $params .= "\$nb_entry_first_page=Core::frontend()->ctx->nb_entry_first_page; \$nb_entry_per_page = Core::frontend()->ctx->nb_entry_per_page;\n";
-                $params .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
+                $params .= "if ((Core::url()->type == 'default') || (Core::url()->type == 'default-page')) {\n";
                 $params .= "    \$params['limit'] = (Core::frontend()->getPageNumber() === 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $params .= "} else {\n";
                 $params .= "    \$params['limit'] = \$nb_entry_per_page;\n";
@@ -1752,7 +1752,7 @@ class Tpl extends Template
             // Set offset (aka index of first entry)
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
-                $params .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
+                $params .= "if ((Core::url()->type == 'default') || (Core::url()->type == 'default-page')) {\n";
                 $params .= "    \$params['limit'] = [(Core::frontend()->getPageNumber() === 1 ? 0 : (Core::frontend()->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $params .= "} else {\n";
                 $params .= "    \$params['limit'] = [(Core::frontend()->getPageNumber() - 1) * \$nb_entry_per_page,\$params['limit']];\n";
@@ -3023,7 +3023,7 @@ class Tpl extends Template
     public function LanguageURL(ArrayObject $attr): string
     {
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'Core::blog()->url.dcCore::app()->url->getURLFor("lang",' .
+            sprintf($this->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("lang",' .
             'Core::frontend()->ctx->langs->post_lang)') . '; ?>';
     }
 
@@ -4357,7 +4357,7 @@ class Tpl extends Template
                 $sign                 = '!';
                 $attr['current_mode'] = substr($attr['current_mode'], 1);
             }
-            $if[] = 'dcCore::app()->url->type ' . $sign . "= '" . addslashes($attr['current_mode']) . "'";
+            $if[] = 'Core::url()->type ' . $sign . "= '" . addslashes($attr['current_mode']) . "'";
         }
 
         if (isset($attr['has_tpl'])) {

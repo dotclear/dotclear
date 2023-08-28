@@ -21,6 +21,7 @@ use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
 //
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
@@ -43,6 +44,7 @@ interface CoreFactoryInterface
     public function postTypes(): PostTypes;
     public function rest(): dcRestServer;
     public function session(): Session;
+    public function url(): Url;
     public function users(): Users;
     public function version(): Version;
 }

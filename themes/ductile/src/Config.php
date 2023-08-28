@@ -194,7 +194,7 @@ class Config extends Process
             $ductile_stickers = [[
                 'label' => __('Subscribe'),
                 'url'   => Core::blog()->url .
-                dcCore::app()->url->getURLFor('feed', 'atom'),
+                Core::url()->getURLFor('feed', 'atom'),
                 'image' => 'sticker-feed.png',
             ]];
         }

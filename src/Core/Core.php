@@ -24,6 +24,7 @@ use dcRestServer;
 //
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
@@ -184,6 +185,11 @@ final class Core
         return self::$instance->get('session');
     }
 
+    public static function url(): Url
+    {
+        return self::$instance->get('url');
+    }
+
     public static function users(): Users
     {
         return self::$instance->get('users');
@@ -233,7 +239,7 @@ final class Core
     /// @name Current blog methods
     //@{
     /**
-     * Get current blog
+     * Get current blog.
      *
      * @return null|dcBlog
      */
@@ -243,7 +249,7 @@ final class Core
     }
 
     /**
-     * Sets the blog to use.
+     * Set the blog to use.
      *
      * @param      string  $id     The blog ID
      */
@@ -254,7 +260,7 @@ final class Core
     }
 
     /**
-     * Unsets blog property
+     * Unset blog property.
      */
     public static function unsetBlog(): void
     {
@@ -263,10 +269,10 @@ final class Core
     }
     //@}
 
-    /// @name Current blog methods
+    /// @name Current lang methods
     //@{
     /**
-     * Get current lang
+     * Get current lang.
      *
      * @return string
      */
@@ -276,7 +282,7 @@ final class Core
     }
 
     /**
-     * Sets the lang to use.
+     * Set the lang to use.
      *
      * @param      string  $id     The lang ID
      */

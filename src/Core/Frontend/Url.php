@@ -274,7 +274,7 @@ class Url extends UrlHandler
         header('Content-Type: text/html; charset=UTF-8');
         Http::head(404, 'Not Found');
 
-        dcCore::app()->url->type         = '404';
+        Core::url()->type         = '404';
         Core::frontend()->ctx->current_tpl  = '404.html';
         Core::frontend()->ctx->content_type = 'text/html';
 
@@ -300,11 +300,11 @@ class Url extends UrlHandler
             // defaults to the home page, but is not a page number.
             self::p404();
         } else {
-            dcCore::app()->url->type = 'default';
+            Core::url()->type = 'default';
             if ($page_number) {
                 Core::frontend()->setPageNumber($page_number);
                 if ($page_number > 1) {
-                    dcCore::app()->url->type = 'default-page';
+                    Core::url()->type = 'default-page';
                 }
             }
 
@@ -327,7 +327,7 @@ class Url extends UrlHandler
      */
     public static function static_home(?string $args): void
     {
-        dcCore::app()->url->type = 'static';
+        Core::url()->type = 'static';
 
         if (empty($_GET['q'])) {
             self::serveDocument('static.html');
@@ -349,7 +349,7 @@ class Url extends UrlHandler
             // Search is disabled for this blog.
             self::p404();
         } else {
-            dcCore::app()->url->type = 'search';
+            Core::url()->type = 'search';
 
             Core::frontend()->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
             if (Core::frontend()->search) {
@@ -627,8 +627,8 @@ class Url extends UrlHandler
                 // The entry
                 if (Core::frontend()->ctx->posts->trackbacksActive()) {
                     // Send additional headers if pingbacks/webmentions are allowed
-                    header('X-Pingback: ' . Core::blog()->url . dcCore::app()->url->getURLFor('xmlrpc', Core::blog()->id));
-                    header('Link: <' . Core::blog()->url . dcCore::app()->url->getURLFor('webmention') . '>; rel="webmention"');
+                    header('X-Pingback: ' . Core::blog()->url . Core::url()->getURLFor('xmlrpc', Core::blog()->id));
+                    header('Link: <' . Core::blog()->url . Core::url()->getURLFor('webmention') . '>; rel="webmention"');
                 }
                 self::serveDocument('post.html');
             }

@@ -297,7 +297,7 @@ class ThemesList extends ModulesList
                 $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
             if (in_array('try', $actions)) {
-                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('try', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . $id);
+                $preview_url = Core::blog()->url . Core::url()->getURLFor('try', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . $id);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));

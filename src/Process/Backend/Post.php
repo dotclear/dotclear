@@ -791,7 +791,7 @@ class Post extends Process
             'accesskey="s" name="save" /> ';
 
             if (Core::backend()->post_id) {
-                $preview_url = Core::blog()->url . dcCore::app()->url->getURLFor('preview', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . Core::backend()->post->post_url);
+                $preview_url = Core::blog()->url . Core::url()->getURLFor('preview', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . Core::backend()->post->post_url);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));

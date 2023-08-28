@@ -63,13 +63,13 @@ class FrontendTemplate
 
         // Test if complete breadcrumb will be provided
         # --BEHAVIOR-- publicBreadcrumbExtended -- string
-        if (Core::behavior()->callBehavior('publicBreadcrumbExtended', dcCore::app()->url->type)) {
+        if (Core::behavior()->callBehavior('publicBreadcrumbExtended', Core::url()->type)) {
             # --BEHAVIOR-- publicBreadcrumb -- string, string
-            $special = Core::behavior()->callBehavior('publicBreadcrumb', dcCore::app()->url->type, $separator);
+            $special = Core::behavior()->callBehavior('publicBreadcrumb', Core::url()->type, $separator);
 
             $ret = $special ?: '<a id="bc-home" href="' . Core::blog()->url . '">' . __('Home') . '</a>';
         } else {
-            switch (dcCore::app()->url->type) {
+            switch (Core::url()->type) {
                 case 'static':
                     // Static home
                     $ret = '<span id="bc-home">' . __('Home') . '</span>';
@@ -96,7 +96,7 @@ class FrontendTemplate
                     // Home or blog page`(page 2 to n)
                     $ret = '<a id="bc-home" href="' . Core::blog()->url . '">' . __('Home') . '</a>';
                     if (Core::blog()->settings->system->static_home) {
-                        $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Blog') . '</a>';
+                        $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
                     } else {
                         if (Core::frontend()->ctx->cur_lang) {
                             $langs = L10n::getISOCodes();
@@ -112,12 +112,12 @@ class FrontendTemplate
                     $ret        = '<a id="bc-home" href="' . Core::blog()->url . '">' . __('Home') . '</a>';
                     $categories = Core::blog()->getCategoryParents((int) Core::frontend()->ctx->categories->cat_id);
                     while ($categories->fetch()) {
-                        $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
+                        $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
                     if ($page == 0) {
                         $ret .= $separator . Core::frontend()->ctx->categories->cat_title;
                     } else {
-                        $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('category', Core::frontend()->ctx->categories->cat_url) . '">' . Core::frontend()->ctx->categories->cat_title . '</a>';
+                        $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('category', Core::frontend()->ctx->categories->cat_url) . '">' . Core::frontend()->ctx->categories->cat_title . '</a>';
                         $ret .= $separator . sprintf(__('page %d'), $page);
                     }
 
@@ -130,11 +130,11 @@ class FrontendTemplate
                         // Parents cats of post's cat
                         $categories = Core::blog()->getCategoryParents((int) Core::frontend()->ctx->posts->cat_id);
                         while ($categories->fetch()) {
-                            $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
+                            $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                         }
                         // Post's cat
                         $categories = Core::blog()->getCategory((int) Core::frontend()->ctx->posts->cat_id);
-                        $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
+                        $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
                     $ret .= $separator . Core::frontend()->ctx->posts->post_title;
 
@@ -156,7 +156,7 @@ class FrontendTemplate
                         $ret .= $separator . __('Archives');
                     } else {
                         // Month archive
-                        $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('archive') . '">' . __('Archives') . '</a>';
+                        $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('archive') . '">' . __('Archives') . '</a>';
                         $ret .= $separator . Date::dt2str('%B %Y', Core::frontend()->ctx->archives->dt);
                     }
 
@@ -179,11 +179,11 @@ class FrontendTemplate
                 case 'tag':
                     // Tag
                     $ret = '<a id="bc-home" href="' . Core::blog()->url . '">' . __('Home') . '</a>';
-                    $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('tags') . '">' . __('All tags') . '</a>';
+                    $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('tags') . '">' . __('All tags') . '</a>';
                     if ($page == 0) {
                         $ret .= $separator . Core::frontend()->ctx->meta->meta_id;
                     } else {
-                        $ret .= $separator . '<a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('tag', rawurlencode(Core::frontend()->ctx->meta->meta_id)) . '">' . Core::frontend()->ctx->meta->meta_id . '</a>';
+                        $ret .= $separator . '<a href="' . Core::blog()->url . Core::url()->getURLFor('tag', rawurlencode(Core::frontend()->ctx->meta->meta_id)) . '">' . Core::frontend()->ctx->meta->meta_id . '</a>';
                         $ret .= $separator . sprintf(__('page %d'), $page);
                     }
 
@@ -212,7 +212,7 @@ class FrontendTemplate
                     $ret = '<a id="bc-home" href="' . Core::blog()->url . '">' . __('Home') . '</a>';
                     # --BEHAVIOR-- publicBreadcrumb -- string, string
                     # Should specific breadcrumb if any, will be added after home page url
-                    $special = Core::behavior()->callBehavior('publicBreadcrumb', dcCore::app()->url->type, $separator);
+                    $special = Core::behavior()->callBehavior('publicBreadcrumb', Core::url()->type, $separator);
                     if ($special) {
                         $ret .= $separator . $special;
                     }

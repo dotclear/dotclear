@@ -37,7 +37,7 @@ class Frontend extends Process
                 __('This page\'s comments feed');
             },
             'coreBlogBeforeGetPosts' => function (ArrayObject $params): void {
-                if (dcCore::app()->url->type === 'search') {
+                if (Core::url()->type === 'search') {
                     // Add page post type for searching
                     if (isset($params['post_type'])) {
                         if (!is_array($params['post_type'])) {

@@ -61,7 +61,7 @@ class Frontend extends Process
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
-                switch (dcCore::app()->url->type) {
+                switch (Core::url()->type) {
                     case 'default':
                     case 'default-page':
                         if (isset($s['default'])) {
@@ -73,9 +73,9 @@ class Frontend extends Process
 
                         break;
                     default:
-                        if (isset($s[dcCore::app()->url->type])) {
+                        if (isset($s[Core::url()->type])) {
                             // Nb de billets par page défini par la config du thème
-                            $nb_first = $nb_other = (int) $s[dcCore::app()->url->type];
+                            $nb_first = $nb_other = (int) $s[Core::url()->type];
                         }
 
                         break;
@@ -156,8 +156,8 @@ class Frontend extends Process
         $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_entries_lists');
         if ($s !== null) {
             $s = @unserialize($s);
-            if (is_array($s) && isset($s[dcCore::app()->url->type])) {
-                return $s[dcCore::app()->url->type];
+            if (is_array($s) && isset($s[Core::url()->type])) {
+                return $s[Core::url()->type];
             }
         }
 
@@ -240,7 +240,7 @@ class Frontend extends Process
 
         if ($default || $res == '') {
             $res = self::setSticker(1, true, __('Subscribe'), Core::blog()->url .
-                dcCore::app()->url->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
+                Core::url()->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
         }
 
         if ($res != '') {

@@ -185,7 +185,7 @@ class Utility extends Process
         Core::backend()->url->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        Core::postTypes()->set(new PostType('post', urldecode(Core::backend()->url->get('admin.post', ['id' => '%d'], '&')), dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
+        Core::postTypes()->set(new PostType('post', urldecode(Core::backend()->url->get('admin.post', ['id' => '%d'], '&')), Core::url()->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
         if (!(Core::auth()->userID() && Core::blog() !== null)) {

@@ -800,7 +800,7 @@ class BlogPref extends Process
 
                 try {
                     # Test URL of blog by testing it's ATOM feed
-                    $file    = $da->blog_url . dcCore::app()->url->getURLFor('feed', 'atom');
+                    $file    = $da->blog_url . Core::url()->getURLFor('feed', 'atom');
                     $path    = '';
                     $status  = '404';
                     $content = '';

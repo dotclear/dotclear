@@ -236,7 +236,7 @@ class FrontendTemplate
     {
         $f = Core::frontend()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag",' .
+        return '<?php echo ' . sprintf($f, 'Core::blog()->url.Core::url()->getURLFor("tag",' .
             'rawurlencode(Core::frontend()->ctx->meta->meta_id))') . '; ?>';
     }
 
@@ -255,7 +255,7 @@ class FrontendTemplate
     {
         $f = Core::frontend()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tags")') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'Core::blog()->url.Core::url()->getURLFor("tags")') . '; ?>';
     }
 
     /**
@@ -280,7 +280,7 @@ class FrontendTemplate
 
         $f = Core::frontend()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag_feed",' .
+        return '<?php echo ' . sprintf($f, 'Core::blog()->url.Core::url()->getURLFor("tag_feed",' .
             'rawurlencode(Core::frontend()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
 
@@ -297,7 +297,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(dcCore::app()->url->type)) {
+        if (!$widget->checkHomeOnly(Core::url()->type)) {
             return '';
         }
 
@@ -340,12 +340,12 @@ class FrontendTemplate
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
-        if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord) {
+        if (Core::url()->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord) {
             Core::frontend()->ctx->meta = Core::meta()->getMetaRecordset(Core::frontend()->ctx->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord) {
+            if (Core::url()->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord) {
                 while (Core::frontend()->ctx->meta->fetch()) {
                     if (Core::frontend()->ctx->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';
@@ -354,15 +354,15 @@ class FrontendTemplate
                     }
                 }
             }
-            $res .= '<li' . $class . '><a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
+            $res .= '<li' . $class . '><a href="' . Core::blog()->url . Core::url()->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
             'class="tag' . $rs->roundpercent . '">' .
             $rs->meta_id . '</a> </li>';
         }
 
         $res .= '</ul>';
 
-        if (dcCore::app()->url->getURLFor('tags') && !is_null($widget->alltagslinktitle) && $widget->alltagslinktitle !== '') {
-            $res .= '<p><strong><a href="' . Core::blog()->url . dcCore::app()->url->getURLFor('tags') . '">' .
+        if (Core::url()->getURLFor('tags') && !is_null($widget->alltagslinktitle) && $widget->alltagslinktitle !== '') {
+            $res .= '<p><strong><a href="' . Core::blog()->url . Core::url()->getURLFor('tags') . '">' .
             Html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
         }
 
