@@ -462,7 +462,7 @@ final class dcCore
      */
     public function getBlogStatus(int $s): string
     {
-        $this->blogs->getBlogStatus($s);
+        return $this->blogs->getBlogStatus($s);
     }
     //@}
 
