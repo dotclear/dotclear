@@ -75,7 +75,7 @@ class UsersActions extends Process
             }
 
             if (empty(Core::backend()->users)) {
-                dcCore::app()->error->add(__('No blog or user given.'));
+                Core::error()->add(__('No blog or user given.'));
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
@@ -94,10 +94,10 @@ class UsersActions extends Process
 
                         Core::users()->delUser($u);
                     } catch (Exception $e) {
-                        dcCore::app()->error->add($e->getMessage());
+                        Core::error()->add($e->getMessage());
                     }
                 }
-                if (!dcCore::app()->error->flag()) {
+                if (!Core::error()->flag()) {
                     Notices::addSuccessNotice(__('User has been successfully deleted.'));
                     Http::redirect(Core::backend()->redir);
                 }
@@ -126,9 +126,9 @@ class UsersActions extends Process
                         }
                     }
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
-                if (!dcCore::app()->error->flag()) {
+                if (!Core::error()->flag()) {
                     Notices::addSuccessNotice(__('User has been successfully updated.'));
                     Http::redirect(Core::backend()->redir);
                 }

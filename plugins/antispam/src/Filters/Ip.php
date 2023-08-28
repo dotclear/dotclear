@@ -148,7 +148,7 @@ class Ip extends SpamFilter
                 Notices::addSuccessNotice(__('IP address has been successfully added.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -159,7 +159,7 @@ class Ip extends SpamFilter
                 Notices::addSuccessNotice(__('IP addresses have been successfully removed.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

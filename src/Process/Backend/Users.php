@@ -87,7 +87,7 @@ class Users extends Process
             }
             Core::backend()->user_list = new ListingUsers($rsStatic, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -106,7 +106,7 @@ class Users extends Process
             )
         );
 
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             if (!empty($_GET['del'])) {
                 Notices::message(__('User has been successfully removed.'));
             }

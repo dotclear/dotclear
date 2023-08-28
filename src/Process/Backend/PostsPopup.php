@@ -113,7 +113,7 @@ class PostsPopup extends Process
             $counter   = Core::blog()->getPosts(Core::backend()->params, true);
             $post_list = new ListingPostsMini($posts, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         echo '<div id="form-entries">'; // I know it's not a form but we just need the ID

@@ -61,7 +61,7 @@ class Manage extends Process
         // get selected module
         $define = dcCore::app()->{self::getType() . 's'}->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
-            dcCore::app()->error->add(__('Unknown module id to uninstall'));
+            Core::error()->add(__('Unknown module id to uninstall'));
             self::doRedirect();
         }
 
@@ -69,7 +69,7 @@ class Manage extends Process
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $actions     = $uninstaller->getUserActions($define->getId());
         if (!count($actions)) {
-            dcCore::app()->error->add(__('There are no uninstall actions for this module'));
+            Core::error()->add(__('There are no uninstall actions for this module'));
             self::doRedirect();
         }
 
@@ -87,7 +87,7 @@ class Manage extends Process
                         if ($uninstaller->execute($cleaner, $action->id, $_POST['action'][$cleaner][$action->id])) {
                             $done[] = $action->success;
                         } else {
-                            dcCore::app()->error->add($action->error);
+                            Core::error()->add($action->error);
                         }
                     }
                 }
@@ -101,7 +101,7 @@ class Manage extends Process
             }
             self::doRedirect();
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return true;

@@ -86,7 +86,7 @@ class User extends Process
 
                 Core::backend()->page_title = Core::backend()->user_id;
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -211,7 +211,7 @@ class User extends Process
                     }
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

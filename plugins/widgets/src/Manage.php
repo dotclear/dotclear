@@ -110,7 +110,7 @@ class Manage extends Process
                     Core::blog()->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }
@@ -196,7 +196,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         } elseif (!empty($_POST['wreset'])) {
             try {
@@ -208,7 +208,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Sidebars have been resetting.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

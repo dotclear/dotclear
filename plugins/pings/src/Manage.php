@@ -63,7 +63,7 @@ class Manage extends Process
                 My::redirect();
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return true;

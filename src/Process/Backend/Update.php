@@ -136,7 +136,7 @@ class Update extends Process
                     Core::backend()->url->redirect('admin.update', ['tab' => 'files']);
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -210,7 +210,7 @@ class Update extends Process
                     $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $bad_files) . '</strong></li></ul>';
                 }
 
-                dcCore::app()->error->add($msg);
+                Core::error()->add($msg);
 
                 # --BEHAVIOR-- adminDCUpdateException -- Exception
                 Core::behavior()->callBehavior('adminDCUpdateException', $e);
@@ -224,7 +224,7 @@ class Update extends Process
     {
         $safe_mode = false;
 
-        if (Core::backend()->step == 'unzip' && !dcCore::app()->error->flag()) {
+        if (Core::backend()->step == 'unzip' && !Core::error()->flag()) {
             // Check if safe_mode is ON, will be use below
             $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
@@ -247,7 +247,7 @@ class Update extends Process
             )
         );
 
-        if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
+        if (!Core::error()->flag() && !empty($_GET['nocache'])) {
             Notices::success(__('Manual checking of update done successfully.'));
         }
 
@@ -325,7 +325,7 @@ class Update extends Process
                 Core::nonce()->getFormNonce() . '</p>' .
                 '</form></div>';
             }
-        } elseif (Core::backend()->step == 'unzip' && !dcCore::app()->error->flag()) {
+        } elseif (Core::backend()->step == 'unzip' && !Core::error()->flag()) {
             // Keep safe-mode for next authentication
             $params = $safe_mode ? ['safe_mode' => 1] : []; // @phpstan-ignore-line
 

@@ -108,7 +108,7 @@ class ActionsBlogs extends Actions
      */
     public function error(Exception $e)
     {
-        dcCore::app()->error->add($e->getMessage());
+        Core::error()->add($e->getMessage());
         $this->beginPage(
             Page::breadcrumb(
                 [

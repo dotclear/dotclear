@@ -96,7 +96,7 @@ class Backend extends Process
                     if ($uninstaller->execute($cleaner, $action->id, $action->ns)) {
                         $done[] = $action->success;
                     } else {
-                        dcCore::app()->error->add($action->error);
+                        Core::error()->add($action->error);
                     }
                 }
             }
@@ -112,7 +112,7 @@ class Backend extends Process
                 }
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
     }
 

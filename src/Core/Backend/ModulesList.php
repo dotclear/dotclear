@@ -1682,7 +1682,7 @@ class ModulesList
 
         $define = $this->modules->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
-            dcCore::app()->error->add(__('Unknown plugin ID'));
+            Core::error()->add(__('Unknown plugin ID'));
 
             return false;
         }
@@ -1693,7 +1693,7 @@ class ModulesList
         $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
 
         if (empty($class) && empty($file)) {
-            dcCore::app()->error->add(__('This plugin has no configuration file.'));
+            Core::error()->add(__('This plugin has no configuration file.'));
 
             return false;
         }
@@ -1701,7 +1701,7 @@ class ModulesList
         if (!Core::auth()->isSuperAdmin()
             && !Core::auth()->check(dcCore::app()->plugins->moduleInfo($id, 'permissions'), Core::blog()->id)
         ) {
-            dcCore::app()->error->add(__('Insufficient permissions'));
+            Core::error()->add(__('Insufficient permissions'));
 
             return false;
         }

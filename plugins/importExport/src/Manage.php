@@ -59,7 +59,7 @@ class Manage extends Process
             try {
                 Core::backend()->module->process($_REQUEST['do']);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

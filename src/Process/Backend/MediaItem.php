@@ -138,7 +138,7 @@ class MediaItem extends Process
                 dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', dcCore::app()->lang);
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
         Core::backend()->dirs_combo = $dirs_combo;
 
@@ -157,7 +157,7 @@ class MediaItem extends Process
                 Notices::addSuccessNotice(__('File has been successfully updated.'));
                 Core::backend()->url->redirect('admin.media.item', Core::backend()->page_url_params);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -216,7 +216,7 @@ class MediaItem extends Process
                 );
                 Core::backend()->url->redirect('admin.media.item', Core::backend()->page_url_params);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -233,7 +233,7 @@ class MediaItem extends Process
                 );
                 Core::backend()->url->redirect('admin.media.item', Core::backend()->page_url_params);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -250,7 +250,7 @@ class MediaItem extends Process
                 );
                 Core::backend()->url->redirect('admin.media', Core::backend()->media_page_url_params);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

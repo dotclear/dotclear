@@ -228,7 +228,7 @@ class Config extends Process
                 Notices::addSuccessNotice(__('Theme configuration has been successfully updated.'));
                 Core::backend()->url->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

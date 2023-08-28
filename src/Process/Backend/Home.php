@@ -39,7 +39,7 @@ class Home extends Process
                 Core::users()->setUserDefaultBlog(Core::auth()->userID(), Core::blog()->id);
                 Core::backend()->url->redirect('admin.home');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

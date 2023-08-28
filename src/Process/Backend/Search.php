@@ -116,7 +116,7 @@ class Search extends Process
         '</div>' .
         '</form>';
 
-        if (Core::backend()->q && !dcCore::app()->error->flag()) {
+        if (Core::backend()->q && !Core::error()->flag()) {
             ob_start();
 
             # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
@@ -170,7 +170,7 @@ class Search extends Process
                 return;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
     }
 
@@ -225,7 +225,7 @@ class Search extends Process
                 return;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
     }
 

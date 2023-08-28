@@ -62,7 +62,7 @@ class ManagePosts extends Process
             $counter                        = dcCore::app()->meta->getPostsByMeta($params, true);
             Core::backend()->post_list = new ListingPosts(Core::backend()->posts, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         Core::backend()->posts_actions_page = new BackendActions(
@@ -91,7 +91,7 @@ class ManagePosts extends Process
                     ]);
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -108,7 +108,7 @@ class ManagePosts extends Process
                     'm' => 'tags',
                 ]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -154,7 +154,7 @@ class ManagePosts extends Process
         Notices::getNotices() .
         '<p><a class="back" href="' . Core::backend()->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             if (!Core::backend()->posts->isEmpty()) {
                 echo
                 '<div class="tag-actions vertical-separator">' .

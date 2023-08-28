@@ -13,6 +13,7 @@ namespace Dotclear\Core;
 
 use dcAuth;
 use dcCore;
+use dcError;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
@@ -53,6 +54,11 @@ class CoreFactory implements CoreFactoryInterface
             persistent: DC_DBPERSIST,
             prefix: DC_DBPREFIX
         );
+    }
+
+    public function error(): dcError
+    {
+        return new dcError();
     }
 
     public function filter(): Filter

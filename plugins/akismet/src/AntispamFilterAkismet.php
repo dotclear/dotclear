@@ -208,7 +208,7 @@ class AntispamFilterAkismet extends SpamFilter
                 Notices::addSuccessNotice(__('Filter configuration have been successfully saved.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -217,7 +217,7 @@ class AntispamFilterAkismet extends SpamFilter
                 $ak          = new Akismet(Core::blog()->url, My::settings()->ak_key);
                 $ak_verified = $ak->verify();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

@@ -54,7 +54,7 @@ class BackendBehaviors
                 (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : '')
             );
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
     }
 

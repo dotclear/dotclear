@@ -59,10 +59,10 @@ class Category extends Process
             try {
                 $rs = Core::blog()->getCategory((int) $_REQUEST['id']);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
 
-            if (!dcCore::app()->error->flag() && !$rs->isEmpty()) {
+            if (!Core::error()->flag() && !$rs->isEmpty()) {
                 Core::backend()->cat_id    = (int) $rs->cat_id;
                 Core::backend()->cat_title = $rs->cat_title;
                 Core::backend()->cat_url   = $rs->cat_url;
@@ -122,7 +122,7 @@ class Category extends Process
                     Notices::addSuccessNotice(__('The category has been successfully moved'));
                     Core::backend()->url->redirect('admin.categories');
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }
@@ -134,7 +134,7 @@ class Category extends Process
                 Notices::addSuccessNotice(__('The category has been successfully moved'));
                 Core::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -185,7 +185,7 @@ class Category extends Process
                     Core::backend()->url->redirect('admin.categories');
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

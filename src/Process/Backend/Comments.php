@@ -42,7 +42,7 @@ class Comments extends Process
                 $_SESSION['comments_del_spam'] = true;
                 Core::backend()->url->redirect('admin.comments');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -99,7 +99,7 @@ class Comments extends Process
 
             Core::backend()->comment_list = new ListingComments($comments, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -131,7 +131,7 @@ class Comments extends Process
             Notices::success(__('Selected comments have been successfully deleted.'));
         }
 
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             if (isset($_SESSION['comments_del_spam'])) {
                 Notices::message(__('Spam comments have been successfully deleted.'));
                 unset($_SESSION['comments_del_spam']);

@@ -140,7 +140,7 @@ class Post extends Process
             Core::backend()->post = Core::blog()->getPosts($params);
 
             if (Core::backend()->post->isEmpty()) {
-                dcCore::app()->error->add(__('This entry does not exist.'));
+                Core::error()->add(__('This entry does not exist.'));
                 Core::backend()->can_view_page = false;
             } else {
                 Core::backend()->post_id            = Core::backend()->post->post_id;
@@ -200,7 +200,7 @@ class Post extends Process
                 try {
                     dcCore::app()->media = new dcMedia();
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
 
                 // Sanitize trackbacks excerpt
@@ -269,11 +269,11 @@ class Post extends Process
                             $tb_post_url
                         );
                     } catch (Exception $e) {
-                        dcCore::app()->error->add($e->getMessage());
+                        Core::error()->add($e->getMessage());
                     }
                 }
 
-                if (!dcCore::app()->error->flag()) {
+                if (!Core::error()->flag()) {
                     Notices::addSuccessNotice(__('All pings sent.'));
                     Core::backend()->url->redirect(
                         'admin.post',
@@ -308,7 +308,7 @@ class Post extends Process
                     }
                     Core::backend()->post_dt = date('Y-m-d H:i', Core::backend()->post_dt);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
 
@@ -362,7 +362,7 @@ class Post extends Process
                 Core::blog()->delPost(Core::backend()->post_id);
                 Core::backend()->url->redirect('admin.posts');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -434,7 +434,7 @@ class Post extends Process
                         ['id' => Core::backend()->post_id]
                     );
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             } else {
                 $cur->user_id = Core::auth()->userID();
@@ -454,7 +454,7 @@ class Post extends Process
                         ['id' => $return_id]
                     );
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }

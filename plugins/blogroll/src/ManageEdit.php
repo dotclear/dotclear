@@ -36,16 +36,16 @@ class ManageEdit extends Process
             try {
                 Core::backend()->rs = Core::backend()->blogroll->getLink(Core::backend()->id);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
 
-            if (!dcCore::app()->error->flag() && Core::backend()->rs->isEmpty()) {
+            if (!Core::error()->flag() && Core::backend()->rs->isEmpty()) {
                 Core::backend()->link_title = '';
                 Core::backend()->link_href  = '';
                 Core::backend()->link_desc  = '';
                 Core::backend()->link_lang  = '';
                 Core::backend()->link_xfn   = '';
-                dcCore::app()->error->add(__('No such link or title'));
+                Core::error()->add(__('No such link or title'));
             } else {
                 Core::backend()->link_title = Core::backend()->rs->link_title;
                 Core::backend()->link_href  = Core::backend()->rs->link_href;
@@ -101,7 +101,7 @@ class ManageEdit extends Process
                     'id'   => Core::backend()->id,
                 ]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -118,7 +118,7 @@ class ManageEdit extends Process
                     'id'   => Core::backend()->id,
                 ]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

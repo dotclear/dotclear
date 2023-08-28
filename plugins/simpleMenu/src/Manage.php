@@ -182,7 +182,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Configuration successfully updated.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         } else {
             # Récupération paramètres postés
@@ -343,7 +343,7 @@ class Manage extends Process
                                 Notices::addErrorNotice(__('Label and URL of menu item are mandatory.'));
                             }
                         } catch (Exception $e) {
-                            dcCore::app()->error->add($e->getMessage());
+                            Core::error()->add($e->getMessage());
                         }
 
                         break;
@@ -379,7 +379,7 @@ class Manage extends Process
                             throw new Exception(__('No menu items selected.'));
                         }
                     } catch (Exception $e) {
-                        dcCore::app()->error->add($e->getMessage());
+                        Core::error()->add($e->getMessage());
                     }
                 }
 
@@ -441,7 +441,7 @@ class Manage extends Process
                         Notices::addSuccessNotice(__('Menu items have been successfully updated.'));
                         My::redirect();
                     } catch (Exception $e) {
-                        dcCore::app()->error->add($e->getMessage());
+                        Core::error()->add($e->getMessage());
                     }
                 }
             }

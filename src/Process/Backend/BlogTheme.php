@@ -108,7 +108,7 @@ class BlogTheme extends Process
         try {
             Core::backend()->list->doActions();
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -170,7 +170,7 @@ class BlogTheme extends Process
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 
-            if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
+            if (!Core::error()->flag() && !empty($_GET['nocache'])) {
                 Notices::success(__('Manual checking of themes update done successfully.'));
             }
 

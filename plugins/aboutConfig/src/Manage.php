@@ -69,7 +69,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Configuration successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -91,7 +91,7 @@ class Manage extends Process
                     'part' => 'global',
                 ]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

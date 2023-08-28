@@ -72,7 +72,7 @@ class Posts extends Process
 
             Core::backend()->post_list = new ListingPosts($posts, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -95,7 +95,7 @@ class Posts extends Process
         } elseif (!empty($_GET['del'])) {
             Notices::success(__('Selected entries have been successfully deleted.'));
         }
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             echo
             '<p class="top-add"><a class="button add" href="' . Core::backend()->url->get('admin.post') . '">' . __('New post') . '</a></p>';
 

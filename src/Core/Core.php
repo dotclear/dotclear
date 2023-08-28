@@ -11,8 +11,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+// classes to move to \Dotclear\Core
 use dcAuth;
 use dcBlog;
+use dcError;
+//
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
@@ -110,6 +113,11 @@ final class Core
     public static function con(): AbstractHandler
     {
         return self::$instance->get('con');
+    }
+
+    public static function error(): dcError
+    {
+        return self::$instance->get('error');
     }
 
     public static function filter(): Filter

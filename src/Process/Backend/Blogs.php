@@ -78,7 +78,7 @@ class Blogs extends Process
             }
             Core::backend()->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -102,7 +102,7 @@ class Blogs extends Process
             )
         );
 
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             if (Core::auth()->isSuperAdmin()) {
                 // Create blog button
                 echo (new Para())

@@ -90,7 +90,7 @@ class BlogPref extends Process
                 $da->blog_settings = new dcSettings($da->blog_id);
                 $da->blog_url      = $rs->blog_url;
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
 
             $da->action = Core::backend()->url->get('admin.blog');
@@ -170,7 +170,7 @@ class BlogPref extends Process
                 $stack[__($size[2])] = $code;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
         $da->img_default_size_combo = $stack;
 
@@ -387,7 +387,7 @@ class BlogPref extends Process
 
                 Http::redirect(sprintf($da->redir, $da->blog_id));
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -836,7 +836,7 @@ class BlogPref extends Process
                         }
                     }
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
                 echo '</div>';
             }

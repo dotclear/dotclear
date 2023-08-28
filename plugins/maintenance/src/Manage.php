@@ -45,7 +45,7 @@ class Manage extends Process
             Core::backend()->task = Core::backend()->maintenance->getTask($_REQUEST['task']);
 
             if (Core::backend()->task === null) {
-                dcCore::app()->error->add('Unknown task ID');
+                Core::error()->add('Unknown task ID');
             }
 
             Core::backend()->task->code(Core::backend()->code);
@@ -78,7 +78,7 @@ class Manage extends Process
                     My::redirect(['task' => Core::backend()->task->id(), 'tab' => Core::backend()->tab], '#' . Core::backend()->tab);
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -118,7 +118,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
                 My::redirect(['tab' => Core::backend()->tab], '#' . Core::backend()->tab);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -143,7 +143,7 @@ class Manage extends Process
 
                 My::redirect(['tab' => Core::backend()->tab], '#' . Core::backend()->tab);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

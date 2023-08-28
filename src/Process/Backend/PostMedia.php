@@ -78,10 +78,10 @@ class PostMedia extends Process
             }
             $f = $f[0];
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
-        if ((Core::backend()->post_id && Core::backend()->media_id) || dcCore::app()->error->flag()) {
+        if ((Core::backend()->post_id && Core::backend()->media_id) || Core::error()->flag()) {
             // Remove a media from entry
 
             if (!empty($_POST['remove'])) {

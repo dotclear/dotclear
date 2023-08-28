@@ -67,7 +67,7 @@ class Plugins extends Process
         try {
             Core::backend()->list->doActions();
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -77,7 +77,7 @@ class Plugins extends Process
     {
         // -- Plugin install --
         Core::backend()->plugins_install = null;
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             Core::backend()->plugins_install = dcCore::app()->plugins->installModules();
         }
 
@@ -142,7 +142,7 @@ class Plugins extends Process
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 
-            if (!dcCore::app()->error->flag() && !empty($_GET['nocache'])) {
+            if (!Core::error()->flag() && !empty($_GET['nocache'])) {
                 Notices::success(__('Manual checking of plugins update done successfully.'));
             }
 

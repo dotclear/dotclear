@@ -79,7 +79,7 @@ class Blog extends Process
                 Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 Core::backend()->url->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

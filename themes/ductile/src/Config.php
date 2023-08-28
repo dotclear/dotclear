@@ -341,7 +341,7 @@ class Config extends Process
 
                 Notices::message(__('Theme configuration upgraded.'), true, true);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

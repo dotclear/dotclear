@@ -233,7 +233,7 @@ class UserPreferences extends Process
 
                 Core::backend()->url->redirect('admin.user.preferences');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -349,7 +349,7 @@ class UserPreferences extends Process
                 Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -376,7 +376,7 @@ class UserPreferences extends Process
                 Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -395,12 +395,12 @@ class UserPreferences extends Process
                 }
                 Core::backend()->favs->setFavoriteIDs($user_favs, false);
 
-                if (!dcCore::app()->error->flag()) {
+                if (!Core::error()->flag()) {
                     Notices::addSuccessNotice(__('Favorites have been successfully added.'));
                     Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -421,12 +421,12 @@ class UserPreferences extends Process
                     }
                 }
                 Core::backend()->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
-                if (!dcCore::app()->error->flag()) {
+                if (!Core::error()->flag()) {
                     Notices::addSuccessNotice(__('Favorites have been successfully removed.'));
                     Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -451,7 +451,7 @@ class UserPreferences extends Process
                 }
             }
             Core::backend()->favs->setFavoriteIDs($order, false);
-            if (!dcCore::app()->error->flag()) {
+            if (!Core::error()->flag()) {
                 Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
@@ -463,7 +463,7 @@ class UserPreferences extends Process
             $user_favs = Core::backend()->favs->getFavoriteIDs(false);
             Core::backend()->favs->setFavoriteIDs($user_favs, true);
 
-            if (!dcCore::app()->error->flag()) {
+            if (!Core::error()->flag()) {
                 Notices::addSuccessNotice(__('Default favorites have been successfully updated.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             }
@@ -477,7 +477,7 @@ class UserPreferences extends Process
             Core::auth()->user_prefs->dashboard->drop('boxes_items_order');
             Core::auth()->user_prefs->dashboard->drop('boxes_contents_order');
 
-            if (!dcCore::app()->error->flag()) {
+            if (!Core::error()->flag()) {
                 Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
                 Core::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
             }

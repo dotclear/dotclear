@@ -67,7 +67,7 @@ class Media extends Process
 
                 throw new Exception(__('Not a valid directory'));
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -98,7 +98,7 @@ class Media extends Process
                     ));
                     Core::backend()->url->redirect('admin.media', Core::backend()->page->values());
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }
@@ -150,7 +150,7 @@ class Media extends Process
                 Notices::addSuccessNotice(__('Files have been successfully uploaded.'));
                 Core::backend()->url->redirect('admin.media', Core::backend()->page->values());
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -172,7 +172,7 @@ class Media extends Process
                 );
                 Core::backend()->url->redirect('admin.media', Core::backend()->page->values());
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -197,7 +197,7 @@ class Media extends Process
                 Notices::addSuccessNotice($msg);
                 Core::backend()->url->redirect('admin.media', Core::backend()->page->values());
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -214,7 +214,7 @@ class Media extends Process
                 );
                 Core::backend()->url->redirect('admin.media', Core::backend()->page->values());
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -325,7 +325,7 @@ class Media extends Process
             Notices::getNotices();
         }
 
-        if (!Core::backend()->page->mediaWritable() && !dcCore::app()->error->flag()) {
+        if (!Core::backend()->page->mediaWritable() && !Core::error()->flag()) {
             Notices::warning(__('You do not have sufficient permissions to write to this folder.'));
         }
 

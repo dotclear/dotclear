@@ -59,7 +59,7 @@ class Categories extends Process
                 ));
                 Core::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -89,7 +89,7 @@ class Categories extends Process
                 ));
                 Core::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -112,7 +112,7 @@ class Categories extends Process
                 Notices::addSuccessNotice(__('Categories order has been successfully reset.'));
                 Core::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

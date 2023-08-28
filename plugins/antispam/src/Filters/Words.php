@@ -144,7 +144,7 @@ class Words extends SpamFilter
                 Notices::addSuccessNotice(__('Words have been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -157,7 +157,7 @@ class Words extends SpamFilter
                 Notices::addSuccessNotice(__('Word has been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -168,7 +168,7 @@ class Words extends SpamFilter
                 Notices::addSuccessNotice(__('Words have been successfully removed.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

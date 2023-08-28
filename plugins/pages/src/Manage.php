@@ -67,7 +67,7 @@ class Manage extends Process
 
             Core::backend()->post_list = new BackendList($pages, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         // Actions combo box
@@ -128,7 +128,7 @@ class Manage extends Process
         echo
         '<p class="top-add"><a class="button add" href="' . Core::backend()->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';
 
-        if (!dcCore::app()->error->flag() && Core::backend()->post_list) {
+        if (!Core::error()->flag() && Core::backend()->post_list) {
             // Show pages
             Core::backend()->post_list->display(
                 Core::backend()->page,

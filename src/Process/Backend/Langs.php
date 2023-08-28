@@ -120,7 +120,7 @@ class Langs extends Process
                 Notices::addSuccessNotice(__('Language has been successfully deleted.'));
                 Core::backend()->url->redirect('admin.langs');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -161,7 +161,7 @@ class Langs extends Process
                 }
                 Core::backend()->url->redirect('admin.langs');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -194,7 +194,7 @@ class Langs extends Process
                 }
                 Core::backend()->url->redirect('admin.langs');
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

@@ -71,7 +71,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Preferences successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -90,7 +90,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Preferences successfully updated'));
                 My::redirect(['part' => 'global']);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 

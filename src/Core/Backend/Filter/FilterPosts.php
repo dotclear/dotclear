@@ -72,7 +72,7 @@ class FilterPosts extends Filters
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
 
             return null;
         }
@@ -103,7 +103,7 @@ class FilterPosts extends Filters
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
 
             return null;
         }
@@ -227,7 +227,7 @@ class FilterPosts extends Filters
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
 
             return null;
         }
@@ -255,7 +255,7 @@ class FilterPosts extends Filters
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
 
             return null;
         }

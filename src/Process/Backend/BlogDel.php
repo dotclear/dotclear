@@ -43,12 +43,12 @@ class BlogDel extends Process
             try {
                 $rs = Core::blogs()->getBlog($_POST['blog_id']);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
 
             if ($rs) {
                 if ($rs->isEmpty()) {
-                    dcCore::app()->error->add(__('No such blog ID'));
+                    Core::error()->add(__('No such blog ID'));
                 } else {
                     Core::backend()->blog_id   = $rs->blog_id;
                     Core::backend()->blog_name = $rs->blog_name;
@@ -61,10 +61,10 @@ class BlogDel extends Process
 
     public static function process(): bool
     {
-        if (!dcCore::app()->error->flag() && Core::backend()->blog_id && !empty($_POST['del'])) {
+        if (!Core::error()->flag() && Core::backend()->blog_id && !empty($_POST['del'])) {
             // Delete the blog
             if (!Core::auth()->checkPassword($_POST['pwd'])) {
-                dcCore::app()->error->add(__('Password verification failed'));
+                Core::error()->add(__('Password verification failed'));
             } else {
                 try {
                     Core::blogs()->delBlog(Core::backend()->blog_id);
@@ -72,7 +72,7 @@ class BlogDel extends Process
 
                     Core::backend()->url->redirect('admin.blogs');
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }
@@ -94,7 +94,7 @@ class BlogDel extends Process
             )
         );
 
-        if (!dcCore::app()->error->flag()) {
+        if (!Core::error()->flag()) {
             $msg = '<strong>' . __('Warning') . '</strong></p><p>' . sprintf(
                 __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
                 '<strong>' . Core::backend()->blog_id . ' (' . Core::backend()->blog_name . ')</strong>'

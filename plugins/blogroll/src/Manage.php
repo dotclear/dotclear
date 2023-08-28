@@ -83,7 +83,7 @@ class Manage extends Process
                     throw new Exception(__('Nothing to import'));
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -98,7 +98,7 @@ class Manage extends Process
                 try {
                     Core::backend()->blogroll->addLink(Core::backend()->link_title, Core::backend()->link_href, Core::backend()->link_desc, '');
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                     Core::backend()->default_tab = 'import-links';
                 }
             }
@@ -110,7 +110,7 @@ class Manage extends Process
         if (!empty($_POST['cancel_import'])) {
             // Cancel import
 
-            dcCore::app()->error->add(__('Import operation cancelled.'));
+            Core::error()->add(__('Import operation cancelled.'));
             Core::backend()->default_tab = 'import-links';
         }
 
@@ -128,7 +128,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Link has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
                 Core::backend()->default_tab = 'add-link';
             }
         }
@@ -143,7 +143,7 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('category has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
                 Core::backend()->default_tab = 'add-cat';
             }
         }
@@ -155,13 +155,13 @@ class Manage extends Process
                 try {
                     Core::backend()->blogroll->delItem($v);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
 
                     break;
                 }
             }
 
-            if (!dcCore::app()->error->flag()) {
+            if (!Core::error()->flag()) {
                 Notices::addSuccessNotice(__('Items have been successfully removed.'));
                 My::redirect();
             }
@@ -187,11 +187,11 @@ class Manage extends Process
                 try {
                     Core::backend()->blogroll->updateOrder($l, (string) $pos);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
 
-            if (!dcCore::app()->error->flag()) {
+            if (!Core::error()->flag()) {
                 Notices::addSuccessNotice(__('Items order has been successfully updated'));
                 My::redirect();
             }
@@ -218,7 +218,7 @@ class Manage extends Process
         try {
             $rs = Core::backend()->blogroll->getLinks();
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            Core::error()->add($e->getMessage());
         }
 
         $head = Page::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');

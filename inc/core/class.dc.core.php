@@ -181,6 +181,8 @@ final class dcCore
     /**
      * dcError instance
      *
+     * @deprecated since 2.28, use Core::session() instead
+     *
      * @var dcError
      */
     public readonly dcError $error;
@@ -328,7 +330,7 @@ final class dcCore
 
         $this->con        = Core::con();
         $this->prefix     = Core::con()->prefix();
-        $this->error      = new dcError();
+        $this->error      = Core::error();
         $this->auth       = Core::auth();
         $this->session    = Core::session();
         $this->url        = new Url();

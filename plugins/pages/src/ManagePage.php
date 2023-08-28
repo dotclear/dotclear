@@ -131,7 +131,7 @@ class ManagePage extends Process
             Core::backend()->post = Core::blog()->getPosts($params);
 
             if (Core::backend()->post->isEmpty()) {
-                dcCore::app()->error->add(__('This page does not exist.'));
+                Core::error()->add(__('This page does not exist.'));
                 Core::backend()->can_view_page = false;
             } else {
                 Core::backend()->post_id            = (int) Core::backend()->post->post_id;
@@ -194,7 +194,7 @@ class ManagePage extends Process
                     dcCore::app()->media             = new dcMedia();
                     Core::backend()->post_media = dcCore::app()->media->getPostMedia(Core::backend()->post_id);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }
@@ -241,7 +241,7 @@ class ManagePage extends Process
                     }
                     Core::backend()->post_dt = date('Y-m-d H:i', Core::backend()->post_dt);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
 
@@ -296,7 +296,7 @@ class ManagePage extends Process
                 Core::blog()->delPost(Core::backend()->post_id);
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
@@ -346,7 +346,7 @@ class ManagePage extends Process
 
                     My::redirect(['act' => 'page', 'id' => Core::backend()->post_id, 'upd' => '1']);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             } else {
                 $cur->user_id = Core::auth()->userID();
@@ -362,7 +362,7 @@ class ManagePage extends Process
 
                     My::redirect(['act' => 'page', 'id' => $return_id, 'crea' => '1']);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
         }

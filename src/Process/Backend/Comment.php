@@ -90,7 +90,7 @@ class Comment extends Process
 
                 Notices::addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
             Http::redirect(Core::postTypes()->get(Core::backend()->rs->post_type)->adminUrl(Core::backend()->rs->post_id, false, ['co' => 1]));
         }
@@ -123,17 +123,17 @@ class Comment extends Process
                     //
                 }
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                Core::error()->add($e->getMessage());
             }
         }
 
-        if (!Core::backend()->comment_id && !dcCore::app()->error->flag()) {
-            dcCore::app()->error->add(__('No comments'));
+        if (!Core::backend()->comment_id && !Core::error()->flag()) {
+            Core::error()->add(__('No comments'));
         }
 
         $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = false;
 
-        if (!dcCore::app()->error->flag() && isset(Core::backend()->rs)) {
+        if (!Core::error()->flag() && isset(Core::backend()->rs)) {
             $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = Core::auth()->check(Core::auth()->makePermissions([
                 Core::auth()::PERMISSION_CONTENT_ADMIN,
             ]), Core::blog()->id);
@@ -180,7 +180,7 @@ class Comment extends Process
                     Notices::addSuccessNotice(__('Comment has been successfully updated.'));
                     Core::backend()->url->redirect('admin.comment', ['id' => Core::backend()->comment_id]);
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
 
@@ -196,12 +196,12 @@ class Comment extends Process
                     Notices::addSuccessNotice(__('Comment has been successfully deleted.'));
                     Http::redirect(Core::postTypes()->get(Core::backend()->rs->post_type)->adminUrl(Core::backend()->rs->post_id, false, ['co' => 1]));
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    Core::error()->add($e->getMessage());
                 }
             }
 
             if (!$can_edit) {
-                dcCore::app()->error->add(__("You can't edit this comment."));
+                Core::error()->add(__("You can't edit this comment."));
             }
         }
 
