@@ -24,10 +24,8 @@ use Exception;
 
 class Url extends UrlHandler
 {
-    /**
-     * URI arguments (depends on URL representation)
-     */
-    public string $args;
+    /** @var string URI arguments (depends on URL representation) */
+    public ?string $args;
 
     /**
      * Gets the home type set for the blog.
