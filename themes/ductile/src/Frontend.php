@@ -89,10 +89,10 @@ class Frontend extends Process
         }
 
         if ($nb_other > 0) {
-            dcCore::app()->ctx->nb_entry_per_page = $nb_other;
+            Core::frontend()->ctx->nb_entry_per_page = $nb_other;
         }
         if ($nb_first > 0) {
-            dcCore::app()->ctx->nb_entry_first_page = $nb_first;
+            Core::frontend()->ctx->nb_entry_first_page = $nb_first;
         }
     }
 
@@ -113,8 +113,8 @@ class Frontend extends Process
         $full               = dcCore::app()->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
-        return '<?php if (strlen(' . sprintf($full, 'dcCore::app()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
-        'strlen(' . sprintf($short, 'dcCore::app()->ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+        return '<?php if (strlen(' . sprintf($full, 'Core::frontend()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
+        'strlen(' . sprintf($short, 'Core::frontend()->ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
             $content .
             '<?php endif; ?>';
     }

@@ -53,14 +53,14 @@ class FrontendBehaviors
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($block == 'Entries' || $block == 'Comments')) {
             return
-                '<?php if (dcCore::app()->ctx->exists("meta") && dcCore::app()->ctx->meta->rows() && (dcCore::app()->ctx->meta->meta_type == "tag")) { ' .
+                '<?php if (Core::frontend()->ctx->exists("meta") && Core::frontend()->ctx->meta->rows() && (Core::frontend()->ctx->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
                 "\$params['from'] .= ', '.Core::con()->prefix().'meta META ';\n" .
                 "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
                 "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-                "\$params['sql'] .= \"AND META.meta_id = '\".Core::con()->escape(dcCore::app()->ctx->meta->meta_id).\"' \";\n" .
+                "\$params['sql'] .= \"AND META.meta_id = '\".Core::con()->escape(Core::frontend()->ctx->meta->meta_id).\"' \";\n" .
                 "} ?>\n";
         }
 

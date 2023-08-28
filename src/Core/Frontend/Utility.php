@@ -35,6 +35,13 @@ class Utility extends Process
     public const TPL_ROOT = 'default-templates';
 
     /**
+     * Context
+     *
+     * @var context|null
+     */
+    public $ctx;
+
+    /**
      * Searched term
      *
      * @var string|null
@@ -166,16 +173,17 @@ class Utility extends Process
         }
 
         # Creating template context
-        dcCore::app()->ctx = new context();
+        Core::frontend()->ctx = new context();
+        dcCore::app()->ctx = Core::frontend()->ctx; // deprecated
 
         /*
          * Template context
          *
          * @var        context
          *
-         * @deprecated Since 2.23, use dcCore::app()->ctx instead
+         * @deprecated Since 2.23, use Core::frontend()->ctx instead
          */
-        $GLOBALS['_ctx'] = dcCore::app()->ctx;
+        $GLOBALS['_ctx'] = Core::frontend()->ctx;
 
         try {
             dcCore::app()->tpl = new Tpl(DC_TPL_CACHE, 'dcCore::app()->tpl');

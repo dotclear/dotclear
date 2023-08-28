@@ -278,8 +278,8 @@ class Widgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((dcCore::app()->url->type == 'category' && dcCore::app()->ctx->categories instanceof MetaRecord && dcCore::app()->ctx->categories->cat_id == $rs->cat_id)
-                || (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->cat_id == $rs->cat_id)) {
+            if ((dcCore::app()->url->type == 'category' && Core::frontend()->ctx->categories instanceof MetaRecord && Core::frontend()->ctx->categories->cat_id == $rs->cat_id)
+                || (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -341,7 +341,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -380,7 +380,7 @@ class Widgets
             '<ul>';
 
         while ($rs->fetch()) {
-            $l = (dcCore::app()->ctx->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
+            $l = (Core::frontend()->ctx->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
 
             $lang_name = $langs[$rs->post_lang] ?? $rs->post_lang;
 
@@ -418,8 +418,8 @@ class Widgets
 
         $type = ($widget->type == 'atom' || $widget->type == 'rss2') ? $widget->type : 'rss2';
         $mime = $type == 'rss2' ? 'application/rss+xml' : 'application/atom+xml';
-        if (dcCore::app()->ctx->exists('cur_lang')) {
-            $type = dcCore::app()->ctx->cur_lang . '/' . $type;
+        if (Core::frontend()->ctx->exists('cur_lang')) {
+            $type = Core::frontend()->ctx->cur_lang . '/' . $type;
         }
 
         $p_title = __('This blog\'s entries %s feed');
@@ -576,7 +576,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

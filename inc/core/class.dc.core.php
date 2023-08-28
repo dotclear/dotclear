@@ -295,7 +295,7 @@ final class dcCore
     /**
      * context instance
      *
-     * May be transfered as property of frontend Utility instance in future
+     * @deprecated since 2.28, Use Core::frontend()->ctx instead
      *
      * @var context|null
      */

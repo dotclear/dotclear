@@ -75,7 +75,7 @@ class rsExtPostPublic extends rsExtPost
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
         // Not very nice hack but it does the job :)
-        if (isset(dcCore::app()->ctx) && dcCore::app()->ctx->short_feed_items === true) {
+        if (isset(Core::frontend()->ctx) && Core::frontend()->ctx->short_feed_items === true) {
             $content = parent::getContent($rs, $absolute_urls);
             $content = context::remove_html($content);
             $content = context::cut_string($content, 350);

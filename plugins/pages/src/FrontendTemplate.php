@@ -64,7 +64,7 @@ class FrontendTemplate
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type === 'pages' && dcCore::app()->ctx->posts instanceof MetaRecord && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type === 'pages' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="page-current" aria-current="page"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

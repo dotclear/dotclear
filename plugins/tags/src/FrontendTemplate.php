@@ -56,12 +56,12 @@ class FrontendTemplate
         }
 
         $res = "<?php\n" .
-        "dcCore::app()->ctx->meta = Core::meta()->computeMetaStats(Core::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
-        "dcCore::app()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
-        'while (dcCore::app()->ctx->meta->fetch()) : ?>' . "\n" .
+        "Core::frontend()->ctx->meta = Core::meta()->computeMetaStats(Core::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
+        "Core::frontend()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
+        'while (Core::frontend()->ctx->meta->fetch()) : ?>' . "\n" .
         $content .
         '<?php endwhile; ' . "\n" .
-        'dcCore::app()->ctx->meta = null; ?>';
+        'Core::frontend()->ctx->meta = null; ?>';
 
         return $res;
     }
@@ -77,7 +77,7 @@ class FrontendTemplate
     public static function TagsHeader(ArrayObject $attr, string $content): string
     {
         return
-        '<?php if (dcCore::app()->ctx->meta->isStart()) : ?>' .
+        '<?php if (Core::frontend()->ctx->meta->isStart()) : ?>' .
         $content .
         '<?php endif; ?>';
     }
@@ -93,7 +93,7 @@ class FrontendTemplate
     public static function TagsFooter(ArrayObject $attr, string $content): string
     {
         return
-        '<?php if (dcCore::app()->ctx->meta->isEnd()) : ?>' .
+        '<?php if (Core::frontend()->ctx->meta->isEnd()) : ?>' .
         $content .
         '<?php endif; ?>';
     }
@@ -129,12 +129,12 @@ class FrontendTemplate
         }
 
         $res = "<?php\n" .
-            "dcCore::app()->ctx->meta = Core::meta()->getMetaRecordset(dcCore::app()->ctx->posts->post_meta,'" . $type . "'); " .
-            "dcCore::app()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
+            "Core::frontend()->ctx->meta = Core::meta()->getMetaRecordset(Core::frontend()->ctx->posts->post_meta,'" . $type . "'); " .
+            "Core::frontend()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
-        $res .= '<?php while (dcCore::app()->ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            'dcCore::app()->ctx->meta = null; ?>';
+        $res .= '<?php while (Core::frontend()->ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
+            'Core::frontend()->ctx->meta = null; ?>';
 
         return $res;
     }
@@ -163,7 +163,7 @@ class FrontendTemplate
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '' : '!';
-            $if[] = $sign . 'dcCore::app()->ctx->meta->count';
+            $if[] = $sign . 'Core::frontend()->ctx->meta->count';
         }
 
         if (!empty($if)) {
@@ -188,7 +188,7 @@ class FrontendTemplate
     {
         $f = dcCore::app()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->meta->meta_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'Core::frontend()->ctx->meta->meta_id') . '; ?>';
     }
 
     /**
@@ -198,7 +198,7 @@ class FrontendTemplate
      */
     public static function TagCount()
     {
-        return '<?php echo dcCore::app()->ctx->meta->count; ?>';
+        return '<?php echo Core::frontend()->ctx->meta->count; ?>';
     }
 
     /**
@@ -208,7 +208,7 @@ class FrontendTemplate
      */
     public static function TagPercent()
     {
-        return '<?php echo dcCore::app()->ctx->meta->percent; ?>';
+        return '<?php echo Core::frontend()->ctx->meta->percent; ?>';
     }
 
     /**
@@ -218,7 +218,7 @@ class FrontendTemplate
      */
     public static function TagRoundPercent()
     {
-        return '<?php echo dcCore::app()->ctx->meta->roundpercent; ?>';
+        return '<?php echo Core::frontend()->ctx->meta->roundpercent; ?>';
     }
 
     /**
@@ -237,7 +237,7 @@ class FrontendTemplate
         $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag",' .
-            'rawurlencode(dcCore::app()->ctx->meta->meta_id))') . '; ?>';
+            'rawurlencode(Core::frontend()->ctx->meta->meta_id))') . '; ?>';
     }
 
     /**
@@ -281,7 +281,7 @@ class FrontendTemplate
         $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'Core::blog()->url.dcCore::app()->url->getURLFor("tag_feed",' .
-            'rawurlencode(dcCore::app()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
+            'rawurlencode(Core::frontend()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
 
     /**
@@ -340,14 +340,14 @@ class FrontendTemplate
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
-        if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord) {
-            dcCore::app()->ctx->meta = Core::meta()->getMetaRecordset(dcCore::app()->ctx->posts->post_meta, 'tag');
+        if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord) {
+            Core::frontend()->ctx->meta = Core::meta()->getMetaRecordset(Core::frontend()->ctx->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof MetaRecord) {
-                while (dcCore::app()->ctx->meta->fetch()) {
-                    if (dcCore::app()->ctx->meta->meta_id == $rs->meta_id) {
+            if (dcCore::app()->url->type == 'post' && Core::frontend()->ctx->posts instanceof MetaRecord) {
+                while (Core::frontend()->ctx->meta->fetch()) {
+                    if (Core::frontend()->ctx->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';
 
                         break;

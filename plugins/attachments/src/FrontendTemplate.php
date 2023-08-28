@@ -31,16 +31,16 @@ class FrontendTemplate
     {
         return
             '<?php' . "\n" .
-            'if (dcCore::app()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
-            '    dcCore::app()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(dcCore::app()->ctx->posts->post_id,null,"attachment"));' . "\n" .
-            '    foreach (dcCore::app()->ctx->attachments as $attach_i => $attach_f) : ' .
-            '        dcCore::app()->ctx->file_url = $attach_f->file_url;' . "\n" .
+            'if (Core::frontend()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
+            '    Core::frontend()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(Core::frontend()->ctx->posts->post_id,null,"attachment"));' . "\n" .
+            '    foreach (Core::frontend()->ctx->attachments as $attach_i => $attach_f) : ' .
+            '        Core::frontend()->ctx->file_url = $attach_f->file_url;' . "\n" .
             '?>' . "\n" .
             $content .
             '<?php' . "\n" .
             '    endforeach;' . "\n" .
-            '    dcCore::app()->ctx->attachments = null;' . "\n" .
-            '    unset($attach_i,$attach_f,dcCore::app()->ctx->file_url);' . "\n" .
+            '    Core::frontend()->ctx->attachments = null;' . "\n" .
+            '    unset($attach_i,$attach_f,Core::frontend()->ctx->file_url);' . "\n" .
             '}' . "\n" .
             '?>' . "\n";
     }
@@ -72,7 +72,7 @@ class FrontendTemplate
     public static function AttachmentsFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if ($attach_i+1 == count(dcCore::app()->ctx->attachments)) : ?>' .
+            '<?php if ($attach_i+1 == count(Core::frontend()->ctx->attachments)) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -293,7 +293,7 @@ class FrontendTemplate
     {
         return
         '<?php ' . "\n" .
-        '$url = dcCore::app()->ctx->file_url;' . "\n" .
+        '$url = Core::frontend()->ctx->file_url;' . "\n" .
         'if (substr($url, 0, strlen(Core::blog()->host)) === Core::blog()->host) {' . "\n" .
         '    $url = substr($url, strlen(Core::blog()->host));' . "\n" .
         '}' . "\n" .
@@ -321,7 +321,7 @@ class FrontendTemplate
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {
         return dcCore::app()->tpl->displayCounter(
-            'dcCore::app()->ctx->posts->countMedia(\'attachment\')',
+            'Core::frontend()->ctx->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',
                 'one'  => 'one attachment',
