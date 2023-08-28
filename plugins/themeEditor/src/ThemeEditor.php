@@ -264,15 +264,7 @@ class ThemeEditor
 
             if ($type === 'po') {
                 // Build PHP file from PO
-                $license_block = <<<EOF
-                    /**
-                     * @package Dotclear
-                     *
-                     * @copyright Olivier Meunier & Association Dotclear
-                     * @copyright GPL-2.0-only
-                     */
-                    EOF;
-                L10n::generatePhpFileFromPo(dirname($dest) . '/' . basename($dest, '.po'), $license_block);
+                L10n::generatePhpFileFromPo(dirname($dest) . '/' . basename($dest, '.po'), self::license_block());
             }
 
             // Updating inner files list
@@ -566,5 +558,19 @@ class ThemeEditor
         }
 
         return $res;
+    }
+
+    private static function license_block(): string
+    {
+        // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
+        // Warning: don't use <<< if there is some __() l10n calls after as xgettext will not find them
+        return <<<EOF
+            /**
+             * @package Dotclear
+             *
+             * @copyright Olivier Meunier & Association Dotclear
+             * @copyright GPL-2.0-only
+             */
+            EOF;
     }
 }
