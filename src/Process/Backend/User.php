@@ -15,7 +15,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use dcAuth;
 use dcBlog;
-use dcCore;
 use dcPrefs;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
@@ -234,8 +233,8 @@ class User extends Process
             Core::behavior()->callBehavior('adminUserHeaders'),
             Page::breadcrumb(
                 [
-                    __('System')                     => '',
-                    __('Users')                      => Core::backend()->url->get('admin.users'),
+                    __('System')                => '',
+                    __('Users')                 => Core::backend()->url->get('admin.users'),
                     Core::backend()->page_title => '',
                 ]
             )

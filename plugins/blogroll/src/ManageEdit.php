@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -137,7 +136,7 @@ class ManageEdit extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(Core::blog()->name) => '',
-                My::name()                                  => Core::backend()->getPageURL(),
+                My::name()                           => Core::backend()->getPageURL(),
             ]
         ) .
         Notices::getNotices() .

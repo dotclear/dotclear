@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 
 class BackendBehaviors

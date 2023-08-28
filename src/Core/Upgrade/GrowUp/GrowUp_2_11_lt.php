@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcBlog;
-use dcCore;
 use dcNamespace;
 use Dotclear\Core\Core;
 use Dotclear\Core\Upgrade\Upgrade;

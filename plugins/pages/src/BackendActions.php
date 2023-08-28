@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Page;
@@ -49,8 +48,8 @@ class BackendActions extends ActionsPosts
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    __('Pages')                                 => $this->getRedirection(true),
-                    __('Pages actions')                         => '',
+                    __('Pages')                          => $this->getRedirection(true),
+                    __('Pages actions')                  => '',
                 ]
             )
         );
@@ -70,7 +69,7 @@ class BackendActions extends ActionsPosts
             Page::jsLoad('js/_posts_actions.js') .
             $head
         );
-        echo 
+        echo
         $breadcrumb .
         '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
     }

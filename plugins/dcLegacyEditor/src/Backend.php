@@ -12,11 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use dcCore;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
-use Dotclear\Helper\Html\WikiToHtml;
 
 class Backend extends Process
 {

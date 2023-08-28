@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
 use dcMedia;
 use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;

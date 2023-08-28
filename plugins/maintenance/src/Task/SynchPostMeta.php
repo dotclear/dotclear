@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use dcBlog;
-use dcCore;
 use dcMeta;
 use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;

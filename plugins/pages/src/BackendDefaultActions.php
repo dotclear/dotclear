@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Action\ActionsPostsDefault;
 use Dotclear\Core\Backend\Notices;

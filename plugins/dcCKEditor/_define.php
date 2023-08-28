@@ -20,8 +20,8 @@ $this->registerModule(
             Core::auth()::PERMISSION_USAGE,
             Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'        => 'plugin',
-        'settings'    => [
+        'type'     => 'plugin',
+        'settings' => [
             'self' => '',
             'pref' => '#user-options.user_options_edition',
         ],

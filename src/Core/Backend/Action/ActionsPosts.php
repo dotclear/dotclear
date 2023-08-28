@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Link;
@@ -106,8 +105,8 @@ class ActionsPosts extends Actions
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    $this->getCallerTitle()                     => $this->getRedirection(true),
-                    __('Posts actions')                         => '',
+                    $this->getCallerTitle()              => $this->getRedirection(true),
+                    __('Posts actions')                  => '',
                 ]
             )
         );

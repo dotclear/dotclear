@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcCore;
 use dcBlog;
 use Dotclear\Core\Core;
 use Dotclear\Database\Statement\UpdateStatement;

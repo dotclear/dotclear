@@ -271,8 +271,8 @@ class BackendBehaviors
                 Page::breadcrumb(
                     [
                         Html::escapeHTML(Core::blog()->name) => '',
-                        __('Entries')                               => $ap->getRedirection(true),
-                        __('Add tags to this selection')            => '',
+                        __('Entries')                        => $ap->getRedirection(true),
+                        __('Add tags to this selection')     => '',
                     ]
                 ),
                 Page::jsMetaEditor() .
@@ -346,7 +346,7 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(Core::blog()->name)    => '',
+                        Html::escapeHTML(Core::blog()->name)           => '',
                         __('Entries')                                  => Core::backend()->url->get('admin.posts'),
                         __('Remove selected tags from this selection') => '',
                     ]

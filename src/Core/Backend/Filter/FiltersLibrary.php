@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Filter;
 
-use dcCore;
 use Dotclear\Core\Core;
 
 class FiltersLibrary

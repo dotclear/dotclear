@@ -390,7 +390,7 @@ class MediaPage extends FilterMedia
 
         $elements = [
             Html::escapeHTML(Core::blog()->name) => '',
-            __('Media manager')                         => empty($param) ? '' :
+            __('Media manager')                  => empty($param) ? '' :
                 Core::backend()->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];
         $options = [

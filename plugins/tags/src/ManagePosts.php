@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcCore;
 use dcMeta;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
@@ -59,7 +58,7 @@ class ManagePosts extends Process
 
         try {
             Core::backend()->posts     = Core::meta()->getPostsByMeta($params);
-            $counter                        = Core::meta()->getPostsByMeta($params, true);
+            $counter                   = Core::meta()->getPostsByMeta($params, true);
             Core::backend()->post_list = new ListingPosts(Core::backend()->posts, $counter->f(0));
         } catch (Exception $e) {
             Core::error()->add($e->getMessage());
@@ -146,8 +145,8 @@ class ManagePosts extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(Core::blog()->name)                                      => '',
-                My::name()                                                                       => Core::backend()->getPageURL() . '&amp;m=tags',
+                Html::escapeHTML(Core::blog()->name)                                        => '',
+                My::name()                                                                  => Core::backend()->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(Core::backend()->tag) . '&rdquo;' => '',
             ]
         ) .

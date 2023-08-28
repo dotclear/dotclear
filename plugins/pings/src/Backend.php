@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;

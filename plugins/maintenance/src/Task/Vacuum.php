@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Plugin\maintenance\MaintenanceTask;

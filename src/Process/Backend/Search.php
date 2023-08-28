@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Listing\ListingComments;
@@ -97,7 +96,7 @@ class Search extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    __('Search')                                => '',
+                    __('Search')                         => '',
                 ]
             )
         );

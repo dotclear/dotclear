@@ -12,7 +12,6 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;

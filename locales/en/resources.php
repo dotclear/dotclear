@@ -12,5 +12,4 @@
     ->set('doc', 'Dotclear presentation', 'https://dotclear.org/documentation/2.0/overview/tour')
     ->set('doc', 'User manual', 'https://dotclear.org/documentation/2.0/usage')
     ->set('doc', 'Installation and administration guides', 'https://dotclear.org/documentation/2.0/admin')
-    ->set('doc', 'Dotclear support forum', 'https://forum.dotclear.net/')
-    ;
+    ->set('doc', 'Dotclear support forum', 'https://forum.dotclear.net/');

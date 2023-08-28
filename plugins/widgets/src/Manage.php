@@ -262,7 +262,7 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(Core::blog()->name) => '',
-                My::name()                                  => '',
+                My::name()                           => '',
             ]
         ) .
         Notices::getNotices() .

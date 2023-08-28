@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Filter;
 
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Backend\Page;

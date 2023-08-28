@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 
 class Favorites

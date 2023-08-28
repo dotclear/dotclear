@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -143,7 +142,7 @@ class Categories extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    __('Categories')                            => '',
+                    __('Categories')                     => '',
                 ]
             )
         );

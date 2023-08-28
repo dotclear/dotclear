@@ -191,7 +191,7 @@ class ManagePage extends Process
                 }
 
                 try {
-                    dcCore::app()->media             = new dcMedia();
+                    dcCore::app()->media        = new dcMedia();
                     Core::backend()->post_media = dcCore::app()->media->getPostMedia(Core::backend()->post_id);
                 } catch (Exception $e) {
                     Core::error()->add($e->getMessage());
@@ -465,8 +465,8 @@ class ManagePage extends Process
         echo Page::breadcrumb(
             [
                 Html::escapeHTML(Core::blog()->name) => '',
-                My::name()                                  => Core::backend()->getPageURL(),
-                $edit_entry_title                           => '',
+                My::name()                           => Core::backend()->getPageURL(),
+                $edit_entry_title                    => '',
             ]
         );
 

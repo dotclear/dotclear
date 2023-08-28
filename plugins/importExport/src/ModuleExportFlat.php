@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\importExport;
 use Exception;
 use dcBlog;
 use dcCategories;
-use dcCore;
 use dcMedia;
 use dcMeta;
 use dcNamespace;

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;
@@ -71,7 +70,7 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(Core::blog()->name) => '',
-                My::name()                                  => '',
+                My::name()                           => '',
             ]
         ) .
         Notices::getNotices();

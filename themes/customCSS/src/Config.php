@@ -11,13 +11,11 @@
 
 namespace Dotclear\Theme\customCSS;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Exception;
 use form;
 

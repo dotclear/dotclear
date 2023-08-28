@@ -16,7 +16,6 @@ use Exception;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcCore;
 use dcLog;
 use dcMedia;
 use dcMeta;
@@ -177,7 +176,7 @@ class FlatImportV2 extends FlatBackup
         ));
 
         if ((int) $rs->cat_rgt > 0) {
-            $this->has_categories                            = true;
+            $this->has_categories                     = true;
             $this->stack['cat_lft'][Core::blog()->id] = (int) $rs->cat_rgt + 1;
         }
 

@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Backend\Listing\Pager;
 use Dotclear\Core\Backend\Listing\Listing;
 use Dotclear\Core\Core;

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use Countable;
-use dcCore;
 use Iterator;
 use Dotclear\Core\Core;
 use Exception;
@@ -30,7 +29,7 @@ class CleanersStack implements Countable, Iterator
 
     /**
      * Contructor load cleaners.
-     * 
+     *
      * @see This module src\Prepend.php file to know how to add custom cleaner.
      */
     public function __construct()

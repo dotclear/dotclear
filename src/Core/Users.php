@@ -14,7 +14,6 @@ namespace Dotclear\Core;
 use ArrayObject;
 use dcAuth;
 use dcBlog;
-use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;

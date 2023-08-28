@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Action;
 use ArrayObject;
 use dcBlog;
 use dcCategories;
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -338,9 +337,9 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(Core::blog()->name) => '',
-                        $ap->getCallerTitle()                       => $ap->getRedirection(true),
-                        __('Change category for this selection')    => '',
+                        Html::escapeHTML(Core::blog()->name)     => '',
+                        $ap->getCallerTitle()                    => $ap->getRedirection(true),
+                        __('Change category for this selection') => '',
                     ]
                 )
             );
@@ -467,9 +466,9 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(Core::blog()->name) => '',
-                        $ap->getCallerTitle()                       => $ap->getRedirection(true),
-                        __('Change author for this selection')      => '', ]
+                        Html::escapeHTML(Core::blog()->name)   => '',
+                        $ap->getCallerTitle()                  => $ap->getRedirection(true),
+                        __('Change author for this selection') => '', ]
                 ),
                 Page::jsLoad('js/jquery/jquery.autocomplete.js') .
                 Page::jsJson('users_list', $usersList)
@@ -540,9 +539,9 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(Core::blog()->name) => '',
-                        $ap->getCallerTitle()                       => $ap->getRedirection(true),
-                        __('Change language for this selection')    => '',
+                        Html::escapeHTML(Core::blog()->name)     => '',
+                        $ap->getCallerTitle()                    => $ap->getRedirection(true),
+                        __('Change language for this selection') => '',
                     ]
                 )
             );

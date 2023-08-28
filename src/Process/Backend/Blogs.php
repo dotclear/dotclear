@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;

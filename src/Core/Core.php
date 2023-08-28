@@ -62,7 +62,7 @@ final class Core
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
-        // Factory class, implement all methods of Core, 
+        // Factory class, implement all methods of Core,
         // third party Core factory MUST implements CoreFactoryInterface and SHOULD extends CoreFactory
         if (!class_exists($this->factory_class) || !is_subclass_of($this->factory_class, CoreFactoryInterface::class)) {
             throw new Exception('Core factory class ' . $this->factory_class . ' does not inherit CoreFactoryInterface.');
@@ -191,7 +191,7 @@ final class Core
     {
         // Instanciate Backend instance
         if (!isset(self::$backend)) {
-            self::$backend = new Backend();
+            self::$backend       = new Backend();
             dcCore::app()->admin = self::$backend; // deprecated
         }
 
@@ -207,7 +207,7 @@ final class Core
     {
         // Instanciate Backend instance
         if (!isset(self::$frontend)) {
-            self::$frontend = new Frontend();
+            self::$frontend       = new Frontend();
             dcCore::app()->public = self::$frontend; // deprecated
         }
 
@@ -234,7 +234,7 @@ final class Core
      */
     public static function setBlog($id): void
     {
-        self::$blog = new dcBlog($id);
+        self::$blog         = new dcBlog($id);
         dcCore::app()->blog = self::$blog; // deprecated
     }
 
@@ -243,7 +243,7 @@ final class Core
      */
     public static function unsetBlog(): void
     {
-        self::$blog = null;
+        self::$blog         = null;
         dcCore::app()->blog = null; // deprecated
     }
     //@}

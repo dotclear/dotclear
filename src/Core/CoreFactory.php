@@ -19,7 +19,6 @@ use dcMeta;
 use dcNotices;
 use dcRestServer;
 //
-use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;

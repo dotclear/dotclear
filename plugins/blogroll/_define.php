@@ -19,6 +19,6 @@ $this->registerModule(
         'permissions' => Core::auth()->makePermissions([
             initBlogroll::PERMISSION_BLOGROLL,
         ]),
-        'type'        => 'plugin',
+        'type' => 'plugin',
     ]
 );

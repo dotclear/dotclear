@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use dcAuth;
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
@@ -509,7 +508,7 @@ class UserPreferences extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::auth()->userID()) => '',
-                    Core::backend()->page_title                => '',
+                    Core::backend()->page_title              => '',
                 ]
             )
         );

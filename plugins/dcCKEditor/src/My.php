@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcCKEditor;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Module\MyPlugin;
 
@@ -22,7 +21,7 @@ class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return in_array($context, [self::MANAGE, self::MENU]) ? 
+        return in_array($context, [self::MANAGE, self::MENU]) ?
             defined('DC_CONTEXT_ADMIN')
             && !is_null(Core::blog())
             && Core::auth()->check(Core::auth()->makePermissions([

@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
 use dcAuth;
 use Dotclear\Helper\Html\Form\Hidden;
 

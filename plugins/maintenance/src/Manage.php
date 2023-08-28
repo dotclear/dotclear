@@ -12,14 +12,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
@@ -203,7 +201,7 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')                                                                 => '',
+                    __('Plugins')                                                            => '',
                     '<a href="' . Core::backend()->getPageURL() . '">' . My::name() . '</a>' => '',
                     Html::escapeHTML(Core::backend()->task->name())                          => '',
                 ]

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcCore;
 use dcUtils;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Plugin\maintenance\MaintenanceTask;

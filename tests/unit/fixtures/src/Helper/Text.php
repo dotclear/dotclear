@@ -1,4 +1,5 @@
 <?php
+
 // test suite from https://code.iamcal.com/php/rfc822/tests/
 // Commented expected values are those that PHP filter_var() failed to validate/unvalidate
 $emailTest = [
@@ -281,5 +282,5 @@ $emailTest = [
     ['payload' => 'test@test.com', 'expected' => true],
     ['payload' => 'test@example.com&#10;', 'expected' => false],
     ['payload' => 'test@xn--example.com', 'expected' => true],
-    ['payload' => 'test@Bücher.ch', 'expected' => false] // [279] true)
+    ['payload' => 'test@Bücher.ch', 'expected' => false], // [279] true)
 ];

@@ -15,7 +15,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
 use dcUtils;
 use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;

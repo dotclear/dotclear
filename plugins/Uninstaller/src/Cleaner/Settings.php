@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
-use dcCore;
 use dcNamespace;
 use Dotclear\Core\Core;
 use Dotclear\Database\Statement\{

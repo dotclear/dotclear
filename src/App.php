@@ -11,7 +11,6 @@ namespace Dotclear {
     use Autoloader;
     use dcCore;
     use dcUtils;
-    use Dotclear\Core\Container;
     use Dotclear\Core\Core;
     use Dotclear\Core\Process;
     use Dotclear\Core\PostType;

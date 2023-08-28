@@ -20,8 +20,8 @@ $this->registerModule(
             Core::auth()::PERMISSION_USAGE,
             Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'        => 'plugin',             // Type
-        'settings'    => [
+        'type'     => 'plugin',             // Type
+        'settings' => [
             'blog' => '#params.breadcrumb_params',
         ],
     ]

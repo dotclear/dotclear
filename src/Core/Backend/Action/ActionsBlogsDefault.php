@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Notices;
 use Exception;

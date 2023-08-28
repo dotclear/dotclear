@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 

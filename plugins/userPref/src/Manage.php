@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\userPref;
 
 use Exception;
-use dcCore;
 use dcWorkspace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -111,9 +110,9 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                __('System')                                    => '',
+                __('System')                             => '',
                 Html::escapeHTML(Core::auth()->userID()) => '',
-                My::name()                                      => '',
+                My::name()                               => '',
             ]
         ) .
         Notices::getNotices() .

@@ -20,7 +20,6 @@ use Autoloader;
 use dcCore;
 use dcModuleDefine;
 use dcModules;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Core;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;

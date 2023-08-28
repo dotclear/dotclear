@@ -50,8 +50,8 @@ class Manage extends Process
         Core::backend()->blog_url = Html::stripHostURL(Core::blog()->url);
 
         # Liste des catégories
-        $categories_label                      = [];
-        $rs                                    = Core::blog()->getCategories(['post_type' => 'post']);
+        $categories_label                 = [];
+        $rs                               = Core::blog()->getCategories(['post_type' => 'post']);
         Core::backend()->categories_combo = Combos::getCategoriesCombo($rs, false, true);
         $rs->moveStart();
         while ($rs->fetch()) {
@@ -65,7 +65,7 @@ class Manage extends Process
         );
 
         # Liste des mois d'archive
-        $rs                                = Core::blog()->getDates(['type' => 'month']);
+        $rs                           = Core::blog()->getDates(['type' => 'month']);
         Core::backend()->months_combo = array_merge(
             [__('All months') => '-'],
             Combos::getDatesCombo($rs)
@@ -191,7 +191,7 @@ class Manage extends Process
             Core::backend()->item_label  = $_POST['item_label']  ?? '';
             Core::backend()->item_descr  = $_POST['item_descr']  ?? '';
             Core::backend()->item_url    = $_POST['item_url']    ?? '';
-            $item_targetBlank                 = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
+            $item_targetBlank            = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
             # Traitement
             Core::backend()->step = (!empty($_GET['add']) ? (int) $_GET['add'] : self::STEP_LIST);
             if ((Core::backend()->step > self::STEP_ADD) || (Core::backend()->step < self::STEP_LIST)) {
@@ -498,9 +498,9 @@ class Manage extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    Core::backend()->page_title            => Core::backend()->getPageURL(),
-                    __('Add item')                              => '',
-                    $step_label                                 => '',
+                    Core::backend()->page_title          => Core::backend()->getPageURL(),
+                    __('Add item')                       => '',
+                    $step_label                          => '',
                 ],
                 [
                     'hl_pos' => -2,
@@ -512,7 +512,7 @@ class Manage extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    Core::backend()->page_title            => '',
+                    Core::backend()->page_title          => '',
                 ]
             ) .
             Notices::getNotices();

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Theme\berlin;
 
-use dcCore;
 use dcUtils;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;

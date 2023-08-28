@@ -20,7 +20,7 @@ $this->registerModule(
             Core::auth()::PERMISSION_USAGE,
             Core::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
-        'priority'    => 200,
-        'type'        => 'plugin',
+        'priority' => 200,
+        'type'     => 'plugin',
     ]
 );

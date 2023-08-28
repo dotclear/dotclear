@@ -11,11 +11,9 @@
 
 namespace Dotclear\Theme\blowup;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
-use Dotclear\Helper\Network\Http;
 use Exception;
 
 class Blowup

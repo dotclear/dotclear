@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Listing\ListingPosts;
@@ -86,7 +85,7 @@ class Posts extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    __('Posts')                                 => '',
+                    __('Posts')                          => '',
                 ]
             )
         );

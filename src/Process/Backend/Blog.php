@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcBlog;
-use dcCore;
 use dcSettings;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;

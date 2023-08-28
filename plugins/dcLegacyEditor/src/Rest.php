@@ -12,9 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use dcCore;
 use Dotclear\Core\Core;
-use Dotclear\Helper\Html\WikiToHtml;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Statement;
 
-use dcCore;
 use Dotclear\Core\Core;
 
 class InsertStatement extends SqlStatement

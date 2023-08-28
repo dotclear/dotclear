@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Upgrade;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;

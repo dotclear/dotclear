@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\fairTrackbacks;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Plugin\antispam\SpamFilter;

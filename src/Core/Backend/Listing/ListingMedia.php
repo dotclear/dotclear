@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use dcCore;
 use dcMedia;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Filter\FilterMedia;

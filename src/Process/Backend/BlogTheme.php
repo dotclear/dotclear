@@ -87,7 +87,7 @@ class BlogTheme extends Process
                     [
                         // Active links
                         Html::escapeHTML(Core::blog()->name) => '',
-                        __('Blog appearance')                       => Core::backend()->list->getURL('', false),
+                        __('Blog appearance')                => Core::backend()->list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
                     ]
@@ -158,7 +158,7 @@ class BlogTheme extends Process
             Core::behavior()->callBehavior('themesToolsHeadersV2', false),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name)                     => '',
+                    Html::escapeHTML(Core::blog()->name)                            => '',
                     '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
                 ]
             )

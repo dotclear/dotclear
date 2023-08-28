@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcCore;
 use dcWorkspace;
 use Dotclear\Core\Core;
 use Dotclear\Core\Upgrade\Upgrade;

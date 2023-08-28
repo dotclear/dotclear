@@ -14,7 +14,6 @@ namespace Dotclear\Core;
 use ArrayObject;
 use dcAuth;
 use dcBlog;
-use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -51,7 +50,7 @@ class Blogs
     /**
      * Returns a blog status name given to a code.
      *
-     * This is intended to be human-readable 
+     * This is intended to be human-readable
      * and will be translated, so never use it for tests.
      * If status code does not exist, returns <i>offline</i>.
      *

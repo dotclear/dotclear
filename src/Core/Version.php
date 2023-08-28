@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -40,7 +39,7 @@ class Version
 
     /**
      * Get the version of a module.
-     * 
+     *
      * Since 2.28 getVersion() always returns string.
      *
      * @param 	string 	$module 	The module

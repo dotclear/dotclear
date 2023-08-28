@@ -11,7 +11,6 @@
 
 namespace Dotclear\Theme\blowup;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;

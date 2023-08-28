@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Module\MyPlugin;
 

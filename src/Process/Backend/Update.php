@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use dcUpdate;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;

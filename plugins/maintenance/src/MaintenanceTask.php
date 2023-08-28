@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dcCore;
 use Dotclear\Core\Core;
 
 class MaintenanceTask

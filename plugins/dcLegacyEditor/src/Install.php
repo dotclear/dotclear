@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 

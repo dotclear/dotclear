@@ -42,7 +42,7 @@ class LinkPopup extends Process
         }
 
         // Languages combo
-        $rs                              = Core::blog()->getLangs(['order' => 'asc']);
+        $rs                         = Core::blog()->getLangs(['order' => 'asc']);
         Core::backend()->lang_combo = Combos::getLangsCombo($rs, true);
 
         return self::status(true);

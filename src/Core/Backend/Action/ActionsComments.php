@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -113,8 +112,8 @@ class ActionsComments extends Actions
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    __('Comments')                              => Core::backend()->url->get('admin.comments'),
-                    __('Comments actions')                      => '',
+                    __('Comments')                       => Core::backend()->url->get('admin.comments'),
+                    __('Comments actions')               => '',
                 ]
             )
         );

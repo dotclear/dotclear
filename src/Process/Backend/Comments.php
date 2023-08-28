@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
@@ -121,7 +120,7 @@ class Comments extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(Core::blog()->name) => '',
-                    __('Comments and trackbacks')               => '',
+                    __('Comments and trackbacks')        => '',
                 ]
             )
         );

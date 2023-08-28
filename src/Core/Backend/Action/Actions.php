@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;

@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use dcBlog;
-use dcCore;
 use dcMeta;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Core;

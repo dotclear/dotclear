@@ -179,8 +179,8 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(Core::blog()->name) => '',
-                __('Blog appearance')                       => Core::backend()->url->get('admin.blog.theme'),
-                __('Edit theme files')                      => '',
+                __('Blog appearance')                => Core::backend()->url->get('admin.blog.theme'),
+                __('Edit theme files')               => '',
             ]
         ) .
         Notices::getNotices();

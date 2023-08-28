@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use Dotclear\Database\Cursor;
-use dcCore;
 use Dotclear\Core\Core;
 
 class UpdateStatement extends SqlStatement

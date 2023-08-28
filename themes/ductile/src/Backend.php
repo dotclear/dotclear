@@ -11,7 +11,6 @@
 
 namespace Dotclear\Theme\ductile;
 
-use dcCore;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;

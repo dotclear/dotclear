@@ -19,6 +19,6 @@ $this->registerModule(
         'permissions' => Core::auth()->makePermissions([
             Core::auth()::PERMISSION_ADMIN,
         ]),
-        'type'        => 'plugin',
+        'type' => 'plugin',
     ]
 );

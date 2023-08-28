@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Core\Core;
 use Dotclear\Helper\Behavior;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;

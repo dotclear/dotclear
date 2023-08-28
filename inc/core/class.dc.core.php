@@ -336,17 +336,17 @@ final class dcCore
         // Deprecated since 2.26
         $this->autoload = Autoloader::me();
 
-        $this->con        = Core::con();
-        $this->prefix     = Core::con()->prefix();
-        $this->error      = Core::error();
-        $this->auth       = Core::auth();
-        $this->session    = Core::session();
-        $this->url        = new Url();
-        $this->plugins    = new dcPlugins();
-        $this->rest       = Core::rest();
-        $this->meta       = Core::meta();
-        $this->log        = Core::log();
-        $this->notices    = Core::notice();
+        $this->con     = Core::con();
+        $this->prefix  = Core::con()->prefix();
+        $this->error   = Core::error();
+        $this->auth    = Core::auth();
+        $this->session = Core::session();
+        $this->url     = new Url();
+        $this->plugins = new dcPlugins();
+        $this->rest    = Core::rest();
+        $this->meta    = Core::meta();
+        $this->log     = Core::log();
+        $this->notices = Core::notice();
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*

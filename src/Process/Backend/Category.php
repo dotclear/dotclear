@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcCategories;
-use dcCore;
 use dcSettings;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -72,7 +71,7 @@ class Category extends Process
 
             // Getting hierarchy information
             Core::backend()->cat_parents = Core::blog()->getCategoryParents(Core::backend()->cat_id);
-            $rs                               = Core::blog()->getCategoryParent(Core::backend()->cat_id);
+            $rs                          = Core::blog()->getCategoryParent(Core::backend()->cat_id);
             Core::backend()->cat_parent  = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
 
             // Allowed parents list
@@ -198,7 +197,7 @@ class Category extends Process
 
         $elements = [
             Html::escapeHTML(Core::blog()->name) => '',
-            __('Categories')                            => Core::backend()->url->get('admin.categories'),
+            __('Categories')                     => Core::backend()->url->get('admin.categories'),
         ];
         if (Core::backend()->cat_id) {
             while (Core::backend()->cat_parents->fetch()) {

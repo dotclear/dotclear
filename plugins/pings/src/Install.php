@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
-use dcCore;
 use Dotclear\Core\Process;
 
 class Install extends Process
