@@ -24,6 +24,7 @@ use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\HttpCacheStack;
 use Exception;
 use rsExtendPublic;
 
@@ -33,6 +34,13 @@ class Utility extends Process
 
     /** @var    string  The default templates folder name */
     public const TPL_ROOT = 'default-templates';
+
+    /**
+     * HTTP Cache stack
+     *
+     * @var HttpCacheStack;
+     */
+    private $cache;
 
     /**
      * Context
@@ -258,22 +266,21 @@ class Utility extends Process
         Core::behavior()->callBehavior('publicPrependV2');
 
         # Prepare the HTTP cache thing
-        dcCore::app()->cache['mod_files'] = get_included_files();
+        Core::frontend()->cache()->addFiles(get_included_files());
         /*
          * @var        array
          *
-         * @deprecated Since 2.23, use dcCore::app()->cache['mod_files'] instead
+         * @deprecated Since 2.23, use Core::frontend()->cache()->addFiles() or Core::frontend()->cache()->getFiles() instead
          */
-        $GLOBALS['mod_files'] = dcCore::app()->cache['mod_files'];
+        $GLOBALS['mod_files'] = Core::frontend()->cache()->getFiles();
 
-        dcCore::app()->cache['mod_ts']   = [];
-        dcCore::app()->cache['mod_ts'][] = Core::blog()->upddt;
+        Core::frontend()->cache()->addTime(Core::blog()->upddt);
         /*
          * @var        array
          *
-         * @deprecated Since 2.23, use dcCore::app()->cache['mod_ts'] instead
+         * @deprecated Since 2.23, use Core::frontend()->cache()->addTimes() or Core::frontend()->cache()->getTimes) instead
          */
-        $GLOBALS['mod_ts'] = dcCore::app()->cache['mod_ts'];
+        $GLOBALS['mod_ts'] = Core::frontend()->cache()->getTimes();
 
         $tpl_path = [
             Core::blog()->themes_path . '/' . Core::frontend()->theme . '/tpl',
@@ -311,6 +318,20 @@ class Utility extends Process
 
         // Do not try to execute a process added to the URL.
         return false;
+    }
+
+    /**
+     * HTTP Cache stack.
+     *
+     * @return      HttpCacheStack
+     */
+    public function cache(): HttpCacheStack
+    {
+        if (!isset($this->cache)) {
+            $this->cache = new HttpCacheStack();
+        }
+
+        return $this->cache;
     }
 
     /**

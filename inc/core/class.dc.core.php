@@ -304,7 +304,7 @@ final class dcCore
     /**
      * HTTP Cache stack
      *
-     * May be transfered as property of frontend Utility instance in future
+     * @deprecated since 2.28, permanently moved to Core::frontend()->cache()
      *
      * @var array
      */

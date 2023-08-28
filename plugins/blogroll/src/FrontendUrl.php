@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
@@ -41,7 +40,7 @@ class FrontendUrl extends Url
             self::p404();
         }
 
-        Http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
+        Http::cache(Core::frontend()->cache()->getFiles(), Core::frontend()->cache()->getTimes());
 
         header('Content-Type: text/xml; charset=UTF-8');
 

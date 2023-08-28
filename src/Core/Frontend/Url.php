@@ -157,8 +157,8 @@ class Url extends UrlHandler
         Core::behavior()->callBehavior('urlHandlerBeforeGetData', Core::frontend()->ctx);
 
         if (Core::frontend()->ctx->http_cache) {
-            dcCore::app()->cache['mod_files'][] = $tpl_file;
-            Http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
+            Core::frontend()->cache()->addFile($tpl_file);
+            Http::cache(Core::frontend()->cache()->getFiles(), Core::frontend()->cache()->getTimes());
         }
 
         header('Content-Type: ' . Core::frontend()->ctx->content_type . '; charset=UTF-8');
@@ -704,7 +704,8 @@ class Url extends UrlHandler
                 // --BEHAVIOR-- publicPrepend --
                 Core::behavior()->callBehavior('publicPrependV2');
                 // Prepare the HTTP cache thing
-                dcCore::app()->cache['mod_files'] = get_included_files();
+                Core::frontend()->cache()->resetFiles();
+                Core::frontend()->cache()->addFiles(get_included_files());
                 $tpl_path                         = [
                     Core::blog()->themes_path . '/' . Core::frontend()->theme . '/tpl',
                 ];
@@ -730,7 +731,7 @@ class Url extends UrlHandler
                 // Don't use template cache
                 dcCore::app()->tpl->use_cache = false;
                 // Reset HTTP cache
-                dcCore::app()->cache['mod_ts'][] = [];
+                Core::frontend()->cache()->resetTimes();
                 if (defined('DC_ADMIN_URL')) {
                     Core::frontend()->ctx->xframeoption = DC_ADMIN_URL;
                 }
