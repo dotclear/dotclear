@@ -21,6 +21,7 @@ use Dotclear\Core\PostTypes;
 use Dotclear\Core\Users;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Install\Utils;
@@ -279,13 +280,13 @@ final class dcCore
     public Frontend $public;
 
     /**
-     * dcTemplate instance
+     * Tpl instance
      *
      * May be transfered as property of frontend Utility instance in future
      *
-     * @var dcTemplate
+     * @var Tpl
      */
-    public $tpl;
+    public Tpl $tpl;
 
     /**
      * context instance

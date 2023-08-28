@@ -214,7 +214,6 @@ namespace Dotclear {
                 'rsExtBlog'      => $inc('core', 'class.dc.rs.extensions.php'),
 
                 // Public
-                'dcTemplate'         => $inc('public', 'class.dc.template.php'),
                 'context'            => $inc('public', 'lib.tpl.context.php'),
                 'rsExtendPublic'     => $inc('public', 'rs.extension.php'),
                 'rsExtPostPublic'    => $inc('public', 'rs.extension.php'),

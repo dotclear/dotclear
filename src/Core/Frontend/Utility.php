@@ -16,7 +16,6 @@ use context;
 use dcBlog;
 use dcCore;
 use dcMedia;
-use dcTemplate;
 use dcThemes;
 use dcUtils;
 use dcTraitDynamicProperties;
@@ -180,7 +179,7 @@ class Utility extends Process
         $GLOBALS['_ctx'] = dcCore::app()->ctx;
 
         try {
-            dcCore::app()->tpl = new dcTemplate(DC_TPL_CACHE, 'dcCore::app()->tpl');
+            dcCore::app()->tpl = new Tpl(DC_TPL_CACHE, 'dcCore::app()->tpl');
         } catch (Exception $e) {
             new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }

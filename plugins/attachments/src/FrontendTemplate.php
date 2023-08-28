@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
 use dcCore;
-use dcTemplate;
+use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Helper\File\Files;
 
 class FrontendTemplate
@@ -98,7 +98,7 @@ class FrontendTemplate
     {
         $if = [];
 
-        $operator = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['is_image'])) {
             $sign = (bool) $attr['is_image'] ? '' : '!';
@@ -149,7 +149,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -165,7 +165,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -181,7 +181,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -198,7 +198,7 @@ class FrontendTemplate
      * attributes:
      *
      *      - full            (0|1)   Display size rounded to a human-readable value (in KB, MB, GB, TB)
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -219,7 +219,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -235,7 +235,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -260,7 +260,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
@@ -283,7 +283,7 @@ class FrontendTemplate
      *
      * attributes:
      *
-     *      - any filters     See dcTemplate::getFilters()
+     *      - any filters     See Tpl::getFilters()
      *
      * @param      ArrayObject    $attr     The attributes
      *
