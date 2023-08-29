@@ -245,13 +245,10 @@ class Rest extends Process
         $url = '';
         if ($post['store'] == 'themes') {
             // load once themes
-            if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
-                dcCore::app()->themes = new dcThemes();
-                if (!is_null(Core::blog())) {
-                    dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
-                }
+            if (Core::themes()->isEmpty() && !is_null(Core::blog())) {
+                Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
             }
-            $mod = dcCore::app()->themes;
+            $mod = Core::themes();
             $url = Core::blog()->settings->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
             $mod = Core::plugins();

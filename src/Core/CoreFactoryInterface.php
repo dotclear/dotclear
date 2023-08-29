@@ -20,6 +20,7 @@ use dcNotices;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
+use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
@@ -44,6 +45,7 @@ interface CoreFactoryInterface
     public function postTypes(): PostTypes;
     public function rest(): dcRestServer;
     public function session(): Session;
+    public function themes(): dcThemes;
     public function url(): Url;
     public function users(): Users;
     public function version(): Version;

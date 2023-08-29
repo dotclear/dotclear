@@ -72,7 +72,7 @@ class FrontendBehaviors
      */
     public static function addTplPath(): void
     {
-        $tplset           = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
+        $tplset           = Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
         $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
 
         if (!empty($tplset) && is_dir($default_template . $tplset)) {

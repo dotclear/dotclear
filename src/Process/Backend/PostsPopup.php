@@ -65,10 +65,9 @@ class PostsPopup extends Process
 
         Core::backend()->params = $params;
 
-        if (dcCore::app()->themes === null) {
+        if (Core::themes()->isEmpty()) {
             // Loading themes, may be useful for some configurable theme --
-            dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+            Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
         }
 
         return self::status(true);

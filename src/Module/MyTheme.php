@@ -32,14 +32,11 @@ abstract class MyTheme extends MyModule
     protected static function define(): dcModuleDefine
     {
         // load once themes
-        if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
-            dcCore::app()->themes = new dcThemes();
-            if (!is_null(Core::blog())) {
-                dcCore::app()->themes->loadModules(Core::blog()->themes_path);
-            }
+        if (Core::themes()->isEmpty() && !is_null(Core::blog())) {
+            Core::themes()->loadModules(Core::blog()->themes_path);
         }
 
-        return static::getDefineFromNamespace(dcCore::app()->themes);
+        return static::getDefineFromNamespace(Core::themes());
     }
 
     protected static function checkCustomContext(int $context): ?bool

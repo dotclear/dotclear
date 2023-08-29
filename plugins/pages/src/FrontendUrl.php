@@ -187,7 +187,7 @@ class FrontendUrl extends Url
                     header('X-Pingback: ' . Core::blog()->url . Core::url()->getURLFor('xmlrpc', Core::blog()->id));
                 }
 
-                $tplset           = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
+                $tplset           = Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
                 $default_template = Path::real(Core::plugins()->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     Core::frontend()->tpl->setPath(Core::frontend()->tpl->getPath(), $default_template . $tplset);

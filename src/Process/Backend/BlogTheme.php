@@ -39,12 +39,13 @@ class BlogTheme extends Process
         ]));
 
         // Loading themes
-        dcCore::app()->themes = new dcThemes();
-        dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+        if (Core::themes()->isEmpty()) {
+            Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+        }
 
         // Page helper
         Core::backend()->list = new ThemesList(
-            dcCore::app()->themes,
+            Core::themes(),
             Core::blog()->themes_path,
             Core::blog()->settings->system->store_theme_url,
             !empty($_GET['nocache']) ? true : null
@@ -52,7 +53,7 @@ class BlogTheme extends Process
         // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-        $disabled = dcCore::app()->themes->disableDepModules();
+        $disabled = Core::themes()->disableDepModules();
         if (count($disabled)) {
             Notices::addWarningNotice(
                 __('The following themes have been disabled :') .

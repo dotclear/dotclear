@@ -32,7 +32,7 @@ class BackendBehaviors
         if (Core::auth()->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
             if (Core::blog()->settings->system->themes_path !== Core::blog()->settings->system->getGlobal('themes_path')
-                || !dcCore::app()->themes->getDefine($id)->distributed
+                || !Core::themes()->getDefine($id)->distributed
             ) {
                 return '<p><a href="' . My::manageUrl() . '" class="button">' . __('Edit theme files') . '</a></p>';
             }

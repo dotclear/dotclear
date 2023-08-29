@@ -705,6 +705,16 @@ class dcModules
     }
 
     /**
+     * Check if there are no modules loaded.
+     *
+     * @return  bool    True on no modules
+     */
+    public function isEmpty(): bool
+    {
+        return empty($this->defines);
+    }
+
+    /**
      * Install a Package
      *
      * @param      string     $zip_file  The zip file

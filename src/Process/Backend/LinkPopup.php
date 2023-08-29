@@ -35,10 +35,9 @@ class LinkPopup extends Process
         Core::backend()->title     = !empty($_GET['title']) ? $_GET['title'] : '';
         Core::backend()->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
 
-        if (dcCore::app()->themes === null) {
+        if (Core::themes()->isEmpty()) {
             # -- Loading themes, may be useful for some configurable theme --
-            dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+            Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
         }
 
         // Languages combo

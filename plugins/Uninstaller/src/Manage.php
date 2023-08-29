@@ -53,9 +53,8 @@ class Manage extends Process
         }
 
         // load dcThemes if required
-        if (self::getType() == 'theme' && !is_a(dcCore::app()->themes, 'dcThemes')) {
-            dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules((string) Core::blog()?->themes_path);
+        if (self::getType() == 'theme' && Core::themes()->isEmpty()) {
+            Core::themes()->loadModules((string) Core::blog()?->themes_path);
         }
 
         // get selected module

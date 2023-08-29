@@ -45,10 +45,10 @@ class Config extends Process
         $img_path = My::path() . '/img/';
         $tpl_path = My::path() . '/tpl/';
 
-        Core::backend()->standalone_config = (bool) dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
+        Core::backend()->standalone_config = (bool) Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
 
         // Load contextual help
-        dcCore::app()->themes->loadModuleL10Nresources(My::id(), Core::lang());
+        Core::themes()->loadModuleL10Nresources(My::id(), Core::lang());
 
         $list_types = [
             __('Title') => 'title',

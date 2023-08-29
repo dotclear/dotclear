@@ -109,13 +109,13 @@ class ThemeEditor
         $this->user_theme   = Path::real(Core::blog()->themes_path . '/' . Core::blog()->settings->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
-        if (null !== dcCore::app()->themes) {
-            $parent_theme = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'parent');
+        if (null !== Core::themes()) {
+            $parent_theme = Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'parent');
             if ($parent_theme) {
                 $this->parent_theme = Path::real(Core::blog()->themes_path . '/' . $parent_theme);
                 $this->parent_name  = $parent_theme;
             }
-            $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
+            $tplset = Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
             if ($tplset) {
                 $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
                 $this->tplset_name  = $tplset;

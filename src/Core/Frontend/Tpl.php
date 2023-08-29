@@ -1078,7 +1078,7 @@ class Tpl extends Template
      */
     public function BlogParentThemeURL(ArrayObject $attr): string
     {
-        $parent = 'dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme,\'parent\')';
+        $parent = 'Core::themes()->moduleInfo(Core::blog()->settings->system->theme,\'parent\')';
 
         return '<?php echo ' . sprintf($this->getFilters($attr), 'Core::blog()->settings->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : Core::blog()->settings->system->theme)') . '; ?>';
     }

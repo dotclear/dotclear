@@ -37,9 +37,9 @@ class Config extends Process
         }
 
         // Load contextual help
-        dcCore::app()->themes->loadModuleL10Nresources(My::id(), Core::lang());
+        Core::themes()->loadModuleL10Nresources(My::id(), Core::lang());
 
-        Core::backend()->standalone_config = (bool) dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
+        Core::backend()->standalone_config = (bool) Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
 
         Core::backend()->can_write_images = Blowup::canWriteImages();
         Core::backend()->can_write_css    = Blowup::canWriteCss();

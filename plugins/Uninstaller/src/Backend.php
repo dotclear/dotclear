@@ -84,7 +84,7 @@ class Backend extends Process
             if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
                 if (!in_array($define->get('type'), ['plugin', 'theme'])
                     || $define->get('type') == 'plugin' && 1 < count(Core::plugins()->getDefines(['id' => $define->getId()]))
-                    || $define->get('type') == 'theme'  && 1 < count(dcCore::app()->themes->getDefines(['id' => $define->getId()]))
+                    || $define->get('type') == 'theme'  && 1 < count(Core::themes()->getDefines(['id' => $define->getId()]))
                 ) {
                     return;
                 }

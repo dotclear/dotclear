@@ -693,14 +693,14 @@ class Url extends UrlHandler
 
                 // Simulate Utility\Frontend::process() for theme preview
                 // ------------------------------------------------------
-                Core::frontend()->parent_theme = dcCore::app()->themes->moduleInfo(Core::frontend()->theme, 'parent');
+                Core::frontend()->parent_theme = Core::themes()->moduleInfo(Core::frontend()->theme, 'parent');
                 // Loading _public.php file for selected theme
-                dcCore::app()->themes->loadNsFile(Core::frontend()->theme, 'public');
+                Core::themes()->loadNsFile(Core::frontend()->theme, 'public');
                 // Loading translations for selected theme
                 if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme)) {
-                    dcCore::app()->themes->loadModuleL10N(Core::frontend()->parent_theme, Core::lang(), 'main');
+                    Core::themes()->loadModuleL10N(Core::frontend()->parent_theme, Core::lang(), 'main');
                 }
-                dcCore::app()->themes->loadModuleL10N(Core::frontend()->theme, Core::lang(), 'main');
+                Core::themes()->loadModuleL10N(Core::frontend()->theme, Core::lang(), 'main');
                 // --BEHAVIOR-- publicPrepend --
                 Core::behavior()->callBehavior('publicPrependV2');
                 // Prepare the HTTP cache thing
@@ -712,7 +712,7 @@ class Url extends UrlHandler
                 if (Core::frontend()->parent_theme) {
                     $tpl_path[] = Core::blog()->themes_path . '/' . Core::frontend()->parent_theme . '/tpl';
                 }
-                $tplset = dcCore::app()->themes->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
+                $tplset = Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
                 $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     Core::frontend()->tpl->setPath(

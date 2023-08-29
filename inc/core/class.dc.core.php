@@ -159,6 +159,8 @@ final class dcCore
     /**
      * Themes
      *
+     * @deprecated since 2.28, Use Core::themes() instead
+     *
      * @var dcThemes
      */
     public $themes;

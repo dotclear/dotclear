@@ -55,12 +55,11 @@ class Manage extends Process
         # Loading themes // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-        if (!is_a(dcCore::app()->themes, 'dcThemes')) {
-            dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+        if (Core::themes()->isEmpty()) {
+            Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
         }
 
-        Core::backend()->theme  = dcCore::app()->themes->getDefine(Core::blog()->settings->system->theme);
+        Core::backend()->theme  = Core::themes()->getDefine(Core::blog()->settings->system->theme);
         Core::backend()->editor = new ThemeEditor();
 
         try {
@@ -189,7 +188,7 @@ class Manage extends Process
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(Core::backend()->theme->get('name'))) . '</strong></p>';
 
         if (Core::blog()->settings->system->themes_path !== Core::blog()->settings->system->getGlobal('themes_path')
-            || !dcCore::app()->themes->getDefine(Core::blog()->settings->system->theme)->distributed
+            || !Core::themes()->getDefine(Core::blog()->settings->system->theme)->distributed
         ) {
             echo
             '<div id="file-box">' .

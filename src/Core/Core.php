@@ -21,6 +21,7 @@ use dcNotices;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
+use dcThemes;
 //
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
@@ -183,6 +184,11 @@ final class Core
     public static function session(): Session
     {
         return self::$instance->get('session');
+    }
+
+    public static function themes(): dcThemes
+    {
+        return self::$instance->get('themes');
     }
 
     public static function url(): Url

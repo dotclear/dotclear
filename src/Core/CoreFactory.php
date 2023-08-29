@@ -20,6 +20,7 @@ use dcNotices;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
+use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
@@ -130,6 +131,11 @@ class CoreFactory implements CoreFactoryInterface
             cookie_secure: DC_ADMIN_SSL,
             ttl: DC_SESSION_TTL
         );
+    }
+
+    public function themes(): dcThemes
+    {
+        return new dcThemes();
     }
 
     public function url(): Url
