@@ -39,7 +39,7 @@ class BackendDefaultActions
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending',
                 ]],
-                [ActionsPostsDefault::class, 'doChangePostStatus']
+                ActionsPostsDefault::doChangePostStatus(...)
             );
         }
         if (Core::auth()->check(Core::auth()->makePermissions([
@@ -51,7 +51,7 @@ class BackendDefaultActions
                     __('Never published')   => 'never',
                     __('Already published') => 'already',
                 ]],
-                [ActionsPostsDefault::class, 'doChangePostFirstPub']
+                ActionsPostsDefault::doChangePostFirstPub(...)
             );
         }
         if (Core::auth()->check(Core::auth()->makePermissions([
@@ -60,7 +60,7 @@ class BackendDefaultActions
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
-                [ActionsPostsDefault::class, 'doChangePostAuthor']
+                ActionsPostsDefault::doChangePostAuthor(...)
             );
         }
         if (Core::auth()->check(Core::auth()->makePermissions([
@@ -70,13 +70,13 @@ class BackendDefaultActions
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                [ActionsPostsDefault::class, 'doDeletePost']
+                ActionsPostsDefault::doDeletePost(...)
             );
         }
         $ap->addAction(
             [__('Order') => [
                 __('Save order') => 'reorder', ]],
-            [self::class, 'doReorderPages']
+            self::doReorderPages(...)
         );
     }
 

@@ -53,8 +53,8 @@ class Frontend extends Process
                     }
                 }
             },
-            'initWidgets'        => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
+            'initWidgets'        => Widgets::initWidgets(...),
+            'initDefaultWidgets' => Widgets::initDefaultWidgets(...),
         ]);
 
         return true;

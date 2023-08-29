@@ -28,10 +28,10 @@ class Frontend extends Process
             return false;
         }
 
-        Core::behavior()->addBehavior('initWidgets', [Widgets::class, 'initWidgets']);
+        Core::behavior()->addBehavior('initWidgets', Widgets::initWidgets(...));
 
         // Simple menu template functions
-        Core::frontend()->tpl->addValue('SimpleMenu', [FrontendTemplate::class, 'simpleMenu']);
+        Core::frontend()->tpl->addValue('SimpleMenu', FrontendTemplate::simpleMenu(...));
 
         return true;
     }

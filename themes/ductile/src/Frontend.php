@@ -32,16 +32,16 @@ class Frontend extends Process
 
         # Behaviors
         Core::behavior()->addBehaviors([
-            'publicHeadContent'  => [self::class, 'publicHeadContent'],
-            'publicInsideFooter' => [self::class, 'publicInsideFooter'],
+            'publicHeadContent'  => self::publicHeadContent(...),
+            'publicInsideFooter' => self::publicInsideFooter(...),
         ]);
 
         # Templates
-        Core::frontend()->tpl->addValue('ductileEntriesList', [self::class, 'ductileEntriesList']);
-        Core::frontend()->tpl->addBlock('EntryIfContentIsCut', [self::class, 'EntryIfContentIsCut']);
-        Core::frontend()->tpl->addValue('ductileNbEntryPerPage', [self::class, 'ductileNbEntryPerPage']);
-        Core::frontend()->tpl->addValue('ductileLogoSrc', [self::class, 'ductileLogoSrc']);
-        Core::frontend()->tpl->addBlock('IfPreviewIsNotMandatory', [self::class, 'IfPreviewIsNotMandatory']);
+        Core::frontend()->tpl->addValue('ductileEntriesList', self::ductileEntriesList(...));
+        Core::frontend()->tpl->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
+        Core::frontend()->tpl->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
+        Core::frontend()->tpl->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
+        Core::frontend()->tpl->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
 
         return true;
     }
@@ -225,7 +225,7 @@ class Frontend extends Process
             if (!is_array($s)) {
                 $default = true;
             } else {
-                $s = array_filter($s, [self::class, 'cleanStickers']);
+                $s = array_filter($s, self::cleanStickers(...));
                 if (count($s) == 0) {
                     $default = true;
                 } else {

@@ -72,8 +72,8 @@ class BackendBehaviors
             'permissions' => Core::auth()->makePermissions([
                 Core::auth()::PERMISSION_ADMIN,
             ]),
-            'active_cb'    => [self::class, 'adminDashboardFavoritesActive'],
-            'dashboard_cb' => [self::class, 'adminDashboardFavoritesCallback'],
+            'active_cb'    => self::adminDashboardFavoritesActive(...),
+            'dashboard_cb' => self::adminDashboardFavoritesCallback(...),
         ]);
     }
 

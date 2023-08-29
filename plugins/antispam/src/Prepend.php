@@ -42,12 +42,12 @@ class Prepend extends Process
             });
         }
 
-        Core::url()->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', [FrontendUrl::class, 'spamFeed']);
-        Core::url()->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', [FrontendUrl::class, 'hamFeed']);
+        Core::url()->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', FrontendUrl::spamFeed(...));
+        Core::url()->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', FrontendUrl::hamFeed(...));
 
         if (defined('DC_CONTEXT_ADMIN')) {
             // Register REST methods
-            Core::rest()->addFunction('getSpamsCount', [Rest::class, 'getSpamsCount']);
+            Core::rest()->addFunction('getSpamsCount', Rest::getSpamsCount(...));
         }
 
         return true;

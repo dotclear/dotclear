@@ -91,10 +91,10 @@ class MediaItem extends Process
         }
 
         if (Core::backend()->popup) {
-            Core::backend()->open_function  = [Page::class, 'openPopup'];
-            Core::backend()->close_function = [Page::class, 'closePopup'];
+            Core::backend()->open_function  = Page::openPopup(...);
+            Core::backend()->close_function = Page::closePopup(...);
         } else {
-            Core::backend()->open_function  = [Page::class, 'open'];
+            Core::backend()->open_function  = Page::open(...);
             Core::backend()->close_function = function () {
                 Page::helpBlock('core_media');
                 Page::close();

@@ -25,7 +25,7 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets)
     {
         $widgets
-            ->create('tags', My::name(), [FrontendTemplate::class, 'tagsWidget'], null, 'Tags cloud')
+            ->create('tags', My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud')
             ->addTitle(__('Tags'))
             ->setting('limit', __('Limit (empty means no limit):'), '20')
             ->setting(

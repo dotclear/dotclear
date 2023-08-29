@@ -249,7 +249,7 @@ class Utility extends Process
         }
 
         // Admin behaviors
-        Core::behavior()->addBehavior('adminPopupPosts', [BlogPref::class, 'adminPopupPosts']);
+        Core::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
 
         return true;
     }

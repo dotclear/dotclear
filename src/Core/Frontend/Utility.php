@@ -175,7 +175,7 @@ class Utility extends Process
 
         # Cope with static home page option
         if (Core::blog()->settings->system->static_home) {
-            Core::url()->registerDefault([Url::class, 'static_home']);
+            Core::url()->registerDefault(Url::static_home(...));
         }
 
         // deprecated since 2.28, use Core::media() instead

@@ -29,9 +29,9 @@ class Backend extends Process
     {
         if (self::status()) {
             Core::behavior()->addBehaviors([
-                'adminCurrentThemeDetailsV2'   => [BackendBehaviors::class, 'adminCurrentThemeDetails'],
-                'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'adminBeforeUserUpdate'],
-                'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminPreferencesForm'],
+                'adminCurrentThemeDetailsV2'   => BackendBehaviors::adminCurrentThemeDetails(...),
+                'adminBeforeUserOptionsUpdate' => BackendBehaviors::adminBeforeUserUpdate(...),
+                'adminPreferencesFormV2'       => BackendBehaviors::adminPreferencesForm(...),
             ]);
         }
 

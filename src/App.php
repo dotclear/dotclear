@@ -522,25 +522,25 @@ namespace Dotclear {
 
             Http::trimRequest();
 
-            Core::url()->registerDefault([Url::class, 'home']);
+            Core::url()->registerDefault(Url::home(...));
 
-            Core::url()->registerError([Url::class, 'default404']);
+            Core::url()->registerError(Url::default404(...));
 
-            Core::url()->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', [Url::class, 'lang']);
-            Core::url()->register('posts', 'posts', '^posts(/.+)?$', [Url::class, 'home']);
-            Core::url()->register('post', 'post', '^post/(.+)$', [Url::class, 'post']);
-            Core::url()->register('preview', 'preview', '^preview/(.+)$', [Url::class, 'preview']);
-            Core::url()->register('category', 'category', '^category/(.+)$', [Url::class, 'category']);
-            Core::url()->register('archive', 'archive', '^archive(/.+)?$', [Url::class, 'archive']);
-            Core::url()->register('try', 'try', '^try/(.+)$', [Url::class, 'try']);
+            Core::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            Core::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            Core::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
+            Core::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            Core::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
+            Core::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            Core::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            Core::url()->register('feed', 'feed', '^feed/(.+)$', [Url::class, 'feed']);
-            Core::url()->register('trackback', 'trackback', '^trackback/(.+)$', [Url::class, 'trackback']);
-            Core::url()->register('webmention', 'webmention', '^webmention(/.+)?$', [Url::class, 'webmention']);
-            Core::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', [Url::class, 'xmlrpc']);
+            Core::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            Core::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            Core::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            Core::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            Core::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', [Url::class, 'wpfaker']);
-            Core::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [Url::class, 'wpfaker']);
+            Core::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            Core::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
             Core::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', Core::url()->getURLFor('post', '%s'), 'Posts'));

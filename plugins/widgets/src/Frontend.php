@@ -30,9 +30,9 @@ class Frontend extends Process
 
         Widgets::init();
 
-        Core::frontend()->tpl->addValue('Widgets', [FrontendTemplate::class, 'tplWidgets']);
-        Core::frontend()->tpl->addBlock('Widget', [FrontendTemplate::class, 'tplWidget']);
-        Core::frontend()->tpl->addBlock('IfWidgets', [FrontendTemplate::class, 'tplIfWidgets']);
+        Core::frontend()->tpl->addValue('Widgets', FrontendTemplate::tplWidgets(...));
+        Core::frontend()->tpl->addBlock('Widget', FrontendTemplate::tplWidget(...));
+        Core::frontend()->tpl->addBlock('IfWidgets', FrontendTemplate::tplIfWidgets(...));
 
         return true;
     }

@@ -32,13 +32,13 @@ class Backend extends Process
         }
 
         Core::behavior()->addBehaviors([
-            'adminPostFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
-            'adminPostAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
+            'adminPostFormItems' => BackendBehaviors::adminPostFormItems(...),
+            'adminPostAfterForm' => BackendBehaviors::adminPostAfterForm(...),
             'adminPostHeaders'   => fn () => My::jsLoad('post'),
-            'adminPageFormItems' => [BackendBehaviors::class, 'adminPostFormItems'],
-            'adminPageAfterForm' => [BackendBehaviors::class, 'adminPostAfterForm'],
+            'adminPageFormItems' => BackendBehaviors::adminPostFormItems(...),
+            'adminPageAfterForm' => BackendBehaviors::adminPostAfterForm(...),
             'adminPageHeaders'   => fn () => My::jsLoad('post'),
-            'adminPageHelpBlock' => [BackendBehaviors::class, 'adminPageHelpBlock'],
+            'adminPageHelpBlock' => BackendBehaviors::adminPageHelpBlock(...),
         ]);
 
         return true;

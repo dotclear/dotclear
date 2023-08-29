@@ -19,9 +19,9 @@ class rsExtendPublic
     public static function init()
     {
         Core::behavior()->addBehaviors([
-            'publicHeadContent'   => [self::class, 'publicHeadContent'],
-            'coreBlogGetPosts'    => [self::class, 'coreBlogGetPosts'],
-            'coreBlogGetComments' => [self::class, 'coreBlogGetComments'],
+            'publicHeadContent'   => self::publicHeadContent(...),
+            'coreBlogGetPosts'    => self::coreBlogGetPosts(...),
+            'coreBlogGetComments' => self::coreBlogGetComments(...),
         ]);
     }
 

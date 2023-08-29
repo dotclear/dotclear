@@ -50,7 +50,7 @@ class ActionsPostsDefault
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending',
                 ]],
-                [self::class, 'doChangePostStatus']
+                self::doChangePostStatus(...)
             );
         }
         if (Core::auth()->check(Core::auth()->makePermissions([
@@ -62,7 +62,7 @@ class ActionsPostsDefault
                     __('Never published')   => 'never',
                     __('Already published') => 'already',
                 ]],
-                [self::class, 'doChangePostFirstPub']
+                self::doChangePostFirstPub(...)
             );
         }
         $ap->addAction(
@@ -70,19 +70,19 @@ class ActionsPostsDefault
                 __('Mark as selected')   => 'selected',
                 __('Mark as unselected') => 'unselected',
             ]],
-            [self::class, 'doUpdateSelectedPost']
+            self::doUpdateSelectedPost(...)
         );
         $ap->addAction(
             [__('Change') => [
                 __('Change category') => 'category',
             ]],
-            [self::class, 'doChangePostCategory']
+            self::doChangePostCategory(...)
         );
         $ap->addAction(
             [__('Change') => [
                 __('Change language') => 'lang',
             ]],
-            [self::class, 'doChangePostLang']
+            self::doChangePostLang(...)
         );
         if (Core::auth()->check(Core::auth()->makePermissions([
             Core::auth()::PERMISSION_ADMIN,
@@ -90,7 +90,7 @@ class ActionsPostsDefault
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
-                [self::class, 'doChangePostAuthor']
+                self::doChangePostAuthor(...)
             );
         }
         if (Core::auth()->check(Core::auth()->makePermissions([
@@ -100,7 +100,7 @@ class ActionsPostsDefault
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                [self::class, 'doDeletePost']
+                self::doDeletePost(...)
             );
         }
     }

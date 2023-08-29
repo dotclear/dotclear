@@ -38,11 +38,11 @@ class Backend extends Process
             Core::formater()->addFormaterName('xhtml', __('HTML'));
 
             Core::behavior()->addBehaviors([
-                'adminPostEditor'        => [BackendBehaviors::class, 'adminPostEditor'],
-                'adminPopupMedia'        => [BackendBehaviors::class, 'adminPopupMedia'],
-                'adminPopupLink'         => [BackendBehaviors::class, 'adminPopupLink'],
-                'adminPopupPosts'        => [BackendBehaviors::class, 'adminPopupPosts'],
-                'adminPageHTTPHeaderCSP' => [BackendBehaviors::class, 'adminPageHTTPHeaderCSP'],
+                'adminPostEditor'        => BackendBehaviors::adminPostEditor(...),
+                'adminPopupMedia'        => BackendBehaviors::adminPopupMedia(...),
+                'adminPopupLink'         => BackendBehaviors::adminPopupLink(...),
+                'adminPopupPosts'        => BackendBehaviors::adminPopupPosts(...),
+                'adminPageHTTPHeaderCSP' => BackendBehaviors::adminPageHTTPHeaderCSP(...),
             ]);
         }
 

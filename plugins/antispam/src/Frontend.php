@@ -29,9 +29,9 @@ class Frontend extends Process
         }
 
         Core::behavior()->addBehaviors([
-            'publicBeforeCommentCreate'   => [Antispam::class, 'isSpam'],
-            'publicBeforeTrackbackCreate' => [Antispam::class, 'isSpam'],
-            'publicBeforeDocumentV2'      => [Antispam::class, 'purgeOldSpam'],
+            'publicBeforeCommentCreate'   => Antispam::isSpam(...),
+            'publicBeforeTrackbackCreate' => Antispam::isSpam(...),
+            'publicBeforeDocumentV2'      => Antispam::purgeOldSpam(...),
         ]);
 
         return true;

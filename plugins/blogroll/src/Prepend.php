@@ -28,7 +28,7 @@ class Prepend extends Process
             return false;
         }
 
-        Core::url()->register('xbel', 'xbel', '^xbel(?:\/?)$', [FrontendUrl::class, 'xbel']);
+        Core::url()->register('xbel', 'xbel', '^xbel(?:\/?)$', FrontendUrl::xbel(...));
 
         return true;
     }

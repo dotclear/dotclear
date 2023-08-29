@@ -46,14 +46,14 @@ class Backend extends Process
             Core::formater()->addFormaterName('wiki', __('Dotclear wiki'));
 
             Core::behavior()->addBehaviors([
-                'adminPostEditor' => [BackendBehaviors::class, 'adminPostEditor'],
-                'adminPopupMedia' => [BackendBehaviors::class, 'adminPopupMedia'],
-                'adminPopupLink'  => [BackendBehaviors::class, 'adminPopupLink'],
-                'adminPopupPosts' => [BackendBehaviors::class, 'adminPopupPosts'],
+                'adminPostEditor' => BackendBehaviors::adminPostEditor(...),
+                'adminPopupMedia' => BackendBehaviors::adminPopupMedia(...),
+                'adminPopupLink'  => BackendBehaviors::adminPopupLink(...),
+                'adminPopupPosts' => BackendBehaviors::adminPopupPosts(...),
             ]);
 
             // Register REST methods
-            Core::rest()->addFunction('wikiConvert', [Rest::class, 'convert']);
+            Core::rest()->addFunction('wikiConvert', Rest::convert(...));
         }
 
         return true;

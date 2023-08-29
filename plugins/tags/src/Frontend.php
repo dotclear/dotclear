@@ -28,38 +28,38 @@ class Frontend extends Process
             return false;
         }
 
-        Core::frontend()->tpl->addBlock('Tags', [FrontendTemplate::class, 'Tags']);
-        Core::frontend()->tpl->addBlock('TagsHeader', [FrontendTemplate::class, 'TagsHeader']);
-        Core::frontend()->tpl->addBlock('TagsFooter', [FrontendTemplate::class, 'TagsFooter']);
-        Core::frontend()->tpl->addBlock('EntryTags', [FrontendTemplate::class, 'EntryTags']);
-        Core::frontend()->tpl->addBlock('TagIf', [FrontendTemplate::class, 'TagIf']);
-        Core::frontend()->tpl->addValue('TagID', [FrontendTemplate::class, 'TagID']);
-        Core::frontend()->tpl->addValue('TagCount', [FrontendTemplate::class, 'TagCount']);
-        Core::frontend()->tpl->addValue('TagPercent', [FrontendTemplate::class, 'TagPercent']);
-        Core::frontend()->tpl->addValue('TagRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
-        Core::frontend()->tpl->addValue('TagURL', [FrontendTemplate::class, 'TagURL']);
-        Core::frontend()->tpl->addValue('TagCloudURL', [FrontendTemplate::class, 'TagCloudURL']);
-        Core::frontend()->tpl->addValue('TagFeedURL', [FrontendTemplate::class, 'TagFeedURL']);
+        Core::frontend()->tpl->addBlock('Tags', FrontendTemplate::Tags(...));
+        Core::frontend()->tpl->addBlock('TagsHeader', FrontendTemplate::TagsHeader(...));
+        Core::frontend()->tpl->addBlock('TagsFooter', FrontendTemplate::TagsFooter(...));
+        Core::frontend()->tpl->addBlock('EntryTags', FrontendTemplate::EntryTags(...));
+        Core::frontend()->tpl->addBlock('TagIf', FrontendTemplate::TagIf(...));
+        Core::frontend()->tpl->addValue('TagID', FrontendTemplate::TagID(...));
+        Core::frontend()->tpl->addValue('TagCount', FrontendTemplate::TagCount(...));
+        Core::frontend()->tpl->addValue('TagPercent', FrontendTemplate::TagPercent(...));
+        Core::frontend()->tpl->addValue('TagRoundPercent', FrontendTemplate::TagRoundPercent(...));
+        Core::frontend()->tpl->addValue('TagURL', FrontendTemplate::TagURL(...));
+        Core::frontend()->tpl->addValue('TagCloudURL', FrontendTemplate::TagCloudURL(...));
+        Core::frontend()->tpl->addValue('TagFeedURL', FrontendTemplate::TagFeedURL(...));
 
         /*
         # Kept for backward compatibility (for now)
-        Core::frontend()->tpl->addBlock('MetaData', [FrontendTemplate::class, 'Tags']);
-        Core::frontend()->tpl->addBlock('MetaDataHeader', [FrontendTemplate::class, 'TagsHeader']);
-        Core::frontend()->tpl->addBlock('MetaDataFooter', [FrontendTemplate::class, 'TagsFooter']);
-        Core::frontend()->tpl->addValue('MetaID', [FrontendTemplate::class, 'TagID']);
-        Core::frontend()->tpl->addValue('MetaPercent', [FrontendTemplate::class, 'TagPercent']);
-        Core::frontend()->tpl->addValue('MetaRoundPercent', [FrontendTemplate::class, 'TagRoundPercent']);
-        Core::frontend()->tpl->addValue('MetaURL', [FrontendTemplate::class, 'TagURL']);
-        Core::frontend()->tpl->addValue('MetaAllURL', [FrontendTemplate::class, 'TagCloudURL']);
-        Core::frontend()->tpl->addBlock('EntryMetaData', [FrontendTemplate::class, 'EntryTags']);
+        Core::frontend()->tpl->addBlock('MetaData', FrontendTemplate::Tags(...));
+        Core::frontend()->tpl->addBlock('MetaDataHeader', FrontendTemplate::TagsHeader(...));
+        Core::frontend()->tpl->addBlock('MetaDataFooter', FrontendTemplate::TagsFooter(...));
+        Core::frontend()->tpl->addValue('MetaID', FrontendTemplate::TagID(...));
+        Core::frontend()->tpl->addValue('MetaPercent', FrontendTemplate::TagPercent(...));
+        Core::frontend()->tpl->addValue('MetaRoundPercent', FrontendTemplate::TagRoundPercent(...));
+        Core::frontend()->tpl->addValue('MetaURL', FrontendTemplate::TagURL(...));
+        Core::frontend()->tpl->addValue('MetaAllURL', FrontendTemplate::TagCloudURL(...));
+        Core::frontend()->tpl->addBlock('EntryMetaData', FrontendTemplate::EntryTags(...));
         */
 
         Core::behavior()->addBehaviors([
-            'publicPrependV2'        => [FrontendBehaviors::class, 'publicPrepend'],
-            'templateBeforeBlockV2'  => [FrontendBehaviors::class, 'templateBeforeBlock'],
-            'publicBeforeDocumentV2' => [FrontendBehaviors::class, 'addTplPath'],
+            'publicPrependV2'        => FrontendBehaviors::publicPrepend(...),
+            'templateBeforeBlockV2'  => FrontendBehaviors::templateBeforeBlock(...),
+            'publicBeforeDocumentV2' => FrontendBehaviors::addTplPath(...),
 
-            'initWidgets' => [Widgets::class, 'initWidgets'],
+            'initWidgets' => Widgets::initWidgets(...),
         ]);
 
         return true;

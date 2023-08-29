@@ -32,8 +32,8 @@ class Backend extends Process
         }
 
         Core::behavior()->addBehaviors([
-            'adminBlogPreferencesFormV2'    => [BackendBehaviors::class, 'adminBlogPreferencesForm'],
-            'adminBeforeBlogSettingsUpdate' => [BackendBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
+            'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
+            'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),
         ]);
 
         return true;

@@ -45,7 +45,7 @@ class Backend extends Process
                     ]),
                 ]);
             },
-            'initWidgets' => [Widgets::class, 'initWidgets'],
+            'initWidgets' => Widgets::initWidgets(...),
         ]);
 
         My::addBackendMenuItem(Menus::MENU_BLOG);

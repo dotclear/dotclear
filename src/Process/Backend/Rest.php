@@ -33,23 +33,23 @@ class Rest extends Process
 {
     public static function init(): bool
     {
-        Core::rest()->addFunction('getPostsCount', [self::class, 'getPostsCount']);
-        Core::rest()->addFunction('getCommentsCount', [self::class, 'getCommentsCount']);
-        Core::rest()->addFunction('checkNewsUpdate', [self::class, 'checkNewsUpdate']);
-        Core::rest()->addFunction('checkCoreUpdate', [self::class, 'checkCoreUpdate']);
-        Core::rest()->addFunction('checkStoreUpdate', [self::class, 'checkStoreUpdate']);
-        Core::rest()->addFunction('getPostById', [self::class, 'getPostById']);
-        Core::rest()->addFunction('getCommentById', [self::class, 'getCommentById']);
-        Core::rest()->addFunction('quickPost', [self::class, 'quickPost']);
-        Core::rest()->addFunction('getZipMediaContent', [self::class, 'getZipMediaContent']);
-        Core::rest()->addFunction('getMeta', [self::class, 'getMeta']);
-        Core::rest()->addFunction('delMeta', [self::class, 'delMeta']);
-        Core::rest()->addFunction('setPostMeta', [self::class, 'setPostMeta']);
-        Core::rest()->addFunction('searchMeta', [self::class, 'searchMeta']);
-        Core::rest()->addFunction('searchMetadata', [self::class, 'searchMetadata']);
-        Core::rest()->addFunction('setSectionFold', [self::class, 'setSectionFold']);
-        Core::rest()->addFunction('setDashboardPositions', [self::class, 'setDashboardPositions']);
-        Core::rest()->addFunction('setListsOptions', [self::class, 'setListsOptions']);
+        Core::rest()->addFunction('getPostsCount', self::getPostsCount(...));
+        Core::rest()->addFunction('getCommentsCount', self::getCommentsCount(...));
+        Core::rest()->addFunction('checkNewsUpdate', self::checkNewsUpdate(...));
+        Core::rest()->addFunction('checkCoreUpdate', self::checkCoreUpdate(...));
+        Core::rest()->addFunction('checkStoreUpdate', self::checkStoreUpdate(...));
+        Core::rest()->addFunction('getPostById', self::getPostById(...));
+        Core::rest()->addFunction('getCommentById', self::getCommentById(...));
+        Core::rest()->addFunction('quickPost', self::quickPost(...));
+        Core::rest()->addFunction('getZipMediaContent', self::getZipMediaContent(...));
+        Core::rest()->addFunction('getMeta', self::getMeta(...));
+        Core::rest()->addFunction('delMeta', self::delMeta(...));
+        Core::rest()->addFunction('setPostMeta', self::setPostMeta(...));
+        Core::rest()->addFunction('searchMeta', self::searchMeta(...));
+        Core::rest()->addFunction('searchMetadata', self::searchMetadata(...));
+        Core::rest()->addFunction('setSectionFold', self::setSectionFold(...));
+        Core::rest()->addFunction('setDashboardPositions', self::setDashboardPositions(...));
+        Core::rest()->addFunction('setListsOptions', self::setListsOptions(...));
 
         return self::status(true);
     }
