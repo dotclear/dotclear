@@ -29,16 +29,18 @@ class Prepend extends Process
             return false;
         }
 
-        dcCore::app()->spamfilters = [
-            Filters\Ip::class,
-            Filters\IpLookup::class,
-            Filters\Words::class,
-            Filters\LinksLookup::class,
-        ];
+        Core::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+            $stack->append(Filters\Ip::class);
+            $stack->append(Filters\IpLookup::class);
+            $stack->append(Filters\Words::class);
+            $stack->append(Filters\LinksLookup::class);
+        });
 
         // IP v6 filter depends on some math libraries, so enable it only if one of them is available
         if (function_exists('gmp_init') || function_exists('bcadd')) {
-            dcCore::app()->spamfilters[] = Filters\IpV6::class;
+            Core::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+                $stack->append(Filters\IpV6::class);
+            });
         }
 
         Core::url()->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', [FrontendUrl::class, 'spamFeed']);

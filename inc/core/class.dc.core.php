@@ -326,7 +326,7 @@ final class dcCore
     /**
      * Array of antispam filters (names)
      *
-     * May be transfered as property of frontend Utility instance in future
+     * @deprecated since 2.28, Use AntispamInitFilters behavior instead
      *
      * @var array|null
      */

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\fairTrackbacks;
 
 use dcCore;
+use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -29,7 +30,9 @@ class Frontend extends Process
         }
 
         if (DC_FAIRTRACKBACKS_FORCE) {
-            dcCore::app()->spamfilters[] = AntispamFilterFairTrackbacks::class;
+            Core::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+                $stack->append(AntispamFilterFairTrackbacks::class);
+            });
         }
 
         return true;

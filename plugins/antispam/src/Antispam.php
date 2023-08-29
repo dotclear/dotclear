@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
+use ArrayObject;
 use dcAuth;
 use dcBlog;
 use dcCore;
@@ -22,6 +23,8 @@ use initAntispam;
 
 class Antispam extends initAntispam
 {
+    private static array $spamfilters = [];
+
     // Properties
 
     /**
@@ -36,12 +39,32 @@ class Antispam extends initAntispam
      */
     public static function initFilters()
     {
-        if (!isset(dcCore::app()->spamfilters)) {
+        if (!empty(self::$spamfilters)) {
             return;
         }
 
+        // deprecated since 2.28
+        if (!empty(dcCore::app()->spamfilters)) {
+            foreach(dcCore::app()->spamfilters as $spamfilter) {
+                if (is_subclass_of($spamfilter, SpamFilter::class)) {
+                    self::$spamfilters[] = $spamfilter;
+                }
+            }
+            
+        }
+
+        $spamfilters = new ArrayObject();
+        # --BEHAVIOR-- AntispamInitFilters -- ArrayObject
+        Core::behavior()->callBehavior('AntispamInitFilters', $spamfilters);
+
+        foreach($spamfilters as $spamfilter) {
+                if (is_subclass_of($spamfilter, SpamFilter::class)) {
+                self::$spamfilters[] = $spamfilter;
+            }
+        }
+
         self::$filters = new SpamFilters();
-        self::$filters->init(dcCore::app()->spamfilters);
+        self::$filters->init(self::$spamfilters);
     }
 
     /**
