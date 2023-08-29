@@ -2,6 +2,8 @@
 /**
  * Core factory interface.
  *
+ * Core factory interface protect Core compatibility.
+ *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear

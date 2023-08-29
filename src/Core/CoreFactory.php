@@ -2,6 +2,8 @@
 /**
  * Core default factory.
  *
+ * Core factory instanciate main Core classes.
+ *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
