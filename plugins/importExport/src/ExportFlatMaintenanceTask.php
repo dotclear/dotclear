@@ -25,6 +25,6 @@ class ExportFlatMaintenanceTask extends ModuleExportFlat
      */
     public function setURL(string $id): void
     {
-        $this->url = sprintf(urldecode(dcCore::app()->admin->url->get('admin.plugin', ['p' => 'maintenance', 'id' => '%s'], '&')), $id);
+        $this->url = dcCore::app()->admin->url->get('admin.plugin', ['p' => 'maintenance', 'task' => $id], '&');
     }
 }
