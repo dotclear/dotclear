@@ -31,8 +31,8 @@ class FrontendTemplate
     {
         return
             '<?php' . "\n" .
-            'if (Core::frontend()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
-            '    Core::frontend()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(Core::frontend()->ctx->posts->post_id,null,"attachment"));' . "\n" .
+            'if (Core::frontend()->ctx->posts !== null) {' . "\n" .
+            '    Core::frontend()->ctx->attachments = new ArrayObject(Core::media()->getPostMedia(Core::frontend()->ctx->posts->post_id,null,"attachment"));' . "\n" .
             '    foreach (Core::frontend()->ctx->attachments as $attach_i => $attach_f) : ' .
             '        Core::frontend()->ctx->file_url = $attach_f->file_url;' . "\n" .
             '?>' . "\n" .

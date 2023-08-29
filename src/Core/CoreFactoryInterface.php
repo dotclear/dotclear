@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcError;
 use dcLog;
+use dcMedia;
 use dcMeta;
 use dcNotices;
 use dcPlugins;
@@ -38,6 +39,7 @@ interface CoreFactoryInterface
     public function formater(): Formater;
     public function log(): dcLog;
     public function meta(): dcMeta;
+    public function media(): dcMedia;
     public function nonce(): Nonce;
     public function notice(): dcNotices;
     public function plugins(): dcPlugins;

@@ -180,12 +180,8 @@ class Utility extends Process
             Core::url()->registerDefault([Url::class, 'static_home']);
         }
 
-        # Loading media
-        try {
-            dcCore::app()->media = new dcMedia();
-        } catch (Exception $e) {
-            // Ignore
-        }
+        //deprecated
+        dcCore::app()->media = Core::media();
 
         # Creating template context
         Core::frontend()->ctx = new context();
@@ -233,6 +229,9 @@ class Utility extends Process
         } catch (Exception $e) {
             // Ignore
         }
+
+        // deprecated
+        dcCore::app()->themes = Core::themes();
 
         # Loading themes
         Core::themes()->loadModules(Core::blog()->themes_path);

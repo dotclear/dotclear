@@ -47,7 +47,7 @@ class BackendBehaviors
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
         if ($post !== null) {
-            $post_media = dcCore::app()->media->getPostMedia((int) $post->post_id, null, 'attachment');
+            $post_media = Core::media()->getPostMedia((int) $post->post_id, null, 'attachment');
             $nb_media   = is_countable($post_media) ? count($post_media) : 0;   // @phpstan-ignore-line
             $title      = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
             $item       = '<h5 class="clear s-attachments">' . $title . '</h5>';

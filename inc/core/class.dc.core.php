@@ -168,6 +168,8 @@ final class dcCore
     /**
      * dcMedia instance
      *
+     * @deprecated since 2.28, use Core::media() instead
+     *
      * @var dcMedia|null
      */
     public $media;

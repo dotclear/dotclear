@@ -61,27 +61,27 @@ class MediaPage extends FilterMedia
 
         // try to load core media and themes
         try {
-            dcCore::app()->media = new dcMedia($this->file_type ?? '');
-            dcCore::app()->media->setFileSort($this->sortby . '-' . $this->order);
+            Core::media()->setFilterMimeType($this->file_type ?? '');
+            Core::media()->setFileSort($this->sortby . '-' . $this->order);
 
             if ($this->q != '') {
-                $this->media_has_query = dcCore::app()->media->searchMedia($this->q);
+                $this->media_has_query = Core::media()->searchMedia($this->q);
             }
             if (!$this->media_has_query) {
                 $try_d = $this->d;
                 // Reset current dir
                 $this->d = null;
                 // Change directory (may cause an exception if directory doesn't exist)
-                dcCore::app()->media->chdir($try_d);
+                Core::media()->chdir($try_d);
                 // Restore current dir variable
                 $this->d = $try_d;
-                dcCore::app()->media->getDir();
+                Core::media()->getDir();
             } else {
                 $this->d = null;
-                dcCore::app()->media->chdir('');
+                Core::media()->chdir('');
             }
-            $this->media_writable = dcCore::app()->media->writable();
-            $this->media_dir      = &dcCore::app()->media->dir;
+            $this->media_writable = Core::media()->writable();
+            $this->media_dir      = &Core::media()->dir;
 
             if (Core::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --
@@ -180,7 +180,7 @@ class MediaPage extends FilterMedia
      */
     public function mediaLine(string $file_id): string
     {
-        return ListingMedia::mediaLine($this, dcCore::app()->media->getFile((int) $file_id), 1, $this->media_has_query);
+        return ListingMedia::mediaLine($this, Core::media()->getFile((int) $file_id), 1, $this->media_has_query);
     }
 
     /**
@@ -367,7 +367,7 @@ class MediaPage extends FilterMedia
     {
         $option = $param = [];
 
-        if (empty($element) && isset(dcCore::app()->media)) {
+        if (empty($element)) {
             $param = [
                 'd' => '',
                 'q' => '',
@@ -379,7 +379,7 @@ class MediaPage extends FilterMedia
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
                 $bc_url   = Core::backend()->url->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
-                $bc_media = dcCore::app()->media->breadCrumb($bc_url, '<span class="page-title">%s</span>');
+                $bc_media = Core::media()->breadCrumb($bc_url, '<span class="page-title">%s</span>');
                 if ($bc_media != '') {
                     $element[$bc_media] = '';
                     $option['hl']       = true;

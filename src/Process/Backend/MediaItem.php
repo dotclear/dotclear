@@ -108,26 +108,24 @@ class MediaItem extends Process
         $dirs_combo = [];
 
         try {
-            dcCore::app()->media = new dcMedia();
-
             if (Core::backend()->id) {
-                Core::backend()->file = dcCore::app()->media->getFile((int) Core::backend()->id);
+                Core::backend()->file = Core::media()->getFile((int) Core::backend()->id);
             }
 
             if (Core::backend()->file === null) {
                 throw new Exception(__('Not a valid file'));
             }
 
-            dcCore::app()->media->chdir(dirname(Core::backend()->file->relname));
-            Core::backend()->is_media_writable = dcCore::app()->media->writable();
+            Core::media()->chdir(dirname(Core::backend()->file->relname));
+            Core::backend()->is_media_writable = Core::media()->writable();
 
             # Prepare directories combo box
-            foreach (dcCore::app()->media->getDBDirs() as $v) {
+            foreach (Core::media()->getDBDirs() as $v) {
                 $dirs_combo['/' . $v] = $v;
             }
             # Add parent and direct childs directories if any
-            dcCore::app()->media->getFSDir();
-            foreach (dcCore::app()->media->dir['dirs'] as $v) {
+            Core::media()->getFSDir();
+            foreach (Core::media()->dir['dirs'] as $v) {
                 $dirs_combo['/' . $v->relname] = $v->relname;
             }
             ksort($dirs_combo);
@@ -151,7 +149,7 @@ class MediaItem extends Process
 
             try {
                 Files::uploadStatus($_FILES['upfile']);
-                dcCore::app()->media->uploadFile($_FILES['upfile']['tmp_name'], Core::backend()->file->basename, true, null, false);
+                Core::media()->uploadFile($_FILES['upfile']['tmp_name'], Core::backend()->file->basename, true, null, false);
 
                 Notices::addSuccessNotice(__('File has been successfully updated.'));
                 Core::backend()->url->redirect('admin.media.item', Core::backend()->page_url_params);
@@ -206,7 +204,7 @@ class MediaItem extends Process
             }
 
             try {
-                dcCore::app()->media->updateFile(Core::backend()->file, $newFile);
+                Core::media()->updateFile(Core::backend()->file, $newFile);
 
                 Notices::addSuccessNotice(__('File has been successfully updated.'));
                 Core::backend()->page_url_params = array_merge(
@@ -223,7 +221,7 @@ class MediaItem extends Process
             // Update thumbnails
 
             try {
-                dcCore::app()->media->mediaFireRecreateEvent(Core::backend()->file);
+                Core::media()->mediaFireRecreateEvent(Core::backend()->file);
 
                 Notices::addSuccessNotice(__('Thumbnails have been successfully updated.'));
                 Core::backend()->page_url_params = array_merge(
@@ -240,7 +238,7 @@ class MediaItem extends Process
             // Unzip file
 
             try {
-                $unzip_dir = dcCore::app()->media->inflateZipFile(Core::backend()->file, $_POST['inflate_mode'] == 'new');
+                $unzip_dir = Core::media()->inflateZipFile(Core::backend()->file, $_POST['inflate_mode'] == 'new');
 
                 Notices::addSuccessNotice(__('Zip file has been successfully extracted.'));
                 Core::backend()->media_page_url_params = array_merge(
@@ -296,7 +294,7 @@ class MediaItem extends Process
                 $prefs['legend'] = $_POST['pref_legend'];
             }
 
-            $local = dcCore::app()->media->root . '/' . dirname(Core::backend()->file->relname) . '/' . '.mediadef.json';
+            $local = Core::media()->root . '/' . dirname(Core::backend()->file->relname) . '/' . '.mediadef.json';
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
@@ -306,7 +304,7 @@ class MediaItem extends Process
         if (!empty($_POST['remove_folder_prefs'])) {
             // Delete media insertion settings for the folder (.mediadef and .mediadef.json)
 
-            $local      = dcCore::app()->media->root . '/' . dirname(Core::backend()->file->relname) . '/' . '.mediadef';
+            $local      = Core::media()->root . '/' . dirname(Core::backend()->file->relname) . '/' . '.mediadef';
             $local_json = $local . '.json';
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
@@ -398,7 +396,7 @@ class MediaItem extends Process
             }
 
             try {
-                $local = dcCore::app()->media->root . '/' . dirname($file->relname) . '/' . '.mediadef';
+                $local = Core::media()->root . '/' . dirname($file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
@@ -424,7 +422,7 @@ class MediaItem extends Process
         }
         $temp_params      = Core::backend()->media_page_url_params;
         $temp_params['d'] = '%s';
-        $breadcrumb       = dcCore::app()->media->breadCrumb(Core::backend()->url->get('admin.media', $temp_params, '&amp;', true)) . (Core::backend()->file === null ?
+        $breadcrumb       = Core::media()->breadCrumb(Core::backend()->url->get('admin.media', $temp_params, '&amp;', true)) . (Core::backend()->file === null ?
             '' :
             '<span class="page-title">' . Core::backend()->file->basename . '</span>');
         $temp_params['d'] = '';
@@ -510,7 +508,7 @@ class MediaItem extends Process
                     echo
                     '<label class="classic">' .
                     form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    dcCore::app()->media->thumb_sizes[$s][2] . '</label><br /> ';
+                    Core::media()->thumb_sizes[$s][2] . '</label><br /> ';
                 }
                 $s_checked = (!isset(Core::backend()->file->media_thumb[$defaults['size']]));
                 echo
@@ -578,7 +576,7 @@ class MediaItem extends Process
                     echo
                     '<label class="classic">' .
                     form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    dcCore::app()->media->thumb_sizes[$s][2] . '</label><br /> ';
+                    Core::media()->thumb_sizes[$s][2] . '</label><br /> ';
                 }
                 $s_checked = (!isset(Core::backend()->file->media_thumb[$defaults['size']]));
                 echo
@@ -746,7 +744,7 @@ class MediaItem extends Process
                 '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '" /> ' . __('or') . ' ' .
                 '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '" />';
 
-                $local = dcCore::app()->media->root . '/' . dirname(Core::backend()->file->relname) . '/' . '.mediadef';
+                $local = Core::media()->root . '/' . dirname(Core::backend()->file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
@@ -788,7 +786,7 @@ class MediaItem extends Process
         if (Core::backend()->file->media_image) {
             $thumb_size = !empty($_GET['size']) ? (string) $_GET['size'] : 's';
 
-            if (!isset(dcCore::app()->media->thumb_sizes[$thumb_size]) && $thumb_size !== 'o') {
+            if (!isset(Core::media()->thumb_sizes[$thumb_size]) && $thumb_size !== 'o') {
                 $thumb_size = 's';
             }
 
@@ -815,7 +813,7 @@ class MediaItem extends Process
                 sprintf($strong_link, '<a href="' . Core::backend()->url->get('admin.media.item', array_merge(
                     Core::backend()->page_url_params,
                     ['size' => $s, 'tab' => 'media-details-tab']
-                )) . '">' . dcCore::app()->media->thumb_sizes[$s][2] . '</a> | ');
+                )) . '">' . Core::media()->thumb_sizes[$s][2] . '</a> | ');
             }
 
             echo
@@ -828,10 +826,10 @@ class MediaItem extends Process
                 $alpha     = strtolower($path_info['extension']) === 'png';
                 $webp      = strtolower($path_info['extension']) === 'webp';
                 $thumb_tp  = ($alpha ?
-                    dcCore::app()->media->thumb_tp_alpha :
+                    Core::media()->thumb_tp_alpha :
                     ($webp ?
-                        dcCore::app()->media->thumb_tp_webp :
-                        dcCore::app()->media->thumb_tp));
+                        Core::media()->thumb_tp_webp :
+                        Core::media()->thumb_tp));
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
                 $image_size = getimagesize($thumb_file);

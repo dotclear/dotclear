@@ -487,8 +487,7 @@ class Rest extends Process
         $file = null;
 
         try {
-            dcCore::app()->media = new dcMedia();
-            $file                = dcCore::app()->media->getFile((int) $id);
+            $file = Core::media()->getFile((int) $id);
         } catch (Exception $e) {
             // Ignore exceptions
         }
@@ -497,7 +496,7 @@ class Rest extends Process
             throw new Exception('Not a valid file');
         }
 
-        $content = dcCore::app()->media->getZipContent($file);
+        $content = Core::media()->getZipContent($file);
 
         $data = [];
         foreach ($content as $k => $v) {

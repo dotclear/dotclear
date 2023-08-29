@@ -71,16 +71,15 @@ class ZipMedia extends MaintenanceTask
     public function execute()
     {
         // Instance media
-        dcCore::app()->media = new dcMedia();
-        dcCore::app()->media->chdir('');
-        dcCore::app()->media->getDir();
+        Core::media()->chdir('');
+        Core::media()->getDir();
 
         // Create zip
         @set_time_limit(300);
         $fp  = fopen('php://output', 'wb');
         $zip = new Zip($fp);
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
-        $zip->addDirectory(dcCore::app()->media->root . '/', '', true);
+        $zip->addDirectory(Core::media()->root . '/', '', true);
 
         // Log task execution here as we sent file and stop script
         $this->log();

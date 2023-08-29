@@ -68,9 +68,7 @@ class PostMedia extends Process
                 Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
             }
 
-            dcCore::app()->media = new dcMedia();
-
-            $f = dcCore::app()->media->getPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
+            $f = Core::media()->getPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
             if (empty($f)) {
                 Core::backend()->post_id = Core::backend()->media_id = null;
 

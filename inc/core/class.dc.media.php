@@ -58,12 +58,9 @@ class dcMedia extends Manager
     /**
      * Media type filter
      *
-     * Correspond, if set, to the base mimetype (ex: "image" for "image/jpg" mimetype)
-     * Might be image, audio, text, vidéo, application
-     *
      * @var string
      */
-    protected $type;
+    protected $type = '';
 
     /**
      * Sort criteria
@@ -147,11 +144,9 @@ class dcMedia extends Manager
     /**
      * Constructs a new instance.
      *
-     * @param      string     $type   The media type filter
-     *
      * @throws     Exception
      */
-    public function __construct(string $type = '')
+    public function __construct()
     {
         $this->con       = Core::con();
         $this->postmedia = Core::postMedia();
@@ -177,8 +172,6 @@ class dcMedia extends Manager
 
             throw new Exception(__('There is no writable root directory for the media manager. You should contact your administrator.'));
         }
-
-        $this->type = $type;
 
         parent::__construct($root, $root_url);
         $this->chdir('');
@@ -234,6 +227,19 @@ class dcMedia extends Manager
             $this->thumb_sizes[$code][3] = $this->thumb_sizes[$code][2];
             $this->thumb_sizes[$code][2] = __($this->thumb_sizes[$code][2]);
         }
+    }
+
+    /**
+     * Set media type filter.
+     *
+     * Correspond, if set, to the base mimetype (ex: "image" for "image/jpg" mimetype)
+     * Might be image, audio, text, vidéo, application
+     *
+     * @param   string  $type The base mime type
+     */
+    public function setFilterMimeType(string $type): void
+    {
+        $this->type = $type;
     }
 
     /**

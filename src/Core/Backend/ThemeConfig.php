@@ -470,8 +470,7 @@ class ThemeConfig
         if (is_writable(dirname($img))) {
             // Delete thumbnails if any
             try {
-                $media = new dcMedia();
-                $media->imageThumbRemove($img);
+                Core::media()->imageThumbRemove($img);
             } catch (Exception $e) {
                 Core::error()->add($e->getMessage());
             }

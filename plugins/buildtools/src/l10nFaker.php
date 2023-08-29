@@ -20,14 +20,6 @@ use Dotclear\Helper\Date;
 class l10nFaker
 {
     /**
-     * Constructs a new instance.
-     */
-    public function __construct()
-    {
-        dcCore::app()->media = new dcMedia();
-    }
-
-    /**
      * Get a fake l10n
      *
      * @param      string  $str    The string
@@ -50,7 +42,7 @@ class l10nFaker
         $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), Core::auth()->getInfo('user_tz')) . "\n";
 
         $main .= "\n// Media sizes\n\n";
-        foreach (dcCore::app()->media->thumb_sizes as $v) {
+        foreach (Core::media()->thumb_sizes as $v) {
             $main .= $this->fake_l10n($v[3]);
         }
 

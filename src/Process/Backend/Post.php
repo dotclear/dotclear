@@ -197,12 +197,6 @@ class Post extends Process
                     );
                 }
 
-                try {
-                    dcCore::app()->media = new dcMedia();
-                } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
-                }
-
                 // Sanitize trackbacks excerpt
                 $buffer = empty($_POST['tb_excerpt']) ?
                     Core::backend()->post_excerpt_xhtml . ' ' . Core::backend()->post_content_xhtml :

@@ -49,13 +49,13 @@ class Media extends Process
             Core::auth()::PERMISSION_MEDIA_ADMIN,
         ]), Core::blog()->id)) {
             try {
-                if (strpos(realpath(dcCore::app()->media->root . '/' . Core::backend()->page->d), (string) realpath(dcCore::app()->media->root)) === 0) {
+                if (strpos(realpath(Core::media()->root . '/' . Core::backend()->page->d), (string) realpath(Core::media()->root)) === 0) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
                     $zip = new Zip($fp);
                     $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp)$/');
-                    $zip->addDirectory(dcCore::app()->media->root . '/' . Core::backend()->page->d, '', true);
+                    $zip->addDirectory(Core::media()->root . '/' . Core::backend()->page->d, '', true);
                     header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . Core::blog()->id . '-' . (Core::backend()->page->d ?: 'media') . '.zip');
                     header('Content-Type: application/x-zip');
                     $zip->write();
@@ -63,7 +63,7 @@ class Media extends Process
                     exit;
                 }
                 Core::backend()->page->d = null;
-                dcCore::app()->media->chdir(Core::backend()->page->d);
+                Core::media()->chdir(Core::backend()->page->d);
 
                 throw new Exception(__('Not a valid directory'));
             } catch (Exception $e) {
@@ -91,7 +91,7 @@ class Media extends Process
                 ));
             } else {
                 try {
-                    dcCore::app()->media->makeDir($_POST['newdir']);
+                    Core::media()->makeDir($_POST['newdir']);
                     Notices::addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
@@ -121,7 +121,7 @@ class Media extends Process
 
                 try {
                     Files::uploadStatus($upfile);
-                    $new_file_id = dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $upfile['title']);
+                    $new_file_id = Core::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $upfile['title']);
 
                     $message['files'][] = [
                         'name' => $upfile['name'],
@@ -145,7 +145,7 @@ class Media extends Process
                 $f_title   = (isset($_POST['upfiletitle']) ? Html::escapeHTML($_POST['upfiletitle']) : '');
                 $f_private = ($_POST['upfilepriv'] ?? false);
 
-                dcCore::app()->media->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
+                Core::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
 
                 Notices::addSuccessNotice(__('Files have been successfully uploaded.'));
                 Core::backend()->url->redirect('admin.media', Core::backend()->page->values());
@@ -158,7 +158,7 @@ class Media extends Process
         if (Core::backend()->page->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
             try {
                 foreach ($_POST['medias'] as $media) {
-                    dcCore::app()->media->removeItem(rawurldecode($media));
+                    Core::media()->removeItem(rawurldecode($media));
                 }
                 Notices::addSuccessNotice(
                     sprintf(
@@ -182,14 +182,14 @@ class Media extends Process
             $forget          = false;
 
             try {
-                if (is_dir(Path::real(dcCore::app()->media->getPwd() . '/' . Path::clean($_POST['remove'])))) {
+                if (is_dir(Path::real(Core::media()->getPwd() . '/' . Path::clean($_POST['remove'])))) {
                     $msg = __('Directory has been successfully removed.');
                     # Remove dir from recents/favs if necessary
                     $forget = true;
                 } else {
                     $msg = __('File has been successfully removed.');
                 }
-                dcCore::app()->media->removeItem($_POST['remove']);
+                Core::media()->removeItem($_POST['remove']);
                 if ($forget) {
                     Core::backend()->page->updateLast(Core::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
                     Core::backend()->page->updateFav(Core::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
@@ -204,7 +204,7 @@ class Media extends Process
         # Build missing directory thumbnails
         if (Core::backend()->page->getDirs() && Core::auth()->isSuperAdmin() && !empty($_POST['complete'])) {
             try {
-                dcCore::app()->media->rebuildThumbnails(Core::backend()->page->d);
+                Core::media()->rebuildThumbnails(Core::backend()->page->d);
 
                 Notices::addSuccessNotice(
                     sprintf(

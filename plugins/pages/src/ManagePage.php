@@ -191,8 +191,7 @@ class ManagePage extends Process
                 }
 
                 try {
-                    dcCore::app()->media        = new dcMedia();
-                    Core::backend()->post_media = dcCore::app()->media->getPostMedia(Core::backend()->post_id);
+                    Core::backend()->post_media = Core::media()->getPostMedia(Core::backend()->post_id);
                 } catch (Exception $e) {
                     Core::error()->add($e->getMessage());
                 }

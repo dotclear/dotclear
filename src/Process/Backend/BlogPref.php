@@ -162,7 +162,7 @@ class BlogPref extends Process
         $stack = [];
 
         try {
-            $media = new dcMedia();
+            $media = Core::media();
 
             $stack[__('original')] = 'o';
             foreach ($media->thumb_sizes as $code => $size) {

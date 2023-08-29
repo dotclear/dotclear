@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcError;
 use dcLog;
+use dcMedia;
 use dcMeta;
 use dcNotices;
 use dcPlugins;
@@ -83,6 +84,11 @@ class CoreFactory implements CoreFactoryInterface
     public function log(): dcLog
     {
         return new dcLog();
+    }
+
+    public function media(): dcMedia
+    {
+        return new dcMedia();
     }
 
     public function meta(): dcMeta

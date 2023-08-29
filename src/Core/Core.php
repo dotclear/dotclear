@@ -16,6 +16,7 @@ use dcAuth;
 use dcBlog;
 use dcError;
 use dcLog;
+use dcMedia;
 use dcMeta;
 use dcNotices;
 use dcPlugins;
@@ -144,6 +145,11 @@ final class Core
     public static function log(): dcLog
     {
         return self::$instance->get('log');
+    }
+
+    public static function media(): dcMedia
+    {
+        return self::$instance->get('media');
     }
 
     public static function meta(): dcMeta
