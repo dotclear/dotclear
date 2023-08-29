@@ -33,11 +33,14 @@ use Exception;
 
 class CoreContainer
 {
-    /** @var array<string,mixed> Unique instances stack */
+    /** @var    array<string,mixed>     Unique instances stack */
     private array $stack = [];
 
-    /** @var CoreContainer   CoreContainer unique instance */
+    /** @var    CoreContainer   CoreContainer unique instance */
     private static CoreContainer $instance;
+
+    /** @var    CoreFactoryInterface    CoreFactory instance */
+    private CoreFactoryInterface $factory;
 
     /// @name Container methods
     //@{
@@ -46,19 +49,19 @@ class CoreContainer
      *
      * @param   string  $factory_class  The Core factory class name
      */
-    public function __construct(
-        protected string $factory_class
-    ) {
+    public function __construct(string $factory_class) {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
-        // Factory class, implement all methods of Core,
+        // Factory class, implement all methods of CoreContainer,
         // third party Core factory MUST implements CoreFactoryInterface and SHOULD extends CoreFactory
-        if (!class_exists($this->factory_class) || !is_subclass_of($this->factory_class, CoreFactoryInterface::class)) {
-            throw new Exception('Core factory class ' . $this->factory_class . ' does not inherit CoreFactoryInterface.');
+        if (!class_exists($factory_class) || !is_subclass_of($factory_class, CoreFactoryInterface::class)) {
+            $factory_class = CoreFactory::class;
         }
+
         self::$instance = $this;
+        $this->factory  = new $factory_class($this);
     }
 
     /**
@@ -69,10 +72,10 @@ class CoreContainer
     public function get(string $id)
     {
         if ($this->has($id)) {
-            return $this->stack[$id] ?? $this->stack[$id] = (new $this->factory_class($this))->{$id}();
+            return $this->stack[$id] ?? $this->stack[$id] = $this->factory->{$id}();
         }
 
-        throw new Exception('Can not call ' . $id . ' on Core factory class ' . $this->factory_class);
+        throw new Exception('Can not call ' . $id . ' on Core factory class ' . $this->factory::class);
     }
 
     /**
@@ -84,7 +87,7 @@ class CoreContainer
      */
     public function has(string $id): bool
     {
-        return method_exists($this->factory_class, $id);
+        return method_exists($this->factory, $id);
     }
     //@}
 

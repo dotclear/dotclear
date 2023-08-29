@@ -454,7 +454,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_CORE_FACTORY_CLASS')) {
-                define('DC_CORE_FACTORY_CLASS', 'Dotclear\Core\CoreFactory');
+                define('DC_CORE_FACTORY_CLASS', '');
             }
 
             L10n::init();
