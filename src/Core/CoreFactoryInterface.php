@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 
 // classes that move to \Dotclear\Core
 use dcAuth;
+use dcBlog;
 use dcError;
 use dcLog;
 use dcMedia;
@@ -32,8 +33,11 @@ use Dotclear\Helper\Behavior;
 
 interface CoreFactoryInterface
 {
+    public function __construct(CoreContainer $container);
     public function auth(): dcAuth;
     public function behavior(): Behavior;
+    public function blog(): ?dcBlog;
+    public function blogLoader(): BlogLoader;
     public function blogs(): Blogs;
     public function con(): AbstractHandler;
     public function error(): dcError;

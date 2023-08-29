@@ -255,7 +255,7 @@ class Install extends Process
                 $cur->insert();
 
                 # Create first post
-                Core::setBlog('default');
+                Core::blogLoader()->setBlog('default');
 
                 $cur               = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
                 $cur->user_id      = self::$u_login;

@@ -131,7 +131,7 @@ class Utility extends Process
         // Loading blog
         if (defined('DC_BLOG_ID')) {
             try {
-                Core::setBlog(DC_BLOG_ID);
+                Core::blogLoader()->setBlog(DC_BLOG_ID);
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
@@ -156,7 +156,7 @@ class Utility extends Process
         }
 
         if ((int) Core::blog()->status !== dcBlog::BLOG_ONLINE) {
-            Core::unsetBlog();
+            Core::blogLoader()->unsetBlog();
             new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
 

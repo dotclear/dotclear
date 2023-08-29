@@ -20,15 +20,13 @@ use Dotclear\Helper\Html\WikiToHtml;
 
 class Filter
 {
-    private Behavior $behavior;
-
     /**
      * Constructor grabs all we need.
      */
-    public function __construct()
-    {
-        // dot not get blog here as it can change during script execution
-        $this->behavior = Core::behavior();
+    public function __construct(
+        private Behavior $behavior,
+        private BlogLoader $blog_loader
+    ) {
     }
 
     /// @name WikiToHtml methods
@@ -274,7 +272,8 @@ class Filter
      */
     public function HTMLfilter(string $str): string
     {
-        if (!is_null(Core::blog()) && !Core::blog()->settings->system->enable_html_filter) {
+        $blog = $this->blog_loader->getBlog();
+        if (!is_null($blog) && !$blog->settings->system->enable_html_filter) {
             return $str;
         }
 

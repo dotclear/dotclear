@@ -87,7 +87,7 @@ final class dcCore
     /**
      * dcBlog instance
      *
-     * @deprecated since 2.28, use Core::blog() instead
+     * @deprecated since 2.28, use Core::blogLodaer()->getBlog() instead
      *
      * @var dcBlog|null
      */
@@ -393,23 +393,23 @@ final class dcCore
     /**
      * Sets the blog to use.
      *
-     * @deprecated since 2.28, use Core::setBlog() instead
+     * @deprecated since 2.28, use Core::blogLoader()->setBlog() instead
      *
      * @param      string  $id     The blog ID
      */
     public function setBlog($id): void
     {
-        Core::setBlog($id);
+        Core::blogLoader()->setBlog($id);
     }
 
     /**
      * Unsets blog property.
      *
-     * @deprecated since 2.28, use Core::unsetBlog() instead
+     * @deprecated since 2.28, use Core::blogLoader()->unsetBlog() instead
      */
     public function unsetBlog(): void
     {
-        Core::unsetBlog();
+        Core::blogLoader()->unsetBlog();
     }
     //@}
 

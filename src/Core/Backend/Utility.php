@@ -174,7 +174,7 @@ class Utility extends Process
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
-                Core::setBlog($_SESSION['sess_blog_id']);
+                Core::blogLoader()->setBlog($_SESSION['sess_blog_id']);
             } else {
                 Core::session()->destroy();
                 Core::backend()->url->redirect('admin.auth');

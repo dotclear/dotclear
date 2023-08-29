@@ -2,7 +2,9 @@
 /**
  * Core default factory.
  *
- * Core factory instanciate main Core classes.
+ * Core factory instanciates main Core classes.
+ * The factory should use Core container to get classes 
+ * required by constructors.
  *
  * @package Dotclear
  *
@@ -15,6 +17,7 @@ namespace Dotclear\Core;
 
 // classes that move to \Dotclear\Core
 use dcAuth;
+use dcBlog;
 use dcError;
 use dcLog;
 use dcMedia;
@@ -33,7 +36,7 @@ use Dotclear\Helper\Behavior;
 class CoreFactory implements CoreFactoryInterface
 {
     public function __construct(
-        protected Core $core
+        protected CoreContainer $container
     ) {
     }
 
@@ -47,11 +50,22 @@ class CoreFactory implements CoreFactoryInterface
         return new Behavior();
     }
 
+    public function blog(): ?dcBlog
+    {
+        return $this->container->get('blogLoader')->getBlog();
+    }
+
+    public function blogLoader(): BlogLoader
+    {
+        return new BlogLoader();
+    }
+
+
     public function blogs(): Blogs
     {
         return new Blogs(
-            con: $this->core->get('con'),
-            auth: $this->core->get('auth'),
+            con: $this->container->get('con'),
+            auth: $this->container->get('auth'),
         );
     }
 
@@ -75,12 +89,17 @@ class CoreFactory implements CoreFactoryInterface
 
     public function filter(): Filter
     {
-        return new Filter();
+        return new Filter(
+            behavior: $this->container->get('behavior'),
+            blog_loader: $this->container->get('blogLoader')
+        );
     }
 
     public function formater(): Formater
     {
-        return new Formater();
+        return new Formater(
+            plugins: $this->container->get('plugins')
+        );
     }
 
     public function log(): dcLog
@@ -101,7 +120,7 @@ class CoreFactory implements CoreFactoryInterface
     public function nonce(): Nonce
     {
         return new Nonce(
-            auth: $this->core->get('auth')
+            auth: $this->container->get('auth')
         );
     }
 
@@ -133,8 +152,8 @@ class CoreFactory implements CoreFactoryInterface
     public function session(): Session
     {
         return new Session(
-            con: $this->core->get('con'),
-            table : $this->core->get('con')->prefix() . Core::SESSION_TABLE_NAME,
+            con: $this->container->get('con'),
+            table : $this->container->get('con')->prefix() . Core::SESSION_TABLE_NAME,
             cookie_name: DC_SESSION_NAME,
             cookie_secure: DC_ADMIN_SSL,
             ttl: DC_SESSION_TTL
@@ -154,16 +173,16 @@ class CoreFactory implements CoreFactoryInterface
     public function users(): Users
     {
         return new Users(
-            con: $this->core->get('con'),
-            auth: $this->core->get('auth'),
-            behavior: $this->core->get('behavior')
+            con: $this->container->get('con'),
+            auth: $this->container->get('auth'),
+            behavior: $this->container->get('behavior')
         );
     }
 
     public function version(): Version
     {
         return new Version(
-            con: $this->core->get('con')
+            con: $this->container->get('con')
         );
     }
 }

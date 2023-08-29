@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use dcPlugins;
+
 class Formater
 {
     /** @var     array<string,array<string,callable>>    Stack of registered content formaters */
@@ -20,6 +22,17 @@ class Formater
 
     /** @var     array<string,string>   Stack of registered content formaters' name */
     private $names = [];
+
+    /**
+     * Conetsrutor grab all it needs.
+     *
+     * @param   dcPlugins   $plugins    The plugins instance
+     */
+    public function __construct(
+        private dcPlugins $plugins
+    ) {
+
+    }
 
     /**
      * Adds a new text formater.
@@ -72,7 +85,7 @@ class Formater
         $res = [];
 
         foreach (array_keys($this->stack) as $editor_id) {
-            $res[$editor_id] = Core::plugins()->getDefine($editor_id)->get('name');
+            $res[$editor_id] = $this->plugins->getDefine($editor_id)->get('name');
         }
 
         return $res;

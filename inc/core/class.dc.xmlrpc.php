@@ -154,7 +154,7 @@ class dcXmlRpc extends IntrospectionServer
             return true;
         }
 
-        Core::setBlog($this->blog_id);
+        Core::blogLoader()->setBlog($this->blog_id);
         $this->blog_loaded = true;
 
         if (!Core::blog()->id) {

@@ -11,9 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-// classes that move to \Dotclear\Core
-use dcBlog;
-//
 use dcCore;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
@@ -25,9 +22,6 @@ final class Core extends CoreContainer
 
     /** @var    Backend  Backend Utility instance  */
     private static Backend $backend;
-
-    /** @var    null|dcBlog     dcBlog instance */
-    private static ?dcBlog $blog;
 
     /** @var    Frontend  Frontend Utility instance  */
     private static Frontend $frontend;
@@ -69,40 +63,6 @@ final class Core extends CoreContainer
         }
 
         return self::$frontend;
-    }
-
-    /**
-     * Get current blog.
-     *
-     * @return null|dcBlog
-     */
-    public static function blog(): ?dcBlog
-    {
-        return self::$blog;
-    }
-
-    /**
-     * Set the blog to use.
-     *
-     * @param      string  $id     The blog ID
-     */
-    public static function setBlog($id): void
-    {
-        self::$blog = new dcBlog($id);
-
-        // deprecated since 2.28, use Core::blog()->setBlog() instead
-        dcCore::app()->blog = self::$blog;
-    }
-
-    /**
-     * Unset blog property.
-     */
-    public static function unsetBlog(): void
-    {
-        self::$blog = null;
-
-        // deprecated since 2.28, use Core::unsetBlog() instead
-        dcCore::app()->blog = null;
     }
 
     /**

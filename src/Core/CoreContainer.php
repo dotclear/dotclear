@@ -15,6 +15,7 @@ namespace Dotclear\Core;
 
 // classes that move to \Dotclear\Core
 use dcAuth;
+use dcBlog;
 use dcError;
 use dcLog;
 use dcMedia;
@@ -65,13 +66,19 @@ class CoreContainer
     }
 
     /**
-     * Get unique instance of a core object.
+     * Get instance of a core object.
+     * 
+     * By default, instances are uniques.
      *
-     * @param   string  $id The object ID.
+     * @param   string  $id         The object ID
+     * @param   bool    $reload     Force reload of the class
      */
-    public function get(string $id)
+    public function get(string $id, bool $reload = false)
     {
         if ($this->has($id)) {
+            if ($reload) {
+                $this->stack[$id] = $this->factory->{$id}();
+            }
             return $this->stack[$id] ?? $this->stack[$id] = $this->factory->{$id}();
         }
 
@@ -101,6 +108,16 @@ class CoreContainer
     public static function behavior(): Behavior
     {
         return self::$instance->get('behavior');
+    }
+
+    public static function blog(): ?dcBlog
+    {
+        return self::$instance->get('blog', true);
+    }
+
+    public static function blogLoader(): BlogLoader
+    {
+        return self::$instance->get('blogLoader');
     }
 
     public static function blogs(): Blogs
