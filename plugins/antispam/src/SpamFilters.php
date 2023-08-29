@@ -48,7 +48,8 @@ class SpamFilters
                 continue;
             }
 
-            $class                     = new $filter(dcCore::app());   // dcCore::app() arg will be removed in near future
+            // todo remove dcCore from method
+            $class                     = new $filter(dcCore::app());
             $this->filters[$class->id] = $class;
         }
 

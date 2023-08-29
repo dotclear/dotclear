@@ -53,7 +53,7 @@ class Notices
 
         // return error messages if any
         if (Core::error()->flag() && !self::$error_displayed) {
-            //todo remove dcCore from behavior
+            //todo remove dcCore from method
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, dcError
             $notice_error = Core::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), Core::error());
 
@@ -103,7 +103,7 @@ class Notices
                     if ($lines->notice_options !== null) {
                         $notification = array_merge($notification, @json_decode($lines->notice_options, true, 512, JSON_THROW_ON_ERROR));
                     }
-                    // todo remove dcCore from methods
+                    // todo remove dcCore from method
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
                     $notice = Core::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 

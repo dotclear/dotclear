@@ -34,7 +34,7 @@ class dcRestServer extends RestServer
             return parent::serve($encoding, parent::JSON_RESPONSE);
         }
 
-        // todo remove dcCore from methods
+        // todo remove dcCore from method
         // Use dcCore::app() as supplemental parameter to ensure retro-compatibility
         return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
     }

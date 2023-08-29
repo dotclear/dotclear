@@ -43,8 +43,10 @@ class Filter
     {
         $this->wiki = new WikiToHtml();
 
-        /* @deprecated since 2.28 For compatibility only */
-        dcCore::app()->wiki       = $this->wiki;
+        // deprecated since 2.27, use Core:: instead
+        dcCore::app()->wiki = $this->wiki;
+
+        // deprecated since 2.27, use Core:: instead
         dcCore::app()->wiki2xhtml = $this->wiki;
     }
 

@@ -345,7 +345,7 @@ final class dcCore
         }
         self::$instance = $this;
 
-        // Deprecated since 2.26
+        // deprecated since 2.26, use Autoloader:me() instead
         $this->autoload = Autoloader::me();
 
         $this->con     = Core::con();
@@ -361,9 +361,7 @@ final class dcCore
         $this->notices = Core::notice();
 
         if (defined('DC_CONTEXT_ADMIN')) {
-            /*
-             * @deprecated Since 2.23, use dcCore::app()->resources instead
-             */
+            // deprecated since 2.23, use Core::backend()->resources instance instead
             $GLOBALS['__resources'] = &$this->resources;
         }
     }

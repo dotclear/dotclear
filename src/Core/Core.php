@@ -224,8 +224,10 @@ final class Core
     {
         // Instanciate Backend instance
         if (!isset(self::$backend)) {
-            self::$backend       = new Backend();
-            dcCore::app()->admin = self::$backend; // deprecated
+            self::$backend = new Backend();
+
+            // deprecated since 2.28, use Core::backend() instead
+            dcCore::app()->admin = self::$backend;
         }
 
         return self::$backend;
@@ -240,8 +242,10 @@ final class Core
     {
         // Instanciate Backend instance
         if (!isset(self::$frontend)) {
-            self::$frontend       = new Frontend();
-            dcCore::app()->public = self::$frontend; // deprecated
+            self::$frontend = new Frontend();
+
+            // deprecated since 2.28, use Core::frontend() instead
+            dcCore::app()->public = self::$frontend;
         }
 
         return self::$frontend;
@@ -267,8 +271,10 @@ final class Core
      */
     public static function setBlog($id): void
     {
-        self::$blog         = new dcBlog($id);
-        dcCore::app()->blog = self::$blog; // deprecated
+        self::$blog = new dcBlog($id);
+
+        // deprecated since 2.28, use Core::blog()->setBlog() instead
+        dcCore::app()->blog = self::$blog;
     }
 
     /**
@@ -276,8 +282,10 @@ final class Core
      */
     public static function unsetBlog(): void
     {
-        self::$blog         = null;
-        dcCore::app()->blog = null; // deprecated
+        self::$blog = null;
+
+        // deprecated since 2.28, use Core::unsetBlog() instead
+        dcCore::app()->blog = null;
     }
     //@}
 
@@ -300,8 +308,10 @@ final class Core
      */
     public static function setLang($id): void
     {
-        self::$lang         = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
-        dcCore::app()->lang = self::$lang; //deprecated
+        self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
+
+        // deprecated since 2.28, use Core::setLoang() instead
+        dcCore::app()->lang = self::$lang;
     }
     //@}
 }

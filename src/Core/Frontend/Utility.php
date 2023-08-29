@@ -178,25 +178,23 @@ class Utility extends Process
             Core::url()->registerDefault([Url::class, 'static_home']);
         }
 
-        //deprecated
+        // deprecated since 2.28, use Core::media() instead
         dcCore::app()->media = Core::media();
 
         # Creating template context
         Core::frontend()->ctx = new context();
-        dcCore::app()->ctx    = Core::frontend()->ctx; // deprecated
 
-        /*
-         * Template context
-         *
-         * @var        context
-         *
-         * @deprecated Since 2.23, use Core::frontend()->ctx instead
-         */
+        // deprecated since 2.28, use Core::frontend()->ctx instead
+        dcCore::app()->ctx = Core::frontend()->ctx;
+
+        // deprecated since 2.23, use Core::frontend()->ctx instead
         $GLOBALS['_ctx'] = Core::frontend()->ctx;
 
         try {
             Core::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'Core::frontend()->tpl');
-            dcCore::app()->tpl    = Core::frontend()->tpl; // deprecated
+
+            // deprecated since 2.28, use Core::frontend()->tpl instead
+            dcCore::app()->tpl = Core::frontend()->tpl;
         } catch (Exception $e) {
             new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }
@@ -204,11 +202,7 @@ class Utility extends Process
         # Loading locales
         Core::setLang((string) Core::blog()->settings->system->lang);
 
-        /*
-         * @var        string
-         *
-         * @deprecated Since 2.23, use Core::lang() instead
-         */
+        // deprecated since 2.23, use Core::lang() instead
         $GLOBALS['_lang'] = Core::lang();
 
         L10n::lang(Core::lang());
@@ -228,7 +222,7 @@ class Utility extends Process
             // Ignore
         }
 
-        // deprecated
+        // deprecated since 2.28, use Core::themes() instead
         dcCore::app()->themes = Core::themes();
 
         # Loading themes
@@ -270,19 +264,12 @@ class Utility extends Process
 
         # Prepare the HTTP cache thing
         Core::frontend()->cache()->addFiles(get_included_files());
-        /*
-         * @var        array
-         *
-         * @deprecated Since 2.23, use Core::frontend()->cache()->addFiles() or Core::frontend()->cache()->getFiles() instead
-         */
+        Core::frontend()->cache()->addTime(Core::blog()->upddt);
+
+        // deprecated Since 2.23, use Core::frontend()->cache()->addFiles() or Core::frontend()->cache()->getFiles() instead
         $GLOBALS['mod_files'] = Core::frontend()->cache()->getFiles();
 
-        Core::frontend()->cache()->addTime(Core::blog()->upddt);
-        /*
-         * @var        array
-         *
-         * @deprecated Since 2.23, use Core::frontend()->cache()->addTimes() or Core::frontend()->cache()->getTimes) instead
-         */
+        // deprecated Since 2.23, use Core::frontend()->cache()->addTimes() or Core::frontend()->cache()->getTimes) instead
         $GLOBALS['mod_ts'] = Core::frontend()->cache()->getTimes();
 
         $tpl_path = [

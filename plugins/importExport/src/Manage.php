@@ -42,6 +42,7 @@ class Manage extends Process
 
         $module = $_REQUEST['module'] ?? false;
         if (Core::backend()->type && $module !== false && isset(Core::backend()->modules[Core::backend()->type]) && in_array($module, Core::backend()->modules[Core::backend()->type])) {
+            // todo remove dcCore from method
             Core::backend()->module = new $module(dcCore::app());
             Core::backend()->module->init();
         }
@@ -129,6 +130,7 @@ class Manage extends Process
         $res = '';
         foreach ($modules as $id) {
             if (is_subclass_of($id, Module::class)) {
+                // todo remove dcCore from method
                 $o = new $id(dcCore::app());
 
                 $res .= '<dt><a href="' . $o->getURL(true) . '">' . Html::escapeHTML($o->name) . '</a></dt>' .

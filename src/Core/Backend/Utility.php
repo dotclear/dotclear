@@ -91,7 +91,7 @@ class Utility extends Process
         // New admin url instance
         Core::backend()->url = new Url();
 
-        /* @deprecated since 2.27, use Core::backend()->url instead */
+        // deprecated since 2.27, use Core::backend()->url instead
         dcCore::app()->adminurl = Core::backend()->url;
 
         if (Core::auth()->sessionExists()) {
@@ -169,7 +169,7 @@ class Utility extends Process
             // Load locales
             Helper::loadLocales();
 
-            /* @deprecated Since 2.23, use Core::lang() instead */
+            // deprecated since 2.27, use Core::lang() instead
             $GLOBALS['_lang'] = Core::lang();
 
             // Load blog
@@ -217,13 +217,13 @@ class Utility extends Process
         Core::backend()->favs  = new Favorites();
         Core::backend()->menus = new Menus();
 
-        /* @deprecated since 2.27, use Core::backend()->favs instead */
+        // deprecated since 2.27, use Core::backend()->favs instead
         dcCore::app()->favs = Core::backend()->favs;
 
-        /* @deprecated since 2.27, use Core::backend()->menus instead */
+        // deprecated since 2.27, use Core::backend()->menus instead
         dcCore::app()->menu = Core::backend()->menus;
 
-        /* @deprecated Since 2.23, use Core::backend()->menus instead */
+        // deprecated Since 2.23, use Core::backend()->menus instead
         $GLOBALS['_menu'] = Core::backend()->menus;
 
         // Set default menu
@@ -263,7 +263,7 @@ class Utility extends Process
     {
         $this->p_url = $url;
 
-        /* @deprecated since 2.24, may be removed in near future */
+        // deprecated since 2.24, use Core::backend()->setPageURL() and Core::backend()->getPageURL() instaed
         $GLOBALS['p_url'] = $url;
     }
 

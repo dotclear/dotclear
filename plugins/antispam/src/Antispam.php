@@ -43,7 +43,7 @@ class Antispam extends initAntispam
             return;
         }
 
-        // deprecated since 2.28
+        // deprecated since 2.28, use Core::behavior->addBehavior('AntispamInitFilters', ...) instaed
         if (!empty(dcCore::app()->spamfilters)) {
             foreach (dcCore::app()->spamfilters as $spamfilter) {
                 if (is_subclass_of($spamfilter, SpamFilter::class)) {

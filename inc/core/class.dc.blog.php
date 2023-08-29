@@ -207,7 +207,7 @@ class dcBlog
         $this->con    = Core::con();
         $this->prefix = Core::con()->prefix();
 
-        if (($blog = dcCore::app()->getBlog($id)) !== false) {
+        if (($blog = Core::blogs()->getBlog($id)) !== false) {
             $this->id     = $id;
             $this->uid    = $blog->blog_uid;
             $this->name   = $blog->blog_name;

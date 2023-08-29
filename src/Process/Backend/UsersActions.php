@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcBlog;
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;
@@ -122,7 +121,7 @@ class UsersActions extends Process
                                 }
                             }
 
-                            dcCore::app()->setUserBlogPermissions($u, $b, $set_perms, true);
+                            Core::users()->setUserBlogPermissions($u, $b, $set_perms, true);
                         }
                     }
                 } catch (Exception $e) {

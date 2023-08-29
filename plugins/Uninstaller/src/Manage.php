@@ -58,7 +58,7 @@ class Manage extends Process
         }
 
         // get selected module
-        $define = dcCore::app()->{self::getType() . 's'}->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define = Core::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
             Core::error()->add(__('Unknown module id to uninstall'));
             self::doRedirect();
@@ -113,7 +113,7 @@ class Manage extends Process
         }
 
         // load module uninstaller
-        $define      = dcCore::app()->{self::getType() . 's'}->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define      = Core::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $fields      = [];
 

@@ -463,13 +463,7 @@ namespace Dotclear {
                 // instanciate once new core
                 new Core(DC_CORE_FACTORY_CLASS);
 
-                /**
-                 * Core instance
-                 *
-                 * @var        dcCore $core
-                 *
-                 * @deprecated since 2.23, use dcCore::app() instead
-                 */
+                // deprecated since 2.23, use Core:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
