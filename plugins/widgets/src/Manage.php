@@ -66,7 +66,7 @@ class Manage extends Process
             # Filter selection
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
-                if (($v == Widgets::WIDGETS_EXTRA || $v == Widgets::WIDGETS_NAV || $v == Widgets::WIDGETS_CUSTOM) && dcCore::app()->widgets->{$k} !== null) {
+                if (($v == Widgets::WIDGETS_EXTRA || $v == Widgets::WIDGETS_NAV || $v == Widgets::WIDGETS_CUSTOM) && Widgets::$widgets->{$k} !== null) {
                     $addw[$k] = $v;
                 }
             }
@@ -94,9 +94,9 @@ class Manage extends Process
                     if (!$wid || $wid == $k) {
                         try {
                             match ($v) {
-                                Widgets::WIDGETS_NAV    => Core::backend()->widgets_nav->append(dcCore::app()->widgets->{$k}),
-                                Widgets::WIDGETS_EXTRA  => Core::backend()->widgets_extra->append(dcCore::app()->widgets->{$k}),
-                                Widgets::WIDGETS_CUSTOM => Core::backend()->widgets_custom->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_NAV    => Core::backend()->widgets_nav->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_EXTRA  => Core::backend()->widgets_extra->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_CUSTOM => Core::backend()->widgets_custom->append(Widgets::$widgets->{$k}),
                             };
                         } catch (UnhandledMatchError) {
                         }
@@ -184,9 +184,9 @@ class Manage extends Process
                     $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
-                Core::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], dcCore::app()->widgets);
-                Core::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
-                Core::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
+                Core::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], Widgets::$widgets);
+                Core::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], Widgets::$widgets);
+                Core::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], Widgets::$widgets);
 
                 My::settings()->put('widgets_nav', Core::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
                 My::settings()->put('widgets_extra', Core::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
@@ -274,7 +274,7 @@ class Manage extends Process
         '<ul id="widgets-ref">';
 
         $j = 0;
-        foreach (dcCore::app()->widgets->elements(true) as $w) {
+        foreach (Widgets::$widgets->elements(true) as $w) {
             echo
             '<li>' . form::hidden(['w[void][0][id]'], Html::escapeHTML($w->id())) .
             '<p class="widget-name">' . form::number(['w[void][0][order]'], [
@@ -302,17 +302,17 @@ class Manage extends Process
 
         // Nav sidebar
         '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), Core::backend()->widgets_nav, Widgets::WIDGETS_NAV, dcCore::app()->default_widgets[Widgets::WIDGETS_NAV], $j) .
+        self::sidebarWidgets('dndnav', __('Navigation sidebar'), Core::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j) .
         '</div>' .
 
         // Extra sidebar
         '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), Core::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[Widgets::WIDGETS_EXTRA], $j) .
+        self::sidebarWidgets('dndextra', __('Extra sidebar'), Core::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j) .
         '</div>' .
 
         // Custom sidebar
         '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), Core::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
+        self::sidebarWidgets('dndcustom', __('Custom sidebar'), Core::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
         '<p id="sidebarsControl">' .
@@ -325,7 +325,7 @@ class Manage extends Process
 
         $widget_elements          = new stdClass();
         $widget_elements->content = '<dl>';
-        foreach (dcCore::app()->widgets->elements() as $w) {
+        foreach (Widgets::$widgets->elements() as $w) {
             $widget_elements->content .= '<dt><strong>' . Html::escapeHTML($w->name()) . '</strong> (' .
             __('Widget ID:') . ' <strong>' . Html::escapeHTML($w->id()) . '</strong>)' .
                 ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</dt>' .

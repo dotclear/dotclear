@@ -28,26 +28,29 @@ class Widgets
     public const WIDGETS_EXTRA  = 'extra';
     public const WIDGETS_CUSTOM = 'custom';
 
+    /** @var    WidgetsStack    The current widgets stack */
+    public static WidgetsStack $widgets;
+
+    /** @var    array<string,WidgetsStack>  The default widgets stack */
+    public static array $default_widgets;
+
     /**
      * Initializes the default widgets.
      */
     public static function init(): void
     {
-        /*
-         * List of known widgets
-         *
-         * @deprecated Since 2.23
-         *
-         * @var        WidgetsStack
-         */
         global $__widgets;
 
         // Available widgets
-        dcCore::app()->widgets = new WidgetsStack();
+        self::$widgets = new WidgetsStack();
 
-        $__widgets = dcCore::app()->widgets;
+        // deprecated since 2.28, use Widgets::$widgets instead
+        dcCore::app()->widgets = self::$widgets;
 
-        dcCore::app()->widgets
+        // deprecated since 2.23, use Widgets::$widgets instead
+        $__widgets = self::$widgets;
+
+        self::$widgets
             ->create('search', __('Search engine'), Widgets::search(...), null, 'Search engine form')
             ->addTitle(__('Search'))
             ->setting('placeholder', __('Placeholder (HTML5 only, optional):'), '')
@@ -56,7 +59,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('navigation', __('Navigation links'), Widgets::navigation(...), null, 'List of navigation links')
             ->addTitle()
             ->addHomeOnly()
@@ -64,7 +67,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('bestof', __('Selected entries'), Widgets::bestof(...), null, 'List of selected entries')
             ->addTitle(__('Best of me'))
             ->setting('orderby', __('Sort:'), 'asc', 'combo', [__('Ascending') => 'asc', __('Descending') => 'desc'])
@@ -73,7 +76,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('langs', __('Blog languages'), Widgets::langs(...), null, 'List of available languages')
             ->addTitle(__('Languages'))
             ->addHomeOnly()
@@ -81,7 +84,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('categories', __('List of categories'), Widgets::categories(...), null, 'List of categories')
             ->addTitle(__('Categories'))
             ->setting('postcount', __('With entries counts'), 0, 'check')
@@ -92,7 +95,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('subscribe', __('Subscribe links'), Widgets::subscribe(...), null, 'Feed subscription links (RSS or Atom)')
             ->addTitle(__('Subscribe'))
             ->setting('type', __('Feeds type:'), 'atom', 'combo', ['Atom' => 'atom', 'RSS' => 'rss2'])
@@ -101,7 +104,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets->
+        self::$widgets->
             create('feed', __('Feed reader'), Widgets::feed(...), null, 'List of last entries from feed (RSS or Atom)')
             ->addTitle(__('Somewhere else'))
             ->setting('url', __('Feed URL:'), '')
@@ -111,7 +114,7 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('text', __('Text'), Widgets::text(...), null, 'Simple text')
             ->addTitle()
             ->setting('text', __('Text:'), '', 'textarea')
@@ -125,7 +128,7 @@ class Widgets
         while ($rs->fetch()) {
             $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
-        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
+        $w = self::$widgets->create('lastposts', __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
         $w
             ->addTitle(__('Last entries'))
             ->setting('category', __('Category:'), '', 'combo', $categories);
@@ -140,7 +143,7 @@ class Widgets
             ->addOffline();
         unset($rs, $categories, $w);
 
-        dcCore::app()->widgets
+        self::$widgets
             ->create('lastcomments', __('Last comments'), Widgets::lastcomments(...), null, 'List of last comments published')
             ->addTitle(__('Last comments'))
             ->setting('limit', __('Comments limit:'), 10)
@@ -150,22 +153,22 @@ class Widgets
             ->addOffline();
 
         # --BEHAVIOR-- initWidgets -- WidgetsStack
-        Core::behavior()->callBehavior('initWidgets', dcCore::app()->widgets);
+        Core::behavior()->callBehavior('initWidgets', self::$widgets);
 
         # Default widgets
-        dcCore::app()->default_widgets = [
+        self::$default_widgets = [
             Widgets::WIDGETS_NAV    => new WidgetsStack(),
             Widgets::WIDGETS_EXTRA  => new WidgetsStack(),
             Widgets::WIDGETS_CUSTOM => new WidgetsStack(),
         ];
 
-        dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->search);
-        dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->bestof);
-        dcCore::app()->default_widgets[Widgets::WIDGETS_NAV]->append(dcCore::app()->widgets->categories);
-        dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM]->append(dcCore::app()->widgets->subscribe);
+        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->search);
+        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->bestof);
+        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->categories);
+        self::$default_widgets[Widgets::WIDGETS_CUSTOM]->append(self::$widgets->subscribe);
 
         # --BEHAVIOR-- initDefaultWidgets -- WidgetsStack, array<string,WidgetsStack>
-        Core::behavior()->callBehavior('initDefaultWidgets', dcCore::app()->widgets, dcCore::app()->default_widgets);
+        Core::behavior()->callBehavior('initDefaultWidgets', self::$widgets, self::$default_widgets);
     }
 
     /**

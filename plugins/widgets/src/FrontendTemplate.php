@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use ArrayObject;
-use dcCore;
 use SimpleXMLElement;
 
 class FrontendTemplate
@@ -146,13 +145,7 @@ class FrontendTemplate
      */
     private static function Widgets(string $type): WidgetsStack
     {
-        $widgets = new WidgetsStack();
-
-        if (isset(dcCore::app()->default_widgets[$type])) {
-            $widgets = dcCore::app()->default_widgets[$type];
-        }
-
-        return $widgets;
+        return Widgets::$default_widgets[$type] ?? new WidgetsStack();
     }
 
     /**
@@ -169,7 +162,7 @@ class FrontendTemplate
      */
     public static function tplWidget(ArrayObject $attr, string $content): string
     {
-        if (!isset($attr['id']) || !(dcCore::app()->widgets->{$attr['id']} instanceof WidgetsElement)) {
+        if (!isset($attr['id']) || !(Widgets::$widgets->{$attr['id']} instanceof WidgetsElement)) {
             return '';
         }
 
@@ -191,7 +184,7 @@ class FrontendTemplate
      */
     public static function widgetHandler(string $id, $xml): void
     {
-        if (!(dcCore::app()->widgets->{$id} instanceof WidgetsElement)) {
+        if (!(Widgets::$widgets->{$id} instanceof WidgetsElement)) {
             return;
         }
 
@@ -203,7 +196,7 @@ class FrontendTemplate
             return;
         }
 
-        $widget = clone dcCore::app()->widgets->{$id};
+        $widget = clone Widgets::$widgets->{$id};
 
         foreach ($xml->setting as $e) {
             if (empty($e['name'])) {

@@ -59,10 +59,12 @@ class l10nFaker
             }
         }
 
-        $plugin .= "\n// Widget settings names\n\n";
-        $widgets = dcCore::app()->widgets->elements();
-        foreach ($widgets as $w) {
-            $plugin .= $this->fake_l10n($w->desc());
+        if (class_exists('Dotclear\Plugin\Widgets\Widgets')) {
+            $plugin .= "\n// Widget settings names\n\n";
+            $widgets = \Dotclear\Plugin\Widgets\Widgets::$widgets->elements();
+            foreach ($widgets as $w) {
+                $plugin .= $this->fake_l10n($w->desc());
+            }
         }
 
         if (!is_dir(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin']))) {

@@ -42,7 +42,7 @@ class WidgetsStack
             $o = $s;
         }
 
-        return self::loadArray($o, dcCore::app()->widgets);
+        return self::loadArray($o, Widgets::$widgets);
     }
 
     /**
