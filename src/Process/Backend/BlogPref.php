@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcBlog;
-use dcMedia;
 use dcSettings;
 use dcUtils;
 use Dotclear\Core\Backend\Combos;

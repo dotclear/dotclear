@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use dcCore;
 use dcModuleDefine;
 use Dotclear\Core\Core;
 use Dotclear\Core\Process;

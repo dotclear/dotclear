@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use Exception;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Core\Backend\Page;
 use form;

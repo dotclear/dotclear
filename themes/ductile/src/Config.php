@@ -11,7 +11,6 @@
 
 namespace Dotclear\Theme\ductile;
 
-use dcCore;
 use dcUtils;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;

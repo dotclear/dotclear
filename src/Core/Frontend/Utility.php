@@ -15,8 +15,6 @@ namespace Dotclear\Core\Frontend;
 use context;
 use dcBlog;
 use dcCore;
-use dcMedia;
-use dcThemes;
 use dcUtils;
 use dcTraitDynamicProperties;
 use Dotclear\Core\Core;

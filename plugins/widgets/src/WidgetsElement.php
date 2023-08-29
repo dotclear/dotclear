@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Core;
 use Dotclear\Helper\Html\Html;
 use form;

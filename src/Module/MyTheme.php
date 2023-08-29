@@ -16,9 +16,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcCore;
 use dcModuleDefine;
-use dcThemes;
 use Dotclear\Core\Core;
 use Dotclear\Helper\Network\Http;
 

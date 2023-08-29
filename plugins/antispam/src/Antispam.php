@@ -45,20 +45,19 @@ class Antispam extends initAntispam
 
         // deprecated since 2.28
         if (!empty(dcCore::app()->spamfilters)) {
-            foreach(dcCore::app()->spamfilters as $spamfilter) {
+            foreach (dcCore::app()->spamfilters as $spamfilter) {
                 if (is_subclass_of($spamfilter, SpamFilter::class)) {
                     self::$spamfilters[] = $spamfilter;
                 }
             }
-            
         }
 
         $spamfilters = new ArrayObject();
         # --BEHAVIOR-- AntispamInitFilters -- ArrayObject
         Core::behavior()->callBehavior('AntispamInitFilters', $spamfilters);
 
-        foreach($spamfilters as $spamfilter) {
-                if (is_subclass_of($spamfilter, SpamFilter::class)) {
+        foreach ($spamfilters as $spamfilter) {
+            if (is_subclass_of($spamfilter, SpamFilter::class)) {
                 self::$spamfilters[] = $spamfilter;
             }
         }

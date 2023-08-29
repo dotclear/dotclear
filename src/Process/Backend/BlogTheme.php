@@ -12,9 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use dcModuleDefine;
-use dcThemes;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;

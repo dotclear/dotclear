@@ -13,10 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcBlog;
-use dcCore;
 use dcMedia;
 use dcPostMedia;
-use dcThemes;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;

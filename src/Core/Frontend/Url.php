@@ -13,7 +13,6 @@ namespace Dotclear\Core\Frontend;
 use ArrayObject;
 use context;
 use dcBlog;
-use dcCore;
 use dcTrackback;
 use dcXmlRpc;
 use Dotclear\Core\Core;

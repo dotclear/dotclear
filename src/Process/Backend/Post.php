@@ -16,8 +16,6 @@ use ArrayObject;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcCore;
-use dcMedia;
 use dcTrackback;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;

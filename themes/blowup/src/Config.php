@@ -11,7 +11,6 @@
 
 namespace Dotclear\Theme\blowup;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;

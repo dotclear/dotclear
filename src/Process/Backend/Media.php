@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use Dotclear\Core\Backend\Filter\Filter;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;

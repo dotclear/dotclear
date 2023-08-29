@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\themeEditor;
 
 use ArrayObject;
 use Exception;
-use dcCore;
 use dcThemes;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;

@@ -14,8 +14,6 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
-use dcMedia;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;

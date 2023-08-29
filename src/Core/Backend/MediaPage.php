@@ -12,9 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
-use dcMedia;
-use dcThemes;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Core;

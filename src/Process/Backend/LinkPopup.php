@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
-use dcThemes;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Core;

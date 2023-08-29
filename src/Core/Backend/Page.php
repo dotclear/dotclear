@@ -12,7 +12,6 @@ namespace Dotclear\Core\Backend;
 
 use ArrayObject;
 use Autoloader;
-use dcCore;
 use dcDeprecated;
 use dcUtils;
 use Dotclear\Core\Core;
