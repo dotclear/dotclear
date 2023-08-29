@@ -47,7 +47,7 @@ class Backend extends Process
                     ]),
                 ]);
             },
-            'importExportModulesV2' => [BackendBehaviors::class, 'registerIeModules'],
+            'importExportModulesV2' => BackendBehaviors::registerIeModules(...),
             'dcMaintenanceInit'     => function (Maintenance $maintenance) {
                 $maintenance
                     ->addTask(ExportBlogMaintenanceTask::class)

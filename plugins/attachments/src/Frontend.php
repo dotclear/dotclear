@@ -28,22 +28,22 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->tpl->addBlock('Attachments', [FrontendTemplate::class, 'Attachments']);
-        dcCore::app()->tpl->addBlock('AttachmentsHeader', [FrontendTemplate::class, 'AttachmentsHeader']);
-        dcCore::app()->tpl->addBlock('AttachmentsFooter', [FrontendTemplate::class, 'AttachmentsFooter']);
-        dcCore::app()->tpl->addValue('AttachmentMimeType', [FrontendTemplate::class, 'AttachmentMimeType']);
-        dcCore::app()->tpl->addValue('AttachmentType', [FrontendTemplate::class, 'AttachmentType']);
-        dcCore::app()->tpl->addValue('AttachmentFileName', [FrontendTemplate::class, 'AttachmentFileName']);
-        dcCore::app()->tpl->addValue('AttachmentSize', [FrontendTemplate::class, 'AttachmentSize']);
-        dcCore::app()->tpl->addValue('AttachmentTitle', [FrontendTemplate::class, 'AttachmentTitle']);
-        dcCore::app()->tpl->addValue('AttachmentThumbnailURL', [FrontendTemplate::class, 'AttachmentThumbnailURL']);
-        dcCore::app()->tpl->addValue('AttachmentURL', [FrontendTemplate::class, 'AttachmentURL']);
-        dcCore::app()->tpl->addValue('MediaURL', [FrontendTemplate::class, 'MediaURL']);
-        dcCore::app()->tpl->addBlock('AttachmentIf', [FrontendTemplate::class, 'AttachmentIf']);
+        dcCore::app()->public->tpl->addBlock('Attachments', FrontendTemplate::Attachments(...));
+        dcCore::app()->public->tpl->addBlock('AttachmentsHeader', FrontendTemplate::AttachmentsHeader(...));
+        dcCore::app()->public->tpl->addBlock('AttachmentsFooter', FrontendTemplate::AttachmentsFooter(...));
+        dcCore::app()->public->tpl->addValue('AttachmentMimeType', FrontendTemplate::AttachmentMimeType(...));
+        dcCore::app()->public->tpl->addValue('AttachmentType', FrontendTemplate::AttachmentType(...));
+        dcCore::app()->public->tpl->addValue('AttachmentFileName', FrontendTemplate::AttachmentFileName(...));
+        dcCore::app()->public->tpl->addValue('AttachmentSize', FrontendTemplate::AttachmentSize(...));
+        dcCore::app()->public->tpl->addValue('AttachmentTitle', FrontendTemplate::AttachmentTitle(...));
+        dcCore::app()->public->tpl->addValue('AttachmentThumbnailURL', FrontendTemplate::AttachmentThumbnailURL(...));
+        dcCore::app()->public->tpl->addValue('AttachmentURL', FrontendTemplate::AttachmentURL(...));
+        dcCore::app()->public->tpl->addValue('MediaURL', FrontendTemplate::MediaURL(...));
+        dcCore::app()->public->tpl->addBlock('AttachmentIf', FrontendTemplate::AttachmentIf(...));
 
-        dcCore::app()->tpl->addValue('EntryAttachmentCount', [FrontendTemplate::class, 'EntryAttachmentCount']);
+        dcCore::app()->public->tpl->addValue('EntryAttachmentCount', FrontendTemplate::EntryAttachmentCount(...));
 
-        dcCore::app()->behavior->addBehavior('tplIfConditions', [FrontendBehaviors::class, 'tplIfConditions']);
+        dcCore::app()->behavior->addBehavior('tplIfConditions', FrontendBehaviors::tplIfConditions(...));
 
         return true;
     }

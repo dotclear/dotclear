@@ -30,9 +30,9 @@ class Frontend extends Process
 
         Widgets::init();
 
-        dcCore::app()->tpl->addValue('Widgets', [FrontendTemplate::class, 'tplWidgets']);
-        dcCore::app()->tpl->addBlock('Widget', [FrontendTemplate::class, 'tplWidget']);
-        dcCore::app()->tpl->addBlock('IfWidgets', [FrontendTemplate::class, 'tplIfWidgets']);
+        dcCore::app()->public->tpl->addValue('Widgets', FrontendTemplate::tplWidgets(...));
+        dcCore::app()->public->tpl->addBlock('Widget', FrontendTemplate::tplWidget(...));
+        dcCore::app()->public->tpl->addBlock('IfWidgets', FrontendTemplate::tplIfWidgets(...));
 
         return true;
     }

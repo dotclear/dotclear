@@ -24,7 +24,7 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create('simplemenu', __('Simple menu'), [FrontendTemplate::class, 'simpleMenuWidget'], null, 'List of simple menu items')
+            ->create('simplemenu', __('Simple menu'), FrontendTemplate::simpleMenuWidget(...), null, 'List of simple menu items')
             ->addTitle(__('Menu'))
             ->setting(
                 'description',

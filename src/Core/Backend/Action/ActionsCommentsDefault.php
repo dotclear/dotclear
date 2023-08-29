@@ -37,7 +37,7 @@ class ActionsCommentsDefault
                     __('Mark as pending') => 'pending',
                     __('Mark as junk')    => 'junk',
                 ]],
-                [self::class, 'doChangeCommentStatus']
+                self::doChangeCommentStatus(...)
             );
         }
 
@@ -48,7 +48,7 @@ class ActionsCommentsDefault
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
-                [self::class, 'doDeleteComment']
+                self::doDeleteComment(...)
             );
         }
 
@@ -69,7 +69,7 @@ class ActionsCommentsDefault
 
             $ap->addAction(
                 [__('IP address') => $blocklist_actions],
-                [self::class, 'doBlocklistIP']
+                self::doBlocklistIP(...)
             );
         }
     }

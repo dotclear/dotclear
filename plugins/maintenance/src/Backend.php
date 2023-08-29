@@ -36,18 +36,18 @@ class Backend extends Process
 
         // Admin behaviors
         dcCore::app()->behavior->addBehaviors([
-            'dcMaintenanceInit'                => [BackendBehaviors::class, 'dcMaintenanceInit'],
-            'adminDashboardFavoritesV2'        => [BackendBehaviors::class, 'adminDashboardFavorites'],
-            'adminDashboardHeaders'            => [BackendBehaviors::class, 'adminDashboardHeaders'],
-            'adminDashboardContentsV2'         => [BackendBehaviors::class, 'adminDashboardItems'],
-            'adminDashboardOptionsFormV2'      => [BackendBehaviors::class, 'adminDashboardOptionsForm'],
-            'adminAfterDashboardOptionsUpdate' => [BackendBehaviors::class, 'adminAfterDashboardOptionsUpdate'],
-            'adminPageHelpBlock'               => [BackendBehaviors::class, 'adminPageHelpBlock'],
+            'dcMaintenanceInit'                => BackendBehaviors::dcMaintenanceInit(...),
+            'adminDashboardFavoritesV2'        => BackendBehaviors::adminDashboardFavorites(...),
+            'adminDashboardHeaders'            => BackendBehaviors::adminDashboardHeaders(...),
+            'adminDashboardContentsV2'         => BackendBehaviors::adminDashboardItems(...),
+            'adminDashboardOptionsFormV2'      => BackendBehaviors::adminDashboardOptionsForm(...),
+            'adminAfterDashboardOptionsUpdate' => BackendBehaviors::adminAfterDashboardOptionsUpdate(...),
+            'adminPageHelpBlock'               => BackendBehaviors::adminPageHelpBlock(...),
         ]);
 
         // Rest method
-        dcCore::app()->rest->addFunction('dcMaintenanceStep', [Rest::class, 'step']);
-        dcCore::app()->rest->addFunction('dcMaintenanceTaskExpired', [Rest::class, 'countExpired']);
+        dcCore::app()->rest->addFunction('dcMaintenanceStep', Rest::step(...));
+        dcCore::app()->rest->addFunction('dcMaintenanceTaskExpired', Rest::countExpired(...));
 
         return true;
     }

@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 use dcCore;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
-use Dotclear\Helper\Html\WikiToHtml;
 
 class Backend extends Process
 {
@@ -47,14 +46,14 @@ class Backend extends Process
             dcCore::app()->formater->addFormaterName('wiki', __('Dotclear wiki'));
 
             dcCore::app()->behavior->addBehaviors([
-                'adminPostEditor' => [BackendBehaviors::class, 'adminPostEditor'],
-                'adminPopupMedia' => [BackendBehaviors::class, 'adminPopupMedia'],
-                'adminPopupLink'  => [BackendBehaviors::class, 'adminPopupLink'],
-                'adminPopupPosts' => [BackendBehaviors::class, 'adminPopupPosts'],
+                'adminPostEditor' => BackendBehaviors::adminPostEditor(...),
+                'adminPopupMedia' => BackendBehaviors::adminPopupMedia(...),
+                'adminPopupLink'  => BackendBehaviors::adminPopupLink(...),
+                'adminPopupPosts' => BackendBehaviors::adminPopupPosts(...),
             ]);
 
             // Register REST methods
-            dcCore::app()->rest->addFunction('wikiConvert', [Rest::class, 'convert']);
+            dcCore::app()->rest->addFunction('wikiConvert', Rest::convert(...));
         }
 
         return true;

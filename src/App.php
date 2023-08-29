@@ -520,25 +520,25 @@ namespace Dotclear {
 
             Http::trimRequest();
 
-            dcCore::app()->url->registerDefault([Url::class, 'home']);
+            dcCore::app()->url->registerDefault(Url::home(...));
 
-            dcCore::app()->url->registerError([Url::class, 'default404']);
+            dcCore::app()->url->registerError(Url::default404(...));
 
-            dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', [Url::class, 'lang']);
-            dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', [Url::class, 'home']);
-            dcCore::app()->url->register('post', 'post', '^post/(.+)$', [Url::class, 'post']);
-            dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', [Url::class, 'preview']);
-            dcCore::app()->url->register('category', 'category', '^category/(.+)$', [Url::class, 'category']);
-            dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', [Url::class, 'archive']);
-            dcCore::app()->url->register('try', 'try', '^try/(.+)$', [Url::class, 'try']);
+            dcCore::app()->url->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            dcCore::app()->url->register('post', 'post', '^post/(.+)$', Url::post(...));
+            dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            dcCore::app()->url->register('category', 'category', '^category/(.+)$', Url::category(...));
+            dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            dcCore::app()->url->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', [Url::class, 'feed']);
-            dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', [Url::class, 'trackback']);
-            dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', [Url::class, 'webmention']);
-            dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', [Url::class, 'xmlrpc']);
+            dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', [Url::class, 'wpfaker']);
-            dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', [Url::class, 'wpfaker']);
+            dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
             dcCore::app()->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));

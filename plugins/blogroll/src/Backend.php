@@ -52,8 +52,8 @@ class Backend extends Process
             },
             'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions'),
 
-            'initWidgets'        => [Widgets::class, 'initWidgets'],
-            'initDefaultWidgets' => [Widgets::class, 'initDefaultWidgets'],
+            'initWidgets'        => Widgets::initWidgets(...),
+            'initDefaultWidgets' => Widgets::initDefaultWidgets(...),
         ]);
 
         My::addBackendMenuItem(Menus::MENU_BLOG);

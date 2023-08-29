@@ -28,7 +28,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehavior('dcMaintenanceInit', [Buildtools::class, 'maintenanceAdmin']);
+        dcCore::app()->behavior->addBehavior('dcMaintenanceInit', Buildtools::maintenanceAdmin(...));
 
         return true;
     }

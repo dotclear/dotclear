@@ -38,9 +38,9 @@ class Backend extends Process
 
         dcCore::app()->behavior->addBehaviors([
             'adminPostHeaders'     => fn () => My::jsLoad('post'),
-            'adminPostFormItems'   => [BackendBehaviors::class, 'pingsFormItems'],
-            'adminAfterPostCreate' => [BackendBehaviors::class, 'doPings'],
-            'adminAfterPostUpdate' => [BackendBehaviors::class, 'doPings'],
+            'adminPostFormItems'   => BackendBehaviors::pingsFormItems(...),
+            'adminAfterPostCreate' => BackendBehaviors::doPings(...),
+            'adminAfterPostUpdate' => BackendBehaviors::doPings(...),
 
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [

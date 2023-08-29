@@ -33,6 +33,9 @@ class Utility extends Process
     /** @var    string  The default templates folder name */
     public const TPL_ROOT = 'default-templates';
 
+    /** @var    Tpl     The template engine */
+    public static Tpl $tpl;
+
     /**
      * Searched term
      *
@@ -156,7 +159,7 @@ class Utility extends Process
 
         # Cope with static home page option
         if (dcCore::app()->blog->settings->system->static_home) {
-            dcCore::app()->url->registerDefault([Url::class, 'static_home']);
+            dcCore::app()->url->registerDefault(Url::static_home(...));
         }
 
         # Loading media
@@ -179,7 +182,8 @@ class Utility extends Process
         $GLOBALS['_ctx'] = dcCore::app()->ctx;
 
         try {
-            dcCore::app()->tpl = new Tpl(DC_TPL_CACHE, 'dcCore::app()->tpl');
+            dcCore::app()->public->tpl = new Tpl(DC_TPL_CACHE, 'dcCore::app()->public->tpl');
+            dcCore::app()->tpl         = dcCore::app()->public->tpl;    /* @deprecated since 2.28 use */
         } catch (Exception $e) {
             new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }
@@ -277,15 +281,15 @@ class Utility extends Process
         $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
-            dcCore::app()->tpl->setPath(
+            dcCore::app()->public->tpl->setPath(
                 $tpl_path,
                 $dir,
-                dcCore::app()->tpl->getPath()
+                dcCore::app()->public->tpl->getPath()
             );
         } else {
-            dcCore::app()->tpl->setPath(
+            dcCore::app()->public->tpl->setPath(
                 $tpl_path,
-                dcCore::app()->tpl->getPath()
+                dcCore::app()->public->tpl->getPath()
             );
         }
         dcCore::app()->url->mode = dcCore::app()->blog->settings->system->url_scan;

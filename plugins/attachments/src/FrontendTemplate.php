@@ -157,7 +157,7 @@ class FrontendTemplate
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$attach_f->type') . '; ?>';
+        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->type') . '; ?>';
     }
 
     /**
@@ -173,7 +173,7 @@ class FrontendTemplate
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$attach_f->media_type') . '; ?>';
+        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->media_type') . '; ?>';
     }
 
     /**
@@ -189,7 +189,7 @@ class FrontendTemplate
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$attach_f->basename') . '; ?>';
+        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->basename') . '; ?>';
     }
 
     /**
@@ -206,7 +206,7 @@ class FrontendTemplate
      */
     public static function AttachmentSize(ArrayObject $attr): string
     {
-        $f = dcCore::app()->tpl->getFilters($attr);
+        $f = dcCore::app()->public->tpl->getFilters($attr);
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
@@ -227,7 +227,7 @@ class FrontendTemplate
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$attach_f->media_title') . '; ?>';
+        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->media_title') . '; ?>';
     }
 
     /**
@@ -250,7 +250,7 @@ class FrontendTemplate
         '    if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
         '        $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '    }' . "\n" .
-        '    echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        '    echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '}' . "\n" .
         '?>';
     }
@@ -274,7 +274,7 @@ class FrontendTemplate
         'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
         '    $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '}' . "\n" .
-        'echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        'echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
     }
 
@@ -297,7 +297,7 @@ class FrontendTemplate
         'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
         '    $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '}' . "\n" .
-        'echo ' . sprintf(dcCore::app()->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        'echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
     }
 
@@ -320,7 +320,7 @@ class FrontendTemplate
      */
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {
-        return dcCore::app()->tpl->displayCounter(
+        return dcCore::app()->public->tpl->displayCounter(
             'dcCore::app()->ctx->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',

@@ -40,12 +40,12 @@ class Prepend extends Process
             dcCore::app()->spamfilters[] = Filters\IpV6::class;
         }
 
-        dcCore::app()->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', [FrontendUrl::class, 'spamFeed']);
-        dcCore::app()->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', [FrontendUrl::class, 'hamFeed']);
+        dcCore::app()->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', FrontendUrl::spamFeed(...));
+        dcCore::app()->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', FrontendUrl::hamFeed(...));
 
         if (defined('DC_CONTEXT_ADMIN')) {
             // Register REST methods
-            dcCore::app()->rest->addFunction('getSpamsCount', [Rest::class, 'getSpamsCount']);
+            dcCore::app()->rest->addFunction('getSpamsCount', Rest::getSpamsCount(...));
         }
 
         return true;

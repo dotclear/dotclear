@@ -31,16 +31,16 @@ class Frontend extends Process
 
         # Behaviors
         dcCore::app()->behavior->addBehaviors([
-            'publicHeadContent'  => [self::class, 'publicHeadContent'],
-            'publicInsideFooter' => [self::class, 'publicInsideFooter'],
+            'publicHeadContent'  => self::publicHeadContent(...),
+            'publicInsideFooter' => self::publicInsideFooter(...),
         ]);
 
         # Templates
-        dcCore::app()->tpl->addValue('ductileEntriesList', [self::class, 'ductileEntriesList']);
-        dcCore::app()->tpl->addBlock('EntryIfContentIsCut', [self::class, 'EntryIfContentIsCut']);
-        dcCore::app()->tpl->addValue('ductileNbEntryPerPage', [self::class, 'ductileNbEntryPerPage']);
-        dcCore::app()->tpl->addValue('ductileLogoSrc', [self::class, 'ductileLogoSrc']);
-        dcCore::app()->tpl->addBlock('IfPreviewIsNotMandatory', [self::class, 'IfPreviewIsNotMandatory']);
+        dcCore::app()->public->tpl->addValue('ductileEntriesList', self::ductileEntriesList(...));
+        dcCore::app()->public->tpl->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
+        dcCore::app()->public->tpl->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
+        dcCore::app()->public->tpl->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
+        dcCore::app()->public->tpl->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
 
         return true;
     }
@@ -106,10 +106,10 @@ class Frontend extends Process
             $urls = '1';
         }
 
-        $short              = dcCore::app()->tpl->getFilters($attr);
+        $short              = dcCore::app()->public->tpl->getFilters($attr);
         $cut                = $attr['cut_string'];
         $attr['cut_string'] = 0;
-        $full               = dcCore::app()->tpl->getFilters($attr);
+        $full               = dcCore::app()->public->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
         return '<?php if (strlen(' . sprintf($full, 'dcCore::app()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
@@ -139,7 +139,7 @@ class Frontend extends Process
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
             '?>' . "\n" .
-            dcCore::app()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
+            dcCore::app()->public->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
                 '<?php ' . "\n" .
                 '       break;' . "\n";
         }
@@ -224,7 +224,7 @@ class Frontend extends Process
             if (!is_array($s)) {
                 $default = true;
             } else {
-                $s = array_filter($s, [self::class, 'cleanStickers']);
+                $s = array_filter($s, self::cleanStickers(...));
                 if (count($s) == 0) {
                     $default = true;
                 } else {

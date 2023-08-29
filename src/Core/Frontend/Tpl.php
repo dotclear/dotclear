@@ -4352,7 +4352,7 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
-            $if[] = $sign . "dcCore::app()->tpl->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
+            $if[] = $sign . "dcCore::app()->public->tpl->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
         }
 
         if (isset($attr['has_tag'])) {
@@ -4361,7 +4361,7 @@ class Tpl extends Template
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
-            $if[] = "dcCore::app()->tpl->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
+            $if[] = "dcCore::app()->public->tpl->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
         }
 
         if (isset($attr['blog_id'])) {
