@@ -36,7 +36,7 @@ class CoreContainer
     /** @var array<string,mixed> Unique instances stack */
     private array $stack = [];
 
-    /** @var Core   Core unique instance */
+    /** @var CoreContainer   CoreContainer unique instance */
     private static CoreContainer $instance;
 
     /// @name Container methods

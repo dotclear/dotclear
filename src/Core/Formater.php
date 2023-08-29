@@ -130,16 +130,19 @@ class Formater
      */
     public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
+        $res = null;
         if (isset($this->stack[$editor_id]) && isset($this->stack[$editor_id][$name])) {
-            return call_user_func($this->stack[$editor_id][$name], $str);
-        }
-        // Fallback with another editor if possible
-        foreach ($this->stack as $editor => $formaters) {
-            if (array_key_exists($name, $formaters)) {
-                return call_user_func($this->stack[$editor][$name], $str);
+            $res = call_user_func($this->stack[$editor_id][$name], $str);
+        } else {
+            // Fallback with another editor if possible
+            foreach ($this->stack as $editor => $formaters) {
+                if (array_key_exists($name, $formaters)) {
+                    $res = call_user_func($this->stack[$editor][$name], $str);
+                    break;
+                }
             }
         }
 
-        return $str;
+        return is_string($res) ? $res : $str;
     }
 }

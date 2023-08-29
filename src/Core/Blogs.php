@@ -128,15 +128,17 @@ class Blogs
 
         $res = [];
 
-        while ($rs->fetch()) {
-            $res[$rs->user_id] = [
-                'name'        => $rs->user_name,
-                'firstname'   => $rs->user_firstname,
-                'displayname' => $rs->user_displayname,
-                'email'       => $rs->user_email,
-                'super'       => (bool) $rs->user_super,
-                'p'           => $this->auth->parsePermissions($rs->permissions),
-            ];
+        if ($rs) {
+            while ($rs->fetch()) {
+                $res[$rs->user_id] = [
+                    'name'        => $rs->user_name,
+                    'firstname'   => $rs->user_firstname,
+                    'displayname' => $rs->user_displayname,
+                    'email'       => $rs->user_email,
+                    'super'       => (bool) $rs->user_super,
+                    'p'           => $this->auth->parsePermissions($rs->permissions),
+                ];
+            }
         }
 
         return $res;
@@ -364,6 +366,6 @@ class Blogs
             $sql->and('post_type = ' . $sql->quote($type));
         }
 
-        return (int) $sql->select()->f(0);
+        return (int) $sql->select()?->f(0);
     }
 }
