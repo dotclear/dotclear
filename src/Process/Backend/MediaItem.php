@@ -92,10 +92,10 @@ class MediaItem extends Process
         }
 
         if (dcCore::app()->admin->popup) {
-            dcCore::app()->admin->open_function  = [Page::class, 'openPopup'];
-            dcCore::app()->admin->close_function = [Page::class, 'closePopup'];
+            dcCore::app()->admin->open_function  = Page::openPopup(...);
+            dcCore::app()->admin->close_function = Page::closePopup(...);
         } else {
-            dcCore::app()->admin->open_function  = [Page::class, 'open'];
+            dcCore::app()->admin->open_function  = Page::open(...);
             dcCore::app()->admin->close_function = function () {
                 Page::helpBlock('core_media');
                 Page::close();

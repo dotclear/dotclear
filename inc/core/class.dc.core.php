@@ -284,6 +284,8 @@ final class dcCore
      *
      * May be transfered as property of frontend Utility instance in future
      *
+     * @deprecated since 2.28, Use dcCore::app()->public->tpl instead
+     *
      * @var Tpl
      */
     public Tpl $tpl;

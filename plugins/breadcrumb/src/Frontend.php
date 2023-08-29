@@ -28,7 +28,7 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->tpl->addValue('Breadcrumb', [FrontendTemplate::class, 'breadcrumb']);
+        dcCore::app()->public->tpl->addValue('Breadcrumb', FrontendTemplate::breadcrumb(...));
 
         return true;
     }

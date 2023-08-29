@@ -42,9 +42,9 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         dcCore::app()->behavior->addBehaviors([
-            'coreAfterCommentUpdate'    => [Antispam::class, 'trainFilters'],
-            'adminAfterCommentDesc'     => [Antispam::class, 'statusMessage'],
-            'adminDashboardHeaders'     => [Antispam::class, 'dashboardHeaders'],
+            'coreAfterCommentUpdate'    => Antispam::trainFilters(...),
+            'adminAfterCommentDesc'     => Antispam::statusMessage(...),
+            'adminDashboardHeaders'     => Antispam::dashboardHeaders(...),
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(
                     My::id(),
@@ -72,10 +72,10 @@ class Backend extends Process
 
         if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
             dcCore::app()->behavior->addBehaviors([
-                'adminBlogPreferencesFormV2'    => [BackendBehaviors::class, 'adminBlogPreferencesForm'],
-                'adminBeforeBlogSettingsUpdate' => [BackendBehaviors::class, 'adminBeforeBlogSettingsUpdate'],
-                'adminCommentsSpamFormV2'       => [BackendBehaviors::class, 'adminCommentsSpamForm'],
-                'adminPageHelpBlock'            => [BackendBehaviors::class, 'adminPageHelpBlock'],
+                'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
+                'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),
+                'adminCommentsSpamFormV2'       => BackendBehaviors::adminCommentsSpamForm(...),
+                'adminPageHelpBlock'            => BackendBehaviors::adminPageHelpBlock(...),
             ]);
         }
 

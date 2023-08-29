@@ -34,23 +34,23 @@ class Rest extends Process
 {
     public static function init(): bool
     {
-        dcCore::app()->rest->addFunction('getPostsCount', [self::class, 'getPostsCount']);
-        dcCore::app()->rest->addFunction('getCommentsCount', [self::class, 'getCommentsCount']);
-        dcCore::app()->rest->addFunction('checkNewsUpdate', [self::class, 'checkNewsUpdate']);
-        dcCore::app()->rest->addFunction('checkCoreUpdate', [self::class, 'checkCoreUpdate']);
-        dcCore::app()->rest->addFunction('checkStoreUpdate', [self::class, 'checkStoreUpdate']);
-        dcCore::app()->rest->addFunction('getPostById', [self::class, 'getPostById']);
-        dcCore::app()->rest->addFunction('getCommentById', [self::class, 'getCommentById']);
-        dcCore::app()->rest->addFunction('quickPost', [self::class, 'quickPost']);
-        dcCore::app()->rest->addFunction('getZipMediaContent', [self::class, 'getZipMediaContent']);
-        dcCore::app()->rest->addFunction('getMeta', [self::class, 'getMeta']);
-        dcCore::app()->rest->addFunction('delMeta', [self::class, 'delMeta']);
-        dcCore::app()->rest->addFunction('setPostMeta', [self::class, 'setPostMeta']);
-        dcCore::app()->rest->addFunction('searchMeta', [self::class, 'searchMeta']);
-        dcCore::app()->rest->addFunction('searchMetadata', [self::class, 'searchMetadata']);
-        dcCore::app()->rest->addFunction('setSectionFold', [self::class, 'setSectionFold']);
-        dcCore::app()->rest->addFunction('setDashboardPositions', [self::class, 'setDashboardPositions']);
-        dcCore::app()->rest->addFunction('setListsOptions', [self::class, 'setListsOptions']);
+        dcCore::app()->rest->addFunction('getPostsCount', self::getPostsCount(...));
+        dcCore::app()->rest->addFunction('getCommentsCount', self::getCommentsCount(...));
+        dcCore::app()->rest->addFunction('checkNewsUpdate', self::checkNewsUpdate(...));
+        dcCore::app()->rest->addFunction('checkCoreUpdate', self::checkCoreUpdate(...));
+        dcCore::app()->rest->addFunction('checkStoreUpdate', self::checkStoreUpdate(...));
+        dcCore::app()->rest->addFunction('getPostById', self::getPostById(...));
+        dcCore::app()->rest->addFunction('getCommentById', self::getCommentById(...));
+        dcCore::app()->rest->addFunction('quickPost', self::quickPost(...));
+        dcCore::app()->rest->addFunction('getZipMediaContent', self::getZipMediaContent(...));
+        dcCore::app()->rest->addFunction('getMeta', self::getMeta(...));
+        dcCore::app()->rest->addFunction('delMeta', self::delMeta(...));
+        dcCore::app()->rest->addFunction('setPostMeta', self::setPostMeta(...));
+        dcCore::app()->rest->addFunction('searchMeta', self::searchMeta(...));
+        dcCore::app()->rest->addFunction('searchMetadata', self::searchMetadata(...));
+        dcCore::app()->rest->addFunction('setSectionFold', self::setSectionFold(...));
+        dcCore::app()->rest->addFunction('setDashboardPositions', self::setDashboardPositions(...));
+        dcCore::app()->rest->addFunction('setListsOptions', self::setListsOptions(...));
 
         return self::status(true);
     }

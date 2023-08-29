@@ -35,30 +35,30 @@ class Backend extends Process
         My::addBackendMenuItem(Menus::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
 
         dcCore::app()->behavior->addBehaviors([
-            'adminPostFormItems' => [BackendBehaviors::class, 'tagsField'],
+            'adminPostFormItems' => BackendBehaviors::tagsField(...),
 
-            'adminAfterPostCreate' => [BackendBehaviors::class, 'setTags'],
-            'adminAfterPostUpdate' => [BackendBehaviors::class, 'setTags'],
+            'adminAfterPostCreate' => BackendBehaviors::setTags(...),
+            'adminAfterPostUpdate' => BackendBehaviors::setTags(...),
 
-            'adminPostHeaders' => [BackendBehaviors::class, 'postHeaders'],
+            'adminPostHeaders' => BackendBehaviors::postHeaders(...),
 
-            'adminPostsActions' => [BackendBehaviors::class, 'adminPostsActions'],
+            'adminPostsActions' => BackendBehaviors::adminPostsActions(...),
 
-            'adminPreferencesFormV2'       => [BackendBehaviors::class, 'adminUserForm'],
-            'adminBeforeUserOptionsUpdate' => [BackendBehaviors::class, 'setTagListFormat'],
+            'adminPreferencesFormV2'       => BackendBehaviors::adminUserForm(...),
+            'adminBeforeUserOptionsUpdate' => BackendBehaviors::setTagListFormat(...),
 
-            'adminUserForm'         => [BackendBehaviors::class, 'adminUserForm'],
-            'adminBeforeUserCreate' => [BackendBehaviors::class, 'setTagListFormat'],
-            'adminBeforeUserUpdate' => [BackendBehaviors::class, 'setTagListFormat'],
+            'adminUserForm'         => BackendBehaviors::adminUserForm(...),
+            'adminBeforeUserCreate' => BackendBehaviors::setTagListFormat(...),
+            'adminBeforeUserUpdate' => BackendBehaviors::setTagListFormat(...),
 
-            'adminDashboardFavoritesV2' => [BackendBehaviors::class, 'dashboardFavorites'],
+            'adminDashboardFavoritesV2' => BackendBehaviors::dashboardFavorites(...),
 
-            'adminPageHelpBlock' => [BackendBehaviors::class, 'adminPageHelpBlock'],
+            'adminPageHelpBlock' => BackendBehaviors::adminPageHelpBlock(...),
 
-            'adminPostEditor'      => [BackendBehaviors::class, 'adminPostEditor'],
-            'ckeditorExtraPlugins' => [BackendBehaviors::class, 'ckeditorExtraPlugins'],
+            'adminPostEditor'      => BackendBehaviors::adminPostEditor(...),
+            'ckeditorExtraPlugins' => BackendBehaviors::ckeditorExtraPlugins(...),
 
-            'initWidgets' => [Widgets::class, 'initWidgets'],
+            'initWidgets' => Widgets::initWidgets(...),
         ]);
 
         return true;

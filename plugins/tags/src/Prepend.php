@@ -28,11 +28,11 @@ class Prepend extends Process
             return false;
         }
 
-        dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', [FrontendUrl::class, 'tag']);
-        dcCore::app()->url->register('tags', 'tags', '^tags$', [FrontendUrl::class, 'tags']);
-        dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', [FrontendUrl::class, 'tagFeed']);
+        dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', FrontendUrl::tag(...));
+        dcCore::app()->url->register('tags', 'tags', '^tags$', FrontendUrl::tags(...));
+        dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', FrontendUrl::tagFeed(...));
 
-        dcCore::app()->behavior->addBehavior('coreInitWikiPost', [BackendBehaviors::class, 'coreInitWikiPost']);
+        dcCore::app()->behavior->addBehavior('coreInitWikiPost', BackendBehaviors::coreInitWikiPost(...));
 
         return true;
     }

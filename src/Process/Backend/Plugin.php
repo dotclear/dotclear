@@ -39,11 +39,11 @@ class Plugin extends Process
         $popup  = (int) !empty($_REQUEST['popup']);
 
         if ($popup) {
-            $open_function  = [Page::class, 'openPopup'];
-            $close_function = [Page::class, 'closePopup'];
+            $open_function  = Page::openPopup(...);
+            $close_function = Page::closePopup(...);
         } else {
-            $open_function  = [Page::class, 'open'];
-            $close_function = [Page::class, 'close'];
+            $open_function  = Page::open(...);
+            $close_function = Page::close(...);
         }
 
         $res = '';

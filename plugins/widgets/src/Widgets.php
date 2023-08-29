@@ -47,7 +47,7 @@ class Widgets
         $__widgets = dcCore::app()->widgets;
 
         dcCore::app()->widgets
-            ->create('search', __('Search engine'), [Widgets::class, 'search'], null, 'Search engine form')
+            ->create('search', __('Search engine'), Widgets::search(...), null, 'Search engine form')
             ->addTitle(__('Search'))
             ->setting('placeholder', __('Placeholder (HTML5 only, optional):'), '')
             ->addHomeOnly()
@@ -56,7 +56,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('navigation', __('Navigation links'), [Widgets::class, 'navigation'], null, 'List of navigation links')
+            ->create('navigation', __('Navigation links'), Widgets::navigation(...), null, 'List of navigation links')
             ->addTitle()
             ->addHomeOnly()
             ->addContentOnly()
@@ -64,7 +64,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('bestof', __('Selected entries'), [Widgets::class, 'bestof'], null, 'List of selected entries')
+            ->create('bestof', __('Selected entries'), Widgets::bestof(...), null, 'List of selected entries')
             ->addTitle(__('Best of me'))
             ->setting('orderby', __('Sort:'), 'asc', 'combo', [__('Ascending') => 'asc', __('Descending') => 'desc'])
             ->addHomeOnly()
@@ -73,7 +73,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('langs', __('Blog languages'), [Widgets::class, 'langs'], null, 'List of available languages')
+            ->create('langs', __('Blog languages'), Widgets::langs(...), null, 'List of available languages')
             ->addTitle(__('Languages'))
             ->addHomeOnly()
             ->addContentOnly()
@@ -81,7 +81,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('categories', __('List of categories'), [Widgets::class, 'categories'], null, 'List of categories')
+            ->create('categories', __('List of categories'), Widgets::categories(...), null, 'List of categories')
             ->addTitle(__('Categories'))
             ->setting('postcount', __('With entries counts'), 0, 'check')
             ->setting('subcatscount', __('Include sub cats in count'), false, 'check')
@@ -92,7 +92,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('subscribe', __('Subscribe links'), [Widgets::class, 'subscribe'], null, 'Feed subscription links (RSS or Atom)')
+            ->create('subscribe', __('Subscribe links'), Widgets::subscribe(...), null, 'Feed subscription links (RSS or Atom)')
             ->addTitle(__('Subscribe'))
             ->setting('type', __('Feeds type:'), 'atom', 'combo', ['Atom' => 'atom', 'RSS' => 'rss2'])
             ->addHomeOnly()
@@ -101,7 +101,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets->
-            create('feed', __('Feed reader'), [Widgets::class, 'feed'], null, 'List of last entries from feed (RSS or Atom)')
+            create('feed', __('Feed reader'), Widgets::feed(...), null, 'List of last entries from feed (RSS or Atom)')
             ->addTitle(__('Somewhere else'))
             ->setting('url', __('Feed URL:'), '')
             ->setting('limit', __('Entries limit:'), 10)
@@ -111,7 +111,7 @@ class Widgets
             ->addOffline();
 
         dcCore::app()->widgets
-            ->create('text', __('Text'), [Widgets::class, 'text'], null, 'Simple text')
+            ->create('text', __('Text'), Widgets::text(...), null, 'Simple text')
             ->addTitle()
             ->setting('text', __('Text:'), '', 'textarea')
             ->addHomeOnly()
@@ -124,7 +124,7 @@ class Widgets
         while ($rs->fetch()) {
             $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
-        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), [Widgets::class, 'lastposts'], null, 'List of last entries published');
+        $w = dcCore::app()->widgets->create('lastposts', __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
         $w
             ->addTitle(__('Last entries'))
             ->setting('category', __('Category:'), '', 'combo', $categories);
@@ -140,7 +140,7 @@ class Widgets
         unset($rs, $categories, $w);
 
         dcCore::app()->widgets
-            ->create('lastcomments', __('Last comments'), [Widgets::class, 'lastcomments'], null, 'List of last comments published')
+            ->create('lastcomments', __('Last comments'), Widgets::lastcomments(...), null, 'List of last comments published')
             ->addTitle(__('Last comments'))
             ->setting('limit', __('Comments limit:'), 10)
             ->addHomeOnly()

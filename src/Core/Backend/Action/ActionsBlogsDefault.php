@@ -34,12 +34,12 @@ class ActionsBlogsDefault
                 __('Set offline')    => 'offline',
                 __('Set as removed') => 'remove',
             ]],
-            [self::class, 'doChangeBlogStatus']
+            self::doChangeBlogStatus(...)
         );
         $ap->addAction(
             [__('Delete') => [
                 __('Delete') => 'delete', ]],
-            [self::class, 'doDeleteBlog']
+            self::doDeleteBlog(...)
         );
     }
 
