@@ -300,8 +300,6 @@ final class dcCore
      *
      * @deprecated since 2.28, Use Core::frontend()->tpl instead
      *
-     * @deprecated since 2.28, Use dcCore::app()->public->tpl instead
-     *
      * @var Tpl
      */
     public Tpl $tpl;
