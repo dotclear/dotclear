@@ -325,7 +325,7 @@ class ThemeConfig
     public static function dropCss(string $folder, string $theme)
     {
         $file = Path::real(self::cssPath($folder) . '/' . $theme . '.css');
-        if (is_writable(dirname($file))) {
+        if ($file && is_writable(dirname($file))) {
             @unlink($file);
         }
     }
