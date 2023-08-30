@@ -32,7 +32,6 @@ use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
-use Dotclear\Database\Session as dbSession;
 use Dotclear\Database\AbstractHandler;
 
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -44,6 +43,7 @@ use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
+use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
@@ -167,7 +167,7 @@ class Factory implements FactoryInterface
         return new dcRestServer();
     }
 
-    public function session(): dbSession
+    public function session(): SessionInterface
     {
         return new Session(
             con: $this->container->get('con'),

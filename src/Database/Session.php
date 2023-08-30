@@ -18,8 +18,9 @@ namespace Dotclear\Database;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\SessionInterface;
 
-class Session
+class Session implements SessionInterface
 {
     /**
      * AbstractHandler handler
@@ -188,7 +189,7 @@ class Session
      * @param mixed         $value        Cookie value
      * @param int           $expire       Cookie expiration timestamp
      */
-    public function getCookieParameters($value = null, int $expire = 0)
+    public function getCookieParameters($value = null, int $expire = 0): array
     {
         return [
             (string) session_name(),

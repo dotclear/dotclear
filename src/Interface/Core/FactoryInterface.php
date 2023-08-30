@@ -27,7 +27,6 @@ use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
-use Dotclear\Database\Session;
 
 interface FactoryInterface
 {
@@ -49,7 +48,7 @@ interface FactoryInterface
     public function postMedia(): dcPostMedia;
     public function postTypes(): PostTypesInterface;
     public function rest(): dcRestServer;
-    public function session(): Session;
+    public function session(): SessionInterface;
     public function themes(): dcThemes;
     public function url(): Url;
     public function users(): UsersInterface;

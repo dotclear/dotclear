@@ -22,6 +22,7 @@ use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
+use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
@@ -39,7 +40,6 @@ use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
-use Dotclear\Database\Session;
 use Exception;
 
 class Container
@@ -202,7 +202,7 @@ class Container
         return self::$instance->get('rest');
     }
 
-    public static function session(): Session
+    public static function session(): SessionInterface
     {
         return self::$instance->get('session');
     }
