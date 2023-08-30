@@ -21,6 +21,7 @@ use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\NonceInterface;
+use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
@@ -33,7 +34,6 @@ use dcError;
 use dcLog;
 use dcMedia;
 use dcMeta;
-use dcNotices;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
@@ -177,7 +177,7 @@ class Container
         return self::$instance->get('nonce');
     }
 
-    public static function notice(): dcNotices
+    public static function notice(): NoticeInterface
     {
         return self::$instance->get('notice');
     }

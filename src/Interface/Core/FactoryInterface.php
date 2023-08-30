@@ -20,7 +20,6 @@ use dcError;
 use dcLog;
 use dcMedia;
 use dcMeta;
-use dcNotices;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
@@ -43,7 +42,7 @@ interface FactoryInterface
     public function meta(): dcMeta;
     public function media(): dcMedia;
     public function nonce(): NonceInterface;
-    public function notice(): dcNotices;
+    public function notice(): NoticeInterface;
     public function plugins(): dcPlugins;
     public function postMedia(): dcPostMedia;
     public function postTypes(): PostTypesInterface;

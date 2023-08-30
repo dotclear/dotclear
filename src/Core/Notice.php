@@ -1,24 +1,26 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * Core notice handler.
  *
- * dcNotices -- Backend notices handling facilities
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\App;
+namespace Dotclear\Core;
+
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\NoticeInterface;
 
-class dcNotices
+class Notice implements NoticeInterface
 {
-    // Constants
-
     /**
      * Table name
      *
@@ -26,25 +28,27 @@ class dcNotices
      */
     protected const NOTICE_TABLE_NAME = 'notice';
 
-    // Properties
-
     /**
      * Full table name (including db prefix)
      *
      * @var        string
      */
-    protected $table;
+    protected string $table;
 
     /**
      * Class constructor
      */
-    public function __construct()
-    {
-        $this->table = App::con()->prefix() . self::NOTICE_TABLE_NAME;
+    public function __construct(
+        private ConnectionInterface $con,
+        private BehaviorInterface $behavior
+    ) {
+        $this->table = $con->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     /**
      * Gets the table name
+     *
+     * @deprecated  since 2.28, use self::openCursor()
      *
      * @return     string
      */
@@ -53,16 +57,11 @@ class dcNotices
         return self::NOTICE_TABLE_NAME;
     }
 
-    /* Get notices */
+    public function openCursor(): Cursor
+    {
+        return $this->con->openCursor($this->table);
+    }
 
-    /**
-     * Gets the notices.
-     *
-     * @param      array              $params      The parameters
-     * @param      bool               $count_only  The count only
-     *
-     * @return     MetaRecord  The notices.
-     */
     public function getNotices(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
@@ -123,16 +122,9 @@ class dcNotices
         return $sql->select();
     }
 
-    /**
-     * Adds a notice.
-     *
-     * @param      Cursor  $cur    The Cursor
-     *
-     * @return     int     The notice id
-     */
     public function addNotice(Cursor $cur): int
     {
-        App::con()->writeLock($this->table);
+        $this->con->writeLock($this->table);
 
         try {
             # Get ID
@@ -148,19 +140,19 @@ class dcNotices
 
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
-            # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, Cursor
-            App::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
+            $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            App::con()->unlock();
+            $this->con->unlock();
         } catch (Exception $e) {
-            App::con()->unlock();
+            $this->con->unlock();
 
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, Cursor
-        App::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
+        $this->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }
@@ -190,12 +182,6 @@ class dcNotices
         $notice_id = is_int($notice_id) ? $notice_id : $cur->notice_id;
     }
 
-    /**
-     * Delete notice(s)
-     *
-     * @param      int|null  $id     The identifier
-     * @param      bool      $all    All
-     */
     public function delNotices(?int $id, bool $all = false): void
     {
         $sql = new DeleteStatement();

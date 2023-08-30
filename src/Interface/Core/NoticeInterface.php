@@ -1,0 +1,52 @@
+<?php
+/**
+ * Core notice handler interface.
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Interface\Core;
+
+use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
+
+interface NoticeInterface
+{
+    /**
+     * Open a database table cursor.
+     *
+     * @return  Cursor  The notice database table cursor
+     */
+    public function openCursor(): Cursor;
+ 
+    /**
+     * Gets the notices.
+     *
+     * @param      array              $params      The parameters
+     * @param      bool               $count_only  The count only
+     *
+     * @return     MetaRecord  The notices.
+     */
+    public function getNotices(array $params = [], bool $count_only = false): MetaRecord;
+
+    /**
+     * Adds a notice.
+     *
+     * @param      Cursor  $cur    The Cursor
+     *
+     * @return     int     The notice id
+     */
+    public function addNotice(Cursor $cur): int;
+
+    /**
+     * Delete notice(s)
+     *
+     * @param      int|null  $id     The identifier
+     * @param      bool      $all    All
+     */
+    public function delNotices(?int $id, bool $all = false): void;
+}

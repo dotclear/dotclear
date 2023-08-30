@@ -178,6 +178,7 @@ dcProxyV1::classAliases([
 
     // Core -----------------------
 
+    'dcNotices'   => 'Dotclear\Core\Notice',
     'dcRecord'    => 'Dotclear\Database\MetaRecord',
     'dcNsProcess' => 'Dotclear\Core\Process',
 

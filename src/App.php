@@ -205,7 +205,6 @@ namespace Dotclear {
                 'dcThemes'       => $inc('core', 'class.dc.themes.php'),
                 'dcRestServer'   => $inc('core', 'class.dc.rest.php'),
                 'dcNamespace'    => $inc('core', 'class.dc.namespace.php'),
-                'dcNotices'      => $inc('core', 'class.dc.notices.php'),
                 'dcSettings'     => $inc('core', 'class.dc.settings.php'),
                 'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
                 'dcUpdate'       => $inc('core', 'class.dc.update.php'),

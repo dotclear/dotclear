@@ -12,11 +12,12 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Blogs;
 use Dotclear\App;
+use Dotclear\Core\Blogs;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
 use Dotclear\Core\Nonce;
+use Dotclear\Core\Notice;
 use Dotclear\Core\PostType;
 use Dotclear\Core\PostTypes;
 use Dotclear\Core\Session;
@@ -203,13 +204,13 @@ final class dcCore
     public readonly dcError $error;
 
     /**
-     * dcNotices instance
+     * Notice instance
      *
      * @deprecated since 2.28, Use App::notice() instead
      *
-     * @var dcNotices
+     * @var Notice
      */
-    public readonly dcNotices $notices;
+    public readonly Notice $notices;
 
     /**
      * dcLog instance

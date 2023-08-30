@@ -127,7 +127,7 @@ class Notices
      */
     public static function addNotice(string $type, string $message, array $options = [])
     {
-        $cur = App::con()->openCursor(App::con()->prefix() . App::notice()->getTable());
+        $cur = App::notice()->openCursor();
 
         $now = function () {
             Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
