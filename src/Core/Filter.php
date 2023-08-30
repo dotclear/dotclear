@@ -13,15 +13,22 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\FilterInterface;
+use Dotclear\Interface\Core\BehaviorInterface;
 
-class Filter
+class Filter implements FilterInterface
 {
+    /** @var    WikiToHtml TH ewiki instance */
+    private ?WikiToHtml $wiki = null;
+
     /**
      * Constructor grabs all we need.
+     *
+     * @param   BehaviorInterface   $behavior       The behavior handler
+     * @param   BlogLoader          $blog_loader    The blog loader
      */
     public function __construct(
         private BehaviorInterface $behavior,
@@ -29,10 +36,15 @@ class Filter
     ) {
     }
 
-    /// @name WikiToHtml methods
-    //@{
-    /** @var 	WikiToHtml TH ewiki instance */
-    public WikiToHtml $wiki;
+    /**
+     * Get wiki instance.
+     *
+     * @return  null|WikiToHtml Instance or null if not set
+     */
+    public function wiki(): ?WikiToHtml
+    {
+        return $this->wiki;
+    }
 
     /**
      * Initializes the WikiToHtml methods.
@@ -48,13 +60,6 @@ class Filter
         dcCore::app()->wiki2xhtml = $this->wiki;
     }
 
-    /**
-     * Returns a transformed string with WikiToHtml.
-     *
-     * @param      string  $str    The string
-     *
-     * @return     string
-     */
     public function wikiTransform(string $str): string
     {
         if (!isset($this->wiki)) {
@@ -64,9 +69,6 @@ class Filter
         return $this->wiki->transform($str);
     }
 
-    /**
-     * Inits <var>wiki</var> property for blog post.
-     */
     public function initWikiPost(): void
     {
         $this->initWiki();
@@ -120,9 +122,6 @@ class Filter
         $this->behavior->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
-    /**
-     * Inits <var>wiki</var> property for simple blog comment (basic syntax).
-     */
     public function initWikiSimpleComment(): void
     {
         $this->initWiki();
@@ -169,9 +168,6 @@ class Filter
         $this->behavior->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
-    /**
-     * Inits <var>wiki</var> property for blog comment.
-     */
     public function initWikiComment(): void
     {
         $this->initWiki();
@@ -217,17 +213,9 @@ class Filter
         $this->behavior->callBehavior('coreInitWikiComment', $this->wiki);
     }
 
-    /**
-     * Get info about a post:id wiki macro
-     *
-     * @param      string  $url      The post url
-     * @param      string  $content  The content
-     *
-     * @return     array<string,string>
-     */
     public function wikiPostLink(string $url, string $content): array
     {
-        if (is_null(App::blog())) {
+        if (!$this->blog_loader->hasBlog()) {
             return [];
         }
 
@@ -236,7 +224,7 @@ class Filter
             return [];
         }
 
-        $post = App::blog()->getPosts(['post_id' => $post_id]);
+        $post = $this->blog_loader->getBlog()->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
             return [];
         }
@@ -257,23 +245,10 @@ class Filter
 
         return $res;
     }
-    //@}
 
-    /// @name HTML Filter methods
-    //@{
-    /**
-     * Calls HTML filter to drop bad tags and produce valid HTML output (if
-     * tidy extension is present). If <b>enable_html_filter</b> blog setting is
-     * false, returns not filtered string.
-     *
-     * @param      string  $str    The string
-     *
-     * @return     string
-     */
     public function HTMLfilter(string $str): string
     {
-        $blog = $this->blog_loader->getBlog();
-        if (!is_null($blog) && !$blog->settings->system->enable_html_filter) {
+        if (!$this->blog_loader->hasBlog() || !$this->blog_loader->getBlog()->settings->system->enable_html_filter) {
             return $str;
         }
 
@@ -290,5 +265,4 @@ class Filter
 
         return $str;
     }
-    //@}
 }

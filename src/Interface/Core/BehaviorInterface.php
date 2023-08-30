@@ -1,6 +1,6 @@
 <?php
 /**
- * Behavior interface.
+ * Behavior handler interface.
  *
  * Collect, stack, use callable callback.
  *

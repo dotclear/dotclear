@@ -2303,18 +2303,18 @@ class dcBlog
     {
         if ($format == 'wiki') {
             App::filter()->initWikiPost();
-            App::filter()->wiki->setOpt('note_prefix', 'pnote-' . $post_id);
+            App::filter()->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
             $tag = match ($this->settings->system->note_title_tag) {
                 1       => 'h3',
                 2       => 'p',
                 default => 'h4',
             };
-            App::filter()->wiki->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+            App::filter()->wiki()->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Notes') . '</' . $tag . '>%s</div>');
-            App::filter()->wiki->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+            App::filter()->wiki()->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                 __('Note') . '</' . $tag . '>%s</div>');
             if (strpos($lang, 'fr') === 0) {
-                App::filter()->wiki->setOpt('active_fr_syntax', 1);
+                App::filter()->wiki()->setOpt('active_fr_syntax', 1);
             }
         }
 

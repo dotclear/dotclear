@@ -1,8 +1,8 @@
 <?php
 /**
- * Version interface.
+ * Version hanlder interface.
  *
- * Handle id,version pairs through database.
+ * Tracks core or modules id,version pairs.
  *
  * @package Dotclear
  *

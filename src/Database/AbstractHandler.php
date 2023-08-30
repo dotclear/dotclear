@@ -15,7 +15,7 @@ namespace Dotclear\Database;
 
 use Dotclear\Interface\Core\ConnectionInterface;
 
-abstract class AbstractHandler implements ConnectionInterface
+abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
 {
     /**
      * Driver name

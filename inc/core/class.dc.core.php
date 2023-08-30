@@ -133,7 +133,7 @@ final class dcCore
     /**
      * WikiToHtml instance
      *
-     * @deprecated since 2.27, use App::filter()->wiki instead
+     * @deprecated since 2.27, use App::filter()->wiki() instead
      *
      * @var WikiToHtml
      */
@@ -142,7 +142,7 @@ final class dcCore
     /**
      * WikiToHtml instance
      *
-     * @deprecated since 2.27, use App::filter()->wiki instead
+     * @deprecated since 2.27, use App::filter()->wiki() instead
      *
      * @var WikiToHtml
      */

@@ -6,6 +6,9 @@
  * The factory should use Core container to get classes
  * required by constructors.
  *
+ * Default factory uses Dotclear\Database clases for
+ * database connection handler and session handler.
+ *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -30,15 +33,27 @@ use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\Session as dbSession;
+use Dotclear\Database\AbstractHandler;
 
 use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\FactoryInterface;
+use Dotclear\Interface\Core\FilterInterface;
+use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\NonceInterface;
+use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 class Factory implements FactoryInterface
 {
+    /**
+     * Constructor takes Container instance.
+     *
+     * @param   Container   $container The core container
+     */
     public function __construct(
         protected Container $container
     ) {
@@ -59,12 +74,12 @@ class Factory implements FactoryInterface
         return $this->container->get('blogLoader')->getBlog();
     }
 
-    public function blogLoader(): BlogLoader
+    public function blogLoader(): BlogLoaderInterface
     {
         return new BlogLoader();
     }
 
-    public function blogs(): Blogs
+    public function blogs(): BlogsInterface
     {
         return new Blogs(
             con: $this->container->get('con'),
@@ -74,7 +89,7 @@ class Factory implements FactoryInterface
 
     public function con(): ConnectionInterface
     {
-        return Connection::init(
+        return AbstractHandler::init(
             driver: DC_DBDRIVER,
             host: DC_DBHOST,
             database: DC_DBNAME,
@@ -90,7 +105,7 @@ class Factory implements FactoryInterface
         return new dcError();
     }
 
-    public function filter(): Filter
+    public function filter(): FilterInterface
     {
         return new Filter(
             behavior: $this->container->get('behavior'),
@@ -98,7 +113,7 @@ class Factory implements FactoryInterface
         );
     }
 
-    public function formater(): Formater
+    public function formater(): FormaterInterface
     {
         return new Formater(
             plugins: $this->container->get('plugins')
@@ -120,7 +135,7 @@ class Factory implements FactoryInterface
         return new dcMeta();
     }
 
-    public function nonce(): Nonce
+    public function nonce(): NonceInterface
     {
         return new Nonce(
             auth: $this->container->get('auth')
@@ -142,7 +157,7 @@ class Factory implements FactoryInterface
         return new dcPostMedia();
     }
 
-    public function postTypes(): PostTypes
+    public function postTypes(): PostTypesInterface
     {
         return new PostTypes();
     }

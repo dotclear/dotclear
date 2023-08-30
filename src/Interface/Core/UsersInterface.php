@@ -1,6 +1,6 @@
 <?php
 /**
- * Users handler.
+ * Users handler interface.
  *
  * @package Dotclear
  *
@@ -12,28 +12,12 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use ArrayObject;
-use dcAuth;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 interface UsersInterface
 {
-    /**
-     * Constructor grabs all we need.
-     *
-     * @param   ConnectionInterface     $con        The database connection handler
-     * @param   dcAuth                  $auth       The authentiaction handler
-     * @param   BehaviorInterface       $behavior   The behavior handler
-     */
-    public function __construct(
-        ConnectionInterface $con,
-        dcAuth $auth,
-        BehaviorInterface $behavior
-    );
-
     /**
      * Gets the user by its ID.
      *
@@ -57,7 +41,7 @@ interface UsersInterface
      *
      * @return     MetaRecord  The users.
      */
-    public function getUsers($params = [], bool $count_only = false): MetaRecord;
+    public function getUsers(array|ArrayObject $params = [], bool $count_only = false): MetaRecord;
 
     /**
      * Adds a new user. Takes a Cursor as input and returns the new user ID.

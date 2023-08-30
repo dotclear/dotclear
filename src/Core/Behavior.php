@@ -1,8 +1,6 @@
 <?php
 /**
- * Session handler.
- *
- * Transitionnal class.
+ * Behavior handler.
  *
  * @package Dotclear
  *

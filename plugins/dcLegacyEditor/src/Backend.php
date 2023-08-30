@@ -35,14 +35,14 @@ class Backend extends Process
         My::addBackendMenuItem(Menus::MENU_PLUGINS, [], '');
 
         if (My::settings()->active) {
-            if (!isset(App::filter()->wiki)) {
+            if (!App::filter()->wiki()) {
                 App::filter()->initWikiPost();
             }
 
             App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
             App::formater()->addFormaterName('xhtml', __('HTML'));
 
-            App::formater()->addEditorFormater(My::id(), 'wiki', [App::filter()->wiki, 'transform']);
+            App::formater()->addEditorFormater(My::id(), 'wiki', [App::filter()->wiki(), 'transform']);
             App::formater()->addFormaterName('wiki', __('Dotclear wiki'));
 
             App::behavior()->addBehaviors([

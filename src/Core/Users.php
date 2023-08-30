@@ -27,6 +27,13 @@ use Exception;
 
 class Users implements UsersInterface
 {
+    /**
+     * Constructor grabs all we need.
+     *
+     * @param   ConnectionInterface     $con        The database connection handler
+     * @param   dcAuth                  $auth       The authentiaction handler
+     * @param   BehaviorInterface       $behavior   The behavior handler
+     */
     public function __construct(
         private ConnectionInterface $con,
         private dcAuth $auth,
@@ -41,7 +48,7 @@ class Users implements UsersInterface
         return $this->getUsers($params);
     }
 
-    public function getUsers($params = [], bool $count_only = false): MetaRecord
+    public function getUsers(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
 

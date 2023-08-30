@@ -34,7 +34,7 @@ class Rest
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
-            if (!isset(App::filter()->wiki)) {
+            if (!App::filter()->wiki()) {
                 App::filter()->initWikiPost();
             }
             $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);

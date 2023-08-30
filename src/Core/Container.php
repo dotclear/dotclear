@@ -14,8 +14,14 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\FactoryInterface;
+use Dotclear\Interface\Core\FilterInterface;
+use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\NonceInterface;
+use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
@@ -121,12 +127,12 @@ class Container
         return self::$instance->get('blog', true);
     }
 
-    public static function blogLoader(): BlogLoader
+    public static function blogLoader(): BlogLoaderInterface
     {
         return self::$instance->get('blogLoader');
     }
 
-    public static function blogs(): Blogs
+    public static function blogs(): BlogsInterface
     {
         return self::$instance->get('blogs');
     }
@@ -141,12 +147,12 @@ class Container
         return self::$instance->get('error');
     }
 
-    public static function filter(): Filter
+    public static function filter(): FilterInterface
     {
         return self::$instance->get('filter');
     }
 
-    public static function formater(): Formater
+    public static function formater(): FormaterInterface
     {
         return self::$instance->get('formater');
     }
@@ -166,7 +172,7 @@ class Container
         return self::$instance->get('meta');
     }
 
-    public static function nonce(): Nonce
+    public static function nonce(): NonceInterface
     {
         return self::$instance->get('nonce');
     }
@@ -186,7 +192,7 @@ class Container
         return self::$instance->get('postMedia');
     }
 
-    public static function postTypes(): PostTypes
+    public static function postTypes(): PostTypesInterface
     {
         return self::$instance->get('postTypes');
     }

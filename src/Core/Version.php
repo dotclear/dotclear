@@ -28,6 +28,11 @@ class Version implements VersionInterface
     /** @var    array<string,string>    The version stack */
     private array $stack = [];
 
+    /**
+     * Constructor grabs all we need.
+     *
+     * @param   ConnectionInterface     $con The database connection
+     */
     public function __construct(
         private ConnectionInterface $con
     ) {

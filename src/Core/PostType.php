@@ -11,10 +11,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Interface\Core\PostTypeInterface;
+
 use Dotclear\Helper\Html\Html;
 
-class PostType
+class PostType implements PostTypeInterface
 {
+    /** @var    string  $label  The post type name (untranslated) */
     public readonly string $label;
 
     /**
@@ -34,15 +37,11 @@ class PostType
         $this->label = $label !== '' ? $label : $type;
     }
 
-    /**
-     * Gets the post admin url.
-     *
-     * @param   int|string              $post_id    The post identifier
-     * @param   bool                    $escaped    Escape the URL
-     * @param   array<string,mixed>     $params     The query string parameters (associative array)
-     *
-     * @return  string  The post admin url.
-     */
+    public function get(string $property): string
+    {
+        return $this->{$property} ?? '';
+    }
+
     public function adminUrl(int|string $post_id, bool $escaped = true, array $params = []): string
     {
         $url = sprintf($this->admin_url, $post_id);
@@ -54,14 +53,6 @@ class PostType
         return $escaped ? Html::escapeURL($url) : $url;
     }
 
-    /**
-     * Gets the post public url.
-     *
-     * @param   string  $post_url   The post url
-     * @param   bool    $escaped    Escape the URL
-     *
-     * @return  string  The post public url.
-     */
     public function publicUrl(string $post_url, bool $escaped = true): string
     {
         $url = sprintf($this->public_url, $post_url);
@@ -69,11 +60,6 @@ class PostType
         return $escaped ? Html::escapeURL($url) : $url;
     }
 
-    /**
-     * Get post type properties as array.
-     *
-     * @return  array<string,string> The post type properties
-     */
     public function dump(): array
     {
         /* @phpstan-ignore-next-line */
