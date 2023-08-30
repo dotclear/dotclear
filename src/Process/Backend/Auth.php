@@ -115,13 +115,13 @@ class Auth extends Process
             try {
                 $recover_key = dcCore::app()->auth->setRecoverKey(dcCore::app()->admin->user_id, dcCore::app()->admin->user_email);
 
-                $subject = mail::B64Header('Dotclear ' . __('Password reset'));
+                $subject = Mail::B64Header('Dotclear ' . __('Password reset'));
                 $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . dcCore::app()->admin->page_url . "\n" . __('Username:') . ' ' . dcCore::app()->admin->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . dcCore::app()->admin->page_url . '&akey=' . $recover_key;
 
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                mail::sendMail(dcCore::app()->admin->user_email, $subject, $message, $headers);
+                Mail::sendMail(dcCore::app()->admin->user_email, $subject, $message, $headers);
                 dcCore::app()->admin->msg = sprintf(__('The e-mail was sent successfully to %s.'), dcCore::app()->admin->user_email);
             } catch (Exception $e) {
                 dcCore::app()->admin->err = $e->getMessage();
@@ -137,7 +137,7 @@ class Auth extends Process
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
+                Mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
                 dcCore::app()->admin->msg = __('Your new password is in your mailbox.');
             } catch (Exception $e) {
                 dcCore::app()->admin->err = $e->getMessage();
