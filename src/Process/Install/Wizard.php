@@ -44,7 +44,7 @@ class Wizard extends Process
         $dlang = Http::getAcceptLanguage();
         if ($dlang != 'en') {
             L10n::init($dlang);
-            L10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
+            L10n::set(DC_ROOT . '/locales/' . $dlang . '/main');
         }
 
         if (!is_writable(dirname(DC_RC_PATH))) {
@@ -110,7 +110,7 @@ class Wizard extends Process
                 }
 
                 # Does config.php.in exist?
-                $config_in = __DIR__ . '/../../inc/config.php.in';
+                $config_in = DC_ROOT . '/inc/config.php.in';
                 if (!is_file($config_in)) {
                     throw new Exception(sprintf(__('File %s does not exist.'), $config_in));
                 }
