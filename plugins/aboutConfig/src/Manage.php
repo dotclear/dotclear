@@ -115,9 +115,9 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                __('System')                         => '',
+                __('System')                        => '',
                 Html::escapeHTML(App::blog()->name) => '',
-                My::name()                           => '',
+                My::name()                          => '',
             ]
         ) .
         Notices::getNotices() .

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade;
 
-use dcCore;
 use dcNamespace;
 use dcUtils;
 use dcWorkspace;

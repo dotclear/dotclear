@@ -3,7 +3,7 @@
  * Core default factory.
  *
  * Core factory instanciates main Core classes.
- * The factory should use Core container to get classes 
+ * The factory should use Core container to get classes
  * required by constructors.
  *
  * @package Dotclear
@@ -60,7 +60,6 @@ class CoreFactory implements CoreFactoryInterface
     {
         return new BlogLoader();
     }
-
 
     public function blogs(): Blogs
     {

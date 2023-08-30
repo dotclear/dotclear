@@ -462,8 +462,8 @@ class ManagePage extends Process
         echo Page::breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name) => '',
-                My::name()                           => App::backend()->getPageURL(),
-                $edit_entry_title                    => '',
+                My::name()                          => App::backend()->getPageURL(),
+                $edit_entry_title                   => '',
             ]
         );
 

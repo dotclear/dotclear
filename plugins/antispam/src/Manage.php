@@ -143,7 +143,7 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')                                                         => '',
+                    __('Plugins')                                                        => '',
                     App::backend()->page_name                                            => App::backend()->getPageURL(),
                     sprintf(__('%s filter configuration'), App::backend()->filter->name) => '',
                 ]
@@ -160,7 +160,7 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')              => '',
+                    __('Plugins')             => '',
                     App::backend()->page_name => '',
                 ]
             ) .

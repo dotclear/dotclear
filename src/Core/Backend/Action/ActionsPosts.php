@@ -105,8 +105,8 @@ class ActionsPosts extends Actions
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name) => '',
-                    $this->getCallerTitle()              => $this->getRedirection(true),
-                    __('Posts actions')                  => '',
+                    $this->getCallerTitle()             => $this->getRedirection(true),
+                    __('Posts actions')                 => '',
                 ]
             )
         );

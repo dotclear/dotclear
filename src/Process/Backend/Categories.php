@@ -142,7 +142,7 @@ class Categories extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name) => '',
-                    __('Categories')                     => '',
+                    __('Categories')                    => '',
                 ]
             )
         );

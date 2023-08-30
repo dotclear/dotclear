@@ -71,7 +71,7 @@ class Category extends Process
 
             // Getting hierarchy information
             App::backend()->cat_parents = App::blog()->getCategoryParents(App::backend()->cat_id);
-            $rs                          = App::blog()->getCategoryParent(App::backend()->cat_id);
+            $rs                         = App::blog()->getCategoryParent(App::backend()->cat_id);
             App::backend()->cat_parent  = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
 
             // Allowed parents list
@@ -197,7 +197,7 @@ class Category extends Process
 
         $elements = [
             Html::escapeHTML(App::blog()->name) => '',
-            __('Categories')                     => App::backend()->url->get('admin.categories'),
+            __('Categories')                    => App::backend()->url->get('admin.categories'),
         ];
         if (App::backend()->cat_id) {
             while (App::backend()->cat_parents->fetch()) {

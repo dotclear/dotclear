@@ -337,7 +337,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)     => '',
+                        Html::escapeHTML(App::blog()->name)      => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
                         __('Change category for this selection') => '',
                     ]
@@ -466,7 +466,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)   => '',
+                        Html::escapeHTML(App::blog()->name)    => '',
                         $ap->getCallerTitle()                  => $ap->getRedirection(true),
                         __('Change author for this selection') => '', ]
                 ),
@@ -539,7 +539,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)     => '',
+                        Html::escapeHTML(App::blog()->name)      => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
                         __('Change language for this selection') => '',
                     ]

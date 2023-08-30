@@ -31,7 +31,6 @@ class Formater
     public function __construct(
         private dcPlugins $plugins
     ) {
-
     }
 
     /**
@@ -151,6 +150,7 @@ class Formater
             foreach ($this->stack as $editor => $formaters) {
                 if (array_key_exists($name, $formaters)) {
                     $res = call_user_func($this->stack[$editor][$name], $str);
+
                     break;
                 }
             }

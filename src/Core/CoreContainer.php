@@ -50,7 +50,8 @@ class CoreContainer
      *
      * @param   string  $factory_class  The Core factory class name
      */
-    public function __construct(string $factory_class) {
+    public function __construct(string $factory_class)
+    {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
@@ -67,7 +68,7 @@ class CoreContainer
 
     /**
      * Get instance of a core object.
-     * 
+     *
      * By default, instances are uniques.
      *
      * @param   string  $id         The object ID
@@ -79,6 +80,7 @@ class CoreContainer
             if ($reload) {
                 $this->stack[$id] = $this->factory->{$id}();
             }
+
             return $this->stack[$id] ?? $this->stack[$id] = $this->factory->{$id}();
         }
 

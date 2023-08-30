@@ -136,7 +136,7 @@ class ManageEdit extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name) => '',
-                My::name()                           => App::backend()->getPageURL(),
+                My::name()                          => App::backend()->getPageURL(),
             ]
         ) .
         Notices::getNotices() .

@@ -96,7 +96,7 @@ class Search extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name) => '',
-                    __('Search')                         => '',
+                    __('Search')                        => '',
                 ]
             )
         );

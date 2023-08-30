@@ -58,7 +58,7 @@ class ManagePosts extends Process
 
         try {
             App::backend()->posts     = App::meta()->getPostsByMeta($params);
-            $counter                   = App::meta()->getPostsByMeta($params, true);
+            $counter                  = App::meta()->getPostsByMeta($params, true);
             App::backend()->post_list = new ListingPosts(App::backend()->posts, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -146,7 +146,7 @@ class ManagePosts extends Process
         Page::breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name)                                        => '',
-                My::name()                                                                  => App::backend()->getPageURL() . '&amp;m=tags',
+                My::name()                                                                 => App::backend()->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(App::backend()->tag) . '&rdquo;' => '',
             ]
         ) .

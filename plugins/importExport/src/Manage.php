@@ -87,8 +87,8 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')                                   => '',
-                    My::name()                                      => App::backend()->getPageURL(),
+                    __('Plugins')                                  => '',
+                    My::name()                                     => App::backend()->getPageURL(),
                     Html::escapeHTML(App::backend()->module->name) => '',
                 ]
             ) .

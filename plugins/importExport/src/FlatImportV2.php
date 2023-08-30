@@ -176,7 +176,7 @@ class FlatImportV2 extends FlatBackup
         ));
 
         if ((int) $rs->cat_rgt > 0) {
-            $this->has_categories                     = true;
+            $this->has_categories                    = true;
             $this->stack['cat_lft'][App::blog()->id] = (int) $rs->cat_rgt + 1;
         }
 

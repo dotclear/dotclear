@@ -433,8 +433,8 @@ class MediaItem extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name) => '',
-                    __('Media manager')                  => $home_url,
-                    $breadcrumb                          => '',
+                    __('Media manager')                 => $home_url,
+                    $breadcrumb                         => '',
                 ],
                 [
                     'home_link' => !App::backend()->popup,

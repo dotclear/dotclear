@@ -120,7 +120,7 @@ class Comments extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name) => '',
-                    __('Comments and trackbacks')        => '',
+                    __('Comments and trackbacks')       => '',
                 ]
             )
         );

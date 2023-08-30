@@ -201,7 +201,7 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')                                                            => '',
+                    __('Plugins')                                                           => '',
                     '<a href="' . App::backend()->getPageURL() . '">' . My::name() . '</a>' => '',
                     Html::escapeHTML(App::backend()->task->name())                          => '',
                 ]

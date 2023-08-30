@@ -49,8 +49,8 @@ class Manage extends Process
         App::backend()->blog_url = Html::stripHostURL(App::blog()->url);
 
         # Liste des catégories
-        $categories_label                 = [];
-        $rs                               = App::blog()->getCategories(['post_type' => 'post']);
+        $categories_label                = [];
+        $rs                              = App::blog()->getCategories(['post_type' => 'post']);
         App::backend()->categories_combo = Combos::getCategoriesCombo($rs, false, true);
         $rs->moveStart();
         while ($rs->fetch()) {
@@ -64,7 +64,7 @@ class Manage extends Process
         );
 
         # Liste des mois d'archive
-        $rs                           = App::blog()->getDates(['type' => 'month']);
+        $rs                          = App::blog()->getDates(['type' => 'month']);
         App::backend()->months_combo = array_merge(
             [__('All months') => '-'],
             Combos::getDatesCombo($rs)
@@ -190,7 +190,7 @@ class Manage extends Process
             App::backend()->item_label  = $_POST['item_label']  ?? '';
             App::backend()->item_descr  = $_POST['item_descr']  ?? '';
             App::backend()->item_url    = $_POST['item_url']    ?? '';
-            $item_targetBlank            = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
+            $item_targetBlank           = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
             # Traitement
             App::backend()->step = (!empty($_GET['add']) ? (int) $_GET['add'] : self::STEP_LIST);
             if ((App::backend()->step > self::STEP_ADD) || (App::backend()->step < self::STEP_LIST)) {
@@ -498,8 +498,8 @@ class Manage extends Process
                 [
                     Html::escapeHTML(App::blog()->name) => '',
                     App::backend()->page_title          => App::backend()->getPageURL(),
-                    __('Add item')                       => '',
-                    $step_label                          => '',
+                    __('Add item')                      => '',
+                    $step_label                         => '',
                 ],
                 [
                     'hl_pos' => -2,

@@ -83,7 +83,7 @@ class Post extends Process
         ]), App::blog()->id);
         App::backend()->can_delete = false;
 
-        $post_headlink             = '<link rel="%s" title="%s" href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
+        $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
         App::backend()->post_link = '<a href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
 
         App::backend()->next_link     = null;
@@ -541,7 +541,7 @@ class Post extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name) => '',
-                    __('Posts')                          => App::backend()->url->get('admin.posts'),
+                    __('Posts')                         => App::backend()->url->get('admin.posts'),
                     (App::backend()->post_id ?
                         $page_title_edit :
                         App::backend()->page_title) => '',

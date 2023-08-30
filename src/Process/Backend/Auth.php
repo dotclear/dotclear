@@ -86,7 +86,7 @@ class Auth extends Process
             $user_id = substr($_COOKIE['dc_admin'], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
-                $user_id                  = trim((string) $user_id[1]);
+                $user_id                 = trim((string) $user_id[1]);
                 App::backend()->user_key = substr($_COOKIE['dc_admin'], 0, 40);
                 App::backend()->user_pwd = null;
             } else {
@@ -165,9 +165,9 @@ class Auth extends Process
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
-                        $user_id                  = trim((string) $data['user_id']);
+                        $user_id                 = trim((string) $data['user_id']);
                         App::backend()->user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user               = App::auth()->checkUser($user_id, null, App::backend()->user_key) === true;
+                        $check_user              = App::auth()->checkUser($user_id, null, App::backend()->user_key) === true;
                     } else {
                         $user_id = trim((string) $user_id);
                     }
