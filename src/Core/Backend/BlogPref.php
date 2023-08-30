@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class BlogPref
 {
@@ -29,7 +29,7 @@ class BlogPref
 
         return
         Page::jsJson('admin.blog_pref', [
-            'base_url' => Core::blog()->url,
+            'base_url' => App::blog()->url,
         ]) .
         Page::jsLoad('js/_blog_pref_popup_posts.js');
     }

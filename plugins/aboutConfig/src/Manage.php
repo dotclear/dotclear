@@ -16,7 +16,7 @@ use Exception;
 use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -29,7 +29,7 @@ class Manage extends Process
     public static function init(): bool
     {
         if (self::status(My::checkContext(My::MANAGE))) {
-            Core::backend()->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
+            App::backend()->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
         }
 
         return self::status();
@@ -60,15 +60,15 @@ class Manage extends Process
                         if ($_POST['s_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        Core::blog()->settings->$ns->put($k, $v);
+                        App::blog()->settings->$ns->put($k, $v);
                     }
-                    Core::blog()->triggerBlog();
+                    App::blog()->triggerBlog();
                 }
 
                 Notices::addSuccessNotice(__('Configuration successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -80,9 +80,9 @@ class Manage extends Process
                         if ($_POST['gs_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        Core::blog()->settings->$ns->put($k, $v, null, null, true, true);
+                        App::blog()->settings->$ns->put($k, $v, null, null, true, true);
                     }
-                    Core::blog()->triggerBlog();
+                    App::blog()->triggerBlog();
                 }
 
                 Notices::addSuccessNotice(__('Configuration successfully updated'));
@@ -90,7 +90,7 @@ class Manage extends Process
                     'part' => 'global',
                 ]);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -108,7 +108,7 @@ class Manage extends Process
 
         Page::openModule(
             My::name(),
-            Page::jsPageTabs(Core::backend()->part) .
+            Page::jsPageTabs(App::backend()->part) .
             My::jsLoad('index.js')
         );
 
@@ -116,13 +116,13 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 __('System')                         => '',
-                Html::escapeHTML(Core::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name) => '',
                 My::name()                           => '',
             ]
         ) .
         Notices::getNotices() .
-        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(Core::blog()->name)) . '">' .
-        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(Core::blog()->name)) . '</h3>';
+        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(App::blog()->name)) . '">' .
+        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(App::blog()->name)) . '</h3>';
 
         self::settingsTable(false);
 
@@ -163,7 +163,7 @@ class Manage extends Process
         $table_footer = '</tbody></table></div>';
 
         /** @var array<string|dcNamespace> */
-        $namespaces = Core::blog()->settings->dumpNamespaces();
+        $namespaces = App::blog()->settings->dumpNamespaces();
         $settings   = [];
         if ($global) {
             $prefix     = 'g_';
@@ -198,18 +198,18 @@ class Manage extends Process
                 $ns_combo[$ns] = $prefix_id . $ns;
             }
             echo
-            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
             '<p class="anchor-nav">' .
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ns_combo, ['class' => 'navigation']) .
             ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
             '<input type="hidden" name="p" value="' . My::id() . '" />' .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
             '</p></form>';
         }
 
         echo
-        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post">';
+        '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post">';
         foreach ($settings as $ns => $s) {
             ksort($s);
             echo sprintf($table_header, $prefix . $ns, $ns);
@@ -224,7 +224,7 @@ class Manage extends Process
         '<p><input type="submit" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '<input type="hidden" name="p" value="' . My::id() . '" />' .
-        Core::nonce()->getFormNonce() .
+        App::nonce()->getFormNonce() .
         '</p>' .
         '</form>';
     }

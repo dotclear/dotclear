@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class BackendBehaviors
 {
@@ -29,7 +29,7 @@ class BackendBehaviors
 
         $modules['export'] = array_merge($modules['export'], [ModuleExportFlat::class]);
 
-        if (Core::auth()->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             $modules['import'] = array_merge($modules['import'], [ModuleImportDc1::class]);
             $modules['import'] = array_merge($modules['import'], [ModuleImportWp::class]);
         }

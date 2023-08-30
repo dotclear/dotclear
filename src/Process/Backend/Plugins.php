@@ -16,7 +16,7 @@ use dcModuleDefine;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -30,10 +30,10 @@ class Plugins extends Process
     public static function init(): bool
     {
         // -- Page helper --
-        Core::backend()->list = new ModulesList(
-            Core::plugins(),
+        App::backend()->list = new ModulesList(
+            App::plugins(),
             DC_PLUGINS_ROOT,
-            Core::blog()->settings->system->store_plugin_url,
+            App::blog()->settings->system->store_plugin_url,
             !empty($_GET['nocache']) ? true : null
         );
 
@@ -41,7 +41,7 @@ class Plugins extends Process
         // deprecated since 2.26
         ModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
-        $disabled = Core::plugins()->disableDepModules();
+        $disabled = App::plugins()->disableDepModules();
         if (count($disabled)) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
@@ -49,11 +49,11 @@ class Plugins extends Process
                 ['divtag' => true, 'with_ts' => false]
             );
 
-            Core::backend()->url->redirect('admin.plugins');
+            App::backend()->url->redirect('admin.plugins');
             exit;
         }
 
-        if (Core::backend()->list->setConfiguration()) {
+        if (App::backend()->list->setConfiguration()) {
             // -- Display module configuration page --
             self::renderConfig();
             // Stop reading code here, rendering will be done before returning (see below)
@@ -64,9 +64,9 @@ class Plugins extends Process
 
         # -- Execute actions --
         try {
-            Core::backend()->list->doActions();
+            App::backend()->list->doActions();
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -75,9 +75,9 @@ class Plugins extends Process
     public static function process(): bool
     {
         // -- Plugin install --
-        Core::backend()->plugins_install = null;
-        if (!Core::error()->flag()) {
-            Core::backend()->plugins_install = Core::plugins()->installModules();
+        App::backend()->plugins_install = null;
+        if (!App::error()->flag()) {
+            App::backend()->plugins_install = App::plugins()->installModules();
         }
 
         return true;
@@ -90,13 +90,13 @@ class Plugins extends Process
             __('Plugins management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', Core::backend()->url->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', App::backend()->url->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
             Page::jsLoad('js/_plugins.js') .
             Page::jsPageTabs() .
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
-            Core::behavior()->callBehavior('pluginsToolsHeadersV2', false),
+            App::behavior()->callBehavior('pluginsToolsHeadersV2', false),
             Page::breadcrumb(
                 [
                     __('System')             => '',
@@ -106,10 +106,10 @@ class Plugins extends Process
         );
 
         // -- Plugins install messages --
-        if (!empty(Core::backend()->plugins_install['success'])) {
+        if (!empty(App::backend()->plugins_install['success'])) {
             $success = [];
-            foreach (Core::backend()->plugins_install['success'] as $k => $v) {
-                $info      = implode(' - ', Core::backend()->list->getSettingsUrls($k, true));
+            foreach (App::backend()->plugins_install['success'] as $k => $v) {
+                $info      = implode(' - ', App::backend()->list->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
             Notices::success(
@@ -120,9 +120,9 @@ class Plugins extends Process
             );
             unset($success);
         }
-        if (!empty(Core::backend()->plugins_install['failure'])) {
+        if (!empty(App::backend()->plugins_install['failure'])) {
             $failure = [];
-            foreach (Core::backend()->plugins_install['failure'] as $k => $v) {
+            foreach (App::backend()->plugins_install['failure'] as $k => $v) {
                 $failure[] = $k . ' (' . $v . ')';
             }
 
@@ -136,18 +136,18 @@ class Plugins extends Process
         }
 
         // -- Display modules lists --
-        if (Core::auth()->isSuperAdmin()) {
-            if (null == Core::blog()->settings->system->store_plugin_url) {
+        if (App::auth()->isSuperAdmin()) {
+            if (null == App::blog()->settings->system->store_plugin_url) {
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 
-            if (!Core::error()->flag() && !empty($_GET['nocache'])) {
+            if (!App::error()->flag() && !empty($_GET['nocache'])) {
                 Notices::success(__('Manual checking of plugins update done successfully.'));
             }
 
             echo
             (new Form('force-checking'))
-                ->action(Core::backend()->list->getURL('', false))
+                ->action(App::backend()->list->getURL('', false))
                 ->method('get')
                 ->fields([
                     (new Para())
@@ -160,7 +160,7 @@ class Plugins extends Process
                 ->render();
 
             // Updated modules from repo
-            $defines = Core::backend()->list->store->getDefines(true);
+            $defines = App::backend()->list->store->getDefines(true);
             if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
@@ -170,7 +170,7 @@ class Plugins extends Process
                     count($defines)
                 ) . '</p>';
 
-                Core::backend()->list
+                App::backend()->list
                     ->setList('plugin-update')
                     ->setTab('update')
                     ->setDefines($defines)
@@ -196,18 +196,18 @@ class Plugins extends Process
         '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
 
         # Activated modules
-        $defines = Core::backend()->list->modules->getDefines(
-            ['state' => Core::backend()->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+        $defines = App::backend()->list->modules->getDefines(
+            ['state' => App::backend()->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
             echo
             '<h3>' .
-            (Core::auth()->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
-            (Core::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
+            (App::auth()->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
+            (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
             '</h3>' .
             '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
 
-            Core::backend()->list
+            App::backend()->list
                 ->setList('plugin-activate')
                 ->setTab('plugins')
                 ->setDefines($defines)
@@ -220,14 +220,14 @@ class Plugins extends Process
         }
 
         # Deactivated modules
-        if (Core::auth()->isSuperAdmin()) {
-            $defines = Core::backend()->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+        if (App::auth()->isSuperAdmin()) {
+            $defines = App::backend()->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
             if (!empty($defines)) {
                 echo
                 '<h3>' . __('Deactivated plugins') . '</h3>' .
                 '<p class="more-info">' . __('Deactivated plugins are installed but not usable. You can activate them from here.') . '</p>';
 
-                Core::backend()->list
+                App::backend()->list
                     ->setList('plugin-deactivate')
                     ->setTab('plugins')
                     ->setDefines($defines)
@@ -243,17 +243,17 @@ class Plugins extends Process
         echo
         '</div>';
 
-        if (Core::auth()->isSuperAdmin() && Core::backend()->list->isWritablePath()) {
+        if (App::auth()->isSuperAdmin() && App::backend()->list->isWritablePath()) {
             # New modules from repo
-            $search  = Core::backend()->list->getSearch();
-            $defines = $search ? Core::backend()->list->store->searchDefines($search) : Core::backend()->list->store->getDefines();
+            $search  = App::backend()->list->getSearch();
+            $defines = $search ? App::backend()->list->store->searchDefines($search) : App::backend()->list->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add plugins') . '">' .
                 '<h3>' . __('Add plugins from repository') . '</h3>';
 
-                Core::backend()->list
+                App::backend()->list
                     ->setList('plugin-new')
                     ->setTab('new')
                     ->setDefines($defines)
@@ -284,17 +284,17 @@ class Plugins extends Process
             '<h3>' . __('Add plugins from a package') . '</h3>' .
             '<p class="more-info">' . __('You can install plugins by uploading or downloading zip files.') . '</p>';
 
-            Core::backend()->list->displayManualForm();
+            App::backend()->list->displayManualForm();
 
             echo
             '</div>';
         }
 
         # --BEHAVIOR-- pluginsToolsTabs --
-        Core::behavior()->callBehavior('pluginsToolsTabsV2');
+        App::behavior()->callBehavior('pluginsToolsTabsV2');
 
         # -- Notice for super admin --
-        if (Core::auth()->isSuperAdmin() && !Core::backend()->list->isWritablePath()) {
+        if (App::auth()->isSuperAdmin() && !App::backend()->list->isWritablePath()) {
             echo
             '<p class="warning">' . __('Some functions are disabled, please give write access to your plugins directory to enable them.') . '</p>';
         }
@@ -309,31 +309,31 @@ class Plugins extends Process
     public static function renderConfig()
     {
         // Get content before page headers
-        $include = Core::backend()->list->includeConfiguration();
+        $include = App::backend()->list->includeConfiguration();
         if ($include) {
             include $include;
         }
 
         // Gather content
-        Core::backend()->list->getConfiguration();
+        App::backend()->list->getConfiguration();
 
         // Display page
         Page::open(
             __('Plugins management'),
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
-            Core::behavior()->callBehavior('pluginsToolsHeadersV2', true),
+            App::behavior()->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name)                                 => '',
-                    __('Plugins management')                                             => Core::backend()->list->getURL('', false),
+                    Html::escapeHTML(App::blog()->name)                                 => '',
+                    __('Plugins management')                                             => App::backend()->list->getURL('', false),
                     '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
                 ]
             )
         );
 
         // Display previously gathered content
-        Core::backend()->list->displayConfiguration();
+        App::backend()->list->displayConfiguration();
 
         Page::helpBlock('core_plugins_conf');
         Page::close();

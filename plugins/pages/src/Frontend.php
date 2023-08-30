@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -29,14 +29,14 @@ class Frontend extends Process
             return false;
         }
 
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'publicPrependV2' => function (): void {
                 // Localized string we find in template
                 __('Published on');
                 __('This page\'s comments feed');
             },
             'coreBlogBeforeGetPosts' => function (ArrayObject $params): void {
-                if (Core::url()->type === 'search') {
+                if (App::url()->type === 'search') {
                     // Add page post type for searching
                     if (isset($params['post_type'])) {
                         if (!is_array($params['post_type'])) {

@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use dcMedia;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -130,7 +130,7 @@ class ListingMedia extends Listing
 
         if ($file->d) {
             // Folder
-            $link = Core::backend()->url->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
+            $link = App::backend()->url->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
             if ($file->parent) {
                 $display_name = '..';
                 $class .= ' media-folder-up';
@@ -143,9 +143,9 @@ class ListingMedia extends Listing
             unset($params['process']); // move to media item
 
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
-            Core::behavior()->callBehavior('adminMediaURLParams', $params);
+            App::behavior()->callBehavior('adminMediaURLParams', $params);
 
-            $link = Core::backend()->url->get('admin.media.item', (array) $params);
+            $link = App::backend()->url->get('admin.media.item', (array) $params);
             if ($file->media_priv) {
                 $class .= ' media-private';
             }
@@ -172,7 +172,7 @@ class ListingMedia extends Listing
                 if ($filters->post_id) {
                     // Media attachment button
                     $act .= '<a class="attach-media" title="' . __('Attach this file to entry') . '" href="' .
-                    Core::backend()->url->get(
+                    App::backend()->url->get(
                         'admin.post.media',
                         ['media_id' => $file->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
@@ -196,7 +196,7 @@ class ListingMedia extends Listing
                 }
             } else {
                 $act .= '<a class="media-remove" ' .
-                'href="' . Core::backend()->url->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
+                'href="' . App::backend()->url->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
                 '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
             }
         }
@@ -213,7 +213,7 @@ class ListingMedia extends Listing
             if (!$file->d) {
                 $lst .= '<li>' . ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
                 '<li>' .
-                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), Core::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .
                 $file->media_dtstr .
                 '</time>' .
                 ' - ' .
@@ -238,7 +238,7 @@ class ListingMedia extends Listing
                 '<br />' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
             $res .= '<td class="nowrap count">' . (
                 $file->d ? '' :
-                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), Core::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .
                 $file->media_dtstr .
                 '</time>'
             ) . '</td>';

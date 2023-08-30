@@ -13,7 +13,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -59,8 +59,8 @@ class dcPrefs
      */
     public function __construct(string $user_id, ?string $workspace = null)
     {
-        $this->con     = Core::con();
-        $this->table   = Core::con()->prefix() . dcWorkspace::WS_TABLE_NAME;
+        $this->con     = App::con();
+        $this->table   = App::con()->prefix() . dcWorkspace::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {

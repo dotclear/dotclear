@@ -14,7 +14,7 @@ use ArrayObject;
 use Autoloader;
 use dcDeprecated;
 use dcUtils;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -52,23 +52,23 @@ class Page
      */
     public static function check(string $permissions, bool $home = false)
     {
-        if (Core::blog() && Core::auth()->check($permissions, Core::blog()->id)) {
+        if (App::blog() && App::auth()->check($permissions, App::blog()->id)) {
             return;
         }
 
         // Check if dashboard is not the current page et if it is granted for the user
-        if (!$home && Core::blog() && Core::auth()->check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), Core::blog()->id)) {
+        if (!$home && App::blog() && App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             // Go back to the dashboard
             Http::redirect(DC_ADMIN_URL);
         }
 
         if (session_id()) {
-            Core::session()->destroy();
+            App::session()->destroy();
         }
-        Core::backend()->url->redirect('admin.auth');
+        App::backend()->url->redirect('admin.auth');
     }
 
     /**
@@ -78,20 +78,20 @@ class Page
      */
     public static function checkSuper(bool $home = false)
     {
-        if (!Core::auth()->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
-            if (!$home && Core::blog() && Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_USAGE,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id)) {
+            if (!$home && App::blog() && App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id)) {
                 // Go back to the dashboard
                 Http::redirect(DC_ADMIN_URL);
             }
 
             if (session_id()) {
-                Core::session()->destroy();
+                App::session()->destroy();
             }
-            Core::backend()->url->redirect('admin.auth');
+            App::backend()->url->redirect('admin.auth');
         }
     }
 
@@ -108,22 +108,22 @@ class Page
         $js = [];
 
         # List of user's blogs
-        if (Core::auth()->getBlogCount() == 1 || Core::auth()->getBlogCount() > 20) {
-            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(Core::blog()->url) . '">' .
-            Html::escapeHTML(Core::blog()->name) . '</strong>';
+        if (App::auth()->getBlogCount() == 1 || App::auth()->getBlogCount() > 20) {
+            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(App::blog()->url) . '">' .
+            Html::escapeHTML(App::blog()->name) . '</strong>';
 
-            if (Core::auth()->getBlogCount() > 20) {
-                $blog_box .= ' - <a href="' . Core::backend()->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
+            if (App::auth()->getBlogCount() > 20) {
+                $blog_box .= ' - <a href="' . App::backend()->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
             }
             $blog_box .= '</p>';
         } else {
-            $rs_blogs = Core::blogs()->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => 20]);
+            $rs_blogs = App::blogs()->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => 20]);
             $blogs    = [];
             while ($rs_blogs->fetch()) {
                 $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
-            Core::nonce()->getFormNonce() . form::combo('switchblog', $blogs, Core::blog()->id) .
+            App::nonce()->getFormNonce() . form::combo('switchblog', $blogs, App::blog()->id) .
             form::hidden(['redir'], $_SERVER['REQUEST_URI']) .
             '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
         }
@@ -147,42 +147,42 @@ class Page
         }
 
         # Content-Security-Policy (only if safe mode if not active, it may help)
-        if (!$safe_mode && Core::blog()->settings->system->csp_admin_on) {
+        if (!$safe_mode && App::blog()->settings->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults
             $csp = new ArrayObject([]);
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
             // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-            $csp_prefix = Core::con()->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
-            $csp_suffix = Core::con()->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_prefix = App::con()->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_suffix = App::con()->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
-            $csp['default-src'] = Core::blog()->settings->system->csp_admin_default ?:
+            $csp['default-src'] = App::blog()->settings->system->csp_admin_default ?:
             $csp_prefix . "'self'" . $csp_suffix;
-            $csp['script-src'] = Core::blog()->settings->system->csp_admin_script ?:
+            $csp['script-src'] = App::blog()->settings->system->csp_admin_script ?:
             $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix;
-            $csp['style-src'] = Core::blog()->settings->system->csp_admin_style ?:
+            $csp['style-src'] = App::blog()->settings->system->csp_admin_style ?:
             $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix;
-            $csp['img-src'] = Core::blog()->settings->system->csp_admin_img ?:
+            $csp['img-src'] = App::blog()->settings->system->csp_admin_img ?:
             $csp_prefix . "'self' data: https://media.dotaddict.org blob:";
 
             # Cope with blog post preview (via public URL in iframe)
-            if (Core::blog()->host) {
-                $csp['default-src'] .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
-                $csp['script-src']  .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
-                $csp['style-src']   .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
+            if (App::blog()->host) {
+                $csp['default-src'] .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
+                $csp['script-src']  .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
+                $csp['style-src']   .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
             }
             # Cope with media display in media manager (via public URL)
-            if (Core::media()->root_url) {
-                $csp['img-src'] .= ' ' . parse_url(Core::media()->root_url, PHP_URL_HOST);
-            } elseif (!is_null(Core::blog()->host)) {
+            if (App::media()->root_url) {
+                $csp['img-src'] .= ' ' . parse_url(App::media()->root_url, PHP_URL_HOST);
+            } elseif (!is_null(App::blog()->host)) {
                 // Let's try with the blog URL
-                $csp['img-src'] .= ' ' . parse_url(Core::blog()->host, PHP_URL_HOST);
+                $csp['img-src'] .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
             }
             # Allow everything in iframe (used by editors to preview public content)
             $csp['frame-src'] = '*';
 
             # --BEHAVIOR-- adminPageHTTPHeaderCSP -- ArrayObject
-            Core::behavior()->callBehavior('adminPageHTTPHeaderCSP', $csp);
+            App::behavior()->callBehavior('adminPageHTTPHeaderCSP', $csp);
 
             // Construct CSP header
             $directives = [];
@@ -192,59 +192,59 @@ class Page
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . Core::backend()->url->get('admin.csp.report');
-                $report_only    = (Core::blog()->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . App::backend()->url->get('admin.csp.report');
+                $report_only    = (App::blog()->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
         }
 
         # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject
-        Core::behavior()->callBehavior('adminPageHTTPHeaders', $headers);
+        App::behavior()->callBehavior('adminPageHTTPHeaders', $headers);
         foreach ($headers as $key => $value) {
             header($value);
         }
 
-        $data_theme = Core::auth()->user_prefs->interface->theme;
+        $data_theme = App::auth()->user_prefs->interface->theme;
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . Core::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(Core::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(Core::lang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (!Core::auth()->user_prefs->interface->hide_std_favicon) {
+        if (!App::auth()->user_prefs->interface->hide_std_favicon) {
             echo
                 '<link rel="icon" type="image/png" href="images/favicon96-login.png" />' . "\n" .
                 '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n";
         }
-        if (Core::auth()->user_prefs->interface->htmlfontsize) {
-            $js['htmlFontSize'] = Core::auth()->user_prefs->interface->htmlfontsize;
+        if (App::auth()->user_prefs->interface->htmlfontsize) {
+            $js['htmlFontSize'] = App::auth()->user_prefs->interface->htmlfontsize;
         }
-        if (Core::auth()->user_prefs->interface->systemfont) {
+        if (App::auth()->user_prefs->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']   = (bool) Core::auth()->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) Core::auth()->user_prefs->interface->showajaxloader;
-        $js['servicesUri']    = Core::backend()->url->get('admin.rest');
-        $js['servicesOff']    = !Core::rest()->serveRestRequests();
+        $js['hideMoreInfo']   = (bool) App::auth()->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) App::auth()->user_prefs->interface->showajaxloader;
+        $js['servicesUri']    = App::backend()->url->get('admin.rest');
+        $js['servicesOff']    = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) Core::auth()->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) App::auth()->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
-        $js['showIp'] = Core::blog() && Core::blog()->id ? Core::auth()->check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), Core::blog()->id) : false;
+        $js['showIp'] = App::blog() && App::blog()->id ? App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id) : false;
 
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
@@ -255,7 +255,7 @@ class Page
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead
-        Core::behavior()->callBehavior('adminPageHTMLHead');
+        App::behavior()->callBehavior('adminPageHTMLHead');
 
         echo
         "</head>\n" .
@@ -270,18 +270,18 @@ class Page
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
-        '<h1><a href="' . Core::backend()->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
+        '<h1><a href="' . App::backend()->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
 
         echo
-        '<form action="' . Core::backend()->url->get('admin.home') . '" method="post" id="top-info-blog">' .
+        '<form action="' . App::backend()->url->get('admin.home') . '" method="post" id="top-info-blog">' .
         $blog_box .
-        '<p><a href="' . Core::blog()->url . '" class="outgoing" title="' . __('Go to site') .
+        '<p><a href="' . App::blog()->url . '" class="outgoing" title="' . __('Go to site') .
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(Core::backend()->url->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
-        '" href="' . Core::backend()->url->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . Core::backend()->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), Core::auth()->userID()) .
+        '<li><a class="smallscreen' . (preg_match('/' . preg_quote(App::backend()->url->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
+        '" href="' . App::backend()->url->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
+        '<li><a href="' . App::backend()->url->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
@@ -448,10 +448,10 @@ class Page
      */
     public static function close()
     {
-        if (!Core::backend()->resources->context()) {
-            if (!Core::auth()->user_prefs->interface->hidehelpbutton) {
+        if (!App::backend()->resources->context()) {
+            if (!App::auth()->user_prefs->interface->hidehelpbutton) {
                 echo
-                '<p id="help-button"><a href="' . Core::backend()->url->get('admin.help') . '" class="outgoing" title="' .
+                '<p id="help-button"><a href="' . App::backend()->url->get('admin.help') . '" class="outgoing" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
             }
         }
@@ -462,20 +462,20 @@ class Page
 
         '<nav id="main-menu" role="navigation">' . "\n" .
 
-        '<form id="search-menu" action="' . Core::backend()->url->get('admin.search') . '" method="get" role="search">' .
+        '<form id="search-menu" action="' . App::backend()->url->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
         '<input type="hidden" name="process" value="Search" />' .
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
-        foreach (array_keys((array) Core::backend()->menus) as $k) {
-            echo Core::backend()->menus[$k]->draw();
+        foreach (array_keys((array) App::backend()->menus) as $k) {
+            echo App::backend()->menus[$k]->draw();
         }
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');
 
         # --BEHAVIOR-- adminPageFooter --
-        $textAlt = Core::behavior()->callBehavior('adminPageFooterV2', $text);
+        $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
         if ($textAlt != '') {
             $text = $textAlt;
         }
@@ -534,36 +534,36 @@ class Page
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-        $data_theme = Core::auth()->user_prefs->interface->theme;
+        $data_theme = App::auth()->user_prefs->interface->theme;
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . Core::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(Core::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(Core::lang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (Core::auth()->user_prefs->interface->htmlfontsize) {
-            $js['htmlFontSize'] = Core::auth()->user_prefs->interface->htmlfontsize;
+        if (App::auth()->user_prefs->interface->htmlfontsize) {
+            $js['htmlFontSize'] = App::auth()->user_prefs->interface->htmlfontsize;
         }
-        if (Core::auth()->user_prefs->interface->systemfont) {
+        if (App::auth()->user_prefs->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']   = (bool) Core::auth()->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) Core::auth()->user_prefs->interface->showajaxloader;
-        $js['servicesUri']    = Core::backend()->url->get('admin.rest');
-        $js['servicesOff']    = !Core::rest()->serveRestRequests();
+        $js['hideMoreInfo']   = (bool) App::auth()->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) App::auth()->user_prefs->interface->showajaxloader;
+        $js['servicesUri']    = App::backend()->url->get('admin.rest');
+        $js['servicesOff']    = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) Core::auth()->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) App::auth()->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
@@ -576,7 +576,7 @@ class Page
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead --
-        Core::behavior()->callBehavior('adminPageHTMLHead');
+        App::behavior()->callBehavior('adminPageHTMLHead');
 
         echo
             "</head>\n" .
@@ -650,7 +650,7 @@ class Page
 
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2 role="navigation">' . ($with_home_link ?
-            '<a class="go_home" href="' . Core::backend()->url->get('admin.home') . '">' .
+            '<a class="go_home" href="' . App::backend()->url->get('admin.home') . '">' .
             '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '" />' .
             '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '" />' .
             '</a>' :
@@ -763,20 +763,20 @@ class Page
      */
     public static function helpBlock(...$params)
     {
-        if (Core::auth()->user_prefs->interface->hidehelpbutton) {
+        if (App::auth()->user_prefs->interface->hidehelpbutton) {
             return;
         }
 
         $args = new ArrayObject($params);
 
         # --BEHAVIOR-- adminPageHelpBlock -- ArrayObject
-        Core::behavior()->callBehavior('adminPageHelpBlock', $args);
+        App::behavior()->callBehavior('adminPageHelpBlock', $args);
 
         if (!count($args)) {
             return;
         }
 
-        if (empty(Core::backend()->resources->entries('help'))) {
+        if (empty(App::backend()->resources->entries('help'))) {
             return;
         }
 
@@ -788,7 +788,7 @@ class Page
                 continue;
             }
 
-            $file = Core::backend()->resources->entry('help', $arg);
+            $file = App::backend()->resources->entry('help', $arg);
             if (empty($file) || !file_exists($file) || !is_readable($file)) {
                 continue;
             }
@@ -806,7 +806,7 @@ class Page
         }
 
         // Set contextual help global flag
-        Core::backend()->resources->context(true);
+        App::backend()->resources->context(true);
 
         echo
         '<div id="help"><hr /><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .
@@ -814,7 +814,7 @@ class Page
         '</div>' .
         '<div id="helplink"><hr />' .
         '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="' . Core::backend()->url->get('admin.help') . '">%s</a>', __('the global help'))) .
+        sprintf(__('See also %s'), sprintf('<a href="' . App::backend()->url->get('admin.help') . '">%s</a>', __('the global help'))) .
             '.</p>' .
             '</div></div>';
     }
@@ -922,8 +922,8 @@ class Page
     public static function jsToggles(): string
     {
         $js = [];
-        if (Core::auth()->user_prefs->toggles) {
-            $unfolded_sections = explode(',', (string) Core::auth()->user_prefs->toggles->unfolded_sections);
+        if (App::auth()->user_prefs->toggles) {
+            $unfolded_sections = explode(',', (string) App::auth()->user_prefs->toggles->unfolded_sections);
             foreach ($unfolded_sections as $section => &$v) {
                 if ($v !== '') {
                     $js[$unfolded_sections[$section]] = true;
@@ -944,7 +944,7 @@ class Page
     public static function jsCommon(): string
     {
         $js = [
-            'nonce' => Core::nonce()->getNonce(),
+            'nonce' => App::nonce()->getNonce(),
 
             'img_plus_src' => 'images/expand.svg',
             'img_plus_txt' => '▶',
@@ -1028,7 +1028,7 @@ class Page
         (
             DC_DEBUG ?
             self::jsJson('dotclear_jquery', [
-                'mute' => (empty(Core::blog()) || Core::blog()->settings->system->jquery_migrate_mute),
+                'mute' => (empty(App::blog()) || App::blog()->settings->system->jquery_migrate_mute),
             ]) .
             self::jsLoad('js/jquery-mute.js') .
             self::jsLoad('js/jquery/jquery-migrate.js') :
@@ -1054,8 +1054,8 @@ class Page
         $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true);
         if ($adblockcheck) {
             // May not be set (auth page for example)
-            if (isset(Core::auth()->user_prefs)) {
-                $adblockcheck = Core::auth()->user_prefs->interface->nocheckadblocker !== true;
+            if (isset(App::auth()->user_prefs)) {
+                $adblockcheck = App::auth()->user_prefs->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;
             }
@@ -1131,7 +1131,7 @@ class Page
         $params = array_merge($params, [
             'sess_id=' . session_id(),
             'sess_uid=' . $_SESSION['sess_browser_uid'],
-            'xd_check=' . Core::nonce()->getNonce(),
+            'xd_check=' . App::nonce()->getNonce(),
         ]);
 
         $js_msg = [
@@ -1203,7 +1203,7 @@ class Page
 
         return
         self::jsJson('filter_controls', $js) .
-        self::jsJson('filter_options', ['auto_filter' => Core::auth()->user_prefs->interface->auto_filter]) .
+        self::jsJson('filter_options', ['auto_filter' => App::auth()->user_prefs->interface->auto_filter]) .
         self::jsLoad('js/filter-controls.js');
     }
 
@@ -1231,7 +1231,7 @@ class Page
          */
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminLoadCodeMirror -- array
-        Core::behavior()->callBehavior('adminLoadCodeMirror', $alt);
+        App::behavior()->callBehavior('adminLoadCodeMirror', $alt);
         foreach ($alt as $item) {
             if (!in_array($item, $modes)) {
                 $modes[] = $item;
@@ -1289,12 +1289,12 @@ class Page
          *     'name'  => 'my_editor_css',  // Editor id (should be unique)
          *     'id'    => 'css_content',    // Textarea id
          *     'mode'  => 'css',            // Codemirror mode ()
-         *     'theme' => Core::auth()->user_prefs->interface->colorsyntax_theme ?: 'default'
+         *     'theme' => App::auth()->user_prefs->interface->colorsyntax_theme ?: 'default'
          * ]);
          */
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminRunCodeMirror -- array
-        Core::behavior()->callBehavior('adminRunCodeMirror', $alt);
+        App::behavior()->callBehavior('adminRunCodeMirror', $alt);
         foreach ($alt as $item) {
             $js[] = [
                 'name'  => $item['name'],
@@ -1341,7 +1341,7 @@ class Page
      */
     public static function getPF(string $file): string
     {
-        return Core::backend()->url->get('load.plugin.file', ['pf' => $file], '&');
+        return App::backend()->url->get('load.plugin.file', ['pf' => $file], '&');
     }
 
     /**
@@ -1353,7 +1353,7 @@ class Page
      */
     public static function getVF(string $file): string
     {
-        return Core::backend()->url->get('load.var.file', ['vf' => $file], '&');
+        return App::backend()->url->get('load.var.file', ['vf' => $file], '&');
     }
 
     /**

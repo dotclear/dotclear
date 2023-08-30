@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class ExportFlatMaintenanceTask extends ModuleExportFlat
 {
@@ -25,6 +25,6 @@ class ExportFlatMaintenanceTask extends ModuleExportFlat
      */
     public function setURL(string $id): void
     {
-        $this->url = Core::backend()->url->get('admin.plugin', ['p' => 'maintenance', 'task' => $id], '&');
+        $this->url = App::backend()->url->get('admin.plugin', ['p' => 'maintenance', 'task' => $id], '&');
     }
 }

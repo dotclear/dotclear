@@ -21,7 +21,7 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -36,143 +36,143 @@ class Post extends Process
     public static function init(): bool
     {
         $params = [];
-        Page::check(Core::auth()->makePermissions([
+        Page::check(App::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Date::setTZ(Core::auth()->getInfo('user_tz') ?? 'UTC');
+        Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');
 
         // IP are available only for super-admin and admin
-        Core::backend()->show_ip = Core::auth()->check(
-            Core::auth()->makePermissions([
+        App::backend()->show_ip = App::auth()->check(
+            App::auth()->makePermissions([
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ]),
-            Core::blog()->id
+            App::blog()->id
         );
 
-        Core::backend()->post_id            = '';
-        Core::backend()->cat_id             = '';
-        Core::backend()->post_dt            = '';
-        Core::backend()->post_format        = Core::auth()->getOption('post_format');
-        Core::backend()->post_editor        = Core::auth()->getOption('editor');
-        Core::backend()->post_password      = '';
-        Core::backend()->post_url           = '';
-        Core::backend()->post_lang          = Core::auth()->getInfo('user_lang');
-        Core::backend()->post_title         = '';
-        Core::backend()->post_excerpt       = '';
-        Core::backend()->post_excerpt_xhtml = '';
-        Core::backend()->post_content       = '';
-        Core::backend()->post_content_xhtml = '';
-        Core::backend()->post_notes         = '';
-        Core::backend()->post_status        = Core::auth()->getInfo('user_post_status');
-        Core::backend()->post_selected      = false;
-        Core::backend()->post_open_comment  = Core::blog()->settings->system->allow_comments;
-        Core::backend()->post_open_tb       = Core::blog()->settings->system->allow_trackbacks;
+        App::backend()->post_id            = '';
+        App::backend()->cat_id             = '';
+        App::backend()->post_dt            = '';
+        App::backend()->post_format        = App::auth()->getOption('post_format');
+        App::backend()->post_editor        = App::auth()->getOption('editor');
+        App::backend()->post_password      = '';
+        App::backend()->post_url           = '';
+        App::backend()->post_lang          = App::auth()->getInfo('user_lang');
+        App::backend()->post_title         = '';
+        App::backend()->post_excerpt       = '';
+        App::backend()->post_excerpt_xhtml = '';
+        App::backend()->post_content       = '';
+        App::backend()->post_content_xhtml = '';
+        App::backend()->post_notes         = '';
+        App::backend()->post_status        = App::auth()->getInfo('user_post_status');
+        App::backend()->post_selected      = false;
+        App::backend()->post_open_comment  = App::blog()->settings->system->allow_comments;
+        App::backend()->post_open_tb       = App::blog()->settings->system->allow_trackbacks;
 
-        Core::backend()->page_title = __('New post');
+        App::backend()->page_title = __('New post');
 
-        Core::backend()->can_view_page = true;
-        Core::backend()->can_edit_post = Core::auth()->check(Core::auth()->makePermissions([
+        App::backend()->can_view_page = true;
+        App::backend()->can_edit_post = App::auth()->check(App::auth()->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), Core::blog()->id);
-        Core::backend()->can_publish = Core::auth()->check(Core::auth()->makePermissions([
+        ]), App::blog()->id);
+        App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
             dcAuth::PERMISSION_PUBLISH,
             dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), Core::blog()->id);
-        Core::backend()->can_delete = false;
+        ]), App::blog()->id);
+        App::backend()->can_delete = false;
 
-        $post_headlink             = '<link rel="%s" title="%s" href="' . Core::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
-        Core::backend()->post_link = '<a href="' . Core::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
+        $post_headlink             = '<link rel="%s" title="%s" href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
+        App::backend()->post_link = '<a href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
 
-        Core::backend()->next_link     = null;
-        Core::backend()->prev_link     = null;
-        Core::backend()->next_headlink = null;
-        Core::backend()->prev_headlink = null;
+        App::backend()->next_link     = null;
+        App::backend()->prev_link     = null;
+        App::backend()->next_headlink = null;
+        App::backend()->prev_headlink = null;
 
         # If user can't publish
-        if (!Core::backend()->can_publish) {
-            Core::backend()->post_status = dcBlog::POST_PENDING;
+        if (!App::backend()->can_publish) {
+            App::backend()->post_status = dcBlog::POST_PENDING;
         }
 
         # Getting categories
-        Core::backend()->categories_combo = Combos::getCategoriesCombo(
-            Core::blog()->getCategories()
+        App::backend()->categories_combo = Combos::getCategoriesCombo(
+            App::blog()->getCategories()
         );
 
-        Core::backend()->status_combo = Combos::getPostStatusesCombo();
+        App::backend()->status_combo = Combos::getPostStatusesCombo();
 
         // Formats combo
-        $core_formaters    = Core::formater()->getFormaters();
+        $core_formaters    = App::formater()->getFormaters();
         $available_formats = ['' => ''];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[Core::formater()->getFormaterName($format)] = $format;
+                $available_formats[App::formater()->getFormaterName($format)] = $format;
             }
         }
-        Core::backend()->available_formats = $available_formats;
+        App::backend()->available_formats = $available_formats;
 
         // Languages combo
-        Core::backend()->lang_combo = Combos::getLangsCombo(
-            Core::blog()->getLangs(['order' => 'asc']),
+        App::backend()->lang_combo = Combos::getLangsCombo(
+            App::blog()->getLangs(['order' => 'asc']),
             true
         );
 
         // Validation flag
-        Core::backend()->bad_dt = false;
+        App::backend()->bad_dt = false;
 
         // Trackbacks
-        Core::backend()->tb      = new dcTrackback();
-        Core::backend()->tb_urls = Core::backend()->tb_excerpt = '';
+        App::backend()->tb      = new dcTrackback();
+        App::backend()->tb_urls = App::backend()->tb_excerpt = '';
 
         // Get entry informations
 
-        Core::backend()->post = null;
+        App::backend()->post = null;
 
         if (!empty($_REQUEST['id'])) {
-            Core::backend()->page_title = __('Edit post');
+            App::backend()->page_title = __('Edit post');
 
             $params['post_id'] = $_REQUEST['id'];
 
-            Core::backend()->post = Core::blog()->getPosts($params);
+            App::backend()->post = App::blog()->getPosts($params);
 
-            if (Core::backend()->post->isEmpty()) {
-                Core::error()->add(__('This entry does not exist.'));
-                Core::backend()->can_view_page = false;
+            if (App::backend()->post->isEmpty()) {
+                App::error()->add(__('This entry does not exist.'));
+                App::backend()->can_view_page = false;
             } else {
-                Core::backend()->post_id            = Core::backend()->post->post_id;
-                Core::backend()->cat_id             = Core::backend()->post->cat_id;
-                Core::backend()->post_dt            = date('Y-m-d H:i', strtotime(Core::backend()->post->post_dt));
-                Core::backend()->post_format        = Core::backend()->post->post_format;
-                Core::backend()->post_password      = Core::backend()->post->post_password;
-                Core::backend()->post_url           = Core::backend()->post->post_url;
-                Core::backend()->post_lang          = Core::backend()->post->post_lang;
-                Core::backend()->post_title         = Core::backend()->post->post_title;
-                Core::backend()->post_excerpt       = Core::backend()->post->post_excerpt;
-                Core::backend()->post_excerpt_xhtml = Core::backend()->post->post_excerpt_xhtml;
-                Core::backend()->post_content       = Core::backend()->post->post_content;
-                Core::backend()->post_content_xhtml = Core::backend()->post->post_content_xhtml;
-                Core::backend()->post_notes         = Core::backend()->post->post_notes;
-                Core::backend()->post_status        = Core::backend()->post->post_status;
-                Core::backend()->post_selected      = (bool) Core::backend()->post->post_selected;
-                Core::backend()->post_open_comment  = (bool) Core::backend()->post->post_open_comment;
-                Core::backend()->post_open_tb       = (bool) Core::backend()->post->post_open_tb;
+                App::backend()->post_id            = App::backend()->post->post_id;
+                App::backend()->cat_id             = App::backend()->post->cat_id;
+                App::backend()->post_dt            = date('Y-m-d H:i', strtotime(App::backend()->post->post_dt));
+                App::backend()->post_format        = App::backend()->post->post_format;
+                App::backend()->post_password      = App::backend()->post->post_password;
+                App::backend()->post_url           = App::backend()->post->post_url;
+                App::backend()->post_lang          = App::backend()->post->post_lang;
+                App::backend()->post_title         = App::backend()->post->post_title;
+                App::backend()->post_excerpt       = App::backend()->post->post_excerpt;
+                App::backend()->post_excerpt_xhtml = App::backend()->post->post_excerpt_xhtml;
+                App::backend()->post_content       = App::backend()->post->post_content;
+                App::backend()->post_content_xhtml = App::backend()->post->post_content_xhtml;
+                App::backend()->post_notes         = App::backend()->post->post_notes;
+                App::backend()->post_status        = App::backend()->post->post_status;
+                App::backend()->post_selected      = (bool) App::backend()->post->post_selected;
+                App::backend()->post_open_comment  = (bool) App::backend()->post->post_open_comment;
+                App::backend()->post_open_tb       = (bool) App::backend()->post->post_open_tb;
 
-                Core::backend()->can_edit_post = Core::backend()->post->isEditable();
-                Core::backend()->can_delete    = Core::backend()->post->isDeletable();
+                App::backend()->can_edit_post = App::backend()->post->isEditable();
+                App::backend()->can_delete    = App::backend()->post->isDeletable();
 
-                $next_rs = Core::blog()->getNextPost(Core::backend()->post, 1);
-                $prev_rs = Core::blog()->getNextPost(Core::backend()->post, -1);
+                $next_rs = App::blog()->getNextPost(App::backend()->post, 1);
+                $prev_rs = App::blog()->getNextPost(App::backend()->post, -1);
 
                 if ($next_rs !== null) {
-                    Core::backend()->next_link = sprintf(
-                        Core::backend()->post_link,
+                    App::backend()->next_link = sprintf(
+                        App::backend()->post_link,
                         $next_rs->post_id,
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         __('Next entry') . '&nbsp;&#187;'
                     );
-                    Core::backend()->next_headlink = sprintf(
+                    App::backend()->next_headlink = sprintf(
                         $post_headlink,
                         'next',
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
@@ -181,13 +181,13 @@ class Post extends Process
                 }
 
                 if ($prev_rs !== null) {
-                    Core::backend()->prev_link = sprintf(
-                        Core::backend()->post_link,
+                    App::backend()->prev_link = sprintf(
+                        App::backend()->post_link,
                         $prev_rs->post_id,
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         '&#171;&nbsp;' . __('Previous entry')
                     );
-                    Core::backend()->prev_headlink = sprintf(
+                    App::backend()->prev_headlink = sprintf(
                         $post_headlink,
                         'previous',
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
@@ -197,14 +197,14 @@ class Post extends Process
 
                 // Sanitize trackbacks excerpt
                 $buffer = empty($_POST['tb_excerpt']) ?
-                    Core::backend()->post_excerpt_xhtml . ' ' . Core::backend()->post_content_xhtml :
+                    App::backend()->post_excerpt_xhtml . ' ' . App::backend()->post_content_xhtml :
                     $_POST['tb_excerpt'];
                 $buffer = preg_replace(
                     '/\s+/ms',
                     ' ',
                     Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean($buffer))), 255)
                 );
-                Core::backend()->tb_excerpt = $buffer;
+                App::backend()->tb_excerpt = $buffer;
             }
         }
         if (isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks') {
@@ -213,16 +213,16 @@ class Post extends Process
             $anchor = 'comments';
         }
 
-        Core::backend()->comments_actions_page = new ActionsComments(
-            Core::backend()->url->get('admin.post'),
+        App::backend()->comments_actions_page = new ActionsComments(
+            App::backend()->url->get('admin.post'),
             [
-                'id'            => Core::backend()->post_id,
+                'id'            => App::backend()->post_id,
                 'action_anchor' => $anchor,
                 'section'       => $anchor,
             ]
         );
 
-        if (Core::backend()->comments_actions_page->process()) {
+        if (App::backend()->comments_actions_page->process()) {
             return self::status(false);
         }
 
@@ -234,101 +234,101 @@ class Post extends Process
         if (!empty($_POST['ping'])) {
             // Ping blogs
 
-            if (!empty($_POST['tb_urls']) && Core::backend()->post_id && Core::backend()->post_status == dcBlog::POST_PUBLISHED && Core::backend()->can_edit_post) {
-                Core::backend()->tb_urls = $_POST['tb_urls'];
-                Core::backend()->tb_urls = str_replace("\r", '', Core::backend()->tb_urls);
+            if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status == dcBlog::POST_PUBLISHED && App::backend()->can_edit_post) {
+                App::backend()->tb_urls = $_POST['tb_urls'];
+                App::backend()->tb_urls = str_replace("\r", '', App::backend()->tb_urls);
 
-                $tb_post_title = Html::escapeHTML(trim(Html::clean(Core::backend()->post_title)));
-                $tb_post_url   = Core::backend()->post->getURL();
+                $tb_post_title = Html::escapeHTML(trim(Html::clean(App::backend()->post_title)));
+                $tb_post_url   = App::backend()->post->getURL();
 
-                foreach (explode("\n", Core::backend()->tb_urls) as $tb_url) {
+                foreach (explode("\n", App::backend()->tb_urls) as $tb_url) {
                     try {
                         # --BEHAVIOR-- adminBeforePingTrackback -- string, string, string, string, string
-                        Core::behavior()->callBehavior(
+                        App::behavior()->callBehavior(
                             'adminBeforePingTrackback',
                             $tb_url,
-                            Core::backend()->post_id,
+                            App::backend()->post_id,
                             $tb_post_title,
-                            Core::backend()->tb_excerpt,
+                            App::backend()->tb_excerpt,
                             $tb_post_url
                         );
 
-                        Core::backend()->tb->ping(
+                        App::backend()->tb->ping(
                             $tb_url,
-                            (int) Core::backend()->post_id,
+                            (int) App::backend()->post_id,
                             $tb_post_title,
-                            Core::backend()->tb_excerpt,
+                            App::backend()->tb_excerpt,
                             $tb_post_url
                         );
                     } catch (Exception $e) {
-                        Core::error()->add($e->getMessage());
+                        App::error()->add($e->getMessage());
                     }
                 }
 
-                if (!Core::error()->flag()) {
+                if (!App::error()->flag()) {
                     Notices::addSuccessNotice(__('All pings sent.'));
-                    Core::backend()->url->redirect(
+                    App::backend()->url->redirect(
                         'admin.post',
-                        ['id' => Core::backend()->post_id, 'tb' => '1']
+                        ['id' => App::backend()->post_id, 'tb' => '1']
                     );
                 }
             }
-        } elseif (!empty($_POST) && Core::backend()->can_edit_post) {
+        } elseif (!empty($_POST) && App::backend()->can_edit_post) {
             // Format excerpt and content
 
-            Core::backend()->post_format  = $_POST['post_format'];
-            Core::backend()->post_excerpt = $_POST['post_excerpt'];
-            Core::backend()->post_content = $_POST['post_content'];
+            App::backend()->post_format  = $_POST['post_format'];
+            App::backend()->post_excerpt = $_POST['post_excerpt'];
+            App::backend()->post_content = $_POST['post_content'];
 
-            Core::backend()->post_title = $_POST['post_title'];
+            App::backend()->post_title = $_POST['post_title'];
 
-            Core::backend()->cat_id = (int) $_POST['cat_id'];
+            App::backend()->cat_id = (int) $_POST['cat_id'];
 
             if (isset($_POST['post_status'])) {
-                Core::backend()->post_status = (int) $_POST['post_status'];
+                App::backend()->post_status = (int) $_POST['post_status'];
             }
 
             if (empty($_POST['post_dt'])) {
-                Core::backend()->post_dt = '';
+                App::backend()->post_dt = '';
             } else {
                 try {
-                    Core::backend()->post_dt = strtotime($_POST['post_dt']);
-                    if (!Core::backend()->post_dt || Core::backend()->post_dt == -1) {
-                        Core::backend()->bad_dt = true;
+                    App::backend()->post_dt = strtotime($_POST['post_dt']);
+                    if (!App::backend()->post_dt || App::backend()->post_dt == -1) {
+                        App::backend()->bad_dt = true;
 
                         throw new Exception(__('Invalid publication date'));
                     }
-                    Core::backend()->post_dt = date('Y-m-d H:i', Core::backend()->post_dt);
+                    App::backend()->post_dt = date('Y-m-d H:i', App::backend()->post_dt);
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
 
-            Core::backend()->post_open_comment = !empty($_POST['post_open_comment']);
-            Core::backend()->post_open_tb      = !empty($_POST['post_open_tb']);
-            Core::backend()->post_selected     = !empty($_POST['post_selected']);
-            Core::backend()->post_lang         = $_POST['post_lang'];
-            Core::backend()->post_password     = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
+            App::backend()->post_open_comment = !empty($_POST['post_open_comment']);
+            App::backend()->post_open_tb      = !empty($_POST['post_open_tb']);
+            App::backend()->post_selected     = !empty($_POST['post_selected']);
+            App::backend()->post_lang         = $_POST['post_lang'];
+            App::backend()->post_password     = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
 
-            Core::backend()->post_notes = $_POST['post_notes'];
+            App::backend()->post_notes = $_POST['post_notes'];
 
             if (isset($_POST['post_url'])) {
-                Core::backend()->post_url = $_POST['post_url'];
+                App::backend()->post_url = $_POST['post_url'];
             }
 
             [
                 $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
             ] = [
-                Core::backend()->post_excerpt,
-                Core::backend()->post_excerpt_xhtml,
-                Core::backend()->post_content,
-                Core::backend()->post_content_xhtml,
+                App::backend()->post_excerpt,
+                App::backend()->post_excerpt_xhtml,
+                App::backend()->post_content,
+                App::backend()->post_content_xhtml,
             ];
 
-            Core::blog()->setPostContent(
-                Core::backend()->post_id,
-                Core::backend()->post_format,
-                Core::backend()->post_lang,
+            App::blog()->setPostContent(
+                App::backend()->post_id,
+                App::backend()->post_format,
+                App::backend()->post_lang,
                 $post_excerpt,
                 $post_excerpt_xhtml,
                 $post_content,
@@ -336,37 +336,37 @@ class Post extends Process
             );
 
             [
-                Core::backend()->post_excerpt,
-                Core::backend()->post_excerpt_xhtml,
-                Core::backend()->post_content,
-                Core::backend()->post_content_xhtml
+                App::backend()->post_excerpt,
+                App::backend()->post_excerpt_xhtml,
+                App::backend()->post_content,
+                App::backend()->post_content_xhtml
             ] = [
                 $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml,
             ];
         }
 
-        if (!empty($_POST['delete']) && Core::backend()->can_delete) {
+        if (!empty($_POST['delete']) && App::backend()->can_delete) {
             // Delete post
 
             try {
                 # --BEHAVIOR-- adminBeforePostDelete -- string|int
-                Core::behavior()->callBehavior('adminBeforePostDelete', Core::backend()->post_id);
-                Core::blog()->delPost(Core::backend()->post_id);
-                Core::backend()->url->redirect('admin.posts');
+                App::behavior()->callBehavior('adminBeforePostDelete', App::backend()->post_id);
+                App::blog()->delPost(App::backend()->post_id);
+                App::backend()->url->redirect('admin.posts');
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
-        if (!empty($_POST) && !empty($_POST['save']) && Core::backend()->can_edit_post && !Core::backend()->bad_dt) {
+        if (!empty($_POST) && !empty($_POST['save']) && App::backend()->can_edit_post && !App::backend()->bad_dt) {
             // Create or update post
 
-            if (!empty($_POST['new_cat_title']) && Core::auth()->check(Core::auth()->makePermissions([
+            if (!empty($_POST['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
                 dcAuth::PERMISSION_CATEGORIES,
-            ]), Core::blog()->id)) {
+            ]), App::blog()->id)) {
                 // Create category
 
-                $cur_cat = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
+                $cur_cat = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
 
                 $cur_cat->cat_title = $_POST['new_cat_title'];
                 $cur_cat->cat_url   = '';
@@ -374,86 +374,86 @@ class Post extends Process
                 $parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-                Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+                App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                Core::backend()->cat_id = Core::blog()->addCategory($cur_cat, (int) $parent_cat);
+                App::backend()->cat_id = App::blog()->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string|int
-                Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, Core::backend()->cat_id);
+                App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, App::backend()->cat_id);
             }
 
-            $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
-            $cur->cat_id  = (Core::backend()->cat_id ?: null);
-            $cur->post_dt = Core::backend()->post_dt ?
-                date('Y-m-d H:i:00', strtotime(Core::backend()->post_dt)) :
+            $cur->cat_id  = (App::backend()->cat_id ?: null);
+            $cur->post_dt = App::backend()->post_dt ?
+                date('Y-m-d H:i:00', strtotime(App::backend()->post_dt)) :
                 '';
-            $cur->post_format        = Core::backend()->post_format;
-            $cur->post_password      = Core::backend()->post_password;
-            $cur->post_lang          = Core::backend()->post_lang;
-            $cur->post_title         = Core::backend()->post_title;
-            $cur->post_excerpt       = Core::backend()->post_excerpt;
-            $cur->post_excerpt_xhtml = Core::backend()->post_excerpt_xhtml;
-            $cur->post_content       = Core::backend()->post_content;
-            $cur->post_content_xhtml = Core::backend()->post_content_xhtml;
-            $cur->post_notes         = Core::backend()->post_notes;
-            $cur->post_status        = Core::backend()->post_status;
-            $cur->post_selected      = (int) Core::backend()->post_selected;
-            $cur->post_open_comment  = (int) Core::backend()->post_open_comment;
-            $cur->post_open_tb       = (int) Core::backend()->post_open_tb;
+            $cur->post_format        = App::backend()->post_format;
+            $cur->post_password      = App::backend()->post_password;
+            $cur->post_lang          = App::backend()->post_lang;
+            $cur->post_title         = App::backend()->post_title;
+            $cur->post_excerpt       = App::backend()->post_excerpt;
+            $cur->post_excerpt_xhtml = App::backend()->post_excerpt_xhtml;
+            $cur->post_content       = App::backend()->post_content;
+            $cur->post_content_xhtml = App::backend()->post_content_xhtml;
+            $cur->post_notes         = App::backend()->post_notes;
+            $cur->post_status        = App::backend()->post_status;
+            $cur->post_selected      = (int) App::backend()->post_selected;
+            $cur->post_open_comment  = (int) App::backend()->post_open_comment;
+            $cur->post_open_tb       = (int) App::backend()->post_open_tb;
 
             if (isset($_POST['post_url'])) {
-                $cur->post_url = Core::backend()->post_url;
+                $cur->post_url = App::backend()->post_url;
             }
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
             Date::setTZ('UTC');
 
-            if (Core::backend()->post_id) {
+            if (App::backend()->post_id) {
                 // Update post
 
                 try {
                     # --BEHAVIOR-- adminBeforePostUpdate -- Cursor, int
-                    Core::behavior()->callBehavior('adminBeforePostUpdate', $cur, (int) Core::backend()->post_id);
+                    App::behavior()->callBehavior('adminBeforePostUpdate', $cur, (int) App::backend()->post_id);
 
-                    Core::blog()->updPost(Core::backend()->post_id, $cur);
+                    App::blog()->updPost(App::backend()->post_id, $cur);
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
-                    Core::behavior()->callBehavior('adminAfterPostUpdate', $cur, (int) Core::backend()->post_id);
+                    App::behavior()->callBehavior('adminAfterPostUpdate', $cur, (int) App::backend()->post_id);
                     Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
-                    Core::backend()->url->redirect(
+                    App::backend()->url->redirect(
                         'admin.post',
-                        ['id' => Core::backend()->post_id]
+                        ['id' => App::backend()->post_id]
                     );
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             } else {
-                $cur->user_id = Core::auth()->userID();
+                $cur->user_id = App::auth()->userID();
 
                 try {
                     # --BEHAVIOR-- adminBeforePostCreate -- Cursor
-                    Core::behavior()->callBehavior('adminBeforePostCreate', $cur);
+                    App::behavior()->callBehavior('adminBeforePostCreate', $cur);
 
-                    $return_id = Core::blog()->addPost($cur);
+                    $return_id = App::blog()->addPost($cur);
 
                     # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
-                    Core::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
+                    App::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
                     Notices::addSuccessNotice(__('Entry has been successfully created.'));
-                    Core::backend()->url->redirect(
+                    App::backend()->url->redirect(
                         'admin.post',
                         ['id' => $return_id]
                     );
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
         }
 
         // Getting categories (a new category may have been created during process)
-        Core::backend()->categories_combo = Combos::getCategoriesCombo(
-            Core::blog()->getCategories()
+        App::backend()->categories_combo = Combos::getCategoriesCombo(
+            App::blog()->getCategories()
         );
 
         return true;
@@ -461,20 +461,20 @@ class Post extends Process
 
     public static function render(): void
     {
-        Core::backend()->default_tab = 'edit-entry';
-        if (!Core::backend()->can_edit_post) {
-            Core::backend()->default_tab = '';
+        App::backend()->default_tab = 'edit-entry';
+        if (!App::backend()->can_edit_post) {
+            App::backend()->default_tab = '';
         }
         if (!empty($_GET['co'])) {
-            Core::backend()->default_tab = 'comments';
+            App::backend()->default_tab = 'comments';
         } elseif (!empty($_GET['tb'])) {
-            Core::backend()->default_tab = 'trackbacks';
+            App::backend()->default_tab = 'trackbacks';
         }
 
-        if (Core::backend()->post_id) {
+        if (App::backend()->post_id) {
             $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
-            $img_status = match ((int) Core::backend()->post_status) {
+            $img_status = match ((int) App::backend()->post_status) {
                 dcBlog::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
                 dcBlog::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
                 dcBlog::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
@@ -483,41 +483,41 @@ class Post extends Process
             };
 
             $edit_entry_str  = __('&ldquo;%s&rdquo;');
-            $page_title_edit = sprintf($edit_entry_str, Html::escapeHTML(trim(Html::clean(Core::backend()->post_title)))) . ' ' . $img_status;
+            $page_title_edit = sprintf($edit_entry_str, Html::escapeHTML(trim(Html::clean(App::backend()->post_title)))) . ' ' . $img_status;
         } else {
             $img_status      = '';
             $page_title_edit = '';
         }
 
         $admin_post_behavior = '';
-        if (Core::backend()->post_editor) {
+        if (App::backend()->post_editor) {
             $p_edit = $c_edit = '';
-            if (!empty(Core::backend()->post_editor[Core::backend()->post_format])) {
-                $p_edit = Core::backend()->post_editor[Core::backend()->post_format];
+            if (!empty(App::backend()->post_editor[App::backend()->post_format])) {
+                $p_edit = App::backend()->post_editor[App::backend()->post_format];
             }
-            if (!empty(Core::backend()->post_editor['xhtml'])) {
-                $c_edit = Core::backend()->post_editor['xhtml'];
+            if (!empty(App::backend()->post_editor['xhtml'])) {
+                $c_edit = App::backend()->post_editor['xhtml'];
             }
             if ($p_edit == $c_edit) {
                 # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                $admin_post_behavior .= Core::behavior()->callBehavior(
+                $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'post',
                     ['#post_excerpt', '#post_content', '#comment_content'],
-                    Core::backend()->post_format
+                    App::backend()->post_format
                 );
             } else {
                 # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                $admin_post_behavior .= Core::behavior()->callBehavior(
+                $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
                     'post',
                     ['#post_excerpt', '#post_content'],
-                    Core::backend()->post_format
+                    App::backend()->post_format
                 );
                 # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-                $admin_post_behavior .= Core::behavior()->callBehavior(
+                $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
                     $c_edit,
                     'comment',
@@ -528,27 +528,27 @@ class Post extends Process
         }
 
         Page::open(
-            Core::backend()->page_title . ' - ' . __('Posts'),
+            App::backend()->page_title . ' - ' . __('Posts'),
             Page::jsModal() .
             Page::jsMetaEditor() .
             $admin_post_behavior .
             Page::jsLoad('js/_post.js') .
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPostHeaders --
-            Core::behavior()->callBehavior('adminPostHeaders') .
-            Page::jsPageTabs(Core::backend()->default_tab) .
-            Core::backend()->next_headlink . "\n" . Core::backend()->prev_headlink,
+            App::behavior()->callBehavior('adminPostHeaders') .
+            Page::jsPageTabs(App::backend()->default_tab) .
+            App::backend()->next_headlink . "\n" . App::backend()->prev_headlink,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name) => '',
-                    __('Posts')                          => Core::backend()->url->get('admin.posts'),
-                    (Core::backend()->post_id ?
+                    Html::escapeHTML(App::blog()->name) => '',
+                    __('Posts')                          => App::backend()->url->get('admin.posts'),
+                    (App::backend()->post_id ?
                         $page_title_edit :
-                        Core::backend()->page_title) => '',
+                        App::backend()->page_title) => '',
                 ]
             ),
             [
-                'x-frame-allow' => Core::blog()->url,
+                'x-frame-allow' => App::blog()->url,
             ]
         );
 
@@ -571,42 +571,42 @@ class Post extends Process
 
         // XHTML conversion
         if (!empty($_GET['xconv'])) {
-            Core::backend()->post_excerpt = Core::backend()->post_excerpt_xhtml;
-            Core::backend()->post_content = Core::backend()->post_content_xhtml;
-            Core::backend()->post_format  = 'xhtml';
+            App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
+            App::backend()->post_content = App::backend()->post_content_xhtml;
+            App::backend()->post_format  = 'xhtml';
 
             Notices::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
-        if (Core::backend()->post_id && Core::backend()->post->post_status == dcBlog::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post->post_status == dcBlog::POST_PUBLISHED) {
             echo
-            '<p><a class="onblog_link outgoing" href="' . Core::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(Core::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+            '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
         }
-        if (Core::backend()->post_id) {
+        if (App::backend()->post_id) {
             echo
             '<p class="nav_prevnext">';
-            if (Core::backend()->prev_link) {
+            if (App::backend()->prev_link) {
                 echo
-                Core::backend()->prev_link;
+                App::backend()->prev_link;
             }
-            if (Core::backend()->next_link && Core::backend()->prev_link) {
+            if (App::backend()->next_link && App::backend()->prev_link) {
                 echo
                 ' | ';
             }
-            if (Core::backend()->next_link) {
+            if (App::backend()->next_link) {
                 echo
-                Core::backend()->next_link;
+                App::backend()->next_link;
             }
 
             # --BEHAVIOR-- adminPostNavLinks -- MetaRecord|null, string
-            Core::behavior()->callBehavior('adminPostNavLinks', Core::backend()->post ?? null, 'post');
+            App::behavior()->callBehavior('adminPostNavLinks', App::backend()->post ?? null, 'post');
 
             echo
             '</p>';
         }
 
         // Exit if we cannot view page
-        if (!Core::backend()->can_view_page) {
+        if (!App::backend()->can_view_page) {
             Page::helpBlock('core_post');
             Page::close();
             exit;
@@ -614,7 +614,7 @@ class Post extends Process
 
         /* Post form if we can edit post
         -------------------------------------------------------- */
-        if (Core::backend()->can_edit_post) {
+        if (App::backend()->can_edit_post) {
             $sidebar_items = new ArrayObject([
                 'status-box' => [
                     'title' => __('Status'),
@@ -622,25 +622,25 @@ class Post extends Process
                         'post_status' => '<p class="entry-status"><label for="post_status">' . __('Entry status') . ' ' . $img_status . '</label>' .
                         form::combo(
                             'post_status',
-                            Core::backend()->status_combo,
-                            ['default' => Core::backend()->post_status, 'class' => 'maximal', 'disabled' => !Core::backend()->can_publish]
+                            App::backend()->status_combo,
+                            ['default' => App::backend()->post_status, 'class' => 'maximal', 'disabled' => !App::backend()->can_publish]
                         ) .
                         '</p>',
                         'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                         form::datetime('post_dt', [
-                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(Core::backend()->post_dt))),
-                            'class'   => (Core::backend()->bad_dt ? 'invalid' : ''),
+                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(App::backend()->post_dt))),
+                            'class'   => (App::backend()->bad_dt ? 'invalid' : ''),
                         ]) .
                         '</p>',
                         'post_lang' => '<p><label for="post_lang">' . __('Entry language') . '</label>' .
-                        form::combo('post_lang', Core::backend()->lang_combo, Core::backend()->post_lang) .
+                        form::combo('post_lang', App::backend()->lang_combo, App::backend()->post_lang) .
                         '</p>',
                         'post_format' => '<div>' .
                         '<h5 id="label_format"><label for="post_format" class="classic">' . __('Text formatting') . '</label></h5>' .
-                        '<p>' . form::combo('post_format', Core::backend()->available_formats, Core::backend()->post_format, 'maximal') . '</p>' .
+                        '<p>' . form::combo('post_format', App::backend()->available_formats, App::backend()->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_no_xhtml">' .
-                        '<a id="convert-xhtml" class="button' . (Core::backend()->post_id && Core::backend()->post_format != 'wiki' ? ' hide' : '') . '" href="' .
-                        Core::backend()->url->get('admin.post', ['id' => Core::backend()->post_id, 'xconv' => '1']) .
+                        '<a id="convert-xhtml" class="button' . (App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : '') . '" href="' .
+                        App::backend()->url->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']) .
                         '">' .
                         __('Convert to HTML') . '</a></p></div>',
                     ],
@@ -649,22 +649,22 @@ class Post extends Process
                     'title' => __('Filing'),
                     'items' => [
                         'post_selected' => '<p><label for="post_selected" class="classic">' .
-                        form::checkbox('post_selected', 1, Core::backend()->post_selected) . ' ' .
+                        form::checkbox('post_selected', 1, App::backend()->post_selected) . ' ' .
                         __('Selected entry') . '</label></p>',
                         'cat_id' => '<div>' .
                         '<h5 id="label_cat_id">' . __('Category') . '</h5>' .
                         '<p><label for="cat_id">' . __('Category:') . '</label>' .
-                        form::combo('cat_id', Core::backend()->categories_combo, Core::backend()->cat_id, 'maximal') .
+                        form::combo('cat_id', App::backend()->categories_combo, App::backend()->cat_id, 'maximal') .
                         '</p>' .
-                        (Core::auth()->check(Core::auth()->makePermissions([
+                        (App::auth()->check(App::auth()->makePermissions([
                             dcAuth::PERMISSION_CATEGORIES,
-                        ]), Core::blog()->id) ?
+                        ]), App::blog()->id) ?
                             '<div>' .
                             '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
                             '<p><label for="new_cat_title">' . __('Title:') . ' ' .
                             form::field('new_cat_title', 30, 255, ['class' => 'maximal']) . '</label></p>' .
                             '<p><label for="new_cat_parent">' . __('Parent:') . ' ' .
-                            form::combo('new_cat_parent', Core::backend()->categories_combo, '', 'maximal') .
+                            form::combo('new_cat_parent', App::backend()->categories_combo, '', 'maximal') .
                             '</label></p>' .
                             '</div>' :
                             '') .
@@ -677,27 +677,27 @@ class Post extends Process
                         'post_open_comment_tb' => '<div>' .
                         '<h5 id="label_comment_tb">' . __('Comments and trackbacks list') . '</h5>' .
                         '<p><label for="post_open_comment" class="classic">' .
-                        form::checkbox('post_open_comment', 1, Core::backend()->post_open_comment) . ' ' .
+                        form::checkbox('post_open_comment', 1, App::backend()->post_open_comment) . ' ' .
                         __('Accept comments') . '</label></p>' .
-                        (Core::blog()->settings->system->allow_comments ?
-                            (self::isContributionAllowed(Core::backend()->post_id, strtotime(Core::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
+                        (App::blog()->settings->system->allow_comments ?
+                            (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
                             __('Warning: Comments are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' .
                             __('Comments are not accepted on this blog so far.') . '</p>') .
                         '<p><label for="post_open_tb" class="classic">' .
-                        form::checkbox('post_open_tb', 1, Core::backend()->post_open_tb) . ' ' .
+                        form::checkbox('post_open_tb', 1, App::backend()->post_open_tb) . ' ' .
                         __('Accept trackbacks') . '</label></p>' .
-                        (Core::blog()->settings->system->allow_trackbacks ?
-                            (self::isContributionAllowed(Core::backend()->post_id, strtotime(Core::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
+                        (App::blog()->settings->system->allow_trackbacks ?
+                            (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
                             __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
                         'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
-                        form::field('post_password', 10, 32, Html::escapeHTML(Core::backend()->post_password), 'maximal') .
+                        form::field('post_password', 10, 32, Html::escapeHTML(App::backend()->post_password), 'maximal') .
                         '</p>',
                         'post_url' => '<div class="lockable">' .
                         '<p><label for="post_url">' . __('Edit basename') . '</label>' .
-                        form::field('post_url', 10, 255, Html::escapeHTML(Core::backend()->post_url), 'maximal') .
+                        form::field('post_url', 10, 255, Html::escapeHTML(App::backend()->post_url), 'maximal') .
                         '</p>' .
                         '<p class="form-note warn">' .
                         __('Warning: If you set the URL manually, it may conflict with another entry.') .
@@ -711,9 +711,9 @@ class Post extends Process
                     'post_title' => '<p class="col">' .
                     '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
-                        'default'    => Html::escapeHTML(Core::backend()->post_title),
+                        'default'    => Html::escapeHTML(App::backend()->post_title),
                         'class'      => 'maximal',
-                        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . Core::backend()->post_lang . '" spellcheck="true"',
+                        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::backend()->post_lang . '" spellcheck="true"',
                     ]) .
                     '</p>',
 
@@ -724,8 +724,8 @@ class Post extends Process
                         50,
                         5,
                         [
-                            'default'    => Html::escapeHTML(Core::backend()->post_excerpt),
-                            'extra_html' => 'lang="' . Core::backend()->post_lang . '" spellcheck="true"',
+                            'default'    => Html::escapeHTML(App::backend()->post_excerpt),
+                            'extra_html' => 'lang="' . App::backend()->post_lang . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>',
@@ -735,10 +735,10 @@ class Post extends Process
                     form::textarea(
                         'post_content',
                         50,
-                        Core::auth()->getOption('edit_size'),
+                        App::auth()->getOption('edit_size'),
                         [
-                            'default'    => Html::escapeHTML(Core::backend()->post_content),
-                            'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . Core::backend()->post_lang . '" spellcheck="true"',
+                            'default'    => Html::escapeHTML(App::backend()->post_content),
+                            'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . App::backend()->post_lang . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>',
@@ -750,8 +750,8 @@ class Post extends Process
                         50,
                         5,
                         [
-                            'default'    => Html::escapeHTML(Core::backend()->post_notes),
-                            'extra_html' => 'lang="' . Core::backend()->post_lang . '" spellcheck="true"',
+                            'default'    => Html::escapeHTML(App::backend()->post_notes),
+                            'extra_html' => 'lang="' . App::backend()->post_lang . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>',
@@ -759,12 +759,12 @@ class Post extends Process
             );
 
             # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null, string
-            Core::behavior()->callBehavior('adminPostFormItems', $main_items, $sidebar_items, Core::backend()->post ?? null, 'post');
+            App::behavior()->callBehavior('adminPostFormItems', $main_items, $sidebar_items, App::backend()->post ?? null, 'post');
 
             echo
-            '<div class="multi-part" title="' . (Core::backend()->post_id ? __('Edit post') : __('New post')) .
-            sprintf(' &rsaquo; %s', Core::formater()->getFormaterName(Core::backend()->post_format)) . '" id="edit-entry">' .
-            '<form action="' . Core::backend()->url->get('admin.post') . '" method="post" id="entry-form">' .
+            '<div class="multi-part" title="' . (App::backend()->post_id ? __('Edit post') : __('New post')) .
+            sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::backend()->post_format)) . '" id="edit-entry">' .
+            '<form action="' . App::backend()->url->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
             '<h3 class="out-of-screen-if-js">' . __('Edit post') . '</h3>';
@@ -774,21 +774,21 @@ class Post extends Process
             }
 
             # --BEHAVIOR-- adminPostForm (may be deprecated) -- MetaRecord|null, string
-            Core::behavior()->callBehavior('adminPostForm', Core::backend()->post ?? null, 'post');
+            App::behavior()->callBehavior('adminPostForm', App::backend()->post ?? null, 'post');
 
             echo
             '<p class="border-top">' .
-            (Core::backend()->post_id ? form::hidden('id', Core::backend()->post_id) : '') .
+            (App::backend()->post_id ? form::hidden('id', App::backend()->post_id) : '') .
             '<input type="submit" value="' . __('Save') . ' (s)" ' .
             'accesskey="s" name="save" /> ';
 
-            if (Core::backend()->post_id) {
-                $preview_url = Core::blog()->url . Core::url()->getURLFor('preview', Core::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . Core::auth()->userID() . Core::auth()->cryptLegacy(Core::auth()->userID())) . '/' . Core::backend()->post->post_url);
+            if (App::backend()->post_id) {
+                $preview_url = App::blog()->url . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . App::backend()->post->post_url);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                $blank_preview = Core::auth()->user_prefs->interface->blank_preview;
+                $blank_preview = App::auth()->user_prefs->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : ' modal';
                 $preview_target = $blank_preview ? '' : ' target="_blank"';
@@ -798,11 +798,11 @@ class Post extends Process
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
             } else {
                 echo
-                '<a id="post-cancel" href="' . Core::backend()->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                '<a id="post-cancel" href="' . App::backend()->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
-            echo(Core::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
-            Core::nonce()->getFormNonce() .
+            echo(App::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
+            App::nonce()->getFormNonce() .
             '</p>';
 
             echo
@@ -823,27 +823,27 @@ class Post extends Process
             }
 
             # --BEHAVIOR-- adminPostFormSidebar (may be deprecated) -- MetaRecord|null, string
-            Core::behavior()->callBehavior('adminPostFormSidebar', Core::backend()->post ?? null, 'post');
+            App::behavior()->callBehavior('adminPostFormSidebar', App::backend()->post ?? null, 'post');
 
             echo
             '</div>' . // End #entry-sidebar
             '</form>';
 
             # --BEHAVIOR-- adminPostAfterForm -- MetaRecord|null, string
-            Core::behavior()->callBehavior('adminPostAfterForm', Core::backend()->post ?? null, 'post');
+            App::behavior()->callBehavior('adminPostAfterForm', App::backend()->post ?? null, 'post');
 
             echo
             '</div>';
         }
 
-        if (Core::backend()->post_id) {
+        if (App::backend()->post_id) {
             // Comments
 
-            $params = ['post_id' => Core::backend()->post_id, 'order' => 'comment_dt ASC'];
+            $params = ['post_id' => App::backend()->post_id, 'order' => 'comment_dt ASC'];
 
-            $comments = Core::blog()->getComments(array_merge($params, ['comment_trackback' => 0]));
+            $comments = App::blog()->getComments(array_merge($params, ['comment_trackback' => 0]));
 
-            $combo_action = Core::backend()->comments_actions_page->getCombo();
+            $combo_action = App::backend()->comments_actions_page->getCombo();
             $has_action   = !empty($combo_action) && !$comments->isEmpty();
 
             echo
@@ -852,13 +852,13 @@ class Post extends Process
 
             if ($has_action) {
                 echo
-                '<form action="' . Core::backend()->url->get('admin.post') . '" id="form-comments" method="post">';
+                '<form action="' . App::backend()->url->get('admin.post') . '" id="form-comments" method="post">';
             }
 
             echo
             '<h3>' . __('Comments') . '</h3>';
             if (!$comments->isEmpty()) {
-                self::showComments($comments, $has_action, false, Core::backend()->show_ip);
+                self::showComments($comments, $has_action, false, App::backend()->show_ip);
             } else {
                 echo
                 '<p>' . __('No comments') . '</p>';
@@ -872,8 +872,8 @@ class Post extends Process
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', $combo_action) .
                 form::hidden(['section'], 'comments') .
-                form::hidden(['id'], Core::backend()->post_id) .
-                Core::nonce()->getFormNonce() .
+                form::hidden(['id'], App::backend()->post_id) .
+                App::nonce()->getFormNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
@@ -885,21 +885,21 @@ class Post extends Process
             '<div class="fieldset clear">' .
             '<h3>' . __('Add a comment') . '</h3>' .
 
-            '<form action="' . Core::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . App::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => Html::escapeHTML(Core::auth()->getInfo('user_cn')),
+                'default'    => Html::escapeHTML(App::auth()->getInfo('user_cn')),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
 
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, Html::escapeHTML(Core::auth()->getInfo('user_email'))) .
+            form::email('comment_email', 30, 255, Html::escapeHTML(App::auth()->getInfo('user_email'))) .
             '</p>' .
 
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, Html::escapeHTML(Core::auth()->getInfo('user_url'))) .
+            form::url('comment_site', 30, 255, Html::escapeHTML(App::auth()->getInfo('user_url'))) .
             '</p>' .
 
             '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
@@ -908,13 +908,13 @@ class Post extends Process
                 'comment_content',
                 50,
                 8,
-                ['extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"']
+                ['extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"']
             ) .
             '</p>' .
 
             '<p>' .
-            form::hidden('post_id', Core::backend()->post_id) .
-            Core::nonce()->getFormNonce() .
+            form::hidden('post_id', App::backend()->post_id) .
+            App::nonce()->getFormNonce() .
             '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
             '</div>' . #constrained
 
@@ -923,18 +923,18 @@ class Post extends Process
             '</div>'; #comments
         }
 
-        if (Core::backend()->post_id && Core::backend()->post_status == dcBlog::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post_status == dcBlog::POST_PUBLISHED) {
             // Trackbacks
 
-            $params     = ['post_id' => Core::backend()->post_id, 'order' => 'comment_dt ASC'];
-            $trackbacks = Core::blog()->getComments(array_merge($params, ['comment_trackback' => 1]));
+            $params     = ['post_id' => App::backend()->post_id, 'order' => 'comment_dt ASC'];
+            $trackbacks = App::blog()->getComments(array_merge($params, ['comment_trackback' => 1]));
 
             // Actions combo box
-            $combo_action = Core::backend()->comments_actions_page->getCombo();
+            $combo_action = App::backend()->comments_actions_page->getCombo();
             $has_action   = !empty($combo_action) && !$trackbacks->isEmpty();
 
             if (!empty($_GET['tb_auto'])) {
-                Core::backend()->tb_urls = implode("\n", Core::backend()->tb->discover(Core::backend()->post_excerpt_xhtml . ' ' . Core::backend()->post_content_xhtml));
+                App::backend()->tb_urls = implode("\n", App::backend()->tb->discover(App::backend()->post_excerpt_xhtml . ' ' . App::backend()->post_content_xhtml));
             }
 
             echo
@@ -943,14 +943,14 @@ class Post extends Process
             if ($has_action) {
                 // tracbacks actions
                 echo
-                '<form action="' . Core::backend()->url->get('admin.post') . '" id="form-trackbacks" method="post">';
+                '<form action="' . App::backend()->url->get('admin.post') . '" id="form-trackbacks" method="post">';
             }
 
             echo
             '<h3>' . __('Trackbacks received') . '</h3>';
 
             if (!$trackbacks->isEmpty()) {
-                self::showComments($trackbacks, $has_action, true, Core::backend()->show_ip);
+                self::showComments($trackbacks, $has_action, true, App::backend()->show_ip);
             } else {
                 echo
                 '<p>' . __('No trackback') . '</p>';
@@ -963,15 +963,15 @@ class Post extends Process
 
                 '<p class="col right"><label for="action" class="classic">' . __('Selected trackbacks action:') . '</label> ' .
                 form::combo('action', $combo_action) .
-                form::hidden('id', Core::backend()->post_id) .
+                form::hidden('id', App::backend()->post_id) .
                 form::hidden(['section'], 'trackbacks') .
-                Core::nonce()->getFormNonce() .
+                App::nonce()->getFormNonce() .
                 '<input type="submit" value="' . __('ok') . '" /></p>' .
                 '</div>' .
                 '</form>';
             }
 
-            if (Core::backend()->can_edit_post) {
+            if (App::backend()->can_edit_post) {
                 // Add trackbacks
 
                 echo
@@ -979,23 +979,23 @@ class Post extends Process
 
                 echo
                 '<h3>' . __('Ping blogs') . '</h3>' .
-                '<form action="' . Core::backend()->url->get('admin.post', ['id' => Core::backend()->post_id]) . '" id="trackback-form" method="post">' .
+                '<form action="' . App::backend()->url->get('admin.post', ['id' => App::backend()->post_id]) . '" id="trackback-form" method="post">' .
                 '<p><label for="tb_urls" class="area">' . __('URLs to ping:') . '</label>' .
-                form::textarea('tb_urls', 60, 5, Core::backend()->tb_urls) .
+                form::textarea('tb_urls', 60, 5, App::backend()->tb_urls) .
                 '</p>' .
 
                 '<p><label for="tb_excerpt" class="area">' . __('Excerpt to send:') . '</label>' .
-                form::textarea('tb_excerpt', 60, 5, Core::backend()->tb_excerpt) . '</p>' .
+                form::textarea('tb_excerpt', 60, 5, App::backend()->tb_excerpt) . '</p>' .
 
                 '<p>' .
-                Core::nonce()->getFormNonce() .
+                App::nonce()->getFormNonce() .
                 '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
-                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . Core::backend()->url->get('admin.post', ['id' => Core::backend()->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
+                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . App::backend()->url->get('admin.post', ['id' => App::backend()->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
                     '') .
                 '</p>' .
                 '</form>';
 
-                $pings = Core::backend()->tb->getPostPings((int) Core::backend()->post_id);
+                $pings = App::backend()->tb->getPostPings((int) App::backend()->post_id);
                 if (!$pings->isEmpty()) {
                     echo
                     '<h3>' . __('Previously sent pings') . '</h3>' .
@@ -1035,11 +1035,11 @@ class Post extends Process
             return true;
         }
         if ($com) {
-            if ((Core::blog()->settings->system->comments_ttl == 0) || (time() - Core::blog()->settings->system->comments_ttl * 86400 < $dt)) {
+            if ((App::blog()->settings->system->comments_ttl == 0) || (time() - App::blog()->settings->system->comments_ttl * 86400 < $dt)) {
                 return true;
             }
         } else {
-            if ((Core::blog()->settings->system->trackbacks_ttl == 0) || (time() - Core::blog()->settings->system->trackbacks_ttl * 86400 < $dt)) {
+            if ((App::blog()->settings->system->trackbacks_ttl == 0) || (time() - App::blog()->settings->system->trackbacks_ttl * 86400 < $dt)) {
                 return true;
             }
         }
@@ -1062,7 +1062,7 @@ class Post extends Process
             '<table class="comments-list"><tr>' .
             '<th colspan="2" class="first">' . __('Author') . '</th>' .
             '<th>' . __('Date') . '</th>' .
-            (Core::backend()->show_ip ? '<th class="nowrap">' . __('IP address') . '</th>' : '') .
+            (App::backend()->show_ip ? '<th class="nowrap">' . __('IP address') . '</th>' : '') .
             '<th>' . __('Status') . '</th>' .
             '<th>' . __('Edit') . '</th>' .
             '</tr>';
@@ -1075,7 +1075,7 @@ class Post extends Process
         }
 
         while ($rs->fetch()) {
-            $comment_url = Core::backend()->url->get('admin.comment', ['id' => $rs->comment_id]);
+            $comment_url = App::backend()->url->get('admin.comment', ['id' => $rs->comment_id]);
 
             $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
             $img_status = '';
@@ -1123,14 +1123,14 @@ class Post extends Process
             '</td>' .
             '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
             '<td class="nowrap">' .
-                '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), Core::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
                 '</time>' .
             '</td>';
 
             if ($show_ip) {
                 echo
-                '<td class="nowrap"><a href="' . Core::backend()->url->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
+                '<td class="nowrap"><a href="' . App::backend()->url->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
             }
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .

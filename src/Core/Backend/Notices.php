@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Date;
 
 class Notices
@@ -52,16 +52,16 @@ class Notices
         $res = '';
 
         // return error messages if any
-        if (Core::error()->flag() && !self::$error_displayed) {
+        if (App::error()->flag() && !self::$error_displayed) {
             //todo remove dcCore from method
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, dcError
-            $notice_error = Core::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), Core::error());
+            $notice_error = App::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), App::error());
 
             if (isset($notice_error) && !empty($notice_error)) {
                 $res .= $notice_error;
             } else {
-                $res .= '<div role="alert"><p><strong>' . (Core::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>' .
-                    Core::error()->toHTML() .
+                $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>' .
+                    App::error()->toHTML() .
                     '</div>';
             }
             self::$error_displayed = true;
@@ -85,8 +85,8 @@ class Notices
                     'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
-            if (Core::notice()->getNotices($params, true)->f(0)) {
-                $lines = Core::notice()->getNotices($params);
+            if (App::notice()->getNotices($params, true)->f(0)) {
+                $lines = App::notice()->getNotices($params);
                 while ($lines->fetch()) {
                     if (isset(self::$notice_types[$lines->notice_type])) {
                         $class = self::$notice_types[$lines->notice_type];
@@ -105,7 +105,7 @@ class Notices
                     }
                     // todo remove dcCore from method
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
-                    $notice = Core::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
+                    $notice = App::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 
                     $res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
                 }
@@ -113,7 +113,7 @@ class Notices
         } while (--$step);
 
         // Delete returned notices
-        Core::notice()->delNotices(null, true);
+        App::notice()->delNotices(null, true);
 
         return $res;
     }
@@ -127,10 +127,10 @@ class Notices
      */
     public static function addNotice(string $type, string $message, array $options = [])
     {
-        $cur = Core::con()->openCursor(Core::con()->prefix() . Core::notice()->getTable());
+        $cur = App::con()->openCursor(App::con()->prefix() . App::notice()->getTable());
 
         $now = function () {
-            Date::setTZ(Core::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
+            Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
             $dt = date('Y-m-d H:i:s');
             Date::setTZ('UTC');                                               // Back to default TZ
 
@@ -149,7 +149,7 @@ class Notices
             $cur->notice_format = $options['format'];
         }
 
-        Core::notice()->addNotice($cur);
+        App::notice()->addNotice($cur);
     }
 
     /**
@@ -209,8 +209,8 @@ class Notices
         $timestamp = '';
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
             $timestamp = '<span class="notice-ts">' .
-                '<time datetime="' . Date::iso8601(strtotime($notice['ts']), Core::auth()->getInfo('user_tz')) . '">' .
-                Date::dt2str(__('%H:%M:%S'), $notice['ts'], Core::auth()->getInfo('user_tz')) .
+                '<time datetime="' . Date::iso8601(strtotime($notice['ts']), App::auth()->getInfo('user_tz')) . '">' .
+                Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';
         }
@@ -242,8 +242,8 @@ class Notices
             $ts = '';
             if ($timestamp) {
                 $ts = '<span class="notice-ts">' .
-                    '<time datetime="' . Date::iso8601(time(), Core::auth()->getInfo('user_tz')) . '">' .
-                    Date::str(__('%H:%M:%S'), null, Core::auth()->getInfo('user_tz')) .
+                    '<time datetime="' . Date::iso8601(time(), App::auth()->getInfo('user_tz')) . '">' .
+                    Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz')) .
                     '</time>' .
                     '</span> ';
             }

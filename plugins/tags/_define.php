@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 $this->registerModule(
     'Tags',            // Name
@@ -16,9 +16,9 @@ $this->registerModule(
     'Olivier Meunier', // Author
     '2.0',             // Version
     [
-        'permissions' => Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
         'priority' => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
         'type'     => 'plugin',

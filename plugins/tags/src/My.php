@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
@@ -25,11 +25,11 @@ class My extends MyPlugin
     {
         return in_array($context, [self::MANAGE, self::MENU]) ?
             defined('DC_CONTEXT_ADMIN')
-            && !is_null(Core::blog())
-            && Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_USAGE,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id)
+            && !is_null(App::blog())
+            && App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id)
             : null;
     }
 }

@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\ductile;
 
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -28,13 +28,13 @@ class Backend extends Process
             return false;
         }
 
-        Core::behavior()->addBehavior('adminPageHTMLHead', function () {
-            if (Core::blog()->settings->system->theme !== My::id()) {
+        App::behavior()->addBehavior('adminPageHTMLHead', function () {
+            if (App::blog()->settings->system->theme !== My::id()) {
                 return;
             }
 
             echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
-            if (!Core::auth()->user_prefs->accessibility->nodragdrop) {
+            if (!App::auth()->user_prefs->accessibility->nodragdrop) {
                 echo
                 Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');

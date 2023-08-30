@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcWorkspace;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_3_lt
@@ -43,9 +43,9 @@ class GrowUp_2_3_lt
         foreach ($init_fav as $k => $f) {
             $t = ['name'     => $f[0], 'title' => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
                 'large-icon' => $f[4], 'permissions' => $f[5], 'id' => $f[6], 'class' => $f[7], ];
-            $sqlstr = 'INSERT INTO ' . Core::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
+            $sqlstr = 'INSERT INTO ' . App::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
             '\'' . sprintf('g%03s', $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
-            Core::con()->execute($sqlstr);
+            App::con()->execute($sqlstr);
             $count++;
         }
 

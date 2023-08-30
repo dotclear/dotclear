@@ -14,7 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\Listing\ListingMedia;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
@@ -54,38 +54,38 @@ class MediaPage extends FilterMedia
     {
         parent::__construct('media');
 
-        $this->media_uploader = Core::auth()->user_prefs->interface->enhanceduploader;
+        $this->media_uploader = App::auth()->user_prefs->interface->enhanceduploader;
 
         // try to load core media and themes
         try {
-            Core::media()->setFilterMimeType($this->file_type ?? '');
-            Core::media()->setFileSort($this->sortby . '-' . $this->order);
+            App::media()->setFilterMimeType($this->file_type ?? '');
+            App::media()->setFileSort($this->sortby . '-' . $this->order);
 
             if ($this->q != '') {
-                $this->media_has_query = Core::media()->searchMedia($this->q);
+                $this->media_has_query = App::media()->searchMedia($this->q);
             }
             if (!$this->media_has_query) {
                 $try_d = $this->d;
                 // Reset current dir
                 $this->d = null;
                 // Change directory (may cause an exception if directory doesn't exist)
-                Core::media()->chdir($try_d);
+                App::media()->chdir($try_d);
                 // Restore current dir variable
                 $this->d = $try_d;
-                Core::media()->getDir();
+                App::media()->getDir();
             } else {
                 $this->d = null;
-                Core::media()->chdir('');
+                App::media()->chdir('');
             }
-            $this->media_writable = Core::media()->writable();
-            $this->media_dir      = &Core::media()->dir;
+            $this->media_writable = App::media()->writable();
+            $this->media_dir      = &App::media()->dir;
 
-            if (Core::themes()->isEmpty()) {
+            if (App::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --
-                Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+                App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
             }
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 
@@ -119,9 +119,9 @@ class MediaPage extends FilterMedia
         if ($this->media_archivable === null) {
             $rs = $this->getDirsRecord();
 
-            $this->media_archivable = Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_MEDIA_ADMIN,
-            ]), Core::blog()->id)
+            $this->media_archivable = App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_MEDIA_ADMIN,
+            ]), App::blog()->id)
                 && !((is_countable($rs) ? count($rs) : 0) === 0 || ((is_countable($rs) ? count($rs) : 0) === 1 && $rs->parent)); // @phpstan-ignore-line
         }
 
@@ -177,7 +177,7 @@ class MediaPage extends FilterMedia
      */
     public function mediaLine(string $file_id): string
     {
-        return ListingMedia::mediaLine($this, Core::media()->getFile((int) $file_id), 1, $this->media_has_query);
+        return ListingMedia::mediaLine($this, App::media()->getFile((int) $file_id), 1, $this->media_has_query);
     }
 
     /**
@@ -197,7 +197,7 @@ class MediaPage extends FilterMedia
      */
     public function showLast(): int
     {
-        return abs((int) Core::auth()->user_prefs->interface->media_nb_last_dirs);
+        return abs((int) App::auth()->user_prefs->interface->media_nb_last_dirs);
     }
 
     /**
@@ -208,7 +208,7 @@ class MediaPage extends FilterMedia
     public function getLast(): array
     {
         if ($this->media_last === null) {
-            $m = Core::auth()->user_prefs->interface->media_last_dirs;
+            $m = App::auth()->user_prefs->interface->media_last_dirs;
             if (!is_array($m)) {
                 $m = [];
             }
@@ -264,7 +264,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_last = $last_dirs;
-            Core::auth()->user_prefs->interface->put('media_last_dirs', $last_dirs, 'array');
+            App::auth()->user_prefs->interface->put('media_last_dirs', $last_dirs, 'array');
         }
 
         return $done;
@@ -278,7 +278,7 @@ class MediaPage extends FilterMedia
     public function getFav(): array
     {
         if ($this->media_fav === null) {
-            $m = Core::auth()->user_prefs->interface->media_fav_dirs;
+            $m = App::auth()->user_prefs->interface->media_fav_dirs;
             if (!is_array($m)) {
                 $m = [];
             }
@@ -319,7 +319,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_fav = $fav_dirs;
-            Core::auth()->user_prefs->interface->put('media_fav_dirs', $fav_dirs, 'array');
+            App::auth()->user_prefs->interface->put('media_fav_dirs', $fav_dirs, 'array');
         }
 
         return $done;
@@ -375,8 +375,8 @@ class MediaPage extends FilterMedia
 
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
-                $bc_url   = Core::backend()->url->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
-                $bc_media = Core::media()->breadCrumb($bc_url, '<span class="page-title">%s</span>');
+                $bc_url   = App::backend()->url->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
+                $bc_media = App::media()->breadCrumb($bc_url, '<span class="page-title">%s</span>');
                 if ($bc_media != '') {
                     $element[$bc_media] = '';
                     $option['hl']       = true;
@@ -385,9 +385,9 @@ class MediaPage extends FilterMedia
         }
 
         $elements = [
-            Html::escapeHTML(Core::blog()->name) => '',
+            Html::escapeHTML(App::blog()->name) => '',
             __('Media manager')                  => empty($param) ? '' :
-                Core::backend()->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
+                App::backend()->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];
         $options = [
             'home_link' => !$this->popup,

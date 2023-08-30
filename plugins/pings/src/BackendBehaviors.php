@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
@@ -79,7 +79,7 @@ class BackendBehaviors
         foreach ($_POST['pings_do'] as $uri) {
             if (in_array($uri, $pings_uris)) {
                 try {
-                    PingsAPI::doPings($uri, Core::blog()->name, Core::blog()->url);
+                    PingsAPI::doPings($uri, App::blog()->name, App::blog()->url);
                 } catch (Exception $e) {
                 }
             }

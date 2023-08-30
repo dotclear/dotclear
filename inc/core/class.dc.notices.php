@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -40,7 +40,7 @@ class dcNotices
      */
     public function __construct()
     {
-        $this->table = Core::con()->prefix() . self::NOTICE_TABLE_NAME;
+        $this->table = App::con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     /**
@@ -132,7 +132,7 @@ class dcNotices
      */
     public function addNotice(Cursor $cur): int
     {
-        Core::con()->writeLock($this->table);
+        App::con()->writeLock($this->table);
 
         try {
             # Get ID
@@ -149,18 +149,18 @@ class dcNotices
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, Cursor
-            Core::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            App::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            Core::con()->unlock();
+            App::con()->unlock();
         } catch (Exception $e) {
-            Core::con()->unlock();
+            App::con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, Cursor
-        Core::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        App::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }

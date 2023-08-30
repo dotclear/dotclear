@@ -17,7 +17,7 @@ use dcBlog;
 use dcCore;
 use dcUtils;
 use dcTraitDynamicProperties;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
@@ -126,12 +126,12 @@ class Utility extends Process
     public static function process(): bool
     {
         // Instanciate Frontend instance
-        Core::frontend();
+        App::frontend();
 
         // Loading blog
         if (defined('DC_BLOG_ID')) {
             try {
-                Core::blogLoader()->setBlog(DC_BLOG_ID);
+                App::blogLoader()->setBlog(DC_BLOG_ID);
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
@@ -151,12 +151,12 @@ class Utility extends Process
             }
         }
 
-        if (is_null(Core::blog()) || Core::blog()->id == null) {
+        if (is_null(App::blog()) || App::blog()->id == null) {
             new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
         }
 
-        if ((int) Core::blog()->status !== dcBlog::BLOG_ONLINE) {
-            Core::blogLoader()->unsetBlog();
+        if ((int) App::blog()->status !== dcBlog::BLOG_ONLINE) {
+            App::blogLoader()->unsetBlog();
             new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
 
@@ -171,137 +171,137 @@ class Utility extends Process
         $GLOBALS['_page_number'] = 0;
 
         # Check blog sleep mode
-        Core::blog()->checkSleepmodeTimeout();
+        App::blog()->checkSleepmodeTimeout();
 
         # Cope with static home page option
-        if (Core::blog()->settings->system->static_home) {
-            Core::url()->registerDefault(Url::static_home(...));
+        if (App::blog()->settings->system->static_home) {
+            App::url()->registerDefault(Url::static_home(...));
         }
 
-        // deprecated since 2.28, use Core::media() instead
-        dcCore::app()->media = Core::media();
+        // deprecated since 2.28, use App::media() instead
+        dcCore::app()->media = App::media();
 
         # Creating template context
-        Core::frontend()->ctx = new context();
+        App::frontend()->ctx = new context();
 
-        // deprecated since 2.28, use Core::frontend()->ctx instead
-        dcCore::app()->ctx = Core::frontend()->ctx;
+        // deprecated since 2.28, use App::frontend()->ctx instead
+        dcCore::app()->ctx = App::frontend()->ctx;
 
-        // deprecated since 2.23, use Core::frontend()->ctx instead
-        $GLOBALS['_ctx'] = Core::frontend()->ctx;
+        // deprecated since 2.23, use App::frontend()->ctx instead
+        $GLOBALS['_ctx'] = App::frontend()->ctx;
 
         try {
-            Core::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'Core::frontend()->tpl');
+            App::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'App::frontend()->tpl');
 
-            // deprecated since 2.28, use Core::frontend()->tpl instead
-            dcCore::app()->tpl = Core::frontend()->tpl;
+            // deprecated since 2.28, use App::frontend()->tpl instead
+            dcCore::app()->tpl = App::frontend()->tpl;
         } catch (Exception $e) {
             new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }
 
         # Loading locales
-        Core::setLang((string) Core::blog()->settings->system->lang);
+        App::setLang((string) App::blog()->settings->system->lang);
 
-        // deprecated since 2.23, use Core::lang() instead
-        $GLOBALS['_lang'] = Core::lang();
+        // deprecated since 2.23, use App::lang() instead
+        $GLOBALS['_lang'] = App::lang();
 
-        L10n::lang(Core::lang());
-        if (L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/date') === false && Core::lang() != 'en') {
+        L10n::lang(App::lang());
+        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
             L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('public', Core::lang());
+        dcUtils::setlexicalLang('public', App::lang());
 
         # Loading plugins
         try {
-            Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', Core::lang());
+            App::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', App::lang());
         } catch (Exception $e) {
             // Ignore
         }
 
-        // deprecated since 2.28, use Core::themes() instead
-        dcCore::app()->themes = Core::themes();
+        // deprecated since 2.28, use App::themes() instead
+        dcCore::app()->themes = App::themes();
 
         # Loading themes
-        Core::themes()->loadModules(Core::blog()->themes_path);
+        App::themes()->loadModules(App::blog()->themes_path);
 
         # Defining theme if not defined
-        if (!isset(Core::frontend()->theme)) {
-            Core::frontend()->theme = Core::blog()->settings->system->theme;
+        if (!isset(App::frontend()->theme)) {
+            App::frontend()->theme = App::blog()->settings->system->theme;
         }
 
-        if (!Core::themes()->moduleExists(Core::frontend()->theme)) {
-            Core::frontend()->theme = Core::blog()->settings->system->theme = DC_DEFAULT_THEME;
+        if (!App::themes()->moduleExists(App::frontend()->theme)) {
+            App::frontend()->theme = App::blog()->settings->system->theme = DC_DEFAULT_THEME;
         }
 
-        Core::frontend()->parent_theme = Core::themes()->moduleInfo(Core::frontend()->theme, 'parent');
-        if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme) && !Core::themes()->moduleExists(Core::frontend()->parent_theme)) {
-            Core::frontend()->theme        = Core::blog()->settings->system->theme = DC_DEFAULT_THEME;
-            Core::frontend()->parent_theme = null;
+        App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
+        if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme) && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
+            App::frontend()->theme        = App::blog()->settings->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->parent_theme = null;
         }
 
         # If theme doesn't exist, stop everything
-        if (!Core::themes()->moduleExists(Core::frontend()->theme)) {
+        if (!App::themes()->moduleExists(App::frontend()->theme)) {
             new Fault(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
             'path in your blog configuration. Please check theme_path value in ' .
-            'about:config module or reinstall default theme. (' . Core::frontend()->theme . ')'), Fault::THEME_ISSUE);
+            'about:config module or reinstall default theme. (' . App::frontend()->theme . ')'), Fault::THEME_ISSUE);
         }
 
         # Loading _public.php file for selected theme
-        Core::themes()->loadNsFile(Core::frontend()->theme, 'public');
+        App::themes()->loadNsFile(App::frontend()->theme, 'public');
 
         # Loading translations for selected theme
-        if (is_string(Core::frontend()->parent_theme) && !empty(Core::frontend()->parent_theme)) {
-            Core::themes()->loadModuleL10N(Core::frontend()->parent_theme, Core::lang(), 'main');
+        if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
+            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang(), 'main');
         }
-        Core::themes()->loadModuleL10N(Core::frontend()->theme, Core::lang(), 'main');
+        App::themes()->loadModuleL10N(App::frontend()->theme, App::lang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
-        Core::behavior()->callBehavior('publicPrependV2');
+        App::behavior()->callBehavior('publicPrependV2');
 
         # Prepare the HTTP cache thing
-        Core::frontend()->cache()->addFiles(get_included_files());
-        Core::frontend()->cache()->addTime(Core::blog()->upddt);
+        App::frontend()->cache()->addFiles(get_included_files());
+        App::frontend()->cache()->addTime(App::blog()->upddt);
 
-        // deprecated Since 2.23, use Core::frontend()->cache()->addFiles() or Core::frontend()->cache()->getFiles() instead
-        $GLOBALS['mod_files'] = Core::frontend()->cache()->getFiles();
+        // deprecated Since 2.23, use App::frontend()->cache()->addFiles() or App::frontend()->cache()->getFiles() instead
+        $GLOBALS['mod_files'] = App::frontend()->cache()->getFiles();
 
-        // deprecated Since 2.23, use Core::frontend()->cache()->addTimes() or Core::frontend()->cache()->getTimes) instead
-        $GLOBALS['mod_ts'] = Core::frontend()->cache()->getTimes();
+        // deprecated Since 2.23, use App::frontend()->cache()->addTimes() or App::frontend()->cache()->getTimes) instead
+        $GLOBALS['mod_ts'] = App::frontend()->cache()->getTimes();
 
         $tpl_path = [
-            Core::blog()->themes_path . '/' . Core::frontend()->theme . '/tpl',
+            App::blog()->themes_path . '/' . App::frontend()->theme . '/tpl',
         ];
-        if (Core::frontend()->parent_theme) {
-            $tpl_path[] = Core::blog()->themes_path . '/' . Core::frontend()->parent_theme . '/tpl';
+        if (App::frontend()->parent_theme) {
+            $tpl_path[] = App::blog()->themes_path . '/' . App::frontend()->parent_theme . '/tpl';
         }
-        $tplset = Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'tplset');
+        $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
-            Core::frontend()->tpl->setPath(
+            App::frontend()->tpl->setPath(
                 $tpl_path,
                 $dir,
-                Core::frontend()->tpl->getPath()
+                App::frontend()->tpl->getPath()
             );
         } else {
-            Core::frontend()->tpl->setPath(
+            App::frontend()->tpl->setPath(
                 $tpl_path,
-                Core::frontend()->tpl->getPath()
+                App::frontend()->tpl->getPath()
             );
         }
-        Core::url()->mode = Core::blog()->settings->system->url_scan;
+        App::url()->mode = App::blog()->settings->system->url_scan;
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --
-            Core::behavior()->callBehavior('publicBeforeDocumentV2');
+            App::behavior()->callBehavior('publicBeforeDocumentV2');
 
-            Core::url()->getDocument();
+            App::url()->getDocument();
 
             # --BEHAVIOR-- publicAfterDocument --
-            Core::behavior()->callBehavior('publicAfterDocumentV2');
+            App::behavior()->callBehavior('publicAfterDocumentV2');
         } catch (Exception $e) {
             new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
         }

@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam\Filters;
 
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -63,7 +63,7 @@ class Ip extends SpamFilter
     public function __construct()
     {
         parent::__construct();
-        $this->table = Core::con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
+        $this->table = App::con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
     }
 
     /**
@@ -136,18 +136,18 @@ class Ip extends SpamFilter
         if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'white') {
             $ip_type = 'white';
         }
-        Core::backend()->default_tab = 'tab_' . $ip_type;
+        App::backend()->default_tab = 'tab_' . $ip_type;
 
         # Add IP to list
         if (!empty($_POST['addip'])) {
             try {
-                $global = !empty($_POST['globalip']) && Core::auth()->isSuperAdmin();
+                $global = !empty($_POST['globalip']) && App::auth()->isSuperAdmin();
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
                 Notices::addSuccessNotice(__('IP address has been successfully added.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -158,7 +158,7 @@ class Ip extends SpamFilter
                 Notices::addSuccessNotice(__('IP addresses have been successfully removed.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -188,12 +188,12 @@ class Ip extends SpamFilter
         form::hidden(['ip_type'], $type) .
         '<label class="classic" for="addip_' . $type . '">' . __('Add an IP address: ') . '</label> ' .
         form::field(['addip', 'addip_' . $type], 18, 255);
-        if (Core::auth()->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             $res .= '<label class="classic" for="globalip_' . $type . '">' . form::checkbox(['globalip', 'globalip_' . $type], 1) . ' ' .
             __('Global IP (used for all blogs)') . '</label> ';
         }
 
-        $res .= Core::nonce()->getFormNonce() .
+        $res .= App::nonce()->getFormNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -216,7 +216,7 @@ class Ip extends SpamFilter
                 $disabled_ip = false;
                 $p_style     = '';
                 if (!$rs->blog_id) {
-                    $disabled_ip = !Core::auth()->isSuperAdmin();
+                    $disabled_ip = !App::auth()->isSuperAdmin();
                     $p_style .= ' global';
                 }
 
@@ -249,7 +249,7 @@ class Ip extends SpamFilter
 
             $res .= '</div>' .
             '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
             form::hidden(['ip_type'], $type) .
                 '</p>' .
                 '</form>';
@@ -313,19 +313,19 @@ class Ip extends SpamFilter
         $content = $pattern . ':' . $ip . ':' . $mask;
 
         $old = $this->getRuleCIDR($type, $global, $ip, $mask);
-        $cur = Core::con()->openCursor($this->table);
+        $cur = App::con()->openCursor($this->table);
 
         if ($old->isEmpty()) {
-            $id = (new MetaRecord(Core::con()->select('SELECT MAX(rule_id) FROM ' . $this->table)))->f(0) + 1;
+            $id = (new MetaRecord(App::con()->select('SELECT MAX(rule_id) FROM ' . $this->table)))->f(0) + 1;
 
             $cur->rule_id      = $id;
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $content;
 
-            if ($global && Core::auth()->isSuperAdmin()) {
+            if ($global && App::auth()->isSuperAdmin()) {
                 $cur->blog_id = null;
             } else {
-                $cur->blog_id = Core::blog()->id;
+                $cur->blog_id = App::blog()->id;
             }
 
             $cur->insert();
@@ -347,11 +347,11 @@ class Ip extends SpamFilter
     {
         $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . Core::con()->escape($type) . "' " .
-        "AND (blog_id = '" . Core::blog()->id . "' OR blog_id IS NULL) " .
+        "WHERE rule_type = '" . App::con()->escape($type) . "' " .
+        "AND (blog_id = '" . App::blog()->id . "' OR blog_id IS NULL) " .
         'ORDER BY blog_id ASC, rule_content ASC ';
 
-        return new MetaRecord(Core::con()->select($strReq));
+        return new MetaRecord(App::con()->select($strReq));
     }
 
     /**
@@ -367,11 +367,11 @@ class Ip extends SpamFilter
     private function getRuleCIDR(string $type, bool $global, $ip, $mask): MetaRecord
     {
         $strReq = 'SELECT * FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . Core::con()->escape($type) . "' " .
+        "WHERE rule_type = '" . App::con()->escape($type) . "' " .
         "AND rule_content LIKE '%:" . (int) $ip . ':' . (int) $mask . "' " .
-        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . Core::blog()->id . "' ");
+        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . App::blog()->id . "' ");
 
-        return new MetaRecord(Core::con()->select($strReq));
+        return new MetaRecord(App::con()->select($strReq));
     }
 
     /**
@@ -386,11 +386,11 @@ class Ip extends SpamFilter
     {
         $strReq = 'SELECT DISTINCT(rule_content) ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . Core::con()->escape($type) . "' " .
-        "AND (blog_id = '" . Core::blog()->id . "' OR blog_id IS NULL) " .
+        "WHERE rule_type = '" . App::con()->escape($type) . "' " .
+        "AND (blog_id = '" . App::blog()->id . "' OR blog_id IS NULL) " .
         'ORDER BY rule_content ASC ';
 
-        $rs = new MetaRecord(Core::con()->select($strReq));
+        $rs = new MetaRecord(App::con()->select($strReq));
         while ($rs->fetch()) {
             [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
             if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
@@ -420,10 +420,10 @@ class Ip extends SpamFilter
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
-        if (!Core::auth()->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . Core::blog()->id . "' ";
+        if (!App::auth()->isSuperAdmin()) {
+            $strReq .= "AND blog_id = '" . App::blog()->id . "' ";
         }
 
-        Core::con()->execute($strReq);
+        App::con()->execute($strReq);
     }
 }

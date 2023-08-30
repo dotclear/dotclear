@@ -6,4 +6,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-\Dotclear\Core\Core::backend()->resources->set('help', 'aboutConfig', __DIR__ . '/help/help.html');
+\Dotclear\App::backend()->resources->set('help', 'aboutConfig', __DIR__ . '/help/help.html');

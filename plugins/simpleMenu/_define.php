@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 $this->registerModule(
     'Simple menu',               // Name
@@ -16,8 +16,8 @@ $this->registerModule(
     'Franck Paul',              // Author
     '2.0',                      // Version
     [
-        'permissions' => Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_ADMIN,
         ]),
         'type'     => 'plugin',
         'settings' => [

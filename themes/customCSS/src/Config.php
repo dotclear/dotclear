@@ -12,7 +12,7 @@
 namespace Dotclear\Theme\customCSS;
 
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -27,14 +27,14 @@ class Config extends Process
         if (My::checkContext(My::CONFIG)) {
             // load locales
             My::l10n('main');
-            Core::backend()->css_file = Path::real(Core::blog()->public_path) . '/custom_style.css';
+            App::backend()->css_file = Path::real(App::blog()->public_path) . '/custom_style.css';
 
-            if (!is_file(Core::backend()->css_file) && !is_writable(dirname(Core::backend()->css_file))) {
+            if (!is_file(App::backend()->css_file) && !is_writable(dirname(App::backend()->css_file))) {
                 throw new Exception(
                     sprintf(
                         __('File %s does not exist and directory %s is not writable.'),
-                        Core::backend()->css_file,
-                        dirname(Core::backend()->css_file)
+                        App::backend()->css_file,
+                        dirname(App::backend()->css_file)
                     )
                 );
             }
@@ -51,7 +51,7 @@ class Config extends Process
         }
 
         if (isset($_POST['css'])) {
-            @$fp = fopen(Core::backend()->css_file, 'wb');
+            @$fp = fopen(App::backend()->css_file, 'wb');
             fwrite($fp, $_POST['css']);
             fclose($fp);
 
@@ -70,7 +70,7 @@ class Config extends Process
             return;
         }
 
-        $css_content = is_file(Core::backend()->css_file) ? file_get_contents(Core::backend()->css_file) : '';
+        $css_content = is_file(App::backend()->css_file) ? file_get_contents(App::backend()->css_file) : '';
 
         echo
         '<p class="area"><label>' . __('Style sheet:') . '</label> ' .

@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use dcBlog;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Exception;
 
@@ -24,7 +24,7 @@ class ActionsBlogsDefault
      */
     public static function adminBlogsActionsPage(ActionsBlogs $ap)
     {
-        if (!Core::auth()->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             return;
         }
 
@@ -52,7 +52,7 @@ class ActionsBlogsDefault
      */
     public static function doChangeBlogStatus(ActionsBlogs $ap)
     {
-        if (!Core::auth()->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             return;
         }
 
@@ -67,13 +67,13 @@ class ActionsBlogsDefault
             default   => dcBlog::BLOG_ONLINE,
         };
 
-        $cur              = Core::con()->openCursor(Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
+        $cur              = App::con()->openCursor(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
         $cur->blog_status = $status;
-        $cur->update('WHERE blog_id ' . Core::con()->in($ids));
+        $cur->update('WHERE blog_id ' . App::con()->in($ids));
 
         if ($status === dcBlog::BLOG_REMOVED) {
             // Remove these blogs from user default blog
-            Core::users()->removeUsersDefaultBlogs($ids);
+            App::users()->removeUsersDefaultBlogs($ids);
         }
 
         Notices::addSuccessNotice(__('Selected blogs have been successfully updated.'));
@@ -89,7 +89,7 @@ class ActionsBlogsDefault
      */
     public static function doDeleteBlog(ActionsBlogs $ap)
     {
-        if (!Core::auth()->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             return;
         }
 
@@ -98,13 +98,13 @@ class ActionsBlogsDefault
             throw new Exception(__('No blog selected'));
         }
 
-        if (!Core::auth()->checkPassword($_POST['pwd'])) {
+        if (!App::auth()->checkPassword($_POST['pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
 
         $checked_ids = [];
         foreach ($ids as $id) {
-            if ($id === Core::blog()->id) {
+            if ($id === App::blog()->id) {
                 Notices::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $checked_ids[] = $id;
@@ -113,10 +113,10 @@ class ActionsBlogsDefault
 
         if (!empty($checked_ids)) {
             # --BEHAVIOR-- adminBeforeBlogsDelete -- array<int,string>
-            Core::behavior()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
+            App::behavior()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 
             foreach ($checked_ids as $id) {
-                Core::blogs()->delBlog($id);
+                App::blogs()->delBlog($id);
             }
 
             Notices::addSuccessNotice(

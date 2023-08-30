@@ -38,7 +38,7 @@ class BlogLoader
     {
         $this->blog = new dcBlog($id);
 
-        // deprecated since 2.28, use Core::blogLoader()->setBlog() instead
+        // deprecated since 2.28, use App::blogLoader()->setBlog() instead
         dcCore::app()->blog = $this->blog;
     }
 
@@ -49,7 +49,7 @@ class BlogLoader
     {
         $this->blog = null;
 
-        // deprecated since 2.28, use Core::blogLoader()->unsetBlog() instead
+        // deprecated since 2.28, use App::blogLoader()->unsetBlog() instead
         dcCore::app()->blog = null;
     }
 }

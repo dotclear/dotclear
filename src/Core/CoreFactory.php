@@ -28,6 +28,7 @@ use dcPostMedia;
 use dcRestServer;
 use dcThemes;
 //
+use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
@@ -153,7 +154,7 @@ class CoreFactory implements CoreFactoryInterface
     {
         return new Session(
             con: $this->container->get('con'),
-            table : $this->container->get('con')->prefix() . Core::SESSION_TABLE_NAME,
+            table : $this->container->get('con')->prefix() . App::SESSION_TABLE_NAME,
             cookie_name: DC_SESSION_NAME,
             cookie_secure: DC_ADMIN_SSL,
             ttl: DC_SESSION_TTL

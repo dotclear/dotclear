@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 
@@ -29,11 +29,11 @@ class Prepend extends Process
             return false;
         }
 
-        Core::url()->register('pages', 'pages', '^pages/(.+)$', FrontendUrl::pages(...));
-        Core::url()->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', FrontendUrl::pagespreview(...));
+        App::url()->register('pages', 'pages', '^pages/(.+)$', FrontendUrl::pages(...));
+        App::url()->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', FrontendUrl::pagespreview(...));
 
-        $admin_url = defined('DC_CONTEXT_ADMIN') ? urldecode(Core::backend()->url->get('admin.plugin', ['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')) : '';
-        Core::postTypes()->set(new PostType('page', $admin_url, Core::url()->getURLFor('pages', '%s'), 'Pages'));
+        $admin_url = defined('DC_CONTEXT_ADMIN') ? urldecode(App::backend()->url->get('admin.plugin', ['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')) : '';
+        App::postTypes()->set(new PostType('page', $admin_url, App::url()->getURLFor('pages', '%s'), 'Pages'));
 
         return true;
     }

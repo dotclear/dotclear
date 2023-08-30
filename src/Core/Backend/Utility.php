@@ -14,7 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use dcCore;
 use dcTraitDynamicProperties;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
@@ -86,26 +86,26 @@ class Utility extends Process
     public static function process(): bool
     {
         // Instanciate Backend instance
-        Core::backend();
+        App::backend();
 
         // New admin url instance
-        Core::backend()->url = new Url();
+        App::backend()->url = new Url();
 
-        // deprecated since 2.27, use Core::backend()->url instead
-        dcCore::app()->adminurl = Core::backend()->url;
+        // deprecated since 2.27, use App::backend()->url instead
+        dcCore::app()->adminurl = App::backend()->url;
 
-        if (Core::auth()->sessionExists()) {
+        if (App::auth()->sessionExists()) {
             // If we have a session we launch it now
             try {
-                if (!Core::auth()->checkSession()) {
+                if (!App::auth()->checkSession()) {
                     // Avoid loop caused by old cookie
-                    $p    = Core::session()->getCookieParameters(false, -600);
+                    $p    = App::session()->getCookieParameters(false, -600);
                     $p[3] = '/';
                     setcookie(...$p);
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    Core::backend()->url->redirect('admin.auth', $params);
+                    App::backend()->url->redirect('admin.auth', $params);
                 }
             } catch (Exception $e) {
                 new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
@@ -114,23 +114,23 @@ class Utility extends Process
             // Fake process to logout (kill session) and return to auth page.
             if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout') {
                 // Enable REST service if disabled, for next requests
-                if (!Core::rest()->serveRestRequests()) {
-                    Core::rest()->enableRestServer(true);
+                if (!App::rest()->serveRestRequests()) {
+                    App::rest()->enableRestServer(true);
                 }
                 // Kill admin session
-                Core::backend()->killAdminSession();
+                App::backend()->killAdminSession();
                 // Logout
-                Core::backend()->url->redirect('admin.auth');
+                App::backend()->url->redirect('admin.auth');
                 exit;
             }
 
             // Check nonce from POST requests
-            if (!empty($_POST) && (empty($_POST['xd_check']) || !Core::nonce()->checkNonce($_POST['xd_check']))) {
+            if (!empty($_POST) && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
                 new Fault('Precondition Failed', __('Precondition Failed'), 412);
             }
 
             // Switch blog
-            if (!empty($_REQUEST['switchblog']) && Core::auth()->getPermissions($_REQUEST['switchblog']) !== false) {
+            if (!empty($_REQUEST['switchblog']) && App::auth()->getPermissions($_REQUEST['switchblog']) !== false) {
                 $_SESSION['sess_blog_id'] = $_REQUEST['switchblog'];
 
                 if (!empty($_REQUEST['redir'])) {
@@ -143,7 +143,7 @@ class Utility extends Process
                     $redir = (string) preg_replace('/\?$/', '', $redir);
                 }
 
-                Core::auth()->user_prefs->interface->drop('media_manager_dir');
+                App::auth()->user_prefs->interface->drop('media_manager_dir');
 
                 if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || strstr($redir, 'media.php') !== false) {
                     // Remove current media dir from media manager URL
@@ -156,11 +156,11 @@ class Utility extends Process
 
             // Check blog to use and log out if no result
             if (isset($_SESSION['sess_blog_id'])) {
-                if (Core::auth()->getPermissions($_SESSION['sess_blog_id']) === false) {
+                if (App::auth()->getPermissions($_SESSION['sess_blog_id']) === false) {
                     unset($_SESSION['sess_blog_id']);
                 }
             } else {
-                if (($b = Core::auth()->findUserBlog(Core::auth()->getInfo('user_default_blog'), false)) !== false) {
+                if (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
                     $_SESSION['sess_blog_id'] = $b;
                     unset($b);
                 }
@@ -169,87 +169,87 @@ class Utility extends Process
             // Load locales
             Helper::loadLocales();
 
-            // deprecated since 2.27, use Core::lang() instead
-            $GLOBALS['_lang'] = Core::lang();
+            // deprecated since 2.27, use App::lang() instead
+            $GLOBALS['_lang'] = App::lang();
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
-                Core::blogLoader()->setBlog($_SESSION['sess_blog_id']);
+                App::blogLoader()->setBlog($_SESSION['sess_blog_id']);
             } else {
-                Core::session()->destroy();
-                Core::backend()->url->redirect('admin.auth');
+                App::session()->destroy();
+                App::backend()->url->redirect('admin.auth');
             }
         }
 
         // Set default backend URLs
-        Core::backend()->url->setDefaultURLs();
+        App::backend()->url->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        Core::postTypes()->set(new PostType('post', urldecode(Core::backend()->url->get('admin.post', ['id' => '%d'], '&')), Core::url()->getURLFor('post', '%s'), 'Posts'));
+        App::postTypes()->set(new PostType('post', urldecode(App::backend()->url->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
-        if (!(Core::auth()->userID() && Core::blog() !== null)) {
+        if (!(App::auth()->userID() && App::blog() !== null)) {
             return true;
         }
 
         // Load resources and help files
-        Core::backend()->resources = new Resources();
+        App::backend()->resources = new Resources();
 
         require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', Core::lang())) {
+        if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', App::lang())) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, Core::lang(), 'help']))) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, App::lang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    Core::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, Core::lang(), 'help', $hfile]));
+                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, App::lang(), 'help', $hfile]));
                 }
             }
         }
         unset($hfiles);
         // Contextual help flag
-        Core::backend()->resources->context(false);
+        App::backend()->resources->context(false);
 
-        $user_ui_nofavmenu = Core::auth()->user_prefs->interface->nofavmenu;
+        $user_ui_nofavmenu = App::auth()->user_prefs->interface->nofavmenu;
 
-        Core::backend()->favs  = new Favorites();
-        Core::backend()->menus = new Menus();
+        App::backend()->favs  = new Favorites();
+        App::backend()->menus = new Menus();
 
-        // deprecated since 2.27, use Core::backend()->favs instead
-        dcCore::app()->favs = Core::backend()->favs;
+        // deprecated since 2.27, use App::backend()->favs instead
+        dcCore::app()->favs = App::backend()->favs;
 
-        // deprecated since 2.27, use Core::backend()->menus instead
-        dcCore::app()->menu = Core::backend()->menus;
+        // deprecated since 2.27, use App::backend()->menus instead
+        dcCore::app()->menu = App::backend()->menus;
 
-        // deprecated Since 2.23, use Core::backend()->menus instead
-        $GLOBALS['_menu'] = Core::backend()->menus;
+        // deprecated Since 2.23, use App::backend()->menus instead
+        $GLOBALS['_menu'] = App::backend()->menus;
 
         // Set default menu
-        Core::backend()->menus->setDefaultItems();
+        App::backend()->menus->setDefaultItems();
 
         if (!$user_ui_nofavmenu) {
-            Core::backend()->favs->appendMenuSection(Core::backend()->menus);
+            App::backend()->favs->appendMenuSection(App::backend()->menus);
         }
 
         // Load plugins
-        Core::plugins()->loadModules(DC_PLUGINS_ROOT, 'admin', Core::lang());
-        Core::backend()->favs->setup();
+        App::plugins()->loadModules(DC_PLUGINS_ROOT, 'admin', App::lang());
+        App::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {
-            Core::backend()->favs->appendMenu(Core::backend()->menus);
+            App::backend()->favs->appendMenu(App::backend()->menus);
         }
 
-        if (empty(Core::blog()->settings->system->jquery_migrate_mute)) {
-            Core::blog()->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
+        if (empty(App::blog()->settings->system->jquery_migrate_mute)) {
+            App::blog()->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
         }
-        if (empty(Core::blog()->settings->system->jquery_allow_old_version)) {
-            Core::blog()->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
+        if (empty(App::blog()->settings->system->jquery_allow_old_version)) {
+            App::blog()->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
         // Admin behaviors
-        Core::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
+        App::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
 
         return true;
     }
@@ -263,7 +263,7 @@ class Utility extends Process
     {
         $this->p_url = $url;
 
-        // deprecated since 2.24, use Core::backend()->setPageURL() and Core::backend()->getPageURL() instaed
+        // deprecated since 2.24, use App::backend()->setPageURL() and App::backend()->getPageURL() instaed
         $GLOBALS['p_url'] = $url;
     }
 
@@ -283,7 +283,7 @@ class Utility extends Process
     public function killAdminSession(): void
     {
         // Kill session
-        Core::session()->destroy();
+        App::session()->destroy();
 
         // Unset cookie if necessary
         if (isset($_COOKIE['dc_admin'])) {

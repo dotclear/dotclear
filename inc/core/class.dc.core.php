@@ -13,7 +13,7 @@
  */
 
 use Dotclear\Core\Blogs;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
 use Dotclear\Core\Nonce;
@@ -42,11 +42,11 @@ final class dcCore
     /**
      * Session table name
      *
-     * @deprecated since 2.28, use Core::VERSION_TABLE_NAME
+     * @deprecated since 2.28, use App::VERSION_TABLE_NAME
      *
      * @var string
      */
-    public const SESSION_TABLE_NAME = Core::SESSION_TABLE_NAME;
+    public const SESSION_TABLE_NAME = App::SESSION_TABLE_NAME;
 
     /**
      * Versions table name
@@ -69,7 +69,7 @@ final class dcCore
     /**
      * Database connection
      *
-     * @deprecated since 2.28, use Core::con() instead
+     * @deprecated since 2.28, use App::con() instead
      *
      * @var AbstractHandler
      */
@@ -78,7 +78,7 @@ final class dcCore
     /**
      * Database tables prefix
      *
-     * @deprecated since 2.28, use Core::con()->prefix() instead
+     * @deprecated since 2.28, use App::con()->prefix() instead
      *
      * @var string
      */
@@ -87,7 +87,7 @@ final class dcCore
     /**
      * dcBlog instance
      *
-     * @deprecated since 2.28, use Core::blogLodaer()->getBlog() instead
+     * @deprecated since 2.28, use App::blogLodaer()->getBlog() instead
      *
      * @var dcBlog|null
      */
@@ -96,7 +96,7 @@ final class dcCore
     /**
      * dcAuth instance
      *
-     * @deprecated since 2.28, use Core::auth() instead
+     * @deprecated since 2.28, use App::auth() instead
      *
      * @var dcAuth
      */
@@ -105,7 +105,7 @@ final class dcCore
     /**
      * Session in database instance
      *
-     * @deprecated since 2.28, use Core::session() instead
+     * @deprecated since 2.28, use App::session() instead
      *
      * @var Session
      */
@@ -114,7 +114,7 @@ final class dcCore
     /**
      * Url instance
      *
-     * @deprecated since 2.28, use Core::url() instead
+     * @deprecated since 2.28, use App::url() instead
      *
      * @var Url
      */
@@ -123,7 +123,7 @@ final class dcCore
     /**
      * dcRestServer instance
      *
-     * @deprecated since 2.28, use Core::rest() instead
+     * @deprecated since 2.28, use App::rest() instead
      *
      * @var dcRestServer
      */
@@ -132,7 +132,7 @@ final class dcCore
     /**
      * WikiToHtml instance
      *
-     * @deprecated since 2.27, use Core::filter()->wiki instead
+     * @deprecated since 2.27, use App::filter()->wiki instead
      *
      * @var WikiToHtml
      */
@@ -141,7 +141,7 @@ final class dcCore
     /**
      * WikiToHtml instance
      *
-     * @deprecated since 2.27, use Core::filter()->wiki instead
+     * @deprecated since 2.27, use App::filter()->wiki instead
      *
      * @var WikiToHtml
      */
@@ -150,7 +150,7 @@ final class dcCore
     /**
      * Plugins
      *
-     * @deprecated since 2.28, Use Core::plugins() instead
+     * @deprecated since 2.28, Use App::plugins() instead
      *
      * @var dcPlugins
      */
@@ -159,7 +159,7 @@ final class dcCore
     /**
      * Themes
      *
-     * @deprecated since 2.28, Use Core::themes() instead
+     * @deprecated since 2.28, Use App::themes() instead
      *
      * @var dcThemes
      */
@@ -168,7 +168,7 @@ final class dcCore
     /**
      * dcMedia instance
      *
-     * @deprecated since 2.28, use Core::media() instead
+     * @deprecated since 2.28, use App::media() instead
      *
      * @var dcMedia|null
      */
@@ -177,7 +177,7 @@ final class dcCore
     /**
      * dcPostMedia instance
      *
-     * @deprecated since 2.28, use Core::postMedia() instead
+     * @deprecated since 2.28, use App::postMedia() instead
      *
      * @var dcPostMedia
      */
@@ -186,7 +186,7 @@ final class dcCore
     /**
      * dcMeta instance
      *
-     * @deprecated since 2.28, use Core::meta() instead
+     * @deprecated since 2.28, use App::meta() instead
      *
      * @var dcMeta
      */
@@ -195,7 +195,7 @@ final class dcCore
     /**
      * dcError instance
      *
-     * @deprecated since 2.28, use Core::session() instead
+     * @deprecated since 2.28, use App::session() instead
      *
      * @var dcError
      */
@@ -204,7 +204,7 @@ final class dcCore
     /**
      * dcNotices instance
      *
-     * @deprecated since 2.28, Use Core::notice() instead
+     * @deprecated since 2.28, Use App::notice() instead
      *
      * @var dcNotices
      */
@@ -213,7 +213,7 @@ final class dcCore
     /**
      * dcLog instance
      *
-     * @deprecated since 2.28, Use Core::log() instead
+     * @deprecated since 2.28, Use App::log() instead
      *
      * @var dcLog
      */
@@ -222,7 +222,7 @@ final class dcCore
     /**
      * Current language
      *
-     * @deprecated since 2.28, Use Core::lang() and Core::setLang() instead
+     * @deprecated since 2.28, Use App::lang() and App::setLang() instead
      *
      * @var string
      */
@@ -242,7 +242,7 @@ final class dcCore
     /**
      * Backend Utility instance
      *
-     * @deprecated since 2.28, Use Core::backend() instead
+     * @deprecated since 2.28, Use App::backend() instead
      *
      * @var \Dotclear\Core\Backend\Utility
      */
@@ -251,7 +251,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.28, Use Core::backend()->url instead
+     * @deprecated since 2.28, Use App::backend()->url instead
      *
      * @var \Dotclear\Core\Backend\Url
      */
@@ -260,7 +260,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.28, Use Core::backend()->favs instead
+     * @deprecated since 2.28, Use App::backend()->favs instead
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
@@ -269,7 +269,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.28, Use Core::backend()->menus instead
+     * @deprecated since 2.28, Use App::backend()->menus instead
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -278,7 +278,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * @deprecated since 2.28, Use Core::backend()->resources instance
+     * @deprecated since 2.28, Use App::backend()->resources instance
      *
      * @var array
      */
@@ -289,7 +289,7 @@ final class dcCore
     /**
      * Frontend Utility instance
      *
-     * @deprecated since 2.28, Use Core::frontend() instead
+     * @deprecated since 2.28, Use App::frontend() instead
      *
      * @var \Dotclear\Core\Frontend\Utility
      */
@@ -298,7 +298,7 @@ final class dcCore
     /**
      * Tpl instance
      *
-     * @deprecated since 2.28, Use Core::frontend()->tpl instead
+     * @deprecated since 2.28, Use App::frontend()->tpl instead
      *
      * @var Tpl
      */
@@ -307,7 +307,7 @@ final class dcCore
     /**
      * context instance
      *
-     * @deprecated since 2.28, Use Core::frontend()->ctx instead
+     * @deprecated since 2.28, Use App::frontend()->ctx instead
      *
      * @var context|null
      */
@@ -316,7 +316,7 @@ final class dcCore
     /**
      * HTTP Cache stack
      *
-     * @deprecated since 2.28, permanently moved to Core::frontend()->cache()
+     * @deprecated since 2.28, permanently moved to App::frontend()->cache()
      *
      * @var array
      */
@@ -348,20 +348,20 @@ final class dcCore
         // deprecated since 2.26, use Autoloader:me() instead
         $this->autoload = Autoloader::me();
 
-        $this->con     = Core::con();
-        $this->prefix  = Core::con()->prefix();
-        $this->error   = Core::error();
-        $this->auth    = Core::auth();
-        $this->session = Core::session();
-        $this->url     = Core::url();
-        $this->plugins = Core::plugins();
-        $this->rest    = Core::rest();
-        $this->meta    = Core::meta();
-        $this->log     = Core::log();
-        $this->notices = Core::notice();
+        $this->con     = App::con();
+        $this->prefix  = App::con()->prefix();
+        $this->error   = App::error();
+        $this->auth    = App::auth();
+        $this->session = App::session();
+        $this->url     = App::url();
+        $this->plugins = App::plugins();
+        $this->rest    = App::rest();
+        $this->meta    = App::meta();
+        $this->log     = App::log();
+        $this->notices = App::notice();
 
         if (defined('DC_CONTEXT_ADMIN')) {
-            // deprecated since 2.23, use Core::backend()->resources instance instead
+            // deprecated since 2.23, use App::backend()->resources instance instead
             $GLOBALS['__resources'] = &$this->resources;
         }
     }
@@ -381,11 +381,11 @@ final class dcCore
     /**
      * Kill admin session helper.
      *
-     * @deprecated since 2.28, use Core::backend()->killAdminSession() instead
+     * @deprecated since 2.28, use App::backend()->killAdminSession() instead
      */
     public function killAdminSession(): void
     {
-        Core::backend()->killAdminSession();
+        App::backend()->killAdminSession();
     }
 
     /// @name Blog init methods
@@ -393,23 +393,23 @@ final class dcCore
     /**
      * Sets the blog to use.
      *
-     * @deprecated since 2.28, use Core::blogLoader()->setBlog() instead
+     * @deprecated since 2.28, use App::blogLoader()->setBlog() instead
      *
      * @param      string  $id     The blog ID
      */
     public function setBlog($id): void
     {
-        Core::blogLoader()->setBlog($id);
+        App::blogLoader()->setBlog($id);
     }
 
     /**
      * Unsets blog property.
      *
-     * @deprecated since 2.28, use Core::blogLoader()->unsetBlog() instead
+     * @deprecated since 2.28, use App::blogLoader()->unsetBlog() instead
      */
     public function unsetBlog(): void
     {
-        Core::blogLoader()->unsetBlog();
+        App::blogLoader()->unsetBlog();
     }
     //@}
 
@@ -418,19 +418,19 @@ final class dcCore
     /**
      * Gets all blog status.
      *
-     * @deprecated since 2.28, use Core::blogs()->getAllBlogStatus() instead
+     * @deprecated since 2.28, use App::blogs()->getAllBlogStatus() instead
      *
      * @return     array
      */
     public function getAllBlogStatus(): array
     {
-        return Core::blogs()->getAllBlogStatus();
+        return App::blogs()->getAllBlogStatus();
     }
 
     /**
      * Returns a blog status name given to a code.
      *
-     * @deprecated since 2.28, use Core::blogs()->getBlogStatus() instead
+     * @deprecated since 2.28, use App::blogs()->getBlogStatus() instead
      *
      * @param      int      $s      Status code
      *
@@ -438,7 +438,7 @@ final class dcCore
      */
     public function getBlogStatus(int $s): string
     {
-        return Core::blogs()->getBlogStatus($s);
+        return App::blogs()->getBlogStatus($s);
     }
     //@}
 
@@ -447,19 +447,19 @@ final class dcCore
     /**
      * Gets the nonce.
      *
-     * @deprecated since 2.28, use Core::nonce()->getNonce() instead
+     * @deprecated since 2.28, use App::nonce()->getNonce() instead
      *
      * @return     string
      */
     public function getNonce(): string
     {
-        return Core::nonce()->getNonce();
+        return App::nonce()->getNonce();
     }
 
     /**
      * Check the nonce.
      *
-     * @deprecated since 2.28, use Core::nonce()->checkNonce() instead
+     * @deprecated since 2.28, use App::nonce()->checkNonce() instead
      *
      * @param      string  $secret  The nonce
      *
@@ -467,13 +467,13 @@ final class dcCore
      */
     public function checkNonce(string $secret): bool
     {
-        return Core::nonce()->checkNonce($secret);
+        return App::nonce()->checkNonce($secret);
     }
 
     /**
      * Get the nonce HTML code.
      *
-     * @deprecated since 2.28, use Core::nonce()->formNonce() or Core::nonce()->getFormNonce()instead
+     * @deprecated since 2.28, use App::nonce()->formNonce() or App::nonce()->getFormNonce()instead
      *
      * @param      bool     $render     Should render element?
      *
@@ -481,7 +481,7 @@ final class dcCore
      */
     public function formNonce(bool $render = true)
     {
-        return $render ? Core::nonce()->getFormNonce() : Core::nonce()->formNonce();
+        return $render ? App::nonce()->getFormNonce() : App::nonce()->formNonce();
     }
     //@}
 
@@ -490,7 +490,7 @@ final class dcCore
     /**
      * Adds a new text formater.
      *
-     * @deprecated since 2.28, use Core::formater()->addEditorFormater() instead
+     * @deprecated since 2.28, use App::formater()->addEditorFormater() instead
      *
      * @param      string    $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string    $name       The formater name
@@ -498,39 +498,39 @@ final class dcCore
      */
     public function addEditorFormater(string $editor_id, string $name, $func): void
     {
-        Core::formater()->addEditorFormater($editor_id, $name, $func);
+        App::formater()->addEditorFormater($editor_id, $name, $func);
     }
 
     /**
      * Adds a new dcLegacyEditor text formater.
      *
-     * @deprecated since 2.28, use Core::formater()->addEditorFormater('dcLegacyEditor', ...) instead
+     * @deprecated since 2.28, use App::formater()->addEditorFormater('dcLegacyEditor', ...) instead
      *
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
     public function addFormater(string $name, $func): void
     {
-        Core::formater()->addEditorFormater('dcLegacyEditor', $name, $func);
+        App::formater()->addEditorFormater('dcLegacyEditor', $name, $func);
     }
 
     /**
      * Adds a formater name.
      *
-     * @deprecated since 2.28, use Core::formater()->addFormaterName() instead
+     * @deprecated since 2.28, use App::formater()->addFormaterName() instead
      *
      * @param      string  $format  The format
      * @param      string  $name    The name
      */
     public function addFormaterName(string $format, string $name): void
     {
-        Core::formater()->addFormaterName($format, $name);
+        App::formater()->addFormaterName($format, $name);
     }
 
     /**
      * Gets the formater name.
      *
-     * @deprecated since 2.28, use Core::formater()->getFormaterName() instead
+     * @deprecated since 2.28, use App::formater()->getFormaterName() instead
      *
      * @param      string  $format  The format
      *
@@ -538,25 +538,25 @@ final class dcCore
      */
     public function getFormaterName(string $format): string
     {
-        return Core::formater()->getFormaterName($format);
+        return App::formater()->getFormaterName($format);
     }
 
     /**
      * Gets the editors list.
      *
-     * @deprecated since 2.28, use Core::formater()->getEditors() instead
+     * @deprecated since 2.28, use App::formater()->getEditors() instead
      *
      * @return     array
      */
     public function getEditors(): array
     {
-        return Core::formater()->getEditors();
+        return App::formater()->getEditors();
     }
 
     /**
      * Gets the formaters.
      *
-     * @deprecated since 2.28, use Core::formater()->getFormaters() or Core::formater()->getFormater(xxx) instead
+     * @deprecated since 2.28, use App::formater()->getFormaters() or App::formater()->getFormater(xxx) instead
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
@@ -564,13 +564,13 @@ final class dcCore
      */
     public function getFormaters(string $editor_id = ''): array
     {
-        return empty($editor_id) ? Core::formater()->getFormaters() : Core::formater()->getFormater($editor_id);
+        return empty($editor_id) ? App::formater()->getFormaters() : App::formater()->getFormater($editor_id);
     }
 
     /**
      * Call editor formater.
      *
-     * @deprecated since 2.28, use Core::formater()->callEditorFormater() instead
+     * @deprecated since 2.28, use App::formater()->callEditorFormater() instead
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string  $name       The formater name
@@ -580,13 +580,13 @@ final class dcCore
      */
     public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
-        return Core::formater()->callEditorFormater($editor_id, $name, $str);
+        return App::formater()->callEditorFormater($editor_id, $name, $str);
     }
 
     /**
      * Call formater.
      *
-     * @deprecated since 2.28, use Core::formater()->callEditorFormater('dcLegacyEditor', ...) instead
+     * @deprecated since 2.28, use App::formater()->callEditorFormater('dcLegacyEditor', ...) instead
      *
      * @param      string  $name   The name
      * @param      string  $str    The string
@@ -595,7 +595,7 @@ final class dcCore
      */
     public function callFormater(string $name, string $str): string
     {
-        return Core::formater()->callEditorFormater('dcLegacyEditor', $name, $str);
+        return App::formater()->callEditorFormater('dcLegacyEditor', $name, $str);
     }
     //@}
 
@@ -604,57 +604,57 @@ final class dcCore
     /**
      * Adds a new behavior to behaviors stack.
      *
-     * @deprecated since 2.28, use Core::behavior()->addBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->addBehavior() instead
      *
      * @param      string           $behavior  The behavior
      * @param      callable|array   $func      The function
      */
     public function addBehavior(string $behavior, $func): void
     {
-        Core::behavior()->addBehavior($behavior, $func);
+        App::behavior()->addBehavior($behavior, $func);
     }
 
     /**
      * Adds a behaviour (alias).
      *
-     * @deprecated since 2.28, use Core::behavior()->addBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->addBehavior() instead
      *
      * @param      string           $behaviour  The behaviour
      * @param      callable|array   $func       The function
      */
     public function addBehaviour(string $behaviour, $func): void
     {
-        Core::behavior()->addBehavior($behaviour, $func);
+        App::behavior()->addBehavior($behaviour, $func);
     }
 
     /**
      * Adds new behaviors to behaviors stack.
      *
-     * @deprecated since 2.28, use Core::behavior()->addBehaviors() instead
+     * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
      * @param      array    $behaviors  The behaviors
      */
     public function addBehaviors(array $behaviors): void
     {
-        Core::behavior()->addBehaviors($behaviors);
+        App::behavior()->addBehaviors($behaviors);
     }
 
     /**
      * Adds behaviours (alias).
      *
-     * @deprecated since 2.28, use Core::behavior()->addBehaviors() instead
+     * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
      * @param      array    $behaviours  The behaviours
      */
     public function addBehaviours(array $behaviours): void
     {
-        Core::behavior()->addBehaviors($behaviours);
+        App::behavior()->addBehaviors($behaviours);
     }
 
     /**
      * Determines if behavior exists in behaviors stack.
      *
-     * @deprecated since 2.28, use Core::behavior()->hasBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->hasBehavior() instead
      *
      * @param      string  $behavior  The behavior
      *
@@ -662,13 +662,13 @@ final class dcCore
      */
     public function hasBehavior(string $behavior): bool
     {
-        return Core::behavior()->hasBehavior($behavior);
+        return App::behavior()->hasBehavior($behavior);
     }
 
     /**
      * Determines if behaviour exists (alias).
      *
-     * @deprecated since 2.28, use Core::behavior()->hasBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->hasBehavior() instead
      *
      * @param      string  $behaviour  The behavior
      *
@@ -676,13 +676,13 @@ final class dcCore
      */
     public function hasBehaviour(string $behaviour): bool
     {
-        return Core::behavior()->hasBehavior($behaviour);
+        return App::behavior()->hasBehavior($behaviour);
     }
 
     /**
      * Gets the behaviors stack (or part of).
      *
-     * @deprecated since 2.28, use Core::behavior()->getBehaviors() or Core::behavior()->getBehavior()instead
+     * @deprecated since 2.28, use App::behavior()->getBehaviors() or App::behavior()->getBehavior()instead
      *
      * @param      string  $behavior  The behavior
      *
@@ -690,13 +690,13 @@ final class dcCore
      */
     public function getBehaviors(string $behavior = '')
     {
-        return empty($behavior) ? Core::behavior()->getBehaviors() : Core::behavior()->getBehavior($behavior);
+        return empty($behavior) ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behavior);
     }
 
     /**
      * Gets the behaviours stack (alias).
      *
-     * @deprecated since 2.28, use Core::behavior()->getBehaviors() or Core::behavior()->getBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->getBehaviors() or App::behavior()->getBehavior() instead
      *
      * @param      string  $behaviour  The behaviour
      *
@@ -704,14 +704,14 @@ final class dcCore
      */
     public function getBehaviours(string $behaviour = '')
     {
-        return empty($behaviour) ? Core::behavior()->getBehaviors() : Core::behavior()->getBehavior($behaviour);
+        return empty($behaviour) ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behaviour);
     }
 
     /**
      * Calls every function in behaviors stack for a given behavior and returns
      * concatened result of each function.
      *
-     * @deprecated since 2.28, use Core::behavior()->callBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->callBehavior() instead
      *
      * @param      string  $behavior  The behavior
      * @param      mixed   ...$args   The arguments
@@ -720,13 +720,13 @@ final class dcCore
      */
     public function callBehavior(string $behavior, ...$args)
     {
-        return Core::behavior()->callBehavior($behavior, ...$args);
+        return App::behavior()->callBehavior($behavior, ...$args);
     }
 
     /**
      * Calls every function in behaviours stack (alias).
      *
-     * @deprecated since 2.28, use Core::behavior()->callBehavior() instead
+     * @deprecated since 2.28, use App::behavior()->callBehavior() instead
      *
      * @param      string  $behaviour  The behaviour
      * @param      mixed   ...$args    The arguments
@@ -735,7 +735,7 @@ final class dcCore
      */
     public function callBehaviour(string $behaviour, ...$args)
     {
-        return Core::behavior()->callBehavior($behaviour, ...$args);
+        return App::behavior()->callBehavior($behaviour, ...$args);
     }
     //@}
 
@@ -745,7 +745,7 @@ final class dcCore
     /**
      * Gets the post admin url.
      *
-     * @deprecated since 2.28, use Core::postTypes()->get($type)->adminUrl() instead
+     * @deprecated since 2.28, use App::postTypes()->get($type)->adminUrl() instead
      *
      * @param      string               $type     The type
      * @param      int|string           $post_id  The post identifier
@@ -756,13 +756,13 @@ final class dcCore
      */
     public function getPostAdminURL(string $type, int|string $post_id, bool $escaped = true, array $params = []): string
     {
-        return Core::postTypes()->get($type)->adminUrl($post_id, $escaped, $params);
+        return App::postTypes()->get($type)->adminUrl($post_id, $escaped, $params);
     }
 
     /**
      * Gets the post public url.
      *
-     * @deprecated since 2.28, use Core::postTypes()->get($type)->publicUrl() instead
+     * @deprecated since 2.28, use App::postTypes()->get($type)->publicUrl() instead
      *
      * @param      string  $type      The type
      * @param      string  $post_url  The post url
@@ -772,13 +772,13 @@ final class dcCore
      */
     public function getPostPublicURL(string $type, string $post_url, bool $escaped = true): string
     {
-        return Core::postTypes()->get($type)->publicUrl($post_url, $escaped);
+        return App::postTypes()->get($type)->publicUrl($post_url, $escaped);
     }
 
     /**
      * Sets the post type.
      *
-     * @deprecated since 2.28, use Core::postTypes()->set(new PostType()) instead
+     * @deprecated since 2.28, use App::postTypes()->set(new PostType()) instead
      *
      * @param      string  $type        The type
      * @param      string  $admin_url   The admin url
@@ -787,19 +787,19 @@ final class dcCore
      */
     public function setPostType(string $type, string $admin_url, string $public_url, string $label = ''): void
     {
-        Core::postTypes()->set(new PostType($type, $admin_url, $public_url, $label));
+        App::postTypes()->set(new PostType($type, $admin_url, $public_url, $label));
     }
 
     /**
      * Gets the post types.
      *
-     * @deprecated since 2.28, use Core::postTypes()->dump() instead
+     * @deprecated since 2.28, use App::postTypes()->dump() instead
      *
      * @return     array  The post types.
      */
     public function getPostTypes(): array
     {
-        return Core::postTypes()->getPostTypes();
+        return App::postTypes()->getPostTypes();
     }
     //@}
 
@@ -808,7 +808,7 @@ final class dcCore
     /**
      * Gets the version of a module.
      *
-     * @deprecated since 2.28, use Core::version()->getVersion() instead
+     * @deprecated since 2.28, use App::version()->getVersion() instead
      *
      * @param      string  $module  The module
      *
@@ -816,7 +816,7 @@ final class dcCore
      */
     public function getVersion(string $module = 'core'): ?string
     {
-        $v = Core::version()->getVersion($module);
+        $v = App::version()->getVersion($module);
 
         // keep compatibility with old return type
         return $v === '' ? null : $v;
@@ -825,32 +825,32 @@ final class dcCore
     /**
      * Gets all known versions.
      *
-     * @deprecated since 2.28, use Core::version()->getVersions() instead
+     * @deprecated since 2.28, use App::version()->getVersions() instead
      *
      * @return     array
      */
     public function getVersions(): array
     {
-        return Core::version()->getVersions();
+        return App::version()->getVersions();
     }
 
     /**
      * Sets the version of a module.
      *
-     * @deprecated since 2.28, use Core::version()->setVersion() instead
+     * @deprecated since 2.28, use App::version()->setVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
      */
     public function setVersion(string $module, string $version): void
     {
-        Core::version()->setVersion($module, $version);
+        App::version()->setVersion($module, $version);
     }
 
     /**
      * Compare the given version of a module with the registered one.
      *
-     * @deprecated since 2.28, use Core::version()->compareVersion() instead
+     * @deprecated since 2.28, use App::version()->compareVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
@@ -859,13 +859,13 @@ final class dcCore
      */
     public function testVersion(string $module, string $version): int
     {
-        return Core::version()->compareVersion($module, $version);
+        return App::version()->compareVersion($module, $version);
     }
 
     /**
      * Test if a version is a new one.
      *
-     * @deprecated since 2.28, use Core::version()->newerVersion() instead
+     * @deprecated since 2.28, use App::version()->newerVersion() instead
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
@@ -874,19 +874,19 @@ final class dcCore
      */
     public function newVersion(string $module, string $version): bool
     {
-        return Core::version()->newerVersion($module, $version);
+        return App::version()->newerVersion($module, $version);
     }
 
     /**
      * Remove a module version entry.
      *
-     * @deprecated since 2.28, use Core::version()->unsetVersion() instead
+     * @deprecated since 2.28, use App::version()->unsetVersion() instead
      *
      * @param      string  $module  The module
      */
     public function delVersion(string $module): void
     {
-        Core::version()->unsetVersion($module);
+        App::version()->unsetVersion($module);
     }
     //@}
 
@@ -895,7 +895,7 @@ final class dcCore
     /**
      * Gets the user by its ID.
      *
-     * @deprecated since 2.28, use Core::users()->getUser() instead
+     * @deprecated since 2.28, use App::users()->getUser() instead
      *
      * @param      string  $id     The identifier
      *
@@ -903,13 +903,13 @@ final class dcCore
      */
     public function getUser(string $id): MetaRecord
     {
-        return Core::users()->getUser($id);
+        return App::users()->getUser($id);
     }
 
     /**
      * Returns a users list.
      *
-     * @deprecated since 2.28, use Core::users()->getUsers() instead
+     * @deprecated since 2.28, use App::users()->getUsers() instead
      *
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
@@ -918,13 +918,13 @@ final class dcCore
      */
     public function getUsers($params = [], bool $count_only = false): MetaRecord
     {
-        return Core::users()->getUsers($params, $count_only);
+        return App::users()->getUsers($params, $count_only);
     }
 
     /**
      * Adds a new user.
      *
-     * @deprecated since 2.28, use Core::users()->addUser() instead
+     * @deprecated since 2.28, use App::users()->addUser() instead
      *
      * @param      Cursor     $cur    The user Cursor
      *
@@ -934,13 +934,13 @@ final class dcCore
      */
     public function addUser(Cursor $cur): string
     {
-        return Core::users()->addUser($cur);
+        return App::users()->addUser($cur);
     }
 
     /**
      * Updates an existing user. Returns the user ID.
      *
-     * @deprecated since 2.28, use Core::users()->updUser() instead
+     * @deprecated since 2.28, use App::users()->updUser() instead
      *
      * @param      string     $id     The user identifier
      * @param      Cursor     $cur    The Cursor
@@ -951,13 +951,13 @@ final class dcCore
      */
     public function updUser(string $id, Cursor $cur): string
     {
-        return Core::users()->updUser($id, $cur);
+        return App::users()->updUser($id, $cur);
     }
 
     /**
      * Deletes a user.
      *
-     * @deprecated since 2.28, use Core::users()->delUser() instead
+     * @deprecated since 2.28, use App::users()->delUser() instead
      *
      * @param      string     $id     The user identifier
      *
@@ -965,13 +965,13 @@ final class dcCore
      */
     public function delUser(string $id): void
     {
-        Core::users()->delUser($id);
+        App::users()->delUser($id);
     }
 
     /**
      * Determines if user exists.
      *
-     * @deprecated since 2.28, use Core::users()->userExists() instead
+     * @deprecated since 2.28, use App::users()->userExists() instead
      *
      * @param      string  $id     The identifier
      *
@@ -979,14 +979,14 @@ final class dcCore
      */
     public function userExists(string $id): bool
     {
-        return Core::users()->userExists($id);
+        return App::users()->userExists($id);
         ;
     }
 
     /**
      * Returns all user permissions as an array.
      *
-     * @deprecated since 2.28, use Core::users()->getUserPermissions() instead
+     * @deprecated since 2.28, use App::users()->getUserPermissions() instead
      *
      * @param      string  $id     The user identifier
      *
@@ -994,13 +994,13 @@ final class dcCore
      */
     public function getUserPermissions(string $id): array
     {
-        return Core::users()->getUserPermissions($id);
+        return App::users()->getUserPermissions($id);
     }
 
     /**
      * Sets user permissions.
      *
-     * @deprecated since 2.28, use Core::users()->setUserPermissions() instead
+     * @deprecated since 2.28, use App::users()->setUserPermissions() instead
      *
      * @param      string     $id     The user identifier
      * @param      array      $perms  The permissions
@@ -1009,13 +1009,13 @@ final class dcCore
      */
     public function setUserPermissions(string $id, array $perms): void
     {
-        Core::users()->setUserPermissions($id, $perms);
+        App::users()->setUserPermissions($id, $perms);
     }
 
     /**
      * Sets the user blog permissions.
      *
-     * @deprecated since 2.28, use Core::users()->setUserBlogPermissions() instead
+     * @deprecated since 2.28, use App::users()->setUserBlogPermissions() instead
      *
      * @param      string     $id            The user identifier
      * @param      string     $blog_id       The blog identifier
@@ -1026,44 +1026,44 @@ final class dcCore
      */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
-        Core::users()->setUserBlogPermissions($id, $blog_id, $perms, $delete_first);
+        App::users()->setUserBlogPermissions($id, $blog_id, $perms, $delete_first);
     }
 
     /**
      * Sets the user default blog. This blog will be selected when user log in.
      *
-     * @deprecated since 2.28, use Core::users()->setUserDefaultBlog() instead
+     * @deprecated since 2.28, use App::users()->setUserDefaultBlog() instead
      *
      * @param      string  $id       The user identifier
      * @param      string  $blog_id  The blog identifier
      */
     public function setUserDefaultBlog(string $id, string $blog_id): void
     {
-        Core::users()->setUserDefaultBlog($id, $blog_id);
+        App::users()->setUserDefaultBlog($id, $blog_id);
     }
 
     /**
      * Removes users default blogs.
      *
-     * @deprecated since 2.28, use Core::users()->removeUsersDefaultBlogs() instead
+     * @deprecated since 2.28, use App::users()->removeUsersDefaultBlogs() instead
      *
      * @param      array  $ids    The blogs to remove
      */
     public function removeUsersDefaultBlogs(array $ids): void
     {
-        Core::users()->removeUsersDefaultBlogs($ids);
+        App::users()->removeUsersDefaultBlogs($ids);
     }
 
     /**
      * Returns user default settings in an associative array with setting names in keys.
      *
-     * @deprecated since 2.28, use Core::users()->userDefaults() instead
+     * @deprecated since 2.28, use App::users()->userDefaults() instead
      *
      * @return     array
      */
     public function userDefaults(): array
     {
-        return Core::users()->userDefaults();
+        return App::users()->userDefaults();
     }
     //@}
 
@@ -1072,7 +1072,7 @@ final class dcCore
     /**
      * Returns all blog permissions (users) as an array.
      *
-     * @deprecated since 2.28, use Core::blogs()->getBlogPermissions() instead
+     * @deprecated since 2.28, use App::blogs()->getBlogPermissions() instead
      *
      * @param      string  $id          The blog identifier
      * @param      bool    $with_super  Includes super admins in result
@@ -1081,13 +1081,13 @@ final class dcCore
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
-        return Core::blogs()->getBlogPermissions($id, $with_super);
+        return App::blogs()->getBlogPermissions($id, $with_super);
     }
 
     /**
      * Gets the blog.
      *
-     * @deprecated since 2.28, use Core::blogs()->getBlogPermissions() instead
+     * @deprecated since 2.28, use App::blogs()->getBlogPermissions() instead
      *
      * @param      string  $id     The blog identifier
      *
@@ -1095,13 +1095,13 @@ final class dcCore
      */
     public function getBlog(string $id)
     {
-        return Core::blogs()->getBlog($id);
+        return App::blogs()->getBlog($id);
     }
 
     /**
      * Returns a MetaRecord of blogs.
      *
-     * @deprecated since 2.28, use Core::blogs()->getBlogs() instead
+     * @deprecated since 2.28, use App::blogs()->getBlogs() instead
      *
      * @param      array|ArrayObject    $params      The parameters
      * @param      bool                 $count_only  Count only results
@@ -1110,13 +1110,13 @@ final class dcCore
      */
     public function getBlogs($params = [], bool $count_only = false): MetaRecord
     {
-        return Core::blogs()->getBlogs($params, $count_only);
+        return App::blogs()->getBlogs($params, $count_only);
     }
 
     /**
      * Adds a new blog.
      *
-     * @deprecated since 2.28, use Core::blogs()->addBlog() instead
+     * @deprecated since 2.28, use App::blogs()->addBlog() instead
      *
      * @param      Cursor     $cur    The blog Cursor
      *
@@ -1124,26 +1124,26 @@ final class dcCore
      */
     public function addBlog(Cursor $cur): void
     {
-        Core::blogs()->addBlog($cur);
+        App::blogs()->addBlog($cur);
     }
 
     /**
      * Updates a given blog.
      *
-     * @deprecated since 2.28, use Core::blogs()->updBlog() instead
+     * @deprecated since 2.28, use App::blogs()->updBlog() instead
      *
      * @param      string  $id     The blog identifier
      * @param      Cursor  $cur    The Cursor
      */
     public function updBlog(string $id, Cursor $cur): void
     {
-        Core::blogs()->updBlog($id, $cur);
+        App::blogs()->updBlog($id, $cur);
     }
 
     /**
      * Removes a given blog.
      *
-     * @deprecated since 2.28, use Core::blogs()->delBlog() instead
+     * @deprecated since 2.28, use App::blogs()->delBlog() instead
      *
      * @param      string     $id     The blog identifier
      *
@@ -1151,13 +1151,13 @@ final class dcCore
      */
     public function delBlog(string $id): void
     {
-        Core::blogs()->delBlog($id);
+        App::blogs()->delBlog($id);
     }
 
     /**
      * Determines if blog exists.
      *
-     * @deprecated since 2.28, use Core::blogs()->blogExists() instead
+     * @deprecated since 2.28, use App::blogs()->blogExists() instead
      *
      * @param      string  $id     The blog identifier
      *
@@ -1165,13 +1165,13 @@ final class dcCore
      */
     public function blogExists(string $id): bool
     {
-        return Core::blogs()->blogExists($id);
+        return App::blogs()->blogExists($id);
     }
 
     /**
      * Counts the number of blog posts.
      *
-     * @deprecated since 2.28, use Core::blogs()->countBlogPosts() instead
+     * @deprecated since 2.28, use App::blogs()->countBlogPosts() instead
      *
      * @param      string        $id     The blog identifier
      * @param      null|string   $type   The post type
@@ -1180,7 +1180,7 @@ final class dcCore
      */
     public function countBlogPosts(string $id, $type = null): int
     {
-        return Core::blogs()->countBlogPosts($id, $type);
+        return App::blogs()->countBlogPosts($id, $type);
     }
     //@}
 
@@ -1189,7 +1189,7 @@ final class dcCore
     /**
      * Calls HTML filter to drop bad tags and produce valid HTML output.
      *
-     * @deprecated since 2.28, use Core::filter()->HTMLfilter() instead
+     * @deprecated since 2.28, use App::filter()->HTMLfilter() instead
      *
      * @param      string  $str    The string
      *
@@ -1197,7 +1197,7 @@ final class dcCore
      */
     public function HTMLfilter(string $str): string
     {
-        return Core::filter()->HTMLfilter($str);
+        return App::filter()->HTMLfilter($str);
     }
     //@}
 
@@ -1206,7 +1206,7 @@ final class dcCore
     /**
      * Returns a transformed string with WikiToHtml.
      *
-     * @deprecated since 2.28, use Core::filter()->wikiTransform() instead
+     * @deprecated since 2.28, use App::filter()->wikiTransform() instead
      *
      * @param      string  $str    The string
      *
@@ -1214,43 +1214,43 @@ final class dcCore
      */
     public function wikiTransform(string $str): string
     {
-        return Core::filter()->wikiTransform($str);
+        return App::filter()->wikiTransform($str);
     }
 
     /**
      * Inits <var>wiki</var> property for blog post.
      *
-     * @deprecated since 2.28, use Core::filter()->initWikiPost() instead
+     * @deprecated since 2.28, use App::filter()->initWikiPost() instead
      */
     public function initWikiPost(): void
     {
-        Core::filter()->initWikiPost();
+        App::filter()->initWikiPost();
     }
 
     /**
      * Inits <var>wiki</var> property for simple blog comment (basic syntax).
      *
-     * @deprecated since 2.28, use Core::filter()->initWikiSimpleComment() instead
+     * @deprecated since 2.28, use App::filter()->initWikiSimpleComment() instead
      */
     public function initWikiSimpleComment(): void
     {
-        Core::filter()->initWikiSimpleComment();
+        App::filter()->initWikiSimpleComment();
     }
 
     /**
      * Inits <var>wiki</var> property for blog comment.
      *
-     * @deprecated since 2.28, use Core::filter()->initWikiComment() instead
+     * @deprecated since 2.28, use App::filter()->initWikiComment() instead
      */
     public function initWikiComment(): void
     {
-        Core::filter()->initWikiComment();
+        App::filter()->initWikiComment();
     }
 
     /**
      * Get info about a post:id wiki macro.
      *
-     * @deprecated since 2.28, use Core::filter()->wikiPostLink() instead
+     * @deprecated since 2.28, use App::filter()->wikiPostLink() instead
      *
      * @param      string  $url      The post url
      * @param      string  $content  The content
@@ -1259,7 +1259,7 @@ final class dcCore
      */
     public function wikiPostLink(string $url, string $content): array
     {
-        return Core::filter()->wikiPostLink($url, $content);
+        return App::filter()->wikiPostLink($url, $content);
     }
     //@}
 
@@ -1323,25 +1323,25 @@ final class dcCore
     /**
      * Serve or not the REST requests.
      *
-     * @deprecated since 2.28, use Core::rest()->enableRestServer() instead
+     * @deprecated since 2.28, use App::rest()->enableRestServer() instead
      *
      * @param      bool  $serve  The flag
      */
     public function enableRestServer(bool $serve = true)
     {
-        Core::rest()->enableRestServer($serve);
+        App::rest()->enableRestServer($serve);
     }
 
     /**
      * Check if we need to serve REST requests.
      *
-     * @deprecated since 2.28, use Core::rest()->serveRestRequests() instead
+     * @deprecated since 2.28, use App::rest()->serveRestRequests() instead
      *
      * @return     bool
      */
     public function serveRestRequests(): bool
     {
-        return Core::rest()->serveRestRequests();
+        return App::rest()->serveRestRequests();
     }
     //@}
 }

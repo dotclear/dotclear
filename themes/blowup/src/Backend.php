@@ -11,7 +11,7 @@
 
 namespace Dotclear\Theme\blowup;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 
@@ -28,7 +28,7 @@ class Backend extends Process
             return false;
         }
 
-        Core::behavior()->addBehavior('adminPageHTMLHead', function () {
+        App::behavior()->addBehavior('adminPageHTMLHead', function () {
             echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" .
             Page::jsJson('blowup', [
                 'blowup_public_url' => Blowup::imagesURL(),

@@ -16,7 +16,7 @@ use ArrayObject;
 use dcBlog;
 use Dotclear\Core\Backend\Listing\Pager;
 use Dotclear\Core\Backend\Listing\Listing;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -58,7 +58,7 @@ class BackendList extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject
-            Core::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
+            App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('pages', $cols);
@@ -177,10 +177,10 @@ class BackendList extends Listing
                 ]
             ) . '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
-            Core::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
+            App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
             Html::escapeHTML($this->rs->post_title) . '</a></td>',
             'date' => '<td class="nowrap">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), Core::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',
@@ -192,7 +192,7 @@ class BackendList extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPagesListValueV2 -- MetaRecord, ArrayObject
-        Core::behavior()->callBehavior('adminPagesListValueV2', $this->rs, $cols);
+        App::behavior()->callBehavior('adminPagesListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('pages', $cols);

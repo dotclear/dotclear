@@ -13,7 +13,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -58,8 +58,8 @@ class dcSettings
      */
     public function __construct($blog_id)
     {
-        $this->con     = Core::con();
-        $this->table   = Core::con()->prefix() . dcNamespace::NS_TABLE_NAME;
+        $this->con     = App::con();
+        $this->table   = App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
         $this->loadSettings();
     }

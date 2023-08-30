@@ -9,7 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -124,8 +124,8 @@ class dcNamespace
             throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $name));
         }
 
-        $this->con     = Core::con();
-        $this->table   = Core::con()->prefix() . self::NS_TABLE_NAME;
+        $this->con     = App::con();
+        $this->table   = App::con()->prefix() . self::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
 
         $this->getSettings($rs);

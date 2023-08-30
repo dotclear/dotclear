@@ -17,7 +17,7 @@ namespace Dotclear\Process\Backend;
 use dcBlog;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -33,38 +33,38 @@ class UsersActions extends Process
         $users = [];
         if (!empty($_POST['users']) && is_array($_POST['users'])) {
             foreach ($_POST['users'] as $u) {
-                if (Core::users()->userExists($u)) {
+                if (App::users()->userExists($u)) {
                     $users[] = $u;
                 }
             }
         }
-        Core::backend()->users = $users;
+        App::backend()->users = $users;
 
         $blogs = [];
         if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
             foreach ($_POST['blogs'] as $b) {
-                if (Core::blogs()->blogExists($b)) {
+                if (App::blogs()->blogExists($b)) {
                     $blogs[] = $b;
                 }
             }
         }
-        Core::backend()->blogs = $blogs;
+        App::backend()->blogs = $blogs;
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        Core::backend()->action = null;
-        Core::backend()->redir  = null;
+        App::backend()->action = null;
+        App::backend()->redir  = null;
 
         if (!empty($_POST['action']) && !empty($_POST['users'])) {
-            Core::backend()->action = $_POST['action'];
+            App::backend()->action = $_POST['action'];
 
             if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
-                Core::backend()->redir = $_POST['redir'];
+                App::backend()->redir = $_POST['redir'];
             } else {
-                Core::backend()->redir = Core::backend()->url->get('admin.users', [
+                App::backend()->redir = App::backend()->url->get('admin.users', [
                     'q'      => $_POST['q']      ?? '',
                     'sortby' => $_POST['sortby'] ?? '',
                     'order'  => $_POST['order']  ?? '',
@@ -73,44 +73,44 @@ class UsersActions extends Process
                 ], '&');
             }
 
-            if (empty(Core::backend()->users)) {
-                Core::error()->add(__('No blog or user given.'));
+            if (empty(App::backend()->users)) {
+                App::error()->add(__('No blog or user given.'));
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
-            Core::behavior()->callBehavior('adminUsersActions', Core::backend()->users, Core::backend()->blogs, Core::backend()->action, Core::backend()->redir);
+            App::behavior()->callBehavior('adminUsersActions', App::backend()->users, App::backend()->blogs, App::backend()->action, App::backend()->redir);
 
-            if (Core::backend()->action == 'deleteuser' && !empty(Core::backend()->users)) {
+            if (App::backend()->action == 'deleteuser' && !empty(App::backend()->users)) {
                 // Delete users
-                foreach (Core::backend()->users as $u) {
+                foreach (App::backend()->users as $u) {
                     try {
-                        if ($u == Core::auth()->userID()) {
+                        if ($u == App::auth()->userID()) {
                             throw new Exception(__('You cannot delete yourself.'));
                         }
 
                         # --BEHAVIOR-- adminBeforeUserDelete -- string
-                        Core::behavior()->callBehavior('adminBeforeUserDelete', $u);
+                        App::behavior()->callBehavior('adminBeforeUserDelete', $u);
 
-                        Core::users()->delUser($u);
+                        App::users()->delUser($u);
                     } catch (Exception $e) {
-                        Core::error()->add($e->getMessage());
+                        App::error()->add($e->getMessage());
                     }
                 }
-                if (!Core::error()->flag()) {
+                if (!App::error()->flag()) {
                     Notices::addSuccessNotice(__('User has been successfully deleted.'));
-                    Http::redirect(Core::backend()->redir);
+                    Http::redirect(App::backend()->redir);
                 }
             }
 
-            if (Core::backend()->action == 'updateperm' && !empty(Core::backend()->users) && !empty(Core::backend()->blogs)) {
+            if (App::backend()->action == 'updateperm' && !empty(App::backend()->users) && !empty(App::backend()->blogs)) {
                 // Update users perms
                 try {
-                    if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
+                    if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
                         throw new Exception(__('Password verification failed'));
                     }
 
-                    foreach (Core::backend()->users as $u) {
-                        foreach (Core::backend()->blogs as $b) {
+                    foreach (App::backend()->users as $u) {
+                        foreach (App::backend()->blogs as $b) {
                             $set_perms = [];
 
                             if (!empty($_POST['perm'][$b])) {
@@ -121,15 +121,15 @@ class UsersActions extends Process
                                 }
                             }
 
-                            Core::users()->setUserBlogPermissions($u, $b, $set_perms, true);
+                            App::users()->setUserBlogPermissions($u, $b, $set_perms, true);
                         }
                     }
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
-                if (!Core::error()->flag()) {
+                if (!App::error()->flag()) {
                     Notices::addSuccessNotice(__('User has been successfully updated.'));
-                    Http::redirect(Core::backend()->redir);
+                    Http::redirect(App::backend()->redir);
                 }
             }
         }
@@ -139,11 +139,11 @@ class UsersActions extends Process
 
     public static function render(): void
     {
-        if (!empty(Core::backend()->users) && empty(Core::backend()->blogs) && Core::backend()->action == 'blogs') {
+        if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action == 'blogs') {
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')      => '',
-                    __('Users')       => Core::backend()->url->get('admin.users'),
+                    __('Users')       => App::backend()->url->get('admin.users'),
                     __('Permissions') => '',
                 ]
             );
@@ -151,7 +151,7 @@ class UsersActions extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')  => '',
-                    __('Users')   => Core::backend()->url->get('admin.users'),
+                    __('Users')   => App::backend()->url->get('admin.users'),
                     __('Actions') => '',
                 ]
             );
@@ -161,17 +161,17 @@ class UsersActions extends Process
             __('Users'),
             Page::jsLoad('js/_users_actions.js') .
             # --BEHAVIOR-- adminUsersActionsHeaders --
-            Core::behavior()->callBehavior('adminUsersActionsHeaders'),
+            App::behavior()->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
         );
 
-        if (!isset(Core::backend()->action)) {
+        if (!isset(App::backend()->action)) {
             Page::close();
             exit;
         }
 
         $hidden_fields = '';
-        foreach (Core::backend()->users as $u) {
+        foreach (App::backend()->users as $u) {
             $hidden_fields .= form::hidden(['users[]'], $u);
         }
 
@@ -186,27 +186,27 @@ class UsersActions extends Process
         }
 
         echo
-        '<p><a class="back" href="' . Html::escapeURL(Core::backend()->redir) . '">' . __('Back to user profile') . '</a></p>';
+        '<p><a class="back" href="' . Html::escapeURL(App::backend()->redir) . '">' . __('Back to user profile') . '</a></p>';
 
         # --BEHAVIOR-- adminUsersActionsContent -- string, string
-        Core::behavior()->callBehavior('adminUsersActionsContentV2', Core::backend()->action, $hidden_fields);
+        App::behavior()->callBehavior('adminUsersActionsContentV2', App::backend()->action, $hidden_fields);
 
-        if (!empty(Core::backend()->users) && empty(Core::backend()->blogs) && Core::backend()->action == 'blogs') {
+        if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action == 'blogs') {
             // Blog list where to set permissions
 
             $rs      = null;
             $nb_blog = 0;
 
             try {
-                $rs      = Core::blogs()->getBlogs();
+                $rs      = App::blogs()->getBlogs();
                 $nb_blog = $rs->count();
             } catch (Exception $e) {
                 // Ignore exceptions
             }
 
             $user_list = [];
-            foreach (Core::backend()->users as $u) {
-                $user_list[] = '<a href="' . Core::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+            foreach (App::backend()->users as $u) {
+                $user_list[] = '<a href="' . App::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -219,7 +219,7 @@ class UsersActions extends Process
                 echo '<p><strong>' . __('No blog') . '</strong></p>';
             } else {
                 echo
-                '<form action="' . Core::backend()->url->get('admin.user.actions') . '" method="post" id="form-blogs">' .
+                '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post" id="form-blogs">' .
                 '<div class="table-outer clear">' .
                 '<table><tr>' .
                 '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
@@ -231,7 +231,7 @@ class UsersActions extends Process
 
                 while ($rs->fetch()) {
                     $img_status = $rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
-                    $txt_status = Core::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : dcBlog::BLOG_ONLINE);
+                    $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : dcBlog::BLOG_ONLINE);
                     $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
 
                     echo
@@ -249,7 +249,7 @@ class UsersActions extends Process
                     '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
                     '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
                     ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
-                    '<td class="nowrap">' . Core::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
+                    '<td class="nowrap">' . App::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
                     '<td class="status">' . $img_status . '</td>' .
                     '</tr>';
                 }
@@ -260,20 +260,20 @@ class UsersActions extends Process
                 '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '" />' .
                 $hidden_fields .
                 form::hidden(['action'], 'perms') .
-                Core::nonce()->getFormNonce() . '</p>' .
+                App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }
-        } elseif (!empty(Core::backend()->blogs) && !empty(Core::backend()->users) && Core::backend()->action == 'perms') {
+        } elseif (!empty(App::backend()->blogs) && !empty(App::backend()->users) && App::backend()->action == 'perms') {
             // Permissions list for each selected blogs
 
             $user_perm = [];
-            if ((is_countable(Core::backend()->users) ? count(Core::backend()->users) : 0) == 1) {
-                $user_perm = Core::users()->getUserPermissions(Core::backend()->users[0]);
+            if ((is_countable(App::backend()->users) ? count(App::backend()->users) : 0) == 1) {
+                $user_perm = App::users()->getUserPermissions(App::backend()->users[0]);
             }
 
             $user_list = [];
-            foreach (Core::backend()->users as $u) {
-                $user_list[] = '<a href="' . Core::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+            foreach (App::backend()->users as $u) {
+                $user_list[] = '<a href="' . App::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -281,17 +281,17 @@ class UsersActions extends Process
                 __('You are about to change permissions on the following blogs for users %s.'),
                 implode(', ', $user_list)
             ) . '</p>' .
-            '<form id="permissions-form" action="' . Core::backend()->url->get('admin.user.actions') . '" method="post">';
+            '<form id="permissions-form" action="' . App::backend()->url->get('admin.user.actions') . '" method="post">';
 
-            foreach (Core::backend()->blogs as $b) {
+            foreach (App::backend()->blogs as $b) {
                 echo
-                '<h3>' . ('Blog:') . ' <a href="' . Core::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
+                '<h3>' . ('Blog:') . ' <a href="' . App::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
                 $unknown_perms = $user_perm;
-                foreach (Core::auth()->getPermissionsTypes() as $perm_id => $perm) {
+                foreach (App::auth()->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;
 
-                    if ((is_countable(Core::backend()->users) ? count(Core::backend()->users) : 0) == 1) {
+                    if ((is_countable(App::backend()->users) ? count(App::backend()->users) : 0) == 1) {
                         $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
                     }
                     if (isset($unknown_perms[$b]['p'][$perm_id])) {
@@ -340,7 +340,7 @@ class UsersActions extends Process
             '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
             $hidden_fields .
             form::hidden(['action'], 'updateperm') .
-            Core::nonce()->getFormNonce() . '</p>' .
+            App::nonce()->getFormNonce() . '</p>' .
             '</div>' .
             '</form>';
         }

@@ -12,7 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
@@ -184,10 +184,10 @@ class dcAuth
      */
     public function __construct()
     {
-        $this->con        = Core::con();
-        $this->blog_table = Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME;
-        $this->user_table = Core::con()->prefix() . self::USER_TABLE_NAME;
-        $this->perm_table = Core::con()->prefix() . self::PERMISSIONS_TABLE_NAME;
+        $this->con        = App::con();
+        $this->blog_table = App::con()->prefix() . dcBlog::BLOG_TABLE_NAME;
+        $this->user_table = App::con()->prefix() . self::USER_TABLE_NAME;
+        $this->perm_table = App::con()->prefix() . self::PERMISSIONS_TABLE_NAME;
 
         $this->perm_types = [
             self::PERMISSION_ADMIN         => __('administrator'),
@@ -328,7 +328,7 @@ class dcAuth
             $rs->user_displayname
         );
 
-        $this->user_options = array_merge(Core::users()->userDefaults(), $rs->options());
+        $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
         $this->user_prefs = new dcPrefs($this->user_id);
 
@@ -400,7 +400,7 @@ class dcAuth
     public function checkSession(?string $uid = null): bool
     {
         $welcome = true;
-        Core::session()->start();
+        App::session()->start();
 
         if (!isset($_SESSION['sess_user_id'])) {
             // If session does not exist, logout.
@@ -416,7 +416,7 @@ class dcAuth
         }
 
         if (!$welcome) {
-            Core::session()->destroy();
+            App::session()->destroy();
         }
 
         return $welcome;
@@ -592,7 +592,7 @@ class dcAuth
     public function getBlogCount(): int
     {
         if ($this->blog_count === null) {
-            $this->blog_count = (int) Core::blogs()->getBlogs([], true)->f(0);
+            $this->blog_count = (int) App::blogs()->getBlogs([], true)->f(0);
         }
 
         return $this->blog_count;
@@ -612,7 +612,7 @@ class dcAuth
             if ($all_status || $this->user_admin) {
                 return $blog_id;
             }
-            $rs = Core::blogs()->getBlog($blog_id);
+            $rs = App::blogs()->getBlog($blog_id);
             if ($rs !== false && $rs->blog_status !== dcBlog::BLOG_REMOVED) {
                 return $blog_id;
             }

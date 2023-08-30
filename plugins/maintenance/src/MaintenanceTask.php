@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class MaintenanceTask
 {
@@ -149,8 +149,8 @@ class MaintenanceTask
             $this->id = array_pop($path);
         }
 
-        if ($this->perm() === null && !Core::auth()->isSuperAdmin()
-            || !Core::auth()->check($this->perm(), Core::blog()->id)) {
+        if ($this->perm() === null && !App::auth()->isSuperAdmin()
+            || !App::auth()->check($this->perm(), App::blog()->id)) {
             return;
         }
 

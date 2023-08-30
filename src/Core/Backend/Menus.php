@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class Menus extends ArrayObject
 {
@@ -54,7 +54,7 @@ class Menus extends ArrayObject
             return;
         }
 
-        $url     = Core::backend()->url->get($adminurl);
+        $url     = App::backend()->url->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
         $this->offsetGet($section)->prependItem(
             $desc,
@@ -74,7 +74,7 @@ class Menus extends ArrayObject
     public function setDefaultItems(): void
     {
         // nullsafe and context
-        if (!defined('DC_CONTEXT_ADMIN') || is_null(Core::blog())) {
+        if (!defined('DC_CONTEXT_ADMIN') || is_null(App::blog())) {
             return;
         }
 
@@ -89,9 +89,9 @@ class Menus extends ArrayObject
             __('Blog appearance'),
             'admin.blog.theme',
             ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_ADMIN,
+            ]), App::blog()->id),
             false,
             false,
             'BlogTheme'
@@ -101,9 +101,9 @@ class Menus extends ArrayObject
             __('Blog settings'),
             'admin.blog.pref',
             ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_ADMIN,
+            ]), App::blog()->id),
             false,
             false,
             'BlogPref'
@@ -113,10 +113,10 @@ class Menus extends ArrayObject
             __('Media manager'),
             'admin.media',
             ['images/menu/media.svg', 'images/menu/media-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_MEDIA,
-                Core::auth()::PERMISSION_MEDIA_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_MEDIA,
+                App::auth()::PERMISSION_MEDIA_ADMIN,
+            ]), App::blog()->id),
             false,
             false,
             'Media'
@@ -126,9 +126,9 @@ class Menus extends ArrayObject
             __('Categories'),
             'admin.categories',
             ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CATEGORIES,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CATEGORIES,
+            ]), App::blog()->id),
             false,
             false,
             'Categories'
@@ -138,10 +138,10 @@ class Menus extends ArrayObject
             __('Search'),
             'admin.search',
             ['images/menu/search.svg','images/menu/search-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_USAGE,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id),
             false,
             false,
             'Search'
@@ -151,10 +151,10 @@ class Menus extends ArrayObject
             __('Comments'),
             'admin.comments',
             ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_USAGE,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id),
             false,
             false,
             'Comments'
@@ -164,10 +164,10 @@ class Menus extends ArrayObject
             __('Posts'),
             'admin.posts',
             ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_USAGE,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id),
             false,
             false,
             'Posts'
@@ -177,10 +177,10 @@ class Menus extends ArrayObject
             __('New post'),
             'admin.post',
             ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
-            Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_USAGE,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id),
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id),
             true,
             true,
             'NewPost'
@@ -201,7 +201,7 @@ class Menus extends ArrayObject
             __('Update'),
             'admin.update',
             ['images/menu/update.svg', 'images/menu/update-dark.svg'],
-            Core::auth()->isSuperAdmin() && is_readable(DC_DIGESTS),
+            App::auth()->isSuperAdmin() && is_readable(DC_DIGESTS),
             false,
             false,
             'Update'
@@ -211,7 +211,7 @@ class Menus extends ArrayObject
             __('Languages'),
             'admin.langs',
             ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
-            Core::auth()->isSuperAdmin(),
+            App::auth()->isSuperAdmin(),
             false,
             false,
             'Langs'
@@ -221,7 +221,7 @@ class Menus extends ArrayObject
             __('Plugins management'),
             'admin.plugins',
             ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
-            Core::auth()->isSuperAdmin(),
+            App::auth()->isSuperAdmin(),
             false,
             false,
             'Plugins'
@@ -231,7 +231,7 @@ class Menus extends ArrayObject
             __('Users'),
             'admin.users',
             'images/menu/users.svg',
-            Core::auth()->isSuperAdmin(),
+            App::auth()->isSuperAdmin(),
             false,
             false,
             'Users'
@@ -241,13 +241,13 @@ class Menus extends ArrayObject
             __('Blogs'),
             'admin.blogs',
             ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
-            Core::auth()->isSuperAdmin() || Core::auth()->check(
-                Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_USAGE,
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
+            App::auth()->isSuperAdmin() || App::auth()->check(
+                App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
-                Core::blog()->id
-            ) && Core::auth()->getBlogCount() > 1,
+                App::blog()->id
+            ) && App::auth()->getBlogCount() > 1,
             false,
             false,
             'Blogs'

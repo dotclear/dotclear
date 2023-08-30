@@ -16,7 +16,7 @@ use dcCore;
 use dcNamespace;
 use dcUtils;
 use dcWorkspace;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
 use Dotclear\Core\Install\Utils;
@@ -33,7 +33,7 @@ class Upgrade
      */
     public static function dotclearUpgrade()
     {
-        $version = Core::version()->getVersion('core');
+        $version = App::version()->getVersion('core');
 
         if ($version === '') {
             return false;
@@ -41,17 +41,17 @@ class Upgrade
 
         if (version_compare($version, DC_VERSION, '<') == 1 || strpos(DC_VERSION, 'dev')) {
             try {
-                if (Core::con()->driver() == 'sqlite') {
+                if (App::con()->driver() == 'sqlite') {
                     return false; // Need to find a way to upgrade sqlite database
                 }
 
                 # Database upgrade
-                $_s = new Structure(Core::con(), Core::con()->prefix());
+                $_s = new Structure(App::con(), App::con()->prefix());
 
                 # Fill database structrue
                 Utils::dbSchema($_s);
 
-                $si      = new Structure(Core::con(), Core::con()->prefix());
+                $si      = new Structure(App::con(), App::con()->prefix());
                 $changes = $si->synchronize($_s);
 
                 /* Some other upgrades
@@ -60,7 +60,7 @@ class Upgrade
 
                 # Drop content from session table if changes or if needed
                 if ($changes != 0 || $cleanup_sessions) {
-                    Core::con()->execute('DELETE FROM ' . Core::con()->prefix() . dcCore::SESSION_TABLE_NAME);
+                    App::con()->execute('DELETE FROM ' . App::con()->prefix() . App::SESSION_TABLE_NAME);
                 }
 
                 # Empty templates cache directory
@@ -152,7 +152,7 @@ class Upgrade
         }
 
         // set dc version
-        Core::version()->setVersion('core', DC_VERSION);
+        App::version()->setVersion('core', DC_VERSION);
         Utils::blogDefaults();
 
         return $cleanup_sessions;
@@ -166,11 +166,11 @@ class Upgrade
      */
     public static function settings2array(string $ns, string $setting)
     {
-        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
+        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
             "WHERE setting_id = '%s' " .
             "AND setting_ns = '%s' " .
             "AND setting_type = 'string'";
-        $rs = Core::con()->select(sprintf($strReqSelect, $setting, $ns));
+        $rs = App::con()->select(sprintf($strReqSelect, $setting, $ns));
         while ($rs->fetch()) {
             $value = @unserialize($rs->setting_value);
             if (!$value) {
@@ -178,16 +178,16 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . Core::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
-            "SET setting_type='array', setting_value = '" . Core::con()->escape($value) . "' " .
-            "WHERE setting_id='" . Core::con()->escape($rs->setting_id) . "' " .
-            "AND setting_ns='" . Core::con()->escape($rs->setting_ns) . "' ";
+            $rs2   = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
+            "SET setting_type='array', setting_value = '" . App::con()->escape($value) . "' " .
+            "WHERE setting_id='" . App::con()->escape($rs->setting_id) . "' " .
+            "AND setting_ns='" . App::con()->escape($rs->setting_ns) . "' ";
             if ($rs->blog_id == '') {
                 $rs2 .= 'AND blog_id IS null';
             } else {
-                $rs2 .= "AND blog_id = '" . Core::con()->escape($rs->blog_id) . "'";
+                $rs2 .= "AND blog_id = '" . App::con()->escape($rs->blog_id) . "'";
             }
-            Core::con()->execute($rs2);
+            App::con()->execute($rs2);
         }
     }
 
@@ -199,11 +199,11 @@ class Upgrade
      */
     public static function prefs2array(string $ws, string $pref)
     {
-        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . Core::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' ' .
+        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . App::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' ' .
             "WHERE pref_id = '%s' " .
             "AND pref_ws = '%s' " .
             "AND pref_type = 'string'";
-        $rs = Core::con()->select(sprintf($strReqSelect, $pref, $ws));
+        $rs = App::con()->select(sprintf($strReqSelect, $pref, $ws));
         while ($rs->fetch()) {
             $value = @unserialize($rs->pref_value);
             if (!$value) {
@@ -211,16 +211,16 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . Core::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' ' .
-            "SET pref_type='array', pref_value = '" . Core::con()->escape($value) . "' " .
-            "WHERE pref_id='" . Core::con()->escape($rs->pref_id) . "' " .
-            "AND pref_ws='" . Core::con()->escape($rs->pref_ws) . "' ";
+            $rs2   = 'UPDATE ' . App::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' ' .
+            "SET pref_type='array', pref_value = '" . App::con()->escape($value) . "' " .
+            "WHERE pref_id='" . App::con()->escape($rs->pref_id) . "' " .
+            "AND pref_ws='" . App::con()->escape($rs->pref_ws) . "' ";
             if ($rs->user_id == '') {
                 $rs2 .= 'AND user_id IS null';
             } else {
-                $rs2 .= "AND user_id = '" . Core::con()->escape($rs->user_id) . "'";
+                $rs2 .= "AND user_id = '" . App::con()->escape($rs->user_id) . "'";
             }
-            Core::con()->execute($rs2);
+            App::con()->execute($rs2);
         }
     }
 

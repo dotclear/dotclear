@@ -6,7 +6,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-\Dotclear\Core\Core::backend()->resources
+\Dotclear\App::backend()->resources
     ->set('rss_news', 'Dotclear', 'https://dotclear.org/blog/feed/category/News/atom')
     ->set('doc', 'Dotclear documentation', 'https://dotclear.org/documentation/2.0')
     ->set('doc', 'Dotclear presentation', 'https://dotclear.org/documentation/2.0/overview/tour')

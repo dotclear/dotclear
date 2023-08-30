@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 
 class BackendBehaviors
@@ -41,16 +41,16 @@ class BackendBehaviors
 
         $alt_tags = new ArrayObject($tags);
         # --BEHAVIOR-- adminPostEditorTags -- string, string, string, ArrayObject, string
-        Core::behavior()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, 'xhtml');
+        App::behavior()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, 'xhtml');
 
         return
         Page::jsJson('ck_editor_ctx', [
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => (array) $alt_tags],
             'admin_base_url'        => DC_ADMIN_URL,
-            'base_url'              => Core::blog()->host,
+            'base_url'              => App::blog()->host,
             'dcckeditor_plugin_url' => DC_ADMIN_URL . My::fileURL(''),
-            'user_language'         => Core::auth()->getInfo('user_lang'),
+            'user_language'         => App::auth()->getInfo('user_lang'),
         ]) .
         Page::jsJson('ck_editor_var', [
             'CKEDITOR_BASEPATH' => DC_ADMIN_URL . My::fileURL('js/ckeditor/'),

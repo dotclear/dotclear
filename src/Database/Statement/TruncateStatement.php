@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Statement;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class TruncateStatement extends SqlStatement
 {
@@ -26,7 +26,7 @@ class TruncateStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeTruncateStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            Core::behavior()->callBehavior('coreBeforeTruncateStatement', $this);
+            App::behavior()->callBehavior('coreBeforeTruncateStatement', $this);
         }
 
         // Check if source given
@@ -46,7 +46,7 @@ class TruncateStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertTruncateStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            Core::behavior()->callBehavior('coreAfterTruncateStatement', $this, $query);
+            App::behavior()->callBehavior('coreAfterTruncateStatement', $this, $query);
         }
 
         return $query;

@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use Exception;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use form;
 
@@ -28,10 +28,10 @@ class BackendBehaviors
      */
     public static function adminCurrentThemeDetails(string $id): string
     {
-        if (Core::auth()->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
-            if (Core::blog()->settings->system->themes_path !== Core::blog()->settings->system->getGlobal('themes_path')
-                || !Core::themes()->getDefine($id)->distributed
+            if (App::blog()->settings->system->themes_path !== App::blog()->settings->system->getGlobal('themes_path')
+                || !App::themes()->getDefine($id)->distributed
             ) {
                 return '<p><a href="' . My::manageUrl() . '" class="button">' . __('Edit theme files') . '</a></p>';
             }
@@ -47,13 +47,13 @@ class BackendBehaviors
     {
         // Get and store user's prefs for plugin options
         try {
-            Core::auth()->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
-            Core::auth()->user_prefs->interface->put(
+            App::auth()->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
+            App::auth()->user_prefs->interface->put(
                 'colorsyntax_theme',
                 (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : '')
             );
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 
@@ -63,7 +63,7 @@ class BackendBehaviors
     public static function adminPreferencesForm(): void
     {
         // Add fieldset for plugin options
-        $current_theme = Core::auth()->user_prefs->interface->colorsyntax_theme ?? 'default';
+        $current_theme = App::auth()->user_prefs->interface->colorsyntax_theme ?? 'default';
 
         $themes_list  = Page::getCodeMirrorThemes();
         $themes_combo = [__('Default') => ''];
@@ -77,7 +77,7 @@ class BackendBehaviors
         echo
         '<div class="col">' .
         '<p><label for="colorsyntax" class="classic">' .
-        form::checkbox('colorsyntax', 1, Core::auth()->user_prefs->interface->colorsyntax) . '</label>' .
+        form::checkbox('colorsyntax', 1, App::auth()->user_prefs->interface->colorsyntax) . '</label>' .
         __('Syntax highlighting in theme editor') .
             '</p>';
         if (count($themes_combo) > 1) {

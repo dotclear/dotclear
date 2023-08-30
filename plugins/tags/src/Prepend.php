@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -28,11 +28,11 @@ class Prepend extends Process
             return false;
         }
 
-        Core::url()->register('tag', 'tag', '^tag/(.+)$', FrontendUrl::tag(...));
-        Core::url()->register('tags', 'tags', '^tags$', FrontendUrl::tags(...));
-        Core::url()->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', FrontendUrl::tagFeed(...));
+        App::url()->register('tag', 'tag', '^tag/(.+)$', FrontendUrl::tag(...));
+        App::url()->register('tags', 'tags', '^tags$', FrontendUrl::tags(...));
+        App::url()->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', FrontendUrl::tagFeed(...));
 
-        Core::behavior()->addBehavior('coreInitWikiPost', BackendBehaviors::coreInitWikiPost(...));
+        App::behavior()->addBehavior('coreInitWikiPost', BackendBehaviors::coreInitWikiPost(...));
 
         return true;
     }

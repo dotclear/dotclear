@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -28,7 +28,7 @@ class Prepend extends Process
             return false;
         }
 
-        Core::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+        App::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
             $stack->append(Filters\Ip::class);
             $stack->append(Filters\IpLookup::class);
             $stack->append(Filters\Words::class);
@@ -37,17 +37,17 @@ class Prepend extends Process
 
         // IP v6 filter depends on some math libraries, so enable it only if one of them is available
         if (function_exists('gmp_init') || function_exists('bcadd')) {
-            Core::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+            App::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
                 $stack->append(Filters\IpV6::class);
             });
         }
 
-        Core::url()->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', FrontendUrl::spamFeed(...));
-        Core::url()->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', FrontendUrl::hamFeed(...));
+        App::url()->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', FrontendUrl::spamFeed(...));
+        App::url()->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', FrontendUrl::hamFeed(...));
 
         if (defined('DC_CONTEXT_ADMIN')) {
             // Register REST methods
-            Core::rest()->addFunction('getSpamsCount', Rest::getSpamsCount(...));
+            App::rest()->addFunction('getSpamsCount', Rest::getSpamsCount(...));
         }
 
         return true;

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\buildtools;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -28,7 +28,7 @@ class Backend extends Process
             return false;
         }
 
-        Core::behavior()->addBehavior('dcMaintenanceInit', Buildtools::maintenanceAdmin(...));
+        App::behavior()->addBehavior('dcMaintenanceInit', Buildtools::maintenanceAdmin(...));
 
         return true;
     }

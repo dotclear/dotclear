@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -33,7 +33,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(Core::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->type)) {
             return '';
         }
 
@@ -53,7 +53,7 @@ class FrontendTemplate
         }
         $params['order'] = $sort . ' ' . $order;
 
-        $rs = Core::blog()->getPosts($params);
+        $rs = App::blog()->getPosts($params);
 
         if ($rs->isEmpty()) {
             return '';
@@ -63,7 +63,7 @@ class FrontendTemplate
 
         while ($rs->fetch()) {
             $class = '';
-            if (Core::url()->type === 'pages' && Core::frontend()->ctx->posts instanceof MetaRecord && Core::frontend()->ctx->posts->post_id == $rs->post_id) {
+            if (App::url()->type === 'pages' && App::frontend()->ctx->posts instanceof MetaRecord && App::frontend()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="page-current" aria-current="page"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

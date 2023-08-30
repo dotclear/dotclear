@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use dcCore;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Plugin\Uninstaller\{
     CleanerParent,
@@ -63,7 +63,7 @@ class Versions extends CleanerParent
     {
         $sql = new SelectStatement();
         $rs  = $sql
-            ->from(Core::con()->prefix() . dcCore::VERSION_TABLE_NAME)
+            ->from(App::con()->prefix() . dcCore::VERSION_TABLE_NAME)
             ->columns(['module', 'version'])
             ->order('module ASC')
             ->select();
@@ -87,9 +87,9 @@ class Versions extends CleanerParent
     public function execute(string $action, string $ns): bool
     {
         if ($action == 'delete') {
-            Core::con()->execute(
-                'DELETE FROM  ' . Core::con()->prefix() . dcCore::VERSION_TABLE_NAME . ' ' .
-                "WHERE module = '" . Core::con()->escapeStr((string) $ns) . "' "
+            App::con()->execute(
+                'DELETE FROM  ' . App::con()->prefix() . dcCore::VERSION_TABLE_NAME . ' ' .
+                "WHERE module = '" . App::con()->escapeStr((string) $ns) . "' "
             );
 
             return true;

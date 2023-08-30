@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Link;
@@ -43,7 +43,7 @@ class ActionsBlogs extends Actions
 
         $this->loadDefaults();
         # --BEHAVIOR-- adminBlogsActions -- Actions
-        Core::behavior()->callBehavior('adminBlogsActions', $this);
+        App::behavior()->callBehavior('adminBlogsActions', $this);
     }
 
     /**
@@ -107,12 +107,12 @@ class ActionsBlogs extends Actions
      */
     public function error(Exception $e)
     {
-        Core::error()->add($e->getMessage());
+        App::error()->add($e->getMessage());
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name) => '',
-                    __('Blogs')                          => Core::backend()->url->get('admin.blogs'),
+                    Html::escapeHTML(App::blog()->name) => '',
+                    __('Blogs')                          => App::backend()->url->get('admin.blogs'),
                     __('Blogs actions')                  => '',
                 ]
             )
@@ -171,7 +171,7 @@ class ActionsBlogs extends Actions
             $params['blog_id'] = $from['blogs'];
         }
 
-        $rs = Core::blogs()->getBlogs($params);
+        $rs = App::blogs()->getBlogs($params);
         while ($rs->fetch()) {
             $this->entries[$rs->blog_id] = [
                 'blog' => $rs->blog_id,

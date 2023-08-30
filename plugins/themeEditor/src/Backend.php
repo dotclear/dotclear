@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\themeEditor;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -28,7 +28,7 @@ class Backend extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            Core::behavior()->addBehaviors([
+            App::behavior()->addBehaviors([
                 'adminCurrentThemeDetailsV2'   => BackendBehaviors::adminCurrentThemeDetails(...),
                 'adminBeforeUserOptionsUpdate' => BackendBehaviors::adminBeforeUserUpdate(...),
                 'adminPreferencesFormV2'       => BackendBehaviors::adminPreferencesForm(...),

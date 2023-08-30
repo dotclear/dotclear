@@ -40,7 +40,7 @@ class Install extends Process
 
             return true;
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
 
             return false;
         }

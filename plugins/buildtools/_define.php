@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 $this->registerModule(
     'buildtools',                             // Name
@@ -17,8 +17,8 @@ $this->registerModule(
     '2.0',                                    // Version
     [
         'type'        => 'plugin',
-        'permissions' => Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_ADMIN,
         ]),
     ]
 );

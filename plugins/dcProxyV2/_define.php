@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 $this->registerModule(
     'dcProxyV2',
@@ -16,9 +16,9 @@ $this->registerModule(
     'Franck Paul',
     '2.0',
     [
-        'permissions' => Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
         'type'     => 'plugin',
         'priority' => 99_999_999_998,

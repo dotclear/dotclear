@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\simpleMenu;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -30,14 +30,14 @@ class Install extends Process
         }
 
         # Menu par défaut
-        $blog_url     = Html::stripHostURL(Core::blog()->url);
+        $blog_url     = Html::stripHostURL(App::blog()->url);
         $menu_default = [
             ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false],
-            ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . Core::url()->getURLFor('archive'), 'targetBlank' => false],
+            ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . App::url()->getURLFor('archive'), 'targetBlank' => false],
         ];
 
-        Core::blog()->settings->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
-        Core::blog()->settings->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
+        App::blog()->settings->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
+        App::blog()->settings->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
 
         return true;
     }

@@ -18,7 +18,7 @@ use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcTrackback;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -70,9 +70,9 @@ class ModuleImportDc1 extends Module
      */
     public function init(): void
     {
-        $this->con     = Core::con();
-        $this->prefix  = Core::con()->prefix();
-        $this->blog_id = Core::blog()->id;
+        $this->con     = App::con();
+        $this->prefix  = App::con()->prefix();
+        $this->blog_id = App::blog()->id;
 
         if (!isset($_SESSION['dc1_import_vars'])) {
             $_SESSION['dc1_import_vars'] = $this->base_vars;
@@ -134,7 +134,7 @@ class ModuleImportDc1 extends Module
             case 'step3':
                 $this->step = 3;
                 $this->importCategories();
-                if (Core::plugins()->moduleExists('blogroll')) {
+                if (App::plugins()->moduleExists('blogroll')) {
                     $this->step = 4;
                     echo $this->progressBar(5);
                 } else {
@@ -163,7 +163,7 @@ class ModuleImportDc1 extends Module
                 break;
             case 'ok':
                 $this->resetVars();
-                Core::blog()->triggerBlog();
+                App::blog()->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
 
@@ -192,7 +192,7 @@ class ModuleImportDc1 extends Module
                 echo
                 '<p>' . sprintf(
                     __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(Core::blog()->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(App::blog()->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -292,7 +292,7 @@ class ModuleImportDc1 extends Module
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . Core::nonce()->getFormNonce() .
+        '<div>' . App::nonce()->getFormNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '" /></p>' .
@@ -363,7 +363,7 @@ class ModuleImportDc1 extends Module
             $this->con->begin();
 
             while ($rs->fetch()) {
-                if (!Core::users()->userExists($rs->user_id)) {
+                if (!App::users()->userExists($rs->user_id)) {
                     $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
                     $cur->user_id          = $rs->user_id;
                     $cur->user_name        = $rs->user_nom;
@@ -372,7 +372,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_pwd         = Crypt::createPassword();
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
-                    $cur->user_tz          = Core::blog()->settings->system->blog_timezone;
+                    $cur->user_tz          = App::blog()->settings->system->blog_timezone;
                     $cur->user_post_status = $rs->user_post_pub ? dcBlog::POST_PUBLISHED : dcBlog::POST_PENDING;
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => (int) $rs->user_edit_size,
@@ -401,8 +401,8 @@ class ModuleImportDc1 extends Module
                             break;
                     }
 
-                    Core::users()->addUser($cur);
-                    Core::users()->setUserBlogPermissions(
+                    App::users()->addUser($cur);
+                    App::users()->setUserBlogPermissions(
                         $rs->user_id,
                         $this->blog_id,
                         $permissions
@@ -721,7 +721,7 @@ class ModuleImportDc1 extends Module
         }
 
         while ($rs->fetch()) {
-            Core::meta()->setPostMeta($new_post_id, Text::cleanStr($rs->meta_key), Text::cleanStr($rs->meta_value));
+            App::meta()->setPostMeta($new_post_id, Text::cleanStr($rs->meta_key), Text::cleanStr($rs->meta_value));
         }
     }
 }

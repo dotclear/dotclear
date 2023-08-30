@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -35,7 +35,7 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         // Admin behaviors
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'dcMaintenanceInit'                => BackendBehaviors::dcMaintenanceInit(...),
             'adminDashboardFavoritesV2'        => BackendBehaviors::adminDashboardFavorites(...),
             'adminDashboardHeaders'            => BackendBehaviors::adminDashboardHeaders(...),
@@ -46,8 +46,8 @@ class Backend extends Process
         ]);
 
         // Rest method
-        Core::rest()->addFunction('dcMaintenanceStep', Rest::step(...));
-        Core::rest()->addFunction('dcMaintenanceTaskExpired', Rest::countExpired(...));
+        App::rest()->addFunction('dcMaintenanceStep', Rest::step(...));
+        App::rest()->addFunction('dcMaintenanceTaskExpired', Rest::countExpired(...));
 
         return true;
     }

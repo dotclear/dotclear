@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
@@ -25,11 +25,11 @@ class My extends MyPlugin
     {
         return in_array($context, [self::BACKEND, self::MANAGE, self::MENU]) ? // allow pages permissions
             defined('DC_CONTEXT_ADMIN')
-            && !is_null(Core::blog())
-            && Core::auth()->check(Core::auth()->makePermissions([
+            && !is_null(App::blog())
+            && App::auth()->check(App::auth()->makePermissions([
                 My::PERMISSION_PAGES,
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id)
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id)
             : null;
     }
 }

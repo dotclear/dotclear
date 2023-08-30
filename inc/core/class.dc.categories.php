@@ -12,7 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
@@ -60,9 +60,9 @@ class dcCategories extends nestedTree
      */
     public function __construct()
     {
-        $this->con           = Core::con();
-        $this->blog_id       = Core::blog()->id;
-        $this->table         = Core::con()->prefix() . self::CATEGORY_TABLE_NAME;
+        $this->con           = App::con();
+        $this->blog_id       = App::blog()->id;
+        $this->table         = App::con()->prefix() . self::CATEGORY_TABLE_NAME;
         $this->add_condition = ['blog_id' => "'" . $this->con->escape($this->blog_id) . "'"];
     }
 

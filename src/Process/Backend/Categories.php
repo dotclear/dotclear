@@ -15,7 +15,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -25,8 +25,8 @@ class Categories extends Process
 {
     public static function init(): bool
     {
-        Page::check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_CATEGORIES,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CATEGORIES,
         ]));
 
         return self::status(true);
@@ -41,24 +41,24 @@ class Categories extends Process
             $name   = '';
 
             // Check if category to delete exists
-            $rs = Core::blog()->getCategory((int) $cat_id);
+            $rs = App::blog()->getCategory((int) $cat_id);
             if ($rs->isEmpty()) {
                 Notices::addErrorNotice(__('This category does not exist.'));
-                Core::backend()->url->redirect('admin.categories');
+                App::backend()->url->redirect('admin.categories');
             } else {
                 $name = $rs->cat_title;
             }
 
             try {
                 // Delete category
-                Core::blog()->delCategory($cat_id);
+                App::blog()->delCategory($cat_id);
                 Notices::addSuccessNotice(sprintf(
                     __('The category "%s" has been successfully deleted.'),
                     Html::escapeHTML($name)
                 ));
-                Core::backend()->url->redirect('admin.categories');
+                App::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -72,7 +72,7 @@ class Categories extends Process
                 $name    = '';
 
                 if ($mov_cat !== null) {
-                    $rs = Core::blog()->getCategory($mov_cat);
+                    $rs = App::blog()->getCategory($mov_cat);
                     if ($rs->isEmpty()) {
                         throw new Exception(__('Category where to move entries does not exist'));
                     }
@@ -80,15 +80,15 @@ class Categories extends Process
                 }
                 // Move posts
                 if ($mov_cat != $cat_id) {
-                    Core::blog()->changePostsCategory($cat_id, $mov_cat);
+                    App::blog()->changePostsCategory($cat_id, $mov_cat);
                 }
                 Notices::addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
                 ));
-                Core::backend()->url->redirect('admin.categories');
+                App::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -97,21 +97,21 @@ class Categories extends Process
             $categories = json_decode($_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
             foreach ($categories as $category) {
                 if (!empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
-                    Core::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
+                    App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
                 }
             }
             Notices::addSuccessNotice(__('Categories have been successfully reordered.'));
-            Core::backend()->url->redirect('admin.categories');
+            App::backend()->url->redirect('admin.categories');
         }
 
         if (!empty($_POST['reset'])) {
             // Reset order
             try {
-                Core::blog()->resetCategoriesOrder();
+                App::blog()->resetCategoriesOrder();
                 Notices::addSuccessNotice(__('Categories order has been successfully reset.'));
-                Core::backend()->url->redirect('admin.categories');
+                App::backend()->url->redirect('admin.categories');
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -120,14 +120,14 @@ class Categories extends Process
 
     public static function render(): void
     {
-        $rs = Core::blog()->getCategories();
+        $rs = App::blog()->getCategories();
 
         $starting_script = '';
 
-        if (!Core::auth()->user_prefs->accessibility->nodragdrop
-            && Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CATEGORIES,
-            ]), Core::blog()->id)
+        if (!App::auth()->user_prefs->accessibility->nodragdrop
+            && App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CATEGORIES,
+            ]), App::blog()->id)
             && $rs->count() > 1) {
             $starting_script .= Page::jsLoad('js/jquery/jquery-ui.custom.js');
             $starting_script .= Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
@@ -141,7 +141,7 @@ class Categories extends Process
             $starting_script,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name) => '',
                     __('Categories')                     => '',
                 ]
             )
@@ -160,7 +160,7 @@ class Categories extends Process
         $categories_combo = Combos::getCategoriesCombo($rs);
 
         echo
-        '<p class="top-add"><a class="button add" href="' . Core::backend()->url->get('admin.category') . '">' . __('New category') . '</a></p>';
+        '<p class="top-add"><a class="button add" href="' . App::backend()->url->get('admin.category') . '">' . __('New category') . '</a></p>';
 
         echo
         '<div class="col">';
@@ -168,7 +168,7 @@ class Categories extends Process
             echo '<p>' . __('No category so far.') . '</p>';
         } else {
             echo
-            '<form action="' . Core::backend()->url->get('admin.categories') . '" method="post" id="form-categories">' .
+            '<form action="' . App::backend()->url->get('admin.categories') . '" method="post" id="form-categories">' .
             '<div id="categories">';
 
             $ref_level = $level = $rs->level - 1;
@@ -186,8 +186,8 @@ class Categories extends Process
                 }
 
                 echo
-                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . Core::backend()->url->get('admin.category', ['id' => $rs->cat_id]) . '">' . Html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
-                '<p class="cat-nb-posts">(<a href="' . Core::backend()->url->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' . sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' . ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
+                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . App::backend()->url->get('admin.category', ['id' => $rs->cat_id]) . '">' . Html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
+                '<p class="cat-nb-posts">(<a href="' . App::backend()->url->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' . sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' . ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
                 '<p class="cat-url">' . __('URL:') . ' <code>' . Html::escapeHTML($rs->cat_url) . '</code></p>';
 
                 echo
@@ -223,10 +223,10 @@ class Categories extends Process
 
             echo '<div class="clear">';
 
-            if (Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CATEGORIES,
-            ]), Core::blog()->id) && $rs->count() > 1) {
-                if (!Core::auth()->user_prefs->accessibility->nodragdrop) {
+            if (App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CATEGORIES,
+            ]), App::blog()->id) && $rs->count() > 1) {
+                if (!App::auth()->user_prefs->accessibility->nodragdrop) {
                     echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
                 }
                 echo
@@ -241,7 +241,7 @@ class Categories extends Process
             echo
             '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '" />' .
             '<input type="hidden" name="process" value="Categories"/>' .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
             '</p>' .
             '</div></form>';
         }

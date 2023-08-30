@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
 use initAntispam;
@@ -32,7 +32,7 @@ class Install extends Process
 
         /* Database schema
         -------------------------------------------------------- */
-        $schema = new Structure(Core::con(), Core::con()->prefix());
+        $schema = new Structure(App::con(), App::con()->prefix());
 
         $schema->{initAntispam::SPAMRULE_TABLE_NAME}
             ->rule_id('bigint', 0, false)
@@ -51,10 +51,10 @@ class Install extends Process
         }
 
         // Schema installation
-        (new Structure(Core::con(), Core::con()->prefix()))->synchronize($schema);
+        (new Structure(App::con(), App::con()->prefix()))->synchronize($schema);
 
         // Creating default wordslist
-        if (Core::version()->getVersion(My::id()) === '') {
+        if (App::version()->getVersion(My::id()) === '') {
             (new Filters\Words())->defaultWordsList();
         }
 

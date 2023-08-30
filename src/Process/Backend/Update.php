@@ -15,7 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcUpdate;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -71,31 +71,31 @@ class Update extends Process
             exit;
         }
 
-        Core::backend()->updater = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
-        Core::backend()->new_v   = Core::backend()->updater->check(DC_VERSION, !empty($_GET['nocache']));
+        App::backend()->updater = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
+        App::backend()->new_v   = App::backend()->updater->check(DC_VERSION, !empty($_GET['nocache']));
 
-        Core::backend()->zip_file       = '';
-        Core::backend()->version_info   = '';
-        Core::backend()->update_warning = false;
+        App::backend()->zip_file       = '';
+        App::backend()->version_info   = '';
+        App::backend()->update_warning = false;
 
-        if (Core::backend()->new_v) {
-            Core::backend()->zip_file       = DC_BACKUP_PATH . '/' . basename(Core::backend()->updater->getFileURL());
-            Core::backend()->version_info   = Core::backend()->updater->getInfoURL();
-            Core::backend()->update_warning = Core::backend()->updater->getWarning();
+        if (App::backend()->new_v) {
+            App::backend()->zip_file       = DC_BACKUP_PATH . '/' . basename(App::backend()->updater->getFileURL());
+            App::backend()->version_info   = App::backend()->updater->getInfoURL();
+            App::backend()->update_warning = App::backend()->updater->getWarning();
         }
 
         # Hide "update me" message
         if (!empty($_GET['hide_msg'])) {
-            Core::backend()->updater->setNotify(false);
+            App::backend()->updater->setNotify(false);
             Http::redirect('index.php');
         }
 
-        Core::backend()->step = $_GET['step'] ?? '';
-        Core::backend()->step = in_array(Core::backend()->step, ['check', 'download', 'backup', 'unzip']) ? Core::backend()->step : '';
+        App::backend()->step = $_GET['step'] ?? '';
+        App::backend()->step = in_array(App::backend()->step, ['check', 'download', 'backup', 'unzip']) ? App::backend()->step : '';
 
-        Core::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'update';
+        App::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'update';
         if (!empty($_POST['backup_file'])) {
-            Core::backend()->default_tab = 'files';
+            App::backend()->default_tab = 'files';
         }
 
         $archives = [];
@@ -107,9 +107,9 @@ class Update extends Process
         if (!empty($archives)) {
             usort($archives, fn ($a, $b) => $a <=> $b);
         } else {
-            Core::backend()->default_tab = 'update';
+            App::backend()->default_tab = 'update';
         }
-        Core::backend()->archives = $archives;
+        App::backend()->archives = $archives;
 
         return self::status(true);
     }
@@ -117,7 +117,7 @@ class Update extends Process
     public static function process(): bool
     {
         # Revert or delete backup file
-        if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'], Core::backend()->archives)) {
+        if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'], App::backend()->archives)) {
             $b_file = $_POST['backup_file'];
 
             try {
@@ -125,61 +125,61 @@ class Update extends Process
                     if (!@unlink(DC_BACKUP_PATH . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
-                    Core::backend()->url->redirect('admin.update', ['tab' => 'files']);
+                    App::backend()->url->redirect('admin.update', ['tab' => 'files']);
                 }
 
                 if (!empty($_POST['b_revert'])) {
                     $zip = new Unzip(DC_BACKUP_PATH . '/' . $b_file);
                     $zip->unzipAll(DC_BACKUP_PATH . '/');
                     @unlink(DC_BACKUP_PATH . '/' . $b_file);
-                    Core::backend()->url->redirect('admin.update', ['tab' => 'files']);
+                    App::backend()->url->redirect('admin.update', ['tab' => 'files']);
                 }
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
         # Upgrade process
-        if (Core::backend()->new_v && Core::backend()->step) {
+        if (App::backend()->new_v && App::backend()->step) {
             try {
-                Core::backend()->updater->setForcedFiles('inc/digests');
+                App::backend()->updater->setForcedFiles('inc/digests');
 
-                switch (Core::backend()->step) {
+                switch (App::backend()->step) {
                     case 'check':
-                        Core::backend()->updater->checkIntegrity(DC_ROOT . '/inc/digests', DC_ROOT);
-                        Core::backend()->url->redirect('admin.update', ['step' => 'download']);
+                        App::backend()->updater->checkIntegrity(DC_ROOT . '/inc/digests', DC_ROOT);
+                        App::backend()->url->redirect('admin.update', ['step' => 'download']);
 
                         break;
                     case 'download':
-                        Core::backend()->updater->download(Core::backend()->zip_file);
-                        if (!Core::backend()->updater->checkDownload(Core::backend()->zip_file)) {
+                        App::backend()->updater->download(App::backend()->zip_file);
+                        if (!App::backend()->updater->checkDownload(App::backend()->zip_file)) {
                             throw new Exception(
                                 sprintf(
                                     __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
-                                    'href="' . Core::backend()->url->get('admin.update', ['step' => 'download']) . '"'
+                                    'href="' . App::backend()->url->get('admin.update', ['step' => 'download']) . '"'
                                 ) .
                                 ' ' .
                                 __('If this problem persists try to ' .
                                     '<a href="https://dotclear.org/download">update manually</a>.')
                             );
                         }
-                        Core::backend()->url->redirect('admin.update', ['step' => 'backup']);
+                        App::backend()->url->redirect('admin.update', ['step' => 'backup']);
 
                         break;
                     case 'backup':
-                        Core::backend()->updater->backup(
-                            Core::backend()->zip_file,
+                        App::backend()->updater->backup(
+                            App::backend()->zip_file,
                             'dotclear/inc/digests',
                             DC_ROOT,
                             DC_ROOT . '/inc/digests',
                             DC_BACKUP_PATH . '/backup-' . DC_VERSION . '.zip'
                         );
-                        Core::backend()->url->redirect('admin.update', ['step' => 'unzip']);
+                        App::backend()->url->redirect('admin.update', ['step' => 'unzip']);
 
                         break;
                     case 'unzip':
-                        Core::backend()->updater->performUpgrade(
-                            Core::backend()->zip_file,
+                        App::backend()->updater->performUpgrade(
+                            App::backend()->zip_file,
                             'dotclear/inc/digests',
                             'dotclear',
                             DC_ROOT,
@@ -187,7 +187,7 @@ class Update extends Process
                         );
 
                         // Disable REST service until next authentication
-                        Core::rest()->enableRestServer(false);
+                        App::rest()->enableRestServer(false);
 
                         break;
                 }
@@ -205,14 +205,14 @@ class Update extends Process
                     $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
                 }
 
-                if (count($bad_files = Core::backend()->updater->getBadFiles())) {
+                if (count($bad_files = App::backend()->updater->getBadFiles())) {
                     $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $bad_files) . '</strong></li></ul>';
                 }
 
-                Core::error()->add($msg);
+                App::error()->add($msg);
 
                 # --BEHAVIOR-- adminDCUpdateException -- Exception
-                Core::behavior()->callBehavior('adminDCUpdateException', $e);
+                App::behavior()->callBehavior('adminDCUpdateException', $e);
             }
         }
 
@@ -223,19 +223,19 @@ class Update extends Process
     {
         $safe_mode = false;
 
-        if (Core::backend()->step == 'unzip' && !Core::error()->flag()) {
+        if (App::backend()->step == 'unzip' && !App::error()->flag()) {
             // Check if safe_mode is ON, will be use below
             $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
             // Update done, need to go back to authentication (see below), but we need
             // to kill the admin session before sending any header
-            Core::backend()->killAdminSession();
+            App::backend()->killAdminSession();
         }
 
         Page::open(
             __('Dotclear update'),
-            (!Core::backend()->step ?
-                Page::jsPageTabs(Core::backend()->default_tab) .
+            (!App::backend()->step ?
+                Page::jsPageTabs(App::backend()->default_tab) .
                 Page::jsLoad('js/_update.js')
                 : ''),
             Page::breadcrumb(
@@ -246,11 +246,11 @@ class Update extends Process
             )
         );
 
-        if (!Core::error()->flag() && !empty($_GET['nocache'])) {
+        if (!App::error()->flag() && !empty($_GET['nocache'])) {
             Notices::success(__('Manual checking of update done successfully.'));
         }
 
-        if (!Core::backend()->step) {
+        if (!App::backend()->step) {
             echo
             '<div class="multi-part" id="update" title="' . __('Dotclear update') . '">';
 
@@ -265,31 +265,31 @@ class Update extends Process
                 ) .
                 '</p>';
             }
-            if (empty(Core::backend()->new_v)) {
+            if (empty(App::backend()->new_v)) {
                 echo
                 '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>' .
-                '<form action="' . Core::backend()->url->get('admin.update') . '" method="get">' .
+                '<form action="' . App::backend()->url->get('admin.update') . '" method="get">' .
                 '<p><input type="hidden" name="process" value="Update" />' .
                 '<p><input type="hidden" name="nocache" value="1" />' .
                 '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
                 '</form>';
             } else {
                 echo
-                '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), Core::backend()->new_v) .
-                (Core::backend()->version_info ? ' <a href="' . Core::backend()->version_info . '" title="' . __('Information about this version') . '">(' .
+                '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), App::backend()->new_v) .
+                (App::backend()->version_info ? ' <a href="' . App::backend()->version_info . '" title="' . __('Information about this version') . '">(' .
                 __('Information about this version') . ')</a>' : '') .
                 '</p>';
-                if (version_compare(phpversion(), Core::backend()->updater->getPHPVersion()) < 0) {
+                if (version_compare(phpversion(), App::backend()->updater->getPHPVersion()) < 0) {
                     echo
-                    '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), Core::backend()->updater->getPHPVersion()) . '</p>';
+                    '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), App::backend()->updater->getPHPVersion()) . '</p>';
                 } else {
-                    if (Core::backend()->update_warning) {
+                    if (App::backend()->update_warning) {
                         echo
                         '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>';
                     }
                     echo
                     '<p>' . __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.') . '</p>' .
-                    '<form action="' . Core::backend()->url->get('admin.update') . '" method="get">' .
+                    '<form action="' . App::backend()->url->get('admin.update') . '" method="get">' .
                     '<p><input type="hidden" name="step" value="check" />' .
                     '<p><input type="hidden" name="process" value="Update" />' .
                     '<input type="submit" value="' . __('Update Dotclear') . '" /></p>' .
@@ -299,8 +299,8 @@ class Update extends Process
             echo
             '</div>';
 
-            if (!empty(Core::backend()->archives)) {
-                $archives = Core::backend()->archives;
+            if (!empty(App::backend()->archives)) {
+                $archives = App::backend()->archives;
                 echo
                 '<div class="multi-part" id="files" title="' . __('Manage backup files') . '">';
 
@@ -309,7 +309,7 @@ class Update extends Process
                 '<p>' . __('The following files are backups of previously updates. You can revert your previous installation or delete theses files.') . '</p>';
 
                 echo
-                '<form action="' . Core::backend()->url->get('admin.update') . '" method="post">';
+                '<form action="' . App::backend()->url->get('admin.update') . '" method="post">';
                 foreach ($archives as $archive) {
                     echo
                     '<p><label class="classic">' . form::radio(['backup_file'], Html::escapeHTML($archive)) . ' ' .
@@ -321,17 +321,17 @@ class Update extends Process
                 sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)) . '</p>' .
                 '<p><input type="submit" class="delete" name="b_del" value="' . __('Delete selected file') . '" /> ' .
                 '<input type="submit" name="b_revert" value="' . __('Revert to selected file') . '" />' .
-                Core::nonce()->getFormNonce() . '</p>' .
+                App::nonce()->getFormNonce() . '</p>' .
                 '</form></div>';
             }
-        } elseif (Core::backend()->step == 'unzip' && !Core::error()->flag()) {
+        } elseif (App::backend()->step == 'unzip' && !App::error()->flag()) {
             // Keep safe-mode for next authentication
             $params = $safe_mode ? ['safe_mode' => 1] : []; // @phpstan-ignore-line
 
             echo
             '<p class="message">' .
             __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="' . Core::backend()->url->get('admin.auth', $params) . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
+            ' <strong><a href="' . App::backend()->url->get('admin.auth', $params) . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
             '</p>';
         }
 

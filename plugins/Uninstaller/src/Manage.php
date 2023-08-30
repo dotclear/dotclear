@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\Uninstaller;
 
 use dcModuleDefine;
 use dcThemes;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Core\Backend\{
     Notices,
@@ -52,14 +52,14 @@ class Manage extends Process
         }
 
         // load dcThemes if required
-        if (self::getType() == 'theme' && Core::themes()->isEmpty()) {
-            Core::themes()->loadModules((string) Core::blog()?->themes_path);
+        if (self::getType() == 'theme' && App::themes()->isEmpty()) {
+            App::themes()->loadModules((string) App::blog()?->themes_path);
         }
 
         // get selected module
-        $define = Core::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
-            Core::error()->add(__('Unknown module id to uninstall'));
+            App::error()->add(__('Unknown module id to uninstall'));
             self::doRedirect();
         }
 
@@ -67,7 +67,7 @@ class Manage extends Process
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $actions     = $uninstaller->getUserActions($define->getId());
         if (!count($actions)) {
-            Core::error()->add(__('There are no uninstall actions for this module'));
+            App::error()->add(__('There are no uninstall actions for this module'));
             self::doRedirect();
         }
 
@@ -85,7 +85,7 @@ class Manage extends Process
                         if ($uninstaller->execute($cleaner, $action->id, $_POST['action'][$cleaner][$action->id])) {
                             $done[] = $action->success;
                         } else {
-                            Core::error()->add($action->error);
+                            App::error()->add($action->error);
                         }
                     }
                 }
@@ -99,7 +99,7 @@ class Manage extends Process
             }
             self::doRedirect();
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return true;
@@ -112,7 +112,7 @@ class Manage extends Process
         }
 
         // load module uninstaller
-        $define      = Core::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define      = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $fields      = [];
 
@@ -159,7 +159,7 @@ class Manage extends Process
             My::jsLoad('manage') .
 
             # --BEHAVIOR-- UninstallerHeader
-            Core::behavior()->callBehavior('UninstallerHeader')
+            App::behavior()->callBehavior('UninstallerHeader')
         );
 
         echo
@@ -195,11 +195,11 @@ class Manage extends Process
 
     private static function getRedirect(): string
     {
-        return (string) Core::backend()->url->get(self::getRedir()) . '#' . self::getType() . 's';
+        return (string) App::backend()->url->get(self::getRedir()) . '#' . self::getType() . 's';
     }
 
     private static function doRedirect(): void
     {
-        Core::backend()->url->redirect(name: self::getRedir(), suffix: '#' . self::getType() . 's');
+        App::backend()->url->redirect(name: self::getRedir(), suffix: '#' . self::getType() . 's');
     }
 }

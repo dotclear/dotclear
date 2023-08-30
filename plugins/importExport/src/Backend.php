@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 use Dotclear\Plugin\maintenance\Maintenance;
@@ -35,15 +35,15 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => Core::auth()->makePermissions([
-                        Core::auth()::PERMISSION_ADMIN,
+                    'permissions' => App::auth()->makePermissions([
+                        App::auth()::PERMISSION_ADMIN,
                     ]),
                 ]);
             },

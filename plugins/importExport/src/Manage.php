@@ -17,7 +17,7 @@ use Exception;
 use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -30,21 +30,21 @@ class Manage extends Process
         $modules = new ArrayObject(['import' => [], 'export' => []]);
 
         # --BEHAVIOR-- importExportModules -- ArrayObject
-        Core::behavior()->callBehavior('importExportModulesV2', $modules);
+        App::behavior()->callBehavior('importExportModulesV2', $modules);
 
-        Core::backend()->type = null;
+        App::backend()->type = null;
         if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'])) {
-            Core::backend()->type = $_REQUEST['type'];
+            App::backend()->type = $_REQUEST['type'];
         }
 
-        Core::backend()->modules = $modules;
-        Core::backend()->module  = null;
+        App::backend()->modules = $modules;
+        App::backend()->module  = null;
 
         $module = $_REQUEST['module'] ?? false;
-        if (Core::backend()->type && $module !== false && isset(Core::backend()->modules[Core::backend()->type]) && in_array($module, Core::backend()->modules[Core::backend()->type])) {
+        if (App::backend()->type && $module !== false && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
             // todo remove dcCore from method
-            Core::backend()->module = new $module(dcCore::app());
-            Core::backend()->module->init();
+            App::backend()->module = new $module(dcCore::app());
+            App::backend()->module->init();
         }
 
         return self::status();
@@ -56,11 +56,11 @@ class Manage extends Process
             return false;
         }
 
-        if (Core::backend()->type && Core::backend()->module !== null && !empty($_REQUEST['do'])) {
+        if (App::backend()->type && App::backend()->module !== null && !empty($_REQUEST['do'])) {
             try {
-                Core::backend()->module->process($_REQUEST['do']);
+                App::backend()->module->process($_REQUEST['do']);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -83,19 +83,19 @@ class Manage extends Process
             My::jsLoad('script')
         );
 
-        if (Core::backend()->type && Core::backend()->module !== null) {
+        if (App::backend()->type && App::backend()->module !== null) {
             echo
             Page::breadcrumb(
                 [
                     __('Plugins')                                   => '',
-                    My::name()                                      => Core::backend()->getPageURL(),
-                    Html::escapeHTML(Core::backend()->module->name) => '',
+                    My::name()                                      => App::backend()->getPageURL(),
+                    Html::escapeHTML(App::backend()->module->name) => '',
                 ]
             ) .
             Notices::getNotices() .
             '<div id="ie-gui">';
 
-            Core::backend()->module->gui();
+            App::backend()->module->gui();
 
             echo
             '</div>';
@@ -110,12 +110,12 @@ class Manage extends Process
             Notices::getNotices() .
 
             '<h3>' . __('Import') . '</h3>' .
-            self::listImportExportModules(Core::backend()->modules['import']) .
+            self::listImportExportModules(App::backend()->modules['import']) .
 
             '<h3>' . __('Export') . '</h3>' .
             '<p class="info">' . sprintf(
                 __('Export functions are in the page %s.'),
-                '<a href="' . Core::backend()->url->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' .
+                '<a href="' . App::backend()->url->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' .
                 __('Maintenance') . '</a>'
             ) . '</p>';
         }

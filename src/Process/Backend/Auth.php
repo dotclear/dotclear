@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use dcAuth;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -30,56 +30,56 @@ class Auth extends Process
     {
         // If we have a session cookie, go to index.php
         if (isset($_SESSION['sess_user_id'])) {
-            Core::backend()->url->redirect('admin.home');
+            App::backend()->url->redirect('admin.home');
         }
 
         // Loading locales for detected language
         // That's a tricky hack but it works ;)
-        Core::backend()->dlang = Http::getAcceptLanguage();
-        Core::backend()->dlang = (Core::backend()->dlang === '' ? 'en' : Core::backend()->dlang);
-        if (Core::backend()->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', Core::backend()->dlang)) {
-            L10n::lang(Core::backend()->dlang);
-            L10n::set(DC_L10N_ROOT . '/' . Core::backend()->dlang . '/main');
+        App::backend()->dlang = Http::getAcceptLanguage();
+        App::backend()->dlang = (App::backend()->dlang === '' ? 'en' : App::backend()->dlang);
+        if (App::backend()->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', App::backend()->dlang)) {
+            L10n::lang(App::backend()->dlang);
+            L10n::set(DC_L10N_ROOT . '/' . App::backend()->dlang . '/main');
         }
 
         if (defined('DC_ADMIN_URL')) {
-            Core::backend()->page_url = DC_ADMIN_URL . Core::backend()->url->get('admin.auth');
+            App::backend()->page_url = DC_ADMIN_URL . App::backend()->url->get('admin.auth');
         } else {
-            Core::backend()->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
+            App::backend()->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
         }
 
-        Core::backend()->change_pwd = Core::auth()->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
+        App::backend()->change_pwd = App::auth()->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 
-        Core::backend()->login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : null;
+        App::backend()->login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : null;
 
-        Core::backend()->recover = Core::auth()->allowPassChange() && !empty($_REQUEST['recover']);
-        Core::backend()->akey    = Core::auth()->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
+        App::backend()->recover = App::auth()->allowPassChange() && !empty($_REQUEST['recover']);
+        App::backend()->akey    = App::auth()->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
 
-        Core::backend()->safe_mode = !empty($_REQUEST['safe_mode']);
+        App::backend()->safe_mode = !empty($_REQUEST['safe_mode']);
 
-        Core::backend()->user_id    = null;
-        Core::backend()->user_pwd   = null;
-        Core::backend()->user_key   = null;
-        Core::backend()->user_email = null;
-        Core::backend()->err        = null;
-        Core::backend()->msg        = null;
+        App::backend()->user_id    = null;
+        App::backend()->user_pwd   = null;
+        App::backend()->user_key   = null;
+        App::backend()->user_email = null;
+        App::backend()->err        = null;
+        App::backend()->msg        = null;
 
         // Auto upgrade
-        if ((count($_GET) == 1 && empty($_POST)) || Core::backend()->safe_mode) {
+        if ((count($_GET) == 1 && empty($_POST)) || App::backend()->safe_mode) {
             try {
                 if (($changes = Upgrade::dotclearUpgrade()) !== false) {
-                    Core::backend()->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
+                    App::backend()->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
                 }
             } catch (Exception $e) {
-                Core::backend()->err = $e->getMessage();
+                App::backend()->err = $e->getMessage();
             }
         }
 
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
             // If we have POST login informations, go throug auth process
 
-            Core::backend()->user_id  = $_POST['user_id'];
-            Core::backend()->user_pwd = $_POST['user_pwd'];
+            App::backend()->user_id  = $_POST['user_id'];
+            App::backend()->user_pwd = $_POST['user_pwd'];
         } elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
             // If we have a remember cookie, go through auth process with user_key
 
@@ -87,17 +87,17 @@ class Auth extends Process
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
                 $user_id                  = trim((string) $user_id[1]);
-                Core::backend()->user_key = substr($_COOKIE['dc_admin'], 0, 40);
-                Core::backend()->user_pwd = null;
+                App::backend()->user_key = substr($_COOKIE['dc_admin'], 0, 40);
+                App::backend()->user_pwd = null;
             } else {
                 $user_id = null;
             }
-            Core::backend()->user_id = $user_id;
+            App::backend()->user_id = $user_id;
         }
 
         // Enable REST service if disabled
-        if (!Core::rest()->serveRestRequests()) {
-            Core::rest()->enableRestServer(true);
+        if (!App::rest()->serveRestRequests()) {
+            App::rest()->enableRestServer(true);
         }
 
         return self::status(true);
@@ -106,43 +106,43 @@ class Auth extends Process
     public static function process(): bool
     {
         $headers = [];
-        if (Core::backend()->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
-            Core::backend()->user_id    = $_POST['user_id'];
-            Core::backend()->user_email = Html::escapeHTML($_POST['user_email']);
+        if (App::backend()->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
+            App::backend()->user_id    = $_POST['user_id'];
+            App::backend()->user_email = Html::escapeHTML($_POST['user_email']);
 
             // Recover password
 
             try {
-                $recover_key = Core::auth()->setRecoverKey(Core::backend()->user_id, Core::backend()->user_email);
+                $recover_key = App::auth()->setRecoverKey(App::backend()->user_id, App::backend()->user_email);
 
                 $subject = mail::B64Header('Dotclear ' . __('Password reset'));
-                $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . Core::backend()->page_url . "\n" . __('Username:') . ' ' . Core::backend()->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . Core::backend()->page_url . '&akey=' . $recover_key;
+                $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . App::backend()->page_url . "\n" . __('Username:') . ' ' . App::backend()->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . App::backend()->page_url . '&akey=' . $recover_key;
 
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                mail::sendMail(Core::backend()->user_email, $subject, $message, $headers);
-                Core::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), Core::backend()->user_email);
+                mail::sendMail(App::backend()->user_email, $subject, $message, $headers);
+                App::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), App::backend()->user_email);
             } catch (Exception $e) {
-                Core::backend()->err = $e->getMessage();
+                App::backend()->err = $e->getMessage();
             }
-        } elseif (Core::backend()->akey) {
+        } elseif (App::backend()->akey) {
             // Send new password
 
             try {
-                $recover_res = Core::auth()->recoverUserPassword(Core::backend()->akey);
+                $recover_res = App::auth()->recoverUserPassword(App::backend()->akey);
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
-                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) Core::backend()->page_url);
+                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) App::backend()->page_url);
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
-                Core::backend()->msg = __('Your new password is in your mailbox.');
+                App::backend()->msg = __('Your new password is in your mailbox.');
             } catch (Exception $e) {
-                Core::backend()->err = $e->getMessage();
+                App::backend()->err = $e->getMessage();
             }
-        } elseif (Core::backend()->change_pwd) {
+        } elseif (App::backend()->change_pwd) {
             // Change password and retry to log
 
             try {
@@ -166,16 +166,16 @@ class Auth extends Process
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
                         $user_id                  = trim((string) $data['user_id']);
-                        Core::backend()->user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user               = Core::auth()->checkUser($user_id, null, Core::backend()->user_key) === true;
+                        App::backend()->user_key = substr($data['cookie_admin'], 0, 40);
+                        $check_user               = App::auth()->checkUser($user_id, null, App::backend()->user_key) === true;
                     } else {
                         $user_id = trim((string) $user_id);
                     }
-                    Core::backend()->user_id = $user_id;
+                    App::backend()->user_id = $user_id;
                 }
 
-                if (!Core::auth()->allowPassChange() || !$check_user) {
-                    Core::backend()->change_pwd = false;
+                if (!App::auth()->allowPassChange() || !$check_user) {
+                    App::backend()->change_pwd = false;
 
                     throw new Exception();
                 }
@@ -184,78 +184,78 @@ class Auth extends Process
                     throw new Exception(__("Passwords don't match"));
                 }
 
-                if (Core::auth()->checkUser(Core::backend()->user_id, $_POST['new_pwd']) === true) {
+                if (App::auth()->checkUser(App::backend()->user_id, $_POST['new_pwd']) === true) {
                     throw new Exception(__("You didn't change your password."));
                 }
 
-                $cur                  = Core::con()->openCursor(Core::con()->prefix() . dcAuth::USER_TABLE_NAME);
+                $cur                  = App::con()->openCursor(App::con()->prefix() . dcAuth::USER_TABLE_NAME);
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
-                Core::users()->updUser(Core::auth()->userID(), $cur);
+                App::users()->updUser(App::auth()->userID(), $cur);
 
-                Core::session()->start();
-                $_SESSION['sess_user_id']     = Core::backend()->user_id;
+                App::session()->start();
+                $_SESSION['sess_user_id']     = App::backend()->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
 
                 if ($data['user_remember']) {
                     setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
 
-                Core::backend()->url->redirect('admin.home');
+                App::backend()->url->redirect('admin.home');
             } catch (Exception $e) {
-                Core::backend()->err = $e->getMessage();
+                App::backend()->err = $e->getMessage();
             }
-        } elseif (Core::backend()->user_id !== null && (Core::backend()->user_pwd !== null || Core::backend()->user_key !== null)) {
+        } elseif (App::backend()->user_id !== null && (App::backend()->user_pwd !== null || App::backend()->user_key !== null)) {
             // Try to log
 
             // We check the user
-            $check_user = Core::auth()->checkUser(
-                Core::backend()->user_id,
-                Core::backend()->user_pwd,
-                Core::backend()->user_key,
+            $check_user = App::auth()->checkUser(
+                App::backend()->user_id,
+                App::backend()->user_pwd,
+                App::backend()->user_key,
                 false
             ) === true;
 
             if ($check_user) {
                 // Check user permissions
-                $check_perms = Core::auth()->findUserBlog() !== false;
+                $check_perms = App::auth()->findUserBlog() !== false;
             } else {
                 $check_perms = false;
             }
 
-            $cookie_admin = Http::browserUID(DC_MASTER_KEY . Core::backend()->user_id . Core::auth()->cryptLegacy(Core::backend()->user_id)) . bin2hex(pack('a32', Core::backend()->user_id));
+            $cookie_admin = Http::browserUID(DC_MASTER_KEY . App::backend()->user_id . App::auth()->cryptLegacy(App::backend()->user_id)) . bin2hex(pack('a32', App::backend()->user_id));
 
-            if ($check_perms && Core::auth()->mustChangePassword()) {
+            if ($check_perms && App::auth()->mustChangePassword()) {
                 // User need to change password
 
-                Core::backend()->login_data = join('/', [
-                    base64_encode(Core::backend()->user_id),
+                App::backend()->login_data = join('/', [
+                    base64_encode(App::backend()->user_id),
                     $cookie_admin,
                     empty($_POST['user_remember']) ? '0' : '1',
                 ]);
 
-                if (!Core::auth()->allowPassChange()) {
-                    Core::backend()->err = __('You have to change your password before you can login.');
+                if (!App::auth()->allowPassChange()) {
+                    App::backend()->err = __('You have to change your password before you can login.');
                 } else {
-                    Core::backend()->err        = __('In order to login, you have to change your password now.');
-                    Core::backend()->change_pwd = true;
+                    App::backend()->err        = __('In order to login, you have to change your password now.');
+                    App::backend()->change_pwd = true;
                 }
-            } elseif ($check_perms && Core::backend()->safe_mode && !Core::auth()->isSuperAdmin()) {
+            } elseif ($check_perms && App::backend()->safe_mode && !App::auth()->isSuperAdmin()) {
                 // Non super-admin user cannot use safe mode
 
-                Core::backend()->err = __('Safe Mode can only be used for super administrators.');
+                App::backend()->err = __('Safe Mode can only be used for super administrators.');
             } elseif ($check_perms) {
                 // User may log-in
 
-                Core::session()->start();
-                $_SESSION['sess_user_id']     = Core::backend()->user_id;
+                App::session()->start();
+                $_SESSION['sess_user_id']     = App::backend()->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
 
                 if (!empty($_POST['blog'])) {
                     $_SESSION['sess_blog_id'] = $_POST['blog'];
                 }
 
-                if (Core::backend()->safe_mode && Core::auth()->isSuperAdmin()) {
+                if (App::backend()->safe_mode && App::auth()->isSuperAdmin()) {
                     $_SESSION['sess_safe_mode'] = true;
                 }
 
@@ -263,18 +263,18 @@ class Auth extends Process
                     setcookie('dc_admin', $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
                 }
 
-                Core::backend()->url->redirect('admin.home');
+                App::backend()->url->redirect('admin.home');
             } else {
                 // User cannot login
 
                 if ($check_user) {
                     // Insufficient permissions
 
-                    Core::backend()->err = __('Insufficient permissions');
+                    App::backend()->err = __('Insufficient permissions');
                 } else {
                     // Session expired
 
-                    Core::backend()->err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
+                    App::backend()->err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
                 }
                 if (isset($_COOKIE['dc_admin'])) {
                     unset($_COOKIE['dc_admin']);
@@ -284,7 +284,7 @@ class Auth extends Process
         }
 
         if (isset($_GET['user'])) {
-            Core::backend()->user_id = $_GET['user'];
+            App::backend()->user_id = $_GET['user'];
         }
 
         return true;
@@ -293,14 +293,14 @@ class Auth extends Process
     public static function render(): void
     {
         // nullsafe before header sent
-        if (is_null(Core::auth())) {
+        if (is_null(App::auth())) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
         header('Content-Type: text/html; charset=UTF-8');
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
-        $dlang  = Core::backend()->dlang;
+        $dlang  = App::backend()->dlang;
         $vendor = Html::escapeHTML(DC_VENDOR_NAME);
         $buffer = '<!DOCTYPE html>' . "\n" .
             '<html lang="' . $dlang . '">' . "\n" .
@@ -321,7 +321,7 @@ class Auth extends Process
         $buffer . Page::jsCommon();
 
         # --BEHAVIOR-- loginPageHTMLHead --
-        Core::behavior()->callBehavior('loginPageHTMLHead');
+        App::behavior()->callBehavior('loginPageHTMLHead');
 
         echo
         Page::jsJson('pwstrength', [
@@ -332,7 +332,7 @@ class Auth extends Process
         Page::jsLoad('js/pwstrength.js') .
         Page::jsLoad('js/_auth.js');
 
-        $action = Core::backend()->url->get('admin.auth');
+        $action = App::backend()->url->get('admin.auth');
         $banner = Html::escapeHTML(DC_VENDOR_NAME);
         $buffer = '</head>' . "\n" .
             '<body id="dotclear-admin" class="auth">' . "\n" .
@@ -342,21 +342,21 @@ class Auth extends Process
         echo
         $buffer;
 
-        if (Core::backend()->err) {
+        if (App::backend()->err) {
             echo
-            '<div class="' . (Core::backend()->change_pwd ? 'info' : 'error') . '" role="alert">' . Core::backend()->err . '</div>';
+            '<div class="' . (App::backend()->change_pwd ? 'info' : 'error') . '" role="alert">' . App::backend()->err . '</div>';
         }
-        if (Core::backend()->msg) {
+        if (App::backend()->msg) {
             echo
-            '<p class="success" role="alert">' . Core::backend()->msg . '</p>';
+            '<p class="success" role="alert">' . App::backend()->msg . '</p>';
         }
 
-        if (Core::backend()->akey) {
+        if (App::backend()->akey) {
             // Recovery key has been sent
 
             echo
-            '<p><a href="' . Core::backend()->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
-        } elseif (Core::backend()->recover) {
+            '<p><a href="' . App::backend()->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
+        } elseif (App::backend()->recover) {
             // User request a new password
 
             echo
@@ -367,7 +367,7 @@ class Auth extends Process
                 20,
                 32,
                 [
-                    'default'      => Html::escapeHTML(Core::backend()->user_id),
+                    'default'      => Html::escapeHTML(App::backend()->user_id),
                     'autocomplete' => 'username',
                 ]
             ) .
@@ -377,7 +377,7 @@ class Auth extends Process
             form::email(
                 'user_email',
                 [
-                    'default'      => Html::escapeHTML(Core::backend()->user_email),
+                    'default'      => Html::escapeHTML(App::backend()->user_email),
                     'autocomplete' => 'email',
                 ]
             ) .
@@ -389,9 +389,9 @@ class Auth extends Process
 
             '<details open id="issue">' . "\n" .
             '<summary>' . __('Other option') . '</summary>' . "\n" .
-            '<p><a href="' . Core::backend()->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
+            '<p><a href="' . App::backend()->url->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
             '</details>';
-        } elseif (Core::backend()->change_pwd) {
+        } elseif (App::backend()->change_pwd) {
             // User need to change password
 
             echo
@@ -417,19 +417,19 @@ class Auth extends Process
                 ]
             ) . '</p>' .
             '<p><input type="submit" value="' . __('change') . '" />' .
-            form::hidden('login_data', Core::backend()->login_data) . '</p>' .
+            form::hidden('login_data', App::backend()->login_data) . '</p>' .
             '</fieldset>';
         } else {
             // Authentication
 
-            if (is_callable([Core::auth(), 'authForm'])) {
+            if (is_callable([App::auth(), 'authForm'])) {
                 // User-defined authentication form
 
-                echo Core::auth()->authForm(Core::backend()->user_id);
+                echo App::auth()->authForm(App::backend()->user_id);
             } else {
                 // Standard authentication form
 
-                if (Core::backend()->safe_mode) {
+                if (App::backend()->safe_mode) {
                     echo
                     '<fieldset role="main">' .
                     '<h2>' . __('Safe mode login') . '</h2>' .
@@ -449,7 +449,7 @@ class Auth extends Process
                     20,
                     32,
                     [
-                        'default'      => Html::escapeHTML(Core::backend()->user_id),
+                        'default'      => Html::escapeHTML(App::backend()->user_id),
                         'autocomplete' => 'username',
                     ]
                 ) . '</p>' .
@@ -471,7 +471,7 @@ class Auth extends Process
                     echo
                     form::hidden('blog', Html::escapeHTML($_REQUEST['blog']));
                 }
-                if (Core::backend()->safe_mode) {
+                if (App::backend()->safe_mode) {
                     echo
                     form::hidden('safe_mode', 1) .
                     '</fieldset>';
@@ -483,20 +483,20 @@ class Auth extends Process
                 '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>';
 
                 echo
-                '<details ' . (Core::backend()->safe_mode ? 'open ' : '') . 'id="issue">' . "\n";
-                if (Core::backend()->safe_mode) {
+                '<details ' . (App::backend()->safe_mode ? 'open ' : '') . 'id="issue">' . "\n";
+                if (App::backend()->safe_mode) {
                     echo
                     '<summary>' . __('Other option') . '</summary>' . "\n" .
-                    '<p><a href="' . Core::backend()->url->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
+                    '<p><a href="' . App::backend()->url->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
                 } else {
                     echo
                     '<summary>' . __('Connection issue?') . '</summary>' . "\n";
-                    if (Core::auth()->allowPassChange()) {
+                    if (App::auth()->allowPassChange()) {
                         echo
-                        '<p><a href="' . Core::backend()->url->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
+                        '<p><a href="' . App::backend()->url->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
                     }
                     echo
-                    '<p><a href="' . Core::backend()->url->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
+                    '<p><a href="' . App::backend()->url->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
                 }
                 echo
                 '</details>';

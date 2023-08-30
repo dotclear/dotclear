@@ -23,7 +23,7 @@ use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
 use dcWorkspace;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
@@ -104,8 +104,8 @@ class FlatImportV2 extends FlatBackup
             $this->dc_major_version = '2.0';
         }
 
-        $this->con    = Core::con();
-        $this->prefix = Core::con()->prefix();
+        $this->con    = App::con();
+        $this->prefix = App::con()->prefix();
 
         $this->cur_blog        = $this->con->openCursor($this->prefix . dcBlog::BLOG_TABLE_NAME);
         $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
@@ -124,7 +124,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
         # --BEHAVIOR-- importInit -- FlatBackup
-        Core::behavior()->callBehavior('importInitV2', $this);
+        App::behavior()->callBehavior('importInitV2', $this);
     }
 
     public function getMode()
@@ -138,13 +138,13 @@ class FlatImportV2 extends FlatBackup
             throw new Exception(__('File is not a single blog export.'));
         }
 
-        if (!Core::auth()->check(Core::auth()->makePermissions([
+        if (!App::auth()->check(App::auth()->makePermissions([
             dcAuth::PERMISSION_ADMIN,
-        ]), Core::blog()->id)) {
+        ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
-        $this->blog_id = Core::blog()->id;
+        $this->blog_id = App::blog()->id;
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
@@ -172,12 +172,12 @@ class FlatImportV2 extends FlatBackup
 
         $rs = new MetaRecord($this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
-            "WHERE blog_id = '" . $this->con->escape(Core::blog()->id) . "'"
+            "WHERE blog_id = '" . $this->con->escape(App::blog()->id) . "'"
         ));
 
         if ((int) $rs->cat_rgt > 0) {
             $this->has_categories                     = true;
-            $this->stack['cat_lft'][Core::blog()->id] = (int) $rs->cat_rgt + 1;
+            $this->stack['cat_lft'][App::blog()->id] = (int) $rs->cat_rgt + 1;
         }
 
         $this->con->begin();
@@ -235,7 +235,7 @@ class FlatImportV2 extends FlatBackup
                 }
 
                 # --BEHAVIOR-- importSingle -- string, FlatBackup
-                Core::behavior()->callBehavior('importSingleV2', $line, $this);
+                App::behavior()->callBehavior('importSingleV2', $line, $this);
             }
 
             if ($this->con->syntax() == 'mysql') {
@@ -261,7 +261,7 @@ class FlatImportV2 extends FlatBackup
             throw new Exception(__('File is not a full export.'));
         }
 
-        if (!Core::auth()->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -297,7 +297,7 @@ class FlatImportV2 extends FlatBackup
                 } catch (UnhandledMatchError) {
                 }
                 # --BEHAVIOR-- importFull -- line, FlatBackup
-                Core::behavior()->callBehavior('importFullV2', $line, $this);
+                App::behavior()->callBehavior('importFullV2', $line, $this);
             }
         } catch (Exception $e) {
             @fclose($this->fp);
@@ -633,7 +633,7 @@ class FlatImportV2 extends FlatBackup
             $post->cat_id  = $cat_id;
             $post->blog_id = $this->blog_id;
 
-            $post->post_url = Core::blog()->getPostURL(
+            $post->post_url = App::blog()->getPostURL(
                 $post->post_url,
                 $post->post_dt,
                 $post->post_title,
@@ -663,7 +663,7 @@ class FlatImportV2 extends FlatBackup
         $old_id   = $media->media_id;
 
         $media->media_id   = $media_id;
-        $media->media_path = Core::blog()->settings->system->public_path;
+        $media->media_path = App::blog()->settings->system->public_path;
         $media->user_id    = $this->getUserId($media->user_id);
 
         $this->insertMedia($media);
@@ -738,7 +738,7 @@ class FlatImportV2 extends FlatBackup
     public function getUserId($user_id)
     {
         if (!$this->userExists($user_id)) {
-            if (Core::auth()->isSuperAdmin()) {
+            if (App::auth()->isSuperAdmin()) {
                 # Sanitizes user_id and create a lambda user
                 $user_id = preg_replace('/[^A-Za-z0-9]$/', '', (string) $user_id);
                 $user_id .= strlen($user_id) < 2 ? '-a' : '';
@@ -749,13 +749,13 @@ class FlatImportV2 extends FlatBackup
                     $this->cur_user->user_id  = (string) $user_id;
                     $this->cur_user->user_pwd = md5(uniqid());
 
-                    Core::users()->addUser($this->cur_user);
+                    App::users()->addUser($this->cur_user);
 
                     $this->stack['users'][$user_id] = true;
                 }
             } else {
                 # Returns current user id
-                $user_id = Core::auth()->userID();
+                $user_id = App::auth()->userID();
             }
         }
 
@@ -872,6 +872,6 @@ class FlatImportV2 extends FlatBackup
         }
 
         # --BEHAVIOR-- importPrepareDC12 -- line, FlatBackup
-        Core::behavior()->callBehavior('importPrepareDC12V2', $line, $this);
+        App::behavior()->callBehavior('importPrepareDC12V2', $line, $this);
     }
 }

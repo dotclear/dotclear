@@ -13,7 +13,7 @@ namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 
@@ -31,17 +31,17 @@ class Frontend extends Process
         }
 
         # Behaviors
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'publicHeadContent'  => self::publicHeadContent(...),
             'publicInsideFooter' => self::publicInsideFooter(...),
         ]);
 
         # Templates
-        Core::frontend()->tpl->addValue('ductileEntriesList', self::ductileEntriesList(...));
-        Core::frontend()->tpl->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
-        Core::frontend()->tpl->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
-        Core::frontend()->tpl->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
-        Core::frontend()->tpl->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
+        App::frontend()->tpl->addValue('ductileEntriesList', self::ductileEntriesList(...));
+        App::frontend()->tpl->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
+        App::frontend()->tpl->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
+        App::frontend()->tpl->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
+        App::frontend()->tpl->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
 
         return true;
     }
@@ -57,11 +57,11 @@ class Frontend extends Process
     {
         $nb_other = $nb_first = 0;
 
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_entries_counts');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_counts');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
-                switch (Core::url()->type) {
+                switch (App::url()->type) {
                     case 'default':
                     case 'default-page':
                         if (isset($s['default'])) {
@@ -73,9 +73,9 @@ class Frontend extends Process
 
                         break;
                     default:
-                        if (isset($s[Core::url()->type])) {
+                        if (isset($s[App::url()->type])) {
                             // Nb de billets par page défini par la config du thème
-                            $nb_first = $nb_other = (int) $s[Core::url()->type];
+                            $nb_first = $nb_other = (int) $s[App::url()->type];
                         }
 
                         break;
@@ -89,10 +89,10 @@ class Frontend extends Process
         }
 
         if ($nb_other > 0) {
-            Core::frontend()->ctx->nb_entry_per_page = $nb_other;
+            App::frontend()->ctx->nb_entry_per_page = $nb_other;
         }
         if ($nb_first > 0) {
-            Core::frontend()->ctx->nb_entry_first_page = $nb_first;
+            App::frontend()->ctx->nb_entry_first_page = $nb_first;
         }
     }
 
@@ -107,14 +107,14 @@ class Frontend extends Process
             $urls = '1';
         }
 
-        $short              = Core::frontend()->tpl->getFilters($attr);
+        $short              = App::frontend()->tpl->getFilters($attr);
         $cut                = $attr['cut_string'];
         $attr['cut_string'] = 0;
-        $full               = Core::frontend()->tpl->getFilters($attr);
+        $full               = App::frontend()->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
-        return '<?php if (strlen(' . sprintf($full, 'Core::frontend()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
-        'strlen(' . sprintf($short, 'Core::frontend()->ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+        return '<?php if (strlen(' . sprintf($full, 'App::frontend()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
+        'strlen(' . sprintf($short, 'App::frontend()->ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -140,7 +140,7 @@ class Frontend extends Process
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
             '?>' . "\n" .
-            Core::frontend()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
+            App::frontend()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
                 '<?php ' . "\n" .
                 '       break;' . "\n";
         }
@@ -153,11 +153,11 @@ class Frontend extends Process
 
     public static function ductileEntriesListHelper(string $default): string
     {
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_entries_lists');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_lists');
         if ($s !== null) {
             $s = @unserialize($s);
-            if (is_array($s) && isset($s[Core::url()->type])) {
-                return $s[Core::url()->type];
+            if (is_array($s) && isset($s[App::url()->type])) {
+                return $s[App::url()->type];
             }
         }
 
@@ -173,7 +173,7 @@ class Frontend extends Process
     {
         $img_url = My::fileURL('img/logo.png');
 
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
         if ($s === null) {
             // no settings yet, return default logo
             return $img_url;
@@ -199,7 +199,7 @@ class Frontend extends Process
 
     public static function IfPreviewIsNotMandatory(ArrayObject $attr, string $content): string
     {
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s) && isset($s['preview_not_mandatory']) && $s['preview_not_mandatory']) {
@@ -216,7 +216,7 @@ class Frontend extends Process
         $default = false;
         $img_url = My::fileURL('img/');
 
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_stickers');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_stickers');
 
         if ($s === null) {
             $default = true;
@@ -239,8 +239,8 @@ class Frontend extends Process
         }
 
         if ($default || $res == '') {
-            $res = self::setSticker(1, true, __('Subscribe'), Core::blog()->url .
-                Core::url()->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
+            $res = self::setSticker(1, true, __('Subscribe'), App::blog()->url .
+                App::url()->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
         }
 
         if ($res != '') {
@@ -288,7 +288,7 @@ class Frontend extends Process
 
     public static function ductileWebfontHelper()
     {
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
 
         if ($s === null) {
             return;
@@ -356,7 +356,7 @@ class Frontend extends Process
 
     public static function ductileStyleHelper()
     {
-        $s = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
 
         if ($s === null) {
             return;

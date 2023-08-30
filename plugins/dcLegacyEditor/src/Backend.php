@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use Dotclear\Core\Backend\Menus;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -35,17 +35,17 @@ class Backend extends Process
         My::addBackendMenuItem(Menus::MENU_PLUGINS, [], '');
 
         if (My::settings()->active) {
-            if (!isset(Core::filter()->wiki)) {
-                Core::filter()->initWikiPost();
+            if (!isset(App::filter()->wiki)) {
+                App::filter()->initWikiPost();
             }
 
-            Core::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
-            Core::formater()->addFormaterName('xhtml', __('HTML'));
+            App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            App::formater()->addFormaterName('xhtml', __('HTML'));
 
-            Core::formater()->addEditorFormater(My::id(), 'wiki', [Core::filter()->wiki, 'transform']);
-            Core::formater()->addFormaterName('wiki', __('Dotclear wiki'));
+            App::formater()->addEditorFormater(My::id(), 'wiki', [App::filter()->wiki, 'transform']);
+            App::formater()->addFormaterName('wiki', __('Dotclear wiki'));
 
-            Core::behavior()->addBehaviors([
+            App::behavior()->addBehaviors([
                 'adminPostEditor' => BackendBehaviors::adminPostEditor(...),
                 'adminPopupMedia' => BackendBehaviors::adminPopupMedia(...),
                 'adminPopupLink'  => BackendBehaviors::adminPopupLink(...),
@@ -53,7 +53,7 @@ class Backend extends Process
             ]);
 
             // Register REST methods
-            Core::rest()->addFunction('wikiConvert', Rest::convert(...));
+            App::rest()->addFunction('wikiConvert', Rest::convert(...));
         }
 
         return true;

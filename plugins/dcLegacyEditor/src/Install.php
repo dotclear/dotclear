@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Install extends Process
@@ -29,11 +29,11 @@ class Install extends Process
         }
 
         // Rename settings namespace
-        if (version_compare(Core::version()->getVersion(My::id()), '1.0', '<=')
-            && Core::blog()->settings->exists('dclegacyeditor')
+        if (version_compare(App::version()->getVersion(My::id()), '1.0', '<=')
+            && App::blog()->settings->exists('dclegacyeditor')
         ) {
-            Core::blog()->settings->delNamespace(My::id());
-            Core::blog()->settings->renNamespace('dclegacyeditor', My::id());
+            App::blog()->settings->delNamespace(My::id());
+            App::blog()->settings->renNamespace('dclegacyeditor', My::id());
         }
 
         My::settings()->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);

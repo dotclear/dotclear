@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
 use dcSettings;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use form;
 
 class BackendBehaviors
@@ -39,7 +39,7 @@ class BackendBehaviors
         $ttl = My::settings()->antispam_moderation_ttl;
         if ($ttl != null && $ttl >= 0) {
             echo '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl) . ' ' .
-            sprintf(__('You can modify this duration in the %s'), '<a href="' . Core::backend()->url->get('admin.blog.pref') .
+            sprintf(__('You can modify this duration in the %s'), '<a href="' . App::backend()->url->get('admin.blog.pref') .
                 '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
                 '.</p>';
         }

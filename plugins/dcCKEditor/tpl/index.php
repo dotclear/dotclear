@@ -1,50 +1,50 @@
 <?php
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 
 echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
-<?php if (Core::backend()->editor_is_admin): ?>
+<?php if (App::backend()->editor_is_admin): ?>
 <h3 class="hidden-if-js">
   <?php echo __('Settings'); ?>
 </h3>
-<form action="<?php echo Core::backend()->getPageURL(); ?>" enctype="multipart/form-data" method="post">
+<form action="<?php echo App::backend()->getPageURL(); ?>" enctype="multipart/form-data" method="post">
   <div class="fieldset">
     <h3>
       <?php echo __('Plugin activation'); ?>
     </h3>
     <p>
       <label class="classic" for="dcckeditor_active">
-        <?php echo form::checkbox('dcckeditor_active', 1, Core::backend()->editor_cke_active); ?>
+        <?php echo form::checkbox('dcckeditor_active', 1, App::backend()->editor_cke_active); ?>
         <?php echo __('Enable dcCKEditor plugin'); ?>
       </label>
     </p>
   </div>
-  <?php if (Core::backend()->editor_cke_active): ?>
+  <?php if (App::backend()->editor_cke_active): ?>
   <div class="fieldset">
     <h3>
       <?php echo __('Options'); ?>
     </h3>
     <p>
-      <?php echo form::checkbox('dcckeditor_alignment_buttons', 1, Core::backend()->editor_cke_alignment_buttons); ?>
+      <?php echo form::checkbox('dcckeditor_alignment_buttons', 1, App::backend()->editor_cke_alignment_buttons); ?>
       <label class="classic" for="dcckeditor_alignment_buttons">
         <?php echo __('Add alignment buttons'); ?>
       </label>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_list_buttons', 1, Core::backend()->editor_cke_list_buttons); ?>
+      <?php echo form::checkbox('dcckeditor_list_buttons', 1, App::backend()->editor_cke_list_buttons); ?>
       <label class="classic" for="dcckeditor_list_buttons">
         <?php echo __('Add lists buttons'); ?>
       </label>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_textcolor_button', 1, Core::backend()->editor_cke_textcolor_button); ?>
+      <?php echo form::checkbox('dcckeditor_textcolor_button', 1, App::backend()->editor_cke_textcolor_button); ?>
       <label class="classic" for="dcckeditor_textcolor_button">
         <?php echo __('Add text color button'); ?>
       </label>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_background_textcolor_button', 1, Core::backend()->editor_cke_background_textcolor_button); ?>
+      <?php echo form::checkbox('dcckeditor_background_textcolor_button', 1, App::backend()->editor_cke_background_textcolor_button); ?>
       <label class="classic" for="dcckeditor_background_textcolor_button">
         <?php echo __('Add background text color button'); ?>
       </label>
@@ -53,7 +53,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
       <label for="dcckeditor_custom_color_list">
         <?php echo __('Custom colors list:'); ?>
       </label>
-      <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => Html::escapeHTML(Core::backend()->editor_cke_custom_color_list)]); ?>
+      <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => Html::escapeHTML(App::backend()->editor_cke_custom_color_list)]); ?>
     </p>
     <p class="clear form-note">
       <?php echo __('Add colors without # separated by a comma.'); ?><br />
@@ -66,19 +66,19 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
       <label for="dcckeditor_colors_per_row">
         <?php echo __('Colors per row in palette:') . ' '; ?>
       </label>
-      <?php echo form::number('dcckeditor_colors_per_row', ['min' => 4, 'max' => 16, 'default' => Core::backend()->editor_cke_colors_per_row]); ?>
+      <?php echo form::number('dcckeditor_colors_per_row', ['min' => 4, 'max' => 16, 'default' => App::backend()->editor_cke_colors_per_row]); ?>
     </p>
     <p class="clear form-note">
       <?php echo __('Valid range: 4 to 16'); ?>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_cancollapse_button', 1, Core::backend()->editor_cke_cancollapse_button); ?>
+      <?php echo form::checkbox('dcckeditor_cancollapse_button', 1, App::backend()->editor_cke_cancollapse_button); ?>
       <label class="classic" for="dcckeditor_cancollapse_button">
         <?php echo __('Add collapse button'); ?>
       </label>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_format_select', 1, Core::backend()->editor_cke_format_select); ?>
+      <?php echo form::checkbox('dcckeditor_format_select', 1, App::backend()->editor_cke_format_select); ?>
       <label class="classic" for="dcckeditor_format_select">
         <?php echo __('Add format selection'); ?>
       </label>
@@ -87,19 +87,19 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
       <label class="classic" for="dcckeditor_format_tags">
         <?php echo __('Custom formats'); ?>
       </label>
-      <?php echo form::field('dcckeditor_format_tags', 100, 255, Core::backend()->editor_cke_format_tags); ?>
+      <?php echo form::field('dcckeditor_format_tags', 100, 255, App::backend()->editor_cke_format_tags); ?>
     </p>
     <p class="clear form-note">
       <?php echo __('Default formats are p;h1;h2;h3;h4;h5;h6;pre;address'); ?>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_table_button', 1, Core::backend()->editor_cke_table_button); ?>
+      <?php echo form::checkbox('dcckeditor_table_button', 1, App::backend()->editor_cke_table_button); ?>
       <label class="classic" for="dcckeditor_table_button">
         <?php echo __('Add table button'); ?>
       </label>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_clipboard_buttons', 1, Core::backend()->editor_cke_clipboard_buttons); ?>
+      <?php echo form::checkbox('dcckeditor_clipboard_buttons', 1, App::backend()->editor_cke_clipboard_buttons); ?>
       <label class="classic" for="dcckeditor_clipboard_buttons">
         <?php echo __('Add clipboard buttons'); ?>
       </label>
@@ -108,13 +108,13 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
       <?php echo __('Copy, Paste, Paste Text, Paste from Word'); ?>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_action_buttons', 1, Core::backend()->editor_cke_action_buttons); ?>
+      <?php echo form::checkbox('dcckeditor_action_buttons', 1, App::backend()->editor_cke_action_buttons); ?>
       <label class="classic" for="dcckeditor_action_buttons">
         <?php echo __('Add undo/redo buttons'); ?>
       </label>
     </p>
     <p>
-      <?php echo form::checkbox('dcckeditor_disable_native_spellchecker', 1, Core::backend()->editor_cke_disable_native_spellchecker); ?>
+      <?php echo form::checkbox('dcckeditor_disable_native_spellchecker', 1, App::backend()->editor_cke_disable_native_spellchecker); ?>
       <label class="classic" for="dcckeditor_disable_native_spellchecker">
         <?php echo __('Disables the built-in spell checker if the browser provides one'); ?>
       </label>
@@ -123,7 +123,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
   <?php endif;?>
   <p>
     <input name="p" type="hidden" value="dcCKEditor"/>
-    <?php echo \Dotclear\Core\Core::nonce()->getFormNonce(); ?>
+    <?php echo \Dotclear\App::nonce()->getFormNonce(); ?>
     <input name="saveconfig" type="submit" value="<?php echo __('Save configuration'); ?>"/>
     <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
   </p>

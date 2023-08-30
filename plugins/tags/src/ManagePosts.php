@@ -16,7 +16,7 @@ use dcMeta;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -39,39 +39,39 @@ class ManagePosts extends Process
             return false;
         }
 
-        Core::backend()->tag = $_REQUEST['tag'] ?? '';
+        App::backend()->tag = $_REQUEST['tag'] ?? '';
 
-        Core::backend()->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        Core::backend()->nb_per_page = 30;
+        App::backend()->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->nb_per_page = 30;
 
         // Get posts
 
         $params               = [];
-        $params['limit']      = [((Core::backend()->page - 1) * Core::backend()->nb_per_page), Core::backend()->nb_per_page];
+        $params['limit']      = [((App::backend()->page - 1) * App::backend()->nb_per_page), App::backend()->nb_per_page];
         $params['no_content'] = true;
-        $params['meta_id']    = Core::backend()->tag;
+        $params['meta_id']    = App::backend()->tag;
         $params['meta_type']  = 'tag';
         $params['post_type']  = '';
 
-        Core::backend()->posts     = null;
-        Core::backend()->post_list = null;
+        App::backend()->posts     = null;
+        App::backend()->post_list = null;
 
         try {
-            Core::backend()->posts     = Core::meta()->getPostsByMeta($params);
-            $counter                   = Core::meta()->getPostsByMeta($params, true);
-            Core::backend()->post_list = new ListingPosts(Core::backend()->posts, $counter->f(0));
+            App::backend()->posts     = App::meta()->getPostsByMeta($params);
+            $counter                   = App::meta()->getPostsByMeta($params, true);
+            App::backend()->post_list = new ListingPosts(App::backend()->posts, $counter->f(0));
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
-        Core::backend()->posts_actions_page = new BackendActions(
-            Core::backend()->url->get('admin.plugin'),
-            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => Core::backend()->tag]
+        App::backend()->posts_actions_page = new BackendActions(
+            App::backend()->url->get('admin.plugin'),
+            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => App::backend()->tag]
         );
 
-        Core::backend()->posts_actions_page_rendered = null;
-        if (Core::backend()->posts_actions_page->process()) {
-            Core::backend()->posts_actions_page_rendered = true;
+        App::backend()->posts_actions_page_rendered = null;
+        if (App::backend()->posts_actions_page->process()) {
+            App::backend()->posts_actions_page_rendered = true;
 
             return true;
         }
@@ -82,7 +82,7 @@ class ManagePosts extends Process
             $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
 
             try {
-                if (Core::meta()->updateMeta(Core::backend()->tag, $new_id, 'tag')) {
+                if (App::meta()->updateMeta(App::backend()->tag, $new_id, 'tag')) {
                     Notices::addSuccessNotice(__('Tag has been successfully renamed'));
                     My::redirect([
                         'm'   => 'tag_posts',
@@ -90,24 +90,24 @@ class ManagePosts extends Process
                     ]);
                 }
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
-        if (!empty($_POST['delete']) && Core::auth()->check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_PUBLISH,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), Core::blog()->id)) {
+        if (!empty($_POST['delete']) && App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             // Delete a tag
 
             try {
-                Core::meta()->delMeta(Core::backend()->tag, 'tag');
+                App::meta()->delMeta(App::backend()->tag, 'tag');
                 Notices::addSuccessNotice(__('Tag has been successfully removed'));
                 My::redirect([
                     'm' => 'tags',
                 ]);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -123,20 +123,20 @@ class ManagePosts extends Process
             return;
         }
 
-        if (Core::backend()->posts_actions_page_rendered) {
-            Core::backend()->posts_actions_page->render();
+        if (App::backend()->posts_actions_page_rendered) {
+            App::backend()->posts_actions_page->render();
 
             return;
         }
 
-        $this_url = Core::backend()->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(Core::backend()->tag);
+        $this_url = App::backend()->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(App::backend()->tag);
 
         Page::openModule(
             My::name(),
             My::cssLoad('style') .
             Page::jsLoad('js/_posts_list.js') .
             Page::jsJson('posts_tags_msg', [
-                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(Core::backend()->tag)),
+                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(App::backend()->tag)),
             ]) .
             My::jsLoad('posts') .
             Page::jsConfirmClose('tag_rename')
@@ -145,35 +145,35 @@ class ManagePosts extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(Core::blog()->name)                                        => '',
-                My::name()                                                                  => Core::backend()->getPageURL() . '&amp;m=tags',
-                __('Tag') . ' &ldquo;' . Html::escapeHTML(Core::backend()->tag) . '&rdquo;' => '',
+                Html::escapeHTML(App::blog()->name)                                        => '',
+                My::name()                                                                  => App::backend()->getPageURL() . '&amp;m=tags',
+                __('Tag') . ' &ldquo;' . Html::escapeHTML(App::backend()->tag) . '&rdquo;' => '',
             ]
         ) .
         Notices::getNotices() .
-        '<p><a class="back" href="' . Core::backend()->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
+        '<p><a class="back" href="' . App::backend()->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
-        if (!Core::error()->flag()) {
-            if (!Core::backend()->posts->isEmpty()) {
+        if (!App::error()->flag()) {
+            if (!App::backend()->posts->isEmpty()) {
                 echo
                 '<div class="tag-actions vertical-separator">' .
-                '<h3>' . Html::escapeHTML(Core::backend()->tag) . '</h3>' .
+                '<h3>' . Html::escapeHTML(App::backend()->tag) . '</h3>' .
                 '<form action="' . $this_url . '" method="post" id="tag_rename">' .
                 '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
-                form::field('new_tag_id', 20, 255, Html::escapeHTML(Core::backend()->tag)) .
+                form::field('new_tag_id', 20, 255, Html::escapeHTML(App::backend()->tag)) .
                 '<input type="submit" value="' . __('OK') . '" />' .
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-                Core::nonce()->getFormNonce() .
+                App::nonce()->getFormNonce() .
                 '</p></form>';
 
                 // Remove tag
-                if (Core::auth()->check(Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
-                ]), Core::blog()->id)) {
+                if (App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
+                ]), App::blog()->id)) {
                     echo
                     '<form id="tag_delete" action="' . $this_url . '" method="post">' .
                     '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
-                    Core::nonce()->getFormNonce() .
+                    App::nonce()->getFormNonce() .
                     '</p></form>';
                 }
 
@@ -183,22 +183,22 @@ class ManagePosts extends Process
 
             // Show posts
             echo
-            '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), Html::escapeHTML(Core::backend()->tag)) . '</h4>';
-            Core::backend()->post_list->display(
-                Core::backend()->page,
-                Core::backend()->nb_per_page,
-                '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="form-entries">' .
+            '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), Html::escapeHTML(App::backend()->tag)) . '</h4>';
+            App::backend()->post_list->display(
+                App::backend()->page,
+                App::backend()->nb_per_page,
+                '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="form-entries">' .
                 '%s' .
                 '<div class="two-cols">' .
                 '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-                form::combo('action', Core::backend()->posts_actions_page->getCombo()) .
+                form::combo('action', App::backend()->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('OK') . '" /></p>' .
                 form::hidden('post_type', '') .
                 form::hidden('p', My::id()) .
                 form::hidden('m', 'tag_posts') .
-                form::hidden('tag', Core::backend()->tag) .
-                Core::nonce()->getFormNonce() .
+                form::hidden('tag', App::backend()->tag) .
+                App::nonce()->getFormNonce() .
                 '</div>' .
                 '</form>'
             );

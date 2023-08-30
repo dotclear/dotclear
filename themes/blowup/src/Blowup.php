@@ -11,7 +11,7 @@
 
 namespace Dotclear\Theme\blowup;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
 use Exception;
@@ -304,10 +304,10 @@ class Blowup
         }
 
         # erase old css file
-        self::dropCss(Core::blog()->settings->system->theme);
+        self::dropCss(App::blog()->settings->system->theme);
 
         # create new css file into public blowup-css subdirectory
-        self::writeCss(Core::blog()->settings->system->theme, $res);
+        self::writeCss(App::blog()->settings->system->theme, $res);
 
         return $res;
     }

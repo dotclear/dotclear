@@ -41,10 +41,10 @@ class Filter
     {
         $this->wiki = new WikiToHtml();
 
-        // deprecated since 2.27, use Core:: instead
+        // deprecated since 2.27, use App::filter()->wiki instead
         dcCore::app()->wiki = $this->wiki;
 
-        // deprecated since 2.27, use Core:: instead
+        // deprecated since 2.27, use App::filter()->wiki instead
         dcCore::app()->wiki2xhtml = $this->wiki;
     }
 
@@ -227,7 +227,7 @@ class Filter
      */
     public function wikiPostLink(string $url, string $content): array
     {
-        if (is_null(Core::blog())) {
+        if (is_null(App::blog())) {
             return [];
         }
 
@@ -236,7 +236,7 @@ class Filter
             return [];
         }
 
-        $post = Core::blog()->getPosts(['post_id' => $post_id]);
+        $post = App::blog()->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
             return [];
         }

@@ -19,7 +19,7 @@ use dcBlog;
 use dcCategories;
 use dcTrackback;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -91,9 +91,9 @@ class ModuleImportWp extends Module
      */
     public function init(): void
     {
-        $this->con     = Core::con();
-        $this->prefix  = Core::con()->prefix();
-        $this->blog_id = Core::blog()->id;
+        $this->con     = App::con();
+        $this->prefix  = App::con()->prefix();
+        $this->blog_id = App::blog()->id;
 
         if (!isset($_SESSION['wp_import_vars'])) {
             $_SESSION['wp_import_vars'] = $this->base_vars;
@@ -162,7 +162,7 @@ class ModuleImportWp extends Module
             case 'step3':
                 $this->step = 3;
                 $this->importCategories();
-                if (Core::plugins()->moduleExists('blogroll')) {
+                if (App::plugins()->moduleExists('blogroll')) {
                     $this->step = 4;
                     echo $this->progressBar(5);
                 } else {
@@ -191,7 +191,7 @@ class ModuleImportWp extends Module
                 break;
             case 'ok':
                 $this->resetVars();
-                Core::blog()->triggerBlog();
+                App::blog()->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
 
@@ -215,7 +215,7 @@ class ModuleImportWp extends Module
                 echo
                 '<p>' . sprintf(
                     __('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(Core::blog()->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(App::blog()->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -338,7 +338,7 @@ class ModuleImportWp extends Module
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . Core::nonce()->getFormNonce() .
+        '<div>' . App::nonce()->getFormNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p><input type="submit" value="' . $submit_value . '" /></p>' .
@@ -413,7 +413,7 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
                 $this->vars['user_ids'][$rs->ID] = $user_login;
-                if (!Core::users()->userExists($user_login)) {
+                if (!App::users()->userExists($user_login)) {
                     $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
                     $cur->user_id          = $user_login;
                     $cur->user_pwd         = Crypt::createPassword();
@@ -421,8 +421,8 @@ class ModuleImportWp extends Module
                     $cur->user_email       = $rs->user_email;
                     $cur->user_url         = $rs->user_url;
                     $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = Core::blog()->settings->system->lang;
-                    $cur->user_tz          = Core::blog()->settings->system->blog_timezone;
+                    $cur->user_lang        = App::blog()->settings->system->lang;
+                    $cur->user_tz          = App::blog()->settings->system->blog_timezone;
                     $permissions           = [];
 
                     $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
@@ -486,8 +486,8 @@ class ModuleImportWp extends Module
                                 break;
                         }
                     }
-                    Core::users()->addUser($cur);
-                    Core::users()->setUserBlogPermissions(
+                    App::users()->addUser($cur);
+                    App::users()->setUserBlogPermissions(
                         $cur->user_id,
                         $this->blog_id,
                         $permissions
@@ -655,7 +655,7 @@ class ModuleImportWp extends Module
     {
         $post_date = !@strtotime($rs->post_date) ? '1970-01-01 00:00' : $rs->post_date;
         if (!isset($this->vars['user_ids'][$rs->post_author])) {
-            $user_id = Core::auth()->userID();
+            $user_id = App::auth()->userID();
         } else {
             $user_id = $this->vars['user_ids'][$rs->post_author];
         }
@@ -722,8 +722,8 @@ class ModuleImportWp extends Module
             $cur->post_content = Text::cleanStr(array_shift($_post_content));
         }
 
-        $cur->post_content_xhtml = Core::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
-        $cur->post_excerpt_xhtml = Core::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
+        $cur->post_content_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
+        $cur->post_excerpt_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
 
         switch ($rs->post_status) {
             case 'publish':
@@ -756,7 +756,7 @@ class ModuleImportWp extends Module
             'SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME
         )))->f(0) + 1;
 
-        $cur->post_url = Core::blog()->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
+        $cur->post_url = App::blog()->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
         $cur->insert();
         $this->importComments($rs->ID, $cur->post_id, $db);
@@ -768,7 +768,7 @@ class ModuleImportWp extends Module
         if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
             $old_cat_ids->moveStart();
             while ($old_cat_ids->fetch()) {
-                Core::meta()->setPostMeta($cur->post_id, 'tag', Text::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
+                App::meta()->setPostMeta($cur->post_id, 'tag', Text::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
             }
         }
     }
@@ -796,7 +796,7 @@ class ModuleImportWp extends Module
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
             $cur->comment_email     = Text::cleanStr($rs->comment_author_email);
-            $cur->comment_content   = Core::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
+            $cur->comment_content   = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
             $cur->comment_site      = substr(Text::cleanStr($rs->comment_author_url), 0, 255);
@@ -894,7 +894,7 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            Core::meta()->setPostMeta($new_post_id, 'tag', Text::cleanStr($rs->name));
+            App::meta()->setPostMeta($new_post_id, 'tag', Text::cleanStr($rs->name));
         }
     }
 }

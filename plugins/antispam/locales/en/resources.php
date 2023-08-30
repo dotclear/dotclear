@@ -6,7 +6,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-\Dotclear\Core\Core::backend()->resources
+\Dotclear\App::backend()->resources
     ->set('help', 'antispam', __DIR__ . '/help/help.html')
     ->set('help', 'antispam-filters', __DIR__ . '/help/help.html')
     ->set('help', 'ip-filter', __DIR__ . '/help/filters.html')

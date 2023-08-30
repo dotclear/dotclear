@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\blogroll;
 use Exception;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -28,17 +28,17 @@ class Manage extends Process
     public static function init(): bool
     {
         if (self::status(My::checkContext(My::MANAGE))) {
-            Core::backend()->blogroll = new Blogroll(Core::blog());
+            App::backend()->blogroll = new Blogroll(App::blog());
 
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
                 self::$edit = ManageEdit::init();
             } else {
-                Core::backend()->default_tab = '';
-                Core::backend()->link_title  = '';
-                Core::backend()->link_href   = '';
-                Core::backend()->link_desc   = '';
-                Core::backend()->link_lang   = '';
-                Core::backend()->cat_title   = '';
+                App::backend()->default_tab = '';
+                App::backend()->link_title  = '';
+                App::backend()->link_href   = '';
+                App::backend()->link_desc   = '';
+                App::backend()->link_lang   = '';
+                App::backend()->cat_title   = '';
             }
         }
 
@@ -58,7 +58,7 @@ class Manage extends Process
         if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
             // Import links - download file
 
-            Core::backend()->default_tab = 'import-links';
+            App::backend()->default_tab = 'import-links';
 
             try {
                 Files::uploadStatus($_FILES['links_file']);
@@ -68,7 +68,7 @@ class Manage extends Process
                 }
 
                 try {
-                    Core::backend()->imported = UtilsImport::loadFile($ifile);
+                    App::backend()->imported = UtilsImport::loadFile($ifile);
                     @unlink($ifile);
                 } catch (Exception $e) {
                     @unlink($ifile);
@@ -76,13 +76,13 @@ class Manage extends Process
                     throw $e;
                 }
 
-                if (empty(Core::backend()->imported)) {
-                    unset(Core::backend()->imported);
+                if (empty(App::backend()->imported)) {
+                    unset(App::backend()->imported);
 
                     throw new Exception(__('Nothing to import'));
                 }
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -90,15 +90,15 @@ class Manage extends Process
             // Import links - import entries
 
             foreach ($_POST['entries'] as $idx) {
-                Core::backend()->link_title = Html::escapeHTML($_POST['title'][$idx]);
-                Core::backend()->link_href  = Html::escapeHTML($_POST['url'][$idx]);
-                Core::backend()->link_desc  = Html::escapeHTML($_POST['desc'][$idx]);
+                App::backend()->link_title = Html::escapeHTML($_POST['title'][$idx]);
+                App::backend()->link_href  = Html::escapeHTML($_POST['url'][$idx]);
+                App::backend()->link_desc  = Html::escapeHTML($_POST['desc'][$idx]);
 
                 try {
-                    Core::backend()->blogroll->addLink(Core::backend()->link_title, Core::backend()->link_href, Core::backend()->link_desc, '');
+                    App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, '');
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
-                    Core::backend()->default_tab = 'import-links';
+                    App::error()->add($e->getMessage());
+                    App::backend()->default_tab = 'import-links';
                 }
             }
 
@@ -109,41 +109,41 @@ class Manage extends Process
         if (!empty($_POST['cancel_import'])) {
             // Cancel import
 
-            Core::error()->add(__('Import operation cancelled.'));
-            Core::backend()->default_tab = 'import-links';
+            App::error()->add(__('Import operation cancelled.'));
+            App::backend()->default_tab = 'import-links';
         }
 
         if (!empty($_POST['add_link'])) {
             // Add link
 
-            Core::backend()->link_title = Html::escapeHTML($_POST['link_title']);
-            Core::backend()->link_href  = Html::escapeHTML($_POST['link_href']);
-            Core::backend()->link_desc  = Html::escapeHTML($_POST['link_desc']);
-            Core::backend()->link_lang  = Html::escapeHTML($_POST['link_lang']);
+            App::backend()->link_title = Html::escapeHTML($_POST['link_title']);
+            App::backend()->link_href  = Html::escapeHTML($_POST['link_href']);
+            App::backend()->link_desc  = Html::escapeHTML($_POST['link_desc']);
+            App::backend()->link_lang  = Html::escapeHTML($_POST['link_lang']);
 
             try {
-                Core::backend()->blogroll->addLink(Core::backend()->link_title, Core::backend()->link_href, Core::backend()->link_desc, Core::backend()->link_lang);
+                App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang);
 
                 Notices::addSuccessNotice(__('Link has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
-                Core::backend()->default_tab = 'add-link';
+                App::error()->add($e->getMessage());
+                App::backend()->default_tab = 'add-link';
             }
         }
 
         if (!empty($_POST['add_cat'])) {
             // Add category
 
-            Core::backend()->cat_title = Html::escapeHTML($_POST['cat_title']);
+            App::backend()->cat_title = Html::escapeHTML($_POST['cat_title']);
 
             try {
-                Core::backend()->blogroll->addCategory(Core::backend()->cat_title);
+                App::backend()->blogroll->addCategory(App::backend()->cat_title);
                 Notices::addSuccessNotice(__('category has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
-                Core::backend()->default_tab = 'add-cat';
+                App::error()->add($e->getMessage());
+                App::backend()->default_tab = 'add-cat';
             }
         }
 
@@ -152,15 +152,15 @@ class Manage extends Process
 
             foreach ($_POST['remove'] as $k => $v) {
                 try {
-                    Core::backend()->blogroll->delItem($v);
+                    App::backend()->blogroll->delItem($v);
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
 
                     break;
                 }
             }
 
-            if (!Core::error()->flag()) {
+            if (!App::error()->flag()) {
                 Notices::addSuccessNotice(__('Items have been successfully removed.'));
                 My::redirect();
             }
@@ -184,13 +184,13 @@ class Manage extends Process
                 $pos = ((int) $pos) + 1;
 
                 try {
-                    Core::backend()->blogroll->updateOrder($l, (string) $pos);
+                    App::backend()->blogroll->updateOrder($l, (string) $pos);
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
 
-            if (!Core::error()->flag()) {
+            if (!App::error()->flag()) {
                 Notices::addSuccessNotice(__('Items order has been successfully updated'));
                 My::redirect();
             }
@@ -215,25 +215,25 @@ class Manage extends Process
         $rs = null;
 
         try {
-            $rs = Core::backend()->blogroll->getLinks();
+            $rs = App::backend()->blogroll->getLinks();
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         $head = Page::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
-        if (!Core::auth()->user_prefs->accessibility->nodragdrop) {
+        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('blogroll');
         }
-        $head .= Page::jsPageTabs(Core::backend()->default_tab);
+        $head .= Page::jsPageTabs(App::backend()->default_tab);
 
         Page::openModule(My::name(), $head);
 
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(Core::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name) => '',
                 My::name()                           => '',
             ]
         ) .
@@ -243,7 +243,7 @@ class Manage extends Process
 
         if (!$rs->isEmpty()) {
             echo
-            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="links-form">' .
+            '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="links-form">' .
             '<div class="table-outer">' .
             '<table class="dragable">' .
             '<thead>' .
@@ -279,11 +279,11 @@ class Manage extends Process
 
                 if ($rs->is_cat) {
                     echo
-                    '<td colspan="5"><strong><a href="' . Core::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+                    '<td colspan="5"><strong><a href="' . App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
                     Html::escapeHTML($rs->link_desc) . '</a></strong></td>';
                 } else {
                     echo
-                    '<td><a href="' . Core::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+                    '<td><a href="' . App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
                     Html::escapeHTML($rs->link_title) . '</a></td>' .
                     '<td>' . Html::escapeHTML($rs->link_desc) . '</td>' .
                     '<td>' . Html::escapeHTML($rs->link_href) . '</td>' .
@@ -302,7 +302,7 @@ class Manage extends Process
 
             form::hidden('links_order', '') .
             form::hidden(['p'], My::id()) .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
 
             '<input type="submit" name="saveorder" value="' . __('Save order') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
@@ -319,31 +319,31 @@ class Manage extends Process
         '</div>' .
 
         '<div class="multi-part clear" id="add-link" title="' . __('Add a link') . '">' .
-        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="add-link-form">' .
+        '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="add-link-form">' .
         '<h3>' . __('Add a new link') . '</h3>' .
         '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
         form::field('link_title', 30, 255, [
-            'default'    => Core::backend()->link_title,
+            'default'    => App::backend()->link_title,
             'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
 
         '<p class="col"><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
         form::field('link_href', 30, 255, [
-            'default'    => Core::backend()->link_href,
+            'default'    => App::backend()->link_href,
             'extra_html' => 'required placeholder="' . __('URL') . '"',
         ]) .
         '</p>' .
 
         '<p class="col"><label for="link_desc">' . __('Description:') . '</label> ' .
-        form::field('link_desc', 30, 255, Core::backend()->link_desc) .
+        form::field('link_desc', 30, 255, App::backend()->link_desc) .
         '</p>' .
 
         '<p class="col"><label for="link_lang">' . __('Language:') . '</label> ' .
-        form::field('link_lang', 5, 5, Core::backend()->link_lang) .
+        form::field('link_lang', 5, 5, App::backend()->link_lang) .
         '</p>' .
         '<p>' . form::hidden(['p'], 'blogroll') .
-        Core::nonce()->getFormNonce() .
+        App::nonce()->getFormNonce() .
         '<input type="submit" name="add_link" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -351,16 +351,16 @@ class Manage extends Process
         '</div>' .
 
         '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
-        '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="add-category-form">' .
+        '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="add-category-form">' .
         '<h3>' . __('Add a new category') . '</h3>' .
         '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
         form::field('cat_title', 30, 255, [
-            'default'    => Core::backend()->cat_title,
+            'default'    => App::backend()->cat_title,
             'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
         '<p>' . form::hidden(['p'], My::id()) .
-        Core::nonce()->getFormNonce() .
+        App::nonce()->getFormNonce() .
         '<input type="submit" name="add_cat" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         '</p>' .
@@ -369,23 +369,23 @@ class Manage extends Process
 
         '<div class="multi-part" id="import-links" title="' . __('Import links') . '">';
 
-        if (!isset(Core::backend()->imported)) {
+        if (!isset(App::backend()->imported)) {
             echo
-            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
+            '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
             '<h3>' . __('Import links') . '</h3>' .
             '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
             '<input type="file" id="links_file" name="links_file" required /></p>' .
             '<p>' . form::hidden(['p'], My::id()) .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
             '<input type="submit" name="import_links" value="' . __('Import') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .
             '</form>';
         } else {
             echo
-            '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="import-links-form">' .
+            '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="import-links-form">' .
             '<h3>' . __('Import links') . '</h3>';
-            if (empty(Core::backend()->imported)) {
+            if (empty(App::backend()->imported)) {
                 echo
                 '<p>' . __('Nothing to import') . '</p>';
             } else {
@@ -396,7 +396,7 @@ class Manage extends Process
                 '</tr>';
 
                 $i = 0;
-                foreach (Core::backend()->imported as $entry) {
+                foreach (App::backend()->imported as $entry) {
                     $url   = Html::escapeHTML($entry->link);
                     $title = Html::escapeHTML($entry->title);
                     $desc  = Html::escapeHTML($entry->desc);
@@ -419,7 +419,7 @@ class Manage extends Process
 
                 '<p class="col right">' .
                 form::hidden(['p'], My::id()) .
-                Core::nonce()->getFormNonce() .
+                App::nonce()->getFormNonce() .
                 '<input type="submit" name="cancel_import" value="' . __('Cancel') . '" />&nbsp;' .
                 '<input type="submit" name="import_links_do" value="' . __('Import') . '" /></p>' .
                 '</div>';

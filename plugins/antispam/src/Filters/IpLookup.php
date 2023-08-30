@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam\Filters;
 
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
@@ -62,7 +62,7 @@ class IpLookup extends SpamFilter
     {
         parent::__construct();
 
-        if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !Core::auth()->isSuperAdmin()) {
+        if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !App::auth()->isSuperAdmin()) {
             $this->has_gui = false;
         }
     }
@@ -141,11 +141,11 @@ class IpLookup extends SpamFilter
 
         if (isset($_POST['bls'])) {
             try {
-                Core::blog()->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
+                App::blog()->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
                 Notices::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -157,7 +157,7 @@ class IpLookup extends SpamFilter
             '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
                 form::textarea('bls', 40, 3, Html::escapeHTML($bls), 'maximal') .
             '</p>' .
-            '<p><input type="submit" value="' . __('Save') . '" />' . Core::nonce()->getFormNonce() . '</p>' .
+            '<p><input type="submit" value="' . __('Save') . '" />' . App::nonce()->getFormNonce() . '</p>' .
         '</form>';
     }
 
@@ -168,9 +168,9 @@ class IpLookup extends SpamFilter
      */
     private function getServers(): string
     {
-        $bls = Core::blog()->settings->antispam->antispam_dnsbls;
+        $bls = App::blog()->settings->antispam->antispam_dnsbls;
         if ($bls === null) {
-            Core::blog()->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
+            App::blog()->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
 
             return $this->default_bls;
         }

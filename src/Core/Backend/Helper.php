@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcUtils;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\L10n;
 
 class Helper
@@ -60,24 +60,24 @@ class Helper
      */
     public static function loadLocales()
     {
-        Core::setLang((string) Core::auth()->getInfo('user_lang'));
+        App::setLang((string) App::auth()->getInfo('user_lang'));
 
-        L10n::lang(Core::lang());
-        if (L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/date') === false && Core::lang() != 'en') {
+        L10n::lang(App::lang());
+        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
             L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/main');
-        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . Core::lang() . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/main');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('admin', Core::lang());
+        dcUtils::setlexicalLang('admin', App::lang());
     }
 
     /**
      * Adds a menu item.
      *
-     * @deprecated sicne 2.27, use Core::backend()->menus->addItem() instead
+     * @deprecated sicne 2.27, use App::backend()->menus->addItem() instead
      *
      * @param      string  $section   The section
      * @param      string  $desc      The item description
@@ -90,6 +90,6 @@ class Helper
      */
     public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
-        Core::backend()->menus->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
+        App::backend()->menus->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
     }
 }

@@ -17,7 +17,6 @@ use dcSettings;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -37,10 +36,10 @@ class Blog extends Process
     {
         Page::checkSuper();
 
-        Core::backend()->blog_id   = '';
-        Core::backend()->blog_url  = '';
-        Core::backend()->blog_name = '';
-        Core::backend()->blog_desc = '';
+        App::backend()->blog_id   = '';
+        App::backend()->blog_url  = '';
+        App::backend()->blog_name = '';
+        App::backend()->blog_desc = '';
 
         return self::status(true);
     }
@@ -49,36 +48,36 @@ class Blog extends Process
     {
         if (!isset($_POST['id']) && (isset($_POST['create']))) {
             // Create a blog
-            $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
+            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
 
-            Core::backend()->blog_id   = $cur->blog_id = $_POST['blog_id'];
-            Core::backend()->blog_url  = $cur->blog_url = $_POST['blog_url'];
-            Core::backend()->blog_name = $cur->blog_name = $_POST['blog_name'];
-            Core::backend()->blog_desc = $cur->blog_desc = $_POST['blog_desc'];
+            App::backend()->blog_id   = $cur->blog_id = $_POST['blog_id'];
+            App::backend()->blog_url  = $cur->blog_url = $_POST['blog_url'];
+            App::backend()->blog_name = $cur->blog_name = $_POST['blog_name'];
+            App::backend()->blog_desc = $cur->blog_desc = $_POST['blog_desc'];
 
             try {
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string
-                Core::behavior()->callBehavior('adminBeforeBlogCreate', $cur, Core::backend()->blog_id);
+                App::behavior()->callBehavior('adminBeforeBlogCreate', $cur, App::backend()->blog_id);
 
-                Core::blogs()->addBlog($cur);
+                App::blogs()->addBlog($cur);
 
                 # Default settings and override some
                 $blog_settings = new dcSettings($cur->blog_id);
-                $blog_settings->system->put('lang', Core::auth()->getInfo('user_lang'));
-                $blog_settings->system->put('blog_timezone', Core::auth()->getInfo('user_tz'));
+                $blog_settings->system->put('lang', App::auth()->getInfo('user_lang'));
+                $blog_settings->system->put('blog_timezone', App::auth()->getInfo('user_tz'));
 
-                if (substr(Core::backend()->blog_url, -1) == '?') {
+                if (substr(App::backend()->blog_url, -1) == '?') {
                     $blog_settings->system->put('url_scan', 'query_string');
                 } else {
                     $blog_settings->system->put('url_scan', 'path_info');
                 }
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
-                Core::behavior()->callBehavior('adminAfterBlogCreate', $cur, Core::backend()->blog_id, $blog_settings);
+                App::behavior()->callBehavior('adminAfterBlogCreate', $cur, App::backend()->blog_id, $blog_settings);
                 Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
-                Core::backend()->url->redirect('admin.blog', ['id' => $cur->blog_id]);
+                App::backend()->url->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -88,7 +87,7 @@ class Blog extends Process
     public static function render(): void
     {
         if (!empty($_REQUEST['id'])) {
-            Core::backend()->edit_blog_mode = true;
+            App::backend()->edit_blog_mode = true;
             App::process(BlogPref::class);
         } else {
             Page::open(
@@ -97,7 +96,7 @@ class Blog extends Process
                 Page::breadcrumb(
                     [
                         __('System')   => '',
-                        __('Blogs')    => Core::backend()->url->get('admin.blogs'),
+                        __('Blogs')    => App::backend()->url->get('admin.blogs'),
                         __('New blog') => '',
                     ]
                 )
@@ -106,11 +105,11 @@ class Blog extends Process
             echo
             // Form
             (new Form('blog-form'))
-                ->action(Core::backend()->url->get('admin.blog'))
+                ->action(App::backend()->url->get('admin.blog'))
                 ->method('post')
                 ->fields([
                     // Form Nonce
-                    Core::nonce()->formNonce(),
+                    App::nonce()->formNonce(),
                     // Blog ID
                     (new Para())
                         ->items([
@@ -138,7 +137,7 @@ class Blog extends Process
                                 ->maxlength(255)
                                 ->required(true)
                                 ->placeholder(__('Blog name'))
-                                ->lang(Core::auth()->getInfo('user_lang'))
+                                ->lang(App::auth()->getInfo('user_lang'))
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(
@@ -171,7 +170,7 @@ class Blog extends Process
                             (new Textarea('blog_desc'))
                                 ->cols(60)
                                 ->rows(5)
-                                ->lang(Core::auth()->getInfo('user_lang'))
+                                ->lang(App::auth()->getInfo('user_lang'))
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(

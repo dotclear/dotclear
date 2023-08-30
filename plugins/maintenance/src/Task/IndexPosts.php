@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use dcBlog;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Text;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -131,7 +131,7 @@ class IndexPosts extends MaintenanceTask
         $sql   = new SelectStatement();
         $count = (int) $sql
             ->column($sql->count('post_id'))
-            ->from(Core::con()->prefix() . dcBlog::POST_TABLE_NAME)
+            ->from(App::con()->prefix() . dcBlog::POST_TABLE_NAME)
             ->select()
             ->f(0);
 
@@ -143,7 +143,7 @@ class IndexPosts extends MaintenanceTask
                 'post_excerpt_xhtml',
                 'post_content_xhtml',
             ])
-            ->from(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            ->from(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
         if ($start !== null && $limit !== null) {
             $sql->limit([$start, $limit]);
@@ -151,7 +151,7 @@ class IndexPosts extends MaintenanceTask
 
         $rs = $sql->select();
 
-        $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
         while ($rs->fetch()) {
             $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .

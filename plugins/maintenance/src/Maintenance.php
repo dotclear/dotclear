@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use dcLog;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
 class Maintenance
@@ -59,7 +59,7 @@ class Maintenance
     protected function init(): void
     {
         # --BEHAVIOR-- dcMaintenanceInit -- Maintenance
-        Core::behavior()->callBehavior('dcMaintenanceInit', $this);
+        App::behavior()->callBehavior('dcMaintenanceInit', $this);
     }
 
     /// @name Tab methods
@@ -216,10 +216,10 @@ class Maintenance
         }
 
         // Get logs from this task
-        $rs = new MetaRecord(Core::con()->select(
+        $rs = new MetaRecord(App::con()->select(
             'SELECT log_id ' .
-            'FROM ' . Core::con()->prefix() . dcLog::LOG_TABLE_NAME . ' ' .
-            "WHERE log_msg = '" . Core::con()->escape($id) . "' " .
+            'FROM ' . App::con()->prefix() . dcLog::LOG_TABLE_NAME . ' ' .
+            "WHERE log_msg = '" . App::con()->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         ));
 
@@ -230,17 +230,17 @@ class Maintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            Core::log()->delLogs($logs);
+            App::log()->delLogs($logs);
         }
 
         // Add new log
-        $cur = Core::con()->openCursor(Core::con()->prefix() . dcLog::LOG_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . dcLog::LOG_TABLE_NAME);
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';
-        $cur->user_id   = Core::auth()->userID();
+        $cur->user_id   = App::auth()->userID();
 
-        Core::log()->addLog($cur);
+        App::log()->addLog($cur);
     }
 
     /**
@@ -249,7 +249,7 @@ class Maintenance
     public function delLogs(): void
     {
         // Retrieve logs from this task
-        $rs = Core::log()->getLogs([
+        $rs = App::log()->getLogs([
             'log_table' => 'maintenance',
             'blog_id'   => '*',
         ]);
@@ -261,7 +261,7 @@ class Maintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            Core::log()->delLogs($logs);
+            App::log()->delLogs($logs);
         }
     }
 
@@ -280,7 +280,7 @@ class Maintenance
     public function getLogs(): array
     {
         if ($this->logs === null) {
-            $rs = Core::log()->getLogs([
+            $rs = App::log()->getLogs([
                 'log_table' => 'maintenance',
                 'blog_id'   => '*',
             ]);
@@ -289,7 +289,7 @@ class Maintenance
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == Core::blog()->id,
+                    'blog' => $rs->blog_id == App::blog()->id,
                 ];
             }
         }

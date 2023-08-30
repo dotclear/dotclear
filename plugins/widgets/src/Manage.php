@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\widgets;
 use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -40,20 +40,20 @@ class Manage extends Process
         Widgets::init();
 
         // Loading navigation, extra widgets and custom widgets
-        Core::backend()->widgets_nav = null;
+        App::backend()->widgets_nav = null;
         if (My::settings()->widgets_nav) {
-            Core::backend()->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
+            App::backend()->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
-        Core::backend()->widgets_extra = null;
+        App::backend()->widgets_extra = null;
         if (My::settings()->widgets_extra) {
-            Core::backend()->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
+            App::backend()->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
-        Core::backend()->widgets_custom = null;
+        App::backend()->widgets_custom = null;
         if (My::settings()->widgets_custom) {
-            Core::backend()->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
+            App::backend()->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 
-        Core::backend()->append_combo = [
+        App::backend()->append_combo = [
             '-'              => 0,
             __('navigation') => Widgets::WIDGETS_NAV,
             __('extra')      => Widgets::WIDGETS_EXTRA,
@@ -79,23 +79,23 @@ class Manage extends Process
 
             # Append widgets
             if (!empty($addw)) {
-                if (!(Core::backend()->widgets_nav instanceof WidgetsStack)) {
-                    Core::backend()->widgets_nav = new WidgetsStack();
+                if (!(App::backend()->widgets_nav instanceof WidgetsStack)) {
+                    App::backend()->widgets_nav = new WidgetsStack();
                 }
-                if (!(Core::backend()->widgets_extra instanceof WidgetsStack)) {
-                    Core::backend()->widgets_extra = new WidgetsStack();
+                if (!(App::backend()->widgets_extra instanceof WidgetsStack)) {
+                    App::backend()->widgets_extra = new WidgetsStack();
                 }
-                if (!(Core::backend()->widgets_custom instanceof WidgetsStack)) {
-                    Core::backend()->widgets_custom = new WidgetsStack();
+                if (!(App::backend()->widgets_custom instanceof WidgetsStack)) {
+                    App::backend()->widgets_custom = new WidgetsStack();
                 }
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         try {
                             match ($v) {
-                                Widgets::WIDGETS_NAV    => Core::backend()->widgets_nav->append(Widgets::$widgets->{$k}),
-                                Widgets::WIDGETS_EXTRA  => Core::backend()->widgets_extra->append(Widgets::$widgets->{$k}),
-                                Widgets::WIDGETS_CUSTOM => Core::backend()->widgets_custom->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_NAV    => App::backend()->widgets_nav->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_EXTRA  => App::backend()->widgets_extra->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_CUSTOM => App::backend()->widgets_custom->append(Widgets::$widgets->{$k}),
                             };
                         } catch (UnhandledMatchError) {
                         }
@@ -103,13 +103,13 @@ class Manage extends Process
                 }
 
                 try {
-                    My::settings()->put('widgets_nav', Core::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
-                    My::settings()->put('widgets_extra', Core::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
-                    My::settings()->put('widgets_custom', Core::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
-                    Core::blog()->triggerBlog();
+                    My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
+                    App::blog()->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
         }
@@ -183,31 +183,31 @@ class Manage extends Process
                     $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
-                Core::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], Widgets::$widgets);
-                Core::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], Widgets::$widgets);
-                Core::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], Widgets::$widgets);
+                App::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], Widgets::$widgets);
+                App::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], Widgets::$widgets);
+                App::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], Widgets::$widgets);
 
-                My::settings()->put('widgets_nav', Core::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
-                My::settings()->put('widgets_extra', Core::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
-                My::settings()->put('widgets_custom', Core::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
-                Core::blog()->triggerBlog();
+                My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
+                App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
                 My::redirect();
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         } elseif (!empty($_POST['wreset'])) {
             try {
                 My::settings()->put('widgets_nav', '');
                 My::settings()->put('widgets_extra', '');
                 My::settings()->put('widgets_custom', '');
-                Core::blog()->triggerBlog();
+                App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars have been resetting.'));
                 My::redirect();
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -223,9 +223,9 @@ class Manage extends Process
             return;
         }
 
-        $widget_editor = Core::auth()->getOption('editor');
+        $widget_editor = App::auth()->getOption('editor');
         $rte_flag      = true;
-        $rte_flags     = @Core::auth()->user_prefs->interface->rte_flags;
+        $rte_flags     = @App::auth()->user_prefs->interface->rte_flags;
         if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
@@ -239,13 +239,13 @@ class Manage extends Process
             ]) .
             My::jsLoad('widgets');
 
-        $user_dm_nodragdrop = Core::auth()->user_prefs->accessibility->nodragdrop;
+        $user_dm_nodragdrop = App::auth()->user_prefs->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
             $head .= My::jsLoad('dragdrop');
         }
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            $head .= Core::behavior()->callBehavior(
+            $head .= App::behavior()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],
                 'widget',
@@ -260,14 +260,14 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(Core::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name) => '',
                 My::name()                           => '',
             ]
         ) .
         Notices::getNotices() .
 
         # All widgets
-        '<form id="listWidgets" action="' . Core::backend()->getPageURL() . '" method="post"  class="widgets">' .
+        '<form id="listWidgets" action="' . App::backend()->getPageURL() . '" method="post"  class="widgets">' .
         '<h3>' . __('Available widgets') . '</h3>' .
         '<p>' . __('Drag widgets from this list to one of the sidebars, for add.') . '</p>' .
         '<ul id="widgets-ref">';
@@ -284,7 +284,7 @@ class Manage extends Process
             ' ' . $w->name() .
             ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
             '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
-            form::combo(['addw[' . $w->id() . ']'], Core::backend()->append_combo) .
+            form::combo(['addw[' . $w->id() . ']'], App::backend()->append_combo) .
             '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '" /></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings('w[void][0]', $j) . '</div>' .
             '</li>';
@@ -293,29 +293,29 @@ class Manage extends Process
 
         echo
         '</ul>' .
-        '<p>' . Core::nonce()->getFormNonce() . '</p>' .
+        '<p>' . App::nonce()->getFormNonce() . '</p>' .
         '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
         '</form>' .
 
-        '<form id="sidebarsWidgets" action="' . Core::backend()->getPageURL() . '" method="post">' .
+        '<form id="sidebarsWidgets" action="' . App::backend()->getPageURL() . '" method="post">' .
 
         // Nav sidebar
         '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), Core::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j) .
+        self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j) .
         '</div>' .
 
         // Extra sidebar
         '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), Core::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j) .
+        self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j) .
         '</div>' .
 
         // Custom sidebar
         '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), Core::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
+        self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
         '<p id="sidebarsControl">' .
-        Core::nonce()->getFormNonce() .
+        App::nonce()->getFormNonce() .
         '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
         '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
         '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .

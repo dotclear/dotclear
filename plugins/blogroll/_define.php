@@ -8,7 +8,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 $this->registerModule(
     'Blogroll',             // Name
@@ -16,7 +16,7 @@ $this->registerModule(
     'Olivier Meunier',      // Author
     '2.0',                  // Version
     [
-        'permissions' => Core::auth()->makePermissions([
+        'permissions' => App::auth()->makePermissions([
             initBlogroll::PERMISSION_BLOGROLL,
         ]),
         'type' => 'plugin',

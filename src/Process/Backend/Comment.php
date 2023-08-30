@@ -16,7 +16,7 @@ use dcBlog;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -28,32 +28,32 @@ class Comment extends Process
 {
     public static function init(): bool
     {
-        Page::check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Core::backend()->show_ip = Core::auth()->check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), Core::blog()->id);
+        App::backend()->show_ip = App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id);
 
-        Core::backend()->comment_id      = null;
-        Core::backend()->comment_dt      = '';
-        Core::backend()->comment_author  = '';
-        Core::backend()->comment_email   = '';
-        Core::backend()->comment_site    = '';
-        Core::backend()->comment_content = '';
-        Core::backend()->comment_ip      = '';
-        Core::backend()->comment_status  = '';
+        App::backend()->comment_id      = null;
+        App::backend()->comment_dt      = '';
+        App::backend()->comment_author  = '';
+        App::backend()->comment_email   = '';
+        App::backend()->comment_site    = '';
+        App::backend()->comment_content = '';
+        App::backend()->comment_ip      = '';
+        App::backend()->comment_status  = '';
         // Unused yet:
-        Core::backend()->comment_trackback   = false;
-        Core::backend()->comment_spam_status = '';
+        App::backend()->comment_trackback   = false;
+        App::backend()->comment_spam_status = '';
         //
 
-        Core::backend()->comment_editor = Core::auth()->getOption('editor');
+        App::backend()->comment_editor = App::auth()->getOption('editor');
 
         // Status combo
-        Core::backend()->status_combo = Combos::getCommentStatusesCombo();
+        App::backend()->status_combo = Combos::getCommentStatusesCombo();
 
         return self::status(true);
     }
@@ -65,103 +65,103 @@ class Comment extends Process
             // Adding comment (comming from post form, comments tab)
 
             try {
-                Core::backend()->rs = Core::blog()->getPosts(['post_id' => $_POST['post_id'], 'post_type' => '']);
+                App::backend()->rs = App::blog()->getPosts(['post_id' => $_POST['post_id'], 'post_type' => '']);
 
-                if (Core::backend()->rs->isEmpty()) {
+                if (App::backend()->rs->isEmpty()) {
                     throw new Exception(__('Entry does not exist.'));
                 }
 
-                $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
                 $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = Core::filter()->HTMLfilter($_POST['comment_content']);
+                $cur->comment_content = App::filter()->HTMLfilter($_POST['comment_content']);
                 $cur->post_id         = (int) $_POST['post_id'];
 
                 # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
-                Core::behavior()->callBehavior('adminBeforeCommentCreate', $cur);
+                App::behavior()->callBehavior('adminBeforeCommentCreate', $cur);
 
-                Core::backend()->comment_id = Core::blog()->addComment($cur);
+                App::backend()->comment_id = App::blog()->addComment($cur);
 
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
-                Core::behavior()->callBehavior('adminAfterCommentCreate', $cur, Core::backend()->comment_id);
+                App::behavior()->callBehavior('adminAfterCommentCreate', $cur, App::backend()->comment_id);
 
                 Notices::addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
-            Http::redirect(Core::postTypes()->get(Core::backend()->rs->post_type)->adminUrl(Core::backend()->rs->post_id, false, ['co' => 1]));
+            Http::redirect(App::postTypes()->get(App::backend()->rs->post_type)->adminUrl(App::backend()->rs->post_id, false, ['co' => 1]));
         }
 
-        Core::backend()->rs         = null;
-        Core::backend()->post_id    = '';
-        Core::backend()->post_type  = '';
-        Core::backend()->post_title = '';
+        App::backend()->rs         = null;
+        App::backend()->post_id    = '';
+        App::backend()->post_type  = '';
+        App::backend()->post_title = '';
 
         if (!empty($_REQUEST['id'])) {
             $params['comment_id'] = $_REQUEST['id'];
 
             try {
-                Core::backend()->rs = Core::blog()->getComments($params);
-                if (!Core::backend()->rs->isEmpty()) {
-                    Core::backend()->comment_id      = Core::backend()->rs->comment_id;
-                    Core::backend()->post_id         = Core::backend()->rs->post_id;
-                    Core::backend()->post_type       = Core::backend()->rs->post_type;
-                    Core::backend()->post_title      = Core::backend()->rs->post_title;
-                    Core::backend()->comment_dt      = Core::backend()->rs->comment_dt;
-                    Core::backend()->comment_author  = Core::backend()->rs->comment_author;
-                    Core::backend()->comment_email   = Core::backend()->rs->comment_email;
-                    Core::backend()->comment_site    = Core::backend()->rs->comment_site;
-                    Core::backend()->comment_content = Core::backend()->rs->comment_content;
-                    Core::backend()->comment_ip      = Core::backend()->rs->comment_ip;
-                    Core::backend()->comment_status  = Core::backend()->rs->comment_status;
+                App::backend()->rs = App::blog()->getComments($params);
+                if (!App::backend()->rs->isEmpty()) {
+                    App::backend()->comment_id      = App::backend()->rs->comment_id;
+                    App::backend()->post_id         = App::backend()->rs->post_id;
+                    App::backend()->post_type       = App::backend()->rs->post_type;
+                    App::backend()->post_title      = App::backend()->rs->post_title;
+                    App::backend()->comment_dt      = App::backend()->rs->comment_dt;
+                    App::backend()->comment_author  = App::backend()->rs->comment_author;
+                    App::backend()->comment_email   = App::backend()->rs->comment_email;
+                    App::backend()->comment_site    = App::backend()->rs->comment_site;
+                    App::backend()->comment_content = App::backend()->rs->comment_content;
+                    App::backend()->comment_ip      = App::backend()->rs->comment_ip;
+                    App::backend()->comment_status  = App::backend()->rs->comment_status;
                     // Unused yet:
-                    Core::backend()->comment_trackback   = (bool) Core::backend()->rs->comment_trackback;
-                    Core::backend()->comment_spam_status = Core::backend()->rs->comment_spam_status;
+                    App::backend()->comment_trackback   = (bool) App::backend()->rs->comment_trackback;
+                    App::backend()->comment_spam_status = App::backend()->rs->comment_spam_status;
                     //
                 }
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
-        if (!Core::backend()->comment_id && !Core::error()->flag()) {
-            Core::error()->add(__('No comments'));
+        if (!App::backend()->comment_id && !App::error()->flag()) {
+            App::error()->add(__('No comments'));
         }
 
-        $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = false;
+        $can_edit = App::backend()->can_delete = App::backend()->can_publish = false;
 
-        if (!Core::error()->flag() && isset(Core::backend()->rs)) {
-            $can_edit = Core::backend()->can_delete = Core::backend()->can_publish = Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id);
+        if (!App::error()->flag() && isset(App::backend()->rs)) {
+            $can_edit = App::backend()->can_delete = App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id);
 
-            if (!Core::auth()->check(Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), Core::blog()->id) && Core::auth()->userID() == Core::backend()->rs->user_id) {
+            if (!App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id) && App::auth()->userID() == App::backend()->rs->user_id) {
                 $can_edit = true;
-                if (Core::auth()->check(Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_DELETE,
-                ]), Core::blog()->id)) {
-                    Core::backend()->can_delete = true;
+                if (App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_DELETE,
+                ]), App::blog()->id)) {
+                    App::backend()->can_delete = true;
                 }
-                if (Core::auth()->check(Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_PUBLISH,
-                ]), Core::blog()->id)) {
-                    Core::backend()->can_publish = true;
+                if (App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_PUBLISH,
+                ]), App::blog()->id)) {
+                    App::backend()->can_publish = true;
                 }
             }
 
             if (!empty($_POST['update']) && $can_edit) {
                 // update comment
 
-                $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
                 $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = Core::filter()->HTMLfilter($_POST['comment_content']);
+                $cur->comment_content = App::filter()->HTMLfilter($_POST['comment_content']);
 
                 if (isset($_POST['comment_status'])) {
                     $cur->comment_status = (int) $_POST['comment_status'];
@@ -169,38 +169,38 @@ class Comment extends Process
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentUpdate -- Cursor
-                    Core::behavior()->callBehavior('adminBeforeCommentUpdate', $cur, Core::backend()->comment_id);
+                    App::behavior()->callBehavior('adminBeforeCommentUpdate', $cur, App::backend()->comment_id);
 
-                    Core::blog()->updComment(Core::backend()->comment_id, $cur);
+                    App::blog()->updComment(App::backend()->comment_id, $cur);
 
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
-                    Core::behavior()->callBehavior('adminAfterCommentUpdate', $cur, Core::backend()->comment_id);
+                    App::behavior()->callBehavior('adminAfterCommentUpdate', $cur, App::backend()->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully updated.'));
-                    Core::backend()->url->redirect('admin.comment', ['id' => Core::backend()->comment_id]);
+                    App::backend()->url->redirect('admin.comment', ['id' => App::backend()->comment_id]);
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
 
-            if (!empty($_POST['delete']) && Core::backend()->can_delete) {
+            if (!empty($_POST['delete']) && App::backend()->can_delete) {
                 // delete comment
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentDelete -- string|int
-                    Core::behavior()->callBehavior('adminBeforeCommentDelete', Core::backend()->comment_id);
+                    App::behavior()->callBehavior('adminBeforeCommentDelete', App::backend()->comment_id);
 
-                    Core::blog()->delComment(Core::backend()->comment_id);
+                    App::blog()->delComment(App::backend()->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully deleted.'));
-                    Http::redirect(Core::postTypes()->get(Core::backend()->rs->post_type)->adminUrl(Core::backend()->rs->post_id, false, ['co' => 1]));
+                    Http::redirect(App::postTypes()->get(App::backend()->rs->post_type)->adminUrl(App::backend()->rs->post_id, false, ['co' => 1]));
                 } catch (Exception $e) {
-                    Core::error()->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
 
             if (!$can_edit) {
-                Core::error()->add(__("You can't edit this comment."));
+                App::error()->add(__("You can't edit this comment."));
             }
         }
 
@@ -210,16 +210,16 @@ class Comment extends Process
     public static function render(): void
     {
         $breadcrumb = [
-            Html::escapeHTML(Core::blog()->name) => '',
+            Html::escapeHTML(App::blog()->name) => '',
         ];
 
-        if (Core::postTypes()->exists(Core::backend()->post_type)) {
-            $breadcrumb[Html::escapeHTML(__(Core::postTypes()->get(Core::backend()->post_type)->label))] = '';
+        if (App::postTypes()->exists(App::backend()->post_type)) {
+            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(App::backend()->post_type)->label))] = '';
         }
-        if (Core::backend()->comment_id) {
-            $breadcrumb[Html::escapeHTML(Core::backend()->post_title)] = Core::postTypes()->get(Core::backend()->post_type)->adminUrl(Core::backend()->post_id) . '&amp;co=1#c' . Core::backend()->comment_id;
+        if (App::backend()->comment_id) {
+            $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id) . '&amp;co=1#c' . App::backend()->comment_id;
         } else {
-            $breadcrumb[Html::escapeHTML(Core::backend()->post_title)] = Core::postTypes()->get(Core::backend()->post_type)->adminUrl(Core::backend()->post_id);
+            $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id);
         }
         $breadcrumb[__('Edit comment')] = '';
 
@@ -228,67 +228,67 @@ class Comment extends Process
             Page::jsConfirmClose('comment-form') .
             Page::jsLoad('js/_comment.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-            Core::behavior()->callBehavior('adminPostEditor', Core::backend()->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
+            App::behavior()->callBehavior('adminPostEditor', App::backend()->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders --
-            Core::behavior()->callBehavior('adminCommentHeaders'),
+            App::behavior()->callBehavior('adminCommentHeaders'),
             Page::breadcrumb($breadcrumb)
         );
 
-        if (Core::backend()->comment_id) {
+        if (App::backend()->comment_id) {
             if (!empty($_GET['upd'])) {
                 Notices::success(__('Comment has been successfully updated.'));
             }
 
             $comment_mailto = '';
-            if (Core::backend()->comment_email) {
-                $comment_mailto = '<a href="mailto:' . Html::escapeHTML(Core::backend()->comment_email) .
-                    '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), Core::blog()->name)) .
-                    '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), Core::backend()->rs->getPostURL())) . '">' . __('Send an e-mail') . '</a>';
+            if (App::backend()->comment_email) {
+                $comment_mailto = '<a href="mailto:' . Html::escapeHTML(App::backend()->comment_email) .
+                    '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name)) .
+                    '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), App::backend()->rs->getPostURL())) . '">' . __('Send an e-mail') . '</a>';
             }
 
             echo
-            '<form action="' . Core::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . App::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="fieldset">' .
             '<h3>' . __('Information collected') . '</h3>';
 
-            if (Core::backend()->show_ip) {
+            if (App::backend()->show_ip) {
                 echo
                 '<p>' . __('IP address:') . ' ' .
-                '<a href="' . Core::backend()->url->get('admin.comments', ['ip' => Core::backend()->comment_ip]) . '">' . Core::backend()->comment_ip . '</a></p>';
+                '<a href="' . App::backend()->url->get('admin.comments', ['ip' => App::backend()->comment_ip]) . '">' . App::backend()->comment_ip . '</a></p>';
             }
 
             echo
             '<p>' . __('Date:') . ' ' .
-            Date::dt2str(__('%Y-%m-%d %H:%M'), Core::backend()->comment_dt) . '</p>' .
+            Date::dt2str(__('%Y-%m-%d %H:%M'), App::backend()->comment_dt) . '</p>' .
             '</div>' .
 
             '<h3>' . __('Comment submitted') . '</h3>' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr>' . __('Author:') . '</label>' .
             form::field('comment_author', 30, 255, [
-                'default'    => Html::escapeHTML(Core::backend()->comment_author),
+                'default'    => Html::escapeHTML(App::backend()->comment_author),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
             ]) .
             '</p>' .
 
             '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, Html::escapeHTML(Core::backend()->comment_email)) .
+            form::email('comment_email', 30, 255, Html::escapeHTML(App::backend()->comment_email)) .
             '<span>' . $comment_mailto . '</span>' .
             '</p>' .
 
             '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, Html::escapeHTML(Core::backend()->comment_site)) .
+            form::url('comment_site', 30, 255, Html::escapeHTML(App::backend()->comment_site)) .
             '</p>' .
 
             '<p><label for="comment_status">' . __('Status:') . '</label>' .
             form::combo(
                 'comment_status',
-                Core::backend()->status_combo,
-                ['default' => Core::backend()->comment_status, 'disabled' => !Core::backend()->can_publish]
+                App::backend()->status_combo,
+                ['default' => App::backend()->comment_status, 'disabled' => !App::backend()->can_publish]
             ) .
             '</p>' .
 
             # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
-            Core::behavior()->callBehavior('adminAfterCommentDesc', Core::backend()->rs) .
+            App::behavior()->callBehavior('adminAfterCommentDesc', App::backend()->rs) .
 
             '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .
             form::textarea(
@@ -296,18 +296,18 @@ class Comment extends Process
                 50,
                 10,
                 [
-                    'default'    => Html::escapeHTML(Core::backend()->comment_content),
-                    'extra_html' => 'lang="' . Core::auth()->getInfo('user_lang') . '" spellcheck="true"',
+                    'default'    => Html::escapeHTML(App::backend()->comment_content),
+                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) .
             '</p>' .
 
-            '<p>' . form::hidden('id', Core::backend()->comment_id) .
-            Core::nonce()->getFormNonce() .
+            '<p>' . form::hidden('id', App::backend()->comment_id) .
+            App::nonce()->getFormNonce() .
             '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
 
-            if (Core::backend()->can_delete) {
+            if (App::backend()->can_delete) {
                 echo ' <input type="submit" class="delete" name="delete" value="' . __('Delete') . '" />';
             }
             echo

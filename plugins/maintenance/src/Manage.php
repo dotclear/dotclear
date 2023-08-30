@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\maintenance;
 
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -31,22 +31,22 @@ class Manage extends Process
 
         // Set env
 
-        Core::backend()->maintenance = new Maintenance();
-        Core::backend()->tasks       = Core::backend()->maintenance->getTasks();
-        Core::backend()->code        = empty($_POST['code']) ? null : (int) $_POST['code'];
-        Core::backend()->tab         = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
+        App::backend()->maintenance = new Maintenance();
+        App::backend()->tasks       = App::backend()->maintenance->getTasks();
+        App::backend()->code        = empty($_POST['code']) ? null : (int) $_POST['code'];
+        App::backend()->tab         = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
         // Get task object
 
-        Core::backend()->task = null;
+        App::backend()->task = null;
         if (!empty($_REQUEST['task'])) {
-            Core::backend()->task = Core::backend()->maintenance->getTask($_REQUEST['task']);
+            App::backend()->task = App::backend()->maintenance->getTask($_REQUEST['task']);
 
-            if (Core::backend()->task === null) {
-                Core::error()->add('Unknown task ID');
+            if (App::backend()->task === null) {
+                App::error()->add('Unknown task ID');
             }
 
-            Core::backend()->task->code(Core::backend()->code);
+            App::backend()->task->code(App::backend()->code);
         }
 
         return self::status(true);
@@ -63,20 +63,20 @@ class Manage extends Process
 
         // Execute task
 
-        if (Core::backend()->task && !empty($_POST['task']) && Core::backend()->task->id() == $_POST['task']) {
+        if (App::backend()->task && !empty($_POST['task']) && App::backend()->task->id() == $_POST['task']) {
             try {
-                Core::backend()->code = Core::backend()->task->execute();
-                if (false === Core::backend()->code) {
-                    throw new Exception(Core::backend()->task->error());
+                App::backend()->code = App::backend()->task->execute();
+                if (false === App::backend()->code) {
+                    throw new Exception(App::backend()->task->error());
                 }
-                if (true === Core::backend()->code) {
-                    Core::backend()->maintenance->setLog(Core::backend()->task->id());
+                if (true === App::backend()->code) {
+                    App::backend()->maintenance->setLog(App::backend()->task->id());
 
-                    Notices::addSuccessNotice(Core::backend()->task->success());
-                    My::redirect(['task' => Core::backend()->task->id(), 'tab' => Core::backend()->tab], '#' . Core::backend()->tab);
+                    Notices::addSuccessNotice(App::backend()->task->success());
+                    My::redirect(['task' => App::backend()->task->id(), 'tab' => App::backend()->tab], '#' . App::backend()->tab);
                 }
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -93,7 +93,7 @@ class Manage extends Process
                     true
                 );
 
-                foreach (Core::backend()->tasks as $t) {
+                foreach (App::backend()->tasks as $t) {
                     if (!$t->id()) {
                         continue;
                     }
@@ -114,9 +114,9 @@ class Manage extends Process
                 }
 
                 Notices::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
-                My::redirect(['tab' => Core::backend()->tab], '#' . Core::backend()->tab);
+                My::redirect(['tab' => App::backend()->tab], '#' . App::backend()->tab);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -125,23 +125,23 @@ class Manage extends Process
         if (!empty($_POST['save_system'])) {
             try {
                 // Default (global) settings
-                Core::blog()->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
-                Core::blog()->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
+                App::blog()->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
+                App::blog()->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
                 // Current blog settings
-                Core::blog()->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
-                Core::blog()->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
+                App::blog()->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
+                App::blog()->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
 
                 Notices::addSuccessNotice(__('System settings have been saved.'));
 
                 if (!empty($_POST['system_csp_reset'])) {
-                    Core::blog()->settings->system->dropEvery('csp_admin_on');
-                    Core::blog()->settings->system->dropEvery('csp_admin_report_only');
+                    App::blog()->settings->system->dropEvery('csp_admin_on');
+                    App::blog()->settings->system->dropEvery('csp_admin_report_only');
                     Notices::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
-                My::redirect(['tab' => Core::backend()->tab], '#' . Core::backend()->tab);
+                My::redirect(['tab' => App::backend()->tab], '#' . App::backend()->tab);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -169,18 +169,18 @@ class Manage extends Process
 
         // Display page
 
-        $head = Page::jsPageTabs(Core::backend()->tab) .
+        $head = Page::jsPageTabs(App::backend()->tab) .
             My::jsLoad('settings');
-        if (Core::backend()->task && Core::backend()->task->ajax()) {
+        if (App::backend()->task && App::backend()->task->ajax()) {
             $head .= Page::jsJson('maintenance', ['wait' => __('Please wait...')]) .
                 My::jsLoad('dc.maintenance');
         }
-        $head .= Core::backend()->maintenance->getHeaders();
+        $head .= App::backend()->maintenance->getHeaders();
 
         Page::openModule(My::name(), $head);
 
         // Check if there is something to display according to user permissions
-        if (empty(Core::backend()->tasks)) {
+        if (empty(App::backend()->tasks)) {
             echo
             Page::breadcrumb(
                 [
@@ -195,15 +195,15 @@ class Manage extends Process
             return;
         }
 
-        if (Core::backend()->task && ($res = Core::backend()->task->step()) !== null) {
+        if (App::backend()->task && ($res = App::backend()->task->step()) !== null) {
             // Page title
 
             echo
             Page::breadcrumb(
                 [
                     __('Plugins')                                                            => '',
-                    '<a href="' . Core::backend()->getPageURL() . '">' . My::name() . '</a>' => '',
-                    Html::escapeHTML(Core::backend()->task->name())                          => '',
+                    '<a href="' . App::backend()->getPageURL() . '">' . My::name() . '</a>' => '',
+                    Html::escapeHTML(App::backend()->task->name())                          => '',
                 ]
             ) .
             Notices::getNotices();
@@ -215,18 +215,18 @@ class Manage extends Process
 
             // Intermediate task (task required several steps)
             echo
-            '<div class="step-box" id="' . Core::backend()->task->id() . '">' .
+            '<div class="step-box" id="' . App::backend()->task->id() . '">' .
             '<p class="step-back">' .
-            '<a class="back" href="' . Core::backend()->getPageURL() . '&amp;tab=' . Core::backend()->task->tab() . '#' . Core::backend()->task->tab() . '">' . __('Back') . '</a>' .
+            '<a class="back" href="' . App::backend()->getPageURL() . '&amp;tab=' . App::backend()->task->tab() . '#' . App::backend()->task->tab() . '">' . __('Back') . '</a>' .
             '</p>' .
-            '<h3>' . Html::escapeHTML(Core::backend()->task->name()) . '</h3>' .
-            '<form action="' . Core::backend()->getPageURL() . '" method="post">' .
+            '<h3>' . Html::escapeHTML(App::backend()->task->name()) . '</h3>' .
+            '<form action="' . App::backend()->getPageURL() . '" method="post">' .
             $res .
             '<p class="step-submit">' .
-            '<input type="submit" value="' . Core::backend()->task->task() . '" /> ' .
-            form::hidden(['task'], Core::backend()->task->id()) .
-            form::hidden(['code'], (int) Core::backend()->code) .
-            Core::nonce()->getFormNonce() .
+            '<input type="submit" value="' . App::backend()->task->task() . '" /> ' .
+            form::hidden(['task'], App::backend()->task->id()) .
+            form::hidden(['code'], (int) App::backend()->code) .
+            App::nonce()->getFormNonce() .
             '</p>' .
             '</form>' .
             '</div>';
@@ -244,11 +244,11 @@ class Manage extends Process
 
             // Simple task (with only a button to start it)
 
-            foreach (Core::backend()->maintenance->getTabs() as $tab_obj) {
+            foreach (App::backend()->maintenance->getTabs() as $tab_obj) {
                 $res_group = '';
-                foreach (Core::backend()->maintenance->getGroups() as $group_obj) {
+                foreach (App::backend()->maintenance->getGroups() as $group_obj) {
                     $res_task = '';
-                    foreach (Core::backend()->tasks as $t) {
+                    foreach (App::backend()->tasks as $t) {
                         if (!$t->id()
                         || $t->group() != $group_obj->id()
                         || $t->tab()   != $tab_obj->id()) {
@@ -270,8 +270,8 @@ class Manage extends Process
                                 $res_task .= '<br /> <span class="warn">' .
                                     sprintf(
                                         __('Last execution of this task was on %s.'),
-                                        Date::str(Core::blog()->settings->system->date_format, $ts) . ' ' .
-                                        Date::str(Core::blog()->settings->system->time_format, $ts)
+                                        Date::str(App::blog()->settings->system->date_format, $ts) . ' ' .
+                                        Date::str(App::blog()->settings->system->time_format, $ts)
                                     ) . ' ' .
                                     __('You should execute it now.') . '</span>';
                             }
@@ -293,12 +293,12 @@ class Manage extends Process
                     '<div id="' . $tab_obj->id() . '" class="multi-part" title="' . $tab_obj->name() . '">' .
                     '<h3>' . $tab_obj->name() . '</h3>' .
                     // ($tab_obj->option('summary') ? '<p>'.$tab_obj->option('summary').'</p>' : '').
-                    '<form action="' . Core::backend()->getPageURL() . '" method="post">' .
+                    '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                     $res_group .
                     '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
                     ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
                     form::hidden(['tab'], $tab_obj->id()) .
-                    Core::nonce()->getFormNonce() . '</p>' .
+                    App::nonce()->getFormNonce() . '</p>' .
                     '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
                     '</form>' .
                     '</div>';
@@ -307,7 +307,7 @@ class Manage extends Process
 
             // Advanced tasks (that required a tab)
 
-            foreach (Core::backend()->tasks as $t) {
+            foreach (App::backend()->tasks as $t) {
                 if (!$t->id() || $t->group() !== null) {
                     continue;
                 }
@@ -315,13 +315,13 @@ class Manage extends Process
                 echo
                 '<div id="' . $t->id() . '" class="multi-part" title="' . $t->name() . '">' .
                 '<h3>' . $t->name() . '</h3>' .
-                '<form action="' . Core::backend()->getPageURL() . '" method="post">' .
+                '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                 $t->content() .
                 '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
                 form::hidden(['task'], $t->id()) .
                 form::hidden(['tab'], $t->id()) .
-                Core::nonce()->getFormNonce() . '</p>' .
+                App::nonce()->getFormNonce() . '</p>' .
                 '</form>' .
                 '</div>';
             }
@@ -331,7 +331,7 @@ class Manage extends Process
             echo
             '<div id="settings" class="multi-part" title="' . __('Alert settings') . '">' .
             '<h3>' . __('Alert settings') . '</h3>' .
-            '<form action="' . Core::backend()->getPageURL() . '" method="post">' .
+            '<form action="' . App::backend()->getPageURL() . '" method="post">' .
 
             '<div class="fieldset">' .
             '<h4>' . __('Activation') . '</h4>' .
@@ -341,7 +341,7 @@ class Manage extends Process
 
             '<p class="info">' . sprintf(
                 __('You can place list of late tasks on your %s.'),
-                '<a href="' . Core::backend()->url->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
+                '<a href="' . App::backend()->url->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
             ) . '</p>' .
             '</div>' .
 
@@ -358,7 +358,7 @@ class Manage extends Process
             '<p class="vertical-separator">' . form::radio(['settings_recall_type', 'settings_recall_separate'], 'separate', 1) . ' ' .
             '<label class="classic" for="settings_recall_separate">' .
             '<strong>' . __('Use one recall time per task') . '</strong></label></p>';
-            foreach (Core::backend()->tasks as $t) {
+            foreach (App::backend()->tasks as $t) {
                 if (!$t->id()) {
                     continue;
                 }
@@ -375,16 +375,16 @@ class Manage extends Process
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             form::hidden(['tab'], 'settings') .
             form::hidden(['save_settings'], 1) .
-            Core::nonce()->getFormNonce() . '</p>' .
+            App::nonce()->getFormNonce() . '</p>' .
             '</form>' .
             '</div>';
 
             // System tab
-            if (Core::auth()->isSuperAdmin()) {
+            if (App::auth()->isSuperAdmin()) {
                 echo
                 '<div id="system" class="multi-part" title="' . __('System') . '">' .
                 '<h3>' . __('System settings') . '</h3>' .
-                '<form action="' . Core::backend()->getPageURL() . '" method="post">';
+                '<form action="' . App::backend()->getPageURL() . '" method="post">';
 
                 echo
                 '<div class="fieldset two-cols clearfix">' .
@@ -392,19 +392,19 @@ class Manage extends Process
 
                 '<div class="col">' .
                 '<p><label for="system_csp" class="classic">' .
-                form::checkbox('system_csp', '1', Core::blog()->settings->system->csp_admin_on) .
+                form::checkbox('system_csp', '1', App::blog()->settings->system->csp_admin_on) .
                 __('Enable Content-Security-Policy system') . '</label></p>' .
                 '<p><label for="system_csp_report_only" class="classic">' .
-                form::checkbox('system_csp_report_only', '1', Core::blog()->settings->system->csp_admin_report_only) .
+                form::checkbox('system_csp_report_only', '1', App::blog()->settings->system->csp_admin_report_only) .
                 __('Enable Content-Security-Policy report only') . '</label></p>' .
                 '</div>' .
 
                 '<div class="col">' .
                 '<p><label for="system_csp_global" class="classic">' .
-                form::checkbox('system_csp_global', '1', Core::blog()->settings->system->getGlobal('csp_admin_on')) .
+                form::checkbox('system_csp_global', '1', App::blog()->settings->system->getGlobal('csp_admin_on')) .
                 __('Enable Content-Security-Policy system by default') . '</label></p>' .
                 '<p><label for="system_csp_global_report_only" class="classic">' .
-                form::checkbox('system_csp_global_report_only', '1', Core::blog()->settings->system->getGlobal('csp_admin_report_only')) .
+                form::checkbox('system_csp_global_report_only', '1', App::blog()->settings->system->getGlobal('csp_admin_report_only')) .
                 __('Enable Content-Security-Policy report only by default') . '</label></p>' .
                 '<p><label for="system_csp_reset" class="classic">' .
                 form::checkbox('system_csp_reset', '1', 0) .
@@ -417,7 +417,7 @@ class Manage extends Process
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
                 form::hidden(['tab'], 'system') .
                 form::hidden(['save_system'], 1) .
-                Core::nonce()->getFormNonce() . '</p>' .
+                App::nonce()->getFormNonce() . '</p>' .
                 '</form>' .
                 '</div>';
             }

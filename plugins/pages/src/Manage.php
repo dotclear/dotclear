@@ -15,7 +15,7 @@ namespace Dotclear\Plugin\pages;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -46,34 +46,34 @@ class Manage extends Process
             'post_type' => 'page',
         ];
 
-        Core::backend()->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        Core::backend()->nb_per_page = UserPref::getUserFilters('pages', 'nb');
+        App::backend()->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->nb_per_page = UserPref::getUserFilters('pages', 'nb');
 
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-            Core::backend()->nb_per_page = (int) $_GET['nb'];
+            App::backend()->nb_per_page = (int) $_GET['nb'];
         }
 
-        $params['limit'] = [((Core::backend()->page - 1) * Core::backend()->nb_per_page), Core::backend()->nb_per_page];
+        $params['limit'] = [((App::backend()->page - 1) * App::backend()->nb_per_page), App::backend()->nb_per_page];
 
         $params['no_content'] = true;
         $params['order']      = 'post_position ASC, post_title ASC';
 
-        Core::backend()->post_list = null;
+        App::backend()->post_list = null;
 
         try {
-            $pages   = Core::blog()->getPosts($params);
-            $counter = Core::blog()->getPosts($params, true);
+            $pages   = App::blog()->getPosts($params);
+            $counter = App::blog()->getPosts($params, true);
 
-            Core::backend()->post_list = new BackendList($pages, $counter->f(0));
+            App::backend()->post_list = new BackendList($pages, $counter->f(0));
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         // Actions combo box
-        Core::backend()->pages_actions_page          = new BackendActions(Core::backend()->url->get('admin.plugin'), ['p' => 'pages']);
-        Core::backend()->pages_actions_page_rendered = null;
-        if (Core::backend()->pages_actions_page->process()) {
-            Core::backend()->pages_actions_page_rendered = true;
+        App::backend()->pages_actions_page          = new BackendActions(App::backend()->url->get('admin.plugin'), ['p' => 'pages']);
+        App::backend()->pages_actions_page_rendered = null;
+        if (App::backend()->pages_actions_page->process()) {
+            App::backend()->pages_actions_page_rendered = true;
         }
 
         return true;
@@ -94,8 +94,8 @@ class Manage extends Process
             return;
         }
 
-        if (Core::backend()->pages_actions_page_rendered) {
-            Core::backend()->pages_actions_page->render();
+        if (App::backend()->pages_actions_page_rendered) {
+            App::backend()->pages_actions_page->render();
 
             return;
         }
@@ -111,7 +111,7 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(Core::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name) => '',
                 My::name()                           => '',
             ]
         ) .
@@ -125,14 +125,14 @@ class Manage extends Process
             Notices::success(__('Selected pages have been successfully reordered.'));
         }
         echo
-        '<p class="top-add"><a class="button add" href="' . Core::backend()->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';
+        '<p class="top-add"><a class="button add" href="' . App::backend()->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';
 
-        if (!Core::error()->flag() && Core::backend()->post_list) {
+        if (!App::error()->flag() && App::backend()->post_list) {
             // Show pages
-            Core::backend()->post_list->display(
-                Core::backend()->page,
-                Core::backend()->nb_per_page,
-                '<form action="' . Core::backend()->url->get('admin.plugin') . '" method="post" id="form-entries">' .
+            App::backend()->post_list->display(
+                App::backend()->page,
+                App::backend()->nb_per_page,
+                '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="form-entries">' .
 
                 '%s' .
 
@@ -140,12 +140,12 @@ class Manage extends Process
                 '<p class="col checkboxes-helpers"></p>' .
 
                 '<p class="col right"><label for="action" class="classic">' . __('Selected pages action:') . '</label> ' .
-                form::combo('action', Core::backend()->pages_actions_page->getCombo()) .
+                form::combo('action', App::backend()->pages_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
                 form::hidden(['post_type'], 'page') .
                 form::hidden(['p'], My::id()) .
                 form::hidden(['act'], 'list') .
-                Core::nonce()->getFormNonce() .
+                App::nonce()->getFormNonce() .
                 '</p></div>' .
                 '<p class="clear form-note hidden-if-js">' .
                 __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .

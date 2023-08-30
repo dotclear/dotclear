@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -30,9 +30,9 @@ class Frontend extends Process
 
         Widgets::init();
 
-        Core::frontend()->tpl->addValue('Widgets', FrontendTemplate::tplWidgets(...));
-        Core::frontend()->tpl->addBlock('Widget', FrontendTemplate::tplWidget(...));
-        Core::frontend()->tpl->addBlock('IfWidgets', FrontendTemplate::tplIfWidgets(...));
+        App::frontend()->tpl->addValue('Widgets', FrontendTemplate::tplWidgets(...));
+        App::frontend()->tpl->addBlock('Widget', FrontendTemplate::tplWidget(...));
+        App::frontend()->tpl->addBlock('IfWidgets', FrontendTemplate::tplIfWidgets(...));
 
         return true;
     }

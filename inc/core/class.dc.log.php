@@ -7,7 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -48,8 +48,8 @@ class dcLog
      */
     public function __construct()
     {
-        $this->log_table  = Core::con()->prefix() . self::LOG_TABLE_NAME;
-        $this->user_table = Core::con()->prefix() . dcAuth::USER_TABLE_NAME;
+        $this->log_table  = App::con()->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = App::con()->prefix() . dcAuth::USER_TABLE_NAME;
     }
 
     /**
@@ -110,7 +110,7 @@ class dcLog
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote(Core::blog()->id));
+            $sql->where('L.blog_id = ' . $sql->quote(App::blog()->id));
         }
 
         if (!empty($params['user_id'])) {
@@ -150,7 +150,7 @@ class dcLog
      */
     public function addLog(Cursor $cur): int
     {
-        Core::con()->writeLock($this->log_table);
+        App::con()->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -162,24 +162,24 @@ class dcLog
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) Core::blog()->id;
+            $cur->blog_id = (string) App::blog()->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
             $this->fillLogCursor($cur);
 
             # --BEHAVIOR-- coreBeforeLogCreate -- dcLog, Cursor
-            Core::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
+            App::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            Core::con()->unlock();
+            App::con()->unlock();
         } catch (Exception $e) {
-            Core::con()->unlock();
+            App::con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterLogCreate -- dcLog, Cursor
-        Core::behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
+        App::behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }

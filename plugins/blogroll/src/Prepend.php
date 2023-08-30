@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -28,7 +28,7 @@ class Prepend extends Process
             return false;
         }
 
-        Core::url()->register('xbel', 'xbel', '^xbel(?:\/?)$', FrontendUrl::xbel(...));
+        App::url()->register('xbel', 'xbel', '^xbel(?:\/?)$', FrontendUrl::xbel(...));
 
         return true;
     }

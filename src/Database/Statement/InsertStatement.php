@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Statement;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class InsertStatement extends SqlStatement
 {
@@ -121,7 +121,7 @@ class InsertStatement extends SqlStatement
     {
         # --BEHAVIOR-- coreBeforeInsertStatement -- SqlStatement
         if (class_exists('dcCore')) {
-            Core::behavior()->callBehavior('coreBeforeInsertStatement', $this);
+            App::behavior()->callBehavior('coreBeforeInsertStatement', $this);
         }
 
         // Check if source given
@@ -160,7 +160,7 @@ class InsertStatement extends SqlStatement
 
         # --BEHAVIOR-- coreAfertInsertStatement -- SqlStatement, string
         if (class_exists('dcCore')) {
-            Core::behavior()->callBehavior('coreAfterInsertStatement', $this, $query);
+            App::behavior()->callBehavior('coreAfterInsertStatement', $this, $query);
         }
 
         return $query;

@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated since 2.27 Use name "admin.posts.popup" on Core::backend()->url methods
+ * @deprecated since 2.27 Use name "admin.posts.popup" on App::backend()->url methods
  *
  * @package Dotclear
  * @subpackage Backend

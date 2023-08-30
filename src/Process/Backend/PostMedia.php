@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -28,16 +28,16 @@ class PostMedia extends Process
 {
     public static function init(): bool
     {
-        Page::check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Core::backend()->post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
-        Core::backend()->media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;
-        Core::backend()->link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+        App::backend()->post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
+        App::backend()->media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;
+        App::backend()->link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
 
-        if (!Core::backend()->post_id) {
+        if (!App::backend()->post_id) {
             exit;
         }
 
@@ -46,47 +46,47 @@ class PostMedia extends Process
 
     public static function process(): bool
     {
-        $rs = Core::blog()->getPosts(['post_id' => Core::backend()->post_id, 'post_type' => '']);
+        $rs = App::blog()->getPosts(['post_id' => App::backend()->post_id, 'post_type' => '']);
         if ($rs->isEmpty()) {
             exit;
         }
 
         try {
-            $pm = Core::postMedia();
+            $pm = App::postMedia();
 
-            if (Core::backend()->media_id && !empty($_REQUEST['attach'])) {
+            if (App::backend()->media_id && !empty($_REQUEST['attach'])) {
                 // Attach a media to an entry
 
-                $pm->addPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
+                $pm->addPostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
-                    echo json_encode(['url' => Core::postTypes()->get($rs->post_type)->adminurl(Core::backend()->post_id, false)], JSON_THROW_ON_ERROR);
+                    echo json_encode(['url' => App::postTypes()->get($rs->post_type)->adminurl(App::backend()->post_id, false)], JSON_THROW_ON_ERROR);
                     exit();
                 }
-                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
+                Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
             }
 
-            $f = Core::media()->getPostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
+            $f = App::media()->getPostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
             if (empty($f)) {
-                Core::backend()->post_id = Core::backend()->media_id = null;
+                App::backend()->post_id = App::backend()->media_id = null;
 
                 throw new Exception(__('This attachment does not exist'));
             }
             $f = $f[0];
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
-        if ((Core::backend()->post_id && Core::backend()->media_id) || Core::error()->flag()) {
+        if ((App::backend()->post_id && App::backend()->media_id) || App::error()->flag()) {
             // Remove a media from entry
 
             if (!empty($_POST['remove'])) {
-                $pm->removePostMedia(Core::backend()->post_id, Core::backend()->media_id, Core::backend()->link_type);
+                $pm->removePostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
 
                 Notices::addSuccessNotice(__('Attachment has been successfully removed.'));
-                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
+                Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
             } elseif (isset($_POST['post_id'])) {
-                Http::redirect(Core::postTypes()->get($rs->post_type)->adminUrl(Core::backend()->post_id, false));
+                Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
             }
 
             if (!empty($_GET['remove'])) {
@@ -96,7 +96,7 @@ class PostMedia extends Process
 
                 echo
                 (new Form())
-                ->action(Core::backend()->url->get('admin.post.media'))
+                ->action(App::backend()->url->get('admin.post.media'))
                 ->method('post')
                 ->fields([
                     (new Para())
@@ -109,9 +109,9 @@ class PostMedia extends Process
                             (new Submit('cancel'))->class('reset')->value(__('Cancel')),
                             (new Submit('remove'))->class('delete')->value(__('Yes')),
                         ]),
-                    (new Hidden('post_id', (string) Core::backend()->post_id)),
-                    (new Hidden('media_id', (string) Core::backend()->media_id)),
-                    Core::nonce()->formNonce(),
+                    (new Hidden('post_id', (string) App::backend()->post_id)),
+                    (new Hidden('media_id', (string) App::backend()->media_id)),
+                    App::nonce()->formNonce(),
                 ])
                 ->render();
 

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 use form;
 
@@ -48,7 +48,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
     {
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
 
                 return false;

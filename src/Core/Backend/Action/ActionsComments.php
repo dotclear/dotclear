@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Link;
@@ -43,7 +43,7 @@ class ActionsComments extends Actions
 
         $this->loadDefaults();
         # --BEHAVIOR-- adminCommentsActions -- Actions
-        Core::behavior()->callBehavior('adminCommentsActions', $this);
+        App::behavior()->callBehavior('adminCommentsActions', $this);
     }
 
     /**
@@ -107,12 +107,12 @@ class ActionsComments extends Actions
      */
     public function error(Exception $e)
     {
-        Core::error()->add($e->getMessage());
+        App::error()->add($e->getMessage());
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name) => '',
-                    __('Comments')                       => Core::backend()->url->get('admin.comments'),
+                    Html::escapeHTML(App::blog()->name) => '',
+                    __('Comments')                       => App::backend()->url->get('admin.comments'),
                     __('Comments actions')               => '',
                 ]
             )
@@ -182,7 +182,7 @@ class ActionsComments extends Actions
         if (!isset($from['full_content']) || empty($from['full_content'])) {
             $params['no_content'] = true;
         }
-        $rs = Core::blog()->getComments($params);
+        $rs = App::blog()->getComments($params);
         while ($rs->fetch()) {
             $this->entries[$rs->comment_id] = [
                 'title'  => $rs->post_title,

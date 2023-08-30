@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\blogroll;
 
 use ArrayObject;
 use Exception;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -76,7 +76,7 @@ class FrontendTemplate
      */
     public static function blogrollXbelLink(ArrayObject $attr)
     {
-        return '<?php echo ' . sprintf(Core::frontend()->tpl->getFilters($attr), 'Core::blog()->url.Core::url()->getURLFor("xbel")') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), 'App::blog()->url.App::url()->getURLFor("xbel")') . '; ?>';
     }
 
     /**
@@ -91,7 +91,7 @@ class FrontendTemplate
      */
     public static function getList(string $cat_title = '<h3>%s</h3>', string $block = '<ul>%s</ul>', string $item = '<li>%s</li>', ?string $category = null): string
     {
-        $blogroll = new Blogroll(Core::blog());
+        $blogroll = new Blogroll(App::blog());
 
         try {
             $links = $blogroll->getLinks();
@@ -185,7 +185,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(Core::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->type)) {
             return '';
         }
 

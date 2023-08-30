@@ -13,7 +13,7 @@ namespace Dotclear\Process\Backend;
 use dcAuth;
 use dcUtils;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class HelpCharte extends Process
@@ -24,15 +24,15 @@ class HelpCharte extends Process
     public static function init(): bool
     {
         Page::check(
-            Core::auth()->makePermissions([
+            App::auth()->makePermissions([
                 dcAuth::PERMISSION_USAGE,
                 dcAuth::PERMISSION_CONTENT_ADMIN,
             ])
         );
 
-        Core::backend()->data_theme = Core::auth()->user_prefs->interface->theme;
-        Core::backend()->js         = [
-            'htmlFontSize' => Core::auth()->user_prefs->interface->htmlfontsize,
+        App::backend()->data_theme = App::auth()->user_prefs->interface->theme;
+        App::backend()->js         = [
+            'htmlFontSize' => App::auth()->user_prefs->interface->htmlfontsize,
             'debug'        => !!DC_DEBUG,
         ];
 
@@ -46,7 +46,7 @@ class HelpCharte extends Process
      */
     public static function getTheme(): string
     {
-        return Core::backend()->data_theme ?? '';
+        return App::backend()->data_theme ?? '';
     }
 
     /**
@@ -56,7 +56,7 @@ class HelpCharte extends Process
      */
     public static function getJS(): array
     {
-        return Core::backend()->js ?? [];
+        return App::backend()->js ?? [];
     }
 
     /**

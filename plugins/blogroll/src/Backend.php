@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
@@ -34,19 +34,19 @@ class Backend extends Process
             return false;
         }
 
-        Core::auth()->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
+        App::auth()->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
 
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => Core::auth()->makePermissions([
+                    'permissions' => App::auth()->makePermissions([
                         initBlogroll::PERMISSION_BLOGROLL,
-                        Core::auth()::PERMISSION_USAGE,
-                        Core::auth()::PERMISSION_CONTENT_ADMIN,
+                        App::auth()::PERMISSION_USAGE,
+                        App::auth()::PERMISSION_CONTENT_ADMIN,
                     ]),
                 ]);
             },

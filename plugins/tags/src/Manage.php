@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\tags;
 
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -39,9 +39,9 @@ class Manage extends Process
             return ManagePosts::process();
         }
 
-        Core::backend()->tags = Core::meta()->getMetadata(['meta_type' => 'tag']);
-        Core::backend()->tags = Core::meta()->computeMetaStats(Core::backend()->tags);
-        Core::backend()->tags->sort('meta_id_lower', 'asc');
+        App::backend()->tags = App::meta()->getMetadata(['meta_type' => 'tag']);
+        App::backend()->tags = App::meta()->computeMetaStats(App::backend()->tags);
+        App::backend()->tags->sort('meta_id_lower', 'asc');
 
         return true;
     }
@@ -69,7 +69,7 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(Core::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name) => '',
                 My::name()                           => '',
             ]
         ) .
@@ -78,21 +78,21 @@ class Manage extends Process
         $last_letter = null;
         $cols        = ['', ''];
         $col         = 0;
-        while (Core::backend()->tags->fetch()) {
-            $letter = mb_strtoupper(mb_substr(Core::backend()->tags->meta_id_lower, 0, 1));
+        while (App::backend()->tags->fetch()) {
+            $letter = mb_strtoupper(mb_substr(App::backend()->tags->meta_id_lower, 0, 1));
 
             if ($last_letter != $letter) {
-                if (Core::backend()->tags->index() >= round(Core::backend()->tags->count() / 2)) {
+                if (App::backend()->tags->index() >= round(App::backend()->tags->count() / 2)) {
                     $col = 1;
                 }
                 $cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>' . $letter . '</span></td></tr>';
             }
 
             $cols[$col] .= '<tr class="line">' .
-            '<td class="maximal"><a href="' . Core::backend()->getPageURL() .
-            '&amp;m=tag_posts&amp;tag=' . rawurlencode(Core::backend()->tags->meta_id) . '">' . Core::backend()->tags->meta_id . '</a></td>' .
-            '<td class="nowrap count"><strong>' . Core::backend()->tags->count . '</strong> ' .
-                ((Core::backend()->tags->count == 1) ? __('entry') : __('entries')) . '</td>' .
+            '<td class="maximal"><a href="' . App::backend()->getPageURL() .
+            '&amp;m=tag_posts&amp;tag=' . rawurlencode(App::backend()->tags->meta_id) . '">' . App::backend()->tags->meta_id . '</a></td>' .
+            '<td class="nowrap count"><strong>' . App::backend()->tags->count . '</strong> ' .
+                ((App::backend()->tags->count == 1) ? __('entry') : __('entries')) . '</td>' .
                 '</tr>';
 
             $last_letter = $letter;

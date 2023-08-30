@@ -18,7 +18,7 @@ use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -34,19 +34,19 @@ class Search extends Process
 
     public static function init(): bool
     {
-        Page::check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminSearchPageComboV2' => [static::class,'typeCombo'],
             'adminSearchPageHeadV2'  => [static::class,'pageHead'],
             // posts search
             'adminSearchPageProcessV2' => [static::class,'processPosts'],
             'adminSearchPageDisplayV2' => [static::class,'displayPosts'],
         ]);
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             // comments search
             'adminSearchPageProcessV2' => [static::class,'processComments'],
             'adminSearchPageDisplayV2' => [static::class,'displayComments'],
@@ -54,25 +54,25 @@ class Search extends Process
 
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
-        Core::behavior()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
-        Core::backend()->qtype_combo = $qtype_combo;
+        App::behavior()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
+        App::backend()->qtype_combo = $qtype_combo;
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        Core::backend()->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
-        Core::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
+        App::backend()->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
+        App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
 
-        if (!empty(Core::backend()->q) && !in_array(Core::backend()->qtype, Core::backend()->qtype_combo)) {
-            Core::backend()->qtype = 'p';
+        if (!empty(App::backend()->q) && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
+            App::backend()->qtype = 'p';
         }
 
-        Core::backend()->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        Core::backend()->nb   = UserPref::getUserFilters('search', 'nb');
+        App::backend()->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->nb   = UserPref::getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-            Core::backend()->nb = (int) $_GET['nb'];
+            App::backend()->nb = (int) $_GET['nb'];
         }
 
         return true;
@@ -80,14 +80,14 @@ class Search extends Process
 
     public static function render(): void
     {
-        $args = ['q' => Core::backend()->q, 'qtype' => Core::backend()->qtype, 'page' => Core::backend()->page, 'nb' => Core::backend()->nb];
+        $args = ['q' => App::backend()->q, 'qtype' => App::backend()->qtype, 'page' => App::backend()->page, 'nb' => App::backend()->nb];
 
         # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
-        $starting_scripts = Core::backend()->q ? Core::behavior()->callBehavior('adminSearchPageHeadV2', $args) : '';
+        $starting_scripts = App::backend()->q ? App::behavior()->callBehavior('adminSearchPageHeadV2', $args) : '';
 
-        if (Core::backend()->q) {
+        if (App::backend()->q) {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
-            Core::behavior()->callBehavior('adminSearchPageProcessV2', $args);
+            App::behavior()->callBehavior('adminSearchPageProcessV2', $args);
         }
 
         Page::open(
@@ -95,19 +95,19 @@ class Search extends Process
             $starting_scripts,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(Core::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name) => '',
                     __('Search')                         => '',
                 ]
             )
         );
 
         echo
-        '<form action="' . Core::backend()->url->get('admin.search') . '" method="get" role="search">' .
+        '<form action="' . App::backend()->url->get('admin.search') . '" method="get" role="search">' .
         '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
         '<p><label for="q">' . __('Query:') . ' </label>' .
-        form::field('q', 30, 255, Html::escapeHTML(Core::backend()->q)) . '</p>' .
+        form::field('q', 30, 255, Html::escapeHTML(App::backend()->q)) . '</p>' .
         '<p><label for="qtype">' . __('In:') . '</label> ' .
-        form::combo('qtype', Core::backend()->qtype_combo, Core::backend()->qtype) . '</p>' .
+        form::combo('qtype', App::backend()->qtype_combo, App::backend()->qtype) . '</p>' .
         '<p><input type="submit" value="' . __('Search') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         form::hidden('process', 'Search') .
@@ -115,11 +115,11 @@ class Search extends Process
         '</div>' .
         '</form>';
 
-        if (Core::backend()->q && !Core::error()->flag()) {
+        if (App::backend()->q && !App::error()->flag()) {
             ob_start();
 
             # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
-            Core::behavior()->callBehavior('adminSearchPageDisplayV2', $args);
+            App::behavior()->callBehavior('adminSearchPageDisplayV2', $args);
 
             $res = ob_get_contents();
             ob_end_clean();
@@ -162,14 +162,14 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = (int) Core::blog()->getPosts($params, true)->f(0);
-            self::$list    = new ListingPosts(Core::blog()->getPosts($params), self::$count);
-            self::$actions = new ActionsPosts(Core::backend()->url->get('admin.search'), $args);
+            self::$count   = (int) App::blog()->getPosts($params, true)->f(0);
+            self::$list    = new ListingPosts(App::blog()->getPosts($params), self::$count);
+            self::$actions = new ActionsPosts(App::backend()->url->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 
@@ -186,7 +186,7 @@ class Search extends Process
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . Core::backend()->url->get('admin.search') . '" method="post" id="form-entries">' .
+            '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
 
@@ -196,7 +196,7 @@ class Search extends Process
             '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
@@ -217,14 +217,14 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = Core::blog()->getComments($params, true)->f(0);
-            self::$list    = new ListingComments(Core::blog()->getComments($params), self::$count);
-            self::$actions = new ActionsComments(Core::backend()->url->get('admin.search'), $args);
+            self::$count   = App::blog()->getComments($params, true)->f(0);
+            self::$list    = new ListingComments(App::blog()->getComments($params), self::$count);
+            self::$actions = new ActionsComments(App::backend()->url->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
         } catch (Exception $e) {
-            Core::error()->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 
@@ -239,17 +239,17 @@ class Search extends Process
         }
 
         // IP are available only for super-admin and admin
-        $show_ip = Core::auth()->check(
-            Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
+        $show_ip = App::auth()->check(
+            App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            Core::blog()->id
+            App::blog()->id
         );
 
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . Core::backend()->url->get('admin.search') . '" method="post" id="form-comments">' .
+            '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
 
@@ -259,7 +259,7 @@ class Search extends Process
             '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            Core::nonce()->getFormNonce() .
+            App::nonce()->getFormNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>',

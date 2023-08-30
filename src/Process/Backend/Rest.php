@@ -19,7 +19,7 @@ use dcCore;
 use dcStore;
 use dcUpdate;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -33,31 +33,31 @@ class Rest extends Process
 {
     public static function init(): bool
     {
-        Core::rest()->addFunction('getPostsCount', self::getPostsCount(...));
-        Core::rest()->addFunction('getCommentsCount', self::getCommentsCount(...));
-        Core::rest()->addFunction('checkNewsUpdate', self::checkNewsUpdate(...));
-        Core::rest()->addFunction('checkCoreUpdate', self::checkCoreUpdate(...));
-        Core::rest()->addFunction('checkStoreUpdate', self::checkStoreUpdate(...));
-        Core::rest()->addFunction('getPostById', self::getPostById(...));
-        Core::rest()->addFunction('getCommentById', self::getCommentById(...));
-        Core::rest()->addFunction('quickPost', self::quickPost(...));
-        Core::rest()->addFunction('getZipMediaContent', self::getZipMediaContent(...));
-        Core::rest()->addFunction('getMeta', self::getMeta(...));
-        Core::rest()->addFunction('delMeta', self::delMeta(...));
-        Core::rest()->addFunction('setPostMeta', self::setPostMeta(...));
-        Core::rest()->addFunction('searchMeta', self::searchMeta(...));
-        Core::rest()->addFunction('searchMetadata', self::searchMetadata(...));
-        Core::rest()->addFunction('setSectionFold', self::setSectionFold(...));
-        Core::rest()->addFunction('setDashboardPositions', self::setDashboardPositions(...));
-        Core::rest()->addFunction('setListsOptions', self::setListsOptions(...));
+        App::rest()->addFunction('getPostsCount', self::getPostsCount(...));
+        App::rest()->addFunction('getCommentsCount', self::getCommentsCount(...));
+        App::rest()->addFunction('checkNewsUpdate', self::checkNewsUpdate(...));
+        App::rest()->addFunction('checkCoreUpdate', self::checkCoreUpdate(...));
+        App::rest()->addFunction('checkStoreUpdate', self::checkStoreUpdate(...));
+        App::rest()->addFunction('getPostById', self::getPostById(...));
+        App::rest()->addFunction('getCommentById', self::getCommentById(...));
+        App::rest()->addFunction('quickPost', self::quickPost(...));
+        App::rest()->addFunction('getZipMediaContent', self::getZipMediaContent(...));
+        App::rest()->addFunction('getMeta', self::getMeta(...));
+        App::rest()->addFunction('delMeta', self::delMeta(...));
+        App::rest()->addFunction('setPostMeta', self::setPostMeta(...));
+        App::rest()->addFunction('searchMeta', self::searchMeta(...));
+        App::rest()->addFunction('searchMetadata', self::searchMetadata(...));
+        App::rest()->addFunction('setSectionFold', self::setSectionFold(...));
+        App::rest()->addFunction('setDashboardPositions', self::setDashboardPositions(...));
+        App::rest()->addFunction('setListsOptions', self::setListsOptions(...));
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        if (Core::rest()->serveRestRequests()) {
-            Core::rest()->serve();
+        if (App::rest()->serveRestRequests()) {
+            App::rest()->serve();
         }
 
         return true;
@@ -73,7 +73,7 @@ class Rest extends Process
      */
     public static function getPostsCount(): array
     {
-        $count = Core::blog()->getPosts([], true)->f(0);
+        $count = App::blog()->getPosts([], true)->f(0);
 
         return [
             'ret' => sprintf(__('%d post', '%d posts', (int) $count), $count),
@@ -87,7 +87,7 @@ class Rest extends Process
      */
     public static function getCommentsCount(): array
     {
-        $count = Core::blog()->getComments([], true)->f(0);
+        $count = App::blog()->getComments([], true)->f(0);
 
         return [
             'ret' => sprintf(__('%d comment', '%d comments', (int) $count), $count),
@@ -110,9 +110,9 @@ class Rest extends Process
             'ret'   => __('Dotclear news not available'),
         ];
 
-        if (Core::auth()->user_prefs->dashboard->dcnews) {
+        if (App::auth()->user_prefs->dashboard->dcnews) {
             try {
-                if ('' == ($rss_news = Core::backend()->resources->entry('rss_news', 'Dotclear'))) {
+                if ('' == ($rss_news = App::backend()->resources->entry('rss_news', 'Dotclear'))) {
                     throw new Exception();
                 }
                 $feed_reader = new Reader();
@@ -164,7 +164,7 @@ class Rest extends Process
             'ret'   => __('Dotclear update not available'),
         ];
 
-        if (Core::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !Core::auth()->user_prefs->dashboard->nodcupdate) {
+        if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !App::auth()->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);
             $version_info = $new_v ? $updater->getInfoURL() : '';
@@ -173,8 +173,8 @@ class Rest extends Process
                 // Check PHP version required
                 if (version_compare(phpversion(), $updater->getPHPVersion()) >= 0) {
                     $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
-                    '<p><a class="button submit" href="' . Core::backend()->url->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . Core::backend()->url->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
+                    '<p><a class="button submit" href="' . App::backend()->url->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
+                    '<a class="button" href="' . App::backend()->url->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
                         ($updater->getWarning() ? '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>' : '') .
@@ -194,7 +194,7 @@ class Rest extends Process
                 ];
             } else {
                 if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
-                    if (!Core::auth()->user_prefs->interface->hidemoreinfo) {
+                    if (!App::auth()->user_prefs->interface->hidemoreinfo) {
                         $ret = '<p class="info">' .
                         sprintf(
                             __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
@@ -243,17 +243,17 @@ class Rest extends Process
         $url = '';
         if ($post['store'] == 'themes') {
             // load once themes
-            if (Core::themes()->isEmpty() && !is_null(Core::blog())) {
-                Core::themes()->loadModules(Core::blog()->themes_path, 'admin', Core::lang());
+            if (App::themes()->isEmpty() && !is_null(App::blog())) {
+                App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
             }
-            $mod = Core::themes();
-            $url = Core::blog()->settings->system->store_theme_url;
+            $mod = App::themes();
+            $url = App::blog()->settings->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
-            $mod = Core::plugins();
-            $url = Core::blog()->settings->system->store_plugin_url;
+            $mod = App::plugins();
+            $url = App::blog()->settings->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
-            Core::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
+            App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
                 throw new Exception('Unknown store type');
@@ -295,7 +295,7 @@ class Rest extends Process
             $params['post_type'] = $get['post_type'];
         }
 
-        $rs = Core::blog()->getPosts($params);
+        $rs = App::blog()->getPosts($params);
 
         if ($rs->isEmpty()) {
             throw new Exception('No post for this ID');
@@ -368,7 +368,7 @@ class Rest extends Process
             throw new Exception('No comment ID');
         }
 
-        $rs = Core::blog()->getComments(['comment_id' => (int) $get['id']]);
+        $rs = App::blog()->getComments(['comment_id' => (int) $get['id']]);
 
         if ($rs->isEmpty()) {
             throw new Exception('No comment for this ID');
@@ -392,9 +392,9 @@ class Rest extends Process
 
             'comment_display_content' => $rs->getContent(true),
 
-            'comment_ip'        => Core::auth()->userID() ? $rs->comment_ip : '',
-            'comment_email'     => Core::auth()->userID() ? $rs->comment_email : '',
-            'comment_spam_disp' => Core::auth()->userID() ? Antispam::statusMessage($rs) : '',
+            'comment_ip'        => App::auth()->userID() ? $rs->comment_ip : '',
+            'comment_email'     => App::auth()->userID() ? $rs->comment_email : '',
+            'comment_spam_disp' => App::auth()->userID() ? Antispam::statusMessage($rs) : '',
         ];
 
         return $data;
@@ -411,45 +411,45 @@ class Rest extends Process
     public static function quickPost(array $get, array $post): array
     {
         # Create category
-        if (!empty($post['new_cat_title']) && Core::auth()->check(Core::auth()->makePermissions([
+        if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
             dcAuth::PERMISSION_CATEGORIES,
-        ]), Core::blog()->id)) {
-            $cur_cat            = Core::con()->openCursor(Core::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
+        ]), App::blog()->id)) {
+            $cur_cat            = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
 
             $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
             # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-            Core::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+            App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-            $post['cat_id'] = Core::blog()->addCategory($cur_cat, (int) $parent_cat);
+            $post['cat_id'] = App::blog()->addCategory($cur_cat, (int) $parent_cat);
 
             # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
-            Core::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
+            App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
-        $cur = Core::con()->openCursor(Core::con()->prefix() . dcBlog::POST_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
-        $cur->user_id           = Core::auth()->userID();
+        $cur->user_id           = App::auth()->userID();
         $cur->post_content      = !empty($post['post_content']) ? $post['post_content'] : '';
         $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
         $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
         $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : dcBlog::POST_UNPUBLISHED;
-        $cur->post_open_comment = (int) Core::blog()->settings->system->allow_comments;
-        $cur->post_open_tb      = (int) Core::blog()->settings->system->allow_trackbacks;
+        $cur->post_open_comment = (int) App::blog()->settings->system->allow_comments;
+        $cur->post_open_tb      = (int) App::blog()->settings->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor
-        Core::behavior()->callBehavior('adminBeforePostCreate', $cur);
+        App::behavior()->callBehavior('adminBeforePostCreate', $cur);
 
-        $return_id = Core::blog()->addPost($cur);
+        $return_id = App::blog()->addPost($cur);
 
         # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
-        Core::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
+        App::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-        $post = Core::blog()->getPosts(['post_id' => $return_id]);
+        $post = App::blog()->getPosts(['post_id' => $return_id]);
 
         return [
             'id'     => $return_id,
@@ -475,17 +475,17 @@ class Rest extends Process
 
         $id = (int) $get['id'];
 
-        if (!Core::auth()->check(Core::auth()->makePermissions([
+        if (!App::auth()->check(App::auth()->makePermissions([
             dcAuth::PERMISSION_MEDIA,
             dcAuth::PERMISSION_MEDIA_ADMIN,
-        ]), Core::blog()->id)) {
+        ]), App::blog()->id)) {
             throw new Exception('Permission denied');
         }
 
         $file = null;
 
         try {
-            $file = Core::media()->getFile((int) $id);
+            $file = App::media()->getFile((int) $id);
         } catch (Exception $e) {
             // Ignore exceptions
         }
@@ -494,7 +494,7 @@ class Rest extends Process
             throw new Exception('Not a valid file');
         }
 
-        $content = Core::media()->getZipContent($file);
+        $content = App::media()->getZipContent($file);
 
         $data = [];
         foreach ($content as $k => $v) {
@@ -520,12 +520,12 @@ class Rest extends Process
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = Core::meta()->getMetadata([
+        $rs = App::meta()->getMetadata([
             'meta_type' => $metaType,
             'limit'     => $limit,
             'meta_id'   => $metaId,
             'post_id'   => $postid, ]);
-        $rs = Core::meta()->computeMetaStats($rs);
+        $rs = App::meta()->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -578,7 +578,7 @@ class Rest extends Process
         }
 
         # Get previous meta for post
-        $post_meta = Core::meta()->getMetadata([
+        $post_meta = App::meta()->getMetadata([
             'meta_type' => $post['metaType'],
             'post_id'   => $post['postId'], ]);
         $pm = [];
@@ -586,9 +586,9 @@ class Rest extends Process
             $pm[] = $post_meta->meta_id;
         }
 
-        foreach (Core::meta()->splitMetaValues($post['meta']) as $m) {
+        foreach (App::meta()->splitMetaValues($post['meta']) as $m) {
             if (!in_array($m, $pm)) {
-                Core::meta()->setPostMeta($post['postId'], $post['metaType'], $m);
+                App::meta()->setPostMeta($post['postId'], $post['metaType'], $m);
             }
         }
 
@@ -617,7 +617,7 @@ class Rest extends Process
             throw new Exception('No meta type');
         }
 
-        Core::meta()->delPostMeta($post['postId'], $post['metaType'], $post['metaId']);
+        App::meta()->delPostMeta($post['postId'], $post['metaType'], $post['metaId']);
 
         return true;
     }
@@ -639,8 +639,8 @@ class Rest extends Process
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = Core::meta()->getMetadata(['meta_type' => $metaType]);
-        $rs = Core::meta()->computeMetaStats($rs);
+        $rs = App::meta()->getMetadata(['meta_type' => $metaType]);
+        $rs = App::meta()->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -690,8 +690,8 @@ class Rest extends Process
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = Core::meta()->getMetadata(['meta_type' => $metaType]);
-        $rs = Core::meta()->computeMetaStats($rs);
+        $rs = App::meta()->getMetadata(['meta_type' => $metaType]);
+        $rs = App::meta()->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -739,8 +739,8 @@ class Rest extends Process
         }
         $section = $post['section'];
         $status  = isset($post['value']) && ($post['value'] != 0);
-        if (Core::auth()->user_prefs->toggles->prefExists('unfolded_sections')) {
-            $toggles = explode(',', trim((string) Core::auth()->user_prefs->toggles->unfolded_sections));
+        if (App::auth()->user_prefs->toggles->prefExists('unfolded_sections')) {
+            $toggles = explode(',', trim((string) App::auth()->user_prefs->toggles->unfolded_sections));
         } else {
             $toggles = [];
         }
@@ -756,7 +756,7 @@ class Rest extends Process
                 $toggles[] = $section;
             }
         }
-        Core::auth()->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
+        App::auth()->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
 
         return true;
     }
@@ -783,7 +783,7 @@ class Rest extends Process
         $zone  = $post['id'];
         $order = $post['list'];
 
-        Core::auth()->user_prefs->dashboard->put($zone, $order);
+        App::auth()->user_prefs->dashboard->put($zone, $order);
 
         return true;
     }
@@ -826,7 +826,7 @@ class Rest extends Process
             }
         }
 
-        Core::auth()->user_prefs->interface->put('sorts', $su, 'array');
+        App::auth()->user_prefs->interface->put('sorts', $su, 'array');
 
         return [
             'msg' => __('List options saved'),

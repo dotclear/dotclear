@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\Uninstaller;
 
 use Countable;
 use Iterator;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Exception;
 
 /**
@@ -35,7 +35,7 @@ class CleanersStack implements Countable, Iterator
     public function __construct()
     {
         # --BEHAVIOR-- UninstallerCleanersConstruct: CleanersStack
-        Core::behavior()->callBehavior('UninstallerCleanersConstruct', $this);
+        App::behavior()->callBehavior('UninstallerCleanersConstruct', $this);
     }
 
     public function exists(string $offset): bool
@@ -122,7 +122,7 @@ class CleanersStack implements Countable, Iterator
         }
 
         # --BEHAVIOR-- UninstallerBeforeAction: string, string, string
-        Core::behavior()->callBehavior('UninstallerBeforeAction', $id, $action, $ns);
+        App::behavior()->callBehavior('UninstallerBeforeAction', $id, $action, $ns);
 
         return $this->stack[$id]->execute($action, $ns);
     }

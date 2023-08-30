@@ -15,7 +15,7 @@ use dcUtils;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -35,19 +35,19 @@ class Config extends Process
         // load locales
         My::l10n('admin');
 
-        if (preg_match('#^http(s)?://#', (string) Core::blog()->settings->system->themes_url)) {
-            Core::backend()->img_url = Http::concatURL(Core::blog()->settings->system->themes_url, '/' . Core::blog()->settings->system->theme . '/img/');
+        if (preg_match('#^http(s)?://#', (string) App::blog()->settings->system->themes_url)) {
+            App::backend()->img_url = Http::concatURL(App::blog()->settings->system->themes_url, '/' . App::blog()->settings->system->theme . '/img/');
         } else {
-            Core::backend()->img_url = Http::concatURL(Core::blog()->url, Core::blog()->settings->system->themes_url . '/' . Core::blog()->settings->system->theme . '/img/');
+            App::backend()->img_url = Http::concatURL(App::blog()->url, App::blog()->settings->system->themes_url . '/' . App::blog()->settings->system->theme . '/img/');
         }
 
         $img_path = My::path() . '/img/';
         $tpl_path = My::path() . '/tpl/';
 
-        Core::backend()->standalone_config = (bool) Core::themes()->moduleInfo(Core::blog()->settings->system->theme, 'standalone_config');
+        App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings->system->theme, 'standalone_config');
 
         // Load contextual help
-        Core::themes()->loadModuleL10Nresources(My::id(), Core::lang());
+        App::themes()->loadModuleL10Nresources(My::id(), App::lang());
 
         $list_types = [
             __('Title') => 'title',
@@ -62,9 +62,9 @@ class Config extends Process
                 $list_types[__($m[1])] = $m[1];
             }
         }
-        Core::backend()->list_types = $list_types;
+        App::backend()->list_types = $list_types;
 
-        Core::backend()->contexts = [
+        App::backend()->contexts = [
             'default'      => __('Home (first page)'),
             'default-page' => __('Home (other pages)'),
             'category'     => __('Entries for a category'),
@@ -73,7 +73,7 @@ class Config extends Process
             'archive'      => __('Month archive entries'),
         ];
 
-        Core::backend()->fonts = [
+        App::backend()->fonts = [
             __('Default')           => '',
             __('Ductile primary')   => 'Ductile body',
             __('Ductile secondary') => 'Ductile alternate',
@@ -87,13 +87,13 @@ class Config extends Process
             __('Monospace')         => 'Monospace',
         ];
 
-        Core::backend()->webfont_apis = [
+        App::backend()->webfont_apis = [
             __('none')                => '',
             __('javascript (Adobe)')  => 'js',
             __('stylesheet (Google)') => 'css',
         ];
 
-        Core::backend()->font_families = [
+        App::backend()->font_families = [
             // Theme standard
             'Ductile body'      => '"Century Schoolbook", "Century Schoolbook L", Georgia, serif',
             'Ductile alternate' => '"Franklin gothic medium", "arial narrow", "DejaVu Sans Condensed", "helvetica neue", helvetica, sans-serif',
@@ -156,7 +156,7 @@ class Config extends Process
             'archive'      => 'short',
         ];
 
-        Core::backend()->ductile_counts_base = [
+        App::backend()->ductile_counts_base = [
             'default'      => null,
             'default-page' => null,
             'category'     => null,
@@ -164,36 +164,36 @@ class Config extends Process
             'search'       => null,
         ];
 
-        Core::backend()->ductile_user = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_style');
-        Core::backend()->ductile_user = @unserialize(Core::backend()->ductile_user);
-        if (!is_array(Core::backend()->ductile_user)) {
-            Core::backend()->ductile_user = [];
+        App::backend()->ductile_user = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
+        App::backend()->ductile_user = @unserialize(App::backend()->ductile_user);
+        if (!is_array(App::backend()->ductile_user)) {
+            App::backend()->ductile_user = [];
         }
-        Core::backend()->ductile_user = array_merge($ductile_base, Core::backend()->ductile_user);
+        App::backend()->ductile_user = array_merge($ductile_base, App::backend()->ductile_user);
 
-        Core::backend()->ductile_lists = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_entries_lists');
-        Core::backend()->ductile_lists = @unserialize(Core::backend()->ductile_lists);
-        if (!is_array(Core::backend()->ductile_lists)) {
-            Core::backend()->ductile_lists = $ductile_lists_base;
+        App::backend()->ductile_lists = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_lists');
+        App::backend()->ductile_lists = @unserialize(App::backend()->ductile_lists);
+        if (!is_array(App::backend()->ductile_lists)) {
+            App::backend()->ductile_lists = $ductile_lists_base;
         }
-        Core::backend()->ductile_lists = array_merge($ductile_lists_base, Core::backend()->ductile_lists);
+        App::backend()->ductile_lists = array_merge($ductile_lists_base, App::backend()->ductile_lists);
 
-        Core::backend()->ductile_counts = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_entries_counts');
-        Core::backend()->ductile_counts = @unserialize(Core::backend()->ductile_counts);
-        if (!is_array(Core::backend()->ductile_counts)) {
-            Core::backend()->ductile_counts = Core::backend()->ductile_counts_base;
+        App::backend()->ductile_counts = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_counts');
+        App::backend()->ductile_counts = @unserialize(App::backend()->ductile_counts);
+        if (!is_array(App::backend()->ductile_counts)) {
+            App::backend()->ductile_counts = App::backend()->ductile_counts_base;
         }
-        Core::backend()->ductile_counts = array_merge(Core::backend()->ductile_counts_base, Core::backend()->ductile_counts);
+        App::backend()->ductile_counts = array_merge(App::backend()->ductile_counts_base, App::backend()->ductile_counts);
 
-        $ductile_stickers = Core::blog()->settings->themes->get(Core::blog()->settings->system->theme . '_stickers');
+        $ductile_stickers = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_stickers');
         $ductile_stickers = @unserialize((string) $ductile_stickers);
 
         // If no stickers defined, add feed Atom one
         if (!is_array($ductile_stickers)) {
             $ductile_stickers = [[
                 'label' => __('Subscribe'),
-                'url'   => Core::blog()->url .
-                Core::url()->getURLFor('feed', 'atom'),
+                'url'   => App::blog()->url .
+                App::url()->getURLFor('feed', 'atom'),
                 'image' => 'sticker-feed.png',
             ]];
         }
@@ -214,9 +214,9 @@ class Config extends Process
                     'image' => $v, ];
             }
         }
-        Core::backend()->ductile_stickers = $ductile_stickers;
+        App::backend()->ductile_stickers = $ductile_stickers;
 
-        Core::backend()->conf_tab = $_POST['conf_tab'] ?? 'html';
+        App::backend()->conf_tab = $_POST['conf_tab'] ?? 'html';
 
         return self::status();
     }
@@ -233,14 +233,14 @@ class Config extends Process
         if (!empty($_POST)) {
             try {
                 // HTML
-                if (Core::backend()->conf_tab === 'html') {
-                    $ductile_user = Core::backend()->ductile_user;
+                if (App::backend()->conf_tab === 'html') {
+                    $ductile_user = App::backend()->ductile_user;
 
                     $ductile_user['subtitle_hidden']       = (int) !empty($_POST['subtitle_hidden']);
                     $ductile_user['logo_src']              = $_POST['logo_src'];
                     $ductile_user['preview_not_mandatory'] = (int) !empty($_POST['preview_not_mandatory']);
 
-                    Core::backend()->ductile_user = $ductile_user;
+                    App::backend()->ductile_user = $ductile_user;
 
                     $ductile_stickers = [];
                     for ($i = 0; $i < (is_countable($_POST['sticker_image']) ? count($_POST['sticker_image']) : 0); $i++) {
@@ -268,28 +268,28 @@ class Config extends Process
                         }
                         $ductile_stickers = $new_ductile_stickers;
                     }
-                    Core::backend()->ductile_stickers = $ductile_stickers;
+                    App::backend()->ductile_stickers = $ductile_stickers;
 
-                    $ductile_lists = Core::backend()->ductile_lists;
+                    $ductile_lists = App::backend()->ductile_lists;
 
                     for ($i = 0; $i < (is_countable($_POST['list_type']) ? count($_POST['list_type']) : 0); $i++) {
                         $ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
                     }
 
-                    Core::backend()->ductile_lists = $ductile_lists;
+                    App::backend()->ductile_lists = $ductile_lists;
 
-                    $ductile_counts = Core::backend()->ductile_counts;
+                    $ductile_counts = App::backend()->ductile_counts;
 
                     for ($i = 0; $i < (is_countable($_POST['count_nb']) ? count($_POST['count_nb']) : 0); $i++) {
                         $ductile_counts[$_POST['count_ctx'][$i]] = $_POST['count_nb'][$i];
                     }
 
-                    Core::backend()->ductile_counts = $ductile_counts;
+                    App::backend()->ductile_counts = $ductile_counts;
                 }
 
                 // CSS
-                if (Core::backend()->conf_tab === 'css') {
-                    $ductile_user = Core::backend()->ductile_user;
+                if (App::backend()->conf_tab === 'css') {
+                    $ductile_user = App::backend()->ductile_user;
 
                     $ductile_user['body_font']           = $_POST['body_font'];
                     $ductile_user['body_webfont_family'] = $_POST['body_webfont_family'];
@@ -323,23 +323,23 @@ class Config extends Process
                     $ductile_user['post_title_s_m'] = ThemeConfig::adjustFontSize($_POST['post_title_s_m']);
                     $ductile_user['post_title_c_m'] = ThemeConfig::adjustColor($_POST['post_title_c_m']);
 
-                    Core::backend()->ductile_user = $ductile_user;
+                    App::backend()->ductile_user = $ductile_user;
                 }
 
-                Core::blog()->settings->themes->put(Core::blog()->settings->system->theme . '_style', serialize(Core::backend()->ductile_user));
-                Core::blog()->settings->themes->put(Core::blog()->settings->system->theme . '_stickers', serialize(Core::backend()->ductile_stickers));
-                Core::blog()->settings->themes->put(Core::blog()->settings->system->theme . '_entries_lists', serialize(Core::backend()->ductile_lists));
-                Core::blog()->settings->themes->put(Core::blog()->settings->system->theme . '_entries_counts', serialize(Core::backend()->ductile_counts));
+                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_style', serialize(App::backend()->ductile_user));
+                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_stickers', serialize(App::backend()->ductile_stickers));
+                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_entries_lists', serialize(App::backend()->ductile_lists));
+                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_entries_counts', serialize(App::backend()->ductile_counts));
 
                 // Blog refresh
-                Core::blog()->triggerBlog();
+                App::blog()->triggerBlog();
 
                 // Template cache reset
                 dcUtils::emptyTemplatesCache();
 
                 Notices::message(__('Theme configuration upgraded.'), true, true);
             } catch (Exception $e) {
-                Core::error()->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -357,36 +357,36 @@ class Config extends Process
 
         // Helpers
 
-        $fontDef = fn ($c) => isset(Core::backend()->font_families[$c]) ?
-            '<abbr title="' . Html::escapeHTML(Core::backend()->font_families[$c]) . '"> ' . __('Font family') . ' </abbr>' :
+        $fontDef = fn ($c) => isset(App::backend()->font_families[$c]) ?
+            '<abbr title="' . Html::escapeHTML(App::backend()->font_families[$c]) . '"> ' . __('Font family') . ' </abbr>' :
             '';
 
         // Legacy mode
-        if (!Core::backend()->standalone_config) {
+        if (!App::backend()->standalone_config) {
             echo '</form>';
         }
 
         // HTML Tab
 
         echo
-        '<div class="multi-part" id="themes-list' . (Core::backend()->conf_tab === 'html' ? '' : '-html') . '" title="' . __('Content') . '">' .
+        '<div class="multi-part" id="themes-list' . (App::backend()->conf_tab === 'html' ? '' : '-html') . '" title="' . __('Content') . '">' .
         '<h3>' . __('Content') . '</h3>' .
 
-        '<form id="theme_config" action="' . Core::backend()->url->get('admin.blog.theme', ['conf' => '1']) .
+        '<form id="theme_config" action="' . App::backend()->url->get('admin.blog.theme', ['conf' => '1']) .
         '" method="post" enctype="multipart/form-data">' .
         '<h4>' . __('Header') . '</h4>' .
         '<p class="field"><label for="subtitle_hidden">' . __('Hide blog description:') . '</label> ' .
-        form::checkbox('subtitle_hidden', 1, Core::backend()->ductile_user['subtitle_hidden']) . '</p>' .
+        form::checkbox('subtitle_hidden', 1, App::backend()->ductile_user['subtitle_hidden']) . '</p>' .
 
         '<p class="field"><label for="logo_src">' . __('Logo URL:') . '</label> ' .
-        form::field('logo_src', 40, 255, Core::backend()->ductile_user['logo_src']) . '</p>';
+        form::field('logo_src', 40, 255, App::backend()->ductile_user['logo_src']) . '</p>';
 
-        if (Core::plugins()->moduleExists('simpleMenu')) {
+        if (App::plugins()->moduleExists('simpleMenu')) {
             echo
             '<p>' .
             sprintf(
                 __('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),
-                Core::backend()->url->get('admin.plugin.simpleMenu')
+                App::backend()->url->get('admin.plugin.simpleMenu')
             ) .
             '</p>';
         }
@@ -405,13 +405,13 @@ class Config extends Process
         '</thead>' .
         '<tbody id="stickerslist">';
         $count = 0;
-        foreach (Core::backend()->ductile_stickers as $i => $v) {
+        foreach (App::backend()->ductile_stickers as $i => $v) {
             $count++;
             echo
             '<tr class="line" id="l_' . $i . '">' .
             '<td class="handle minimal">' . form::number(['order[' . $i . ']'], [
                 'min'     => 0,
-                'max'     => is_countable(Core::backend()->ductile_stickers) ? count(Core::backend()->ductile_stickers) : 0,
+                'max'     => is_countable(App::backend()->ductile_stickers) ? count(App::backend()->ductile_stickers) : 0,
                 'default' => $count,
                 'class'   => 'position',
             ]) .
@@ -436,18 +436,18 @@ class Config extends Process
         '</tr>' .
         '</thead>' .
         '<tbody>';
-        foreach (Core::backend()->ductile_lists as $k => $v) {
+        foreach (App::backend()->ductile_lists as $k => $v) {
             echo
             '<tr>' .
-            '<td scope="row">' . Core::backend()->contexts[$k] . '</td>' .
-            '<td>' . form::hidden(['list_ctx[]'], $k) . form::combo(['list_type[]'], Core::backend()->list_types, $v) . '</td>';
-            if (array_key_exists($k, Core::backend()->ductile_counts)) {
+            '<td scope="row">' . App::backend()->contexts[$k] . '</td>' .
+            '<td>' . form::hidden(['list_ctx[]'], $k) . form::combo(['list_type[]'], App::backend()->list_types, $v) . '</td>';
+            if (array_key_exists($k, App::backend()->ductile_counts)) {
                 echo
                 '<td>' .
                 form::hidden(['count_ctx[]'], $k) . form::number(['count_nb[]'], [
                     'min'     => 0,
                     'max'     => 999,
-                    'default' => Core::backend()->ductile_counts[$k],
+                    'default' => App::backend()->ductile_counts[$k],
                 ]) .
                 '</td>';
             } else {
@@ -464,11 +464,11 @@ class Config extends Process
         echo
         '<h4 class="border-top pretty-title">' . __('Miscellaneous options') . '</h4>' .
         '<p><label for="preview_not_mandatory" class="classic">' . __('Comment preview is not mandatory:') . '</label> ' .
-        form::checkbox('preview_not_mandatory', 1, Core::backend()->ductile_user['preview_not_mandatory']) . '</p>' .
+        form::checkbox('preview_not_mandatory', 1, App::backend()->ductile_user['preview_not_mandatory']) . '</p>' .
 
         '<p><input type="hidden" name="conf_tab" value="html" /></p>' .
         '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '" />' .
-        Core::nonce()->getFormNonce() . '</p>' .
+        App::nonce()->getFormNonce() . '</p>' .
 
         '</form>' .
         '</div>'; // Close tab
@@ -476,9 +476,9 @@ class Config extends Process
         // CSS tab
 
         echo
-        '<div class="multi-part" id="themes-list' . (Core::backend()->conf_tab === 'css' ? '' : '-css') . '" title="' . __('Presentation') . '">' .
+        '<div class="multi-part" id="themes-list' . (App::backend()->conf_tab === 'css' ? '' : '-css') . '" title="' . __('Presentation') . '">' .
 
-        '<form id="theme_config" action="' . Core::backend()->url->get('admin.blog.theme', ['conf' => '1']) .
+        '<form id="theme_config" action="' . App::backend()->url->get('admin.blog.theme', ['conf' => '1']) .
         '" method="post" enctype="multipart/form-data">' .
         '<h3>' . __('General settings') . '</h3>' .
 
@@ -488,16 +488,16 @@ class Config extends Process
 
         '<h5>' . __('Main text') . '</h5>' .
         '<p class="field"><label for="body_font">' . __('Main font:') . '</label> ' .
-        form::combo('body_font', Core::backend()->fonts, Core::backend()->ductile_user['body_font']) .
-        (!empty(Core::backend()->ductile_user['body_font']) ? ' ' . $fontDef(Core::backend()->ductile_user['body_font']) : '') .
+        form::combo('body_font', App::backend()->fonts, App::backend()->ductile_user['body_font']) .
+        (!empty(App::backend()->ductile_user['body_font']) ? ' ' . $fontDef(App::backend()->ductile_user['body_font']) : '') .
         '</p>' .
         '<p class="form-note">' . __('Set to Default to use a webfont.') . '</p>' .
         '<p class="field"><label for="body_webfont_family">' . __('Webfont family:') . '</label> ' .
-        form::field('body_webfont_family', 25, 255, Core::backend()->ductile_user['body_webfont_family']) . '</p>' .
+        form::field('body_webfont_family', 25, 255, App::backend()->ductile_user['body_webfont_family']) . '</p>' .
         '<p class="field"><label for="body_webfont_url">' . __('Webfont URL:') . '</label> ' .
-        form::url('body_webfont_url', 50, 255, Core::backend()->ductile_user['body_webfont_url']) . '</p>' .
+        form::url('body_webfont_url', 50, 255, App::backend()->ductile_user['body_webfont_url']) . '</p>' .
         '<p class="field"><label for="body_webfont_url">' . __('Webfont API:') . '</label> ' .
-        form::combo('body_webfont_api', Core::backend()->webfont_apis, Core::backend()->ductile_user['body_webfont_api']) .
+        form::combo('body_webfont_api', App::backend()->webfont_apis, App::backend()->ductile_user['body_webfont_api']) .
         '</p>' .
         '</div>' .
 
@@ -505,16 +505,16 @@ class Config extends Process
 
         '<h5>' . __('Secondary text') . '</h5>' .
         '<p class="field"><label for="alternate_font">' . __('Secondary font:') . '</label> ' .
-        form::combo('alternate_font', Core::backend()->fonts, Core::backend()->ductile_user['alternate_font']) .
-        (!empty(Core::backend()->ductile_user['alternate_font']) ? ' ' . $fontDef(Core::backend()->ductile_user['alternate_font']) : '') .
+        form::combo('alternate_font', App::backend()->fonts, App::backend()->ductile_user['alternate_font']) .
+        (!empty(App::backend()->ductile_user['alternate_font']) ? ' ' . $fontDef(App::backend()->ductile_user['alternate_font']) : '') .
         '</p>' .
         '<p class="form-note">' . __('Set to Default to use a webfont.') . '</p>' .
         '<p class="field"><label for="alternate_webfont_family">' . __('Webfont family:') . '</label> ' .
-        form::field('alternate_webfont_family', 25, 255, Core::backend()->ductile_user['alternate_webfont_family']) . '</p>' .
+        form::field('alternate_webfont_family', 25, 255, App::backend()->ductile_user['alternate_webfont_family']) . '</p>' .
         '<p class="field"><label for="alternate_webfont_url">' . __('Webfont URL:') . '</label> ' .
-        form::url('alternate_webfont_url', 50, 255, Core::backend()->ductile_user['alternate_webfont_url']) . '</p>' .
+        form::url('alternate_webfont_url', 50, 255, App::backend()->ductile_user['alternate_webfont_url']) . '</p>' .
         '<p class="field"><label for="alternate_webfont_api">' . __('Webfont API:') . '</label> ' .
-        form::combo('alternate_webfont_api', Core::backend()->webfont_apis, Core::backend()->ductile_user['alternate_webfont_api']) . '</p>' .
+        form::combo('alternate_webfont_api', App::backend()->webfont_apis, App::backend()->ductile_user['alternate_webfont_api']) . '</p>' .
 
         '</div>' .
         '</div>' .
@@ -525,18 +525,18 @@ class Config extends Process
 
         '<h5>' . __('Blog title') . '</h5>' .
         '<p class="field"><label for="blog_title_w">' . __('In bold:') . '</label> ' .
-        form::checkbox('blog_title_w', 1, Core::backend()->ductile_user['blog_title_w']) . '</p>' .
+        form::checkbox('blog_title_w', 1, App::backend()->ductile_user['blog_title_w']) . '</p>' .
 
         '<p class="field"><label for="blog_title_s">' . __('Font size (in em by default):') . '</label> ' .
-        form::field('blog_title_s', 7, 7, Core::backend()->ductile_user['blog_title_s']) . '</p>' .
+        form::field('blog_title_s', 7, 7, App::backend()->ductile_user['blog_title_s']) . '</p>' .
 
         '<p class="field picker"><label for="blog_title_c">' . __('Color:') . '</label> ' .
-        form::color('blog_title_c', ['default' => Core::backend()->ductile_user['blog_title_c']]) .
+        form::color('blog_title_c', ['default' => App::backend()->ductile_user['blog_title_c']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['blog_title_c'],
+            App::backend()->ductile_user['blog_title_c'],
             '#ffffff',
-            (!empty(Core::backend()->ductile_user['blog_title_s']) ? Core::backend()->ductile_user['blog_title_s'] : '2em'),
-            (bool) Core::backend()->ductile_user['blog_title_w']
+            (!empty(App::backend()->ductile_user['blog_title_s']) ? App::backend()->ductile_user['blog_title_s'] : '2em'),
+            (bool) App::backend()->ductile_user['blog_title_w']
         ) .
         '</p>' .
         '</div>' .
@@ -545,18 +545,18 @@ class Config extends Process
 
         '<h5>' . __('Post title') . '</h5>' .
         '<p class="field"><label for="post_title_w">' . __('In bold:') . '</label> ' .
-        form::checkbox('post_title_w', 1, Core::backend()->ductile_user['post_title_w']) . '</p>' .
+        form::checkbox('post_title_w', 1, App::backend()->ductile_user['post_title_w']) . '</p>' .
 
         '<p class="field"><label for="post_title_s">' . __('Font size (in em by default):') . '</label> ' .
-        form::field('post_title_s', 7, 7, Core::backend()->ductile_user['post_title_s']) . '</p>' .
+        form::field('post_title_s', 7, 7, App::backend()->ductile_user['post_title_s']) . '</p>' .
 
         '<p class="field picker"><label for="post_title_c">' . __('Color:') . '</label> ' .
-        form::color('post_title_c', ['default' => Core::backend()->ductile_user['post_title_c']]) .
+        form::color('post_title_c', ['default' => App::backend()->ductile_user['post_title_c']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['post_title_c'],
+            App::backend()->ductile_user['post_title_c'],
             '#ffffff',
-            (!empty(Core::backend()->ductile_user['post_title_s']) ? Core::backend()->ductile_user['post_title_s'] : '2.5em'),
-            (bool) Core::backend()->ductile_user['post_title_w']
+            (!empty(App::backend()->ductile_user['post_title_s']) ? App::backend()->ductile_user['post_title_s'] : '2.5em'),
+            (bool) App::backend()->ductile_user['post_title_w']
         ) .
         '</p>' .
 
@@ -565,9 +565,9 @@ class Config extends Process
 
         '<h5>' . __('Titles without link') . '</h5>' .
         '<p class="field picker"><label for="post_simple_title_c">' . __('Color:') . '</label> ' .
-        form::color('post_simple_title_c', ['default' => Core::backend()->ductile_user['post_simple_title_c']]) .
+        form::color('post_simple_title_c', ['default' => App::backend()->ductile_user['post_simple_title_c']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['post_simple_title_c'],
+            App::backend()->ductile_user['post_simple_title_c'],
             '#ffffff',
             '1.1em', // H5 minimum size
             false
@@ -576,25 +576,25 @@ class Config extends Process
 
         '<h4 class="border-top pretty-title">' . __('Inside posts links') . '</h4>' .
         '<p class="field"><label for="post_link_w">' . __('In bold:') . '</label> ' .
-        form::checkbox('post_link_w', 1, Core::backend()->ductile_user['post_link_w']) . '</p>' .
+        form::checkbox('post_link_w', 1, App::backend()->ductile_user['post_link_w']) . '</p>' .
 
         '<p class="field picker"><label for="post_link_v_c">' . __('Normal and visited links color:') . '</label> ' .
-        form::color('post_link_v_c', ['default' => Core::backend()->ductile_user['post_link_v_c']]) .
+        form::color('post_link_v_c', ['default' => App::backend()->ductile_user['post_link_v_c']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['post_link_v_c'],
+            App::backend()->ductile_user['post_link_v_c'],
             '#ffffff',
             '1em',
-            (bool) Core::backend()->ductile_user['post_link_w']
+            (bool) App::backend()->ductile_user['post_link_w']
         ) .
         '</p>' .
 
         '<p class="field picker"><label for="post_link_f_c">' . __('Active, hover and focus links color:') . '</label> ' .
-        form::color('post_link_f_c', ['default' => Core::backend()->ductile_user['post_link_f_c']]) .
+        form::color('post_link_f_c', ['default' => App::backend()->ductile_user['post_link_f_c']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['post_link_f_c'],
+            App::backend()->ductile_user['post_link_f_c'],
             '#ebebee',
             '1em',
-            (bool) Core::backend()->ductile_user['post_link_w']
+            (bool) App::backend()->ductile_user['post_link_w']
         ) .
         '</p>' .
 
@@ -604,18 +604,18 @@ class Config extends Process
         '<div class="col">' .
         '<h4 class="pretty-title">' . __('Blog title') . '</h4>' .
         '<p class="field"><label for="blog_title_w_m">' . __('In bold:') . '</label> ' .
-        form::checkbox('blog_title_w_m', 1, Core::backend()->ductile_user['blog_title_w_m']) . '</p>' .
+        form::checkbox('blog_title_w_m', 1, App::backend()->ductile_user['blog_title_w_m']) . '</p>' .
 
         '<p class="field"><label for="blog_title_s_m">' . __('Font size (in em by default):') . '</label> ' .
-        form::field('blog_title_s_m', 7, 7, Core::backend()->ductile_user['blog_title_s_m']) . '</p>' .
+        form::field('blog_title_s_m', 7, 7, App::backend()->ductile_user['blog_title_s_m']) . '</p>' .
 
         '<p class="field picker"><label for="blog_title_c_m">' . __('Color:') . '</label> ' .
-        form::color('blog_title_c_m', ['default' => Core::backend()->ductile_user['blog_title_c_m']]) .
+        form::color('blog_title_c_m', ['default' => App::backend()->ductile_user['blog_title_c_m']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['blog_title_c_m'],
+            App::backend()->ductile_user['blog_title_c_m'],
             '#d7d7dc',
-            (!empty(Core::backend()->ductile_user['blog_title_s_m']) ? Core::backend()->ductile_user['blog_title_s_m'] : '1.8em'),
-            (bool) Core::backend()->ductile_user['blog_title_w_m']
+            (!empty(App::backend()->ductile_user['blog_title_s_m']) ? App::backend()->ductile_user['blog_title_s_m'] : '1.8em'),
+            (bool) App::backend()->ductile_user['blog_title_w_m']
         ) .
         '</p>' .
         '</div>' .
@@ -623,18 +623,18 @@ class Config extends Process
         '<div class="col">' .
         '<h4 class="pretty-title">' . __('Post title') . '</h4>' .
         '<p class="field"><label for="post_title_w_m">' . __('In bold:') . '</label> ' .
-        form::checkbox('post_title_w_m', 1, Core::backend()->ductile_user['post_title_w_m']) . '</p>' .
+        form::checkbox('post_title_w_m', 1, App::backend()->ductile_user['post_title_w_m']) . '</p>' .
 
         '<p class="field"><label for="post_title_s_m">' . __('Font size (in em by default):') . '</label> ' .
-        form::field('post_title_s_m', 7, 7, Core::backend()->ductile_user['post_title_s_m']) . '</p>' .
+        form::field('post_title_s_m', 7, 7, App::backend()->ductile_user['post_title_s_m']) . '</p>' .
 
         '<p class="field picker"><label for="post_title_c_m">' . __('Color:') . '</label> ' .
-        form::color('post_title_c_m', ['default' => Core::backend()->ductile_user['post_title_c_m']]) .
+        form::color('post_title_c_m', ['default' => App::backend()->ductile_user['post_title_c_m']]) .
         ThemeConfig::contrastRatio(
-            Core::backend()->ductile_user['post_title_c_m'],
+            App::backend()->ductile_user['post_title_c_m'],
             '#ffffff',
-            (!empty(Core::backend()->ductile_user['post_title_s_m']) ? Core::backend()->ductile_user['post_title_s_m'] : '1.5em'),
-            (bool) Core::backend()->ductile_user['post_title_w_m']
+            (!empty(App::backend()->ductile_user['post_title_s_m']) ? App::backend()->ductile_user['post_title_s_m'] : '1.5em'),
+            (bool) App::backend()->ductile_user['post_title_w_m']
         ) .
         '</p>' .
 
@@ -642,7 +642,7 @@ class Config extends Process
         '</div>' .
 
         '<p><input type="hidden" name="conf_tab" value="css" /></p>' .
-        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . Core::nonce()->getFormNonce() . '</p>' .
+        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
         '</div>'; // Close tab
@@ -650,7 +650,7 @@ class Config extends Process
         Page::helpBlock('ductile');
 
         // Legacy mode
-        if (!Core::backend()->standalone_config) {
+        if (!App::backend()->standalone_config) {
             echo '<form style="display:none">';
         }
     }

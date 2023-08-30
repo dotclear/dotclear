@@ -25,7 +25,7 @@ use dcModuleDefine;
 use dcNamespace;
 use dcUtils;
 use dcWorkspace;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\L10n;
 use Exception;
 
@@ -112,14 +112,14 @@ abstract class MyModule
             // Installation of module
             self::INSTALL => defined('DC_CONTEXT_ADMIN')
                     // Manageable only by super-admin
-                    && Core::auth()->isSuperAdmin()
+                    && App::auth()->isSuperAdmin()
                     // And only if new version of module
-                    && Core::version()->newerVersion(self::id(), (string) Core::plugins()->getDefine(self::id())->get('version')),
+                    && App::version()->newerVersion(self::id(), (string) App::plugins()->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
             self::UNINSTALL => defined('DC_RC_PATH')
                     // Manageable only by super-admin
-                    && Core::auth()->isSuperAdmin(),
+                    && App::auth()->isSuperAdmin(),
 
             // Prepend and Frontend context
             self::PREPEND,
@@ -128,26 +128,26 @@ abstract class MyModule
             // Backend context
             self::BACKEND => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(Core::blog())
-                    && Core::auth()->check(Core::auth()->makePermissions([
-                        Core::auth()::PERMISSION_USAGE,
-                        Core::auth()::PERMISSION_CONTENT_ADMIN,
-                    ]), Core::blog()->id),
+                    && !is_null(App::blog())
+                    && App::auth()->check(App::auth()->makePermissions([
+                        App::auth()::PERMISSION_USAGE,
+                        App::auth()::PERMISSION_CONTENT_ADMIN,
+                    ]), App::blog()->id),
 
             // Main page of module, Admin menu, Blog widgets
             self::MANAGE,
             self::MENU,
             self::WIDGETS => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(Core::blog())
-                    && Core::auth()->check(Core::auth()->makePermissions([
-                        Core::auth()::PERMISSION_ADMIN,  // Admin+
-                    ]), Core::blog()->id),
+                    && !is_null(App::blog())
+                    && App::auth()->check(App::auth()->makePermissions([
+                        App::auth()::PERMISSION_ADMIN,  // Admin+
+                    ]), App::blog()->id),
 
             // Config page of module
             self::CONFIG => defined('DC_CONTEXT_ADMIN')
                     // Manageable only by super-admin
-                    && Core::auth()->isSuperAdmin(),
+                    && App::auth()->isSuperAdmin(),
 
             default => false,
         };
@@ -194,7 +194,7 @@ abstract class MyModule
      */
     final public static function settings(): ?dcNamespace
     {
-        return is_null(Core::blog()) ? null : Core::blog()->settings->get(static::id());
+        return is_null(App::blog()) ? null : App::blog()->settings->get(static::id());
     }
 
     /**
@@ -204,7 +204,7 @@ abstract class MyModule
      */
     final public static function prefs(): ?dcWorkspace
     {
-        return Core::auth()->user_prefs->get(static::id());
+        return App::auth()->user_prefs->get(static::id());
     }
 
     /**
@@ -214,7 +214,7 @@ abstract class MyModule
      */
     final public static function l10n(string $process): void
     {
-        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', Core::lang(), $process]));
+        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', App::lang(), $process]));
     }
 
     /**
@@ -234,10 +234,10 @@ abstract class MyModule
             $resource = '/' . $resource;
         }
         if (defined('DC_CONTEXT_ADMIN') && DC_CONTEXT_ADMIN && !$frontend) {
-            return urldecode(Core::backend()->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
+            return urldecode(App::backend()->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }
 
-        return is_null(Core::blog()) ? '' : urldecode(Core::blog()->getQmarkURL() . 'pf=' . self::id() . $resource);
+        return is_null(App::blog()) ? '' : urldecode(App::blog()->getQmarkURL() . 'pf=' . self::id() . $resource);
     }
 
     /**
@@ -258,7 +258,7 @@ abstract class MyModule
         $ext  = strpos($resource, '.css') === false ? '.css' : '';
 
         if (is_null($version) || $version === '') {
-            $version = Core::version()->getVersion(self::id());
+            $version = App::version()->getVersion(self::id());
         }
 
         return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
@@ -285,7 +285,7 @@ abstract class MyModule
         }
 
         if (is_null($version) || $version === '') {
-            $version = Core::version()->getVersion(self::id());
+            $version = App::version()->getVersion(self::id());
         }
 
         return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);

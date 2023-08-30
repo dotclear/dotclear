@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\buildtools;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Date;
 
 class l10nFaker
@@ -37,14 +37,14 @@ class l10nFaker
      */
     public function generate_file(): void
     {
-        $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), Core::auth()->getInfo('user_tz')) . "\n";
+        $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), App::auth()->getInfo('user_tz')) . "\n";
 
         $main .= "\n// Media sizes\n\n";
-        foreach (Core::media()->thumb_sizes as $v) {
+        foreach (App::media()->thumb_sizes as $v) {
             $main .= $this->fake_l10n($v[3]);
         }
 
-        $post_types = Core::postTypes()->dump();
+        $post_types = App::postTypes()->dump();
         $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v->label);
@@ -52,7 +52,7 @@ class l10nFaker
         file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
 
         $plugin .= "\n// Plugin names\n\n";
-        foreach (Core::plugins()->getDefines() as $define) {
+        foreach (App::plugins()->getDefines() as $define) {
             if ($define->get('distributed')) {
                 $plugin .= $this->fake_l10n($define->get('desc'));
             }

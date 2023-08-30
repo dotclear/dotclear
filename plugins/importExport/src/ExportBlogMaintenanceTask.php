@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 use form;
@@ -34,7 +34,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         $this->name = __('Database export');
         $this->task = __('Download database of current blog');
 
-        $this->export_name = Html::escapeHTML(Core::blog()->id . '-backup.txt');
+        $this->export_name = Html::escapeHTML(App::blog()->id . '-backup.txt');
         $this->export_type = 'export_blog';
     }
 
@@ -50,7 +50,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
     {
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            if (empty($_POST['your_pwd']) || !Core::auth()->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
 
                 return false;

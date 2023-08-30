@@ -11,7 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -41,7 +41,7 @@ class dcDeprecated extends Deprecated
      */
     public static function get($limit, bool $count_only = false): MetaRecord
     {
-        return Core::log()->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
+        return App::log()->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
     }
 
     protected static function log(string $title, array $lines): void
@@ -53,7 +53,7 @@ class dcDeprecated extends Deprecated
 
         // to early to use core
         try {
-            $log = Core::log();
+            $log = App::log();
             if (!($log instanceof dcLog)) {
                 throw new Exception('too early');
             }
@@ -70,10 +70,10 @@ class dcDeprecated extends Deprecated
         }
 
         // log deprecated to log table
-        $cursor = Core::con()->openCursor(Core::con()->prefix() . dcLog::LOG_TABLE_NAME);
+        $cursor = App::con()->openCursor(App::con()->prefix() . dcLog::LOG_TABLE_NAME);
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
-        $cursor->setField('user_id', !is_null(Core::auth()) ? Core::auth()->userID() : 'unknown');
+        $cursor->setField('user_id', !is_null(App::auth()) ? App::auth()->userID() : 'unknown');
         $log->addLog($cursor);
     }
 
@@ -97,12 +97,12 @@ class dcDeprecated extends Deprecated
         // check logs limit and delete them if it's required
         if ($count > self::DEPRECATED_PURGE_LIMIT) {
             $sql = new DeleteStatement();
-            $sql->from(Core::con()->prefix() . dcLog::LOG_TABLE_NAME)
+            $sql->from(App::con()->prefix() . dcLog::LOG_TABLE_NAME)
                 ->where('log_table = ' . $sql->quote(self::DEPRECATED_LOG_TABLE));
 
             if (!$all) {
                 $sql_dt = new SelectStatement();
-                $rs     = $sql_dt->from(Core::con()->prefix() . dcLog::LOG_TABLE_NAME)
+                $rs     = $sql_dt->from(App::con()->prefix() . dcLog::LOG_TABLE_NAME)
                     ->column('log_dt')
                     ->where('log_table = ' . $sql_dt->quote(self::DEPRECATED_LOG_TABLE))
                     ->order('log_dt DESC')

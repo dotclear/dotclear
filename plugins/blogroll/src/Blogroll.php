@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use dcBlog;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use initBlogroll;
 
@@ -40,7 +40,7 @@ class Blogroll extends initBlogroll
     public function __construct(dcBlog $blog)
     {
         $this->blog  = $blog;
-        $this->table = Core::con()->prefix() . self::LINK_TABLE_NAME;
+        $this->table = App::con()->prefix() . self::LINK_TABLE_NAME;
     }
 
     /**

@@ -11,7 +11,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -510,7 +510,7 @@ class dcModules
         if (!empty($ns)) {
             // Give opportunity to do something before loading context (admin,public,xmlrpc) files
             # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- dcModules, string|null
-            Core::behavior()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
+            App::behavior()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
             $this->loadModulesContext($ignored, $ns, $lang);
         }
@@ -529,8 +529,8 @@ class dcModules
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
         if ($ns === 'admin') {
-            $base   = Core::backend()->url->getBase('admin.plugin');
-            $params = Core::backend()->url->getParams('admin.plugin');
+            $base   = App::backend()->url->getBase('admin.plugin');
+            $params = App::backend()->url->getParams('admin.plugin');
         }
 
         foreach ($this->defines as $module) {
@@ -545,7 +545,7 @@ class dcModules
                     $this->loadModuleL10Nresources($module->getId(), $lang);
                 }
                 // Create module admin URL
-                Core::backend()->url->register(
+                App::backend()->url->register(
                     'admin.plugin.' . $module->getId(),
                     $base,                                  // @phpstan-ignore-line
                     [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
@@ -656,7 +656,7 @@ class dcModules
             // Check module perms on admin side
             $permissions = $this->define->permissions;
             if ($this->ns === 'admin') {
-                if (($permissions == '' && !Core::auth()->isSuperAdmin()) || (!Core::auth()->check($permissions, Core::blog()->id))) {
+                if (($permissions == '' && !App::auth()->isSuperAdmin()) || (!App::auth()->check($permissions, App::blog()->id))) {
                     return;
                 }
             }
@@ -938,11 +938,11 @@ class dcModules
 
             if ($install === true || $install === null) {
                 // Register new version if necessary
-                $old_version = Core::version()->getVersion($id);
+                $old_version = App::version()->getVersion($id);
                 $new_version = $module->version;
                 if (version_compare($old_version, $new_version, '<')) {
                     // Register new version
-                    Core::version()->setVersion($id, $new_version);
+                    App::version()->setVersion($id, $new_version);
                 }
 
                 if ($install === true) {

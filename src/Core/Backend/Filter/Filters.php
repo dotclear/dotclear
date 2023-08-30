@@ -17,7 +17,7 @@ namespace Dotclear\Core\Backend\Filter;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Select;
@@ -326,12 +326,12 @@ class Filters
         }
 
         $hiddens = '';
-        foreach (Core::backend()->url->getParams($adminurl) as $key => $value) {
+        foreach (App::backend()->url->getParams($adminurl) as $key => $value) {
             $hiddens .= form::hidden($key, $value);
         }
 
         echo
-        '<form action="' . Core::backend()->url->get($adminurl) . $tab . '" method="get" id="filters-form">' .
+        '<form action="' . App::backend()->url->get($adminurl) . $tab . '" method="get" id="filters-form">' .
         '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
         '<div class="table">';

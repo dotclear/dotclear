@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 
 class Favorites
 {
@@ -58,7 +58,7 @@ class Favorites
     public function __construct()
     {
         $this->favorites      = new ArrayObject();
-        $this->workspace      = Core::auth()->user_prefs->dashboard;
+        $this->workspace      = App::auth()->user_prefs->dashboard;
         $this->user_favorites = [];
 
         if ($this->workspace->prefExists('favorites')) {
@@ -86,7 +86,7 @@ class Favorites
         $this->initDefaultFavorites();
         $this->legacyFavorites();
         # --BEHAVIOR-- adminDashboardFavoritesV2 -- Favorites
-        Core::behavior()->callBehavior('adminDashboardFavoritesV2', $this);
+        App::behavior()->callBehavior('adminDashboardFavoritesV2', $this);
         $this->setUserPrefs();
     }
 
@@ -119,10 +119,10 @@ class Favorites
                 if (!$favorite['permissions']) {
                     return false;
                 }
-            } elseif (!Core::auth()->check($favorite['permissions'], Core::blog()->id)) {
+            } elseif (!App::auth()->check($favorite['permissions'], App::blog()->id)) {
                 return false;
             }
-        } elseif (!Core::auth()->isSuperAdmin()) {
+        } elseif (!App::auth()->isSuperAdmin()) {
             return false;
         }
 
@@ -205,7 +205,7 @@ class Favorites
      */
     protected function migrateFavorites()
     {
-        $favorites_workspace        = Core::auth()->user_prefs->favorites;
+        $favorites_workspace        = App::auth()->user_prefs->favorites;
         $this->local_favorites_ids  = [];
         $this->global_favorites_ids = [];
         foreach ($favorites_workspace->dumpPrefs() as $pref) {
@@ -230,7 +230,7 @@ class Favorites
     {
         $favorites = new ArrayObject();
         # --BEHAVIOR-- adminDashboardFavsV2 -- ArrayObject
-        Core::behavior()->callBehavior('adminDashboardFavsV2', $favorites);
+        App::behavior()->callBehavior('adminDashboardFavsV2', $favorites);
         foreach ($favorites as $favorite) {
             $favorite_data = [
                 'title'       => __($favorite[1]),
@@ -339,7 +339,7 @@ class Favorites
             }
             $icons[$icon_id] = new ArrayObject([$icon_data['title'], $icon_data['url'], $icon_data['large-icon']]);
             # --BEHAVIOR-- adminDashboardFavsIconV2 -- string, ArrayObject
-            Core::behavior()->callBehavior('adminDashboardFavsIconV2', $icon_id, $icons[$icon_id]);
+            App::behavior()->callBehavior('adminDashboardFavsIconV2', $icon_id, $icons[$icon_id]);
         }
     }
 
@@ -402,116 +402,116 @@ class Favorites
         $this->registerMultiple([
             'prefs' => [
                 'title'      => __('My preferences'),
-                'url'        => Core::backend()->url->get('admin.user.preferences'),
+                'url'        => App::backend()->url->get('admin.user.preferences'),
                 'small-icon' => 'images/menu/user-pref.svg',
                 'large-icon' => 'images/menu/user-pref.svg', ],
             'new_post' => [
                 'title'       => __('New post'),
-                'url'         => Core::backend()->url->get('admin.post'),
+                'url'         => App::backend()->url->get('admin.post'),
                 'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'large-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_USAGE,
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'active_cb' => ['defaultFavorites', fn (string $request_uri, array $request_params): bool => 'post.php' === $request_uri && !isset($request_params['id'])], ],
             'posts' => [
                 'title'       => __('Posts'),
-                'url'         => Core::backend()->url->get('admin.posts'),
+                'url'         => App::backend()->url->get('admin.posts'),
                 'small-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'large-icon'  => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_USAGE,
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
-                    $post_count    = Core::blog()->getPosts([], true)->f(0);
+                    $post_count    = App::blog()->getPosts([], true)->f(0);
                     $str_entries   = __('%d post', '%d posts', $post_count);
                     $icon['title'] = sprintf($str_entries, $post_count);
                 }], ],
             'comments' => [
                 'title'       => __('Comments'),
-                'url'         => Core::backend()->url->get('admin.comments'),
+                'url'         => App::backend()->url->get('admin.comments'),
                 'small-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'large-icon'  => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_USAGE,
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
-                    $comment_count = Core::blog()->getComments([], true)->f(0);
+                    $comment_count = App::blog()->getComments([], true)->f(0);
                     $str_comments  = __('%d comment', '%d comments', $comment_count);
                     $icon['title'] = sprintf($str_comments, $comment_count);
                 }], ],
             'search' => [
                 'title'       => __('Search'),
-                'url'         => Core::backend()->url->get('admin.search'),
+                'url'         => App::backend()->url->get('admin.search'),
                 'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'large-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_USAGE,
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), ],
             'categories' => [
                 'title'       => __('Categories'),
-                'url'         => Core::backend()->url->get('admin.categories'),
+                'url'         => App::backend()->url->get('admin.categories'),
                 'small-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_CATEGORIES,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_CATEGORIES,
                 ]), ],
             'media' => [
                 'title'       => __('Media manager'),
-                'url'         => Core::backend()->url->get('admin.media'),
+                'url'         => App::backend()->url->get('admin.media'),
                 'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'large-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_MEDIA,
-                    Core::auth()::PERMISSION_MEDIA_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_MEDIA,
+                    App::auth()::PERMISSION_MEDIA_ADMIN,
                 ]), ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),
-                'url'         => Core::backend()->url->get('admin.blog.pref'),
+                'url'         => App::backend()->url->get('admin.blog.pref'),
                 'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_ADMIN,
                 ]), ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
-                'url'         => Core::backend()->url->get('admin.blog.theme'),
+                'url'         => App::backend()->url->get('admin.blog.theme'),
                 'small-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'large-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
-                'permissions' => Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_ADMIN,
+                'permissions' => App::auth()->makePermissions([
+                    App::auth()::PERMISSION_ADMIN,
                 ]), ],
             'blogs' => [
                 'title'       => __('Blogs'),
-                'url'         => Core::backend()->url->get('admin.blogs'),
+                'url'         => App::backend()->url->get('admin.blogs'),
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
-                'permissions' => !Core::auth()->isSuperAdmin() && Core::auth()->getBlogCount() > 1 ? Core::auth()->makePermissions([
-                    Core::auth()::PERMISSION_USAGE,
-                    Core::auth()::PERMISSION_CONTENT_ADMIN,
+                'permissions' => !App::auth()->isSuperAdmin() && App::auth()->getBlogCount() > 1 ? App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]) : null, ],
             'users' => [
                 'title'      => __('Users'),
-                'url'        => Core::backend()->url->get('admin.users'),
+                'url'        => App::backend()->url->get('admin.users'),
                 'small-icon' => 'images/menu/users.svg',
                 'large-icon' => 'images/menu/users.svg', ],
             'plugins' => [
                 'title'      => __('Plugins management'),
-                'url'        => Core::backend()->url->get('admin.plugins'),
+                'url'        => App::backend()->url->get('admin.plugins'),
                 'small-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
                 'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'], ],
             'langs' => [
                 'title'      => __('Languages'),
-                'url'        => Core::backend()->url->get('admin.langs'),
+                'url'        => App::backend()->url->get('admin.langs'),
                 'small-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
                 'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'], ],
             'help' => [
                 'title'      => __('Global help'),
-                'url'        => Core::backend()->url->get('admin.help'),
+                'url'        => App::backend()->url->get('admin.help'),
                 'small-icon' => 'images/menu/help.svg',
                 'large-icon' => 'images/menu/help.svg', ],
         ]);

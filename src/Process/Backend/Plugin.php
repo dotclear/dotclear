@@ -15,7 +15,7 @@ namespace Dotclear\Process\Backend;
 use dcModules;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Network\Http;
 use Exception;
@@ -24,9 +24,9 @@ class Plugin extends Process
 {
     public static function init(): bool
     {
-        Page::check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_USAGE,
-            Core::auth()::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         return self::status(true);
@@ -49,22 +49,22 @@ class Plugin extends Process
         $res = '';
         if (!empty($plugin)) {
             try {
-                Core::backend()->setPageURL(Core::backend()->url->get('admin.plugin.' . $plugin));
+                App::backend()->setPageURL(App::backend()->url->get('admin.plugin.' . $plugin));
             } catch (Exception $e) {
                 // Unknown URL handler for plugin, back to dashboard
                 Http::redirect(DC_ADMIN_URL);
             }
 
             // by class name
-            $class = Core::plugins()->loadNsClass($plugin, dcModules::MODULE_CLASS_MANAGE);
+            $class = App::plugins()->loadNsClass($plugin, dcModules::MODULE_CLASS_MANAGE);
             if (!empty($class)) {
                 ob_start();
                 $class::render();
                 $res = (string) ob_get_contents();
                 ob_end_clean();
                 // by file name
-            } elseif (Core::plugins()->moduleExists($plugin)) {
-                $p_file = Core::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE;
+            } elseif (App::plugins()->moduleExists($plugin)) {
+                $p_file = App::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE;
                 if (file_exists($p_file)) {
                     ob_start();
                     include $p_file;

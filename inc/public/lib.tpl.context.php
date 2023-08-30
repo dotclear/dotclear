@@ -7,7 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
 use Dotclear\Helper\File\Path;
@@ -234,12 +234,12 @@ class context
         $args[0] = &$str;
 
         # --BEHAVIOR-- publicBeforeContentFilter -- string, array
-        Core::behavior()->callBehavior('publicBeforeContentFilterV2', $tag, $args);
+        App::behavior()->callBehavior('publicBeforeContentFilterV2', $tag, $args);
         $str = $args[0];
 
         foreach ($filters as $filter) {
             # --BEHAVIOR-- publicContentFilter -- string, array, array<int,string>
-            switch (Core::behavior()->callBehavior('publicContentFilterV2', $tag, $args, $filter)) {
+            switch (App::behavior()->callBehavior('publicContentFilterV2', $tag, $args, $filter)) {
                 case '1':
                     // 3rd party filter applied and must stop
                     break;
@@ -254,7 +254,7 @@ class context
         }
 
         # --BEHAVIOR-- publicAfterContentFilter -- string, array
-        Core::behavior()->callBehavior('publicAfterContentFilterV2', $tag, $args);
+        App::behavior()->callBehavior('publicAfterContentFilterV2', $tag, $args);
 
         return $args[0];
     }
@@ -410,10 +410,10 @@ class context
             if ($not) {
                 $cat_url .= ' ?not';
             }
-            if (Core::frontend()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
-                $cat_url = preg_replace($pattern, (string) Core::frontend()->ctx->categories->cat_url, $cat_url);
-            } elseif (Core::frontend()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
-                $cat_url = preg_replace($pattern, (string) Core::frontend()->ctx->posts->cat_url, $cat_url);
+            if (App::frontend()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
+                $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->categories->cat_url, $cat_url);
+            } elseif (App::frontend()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
+                $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->posts->cat_url, $cat_url);
             }
         }
     }
@@ -427,16 +427,16 @@ class context
      */
     public static function PaginationNbPages()
     {
-        if (Core::frontend()->ctx->pagination === null) {
+        if (App::frontend()->ctx->pagination === null) {
             return false;
         }
 
-        $nb_posts = Core::frontend()->ctx->pagination->f(0);
-        if ((Core::url()->type === 'default') || (Core::url()->type === 'default-page')) {
+        $nb_posts = App::frontend()->ctx->pagination->f(0);
+        if ((App::url()->type === 'default') || (App::url()->type === 'default-page')) {
             // Home page (not static)
-            $nb_pages = (int) ceil(($nb_posts - Core::frontend()->ctx->nb_entry_first_page) / Core::frontend()->ctx->nb_entry_per_page + 1);
+            $nb_pages = (int) ceil(($nb_posts - App::frontend()->ctx->nb_entry_first_page) / App::frontend()->ctx->nb_entry_per_page + 1);
         } else {
-            $nb_pages = (int) ceil($nb_posts / Core::frontend()->ctx->nb_entry_per_page);
+            $nb_pages = (int) ceil($nb_posts / App::frontend()->ctx->nb_entry_per_page);
         }
 
         return $nb_pages;
@@ -451,8 +451,8 @@ class context
      */
     public static function PaginationPosition(int $offset = 0): int
     {
-        if ((int) Core::frontend()->getPageNumber() !== 0) {
-            $current_page = (int) Core::frontend()->getPageNumber();
+        if ((int) App::frontend()->getPageNumber() !== 0) {
+            $current_page = (int) App::frontend()->getPageNumber();
         } else {
             $current_page = 1;
         }
@@ -479,7 +479,7 @@ class context
      */
     public static function PaginationStart(): bool
     {
-        if ((int) Core::frontend()->getPageNumber() !== 0) {
+        if ((int) App::frontend()->getPageNumber() !== 0) {
             return self::PaginationPosition() == 1;
         }
 
@@ -493,7 +493,7 @@ class context
      */
     public static function PaginationEnd(): bool
     {
-        if ((int) Core::frontend()->getPageNumber() !== 0) {
+        if ((int) App::frontend()->getPageNumber() !== 0) {
             return self::PaginationPosition() == self::PaginationNbPages();
         }
 
@@ -515,7 +515,7 @@ class context
         $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
         $page_number = self::PaginationPosition($offset);
-        $url         = Core::blog()->url . $args;
+        $url         = App::blog()->url . $args;
         if ($page_number > 1) {
             $url = preg_replace('#/$#', '', $url);
             $url .= '/page/' . $page_number;
@@ -579,10 +579,10 @@ class context
         $definitions = [];
 
         $paths = [];
-        if (isset(Core::frontend()->theme)) {
-            $paths[] = Core::frontend()->theme;
-            if (isset(Core::frontend()->parent_theme)) {
-                $paths[] = Core::frontend()->parent_theme;
+        if (isset(App::frontend()->theme)) {
+            $paths[] = App::frontend()->theme;
+            if (isset(App::frontend()->parent_theme)) {
+                $paths[] = App::frontend()->parent_theme;
             }
         }
 
@@ -600,7 +600,7 @@ class context
 
         // Use default set
         $definition = __DIR__ . '/../smilies/smilies.txt';
-        $base_url   = Core::blog()->getQmarkURL() . 'pf=';
+        $base_url   = App::blog()->getQmarkURL() . 'pf=';
 
         if (file_exists($definition)) {
             return array_merge(self::smiliesDefinition($definition, $base_url), $definitions);
@@ -644,7 +644,7 @@ class context
      */
     public static function addSmilies(string $str): string
     {
-        if (!isset(Core::frontend()->smilies)) {
+        if (!isset(App::frontend()->smilies)) {
             return $str;
         }
 
@@ -666,8 +666,8 @@ class context
                 if (!$in_pre) {
                     // Not inside a pre/code, replace smileys
                     $text = preg_replace(
-                        array_keys(Core::frontend()->smilies),
-                        array_values(Core::frontend()->smilies),
+                        array_keys(App::frontend()->smilies),
+                        array_values(App::frontend()->smilies),
                         $text
                     );
                 }
@@ -740,14 +740,14 @@ class context
     public static function EntryFirstImageHelper(string $size, bool $with_category, string $class = '', bool $no_tag = false, bool $content_only = false, bool $cat_only = false): string
     {
         try {
-            $media = Core::media();
+            $media = App::media();
             $sizes = implode('|', array_keys($media->thumb_sizes)) . '|o';
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
-            $p_url  = Core::blog()->settings->system->public_url;
-            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', Core::blog()->url);
-            $p_root = Core::blog()->public_path;
+            $p_url  = App::blog()->settings->system->public_url;
+            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url);
+            $p_root = App::blog()->public_path;
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);
@@ -756,8 +756,8 @@ class context
             $alt = '';
 
             # We first look in post content
-            if (!$cat_only && Core::frontend()->ctx->posts) {
-                $subject = ($content_only ? '' : Core::frontend()->ctx->posts->post_excerpt_xhtml) . Core::frontend()->ctx->posts->post_content_xhtml;
+            if (!$cat_only && App::frontend()->ctx->posts) {
+                $subject = ($content_only ? '' : App::frontend()->ctx->posts->post_excerpt_xhtml) . App::frontend()->ctx->posts->post_content_xhtml;
                 if (preg_match_all($pattern, $subject, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
@@ -774,8 +774,8 @@ class context
             }
 
             # No src, look in category description if available
-            if (!$src && $with_category && Core::frontend()->ctx->posts->cat_desc) {
-                if (preg_match_all($pattern, (string) Core::frontend()->ctx->posts->cat_desc, $m) > 0) {
+            if (!$src && $with_category && App::frontend()->ctx->posts->cat_desc) {
+                if (preg_match_all($pattern, (string) App::frontend()->ctx->posts->cat_desc, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));
@@ -826,7 +826,7 @@ class context
         $res = false;
 
         try {
-            $media = Core::media();
+            $media = App::media();
             $sizes = implode('|', array_keys($media->thumb_sizes));
             if (preg_match('/^\.(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];

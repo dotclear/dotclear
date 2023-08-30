@@ -16,7 +16,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcUtils;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
@@ -63,7 +63,7 @@ class Combos
     public static function getPostStatusesCombo(): array
     {
         $status_combo = [];
-        foreach (Core::blog()->getAllPostStatus() as $k => $v) {
+        foreach (App::blog()->getAllPostStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -179,7 +179,7 @@ class Combos
     {
         $editors_combo = [];
 
-        foreach (Core::formater()->getEditors() as $v) {
+        foreach (App::formater()->getEditors() as $v) {
             $editors_combo[$v] = $v;
         }
 
@@ -198,11 +198,11 @@ class Combos
         $formaters_combo = [];
 
         if (!empty($editor_id)) {
-            foreach (Core::formater()->getFormater($editor_id) as $formater) {
+            foreach (App::formater()->getFormater($editor_id) as $formater) {
                 $formaters_combo[$formater] = $formater;
             }
         } else {
-            foreach (Core::formater()->getFormaters() as $editor => $formaters) {
+            foreach (App::formater()->getFormaters() as $editor => $formaters) {
                 foreach ($formaters as $formater) {
                     $formaters_combo[$editor][$formater] = $formater;
                 }
@@ -220,7 +220,7 @@ class Combos
     public static function getBlogStatusesCombo(): array
     {
         $status_combo = [];
-        foreach (Core::blogs()->getAllBlogStatus() as $k => $v) {
+        foreach (App::blogs()->getAllBlogStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -235,7 +235,7 @@ class Combos
     public static function getCommentStatusesCombo(): array
     {
         $status_combo = [];
-        foreach (Core::blog()->getAllCommentStatus() as $k => $v) {
+        foreach (App::blog()->getAllCommentStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -263,7 +263,7 @@ class Combos
             __('Number of trackbacks') => 'nb_trackback',
         ];
         # --BEHAVIOR-- adminPostsSortbyCombo -- array<int,array<string,string>>
-        Core::behavior()->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
+        App::behavior()->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -280,18 +280,18 @@ class Combos
         ];
 
         // IP are available only for super-admin and admin
-        $show_ip = Core::auth()->check(
-            Core::auth()->makePermissions([
-                Core::auth()::PERMISSION_CONTENT_ADMIN,
+        $show_ip = App::auth()->check(
+            App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            Core::blog()->id
+            App::blog()->id
         );
         if ($show_ip) {
             $sortby_combo[__('IP')] = 'comment_ip';
         }
 
         # --BEHAVIOR-- adminCommentsSortbyCombo -- array<int,array<string,string>>
-        Core::behavior()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
+        App::behavior()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -305,7 +305,7 @@ class Combos
             __('Status')      => 'blog_status',
         ];
         # --BEHAVIOR-- adminBlogsSortbyCombo -- array<int,array<string,string>>
-        Core::behavior()->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
+        App::behavior()->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -313,7 +313,7 @@ class Combos
     public static function getUsersSortbyCombo(): array
     {
         $sortby_combo = [];
-        if (Core::auth()->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             $sortby_combo = [
                 __('Username')          => 'user_id',
                 __('Last Name')         => 'user_name',
@@ -322,7 +322,7 @@ class Combos
                 __('Number of entries') => 'nb_post',
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo -- array<int,array<string,string>>
-            Core::behavior()->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
+            App::behavior()->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
         }
 
         return $sortby_combo;

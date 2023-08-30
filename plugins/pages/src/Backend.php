@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
@@ -34,11 +34,11 @@ class Backend extends Process
             return false;
         }
 
-        Core::auth()->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
+        App::auth()->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
 
         My::addBackendMenuItem(Menus::MENU_BLOG);
 
-        Core::behavior()->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {
                 $cols['pages'] = [My::name(), [
                     'date'       => [true, __('Date')],
@@ -62,14 +62,14 @@ class Backend extends Process
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => Core::auth()->makePermissions([
-                        Core::auth()::PERMISSION_CONTENT_ADMIN,
+                    'permissions' => App::auth()->makePermissions([
+                        App::auth()::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
                         $params              = new ArrayObject();
                         $params['post_type'] = 'page';
-                        $page_count          = Core::blog()->getPosts($params, true)->f(0);
+                        $page_count          = App::blog()->getPosts($params, true)->f(0);
                         if ($page_count > 0) {
                             $str_pages     = ($page_count > 1) ? __('%d pages') : __('%d page');
                             $icon['title'] = sprintf($str_pages, $page_count);
@@ -82,8 +82,8 @@ class Backend extends Process
                     'url'         => My::manageUrl(['act' => 'page']),
                     'small-icon'  => My::icons('np'),
                     'large-icon'  => My::icons('np'),
-                    'permissions' => Core::auth()->makePermissions([
-                        Core::auth()::PERMISSION_CONTENT_ADMIN,
+                    'permissions' => App::auth()->makePermissions([
+                        App::auth()::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
                     'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',

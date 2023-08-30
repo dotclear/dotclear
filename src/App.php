@@ -11,10 +11,12 @@ namespace Dotclear {
     use Autoloader;
     use dcCore;
     use dcUtils;
-    use Dotclear\Core\Core;
+    use Dotclear\Core\CoreContainer;
     use Dotclear\Core\Process;
     use Dotclear\Core\PostType;
+    use Dotclear\Core\Backend\Utility as Backend;
     use Dotclear\Core\Frontend\Url;
+    use Dotclear\Core\Frontend\Utility as Frontend;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
@@ -23,10 +25,16 @@ namespace Dotclear {
     use Dotclear\Helper\Network\Http;
     use Exception;
 
+    // Load Autoloader file
+    require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
+
+    // Add root folder for namespaced and autoloaded classes
+    Autoloader::me()->addNamespace('Dotclear', __DIR__);
+
     /**
      * Application.
      */
-    final class App
+    final class App extends CoreContainer
     {
         /** @var    string  Dotclear default release config file name */
         public const RELEASE_FILE = 'release.json';
@@ -36,6 +44,18 @@ namespace Dotclear {
 
         /** @var    bool    Requirements loaded */
         private static bool $initialized = false;
+
+        /** @var    string  Session table name (should be moved elsewhere) */
+        public const SESSION_TABLE_NAME = 'session';
+
+        /** @var    Backend  Backend Utility instance  */
+        private static Backend $backend;
+
+        /** @var    Frontend  Frontend Utility instance  */
+        private static Frontend $frontend;
+
+        /** @var string     The current lang */
+        private static string $lang = 'en';
 
         /**
          * App boostrap.
@@ -165,12 +185,6 @@ namespace Dotclear {
 
             // Dotclear root path
             define('DC_ROOT', dirname(__DIR__));
-
-            // Load Autoloader file
-            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
-
-            // Add root folder for namespaced and autoloaded classes
-            Autoloader::me()->addNamespace('Dotclear', __DIR__);
 
             // Load core classes (old way) This will moved to namespace from Autoloader in the near futur
             $inc = fn (string $folder, string $file) => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', $folder, $file]);
@@ -461,9 +475,9 @@ namespace Dotclear {
 
             try {
                 // instanciate once new core
-                new Core(DC_CORE_FACTORY_CLASS);
+                new App(DC_CORE_FACTORY_CLASS);
 
-                // deprecated since 2.23, use Core:: instead
+                // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
@@ -515,35 +529,35 @@ namespace Dotclear {
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    Core::behavior()->addBehavior($b[0], $b[1]);
+                    App::behavior()->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
 
             Http::trimRequest();
 
-            Core::url()->registerDefault(Url::home(...));
+            App::url()->registerDefault(Url::home(...));
 
-            Core::url()->registerError(Url::default404(...));
+            App::url()->registerError(Url::default404(...));
 
-            Core::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
-            Core::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
-            Core::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
-            Core::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
-            Core::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
-            Core::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
-            Core::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
+            App::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            App::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            App::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
+            App::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            App::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
+            App::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            App::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            Core::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
-            Core::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
-            Core::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
-            Core::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+            App::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            App::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            App::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            App::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            Core::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
-            Core::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+            App::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            App::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            Core::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', Core::url()->getURLFor('post', '%s'), 'Posts'));
+            App::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', App::url()->getURLFor('post', '%s'), 'Posts'));
 
             # Store upload_max_filesize in bytes
             $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
@@ -571,7 +585,7 @@ namespace Dotclear {
                         // Explicitly close session before DB connection
                         session_write_close();
                     }
-                    Core::con()->close();
+                    App::con()->close();
                 } catch (Exception $e) {    // @phpstan-ignore-line
                     // Ignore exceptions
                 }
@@ -628,6 +642,65 @@ namespace Dotclear {
         public static function autoload(): Autoloader
         {
             return Autoloader::me();
+        }
+
+        /**
+         * Get backend Utility.
+         *
+         * @return  Backend
+         */
+        public static function backend(): Backend
+        {
+            // Instanciate Backend instance
+            if (!isset(self::$backend)) {
+                self::$backend = new Backend();
+
+                // deprecated since 2.28, use App::backend() instead
+                dcCore::app()->admin = self::$backend;
+            }
+
+            return self::$backend;
+        }
+
+        /**
+         * Get frontend Utility.
+         *
+         * @return  Frontend
+         */
+        public static function frontend(): Frontend
+        {
+            // Instanciate Backend instance
+            if (!isset(self::$frontend)) {
+                self::$frontend = new Frontend();
+
+                // deprecated since 2.28, use App::frontend() instead
+                dcCore::app()->public = self::$frontend;
+            }
+
+            return self::$frontend;
+        }
+
+        /**
+         * Get current lang.
+         *
+         * @return string
+         */
+        public static function lang(): string
+        {
+            return self::$lang;
+        }
+
+        /**
+         * Set the lang to use.
+         *
+         * @param      string  $id     The lang ID
+         */
+        public static function setLang($id): void
+        {
+            self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
+
+            // deprecated since 2.28, use App::setLoang() instead
+            dcCore::app()->lang = self::$lang;
         }
     }
 }

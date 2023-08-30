@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use ArrayObject;
-use Dotclear\Core\Core;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\L10n;
 
@@ -37,7 +37,7 @@ class BackendBehaviors
 
         $alt_tags = new ArrayObject($tags);
         # --BEHAVIOR-- adminPostEditorTags -- string, string, string, ArrayObject, string
-        Core::behavior()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, $syntax);
+        App::behavior()->callBehavior('adminPostEditorTags', $editor, $context, $alt_tags, $syntax);
 
         $js = [
             'legacy_editor_context'      => $context,
@@ -82,7 +82,7 @@ class BackendBehaviors
     {
         $js = [
             'dialog_url'            => 'popup.php',
-            'base_url'              => Core::blog()->host,
+            'base_url'              => App::blog()->host,
             'switcher_visual_title' => __('visual'),
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
@@ -135,7 +135,7 @@ class BackendBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) (!is_null(Core::auth()) && Core::auth()->getOption('toolbar_bottom')),
+            'toolbar_bottom' => (bool) (!is_null(App::auth()) && App::auth()->getOption('toolbar_bottom')),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',
@@ -143,14 +143,14 @@ class BackendBehaviors
             ],
         ];
 
-        $rtl              = L10n::getLanguageTextDirection(Core::lang()) == 'rtl' ? 'direction: rtl;' : '';
+        $rtl              = L10n::getLanguageTextDirection(App::lang()) == 'rtl' ? 'direction: rtl;' : '';
         $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 
-        if (!Core::auth()->check(Core::auth()->makePermissions([
-            Core::auth()::PERMISSION_MEDIA,
-            Core::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), Core::blog()->id)) {
+        if (!App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
+        ]), App::blog()->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }
 
@@ -158,7 +158,7 @@ class BackendBehaviors
         My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 
-        if (!is_null(Core::auth()) && Core::auth()->getOption('enable_wysiwyg')) {
+        if (!is_null(App::auth()) && App::auth()->getOption('enable_wysiwyg')) {
             $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 
