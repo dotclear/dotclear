@@ -16,6 +16,7 @@ use ArrayObject;
 use dcCore;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
+use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -35,6 +36,13 @@ class Backend extends Process
         }
 
         dcCore::app()->auth->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
+
+        dcCore::app()->post_types->set(new PostType(
+            'page',
+            urldecode(My::manageUrl(['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')),
+            dcCore::app()->url->getURLFor('pages', '%s'),
+            'Pages'
+        ));
 
         My::addBackendMenuItem(Menus::MENU_BLOG);
 
