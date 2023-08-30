@@ -2,8 +2,8 @@
 /**
  * @brief Dotclear core class
  *
- * True to its name dcCore is the core of Dotclear. It handles everything related
- * to blogs, database connection, plugins...
+ * dcCore is deprecated since 2.28.
+ * Use App and their methods instead...
  *
  * @package Dotclear
  * @subpackage Core
@@ -19,6 +19,7 @@ use Dotclear\Core\Formater;
 use Dotclear\Core\Nonce;
 use Dotclear\Core\PostType;
 use Dotclear\Core\PostTypes;
+use Dotclear\Core\Session;
 use Dotclear\Core\Users;
 use Dotclear\Core\Version;
 use Dotclear\Core\Backend\Utility as Backend;
@@ -29,12 +30,12 @@ use Dotclear\Core\Install\Utils;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Database\Session;
 use Dotclear\Helper\Behavior;
 use Dotclear\Helper\Html\WikiToHtml;
 
 final class dcCore
 {
+    // deprecated as App class does not allow dynamic properties
     use dcTraitDynamicProperties;
 
     // Constants
@@ -46,7 +47,7 @@ final class dcCore
      *
      * @var string
      */
-    public const SESSION_TABLE_NAME = App::SESSION_TABLE_NAME;
+    public const SESSION_TABLE_NAME = Session::SESSION_TABLE_NAME;
 
     /**
      * Versions table name
@@ -348,6 +349,7 @@ final class dcCore
         // deprecated since 2.26, use Autoloader:me() instead
         $this->autoload = Autoloader::me();
 
+        // deprecated since 2.28, use Autoloader:me() instead
         $this->con     = App::con();
         $this->prefix  = App::con()->prefix();
         $this->error   = App::error();

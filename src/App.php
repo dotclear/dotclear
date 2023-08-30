@@ -45,9 +45,6 @@ namespace Dotclear {
         /** @var    bool    Requirements loaded */
         private static bool $initialized = false;
 
-        /** @var    string  Session table name (should be moved elsewhere) */
-        public const SESSION_TABLE_NAME = 'session';
-
         /** @var    Backend  Backend Utility instance  */
         private static Backend $backend;
 

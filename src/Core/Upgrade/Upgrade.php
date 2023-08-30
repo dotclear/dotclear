@@ -16,6 +16,7 @@ use dcNamespace;
 use dcUtils;
 use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\Session;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
 use Dotclear\Core\Install\Utils;
@@ -57,9 +58,9 @@ class Upgrade
                 ------------------------------------ */
                 $cleanup_sessions = self::growUp($version);
 
-                # Drop content from session table if changes or if needed
+                # Drop content from session table if changes or if needed (only if use Dotclear default session handler)
                 if ($changes != 0 || $cleanup_sessions) {
-                    App::con()->execute('DELETE FROM ' . App::con()->prefix() . App::SESSION_TABLE_NAME);
+                    App::con()->execute('DELETE FROM ' . App::con()->prefix() . Session::SESSION_TABLE_NAME);
                 }
 
                 # Empty templates cache directory
