@@ -2,7 +2,7 @@
 /**
  * Core container.
  *
- * Core container serves uniq instances of main Core classes using CoreFactory.
+ * Core container serves uniq instances of main Core classes using Factory.
  *
  * @package Dotclear
  *
@@ -12,6 +12,11 @@
 declare(strict_types=1);
 
 namespace Dotclear\Core;
+
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\FactoryInterface;
+use Dotclear\Interface\Core\VersionInterface;
 
 // classes that move to \Dotclear\Core
 use dcAuth;
@@ -27,21 +32,19 @@ use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session;
-use Dotclear\Helper\Behavior;
 use Exception;
 
-class CoreContainer
+class Container
 {
     /** @var    array<string,mixed>     Unique instances stack */
     private array $stack = [];
 
-    /** @var    CoreContainer   CoreContainer unique instance */
-    private static CoreContainer $instance;
+    /** @var    Container   Container unique instance */
+    private static Container $instance;
 
-    /** @var    CoreFactoryInterface    CoreFactory instance */
-    private CoreFactoryInterface $factory;
+    /** @var    FactoryInterface    Factory instance */
+    private FactoryInterface $factory;
 
     /// @name Container methods
     //@{
@@ -56,10 +59,10 @@ class CoreContainer
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
-        // Factory class, implement all methods of CoreContainer,
-        // third party Core factory MUST implements CoreFactoryInterface and SHOULD extends CoreFactory
-        if (!class_exists($factory_class) || !is_subclass_of($factory_class, CoreFactoryInterface::class)) {
-            $factory_class = CoreFactory::class;
+        // Factory class, implement all methods of Container,
+        // third party Core factory MUST implements FactoryInterface and SHOULD extends Factory
+        if (!class_exists($factory_class) || !is_subclass_of($factory_class, FactoryInterface::class)) {
+            $factory_class = Factory::class;
         }
 
         self::$instance = $this;
@@ -107,7 +110,7 @@ class CoreContainer
         return self::$instance->get('auth');
     }
 
-    public static function behavior(): Behavior
+    public static function behavior(): BehaviorInterface
     {
         return self::$instance->get('behavior');
     }
@@ -127,7 +130,7 @@ class CoreContainer
         return self::$instance->get('blogs');
     }
 
-    public static function con(): AbstractHandler
+    public static function con(): ConnectionInterface
     {
         return self::$instance->get('con');
     }
@@ -212,7 +215,7 @@ class CoreContainer
         return self::$instance->get('users');
     }
 
-    public static function version(): Version
+    public static function version(): VersionInterface
     {
         return self::$instance->get('version');
     }

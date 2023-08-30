@@ -29,14 +29,17 @@ use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Session as dbSession;
-use Dotclear\Helper\Behavior;
 
-class CoreFactory implements CoreFactoryInterface
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\FactoryInterface;
+use Dotclear\Interface\Core\VersionInterface;
+
+class Factory implements FactoryInterface
 {
     public function __construct(
-        protected CoreContainer $container
+        protected Container $container
     ) {
     }
 
@@ -45,7 +48,7 @@ class CoreFactory implements CoreFactoryInterface
         return dcAuth::init();
     }
 
-    public function behavior(): Behavior
+    public function behavior(): BehaviorInterface
     {
         return new Behavior();
     }
@@ -68,9 +71,9 @@ class CoreFactory implements CoreFactoryInterface
         );
     }
 
-    public function con(): AbstractHandler
+    public function con(): ConnectionInterface
     {
-        return AbstractHandler::init(
+        return Connection::init(
             driver: DC_DBDRIVER,
             host: DC_DBHOST,
             database: DC_DBNAME,
@@ -178,7 +181,7 @@ class CoreFactory implements CoreFactoryInterface
         );
     }
 
-    public function version(): Version
+    public function version(): VersionInterface
     {
         return new Version(
             con: $this->container->get('con')

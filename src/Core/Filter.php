@@ -13,7 +13,7 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Helper\Behavior;
+use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
@@ -24,7 +24,7 @@ class Filter
      * Constructor grabs all we need.
      */
     public function __construct(
-        private Behavior $behavior,
+        private BehaviorInterface $behavior,
         private BlogLoader $blog_loader
     ) {
     }

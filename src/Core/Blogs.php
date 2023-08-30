@@ -14,12 +14,12 @@ namespace Dotclear\Core;
 use ArrayObject;
 use dcAuth;
 use dcBlog;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 class Blogs
@@ -28,7 +28,7 @@ class Blogs
      * Constructor grabs all we need.
      */
     public function __construct(
-        private AbstractHandler $con,
+        private ConnectionInterface $con,
         private dcAuth $auth
     ) {
     }

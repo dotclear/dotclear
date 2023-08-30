@@ -21,7 +21,8 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Helper\Behavior;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 class Users
@@ -30,9 +31,9 @@ class Users
      * Constructor grabs all we need.
      */
     public function __construct(
-        private AbstractHandler $con,
+        private ConnectionInterface $con,
         private dcAuth $auth,
-        private Behavior $behavior
+        private BehaviorInterface $behavior
     ) {
     }
 

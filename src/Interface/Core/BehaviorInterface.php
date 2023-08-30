@@ -1,6 +1,6 @@
 <?php
 /**
- * Behavior handler.
+ * Behavior interface.
  *
  * Collect, stack, use callable callback.
  *
@@ -11,13 +11,10 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Helper;
+namespace Dotclear\Interface\Core;
 
-class Behavior
+interface BehaviorInterface
 {
-    /** @var    array<string,array<int,callable>>   The behaviors stack */
-    private array $stack = [];
-
     /**
      * Adds a new behavior to behaviors stack.
      *
@@ -26,12 +23,7 @@ class Behavior
      * @param   string      $behavior   The behavior
      * @param   callable    $func       The function
      */
-    public function addBehavior(string $behavior, $func): void
-    {
-        if (is_callable($func)) {
-            $this->stack[$behavior][] = $func;
-        }
-    }
+    public function addBehavior(string $behavior, $func): void;
 
     /**
      * Adds new behaviors to behaviors stack. Each row must
@@ -39,12 +31,7 @@ class Behavior
      *
      * @param   array<string|string,callable>   $behaviors  The behaviors
      */
-    public function addBehaviors(array $behaviors): void
-    {
-        foreach ($behaviors as $behavior => $func) {
-            $this->addBehavior($behavior, $func);
-        }
-    }
+    public function addBehaviors(array $behaviors): void;
 
     /**
      * Determines if behavior exists in behaviors stack.
@@ -53,10 +40,7 @@ class Behavior
      *
      * @return  bool    True if behavior exists, False otherwise.
      */
-    public function hasBehavior(string $behavior): bool
-    {
-        return isset($this->stack[$behavior]);
-    }
+    public function hasBehavior(string $behavior): bool;
 
     /**
      * Gets the given behavior stack.
@@ -65,20 +49,14 @@ class Behavior
      *
      * @return  array<int,callable>     The behaviors.
      */
-    public function getBehavior(string $behavior): array
-    {
-        return empty($behavior) || empty($this->stack) || !$this->hasBehavior($behavior) ? [] : $this->stack[$behavior];
-    }
+    public function getBehavior(string $behavior): array;
 
     /**
      * Gets the behaviors stack.
      *
      * @return  array<string,array<int,callable>>   The behaviors.
      */
-    public function getBehaviors(): array
-    {
-        return $this->stack;
-    }
+    public function getBehaviors(): array;
 
     /**
      * Calls every function in behaviors stack for a given behavior and returns
@@ -92,13 +70,5 @@ class Behavior
      *
      * @return  string  Behavior concatened result
      */
-    public function callBehavior(string $behavior, ...$args): string
-    {
-        $res = '';
-        foreach ($this->getBehavior($behavior) as $f) {
-            $res .= $f(...$args);
-        }
-
-        return $res;
-    }
+    public function callBehavior(string $behavior, ...$args): string;
 }

@@ -11,7 +11,7 @@ namespace Dotclear {
     use Autoloader;
     use dcCore;
     use dcUtils;
-    use Dotclear\Core\CoreContainer;
+    use Dotclear\Core\Container;
     use Dotclear\Core\Process;
     use Dotclear\Core\PostType;
     use Dotclear\Core\Backend\Utility as Backend;
@@ -34,7 +34,7 @@ namespace Dotclear {
     /**
      * Application.
      */
-    final class App extends CoreContainer
+    final class App extends Container
     {
         /** @var    string  Dotclear default release config file name */
         public const RELEASE_FILE = 'release.json';
