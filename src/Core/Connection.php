@@ -4,7 +4,9 @@
  *
  * Handle database connection.
  *
- * Using old style AbstractHanlder to keep compatibility.
+ * Using AbstractHanlder to keep compatibility.
+ * 
+ * @see Dotclear\Database\AbstractHandler
  *
  * @package Dotclear
  *

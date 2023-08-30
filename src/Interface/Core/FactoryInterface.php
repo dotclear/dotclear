@@ -36,7 +36,6 @@ use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
 use Dotclear\Core\Nonce;
 use Dotclear\Core\PostTypes;
-use Dotclear\Core\Users;
 
 interface FactoryInterface
 {
@@ -62,6 +61,6 @@ interface FactoryInterface
     public function session(): Session;
     public function themes(): dcThemes;
     public function url(): Url;
-    public function users(): Users;
+    public function users(): UsersInterface;
     public function version(): VersionInterface;
 }

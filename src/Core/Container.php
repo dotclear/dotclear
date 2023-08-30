@@ -16,6 +16,7 @@ namespace Dotclear\Core;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\FactoryInterface;
+use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 // classes that move to \Dotclear\Core
@@ -210,7 +211,7 @@ class Container
         return self::$instance->get('url');
     }
 
-    public static function users(): Users
+    public static function users(): UsersInterface
     {
         return self::$instance->get('users');
     }

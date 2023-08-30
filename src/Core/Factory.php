@@ -34,6 +34,7 @@ use Dotclear\Database\Session as dbSession;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\FactoryInterface;
+use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 class Factory implements FactoryInterface
@@ -172,7 +173,7 @@ class Factory implements FactoryInterface
         return new Url();
     }
 
-    public function users(): Users
+    public function users(): UsersInterface
     {
         return new Users(
             con: $this->container->get('con'),

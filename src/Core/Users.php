@@ -14,7 +14,6 @@ namespace Dotclear\Core;
 use ArrayObject;
 use dcAuth;
 use dcBlog;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -23,13 +22,11 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\UsersInterface;
 use Exception;
 
-class Users
+class Users implements UsersInterface
 {
-    /**
-     * Constructor grabs all we need.
-     */
     public function __construct(
         private ConnectionInterface $con,
         private dcAuth $auth,
@@ -37,13 +34,6 @@ class Users
     ) {
     }
 
-    /**
-     * Gets the user by its ID.
-     *
-     * @param      string  $id     The identifier
-     *
-     * @return     MetaRecord  The user.
-     */
     public function getUser(string $id): MetaRecord
     {
         $params['user_id'] = $id;
@@ -51,20 +41,6 @@ class Users
         return $this->getUsers($params);
     }
 
-    /**
-     * Returns a users list. <b>$params</b> is an array with the following
-     * optionnal parameters:
-     *
-     * - <var>q</var>: search string (on user_id, user_name, user_firstname)
-     * - <var>user_id</var>: user ID
-     * - <var>order</var>: ORDER BY clause (default: user_id ASC)
-     * - <var>limit</var>: LIMIT clause (should be an array ![limit,offset])
-     *
-     * @param      array|ArrayObject    $params      The parameters
-     * @param      bool                 $count_only  Count only results
-     *
-     * @return     MetaRecord  The users.
-     */
     public function getUsers($params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
@@ -168,15 +144,6 @@ class Users
         return $rs;
     }
 
-    /**
-     * Adds a new user. Takes a Cursor as input and returns the new user ID.
-     *
-     * @param      Cursor     $cur    The user Cursor
-     *
-     * @throws     Exception
-     *
-     * @return     string
-     */
     public function addUser(Cursor $cur): string
     {
         if (!$this->auth->isSuperAdmin()) {
@@ -205,16 +172,6 @@ class Users
         return $cur->user_id;
     }
 
-    /**
-     * Updates an existing user. Returns the user ID.
-     *
-     * @param      string     $id     The user identifier
-     * @param      Cursor     $cur    The Cursor
-     *
-     * @throws     Exception
-     *
-     * @return     string
-     */
     public function updUser(string $id, Cursor $cur): string
     {
         $this->fillUserCursor($cur);
