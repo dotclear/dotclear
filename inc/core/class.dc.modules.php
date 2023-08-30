@@ -231,9 +231,10 @@ class dcModules
      *
      *  - implies : reverse dependencies
      *
-     * @param   bool    $to_error   Add dependencies fails to errors
+     * @param   dcModuleDefine  $module     The module to check
+     * @param   bool            $to_error   Add dependencies fails to errors
      */
-    public function checkDependencies($to_error = false): void
+    public function checkDependencies(dcModuleDefine $module, $to_error = false): void
     {
         // Grab current Dotclear and PHP version
         $special = [
@@ -243,77 +244,75 @@ class dcModules
 
         $optionnals = [];
 
-        foreach ($this->defines as $module) {
-            // module has required modules
-            if (!empty($module->requires)) {
-                foreach ($module->requires as $dep) {
-                    $msg = '';
-                    if (!is_array($dep)) {
-                        $dep = [$dep];
-                    }
-                    // optionnal minimum dependancy
-                    $optionnal = false;
-                    if (substr($dep[0], -1) == '?') {
-                        $dep[0]                                = substr($dep[0], 0, -1);
-                        $optionnals[$module->getId()][$dep[0]] = true;
-                    }
-                    // search required module
-                    $found = $this->getDefine($dep[0]);
+        // module has required modules
+        if (!empty($module->requires)) {
+            foreach ($module->requires as $dep) {
+                $msg = '';
+                if (!is_array($dep)) {
+                    $dep = [$dep];
+                }
+                // optionnal minimum dependancy
+                $optionnal = false;
+                if (substr($dep[0], -1) == '?') {
+                    $dep[0]                                = substr($dep[0], 0, -1);
+                    $optionnals[$module->getId()][$dep[0]] = true;
+                }
+                // search required module
+                $found = $this->getDefine($dep[0]);
 
-                    // grab missing dependencies
-                    if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
-                        // module not present, nor php or core, nor optionnal
-                        $msg = sprintf(__('Requires %s module which is not installed'), $dep[0]);
-                    } elseif (($found->isDefined() || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
-                        // module present or php or core, but version missing
-                        if ($dep[0] == 'php') {
-                            $dep[0] = 'PHP';
-                            $dep_v  = $special['php'];
-                        } elseif ($dep[0] == 'core') {
-                            $dep[0] = 'Dotclear';
-                            $dep_v  = $special['core'];
-                        } else {
-                            $dep_v = $found->version;
-                        }
-                        $msg = sprintf(
-                            __('Requires %s version %s, but version %s is installed'),
-                            $dep[0],
-                            $dep[1],
-                            $dep_v
-                        );
-                    } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->state != dcModuleDefine::STATE_ENABLED) {
-                        // module disabled
-                        $msg = sprintf(__('Requires %s module which is disabled'), $dep[0]);
+                // grab missing dependencies
+                if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
+                    // module not present, nor php or core, nor optionnal
+                    $msg = sprintf(__('Requires %s module which is not installed'), $dep[0]);
+                } elseif (($found->isDefined() || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->version), $dep[1]) == -1) {
+                    // module present or php or core, but version missing
+                    if ($dep[0] == 'php') {
+                        $dep[0] = 'PHP';
+                        $dep_v  = $special['php'];
+                    } elseif ($dep[0] == 'core') {
+                        $dep[0] = 'Dotclear';
+                        $dep_v  = $special['core'];
+                    } else {
+                        $dep_v = $found->version;
                     }
-                    if (!empty($msg)) {
-                        $module->addMissing($dep[0], $msg);
-                        if ($to_error) {
-                            $this->errors[] = $msg;
-                        }
+                    $msg = sprintf(
+                        __('Requires %s version %s, but version %s is installed'),
+                        $dep[0],
+                        $dep[1],
+                        $dep_v
+                    );
+                } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->state != dcModuleDefine::STATE_ENABLED) {
+                    // module disabled
+                    $msg = sprintf(__('Requires %s module which is disabled'), $dep[0]);
+                }
+                if (!empty($msg)) {
+                    $module->addMissing($dep[0], $msg);
+                    if ($to_error) {
+                        $this->errors[] = $msg;
                     }
-                    $found->addImplies($module->getId());
+                }
+                $found->addImplies($module->getId());
+            }
+        }
+
+        // Check modules that cannot be disabled
+
+        // Add dependencies to modules that use current module
+        if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
+            foreach ($module->getImplies() as $im) {
+                if (isset($optionnals[$im][$module->getId()])) {
+                    continue;
+                }
+                foreach ($this->getDefines(['id' => $im]) as $found) {
+                    if ($found->state == dcModuleDefine::STATE_ENABLED) {
+                        $module->addUsing($im);
+                    }
                 }
             }
         }
-        // Check modules that cannot be disabled
-        foreach ($this->defines as $module) {
-            // Add dependencies to modules that use current module
-            if (!empty($module->getImplies()) && $module->state == dcModuleDefine::STATE_ENABLED) {
-                foreach ($module->getImplies() as $im) {
-                    if (isset($optionnals[$im][$module->getId()])) {
-                        continue;
-                    }
-                    foreach ($this->getDefines(['id' => $im]) as $found) {
-                        if ($found->state == dcModuleDefine::STATE_ENABLED) {
-                            $module->addUsing($im);
-                        }
-                    }
-                }
-            }
-            // Move in soft disabled state module with missing requirements
-            if (!$this->safe_mode && !empty($module->getMissing()) && $module->state == dcModuleDefine::STATE_ENABLED) {
-                $module->set('state', dcModuleDefine::STATE_SOFT_DISABLED);
-            }
+        // Move in soft disabled state module with missing requirements
+        if (!$this->safe_mode && !empty($module->getMissing()) && $module->state == dcModuleDefine::STATE_ENABLED) {
+            $module->set('state', dcModuleDefine::STATE_SOFT_DISABLED);
         }
     }
 
@@ -470,7 +469,9 @@ class dcModules
         }
 
         // Check modules dependencies
-        $this->checkDependencies();
+        foreach ($this->defines as $module) {
+            $this->checkDependencies($module);
+        }
 
         // Sort modules by priority
         uasort($this->defines, fn ($a, $b) => $a->get('priority') <=> $b->get('priority'));
@@ -768,14 +769,14 @@ class dcModules
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
-                $sandbox->checkDependencies(true);
+                $modules->checkDependencies($sandbox->getDefine(basename($destination)), true);
                 if ($zip->hasFile($init)) {
                     unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
                 }
 
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
-                $new_errors = $sandbox->getErrors();
+                $new_errors = $modules->getErrors();
                 if (!empty($new_errors)) {
                     $new_errors = implode(" \n", $new_errors);
 
@@ -804,14 +805,14 @@ class dcModules
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
-            $sandbox->checkDependencies(true);
+            $modules->checkDependencies($sandbox->getDefine(basename($destination)), true);
             if ($zip->hasFile($init)) {
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
             }
 
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
-            $new_errors = $sandbox->getErrors();
+            $new_errors = $modules->getErrors();
             if (!empty($new_errors)) {
                 $new_errors = implode(" \n", $new_errors);
 
