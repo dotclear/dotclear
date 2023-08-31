@@ -64,7 +64,7 @@ class Logs extends CleanerParent
     public function values(): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . App::log()->getTable())
+        $sql->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'log_table',
@@ -95,7 +95,7 @@ class Logs extends CleanerParent
     {
         if ($action == 'delete_all') {
             $sql = new DeleteStatement();
-            $sql->from(App::con()->prefix() . App::log()->getTable())
+            $sql->from(App::con()->prefix() . App::log():LOG_TABLE_NAME)
                 ->where('log_table = ' . $sql->quote((string) $ns))
                 //->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();

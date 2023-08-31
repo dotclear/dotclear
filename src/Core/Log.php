@@ -26,25 +26,12 @@ use Dotclear\Interface\Core\LogInterface;
 
 class Log implements LogInterface
 {
-    /**
-     * Table name
-     *
-     * @var        string
-     */
     public const LOG_TABLE_NAME = 'log';
 
-    /**
-     * Full log table name (including db prefix)
-     *
-     * @var        string
-     */
+    /** @var    string  Full log table name (including db prefix) */
     protected $log_table;
 
-    /**
-     * Full user table name (including db prefix)
-     *
-     * @var        string
-     */
+    /** @var    string  Full user table name (including db prefix) */
     protected $user_table;
 
     /**
@@ -59,6 +46,13 @@ class Log implements LogInterface
         $this->user_table = $con->prefix() . dcAuth::USER_TABLE_NAME;
     }
 
+    /**
+     * Get log table name.
+     *
+     * @deprecated since 2.28, use self::LOG_TABLE_NAME instead
+     *
+     * @return  string  The log database table name
+     */
     public function getTable(): string
     {
         return self::LOG_TABLE_NAME;

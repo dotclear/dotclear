@@ -16,12 +16,8 @@ use Dotclear\Database\MetaRecord;
 
 interface LogInterface
 {
-    /**
-     * Get log database table name. (without prefix)
-     *
-     * @return  string The table name
-     */
-    public function getTable(): string;
+    /** @var    string  The Log database table name */
+    public const LOG_TABLE_NAME = 'log';
 
     /**
      * Open a database table cursor.

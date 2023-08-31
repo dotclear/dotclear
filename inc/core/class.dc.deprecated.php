@@ -97,12 +97,12 @@ class dcDeprecated extends Deprecated
         // check logs limit and delete them if it's required
         if ($count > self::DEPRECATED_PURGE_LIMIT) {
             $sql = new DeleteStatement();
-            $sql->from(App::con()->prefix() . App::log()->getTable())
+            $sql->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
                 ->where('log_table = ' . $sql->quote(self::DEPRECATED_LOG_TABLE));
 
             if (!$all) {
                 $sql_dt = new SelectStatement();
-                $rs     = $sql_dt->from(App::con()->prefix() . App::log()->getTable())
+                $rs     = $sql_dt->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
                     ->column('log_dt')
                     ->where('log_table = ' . $sql_dt->quote(self::DEPRECATED_LOG_TABLE))
                     ->order('log_dt DESC')

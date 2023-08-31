@@ -15,6 +15,9 @@ namespace Dotclear\Interface\Core;
 
 interface VersionInterface
 {
+    /** @var     string  The Version database table name */
+    public const VERSION_TABLE_NAME = 'version';
+
     /**
      * Get the version of a module.
      *

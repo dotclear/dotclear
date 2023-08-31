@@ -21,11 +21,6 @@ use Dotclear\Interface\Core\NoticeInterface;
 
 class Notice implements NoticeInterface
 {
-    /**
-     * Table name
-     *
-     * @var        string
-     */
     public const NOTICE_TABLE_NAME = 'notice';
 
     /**
@@ -46,11 +41,6 @@ class Notice implements NoticeInterface
         private BehaviorInterface $behavior
     ) {
         $this->table = $con->prefix() . self::NOTICE_TABLE_NAME;
-    }
-
-    public function getTable(): string
-    {
-        return self::NOTICE_TABLE_NAME;
     }
 
     public function openCursor(): Cursor

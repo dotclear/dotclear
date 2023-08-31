@@ -16,12 +16,8 @@ use Dotclear\Database\MetaRecord;
 
 interface NoticeInterface
 {
-    /**
-     * Get notice database table name. (without prefix)
-     *
-     * @return  string The table name
-     */
-    public function getTable(): string;
+    /** @var     string  The Notice database table name */
+    public const NOTICE_TABLE_NAME = 'notice';
 
     /**
      * Open a database table cursor.

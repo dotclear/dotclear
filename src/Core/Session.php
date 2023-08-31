@@ -13,10 +13,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Database\Session as dbSession;
+use Dotclear\Database\Session as databaseSession;
 
-class Session extends dbSession
+class Session extends databaseSession
 {
-    /** @var    string  Session table name */
     public const SESSION_TABLE_NAME = 'session';
 }

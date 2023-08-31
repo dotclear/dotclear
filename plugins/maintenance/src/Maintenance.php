@@ -217,7 +217,7 @@ class Maintenance
         // Get logs from this task
         $rs = new MetaRecord(App::con()->select(
             'SELECT log_id ' .
-            'FROM ' . App::con()->prefix() . App::log()->getTable() . ' ' .
+            'FROM ' . App::con()->prefix() . App::log()::LOG_TABLE_NAME . ' ' .
             "WHERE log_msg = '" . App::con()->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         ));

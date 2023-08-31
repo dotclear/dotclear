@@ -13,6 +13,9 @@ namespace Dotclear\Interface\Core;
 
 interface SessionInterface
 {
+    /** @var     string  The Session database table name */
+    public const SESSION_TABLE_NAME = 'session';
+
     /**
      * Destructor
      *

@@ -22,11 +22,13 @@ use Dotclear\Database\Statement\UpdateStatement;
 
 class Version implements VersionInterface
 {
-    /** @var     string  Versions database table name */
     public const VERSION_TABLE_NAME = 'version';
 
     /** @var    array<string,string>    The version stack */
     private array $stack = [];
+
+    /** @var    string  Full table name (including db prefix) */
+    protected string $table;
 
     /**
      * Constructor grabs all we need.
@@ -36,6 +38,7 @@ class Version implements VersionInterface
     public function __construct(
         private ConnectionInterface $con
     ) {
+        $this->table = $con->prefix() . self::NOTICE_TABLE_NAME;
         $this->loadVersions();
     }
 
@@ -51,7 +54,7 @@ class Version implements VersionInterface
 
     public function setVersion(string $module, string $version): void
     {
-        $cur = $this->con->openCursor($this->con->prefix() . self::VERSION_TABLE_NAME);
+        $cur = $this->openCursor();
         $cur->setField('module', $module);
         $cur->setField('version', $version);
 
@@ -70,7 +73,7 @@ class Version implements VersionInterface
     {
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . self::VERSION_TABLE_NAME)
+            ->from($this->table)
             ->where('module = ' . $sql->quote($module));
 
         $sql->delete();
@@ -99,7 +102,7 @@ class Version implements VersionInterface
                     'module',
                     'version',
                 ])
-                ->from($this->con->prefix() . self::VERSION_TABLE_NAME)
+                ->from($this->table)
                 ->select();
 
             while ($rs->fetch()) {

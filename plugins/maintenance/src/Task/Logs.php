@@ -57,7 +57,7 @@ class Logs extends MaintenanceTask
     {
         if (static::$keep_maintenance_logs) {
             App::con()->execute(
-                'DELETE FROM ' . App::con()->prefix() . App::log()->getTable() . ' ' .
+                'DELETE FROM ' . App::con()->prefix() . App::log()::LOG_TABLE_NAME . ' ' .
                 "WHERE log_table <> 'maintenance' "
             );
         } else {
