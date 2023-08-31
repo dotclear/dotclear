@@ -1,32 +1,32 @@
 <?php
 /**
- * @brief Dotclear REST server extension
+ * Rest server handler.
  *
  * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
  * Instance of this class is provided by App::rest().
- *
+*
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core;
+
+use dcCore;
 use Dotclear\Helper\RestServer;
+use Dotclear\Interface\Core\RestInterface;
+use Exception;
 
-class dcRestServer extends RestServer
+class Rest extends RestServer implements RestInterface
 {
-    /**
-     * Main server
-     *
-     * This method creates the main server.
-     *
-     * @param      string  $encoding  The encoding
-     * @param      int     $format    The format
-     * @param      mixed   $param     The parameter
-     *
-     * @return     bool
-     */
+    public const XML_RESPONSE  = 0;
+
+    public const JSON_RESPONSE = 1;
+
+    public const DEFAULT_RESPONSE = self::XML_RESPONSE;
+
     public function serve(string $encoding = 'UTF-8', int $format = parent::XML_RESPONSE, $param = null): bool
     {
         if (isset($_REQUEST['json'])) {
@@ -39,13 +39,6 @@ class dcRestServer extends RestServer
         return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
     }
 
-    /**
-     * Serve or not the REST requests.
-     *
-     * Using a file as token
-     *
-     * @param      bool  $serve  The flag
-     */
     public function enableRestServer(bool $serve = true): void
     {
         if (defined('DC_UPGRADE')) {
@@ -62,11 +55,6 @@ class dcRestServer extends RestServer
         }
     }
 
-    /**
-     * Check if we need to serve REST requests.
-     *
-     * @return     bool
-     */
     public function serveRestRequests(): bool
     {
         return defined('DC_UPGRADE') && defined('DC_REST_SERVICES') && !file_exists(DC_UPGRADE) && DC_REST_SERVICES;

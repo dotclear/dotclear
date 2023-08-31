@@ -23,6 +23,7 @@ use Dotclear\Core\Nonce;
 use Dotclear\Core\Notice;
 use Dotclear\Core\PostType;
 use Dotclear\Core\PostTypes;
+use Dotclear\Core\Rest;
 use Dotclear\Core\Session;
 use Dotclear\Core\Users;
 use Dotclear\Core\Version;
@@ -126,13 +127,13 @@ final class dcCore
     public readonly Url $url;
 
     /**
-     * dcRestServer instance
+     * Rest instance
      *
      * @deprecated since 2.28, use App::rest() instead
      *
-     * @var dcRestServer
+     * @var Rest
      */
-    public readonly dcRestServer $rest;
+    public readonly Rest $rest;
 
     /**
      * WikiToHtml instance

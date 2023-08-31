@@ -24,7 +24,6 @@ use dcBlog;
 use dcMedia;
 use dcPlugins;
 use dcPostMedia;
-use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
@@ -43,6 +42,7 @@ use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
+use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
@@ -173,9 +173,9 @@ class Factory implements FactoryInterface
         return new PostTypes();
     }
 
-    public function rest(): dcRestServer
+    public function rest(): RestInterface
     {
-        return new dcRestServer();
+        return new Rest();
     }
 
     public function session(): SessionInterface

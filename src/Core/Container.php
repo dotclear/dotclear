@@ -26,6 +26,7 @@ use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
+use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
@@ -36,7 +37,6 @@ use dcBlog;
 use dcMedia;
 use dcPlugins;
 use dcPostMedia;
-use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
@@ -197,7 +197,7 @@ class Container
         return self::$instance->get('postTypes');
     }
 
-    public static function rest(): dcRestServer
+    public static function rest(): RestInterface
     {
         return self::$instance->get('rest');
     }

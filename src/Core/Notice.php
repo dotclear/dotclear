@@ -18,6 +18,7 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\NoticeInterface;
+use Exception;
 
 class Notice implements NoticeInterface
 {

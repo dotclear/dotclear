@@ -19,7 +19,6 @@ use dcBlog;
 use dcMedia;
 use dcPlugins;
 use dcPostMedia;
-use dcRestServer;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
@@ -43,7 +42,7 @@ interface FactoryInterface
     public function plugins(): dcPlugins;
     public function postMedia(): dcPostMedia;
     public function postTypes(): PostTypesInterface;
-    public function rest(): dcRestServer;
+    public function rest(): RestInterface;
     public function session(): SessionInterface;
     public function themes(): dcThemes;
     public function url(): Url;

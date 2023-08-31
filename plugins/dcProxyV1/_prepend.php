@@ -178,11 +178,12 @@ dcProxyV1::classAliases([
 
     // Core -----------------------
 
-    'dcError'     => 'Dotclear\Core\Error',
-    'dcMeta'      => 'Dotclear\Core\Meta',
-    'dcNotices'   => 'Dotclear\Core\Notice',
-    'dcRecord'    => 'Dotclear\Database\MetaRecord',
-    'dcNsProcess' => 'Dotclear\Core\Process',
+    'dcError'      => 'Dotclear\Core\Error',
+    'dcMeta'       => 'Dotclear\Core\Meta',
+    'dcNotices'    => 'Dotclear\Core\Notice',
+    'dcRecord'     => 'Dotclear\Database\MetaRecord',
+    'dcRestServer' => 'Dotclear\Core\Rest',
+    'dcNsProcess'  => 'Dotclear\Core\Process',
 
     // Core admin -----------------
 

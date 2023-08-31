@@ -23,6 +23,7 @@ use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\LogInterface;
+use Exception;
 
 class Log implements LogInterface
 {
