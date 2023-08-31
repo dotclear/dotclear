@@ -38,7 +38,7 @@ class Version implements VersionInterface
     public function __construct(
         private ConnectionInterface $con
     ) {
-        $this->table = $con->prefix() . self::NOTICE_TABLE_NAME;
+        $this->table = $con->prefix() . self::VERSION_TABLE_NAME;
         $this->loadVersions();
     }
 
