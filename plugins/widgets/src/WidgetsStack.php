@@ -41,7 +41,7 @@ class WidgetsStack
             $o = $s;
         }
 
-        return self::loadArray($o, Widgets::$widgets);
+        return $o ? self::loadArray($o, Widgets::$widgets) : new self();
     }
 
     /**

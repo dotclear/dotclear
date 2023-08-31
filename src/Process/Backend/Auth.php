@@ -115,13 +115,13 @@ class Auth extends Process
             try {
                 $recover_key = App::auth()->setRecoverKey(App::backend()->user_id, App::backend()->user_email);
 
-                $subject = mail::B64Header('Dotclear ' . __('Password reset'));
+                $subject = Mail::B64Header('Dotclear ' . __('Password reset'));
                 $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . App::backend()->page_url . "\n" . __('Username:') . ' ' . App::backend()->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . App::backend()->page_url . '&akey=' . $recover_key;
 
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                mail::sendMail(App::backend()->user_email, $subject, $message, $headers);
+                Mail::sendMail(App::backend()->user_email, $subject, $message, $headers);
                 App::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), App::backend()->user_email);
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
@@ -137,7 +137,7 @@ class Auth extends Process
                 $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
+                Mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
                 App::backend()->msg = __('Your new password is in your mailbox.');
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
