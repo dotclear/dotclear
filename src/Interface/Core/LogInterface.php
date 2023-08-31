@@ -67,7 +67,7 @@ interface LogInterface
      * This methods keep various $id for backward compatibility.
      * Should be used only for array of ids
      *
-     * @param   null|int,array<int,string|int>  $id     The identifier(s)
+     * @param   null|int|array<int,string|int>  $id     The identifier(s)
      * @param   bool                            $all    Remove all logs
      */
     public function delLogs($id, bool $all = false): void;

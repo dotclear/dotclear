@@ -57,12 +57,14 @@ class Notices
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, Error
             $notice_error = App::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), App::error());
 
-            if (isset($notice_error) && !empty($notice_error)) {
+            if (!empty($notice_error)) {
                 $res .= $notice_error;
             } else {
-                $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>' .
-                    App::error()->toHTML() .
-                    '</div>';
+                $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>';
+                foreach(App::error()->dump() as $msg) {
+                    $res .= self::error($msg, true, false, false);
+                }
+                $res .= '</div>';
             }
             self::$error_displayed = true;
         } else {
@@ -107,7 +109,7 @@ class Notices
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
                     $notice = App::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 
-                    $res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
+                    $res .= (!empty($notice) ? $notice : self::getNotification($notification));
                 }
             }
         } while (--$step);

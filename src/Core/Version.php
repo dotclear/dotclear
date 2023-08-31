@@ -16,6 +16,7 @@ namespace Dotclear\Core;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
+use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -40,6 +41,11 @@ class Version implements VersionInterface
     ) {
         $this->table = $con->prefix() . self::VERSION_TABLE_NAME;
         $this->loadVersions();
+    }
+
+    public function openCursor(): Cursor
+    {
+        return $this->con->openCursor($this->con->prefix() . self::VERSION_TABLE_NAME);
     }
 
     public function getVersion(string $module = 'core'): string

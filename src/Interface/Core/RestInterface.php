@@ -14,7 +14,7 @@ namespace Dotclear\Interface\Core;
 interface RestInterface
 {
     /** @var    int     XML response format */
-    public const XML_RESPONSE  = 0;
+    public const XML_RESPONSE = 0;
 
     /** @var    int     JSON response format */
     public const JSON_RESPONSE = 1;

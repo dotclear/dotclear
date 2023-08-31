@@ -21,7 +21,7 @@ use Exception;
 
 class Rest extends RestServer implements RestInterface
 {
-    public const XML_RESPONSE  = 0;
+    public const XML_RESPONSE = 0;
 
     public const JSON_RESPONSE = 1;
 

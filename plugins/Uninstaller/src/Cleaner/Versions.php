@@ -26,7 +26,7 @@ use Dotclear\Plugin\Uninstaller\{
  * Cleaner for Dotclear modules versions.
  *
  * It allows modules to delete their versions
- * from Dotclear dcCore::VERSION_TABLE_NAME database table.
+ * from Dotclear App::version()::VERSION_TABLE_NAME database table.
  */
 class Versions extends CleanerParent
 {
@@ -63,7 +63,7 @@ class Versions extends CleanerParent
     {
         $sql = new SelectStatement();
         $rs  = $sql
-            ->from(App::con()->prefix() . dcCore::VERSION_TABLE_NAME)
+            ->from(App::con()->prefix() . App::version()::VERSION_TABLE_NAME)
             ->columns(['module', 'version'])
             ->order('module ASC')
             ->select();
@@ -88,7 +88,7 @@ class Versions extends CleanerParent
     {
         if ($action == 'delete') {
             App::con()->execute(
-                'DELETE FROM  ' . App::con()->prefix() . dcCore::VERSION_TABLE_NAME . ' ' .
+                'DELETE FROM  ' . App::con()->prefix() . App::version()::VERSION_TABLE_NAME . ' ' .
                 "WHERE module = '" . App::con()->escapeStr((string) $ns) . "' "
             );
 

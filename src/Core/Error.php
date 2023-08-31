@@ -11,12 +11,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Core\Backend\Notices; // deprecated
 use Dotclear\Interface\Core\ErrorInterface;
 
 class Error implements ErrorInterface
 {
     /** @var    array<int,string>   Errors stack */
-    protected $errors = [];
+    protected $stack = [];
 
     /** @var    bool True if stack is not empty */
     protected $flag = false;
@@ -24,7 +25,7 @@ class Error implements ErrorInterface
     public function add(string $msg): void
     {
         $this->flag     = true;
-        $this->errors[] = $msg;
+        $this->stack[] = $msg;
     }
 
     public function flag(): bool
@@ -32,26 +33,31 @@ class Error implements ErrorInterface
         return $this->flag;
     }
 
-    /**
-     * Resets errors stack.
-     */
-    private function reset(): void
+    public function reset(): void
     {
         $this->flag   = false;
-        $this->errors = [];
+        $this->stack = [];
     }
 
     public function count(): int
     {
-        return count($this->errors);
+        return count($this->stack);
     }
 
+    public function dump(): array
+    {
+        return $this->stack;
+    }
+
+    /**
+     * @deprecated since 2.28, use your own parser instead.
+     */
     public function toHTML(bool $reset = true): string
     {
         $res = '';
 
         if ($this->flag) {
-            foreach ($this->errors as $msg) {
+            foreach ($this->stack as $msg) {
                 $res .= Notices::error($msg, true, false, false);
             }
             if ($reset) {

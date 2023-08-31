@@ -48,7 +48,7 @@ final class dcCore
     /**
      * Session table name
      *
-     * @deprecated since 2.28, use App::VERSION_TABLE_NAME
+     * @deprecated since 2.28, use App::SESSION_TABLE_NAME
      *
      * @var string
      */
@@ -57,7 +57,7 @@ final class dcCore
     /**
      * Versions table name
      *
-     * @deprecated since 2.28, use Version::VERSION_TABLE_NAME
+     * @deprecated since 2.28, use App::version()::VERSION_TABLE_NAME
      *
      * @var string
      */

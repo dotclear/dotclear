@@ -249,7 +249,7 @@ class Install extends Process
                 );
 
                 # Add Dotclear version
-                $cur          = App::con()->openCursor(App::con()->prefix() . dcCore::VERSION_TABLE_NAME);
+                $cur          = App::version()->openCursor();
                 $cur->module  = 'core';
                 $cur->version = (string) DC_VERSION;
                 $cur->insert();

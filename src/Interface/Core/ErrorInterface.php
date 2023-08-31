@@ -35,7 +35,21 @@ interface ErrorInterface
     public function count(): int;
 
     /**
+     * Get errors stack.
+     *
+     * @return  array<int,string>   The errors stack
+     */
+    public function dump(): array;
+
+    /**
+     * Reset errors.
+     */
+    public function reset(): void;
+
+    /**
      * Returns errors stack as HTML and reset it.
+     *
+     * @deprecated since 2.28, use your own parser instead.
      *
      * @param   bool    $reset  True if error stack should be reset
      *

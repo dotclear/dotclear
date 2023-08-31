@@ -13,10 +13,19 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Database\Cursor;
+
 interface VersionInterface
 {
     /** @var     string  The Version database table name */
     public const VERSION_TABLE_NAME = 'version';
+
+    /**
+     * Open a database table cursor.
+     *
+     * @return  Cursor  The version database table cursor
+     */
+    public function openCursor(): Cursor;
 
     /**
      * Get the version of a module.
