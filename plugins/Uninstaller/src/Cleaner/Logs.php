@@ -29,7 +29,7 @@ use Dotclear\Plugin\Uninstaller\{
  * Cleaner for Dotclear logs used by modules.
  *
  * It allows modules to delete a "log_table"
- * of Dotclear dcLog::LOG_TABLE_NAME database table.
+ * of Dotclear App::log()::LOG_TABLE_NAME database table.
  */
 class Logs extends CleanerParent
 {

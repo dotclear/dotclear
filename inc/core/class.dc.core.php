@@ -18,6 +18,7 @@ use Dotclear\Core\Error;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
 use Dotclear\Core\Log;
+use Dotclear\Core\Meta;
 use Dotclear\Core\Nonce;
 use Dotclear\Core\Notice;
 use Dotclear\Core\PostType;
@@ -188,13 +189,13 @@ final class dcCore
     public $postmedia;
 
     /**
-     * dcMeta instance
+     * Meta instance
      *
      * @deprecated since 2.28, use App::meta() instead
      *
-     * @var dcMeta
+     * @var Meta
      */
-    public readonly dcMeta $meta;
+    public readonly Meta $meta;
 
     /**
      * Error instance

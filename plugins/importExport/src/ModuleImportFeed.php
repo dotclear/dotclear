@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use dcBlog;
-use dcMeta;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Helper\Date;
@@ -201,7 +200,7 @@ class ModuleImportFeed extends Module
             }
 
             foreach ($item->subject as $subject) {
-                App::meta()->setPostMeta($post_id, 'tag', dcMeta::sanitizeMetaID($subject));
+                App::meta()->setPostMeta($post_id, 'tag', App::meta()::sanitizeMetaID($subject));
             }
         }
 

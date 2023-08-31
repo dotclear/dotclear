@@ -1,16 +1,20 @@
 <?php
 /**
- * @brief Dotclear metadata class.
+ * Meta handler.
  *
  * Dotclear metadata class instance is provided by dcCore $meta property.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core;
+
+use dcBlog;
+use dcAuth;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -18,48 +22,38 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\MetaInterface;
+use Exception;
 
-class dcMeta
+class Meta implements MetaInterface
 {
-    // Constants
-
-    /**
-     * Meta table name
-     *
-     * @var        string
-     */
     public const META_TABLE_NAME = 'meta';
 
-    // Properties
-
-    /**
-     * Database connection
-     *
-     * @var object
-     */
-    private $con;
-
-    /**
-     * Meta table name
-     */
+    /** @var    string  The mate table name with prefix */
     private string $table;
 
     /**
      * Constructs a new instance.
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
-        $this->table = App::con()->prefix() . self::META_TABLE_NAME;
+    public function __construct(
+        private ConnectionInterface $con,
+        private dcAuth $auth,
+        private BlogLoaderInterface $blog_loader
+    ) {
+        $this->table = $con->prefix() . self::META_TABLE_NAME;
     }
 
-    /**
-     * Splits up comma-separated values into an array of unique, URL-proof metadata values.
-     *
-     * @param      string  $str    Comma-separated metadata
-     *
-     * @return     array  The array of sanitized metadata
-     */
+    private function blog(): dcBlog
+    {
+        if (!$this->blog_loader->hasBlog()) {
+            throw new Exception('Bog is not defined');
+        }
+
+        return $this->blog_loader->getBlog();
+    }
+
     public function splitMetaValues(string $str): array
     {
         $res = [];
@@ -73,25 +67,11 @@ class dcMeta
         return array_unique($res);
     }
 
-    /**
-     * Make a metadata ID URL-proof.
-     *
-     * @param      string  $str    The metadata ID
-     *
-     * @return     string
-     */
     public static function sanitizeMetaID(string $str): string
     {
         return Text::tidyURL($str, false, true);
     }
 
-    /**
-     * Converts serialized metadata (for instance in dc_post post_meta) into a meta array.
-     *
-     * @param      string  $str    The serialized metadata
-     *
-     * @return     array   The meta array.
-     */
     public function getMetaArray(?string $str): array
     {
         if (!$str) {
@@ -106,15 +86,6 @@ class dcMeta
         return $meta;
     }
 
-    /**
-     * Converts serialized metadata (for instance in dc_post post_meta)
-     * into a comma-separated meta list for a given type.
-     *
-     * @param      string  $str    The serialized metadata
-     * @param      string  $type   The meta type to retrieve metaIDs from
-     *
-     * @return     string  The comma-separated list of meta.
-     */
     public function getMetaStr(?string $str, string $type): string
     {
         if (!$str) {
@@ -129,15 +100,6 @@ class dcMeta
         return implode(', ', $meta[$type]);
     }
 
-    /**
-     * Converts serialized metadata (for instance in dc_post post_meta)
-     * into a "fetchable" metadata MetaRecord.
-     *
-     * @param      string  $str    The serialized metadata
-     * @param      string  $type   The meta type to retrieve metaIDs from
-     *
-     * @return     MetaRecord  The meta recordset.
-     */
     public function getMetaRecordset(?string $str, string $type): MetaRecord
     {
         $meta = $this->getMetaArray($str);
@@ -163,31 +125,31 @@ class dcMeta
      * Checks whether the current user is allowed to change post meta
      * An exception is thrown if user is not allowed.
      *
-     * @param      mixed     $post_id  The post identifier
+     * @param   int|string  $post_id    The post identifier
      *
-     * @throws     Exception
+     * @throws  Exception
      */
-    private function checkPermissionsOnPost($post_id)
+    private function checkPermissionsOnPost(int|string $post_id): void
     {
         $post_id = (int) $post_id;
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_USAGE,
+            $this->auth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->blog()->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
         # If user can only publish, we need to check the post's owner
-        if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->blog()->id)) {
             $sql = new SelectStatement();
             $sql
-                ->from(App::con()->prefix() . dcBlog::POST_TABLE_NAME)
+                ->from($this->con->prefix() . $this->blog()::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
-                ->and('user_id = ' . $sql->quote(App::auth()->userID()));
+                ->and('user_id = ' . $sql->quote($this->auth->userID()));
 
             $rs = $sql->select();
 
@@ -200,9 +162,9 @@ class dcMeta
     /**
      * Updates serialized post_meta information with dc_meta table information.
      *
-     * @param      mixed  $post_id  The post identifier
+     * @param   int|string  $post_id    The post identifier
      */
-    private function updatePostMeta($post_id): void
+    private function updatePostMeta(int|string $post_id): void
     {
         $post_id = (int) $post_id;
 
@@ -224,7 +186,7 @@ class dcMeta
 
         $post_meta = serialize($meta);
 
-        $cur            = $this->con->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+        $cur            = $this->con->openCursor($this->con->prefix() . $this->blog()::POST_TABLE_NAME);
         $cur->post_meta = $post_meta;
 
         $sql = new UpdateStatement();
@@ -232,25 +194,13 @@ class dcMeta
 
         $sql->update($cur);
 
-        App::blog()->triggerBlog();
+        $this->blog()->triggerBlog();
     }
 
-    /**
-     * Retrieves posts corresponding to given meta criteria.
-     * <b>$params</b> is an array taking the following optional parameters:
-     * - meta_id : get posts having meta id
-     * - meta_type : get posts having meta type
-     *
-     * @param      array                    $params      The parameters
-     * @param      bool                     $count_only  Only count results
-     * @param      SelectStatement|null     $ext_sql     Optional SqlStatement instance
-     *
-     * @return     MetaRecord   The resulting posts record.
-     */
-    public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): ?MetaRecord
+    public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         if (!isset($params['meta_id'])) {
-            return null;
+            return MetaRecord::newFromArray([]);
         }
 
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
@@ -268,25 +218,13 @@ class dcMeta
 
         unset($params['meta_id']);
 
-        return App::blog()->getPosts($params, $count_only, $sql);
+        return $this->blog()->getPosts($params, $count_only, $sql);
     }
 
-    /**
-     * Retrieves comments corresponding to given meta criteria.
-     * <b>$params</b> is an array taking the following optional parameters:
-     * - meta_id : get posts having meta id
-     * - meta_type : get posts having meta type
-     *
-     * @param      array                    $params      The parameters
-     * @param      bool                     $count_only  Only count results
-     * @param      SelectStatement|null     $ext_sql     Optional SqlStatement instance
-     *
-     * @return     MetaRecord   The resulting comments record.
-     */
-    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): ?MetaRecord
+    public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         if (!isset($params['meta_id'])) {
-            return null;
+            return MetaRecord::newFromArray([]);
         }
 
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
@@ -302,26 +240,9 @@ class dcMeta
             unset($params['meta_type']);
         }
 
-        return App::blog()->getComments($params, $count_only, $sql);
+        return $this->blog()->getComments($params, $count_only, $sql);
     }
 
-    /**
-     * Generic-purpose metadata retrieval : gets metadatas according to given
-     * criteria. <b>$params</b> is an array taking the following
-     * optionnal parameters:
-     *
-     * - type: get metas having the given type
-     * - meta_id: if not null, get metas having the given id
-     * - post_id: get metas for the given post id
-     * - limit: number of max fetched metas
-     * - order: results order (default : posts count DESC)
-     *
-     * @param      array                    $params      The parameters
-     * @param      bool                     $count_only  Only counts results
-     * @param      SelectStatement|null     $ext_sql     Optional SqlStatement instance
-     *
-     * @return     MetaRecord  The metadata.
-     */
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
@@ -343,11 +264,11 @@ class dcMeta
             ->join(
                 (new JoinStatement())
                 ->left()
-                ->from($sql->as(App::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'))
+                ->from($sql->as($this->con->prefix() . $this->blog()::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
-            ->where('P.blog_id = ' . $sql->quote(App::blog()->id));
+            ->where('P.blog_id = ' . $sql->quote($this->blog()->id));
 
         if (isset($params['meta_type'])) {
             $sql->and('meta_type = ' . $sql->quote($params['meta_type']));
@@ -361,13 +282,13 @@ class dcMeta
             $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
-            $user_id = App::auth()->userID();
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->blog()->id)) {
+            $user_id = $this->auth->userID();
 
-            $and = ['post_status = ' . (string) dcBlog::POST_PUBLISHED];
-            if (App::blog()->without_password) {
+            $and = ['post_status = ' . (string) $this->blog()::POST_PUBLISHED];
+            if ($this->blog()->without_password) {
                 $and[] = 'post_password IS NULL';
             }
 
@@ -396,19 +317,9 @@ class dcMeta
             }
         }
 
-        $rs = $sql->select();
-
-        return $rs;
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
-    /**
-     * Computes statistics from a metadata recordset.
-     * Each record gets enriched with lowercase name, percent and roundpercent columns
-     *
-     * @param      MetaRecord  $rs     The metadata recordset
-     *
-     * @return     MetaRecord  The meta statistics.
-     */
     public function computeMetaStats(MetaRecord $rs): MetaRecord
     {
         $rs_static = $rs->toStatic();
@@ -438,14 +349,7 @@ class dcMeta
         return $rs_static;
     }
 
-    /**
-     * Adds a metadata to a post.
-     *
-     * @param      mixed   $post_id  The post identifier
-     * @param      string  $type     The type
-     * @param      string  $value    The value
-     */
-    public function setPostMeta($post_id, ?string $type, ?string $value): void
+    public function setPostMeta(int|string $post_id, ?string $type, ?string $value): void
     {
         $this->checkPermissionsOnPost($post_id);
 
@@ -464,14 +368,7 @@ class dcMeta
         $this->updatePostMeta((int) $post_id);
     }
 
-    /**
-     * Removes metadata from a post.
-     *
-     * @param      mixed    $post_id  The post identifier
-     * @param      string   $type     The meta type (if null, delete all types)
-     * @param      string   $meta_id  The meta identifier (if null, delete all values)
-     */
-    public function delPostMeta($post_id, ?string $type = null, ?string $meta_id = null): void
+    public function delPostMeta(int|string $post_id, ?string $type = null, ?string $meta_id = null): void
     {
         $post_id = (int) $post_id;
 
@@ -495,16 +392,6 @@ class dcMeta
         $this->updatePostMeta((int) $post_id);
     }
 
-    /**
-     * Mass updates metadata for a given post_type.
-     *
-     * @param      string  $meta_id      The old meta value
-     * @param      string  $new_meta_id  The new meta value
-     * @param      string  $type         The type (if null, select all types)
-     * @param      string  $post_type    The post type (if null, select all types)
-     *
-     * @return     bool   true if at least 1 post has been impacted
-     */
     public function updateMeta(string $meta_id, string $new_meta_id, ?string $type = null, ?string $post_type = null): bool
     {
         $new_meta_id = self::sanitizeMetaID($new_meta_id);
@@ -517,16 +404,16 @@ class dcMeta
         $sql
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as(App::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'),
+                $sql->as($this->con->prefix() . $this->blog()::POST_TABLE_NAME, 'P'),
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote(App::blog()->id));
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
-            $sql->and('P.user_id = ' . $sql->quote(App::auth()->userID()));
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->blog()->id)) {
+            $sql->and('P.user_id = ' . $sql->quote($this->auth->userID()));
         }
         if ($post_type !== null) {
             $sql->and('P.post_type = ' . $sql->quote($post_type));
@@ -606,15 +493,6 @@ class dcMeta
         return true;
     }
 
-    /**
-     * Mass delete metadata for a given post_type.
-     *
-     * @param      string   $meta_id    The meta identifier
-     * @param      string   $type       The meta type (if null, select all types)
-     * @param      string   $post_type  The post type (if null, select all types)
-     *
-     * @return     array   The list of impacted post_ids
-     */
     public function delMeta(string $meta_id, ?string $type = null, ?string $post_type = null): array
     {
         $sql = new SelectStatement();
@@ -622,10 +500,10 @@ class dcMeta
             ->column('M.post_id')
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as(App::con()->prefix() . dcBlog::POST_TABLE_NAME, 'P'),
+                $sql->as($this->con->prefix() . $this->blog()::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote(App::blog()->id))
+            ->and('P.blog_id = ' . $sql->quote($this->blog()->id))
             ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {
@@ -659,8 +537,9 @@ class dcMeta
 
         $sql->delete();
 
-        foreach ($ids as $post_id) {
+        foreach ($ids as $k => $post_id) {
             $this->updatePostMeta($post_id);
+            $ids[$k] = (int) $post_id;
         }
 
         return $ids;

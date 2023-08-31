@@ -22,6 +22,7 @@ use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\LogInterface;
+use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
@@ -33,7 +34,6 @@ use Dotclear\Interface\Core\VersionInterface;
 use dcAuth;
 use dcBlog;
 use dcMedia;
-use dcMeta;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
@@ -167,7 +167,7 @@ class Container
         return self::$instance->get('media');
     }
 
-    public static function meta(): dcMeta
+    public static function meta(): MetaInterface
     {
         return self::$instance->get('meta');
     }

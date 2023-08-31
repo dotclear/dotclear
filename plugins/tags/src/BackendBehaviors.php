@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use dcMeta;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Notices;
@@ -141,7 +140,7 @@ class BackendBehaviors
         }
 
         $tag_url        = Html::stripHostURL(App::blog()->url . App::url()->getURLFor('tag'));
-        $res['url']     = $tag_url . '/' . rawurlencode(dcMeta::sanitizeMetaID($url));
+        $res['url']     = $tag_url . '/' . rawurlencode(App::meta()::sanitizeMetaID($url));
         $res['content'] = $content;
 
         return $res;

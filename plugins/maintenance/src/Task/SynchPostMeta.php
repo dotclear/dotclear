@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use dcBlog;
-use dcMeta;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -136,7 +135,7 @@ class SynchPostsMeta extends MaintenanceTask
 
         // Update posts meta
         while ($rs->fetch()) {
-            $rs_meta = new MetaRecord(App::con()->select('SELECT meta_id, meta_type FROM ' . App::con()->prefix() . dcMeta::META_TABLE_NAME . ' WHERE post_id = ' . $rs->post_id . ' '));
+            $rs_meta = new MetaRecord(App::con()->select('SELECT meta_id, meta_type FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' WHERE post_id = ' . $rs->post_id . ' '));
 
             $meta = [];
             while ($rs_meta->fetch()) {

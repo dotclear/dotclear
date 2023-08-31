@@ -22,7 +22,6 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcBlog;
 use dcMedia;
-use dcMeta;
 use dcPlugins;
 use dcPostMedia;
 use dcRestServer;
@@ -40,6 +39,7 @@ use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\LogInterface;
+use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
@@ -134,9 +134,13 @@ class Factory implements FactoryInterface
         return new dcMedia();
     }
 
-    public function meta(): dcMeta
+    public function meta(): MetaInterface
     {
-        return new dcMeta();
+        return new Meta(
+            con: $this->container->get('con'),
+            auth: $this->container->get('auth'),
+            blog_loader: $this->container->get('blogLoader')
+        );
     }
 
     public function nonce(): NonceInterface

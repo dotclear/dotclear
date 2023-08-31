@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcMeta;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -79,7 +78,7 @@ class ManagePosts extends Process
         if (isset($_POST['new_tag_id'])) {
             // Rename a tag
 
-            $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
+            $new_id = App::meta()::sanitizeMetaID($_POST['new_tag_id']);
 
             try {
                 if (App::meta()->updateMeta(App::backend()->tag, $new_id, 'tag')) {

@@ -17,7 +17,6 @@ use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcMedia;
-use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
@@ -114,7 +113,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
         $this->cur_permissions = $this->con->openCursor($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME);
         $this->cur_post        = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
-        $this->cur_meta        = $this->con->openCursor($this->prefix . dcMeta::META_TABLE_NAME);
+        $this->cur_meta        = $this->con->openCursor($this->prefix . App::meta()::META_TABLE_NAME);
         $this->cur_media       = $this->con->openCursor($this->prefix . dcMedia::MEDIA_TABLE_NAME);
         $this->cur_post_media  = $this->con->openCursor($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME);
         $this->cur_log         = $this->con->openCursor($this->prefix . App::log()::LOG_TABLE_NAME);

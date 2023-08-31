@@ -16,7 +16,6 @@ use Exception;
 use dcBlog;
 use dcCategories;
 use dcMedia;
-use dcMeta;
 use dcNamespace;
 use dcPostMedia;
 use dcTrackback;
@@ -80,7 +79,7 @@ class ModuleExportFlat extends Module
                 $exp->export(
                     'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
-                    'FROM ' . App::con()->prefix() . dcMeta::META_TABLE_NAME . ' M, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' M, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
