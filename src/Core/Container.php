@@ -25,6 +25,7 @@ use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
+use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
@@ -36,7 +37,6 @@ use dcAuth;
 use dcBlog;
 use dcMedia;
 use dcPlugins;
-use dcPostMedia;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
@@ -187,7 +187,7 @@ class Container
         return self::$instance->get('plugins');
     }
 
-    public static function postMedia(): dcPostMedia
+    public static function postMedia(): PostMediaInterface
     {
         return self::$instance->get('postMedia');
     }

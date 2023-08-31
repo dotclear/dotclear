@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 
 use dcBlog;
 use dcMedia;
-use dcPostMedia;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
@@ -883,7 +882,7 @@ class MediaItem extends Process
             '<h3>' . __('Entries containing this media') . '</h3>';
             $params = [
                 'post_type' => '',
-                'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . dcPostMedia::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
+                'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
                 'sql'       => 'AND (' .
                 'PM.media_id = ' . (int) App::backend()->id . ' ' .
                 "OR post_content_xhtml LIKE '%" . App::con()->escape(App::backend()->file->relname) . "%' " .

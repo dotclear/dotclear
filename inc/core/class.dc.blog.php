@@ -1281,7 +1281,7 @@ class dcBlog
         if (isset($params['media'])) {
             $sqlExists = new SelectStatement();
             $sqlExists
-                ->from($sql->as($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME, 'M'))
+                ->from($sql->as($this->prefix . App::postMedia()::POST_MEDIA_TABLE_NAME, 'M'))
                 ->column('M.post_id')
                 ->where('M.post_id = P.post_id');
 

@@ -21,6 +21,7 @@ use Dotclear\Core\Log;
 use Dotclear\Core\Meta;
 use Dotclear\Core\Nonce;
 use Dotclear\Core\Notice;
+use Dotclear\Core\PostMedia;
 use Dotclear\Core\PostType;
 use Dotclear\Core\PostTypes;
 use Dotclear\Core\Rest;
@@ -181,11 +182,11 @@ final class dcCore
     public $media;
 
     /**
-     * dcPostMedia instance
+     * PostMedia instance
      *
      * @deprecated since 2.28, use App::postMedia() instead
      *
-     * @var dcPostMedia
+     * @var PostMedia
      */
     public $postmedia;
 

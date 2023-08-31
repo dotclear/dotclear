@@ -181,6 +181,7 @@ dcProxyV1::classAliases([
     'dcError'      => 'Dotclear\Core\Error',
     'dcMeta'       => 'Dotclear\Core\Meta',
     'dcNotices'    => 'Dotclear\Core\Notice',
+    'dcPostMedia'  => 'Dotclear\Core\PostMedia',
     'dcRecord'     => 'Dotclear\Database\MetaRecord',
     'dcRestServer' => 'Dotclear\Core\Rest',
     'dcNsProcess'  => 'Dotclear\Core\Process',

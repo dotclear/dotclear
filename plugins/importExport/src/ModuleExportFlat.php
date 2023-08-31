@@ -17,7 +17,6 @@ use dcBlog;
 use dcCategories;
 use dcMedia;
 use dcNamespace;
-use dcPostMedia;
 use dcTrackback;
 use Dotclear\App;
 use Dotclear\Helper\File\Zip\Zip;
@@ -91,7 +90,7 @@ class ModuleExportFlat extends Module
                 $exp->export(
                     'post_media',
                     'SELECT media_id, M.post_id ' .
-                    'FROM ' . App::con()->prefix() . dcPostMedia::POST_MEDIA_TABLE_NAME . ' M, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' M, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );

@@ -1,61 +1,62 @@
 <?php
 /**
+ * Post media database handler.
+ *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
-use Dotclear\App;
+namespace Dotclear\Core;
+
+use dcMedia;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\PostMediaInterface;
 
-class dcPostMedia
+class PostMedia implements PostMediaInterface
 {
-    // Constants
-
-    /**
-     * Post media table name
-     *
-     * @var        string
-     */
     public const POST_MEDIA_TABLE_NAME = 'post_media';
 
-    // Properties
+    /** @var    string  Full table name (including db prefix) */
+    protected string $table;
 
     /**
-     * Database connection
+     * Constructor grabs all we need.
      *
-     * @var object
+     * @param   ConnectionInterface     $con    The database handler
+     * @param   BlogLoaderInterface     $con    The blog handler
+     * @param   MediaInterface          $con    The media handler
      */
-    protected $con;
-
-    /**
-     * Post-Media table name
-     *
-     * @var string
-     */
-    protected $table;
-
-    /**
-     * Constructs a new instance.
-     */
-    public function __construct()
-    {
-        $this->con   = App::con();
-        $this->table = App::con()->prefix() . self::POST_MEDIA_TABLE_NAME;
+    public function __construct(
+        private ConnectionInterface $con,
+        private BlogLoaderInterface $blog_loader,
+        private dcMedia $media
+    ) {
+        $this->table = $con->prefix() . self::POST_MEDIA_TABLE_NAME;
     }
 
-    /**
-     * Returns media items attached to a blog post.
-     *
-     * @param      array   $params  The parameters
-     *
-     * @return     MetaRecord  The post media.
-     */
+    private function blog(): dcBlog
+    {
+        if (!$this->blog_loader->hasBlog()) {
+            throw new Exception('Bog is not defined');
+        }
+
+        return $this->blog_loader->getBlog();
+    }
+
+    public function openCursor(): Cursor
+    {
+        return $this->con->openCursor($this->con->prefix() . self::POST_MEDIA_TABLE_NAME);
+    }
+
     public function getPostMedia(array $params = []): MetaRecord
     {
         $sql = new SelectStatement();
@@ -79,7 +80,7 @@ class dcPostMedia
         }
 
         $sql
-            ->from($sql->as(App::con()->prefix() . dcMedia::MEDIA_TABLE_NAME, 'M'))
+            ->from($sql->as($this->prefix() . $this->media::MEDIA_TABLE_NAME, 'M'))
             ->join(
                 (new JoinStatement())
                 ->inner()
@@ -112,19 +113,10 @@ class dcPostMedia
             $sql->sql($params['sql']);
         }
 
-        $rs = $sql->select();
-
-        return $rs;
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
-    /**
-     * Attaches a media to a post.
-     *
-     * @param      int     $post_id    The post identifier
-     * @param      int     $media_id   The media identifier
-     * @param      string  $link_type  The link type (default: attachment)
-     */
-    public function addPostMedia(int $post_id, int $media_id, string $link_type = 'attachment')
+    public function addPostMedia(int $post_id, int $media_id, string $link_type = 'attachment'): void
     {
         $f = $this->getPostMedia([
             'post_id'   => $post_id,
@@ -136,23 +128,16 @@ class dcPostMedia
             return;
         }
 
-        $cur            = $this->con->openCursor($this->table);
+        $cur            = $this->openCurosr();
         $cur->post_id   = $post_id;
         $cur->media_id  = $media_id;
         $cur->link_type = $link_type;
 
         $cur->insert();
-        App::blog()->triggerBlog();
+        $this->blog()->triggerBlog();
     }
 
-    /**
-     * Detaches a media from a post.
-     *
-     * @param      int      $post_id    The post identifier
-     * @param      int      $media_id   The media identifier
-     * @param      string   $link_type  The link type
-     */
-    public function removePostMedia(int $post_id, int $media_id, ?string $link_type = null)
+    public function removePostMedia(int $post_id, int $media_id, ?string $link_type = null): void
     {
         $post_id  = (int) $post_id;
         $media_id = (int) $media_id;
@@ -168,6 +153,6 @@ class dcPostMedia
         }
         $sql->delete();
 
-        App::blog()->triggerBlog();
+        $this->blog()->triggerBlog();
     }
 }

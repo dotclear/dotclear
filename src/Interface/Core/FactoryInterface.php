@@ -18,7 +18,6 @@ use dcAuth;
 use dcBlog;
 use dcMedia;
 use dcPlugins;
-use dcPostMedia;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
@@ -40,7 +39,7 @@ interface FactoryInterface
     public function nonce(): NonceInterface;
     public function notice(): NoticeInterface;
     public function plugins(): dcPlugins;
-    public function postMedia(): dcPostMedia;
+    public function postMedia(): PostMediaInterface;
     public function postTypes(): PostTypesInterface;
     public function rest(): RestInterface;
     public function session(): SessionInterface;

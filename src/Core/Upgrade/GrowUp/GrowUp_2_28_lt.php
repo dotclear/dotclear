@@ -26,6 +26,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.error.php',
                 'inc/core/class.dc.meta.php',
                 'inc/core/class.dc.notices.php',
+                'inc/core/class.dc.postmedia.php',
                 'inc/core/class.dc.rest.php',
                 'inc/public/lib.urlhandlers.php',
                 'inc/public/class.dc.template.php',

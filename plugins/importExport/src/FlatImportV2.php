@@ -18,7 +18,6 @@ use dcBlog;
 use dcCategories;
 use dcMedia;
 use dcNamespace;
-use dcPostMedia;
 use dcTrackback;
 use dcWorkspace;
 use Dotclear\App;
@@ -115,7 +114,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_post        = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
         $this->cur_meta        = $this->con->openCursor($this->prefix . App::meta()::META_TABLE_NAME);
         $this->cur_media       = $this->con->openCursor($this->prefix . dcMedia::MEDIA_TABLE_NAME);
-        $this->cur_post_media  = $this->con->openCursor($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME);
+        $this->cur_post_media  = $this->con->openCursor($this->prefix . App::postMedia()::POST_MEDIA_TABLE_NAME);
         $this->cur_log         = $this->con->openCursor($this->prefix . App::log()::LOG_TABLE_NAME);
         $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
         $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);

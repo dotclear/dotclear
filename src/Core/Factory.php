@@ -23,7 +23,6 @@ use dcAuth;
 use dcBlog;
 use dcMedia;
 use dcPlugins;
-use dcPostMedia;
 use dcThemes;
 //
 use Dotclear\Core\Frontend\Url;
@@ -41,6 +40,7 @@ use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
+use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
@@ -163,9 +163,9 @@ class Factory implements FactoryInterface
         return new dcPlugins();
     }
 
-    public function postMedia(): dcPostMedia
+    public function postMedia(): PostMediaInterface
     {
-        return new dcPostMedia();
+        return $this->container->get('media')->postMedia();
     }
 
     public function postTypes(): PostTypesInterface

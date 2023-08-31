@@ -12,6 +12,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Core\PostMedia;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -27,6 +28,7 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\PostMediaInterface;
 
 class dcMedia extends Manager
 {
@@ -92,8 +94,10 @@ class dcMedia extends Manager
 
     /**
      * Post media instance
+     * 
+     * @deprecated since 2.28, use App::media() instead
      *
-     * @var dcPostMedia
+     * @var PostMedia
      */
     protected $postmedia;
 
@@ -153,7 +157,7 @@ class dcMedia extends Manager
     public function __construct(string $type = '')
     {
         $this->con       = App::con();
-        $this->postmedia = App::postMedia();
+        $this->postmedia = new PostMedia(con: App::con(), blog_loader: App::blogLoader(), media: $this);
         $this->type      = $type;
 
         if (App::blog() == null) {
@@ -232,6 +236,17 @@ class dcMedia extends Manager
             $this->thumb_sizes[$code][3] = $this->thumb_sizes[$code][2];
             $this->thumb_sizes[$code][2] = __($this->thumb_sizes[$code][2]);
         }
+    }
+
+    /**
+     * Get post media instance
+     *
+     * @return  PostMediaInterface  The psot media handler
+     */
+    public function postMedia(): PostMediaInterface
+    {
+        return $this->postmedia;
+
     }
 
     /**
