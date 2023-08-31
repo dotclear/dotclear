@@ -1,3 +1,11 @@
+Dotclear 2.27.3 - 2023-08-31
+===========================================================
+* Fix: Review password recovery procedure (link sent in email was buggy)
+* Fix: Modules dependencies check
+* Fix: Flat export workflow
+* Fix: Install process
+* Fix: Cope with inconsistent widget settings
+
 Dotclear 2.27.2 - 2023-08-22
 ===========================================================
 * Fix: Cope with new plugin installation
