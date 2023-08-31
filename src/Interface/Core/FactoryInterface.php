@@ -16,7 +16,6 @@ namespace Dotclear\Interface\Core;
 // classes that move to \Dotclear\Core
 use dcAuth;
 use dcBlog;
-use dcError;
 use dcMedia;
 use dcMeta;
 use dcPlugins;
@@ -34,7 +33,7 @@ interface FactoryInterface
     public function blogLoader(): BlogLoaderInterface;
     public function blogs(): BlogsInterface;
     public function con(): ConnectionInterface;
-    public function error(): dcError;
+    public function error(): ErrorInterface;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;
     public function log(): LogInterface;

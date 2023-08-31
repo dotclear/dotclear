@@ -14,6 +14,7 @@
 
 use Dotclear\App;
 use Dotclear\Core\Blogs;
+use Dotclear\Core\Error;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
 use Dotclear\Core\Log;
@@ -196,13 +197,13 @@ final class dcCore
     public readonly dcMeta $meta;
 
     /**
-     * dcError instance
+     * Error instance
      *
      * @deprecated since 2.28, use App::session() instead
      *
-     * @var dcError
+     * @var Error
      */
-    public readonly dcError $error;
+    public readonly Error $error;
 
     /**
      * Notice instance

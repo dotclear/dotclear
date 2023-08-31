@@ -54,7 +54,7 @@ class Notices
         // return error messages if any
         if (App::error()->flag() && !self::$error_displayed) {
             //todo remove dcCore from method
-            # --BEHAVIOR-- adminPageNotificationError -- dcCore, dcError
+            # --BEHAVIOR-- adminPageNotificationError -- dcCore, Error
             $notice_error = App::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), App::error());
 
             if (isset($notice_error) && !empty($notice_error)) {

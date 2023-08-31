@@ -21,7 +21,6 @@ namespace Dotclear\Core;
 // classes that move to \Dotclear\Core
 use dcAuth;
 use dcBlog;
-use dcError;
 use dcMedia;
 use dcMeta;
 use dcPlugins;
@@ -36,6 +35,7 @@ use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
@@ -100,9 +100,9 @@ class Factory implements FactoryInterface
         );
     }
 
-    public function error(): dcError
+    public function error(): ErrorInterface
     {
-        return new dcError();
+        return new Error();
     }
 
     public function filter(): FilterInterface
