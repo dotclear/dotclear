@@ -144,12 +144,17 @@ class dcMedia extends Manager
     /**
      * Constructs a new instance.
      *
+     * Keep argument for backward compatibility.
+     *
+     * @param   string  $type  deprecated since 2.28, use self::setFilterMimeType() instead
+     *
      * @throws     Exception
      */
-    public function __construct()
+    public function __construct(string $type = '')
     {
         $this->con       = App::con();
         $this->postmedia = App::postMedia();
+        $this->type      = $type;
 
         if (App::blog() == null) {
             throw new Exception(__('No blog defined.'));
