@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dcLog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
@@ -218,7 +217,7 @@ class Maintenance
         // Get logs from this task
         $rs = new MetaRecord(App::con()->select(
             'SELECT log_id ' .
-            'FROM ' . App::con()->prefix() . dcLog::LOG_TABLE_NAME . ' ' .
+            'FROM ' . App::con()->prefix() . App::log()->getTable() . ' ' .
             "WHERE log_msg = '" . App::con()->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         ));
@@ -234,7 +233,7 @@ class Maintenance
         }
 
         // Add new log
-        $cur = App::con()->openCursor(App::con()->prefix() . dcLog::LOG_TABLE_NAME);
+        $cur = App::log()->openCursor();
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';

@@ -16,7 +16,6 @@ use Exception;
 use dcAuth;
 use dcBlog;
 use dcCategories;
-use dcLog;
 use dcMedia;
 use dcMeta;
 use dcNamespace;
@@ -118,7 +117,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_meta        = $this->con->openCursor($this->prefix . dcMeta::META_TABLE_NAME);
         $this->cur_media       = $this->con->openCursor($this->prefix . dcMedia::MEDIA_TABLE_NAME);
         $this->cur_post_media  = $this->con->openCursor($this->prefix . dcPostMedia::POST_MEDIA_TABLE_NAME);
-        $this->cur_log         = $this->con->openCursor($this->prefix . dcLog::LOG_TABLE_NAME);
+        $this->cur_log         = $this->con->openCursor($this->prefix . App::log()->getTable());
         $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
         $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
@@ -167,7 +166,7 @@ class FlatImportV2 extends FlatBackup
         $rs                        = new MetaRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME));
         $this->stack['comment_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                    = new MetaRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME));
+        $rs                    = new MetaRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . App::log()->getTable()));
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
         $rs = new MetaRecord($this->con->select(
@@ -270,7 +269,7 @@ class FlatImportV2 extends FlatBackup
         $this->con->execute('DELETE FROM ' . $this->prefix . dcMedia::MEDIA_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . dcNamespace::NS_TABLE_NAME);
-        $this->con->execute('DELETE FROM ' . $this->prefix . dcLog::LOG_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . App::log()->getTable());
 
         $line = false;
 

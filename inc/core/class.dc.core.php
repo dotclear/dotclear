@@ -16,6 +16,7 @@ use Dotclear\App;
 use Dotclear\Core\Blogs;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
+use Dotclear\Core\Log;
 use Dotclear\Core\Nonce;
 use Dotclear\Core\Notice;
 use Dotclear\Core\PostType;
@@ -213,13 +214,13 @@ final class dcCore
     public readonly Notice $notices;
 
     /**
-     * dcLog instance
+     * Log instance
      *
      * @deprecated since 2.28, Use App::log() instead
      *
-     * @var dcLog
+     * @var Log
      */
-    public readonly dcLog $log;
+    public readonly Log $log;
 
     /**
      * Current language

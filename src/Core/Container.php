@@ -20,6 +20,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
@@ -31,7 +32,6 @@ use Dotclear\Interface\Core\VersionInterface;
 use dcAuth;
 use dcBlog;
 use dcError;
-use dcLog;
 use dcMedia;
 use dcMeta;
 use dcPlugins;
@@ -157,7 +157,7 @@ class Container
         return self::$instance->get('formater');
     }
 
-    public static function log(): dcLog
+    public static function log(): LogInterface
     {
         return self::$instance->get('log');
     }

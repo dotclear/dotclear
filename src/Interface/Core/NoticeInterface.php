@@ -17,12 +17,19 @@ use Dotclear\Database\MetaRecord;
 interface NoticeInterface
 {
     /**
+     * Get notice database table name. (without prefix)
+     *
+     * @return  string The table name
+     */
+    public function getTable(): string;
+
+    /**
      * Open a database table cursor.
      *
      * @return  Cursor  The notice database table cursor
      */
     public function openCursor(): Cursor;
- 
+
     /**
      * Gets the notices.
      *
@@ -43,7 +50,21 @@ interface NoticeInterface
     public function addNotice(Cursor $cur): int;
 
     /**
+     * Delete a notice.
+     *
+     * @param   int     $id     The notice ID
+     */
+    public function delNotice(int $id): void;
+
+    /**
+     * Delete session notices.
+     */
+    public function delSessionNotices(): void;
+
+    /**
      * Delete notice(s)
+     *
+     * @deprecated since 2.28 use self::delNotice() or self::delAllNotices()
      *
      * @param      int|null  $id     The identifier
      * @param      bool      $all    All

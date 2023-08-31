@@ -113,7 +113,7 @@ class Notices
         } while (--$step);
 
         // Delete returned notices
-        App::notice()->delNotices(null, true);
+        App::notice()->delSessionNotices();
 
         return $res;
     }

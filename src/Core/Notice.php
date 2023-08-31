@@ -26,7 +26,7 @@ class Notice implements NoticeInterface
      *
      * @var        string
      */
-    protected const NOTICE_TABLE_NAME = 'notice';
+    public const NOTICE_TABLE_NAME = 'notice';
 
     /**
      * Full table name (including db prefix)
@@ -36,7 +36,10 @@ class Notice implements NoticeInterface
     protected string $table;
 
     /**
-     * Class constructor
+     * Constructor grabs all we need.
+     *
+     * @param   ConnectionInterface     $con        The database handler
+     * @param   BehaviorInterface       $behavior   The behavior handler
      */
     public function __construct(
         private ConnectionInterface $con,
@@ -45,13 +48,6 @@ class Notice implements NoticeInterface
         $this->table = $con->prefix() . self::NOTICE_TABLE_NAME;
     }
 
-    /**
-     * Gets the table name
-     *
-     * @deprecated  since 2.28, use self::openCursor()
-     *
-     * @return     string
-     */
     public function getTable(): string
     {
         return self::NOTICE_TABLE_NAME;
@@ -182,6 +178,27 @@ class Notice implements NoticeInterface
         $notice_id = is_int($notice_id) ? $notice_id : $cur->notice_id;
     }
 
+    public function delNotice(int $id): void
+    {
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->table)
+            ->where('notice_id = ' . $id)
+            ->delete();
+    }
+
+    public function delSessionNotices(): void
+    {
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->table)
+            ->where('ses_id = ' . $sql->quote((string) session_id()))
+            ->delete();
+    }
+
+    /**
+     * @deprecated since 2.28 use self::delNotice() or self::delAllNotices()
+     */
     public function delNotices(?int $id, bool $all = false): void
     {
         $sql = new DeleteStatement();

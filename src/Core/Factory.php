@@ -22,7 +22,6 @@ namespace Dotclear\Core;
 use dcAuth;
 use dcBlog;
 use dcError;
-use dcLog;
 use dcMedia;
 use dcMeta;
 use dcPlugins;
@@ -40,6 +39,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
@@ -120,9 +120,13 @@ class Factory implements FactoryInterface
         );
     }
 
-    public function log(): dcLog
+    public function log(): LogInterface
     {
-        return new dcLog();
+        return new Log(
+            con: $this->container->get('con'),
+            behavior: $this->container->get('behavior'),
+            blog_loader: $this->container->get('blogLoader')
+        );
     }
 
     public function media(): dcMedia

@@ -17,7 +17,6 @@ namespace Dotclear\Interface\Core;
 use dcAuth;
 use dcBlog;
 use dcError;
-use dcLog;
 use dcMedia;
 use dcMeta;
 use dcPlugins;
@@ -38,7 +37,7 @@ interface FactoryInterface
     public function error(): dcError;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;
-    public function log(): dcLog;
+    public function log(): LogInterface;
     public function meta(): dcMeta;
     public function media(): dcMedia;
     public function nonce(): NonceInterface;

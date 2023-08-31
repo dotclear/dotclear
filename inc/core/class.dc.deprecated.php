@@ -54,7 +54,7 @@ class dcDeprecated extends Deprecated
         // to early to use core
         try {
             $log = App::log();
-            if (!($log instanceof dcLog)) {
+            if (!($log)) {
                 throw new Exception('too early');
             }
         } catch (Throwable $e) {
@@ -70,7 +70,7 @@ class dcDeprecated extends Deprecated
         }
 
         // log deprecated to log table
-        $cursor = App::con()->openCursor(App::con()->prefix() . dcLog::LOG_TABLE_NAME);
+        $cursor = $log->openCursor();
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
         $cursor->setField('user_id', !is_null(App::auth()) ? App::auth()->userID() : 'unknown');
@@ -97,12 +97,12 @@ class dcDeprecated extends Deprecated
         // check logs limit and delete them if it's required
         if ($count > self::DEPRECATED_PURGE_LIMIT) {
             $sql = new DeleteStatement();
-            $sql->from(App::con()->prefix() . dcLog::LOG_TABLE_NAME)
+            $sql->from(App::con()->prefix() . App::log()->getTable())
                 ->where('log_table = ' . $sql->quote(self::DEPRECATED_LOG_TABLE));
 
             if (!$all) {
                 $sql_dt = new SelectStatement();
-                $rs     = $sql_dt->from(App::con()->prefix() . dcLog::LOG_TABLE_NAME)
+                $rs     = $sql_dt->from(App::con()->prefix() . App::log()->getTable())
                     ->column('log_dt')
                     ->where('log_table = ' . $sql_dt->quote(self::DEPRECATED_LOG_TABLE))
                     ->order('log_dt DESC')
