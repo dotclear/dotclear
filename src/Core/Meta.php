@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcBlog;
-use dcAuth;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -22,8 +20,6 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Text;
-use Dotclear\Interface\Core\BlogLoaderInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MetaInterface;
 use Exception;
 
@@ -35,23 +31,11 @@ class Meta implements MetaInterface
     private string $table;
 
     /**
-     * Constructs a new instance.
+     * Constructs.
      */
-    public function __construct(
-        private ConnectionInterface $con,
-        private dcAuth $auth,
-        private BlogLoaderInterface $blog_loader
-    ) {
-        $this->table = $con->prefix() . self::META_TABLE_NAME;
-    }
-
-    private function blog(): dcBlog
+    public function __construct()
     {
-        if (!$this->blog_loader->hasBlog()) {
-            throw new Exception('Bog is not defined');
-        }
-
-        return $this->blog_loader->getBlog();
+        $this->table = App::con()->prefix() . self::META_TABLE_NAME;
     }
 
     public function splitMetaValues(string $str): array
@@ -133,23 +117,23 @@ class Meta implements MetaInterface
     {
         $post_id = (int) $post_id;
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_USAGE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->blog()->id)) {
+        if (!App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
         # If user can only publish, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->blog()->id)) {
+        if (!App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $sql = new SelectStatement();
             $sql
-                ->from($this->con->prefix() . $this->blog()::POST_TABLE_NAME)
+                ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
-                ->and('user_id = ' . $sql->quote($this->auth->userID()));
+                ->and('user_id = ' . $sql->quote(App::auth()->userID()));
 
             $rs = $sql->select();
 
@@ -186,7 +170,7 @@ class Meta implements MetaInterface
 
         $post_meta = serialize($meta);
 
-        $cur            = $this->con->openCursor($this->con->prefix() . $this->blog()::POST_TABLE_NAME);
+        $cur            = App::con()->openCursor(App::con()->prefix() . App::blog()::POST_TABLE_NAME);
         $cur->post_meta = $post_meta;
 
         $sql = new UpdateStatement();
@@ -194,7 +178,7 @@ class Meta implements MetaInterface
 
         $sql->update($cur);
 
-        $this->blog()->triggerBlog();
+        App::blog()->triggerBlog();
     }
 
     public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
@@ -218,7 +202,7 @@ class Meta implements MetaInterface
 
         unset($params['meta_id']);
 
-        return $this->blog()->getPosts($params, $count_only, $sql);
+        return App::blog()->getPosts($params, $count_only, $sql);
     }
 
     public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
@@ -240,7 +224,7 @@ class Meta implements MetaInterface
             unset($params['meta_type']);
         }
 
-        return $this->blog()->getComments($params, $count_only, $sql);
+        return App::blog()->getComments($params, $count_only, $sql);
     }
 
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
@@ -264,11 +248,11 @@ class Meta implements MetaInterface
             ->join(
                 (new JoinStatement())
                 ->left()
-                ->from($sql->as($this->con->prefix() . $this->blog()::POST_TABLE_NAME, 'P'))
+                ->from($sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
-            ->where('P.blog_id = ' . $sql->quote($this->blog()->id));
+            ->where('P.blog_id = ' . $sql->quote(App::blog()->id));
 
         if (isset($params['meta_type'])) {
             $sql->and('meta_type = ' . $sql->quote($params['meta_type']));
@@ -282,13 +266,13 @@ class Meta implements MetaInterface
             $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->blog()->id)) {
-            $user_id = $this->auth->userID();
+        if (!App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
+            $user_id = App::auth()->userID();
 
-            $and = ['post_status = ' . (string) $this->blog()::POST_PUBLISHED];
-            if ($this->blog()->without_password) {
+            $and = ['post_status = ' . (string) App::blog()::POST_PUBLISHED];
+            if (App::blog()->without_password) {
                 $and[] = 'post_password IS NULL';
             }
 
@@ -358,7 +342,7 @@ class Meta implements MetaInterface
             return;
         }
 
-        $cur = $this->con->openCursor($this->table);
+        $cur = App::con()->openCursor($this->table);
 
         $cur->post_id   = (int) $post_id;
         $cur->meta_id   = (string) $value;
@@ -404,16 +388,16 @@ class Meta implements MetaInterface
         $sql
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as($this->con->prefix() . $this->blog()::POST_TABLE_NAME, 'P'),
+                $sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote(App::blog()->id));
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->blog()->id)) {
-            $sql->and('P.user_id = ' . $sql->quote($this->auth->userID()));
+        if (!App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
+            $sql->and('P.user_id = ' . $sql->quote(App::auth()->userID()));
         }
         if ($post_type !== null) {
             $sql->and('P.post_type = ' . $sql->quote($post_type));
@@ -500,10 +484,10 @@ class Meta implements MetaInterface
             ->column('M.post_id')
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as($this->con->prefix() . $this->blog()::POST_TABLE_NAME, 'P'),
+                $sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote($this->blog()->id))
+            ->and('P.blog_id = ' . $sql->quote(App::blog()->id))
             ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {

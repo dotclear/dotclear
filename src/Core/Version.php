@@ -13,48 +13,47 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Interface\Core\ConnectionInterface;
-use Dotclear\Interface\Core\VersionInterface;
-
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\VersionInterface;
 
 class Version implements VersionInterface
 {
     public const VERSION_TABLE_NAME = 'version';
 
     /** @var    array<string,string>    The version stack */
-    private array $stack = [];
+    private array $stack;
 
     /** @var    string  Full table name (including db prefix) */
     protected string $table;
 
     /**
-     * Constructor grabs all we need.
-     *
-     * @param   ConnectionInterface     $con The database handler
+     * Constructor.
      */
-    public function __construct(
-        private ConnectionInterface $con
-    ) {
-        $this->table = $con->prefix() . self::VERSION_TABLE_NAME;
-        $this->loadVersions();
+    public function __construct()
+    {
+        $this->table = App::con()->prefix() . self::VERSION_TABLE_NAME;
     }
 
     public function openCursor(): Cursor
     {
-        return $this->con->openCursor($this->con->prefix() . self::VERSION_TABLE_NAME);
+        return App::con()->openCursor(App::con()->prefix() . self::VERSION_TABLE_NAME);
     }
 
     public function getVersion(string $module = 'core'): string
     {
+        $this->loadVersions();
+
         return $this->stack[$module] ?? '';
     }
 
     public function getVersions(): array
     {
+        $this->loadVersions();
+
         return $this->stack;
     }
 
@@ -89,11 +88,15 @@ class Version implements VersionInterface
 
     public function compareVersion(string $module, string $version): int
     {
+        $this->loadVersions();
+
         return version_compare($version, $this->getVersion($module));
     }
 
     public function newerVersion(string $module, string $version): bool
     {
+        $this->loadVersions();
+
         return $this->compareVersion($module, $version) === 1;
     }
 
@@ -102,7 +105,7 @@ class Version implements VersionInterface
      */
     private function loadVersions(): void
     {
-        if (empty($this->stack)) {
+        if (!isset($this->stack)) {
             $rs = (new SelectStatement())
                 ->columns([
                     'module',

@@ -81,10 +81,7 @@ class Factory implements FactoryInterface
 
     public function blogs(): BlogsInterface
     {
-        return new Blogs(
-            con: $this->container->get('con'),
-            auth: $this->container->get('auth'),
-        );
+        return new Blogs();
     }
 
     public function con(): ConnectionInterface
@@ -107,26 +104,17 @@ class Factory implements FactoryInterface
 
     public function filter(): FilterInterface
     {
-        return new Filter(
-            behavior: $this->container->get('behavior'),
-            blog_loader: $this->container->get('blogLoader')
-        );
+        return new Filter();
     }
 
     public function formater(): FormaterInterface
     {
-        return new Formater(
-            plugins: $this->container->get('plugins')
-        );
+        return new Formater();
     }
 
     public function log(): LogInterface
     {
-        return new Log(
-            con: $this->container->get('con'),
-            behavior: $this->container->get('behavior'),
-            blog_loader: $this->container->get('blogLoader')
-        );
+        return new Log();
     }
 
     public function media(): dcMedia
@@ -136,26 +124,17 @@ class Factory implements FactoryInterface
 
     public function meta(): MetaInterface
     {
-        return new Meta(
-            con: $this->container->get('con'),
-            auth: $this->container->get('auth'),
-            blog_loader: $this->container->get('blogLoader')
-        );
+        return new Meta();
     }
 
     public function nonce(): NonceInterface
     {
-        return new Nonce(
-            auth: $this->container->get('auth')
-        );
+        return new Nonce();
     }
 
     public function notice(): NoticeInterface
     {
-        return new Notice(
-            con: $this->container->get('con'),
-            behavior: $this->container->get('behavior')
-        );
+        return new Notice();
     }
 
     public function plugins(): dcPlugins
@@ -201,17 +180,11 @@ class Factory implements FactoryInterface
 
     public function users(): UsersInterface
     {
-        return new Users(
-            con: $this->container->get('con'),
-            auth: $this->container->get('auth'),
-            behavior: $this->container->get('behavior')
-        );
+        return new Users();
     }
 
     public function version(): VersionInterface
     {
-        return new Version(
-            con: $this->container->get('con')
-        );
+        return new Version();
     }
 }

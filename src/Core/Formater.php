@@ -11,9 +11,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Interface\Core\FormaterInterface;
-
-use dcPlugins;
 
 class Formater implements FormaterInterface
 {
@@ -22,16 +21,6 @@ class Formater implements FormaterInterface
 
     /** @var     array<string,string>   Stack of registered content formaters' name */
     private $names = [];
-
-    /**
-     * Conetsrutor grab all it needs.
-     *
-     * @param   dcPlugins   $plugins    The plugins instance
-     */
-    public function __construct(
-        private dcPlugins $plugins
-    ) {
-    }
 
     public function addEditorFormater(string $editor_id, string $name, $func): void
     {
@@ -55,7 +44,7 @@ class Formater implements FormaterInterface
         $res = [];
 
         foreach (array_keys($this->stack) as $editor_id) {
-            $res[$editor_id] = $this->plugins->getDefine($editor_id)->get('name');
+            $res[$editor_id] = App::plugins()->getDefine($editor_id)->get('name');
         }
 
         return $res;

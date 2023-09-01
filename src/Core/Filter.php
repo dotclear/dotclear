@@ -13,28 +13,16 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\FilterInterface;
-use Dotclear\Interface\Core\BehaviorInterface;
 
 class Filter implements FilterInterface
 {
     /** @var    WikiToHtml TH ewiki instance */
     private ?WikiToHtml $wiki = null;
-
-    /**
-     * Constructor grabs all we need.
-     *
-     * @param   BehaviorInterface   $behavior       The behavior handler
-     * @param   BlogLoader          $blog_loader    The blog loader
-     */
-    public function __construct(
-        private BehaviorInterface $behavior,
-        private BlogLoader $blog_loader
-    ) {
-    }
 
     /**
      * Get wiki instance.
@@ -119,7 +107,7 @@ class Filter implements FilterInterface
         $this->wiki->registerFunction('url:post', [$this, 'wikiPostLink']);
 
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiPost', $this->wiki);
+        App::behavior()->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
     public function initWikiSimpleComment(): void
@@ -165,7 +153,7 @@ class Filter implements FilterInterface
         ]);
 
         # --BEHAVIOR-- coreInitWikiSimpleComment -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiSimpleComment', $this->wiki);
+        App::behavior()->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
     public function initWikiComment(): void
@@ -210,12 +198,12 @@ class Filter implements FilterInterface
         ]);
 
         # --BEHAVIOR-- coreInitWikiComment -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiComment', $this->wiki);
+        App::behavior()->callBehavior('coreInitWikiComment', $this->wiki);
     }
 
     public function wikiPostLink(string $url, string $content): array
     {
-        if (!$this->blog_loader->hasBlog()) {
+        if (!App::blog()) {
             return [];
         }
 
@@ -224,7 +212,7 @@ class Filter implements FilterInterface
             return [];
         }
 
-        $post = $this->blog_loader->getBlog()->getPosts(['post_id' => $post_id]);
+        $post = App::blog()->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
             return [];
         }
@@ -248,7 +236,7 @@ class Filter implements FilterInterface
 
     public function HTMLfilter(string $str): string
     {
-        if (!$this->blog_loader->hasBlog() || !$this->blog_loader->getBlog()->settings->system->enable_html_filter) {
+        if (!App::blog() || !App::blog()->settings->system->enable_html_filter) {
             return $str;
         }
 
@@ -258,7 +246,7 @@ class Filter implements FilterInterface
             'keep_js'   => false,
         ]);
         # --BEHAVIOR-- HTMLfilter -- ArrayObject
-        $this->behavior->callBehavior('HTMLfilter', $options);
+        App::behavior()->callBehavior('HTMLfilter', $options);
 
         $filter = new HtmlFilter((bool) $options['keep_aria'], (bool) $options['keep_data'], (bool) $options['keep_js']);
         $str    = trim($filter->apply($str));

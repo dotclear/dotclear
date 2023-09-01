@@ -61,7 +61,7 @@ class Notices
                 $res .= $notice_error;
             } else {
                 $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>';
-                foreach(App::error()->dump() as $msg) {
+                foreach (App::error()->dump() as $msg) {
                     $res .= self::error($msg, true, false, false);
                 }
                 $res .= '</div>';

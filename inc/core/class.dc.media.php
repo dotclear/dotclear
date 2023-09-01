@@ -157,7 +157,7 @@ class dcMedia extends Manager
     public function __construct(string $type = '')
     {
         $this->con       = App::con();
-        $this->postmedia = new PostMedia(con: App::con(), blog_loader: App::blogLoader(), media: $this);
+        $this->postmedia = new PostMedia();
         $this->type      = $type;
 
         if (App::blog() == null) {

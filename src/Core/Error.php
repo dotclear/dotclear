@@ -24,7 +24,7 @@ class Error implements ErrorInterface
 
     public function add(string $msg): void
     {
-        $this->flag     = true;
+        $this->flag    = true;
         $this->stack[] = $msg;
     }
 
@@ -35,7 +35,7 @@ class Error implements ErrorInterface
 
     public function reset(): void
     {
-        $this->flag   = false;
+        $this->flag  = false;
         $this->stack = [];
     }
 

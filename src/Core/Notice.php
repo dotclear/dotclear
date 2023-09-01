@@ -11,12 +11,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Exception;
 
@@ -32,21 +31,16 @@ class Notice implements NoticeInterface
     protected string $table;
 
     /**
-     * Constructor grabs all we need.
-     *
-     * @param   ConnectionInterface     $con        The database handler
-     * @param   BehaviorInterface       $behavior   The behavior handler
+     * Constructor.
      */
-    public function __construct(
-        private ConnectionInterface $con,
-        private BehaviorInterface $behavior
-    ) {
-        $this->table = $con->prefix() . self::NOTICE_TABLE_NAME;
+    public function __construct()
+    {
+        $this->table = App::con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     public function openCursor(): Cursor
     {
-        return $this->con->openCursor($this->table);
+        return App::con()->openCursor($this->table);
     }
 
     public function getNotices(array $params = [], bool $count_only = false): MetaRecord
@@ -111,7 +105,7 @@ class Notice implements NoticeInterface
 
     public function addNotice(Cursor $cur): int
     {
-        $this->con->writeLock($this->table);
+        App::con()->writeLock($this->table);
 
         try {
             # Get ID
@@ -128,18 +122,18 @@ class Notice implements NoticeInterface
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
-            $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            App::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            $this->con->unlock();
+            App::con()->unlock();
         } catch (Exception $e) {
-            $this->con->unlock();
+            App::con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
-        $this->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        App::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }

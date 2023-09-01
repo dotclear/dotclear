@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcAuth;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -19,9 +19,6 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogLoaderInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Exception;
 
@@ -36,15 +33,12 @@ class Log implements LogInterface
     protected $user_table;
 
     /**
-     * Constructs a new instance.
+     * Constructor.
      */
-    public function __construct(
-        private ConnectionInterface $con,
-        private BehaviorInterface $behavior,
-        private BlogLoaderInterface $blog_loader
-    ) {
-        $this->log_table  = $con->prefix() . self::LOG_TABLE_NAME;
-        $this->user_table = $con->prefix() . dcAuth::USER_TABLE_NAME;
+    public function __construct()
+    {
+        $this->log_table  = App::con()->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = App::con()->prefix() . App::auth()::USER_TABLE_NAME;
     }
 
     /**
@@ -61,7 +55,7 @@ class Log implements LogInterface
 
     public function openCursor(): Cursor
     {
-        return $this->con->openCursor($this->con->prefix() . self::LOG_TABLE_NAME);
+        return App::con()->openCursor($this->log_table);
     }
 
     public function getLogs(array $params = [], bool $count_only = false): MetaRecord
@@ -105,7 +99,7 @@ class Log implements LogInterface
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote((string) $this->blog_loader->getBlog()?->id));
+            $sql->where('L.blog_id = ' . $sql->quote((string) App::blog()->id));
         }
 
         if (!empty($params['user_id'])) {
@@ -138,7 +132,7 @@ class Log implements LogInterface
 
     public function addLog(Cursor $cur): int
     {
-        $this->con->writeLock($this->log_table);
+        App::con()->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -150,24 +144,24 @@ class Log implements LogInterface
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) $this->blog_loader->getBlog()?->id;
+            $cur->blog_id = (string) App::blog()->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
             $this->fillLogCursor($cur);
 
             # --BEHAVIOR-- coreBeforeLogCreate -- Log, Cursor
-            $this->behavior->callBehavior('coreBeforeLogCreate', $this, $cur);
+            App::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            $this->con->unlock();
+            App::con()->unlock();
         } catch (Exception $e) {
-            $this->con->unlock();
+            App::con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterLogCreate -- Log, Cursor
-        $this->behavior->callBehavior('coreAfterLogCreate', $this, $cur);
+        App::behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }

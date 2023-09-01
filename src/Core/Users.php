@@ -12,35 +12,19 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcAuth;
 use dcBlog;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Exception;
 
 class Users implements UsersInterface
 {
-    /**
-     * Constructor grabs all we need.
-     *
-     * @param   ConnectionInterface     $con        The database connection handler
-     * @param   dcAuth                  $auth       The authentiaction handler
-     * @param   BehaviorInterface       $behavior   The behavior handler
-     */
-    public function __construct(
-        private ConnectionInterface $con,
-        private dcAuth $auth,
-        private BehaviorInterface $behavior
-    ) {
-    }
-
     public function getUser(string $id): MetaRecord
     {
         $params['user_id'] = $id;
@@ -55,7 +39,7 @@ class Users implements UsersInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('U.user_id'))
-                ->from($sql->as($this->con->prefix() . dcAuth::USER_TABLE_NAME, 'U'))
+                ->from($sql->as(App::con()->prefix() . App::auth()::USER_TABLE_NAME, 'U'))
                 ->where('NULL IS NULL');
         } else {
             $sql
@@ -77,7 +61,7 @@ class Users implements UsersInterface
                     'user_options',
                     $sql->count('P.post_id', 'nb_post'),
                 ])
-                ->from($sql->as($this->con->prefix() . dcAuth::USER_TABLE_NAME, 'U'));
+                ->from($sql->as(App::con()->prefix() . App::auth()::USER_TABLE_NAME, 'U'));
 
             if (!empty($params['columns'])) {
                 $sql->columns($params['columns']);
@@ -86,7 +70,7 @@ class Users implements UsersInterface
                 ->join(
                     (new JoinStatement())
                         ->left()
-                        ->from($sql->as($this->con->prefix() . dcBlog::POST_TABLE_NAME, 'P'))
+                        ->from($sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
                         ->on('U.user_id = P.user_id')
                         ->statement()
                 )
@@ -153,7 +137,7 @@ class Users implements UsersInterface
 
     public function addUser(Cursor $cur): string
     {
-        if (!$this->auth->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
@@ -174,7 +158,7 @@ class Users implements UsersInterface
         $cur->insert();
 
         # --BEHAVIOR-- coreAfterAddUser -- Cursor
-        $this->behavior->callBehavior('coreAfterAddUser', $cur);
+        App::behavior()->callBehavior('coreAfterAddUser', $cur);
 
         return $cur->user_id;
     }
@@ -183,7 +167,7 @@ class Users implements UsersInterface
     {
         $this->fillUserCursor($cur);
 
-        if (($cur->user_id !== null || $id != $this->auth->userID()) && !$this->auth->isSuperAdmin()) {
+        if (($cur->user_id !== null || $id != App::auth()->userID()) && !App::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
@@ -193,7 +177,7 @@ class Users implements UsersInterface
         $sql->update($cur);
 
         # --BEHAVIOR-- coreAfterUpdUser -- Cursor
-        $this->behavior->callBehavior('coreAfterUpdUser', $cur);
+        App::behavior()->callBehavior('coreAfterUpdUser', $cur);
 
         if ($cur->user_id !== null) {
             $id = $cur->user_id;
@@ -204,7 +188,7 @@ class Users implements UsersInterface
         $sql
             ->distinct()
             ->column('blog_id')
-            ->from($this->con->prefix() . dcBlog::POST_TABLE_NAME)
+            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -229,11 +213,11 @@ class Users implements UsersInterface
      */
     public function delUser(string $id): void
     {
-        if (!$this->auth->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
-        if ($id == $this->auth->userID()) {
+        if ($id == App::auth()->userID()) {
             return;
         }
 
@@ -245,13 +229,13 @@ class Users implements UsersInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . dcAuth::USER_TABLE_NAME)
+            ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
 
         # --BEHAVIOR-- coreAfterDelUser -- string
-        $this->behavior->callBehavior('coreAfterDelUser', $id);
+        App::behavior()->callBehavior('coreAfterDelUser', $id);
     }
 
     /**
@@ -266,7 +250,7 @@ class Users implements UsersInterface
         $sql = new SelectStatement();
         $sql
             ->column('user_id')
-            ->from($this->con->prefix() . dcAuth::USER_TABLE_NAME)
+            ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -298,11 +282,11 @@ class Users implements UsersInterface
                 'blog_url',
                 'permissions',
             ])
-            ->from($sql->as($this->con->prefix() . dcAuth::PERMISSIONS_TABLE_NAME, 'P'))
+            ->from($sql->as(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME, 'P'))
             ->join(
                 (new JoinStatement())
                 ->inner()
-                ->from($sql->as($this->con->prefix() . dcBlog::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME, 'B'))
                 ->on('P.blog_id = B.blog_id')
                 ->statement()
             )
@@ -317,7 +301,7 @@ class Users implements UsersInterface
                 $res[(string) $rs->blog_id] = [
                     'name' => $rs->blog_name,
                     'url'  => $rs->blog_url,
-                    'p'    => $this->auth->parsePermissions($rs->permissions),
+                    'p'    => App::auth()->parsePermissions($rs->permissions),
                 ];
             }
         }
@@ -338,13 +322,13 @@ class Users implements UsersInterface
      */
     public function setUserPermissions(string $id, array $perms): void
     {
-        if (!$this->auth->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . dcAuth::PERMISSIONS_TABLE_NAME)
+            ->from(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -366,7 +350,7 @@ class Users implements UsersInterface
      */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
-        if (!$this->auth->isSuperAdmin()) {
+        if (!App::auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
@@ -374,7 +358,7 @@ class Users implements UsersInterface
 
         $perms = '|' . implode('|', array_keys($perms)) . '|';
 
-        $cur = $this->con->openCursor($this->con->prefix() . dcAuth::PERMISSIONS_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME);
 
         $cur->user_id     = (string) $id;
         $cur->blog_id     = (string) $blog_id;
@@ -383,7 +367,7 @@ class Users implements UsersInterface
         if ($delete_first || $no_perm) {
             $sql = new DeleteStatement();
             $sql
-                ->from($this->con->prefix() . dcAuth::PERMISSIONS_TABLE_NAME)
+                ->from(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id))
                 ->and('user_id = ' . $sql->quote($id));
 
@@ -403,7 +387,7 @@ class Users implements UsersInterface
      */
     public function setUserDefaultBlog(string $id, string $blog_id): void
     {
-        $cur = $this->con->openCursor($this->con->prefix() . dcAuth::USER_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
 
         $cur->user_default_blog = (string) $blog_id;
 
@@ -420,7 +404,7 @@ class Users implements UsersInterface
      */
     public function removeUsersDefaultBlogs(array $ids): void
     {
-        $cur = $this->con->openCursor($this->con->prefix() . dcAuth::USER_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
 
         $cur->user_default_blog = null;
 
@@ -454,7 +438,7 @@ class Users implements UsersInterface
             if (strlen($cur->user_pwd) < 6) {
                 throw new Exception(__('Password must contain at least 6 characters.'));
             }
-            $cur->user_pwd = $this->auth->crypt($cur->user_pwd);
+            $cur->user_pwd = App::auth()->crypt($cur->user_pwd);
         }
 
         if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $cur->user_lang)) {
