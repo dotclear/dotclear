@@ -591,9 +591,9 @@ class dcTrackback
         $post_types = App::postTypes()->dump();
         $post_url   = '';
         foreach ($post_types as $v) {
-            $reg = '!^' . preg_quote(str_replace('%s', '', $v->public_url)) . '(.*)!';
+            $reg = '!^' . preg_quote(str_replace('%s', '', $v->get('public_url'))) . '(.*)!';
             if (preg_match($reg, $url_part, $n)) {
-                $p_type   = $v->type;
+                $p_type   = $v->get('type');
                 $post_url = $n[1];
 
                 break;

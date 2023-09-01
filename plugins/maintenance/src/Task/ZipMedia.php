@@ -77,7 +77,7 @@ class ZipMedia extends MaintenanceTask
         $fp  = fopen('php://output', 'wb');
         $zip = new Zip($fp);
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
-        $zip->addDirectory(App::media()->root . '/', '', true);
+        $zip->addDirectory(App::media()->getRoot() . '/', '', true);
 
         // Log task execution here as we sent file and stop script
         $this->log();

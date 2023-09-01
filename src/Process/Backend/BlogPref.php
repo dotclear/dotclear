@@ -977,10 +977,10 @@ class BlogPref extends Process
                         '<ul>';
                         foreach ($post_types as $pt) {
                             $params = [
-                                'post_type' => $pt->type,
+                                'post_type' => $pt->get('type'),
                                 'user_id'   => $k,
                             ];
-                            echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt->label), App::blog()->getPosts($params, true)->f(0)) . '</li>';
+                            echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($params, true)->f(0)) . '</li>';
                         }
                         echo
                         '</ul>' .
