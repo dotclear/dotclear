@@ -51,8 +51,12 @@ class HtmlFilter
     {
         $this->parser = xml_parser_create('UTF-8');
         xml_set_object($this->parser, $this);
-        xml_set_element_handler($this->parser, [$this, 'tag_open'], [$this, 'tag_close']);
-        xml_set_character_data_handler($this->parser, [$this, 'cdata']);
+        xml_set_element_handler(
+            $this->parser,
+            $this->tag_open(...),
+            $this->tag_close(...)
+        );
+        xml_set_character_data_handler($this->parser, $this->cdata(...));
         xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, 0);
 
         $this->removeTags(
@@ -291,7 +295,7 @@ class HtmlFilter
      */
     private function miniTidy(string $str)
     {
-        return preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', [$this, 'miniTidyFixTag'], $str);
+        return preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', $this->miniTidyFixTag(...), $str);
     }
 
     /**
@@ -303,7 +307,7 @@ class HtmlFilter
      */
     private function miniTidyFixTag(array $match)
     {
-        return preg_replace_callback('%(=")(.*?)(")%msu', [$this, 'miniTidyFixAttr'], $match[1]);
+        return preg_replace_callback('%(=")(.*?)(")%msu', $this->miniTidyFixAttr(...), $match[1]);
     }
 
     /**

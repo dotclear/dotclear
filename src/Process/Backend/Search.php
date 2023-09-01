@@ -40,16 +40,16 @@ class Search extends Process
         ]));
 
         App::behavior()->addBehaviors([
-            'adminSearchPageComboV2' => [static::class,'typeCombo'],
-            'adminSearchPageHeadV2'  => [static::class,'pageHead'],
+            'adminSearchPageComboV2' => static::typeCombo(...),
+            'adminSearchPageHeadV2'  => static::pageHead(...),
             // posts search
-            'adminSearchPageProcessV2' => [static::class,'processPosts'],
-            'adminSearchPageDisplayV2' => [static::class,'displayPosts'],
+            'adminSearchPageProcessV2' => static::processPosts(...),
+            'adminSearchPageDisplayV2' => static::displayPosts(...),
         ]);
         App::behavior()->addBehaviors([
             // comments search
-            'adminSearchPageProcessV2' => [static::class,'processComments'],
-            'adminSearchPageDisplayV2' => [static::class,'displayComments'],
+            'adminSearchPageProcessV2' => static::processComments(...),
+            'adminSearchPageDisplayV2' => static::displayComments(...),
         ]);
 
         $qtype_combo = [];

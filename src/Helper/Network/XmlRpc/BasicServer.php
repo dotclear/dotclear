@@ -330,9 +330,9 @@ class BasicServer
      */
     protected function setCallbacks(): void
     {
-        $this->callbacks['system.getCapabilities'] = [$this, 'getCapabilities'];
-        $this->callbacks['system.listMethods']     = [$this, 'listMethods'];
-        $this->callbacks['system.multicall']       = [$this, 'multiCall'];
+        $this->callbacks['system.getCapabilities'] = $this->getCapabilities(...);
+        $this->callbacks['system.listMethods']     = $this->listMethods(...);
+        $this->callbacks['system.multicall']       = $this->multiCall(...);
     }
 
     /**

@@ -459,7 +459,7 @@ class ThemeEditor
             $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), $this->tpl_model);
         }
 
-        uksort($this->tpl, [$this, 'sortFilesHelper']);
+        uksort($this->tpl, $this->sortFilesHelper(...));
     }
 
     /**
@@ -471,7 +471,7 @@ class ThemeEditor
         $this->css = array_merge($this->css, $this->getFilesInDir($this->user_theme . '/style', 'css', 'style/'));
         $this->css = array_merge($this->css, $this->getFilesInDir($this->user_theme . '/css', 'css', 'css/'));
 
-        uksort($this->css, [$this, 'sortFilesHelper']);
+        uksort($this->css, $this->sortFilesHelper(...));
     }
 
     /**
@@ -482,7 +482,7 @@ class ThemeEditor
         $this->js = $this->getFilesInDir($this->user_theme, 'js');
         $this->js = array_merge($this->js, $this->getFilesInDir($this->user_theme . '/js', 'js', 'js/'));
 
-        uksort($this->js, [$this, 'sortFilesHelper']);
+        uksort($this->js, $this->sortFilesHelper(...));
     }
 
     /**
@@ -498,7 +498,7 @@ class ThemeEditor
             $this->po = array_merge($this->po, $this->getFilesInDir($this->user_theme . '/locales/' . $v, 'po', $v . '/'));
         }
 
-        uksort($this->po, [$this, 'sortFilesHelper']);
+        uksort($this->po, $this->sortFilesHelper(...));
     }
 
     /**
@@ -508,7 +508,7 @@ class ThemeEditor
     {
         $this->php = $this->getFilesInDir($this->user_theme, 'php');
 
-        uksort($this->php, [$this, 'sortFilesHelper']);
+        uksort($this->php, $this->sortFilesHelper(...));
     }
 
     /**

@@ -104,7 +104,7 @@ class Filter implements FilterInterface
             'img_style_right'     => 'class="media-right"',
         ]);
 
-        $this->wiki->registerFunction('url:post', [$this, 'wikiPostLink']);
+        $this->wiki->registerFunction('url:post', $this->wikiPostLink(...));
 
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
         App::behavior()->callBehavior('coreInitWikiPost', $this->wiki);

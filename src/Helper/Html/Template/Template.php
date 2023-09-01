@@ -150,8 +150,8 @@ class Template
         $this->setCacheDir($cache_dir);
 
         $this->self_name = $self_name;
-        $this->addValue('include', [$this, 'includeFile']);
-        $this->addBlock('Block', [$this, 'blockSection']);
+        $this->addValue('include', $this->includeFile(...));
+        $this->addBlock('Block', $this->blockSection(...));
     }
 
     /**

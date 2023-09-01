@@ -316,8 +316,8 @@ class Manager
             'files' => $files,
         ];
 
-        usort($this->dir['dirs'], [$this, 'sortHandler']);
-        usort($this->dir['files'], [$this, 'sortHandler']);
+        usort($this->dir['dirs'], $this->sortHandler(...));
+        usort($this->dir['files'], $this->sortHandler(...));
     }
 
     /**

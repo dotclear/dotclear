@@ -84,7 +84,7 @@ class Autoloader
         }
 
         // @phpstan-ignore-next-line (Failed to see array as callable but works great)
-        spl_autoload_register([$this, 'loadClass'], true, $prepend);
+        spl_autoload_register($this->loadClass(...), true, $prepend);
     }
 
     /**

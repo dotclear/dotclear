@@ -750,7 +750,7 @@ class Media extends Manager implements MediaInterface
         }
 
         try {
-            usort($this->dir['files'], [$this, 'sortFileHandler']);
+            usort($this->dir['files'], $this->sortFileHandler(...));
         } catch (Exception $e) {
             // Ignore exceptions
         }
@@ -855,7 +855,7 @@ class Media extends Manager implements MediaInterface
         $this->dir['files'] = $f_res;
 
         try {
-            usort($this->dir['files'], [$this, 'sortFileHandler']);
+            usort($this->dir['files'], $this->sortFileHandler(...));
         } catch (Exception $e) {
             // Ignore exceptions
         }

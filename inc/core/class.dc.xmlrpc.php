@@ -68,7 +68,7 @@ class dcXmlRpc extends IntrospectionServer
         # Pingback support
         $this->addCallback(
             'pingback.ping',
-            [$this, 'pingback_ping'],
+            $this->pingback_ping(...),
             ['string', 'string', 'string'],
             'Notify a link to a post.'
         );

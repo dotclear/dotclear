@@ -348,7 +348,7 @@ class WikiToHtml
          *  ...
          *  ///
          */
-        $this->registerFunction(self::MACRO_FN_PREFIX . 'html', [$this, '__macroHTML']);
+        $this->registerFunction(self::MACRO_FN_PREFIX . 'html', $this->__macroHTML(...));
     }
 
     /**
@@ -419,7 +419,7 @@ class WikiToHtml
 
         # Récupération des macros
         if ($this->getOpt('active_macros')) {
-            $wiki = preg_replace_callback('#^///(.*?)///($|\r)#ms', [$this, '__getMacro'], $wiki);
+            $wiki = preg_replace_callback('#^///(.*?)///($|\r)#ms', $this->__getMacro(...), $wiki);
         }
 
         # Vérification du niveau de titre
@@ -496,12 +496,12 @@ class WikiToHtml
         # On remet les macros
         if ($this->getOpt('active_macros')) {
             $macro_pattern = '/^' . self::MACRO_PREFIX . '(\d+)' . self::MACRO_SUFFIX . '$/ms';
-            $html          = preg_replace_callback($macro_pattern, [$this, '__putMacro'], $html);
+            $html          = preg_replace_callback($macro_pattern, $this->__putMacro(...), $html);
         }
 
         # Auto line break dans les paragraphes
         if ($this->getOpt('active_auto_br')) {
-            $html = preg_replace_callback('%(<p>)(.*?)(</p>)%msu', [$this, '__autoBR'], $html);
+            $html = preg_replace_callback('%(<p>)(.*?)(</p>)%msu', $this->__autoBR(...), $html);
         }
 
         # Remove wrapping p around figure

@@ -136,12 +136,12 @@ class Session implements SessionInterface
     public function start(): void
     {
         session_set_save_handler(
-            [$this, '_open'],
-            [$this, '_close'],
-            [$this, '_read'],
-            [$this, '_write'],
-            [$this, '_destroy'],
-            [$this, '_gc']
+            $this->_open(...),
+            $this->_close(...),
+            $this->_read(...),
+            $this->_write(...),
+            $this->_destroy(...),
+            $this->_gc(...)
         );
 
         if (isset($_SESSION) && session_name() !== $this->cookie_name) {

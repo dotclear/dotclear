@@ -609,10 +609,10 @@ class dcUpdate
         $cur_md5 = $cur_path = $cur_digests;
         $new_md5 = $new_path = $new_digests;
 
-        array_walk($cur_md5, [$this, 'parseLine'], 1);
-        array_walk($cur_path, [$this, 'parseLine'], 2);
-        array_walk($new_md5, [$this, 'parseLine'], 1);
-        array_walk($new_path, [$this, 'parseLine'], 2);
+        array_walk($cur_md5, $this->parseLine(...), 1);
+        array_walk($cur_path, $this->parseLine(...), 2);
+        array_walk($new_md5, $this->parseLine(...), 1);
+        array_walk($new_path, $this->parseLine(...), 2);
 
         $cur = array_combine($cur_md5, $cur_path);
         $new = array_combine($new_md5, $new_path);

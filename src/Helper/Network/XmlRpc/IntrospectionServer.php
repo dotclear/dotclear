@@ -59,35 +59,35 @@ class IntrospectionServer extends BasicServer
 
         $this->addCallback(
             'system.methodSignature',
-            [$this, 'methodSignature'],
+            $this->methodSignature(...),
             ['array', 'string'],
             'Returns an array describing the return type and required parameters of a method'
         );
 
         $this->addCallback(
             'system.getCapabilities',
-            [$this, 'getCapabilities'],
+            $this->getCapabilities(...),
             ['struct'],
             'Returns a struct describing the XML-RPC specifications supported by this server'
         );
 
         $this->addCallback(
             'system.listMethods',
-            [$this, 'listMethods'],
+            $this->listMethods(...),
             ['array'],
             'Returns an array of available methods on this server'
         );
 
         $this->addCallback(
             'system.methodHelp',
-            [$this, 'methodHelp'],
+            $this->methodHelp(...),
             ['string', 'string'],
             'Returns a documentation string for the specified method'
         );
 
         $this->addCallback(
             'system.multicall',
-            [$this, 'multiCall'],
+            $this->multiCall(...),
             ['struct', 'array'],
             'Returns result of multiple methods calls'
         );

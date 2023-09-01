@@ -190,7 +190,7 @@ class StaticRecord extends Record
         $this->__sortfield = $field;
         $this->__sortsign  = strtolower($order) == 'asc' ? 1 : -1;
 
-        usort($this->__data, [$this, 'sortCallback']);
+        usort($this->__data, $this->sortCallback(...));
 
         $this->__sortfield = null;
         $this->__sortsign  = null;
@@ -231,7 +231,7 @@ class StaticRecord extends Record
         $this->__sortfield = $field;
         $this->__sortsign  = strtolower($order) == 'asc' ? 1 : -1;
 
-        usort($this->__data, [$this, 'lexicalSortCallback']);
+        usort($this->__data, $this->lexicalSortCallback(...));
 
         $this->__sortfield = null;
         $this->__sortsign  = null;

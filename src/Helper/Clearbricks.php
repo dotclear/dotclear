@@ -36,7 +36,7 @@ class Clearbricks
 
         self::$instance = $this;
 
-        spl_autoload_register([$this, 'loadClass']);
+        spl_autoload_register($this->loadClass(...));
 
         // Load old CB classes
         $legacy_form_root = implode(DIRECTORY_SEPARATOR, [__DIR__, 'Html', 'Form']);

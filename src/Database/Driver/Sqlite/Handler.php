@@ -85,7 +85,7 @@ class Handler extends AbstractHandler
         if ($handle instanceof PDO) {
             $this->db_exec($handle, 'PRAGMA short_column_names = 1');
             $this->db_exec($handle, 'PRAGMA encoding = "UTF-8"');
-            $handle->sqliteCreateFunction('now', [$this, 'now'], 0);
+            $handle->sqliteCreateFunction('now', $this->now(...), 0);
             if (class_exists('Collator') && method_exists($handle, 'sqliteCreateCollation')) {
                 $this->utf8_unicode_ci = new Collator('root');
                 if (!$handle->sqliteCreateCollation('utf8_unicode_ci', [$this->utf8_unicode_ci, 'compare'])) {

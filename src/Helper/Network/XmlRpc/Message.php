@@ -174,8 +174,12 @@ class Message
 
         # Set XML parser callback functions
         xml_set_object($this->_parser, $this);
-        xml_set_element_handler($this->_parser, [$this, 'tag_open'], [$this, 'tag_close']);
-        xml_set_character_data_handler($this->_parser, [$this, 'cdata']);
+        xml_set_element_handler(
+            $this->_parser,
+            $this->tag_open(...),
+            $this->tag_close(...)
+        );
+        xml_set_character_data_handler($this->_parser, $this->cdata(...));
 
         if (!xml_parse($this->_parser, $this->message)) {
             $c = xml_get_error_code($this->_parser);
