@@ -1,18 +1,19 @@
 <?php
 /**
- * @brief Dotclear media manage
- *
- * This class handles Dotclear media items.
+ * Media items handler.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core;
+
+use dcDeprecated;
+use SimpleXMLElement;
 use Dotclear\App;
-use Dotclear\Core\PostMedia;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -28,9 +29,11 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
+use Exception;
 
-class dcMedia extends Manager
+class Media extends Manager implements MediaInterface
 {
     // Constants
 
@@ -45,6 +48,8 @@ class dcMedia extends Manager
 
     /**
      * Database connection
+     *
+     * @deprecated since 2.28, use App::con() instead
      *
      * @var object
      */
@@ -94,7 +99,7 @@ class dcMedia extends Manager
 
     /**
      * Post media instance
-     * 
+     *
      * @deprecated since 2.28, use App::media() instead
      *
      * @var PostMedia
@@ -156,7 +161,9 @@ class dcMedia extends Manager
      */
     public function __construct(string $type = '')
     {
-        $this->con       = App::con();
+        // deprecated since 2.28, use App::con() instead
+        $this->con = App::con();
+
         $this->postmedia = new PostMedia();
         $this->type      = $type;
 
@@ -193,28 +200,28 @@ class dcMedia extends Manager
         $this->exclude_pattern = App::blog()->settings->system->media_exclusion;
 
         # Event handlers
-        $this->addFileHandler('image/jpeg', 'create', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/png', 'create', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/gif', 'create', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/webp', 'create', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/jpeg', 'create', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/png', 'create', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/gif', 'create', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/webp', 'create', $this->imageThumbCreate(...));
 
-        $this->addFileHandler('image/png', 'update', [$this, 'imageThumbUpdate']);
-        $this->addFileHandler('image/jpeg', 'update', [$this, 'imageThumbUpdate']);
-        $this->addFileHandler('image/gif', 'update', [$this, 'imageThumbUpdate']);
-        $this->addFileHandler('image/webp', 'update', [$this, 'imageThumbUpdate']);
+        $this->addFileHandler('image/png', 'update', $this->imageThumbUpdate(...));
+        $this->addFileHandler('image/jpeg', 'update', $this->imageThumbUpdate(...));
+        $this->addFileHandler('image/gif', 'update', $this->imageThumbUpdate(...));
+        $this->addFileHandler('image/webp', 'update', $this->imageThumbUpdate(...));
 
-        $this->addFileHandler('image/png', 'remove', [$this, 'imageThumbRemove']);
-        $this->addFileHandler('image/jpeg', 'remove', [$this, 'imageThumbRemove']);
-        $this->addFileHandler('image/gif', 'remove', [$this, 'imageThumbRemove']);
-        $this->addFileHandler('image/webp', 'remove', [$this, 'imageThumbRemove']);
+        $this->addFileHandler('image/png', 'remove', $this->imageThumbRemove(...));
+        $this->addFileHandler('image/jpeg', 'remove', $this->imageThumbRemove(...));
+        $this->addFileHandler('image/gif', 'remove', $this->imageThumbRemove(...));
+        $this->addFileHandler('image/webp', 'remove', $this->imageThumbRemove(...));
 
-        $this->addFileHandler('image/jpeg', 'create', [$this, 'imageMetaCreate']);
-        $this->addFileHandler('image/webp', 'create', [$this, 'imageMetaCreate']);
+        $this->addFileHandler('image/jpeg', 'create', $this->imageMetaCreate(...));
+        $this->addFileHandler('image/webp', 'create', $this->imageMetaCreate(...));
 
-        $this->addFileHandler('image/jpeg', 'recreate', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/png', 'recreate', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/gif', 'recreate', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/webp', 'recreate', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/jpeg', 'recreate', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/png', 'recreate', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/gif', 'recreate', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/webp', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
         $this->thumb_sizes['m'][0] = abs(App::blog()->settings->system->media_img_m_size);
@@ -238,6 +245,11 @@ class dcMedia extends Manager
         }
     }
 
+    public function openCursor(): Cursor
+    {
+        return App::con()->openCursor($this->table);
+    }
+
     /**
      * Get post media instance
      *
@@ -246,7 +258,6 @@ class dcMedia extends Manager
     public function postMedia(): PostMediaInterface
     {
         return $this->postmedia;
-
     }
 
     /**
@@ -372,7 +383,7 @@ class dcMedia extends Manager
             $fi->media_preview = false;
 
             if (!App::auth()->check(App::auth()->makePermissions([
-                dcAuth::PERMISSION_MEDIA_ADMIN,
+                App::auth()::PERMISSION_MEDIA_ADMIN,
             ]), App::blog()->id)
                 && App::auth()->userID() != $fi->media_user) {
                 $fi->del      = false;
@@ -621,7 +632,7 @@ class dcMedia extends Manager
             ->and('media_dir = ' . $sql->quote($media_dir));
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = App::auth()->userID()) {
@@ -725,8 +736,8 @@ class dcMedia extends Manager
 
         # Check files that don't exist in database and create them
         if (App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             foreach ($p_dir['files'] as $f) {
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
@@ -773,7 +784,7 @@ class dcMedia extends Manager
             ->and('media_id = ' . (int) $id);
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = App::auth()->userID()) {
@@ -823,7 +834,7 @@ class dcMedia extends Manager
             ]));
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = App::auth()->userID()) {
@@ -1048,8 +1059,8 @@ class dcMedia extends Manager
     public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true)
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
@@ -1062,7 +1073,7 @@ class dcMedia extends Manager
         $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $name) : Path::clean($name);
         $media_type = Files::getMimeType($name);
 
-        $cur = $this->con->openCursor($this->table);
+        $cur = $this->openCursor();
 
         $sql = new SelectStatement();
         $sql
@@ -1074,7 +1085,7 @@ class dcMedia extends Manager
         $rs = $sql->select();
 
         if ($rs->isEmpty()) {
-            $this->con->writeLock($this->table);
+            App::con()->writeLock($this->table);
 
             try {
                 $sql = new SelectStatement();
@@ -1109,9 +1120,9 @@ class dcMedia extends Manager
 
                     throw $e;
                 }
-                $this->con->unlock();
+                App::con()->unlock();
             } catch (Exception $e) {
-                $this->con->unlock();
+                App::con()->unlock();
 
                 throw $e;
             }
@@ -1142,8 +1153,8 @@ class dcMedia extends Manager
     public function updateFile(File $file, File $newFile)
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
@@ -1155,13 +1166,13 @@ class dcMedia extends Manager
         }
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)
             && App::auth()->userID() != $file->media_user) {
             throw new Exception(__('You are not the file owner.'));
         }
 
-        $cur = $this->con->openCursor($this->table);
+        $cur = $this->openCursor();
 
         # We need to tidy newFile basename. If dir isn't empty, concat to basename
         $newFile->relname = Files::tidyFileName($newFile->basename);
@@ -1219,8 +1230,8 @@ class dcMedia extends Manager
     public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
@@ -1245,8 +1256,8 @@ class dcMedia extends Manager
     public function uploadBits(string $name, string $bits): string
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
@@ -1270,8 +1281,8 @@ class dcMedia extends Manager
     public function removeFile(?string $file): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
@@ -1285,14 +1296,14 @@ class dcMedia extends Manager
             ->and('media_file = ' . $sql->quote($media_file));
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
 
         $sql->delete();
 
-        if ($this->con->changes() == 0) {
+        if (App::con()->changes() == 0) {
             throw new Exception(__('File does not exist in the database.'));
         }
 
@@ -1577,7 +1588,7 @@ class dcMedia extends Manager
         $meta = ImageMeta::readMeta($file);
         $xml->insertNode($meta);
 
-        $c             = App::con()->openCursor($this->table);
+        $c             = $this->openCursor();
         $c->media_meta = $xml->toXML();
 
         if ($cur->media_title !== null && $cur->media_title == basename($cur->media_file)) {

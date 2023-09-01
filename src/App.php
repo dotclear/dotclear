@@ -195,7 +195,6 @@ namespace Dotclear {
                 'dcAuth'         => $inc('core', 'class.dc.auth.php'),
                 'dcBlog'         => $inc('core', 'class.dc.blog.php'),
                 'dcCategories'   => $inc('core', 'class.dc.categories.php'),
-                'dcMedia'        => $inc('core', 'class.dc.media.php'),
                 'dcModuleDefine' => $inc('core', 'class.dc.module.define.php'),
                 'dcModules'      => $inc('core', 'class.dc.modules.php'),
                 'dcPlugins'      => $inc('core', 'class.dc.plugins.php'),

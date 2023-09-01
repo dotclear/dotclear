@@ -13,31 +13,31 @@
  */
 
 use Dotclear\App;
-use Dotclear\Core\Blogs;
-use Dotclear\Core\Error;
+use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Filter;
 use Dotclear\Core\Formater;
-use Dotclear\Core\Log;
-use Dotclear\Core\Meta;
-use Dotclear\Core\Nonce;
-use Dotclear\Core\Notice;
-use Dotclear\Core\PostMedia;
-use Dotclear\Core\PostType;
-use Dotclear\Core\PostTypes;
-use Dotclear\Core\Rest;
-use Dotclear\Core\Session;
-use Dotclear\Core\Users;
-use Dotclear\Core\Version;
-use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Install\Utils;
+use Dotclear\Core\Nonce;
+use Dotclear\Core\PostType;
+use Dotclear\Core\PostTypes;
+use Dotclear\Core\Session;
+use Dotclear\Core\Users;
+use Dotclear\Core\Version;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Behavior;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\ErrorInterface;
+use Dotclear\Interface\Core\LogInterface;
+use Dotclear\Interface\Core\MediaInterface;
+use Dotclear\Interface\Core\MetaInterface;
+use Dotclear\Interface\Core\NoticeInterface;
+use Dotclear\Interface\Core\PostMediaInterface;
+use Dotclear\Interface\Core\RestInterface;
 
 final class dcCore
 {
@@ -49,7 +49,7 @@ final class dcCore
     /**
      * Session table name
      *
-     * @deprecated since 2.28, use App::SESSION_TABLE_NAME
+     * @deprecated since 2.28, use App::session()::SESSION_TABLE_NAME
      *
      * @var string
      */
@@ -132,9 +132,9 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::rest() instead
      *
-     * @var Rest
+     * @var RestInterface
      */
-    public readonly Rest $rest;
+    public readonly RestInterface $rest;
 
     /**
      * WikiToHtml instance
@@ -173,11 +173,11 @@ final class dcCore
     public $themes;
 
     /**
-     * dcMedia instance
+     * Media instance
      *
      * @deprecated since 2.28, use App::media() instead
      *
-     * @var dcMedia|null
+     * @var MediaInterface
      */
     public $media;
 
@@ -186,7 +186,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::postMedia() instead
      *
-     * @var PostMedia
+     * @var PostMediaInterface
      */
     public $postmedia;
 
@@ -195,36 +195,36 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::meta() instead
      *
-     * @var Meta
+     * @var MetaInterface
      */
-    public readonly Meta $meta;
+    public readonly MetaInterface $meta;
 
     /**
      * Error instance
      *
      * @deprecated since 2.28, use App::session() instead
      *
-     * @var Error
+     * @var ErrorInterface
      */
-    public readonly Error $error;
+    public readonly ErrorInterface $error;
 
     /**
      * Notice instance
      *
      * @deprecated since 2.28, Use App::notice() instead
      *
-     * @var Notice
+     * @var NoticeInterface
      */
-    public readonly Notice $notices;
+    public readonly NoticeInterface $notices;
 
     /**
      * Log instance
      *
      * @deprecated since 2.28, Use App::log() instead
      *
-     * @var Log
+     * @var LogInterface
      */
-    public readonly Log $log;
+    public readonly LogInterface $log;
 
     /**
      * Current language

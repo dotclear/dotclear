@@ -32,7 +32,6 @@ $__autoload = [
     'dcAuth'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.auth.php']),
     'dcBlog'         => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.blog.php']),
     'dcCategories'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.categories.php']),
-    'dcMedia'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.media.php']),
     'dcModuleDefine' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.module.define.php']),
     'dcModules'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.modules.php']),
     'dcPlugins'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.plugins.php']),

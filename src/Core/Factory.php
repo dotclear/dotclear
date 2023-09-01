@@ -21,7 +21,6 @@ namespace Dotclear\Core;
 // classes that move to \Dotclear\Core
 use dcAuth;
 use dcBlog;
-use dcMedia;
 use dcPlugins;
 use dcThemes;
 //
@@ -37,6 +36,7 @@ use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\LogInterface;
+use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NonceInterface;
 use Dotclear\Interface\Core\NoticeInterface;
@@ -117,9 +117,9 @@ class Factory implements FactoryInterface
         return new Log();
     }
 
-    public function media(): dcMedia
+    public function media(): MediaInterface
     {
-        return new dcMedia();
+        return new Media();
     }
 
     public function meta(): MetaInterface

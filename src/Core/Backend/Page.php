@@ -172,8 +172,8 @@ class Page
                 $csp['style-src']   .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
             }
             # Cope with media display in media manager (via public URL)
-            if (App::media()->root_url) {
-                $csp['img-src'] .= ' ' . parse_url(App::media()->root_url, PHP_URL_HOST);
+            if (App::media()->getRootUrl()) {
+                $csp['img-src'] .= ' ' . parse_url(App::media()->getRootUrl(), PHP_URL_HOST);
             } elseif (!is_null(App::blog()->host)) {
                 // Let's try with the blog URL
                 $csp['img-src'] .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);

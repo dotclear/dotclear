@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\importExport;
 use Exception;
 use dcBlog;
 use dcCategories;
-use dcMedia;
 use dcNamespace;
 use dcTrackback;
 use Dotclear\App;
@@ -84,7 +83,7 @@ class ModuleExportFlat extends Module
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . App::con()->prefix() . dcMedia::MEDIA_TABLE_NAME . " WHERE media_path = '" .
+                    'SELECT * FROM ' . App::con()->prefix() . App::media()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
                     App::con()->escape(App::blog()->settings->system->public_path) . "'"
                 );
                 $exp->export(

@@ -179,6 +179,7 @@ dcProxyV1::classAliases([
     // Core -----------------------
 
     'dcError'      => 'Dotclear\Core\Error',
+    'dcMedia'      => 'Dotclear\Core\Media',
     'dcMeta'       => 'Dotclear\Core\Meta',
     'dcNotices'    => 'Dotclear\Core\Notice',
     'dcPostMedia'  => 'Dotclear\Core\PostMedia',

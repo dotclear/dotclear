@@ -16,7 +16,6 @@ namespace Dotclear\Interface\Core;
 // classes that move to \Dotclear\Core
 use dcAuth;
 use dcBlog;
-use dcMedia;
 use dcPlugins;
 use dcThemes;
 //
@@ -34,8 +33,8 @@ interface FactoryInterface
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;
     public function log(): LogInterface;
+    public function media(): MediaInterface;
     public function meta(): MetaInterface;
-    public function media(): dcMedia;
     public function nonce(): NonceInterface;
     public function notice(): NoticeInterface;
     public function plugins(): dcPlugins;

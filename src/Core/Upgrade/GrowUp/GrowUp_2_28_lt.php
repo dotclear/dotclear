@@ -24,6 +24,7 @@ class GrowUp_2_28_lt
             [
                 'src/Upgrade/dummy.txt',
                 'inc/core/class.dc.error.php',
+                'inc/core/class.dc.media.php',
                 'inc/core/class.dc.meta.php',
                 'inc/core/class.dc.notices.php',
                 'inc/core/class.dc.postmedia.php',

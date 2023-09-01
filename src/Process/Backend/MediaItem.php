@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcBlog;
-use dcMedia;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
@@ -668,7 +667,7 @@ class MediaItem extends Process
                 }
                 echo
                 form::hidden('blog_host', Html::escapeHTML(App::blog()->host)) .
-                form::hidden('public_player', Html::escapeHTML(dcMedia::audioPlayer(App::backend()->file->type, $url))) .
+                form::hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url))) .
                 '</p>' .
                 '</div>';
             } elseif (App::backend()->file_type[0] == 'video') {
@@ -710,7 +709,7 @@ class MediaItem extends Process
                 }
                 echo
                 form::hidden('blog_host', Html::escapeHTML(App::blog()->host)) .
-                form::hidden('public_player', Html::escapeHTML(dcMedia::videoPlayer(App::backend()->file->type, $url))) .
+                form::hidden('public_player', Html::escapeHTML(App::media()::videoPlayer(App::backend()->file->type, $url))) .
                 '</p>' .
                 '</div>';
             } else {
@@ -849,10 +848,10 @@ class MediaItem extends Process
 
         // Show player if relevant
         if (App::backend()->file_type[0] == 'audio') {
-            echo dcMedia::audioPlayer(App::backend()->file->type, App::backend()->file->file_url);
+            echo App::media()::audioPlayer(App::backend()->file->type, App::backend()->file->file_url);
         }
         if (App::backend()->file_type[0] == 'video') {
-            echo dcMedia::videoPlayer(App::backend()->file->type, App::backend()->file->file_url);
+            echo App::media()::videoPlayer(App::backend()->file->type, App::backend()->file->file_url);
         }
 
         echo

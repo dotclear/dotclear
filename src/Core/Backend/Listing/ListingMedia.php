@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use dcMedia;
 use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\Date;
@@ -225,7 +224,7 @@ class ListingMedia extends Listing
 
             // Show player if relevant
             if ($file_type[0] == 'audio') {
-                $lst .= '<li>' . dcMedia::audioPlayer($file->type, $file->file_url, null, null, false, false) . '</li>';
+                $lst .= '<li>' . App::media()::audioPlayer($file->type, $file->file_url, null, null, false, false) . '</li>';
             }
 
             $res .= ($lst != '' ? '<ul>' . $lst . '</ul>' : '');
