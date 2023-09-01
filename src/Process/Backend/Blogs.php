@@ -72,7 +72,7 @@ class Blogs extends Process
             if ((App::backend()->blog_filter->sortby != 'blog_upddt') && (App::backend()->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
                 $rsStatic->extend('rsExtUser');
-                $rsStatic = $rsStatic->toExtStatic();
+                $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort((App::backend()->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->blog_filter->order);
             }
             App::backend()->blog_list = new ListingBlogs($rs, $counter->f(0));
@@ -86,7 +86,7 @@ class Blogs extends Process
     public static function render(): void
     {
         // Nullsafe before header sent
-        if (is_null(App::auth())) {
+        if (!defined('DC_CONTEXT_ADMIN')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 

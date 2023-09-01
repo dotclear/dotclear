@@ -26,11 +26,11 @@ use Dotclear\Core\PostTypes;
 use Dotclear\Core\Session;
 use Dotclear\Core\Users;
 use Dotclear\Core\Version;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Behavior;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MediaInterface;
@@ -38,6 +38,7 @@ use Dotclear\Interface\Core\MetaInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\RestInterface;
+use Dotclear\Interface\Core\SessionInterface;
 
 final class dcCore
 {
@@ -78,9 +79,9 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::con() instead
      *
-     * @var AbstractHandler
+     * @var ConnectionInterface
      */
-    public readonly AbstractHandler $con;
+    public readonly ConnectionInterface $con;
 
     /**
      * Database tables prefix
@@ -114,9 +115,9 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::session() instead
      *
-     * @var Session
+     * @var SessionInterface
      */
-    public readonly Session $session;
+    public readonly SessionInterface $session;
 
     /**
      * Url instance

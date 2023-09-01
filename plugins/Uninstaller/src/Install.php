@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Exception;
 

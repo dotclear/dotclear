@@ -44,7 +44,7 @@ interface MetaInterface
      *
      * @param   string  $str     The serialized metadata
      *
-     * @return  array<string,<array<string,string>>      The meta array.
+     * @return  array<string,array<string,string>>      The meta array.
      */
     public function getMetaArray(?string $str): array;
 

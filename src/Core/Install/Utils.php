@@ -13,20 +13,20 @@ use dcBlog;
 use dcNamespace;
 use dcSettings;
 use Dotclear\App;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Structure;
+use Dotclear\Interface\Core\ConnectionInterface;
 
 class Utils
 {
     /**
      * Check server support.
      *
-     * @param   AbstractHandler     $con    The db handler instance
-     * @param   array<int,string>   $err    The errors
+     * @param   ConnectionInterface     $con    The db handler instance
+     * @param   array<int,string>       $err    The errors
      *
      * @return  bool    False on error
      */
-    public static function check(AbstractHandler $con, array &$err)
+    public static function check(ConnectionInterface $con, array &$err)
     {
         $err = [];
 

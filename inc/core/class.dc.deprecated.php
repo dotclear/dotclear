@@ -16,6 +16,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Deprecated;
+use Dotclear\Interface\Core\LogInterface;
 
 class dcDeprecated extends Deprecated
 {
@@ -54,10 +55,10 @@ class dcDeprecated extends Deprecated
         // to early to use core
         try {
             $log = App::log();
-            if (!($log)) {
+            if (!($log instanceof LogInterface)) {
                 throw new Exception('too early');
             }
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             parent::log($title, $lines);
 
             return;
@@ -73,7 +74,7 @@ class dcDeprecated extends Deprecated
         $cursor = $log->openCursor();
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
-        $cursor->setField('user_id', !is_null(App::auth()) ? App::auth()->userID() : 'unknown');
+        $cursor->setField('user_id', (defined('DC_CONTEXT_ADMIN')) ? App::auth()->userID() : 'unknown');
         $log->addLog($cursor);
     }
 

@@ -60,7 +60,7 @@ class l10nFaker
 
         if (class_exists('Dotclear\Plugin\Widgets\Widgets')) {
             $plugin .= "\n// Widget settings names\n\n";
-            $widgets = \Dotclear\Plugin\Widgets\Widgets::$widgets->elements();
+            $widgets = \Dotclear\Plugin\widgets\Widgets::$widgets->elements();
             foreach ($widgets as $w) {
                 $plugin .= $this->fake_l10n($w->desc());
             }
