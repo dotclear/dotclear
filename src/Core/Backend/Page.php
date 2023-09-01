@@ -204,7 +204,7 @@ class Page
             header($value);
         }
 
-        $data_theme = App::auth()->user_prefs->interface->theme;
+        $data_theme = App::auth()->prefs()->interface->theme;
 
         echo
         '<!DOCTYPE html>' .
@@ -222,23 +222,23 @@ class Page
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (!App::auth()->user_prefs->interface->hide_std_favicon) {
+        if (!App::auth()->prefs()->interface->hide_std_favicon) {
             echo
                 '<link rel="icon" type="image/png" href="images/favicon96-login.png" />' . "\n" .
                 '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n";
         }
-        if (App::auth()->user_prefs->interface->htmlfontsize) {
-            $js['htmlFontSize'] = App::auth()->user_prefs->interface->htmlfontsize;
+        if (App::auth()->prefs()->interface->htmlfontsize) {
+            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
         }
-        if (App::auth()->user_prefs->interface->systemfont) {
+        if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']   = (bool) App::auth()->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) App::auth()->user_prefs->interface->showajaxloader;
+        $js['hideMoreInfo']   = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) App::auth()->prefs()->interface->showajaxloader;
         $js['servicesUri']    = App::backend()->url->get('admin.rest');
         $js['servicesOff']    = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) App::auth()->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
@@ -449,7 +449,7 @@ class Page
     public static function close()
     {
         if (!App::backend()->resources->context()) {
-            if (!App::auth()->user_prefs->interface->hidehelpbutton) {
+            if (!App::auth()->prefs()->interface->hidehelpbutton) {
                 echo
                 '<p id="help-button"><a href="' . App::backend()->url->get('admin.help') . '" class="outgoing" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
@@ -534,7 +534,7 @@ class Page
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-        $data_theme = App::auth()->user_prefs->interface->theme;
+        $data_theme = App::auth()->prefs()->interface->theme;
 
         echo
         '<!DOCTYPE html>' .
@@ -552,18 +552,18 @@ class Page
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (App::auth()->user_prefs->interface->htmlfontsize) {
-            $js['htmlFontSize'] = App::auth()->user_prefs->interface->htmlfontsize;
+        if (App::auth()->prefs()->interface->htmlfontsize) {
+            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
         }
-        if (App::auth()->user_prefs->interface->systemfont) {
+        if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']   = (bool) App::auth()->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) App::auth()->user_prefs->interface->showajaxloader;
+        $js['hideMoreInfo']   = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) App::auth()->prefs()->interface->showajaxloader;
         $js['servicesUri']    = App::backend()->url->get('admin.rest');
         $js['servicesOff']    = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) App::auth()->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;
 
@@ -763,7 +763,7 @@ class Page
      */
     public static function helpBlock(...$params)
     {
-        if (App::auth()->user_prefs->interface->hidehelpbutton) {
+        if (App::auth()->prefs()->interface->hidehelpbutton) {
             return;
         }
 
@@ -922,8 +922,8 @@ class Page
     public static function jsToggles(): string
     {
         $js = [];
-        if (App::auth()->user_prefs->toggles) {
-            $unfolded_sections = explode(',', (string) App::auth()->user_prefs->toggles->unfolded_sections);
+        if (App::auth()->prefs()->toggles) {
+            $unfolded_sections = explode(',', (string) App::auth()->prefs()->toggles->unfolded_sections);
             foreach ($unfolded_sections as $section => &$v) {
                 if ($v !== '') {
                     $js[$unfolded_sections[$section]] = true;
@@ -1054,8 +1054,8 @@ class Page
         $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true);
         if ($adblockcheck) {
             // May not be set (auth page for example)
-            if (isset(App::auth()->user_prefs)) {
-                $adblockcheck = App::auth()->user_prefs->interface->nocheckadblocker !== true;
+            if (!is_null(App::auth()->userID())) {
+                $adblockcheck = App::auth()->prefs()->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;
             }
@@ -1203,7 +1203,7 @@ class Page
 
         return
         self::jsJson('filter_controls', $js) .
-        self::jsJson('filter_options', ['auto_filter' => App::auth()->user_prefs->interface->auto_filter]) .
+        self::jsJson('filter_options', ['auto_filter' => App::auth()->prefs()->interface->auto_filter]) .
         self::jsLoad('js/filter-controls.js');
     }
 
@@ -1289,7 +1289,7 @@ class Page
          *     'name'  => 'my_editor_css',  // Editor id (should be unique)
          *     'id'    => 'css_content',    // Textarea id
          *     'mode'  => 'css',            // Codemirror mode ()
-         *     'theme' => App::auth()->user_prefs->interface->colorsyntax_theme ?: 'default'
+         *     'theme' => App::auth()->prefs()->interface->colorsyntax_theme ?: 'default'
          * ]);
          */
         $alt = new ArrayObject();

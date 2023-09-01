@@ -3,7 +3,7 @@
  * @brief User prefs handler
  *
  * dcPrefs provides user preferences management. This class instance exists as
- * dcAuth $prefs property. You should create a new prefs instance when
+ * Auth $prefs property. You should create a new prefs instance when
  * updating another user prefs.
  *
  * @package Dotclear

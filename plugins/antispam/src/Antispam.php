@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
-use dcAuth;
 use dcBlog;
 use dcCore;
 use Dotclear\App;
@@ -241,7 +240,7 @@ class Antispam extends initAntispam
         }
 
         $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . App::con()->prefix() . dcAuth::USER_TABLE_NAME . ' ' .
+        'FROM ' . App::con()->prefix() . App::auth()::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . App::con()->escape($user_id) . "' ";
 
         $rs = new MetaRecord(App::con()->select($strReq));

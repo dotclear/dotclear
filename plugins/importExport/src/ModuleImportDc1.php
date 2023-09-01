@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcTrackback;
@@ -364,7 +363,7 @@ class ModuleImportDc1 extends Module
 
             while ($rs->fetch()) {
                 if (!App::users()->userExists($rs->user_id)) {
-                    $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
+                    $cur                   = $this->con->openCursor($this->prefix . App::auth()::USER_TABLE_NAME);
                     $cur->user_id          = $rs->user_id;
                     $cur->user_name        = $rs->user_nom;
                     $cur->user_firstname   = $rs->user_prenom;

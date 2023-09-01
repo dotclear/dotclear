@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Autoloader;
-use dcAuth;
 use dcDeprecated;
 use dcModuleDefine;
 use dcModules;
@@ -1122,7 +1121,7 @@ class ModulesList
                     switch ($sk) {
                         case 'blog':
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
-                                dcAuth::PERMISSION_ADMIN,
+                                App::auth()::PERMISSION_ADMIN,
                             ]), App::blog()->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 App::backend()->url->get('admin.blog.pref') . $sv .
@@ -1132,8 +1131,8 @@ class ModulesList
                             break;
                         case 'pref':
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
-                                dcAuth::PERMISSION_USAGE,
-                                dcAuth::PERMISSION_CONTENT_ADMIN,
+                                App::auth()::PERMISSION_USAGE,
+                                App::auth()::PERMISSION_CONTENT_ADMIN,
                             ]), App::blog()->id)) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 App::backend()->url->get('admin.user.preferences') . $sv .

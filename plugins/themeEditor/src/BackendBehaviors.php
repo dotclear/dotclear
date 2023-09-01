@@ -47,8 +47,8 @@ class BackendBehaviors
     {
         // Get and store user's prefs for plugin options
         try {
-            App::auth()->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
-            App::auth()->user_prefs->interface->put(
+            App::auth()->prefs()->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
+            App::auth()->prefs()->interface->put(
                 'colorsyntax_theme',
                 (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : '')
             );
@@ -63,7 +63,7 @@ class BackendBehaviors
     public static function adminPreferencesForm(): void
     {
         // Add fieldset for plugin options
-        $current_theme = App::auth()->user_prefs->interface->colorsyntax_theme ?? 'default';
+        $current_theme = App::auth()->prefs()->interface->colorsyntax_theme ?? 'default';
 
         $themes_list  = Page::getCodeMirrorThemes();
         $themes_combo = [__('Default') => ''];
@@ -77,7 +77,7 @@ class BackendBehaviors
         echo
         '<div class="col">' .
         '<p><label for="colorsyntax" class="classic">' .
-        form::checkbox('colorsyntax', 1, App::auth()->user_prefs->interface->colorsyntax) . '</label>' .
+        form::checkbox('colorsyntax', 1, App::auth()->prefs()->interface->colorsyntax) . '</label>' .
         __('Syntax highlighting in theme editor') .
             '</p>';
         if (count($themes_combo) > 1) {

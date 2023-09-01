@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcTrackback;
@@ -37,8 +36,8 @@ class Post extends Process
     {
         $params = [];
         Page::check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');
@@ -46,7 +45,7 @@ class Post extends Process
         // IP are available only for super-admin and admin
         App::backend()->show_ip = App::auth()->check(
             App::auth()->makePermissions([
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
             App::blog()->id
         );
@@ -74,12 +73,12 @@ class Post extends Process
 
         App::backend()->can_view_page = true;
         App::backend()->can_edit_post = App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id);
         App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id);
         App::backend()->can_delete = false;
 
@@ -362,7 +361,7 @@ class Post extends Process
             // Create or update post
 
             if (!empty($_POST['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
-                dcAuth::PERMISSION_CATEGORIES,
+                App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id)) {
                 // Create category
 
@@ -657,7 +656,7 @@ class Post extends Process
                         form::combo('cat_id', App::backend()->categories_combo, App::backend()->cat_id, 'maximal') .
                         '</p>' .
                         (App::auth()->check(App::auth()->makePermissions([
-                            dcAuth::PERMISSION_CATEGORIES,
+                            App::auth()::PERMISSION_CATEGORIES,
                         ]), App::blog()->id) ?
                             '<div>' .
                             '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
@@ -788,7 +787,7 @@ class Post extends Process
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                $blank_preview = App::auth()->user_prefs->interface->blank_preview;
+                $blank_preview = App::auth()->prefs()->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : ' modal';
                 $preview_target = $blank_preview ? '' : ' target="_blank"';

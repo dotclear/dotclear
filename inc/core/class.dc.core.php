@@ -13,6 +13,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Core\Auth;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
@@ -25,6 +26,7 @@ use Dotclear\Core\Version;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\LogInterface;
@@ -97,13 +99,13 @@ final class dcCore
     public $blog;
 
     /**
-     * dcAuth instance
+     * Auth instance
      *
      * @deprecated since 2.28, use App::auth() instead
      *
-     * @var dcAuth
+     * @var AuthInterface
      */
-    public readonly dcAuth $auth;
+    public readonly AuthInterface $auth;
 
     /**
      * Session in database instance
@@ -351,7 +353,10 @@ final class dcCore
         // deprecated since 2.26, use Autoloader:me() instead
         $this->autoload = Autoloader::me();
 
-        // deprecated since 2.28, use Autoloader:me() instead
+        // deprecated since 2.28, for modules _define.php
+        class_alias(Auth::class, 'dcAuth');
+
+        // deprecated since 2.28, use App::xxx() instead
         $this->con     = App::con();
         $this->prefix  = App::con()->prefix();
         $this->error   = App::error();

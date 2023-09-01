@@ -3,7 +3,7 @@
  * Core container.
  *
  * Core container search factories for requested methods.
- * Available container methods are explicitly set 
+ * Available container methods are explicitly set
  * to keep track of returned types.
  *
  * @package Dotclear
@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Factories;
+use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogsInterface;
@@ -37,7 +38,6 @@ use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 // classes that move to \Dotclear\Core
-use dcAuth;
 use dcBlog;
 use dcPlugins;
 use dcThemes;
@@ -130,7 +130,7 @@ class Container
 
     /// @name Core container methods
     //@{
-    public static function auth(): dcAuth
+    public static function auth(): AuthInterface
     {
         return self::$instance->get('auth');
     }

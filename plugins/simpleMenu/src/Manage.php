@@ -406,7 +406,7 @@ class Manage extends Process
                         }
                         $menu = $newmenu;
 
-                        if (App::auth()->user_prefs->accessibility->nodragdrop) {
+                        if (App::auth()->prefs()->accessibility->nodragdrop) {
                             # Order menu items
                             $order = [];
                             if (empty($_POST['im_order']) && !empty($_POST['order'])) {
@@ -462,7 +462,7 @@ class Manage extends Process
         }
 
         $head = '';
-        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('simplemenu');

@@ -45,7 +45,7 @@ interface MediaInterface
 
     /**
      * Get thumb sizes definniton.
-     * 
+     *
      * Tubmnail sizes:
      * - m: medium image
      * - s: small image

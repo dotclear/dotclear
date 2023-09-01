@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcCore;
@@ -110,7 +109,7 @@ class Rest extends Process
             'ret'   => __('Dotclear news not available'),
         ];
 
-        if (App::auth()->user_prefs->dashboard->dcnews) {
+        if (App::auth()->prefs()->dashboard->dcnews) {
             try {
                 if ('' == ($rss_news = App::backend()->resources->entry('rss_news', 'Dotclear'))) {
                     throw new Exception();
@@ -164,7 +163,7 @@ class Rest extends Process
             'ret'   => __('Dotclear update not available'),
         ];
 
-        if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !App::auth()->user_prefs->dashboard->nodcupdate) {
+        if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !App::auth()->prefs()->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);
             $version_info = $new_v ? $updater->getInfoURL() : '';
@@ -194,7 +193,7 @@ class Rest extends Process
                 ];
             } else {
                 if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
-                    if (!App::auth()->user_prefs->interface->hidemoreinfo) {
+                    if (!App::auth()->prefs()->interface->hidemoreinfo) {
                         $ret = '<p class="info">' .
                         sprintf(
                             __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
@@ -412,7 +411,7 @@ class Rest extends Process
     {
         # Create category
         if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CATEGORIES,
+            App::auth()::PERMISSION_CATEGORIES,
         ]), App::blog()->id)) {
             $cur_cat            = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
             $cur_cat->cat_title = $post['new_cat_title'];
@@ -476,8 +475,8 @@ class Rest extends Process
         $id = (int) $get['id'];
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_MEDIA,
-            dcAuth::PERMISSION_MEDIA_ADMIN,
+            App::auth()::PERMISSION_MEDIA,
+            App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception('Permission denied');
         }
@@ -739,8 +738,8 @@ class Rest extends Process
         }
         $section = $post['section'];
         $status  = isset($post['value']) && ($post['value'] != 0);
-        if (App::auth()->user_prefs->toggles->prefExists('unfolded_sections')) {
-            $toggles = explode(',', trim((string) App::auth()->user_prefs->toggles->unfolded_sections));
+        if (App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
+            $toggles = explode(',', trim((string) App::auth()->prefs()->toggles->unfolded_sections));
         } else {
             $toggles = [];
         }
@@ -756,7 +755,7 @@ class Rest extends Process
                 $toggles[] = $section;
             }
         }
-        App::auth()->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
+        App::auth()->prefs()->toggles->put('unfolded_sections', join(',', $toggles));
 
         return true;
     }
@@ -783,7 +782,7 @@ class Rest extends Process
         $zone  = $post['id'];
         $order = $post['list'];
 
-        App::auth()->user_prefs->dashboard->put($zone, $order);
+        App::auth()->prefs()->dashboard->put($zone, $order);
 
         return true;
     }
@@ -826,7 +825,7 @@ class Rest extends Process
             }
         }
 
-        App::auth()->user_prefs->interface->put('sorts', $su, 'array');
+        App::auth()->prefs()->interface->put('sorts', $su, 'array');
 
         return [
             'msg' => __('List options saved'),

@@ -204,7 +204,7 @@ abstract class MyModule
      */
     final public static function prefs(): ?dcWorkspace
     {
-        return App::auth()->user_prefs->get(static::id());
+        return App::auth()->prefs()->get(static::id());
     }
 
     /**

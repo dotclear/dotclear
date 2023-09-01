@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcAuth;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
@@ -32,8 +31,8 @@ class UserPreferences extends Process
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         App::backend()->page_title = __('My preferences');
@@ -52,35 +51,35 @@ class UserPreferences extends Process
             $user_options['editor'] = [];
         }
 
-        App::backend()->user_profile_mails = App::auth()->user_prefs->profile->mails;
-        App::backend()->user_profile_urls  = App::auth()->user_prefs->profile->urls;
+        App::backend()->user_profile_mails = App::auth()->prefs()->profile->mails;
+        App::backend()->user_profile_urls  = App::auth()->prefs()->profile->urls;
 
-        App::backend()->user_dm_doclinks   = App::auth()->user_prefs->dashboard->doclinks;
-        App::backend()->user_dm_dcnews     = App::auth()->user_prefs->dashboard->dcnews;
-        App::backend()->user_dm_quickentry = App::auth()->user_prefs->dashboard->quickentry;
-        App::backend()->user_dm_nofavicons = App::auth()->user_prefs->dashboard->nofavicons;
+        App::backend()->user_dm_doclinks   = App::auth()->prefs()->dashboard->doclinks;
+        App::backend()->user_dm_dcnews     = App::auth()->prefs()->dashboard->dcnews;
+        App::backend()->user_dm_quickentry = App::auth()->prefs()->dashboard->quickentry;
+        App::backend()->user_dm_nofavicons = App::auth()->prefs()->dashboard->nofavicons;
         App::backend()->user_dm_nodcupdate = false;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->user_dm_nodcupdate = App::auth()->user_prefs->dashboard->nodcupdate;
+            App::backend()->user_dm_nodcupdate = App::auth()->prefs()->dashboard->nodcupdate;
         }
 
-        App::backend()->user_acc_nodragdrop = App::auth()->user_prefs->accessibility->nodragdrop;
+        App::backend()->user_acc_nodragdrop = App::auth()->prefs()->accessibility->nodragdrop;
 
-        App::backend()->user_ui_theme            = App::auth()->user_prefs->interface->theme;
-        App::backend()->user_ui_enhanceduploader = App::auth()->user_prefs->interface->enhanceduploader;
-        App::backend()->user_ui_blank_preview    = App::auth()->user_prefs->interface->blank_preview;
-        App::backend()->user_ui_hidemoreinfo     = App::auth()->user_prefs->interface->hidemoreinfo;
-        App::backend()->user_ui_hidehelpbutton   = App::auth()->user_prefs->interface->hidehelpbutton;
-        App::backend()->user_ui_showajaxloader   = App::auth()->user_prefs->interface->showajaxloader;
-        App::backend()->user_ui_htmlfontsize     = App::auth()->user_prefs->interface->htmlfontsize;
-        App::backend()->user_ui_systemfont       = App::auth()->user_prefs->interface->systemfont;
+        App::backend()->user_ui_theme            = App::auth()->prefs()->interface->theme;
+        App::backend()->user_ui_enhanceduploader = App::auth()->prefs()->interface->enhanceduploader;
+        App::backend()->user_ui_blank_preview    = App::auth()->prefs()->interface->blank_preview;
+        App::backend()->user_ui_hidemoreinfo     = App::auth()->prefs()->interface->hidemoreinfo;
+        App::backend()->user_ui_hidehelpbutton   = App::auth()->prefs()->interface->hidehelpbutton;
+        App::backend()->user_ui_showajaxloader   = App::auth()->prefs()->interface->showajaxloader;
+        App::backend()->user_ui_htmlfontsize     = App::auth()->prefs()->interface->htmlfontsize;
+        App::backend()->user_ui_systemfont       = App::auth()->prefs()->interface->systemfont;
         App::backend()->user_ui_hide_std_favicon = false;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->user_ui_hide_std_favicon = App::auth()->user_prefs->interface->hide_std_favicon;
+            App::backend()->user_ui_hide_std_favicon = App::auth()->prefs()->interface->hide_std_favicon;
         }
-        App::backend()->user_ui_nofavmenu          = App::auth()->user_prefs->interface->nofavmenu;
-        App::backend()->user_ui_media_nb_last_dirs = App::auth()->user_prefs->interface->media_nb_last_dirs;
-        App::backend()->user_ui_nocheckadblocker   = App::auth()->user_prefs->interface->nocheckadblocker;
+        App::backend()->user_ui_nofavmenu          = App::auth()->prefs()->interface->nofavmenu;
+        App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
+        App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
 
         App::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -145,7 +144,7 @@ class UserPreferences extends Process
         # --BEHAVIOR-- adminRteFlagsV2 -- ArrayObject
         App::behavior()->callBehavior('adminRteFlagsV2', $rte);
         // Load user settings
-        $rte_flags = @App::auth()->user_prefs->interface->rte_flags;
+        $rte_flags = @App::auth()->prefs()->interface->rte_flags;
         if (is_array($rte_flags)) {
             foreach ($rte_flags as $fk => $fv) {
                 if (isset($rte[$fk])) {
@@ -166,7 +165,7 @@ class UserPreferences extends Process
             __('Ascending')  => 'asc',
         ];
         // All filters
-        App::backend()->auto_filter = App::auth()->user_prefs->interface->auto_filter;
+        App::backend()->auto_filter = App::auth()->prefs()->interface->auto_filter;
 
         return self::status(true);
     }
@@ -183,7 +182,7 @@ class UserPreferences extends Process
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
-                $cur = App::con()->openCursor(App::con()->prefix() . dcAuth::USER_TABLE_NAME);
+                $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
 
                 $cur->user_name        = App::backend()->user_name = $_POST['user_name'];
                 $cur->user_firstname   = App::backend()->user_firstname = $_POST['user_firstname'];
@@ -222,8 +221,8 @@ class UserPreferences extends Process
                 if (!empty($_POST['user_profile_urls'])) {
                     $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                 }
-                App::auth()->user_prefs->profile->put('mails', $mails, 'string');
-                App::auth()->user_prefs->profile->put('urls', $urls, 'string');
+                App::auth()->prefs()->profile->put('mails', $mails, 'string');
+                App::auth()->prefs()->profile->put('urls', $urls, 'string');
 
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, App::auth()->userID());
@@ -254,7 +253,7 @@ class UserPreferences extends Process
 
                 App::backend()->user_options = $user_options;
 
-                $cur = App::con()->openCursor(App::con()->prefix() . dcAuth::USER_TABLE_NAME);
+                $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
 
                 $cur->user_name        = App::backend()->user_name;
                 $cur->user_firstname   = App::backend()->user_firstname;
@@ -272,23 +271,23 @@ class UserPreferences extends Process
                 App::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, App::auth()->userID());
 
                 // Update user prefs
-                App::auth()->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
-                App::auth()->user_prefs->interface->put('theme', $_POST['user_ui_theme'], 'string');
-                App::auth()->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
-                App::auth()->user_prefs->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), 'boolean');
-                App::auth()->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
-                App::auth()->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
-                App::auth()->user_prefs->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
-                App::auth()->user_prefs->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
-                App::auth()->user_prefs->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
+                App::auth()->prefs()->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
+                App::auth()->prefs()->interface->put('theme', $_POST['user_ui_theme'], 'string');
+                App::auth()->prefs()->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
+                App::auth()->prefs()->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), 'boolean');
+                App::auth()->prefs()->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
+                App::auth()->prefs()->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
+                App::auth()->prefs()->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
+                App::auth()->prefs()->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
+                App::auth()->prefs()->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
                 if (App::auth()->isSuperAdmin()) {
                     # Applied to all users
-                    App::auth()->user_prefs->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
+                    App::auth()->prefs()->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
                 }
-                App::auth()->user_prefs->interface->put('media_nb_last_dirs', (int) $_POST['user_ui_media_nb_last_dirs'], 'integer');
-                App::auth()->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
-                App::auth()->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
-                App::auth()->user_prefs->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
+                App::auth()->prefs()->interface->put('media_nb_last_dirs', (int) $_POST['user_ui_media_nb_last_dirs'], 'integer');
+                App::auth()->prefs()->interface->put('media_last_dirs', [], 'array', null, false);
+                App::auth()->prefs()->interface->put('media_fav_dirs', [], 'array', null, false);
+                App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
 
                 // Update user columns (lists)
                 $cu = [];
@@ -307,7 +306,7 @@ class UserPreferences extends Process
                         $cu[$col_type] = $ct;
                     }
                 }
-                App::auth()->user_prefs->interface->put('cols', $cu, 'array');
+                App::auth()->prefs()->interface->put('cols', $cu, 'array');
 
                 // Update user lists options
                 $su = [];
@@ -328,16 +327,16 @@ class UserPreferences extends Process
                         $su[$sort_type][2] = isset($_POST[$k]) ? abs((int) $_POST[$k]) : $sort_data[4][1];
                     }
                 }
-                App::auth()->user_prefs->interface->put('sorts', $su, 'array');
+                App::auth()->prefs()->interface->put('sorts', $su, 'array');
                 // All filters
-                App::auth()->user_prefs->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), 'boolean');
+                App::auth()->prefs()->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), 'boolean');
 
                 // Update user HTML editor flags
                 $rf = [];
                 foreach (App::backend()->rte as $rk => $rv) {
                     $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true) ? true : false;
                 }
-                App::auth()->user_prefs->interface->put('rte_flags', $rf, 'array');
+                App::auth()->prefs()->interface->put('rte_flags', $rf, 'array');
 
                 // Update user
                 App::users()->updUser(App::auth()->userID(), $cur);
@@ -360,14 +359,14 @@ class UserPreferences extends Process
                 App::behavior()->callBehavior('adminBeforeDashboardOptionsUpdate', App::auth()->userID());
 
                 // Update user prefs
-                App::auth()->user_prefs->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), 'boolean');
-                App::auth()->user_prefs->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), 'boolean');
-                App::auth()->user_prefs->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), 'boolean');
-                App::auth()->user_prefs->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), 'boolean');
+                App::auth()->prefs()->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), 'boolean');
+                App::auth()->prefs()->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), 'boolean');
+                App::auth()->prefs()->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), 'boolean');
+                App::auth()->prefs()->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), 'boolean');
                 if (App::auth()->isSuperAdmin()) {
-                    App::auth()->user_prefs->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), 'boolean');
+                    App::auth()->prefs()->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), 'boolean');
                 }
-                App::auth()->user_prefs->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
+                App::auth()->prefs()->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 App::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', App::auth()->userID());
@@ -471,10 +470,10 @@ class UserPreferences extends Process
         if (!empty($_POST['resetorder'])) {
             // Reset dashboard items order
 
-            App::auth()->user_prefs->dashboard->drop('main_order');
-            App::auth()->user_prefs->dashboard->drop('boxes_order');
-            App::auth()->user_prefs->dashboard->drop('boxes_items_order');
-            App::auth()->user_prefs->dashboard->drop('boxes_contents_order');
+            App::auth()->prefs()->dashboard->drop('main_order');
+            App::auth()->prefs()->dashboard->drop('boxes_order');
+            App::auth()->prefs()->dashboard->drop('boxes_items_order');
+            App::auth()->prefs()->dashboard->drop('boxes_contents_order');
 
             if (!App::error()->flag()) {
                 Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));

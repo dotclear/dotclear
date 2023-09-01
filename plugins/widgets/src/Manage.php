@@ -225,7 +225,7 @@ class Manage extends Process
 
         $widget_editor = App::auth()->getOption('editor');
         $rte_flag      = true;
-        $rte_flags     = @App::auth()->user_prefs->interface->rte_flags;
+        $rte_flags     = @App::auth()->prefs()->interface->rte_flags;
         if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
@@ -239,7 +239,7 @@ class Manage extends Process
             ]) .
             My::jsLoad('widgets');
 
-        $user_dm_nodragdrop = App::auth()->user_prefs->accessibility->nodragdrop;
+        $user_dm_nodragdrop = App::auth()->prefs()->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
             $head .= My::jsLoad('dragdrop');
         }

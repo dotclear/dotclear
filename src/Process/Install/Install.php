@@ -10,9 +10,7 @@
 namespace Dotclear\Process\Install;
 
 use DateTimeZone;
-use dcAuth;
 use dcBlog;
-use dcCore;
 use dcSettings;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
@@ -149,7 +147,7 @@ class Install extends Process
                 $changes = $si->synchronize($_s);
 
                 # Create user
-                $cur                 = App::con()->openCursor(App::con()->prefix() . dcAuth::USER_TABLE_NAME);
+                $cur                 = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
                 $cur->user_id        = self::$u_login;
                 $cur->user_super     = 1;
                 $cur->user_pwd       = App::auth()->crypt(self::$u_pwd);
@@ -287,16 +285,16 @@ class Install extends Process
                 self::$plugins_install = App::plugins()->installModules();
 
                 # Add dashboard module options
-                App::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
-                App::auth()->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
-                App::auth()->user_prefs->dashboard->put('quickentry', true, 'boolean', '', false, true);
-                App::auth()->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+                App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
+                App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
+                App::auth()->prefs()->dashboard->put('quickentry', true, 'boolean', '', false, true);
+                App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
 
                 # Add accessibility options
-                App::auth()->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
+                App::auth()->prefs()->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
 
                 # Add user interface options
-                App::auth()->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', false, true);
+                App::auth()->prefs()->interface->put('enhanceduploader', true, 'boolean', '', false, true);
 
                 # Add default favorites
                 $favs      = new Favorites();

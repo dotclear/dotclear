@@ -90,7 +90,7 @@ class dcThemes extends dcModules
     {
         // Themes specifics properties
         $define->set('permissions', App::auth()->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            App::auth()::PERMISSION_ADMIN,
         ]));
 
         parent::defineModule($define);

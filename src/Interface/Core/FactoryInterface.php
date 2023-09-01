@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 // classes that move to \Dotclear\Core
-use dcAuth;
 use dcBlog;
 use dcPlugins;
 use dcThemes;
@@ -23,7 +22,7 @@ use Dotclear\Core\Frontend\Url;
 
 interface FactoryInterface
 {
-    public function auth(): dcAuth;
+    public function auth(): AuthInterface;
     public function behavior(): BehaviorInterface;
     public function blog(): ?dcBlog;
     public function blogLoader(): BlogLoaderInterface;

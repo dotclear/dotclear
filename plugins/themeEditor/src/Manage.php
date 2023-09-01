@@ -48,8 +48,8 @@ class Manage extends Process
         ]);
 
         # Get interface setting
-        App::backend()->user_ui_colorsyntax       = App::auth()->user_prefs->interface->colorsyntax;
-        App::backend()->user_ui_colorsyntax_theme = App::auth()->user_prefs->interface->colorsyntax_theme;
+        App::backend()->user_ui_colorsyntax       = App::auth()->prefs()->interface->colorsyntax;
+        App::backend()->user_ui_colorsyntax_theme = App::auth()->prefs()->interface->colorsyntax_theme;
 
         # Loading themes // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);

@@ -735,7 +735,7 @@ class dcBlog
     public function addCategory(Cursor $cur, int $parent = 0): int
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CATEGORIES,
+            App::auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to add categories'));
         }
@@ -791,7 +791,7 @@ class dcBlog
     public function updCategory(int $id, Cursor $cur): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CATEGORIES,
+            App::auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to update categories'));
         }
@@ -875,7 +875,7 @@ class dcBlog
     public function delCategory(int $id): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CATEGORIES,
+            App::auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to delete categories'));
         }
@@ -903,7 +903,7 @@ class dcBlog
     public function resetCategoriesOrder(): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CATEGORIES,
+            App::auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to reset categories order'));
         }
@@ -1122,7 +1122,7 @@ class dcBlog
             ->join(
                 (new JoinStatement())
                     ->inner()
-                    ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
+                    ->from($sql->as($this->prefix . App::auth()::USER_TABLE_NAME, 'U'))
                     ->on('U.user_id = P.user_id')
                     ->statement()
             )
@@ -1150,7 +1150,7 @@ class dcBlog
         }
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $user_id = App::auth()->userID();
 
@@ -1407,7 +1407,7 @@ class dcBlog
             ->and('post_lang IS NOT NULL');
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $and = ['post_status = ' . (string) self::POST_PUBLISHED];
             if ($this->without_password) {
@@ -1510,7 +1510,7 @@ class dcBlog
         }
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $and = ['post_status = ' . (string) self::POST_PUBLISHED];
             if ($this->without_password) {
@@ -1583,8 +1583,8 @@ class dcBlog
     public function addPost(Cursor $cur): int
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to create an entry'));
         }
@@ -1613,8 +1613,8 @@ class dcBlog
             $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
             if (!App::auth()->check(App::auth()->makePermissions([
-                dcAuth::PERMISSION_PUBLISH,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                App::auth()::PERMISSION_PUBLISH,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
                 $cur->post_status = self::POST_PENDING;
             }
@@ -1651,8 +1651,8 @@ class dcBlog
     public function updPost($id, Cursor $cur): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to update entries'));
         }
@@ -1673,8 +1673,8 @@ class dcBlog
         }
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $cur->unsetField('post_status');
         }
@@ -1683,7 +1683,7 @@ class dcBlog
 
         #If user is only "usage", we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql = new SelectStatement();
             $sql
@@ -1732,8 +1732,8 @@ class dcBlog
     public function updPostsStatus($ids, $status): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
@@ -1748,7 +1748,7 @@ class dcBlog
 
         #If user can only publish, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -1775,8 +1775,8 @@ class dcBlog
     public function updPostsFirstPub($ids, int $status): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
@@ -1791,7 +1791,7 @@ class dcBlog
 
         #If user can only publish, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -1829,8 +1829,8 @@ class dcBlog
     public function updPostsSelected($ids, $selected): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to change this entry category'));
         }
@@ -1845,7 +1845,7 @@ class dcBlog
 
         # If user is only usage, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -1881,8 +1881,8 @@ class dcBlog
     public function updPostsCategory($ids, $cat_id): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to change this entry category'));
         }
@@ -1897,7 +1897,7 @@ class dcBlog
 
         # If user is only usage, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -1922,8 +1922,8 @@ class dcBlog
     public function changePostsCategory($old_cat_id, $new_cat_id): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CATEGORIES,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CATEGORIES,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to change entries category'));
         }
@@ -1965,8 +1965,8 @@ class dcBlog
     public function delPosts($ids): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to delete entries'));
         }
@@ -1985,7 +1985,7 @@ class dcBlog
 
         #If user can only delete, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -2105,7 +2105,7 @@ class dcBlog
             ])
             ->from([
                 $sql->as($this->prefix . self::POST_TABLE_NAME, 'P'),
-                $sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'),
+                $sql->as($this->prefix . App::auth()::USER_TABLE_NAME, 'U'),
             ])
             ->where('P.user_id = U.user_id')
             ->and('blog_id = ' . $sql->quote($this->id))
@@ -2507,7 +2507,7 @@ class dcBlog
             ->join(
                 (new JoinStatement())
                     ->inner()
-                    ->from($sql->as($this->prefix . dcAuth::USER_TABLE_NAME, 'U'))
+                    ->from($sql->as($this->prefix . App::auth()::USER_TABLE_NAME, 'U'))
                     ->on('P.user_id = U.user_id')
                     ->statement()
             );
@@ -2524,7 +2524,7 @@ class dcBlog
         }
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $user_id = App::auth()->userID();
 
@@ -2709,8 +2709,8 @@ class dcBlog
     public function updComment($id, Cursor $cur): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to update comments'));
         }
@@ -2729,7 +2729,7 @@ class dcBlog
 
         #If user is only usage, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             if ($rs->user_id != App::auth()->userID()) {
                 throw new Exception(__('You are not allowed to update this comment'));
@@ -2741,8 +2741,8 @@ class dcBlog
         $cur->comment_upddt = date('Y-m-d H:i:s');
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $cur->unsetField('comment_status');
         }
@@ -2784,8 +2784,8 @@ class dcBlog
     public function updCommentsStatus($ids, $status): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_PUBLISH,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__("You are not allowed to change this comment's status"));
         }
@@ -2805,7 +2805,7 @@ class dcBlog
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sqlIn->and('tp.user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -2837,8 +2837,8 @@ class dcBlog
     public function delComments($ids): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to delete comments'));
         }
@@ -2874,7 +2874,7 @@ class dcBlog
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sqlIn->and('tp.user_id = ' . $sql->quote(App::auth()->userID()));
         }
@@ -2894,8 +2894,8 @@ class dcBlog
     public function delJunkComments(): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_DELETE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new Exception(__('You are not allowed to delete comments'));
         }
@@ -2911,7 +2911,7 @@ class dcBlog
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sqlIn->and('tp.user_id = ' . $sql->quote(App::auth()->userID()));
         }

@@ -145,7 +145,7 @@ class Wizard extends Process
 
                 if (function_exists('chmod')) {
                     try {
-                        @chmod(DC_RC_PATH, 0666);
+                        @chmod(DC_RC_PATH, 0o666);
                     } catch (Exception $e) {
                     }
                 }

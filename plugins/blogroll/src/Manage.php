@@ -221,7 +221,7 @@ class Manage extends Process
         }
 
         $head = Page::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
-        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('blogroll');
