@@ -49,7 +49,7 @@ class Factories
      *
      * @param   string  $container  The container ID
      */
-    public static function addContanier(string $container): void
+    public static function addContainer(string $container): void
     {
         if (!self::hasContainer($container)) {
             self::$stack[$container] = [];
@@ -77,7 +77,7 @@ class Factories
      * @param   string  $container  The container ID
      * @param   string  $factory    The factory class name
      */
-    public static function prepenFactory(string $container, string $factory): void
+    public static function prependFactory(string $container, string $factory): void
     {
         if (self::hasContainer($container)) {
             array_unshift(self::$stack[$container], $factory);
