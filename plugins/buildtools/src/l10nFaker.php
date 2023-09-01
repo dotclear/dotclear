@@ -40,14 +40,14 @@ class l10nFaker
         $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), App::auth()->getInfo('user_tz')) . "\n";
 
         $main .= "\n// Media sizes\n\n";
-        foreach (App::media()->thumb_sizes as $v) {
+        foreach (App::media()->getThumbSizes() as $v) {
             $main .= $this->fake_l10n($v[3]);
         }
 
         $post_types = App::postTypes()->dump();
         $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
-            $main .= $this->fake_l10n($v->label);
+            $main .= $this->fake_l10n($v->get('label'));
         }
         file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
 

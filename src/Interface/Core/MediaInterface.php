@@ -28,6 +28,35 @@ interface MediaInterface
     public function openCursor(): Cursor;
 
     /**
+     * Get post media instance
+     *
+     * @return  PostMediaInterface  The psot media handler
+     */
+    public function postMedia(): PostMediaInterface;
+
+    /**
+     * Get thumbnail file pattern.
+     *
+     * @param   string  $type   The thumbnail type (default, alpha, webp)
+     *
+     * @return  string  The file pattern
+     */
+    public function getThumbnailFilePattern(string $type = ''): string;
+
+    /**
+     * Get thumb sizes definniton.
+     * 
+     * Tubmnail sizes:
+     * - m: medium image
+     * - s: small image
+     * - t: thumbnail image
+     * - sq: square image
+     *
+     * @return array(<string>, <array>(<int>, <string>, <string>))
+     */
+    public function getThumbSizes(): array;
+
+    /**
      * Set media type filter.
      *
      * Correspond, if set, to the base mimetype (ex: "image" for "image/jpg" mimetype)
@@ -143,6 +172,20 @@ interface MediaInterface
      * @return void
      */
     public function setFileSort(string $type = 'name');
+
+    /**
+     * Get current dirs.
+     *
+     * @return array<int,File>
+     */
+    public function getDirs(): array;
+
+    /**
+     * Get current dirs.
+     *
+     * @return array<int,File>
+     */
+    public function getFiles(): array;
 
     /**
      * Gets current working directory content (using filesystem).
@@ -297,6 +340,15 @@ interface MediaInterface
      * @return  string  New media ID or false
      */
     public function uploadBits(string $name, string $bits): string;
+
+    /**
+     * Remove item
+     *
+     * Removes a file or directory which is relative to working directory.
+     *
+     * @param string    $name            Item to remove
+     */
+    public function removeItem(?string $name): void;
 
     /**
      * Removes a file.

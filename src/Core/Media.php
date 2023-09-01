@@ -109,12 +109,16 @@ class Media extends Manager implements MediaInterface
     /**
      * Thumbnail file pattern
      *
+     * @deprecated since 2.28, use self::getThumbnailFilePattern()
+     *
      * @var string
      */
     public $thumb_tp = '%s/.%s_%s.jpg';
 
     /**
      * Thumbnail file pattern (PNG with alpha layer)
+     *
+     * @deprecated since 2.28, use self::getThumbnailFilePattern('alpha')
      *
      * @var string
      */
@@ -123,16 +127,22 @@ class Media extends Manager implements MediaInterface
     /**
      * Thumbnail file pattern (WebP)
      *
+     * @deprecated since 2.28, use self::getThumbnailFilePattern('wepb')
+     *
      * @var string
      */
     public $thumb_tp_webp = '%s/.%s_%s.webp';
 
     /**
+     * Get available thumb sizes.
+     * 
      * Tubmnail sizes:
      * - m: medium image
      * - s: small image
      * - t: thumbnail image
      * - sq: square image
+     *
+     * @deprecated since 2.28, use self::getThumbnailCombo()
      *
      * @var array(<string>, <array>(<int>, <string>, <string>))
      */
@@ -250,52 +260,30 @@ class Media extends Manager implements MediaInterface
         return App::con()->openCursor($this->table);
     }
 
-    /**
-     * Get post media instance
-     *
-     * @return  PostMediaInterface  The psot media handler
-     */
     public function postMedia(): PostMediaInterface
     {
         return $this->postmedia;
     }
 
-    /**
-     * Set media type filter.
-     *
-     * Correspond, if set, to the base mimetype (ex: "image" for "image/jpg" mimetype)
-     * Might be image, audio, text, vidéo, application
-     *
-     * @param   string  $type The base mime type
-     */
+    public function getThumbnailFilePattern(string $type = ''): string
+    {
+        return match($type) {
+            'alpha' => $this->thumb_tp_alpha,
+            'webp'  => $this->thumb_tp_webp,
+            default => $this->thumb_tp,
+        };
+    }
+
+    public function getThumbSizes(): array
+    {
+        return $this->thumb_sizes;
+    }
+
     public function setFilterMimeType(string $type): void
     {
         $this->type = $type;
     }
 
-    /**
-     * Changes working directory.
-     *
-     * @param      string  $dir    The directory name
-     */
-    public function chdir(?string $dir): void
-    {
-        parent::chdir($dir);
-        $this->relpwd = preg_replace('/^' . preg_quote($this->root, '/') . '\/?/', '', $this->pwd);
-    }
-
-    /**
-     * Adds a new file handler for a given media type and event.
-     *
-     * Available events are:
-     * - create: file creation
-     * - update: file update
-     * - remove: file deletion
-     *
-     * @param      string           $type      The media type
-     * @param      string           $event     The event
-     * @param      callable|array   $function  The callback
-     */
     public function addFileHandler(string $type, string $event, $function)
     {
         if (is_callable($function)) {
@@ -319,14 +307,6 @@ class Media extends Manager implements MediaInterface
         }
     }
 
-    /**
-     * Returns HTML breadCrumb for media manager navigation.
-     *
-     * @param      string  $href   The URL pattern
-     * @param      string  $last   The last item pattern
-     *
-     * @return     string  HTML code
-     */
     public function breadCrumb(string $href, string $last = ''): string
     {
         $res = '';
@@ -345,6 +325,12 @@ class Media extends Manager implements MediaInterface
         }
 
         return $res;
+    }
+
+    public function chdir(?string $dir): void
+    {
+        parent::chdir($dir);
+        $this->relpwd = preg_replace('/^' . preg_quote($this->root, '/') . '\/?/', '', $this->pwd);
     }
 
     /**
@@ -532,11 +518,6 @@ class Media extends Manager implements MediaInterface
         return null;
     }
 
-    /**
-     * Sets the file sort.
-     *
-     * @param      string  $type   The type
-     */
     public function setFileSort(string $type = 'name')
     {
         if (in_array($type, ['size-asc', 'size-desc', 'name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
@@ -590,21 +571,11 @@ class Media extends Manager implements MediaInterface
         }
     }
 
-    /**
-     * Gets current working directory content (using filesystem).
-     */
     public function getFSDir()
     {
         parent::getDir();
     }
 
-    /**
-     * Gets current working directory content.
-     *
-     * @param      mixed      $type   The media type filter
-     *
-     * @throws     Exception
-     */
     public function getDir($type = null): void
     {
         if ($type) {
@@ -756,13 +727,6 @@ class Media extends Manager implements MediaInterface
         }
     }
 
-    /**
-     * Gets file by its id. Returns a filteItem object.
-     *
-     * @param      int     $id     The file identifier
-     *
-     * @return     File  The file.
-     */
     public function getFile(int $id): ?File
     {
         $sql = new SelectStatement();
@@ -798,13 +762,6 @@ class Media extends Manager implements MediaInterface
         return $this->fileRecord($rs);
     }
 
-    /**
-     * Search into media db (only).
-     *
-     * @param      string  $query  The search query
-     *
-     * @return     bool    true or false if nothing found
-     */
     public function searchMedia(string $query): bool
     {
         if ($query === '') {
@@ -863,16 +820,6 @@ class Media extends Manager implements MediaInterface
         return (count($f_res) ? true : false);
     }
 
-    /**
-     * Returns media items attached to a blog post. Result is an array containing
-     * Files objects.
-     *
-     * @param      int      $post_id    The post identifier
-     * @param      mixed    $media_id   The media identifier(s)
-     * @param      mixed    $link_type  The link type(s)
-     *
-     * @return     array   Array of Files.
-     */
     public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array
     {
         $params = [
@@ -898,15 +845,6 @@ class Media extends Manager implements MediaInterface
         return $res;
     }
 
-    /**
-     * Rebuilds database items collection. Optional <var>$pwd</var> parameter is
-     * the path where to start rebuild.
-     *
-     * @param      string     $pwd          The directory to rebuild
-     * @param      bool       $recursive    If true rebuild also sub-directories
-     *
-     * @throws     Exception
-     */
     public function rebuild(string $pwd = '', bool $recursive = false): void
     {
         if (!App::auth()->isSuperAdmin()) {
@@ -934,16 +872,6 @@ class Media extends Manager implements MediaInterface
         $this->rebuildDB($pwd);
     }
 
-    /**
-     * Rebuilds thumbnails. Optional <var>$pwd</var> parameter is
-     * the path where to start rebuild.
-     *
-     * @param      string     $pwd          The directory to rebuild
-     * @param      bool       $force        Recreate existing thumbnails if True
-     * @param      bool       $recursive    If true rebuild also sub-directories
-     *
-     * @throws     Exception
-     */
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void
     {
         if (!App::auth()->isSuperAdmin()) {
@@ -1013,11 +941,6 @@ class Media extends Manager implements MediaInterface
         }
     }
 
-    /**
-     * Makes a dir.
-     *
-     * @param      string  $name      the directory to create
-     */
     public function makeDir(?string $name): void
     {
         $name = Files::tidyFileName($name);
@@ -1027,13 +950,6 @@ class Media extends Manager implements MediaInterface
         App::behavior()->callBehavior('coreAfterMediaDirCreate', $name);
     }
 
-    /**
-     * Remove a dir.
-     *
-     * Removes a directory which is relative to working directory.
-     *
-     * @param string    $directory            Directory to remove
-     */
     public function removeDir(?string $directory): void
     {
         parent::removeDir($directory);
@@ -1042,20 +958,6 @@ class Media extends Manager implements MediaInterface
         App::behavior()->callBehavior('coreAfterMediaDirDelete', $directory);
     }
 
-    /**
-     * Creates or updates a file in database. Returns new media ID or false if
-     * file does not exist.
-     *
-     * @param      string     $name     The file name (relative to working directory)
-     * @param      string     $title    The file title
-     * @param      bool       $private  File is private
-     * @param      mixed      $dt       File date
-     * @param      bool       $force    The force flag
-     *
-     * @throws     Exception
-     *
-     * @return     integer|bool     New media ID or false
-     */
     public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true)
     {
         if (!App::auth()->check(App::auth()->makePermissions([
@@ -1142,14 +1044,6 @@ class Media extends Manager implements MediaInterface
         return $media_id;
     }
 
-    /**
-     * Updates a file in database.
-     *
-     * @param      File     $file     The file
-     * @param      File     $newFile  The new file
-     *
-     * @throws     Exception
-     */
     public function updateFile(File $file, File $newFile)
     {
         if (!App::auth()->check(App::auth()->makePermissions([
@@ -1243,16 +1137,6 @@ class Media extends Manager implements MediaInterface
         return $this->createFile($dest, $title, $private);
     }
 
-    /**
-     * Creates a file from binary content.
-     *
-     * @param      string     $name   The file name (relative to working directory)
-     * @param      string     $bits   The binary file contentits
-     *
-     * @throws     Exception
-     *
-     * @return     string     New media ID or false
-     */
     public function uploadBits(string $name, string $bits): string
     {
         if (!App::auth()->check(App::auth()->makePermissions([
@@ -1271,13 +1155,6 @@ class Media extends Manager implements MediaInterface
         return $id === false ? '' : (string) $id;
     }
 
-    /**
-     * Removes a file.
-     *
-     * @param      string     $file      filename
-     *
-     * @throws     Exception
-     */
     public function removeFile(?string $file): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
@@ -1312,15 +1189,6 @@ class Media extends Manager implements MediaInterface
         $this->callFileHandler(Files::getMimeType($media_file), 'remove', $file);
     }
 
-    /**
-     * Root directories
-     *
-     * Returns an array of directory under {@link $root} directory.
-     *
-     * @uses File
-     *
-     * @return array
-     */
     public function getDBDirs(): array
     {
         $dir = [];
@@ -1341,16 +1209,6 @@ class Media extends Manager implements MediaInterface
         return $dir;
     }
 
-    /**
-     * Extract zip file in current location.
-     *
-     * @param      File         $f           File object
-     * @param      bool         $create_dir  Create dir
-     *
-     * @throws     Exception
-     *
-     * @return     string     destination
-     */
     public function inflateZipFile(File $f, bool $create_dir = true): string
     {
         $zip = new Unzip($f->file);
@@ -1399,13 +1257,6 @@ class Media extends Manager implements MediaInterface
         return dirname($f->relname) . '/' . $destination;
     }
 
-    /**
-     * Gets the zip content.
-     *
-     * @param      File  $f      File object
-     *
-     * @return     array  The zip content.
-     */
     public function getZipContent(File $f): array
     {
         $zip  = new Unzip($f->file);
@@ -1415,11 +1266,6 @@ class Media extends Manager implements MediaInterface
         return $list;
     }
 
-    /**
-     * Calls file handlers registered for recreate event.
-     *
-     * @param      File  $f      File object
-     */
     public function mediaFireRecreateEvent(File $f): void
     {
         $media_type = Files::getMimeType($f->basename);
@@ -1428,15 +1274,7 @@ class Media extends Manager implements MediaInterface
 
     /* Image handlers
     ------------------------------------------------------- */
-    /**
-     * Create image thumbnails
-     *
-     * @param      Cursor  $cur    The Cursor
-     * @param      string  $f      Image filename
-     * @param      bool    $force  Force creation
-     *
-     * @return     bool
-     */
+
     public function imageThumbCreate(?Cursor $cur, string $f, bool $force = true): bool
     {
         $file = $this->pwd . '/' . $f;
@@ -1536,13 +1374,6 @@ class Media extends Manager implements MediaInterface
         return false;
     }
 
-    /**
-     * Remove image thumbnails
-     *
-     * @param      string  $f      Image filename
-     *
-     * @return  bool
-     */
     public function imageThumbRemove(string $f): bool
     {
         $p     = Path::info($f);
@@ -1617,18 +1448,6 @@ class Media extends Manager implements MediaInterface
         return true;
     }
 
-    /**
-     * Returns HTML code for audio player (HTML5)
-     *
-     * @param      string  $type      The audio mime type
-     * @param      string  $url       The audio URL to play
-     * @param      string  $player    The player URL
-     * @param      mixed   $args      The player arguments
-     * @param      bool    $fallback  The fallback
-     * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
-     *
-     * @return     string
-     */
     public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         return
@@ -1637,18 +1456,6 @@ class Media extends Manager implements MediaInterface
             '</audio>';
     }
 
-    /**
-     * Returns HTML code for video player (HTML5)
-     *
-     * @param      string  $type      The video mime type
-     * @param      string  $url       The video URL to play
-     * @param      string  $player    The player URL
-     * @param      mixed   $args      The player arguments
-     * @param      bool    $fallback  The fallback (not more used)
-     * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
-     *
-     * @return     string
-     */
     public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         $video = '';
@@ -1676,30 +1483,13 @@ class Media extends Manager implements MediaInterface
         return $video;
     }
 
-    /**
-     * Returns HTML code for MP3 player (HTML5)
-     *
-     * @param      string  $url       The audio URL to play
-     * @param      string  $player    The player URL
-     * @param      mixed   $args      The player arguments
-     * @param      bool    $fallback  The fallback (not more used)
-     * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
-     *
-     * @return     string
-     */
     public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         return self::audioPlayer('audio/mp3', $url, $player, $args, false, $preload);
     }
 
     /**
-     * Returns HTML code for FLV player
-     *
-     * @param      string  $url     The url
-     * @param      string  $player  The player
-     * @param      mixed   $args    The arguments
-     *
-     * @return     string
+     * Returns HTML code for FLV player.
      *
      * @deprecated since 2.15
      */
