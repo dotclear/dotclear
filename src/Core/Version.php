@@ -13,65 +13,53 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
-use Dotclear\Database\AbstractHandler;
+use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\VersionInterface;
 
-class Version
+class Version implements VersionInterface
 {
-    /** @var     string  Versions database table name */
     public const VERSION_TABLE_NAME = 'version';
 
-    /** @var    AbstractHandler     The dc connection instance */
-    private AbstractHandler $con;
-
     /** @var    array<string,string>    The version stack */
-    private array $stack = [];
+    private array $stack;
+
+    /** @var    string  Full table name (including db prefix) */
+    protected string $table;
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->con = dcCore::app()->con;
-        $this->loadVersions();
+        $this->table = App::con()->prefix() . self::VERSION_TABLE_NAME;
     }
 
-    /**
-     * Get the version of a module.
-     * 
-     * Since 2.28 getVersion() always returns string.
-     *
-     * @param 	string 	$module 	The module
-     *
-     * @return 	string 	The version.
-     */
+    public function openCursor(): Cursor
+    {
+        return App::con()->openCursor(App::con()->prefix() . self::VERSION_TABLE_NAME);
+    }
+
     public function getVersion(string $module = 'core'): string
     {
+        $this->loadVersions();
+
         return $this->stack[$module] ?? '';
     }
 
-    /**
-     * Get all known versions.
-     *
-     * @return  array<string,string>    The versions.
-     */
     public function getVersions(): array
     {
+        $this->loadVersions();
+
         return $this->stack;
     }
 
-    /**
-     * Set the version of a module.
-     *
-     * @param   string  $module     The module
-     * @param   string  $version    The version
-     */
     public function setVersion(string $module, string $version): void
     {
-        $cur = $this->con->openCursor($this->con->prefix() . self::VERSION_TABLE_NAME);
+        $cur = $this->openCursor();
         $cur->setField('module', $module);
         $cur->setField('version', $version);
 
@@ -86,16 +74,11 @@ class Version
         $this->stack[$module] = $version;
     }
 
-    /**
-     * Remove a module version entry.
-     *
-     * @param      string  $module  The module
-     */
     public function unsetVersion(string $module): void
     {
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . self::VERSION_TABLE_NAME)
+            ->from($this->table)
             ->where('module = ' . $sql->quote($module));
 
         $sql->delete();
@@ -103,35 +86,17 @@ class Version
         unset($this->stack[$module]);
     }
 
-    /**
-     * Compare the given version of a module with the registered one.
-     *
-     * Returned values:
-     *
-     * -1 : newer version already installed
-     * 0 : same version installed
-     * 1 : older version is installed
-     *
-     * @param   string  $module     The module
-     * @param   string  $version    The version
-     *
-     * @return  int     The test result
-     */
     public function compareVersion(string $module, string $version): int
     {
+        $this->loadVersions();
+
         return version_compare($version, $this->getVersion($module));
     }
 
-    /**
-     * Test if version is newer than the registered one.
-     *
-     * @param      string  $module   The module
-     * @param      string  $version  The version
-     *
-     * @return     bool     True if it is newer
-     */
     public function newerVersion(string $module, string $version): bool
     {
+        $this->loadVersions();
+
         return $this->compareVersion($module, $version) === 1;
     }
 
@@ -140,13 +105,13 @@ class Version
      */
     private function loadVersions(): void
     {
-        if (empty($this->stack)) {
+        if (!isset($this->stack)) {
             $rs = (new SelectStatement())
                 ->columns([
                     'module',
                     'version',
                 ])
-                ->from($this->con->prefix() . self::VERSION_TABLE_NAME)
+                ->from($this->table)
                 ->select();
 
             while ($rs->fetch()) {

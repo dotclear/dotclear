@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -34,19 +34,19 @@ class Search extends Process
 
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminSearchPageComboV2' => [static::class,'typeCombo'],
             'adminSearchPageHeadV2'  => [static::class,'pageHead'],
             // posts search
             'adminSearchPageProcessV2' => [static::class,'processPosts'],
             'adminSearchPageDisplayV2' => [static::class,'displayPosts'],
         ]);
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             // comments search
             'adminSearchPageProcessV2' => [static::class,'processComments'],
             'adminSearchPageDisplayV2' => [static::class,'displayComments'],
@@ -54,25 +54,25 @@ class Search extends Process
 
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
-        dcCore::app()->behavior->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
-        dcCore::app()->admin->qtype_combo = $qtype_combo;
+        App::behavior()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
+        App::backend()->qtype_combo = $qtype_combo;
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        dcCore::app()->admin->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
-        dcCore::app()->admin->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
+        App::backend()->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
+        App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
 
-        if (!empty(dcCore::app()->admin->q) && !in_array(dcCore::app()->admin->qtype, dcCore::app()->admin->qtype_combo)) {
-            dcCore::app()->admin->qtype = 'p';
+        if (!empty(App::backend()->q) && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
+            App::backend()->qtype = 'p';
         }
 
-        dcCore::app()->admin->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-        dcCore::app()->admin->nb   = UserPref::getUserFilters('search', 'nb');
+        App::backend()->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->nb   = UserPref::getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-            dcCore::app()->admin->nb = (int) $_GET['nb'];
+            App::backend()->nb = (int) $_GET['nb'];
         }
 
         return true;
@@ -80,14 +80,14 @@ class Search extends Process
 
     public static function render(): void
     {
-        $args = ['q' => dcCore::app()->admin->q, 'qtype' => dcCore::app()->admin->qtype, 'page' => dcCore::app()->admin->page, 'nb' => dcCore::app()->admin->nb];
+        $args = ['q' => App::backend()->q, 'qtype' => App::backend()->qtype, 'page' => App::backend()->page, 'nb' => App::backend()->nb];
 
         # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
-        $starting_scripts = dcCore::app()->admin->q ? dcCore::app()->behavior->callBehavior('adminSearchPageHeadV2', $args) : '';
+        $starting_scripts = App::backend()->q ? App::behavior()->callBehavior('adminSearchPageHeadV2', $args) : '';
 
-        if (dcCore::app()->admin->q) {
+        if (App::backend()->q) {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
-            dcCore::app()->behavior->callBehavior('adminSearchPageProcessV2', $args);
+            App::behavior()->callBehavior('adminSearchPageProcessV2', $args);
         }
 
         Page::open(
@@ -95,19 +95,19 @@ class Search extends Process
             $starting_scripts,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    __('Search')                                => '',
+                    Html::escapeHTML(App::blog()->name) => '',
+                    __('Search')                        => '',
                 ]
             )
         );
 
         echo
-        '<form action="' . dcCore::app()->admin->url->get('admin.search') . '" method="get" role="search">' .
+        '<form action="' . App::backend()->url->get('admin.search') . '" method="get" role="search">' .
         '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
         '<p><label for="q">' . __('Query:') . ' </label>' .
-        form::field('q', 30, 255, Html::escapeHTML(dcCore::app()->admin->q)) . '</p>' .
+        form::field('q', 30, 255, Html::escapeHTML(App::backend()->q)) . '</p>' .
         '<p><label for="qtype">' . __('In:') . '</label> ' .
-        form::combo('qtype', dcCore::app()->admin->qtype_combo, dcCore::app()->admin->qtype) . '</p>' .
+        form::combo('qtype', App::backend()->qtype_combo, App::backend()->qtype) . '</p>' .
         '<p><input type="submit" value="' . __('Search') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         form::hidden('process', 'Search') .
@@ -115,11 +115,11 @@ class Search extends Process
         '</div>' .
         '</form>';
 
-        if (dcCore::app()->admin->q && !dcCore::app()->error->flag()) {
+        if (App::backend()->q && !App::error()->flag()) {
             ob_start();
 
             # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
-            dcCore::app()->behavior->callBehavior('adminSearchPageDisplayV2', $args);
+            App::behavior()->callBehavior('adminSearchPageDisplayV2', $args);
 
             $res = ob_get_contents();
             ob_end_clean();
@@ -162,14 +162,14 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = (int) dcCore::app()->blog->getPosts($params, true)->f(0);
-            self::$list    = new ListingPosts(dcCore::app()->blog->getPosts($params), self::$count);
-            self::$actions = new ActionsPosts(dcCore::app()->admin->url->get('admin.search'), $args);
+            self::$count   = (int) App::blog()->getPosts($params, true)->f(0);
+            self::$list    = new ListingPosts(App::blog()->getPosts($params), self::$count);
+            self::$actions = new ActionsPosts(App::backend()->url->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 
@@ -186,7 +186,7 @@ class Search extends Process
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . dcCore::app()->admin->url->get('admin.search') . '" method="post" id="form-entries">' .
+            '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
 
@@ -196,7 +196,7 @@ class Search extends Process
             '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            dcCore::app()->nonce->getFormNonce() .
+            App::nonce()->getFormNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
@@ -217,14 +217,14 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = dcCore::app()->blog->getComments($params, true)->f(0);
-            self::$list    = new ListingComments(dcCore::app()->blog->getComments($params), self::$count);
-            self::$actions = new ActionsComments(dcCore::app()->admin->url->get('admin.search'), $args);
+            self::$count   = App::blog()->getComments($params, true)->f(0);
+            self::$list    = new ListingComments(App::blog()->getComments($params), self::$count);
+            self::$actions = new ActionsComments(App::backend()->url->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 
@@ -239,17 +239,17 @@ class Search extends Process
         }
 
         // IP are available only for super-admin and admin
-        $show_ip = dcCore::app()->auth->check(
-            dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        $show_ip = App::auth()->check(
+            App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            dcCore::app()->blog->id
+            App::blog()->id
         );
 
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . dcCore::app()->admin->url->get('admin.search') . '" method="post" id="form-comments">' .
+            '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
 
@@ -259,7 +259,7 @@ class Search extends Process
             '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            dcCore::app()->nonce->getFormNonce() .
+            App::nonce()->getFormNonce() .
             str_replace('%', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>',

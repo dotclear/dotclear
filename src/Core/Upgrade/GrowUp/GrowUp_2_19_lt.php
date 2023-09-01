@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcCore;
 use dcNamespace;
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_19_lt
@@ -44,13 +44,13 @@ class GrowUp_2_19_lt
         );
 
         # Global settings
-        $strReq = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        dcCore::app()->con->execute(
+        App::con()->execute(
             sprintf($strReq, 'prevents_clickjacking', (string) true, 'boolean', 'Prevents Clickjacking')
         );
-        dcCore::app()->con->execute(
+        App::con()->execute(
             sprintf($strReq, 'prevents_floc', (string) true, 'boolean', 'Prevents FLoC tracking')
         );
 

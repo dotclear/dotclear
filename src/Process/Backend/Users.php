@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Backend\Filter\FilterUsers;
 use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -41,15 +41,15 @@ class Users extends Process
         ];
 
         # --BEHAVIOR-- adminUsersActionsCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminUsersActionsCombo', [& $combo_action]);
+        App::behavior()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 
-        dcCore::app()->admin->combo_action = $combo_action;
+        App::backend()->combo_action = $combo_action;
 
         // Filters
-        dcCore::app()->admin->user_filter = new FilterUsers();
+        App::backend()->user_filter = new FilterUsers();
 
         // get list params
-        $params = dcCore::app()->admin->user_filter->params();
+        $params = App::backend()->user_filter->params();
 
         // lexical sort
         $sortby_lex = [
@@ -60,33 +60,33 @@ class Users extends Process
             'user_displayname' => 'user_displayname', ];
 
         # --BEHAVIOR-- adminUsersSortbyLexCombo -- array<int,array<string,string>>
-        dcCore::app()->behavior->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
+        App::behavior()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
-        $params['order'] = (array_key_exists(dcCore::app()->admin->user_filter->sortby, $sortby_lex) ?
-            dcCore::app()->con->lexFields($sortby_lex[dcCore::app()->admin->user_filter->sortby]) :
-            dcCore::app()->admin->user_filter->sortby) . ' ' . dcCore::app()->admin->user_filter->order;
+        $params['order'] = (array_key_exists(App::backend()->user_filter->sortby, $sortby_lex) ?
+            App::con()->lexFields($sortby_lex[App::backend()->user_filter->sortby]) :
+            App::backend()->user_filter->sortby) . ' ' . App::backend()->user_filter->order;
 
         // List
-        dcCore::app()->admin->user_list = null;
+        App::backend()->user_list = null;
 
         try {
             # --BEHAVIOR-- adminGetUsers
             $params = new ArrayObject($params);
             # --BEHAVIOR-- adminGetUsers -- ArrayObject
-            dcCore::app()->behavior->callBehavior('adminGetUsers', $params);
+            App::behavior()->callBehavior('adminGetUsers', $params);
 
-            $rs       = dcCore::app()->users->getUsers($params);
-            $counter  = dcCore::app()->users->getUsers($params, true);
+            $rs       = App::users()->getUsers($params);
+            $counter  = App::users()->getUsers($params, true);
             $rsStatic = $rs->toStatic();
-            if (dcCore::app()->admin->user_filter->sortby != 'nb_post') {
+            if (App::backend()->user_filter->sortby != 'nb_post') {
                 // Sort user list using lexical order if necessary
                 $rsStatic->extend('rsExtUser');
                 $rsStatic = $rsStatic->toExtStatic();
-                $rsStatic->lexicalSort(dcCore::app()->admin->user_filter->sortby, dcCore::app()->admin->user_filter->order);
+                $rsStatic->lexicalSort(App::backend()->user_filter->sortby, App::backend()->user_filter->order);
             }
-            dcCore::app()->admin->user_list = new ListingUsers($rsStatic, $counter->f(0));
+            App::backend()->user_list = new ListingUsers($rsStatic, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -96,7 +96,7 @@ class Users extends Process
     {
         Page::open(
             __('Users'),
-            Page::jsLoad('js/_users.js') . dcCore::app()->admin->user_filter->js(dcCore::app()->admin->url->get('admin.users')),
+            Page::jsLoad('js/_users.js') . App::backend()->user_filter->js(App::backend()->url->get('admin.users')),
             Page::breadcrumb(
                 [
                     __('System') => '',
@@ -105,7 +105,7 @@ class Users extends Process
             )
         );
 
-        if (!dcCore::app()->error->flag()) {
+        if (!App::error()->flag()) {
             if (!empty($_GET['del'])) {
                 Notices::message(__('User has been successfully removed.'));
             }
@@ -113,16 +113,16 @@ class Users extends Process
                 Notices::message(__('The permissions have been successfully updated.'));
             }
 
-            echo '<p class="top-add"><a class="button add" href="' . dcCore::app()->admin->url->get('admin.user') . '">' . __('New user') . '</a></p>';
+            echo '<p class="top-add"><a class="button add" href="' . App::backend()->url->get('admin.user') . '">' . __('New user') . '</a></p>';
 
-            dcCore::app()->admin->user_filter->display('admin.users');
+            App::backend()->user_filter->display('admin.users');
 
             // Show users
-            dcCore::app()->admin->user_list->display(
-                dcCore::app()->admin->user_filter->page,
-                dcCore::app()->admin->user_filter->nb,
+            App::backend()->user_list->display(
+                App::backend()->user_filter->page,
+                App::backend()->user_filter->nb,
                 (new Form('form-users'))
-                    ->action(dcCore::app()->admin->url->get('admin.user.actions'))
+                    ->action(App::backend()->url->get('admin.user.actions'))
                     ->method('post')
                     ->fields([
                         new Text('', '%s'),
@@ -141,16 +141,16 @@ class Users extends Process
                                              ))
                                              ->class('classic')
                                          )
-                                         ->items(dcCore::app()->admin->combo_action),
-                                     dcCore::app()->nonce->formNonce(),
+                                         ->items(App::backend()->combo_action),
+                                     App::nonce()->formNonce(),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
-                                     ...dcCore::app()->admin->url->hiddenFormFields('admin.user.actions', dcCore::app()->admin->user_filter->values(true)),
+                                     ...App::backend()->url->hiddenFormFields('admin.user.actions', App::backend()->user_filter->values(true)),
                                  ]),
                              ]),
                     ])
                     ->render(),
-                dcCore::app()->admin->user_filter->show()
+                App::backend()->user_filter->show()
             );
         }
         Page::helpBlock('core_users');

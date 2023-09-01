@@ -12,8 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcCore;
-use dcLog;
+use Dotclear\App;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
 class Logs extends MaintenanceTask
@@ -57,12 +56,12 @@ class Logs extends MaintenanceTask
     public function execute()
     {
         if (static::$keep_maintenance_logs) {
-            dcCore::app()->con->execute(
-                'DELETE FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
+            App::con()->execute(
+                'DELETE FROM ' . App::con()->prefix() . App::log()::LOG_TABLE_NAME . ' ' .
                 "WHERE log_table <> 'maintenance' "
             );
         } else {
-            dcCore::app()->log->delLogs(null, true);
+            App::log()->delAllLogs();
         }
 
         return true;

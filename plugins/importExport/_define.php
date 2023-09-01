@@ -8,15 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\App;
+
 $this->registerModule(
     'Import / Export',                // Name
     'Import and Export your blog',    // Description
     'Olivier Meunier & Contributors', // Author
     '4.0',                            // Version
     [
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_ADMIN,
         ]),
-        'type'        => 'plugin',
+        'type' => 'plugin',
     ]
 );

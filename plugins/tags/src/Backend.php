@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 
@@ -34,7 +34,7 @@ class Backend extends Process
 
         My::addBackendMenuItem(Menus::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminPostFormItems' => BackendBehaviors::tagsField(...),
 
             'adminAfterPostCreate' => BackendBehaviors::setTags(...),

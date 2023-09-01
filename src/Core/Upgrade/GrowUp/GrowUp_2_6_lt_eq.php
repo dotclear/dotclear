@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcCore;
 use dcNamespace;
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\File\Files;
 
@@ -50,11 +50,11 @@ class GrowUp_2_6_lt_eq
         }
 
         # Some settings change, prepare db queries
-        $strReqFormat = 'INSERT INTO ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
+        $strReqFormat = 'INSERT INTO ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
         $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
         $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
 
-        $strReqSelect = 'SELECT count(1) FROM ' . dcCore::app()->prefix . dcNamespace::NS_TABLE_NAME;
+        $strReqSelect = 'SELECT count(1) FROM ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
         $strReqSelect .= ' WHERE setting_id = \'%s\'';
         $strReqSelect .= ' AND setting_ns = \'system\'';
         $strReqSelect .= ' AND blog_id IS NULL';
@@ -68,27 +68,27 @@ class GrowUp_2_6_lt_eq
             $date_formats = array_map(fn ($f) => str_replace('%e', '%#d', $f), $date_formats);
         }
 
-        $rs = dcCore::app()->con->select(sprintf($strReqSelect, 'date_formats'));
+        $rs = App::con()->select(sprintf($strReqSelect, 'date_formats'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'date_formats', serialize($date_formats), 'Date formats examples');
-            dcCore::app()->con->execute($strReq);
+            App::con()->execute($strReq);
         }
-        $rs = dcCore::app()->con->select(sprintf($strReqSelect, 'time_formats'));
+        $rs = App::con()->select(sprintf($strReqSelect, 'time_formats'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'time_formats', serialize($time_formats), 'Time formats examples');
-            dcCore::app()->con->execute($strReq);
+            App::con()->execute($strReq);
         }
 
         # Add repository URL for themes and plugins as daInstaller move to core
-        $rs = dcCore::app()->con->select(sprintf($strReqSelect, 'store_plugin_url'));
+        $rs = App::con()->select(sprintf($strReqSelect, 'store_plugin_url'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'Plugins XML feed location');
-            dcCore::app()->con->execute($strReq);
+            App::con()->execute($strReq);
         }
-        $rs = dcCore::app()->con->select(sprintf($strReqSelect, 'store_theme_url'));
+        $rs = App::con()->select(sprintf($strReqSelect, 'store_theme_url'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'Themes XML feed location');
-            dcCore::app()->con->execute($strReq);
+            App::con()->execute($strReq);
         }
 
         return $cleanup_sessions;

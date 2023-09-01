@@ -14,8 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use dcCore;
-use dcLog;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
 class Maintenance
@@ -59,7 +58,7 @@ class Maintenance
     protected function init(): void
     {
         # --BEHAVIOR-- dcMaintenanceInit -- Maintenance
-        dcCore::app()->behavior->callBehavior('dcMaintenanceInit', $this);
+        App::behavior()->callBehavior('dcMaintenanceInit', $this);
     }
 
     /// @name Tab methods
@@ -216,10 +215,10 @@ class Maintenance
         }
 
         // Get logs from this task
-        $rs = new MetaRecord(dcCore::app()->con->select(
+        $rs = new MetaRecord(App::con()->select(
             'SELECT log_id ' .
-            'FROM ' . dcCore::app()->prefix . dcLog::LOG_TABLE_NAME . ' ' .
-            "WHERE log_msg = '" . dcCore::app()->con->escape($id) . "' " .
+            'FROM ' . App::con()->prefix() . App::log()::LOG_TABLE_NAME . ' ' .
+            "WHERE log_msg = '" . App::con()->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         ));
 
@@ -230,17 +229,17 @@ class Maintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            dcCore::app()->log->delLogs($logs);
+            App::log()->delLogs($logs);
         }
 
         // Add new log
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME);
+        $cur = App::log()->openCursor();
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';
-        $cur->user_id   = dcCore::app()->auth->userID();
+        $cur->user_id   = App::auth()->userID();
 
-        dcCore::app()->log->addLog($cur);
+        App::log()->addLog($cur);
     }
 
     /**
@@ -249,7 +248,7 @@ class Maintenance
     public function delLogs(): void
     {
         // Retrieve logs from this task
-        $rs = dcCore::app()->log->getLogs([
+        $rs = App::log()->getLogs([
             'log_table' => 'maintenance',
             'blog_id'   => '*',
         ]);
@@ -261,7 +260,7 @@ class Maintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            dcCore::app()->log->delLogs($logs);
+            App::log()->delLogs($logs);
         }
     }
 
@@ -280,7 +279,7 @@ class Maintenance
     public function getLogs(): array
     {
         if ($this->logs === null) {
-            $rs = dcCore::app()->log->getLogs([
+            $rs = App::log()->getLogs([
                 'log_table' => 'maintenance',
                 'blog_id'   => '*',
             ]);
@@ -289,7 +288,7 @@ class Maintenance
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == dcCore::app()->blog->id,
+                    'blog' => $rs->blog_id == App::blog()->id,
                 ];
             }
         }

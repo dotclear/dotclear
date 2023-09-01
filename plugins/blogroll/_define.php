@@ -8,15 +8,17 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\App;
+
 $this->registerModule(
     'Blogroll',             // Name
     'Manage your blogroll', // Description
     'Olivier Meunier',      // Author
     '2.0',                  // Version
     [
-        'permissions' => dcCore::app()->auth->makePermissions([
+        'permissions' => App::auth()->makePermissions([
             initBlogroll::PERMISSION_BLOGROLL,
         ]),
-        'type'        => 'plugin',
+        'type' => 'plugin',
     ]
 );

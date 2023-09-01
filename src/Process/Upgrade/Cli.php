@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Upgrade;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
 use Exception;
@@ -36,16 +36,16 @@ class Cli extends Process
 
         try {
             echo "Starting upgrade process\n";
-            dcCore::app()->con->begin();
+            App::con()->begin();
 
             try {
                 $changes = (int) Upgrade::dotclearUpgrade();
             } catch (Exception $e) {
-                dcCore::app()->con->rollback();
+                App::con()->rollback();
 
                 throw $e;
             }
-            dcCore::app()->con->commit();
+            App::con()->commit();
             echo 'Upgrade process successfully completed (' . $changes . "). \n";
             exit(0);
         } catch (Exception $e) {

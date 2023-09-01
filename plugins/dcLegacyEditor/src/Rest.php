@@ -12,8 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use dcCore;
-use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\App;
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
@@ -35,14 +34,14 @@ class Rest
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
-            if (!isset(dcCore::app()->filter->wiki)) {
-                dcCore::app()->filter->initWikiPost();
+            if (!App::filter()->wiki()) {
+                App::filter()->initWikiPost();
             }
-            $html = dcCore::app()->formater->callEditorFormater(My::id(), 'wiki', $wiki);
+            $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
             $ret  = strlen($html) > 0;
 
             if ($ret) {
-                $media_root = dcCore::app()->blog->host;
+                $media_root = App::blog()->host;
                 $html       = preg_replace_callback('/src="([^\"]*)"/', function ($matches) use ($media_root) {
                     if (!preg_match('/^http(s)?:\/\//', $matches[1])) {
                         // Relative URL, convert to absolute

@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
@@ -45,7 +45,7 @@ class ActionsPosts extends Actions
         // We could have added a behavior here, but we want default action to be setup first
         ActionsPostsDefault::adminPostsActionsPage($this);
         # --BEHAVIOR-- adminPostsActions -- Actions
-        dcCore::app()->behavior->callBehavior('adminPostsActions', $this);
+        App::behavior()->callBehavior('adminPostsActions', $this);
     }
 
     /**
@@ -100,13 +100,13 @@ class ActionsPosts extends Actions
      */
     public function error(Exception $e)
     {
-        dcCore::app()->error->add($e->getMessage());
+        App::error()->add($e->getMessage());
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    $this->getCallerTitle()                     => $this->getRedirection(true),
-                    __('Posts actions')                         => '',
+                    Html::escapeHTML(App::blog()->name) => '',
+                    $this->getCallerTitle()             => $this->getRedirection(true),
+                    __('Posts actions')                 => '',
                 ]
             )
         );
@@ -141,7 +141,7 @@ class ActionsPosts extends Actions
             $params['post_type'] = $from['post_type'];
         }
 
-        $rs = dcCore::app()->blog->getPosts($params);
+        $rs = App::blog()->getPosts($params);
         while ($rs->fetch()) {
             $this->entries[$rs->post_id] = $rs->post_title;
         }

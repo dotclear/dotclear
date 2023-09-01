@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use dcCore;
 use Dotclear\Helper\Text;
 
 class WidgetsStack
@@ -42,7 +41,7 @@ class WidgetsStack
             $o = $s;
         }
 
-        return $o ? self::loadArray($o, dcCore::app()->widgets) : new self();
+        return $o ? self::loadArray($o, Widgets::$widgets) : new self();
     }
 
     /**

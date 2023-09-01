@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use Exception;
-use dcCore;
 use dcModuleDefine;
+use Dotclear\App;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -105,16 +105,16 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->user_theme   = Path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
+        $this->user_theme   = Path::real(App::blog()->themes_path . '/' . App::blog()->settings->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
-        if (null !== dcCore::app()->themes) {
-            $parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'parent');
+        if (null !== App::themes()) {
+            $parent_theme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'parent');
             if ($parent_theme) {
-                $this->parent_theme = Path::real(dcCore::app()->blog->themes_path . '/' . $parent_theme);
+                $this->parent_theme = Path::real(App::blog()->themes_path . '/' . $parent_theme);
                 $this->parent_name  = $parent_theme;
             }
-            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+            $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
             if ($tplset) {
                 $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
                 $this->tplset_name  = $tplset;
@@ -450,7 +450,7 @@ class ThemeEditor
         $this->tpl = array_merge($this->tpl, $this->getFilesInDir($this->user_theme . '/tpl'));
 
         # Then we look in Utility::TPL_ROOT plugins directory
-        foreach (dcCore::app()->plugins->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
+        foreach (App::plugins()->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
             // Looking in Utility::TPL_ROOT directory
             $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl);
             $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl_model);

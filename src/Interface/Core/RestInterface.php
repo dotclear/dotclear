@@ -1,0 +1,68 @@
+<?php
+/**
+ * Rest server hanlder interface.
+ *
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Interface\Core;
+
+interface RestInterface
+{
+    /** @var    int     XML response format */
+    public const XML_RESPONSE = 0;
+
+    /** @var    int     JSON response format */
+    public const JSON_RESPONSE = 1;
+
+    /** @var    int     Default response format */
+    public const DEFAULT_RESPONSE = self::XML_RESPONSE;
+
+    /**
+     * Add Function
+     *
+     * This adds a new function to the server. <var>$callback</var> should be a valid PHP callback.
+     *
+     * Callback function takes two or three arguments:
+     *  - supplemental parameter (if not null)
+     *  - GET values
+     *  - POST values
+     *
+     * @param string            $name        Function name
+     * @param callable|array    $callback    Callback function
+     */
+    public function addFunction(string $name, $callback): void;
+
+    /**
+     * Main server
+     *
+     * This method creates the main server.
+     *
+     * @param string    $encoding       Server charset
+     * @param int       $format         Response format
+     * @param mixed     $param          Supplemental parameter
+     *
+     * @return bool
+     */
+    public function serve(string $encoding = 'UTF-8', int $format = self::DEFAULT_RESPONSE, $param = null): bool;
+
+    /**
+     * Serve or not the REST requests.
+     *
+     * Using a file as token
+     *
+     * @param      bool  $serve  The flag
+     */
+    public function enableRestServer(bool $serve = true): void;
+
+    /**
+     * Check if we need to serve REST requests.
+     *
+     * @return     bool
+     */
+    public function serveRestRequests(): bool;
+}

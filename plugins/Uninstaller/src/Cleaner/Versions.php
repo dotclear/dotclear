@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use dcCore;
+use Dotclear\App;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Plugin\Uninstaller\{
     CleanerParent,
@@ -25,7 +26,7 @@ use Dotclear\Plugin\Uninstaller\{
  * Cleaner for Dotclear modules versions.
  *
  * It allows modules to delete their versions
- * from Dotclear dcCore::VERSION_TABLE_NAME database table.
+ * from Dotclear App::version()::VERSION_TABLE_NAME database table.
  */
 class Versions extends CleanerParent
 {
@@ -62,7 +63,7 @@ class Versions extends CleanerParent
     {
         $sql = new SelectStatement();
         $rs  = $sql
-            ->from(dcCore::app()->prefix . dcCore::VERSION_TABLE_NAME)
+            ->from(App::con()->prefix() . App::version()::VERSION_TABLE_NAME)
             ->columns(['module', 'version'])
             ->order('module ASC')
             ->select();
@@ -86,9 +87,9 @@ class Versions extends CleanerParent
     public function execute(string $action, string $ns): bool
     {
         if ($action == 'delete') {
-            dcCore::app()->con->execute(
-                'DELETE FROM  ' . dcCore::app()->prefix . dcCore::VERSION_TABLE_NAME . ' ' .
-                "WHERE module = '" . dcCore::app()->con->escapeStr((string) $ns) . "' "
+            App::con()->execute(
+                'DELETE FROM  ' . App::con()->prefix() . App::version()::VERSION_TABLE_NAME . ' ' .
+                "WHERE module = '" . App::con()->escapeStr((string) $ns) . "' "
             );
 
             return true;

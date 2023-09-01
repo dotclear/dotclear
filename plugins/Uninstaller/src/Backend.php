@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use dcCore;
 use dcModuleDefine;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
@@ -32,11 +32,11 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             // add "unsinstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, dcModuleDefine $define): string {
                 // do not unsintall current theme
-                if ($define->get('type') == 'theme' && $define->getId() == dcCore::app()->blog?->settings->get('system')->get('theme')) {
+                if ($define->get('type') == 'theme' && $define->getId() == App::blog()?->settings->get('system')->get('theme')) {
                     return '';
                 }
 
@@ -82,8 +82,8 @@ class Backend extends Process
             // Do not perform action on disabled module if a duplicate exists.
             if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
                 if (!in_array($define->get('type'), ['plugin', 'theme'])
-                    || $define->get('type') == 'plugin' && 1 < count(dcCore::app()->plugins->getDefines(['id' => $define->getId()]))
-                    || $define->get('type') == 'theme'  && 1 < count(dcCore::app()->themes->getDefines(['id' => $define->getId()]))
+                    || $define->get('type') == 'plugin' && 1 < count(App::plugins()->getDefines(['id' => $define->getId()]))
+                    || $define->get('type') == 'theme'  && 1 < count(App::themes()->getDefines(['id' => $define->getId()]))
                 ) {
                     return;
                 }
@@ -95,7 +95,7 @@ class Backend extends Process
                     if ($uninstaller->execute($cleaner, $action->id, $action->ns)) {
                         $done[] = $action->success;
                     } else {
-                        dcCore::app()->error->add($action->error);
+                        App::error()->add($action->error);
                     }
                 }
             }
@@ -105,13 +105,13 @@ class Backend extends Process
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
                 Notices::addSuccessNotice(implode('<br />', $done));
                 if ($define->get('type') == 'theme') {
-                    dcCore::app()->admin->url->redirect(name: 'admin.blog.theme', suffix: '#themes');
+                    App::backend()->url->redirect(name: 'admin.blog.theme', suffix: '#themes');
                 } else {
-                    dcCore::app()->admin->url->redirect(name: 'admin.plugins', suffix: '#plugins');
+                    App::backend()->url->redirect(name: 'admin.plugins', suffix: '#plugins');
                 }
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
     }
 

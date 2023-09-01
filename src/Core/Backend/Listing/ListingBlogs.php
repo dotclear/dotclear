@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -48,7 +48,7 @@ class ListingBlogs extends Listing
 
             $cols = [
                 'blog' => '<th' .
-                (dcCore::app()->auth->isSuperAdmin() ? ' colspan="2"' : '') .
+                (App::auth()->isSuperAdmin() ? ' colspan="2"' : '') .
                 ' scope="col" abbr="comm" class="first nowrap">' . __('Blog id') . '</th>',
                 'name'   => '<th scope="col" abbr="name">' . __('Blog name') . '</th>',
                 'url'    => '<th scope="col" class="nowrap">' . __('URL') . '</th>',
@@ -60,7 +60,7 @@ class ListingBlogs extends Listing
             $cols = new ArrayObject($cols);
 
             # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
+            App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('blogs', $cols);
@@ -117,19 +117,19 @@ class ListingBlogs extends Listing
         $blog_id = Html::escapeHTML($this->rs->blog_id);
 
         $cols = [
-            'check' => (dcCore::app()->auth->isSuperAdmin() ?
+            'check' => (App::auth()->isSuperAdmin() ?
                 '<td class="nowrap">' .
                 form::checkbox(['blogs[]'], $this->rs->blog_id, $checked) .
                 '</td>' : ''),
             'blog' => '<td class="nowrap">' .
-            (dcCore::app()->auth->isSuperAdmin() ?
-                '<a href="' . dcCore::app()->admin->url->get('admin.blog', ['id' => $blog_id]) . '"  ' .
+            (App::auth()->isSuperAdmin() ?
+                '<a href="' . App::backend()->url->get('admin.blog', ['id' => $blog_id]) . '"  ' .
                 'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
                 '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '" /> ' . $blog_id . '</a> ' :
                 $blog_id . ' ') .
             '</td>',
             'name' => '<td class="maximal">' .
-            '<a href="' . dcCore::app()->admin->url->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
+            '<a href="' . App::backend()->url->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
             'title="' . sprintf(__('Switch to blog %s'), $this->rs->blog_id) . '">' .
             Html::escapeHTML($this->rs->blog_name) . '</a>' .
             '</td>',
@@ -138,25 +138,25 @@ class ListingBlogs extends Listing
             Html::escapeHTML($this->rs->blog_url) . '">' . Html::escapeHTML($this->rs->blog_url) .
             ' <img src="images/outgoing-link.svg" alt="" /></a></td>',
             'posts' => '<td class="nowrap count">' .
-            dcCore::app()->blogs->countBlogPosts($this->rs->blog_id) .
+            App::blogs()->countBlogPosts($this->rs->blog_id) .
             '</td>',
             'upddt' => '<td class="nowrap count">' .
-            '<time datetime="' . Date::iso8601(strtotime($this->rs->blog_upddt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-            Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'))) .
+            '<time datetime="' . Date::iso8601(strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz')) . '">' .
+            Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz'))) .
             '</time>' .
             '</td>',
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
                 '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
                 ($this->rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
-                dcCore::app()->blogs->getBlogStatus((int) $this->rs->blog_status)
+                App::blogs()->getBlogStatus((int) $this->rs->blog_status)
             ) .
             '</td>',
         ];
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminBlogListValueV2', $this->rs, $cols);
+        App::behavior()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('blogs', $cols);

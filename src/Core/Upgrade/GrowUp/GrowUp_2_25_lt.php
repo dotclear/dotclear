@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Database\Statement\SelectStatement;
 
@@ -24,14 +24,14 @@ class GrowUp_2_25_lt
         // Remove removed blogs from users default blog
         $ids = [];
         $rs  = (new SelectStatement())
-            ->from(dcCore::app()->prefix . dcBlog::BLOG_TABLE_NAME)
+            ->from(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME)
             ->where('blog_status = ' . dcBlog::BLOG_REMOVED)
             ->select();
         while ($rs->fetch()) {
             $ids[] = $rs->blog_id;
         }
         if (count($ids)) {
-            dcCore::app()->users->removeUsersDefaultBlogs($ids);
+            App::users()->removeUsersDefaultBlogs($ids);
         }
 
         // A bit of housecleaning for no longer needed folders

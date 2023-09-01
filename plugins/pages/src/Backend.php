@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\PostType;
@@ -35,18 +35,18 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->auth->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
+        App::auth()->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
 
-        dcCore::app()->post_types->set(new PostType(
+        App::postTypes()->set(new PostType(
             'page',
             urldecode(My::manageUrl(['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')),
-            dcCore::app()->url->getURLFor('pages', '%s'),
+            App::url()->getURLFor('pages', '%s'),
             'Pages'
         ));
 
         My::addBackendMenuItem(Menus::MENU_BLOG);
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {
                 $cols['pages'] = [My::name(), [
                     'date'       => [true, __('Date')],
@@ -70,14 +70,14 @@ class Backend extends Process
                     'url'         => My::manageUrl(),
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
-                    'permissions' => dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                    'permissions' => App::auth()->makePermissions([
+                        App::auth()::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
                         $params              = new ArrayObject();
                         $params['post_type'] = 'page';
-                        $page_count          = dcCore::app()->blog->getPosts($params, true)->f(0);
+                        $page_count          = App::blog()->getPosts($params, true)->f(0);
                         if ($page_count > 0) {
                             $str_pages     = ($page_count > 1) ? __('%d pages') : __('%d page');
                             $icon['title'] = sprintf($str_pages, $page_count);
@@ -90,8 +90,8 @@ class Backend extends Process
                     'url'         => My::manageUrl(['act' => 'page']),
                     'small-icon'  => My::icons('np'),
                     'large-icon'  => My::icons('np'),
-                    'permissions' => dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+                    'permissions' => App::auth()->makePermissions([
+                        App::auth()::PERMISSION_CONTENT_ADMIN,
                         My::PERMISSION_PAGES,
                     ]),
                     'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',

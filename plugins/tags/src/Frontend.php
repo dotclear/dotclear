@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -28,33 +28,33 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->public->tpl->addBlock('Tags', FrontendTemplate::Tags(...));
-        dcCore::app()->public->tpl->addBlock('TagsHeader', FrontendTemplate::TagsHeader(...));
-        dcCore::app()->public->tpl->addBlock('TagsFooter', FrontendTemplate::TagsFooter(...));
-        dcCore::app()->public->tpl->addBlock('EntryTags', FrontendTemplate::EntryTags(...));
-        dcCore::app()->public->tpl->addBlock('TagIf', FrontendTemplate::TagIf(...));
-        dcCore::app()->public->tpl->addValue('TagID', FrontendTemplate::TagID(...));
-        dcCore::app()->public->tpl->addValue('TagCount', FrontendTemplate::TagCount(...));
-        dcCore::app()->public->tpl->addValue('TagPercent', FrontendTemplate::TagPercent(...));
-        dcCore::app()->public->tpl->addValue('TagRoundPercent', FrontendTemplate::TagRoundPercent(...));
-        dcCore::app()->public->tpl->addValue('TagURL', FrontendTemplate::TagURL(...));
-        dcCore::app()->public->tpl->addValue('TagCloudURL', FrontendTemplate::TagCloudURL(...));
-        dcCore::app()->public->tpl->addValue('TagFeedURL', FrontendTemplate::TagFeedURL(...));
+        App::frontend()->tpl->addBlock('Tags', FrontendTemplate::Tags(...));
+        App::frontend()->tpl->addBlock('TagsHeader', FrontendTemplate::TagsHeader(...));
+        App::frontend()->tpl->addBlock('TagsFooter', FrontendTemplate::TagsFooter(...));
+        App::frontend()->tpl->addBlock('EntryTags', FrontendTemplate::EntryTags(...));
+        App::frontend()->tpl->addBlock('TagIf', FrontendTemplate::TagIf(...));
+        App::frontend()->tpl->addValue('TagID', FrontendTemplate::TagID(...));
+        App::frontend()->tpl->addValue('TagCount', FrontendTemplate::TagCount(...));
+        App::frontend()->tpl->addValue('TagPercent', FrontendTemplate::TagPercent(...));
+        App::frontend()->tpl->addValue('TagRoundPercent', FrontendTemplate::TagRoundPercent(...));
+        App::frontend()->tpl->addValue('TagURL', FrontendTemplate::TagURL(...));
+        App::frontend()->tpl->addValue('TagCloudURL', FrontendTemplate::TagCloudURL(...));
+        App::frontend()->tpl->addValue('TagFeedURL', FrontendTemplate::TagFeedURL(...));
 
         /*
         # Kept for backward compatibility (for now)
-        dcCore::app()->public->tpl->addBlock('MetaData', FrontendTemplate::Tags(...));
-        dcCore::app()->public->tpl->addBlock('MetaDataHeader', FrontendTemplate::TagsHeader(...));
-        dcCore::app()->public->tpl->addBlock('MetaDataFooter', FrontendTemplate::TagsFooter(...));
-        dcCore::app()->public->tpl->addValue('MetaID', FrontendTemplate::TagID(...));
-        dcCore::app()->public->tpl->addValue('MetaPercent', FrontendTemplate::TagPercent(...));
-        dcCore::app()->public->tpl->addValue('MetaRoundPercent', FrontendTemplate::TagRoundPercent(...));
-        dcCore::app()->public->tpl->addValue('MetaURL', FrontendTemplate::TagURL(...));
-        dcCore::app()->public->tpl->addValue('MetaAllURL', FrontendTemplate::TagCloudURL(...));
-        dcCore::app()->public->tpl->addBlock('EntryMetaData', FrontendTemplate::EntryTags(...));
+        App::frontend()->tpl->addBlock('MetaData', FrontendTemplate::Tags(...));
+        App::frontend()->tpl->addBlock('MetaDataHeader', FrontendTemplate::TagsHeader(...));
+        App::frontend()->tpl->addBlock('MetaDataFooter', FrontendTemplate::TagsFooter(...));
+        App::frontend()->tpl->addValue('MetaID', FrontendTemplate::TagID(...));
+        App::frontend()->tpl->addValue('MetaPercent', FrontendTemplate::TagPercent(...));
+        App::frontend()->tpl->addValue('MetaRoundPercent', FrontendTemplate::TagRoundPercent(...));
+        App::frontend()->tpl->addValue('MetaURL', FrontendTemplate::TagURL(...));
+        App::frontend()->tpl->addValue('MetaAllURL', FrontendTemplate::TagCloudURL(...));
+        App::frontend()->tpl->addBlock('EntryMetaData', FrontendTemplate::EntryTags(...));
         */
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             'publicPrependV2'        => FrontendBehaviors::publicPrepend(...),
             'templateBeforeBlockV2'  => FrontendBehaviors::templateBeforeBlock(...),
             'publicBeforeDocumentV2' => FrontendBehaviors::addTplPath(...),

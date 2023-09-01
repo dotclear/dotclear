@@ -13,12 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use dcCore;
-use dcMeta;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
@@ -42,7 +41,7 @@ class BackendBehaviors
             return '';
         }
 
-        $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
+        $tag_url = App::blog()->url . App::url()->getURLFor('tag');
 
         if ($editor === 'dcLegacyEditor') {
             // dcLegacyEditor
@@ -107,9 +106,9 @@ class BackendBehaviors
             'url'         => My::manageUrl(['m' => 'tags']),
             'small-icon'  => My::icons(),
             'large-icon'  => My::icons(),
-            'permissions' => dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_USAGE,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+            'permissions' => App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
         ]);
     }
@@ -140,8 +139,8 @@ class BackendBehaviors
             $content = substr($content, 4);
         }
 
-        $tag_url        = Html::stripHostURL(dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag'));
-        $res['url']     = $tag_url . '/' . rawurlencode(dcMeta::sanitizeMetaID($url));
+        $tag_url        = Html::stripHostURL(App::blog()->url . App::url()->getURLFor('tag'));
+        $res['url']     = $tag_url . '/' . rawurlencode(App::meta()::sanitizeMetaID($url));
         $res['content'] = $content;
 
         return $res;
@@ -156,7 +155,7 @@ class BackendBehaviors
      */
     public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
-        $meta = dcCore::app()->meta;
+        $meta = App::meta();
 
         if (!empty($_POST['post_tags'])) {
             $value = $_POST['post_tags'];
@@ -179,7 +178,7 @@ class BackendBehaviors
 
         if (isset($_POST['post_tags'])) {
             $tags = $_POST['post_tags'];
-            $meta = dcCore::app()->meta;
+            $meta = App::meta();
             $meta->delPostMeta($post_id, 'tag');
 
             foreach ($meta->splitMetaValues($tags) as $tag) {
@@ -200,10 +199,10 @@ class BackendBehaviors
             BackendBehaviors::adminAddTags(...)
         );
 
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [My::name() => [__('Remove tags') => 'tags_remove']],
                 BackendBehaviors::adminRemoveTags(...)
@@ -220,7 +219,7 @@ class BackendBehaviors
     public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
         if (!empty($post['new_tags'])) {
-            $meta  = dcCore::app()->meta;
+            $meta  = App::meta();
             $tags  = $meta->splitMetaValues($post['new_tags']);
             $posts = $ap->getRS();
             while ($posts->fetch()) {
@@ -247,11 +246,11 @@ class BackendBehaviors
             );
             $ap->redirect(true);
         } else {
-            $opts = dcCore::app()->auth->getOptions();
+            $opts = App::auth()->getOptions();
             $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
-                'meta_url'            => dcCore::app()->admin->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
+                'meta_url'            => App::backend()->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
                 'list_type'           => $type,
                 'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
                 'text_add_meta'       => __('Add a tag to this entry'),
@@ -269,9 +268,9 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name) => '',
-                        __('Entries')                               => $ap->getRedirection(true),
-                        __('Add tags to this selection')            => '',
+                        Html::escapeHTML(App::blog()->name) => '',
+                        __('Entries')                       => $ap->getRedirection(true),
+                        __('Add tags to this selection')    => '',
                     ]
                 ),
                 Page::jsMetaEditor() .
@@ -287,7 +286,7 @@ class BackendBehaviors
             '<div><label for="new_tags" class="area">' . __('Tags to add:') . '</label> ' .
             form::textarea('new_tags', 60, 3) .
             '</div>' .
-            dcCore::app()->nonce->getFormNonce() . $ap->getHiddenFields() .
+            App::nonce()->getFormNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags') .
             '<p><input type="submit" value="' . __('Save') . '" ' .
                 'name="save_tags" /></p>' .
@@ -304,11 +303,11 @@ class BackendBehaviors
      */
     public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
-        if (!empty($post['meta_id']) && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
-            $meta  = dcCore::app()->meta;
+        if (!empty($post['meta_id']) && App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
+            $meta  = App::meta();
             $posts = $ap->getRS();
             while ($posts->fetch()) {
                 foreach ($_POST['meta_id'] as $v) {
@@ -324,7 +323,7 @@ class BackendBehaviors
             );
             $ap->redirect(true);
         } else {
-            $meta = dcCore::app()->meta;
+            $meta = App::meta();
             $tags = [];
 
             foreach ($ap->getIDS() as $id) {
@@ -345,8 +344,8 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(dcCore::app()->blog->name)    => '',
-                        __('Entries')                                  => dcCore::app()->admin->url->get('admin.posts'),
+                        Html::escapeHTML(App::blog()->name)            => '',
+                        __('Entries')                                  => App::backend()->url->get('admin.posts'),
                         __('Remove selected tags from this selection') => '',
                     ]
                 )
@@ -374,7 +373,7 @@ class BackendBehaviors
             echo
             '<p><input type="submit" value="' . __('ok') . '" />' .
 
-            dcCore::app()->nonce->getFormNonce() . $ap->getHiddenFields() .
+            App::nonce()->getFormNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags_remove') .
                 '</p></div></form>';
             $ap->endPage();
@@ -386,11 +385,11 @@ class BackendBehaviors
      */
     public static function postHeaders(): string
     {
-        $opts = dcCore::app()->auth->getOptions();
+        $opts = App::auth()->getOptions();
         $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [
-            'meta_url'            => dcCore::app()->admin->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
+            'meta_url'            => App::backend()->url->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
             'list_type'           => $type,
             'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
             'text_add_meta'       => __('Add a tag to this entry'),
@@ -418,7 +417,7 @@ class BackendBehaviors
      */
     public static function adminUserForm(): void
     {
-        $opts = dcCore::app()->auth->getOptions();
+        $opts = App::auth()->getOptions();
 
         $combo = [
             __('Short')    => 'more',

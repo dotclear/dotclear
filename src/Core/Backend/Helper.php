@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
 use dcUtils;
+use Dotclear\App;
 use Dotclear\Helper\L10n;
 
 class Helper
@@ -60,25 +60,24 @@ class Helper
      */
     public static function loadLocales()
     {
-        dcCore::app()->lang = (string) dcCore::app()->auth->getInfo('user_lang');
-        dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
+        App::setLang((string) App::auth()->getInfo('user_lang'));
 
-        L10n::lang(dcCore::app()->lang);
-        if (L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+        L10n::lang(App::lang());
+        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
             L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/main');
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/main');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('admin', dcCore::app()->lang);
+        dcUtils::setlexicalLang('admin', App::lang());
     }
 
     /**
      * Adds a menu item.
      *
-     * @deprecated sicne 2.27, use dcCore::app()->admin->menus->addItem() instead
+     * @deprecated sicne 2.27, use App::backend()->menus->addItem() instead
      *
      * @param      string  $section   The section
      * @param      string  $desc      The item description
@@ -91,6 +90,6 @@ class Helper
      */
     public static function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
-        dcCore::app()->admin->menus->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
+        App::backend()->menus->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
     }
 }

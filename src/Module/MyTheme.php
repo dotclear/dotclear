@@ -16,9 +16,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcCore;
 use dcModuleDefine;
-use dcThemes;
+use Dotclear\App;
 use Dotclear\Helper\Network\Http;
 
 /**
@@ -31,14 +30,11 @@ abstract class MyTheme extends MyModule
     protected static function define(): dcModuleDefine
     {
         // load once themes
-        if (is_null(dcCore::app()->themes)) {   // @phpstan-ignore-line
-            dcCore::app()->themes = new dcThemes();
-            if (!is_null(dcCore::app()->blog)) {
-                dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
-            }
+        if (App::themes()->isEmpty() && !is_null(App::blog())) {
+            App::themes()->loadModules(App::blog()->themes_path);
         }
 
-        return static::getDefineFromNamespace(dcCore::app()->themes);
+        return static::getDefineFromNamespace(App::themes());
     }
 
     protected static function checkCustomContext(int $context): ?bool
@@ -47,10 +43,10 @@ abstract class MyTheme extends MyModule
         return match ($context) {
             self::BACKEND, self::CONFIG => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission, allowed to blog admin for themes
-                    && !is_null(dcCore::app()->blog)
-                    && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                        dcCore::app()->auth::PERMISSION_ADMIN,
-                    ]), dcCore::app()->blog->id),
+                    && !is_null(App::blog())
+                    && App::auth()->check(App::auth()->makePermissions([
+                        App::auth()::PERMISSION_ADMIN,
+                    ]), App::blog()->id),
             default => null,
         };
     }
@@ -71,13 +67,13 @@ abstract class MyTheme extends MyModule
             $resource = '/' . $resource;
         }
 
-        if (is_null(dcCore::app()->blog)) {
+        if (is_null(App::blog())) {
             return '';
         }
 
-        $base = preg_match('#^http(s)?://#', (string) dcCore::app()->blog->settings->system->themes_url) ?
-            Http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . self::id()) :
-            Http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . self::id());
+        $base = preg_match('#^http(s)?://#', (string) App::blog()->settings->system->themes_url) ?
+            Http::concatURL(App::blog()->settings->system->themes_url, '/' . self::id()) :
+            Http::concatURL(App::blog()->url, App::blog()->settings->system->themes_url . '/' . self::id());
 
         return  $base . $resource;
     }

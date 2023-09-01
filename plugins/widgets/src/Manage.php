@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use dcCore;
 use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -40,20 +40,20 @@ class Manage extends Process
         Widgets::init();
 
         // Loading navigation, extra widgets and custom widgets
-        dcCore::app()->admin->widgets_nav = null;
+        App::backend()->widgets_nav = null;
         if (My::settings()->widgets_nav) {
-            dcCore::app()->admin->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
+            App::backend()->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
-        dcCore::app()->admin->widgets_extra = null;
+        App::backend()->widgets_extra = null;
         if (My::settings()->widgets_extra) {
-            dcCore::app()->admin->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
+            App::backend()->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
-        dcCore::app()->admin->widgets_custom = null;
+        App::backend()->widgets_custom = null;
         if (My::settings()->widgets_custom) {
-            dcCore::app()->admin->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
+            App::backend()->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 
-        dcCore::app()->admin->append_combo = [
+        App::backend()->append_combo = [
             '-'              => 0,
             __('navigation') => Widgets::WIDGETS_NAV,
             __('extra')      => Widgets::WIDGETS_EXTRA,
@@ -65,7 +65,7 @@ class Manage extends Process
             # Filter selection
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
-                if (($v == Widgets::WIDGETS_EXTRA || $v == Widgets::WIDGETS_NAV || $v == Widgets::WIDGETS_CUSTOM) && dcCore::app()->widgets->{$k} !== null) {
+                if (($v == Widgets::WIDGETS_EXTRA || $v == Widgets::WIDGETS_NAV || $v == Widgets::WIDGETS_CUSTOM) && Widgets::$widgets->{$k} !== null) {
                     $addw[$k] = $v;
                 }
             }
@@ -79,23 +79,23 @@ class Manage extends Process
 
             # Append widgets
             if (!empty($addw)) {
-                if (!(dcCore::app()->admin->widgets_nav instanceof WidgetsStack)) {
-                    dcCore::app()->admin->widgets_nav = new WidgetsStack();
+                if (!(App::backend()->widgets_nav instanceof WidgetsStack)) {
+                    App::backend()->widgets_nav = new WidgetsStack();
                 }
-                if (!(dcCore::app()->admin->widgets_extra instanceof WidgetsStack)) {
-                    dcCore::app()->admin->widgets_extra = new WidgetsStack();
+                if (!(App::backend()->widgets_extra instanceof WidgetsStack)) {
+                    App::backend()->widgets_extra = new WidgetsStack();
                 }
-                if (!(dcCore::app()->admin->widgets_custom instanceof WidgetsStack)) {
-                    dcCore::app()->admin->widgets_custom = new WidgetsStack();
+                if (!(App::backend()->widgets_custom instanceof WidgetsStack)) {
+                    App::backend()->widgets_custom = new WidgetsStack();
                 }
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         try {
                             match ($v) {
-                                Widgets::WIDGETS_NAV    => dcCore::app()->admin->widgets_nav->append(dcCore::app()->widgets->{$k}),
-                                Widgets::WIDGETS_EXTRA  => dcCore::app()->admin->widgets_extra->append(dcCore::app()->widgets->{$k}),
-                                Widgets::WIDGETS_CUSTOM => dcCore::app()->admin->widgets_custom->append(dcCore::app()->widgets->{$k}),
+                                Widgets::WIDGETS_NAV    => App::backend()->widgets_nav->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_EXTRA  => App::backend()->widgets_extra->append(Widgets::$widgets->{$k}),
+                                Widgets::WIDGETS_CUSTOM => App::backend()->widgets_custom->append(Widgets::$widgets->{$k}),
                             };
                         } catch (UnhandledMatchError) {
                         }
@@ -103,13 +103,13 @@ class Manage extends Process
                 }
 
                 try {
-                    My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store(), dcNamespace::NS_ARRAY);
-                    My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store(), dcNamespace::NS_ARRAY);
-                    My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store(), dcNamespace::NS_ARRAY);
-                    dcCore::app()->blog->triggerBlog();
+                    My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                    My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
+                    App::blog()->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
         }
@@ -183,31 +183,31 @@ class Manage extends Process
                     $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
-                dcCore::app()->admin->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], dcCore::app()->widgets);
-                dcCore::app()->admin->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], dcCore::app()->widgets);
+                App::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], Widgets::$widgets);
+                App::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], Widgets::$widgets);
+                App::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], Widgets::$widgets);
 
-                My::settings()->put('widgets_nav', dcCore::app()->admin->widgets_nav->store(), dcNamespace::NS_ARRAY);
-                My::settings()->put('widgets_extra', dcCore::app()->admin->widgets_extra->store(), dcNamespace::NS_ARRAY);
-                My::settings()->put('widgets_custom', dcCore::app()->admin->widgets_custom->store(), dcNamespace::NS_ARRAY);
-                dcCore::app()->blog->triggerBlog();
+                My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), dcNamespace::NS_ARRAY);
+                My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), dcNamespace::NS_ARRAY);
+                App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         } elseif (!empty($_POST['wreset'])) {
             try {
                 My::settings()->put('widgets_nav', '');
                 My::settings()->put('widgets_extra', '');
                 My::settings()->put('widgets_custom', '');
-                dcCore::app()->blog->triggerBlog();
+                App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars have been resetting.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -223,9 +223,9 @@ class Manage extends Process
             return;
         }
 
-        $widget_editor = dcCore::app()->auth->getOption('editor');
+        $widget_editor = App::auth()->getOption('editor');
         $rte_flag      = true;
-        $rte_flags     = @dcCore::app()->auth->user_prefs->interface->rte_flags;
+        $rte_flags     = @App::auth()->user_prefs->interface->rte_flags;
         if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
@@ -239,13 +239,13 @@ class Manage extends Process
             ]) .
             My::jsLoad('widgets');
 
-        $user_dm_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
+        $user_dm_nodragdrop = App::auth()->user_prefs->accessibility->nodragdrop;
         if (!$user_dm_nodragdrop) {
             $head .= My::jsLoad('dragdrop');
         }
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            $head .= dcCore::app()->behavior->callBehavior(
+            $head .= App::behavior()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],
                 'widget',
@@ -260,20 +260,20 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
-                My::name()                                  => '',
+                Html::escapeHTML(App::blog()->name) => '',
+                My::name()                          => '',
             ]
         ) .
         Notices::getNotices() .
 
         # All widgets
-        '<form id="listWidgets" action="' . dcCore::app()->admin->getPageURL() . '" method="post"  class="widgets">' .
+        '<form id="listWidgets" action="' . App::backend()->getPageURL() . '" method="post"  class="widgets">' .
         '<h3>' . __('Available widgets') . '</h3>' .
         '<p>' . __('Drag widgets from this list to one of the sidebars, for add.') . '</p>' .
         '<ul id="widgets-ref">';
 
         $j = 0;
-        foreach (dcCore::app()->widgets->elements(true) as $w) {
+        foreach (Widgets::$widgets->elements(true) as $w) {
             echo
             '<li>' . form::hidden(['w[void][0][id]'], Html::escapeHTML($w->id())) .
             '<p class="widget-name">' . form::number(['w[void][0][order]'], [
@@ -284,7 +284,7 @@ class Manage extends Process
             ' ' . $w->name() .
             ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
             '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
-            form::combo(['addw[' . $w->id() . ']'], dcCore::app()->admin->append_combo) .
+            form::combo(['addw[' . $w->id() . ']'], App::backend()->append_combo) .
             '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '" /></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings('w[void][0]', $j) . '</div>' .
             '</li>';
@@ -293,29 +293,29 @@ class Manage extends Process
 
         echo
         '</ul>' .
-        '<p>' . dcCore::app()->nonce->getFormNonce() . '</p>' .
+        '<p>' . App::nonce()->getFormNonce() . '</p>' .
         '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
         '</form>' .
 
-        '<form id="sidebarsWidgets" action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
+        '<form id="sidebarsWidgets" action="' . App::backend()->getPageURL() . '" method="post">' .
 
         // Nav sidebar
         '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), dcCore::app()->admin->widgets_nav, Widgets::WIDGETS_NAV, dcCore::app()->default_widgets[Widgets::WIDGETS_NAV], $j) .
+        self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j) .
         '</div>' .
 
         // Extra sidebar
         '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), dcCore::app()->admin->widgets_extra, Widgets::WIDGETS_EXTRA, dcCore::app()->default_widgets[Widgets::WIDGETS_EXTRA], $j) .
+        self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j) .
         '</div>' .
 
         // Custom sidebar
         '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), dcCore::app()->admin->widgets_custom, Widgets::WIDGETS_CUSTOM, dcCore::app()->default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
+        self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
         '<p id="sidebarsControl">' .
-        dcCore::app()->nonce->getFormNonce() .
+        App::nonce()->getFormNonce() .
         '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
         '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
         '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .
@@ -324,7 +324,7 @@ class Manage extends Process
 
         $widget_elements          = new stdClass();
         $widget_elements->content = '<dl>';
-        foreach (dcCore::app()->widgets->elements() as $w) {
+        foreach (Widgets::$widgets->elements() as $w) {
             $widget_elements->content .= '<dt><strong>' . Html::escapeHTML($w->name()) . '</strong> (' .
             __('Widget ID:') . ' <strong>' . Html::escapeHTML($w->id()) . '</strong>)' .
                 ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</dt>' .

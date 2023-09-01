@@ -12,8 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcCore;
-use dcMedia;
+use Dotclear\App;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
@@ -70,22 +69,21 @@ class ZipMedia extends MaintenanceTask
     public function execute()
     {
         // Instance media
-        dcCore::app()->media = new dcMedia();
-        dcCore::app()->media->chdir('');
-        dcCore::app()->media->getDir();
+        App::media()->chdir('');
+        App::media()->getDir();
 
         // Create zip
         @set_time_limit(300);
         $fp  = fopen('php://output', 'wb');
         $zip = new Zip($fp);
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
-        $zip->addDirectory(dcCore::app()->media->root . '/', '', true);
+        $zip->addDirectory(App::media()->root . '/', '', true);
 
         // Log task execution here as we sent file and stop script
         $this->log();
 
         // Send zip
-        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . 'media.zip');
+        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id . '-' . 'media.zip');
         header('Content-Type: application/x-zip');
 
         $zip->write();

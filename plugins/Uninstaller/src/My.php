@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
@@ -22,6 +22,6 @@ class My extends MyPlugin
         // check super admin except install that follows MyPlugin check
         return $context === My::INSTALL ? null :
             defined('DC_CONTEXT_ADMIN')
-            && dcCore::app()->auth->isSuperAdmin();
+            && App::auth()->isSuperAdmin();
     }
 }

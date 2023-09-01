@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
-use dcCore;
 use dcLog;
+use Dotclear\App;
 use Dotclear\Database\Statement\{
     DeleteStatement,
     SelectStatement
@@ -29,7 +29,7 @@ use Dotclear\Plugin\Uninstaller\{
  * Cleaner for Dotclear logs used by modules.
  *
  * It allows modules to delete a "log_table"
- * of Dotclear dcLog::LOG_TABLE_NAME database table.
+ * of Dotclear App::log()::LOG_TABLE_NAME database table.
  */
 class Logs extends CleanerParent
 {
@@ -64,7 +64,7 @@ class Logs extends CleanerParent
     public function values(): array
     {
         $sql = new SelectStatement();
-        $sql->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
+        $sql->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'log_table',
@@ -95,7 +95,7 @@ class Logs extends CleanerParent
     {
         if ($action == 'delete_all') {
             $sql = new DeleteStatement();
-            $sql->from(dcCore::app()->prefix . dcLog::LOG_TABLE_NAME)
+            $sql->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
                 ->where('log_table = ' . $sql->quote((string) $ns))
                 //->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();

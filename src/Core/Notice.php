@@ -1,67 +1,48 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * Core notice handler.
  *
- * dcNotices -- Backend notices handling facilities
+ * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core;
+
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\NoticeInterface;
+use Exception;
 
-class dcNotices
+class Notice implements NoticeInterface
 {
-    // Constants
-
-    /**
-     * Table name
-     *
-     * @var        string
-     */
-    protected const NOTICE_TABLE_NAME = 'notice';
-
-    // Properties
+    public const NOTICE_TABLE_NAME = 'notice';
 
     /**
      * Full table name (including db prefix)
      *
      * @var        string
      */
-    protected $table;
+    protected string $table;
 
     /**
-     * Class constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->table = dcCore::app()->prefix . self::NOTICE_TABLE_NAME;
+        $this->table = App::con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
-    /**
-     * Gets the table name
-     *
-     * @return     string
-     */
-    public function getTable(): string
+    public function openCursor(): Cursor
     {
-        return self::NOTICE_TABLE_NAME;
+        return App::con()->openCursor($this->table);
     }
 
-    /* Get notices */
-
-    /**
-     * Gets the notices.
-     *
-     * @param      array              $params      The parameters
-     * @param      bool               $count_only  The count only
-     *
-     * @return     MetaRecord  The notices.
-     */
     public function getNotices(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
@@ -122,16 +103,9 @@ class dcNotices
         return $sql->select();
     }
 
-    /**
-     * Adds a notice.
-     *
-     * @param      Cursor  $cur    The Cursor
-     *
-     * @return     int     The notice id
-     */
     public function addNotice(Cursor $cur): int
     {
-        dcCore::app()->con->writeLock($this->table);
+        App::con()->writeLock($this->table);
 
         try {
             # Get ID
@@ -147,19 +121,19 @@ class dcNotices
 
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
-            # --BEHAVIOR-- coreBeforeNoticeCreate -- dcNotices, Cursor
-            dcCore::app()->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
+            App::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            dcCore::app()->con->unlock();
+            App::con()->unlock();
         } catch (Exception $e) {
-            dcCore::app()->con->unlock();
+            App::con()->unlock();
 
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterNoticeCreate -- dcNotices, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
+        App::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }
@@ -189,11 +163,26 @@ class dcNotices
         $notice_id = is_int($notice_id) ? $notice_id : $cur->notice_id;
     }
 
+    public function delNotice(int $id): void
+    {
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->table)
+            ->where('notice_id = ' . $id)
+            ->delete();
+    }
+
+    public function delSessionNotices(): void
+    {
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->table)
+            ->where('ses_id = ' . $sql->quote((string) session_id()))
+            ->delete();
+    }
+
     /**
-     * Delete notice(s)
-     *
-     * @param      int|null  $id     The identifier
-     * @param      bool      $all    All
+     * @deprecated since 2.28 use self::delNotice() or self::delAllNotices()
      */
     public function delNotices(?int $id, bool $all = false): void
     {

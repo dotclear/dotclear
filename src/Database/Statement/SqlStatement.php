@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Statement;
 
-use dcCore;
+use Dotclear\App;
 
 class SqlStatement
 {
@@ -94,8 +94,8 @@ class SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->con    = $con    ?? dcCore::app()->con;
-        $this->syntax = $syntax ?? ($con ? $con->syntax() : dcCore::app()->con->syntax());
+        $this->con    = $con    ?? App::con();
+        $this->syntax = $syntax ?? ($con ? $con->syntax() : App::con()->syntax());
 
         /* @phpstan-ignore-next-line */
         $this->_AS = ($this->syntax === 'sqlite' || self::VERBOSE_SQL_ALIAS ? ' AS ' : ' ');

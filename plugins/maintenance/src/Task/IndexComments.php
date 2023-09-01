@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Text;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -131,7 +131,7 @@ class IndexComments extends MaintenanceTask
         $sql   = new SelectStatement();
         $count = (int) $sql
             ->column($sql->count('comment_id'))
-            ->from(dcCore::app()->con->prefix() . dcBlog::COMMENT_TABLE_NAME)
+            ->from(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME)
             ->select()
             ->f(0);
 
@@ -141,7 +141,7 @@ class IndexComments extends MaintenanceTask
                 'comment_id',
                 'comment_content',
             ])
-            ->from(dcCore::app()->con->prefix() . dcBlog::COMMENT_TABLE_NAME);
+            ->from(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
         if ($start !== null && $limit !== null) {
             $sql->limit([$start, $limit]);
@@ -149,7 +149,7 @@ class IndexComments extends MaintenanceTask
 
         $rs = $sql->select();
 
-        $cur = dcCore::app()->con->openCursor(dcCore::app()->con->prefix() . dcBlog::COMMENT_TABLE_NAME);
+        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
         while ($rs->fetch()) {
             $cur->comment_words = implode(' ', Text::splitWords($rs->comment_content));

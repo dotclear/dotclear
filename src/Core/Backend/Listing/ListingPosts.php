@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -50,34 +50,34 @@ class ListingPosts extends Listing
             if ($filter) {
                 $html_block .= '<caption>' . sprintf(__('List of %s entries matching the filter.'), $this->rs_count) . '</caption>';
             } else {
-                $nb_published   = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_PUBLISHED], true)->f(0);
-                $nb_pending     = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_PENDING], true)->f(0);
-                $nb_programmed  = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_SCHEDULED], true)->f(0);
-                $nb_unpublished = (int) dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_UNPUBLISHED], true)->f(0);
+                $nb_published   = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_PUBLISHED], true)->f(0);
+                $nb_pending     = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_PENDING], true)->f(0);
+                $nb_programmed  = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_SCHEDULED], true)->f(0);
+                $nb_unpublished = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of entries (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_PUBLISHED]),
+                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_PENDING]),
+                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_programmed ?
                     sprintf(
                         __(', <a href="%s">programmed</a> (1)', ', <a href="%s">programmed</a> (%s)', $nb_programmed),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_SCHEDULED]),
+                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_SCHEDULED]),
                         $nb_programmed
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        dcCore::app()->admin->url->get('admin.posts', ['status' => dcBlog::POST_UNPUBLISHED]),
+                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -96,7 +96,7 @@ class ListingPosts extends Listing
             ];
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
+            App::behavior()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -144,10 +144,10 @@ class ListingPosts extends Listing
      */
     private function postLine(bool $checked): string
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CATEGORIES,
-        ]), dcCore::app()->blog->id)) {
-            $cat_link = '<a href="' . dcCore::app()->admin->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CATEGORIES,
+        ]), App::blog()->id)) {
+            $cat_link = '<a href="' . App::backend()->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
             $cat_link = '%2$s';
         }
@@ -220,10 +220,10 @@ class ListingPosts extends Listing
             ) .
             '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
-            dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
+            App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',
@@ -235,7 +235,7 @@ class ListingPosts extends Listing
         ];
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPostListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPostListValueV2', $this->rs, $cols);
+        App::behavior()->callBehavior('adminPostListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);

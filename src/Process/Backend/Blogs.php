@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -34,50 +34,50 @@ class Blogs extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         /* Actions
         -------------------------------------------------------- */
-        dcCore::app()->admin->blogs_actions_page = null;
-        if (dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->admin->blogs_actions_page = new ActionsBlogs(dcCore::app()->admin->url->get('admin.blogs'));
-            if (dcCore::app()->admin->blogs_actions_page->process()) {
+        App::backend()->blogs_actions_page = null;
+        if (App::auth()->isSuperAdmin()) {
+            App::backend()->blogs_actions_page = new ActionsBlogs(App::backend()->url->get('admin.blogs'));
+            if (App::backend()->blogs_actions_page->process()) {
                 return false;
             }
         }
 
         /* Filters
         -------------------------------------------------------- */
-        dcCore::app()->admin->blog_filter = new FilterBlogs();
+        App::backend()->blog_filter = new FilterBlogs();
 
         // get list params
-        $params = dcCore::app()->admin->blog_filter->params();
+        $params = App::backend()->blog_filter->params();
 
         /* List
         -------------------------------------------------------- */
-        dcCore::app()->admin->blog_list = null;
+        App::backend()->blog_list = null;
 
         try {
             # --BEHAVIOR-- adminGetBlogs
             $params = new ArrayObject($params);
             # --BEHAVIOR-- adminGetBlogs -- ArrayObject
-            dcCore::app()->behavior->callBehavior('adminGetBlogs', $params);
+            App::behavior()->callBehavior('adminGetBlogs', $params);
 
-            $counter  = dcCore::app()->blogs->getBlogs($params, true);
-            $rs       = dcCore::app()->blogs->getBlogs($params);
+            $counter  = App::blogs()->getBlogs($params, true);
+            $rs       = App::blogs()->getBlogs($params);
             $rsStatic = $rs->toStatic();
-            if ((dcCore::app()->admin->blog_filter->sortby != 'blog_upddt') && (dcCore::app()->admin->blog_filter->sortby != 'blog_status')) {
+            if ((App::backend()->blog_filter->sortby != 'blog_upddt') && (App::backend()->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
                 $rsStatic->extend('rsExtUser');
                 $rsStatic = $rsStatic->toExtStatic();
-                $rsStatic->lexicalSort((dcCore::app()->admin->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), dcCore::app()->admin->blog_filter->order);
+                $rsStatic->lexicalSort((App::backend()->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->blog_filter->order);
             }
-            dcCore::app()->admin->blog_list = new ListingBlogs($rs, $counter->f(0));
+            App::backend()->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return self::status(true);
@@ -86,13 +86,13 @@ class Blogs extends Process
     public static function render(): void
     {
         // Nullsafe before header sent
-        if (!isset(dcCore::app()->auth)) {
+        if (is_null(App::auth())) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
         Page::open(
             __('List of blogs'),
-            Page::jsLoad('js/_blogs.js') . dcCore::app()->admin->blog_filter->js(dcCore::app()->admin->url->get('admin.blogs')),
+            Page::jsLoad('js/_blogs.js') . App::backend()->blog_filter->js(App::backend()->url->get('admin.blogs')),
             Page::breadcrumb(
                 [
                     __('System')        => '',
@@ -101,27 +101,27 @@ class Blogs extends Process
             )
         );
 
-        if (!dcCore::app()->error->flag()) {
-            if (dcCore::app()->auth->isSuperAdmin()) {
+        if (!App::error()->flag()) {
+            if (App::auth()->isSuperAdmin()) {
                 // Create blog button
                 echo (new Para())
                     ->class('top-add')
                     ->items([
                         (new Link())
                             ->class(['button', 'add'])
-                            ->href(dcCore::app()->admin->url->get('admin.blog'))
+                            ->href(App::backend()->url->get('admin.blog'))
                             ->text(__('Create a new blog')),
                     ])
                     ->render();
             }
 
-            dcCore::app()->admin->blog_filter->display('admin.blogs');
+            App::backend()->blog_filter->display('admin.blogs');
 
             // Show blogs
             $form = null;
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (App::auth()->isSuperAdmin()) {
                 $form = (new Form('form-blogs'))
-                        ->action(dcCore::app()->admin->url->get('admin.blogs'))
+                        ->action(App::backend()->url->get('admin.blogs'))
                         ->method('post')
                         ->fields([
                             // sprintf pattern for blog list
@@ -141,8 +141,8 @@ class Blogs extends Process
                                                 ))
                                                 ->class('classic')
                                             )
-                                            ->items(dcCore::app()->admin->blogs_actions_page->getCombo()),
-                                        dcCore::app()->nonce->formNonce(),
+                                            ->items(App::backend()->blogs_actions_page->getCombo()),
+                                        App::nonce()->formNonce(),
                                         (new Submit('do-action'))
                                             ->value(__('ok')),
                                     ]),
@@ -160,15 +160,15 @@ class Blogs extends Process
                                         ->class('classic')
                                     ),
                             ]),
-                            ...dcCore::app()->admin->url->hiddenFormFields('admin.blogs', dcCore::app()->admin->blog_filter->values(true)),
+                            ...App::backend()->url->hiddenFormFields('admin.blogs', App::backend()->blog_filter->values(true)),
                         ]);
             }
 
-            dcCore::app()->admin->blog_list->display(
-                dcCore::app()->admin->blog_filter->page,
-                dcCore::app()->admin->blog_filter->nb,
-                dcCore::app()->auth->isSuperAdmin() ? $form->render() : '%s',
-                dcCore::app()->admin->blog_filter->show()
+            App::backend()->blog_list->display(
+                App::backend()->blog_filter->page,
+                App::backend()->blog_filter->nb,
+                App::auth()->isSuperAdmin() ? $form->render() : '%s',
+                App::backend()->blog_filter->show()
             );
         }
 

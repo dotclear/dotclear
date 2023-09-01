@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use Countable;
-use dcCore;
 use Iterator;
+use Dotclear\App;
 use Exception;
 
 /**
@@ -29,13 +29,13 @@ class CleanersStack implements Countable, Iterator
 
     /**
      * Contructor load cleaners.
-     * 
+     *
      * @see This module src\Prepend.php file to know how to add custom cleaner.
      */
     public function __construct()
     {
         # --BEHAVIOR-- UninstallerCleanersConstruct: CleanersStack
-        dcCore::app()->behavior->callBehavior('UninstallerCleanersConstruct', $this);
+        App::behavior()->callBehavior('UninstallerCleanersConstruct', $this);
     }
 
     public function exists(string $offset): bool
@@ -122,7 +122,7 @@ class CleanersStack implements Countable, Iterator
         }
 
         # --BEHAVIOR-- UninstallerBeforeAction: string, string, string
-        dcCore::app()->behavior->callBehavior('UninstallerBeforeAction', $id, $action, $ns);
+        App::behavior()->callBehavior('UninstallerBeforeAction', $id, $action, $ns);
 
         return $this->stack[$id]->execute($action, $ns);
     }

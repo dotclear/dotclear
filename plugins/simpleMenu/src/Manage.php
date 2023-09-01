@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -43,41 +43,41 @@ class Manage extends Process
             return false;
         }
 
-        dcCore::app()->admin->page_title = __('Simple menu');
+        App::backend()->page_title = __('Simple menu');
 
         # Url du blog
-        dcCore::app()->admin->blog_url = Html::stripHostURL(dcCore::app()->blog->url);
+        App::backend()->blog_url = Html::stripHostURL(App::blog()->url);
 
         # Liste des catégories
-        $categories_label                      = [];
-        $rs                                    = dcCore::app()->blog->getCategories(['post_type' => 'post']);
-        dcCore::app()->admin->categories_combo = Combos::getCategoriesCombo($rs, false, true);
+        $categories_label                = [];
+        $rs                              = App::blog()->getCategories(['post_type' => 'post']);
+        App::backend()->categories_combo = Combos::getCategoriesCombo($rs, false, true);
         $rs->moveStart();
         while ($rs->fetch()) {
             $categories_label[$rs->cat_url] = Html::escapeHTML($rs->cat_title);
         }
-        dcCore::app()->admin->categories_label = $categories_label;
+        App::backend()->categories_label = $categories_label;
 
         # Liste des langues utilisées
-        dcCore::app()->admin->langs_combo = Combos::getLangscombo(
-            dcCore::app()->blog->getLangs(['order' => 'asc'])
+        App::backend()->langs_combo = Combos::getLangscombo(
+            App::blog()->getLangs(['order' => 'asc'])
         );
 
         # Liste des mois d'archive
-        $rs                                = dcCore::app()->blog->getDates(['type' => 'month']);
-        dcCore::app()->admin->months_combo = array_merge(
+        $rs                          = App::blog()->getDates(['type' => 'month']);
+        App::backend()->months_combo = array_merge(
             [__('All months') => '-'],
             Combos::getDatesCombo($rs)
         );
 
-        dcCore::app()->admin->first_year = dcCore::app()->admin->last_year = 0;
+        App::backend()->first_year = App::backend()->last_year = 0;
         while ($rs->fetch()) {
-            if ((dcCore::app()->admin->first_year == 0) || ($rs->year() < dcCore::app()->admin->first_year)) {
-                dcCore::app()->admin->first_year = $rs->year();
+            if ((App::backend()->first_year == 0) || ($rs->year() < App::backend()->first_year)) {
+                App::backend()->first_year = $rs->year();
             }
 
-            if ((dcCore::app()->admin->last_year == 0) || ($rs->year() > dcCore::app()->admin->last_year)) {
-                dcCore::app()->admin->last_year = $rs->year();
+            if ((App::backend()->last_year == 0) || ($rs->year() > App::backend()->last_year)) {
+                App::backend()->last_year = $rs->year();
             }
         }
         unset($rs);
@@ -86,20 +86,20 @@ class Manage extends Process
         $pages_combo = [];
 
         try {
-            $rs = dcCore::app()->blog->getPosts(['post_type' => 'page']);
+            $rs = App::blog()->getPosts(['post_type' => 'page']);
             while ($rs->fetch()) {
                 $pages_combo[$rs->post_title] = $rs->getURL();
             }
             unset($rs);
         } catch (Exception $e) {
         }
-        dcCore::app()->admin->pages_combo = $pages_combo;
+        App::backend()->pages_combo = $pages_combo;
 
         # Liste des tags -- Doit être pris en charge plus tard par le plugin ?
         $tags_combo = [];
 
         try {
-            $rs                         = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
+            $rs                         = App::meta()->getMetadata(['meta_type' => 'tag']);
             $tags_combo[__('All tags')] = '-';
             while ($rs->fetch()) {
                 $tags_combo[$rs->meta_id] = $rs->meta_id;
@@ -107,35 +107,35 @@ class Manage extends Process
             unset($rs);
         } catch (Exception $e) {
         }
-        dcCore::app()->admin->tags_combo = $tags_combo;
+        App::backend()->tags_combo = $tags_combo;
 
         # Liste des types d'item de menu
         $items         = new ArrayObject();
         $items['home'] = new ArrayObject([__('Home'), false]);
 
-        if (dcCore::app()->blog->settings->system->static_home) {
+        if (App::blog()->settings->system->static_home) {
             $items['posts'] = new ArrayObject([__('Posts'), false]);
         }
 
-        if (count(dcCore::app()->admin->langs_combo) > 1) {
+        if (count(App::backend()->langs_combo) > 1) {
             $items['lang'] = new ArrayObject([__('Language'), true]);
         }
-        if (count(dcCore::app()->admin->categories_combo)) {
+        if (count(App::backend()->categories_combo)) {
             $items['category'] = new ArrayObject([__('Category'), true]);
         }
-        if (count(dcCore::app()->admin->months_combo) > 1) {
+        if (count(App::backend()->months_combo) > 1) {
             $items['archive'] = new ArrayObject([__('Archive'), true]);
         }
-        if (dcCore::app()->plugins->moduleExists('pages') && count(dcCore::app()->admin->pages_combo)) {
+        if (App::plugins()->moduleExists('pages') && count(App::backend()->pages_combo)) {
             $items['pages'] = new ArrayObject([__('Page'), true]);
         }
-        if (dcCore::app()->plugins->moduleExists('tags') && count(dcCore::app()->admin->tags_combo) > 1) {
+        if (App::plugins()->moduleExists('tags') && count(App::backend()->tags_combo) > 1) {
             $items['tags'] = new ArrayObject([__('Tags'), true]);
         }
 
         # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject
         # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
-        dcCore::app()->behavior->callBehavior('adminSimpleMenuAddType', $items);
+        App::behavior()->callBehavior('adminSimpleMenuAddType', $items);
 
         $items['special'] = new ArrayObject([__('User defined'), false]);
 
@@ -144,138 +144,138 @@ class Manage extends Process
             $items_combo[$v[0]] = $k;
         }
 
-        dcCore::app()->admin->items       = $items;
-        dcCore::app()->admin->items_combo = $items_combo;
+        App::backend()->items       = $items;
+        App::backend()->items_combo = $items_combo;
 
         # Lecture menu existant
-        dcCore::app()->admin->current_menu = dcCore::app()->blog->settings->system->get('simpleMenu');
-        if (!is_array(dcCore::app()->admin->current_menu)) {
-            dcCore::app()->admin->current_menu = [];
+        App::backend()->current_menu = App::blog()->settings->system->get('simpleMenu');
+        if (!is_array(App::backend()->current_menu)) {
+            App::backend()->current_menu = [];
         }
 
         # Récupération état d'activation du menu
-        dcCore::app()->admin->menu_active = (bool) dcCore::app()->blog->settings->system->simpleMenu_active;
+        App::backend()->menu_active = (bool) App::blog()->settings->system->simpleMenu_active;
 
         // Saving new configuration
-        dcCore::app()->admin->item_type         = '';
-        dcCore::app()->admin->item_select       = '';
-        dcCore::app()->admin->item_select_label = '';
-        dcCore::app()->admin->item_label        = '';
-        dcCore::app()->admin->item_descr        = '';
-        dcCore::app()->admin->item_url          = '';
-        dcCore::app()->admin->item_type_label   = '';
+        App::backend()->item_type         = '';
+        App::backend()->item_select       = '';
+        App::backend()->item_select_label = '';
+        App::backend()->item_label        = '';
+        App::backend()->item_descr        = '';
+        App::backend()->item_url          = '';
+        App::backend()->item_type_label   = '';
 
         $item_targetBlank = false;
 
         // Get current menu
-        $menu = dcCore::app()->admin->current_menu;
+        $menu = App::backend()->current_menu;
 
-        dcCore::app()->admin->step = self::STEP_LIST;
+        App::backend()->step = self::STEP_LIST;
         if (!empty($_POST['saveconfig'])) {
             try {
-                dcCore::app()->admin->menu_active = (empty($_POST['active'])) ? false : true;
-                dcCore::app()->blog->settings->system->put('simpleMenu_active', dcCore::app()->admin->menu_active, 'boolean');
-                dcCore::app()->blog->triggerBlog();
+                App::backend()->menu_active = (empty($_POST['active'])) ? false : true;
+                App::blog()->settings->system->put('simpleMenu_active', App::backend()->menu_active, 'boolean');
+                App::blog()->triggerBlog();
 
                 // All done successfully, return to menu items list
                 Notices::addSuccessNotice(__('Configuration successfully updated.'));
                 My::redirect();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         } else {
             # Récupération paramètres postés
-            dcCore::app()->admin->item_type   = $_POST['item_type']   ?? '';
-            dcCore::app()->admin->item_select = $_POST['item_select'] ?? '';
-            dcCore::app()->admin->item_label  = $_POST['item_label']  ?? '';
-            dcCore::app()->admin->item_descr  = $_POST['item_descr']  ?? '';
-            dcCore::app()->admin->item_url    = $_POST['item_url']    ?? '';
-            $item_targetBlank                 = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
+            App::backend()->item_type   = $_POST['item_type']   ?? '';
+            App::backend()->item_select = $_POST['item_select'] ?? '';
+            App::backend()->item_label  = $_POST['item_label']  ?? '';
+            App::backend()->item_descr  = $_POST['item_descr']  ?? '';
+            App::backend()->item_url    = $_POST['item_url']    ?? '';
+            $item_targetBlank           = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
             # Traitement
-            dcCore::app()->admin->step = (!empty($_GET['add']) ? (int) $_GET['add'] : self::STEP_LIST);
-            if ((dcCore::app()->admin->step > self::STEP_ADD) || (dcCore::app()->admin->step < self::STEP_LIST)) {
-                dcCore::app()->admin->step = self::STEP_LIST;
+            App::backend()->step = (!empty($_GET['add']) ? (int) $_GET['add'] : self::STEP_LIST);
+            if ((App::backend()->step > self::STEP_ADD) || (App::backend()->step < self::STEP_LIST)) {
+                App::backend()->step = self::STEP_LIST;
             }
 
-            if (dcCore::app()->admin->step !== self::STEP_LIST) {
+            if (App::backend()->step !== self::STEP_LIST) {
                 # Récupération libellés des choix
-                dcCore::app()->admin->item_type_label = isset(dcCore::app()->admin->items[dcCore::app()->admin->item_type]) ? dcCore::app()->admin->items[dcCore::app()->admin->item_type][0] : '';
+                App::backend()->item_type_label = isset(App::backend()->items[App::backend()->item_type]) ? App::backend()->items[App::backend()->item_type][0] : '';
 
-                switch (dcCore::app()->admin->step) {
+                switch (App::backend()->step) {
                     case self::STEP_TYPE:
                         // First step, menu item type to be selected
-                        dcCore::app()->admin->item_type = dcCore::app()->admin->item_select = '';
+                        App::backend()->item_type = App::backend()->item_select = '';
 
                         break;
                     case self::STEP_SUBTYPE:
-                        if (dcCore::app()->admin->items[dcCore::app()->admin->item_type][1]) {  // @phpstan-ignore-line
+                        if (App::backend()->items[App::backend()->item_type][1]) {  // @phpstan-ignore-line
                             // Second step (optional), menu item sub-type to be selected
-                            dcCore::app()->admin->item_select = '';
+                            App::backend()->item_select = '';
 
                             break;
                         }
                     case self::STEP_ATTRIBUTES:
                         // Third step, menu item attributes to be changed or completed if necessary
-                        dcCore::app()->admin->item_select_label = '';
-                        dcCore::app()->admin->item_label        = __('Label');
-                        dcCore::app()->admin->item_descr        = __('Description');
-                        dcCore::app()->admin->item_url          = dcCore::app()->admin->blog_url;
-                        switch (dcCore::app()->admin->item_type) {
+                        App::backend()->item_select_label = '';
+                        App::backend()->item_label        = __('Label');
+                        App::backend()->item_descr        = __('Description');
+                        App::backend()->item_url          = App::backend()->blog_url;
+                        switch (App::backend()->item_type) {
                             case 'home':
-                                dcCore::app()->admin->item_label = __('Home');
-                                dcCore::app()->admin->item_descr = dcCore::app()->blog->settings->system->static_home ? __('Home page') : __('Recent posts');
+                                App::backend()->item_label = __('Home');
+                                App::backend()->item_descr = App::blog()->settings->system->static_home ? __('Home page') : __('Recent posts');
 
                                 break;
                             case 'posts':
-                                dcCore::app()->admin->item_label = __('Posts');
-                                dcCore::app()->admin->item_descr = __('Recent posts');
-                                dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('posts');
+                                App::backend()->item_label = __('Posts');
+                                App::backend()->item_descr = __('Recent posts');
+                                App::backend()->item_url .= App::url()->getURLFor('posts');
 
                                 break;
                             case 'lang':
-                                dcCore::app()->admin->item_select_label = array_search(dcCore::app()->admin->item_select, dcCore::app()->admin->langs_combo);
-                                dcCore::app()->admin->item_label        = dcCore::app()->admin->item_select_label;
-                                dcCore::app()->admin->item_descr        = sprintf(__('Switch to %s language'), dcCore::app()->admin->item_select_label);
-                                dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('lang', dcCore::app()->admin->item_select);
+                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->langs_combo);
+                                App::backend()->item_label        = App::backend()->item_select_label;
+                                App::backend()->item_descr        = sprintf(__('Switch to %s language'), App::backend()->item_select_label);
+                                App::backend()->item_url .= App::url()->getURLFor('lang', App::backend()->item_select);
 
                                 break;
                             case 'category':
-                                dcCore::app()->admin->item_select_label = dcCore::app()->admin->categories_label[dcCore::app()->admin->item_select];
-                                dcCore::app()->admin->item_label        = dcCore::app()->admin->item_select_label;
-                                dcCore::app()->admin->item_descr        = __('Recent Posts from this category');
-                                dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('category', dcCore::app()->admin->item_select);
+                                App::backend()->item_select_label = App::backend()->categories_label[App::backend()->item_select];
+                                App::backend()->item_label        = App::backend()->item_select_label;
+                                App::backend()->item_descr        = __('Recent Posts from this category');
+                                App::backend()->item_url .= App::url()->getURLFor('category', App::backend()->item_select);
 
                                 break;
                             case 'archive':
-                                dcCore::app()->admin->item_select_label = array_search(dcCore::app()->admin->item_select, dcCore::app()->admin->months_combo);
-                                if (dcCore::app()->admin->item_select == '-') {
-                                    dcCore::app()->admin->item_label = __('Archives');
-                                    dcCore::app()->admin->item_descr = dcCore::app()->admin->first_year . (dcCore::app()->admin->first_year != dcCore::app()->admin->last_year ? ' - ' . dcCore::app()->admin->last_year : '');
-                                    dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('archive');
+                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->months_combo);
+                                if (App::backend()->item_select == '-') {
+                                    App::backend()->item_label = __('Archives');
+                                    App::backend()->item_descr = App::backend()->first_year . (App::backend()->first_year != App::backend()->last_year ? ' - ' . App::backend()->last_year : '');
+                                    App::backend()->item_url .= App::url()->getURLFor('archive');
                                 } else {
-                                    dcCore::app()->admin->item_label = dcCore::app()->admin->item_select_label;
-                                    dcCore::app()->admin->item_descr = sprintf(__('Posts from %s'), dcCore::app()->admin->item_select_label);
-                                    dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('archive', substr(dcCore::app()->admin->item_select, 0, 4) . '/' . substr(dcCore::app()->admin->item_select, -2));
+                                    App::backend()->item_label = App::backend()->item_select_label;
+                                    App::backend()->item_descr = sprintf(__('Posts from %s'), App::backend()->item_select_label);
+                                    App::backend()->item_url .= App::url()->getURLFor('archive', substr(App::backend()->item_select, 0, 4) . '/' . substr(App::backend()->item_select, -2));
                                 }
 
                                 break;
                             case 'pages':
-                                dcCore::app()->admin->item_select_label = array_search(dcCore::app()->admin->item_select, dcCore::app()->admin->pages_combo);
-                                dcCore::app()->admin->item_label        = dcCore::app()->admin->item_select_label;
-                                dcCore::app()->admin->item_descr        = '';
-                                dcCore::app()->admin->item_url          = Html::stripHostURL(dcCore::app()->admin->item_select);
+                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->pages_combo);
+                                App::backend()->item_label        = App::backend()->item_select_label;
+                                App::backend()->item_descr        = '';
+                                App::backend()->item_url          = Html::stripHostURL(App::backend()->item_select);
 
                                 break;
                             case 'tags':
-                                dcCore::app()->admin->item_select_label = array_search(dcCore::app()->admin->item_select, dcCore::app()->admin->tags_combo);
-                                if (dcCore::app()->admin->item_select == '-') {
-                                    dcCore::app()->admin->item_label = __('All tags');
-                                    dcCore::app()->admin->item_descr = '';
-                                    dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('tags');
+                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->tags_combo);
+                                if (App::backend()->item_select == '-') {
+                                    App::backend()->item_label = __('All tags');
+                                    App::backend()->item_descr = '';
+                                    App::backend()->item_url .= App::url()->getURLFor('tags');
                                 } else {
-                                    dcCore::app()->admin->item_label = dcCore::app()->admin->item_select_label;
-                                    dcCore::app()->admin->item_descr = sprintf(__('Recent posts for %s tag'), dcCore::app()->admin->item_select_label);
-                                    dcCore::app()->admin->item_url .= dcCore::app()->url->getURLFor('tag', dcCore::app()->admin->item_select);
+                                    App::backend()->item_label = App::backend()->item_select_label;
+                                    App::backend()->item_descr = sprintf(__('Recent posts for %s tag'), App::backend()->item_select_label);
+                                    App::backend()->item_url .= App::url()->getURLFor('tag', App::backend()->item_select);
                                 }
 
                                 break;
@@ -288,15 +288,15 @@ class Manage extends Process
                                 [
                                     $item_url, $item_descr, $item_label, $item_select_label
                                 ] = [
-                                    dcCore::app()->admin->item_url,
-                                    dcCore::app()->admin->item_descr,
-                                    dcCore::app()->admin->item_label,
-                                    dcCore::app()->admin->item_select_label,
+                                    App::backend()->item_url,
+                                    App::backend()->item_descr,
+                                    App::backend()->item_label,
+                                    App::backend()->item_select_label,
                                 ];
-                                dcCore::app()->behavior->callBehavior(
+                                App::behavior()->callBehavior(
                                     'adminSimpleMenuBeforeEdit',
-                                    dcCore::app()->admin->item_type,
-                                    dcCore::app()->admin->item_select,
+                                    App::backend()->item_type,
+                                    App::backend()->item_select,
                                     [
                                         &$item_label,
                                         &$item_descr,
@@ -305,10 +305,10 @@ class Manage extends Process
                                     ]
                                 );
                                 [
-                                    dcCore::app()->admin->item_url,
-                                    dcCore::app()->admin->item_descr,
-                                    dcCore::app()->admin->item_label,
-                                    dcCore::app()->admin->item_select_label,
+                                    App::backend()->item_url,
+                                    App::backend()->item_descr,
+                                    App::backend()->item_label,
+                                    App::backend()->item_select_label,
                                 ] = [
                                     $item_url, $item_descr, $item_label, $item_select_label,
                                 ];
@@ -320,29 +320,29 @@ class Manage extends Process
                     case self::STEP_ADD:
                         // Fourth step, menu item to be added
                         try {
-                            if ((dcCore::app()->admin->item_label != '') && (dcCore::app()->admin->item_url != '')) {
+                            if ((App::backend()->item_label != '') && (App::backend()->item_url != '')) {
                                 // Add new item menu in menu array
                                 $menu[] = [
-                                    'label'       => dcCore::app()->admin->item_label,
-                                    'descr'       => dcCore::app()->admin->item_descr,
-                                    'url'         => dcCore::app()->admin->item_url,
+                                    'label'       => App::backend()->item_label,
+                                    'descr'       => App::backend()->item_descr,
+                                    'url'         => App::backend()->item_url,
                                     'targetBlank' => $item_targetBlank,
                                 ];
 
                                 // Save menu in blog settings
-                                dcCore::app()->blog->settings->system->put('simpleMenu', $menu);
-                                dcCore::app()->blog->triggerBlog();
+                                App::blog()->settings->system->put('simpleMenu', $menu);
+                                App::blog()->triggerBlog();
 
                                 // All done successfully, return to menu items list
                                 Notices::addSuccessNotice(__('Menu item has been successfully added.'));
                                 My::redirect();
                             } else {
-                                dcCore::app()->admin->step              = self::STEP_ATTRIBUTES;
-                                dcCore::app()->admin->item_select_label = dcCore::app()->admin->item_label;
+                                App::backend()->step              = self::STEP_ATTRIBUTES;
+                                App::backend()->item_select_label = App::backend()->item_label;
                                 Notices::addErrorNotice(__('Label and URL of menu item are mandatory.'));
                             }
                         } catch (Exception $e) {
-                            dcCore::app()->error->add($e->getMessage());
+                            App::error()->add($e->getMessage());
                         }
 
                         break;
@@ -368,8 +368,8 @@ class Manage extends Process
                             }
                             $menu = $newmenu;
                             // Save menu in blog settings
-                            dcCore::app()->blog->settings->system->put('simpleMenu', $menu);
-                            dcCore::app()->blog->triggerBlog();
+                            App::blog()->settings->system->put('simpleMenu', $menu);
+                            App::blog()->triggerBlog();
 
                             // All done successfully, return to menu items list
                             Notices::addSuccessNotice(__('Menu items have been successfully removed.'));
@@ -378,7 +378,7 @@ class Manage extends Process
                             throw new Exception(__('No menu items selected.'));
                         }
                     } catch (Exception $e) {
-                        dcCore::app()->error->add($e->getMessage());
+                        App::error()->add($e->getMessage());
                     }
                 }
 
@@ -406,7 +406,7 @@ class Manage extends Process
                         }
                         $menu = $newmenu;
 
-                        if (dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+                        if (App::auth()->user_prefs->accessibility->nodragdrop) {
                             # Order menu items
                             $order = [];
                             if (empty($_POST['im_order']) && !empty($_POST['order'])) {
@@ -433,21 +433,21 @@ class Manage extends Process
                         }
 
                         // Save menu in blog settings
-                        dcCore::app()->blog->settings->system->put('simpleMenu', $menu);
-                        dcCore::app()->blog->triggerBlog();
+                        App::blog()->settings->system->put('simpleMenu', $menu);
+                        App::blog()->triggerBlog();
 
                         // All done successfully, return to menu items list
                         Notices::addSuccessNotice(__('Menu items have been successfully updated.'));
                         My::redirect();
                     } catch (Exception $e) {
-                        dcCore::app()->error->add($e->getMessage());
+                        App::error()->add($e->getMessage());
                     }
                 }
             }
         }
 
         // Store current menu (used in render)
-        dcCore::app()->admin->current_menu = $menu;
+        App::backend()->current_menu = $menu;
 
         return true;
     }
@@ -462,30 +462,30 @@ class Manage extends Process
         }
 
         $head = '';
-        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('simplemenu');
         }
         $head .= Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
-        Page::openModule(dcCore::app()->admin->page_title, $head);
+        Page::openModule(App::backend()->page_title, $head);
 
         $step_label = '';
-        if (dcCore::app()->admin->step) {
-            switch (dcCore::app()->admin->step) {
+        if (App::backend()->step) {
+            switch (App::backend()->step) {
                 case self::STEP_TYPE:
                     $step_label = __('Step #1');
 
                     break;
                 case self::STEP_SUBTYPE:
-                    if (dcCore::app()->admin->items[dcCore::app()->admin->item_type][1]) {
+                    if (App::backend()->items[App::backend()->item_type][1]) {
                         $step_label = __('Step #2');
 
                         break;
                     }
                 case self::STEP_ATTRIBUTES:
-                    if (dcCore::app()->admin->items[dcCore::app()->admin->item_type][1]) {
+                    if (App::backend()->items[App::backend()->item_type][1]) {
                         $step_label = __('Step #3');
                     } else {
                         $step_label = __('Step #2');
@@ -496,10 +496,10 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    dcCore::app()->admin->page_title            => dcCore::app()->admin->getPageURL(),
-                    __('Add item')                              => '',
-                    $step_label                                 => '',
+                    Html::escapeHTML(App::blog()->name) => '',
+                    App::backend()->page_title          => App::backend()->getPageURL(),
+                    __('Add item')                      => '',
+                    $step_label                         => '',
                 ],
                 [
                     'hl_pos' => -2,
@@ -510,26 +510,26 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(dcCore::app()->blog->name) => '',
-                    dcCore::app()->admin->page_title            => '',
+                    Html::escapeHTML(App::blog()->name) => '',
+                    App::backend()->page_title          => '',
                 ]
             ) .
             Notices::getNotices();
         }
 
-        if (dcCore::app()->admin->step !== self::STEP_LIST) {
+        if (App::backend()->step !== self::STEP_LIST) {
             // Formulaire d'ajout d'un item
-            switch (dcCore::app()->admin->step) {
+            switch (App::backend()->step) {
                 case self::STEP_TYPE:
 
                     // Selection du type d'item
 
                     echo
-                    '<form id="additem" action="' . dcCore::app()->admin->getPageURL() . '&amp;add=' . trim((string) self::STEP_SUBTYPE) . '" method="post">' .
+                    '<form id="additem" action="' . App::backend()->getPageURL() . '&amp;add=' . trim((string) self::STEP_SUBTYPE) . '" method="post">' .
                     '<fieldset><legend>' . __('Select type') . '</legend>' .
                     '<p class="field"><label for="item_type" class="classic">' . __('Type of item menu:') . '</label>' .
-                    form::combo('item_type', dcCore::app()->admin->items_combo) . '</p>' .
-                    '<p>' . dcCore::app()->nonce->getFormNonce() .
+                    form::combo('item_type', App::backend()->items_combo) . '</p>' .
+                    '<p>' . App::nonce()->getFormNonce() .
                     '<input type="submit" name="appendaction" value="' . __('Continue...') . '" />' . '</p>' .
                     '</fieldset>' .
                     '</form>';
@@ -538,37 +538,37 @@ class Manage extends Process
 
                 case self::STEP_SUBTYPE:
 
-                    if (dcCore::app()->admin->items[dcCore::app()->admin->item_type][1]) {
+                    if (App::backend()->items[App::backend()->item_type][1]) {
                         // Choix à faire
                         echo
-                        '<form id="additem" action="' . dcCore::app()->admin->getPageURL() .
+                        '<form id="additem" action="' . App::backend()->getPageURL() .
                         '&amp;add=' . trim((string) self::STEP_ATTRIBUTES) . '" method="post">' .
-                        '<fieldset><legend>' . dcCore::app()->admin->item_type_label . '</legend>';
+                        '<fieldset><legend>' . App::backend()->item_type_label . '</legend>';
 
-                        echo match (dcCore::app()->admin->item_type) {
+                        echo match (App::backend()->item_type) {
                             'lang' => '<p class="field"><label for="item_select" class="classic">' . __('Select language:') . '</label>' .
-                                form::combo('item_select', dcCore::app()->admin->langs_combo) .
+                                form::combo('item_select', App::backend()->langs_combo) .
                                 '</p>',
                             'category' => '<p class="field"><label for="item_select" class="classic">' . __('Select category:') . '</label>' .
-                                form::combo('item_select', dcCore::app()->admin->categories_combo) .
+                                form::combo('item_select', App::backend()->categories_combo) .
                                 '</p>',
                             'archive' => '<p class="field"><label for="item_select" class="classic">' . __('Select month (if necessary):') . '</label>' .
-                                form::combo('item_select', dcCore::app()->admin->months_combo) .
+                                form::combo('item_select', App::backend()->months_combo) .
                                 '</p>',
                             'pages' => '<p class="field"><label for="item_select" class="classic">' . __('Select page:') . '</label>' .
-                                form::combo('item_select', dcCore::app()->admin->pages_combo) .
+                                form::combo('item_select', App::backend()->pages_combo) .
                                 '</p>',
                             'tags' => '<p class="field"><label for="item_select" class="classic">' . __('Select tag (if necessary):') . '</label>' .
-                                form::combo('item_select', dcCore::app()->admin->tags_combo) .
+                                form::combo('item_select', App::backend()->tags_combo) .
                                 '</p>',
                             default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
-                                # Optional step once dcCore::app()->admin->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
-                                dcCore::app()->behavior->callBehavior('adminSimpleMenuSelect', dcCore::app()->admin->item_type, 'item_select'),
+                                # Optional step once App::backend()->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
+                                App::behavior()->callBehavior('adminSimpleMenuSelect', App::backend()->item_type, 'item_select'),
                         };
 
                         echo
-                        form::hidden('item_type', dcCore::app()->admin->item_type) .
-                        '<p>' . dcCore::app()->nonce->getFormNonce() .
+                        form::hidden('item_type', App::backend()->item_type) .
+                        '<p>' . App::nonce()->getFormNonce() .
                         '<input type="submit" name="appendaction" value="' . __('Continue...') . '" /></p>' .
                         '</fieldset>' .
                         '</form>';
@@ -581,13 +581,13 @@ class Manage extends Process
                     // Libellé et description
 
                     echo
-                    '<form id="additem" action="' . dcCore::app()->admin->getPageURL() . '&amp;add=' . trim((string) self::STEP_ADD) . '" method="post">' .
-                    '<fieldset><legend>' . dcCore::app()->admin->item_type_label . (dcCore::app()->admin->item_select_label != '' ? ' (' . dcCore::app()->admin->item_select_label . ')' : '') . '</legend>' .
+                    '<form id="additem" action="' . App::backend()->getPageURL() . '&amp;add=' . trim((string) self::STEP_ADD) . '" method="post">' .
+                    '<fieldset><legend>' . App::backend()->item_type_label . (App::backend()->item_select_label != '' ? ' (' . App::backend()->item_select_label . ')' : '') . '</legend>' .
                     '<p class="field"><label for="item_label" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
                     __('Label of item menu:') . '</label>' .
                     form::field('item_label', 20, 255, [
-                        'default'    => dcCore::app()->admin->item_label,
-                        'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                        'default'    => App::backend()->item_label,
+                        'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                     ]) .
                     '</p>' .
                     '<p class="field"><label for="item_descr" class="classic">' .
@@ -596,23 +596,23 @@ class Manage extends Process
                         30,
                         255,
                         [
-                            'default'    => dcCore::app()->admin->item_descr,
-                            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                            'default'    => App::backend()->item_descr,
+                            'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) .
                     '</p>' .
                     '<p class="field"><label for="item_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
                     __('URL of item menu:') . '</label>' .
                     form::field('item_url', 40, 255, [
-                        'default'    => dcCore::app()->admin->item_url,
+                        'default'    => App::backend()->item_url,
                         'extra_html' => 'required placeholder="' . __('URL') . '"',
                     ]) .
                     '</p>' .
-                    form::hidden('item_type', dcCore::app()->admin->item_type) .
-                    form::hidden('item_select', dcCore::app()->admin->item_select) .
+                    form::hidden('item_type', App::backend()->item_type) .
+                    form::hidden('item_select', App::backend()->item_select) .
                     '<p class="field"><label for="item_descr" class="classic">' .
                     __('Open URL on a new tab') . ':</label>' . form::checkbox('item_targetBlank', 'blank') . '</p>' .
-                    '<p>' . dcCore::app()->nonce->getFormNonce() .
+                    '<p>' . App::nonce()->getFormNonce() .
                     '<input type="submit" name="appendaction" value="' . __('Add this item') . '" /></p>' .
                     '</fieldset>' .
                     '</form>';
@@ -621,14 +621,14 @@ class Manage extends Process
             }
         }
 
-        if (dcCore::app()->admin->step === self::STEP_LIST) {
+        if (App::backend()->step === self::STEP_LIST) {
             // Formulaire d'activation
 
             echo
-            '<form id="settings" action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
-            '<p>' . form::checkbox('active', 1, dcCore::app()->admin->menu_active) .
+            '<form id="settings" action="' . App::backend()->getPageURL() . '" method="post">' .
+            '<p>' . form::checkbox('active', 1, App::backend()->menu_active) .
             '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
-            '<p>' . dcCore::app()->nonce->getFormNonce() .
+            '<p>' . App::nonce()->getFormNonce() .
             '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .
@@ -637,17 +637,17 @@ class Manage extends Process
             // Liste des items
 
             echo
-            '<form id="menuitemsappend" action="' . dcCore::app()->admin->getPageURL() .
+            '<form id="menuitemsappend" action="' . App::backend()->getPageURL() .
             '&amp;add=' . trim((string) self::STEP_TYPE) . '" method="post">' .
-            '<p class="top-add">' . dcCore::app()->nonce->getFormNonce() .
+            '<p class="top-add">' . App::nonce()->getFormNonce() .
             '<input class="button add" type="submit" name="appendaction" value="' . __('Add an item') . '" /></p>' .
             '</form>';
         }
 
-        if (count(dcCore::app()->admin->current_menu)) {
-            if (dcCore::app()->admin->step === self::STEP_LIST) {
+        if (count(App::backend()->current_menu)) {
+            if (App::backend()->step === self::STEP_LIST) {
                 echo
-                '<form id="menuitems" action="' . dcCore::app()->admin->getPageURL() . '" method="post">';
+                '<form id="menuitems" action="' . App::backend()->getPageURL() . '" method="post">';
             }
 
             // Entête table
@@ -658,7 +658,7 @@ class Manage extends Process
             '<thead>' .
             '<tr>';
 
-            if (dcCore::app()->admin->step === self::STEP_LIST) {
+            if (App::backend()->step === self::STEP_LIST) {
                 echo
                 '<th scope="col"></th>' .
                 '<th scope="col"></th>';
@@ -671,9 +671,9 @@ class Manage extends Process
             '<th scope="col">' . __('Open URL on a new tab') . '</th>' .
             '</tr>' .
             '</thead>' .
-            '<tbody' . (dcCore::app()->admin->step === self::STEP_LIST ? ' id="menuitemslist"' : '') . '>';
+            '<tbody' . (App::backend()->step === self::STEP_LIST ? ' id="menuitemslist"' : '') . '>';
             $count = 0;
-            foreach (dcCore::app()->admin->current_menu as $i => $m) {
+            foreach (App::backend()->current_menu as $i => $m) {
                 echo
                 '<tr class="line" id="l_' . $i . '">';
 
@@ -686,13 +686,13 @@ class Manage extends Process
                     $targetBlankStr = '';
                 }
 
-                if (dcCore::app()->admin->step === self::STEP_LIST) {
+                if (App::backend()->step === self::STEP_LIST) {
                     $count++;
                     echo
                     '<td class="handle minimal">' .
                     form::number(['order[' . $i . ']'], [
                         'min'        => 1,
-                        'max'        => count(dcCore::app()->admin->current_menu),
+                        'max'        => count(App::backend()->current_menu),
                         'default'    => $count,
                         'class'      => 'position',
                         'extra_html' => 'title="' . sprintf(__('position of %s'), Html::escapeHTML($m['label'])) . '"',
@@ -705,7 +705,7 @@ class Manage extends Process
                         255,
                         [
                             'default'    => Html::escapeHTML($m['label']),
-                            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                            'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) . '</td>' .
                     '<td class="nowrap">' . form::field(
@@ -714,7 +714,7 @@ class Manage extends Process
                         255,
                         [
                             'default'    => Html::escapeHTML($m['descr']),
-                            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                            'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                         ]
                     ) . '</td>' .
                     '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, Html::escapeHTML($m['url'])) . '</td>' .
@@ -733,10 +733,10 @@ class Manage extends Process
             '</tbody>' .
             '</table></div>';
 
-            if (dcCore::app()->admin->step === self::STEP_LIST) {
+            if (App::backend()->step === self::STEP_LIST) {
                 echo
                 '<div class="two-cols">' .
-                '<p class="col">' . form::hidden('im_order', '') . dcCore::app()->nonce->getFormNonce() .
+                '<p class="col">' . form::hidden('im_order', '') . App::nonce()->getFormNonce() .
                 '<input type="submit" name="updateaction" value="' . __('Update menu') . '" />' . '</p>' .
                 '<p class="col right">' . '<input id="remove-action" type="submit" class="delete" name="removeaction" ' .
                 'value="' . __('Delete selected menu items') . '" ' .

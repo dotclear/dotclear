@@ -11,37 +11,17 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
-use dcAuth;
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Interface\Core\NonceInterface;
 
-class Nonce
+class Nonce implements NonceInterface
 {
-    /** @var    dcAuth  The auth instance */
-    private dcAuth $auth;
-
-    public function __construct()
-    {
-        $this->auth = dcCore::app()->auth;
-    }
-
-    /**
-     * Gets the nonce.
-     *
-     * @return  string  The nonce.
-     */
     public function getNonce(): string
     {
-        return $this->auth->cryptLegacy((string) session_id());
+        return App::auth()->cryptLegacy((string) session_id());
     }
 
-    /**
-     * Check the nonce.
-     *
-     * @param   string  $secret     The nonce
-     *
-     * @return  bool
-     */
     public function checkNonce(string $secret): bool
     {
         // 40 alphanumeric characters min
@@ -49,25 +29,15 @@ class Nonce
             return false;
         }
 
-        return $secret == $this->auth->cryptLegacy((string) session_id());
+        return $secret == App::auth()->cryptLegacy((string) session_id());
     }
 
-    /**
-     * Get the nonce HTML code.
-     *
-     * @return  string
-     */
-    public function getFormNonce()
+    public function getFormNonce(): string
     {
         return $this->formNonce()->render();
     }
 
-    /**
-     * Get the nonce Form element code.
-     *
-     * @return  Hidden
-     */
-    public function formNonce()
+    public function formNonce(): Hidden
     {
         return new Hidden(['xd_check'], !session_id() ? '' : $this->getNonce());
     }

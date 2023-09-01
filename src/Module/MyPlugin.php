@@ -16,8 +16,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcCore;
 use dcModuleDefine;
+use Dotclear\App;
 use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -31,7 +31,7 @@ abstract class MyPlugin extends MyModule
 {
     protected static function define(): dcModuleDefine
     {
-        return static::getDefineFromNamespace(dcCore::app()->plugins);
+        return static::getDefineFromNamespace(App::plugins());
     }
 
     /**
@@ -44,11 +44,11 @@ abstract class MyPlugin extends MyModule
      */
     public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!defined('DC_CONTEXT_ADMIN') || !(dcCore::app()->admin->menus[$menu] instanceof Menu)) {
+        if (!defined('DC_CONTEXT_ADMIN') || !(App::backend()->menus[$menu] instanceof Menu)) {
             return;
         }
 
-        dcCore::app()->admin->menus[$menu]->addItem(
+        App::backend()->menus[$menu]->addItem(
             static::name(),
             static::manageUrl($params, '&'),
             static::icons(),
@@ -104,7 +104,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
-        return defined('DC_CONTEXT_ADMIN') ? dcCore::app()->admin->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
+        return defined('DC_CONTEXT_ADMIN') ? App::backend()->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
     }
 
     /**
@@ -119,13 +119,13 @@ abstract class MyPlugin extends MyModule
         $fields = [];
         if (defined('DC_CONTEXT_ADMIN')) {
             $params = array_merge(
-                dcCore::app()->admin->url->getParams('admin.plugin.' . static::id()),
+                App::backend()->url->getParams('admin.plugin.' . static::id()),
                 $params
             );
             foreach ($params as $key => $value) {
                 $fields[] = new Hidden([$key], (string) $value);
             }
-            $fields[] = dcCore::app()->nonce->formNonce();
+            $fields[] = App::nonce()->formNonce();
         }
 
         return $fields;
@@ -159,7 +159,7 @@ abstract class MyPlugin extends MyModule
     public static function redirect(array $params = [], string $suffix = ''): void
     {
         if (defined('DC_CONTEXT_ADMIN')) {
-            dcCore::app()->admin->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
+            App::backend()->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
         }
     }
 }

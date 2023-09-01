@@ -20,12 +20,16 @@ class Manager
     /**
      * Files manager root path
      *
+     * @deprecated since 2.28, use self::getRoot() instead
+     *
      * @var string
      */
     public $root;
 
     /**
      * Files manager root URL
+     *
+     * @deprecated since 2.28, use self::getRootUrl() instead
      *
      * @var string
      */
@@ -84,6 +88,26 @@ class Manager
         if (!$this->root) {
             throw new Exception('Invalid root directory.');
         }
+    }
+
+    /**
+     * Get current root path.
+     *
+     * @return  string The current root path
+     */
+    public function getRoot(): string
+    {
+        return $this->root;
+    }
+
+    /**
+     * Get current root public URL.
+     *
+     * @return  string The current root URL
+     */
+    public function getRootUrl(): string
+    {
+        return $this->root_url;
     }
 
     /**

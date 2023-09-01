@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\fairTrackbacks;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
@@ -94,7 +94,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             }
 
             // Check incomink link page
-            $post       = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
+            $post       = App::blog()->getPosts(['post_id' => $post_id]);
             $post_url   = $post->getURL();
             $post_parts = array_merge($default_parse, parse_url($post_url));
 

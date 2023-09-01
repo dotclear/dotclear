@@ -13,7 +13,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use dcAntispam;
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -72,34 +72,34 @@ class ListingComments extends Listing
                 ), $this->rs_count) .
                     '</caption>';
             } else {
-                $nb_published   = (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
-                $nb_spam        = (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
-                $nb_pending     = (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PENDING], true)->f(0);
-                $nb_unpublished = (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_UNPUBLISHED], true)->f(0);
+                $nb_published   = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
+                $nb_spam        = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+                $nb_pending     = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_PENDING], true)->f(0);
+                $nb_unpublished = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_PUBLISHED]),
+                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_spam ?
                     sprintf(
                         __(', <a href="%s">spam</a> (1)', ', <a href="%s">spam</a> (%s)', $nb_spam),
-                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_JUNK]),
+                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_JUNK]),
                         $nb_spam
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_PENDING]),
+                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        dcCore::app()->admin->url->get('admin.comments', ['status' => dcBlog::COMMENT_UNPUBLISHED]),
+                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -121,7 +121,7 @@ class ListingComments extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
+            App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('comments', $cols);
@@ -169,13 +169,13 @@ class ListingComments extends Listing
      */
     private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): string
     {
-        $author_url = dcCore::app()->admin->url->get('admin.comments', [
+        $author_url = App::backend()->url->get('admin.comments', [
             'author' => $this->rs->comment_author,
         ]);
 
-        $post_url = dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id);
+        $post_url = App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id);
 
-        $comment_url = dcCore::app()->admin->url->get('admin.comment', ['id' => $this->rs->comment_id]);
+        $comment_url = App::backend()->url->get('admin.comment', ['id' => $this->rs->comment_id]);
 
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -227,7 +227,7 @@ class ListingComments extends Listing
             'author' => '<td class="nowrap maximal"><a href="' . $author_url . '">' .
             Html::escapeHTML($this->rs->comment_author) . '</a></td>',
             'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->comment_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->comment_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt) .
                 '</time>' .
                 '</td>',
@@ -245,7 +245,7 @@ class ListingComments extends Listing
             }
             if ($show_ip) {
                 $cols['ip'] = '<td class="nowrap"><a href="' .
-                    dcCore::app()->admin->url->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+                    App::backend()->url->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
                     $this->rs->comment_ip . '</a></td>';
             }
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';
@@ -255,7 +255,7 @@ class ListingComments extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminCommentListValueV2', $this->rs, $cols);
+        App::behavior()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('comments', $cols);

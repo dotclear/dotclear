@@ -15,14 +15,14 @@ namespace Dotclear\Core\Frontend;
 use context;
 use dcBlog;
 use dcCore;
-use dcMedia;
-use dcThemes;
 use dcUtils;
 use dcTraitDynamicProperties;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Network\HttpCacheStack;
 use Exception;
 use rsExtendPublic;
 
@@ -33,8 +33,26 @@ class Utility extends Process
     /** @var    string  The default templates folder name */
     public const TPL_ROOT = 'default-templates';
 
-    /** @var    Tpl     The template engine */
-    public static Tpl $tpl;
+    /**
+     * HTTP Cache stack
+     *
+     * @var HttpCacheStack;
+     */
+    private HttpCacheStack $cache;
+
+    /**
+     * Context
+     *
+     * @var context
+     */
+    public context $ctx;
+
+    /**
+     * Tpl instance
+     *
+     * @var Tpl
+     */
+    public Tpl $tpl;
 
     /**
      * Searched term
@@ -107,15 +125,13 @@ class Utility extends Process
      */
     public static function process(): bool
     {
-        if (!isset(dcCore::app()->public)) {
-            // Init singleton
-            dcCore::app()->public = new self();
-        }
+        // Instanciate Frontend instance
+        App::frontend();
 
         // Loading blog
         if (defined('DC_BLOG_ID')) {
             try {
-                dcCore::app()->setBlog(DC_BLOG_ID);
+                App::blogLoader()->setBlog(DC_BLOG_ID);
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
@@ -135,12 +151,12 @@ class Utility extends Process
             }
         }
 
-        if (is_null(dcCore::app()->blog) || dcCore::app()->blog->id == null) {
+        if (is_null(App::blog()) || App::blog()->id == null) {
             new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
         }
 
-        if ((int) dcCore::app()->blog->status !== dcBlog::BLOG_ONLINE) {
-            dcCore::app()->unsetBlog();
+        if ((int) App::blog()->status !== dcBlog::BLOG_ONLINE) {
+            App::blogLoader()->unsetBlog();
             new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
 
@@ -155,159 +171,157 @@ class Utility extends Process
         $GLOBALS['_page_number'] = 0;
 
         # Check blog sleep mode
-        dcCore::app()->blog->checkSleepmodeTimeout();
+        App::blog()->checkSleepmodeTimeout();
 
         # Cope with static home page option
-        if (dcCore::app()->blog->settings->system->static_home) {
-            dcCore::app()->url->registerDefault(Url::static_home(...));
+        if (App::blog()->settings->system->static_home) {
+            App::url()->registerDefault(Url::static_home(...));
         }
 
-        # Loading media
-        try {
-            dcCore::app()->media = new dcMedia();
-        } catch (Exception $e) {
-            // Ignore
-        }
+        // deprecated since 2.28, use App::media() instead
+        dcCore::app()->media = App::media();
 
         # Creating template context
-        dcCore::app()->ctx = new context();
+        App::frontend()->ctx = new context();
 
-        /*
-         * Template context
-         *
-         * @var        context
-         *
-         * @deprecated Since 2.23, use dcCore::app()->ctx instead
-         */
-        $GLOBALS['_ctx'] = dcCore::app()->ctx;
+        // deprecated since 2.28, use App::frontend()->ctx instead
+        dcCore::app()->ctx = App::frontend()->ctx;
+
+        // deprecated since 2.23, use App::frontend()->ctx instead
+        $GLOBALS['_ctx'] = App::frontend()->ctx;
 
         try {
-            dcCore::app()->public->tpl = new Tpl(DC_TPL_CACHE, 'dcCore::app()->public->tpl');
-            dcCore::app()->tpl         = dcCore::app()->public->tpl;    /* @deprecated since 2.28 use */
+            App::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'App::frontend()->tpl');
+
+            // deprecated since 2.28, use App::frontend()->tpl instead
+            dcCore::app()->tpl = App::frontend()->tpl;
         } catch (Exception $e) {
             new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
         }
 
         # Loading locales
-        dcCore::app()->lang = (string) dcCore::app()->blog->settings->system->lang;
-        dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
+        App::setLang((string) App::blog()->settings->system->lang);
 
-        /*
-         * @var        string
-         *
-         * @deprecated Since 2.23, use dcCore::app()->lang instead
-         */
-        $GLOBALS['_lang'] = &dcCore::app()->lang;
+        // deprecated since 2.23, use App::lang() instead
+        $GLOBALS['_lang'] = App::lang();
 
-        L10n::lang(dcCore::app()->lang);
-        if (L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
+        L10n::lang(App::lang());
+        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
             L10n::set(DC_L10N_ROOT . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . dcCore::app()->lang . '/plugins');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
+        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('public', dcCore::app()->lang);
+        dcUtils::setlexicalLang('public', App::lang());
 
         # Loading plugins
         try {
-            dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'public', dcCore::app()->lang);
+            App::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', App::lang());
         } catch (Exception $e) {
             // Ignore
         }
 
+        // deprecated since 2.28, use App::themes() instead
+        dcCore::app()->themes = App::themes();
+
         # Loading themes
-        dcCore::app()->themes = new dcThemes();
-        dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path);
+        App::themes()->loadModules(App::blog()->themes_path);
 
         # Defining theme if not defined
-        if (!isset(dcCore::app()->public->theme)) {
-            dcCore::app()->public->theme = dcCore::app()->blog->settings->system->theme;
+        if (!isset(App::frontend()->theme)) {
+            App::frontend()->theme = App::blog()->settings->system->theme;
         }
 
-        if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
-            dcCore::app()->public->theme = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
+        if (!App::themes()->moduleExists(App::frontend()->theme)) {
+            App::frontend()->theme = App::blog()->settings->system->theme = DC_DEFAULT_THEME;
         }
 
-        dcCore::app()->public->parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->public->theme, 'parent');
-        if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme) && !dcCore::app()->themes->moduleExists(dcCore::app()->public->parent_theme)) {
-            dcCore::app()->public->theme        = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
-            dcCore::app()->public->parent_theme = null;
+        App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
+        if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme) && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
+            App::frontend()->theme        = App::blog()->settings->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->parent_theme = null;
         }
 
         # If theme doesn't exist, stop everything
-        if (!dcCore::app()->themes->moduleExists(dcCore::app()->public->theme)) {
+        if (!App::themes()->moduleExists(App::frontend()->theme)) {
             new Fault(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
             'path in your blog configuration. Please check theme_path value in ' .
-            'about:config module or reinstall default theme. (' . dcCore::app()->public->theme . ')'), Fault::THEME_ISSUE);
+            'about:config module or reinstall default theme. (' . App::frontend()->theme . ')'), Fault::THEME_ISSUE);
         }
 
         # Loading _public.php file for selected theme
-        dcCore::app()->themes->loadNsFile(dcCore::app()->public->theme, 'public');
+        App::themes()->loadNsFile(App::frontend()->theme, 'public');
 
         # Loading translations for selected theme
-        if (is_string(dcCore::app()->public->parent_theme) && !empty(dcCore::app()->public->parent_theme)) {
-            dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->parent_theme, dcCore::app()->lang, 'main');
+        if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
+            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang(), 'main');
         }
-        dcCore::app()->themes->loadModuleL10N(dcCore::app()->public->theme, dcCore::app()->lang, 'main');
+        App::themes()->loadModuleL10N(App::frontend()->theme, App::lang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
-        dcCore::app()->behavior->callBehavior('publicPrependV2');
+        App::behavior()->callBehavior('publicPrependV2');
 
         # Prepare the HTTP cache thing
-        dcCore::app()->cache['mod_files'] = get_included_files();
-        /*
-         * @var        array
-         *
-         * @deprecated Since 2.23, use dcCore::app()->cache['mod_files'] instead
-         */
-        $GLOBALS['mod_files'] = dcCore::app()->cache['mod_files'];
+        App::frontend()->cache()->addFiles(get_included_files());
+        App::frontend()->cache()->addTime(App::blog()->upddt);
 
-        dcCore::app()->cache['mod_ts']   = [];
-        dcCore::app()->cache['mod_ts'][] = dcCore::app()->blog->upddt;
-        /*
-         * @var        array
-         *
-         * @deprecated Since 2.23, use dcCore::app()->cache['mod_ts'] instead
-         */
-        $GLOBALS['mod_ts'] = dcCore::app()->cache['mod_ts'];
+        // deprecated Since 2.23, use App::frontend()->cache()->addFiles() or App::frontend()->cache()->getFiles() instead
+        $GLOBALS['mod_files'] = App::frontend()->cache()->getFiles();
+
+        // deprecated Since 2.23, use App::frontend()->cache()->addTimes() or App::frontend()->cache()->getTimes) instead
+        $GLOBALS['mod_ts'] = App::frontend()->cache()->getTimes();
 
         $tpl_path = [
-            dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->theme . '/tpl',
+            App::blog()->themes_path . '/' . App::frontend()->theme . '/tpl',
         ];
-        if (dcCore::app()->public->parent_theme) {
-            $tpl_path[] = dcCore::app()->blog->themes_path . '/' . dcCore::app()->public->parent_theme . '/tpl';
+        if (App::frontend()->parent_theme) {
+            $tpl_path[] = App::blog()->themes_path . '/' . App::frontend()->parent_theme . '/tpl';
         }
-        $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+        $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
-            dcCore::app()->public->tpl->setPath(
+            App::frontend()->tpl->setPath(
                 $tpl_path,
                 $dir,
-                dcCore::app()->public->tpl->getPath()
+                App::frontend()->tpl->getPath()
             );
         } else {
-            dcCore::app()->public->tpl->setPath(
+            App::frontend()->tpl->setPath(
                 $tpl_path,
-                dcCore::app()->public->tpl->getPath()
+                App::frontend()->tpl->getPath()
             );
         }
-        dcCore::app()->url->mode = dcCore::app()->blog->settings->system->url_scan;
+        App::url()->mode = App::blog()->settings->system->url_scan;
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --
-            dcCore::app()->behavior->callBehavior('publicBeforeDocumentV2');
+            App::behavior()->callBehavior('publicBeforeDocumentV2');
 
-            dcCore::app()->url->getDocument();
+            App::url()->getDocument();
 
             # --BEHAVIOR-- publicAfterDocument --
-            dcCore::app()->behavior->callBehavior('publicAfterDocumentV2');
+            App::behavior()->callBehavior('publicAfterDocumentV2');
         } catch (Exception $e) {
             new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
         }
 
         // Do not try to execute a process added to the URL.
         return false;
+    }
+
+    /**
+     * HTTP Cache stack.
+     *
+     * @return      HttpCacheStack
+     */
+    public function cache(): HttpCacheStack
+    {
+        if (!isset($this->cache)) {
+            $this->cache = new HttpCacheStack();
+        }
+
+        return $this->cache;
     }
 
     /**

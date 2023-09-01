@@ -1,12 +1,17 @@
 <?php
 /**
+ * Core log handler.
+ *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core;
+
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -14,60 +19,45 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Interface\Core\LogInterface;
+use Exception;
 
-class dcLog
+class Log implements LogInterface
 {
-    // Constants
-
-    /**
-     * Table name
-     *
-     * @var        string
-     */
     public const LOG_TABLE_NAME = 'log';
 
-    // Properties
-
-    /**
-     * Full log table name (including db prefix)
-     *
-     * @var        string
-     */
+    /** @var    string  Full log table name (including db prefix) */
     protected $log_table;
 
-    /**
-     * Full user table name (including db prefix)
-     *
-     * @var        string
-     */
+    /** @var    string  Full user table name (including db prefix) */
     protected $user_table;
 
     /**
-     * Constructs a new instance.
+     * Constructor.
      */
     public function __construct()
     {
-        $this->log_table  = dcCore::app()->prefix . self::LOG_TABLE_NAME;
-        $this->user_table = dcCore::app()->prefix . dcAuth::USER_TABLE_NAME;
+        $this->log_table  = App::con()->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = App::con()->prefix() . App::auth()::USER_TABLE_NAME;
     }
 
     /**
-     * Retrieves logs.
+     * Get log table name.
      *
-     * <b>$params</b> is an array taking the following optionnal parameters:
+     * @deprecated since 2.28, use self::LOG_TABLE_NAME instead
      *
-     * - blog_id: Get logs belonging to given blog ID
-     * - user_id: Get logs belonging to given user ID
-     * - log_ip: Get logs belonging to given IP address
-     * - log_table: Get logs belonging to given log table
-     * - order: Order of results (default "ORDER BY log_dt DESC")
-     * - limit: Limit parameter
-     *
-     * @param      array   $params      The parameters
-     * @param      bool    $count_only  Count only resultats
-     *
-     * @return     MetaRecord  The logs.
+     * @return  string  The log database table name
      */
+    public function getTable(): string
+    {
+        return self::LOG_TABLE_NAME;
+    }
+
+    public function openCursor(): Cursor
+    {
+        return App::con()->openCursor($this->log_table);
+    }
+
     public function getLogs(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
@@ -109,7 +99,7 @@ class dcLog
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote(dcCore::app()->blog->id));
+            $sql->where('L.blog_id = ' . $sql->quote((string) App::blog()->id));
         }
 
         if (!empty($params['user_id'])) {
@@ -140,16 +130,9 @@ class dcLog
         return $rs;
     }
 
-    /**
-     * Creates a new log. Takes a Cursor as input and returns the new log ID.
-     *
-     * @param      Cursor  $cur    The current
-     *
-     * @return     integer
-     */
     public function addLog(Cursor $cur): int
     {
-        dcCore::app()->con->writeLock($this->log_table);
+        App::con()->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -161,24 +144,24 @@ class dcLog
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) dcCore::app()->blog->id;
+            $cur->blog_id = (string) App::blog()->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
             $this->fillLogCursor($cur);
 
-            # --BEHAVIOR-- coreBeforeLogCreate -- dcLog, Cursor
-            dcCore::app()->behavior->callBehavior('coreBeforeLogCreate', $this, $cur);
+            # --BEHAVIOR-- coreBeforeLogCreate -- Log, Cursor
+            App::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            dcCore::app()->con->unlock();
+            App::con()->unlock();
         } catch (Exception $e) {
-            dcCore::app()->con->unlock();
+            App::con()->unlock();
 
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterLogCreate -- dcLog, Cursor
-        dcCore::app()->behavior->callBehavior('coreAfterLogCreate', $this, $cur);
+        # --BEHAVIOR-- coreAfterLogCreate -- Log, Cursor
+        App::behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }
@@ -213,54 +196,35 @@ class dcLog
         }
     }
 
-    /**
-     * Deletes a log.
-     *
-     * @param      mixed    $id     The identifier
-     * @param      bool     $all    Remove all logs
-     */
-    public function delLogs($id, bool $all = false)
+    public function delLog(int $id): void
+    {
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->log_table)
+            ->where('log_id = ' . $id)
+            ->delete();
+    }
+
+    public function delLogs($id, bool $all = false): void
     {
         if ($all) {
-            $sql = new TruncateStatement();
-            $sql
-                ->from($this->log_table);
+            $this->delAllLogs();
+        } elseif (is_int($id)) {
+            $this->delLog($id);
         } else {
             $sql = new DeleteStatement();
             $sql
                 ->from($this->log_table)
-                ->where('log_id ' . $sql->in($id));
+                ->where('log_id ' . $sql->in($id))
+                ->delete();
         }
-
-        $sql->run();
     }
-}
 
-/**
- * Extent log Record class.
- */
-class rsExtLog
-{
-    /**
-     * Gets the user common name.
-     *
-     * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The user common name.
-     */
-    public static function getUserCN(MetaRecord $rs): string
+    public function delAllLogs(): void
     {
-        $user = dcUtils::getUserCN(
-            $rs->user_id,
-            $rs->user_name,
-            $rs->user_firstname,
-            $rs->user_displayname
-        );
-
-        if ($user === 'unknown') {
-            $user = __('unknown');
-        }
-
-        return $user;
+        $sql = new TruncateStatement();
+        $sql
+            ->from($this->log_table)
+            ->run();
     }
 }

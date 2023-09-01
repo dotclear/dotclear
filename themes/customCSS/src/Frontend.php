@@ -11,7 +11,7 @@
 
 namespace Dotclear\Theme\customCSS;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -24,10 +24,10 @@ class Frontend extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            dcCore::app()->behavior->addBehavior('publicHeadContent', function () {
-                echo 
-                '<link rel="stylesheet" type="text/css" href="' . 
-                dcCore::app()->blog->settings->system->public_url . 
+            App::behavior()->addBehavior('publicHeadContent', function () {
+                echo
+                '<link rel="stylesheet" type="text/css" href="' .
+                App::blog()->settings->system->public_url .
                 '/custom_style.css" media="screen">' . "\n";
             });
         }

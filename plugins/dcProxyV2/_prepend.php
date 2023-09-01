@@ -9,6 +9,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 
 class dcProxyV2
@@ -21,7 +22,7 @@ class dcProxyV2
 
         $reflectionCore = new ReflectionClass($class);
         foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-            dcCore::app()->behavior->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
+            App::behavior()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
         }
     }
 

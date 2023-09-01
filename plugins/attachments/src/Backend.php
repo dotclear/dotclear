@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\attachments;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Backend extends Process
@@ -31,7 +31,7 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             'adminPostFormItems' => BackendBehaviors::adminPostFormItems(...),
             'adminPostAfterForm' => BackendBehaviors::adminPostAfterForm(...),
             'adminPostHeaders'   => fn () => My::jsLoad('post'),

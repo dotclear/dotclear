@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -36,31 +36,31 @@ class Manage extends Process
 
         Antispam::initFilters();
 
-        dcCore::app()->admin->filters     = Antispam::$filters->getFilters();
-        dcCore::app()->admin->page_name   = My::name();
-        dcCore::app()->admin->filter_gui  = false;
-        dcCore::app()->admin->default_tab = null;
-        dcCore::app()->admin->filter      = null;
+        App::backend()->filters     = Antispam::$filters->getFilters();
+        App::backend()->page_name   = My::name();
+        App::backend()->filter_gui  = false;
+        App::backend()->default_tab = null;
+        App::backend()->filter      = null;
 
         try {
             // Show filter configuration GUI
             if (!empty($_GET['f'])) {
-                if (!isset(dcCore::app()->admin->filters[$_GET['f']])) {
+                if (!isset(App::backend()->filters[$_GET['f']])) {
                     throw new Exception(__('Filter does not exist.'));
                 }
 
-                if (!dcCore::app()->admin->filters[$_GET['f']]->hasGUI()) {
+                if (!App::backend()->filters[$_GET['f']]->hasGUI()) {
                     throw new Exception(__('Filter has no user interface.'));
                 }
 
-                dcCore::app()->admin->filter     = dcCore::app()->admin->filters[$_GET['f']];
-                dcCore::app()->admin->filter_gui = dcCore::app()->admin->filter->gui(dcCore::app()->admin->filter->guiURL());
+                App::backend()->filter     = App::backend()->filters[$_GET['f']];
+                App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL());
             }
 
             // Remove all spam
             if (!empty($_POST['delete_all'])) {
                 $ts = isset($_POST['ts']) ? (int) $_POST['ts'] : null;
-                $ts = Date::str('%Y-%m-%d %H:%M:%S', $ts, dcCore::app()->blog->settings->system->blog_timezone);
+                $ts = Date::str('%Y-%m-%d %H:%M:%S', $ts, App::blog()->settings->system->blog_timezone);
 
                 Antispam::delAllSpam($ts);
 
@@ -72,7 +72,7 @@ class Manage extends Process
             if (isset($_POST['filters_upd'])) {
                 $filters_opt = [];
                 $i           = 0;
-                foreach (dcCore::app()->admin->filters as $fid => $f) {
+                foreach (App::backend()->filters as $fid => $f) {
                     $filters_opt[$fid] = [false, $i];
                     $i++;
                 }
@@ -112,7 +112,7 @@ class Manage extends Process
                 My::redirect();
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return true;
@@ -124,12 +124,12 @@ class Manage extends Process
             return;
         }
 
-        $title = (dcCore::app()->admin->filter_gui !== false ?
-            sprintf(__('%s configuration'), dcCore::app()->admin->filter->name) . ' - ' :
-            '' . dcCore::app()->admin->page_name);
+        $title = (App::backend()->filter_gui !== false ?
+            sprintf(__('%s configuration'), App::backend()->filter->name) . ' - ' :
+            '' . App::backend()->page_name);
 
-        $head = Page::jsPageTabs(dcCore::app()->admin->default_tab);
-        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
+        $head = Page::jsPageTabs(App::backend()->default_tab);
+        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
@@ -139,29 +139,29 @@ class Manage extends Process
 
         Page::openModule($title, $head);
 
-        if (dcCore::app()->admin->filter_gui !== false) {
+        if (App::backend()->filter_gui !== false) {
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')                                                              => '',
-                    dcCore::app()->admin->page_name                                            => dcCore::app()->admin->getPageURL(),
-                    sprintf(__('%s filter configuration'), dcCore::app()->admin->filter->name) => '',
+                    __('Plugins')                                                        => '',
+                    App::backend()->page_name                                            => App::backend()->getPageURL(),
+                    sprintf(__('%s filter configuration'), App::backend()->filter->name) => '',
                 ]
             ) .
             Notices::getNotices() .
-            '<p><a href="' . dcCore::app()->admin->getPageURL() . '" class="back">' . __('Back to filters list') . '</a></p>' .
+            '<p><a href="' . App::backend()->getPageURL() . '" class="back">' . __('Back to filters list') . '</a></p>' .
 
-            dcCore::app()->admin->filter_gui;
+            App::backend()->filter_gui;
 
-            if (dcCore::app()->admin->filter->help) {
-                Page::helpBlock(dcCore::app()->admin->filter->help);
+            if (App::backend()->filter->help) {
+                Page::helpBlock(App::backend()->filter->help);
             }
         } else {
             echo
             Page::breadcrumb(
                 [
-                    __('Plugins')                   => '',
-                    dcCore::app()->admin->page_name => '',
+                    __('Plugins')             => '',
+                    App::backend()->page_name => '',
                 ]
             ) .
             Notices::getNotices();
@@ -172,25 +172,25 @@ class Manage extends Process
             $moderationTTL   = My::settings()->antispam_moderation_ttl;
 
             echo
-            '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post" class="fieldset">' .
+            '<form action="' . App::backend()->getPageURL() . '" method="post" class="fieldset">' .
             '<h3>' . __('Information') . '</h3>' .
             '<ul class="spaminfo">' .
-            '<li class="spamcount"><a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
+            '<li class="spamcount"><a href="' . App::backend()->url->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
             '<strong>' . $spam_count . '</strong></li>' .
-            '<li class="hamcount"><a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
+            '<li class="hamcount"><a href="' . App::backend()->url->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
                 $published_count . '</li>' .
             '</ul>';
 
             if ($spam_count > 0) {
                 echo
-                '<p>' . dcCore::app()->nonce->getFormNonce() .
+                '<p>' . App::nonce()->getFormNonce() .
                 form::hidden('ts', time()) .
                 '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
             }
             if ($moderationTTL != null && $moderationTTL >= 0) {
                 echo
                 '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL) . ' ' .
-                sprintf(__('You can modify this duration in the %s'), '<a href="' . dcCore::app()->admin->url->get('admin.blog.pref') .
+                sprintf(__('You can modify this duration in the %s'), '<a href="' . App::backend()->url->get('admin.blog.pref') .
                 '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
                 '.</p>';
             }
@@ -198,7 +198,7 @@ class Manage extends Process
             '</form>' .
 
             // Filters
-            '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post" id="filters-list-form">';
+            '<form action="' . App::backend()->getPageURL() . '" method="post" id="filters-list-form">';
 
             if (!empty($_GET['upd'])) {
                 Notices::success(__('Filters configuration has been successfully saved.'));
@@ -218,7 +218,7 @@ class Manage extends Process
             '<tbody id="filters-list" >';
 
             $i = 1;
-            foreach (dcCore::app()->admin->filters as $fid => $f) {
+            foreach (App::backend()->filters as $fid => $f) {
                 $gui_link = '&nbsp;';
                 if ($f->hasGUI()) {
                     $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '">' .
@@ -230,7 +230,7 @@ class Manage extends Process
                 '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
                 '<td class="handle">' . form::number(['f_order[' . $fid . ']'], [
                     'min'        => 1,
-                    'max'        => is_countable(dcCore::app()->admin->filters) ? count(dcCore::app()->admin->filters) : 0,
+                    'max'        => is_countable(App::backend()->filters) ? count(App::backend()->filters) : 0,
                     'default'    => $i,
                     'class'      => 'position',
                     'extra_html' => 'title="' . __('position') . '"',
@@ -261,7 +261,7 @@ class Manage extends Process
             echo
             '</tbody></table></div>' .
             '<p>' . form::hidden('filters_order', '') .
-            dcCore::app()->nonce->getFormNonce() .
+            App::nonce()->getFormNonce() .
             '<input type="submit" name="filters_upd" value="' . __('Save') . '" />' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             '</p>' .
@@ -269,11 +269,11 @@ class Manage extends Process
 
             // Syndication
             if (DC_ADMIN_URL) {
-                $ham_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
+                $ham_feed = App::blog()->url . App::url()->getURLFor(
                     'hamfeed',
                     Antispam::getUserCode()
                 );
-                $spam_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
+                $spam_feed = App::blog()->url . App::url()->getURLFor(
                     'spamfeed',
                     Antispam::getUserCode()
                 );

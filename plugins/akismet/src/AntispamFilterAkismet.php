@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -65,7 +65,7 @@ class AntispamFilterAkismet extends SpamFilter
     {
         parent::__construct();
 
-        if (defined('DC_AKISMET_SUPER') && DC_AKISMET_SUPER && !dcCore::app()->auth->isSuperAdmin()) {
+        if (defined('DC_AKISMET_SUPER') && DC_AKISMET_SUPER && !App::auth()->isSuperAdmin()) {
             $this->has_gui = false;
         }
     }
@@ -102,7 +102,7 @@ class AntispamFilterAkismet extends SpamFilter
             return false;
         }
 
-        return new Akismet(dcCore::app()->blog->url, My::settings()->ak_key);
+        return new Akismet(App::blog()->url, My::settings()->ak_key);
     }
 
     /**
@@ -129,7 +129,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         try {
             if ($ak->verify()) {
-                $post = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
+                $post = App::blog()->getPosts(['post_id' => $post_id]);
 
                 $c = $ak->comment_check(
                     $post->getURL(),
@@ -207,16 +207,16 @@ class AntispamFilterAkismet extends SpamFilter
                 Notices::addSuccessNotice(__('Filter configuration have been successfully saved.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
         if (My::settings()->ak_key) {
             try {
-                $ak          = new Akismet(dcCore::app()->blog->url, My::settings()->ak_key);
+                $ak          = new Akismet(App::blog()->url, My::settings()->ak_key);
                 $ak_verified = $ak->verify();
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -238,7 +238,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         $res .= '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
         '<p><input type="submit" value="' . __('Save') . '" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        App::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
         return $res;

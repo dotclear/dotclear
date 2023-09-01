@@ -10,20 +10,22 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\App;
+
 class dcProxyV2CoreBehaviors
 {
     // Count: 3
 
     public static function coreBeforeLoadingNsFiles($that, $lang)
     {
-        return dcCore::app()->behavior->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $that, $lang);
+        return App::behavior()->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $that, $lang);
     }
     public static function coreCommentSearch($table)
     {
-        return dcCore::app()->behavior->callBehavior('coreCommentSearch', dcCore::app(), $table);
+        return App::behavior()->callBehavior('coreCommentSearch', dcCore::app(), $table);
     }
     public static function corePostSearch($table)
     {
-        return dcCore::app()->behavior->callBehavior('corePostSearch', dcCore::app(), $table);
+        return App::behavior()->callBehavior('corePostSearch', dcCore::app(), $table);
     }
 }

@@ -12,19 +12,19 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcCore;
 use dcWorkspace;
+use Dotclear\App;
 
 class GrowUp_2_16_9_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         // Fix 87,5% which should be 87.5% in pref for htmlfontsize
-        $strReq = 'UPDATE ' . dcCore::app()->prefix . dcWorkspace::WS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . dcWorkspace::WS_TABLE_NAME .
             " SET pref_value = REPLACE(pref_value, '87,5%', '87.5%') " .
             " WHERE pref_id = 'htmlfontsize' " .
             " AND pref_ws = 'interface' ";
-        dcCore::app()->con->execute($strReq);
+        App::con()->execute($strReq);
 
         return $cleanup_sessions;
     }

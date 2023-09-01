@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
 use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
@@ -26,10 +26,10 @@ class ActionsCommentsDefault
      */
     public static function adminCommentsActionsPage(ActionsComments $ap)
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -41,10 +41,10 @@ class ActionsCommentsDefault
             );
         }
 
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -53,8 +53,8 @@ class ActionsCommentsDefault
         }
 
         $ip_filter_active = false;
-        if (dcCore::app()->blog->settings->antispam->antispam_filters !== null) {
-            $filters_opt = dcCore::app()->blog->settings->antispam->antispam_filters;
+        if (App::blog()->settings->antispam->antispam_filters !== null) {
+            $filters_opt = App::blog()->settings->antispam->antispam_filters;
             if (is_array($filters_opt)) {
                 $filterActive     = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
                 $ip_filter_active = $filterActive('dcFilterIP') || $filterActive('dcFilterIPv6');
@@ -63,7 +63,7 @@ class ActionsCommentsDefault
 
         if ($ip_filter_active) {
             $blocklist_actions = [__('Blocklist IP') => 'blocklist'];
-            if (dcCore::app()->auth->isSuperAdmin()) {
+            if (App::auth()->isSuperAdmin()) {
                 $blocklist_actions[__('Blocklist IP (global)')] = 'blocklist_global';
             }
 
@@ -95,7 +95,7 @@ class ActionsCommentsDefault
             default     => dcBlog::COMMENT_PUBLISHED,
         };
 
-        dcCore::app()->blog->updCommentsStatus($ids, $status);
+        App::blog()->updCommentsStatus($ids, $status);
 
         Notices::addSuccessNotice(__('Selected comments have been successfully updated.'));
         $ap->redirect(true);
@@ -117,13 +117,13 @@ class ActionsCommentsDefault
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforeCommentDelete -- string
-            dcCore::app()->behavior->callBehavior('adminBeforeCommentDelete', $id);
+            App::behavior()->callBehavior('adminBeforeCommentDelete', $id);
         }
 
         # --BEHAVIOR-- adminBeforeCommentsDelete -- array<int,string>
-        dcCore::app()->behavior->callBehavior('adminBeforeCommentsDelete', $ids);
+        App::behavior()->callBehavior('adminBeforeCommentsDelete', $ids);
 
-        dcCore::app()->blog->delComments($ids);
+        App::blog()->delComments($ids);
 
         Notices::addSuccessNotice(__('Selected comments have been successfully deleted.'));
         $ap->redirect(false);
@@ -144,9 +144,9 @@ class ActionsCommentsDefault
         }
 
         $action = $ap->getAction();
-        $global = !empty($action) && $action == 'blocklist_global' && dcCore::app()->auth->isSuperAdmin();
+        $global = !empty($action) && $action == 'blocklist_global' && App::auth()->isSuperAdmin();
 
-        $filters_opt  = dcCore::app()->blog->settings->antispam->antispam_filters;
+        $filters_opt  = App::blog()->settings->antispam->antispam_filters;
         $filterActive = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
         $filters      = [
             'v4' => $filterActive('dcFilterIP'),

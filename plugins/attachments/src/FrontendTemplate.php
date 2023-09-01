@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Helper\File\Files;
 
@@ -31,16 +31,16 @@ class FrontendTemplate
     {
         return
             '<?php' . "\n" .
-            'if (dcCore::app()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
-            '    dcCore::app()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(dcCore::app()->ctx->posts->post_id,null,"attachment"));' . "\n" .
-            '    foreach (dcCore::app()->ctx->attachments as $attach_i => $attach_f) : ' .
-            '        dcCore::app()->ctx->file_url = $attach_f->file_url;' . "\n" .
+            'if (App::frontend()->ctx->posts !== null) {' . "\n" .
+            '    App::frontend()->ctx->attachments = new ArrayObject(App::media()->getPostMedia(App::frontend()->ctx->posts->post_id,null,"attachment"));' . "\n" .
+            '    foreach (App::frontend()->ctx->attachments as $attach_i => $attach_f) : ' .
+            '        App::frontend()->ctx->file_url = $attach_f->file_url;' . "\n" .
             '?>' . "\n" .
             $content .
             '<?php' . "\n" .
             '    endforeach;' . "\n" .
-            '    dcCore::app()->ctx->attachments = null;' . "\n" .
-            '    unset($attach_i,$attach_f,dcCore::app()->ctx->file_url);' . "\n" .
+            '    App::frontend()->ctx->attachments = null;' . "\n" .
+            '    unset($attach_i,$attach_f,App::frontend()->ctx->file_url);' . "\n" .
             '}' . "\n" .
             '?>' . "\n";
     }
@@ -72,7 +72,7 @@ class FrontendTemplate
     public static function AttachmentsFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if ($attach_i+1 == count(dcCore::app()->ctx->attachments)) : ?>' .
+            '<?php if ($attach_i+1 == count(App::frontend()->ctx->attachments)) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -157,7 +157,7 @@ class FrontendTemplate
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->type') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->type') . '; ?>';
     }
 
     /**
@@ -173,7 +173,7 @@ class FrontendTemplate
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->media_type') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->media_type') . '; ?>';
     }
 
     /**
@@ -189,7 +189,7 @@ class FrontendTemplate
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->basename') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->basename') . '; ?>';
     }
 
     /**
@@ -206,7 +206,7 @@ class FrontendTemplate
      */
     public static function AttachmentSize(ArrayObject $attr): string
     {
-        $f = dcCore::app()->public->tpl->getFilters($attr);
+        $f = App::frontend()->tpl->getFilters($attr);
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
@@ -227,7 +227,7 @@ class FrontendTemplate
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$attach_f->media_title') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->media_title') . '; ?>';
     }
 
     /**
@@ -247,10 +247,10 @@ class FrontendTemplate
         '<?php ' . "\n" .
         'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
         '    $url = $attach_f->media_thumb[\'sq\'];' . "\n" .
-        '    if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
-        '        $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
+        '    if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {' . "\n" .
+        '        $url = substr($url, strlen(App::blog()->host));' . "\n" .
         '    }' . "\n" .
-        '    echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        '    echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '}' . "\n" .
         '?>';
     }
@@ -271,10 +271,10 @@ class FrontendTemplate
         return
         '<?php ' . "\n" .
         '$url = $attach_f->file_url;' . "\n" .
-        'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
-        '    $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
+        'if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {' . "\n" .
+        '    $url = substr($url, strlen(App::blog()->host));' . "\n" .
         '}' . "\n" .
-        'echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        'echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
     }
 
@@ -293,11 +293,11 @@ class FrontendTemplate
     {
         return
         '<?php ' . "\n" .
-        '$url = dcCore::app()->ctx->file_url;' . "\n" .
-        'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
-        '    $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
+        '$url = App::frontend()->ctx->file_url;' . "\n" .
+        'if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {' . "\n" .
+        '    $url = substr($url, strlen(App::blog()->host));' . "\n" .
         '}' . "\n" .
-        'echo ' . sprintf(dcCore::app()->public->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        'echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
     }
 
@@ -320,8 +320,8 @@ class FrontendTemplate
      */
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {
-        return dcCore::app()->public->tpl->displayCounter(
-            'dcCore::app()->ctx->posts->countMedia(\'attachment\')',
+        return App::frontend()->tpl->displayCounter(
+            'App::frontend()->ctx->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',
                 'one'  => 'one attachment',

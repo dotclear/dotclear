@@ -6,4 +6,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-dcCore::app()->admin->resources->set('help', 'blowupConfig', __DIR__ . '/help/help.html');
+\Dotclear\App::backend()->resources->set('help', 'blowupConfig', __DIR__ . '/help/help.html');

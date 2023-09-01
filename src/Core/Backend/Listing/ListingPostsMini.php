@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -45,7 +45,7 @@ class ListingPostsMini extends Listing
 
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
-            dcCore::app()->behavior->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
+            App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -126,11 +126,11 @@ class ListingPostsMini extends Listing
 
         $cols = [
             'title' => '<td scope="row" class="maximal"><a href="' .
-            dcCore::app()->post_types->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '" ' .
+            App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '" ' .
             'title="' . Html::escapeHTML($this->rs->getURL()) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), dcCore::app()->auth->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',
@@ -140,7 +140,7 @@ class ListingPostsMini extends Listing
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
+        App::behavior()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);

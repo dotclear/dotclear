@@ -13,20 +13,20 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use dcCategories;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\AbstractSchema;
 
 class GrowUp_2_1_alpha2_r2383_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
-        $schema = AbstractSchema::init(dcCore::app()->con);
-        $schema->dropUnique(dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME, dcCore::app()->prefix . 'uk_cat_title');
+        $schema = AbstractSchema::init(App::con());
+        $schema->dropUnique(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME, App::con()->prefix() . 'uk_cat_title');
 
         # Reindex categories
-        $rs = dcCore::app()->con->select(
+        $rs = App::con()->select(
             'SELECT cat_id, cat_title, blog_id ' .
-            'FROM ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+            'FROM ' . App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME . ' ' .
             'ORDER BY blog_id ASC , cat_position ASC '
         );
         $cat_blog = $rs->blog_id;
@@ -35,8 +35,8 @@ class GrowUp_2_1_alpha2_r2383_lt
             if ($cat_blog != $rs->blog_id) {
                 $i = 2;
             }
-            dcCore::app()->con->execute(
-                'UPDATE ' . dcCore::app()->prefix . dcCategories::CATEGORY_TABLE_NAME . ' SET '
+            App::con()->execute(
+                'UPDATE ' . App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME . ' SET '
                 . 'cat_lft = ' . ($i++) . ', cat_rgt = ' . ($i++) . ' ' .
                 'WHERE cat_id = ' . (int) $rs->cat_id
             );

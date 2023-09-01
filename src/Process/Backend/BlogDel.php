@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -33,24 +33,24 @@ class BlogDel extends Process
     {
         Page::checkSuper();
 
-        dcCore::app()->admin->blog_id   = '';
-        dcCore::app()->admin->blog_name = '';
+        App::backend()->blog_id   = '';
+        App::backend()->blog_name = '';
 
         if (!empty($_POST['blog_id'])) {
             $rs = null;
 
             try {
-                $rs = dcCore::app()->blogs->getBlog($_POST['blog_id']);
+                $rs = App::blogs()->getBlog($_POST['blog_id']);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
 
             if ($rs) {
                 if ($rs->isEmpty()) {
-                    dcCore::app()->error->add(__('No such blog ID'));
+                    App::error()->add(__('No such blog ID'));
                 } else {
-                    dcCore::app()->admin->blog_id   = $rs->blog_id;
-                    dcCore::app()->admin->blog_name = $rs->blog_name;
+                    App::backend()->blog_id   = $rs->blog_id;
+                    App::backend()->blog_name = $rs->blog_name;
                 }
             }
         }
@@ -60,18 +60,18 @@ class BlogDel extends Process
 
     public static function process(): bool
     {
-        if (!dcCore::app()->error->flag() && dcCore::app()->admin->blog_id && !empty($_POST['del'])) {
+        if (!App::error()->flag() && App::backend()->blog_id && !empty($_POST['del'])) {
             // Delete the blog
-            if (!dcCore::app()->auth->checkPassword($_POST['pwd'])) {
-                dcCore::app()->error->add(__('Password verification failed'));
+            if (!App::auth()->checkPassword($_POST['pwd'])) {
+                App::error()->add(__('Password verification failed'));
             } else {
                 try {
-                    dcCore::app()->blogs->delBlog(dcCore::app()->admin->blog_id);
-                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(dcCore::app()->admin->blog_name)));
+                    App::blogs()->delBlog(App::backend()->blog_id);
+                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(App::backend()->blog_name)));
 
-                    dcCore::app()->admin->url->redirect('admin.blogs');
+                    App::backend()->url->redirect('admin.blogs');
                 } catch (Exception $e) {
-                    dcCore::app()->error->add($e->getMessage());
+                    App::error()->add($e->getMessage());
                 }
             }
         }
@@ -87,16 +87,16 @@ class BlogDel extends Process
             Page::breadcrumb(
                 [
                     __('System')        => '',
-                    __('Blogs')         => dcCore::app()->admin->url->get('admin.blogs'),
+                    __('Blogs')         => App::backend()->url->get('admin.blogs'),
                     __('Delete a blog') => '',
                 ]
             )
         );
 
-        if (!dcCore::app()->error->flag()) {
+        if (!App::error()->flag()) {
             $msg = '<strong>' . __('Warning') . '</strong></p><p>' . sprintf(
                 __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
-                '<strong>' . dcCore::app()->admin->blog_id . ' (' . dcCore::app()->admin->blog_name . ')</strong>'
+                '<strong>' . App::backend()->blog_id . ' (' . App::backend()->blog_name . ')</strong>'
             );
             Notices::warning($msg, false, true);
 
@@ -108,10 +108,10 @@ class BlogDel extends Process
             ])->render() .
             // Form
             (new Form('form-del'))
-            ->action(dcCore::app()->admin->url->get('admin.blog.del'))
+            ->action(App::backend()->url->get('admin.blog.del'))
             ->method('post')
             ->fields([
-                dcCore::app()->nonce->formNonce(),
+                App::nonce()->formNonce(),
                 (new Para())
                     ->items([
                         (new Password('pwd'))
@@ -133,7 +133,7 @@ class BlogDel extends Process
                             ->class(['go-back', 'reset', 'hidden-if-no-js'])
                             ->value(__('Cancel')),
                     ]),
-                (new Hidden('blog_id', dcCore::app()->admin->blog_id)),
+                (new Hidden('blog_id', App::backend()->blog_id)),
             ])->render();
         }
 

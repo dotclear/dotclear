@@ -14,21 +14,21 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return in_array($context, [self::MANAGE, self::MENU]) ? 
+        return in_array($context, [self::MANAGE, self::MENU]) ?
             defined('DC_CONTEXT_ADMIN')
-            && !is_null(dcCore::app()->blog)
-            && dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+            && !is_null(App::blog())
+            && App::auth()->check(App::auth()->makePermissions([
                 Blogroll::PERMISSION_BLOGROLL,
-                dcCore::app()->auth::PERMISSION_ADMIN,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)
+                App::auth()::PERMISSION_ADMIN,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id)
             : null;
     }
 }

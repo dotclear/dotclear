@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
 
@@ -53,11 +53,11 @@ class FrontendUrl extends Url
             self::p404();
         }
 
-        dcCore::app()->auth->checkUser($user_id, null, null);
+        App::auth()->checkUser($user_id, null, null);
 
         header('Content-Type: application/xml; charset=UTF-8');
 
-        $title   = dcCore::app()->blog->name . ' - ' . __('Spam moderation') . ' - ';
+        $title   = App::blog()->name . ' - ' . __('Spam moderation') . ' - ';
         $params  = [];
         $end_url = '';
         if ($type == 'spam') {
@@ -79,7 +79,7 @@ class FrontendUrl extends Url
         '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'index.php?process=Comments' . $end_url : 'about:blank') . '</link>' . "\n" .
         '<description></description>' . "\n";
 
-        $rs       = dcCore::app()->blog->getComments($params);
+        $rs       = App::blog()->getComments($params);
         $maxitems = 20;
         $nbitems  = 0;
 

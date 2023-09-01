@@ -13,28 +13,26 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\Helper\Behavior;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\FilterInterface;
 
-class Filter
+class Filter implements FilterInterface
 {
-    private Behavior $behavior;
+    /** @var    WikiToHtml TH ewiki instance */
+    private ?WikiToHtml $wiki = null;
 
     /**
-     * Constructor grabs all we need.
+     * Get wiki instance.
+     *
+     * @return  null|WikiToHtml Instance or null if not set
      */
-    public function __construct()
+    public function wiki(): ?WikiToHtml
     {
-        // dot not get blog here as it can change during script execution
-        $this->behavior = dcCore::app()->behavior;
+        return $this->wiki;
     }
-
-    /// @name WikiToHtml methods
-    //@{
-    /** @var 	WikiToHtml TH ewiki instance */
-    public WikiToHtml $wiki;
 
     /**
      * Initializes the WikiToHtml methods.
@@ -43,18 +41,13 @@ class Filter
     {
         $this->wiki = new WikiToHtml();
 
-        /* @deprecated since 2.28 For compatibility only */
-        dcCore::app()->wiki       = $this->wiki;
+        // deprecated since 2.27, use App::filter()->wiki instead
+        dcCore::app()->wiki = $this->wiki;
+
+        // deprecated since 2.27, use App::filter()->wiki instead
         dcCore::app()->wiki2xhtml = $this->wiki;
     }
 
-    /**
-     * Returns a transformed string with WikiToHtml.
-     *
-     * @param      string  $str    The string
-     *
-     * @return     string
-     */
     public function wikiTransform(string $str): string
     {
         if (!isset($this->wiki)) {
@@ -64,9 +57,6 @@ class Filter
         return $this->wiki->transform($str);
     }
 
-    /**
-     * Inits <var>wiki</var> property for blog post.
-     */
     public function initWikiPost(): void
     {
         $this->initWiki();
@@ -117,12 +107,9 @@ class Filter
         $this->wiki->registerFunction('url:post', [$this, 'wikiPostLink']);
 
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiPost', $this->wiki);
+        App::behavior()->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
-    /**
-     * Inits <var>wiki</var> property for simple blog comment (basic syntax).
-     */
     public function initWikiSimpleComment(): void
     {
         $this->initWiki();
@@ -166,12 +153,9 @@ class Filter
         ]);
 
         # --BEHAVIOR-- coreInitWikiSimpleComment -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiSimpleComment', $this->wiki);
+        App::behavior()->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
-    /**
-     * Inits <var>wiki</var> property for blog comment.
-     */
     public function initWikiComment(): void
     {
         $this->initWiki();
@@ -214,20 +198,12 @@ class Filter
         ]);
 
         # --BEHAVIOR-- coreInitWikiComment -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiComment', $this->wiki);
+        App::behavior()->callBehavior('coreInitWikiComment', $this->wiki);
     }
 
-    /**
-     * Get info about a post:id wiki macro
-     *
-     * @param      string  $url      The post url
-     * @param      string  $content  The content
-     *
-     * @return     array<string,string>
-     */
     public function wikiPostLink(string $url, string $content): array
     {
-        if (is_null(dcCore::app()->blog)) {
+        if (!App::blog()) {
             return [];
         }
 
@@ -236,7 +212,7 @@ class Filter
             return [];
         }
 
-        $post = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
+        $post = App::blog()->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
             return [];
         }
@@ -257,22 +233,10 @@ class Filter
 
         return $res;
     }
-    //@}
 
-    /// @name HTML Filter methods
-    //@{
-    /**
-     * Calls HTML filter to drop bad tags and produce valid HTML output (if
-     * tidy extension is present). If <b>enable_html_filter</b> blog setting is
-     * false, returns not filtered string.
-     *
-     * @param      string  $str    The string
-     *
-     * @return     string
-     */
     public function HTMLfilter(string $str): string
     {
-        if (!is_null(dcCore::app()->blog) && !dcCore::app()->blog->settings->system->enable_html_filter) {
+        if (!App::blog() || !App::blog()->settings->system->enable_html_filter) {
             return $str;
         }
 
@@ -282,12 +246,11 @@ class Filter
             'keep_js'   => false,
         ]);
         # --BEHAVIOR-- HTMLfilter -- ArrayObject
-        $this->behavior->callBehavior('HTMLfilter', $options);
+        App::behavior()->callBehavior('HTMLfilter', $options);
 
         $filter = new HtmlFilter((bool) $options['keep_aria'], (bool) $options['keep_data'], (bool) $options['keep_js']);
         $str    = trim($filter->apply($str));
 
         return $str;
     }
-    //@}
 }

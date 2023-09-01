@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 
 class FrontendUrl extends Url
@@ -32,13 +32,13 @@ class FrontendUrl extends Url
             $type = $m[2] == 'atom' ? 'atom' : 'rss2';
             $mime = 'application/xml';
 
-            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
-                dcCore::app()->meta->getMetadata([
+            App::frontend()->ctx->meta = App::meta()->computeMetaStats(
+                App::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $m[1], ])
             );
 
-            if (dcCore::app()->ctx->meta->isEmpty()) {
+            if (App::frontend()->ctx->meta->isEmpty()) {
                 self::p404();
             } else {
                 $tpl = $type;
@@ -51,16 +51,16 @@ class FrontendUrl extends Url
             }
         } else {
             if ($n) {
-                dcCore::app()->public->setPageNumber($n);
+                App::frontend()->setPageNumber($n);
             }
 
-            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
-                dcCore::app()->meta->getMetadata([
+            App::frontend()->ctx->meta = App::meta()->computeMetaStats(
+                App::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $args, ])
             );
 
-            if (dcCore::app()->ctx->meta->isEmpty()) {
+            if (App::frontend()->ctx->meta->isEmpty()) {
                 self::p404();
             } else {
                 self::serveDocument('tag.html');
@@ -90,17 +90,17 @@ class FrontendUrl extends Url
             $type     = (string) $m[2];
             $comments = !empty($m[3]);
 
-            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
-                dcCore::app()->meta->getMetadata([
+            App::frontend()->ctx->meta = App::meta()->computeMetaStats(
+                App::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $tag, ])
             );
 
-            if (dcCore::app()->ctx->meta->isEmpty()) {
+            if (App::frontend()->ctx->meta->isEmpty()) {
                 # The specified tag does not exist.
                 self::p404();
             } else {
-                dcCore::app()->ctx->feed_subtitle = ' - ' . __('Tag') . ' - ' . dcCore::app()->ctx->meta->meta_id;
+                App::frontend()->ctx->feed_subtitle = ' - ' . __('Tag') . ' - ' . App::frontend()->ctx->meta->meta_id;
 
                 if ($type === 'atom') {
                     $mime = 'application/atom+xml';
@@ -111,10 +111,10 @@ class FrontendUrl extends Url
                 $tpl = $type;
                 if ($comments) {
                     $tpl .= '-comments';
-                    dcCore::app()->ctx->nb_comment_per_page = dcCore::app()->blog->settings->system->nb_comment_per_feed;
+                    App::frontend()->ctx->nb_comment_per_page = App::blog()->settings->system->nb_comment_per_feed;
                 } else {
-                    dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_feed;
-                    dcCore::app()->ctx->short_feed_items  = dcCore::app()->blog->settings->system->short_feed_items;
+                    App::frontend()->ctx->nb_entry_per_page = App::blog()->settings->system->nb_post_per_feed;
+                    App::frontend()->ctx->short_feed_items  = App::blog()->settings->system->short_feed_items;
                 }
                 $tpl .= '.xml';
 

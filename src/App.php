@@ -11,9 +11,12 @@ namespace Dotclear {
     use Autoloader;
     use dcCore;
     use dcUtils;
+    use Dotclear\Core\Container;
     use Dotclear\Core\Process;
     use Dotclear\Core\PostType;
+    use Dotclear\Core\Backend\Utility as Backend;
     use Dotclear\Core\Frontend\Url;
+    use Dotclear\Core\Frontend\Utility as Frontend;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
@@ -22,10 +25,16 @@ namespace Dotclear {
     use Dotclear\Helper\Network\Http;
     use Exception;
 
+    // Load Autoloader file
+    require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
+
+    // Add root folder for namespaced and autoloaded classes
+    Autoloader::me()->addNamespace('Dotclear', __DIR__);
+
     /**
      * Application.
      */
-    final class App
+    final class App extends Container
     {
         /** @var    string  Dotclear default release config file name */
         public const RELEASE_FILE = 'release.json';
@@ -35,6 +44,15 @@ namespace Dotclear {
 
         /** @var    bool    Requirements loaded */
         private static bool $initialized = false;
+
+        /** @var    Backend  Backend Utility instance  */
+        private static Backend $backend;
+
+        /** @var    Frontend  Frontend Utility instance  */
+        private static Frontend $frontend;
+
+        /** @var string     The current lang */
+        private static string $lang = 'en';
 
         /**
          * App boostrap.
@@ -165,12 +183,6 @@ namespace Dotclear {
             // Dotclear root path
             define('DC_ROOT', dirname(__DIR__));
 
-            // Load Autoloader file
-            require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
-
-            // Add root folder for namespaced and autoloaded classes
-            Autoloader::me()->addNamespace('Dotclear', __DIR__);
-
             // Load core classes (old way) This will moved to namespace from Autoloader in the near futur
             $inc = fn (string $folder, string $file) => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', $folder, $file]);
             Clearbricks::lib()->autoload([
@@ -183,25 +195,18 @@ namespace Dotclear {
                 'dcAuth'         => $inc('core', 'class.dc.auth.php'),
                 'dcBlog'         => $inc('core', 'class.dc.blog.php'),
                 'dcCategories'   => $inc('core', 'class.dc.categories.php'),
-                'dcError'        => $inc('core', 'class.dc.error.php'),
-                'dcMeta'         => $inc('core', 'class.dc.meta.php'),
-                'dcMedia'        => $inc('core', 'class.dc.media.php'),
-                'dcPostMedia'    => $inc('core', 'class.dc.postmedia.php'),
                 'dcModuleDefine' => $inc('core', 'class.dc.module.define.php'),
                 'dcModules'      => $inc('core', 'class.dc.modules.php'),
                 'dcPlugins'      => $inc('core', 'class.dc.plugins.php'),
                 'dcThemes'       => $inc('core', 'class.dc.themes.php'),
-                'dcRestServer'   => $inc('core', 'class.dc.rest.php'),
                 'dcNamespace'    => $inc('core', 'class.dc.namespace.php'),
-                'dcNotices'      => $inc('core', 'class.dc.notices.php'),
                 'dcSettings'     => $inc('core', 'class.dc.settings.php'),
                 'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
                 'dcUpdate'       => $inc('core', 'class.dc.update.php'),
                 'dcUtils'        => $inc('core', 'class.dc.utils.php'),
                 'dcXmlRpc'       => $inc('core', 'class.dc.xmlrpc.php'),
                 'dcDeprecated'   => $inc('core', 'class.dc.deprecated.php'),
-                'dcLog'          => $inc('core', 'class.dc.log.php'),
-                'rsExtLog'       => $inc('core', 'class.dc.log.php'),
+                'rsExtLog'       => $inc('core', 'lib.rs.ext.log.php'),
                 'dcWorkspace'    => $inc('core', 'class.dc.workspace.php'),
                 'dcPrefs'        => $inc('core', 'class.dc.prefs.php'),
                 'dcStore'        => $inc('core', 'class.dc.store.php'),
@@ -452,16 +457,17 @@ namespace Dotclear {
                 define('DC_UPGRADE', dcUtils::path([DC_ROOT, 'inc', 'upgrade']));
             }
 
+            if (!defined('DC_CORE_FACTORY_CLASS')) {
+                define('DC_CORE_FACTORY_CLASS', '');
+            }
+
             L10n::init();
 
             try {
-                /**
-                 * Core instance
-                 *
-                 * @var        dcCore $core
-                 *
-                 * @deprecated since 2.23, use dcCore::app() instead
-                 */
+                // instanciate once new core
+                new App(DC_CORE_FACTORY_CLASS);
+
+                // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
             } catch (Exception $e) {
@@ -513,35 +519,35 @@ namespace Dotclear {
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    dcCore::app()->behavior->addBehavior($b[0], $b[1]);
+                    App::behavior()->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
 
             Http::trimRequest();
 
-            dcCore::app()->url->registerDefault(Url::home(...));
+            App::url()->registerDefault(Url::home(...));
 
-            dcCore::app()->url->registerError(Url::default404(...));
+            App::url()->registerError(Url::default404(...));
 
-            dcCore::app()->url->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
-            dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
-            dcCore::app()->url->register('post', 'post', '^post/(.+)$', Url::post(...));
-            dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
-            dcCore::app()->url->register('category', 'category', '^category/(.+)$', Url::category(...));
-            dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
-            dcCore::app()->url->register('try', 'try', '^try/(.+)$', Url::try(...));
+            App::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            App::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            App::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
+            App::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            App::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
+            App::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            App::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
-            dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
-            dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
-            dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+            App::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            App::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            App::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            App::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
-            dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+            App::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            App::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            dcCore::app()->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts'));
+            App::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', App::url()->getURLFor('post', '%s'), 'Posts'));
 
             # Store upload_max_filesize in bytes
             $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
@@ -569,7 +575,7 @@ namespace Dotclear {
                         // Explicitly close session before DB connection
                         session_write_close();
                     }
-                    dcCore::app()->con->close();
+                    App::con()->close();
                 } catch (Exception $e) {    // @phpstan-ignore-line
                     // Ignore exceptions
                 }
@@ -626,6 +632,65 @@ namespace Dotclear {
         public static function autoload(): Autoloader
         {
             return Autoloader::me();
+        }
+
+        /**
+         * Get backend Utility.
+         *
+         * @return  Backend
+         */
+        public static function backend(): Backend
+        {
+            // Instanciate Backend instance
+            if (!isset(self::$backend)) {
+                self::$backend = new Backend();
+
+                // deprecated since 2.28, use App::backend() instead
+                dcCore::app()->admin = self::$backend;
+            }
+
+            return self::$backend;
+        }
+
+        /**
+         * Get frontend Utility.
+         *
+         * @return  Frontend
+         */
+        public static function frontend(): Frontend
+        {
+            // Instanciate Backend instance
+            if (!isset(self::$frontend)) {
+                self::$frontend = new Frontend();
+
+                // deprecated since 2.28, use App::frontend() instead
+                dcCore::app()->public = self::$frontend;
+            }
+
+            return self::$frontend;
+        }
+
+        /**
+         * Get current lang.
+         *
+         * @return string
+         */
+        public static function lang(): string
+        {
+            return self::$lang;
+        }
+
+        /**
+         * Set the lang to use.
+         *
+         * @param      string  $id     The lang ID
+         */
+        public static function setLang($id): void
+        {
+            self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
+
+            // deprecated since 2.28, use App::setLoang() instead
+            dcCore::app()->lang = self::$lang;
         }
     }
 }

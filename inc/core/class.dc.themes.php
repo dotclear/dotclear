@@ -12,6 +12,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 
 class dcThemes extends dcModules
@@ -32,9 +33,9 @@ class dcThemes extends dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        if ($ns == 'admin' && !is_null(dcCore::app()->blog)) {
+        if ($ns == 'admin' && !is_null(App::blog())) {
             // Load current theme Backend process (and its parent)
-            $this->loadNsFile((string) dcCore::app()->blog->settings->system->theme, 'admin');
+            $this->loadNsFile((string) App::blog()->settings->system->theme, 'admin');
         }
     }
 
@@ -88,7 +89,7 @@ class dcThemes extends dcModules
     protected function defineModule(dcModuleDefine $define)
     {
         // Themes specifics properties
-        $define->set('permissions', dcCore::app()->auth->makePermissions([
+        $define->set('permissions', App::auth()->makePermissions([
             dcAuth::PERMISSION_ADMIN,
         ]));
 

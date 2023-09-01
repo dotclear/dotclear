@@ -384,6 +384,16 @@ class Template
     }
 
     /**
+     * Add on the fly custom header to all files.
+     *
+     * @return     string  The custom content
+     */
+    protected function addFileHeader(): string
+    {
+        return '';
+    }
+
+    /**
      * Gets the template file fullpath, creating it if not exist or not in cache and recent enough.
      *
      * @param      string     $file   The file
@@ -429,7 +439,7 @@ class Template
                 throw new Exception('Unable to create cache file');
             }
 
-            $fc = $this->compileFile($tpl_file);
+            $fc = $this->addFileHeader() . $this->compileFile($tpl_file);
             fwrite($fp, $fc);
             fclose($fp);
             Files::inheritChmod($dest_file);

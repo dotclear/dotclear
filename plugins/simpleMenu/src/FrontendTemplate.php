@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -39,7 +39,7 @@ class FrontendTemplate
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
-        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
+        if (!(bool) App::blog()->settings->system->simpleMenu_active) {
             return '';
         }
 
@@ -69,7 +69,7 @@ class FrontendTemplate
     {
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
+        if (!(bool) App::blog()->settings->system->simpleMenu_active) {
             return '';
         }
 
@@ -77,7 +77,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (($widget->homeonly == 1 && !dcCore::app()->url->isHome(dcCore::app()->url->type)) || ($widget->homeonly == 2 && dcCore::app()->url->isHome(dcCore::app()->url->type))) {
+        if (($widget->homeonly == 1 && !App::url()->isHome(App::url()->type)) || ($widget->homeonly == 2 && App::url()->isHome(App::url()->type))) {
             return '';
         }
 
@@ -111,18 +111,18 @@ class FrontendTemplate
     {
         $ret = '';
 
-        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
+        if (!(bool) App::blog()->settings->system->simpleMenu_active) {
             return $ret;
         }
 
-        $menu = dcCore::app()->blog->settings->system->simpleMenu;
+        $menu = App::blog()->settings->system->simpleMenu;
         if (is_array($menu)) {
             // Current relative URL
             $url     = $_SERVER['REQUEST_URI'];
             $abs_url = Http::getHost() . $url;
 
             // Home recognition var
-            $home_url       = Html::stripHostURL(dcCore::app()->blog->url);
+            $home_url       = Html::stripHostURL(App::blog()->url);
             $home_directory = dirname($home_url);
             if ($home_directory != '/') {
                 $home_directory = $home_directory . '/';
@@ -180,7 +180,7 @@ class FrontendTemplate
                 ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
-                dcCore::app()->behavior->callBehavior('publicSimpleMenuItem', $i, $item);
+                App::behavior()->callBehavior('publicSimpleMenuItem', $i, $item);
 
                 $ret .= '<li class="li' . ($i + 1) .
                     ($item['active'] ? ' active' : '') .

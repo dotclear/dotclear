@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Plugin\widgets\WidgetsStack;
 use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 
@@ -25,7 +25,7 @@ class Widgets
      */
     public static function initWidgets(WidgetsStack $widgets): void
     {
-        $blogroll  = new Blogroll(dcCore::app()->blog);
+        $blogroll  = new Blogroll(App::blog());
         $hierarchy = $blogroll->getLinksHierarchy($blogroll->getLinks());
 
         $hierarchy_cat    = array_keys($hierarchy);

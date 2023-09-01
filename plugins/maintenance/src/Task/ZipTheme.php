@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -70,8 +70,8 @@ class ZipTheme extends MaintenanceTask
     public function execute()
     {
         // Get theme path
-        $path  = dcCore::app()->blog->themes_path;
-        $theme = dcCore::app()->blog->settings->system->theme;
+        $path  = App::blog()->themes_path;
+        $theme = App::blog()->settings->system->theme;
         $dir   = Path::real($path . '/' . $theme);
         if (empty($path) || empty($theme) || !is_dir($dir)) {
             return false;

@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Date;
@@ -69,8 +69,8 @@ class BackendBehaviors
             'url'         => My::manageUrl(),
             'small-icon'  => My::icons(),
             'large-icon'  => My::icons(),
-            'permissions' => dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_ADMIN,
+            'permissions' => App::auth()->makePermissions([
+                App::auth()::PERMISSION_ADMIN,
             ]),
             'active_cb'    => self::adminDashboardFavoritesActive(...),
             'dashboard_cb' => self::adminDashboardFavoritesCallback(...),
@@ -153,8 +153,8 @@ class BackendBehaviors
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    Date::dt2str(dcCore::app()->blog->settings->system->date_format, (string) $ts) . ' ' .
-                    Date::dt2str(dcCore::app()->blog->settings->system->time_format, (string) $ts)
+                    Date::dt2str(App::blog()->settings->system->date_format, (string) $ts) . ' ' .
+                    Date::dt2str(App::blog()->settings->system->time_format, (string) $ts)
                 )
             ) . '">' . $t->task() . '</li>';
         }

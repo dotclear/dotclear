@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
@@ -36,37 +36,37 @@ class FrontendUrl extends Url
             // No page was specified.
             self::p404();
         } else {
-            dcCore::app()->blog->withoutPassword(false);
+            App::blog()->withoutPassword(false);
 
             $params = new ArrayObject([
                 'post_type' => 'page',
                 'post_url'  => $args, ]);
 
             # --BEHAVIOR-- publicPagesBeforeGetPosts -- ArrayObject, string
-            dcCore::app()->behavior->callBehavior('publicPagesBeforeGetPosts', $params, $args);
+            App::behavior()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
-            dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
+            App::frontend()->ctx->posts = App::blog()->getPosts($params);
 
-            dcCore::app()->ctx->comment_preview               = new ArrayObject();
-            dcCore::app()->ctx->comment_preview['content']    = '';
-            dcCore::app()->ctx->comment_preview['rawcontent'] = '';
-            dcCore::app()->ctx->comment_preview['name']       = '';
-            dcCore::app()->ctx->comment_preview['mail']       = '';
-            dcCore::app()->ctx->comment_preview['site']       = '';
-            dcCore::app()->ctx->comment_preview['preview']    = false;
-            dcCore::app()->ctx->comment_preview['remember']   = false;
+            App::frontend()->ctx->comment_preview               = new ArrayObject();
+            App::frontend()->ctx->comment_preview['content']    = '';
+            App::frontend()->ctx->comment_preview['rawcontent'] = '';
+            App::frontend()->ctx->comment_preview['name']       = '';
+            App::frontend()->ctx->comment_preview['mail']       = '';
+            App::frontend()->ctx->comment_preview['site']       = '';
+            App::frontend()->ctx->comment_preview['preview']    = false;
+            App::frontend()->ctx->comment_preview['remember']   = false;
 
-            dcCore::app()->blog->withoutPassword(true);
+            App::blog()->withoutPassword(true);
 
-            if (dcCore::app()->ctx->posts->isEmpty()) {
+            if (App::frontend()->ctx->posts->isEmpty()) {
                 # The specified page does not exist.
                 self::p404();
             } else {
-                $post_id       = dcCore::app()->ctx->posts->post_id;
-                $post_password = dcCore::app()->ctx->posts->post_password;
+                $post_id       = App::frontend()->ctx->posts->post_id;
+                $post_password = App::frontend()->ctx->posts->post_password;
 
                 # Password protected entry
-                if ($post_password != '' && !dcCore::app()->ctx->preview) {
+                if ($post_password != '' && !App::frontend()->ctx->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
@@ -93,7 +93,7 @@ class FrontendUrl extends Url
                     }
                 }
 
-                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && dcCore::app()->ctx->posts->commentsActive();
+                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && App::frontend()->ctx->posts->commentsActive();
 
                 # Posting a comment
                 if ($post_comment) {
@@ -114,45 +114,45 @@ class FrontendUrl extends Url
 
                     if ($content != '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
-                        $buffer = dcCore::app()->behavior->callBehavior('publicBeforeCommentTransform', $content);
+                        $buffer = App::behavior()->callBehavior('publicBeforeCommentTransform', $content);
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
-                            if (dcCore::app()->blog->settings->system->wiki_comments) {
-                                dcCore::app()->filter->initWikiComment();
+                            if (App::blog()->settings->system->wiki_comments) {
+                                App::filter()->initWikiComment();
                             } else {
-                                dcCore::app()->filter->initWikiSimpleComment();
+                                App::filter()->initWikiSimpleComment();
                             }
-                            $content = dcCore::app()->filter->wikiTransform($content);
+                            $content = App::filter()->wikiTransform($content);
                         }
-                        $content = dcCore::app()->filter->HTMLfilter($content);
+                        $content = App::filter()->HTMLfilter($content);
                     }
 
-                    dcCore::app()->ctx->comment_preview['content']    = $content;
-                    dcCore::app()->ctx->comment_preview['rawcontent'] = $_POST['c_content'];
-                    dcCore::app()->ctx->comment_preview['name']       = $name;
-                    dcCore::app()->ctx->comment_preview['mail']       = $mail;
-                    dcCore::app()->ctx->comment_preview['site']       = $site;
+                    App::frontend()->ctx->comment_preview['content']    = $content;
+                    App::frontend()->ctx->comment_preview['rawcontent'] = $_POST['c_content'];
+                    App::frontend()->ctx->comment_preview['name']       = $name;
+                    App::frontend()->ctx->comment_preview['mail']       = $mail;
+                    App::frontend()->ctx->comment_preview['site']       = $site;
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
-                        dcCore::app()->behavior->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
+                        App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->ctx->comment_preview);
 
-                        dcCore::app()->ctx->comment_preview['preview'] = true;
+                        App::frontend()->ctx->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
-                        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME);
+                        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
 
                         $cur->comment_author  = $name;
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
-                        $cur->post_id         = dcCore::app()->ctx->posts->post_id;
-                        $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+                        $cur->post_id         = App::frontend()->ctx->posts->post_id;
+                        $cur->comment_status  = App::blog()->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
-                        $redir = dcCore::app()->ctx->posts->getURL();
-                        $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
+                        $redir = App::frontend()->ctx->posts->getURL();
+                        $redir .= App::blog()->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -160,12 +160,12 @@ class FrontendUrl extends Url
                             }
 
                             # --BEHAVIOR-- publicBeforeCommentCreate -- Cursor
-                            dcCore::app()->behavior->callBehavior('publicBeforeCommentCreate', $cur);
+                            App::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
-                                $comment_id = dcCore::app()->blog->addComment($cur);
+                                $comment_id = App::blog()->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate -- Cursor, int
-                                dcCore::app()->behavior->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
+                                App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
                             if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
@@ -176,22 +176,22 @@ class FrontendUrl extends Url
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
-                            dcCore::app()->ctx->form_error = $e->getMessage();
+                            App::frontend()->ctx->form_error = $e->getMessage();
                         }
                     }
                 }
 
                 # The entry
-                if (dcCore::app()->ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('xmlrpc', dcCore::app()->blog->id));
+                if (App::frontend()->ctx->posts->trackbacksActive()) {
+                    header('X-Pingback: ' . App::blog()->url . App::url()->getURLFor('xmlrpc', App::blog()->id));
                 }
 
-                $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
-                $default_template = Path::real(dcCore::app()->plugins->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
+                $tplset           = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+                $default_template = Path::real(App::plugins()->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
-                    dcCore::app()->public->tpl->setPath(dcCore::app()->public->tpl->getPath(), $default_template . $tplset);
+                    App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);
                 } else {
-                    dcCore::app()->public->tpl->setPath(dcCore::app()->public->tpl->getPath(), $default_template . DC_DEFAULT_TPLSET);
+                    App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . DC_DEFAULT_TPLSET);
                 }
                 self::serveDocument('page.html');
             }
@@ -212,13 +212,13 @@ class FrontendUrl extends Url
             $user_id  = $m[1];
             $user_key = $m[2];
             $post_url = $m[3];
-            if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
+            if (!App::auth()->checkUser($user_id, null, $user_key)) {
                 # The user has no access to the entry.
                 self::p404();
             } else {
-                dcCore::app()->ctx->preview = true;
+                App::frontend()->ctx->preview = true;
                 if (defined('DC_ADMIN_URL')) {
-                    dcCore::app()->ctx->xframeoption = DC_ADMIN_URL;
+                    App::frontend()->ctx->xframeoption = DC_ADMIN_URL;
                 }
 
                 self::pages($post_url);

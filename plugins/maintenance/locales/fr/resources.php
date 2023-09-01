@@ -6,4 +6,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-dcCore::app()->admin->resources->set('help', 'maintenance', __DIR__ . '/help/maintenance.html');
+\Dotclear\App::backend()->resources->set('help', 'maintenance', __DIR__ . '/help/maintenance.html');

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -119,8 +119,8 @@ class ModuleImportFlat extends Module
             $full_upl = true;
         }
 
-        if ($full_upl !== null && dcCore::app()->auth->isSuperAdmin()) {
-            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
+        if ($full_upl !== null && App::auth()->isSuperAdmin()) {
+            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
 
@@ -201,7 +201,7 @@ class ModuleImportFlat extends Module
         echo
         '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), Html::escapeHTML(dcCore::app()->blog->name)) . '</p>' .
+        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name)) . '</p>' .
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
         ' (' . sprintf(__('maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
@@ -217,14 +217,14 @@ class ModuleImportFlat extends Module
 
         echo
         '<p>' .
-        dcCore::app()->nonce->getFormNonce() .
+        App::nonce()->getFormNonce() .
         form::hidden(['do'], 1) .
         form::hidden(['MAX_FILE_SIZE'], (int) DC_MAX_UPLOAD_SIZE) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
             '</form>';
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             echo
             '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" id="formfull" class="fieldset">' .
             '<h3>' . __('Multiple blogs') . '</h3>' .
@@ -255,7 +255,7 @@ class ModuleImportFlat extends Module
             ) . '</p>' .
 
             '<p>' .
-            dcCore::app()->nonce->getFormNonce() .
+            App::nonce()->getFormNonce() .
             form::hidden(['do'], 1) .
             form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
             '<input type="submit" value="' . __('Import') . '" /></p>' .
@@ -272,7 +272,7 @@ class ModuleImportFlat extends Module
     protected function getPublicFiles(): array
     {
         $public_files = [];
-        $dir          = @dir(dcCore::app()->blog->public_path);
+        $dir          = @dir(App::blog()->public_path);
         if ($dir) {
             while (($entry = $dir->read()) !== false) {
                 $entry_path = $dir->path . '/' . $entry;

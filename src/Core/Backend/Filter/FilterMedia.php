@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 
 class FilterMedia extends Filters
@@ -42,7 +42,7 @@ class FilterMedia extends Filters
         ]);
 
         # --BEHAVIOR-- adminMediaFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminMediaFilterV2', $filters);
+        App::behavior()->callBehavior('adminMediaFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -59,7 +59,7 @@ class FilterMedia extends Filters
         $values = new ArrayObject($this->values());
 
         # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminMediaURLParams', $values);
+        App::behavior()->callBehavior('adminMediaURLParams', $values);
 
         foreach ($values->getArrayCopy() as $filter => $new_value) {
             if (isset($this->filters[$filter])) {
@@ -74,7 +74,7 @@ class FilterMedia extends Filters
     {
         $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
         if ($post_id) {
-            $post = dcCore::app()->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
+            $post = App::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
                 $post_id = null;
             }
@@ -98,13 +98,13 @@ class FilterMedia extends Filters
 
     protected function getDirFilter(): Filter
     {
-        $get = $_REQUEST['d'] ?? dcCore::app()->auth->user_prefs->interface->media_manager_dir ?? null;
+        $get = $_REQUEST['d'] ?? App::auth()->user_prefs->interface->media_manager_dir ?? null;
         if ($get) {
             // Store current dir in user pref
-            dcCore::app()->auth->user_prefs->interface->put('media_manager_dir', $get, 'string');
+            App::auth()->user_prefs->interface->put('media_manager_dir', $get, 'string');
         } else {
             // Remove current dir from user pref
-            dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
+            App::auth()->user_prefs->interface->drop('media_manager_dir');
         }
 
         return new Filter('d', $get);
@@ -112,13 +112,13 @@ class FilterMedia extends Filters
 
     protected function getFileModeFilter(): Filter
     {
-        $get = $_REQUEST['file_mode'] ?? $get = dcCore::app()->auth->user_prefs->interface->media_file_mode ?? null;
+        $get = $_REQUEST['file_mode'] ?? $get = App::auth()->user_prefs->interface->media_file_mode ?? null;
         if ($get) {
             // Store current view in user pref
-            dcCore::app()->auth->user_prefs->interface->put('media_file_mode', $get, 'string');
+            App::auth()->user_prefs->interface->put('media_file_mode', $get, 'string');
         } else {
             // Remove current view from user pref
-            dcCore::app()->auth->user_prefs->interface->drop('media_file_mode');
+            App::auth()->user_prefs->interface->drop('media_file_mode');
             $get = 'grid';
         }
 

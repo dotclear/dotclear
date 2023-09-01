@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -39,9 +39,9 @@ class Manage extends Process
             return ManagePosts::process();
         }
 
-        dcCore::app()->admin->tags = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
-        dcCore::app()->admin->tags = dcCore::app()->meta->computeMetaStats(dcCore::app()->admin->tags);
-        dcCore::app()->admin->tags->sort('meta_id_lower', 'asc');
+        App::backend()->tags = App::meta()->getMetadata(['meta_type' => 'tag']);
+        App::backend()->tags = App::meta()->computeMetaStats(App::backend()->tags);
+        App::backend()->tags->sort('meta_id_lower', 'asc');
 
         return true;
     }
@@ -69,8 +69,8 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
-                My::name()                                  => '',
+                Html::escapeHTML(App::blog()->name) => '',
+                My::name()                          => '',
             ]
         ) .
         Notices::getNotices();
@@ -78,21 +78,21 @@ class Manage extends Process
         $last_letter = null;
         $cols        = ['', ''];
         $col         = 0;
-        while (dcCore::app()->admin->tags->fetch()) {
-            $letter = mb_strtoupper(mb_substr(dcCore::app()->admin->tags->meta_id_lower, 0, 1));
+        while (App::backend()->tags->fetch()) {
+            $letter = mb_strtoupper(mb_substr(App::backend()->tags->meta_id_lower, 0, 1));
 
             if ($last_letter != $letter) {
-                if (dcCore::app()->admin->tags->index() >= round(dcCore::app()->admin->tags->count() / 2)) {
+                if (App::backend()->tags->index() >= round(App::backend()->tags->count() / 2)) {
                     $col = 1;
                 }
                 $cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>' . $letter . '</span></td></tr>';
             }
 
             $cols[$col] .= '<tr class="line">' .
-            '<td class="maximal"><a href="' . dcCore::app()->admin->getPageURL() .
-            '&amp;m=tag_posts&amp;tag=' . rawurlencode(dcCore::app()->admin->tags->meta_id) . '">' . dcCore::app()->admin->tags->meta_id . '</a></td>' .
-            '<td class="nowrap count"><strong>' . dcCore::app()->admin->tags->count . '</strong> ' .
-                ((dcCore::app()->admin->tags->count == 1) ? __('entry') : __('entries')) . '</td>' .
+            '<td class="maximal"><a href="' . App::backend()->getPageURL() .
+            '&amp;m=tag_posts&amp;tag=' . rawurlencode(App::backend()->tags->meta_id) . '">' . App::backend()->tags->meta_id . '</a></td>' .
+            '<td class="nowrap count"><strong>' . App::backend()->tags->count . '</strong> ' .
+                ((App::backend()->tags->count == 1) ? __('entry') : __('entries')) . '</td>' .
                 '</tr>';
 
             $last_letter = $letter;

@@ -8,18 +8,20 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\App;
+
 $this->registerModule(
     'dcLegacyEditor',         // Name
     'dotclear legacy editor', // Description
     'dotclear Team',          // Author
     '1.1',                  // Version
     [
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_USAGE,
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'        => 'plugin',
-        'settings'    => [
+        'type'     => 'plugin',
+        'settings' => [
             'self' => '',
             'pref' => '#user-options.user_options_edition',
         ],

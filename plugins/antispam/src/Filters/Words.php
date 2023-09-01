@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam\Filters;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -63,7 +63,7 @@ class Words extends SpamFilter
     public function __construct()
     {
         parent::__construct();
-        $this->table = dcCore::app()->prefix . Antispam::SPAMRULE_TABLE_NAME;
+        $this->table = App::con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
     }
 
     /**
@@ -143,20 +143,20 @@ class Words extends SpamFilter
                 Notices::addSuccessNotice(__('Words have been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
         # Adding a word
         if (!empty($_POST['swa'])) {
-            $globalsw = !empty($_POST['globalsw']) && dcCore::app()->auth->isSuperAdmin();
+            $globalsw = !empty($_POST['globalsw']) && App::auth()->isSuperAdmin();
 
             try {
                 $this->addRule($_POST['swa'], $globalsw);
                 Notices::addSuccessNotice(__('Word has been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -167,7 +167,7 @@ class Words extends SpamFilter
                 Notices::addSuccessNotice(__('Words have been successfully removed.'));
                 Http::redirect($url);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -176,12 +176,12 @@ class Words extends SpamFilter
         $res = '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label class="classic" for="swa">' . __('Add a word ') . '</label> ' . form::field('swa', 20, 128);
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             $res .= '<label class="classic" for="globalsw">' . form::checkbox('globalsw', 1) .
             __('Global word (used for all blogs)') . '</label> ';
         }
 
-        $res .= dcCore::app()->nonce->getFormNonce() .
+        $res .= App::nonce()->getFormNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -202,7 +202,7 @@ class Words extends SpamFilter
                 $p_style = '';
 
                 if (!$rs->blog_id) {
-                    $disabled_word = !dcCore::app()->auth->isSuperAdmin();
+                    $disabled_word = !App::auth()->isSuperAdmin();
                     $p_style .= ' global';
                 }
 
@@ -236,17 +236,17 @@ class Words extends SpamFilter
 
             $res .= '</div>' .
             '<p>' . form::hidden(['spamwords'], 1) .
-            dcCore::app()->nonce->getFormNonce() .
+            App::nonce()->getFormNonce() .
             '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>' .
                 '</form>';
         }
 
-        if (dcCore::app()->auth->isSuperAdmin()) {
+        if (App::auth()->isSuperAdmin()) {
             $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
             '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
             form::hidden(['spamwords'], 1) .
             form::hidden(['createlist'], 1) .
-            dcCore::app()->nonce->getFormNonce() . '</p>' .
+            App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
         }
 
@@ -263,11 +263,11 @@ class Words extends SpamFilter
         $strReq = 'SELECT rule_id, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = 'word' " .
-        "AND ( blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
+        "AND ( blog_id = '" . App::con()->escape(App::blog()->id) . "' " .
             'OR blog_id IS NULL ) ' .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
-        return new MetaRecord(dcCore::app()->con->select($strReq));
+        return new MetaRecord(App::con()->select($strReq));
     }
 
     /**
@@ -282,30 +282,30 @@ class Words extends SpamFilter
     {
         $strReq = 'SELECT rule_id FROM ' . $this->table . ' ' .
         "WHERE rule_type = 'word' " .
-        "AND rule_content = '" . dcCore::app()->con->escape($content) . "' ";
+        "AND rule_content = '" . App::con()->escape($content) . "' ";
         if (!$general) {
-            $strReq .= ' AND blog_id = \'' . dcCore::app()->blog->id . '\'';
+            $strReq .= ' AND blog_id = \'' . App::blog()->id . '\'';
         }
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(App::con()->select($strReq));
 
         if (!$rs->isEmpty() && !$general) {
             throw new Exception(__('This word exists'));
         }
 
-        $cur               = dcCore::app()->con->openCursor($this->table);
+        $cur               = App::con()->openCursor($this->table);
         $cur->rule_type    = 'word';
         $cur->rule_content = (string) $content;
 
-        if ($general && dcCore::app()->auth->isSuperAdmin()) {
+        if ($general && App::auth()->isSuperAdmin()) {
             $cur->blog_id = null;
         } else {
-            $cur->blog_id = dcCore::app()->blog->id;
+            $cur->blog_id = App::blog()->id;
         }
 
         if (!$rs->isEmpty() && $general) {
             $cur->update('WHERE rule_id = ' . $rs->rule_id);
         } else {
-            $rs_max       = new MetaRecord(dcCore::app()->con->select('SELECT MAX(rule_id) FROM ' . $this->table));
+            $rs_max       = new MetaRecord(App::con()->select('SELECT MAX(rule_id) FROM ' . $this->table));
             $cur->rule_id = (int) $rs_max->f(0) + 1;
             $cur->insert();
         }
@@ -330,11 +330,11 @@ class Words extends SpamFilter
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
-        if (!dcCore::app()->auth->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' ";
+        if (!App::auth()->isSuperAdmin()) {
+            $strReq .= "AND blog_id = '" . App::con()->escape(App::blog()->id) . "' ";
         }
 
-        dcCore::app()->con->execute($strReq);
+        App::con()->execute($strReq);
     }
 
     /**

@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\aboutConfig;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
 class My extends MyPlugin
@@ -22,6 +22,6 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return defined('DC_CONTEXT_ADMIN')
-            && dcCore::app()->auth->isSuperAdmin();
+            && App::auth()->isSuperAdmin();
     }
 }

@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 
 class FilterComments extends Filters
@@ -36,7 +36,7 @@ class FilterComments extends Filters
         ]);
 
         # --BEHAVIOR-- adminCommentFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminCommentFilterV2', $filters);
+        App::behavior()->callBehavior('adminCommentFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -90,9 +90,9 @@ class FilterComments extends Filters
      */
     public function getCommentIpFilter(): ?Filter
     {
-        if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (!App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             return null;
         }
 

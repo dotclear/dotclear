@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Exception;
 
@@ -30,7 +30,7 @@ class Prepend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehavior('coreFirstPublicationEntries', function (dcBlog $blog) {
+        App::behavior()->addBehavior('coreFirstPublicationEntries', function (dcBlog $blog) {
             if (!$blog->settings->pings->pings_active) {
                 return;
             }

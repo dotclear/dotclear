@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
 
@@ -45,21 +45,21 @@ class FrontendBehaviors
             "if (!isset(\$params)) { \$params = []; }\n" .
             "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
             "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
-            "\$params['from'] .= ', '.dcCore::app()->prefix.'meta META ';\n" .
+            "\$params['from'] .= ', '.App::con()->prefix().'meta META ';\n" .
             "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
             "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-            "\$params['sql'] .= \"AND META.meta_id = '" . dcCore::app()->con->escape($attr['tag']) . "' \";\n" .
+            "\$params['sql'] .= \"AND META.meta_id = '" . App::con()->escape($attr['tag']) . "' \";\n" .
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($block == 'Entries' || $block == 'Comments')) {
             return
-                '<?php if (dcCore::app()->ctx->exists("meta") && dcCore::app()->ctx->meta->rows() && (dcCore::app()->ctx->meta->meta_type == "tag")) { ' .
+                '<?php if (App::frontend()->ctx->exists("meta") && App::frontend()->ctx->meta->rows() && (App::frontend()->ctx->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
-                "\$params['from'] .= ', '.dcCore::app()->prefix.'meta META ';\n" .
+                "\$params['from'] .= ', '.App::con()->prefix().'meta META ';\n" .
                 "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
                 "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-                "\$params['sql'] .= \"AND META.meta_id = '\".dcCore::app()->con->escape(dcCore::app()->ctx->meta->meta_id).\"' \";\n" .
+                "\$params['sql'] .= \"AND META.meta_id = '\".App::con()->escape(App::frontend()->ctx->meta->meta_id).\"' \";\n" .
                 "} ?>\n";
         }
 
@@ -71,13 +71,13 @@ class FrontendBehaviors
      */
     public static function addTplPath(): void
     {
-        $tplset           = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+        $tplset           = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
         $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
 
         if (!empty($tplset) && is_dir($default_template . $tplset)) {
-            dcCore::app()->public->tpl->setPath(dcCore::app()->public->tpl->getPath(), $default_template . $tplset);
+            App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);
         } else {
-            dcCore::app()->public->tpl->setPath(dcCore::app()->public->tpl->getPath(), $default_template . DC_DEFAULT_TPLSET);
+            App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . DC_DEFAULT_TPLSET);
         }
     }
 }

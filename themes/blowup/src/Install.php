@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Theme\blowup;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Install extends Process
@@ -25,7 +25,7 @@ class Install extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
+            App::blog()->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
         }
 
         return self::status();

@@ -12,15 +12,19 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\Database\Cursor;
+use ArrayObject;
 use dcAuth;
 use dcBlog;
 use dcCore;
+use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use initAntispam;
 
 class Antispam extends initAntispam
 {
+    private static array $spamfilters = [];
+
     // Properties
 
     /**
@@ -35,12 +39,31 @@ class Antispam extends initAntispam
      */
     public static function initFilters()
     {
-        if (!isset(dcCore::app()->spamfilters)) {
+        if (!empty(self::$spamfilters)) {
             return;
         }
 
+        // deprecated since 2.28, use App::behavior->addBehavior('AntispamInitFilters', ...) instaed
+        if (!empty(dcCore::app()->spamfilters)) {
+            foreach (dcCore::app()->spamfilters as $spamfilter) {
+                if (is_subclass_of($spamfilter, SpamFilter::class)) {
+                    self::$spamfilters[] = $spamfilter;
+                }
+            }
+        }
+
+        $spamfilters = new ArrayObject();
+        # --BEHAVIOR-- AntispamInitFilters -- ArrayObject
+        App::behavior()->callBehavior('AntispamInitFilters', $spamfilters);
+
+        foreach ($spamfilters as $spamfilter) {
+            if (is_subclass_of($spamfilter, SpamFilter::class)) {
+                self::$spamfilters[] = $spamfilter;
+            }
+        }
+
         self::$filters = new SpamFilters();
-        self::$filters->init(dcCore::app()->spamfilters);
+        self::$filters->init(self::$spamfilters);
     }
 
     /**
@@ -117,7 +140,7 @@ class Antispam extends initAntispam
         if (($count = self::countSpam()) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
 
-            return '</span></a> <a href="' . dcCore::app()->admin->url->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
+            return '</span></a> <a href="' . App::backend()->url->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         }
 
@@ -141,7 +164,7 @@ class Antispam extends initAntispam
      */
     public static function countSpam(): int
     {
-        return (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+        return (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
     }
 
     /**
@@ -151,7 +174,7 @@ class Antispam extends initAntispam
      */
     public static function countPublishedComments(): int
     {
-        return (int) dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
+        return (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
     }
 
     /**
@@ -162,15 +185,15 @@ class Antispam extends initAntispam
     public static function delAllSpam(?string $beforeDate = null): void
     {
         $strReq = 'SELECT comment_id ' .
-        'FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' C ' .
-        'JOIN ' . dcCore::app()->prefix . dcBlog::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
-        "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
+        'FROM ' . App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' C ' .
+        'JOIN ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
+        "WHERE blog_id = '" . App::con()->escape(App::blog()->id) . "' " .
             'AND comment_status = ' . (string) dcBlog::COMMENT_JUNK . ' ';
         if ($beforeDate) {
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
 
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(App::con()->select($strReq));
         $r  = [];
         while ($rs->fetch()) {
             $r[] = (int) $rs->comment_id;
@@ -180,10 +203,10 @@ class Antispam extends initAntispam
             return;
         }
 
-        $strReq = 'DELETE FROM ' . dcCore::app()->prefix . dcBlog::COMMENT_TABLE_NAME . ' ' .
-        'WHERE comment_id ' . dcCore::app()->con->in($r) . ' ';
+        $strReq = 'DELETE FROM ' . App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' ' .
+        'WHERE comment_id ' . App::con()->in($r) . ' ';
 
-        dcCore::app()->con->execute($strReq);
+        App::con()->execute($strReq);
     }
 
     /**
@@ -193,8 +216,8 @@ class Antispam extends initAntispam
      */
     public static function getUserCode(): string
     {
-        $code = pack('a32', dcCore::app()->auth->userID()) .
-        hash(DC_CRYPT_ALGO, dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->getInfo('user_pwd')));
+        $code = pack('a32', App::auth()->userID()) .
+        hash(DC_CRYPT_ALGO, App::auth()->cryptLegacy(App::auth()->getInfo('user_pwd')));
 
         return bin2hex($code);
     }
@@ -218,20 +241,20 @@ class Antispam extends initAntispam
         }
 
         $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . dcCore::app()->prefix . dcAuth::USER_TABLE_NAME . ' ' .
-        "WHERE user_id = '" . dcCore::app()->con->escape($user_id) . "' ";
+        'FROM ' . App::con()->prefix() . dcAuth::USER_TABLE_NAME . ' ' .
+        "WHERE user_id = '" . App::con()->escape($user_id) . "' ";
 
-        $rs = new MetaRecord(dcCore::app()->con->select($strReq));
+        $rs = new MetaRecord(App::con()->select($strReq));
 
         if ($rs->isEmpty()) {
             return false;
         }
 
-        if (hash(DC_CRYPT_ALGO, dcCore::app()->auth->cryptLegacy($rs->user_pwd)) != $pwd) {
+        if (hash(DC_CRYPT_ALGO, App::auth()->cryptLegacy($rs->user_pwd)) != $pwd) {
             return false;
         }
 
-        $permissions = dcCore::app()->blogs->getBlogPermissions(dcCore::app()->blog->id);
+        $permissions = App::blogs()->getBlogPermissions(App::blog()->id);
 
         if (empty($permissions[$rs->user_id])) {
             return false;

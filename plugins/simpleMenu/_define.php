@@ -8,17 +8,19 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\App;
+
 $this->registerModule(
     'Simple menu',               // Name
     'Simple menu for Dotclear', // Description
     'Franck Paul',              // Author
     '2.0',                      // Version
     [
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_ADMIN,
         ]),
-        'type'        => 'plugin',
-        'settings'    => [
+        'type'     => 'plugin',
+        'settings' => [
             'self' => '',
         ],
     ]

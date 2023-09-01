@@ -12,10 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCore;
-use dcThemes;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -24,25 +23,24 @@ class LinkPopup extends Process
 {
     public static function init(): bool
     {
-        Page::check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        Page::check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        dcCore::app()->admin->href      = !empty($_GET['href']) ? $_GET['href'] : '';
-        dcCore::app()->admin->hreflang  = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
-        dcCore::app()->admin->title     = !empty($_GET['title']) ? $_GET['title'] : '';
-        dcCore::app()->admin->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
+        App::backend()->href      = !empty($_GET['href']) ? $_GET['href'] : '';
+        App::backend()->hreflang  = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
+        App::backend()->title     = !empty($_GET['title']) ? $_GET['title'] : '';
+        App::backend()->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
 
-        if (dcCore::app()->themes === null) {
+        if (App::themes()->isEmpty()) {
             # -- Loading themes, may be useful for some configurable theme --
-            dcCore::app()->themes = new dcThemes();
-            dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, 'admin', dcCore::app()->lang);
+            App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
         }
 
         // Languages combo
-        $rs                              = dcCore::app()->blog->getLangs(['order' => 'asc']);
-        dcCore::app()->admin->lang_combo = Combos::getLangsCombo($rs, true);
+        $rs                        = App::blog()->getLangs(['order' => 'asc']);
+        App::backend()->lang_combo = Combos::getLangsCombo($rs, true);
 
         return self::status(true);
     }
@@ -50,7 +48,7 @@ class LinkPopup extends Process
     public static function render(): void
     {
         # --BEHAVIOR-- adminPopupLink -- string
-        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . dcCore::app()->behavior->callBehavior('adminPopupLink', dcCore::app()->admin->plugin_id));
+        Page::openPopup(__('Add a link'), Page::jsLoad('js/_popup_link.js') . App::behavior()->callBehavior('adminPopupLink', App::backend()->plugin_id));
 
         echo '<h2 class="page-title">' . __('Add a link') . '</h2>';
 
@@ -58,14 +56,14 @@ class LinkPopup extends Process
         '<form id="link-insert-form" action="#" method="get">' .
         '<p><label class="required" for="href"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Link URL:') . '</label> ' .
         form::field('href', 35, 512, [
-            'default'    => Html::escapeHTML(dcCore::app()->admin->href),
+            'default'    => Html::escapeHTML(App::backend()->href),
             'extra_html' => 'required placeholder="' . __('URL') . '"',
         ]) .
         '</p>' .
         '<p><label for="title">' . __('Link title:') . '</label> ' .
-        form::field('title', 35, 512, Html::escapeHTML(dcCore::app()->admin->title)) . '</p>' .
+        form::field('title', 35, 512, Html::escapeHTML(App::backend()->title)) . '</p>' .
         '<p><label for="hreflang">' . __('Link language:') . '</label> ' .
-        form::combo('hreflang', dcCore::app()->admin->lang_combo, dcCore::app()->admin->hreflang) .
+        form::combo('hreflang', App::backend()->lang_combo, App::backend()->hreflang) .
         '</p>' .
 
         '</form>' .

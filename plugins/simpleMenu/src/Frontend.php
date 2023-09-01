@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\simpleMenu;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Frontend extends Process
@@ -28,10 +28,10 @@ class Frontend extends Process
             return false;
         }
 
-        dcCore::app()->behavior->addBehavior('initWidgets', Widgets::initWidgets(...));
+        App::behavior()->addBehavior('initWidgets', Widgets::initWidgets(...));
 
         // Simple menu template functions
-        dcCore::app()->public->tpl->addValue('SimpleMenu', FrontendTemplate::simpleMenu(...));
+        App::frontend()->tpl->addValue('SimpleMenu', FrontendTemplate::simpleMenu(...));
 
         return true;
     }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 
@@ -29,10 +29,10 @@ class Prepend extends Process
             return false;
         }
 
-        dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', FrontendUrl::pages(...));
-        dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', FrontendUrl::pagespreview(...));
+        App::url()->register('pages', 'pages', '^pages/(.+)$', FrontendUrl::pages(...));
+        App::url()->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', FrontendUrl::pagespreview(...));
 
-        dcCore::app()->post_types->set(new PostType('page', '', dcCore::app()->url->getURLFor('pages', '%s'), 'Pages'));
+        App::postTypes()->set(new PostType('page', '', App::url()->getURLFor('pages', '%s'), 'Pages'));
 
         return true;
     }

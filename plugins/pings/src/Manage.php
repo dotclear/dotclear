@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
-use dcCore;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -33,13 +33,13 @@ class Manage extends Process
             return false;
         }
 
-        dcCore::app()->admin->pings_uris = [];
+        App::backend()->pings_uris = [];
 
         try {
             // Pings URIs are managed globally (for all blogs)
-            dcCore::app()->admin->pings_uris = My::settings()->getGlobal('pings_uris');
-            if (!dcCore::app()->admin->pings_uris) {
-                dcCore::app()->admin->pings_uris = [];
+            App::backend()->pings_uris = My::settings()->getGlobal('pings_uris');
+            if (!App::backend()->pings_uris) {
+                App::backend()->pings_uris = [];
             }
 
             if (isset($_POST['pings_srv_name'])) {
@@ -62,7 +62,7 @@ class Manage extends Process
                 My::redirect();
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return true;
@@ -82,13 +82,13 @@ class Manage extends Process
                 __('Pings configuration') => '',
             ]
         ) .
-        '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
+        '<form action="' . App::backend()->getPageURL() . '" method="post">' .
         '<p><label for="pings_active" class="classic">' .
         form::checkbox('pings_active', 1, My::settings()->pings_active) .
         __('Activate pings extension') . '</label></p>';
 
         $i = 0;
-        foreach (dcCore::app()->admin->pings_uris as $name => $uri) {
+        foreach (App::backend()->pings_uris as $name => $uri) {
             echo
             '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
             form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, Html::escapeHTML((string) $name)) . ' ' .
@@ -124,10 +124,10 @@ class Manage extends Process
 
         '<p><input type="submit" value="' . __('Save') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        dcCore::app()->nonce->getFormNonce() . '</p>' .
+        App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
-        '<p><a class="button" href="' . dcCore::app()->admin->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
+        '<p><a class="button" href="' . App::backend()->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
 
         Page::helpBlock(My::id());
 

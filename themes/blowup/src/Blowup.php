@@ -11,10 +11,9 @@
 
 namespace Dotclear\Theme\blowup;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
-use Dotclear\Helper\Network\Http;
 use Exception;
 
 class Blowup
@@ -305,10 +304,10 @@ class Blowup
         }
 
         # erase old css file
-        self::dropCss(dcCore::app()->blog->settings->system->theme);
+        self::dropCss(App::blog()->settings->system->theme);
 
         # create new css file into public blowup-css subdirectory
-        self::writeCss(dcCore::app()->blog->settings->system->theme, $res);
+        self::writeCss(App::blog()->settings->system->theme, $res);
 
         return $res;
     }

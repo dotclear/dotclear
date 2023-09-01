@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 class Prepend extends Process
@@ -31,7 +31,9 @@ class Prepend extends Process
             return false;
         }
 
-        dcCore::app()->spamfilters[] = AntispamFilterAkismet::class;
+        App::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+            $stack->append(AntispamFilterAkismet::class);
+        });
 
         return true;
     }

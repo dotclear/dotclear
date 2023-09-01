@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use dcBlog;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPostsDefault;
 use Dotclear\Core\Backend\Notices;
 use Exception;
@@ -28,10 +28,10 @@ class BackendDefaultActions
      */
     public static function adminPagesActionsPage(BackendActions $ap): void
     {
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -42,10 +42,10 @@ class BackendDefaultActions
                 ActionsPostsDefault::doChangePostStatus(...)
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_PUBLISH,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_PUBLISH,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [__('First publication') => [
                     __('Never published')   => 'never',
@@ -54,19 +54,19 @@ class BackendDefaultActions
                 ActionsPostsDefault::doChangePostFirstPub(...)
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
                 ActionsPostsDefault::doChangePostAuthor(...)
             );
         }
-        if (dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_DELETE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-        ]), dcCore::app()->blog->id)) {
+        if (App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_DELETE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -91,30 +91,30 @@ class BackendDefaultActions
     public static function doReorderPages(BackendActions $ap, ArrayObject $post): void
     {
         foreach ($post['order'] as $post_id => $value) {
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_PUBLISH,
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)) {
+            if (!App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_PUBLISH,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id)) {
                 throw new Exception(__('You are not allowed to change this entry status'));
             }
 
-            $strReq = "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
-            'AND post_id ' . dcCore::app()->con->in($post_id);
+            $strReq = "WHERE blog_id = '" . App::con()->escape(App::blog()->id) . "' " .
+            'AND post_id ' . App::con()->in($post_id);
 
             #If user can only publish, we need to check the post's owner
-            if (!dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-                dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
-            ]), dcCore::app()->blog->id)) {
-                $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
+            if (!App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id)) {
+                $strReq .= "AND user_id = '" . App::con()->escape(App::auth()->userID()) . "' ";
             }
 
-            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . dcBlog::POST_TABLE_NAME);
+            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
 
             $cur->post_position = (int) $value - 1;
             $cur->post_upddt    = date('Y-m-d H:i:s');
 
             $cur->update($strReq);
-            dcCore::app()->blog->triggerBlog();
+            App::blog()->triggerBlog();
         }
 
         Notices::addSuccessNotice(__('Selected pages have been successfully reordered.'));

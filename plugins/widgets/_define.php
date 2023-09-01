@@ -8,16 +8,18 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+use Dotclear\App;
+
 $this->registerModule(
     'Widgets',                         // Name
     'Widgets for your blog sidebars',  // Description
     'Olivier Meunier & Dotclear Team', // Author
     '4.0',                             // Version
     [
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_ADMIN,
         ]),
-        'priority'    => 1_000_000_000,
-        'type'        => 'plugin',
+        'priority' => 1_000_000_000,
+        'type'     => 'plugin',
     ]
 );

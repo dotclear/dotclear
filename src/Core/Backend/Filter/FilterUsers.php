@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 
 class FilterUsers extends Filters
 {
@@ -29,7 +29,7 @@ class FilterUsers extends Filters
         ]);
 
         # --BEHAVIOR-- adminUserFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminUserFilterV2', $filters);
+        App::behavior()->callBehavior('adminUserFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 

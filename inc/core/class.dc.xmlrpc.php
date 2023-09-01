@@ -7,6 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
+use Dotclear\App;
 use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
 
 class dcXmlRpc extends IntrospectionServer
@@ -153,17 +154,17 @@ class dcXmlRpc extends IntrospectionServer
             return true;
         }
 
-        dcCore::app()->setBlog($this->blog_id);
+        App::blogLoader()->setBlog($this->blog_id);
         $this->blog_loaded = true;
 
-        if (!dcCore::app()->blog->id) {
-            dcCore::app()->blog = null;
+        if (!App::blog()->id) {
+            App::blog() = null;
 
             throw new Exception('Blog does not exist.');
         }
 
-        foreach (dcCore::app()->plugins->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
-            dcCore::app()->plugins->loadNsFile($define->getId(), 'xmlrpc');
+        foreach (App::plugins()->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
+            App::plugins()->loadNsFile($define->getId(), 'xmlrpc');
         }
 
         return true;
@@ -193,7 +194,7 @@ class dcXmlRpc extends IntrospectionServer
         $this->setBlog();
 
         # --BEHAVIOR-- publicBeforeReceiveTrackback -- array<string,string>
-        dcCore::app()->behavior->callBehavior('publicBeforeReceiveTrackbackV2', $args);
+        App::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
         return (new dcTrackback())->receivePingback($from_url, $to_url);
     }

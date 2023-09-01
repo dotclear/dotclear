@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use form;
 
@@ -93,7 +93,7 @@ class WidgetsElement
         if (!is_callable($callback)) {
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
             # --BEHAVIOR-- widgetGetCallback -- ArrayObject
-            dcCore::app()->behavior->callBehavior('widgetGetCallback', $widget);
+            App::behavior()->callBehavior('widgetGetCallback', $widget);
             $callback = is_callable($widget['callback']) ? $widget['callback'] : null;
         }
 
@@ -184,7 +184,7 @@ class WidgetsElement
          *
          * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering below)
         */
-        $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgetcontainerformat');
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'widgetcontainerformat');
         if (empty($wtscheme)) {
             $wtscheme = '<div class="%1$s" %2$s>%3$s</div>';
         }
@@ -208,9 +208,9 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgettitleformat');
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'widgettitleformat');
         if (empty($wtscheme)) {
-            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+            $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
             if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h2>%s</h2>';
@@ -237,9 +237,9 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgetsubtitleformat');
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'widgetsubtitleformat');
         if (empty($wtscheme)) {
-            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
+            $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
             if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h3>%s</h3>';
@@ -394,7 +394,7 @@ class WidgetsElement
                 form::field([$iname, $wfid], 20, 255, [
                     'default'    => Html::escapeHTML((string) $s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -404,7 +404,7 @@ class WidgetsElement
                 form::textarea([$iname, $wfid], 30, 8, [
                     'default'    => Html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -516,7 +516,7 @@ class WidgetsElement
     public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
     {
         if (isset($this->settings['homeonly']) && isset($this->settings['homeonly']['value'])) {
-            if (($this->settings['homeonly']['value'] == self::HOME_ONLY && !dcCore::app()->url->isHome($type) && $alt_not_home) || ($this->settings['homeonly']['value'] == self::EXCEPT_HOME && (dcCore::app()->url->isHome($type) || $alt_home))) {
+            if (($this->settings['homeonly']['value'] == self::HOME_ONLY && !App::url()->isHome($type) && $alt_not_home) || ($this->settings['homeonly']['value'] == self::EXCEPT_HOME && (App::url()->isHome($type) || $alt_home))) {
                 return false;
             }
         }

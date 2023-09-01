@@ -1,8 +1,6 @@
 <?php
 /**
- * Version handler.
- *
- * Handle id,version pairs through database.
+ * Text formater handler.
  *
  * @package Dotclear
  *
@@ -13,9 +11,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
+use Dotclear\App;
+use Dotclear\Interface\Core\FormaterInterface;
 
-class Formater
+class Formater implements FormaterInterface
 {
     /** @var     array<string,array<string,callable>>    Stack of registered content formaters */
     private $stack = [];
@@ -23,17 +22,6 @@ class Formater
     /** @var     array<string,string>   Stack of registered content formaters' name */
     private $names = [];
 
-    /**
-     * Adds a new text formater.
-     *
-     * Which will call the function <var>$func</var> to
-     * transform text. The function must be a valid callback and takes one
-     * argument: the string to transform. It returns the transformed string.
-     *
-     * @param   string      $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
-     * @param   string      $name       The formater name
-     * @param   callable    $func       The function to use, must be a valid and callable callback
-     */
     public function addEditorFormater(string $editor_id, string $name, $func): void
     {
         if (is_callable($func)) {
@@ -41,58 +29,27 @@ class Formater
         }
     }
 
-    /**
-     * Adds a formater name.
-     *
-     * @param   string  $format     The format
-     * @param   string  $name       The name
-     */
     public function addFormaterName(string $format, string $name): void
     {
         $this->names[$format] = $name;
     }
 
-    /**
-     * Gets the formater name.
-     *
-     * @param   string  $format     The format
-     *
-     * @return  string  The formater name.
-     */
     public function getFormaterName(string $format): string
     {
         return $this->names[$format] ?? $format;
     }
 
-    /**
-     * Gets the editors list.
-     *
-     * @return  array   The editors.
-     */
     public function getEditors(): array
     {
         $res = [];
 
-        if (isset(dcCore::app()->plugins)) {
-            foreach (array_keys($this->stack) as $editor_id) {
-                $res[$editor_id] = dcCore::app()->plugins->getDefine($editor_id)->get('name');
-            }
+        foreach (array_keys($this->stack) as $editor_id) {
+            $res[$editor_id] = App::plugins()->getDefine($editor_id)->get('name');
         }
 
         return $res;
     }
 
-    /**
-     * Gets the formaters.
-     *
-     * return formaters for an editor if editor is active
-     * return empty() array if editor is not active.
-     * It can happens when a user choose an editor and admin deactivate that editor later
-     *
-     * @param   string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
-     *
-     * @return  array   The formaters.
-     */
     public function getFormater(string $editor_id): array
     {
         $res = [];
@@ -104,11 +61,6 @@ class Formater
         return $res;
     }
 
-    /**
-     * Gets the formaters.
-     *
-     * @return  array   The formaters.
-     */
     public function getFormaters(): array
     {
         $res = [];
@@ -120,30 +72,22 @@ class Formater
         return $res;
     }
 
-    /**
-     * Call editor formater.
-     *
-     * If <var>$name</var> is a valid formater, it returns <var>$str</var>
-     * transformed using that formater.
-     *
-     * @param   string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
-     * @param   string  $name       The formater name
-     * @param   string  $str        The string to transform
-     *
-     * @return  string
-     */
     public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
+        $res = null;
         if (isset($this->stack[$editor_id]) && isset($this->stack[$editor_id][$name])) {
-            return call_user_func($this->stack[$editor_id][$name], $str);
-        }
-        // Fallback with another editor if possible
-        foreach ($this->stack as $editor => $formaters) {
-            if (array_key_exists($name, $formaters)) {
-                return call_user_func($this->stack[$editor][$name], $str);
+            $res = call_user_func($this->stack[$editor_id][$name], $str);
+        } else {
+            // Fallback with another editor if possible
+            foreach ($this->stack as $editor => $formaters) {
+                if (array_key_exists($name, $formaters)) {
+                    $res = call_user_func($this->stack[$editor][$name], $str);
+
+                    break;
+                }
             }
         }
 
-        return $str;
+        return is_string($res) ? $res : $str;
     }
 }

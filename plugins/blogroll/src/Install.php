@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
 use initBlogroll;
@@ -30,7 +30,7 @@ class Install extends Process
             return false;
         }
 
-        $schema = new Structure(dcCore::app()->con, dcCore::app()->prefix);
+        $schema = new Structure(App::con(), App::con()->prefix());
 
         $schema->{initBlogroll::LINK_TABLE_NAME}
             ->link_id('bigint', 0, false)
@@ -47,7 +47,7 @@ class Install extends Process
             ->reference('fk_link_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;
 
-        (new Structure(dcCore::app()->con, dcCore::app()->prefix))->synchronize($schema);
+        (new Structure(App::con(), App::con()->prefix()))->synchronize($schema);
 
         return true;
     }

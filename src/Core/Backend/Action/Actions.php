@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -464,7 +464,7 @@ abstract class Actions
      */
     public function error(Exception $e)
     {
-        dcCore::app()->error->add($e->getMessage());
+        App::error()->add($e->getMessage());
     }
 
     /**

@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
-use dcCore;
 use dcUtils;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -29,7 +29,7 @@ class FilterPosts extends Filters
     {
         parent::__construct($type);
 
-        if (dcCore::app()->post_types->exists($post_type)) {
+        if (App::postTypes()->exists($post_type)) {
             $this->post_type = $post_type;
             $this->add((new Filter('post_type', $post_type))->param('post_type'));
         }
@@ -51,7 +51,7 @@ class FilterPosts extends Filters
         ]);
 
         # --BEHAVIOR-- adminPostFilter -- ArrayObject
-        dcCore::app()->behavior->callBehavior('adminPostFilterV2', $filters);
+        App::behavior()->callBehavior('adminPostFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -66,12 +66,12 @@ class FilterPosts extends Filters
         $users = null;
 
         try {
-            $users = dcCore::app()->blog->getPostsUsers($this->post_type);
+            $users = App::blog()->getPostsUsers($this->post_type);
             if ($users->isEmpty()) {
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
 
             return null;
         }
@@ -97,12 +97,12 @@ class FilterPosts extends Filters
         $categories = null;
 
         try {
-            $categories = dcCore::app()->blog->getCategories(['post_type' => $this->post_type]);
+            $categories = App::blog()->getCategories(['post_type' => $this->post_type]);
             if ($categories->isEmpty()) {
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
 
             return null;
         }
@@ -145,11 +145,11 @@ class FilterPosts extends Filters
      */
     public function getPostFormatFilter(): Filter
     {
-        $core_formaters    = dcCore::app()->formater->getFormaters();
+        $core_formaters    = App::formater()->getFormaters();
         $available_formats = [];
         foreach ($core_formaters as $formats) {
             foreach ($formats as $format) {
-                $available_formats[dcCore::app()->formater->getFormaterName($format)] = $format;
+                $available_formats[App::formater()->getFormaterName($format)] = $format;
             }
         }
 
@@ -218,7 +218,7 @@ class FilterPosts extends Filters
         $dates = null;
 
         try {
-            $dates = dcCore::app()->blog->getDates([
+            $dates = App::blog()->getDates([
                 'type'      => 'month',
                 'post_type' => $this->post_type,
             ]);
@@ -226,7 +226,7 @@ class FilterPosts extends Filters
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
 
             return null;
         }
@@ -249,12 +249,12 @@ class FilterPosts extends Filters
         $langs = null;
 
         try {
-            $langs = dcCore::app()->blog->getLangs(['post_type' => $this->post_type]);
+            $langs = App::blog()->getLangs(['post_type' => $this->post_type]);
             if ($langs->isEmpty()) {
                 return null;
             }
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
 
             return null;
         }

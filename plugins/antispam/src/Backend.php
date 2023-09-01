@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 
@@ -41,7 +41,7 @@ class Backend extends Process
 
         My::addBackendMenuItem();
 
-        dcCore::app()->behavior->addBehaviors([
+        App::behavior()->addBehaviors([
             'coreAfterCommentUpdate'    => Antispam::trainFilters(...),
             'adminAfterCommentDesc'     => Antispam::statusMessage(...),
             'adminDashboardHeaders'     => Antispam::dashboardHeaders(...),
@@ -53,8 +53,8 @@ class Backend extends Process
                         'url'         => My::manageUrl(),
                         'small-icon'  => My::icons(),
                         'large-icon'  => My::icons(),
-                        'permissions' => dcCore::app()->auth->makePermissions([
-                            dcCore::app()->auth::PERMISSION_ADMIN,
+                        'permissions' => App::auth()->makePermissions([
+                            App::auth()::PERMISSION_ADMIN,
                         ]), ]
                 );
             },
@@ -70,8 +70,8 @@ class Backend extends Process
             },
         ]);
 
-        if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {
-            dcCore::app()->behavior->addBehaviors([
+        if (!DC_ANTISPAM_CONF_SUPER || App::auth()->isSuperAdmin()) {
+            App::behavior()->addBehaviors([
                 'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
                 'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),
                 'adminCommentsSpamFormV2'       => BackendBehaviors::adminCommentsSpamForm(...),

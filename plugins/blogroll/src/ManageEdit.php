@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use dcCore;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -28,29 +28,29 @@ class ManageEdit extends Process
         self::status(My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']));
 
         if (self::status()) {
-            dcCore::app()->admin->id = Html::escapeHTML($_REQUEST['id']);
+            App::backend()->id = Html::escapeHTML($_REQUEST['id']);
 
-            dcCore::app()->admin->rs = null;
+            App::backend()->rs = null;
 
             try {
-                dcCore::app()->admin->rs = dcCore::app()->admin->blogroll->getLink(dcCore::app()->admin->id);
+                App::backend()->rs = App::backend()->blogroll->getLink(App::backend()->id);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
 
-            if (!dcCore::app()->error->flag() && dcCore::app()->admin->rs->isEmpty()) {
-                dcCore::app()->admin->link_title = '';
-                dcCore::app()->admin->link_href  = '';
-                dcCore::app()->admin->link_desc  = '';
-                dcCore::app()->admin->link_lang  = '';
-                dcCore::app()->admin->link_xfn   = '';
-                dcCore::app()->error->add(__('No such link or title'));
+            if (!App::error()->flag() && App::backend()->rs->isEmpty()) {
+                App::backend()->link_title = '';
+                App::backend()->link_href  = '';
+                App::backend()->link_desc  = '';
+                App::backend()->link_lang  = '';
+                App::backend()->link_xfn   = '';
+                App::error()->add(__('No such link or title'));
             } else {
-                dcCore::app()->admin->link_title = dcCore::app()->admin->rs->link_title;
-                dcCore::app()->admin->link_href  = dcCore::app()->admin->rs->link_href;
-                dcCore::app()->admin->link_desc  = dcCore::app()->admin->rs->link_desc;
-                dcCore::app()->admin->link_lang  = dcCore::app()->admin->rs->link_lang;
-                dcCore::app()->admin->link_xfn   = dcCore::app()->admin->rs->link_xfn;
+                App::backend()->link_title = App::backend()->rs->link_title;
+                App::backend()->link_href  = App::backend()->rs->link_href;
+                App::backend()->link_desc  = App::backend()->rs->link_desc;
+                App::backend()->link_lang  = App::backend()->rs->link_lang;
+                App::backend()->link_xfn   = App::backend()->rs->link_xfn;
             }
         }
 
@@ -59,65 +59,65 @@ class ManageEdit extends Process
 
     public static function process(): bool
     {
-        if (isset(dcCore::app()->admin->rs) && !dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_link'])) {
+        if (isset(App::backend()->rs) && !App::backend()->rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
 
-            dcCore::app()->admin->link_title = Html::escapeHTML($_POST['link_title']);
-            dcCore::app()->admin->link_href  = Html::escapeHTML($_POST['link_href']);
-            dcCore::app()->admin->link_desc  = Html::escapeHTML($_POST['link_desc']);
-            dcCore::app()->admin->link_lang  = Html::escapeHTML($_POST['link_lang']);
+            App::backend()->link_title = Html::escapeHTML($_POST['link_title']);
+            App::backend()->link_href  = Html::escapeHTML($_POST['link_href']);
+            App::backend()->link_desc  = Html::escapeHTML($_POST['link_desc']);
+            App::backend()->link_lang  = Html::escapeHTML($_POST['link_lang']);
 
-            dcCore::app()->admin->link_xfn = '';
+            App::backend()->link_xfn = '';
 
             if (!empty($_POST['identity'])) {
-                dcCore::app()->admin->link_xfn .= $_POST['identity'];
+                App::backend()->link_xfn .= $_POST['identity'];
             } else {
                 if (!empty($_POST['friendship'])) {
-                    dcCore::app()->admin->link_xfn .= ' ' . $_POST['friendship'];
+                    App::backend()->link_xfn .= ' ' . $_POST['friendship'];
                 }
                 if (!empty($_POST['physical'])) {
-                    dcCore::app()->admin->link_xfn .= ' met';
+                    App::backend()->link_xfn .= ' met';
                 }
                 if (!empty($_POST['professional'])) {
-                    dcCore::app()->admin->link_xfn .= ' ' . implode(' ', $_POST['professional']);
+                    App::backend()->link_xfn .= ' ' . implode(' ', $_POST['professional']);
                 }
                 if (!empty($_POST['geographical'])) {
-                    dcCore::app()->admin->link_xfn .= ' ' . $_POST['geographical'];
+                    App::backend()->link_xfn .= ' ' . $_POST['geographical'];
                 }
                 if (!empty($_POST['family'])) {
-                    dcCore::app()->admin->link_xfn .= ' ' . $_POST['family'];
+                    App::backend()->link_xfn .= ' ' . $_POST['family'];
                 }
                 if (!empty($_POST['romantic'])) {
-                    dcCore::app()->admin->link_xfn .= ' ' . implode(' ', $_POST['romantic']);
+                    App::backend()->link_xfn .= ' ' . implode(' ', $_POST['romantic']);
                 }
             }
 
             try {
-                dcCore::app()->admin->blogroll->updateLink(dcCore::app()->admin->id, dcCore::app()->admin->link_title, dcCore::app()->admin->link_href, dcCore::app()->admin->link_desc, dcCore::app()->admin->link_lang, trim((string) dcCore::app()->admin->link_xfn));
+                App::backend()->blogroll->updateLink(App::backend()->id, App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang, trim((string) App::backend()->link_xfn));
                 Notices::addSuccessNotice(__('Link has been successfully updated'));
                 My::redirect([
                     'edit' => 1,
-                    'id'   => dcCore::app()->admin->id,
+                    'id'   => App::backend()->id,
                 ]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
-        if (isset(dcCore::app()->admin->rs) && dcCore::app()->admin->rs->is_cat && !empty($_POST['edit_cat'])) {
+        if (isset(App::backend()->rs) && App::backend()->rs->is_cat && !empty($_POST['edit_cat'])) {
             // Update a category
 
-            dcCore::app()->admin->link_desc = Html::escapeHTML($_POST['link_desc']);
+            App::backend()->link_desc = Html::escapeHTML($_POST['link_desc']);
 
             try {
-                dcCore::app()->admin->blogroll->updateCategory(dcCore::app()->admin->id, dcCore::app()->admin->link_desc);
+                App::backend()->blogroll->updateCategory(App::backend()->id, App::backend()->link_desc);
                 Notices::addSuccessNotice(__('Category has been successfully updated'));
                 My::redirect([
                     'edit' => 1,
-                    'id'   => dcCore::app()->admin->id,
+                    'id'   => App::backend()->id,
                 ]);
             } catch (Exception $e) {
-                dcCore::app()->error->add($e->getMessage());
+                App::error()->add($e->getMessage());
             }
         }
 
@@ -127,7 +127,7 @@ class ManageEdit extends Process
     public static function render(): void
     {
         # Languages combo
-        $links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
+        $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
         $lang_combo = Combos::getLangsCombo($links, true);
 
         Page::openModule(My::name());
@@ -135,48 +135,48 @@ class ManageEdit extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(dcCore::app()->blog->name) => '',
-                My::name()                                  => dcCore::app()->admin->getPageURL(),
+                Html::escapeHTML(App::blog()->name) => '',
+                My::name()                          => App::backend()->getPageURL(),
             ]
         ) .
         Notices::getNotices() .
-        '<p><a class="back" href="' . dcCore::app()->admin->getPageURL() . '">' . __('Return to blogroll') . '</a></p>';
+        '<p><a class="back" href="' . App::backend()->getPageURL() . '">' . __('Return to blogroll') . '</a></p>';
 
-        if (isset(dcCore::app()->admin->rs)) {
-            if (dcCore::app()->admin->rs->is_cat) {
+        if (isset(App::backend()->rs)) {
+            if (App::backend()->rs->is_cat) {
                 echo
-                '<form action="' . dcCore::app()->admin->getPageURL() . '" method="post">' .
+                '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                 '<h3>' . __('Edit category') . '</h3>' .
 
                 '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
                 form::field('link_desc', 30, 255, [
-                    'default'    => Html::escapeHTML(dcCore::app()->admin->link_desc),
-                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'default'    => Html::escapeHTML(App::backend()->link_desc),
+                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
 
                 form::hidden('edit', 1) .
-                form::hidden('id', dcCore::app()->admin->id) .
-                dcCore::app()->nonce->getFormNonce() .
+                form::hidden('id', App::backend()->id) .
+                App::nonce()->getFormNonce() .
                 '<input type="submit" name="edit_cat" value="' . __('Save') . '"/></p>' .
                 '</form>';
             } else {
                 echo
-                '<form action="' . dcCore::app()->admin->url->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
+                '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
 
                 '<div class="col30 first-col">' .
                 '<h3>' . __('Edit link') . '</h3>' .
 
                 '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
                 form::field('link_title', 30, 255, [
-                    'default'    => Html::escapeHTML(dcCore::app()->admin->link_title),
-                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'default'    => Html::escapeHTML(App::backend()->link_title),
+                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>' .
 
                 '<p><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
                 form::url('link_href', [
                     'size'       => 30,
-                    'default'    => Html::escapeHTML(dcCore::app()->admin->link_href),
+                    'default'    => Html::escapeHTML(App::backend()->link_href),
                     'extra_html' => 'required placeholder="' . __('URL') . '"',
                 ]) .
                 '</p>' .
@@ -187,13 +187,13 @@ class ManageEdit extends Process
                     30,
                     255,
                     [
-                        'default'    => Html::escapeHTML(dcCore::app()->admin->link_desc),
-                        'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
+                        'default'    => Html::escapeHTML(App::backend()->link_desc),
+                        'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                     ]
                 ) . '</p>' .
 
                 '<p><label for="link_lang">' . __('Language:') . '</label> ' .
-                form::combo('link_lang', $lang_combo, dcCore::app()->admin->link_lang) .
+                form::combo('link_lang', $lang_combo, App::backend()->link_lang) .
                 '</p>' .
 
                 '</div>' .
@@ -209,7 +209,7 @@ class ManageEdit extends Process
                 '<tr class="line">' .
                 '<th>' . __('_xfn_Me') . '</th>' .
                 '<td><p>' . '<label class="classic">' .
-                form::checkbox(['identity'], 'me', (dcCore::app()->admin->link_xfn == 'me')) . ' ' .
+                form::checkbox(['identity'], 'me', (App::backend()->link_xfn == 'me')) . ' ' .
                 __('_xfn_Another link for myself') . '</label></p></td>' .
                 '</tr>' .
 
@@ -219,17 +219,17 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::radio(
                     ['friendship'],
                     'contact',
-                    strpos(dcCore::app()->admin->link_xfn, 'contact') !== false
+                    strpos(App::backend()->link_xfn, 'contact') !== false
                 ) . __('_xfn_Contact') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['friendship'],
                     'acquaintance',
-                    strpos(dcCore::app()->admin->link_xfn, 'acquaintance') !== false
+                    strpos(App::backend()->link_xfn, 'acquaintance') !== false
                 ) . __('_xfn_Acquaintance') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['friendship'],
                     'friend',
-                    strpos(dcCore::app()->admin->link_xfn, 'friend') !== false
+                    strpos(App::backend()->link_xfn, 'friend') !== false
                 ) . __('_xfn_Friend') . '</label> ' .
                 '<label class="classic">' . form::radio(['friendship'], '') . __('None') . '</label>' .
                 '</p></td>' .
@@ -241,7 +241,7 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::checkbox(
                     ['physical'],
                     'met',
-                    strpos(dcCore::app()->admin->link_xfn, 'met') !== false
+                    strpos(App::backend()->link_xfn, 'met') !== false
                 ) . __('_xfn_Met') . '</label>' .
                 '</p></td>' .
                 '</tr>' .
@@ -252,12 +252,12 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::checkbox(
                     ['professional[]'],
                     'co-worker',
-                    strpos(dcCore::app()->admin->link_xfn, 'co-worker') !== false
+                    strpos(App::backend()->link_xfn, 'co-worker') !== false
                 ) . __('_xfn_Co-worker') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['professional[]'],
                     'colleague',
-                    strpos(dcCore::app()->admin->link_xfn, 'colleague') !== false
+                    strpos(App::backend()->link_xfn, 'colleague') !== false
                 ) . __('_xfn_Colleague') . '</label>' .
                 '</p></td>' .
                 '</tr>' .
@@ -268,12 +268,12 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::radio(
                     ['geographical'],
                     'co-resident',
-                    strpos(dcCore::app()->admin->link_xfn, 'co-resident') !== false
+                    strpos(App::backend()->link_xfn, 'co-resident') !== false
                 ) . __('_xfn_Co-resident') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['geographical'],
                     'neighbor',
-                    strpos(dcCore::app()->admin->link_xfn, 'neighbor') !== false
+                    strpos(App::backend()->link_xfn, 'neighbor') !== false
                 ) . __('_xfn_Neighbor') . '</label> ' .
                 '<label class="classic">' . form::radio(['geographical'], '') . __('None') . '</label>' .
                 '</p></td>' .
@@ -285,27 +285,27 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'child',
-                    strpos(dcCore::app()->admin->link_xfn, 'child') !== false
+                    strpos(App::backend()->link_xfn, 'child') !== false
                 ) . __('_xfn_Child') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'parent',
-                    strpos(dcCore::app()->admin->link_xfn, 'parent') !== false
+                    strpos(App::backend()->link_xfn, 'parent') !== false
                 ) . __('_xfn_Parent') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'sibling',
-                    strpos(dcCore::app()->admin->link_xfn, 'sibling') !== false
+                    strpos(App::backend()->link_xfn, 'sibling') !== false
                 ) . __('_xfn_Sibling') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'spouse',
-                    strpos(dcCore::app()->admin->link_xfn, 'spouse') !== false
+                    strpos(App::backend()->link_xfn, 'spouse') !== false
                 ) . __('_xfn_Spouse') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'kin',
-                    strpos(dcCore::app()->admin->link_xfn, 'kin') !== false
+                    strpos(App::backend()->link_xfn, 'kin') !== false
                 ) . __('_xfn_Kin') . '</label> ' .
                 '<label class="classic">' . form::radio(['family'], '') . __('None') . '</label>' .
                 '</p></td>' .
@@ -317,22 +317,22 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'muse',
-                    strpos(dcCore::app()->admin->link_xfn, 'muse') !== false
+                    strpos(App::backend()->link_xfn, 'muse') !== false
                 ) . __('_xfn_Muse') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'crush',
-                    strpos(dcCore::app()->admin->link_xfn, 'crush') !== false
+                    strpos(App::backend()->link_xfn, 'crush') !== false
                 ) . __('_xfn_Crush') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'date',
-                    strpos(dcCore::app()->admin->link_xfn, 'date') !== false
+                    strpos(App::backend()->link_xfn, 'date') !== false
                 ) . __('_xfn_Date') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'sweetheart',
-                    strpos(dcCore::app()->admin->link_xfn, 'sweetheart') !== false
+                    strpos(App::backend()->link_xfn, 'sweetheart') !== false
                 ) . __('_xfn_Sweetheart') . '</label> ' .
                 '</p></td>' .
                 '</tr>' .
@@ -341,8 +341,8 @@ class ManageEdit extends Process
                 '</div>' .
                 '<p class="clear">' . form::hidden('p', My::id()) .
                 form::hidden('edit', 1) .
-                form::hidden('id', dcCore::app()->admin->id) .
-                dcCore::app()->nonce->getFormNonce() .
+                form::hidden('id', App::backend()->id) .
+                App::nonce()->getFormNonce() .
                 '<input type="submit" name="edit_link" value="' . __('Save') . '"/></p>' .
                 '</form>';
             }
