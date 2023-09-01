@@ -1,20 +1,26 @@
 <?php
 /**
  * @package Dotclear
- * @subpackage Public
+ * @subpackage Frontend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Frontend;
+
+use dcBlog;
+use dcDeprecated;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
+use Exception;
 
-class context
+class Ctx
 {
     /**
      * Stack of context variables
@@ -145,11 +151,11 @@ class context
     }
 
     /**
-     * @deprecated since version 2.11 , use context::global_filters instead
+     * @deprecated since version 2.11 , use Ctx::global_filters instead
      */
     public static function global_filter($str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
     {
-        dcDeprecated::set('context::global_filters()', '2.11');
+        dcDeprecated::set('Ctx::global_filters()', '2.11');
 
         return self::global_filters(
             $str,
@@ -663,7 +669,7 @@ class context
                 }
             } else {
                 $text = $cur_token[1];
-                if (!$in_pre) {
+                if (App::frontend()->smilies && !$in_pre) {
                     // Not inside a pre/code, replace smileys
                     $text = preg_replace(
                         array_keys(App::frontend()->smilies),
@@ -866,7 +872,7 @@ class context
                     }
                 }
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             // Ignore exception as it is not important not finding any image in content in a public context
         }
 

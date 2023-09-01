@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Frontend;
 
 use ArrayObject;
-use dcCore;
 use dcDeprecated;
 use Dotclear\App;
 use Dotclear\Helper\Date;
@@ -364,7 +363,7 @@ class Tpl extends Template
             }
         }
 
-        return 'context::global_filters(%s,' . var_export($params, true) . ",'" . addslashes((string) $this->current_tag) . "')";
+        return Ctx::class . '::global_filters(%s,' . var_export($params, true) . ",'" . addslashes((string) $this->current_tag) . "')";
     }
 
     /**
@@ -1236,7 +1235,7 @@ class Tpl extends Template
     {
         $robots = isset($attr['robots']) ? addslashes($attr['robots']) : '';
 
-        return "<?php echo context::robotsPolicy(App::blog()->settings->system->robots_policy,'" . $robots . "'); ?>";
+        return '<?php echo ' . Ctx::class . "::robotsPolicy(App::blog()->settings->system->robots_policy,'" . $robots . "'); ?>";
     }
 
     /**
@@ -1769,7 +1768,7 @@ class Tpl extends Template
 
         if (isset($attr['category'])) {
             $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
-            $params .= "context::categoryPostParam(\$params);\n";
+            $params .= Ctx::class . "::categoryPostParam(\$params);\n";
         }
 
         if (isset($attr['with_category']) && $attr['with_category']) {
@@ -2563,7 +2562,7 @@ class Tpl extends Template
         $content_only  = !empty($attr['content_only']) ? 'true' : 'false';
         $cat_only      = !empty($attr['cat_only']) ? 'true' : 'false';
 
-        return "<?php echo context::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," .
+        return '<?php echo ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," .
             $no_tag . ',' . $content_only . ',' . $cat_only . '); ?>';
     }
 
@@ -3107,7 +3106,7 @@ class Tpl extends Template
      */
     public function PaginationCounter(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'context::PaginationNbPages()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationNbPages()') . '; ?>';
     }
 
     /**
@@ -3126,7 +3125,7 @@ class Tpl extends Template
     {
         $offset = isset($attr['offset']) ? (int) $attr['offset'] : 0;
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'context::PaginationPosition(' . $offset . ')') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationPosition(' . $offset . ')') . '; ?>';
     }
 
     /**
@@ -3148,12 +3147,12 @@ class Tpl extends Template
 
         if (isset($attr['start'])) {
             $sign = (bool) $attr['start'] ? '' : '!';
-            $if[] = $sign . 'context::PaginationStart()';
+            $if[] = $sign . Ctx::class . '::PaginationStart()';
         }
 
         if (isset($attr['end'])) {
             $sign = (bool) $attr['end'] ? '' : '!';
-            $if[] = $sign . 'context::PaginationEnd()';
+            $if[] = $sign . Ctx::class . '::PaginationEnd()';
         }
 
         # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, array<int,string>
@@ -3185,7 +3184,7 @@ class Tpl extends Template
             $offset = (int) $attr['offset'];
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'context::PaginationURL(' . $offset . ')') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationURL(' . $offset . ')') . '; ?>';
     }
 
     // Comments

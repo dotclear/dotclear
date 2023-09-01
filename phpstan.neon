@@ -234,6 +234,12 @@ parameters:
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterMedia::#'
       path: %currentWorkingDirectory%
 
+    # 2.28+
+
+    # Dotclear\Core\Frontend\Ctx object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Core\\Frontend\\Ctx::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

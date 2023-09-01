@@ -229,6 +229,7 @@ dcProxyV1::classAliases([
     'dcPublic'      => 'Dotclear\Core\Frontend\Utility',
     'dcTemplate'    => 'Dotclear\Core\Frontend\Tpl',
     'dcUrlHandlers' => 'Dotclear\Core\Frontend\Url',
+    'context'       => 'Dotclear\Core\Frontend\Ctx',
 
     // Upgrade --------------------
 

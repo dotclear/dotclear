@@ -14,21 +14,16 @@
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Utility as Backend;
-use Dotclear\Core\Filter;
-use Dotclear\Core\Formater;
+use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Install\Utils;
-use Dotclear\Core\Nonce;
 use Dotclear\Core\PostType;
-use Dotclear\Core\PostTypes;
 use Dotclear\Core\Session;
-use Dotclear\Core\Users;
 use Dotclear\Core\Version;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Helper\Behavior;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
@@ -317,9 +312,9 @@ final class dcCore
      *
      * @deprecated since 2.28, Use App::frontend()->ctx instead
      *
-     * @var context|null
+     * @var Ctx
      */
-    public $ctx;
+    public Ctx $ctx;
 
     /**
      * HTTP Cache stack

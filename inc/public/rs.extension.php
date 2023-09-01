@@ -8,6 +8,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 
@@ -77,8 +78,8 @@ class rsExtPostPublic extends rsExtPost
         // Not very nice hack but it does the job :)
         if (isset(App::frontend()->ctx) && App::frontend()->ctx->short_feed_items === true) {
             $content = parent::getContent($rs, $absolute_urls);
-            $content = context::remove_html($content);
-            $content = context::cut_string($content, 350);
+            $content = Ctx::remove_html($content);
+            $content = Ctx::cut_string($content, 350);
 
             $content = '<p>' . $content . '... ' .
             '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .
@@ -124,10 +125,10 @@ class rsExtPostPublic extends rsExtPost
     protected static function smilies(string $content, dcBlog $blog): string
     {
         if (!isset(App::frontend()->smilies)) {
-            App::frontend()->smilies = context::getSmilies($blog);
+            App::frontend()->smilies = Ctx::getSmilies($blog);
         }
 
-        return context::addSmilies($content);
+        return Ctx::addSmilies($content);
     }
 }
 
@@ -149,10 +150,10 @@ class rsExtCommentPublic extends rsExtComment
             $content = parent::getContent($rs, $absolute_urls);
 
             if (!isset(App::frontend()->smilies)) {
-                App::frontend()->smilies = context::getSmilies(App::blog());
+                App::frontend()->smilies = Ctx::getSmilies(App::blog());
             }
 
-            return context::addSmilies($content);
+            return Ctx::addSmilies($content);
         }
 
         return parent::getContent($rs, $absolute_urls);

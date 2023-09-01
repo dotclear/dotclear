@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Frontend;
 
-use context;
 use dcBlog;
 use dcCore;
 use dcUtils;
@@ -43,9 +42,9 @@ class Utility extends Process
     /**
      * Context
      *
-     * @var context
+     * @var Ctx
      */
-    public context $ctx;
+    public Ctx $ctx;
 
     /**
      * Tpl instance
@@ -109,7 +108,7 @@ class Utility extends Process
     }
 
     /**
-     * Prepaepre the context.
+     * Prepare the context.
      *
      * @return     bool
      */
@@ -182,7 +181,7 @@ class Utility extends Process
         dcCore::app()->media = App::media();
 
         # Creating template context
-        App::frontend()->ctx = new context();
+        App::frontend()->ctx = new Ctx();
 
         // deprecated since 2.28, use App::frontend()->ctx instead
         dcCore::app()->ctx = App::frontend()->ctx;

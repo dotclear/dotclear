@@ -31,6 +31,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.rest.php',
                 'inc/public/lib.urlhandlers.php',
                 'inc/public/class.dc.template.php',
+                'inc/public/lib.tpl.context.php',
             ],
             // Folders
             [
