@@ -40,7 +40,7 @@ class l10nFaker
         $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), App::auth()->getInfo('user_tz')) . "\n";
 
         $main .= "\n// Media sizes\n\n";
-        foreach (App::media()->thumb_sizes as $v) {
+        foreach (App::media()->getThumbSizes() as $v) {
             $main .= $this->fake_l10n($v[3]);
         }
 

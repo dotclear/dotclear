@@ -48,13 +48,13 @@ class Media extends Process
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id)) {
             try {
-                if (strpos(realpath(App::media()->root . '/' . App::backend()->page->d), (string) realpath(App::media()->root)) === 0) {
+                if (strpos(realpath(App::media()->getRoot() . '/' . App::backend()->page->d), (string) realpath(App::media()->getRoot())) === 0) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
                     $zip = new Zip($fp);
                     $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp)$/');
-                    $zip->addDirectory(App::media()->root . '/' . App::backend()->page->d, '', true);
+                    $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->page->d, '', true);
                     header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id . '-' . (App::backend()->page->d ?: 'media') . '.zip');
                     header('Content-Type: application/x-zip');
                     $zip->write();

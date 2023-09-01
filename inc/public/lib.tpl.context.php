@@ -741,7 +741,7 @@ class context
     {
         try {
             $media = App::media();
-            $sizes = implode('|', array_keys($media->thumb_sizes)) . '|o';
+            $sizes = implode('|', array_keys($media->getThumbSizes())) . '|o';
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
@@ -827,7 +827,7 @@ class context
 
         try {
             $media = App::media();
-            $sizes = implode('|', array_keys($media->thumb_sizes));
+            $sizes = implode('|', array_keys($media->getThumbSizes()));
             if (preg_match('/^\.(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];
             }

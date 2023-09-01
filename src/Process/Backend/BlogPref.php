@@ -164,7 +164,7 @@ class BlogPref extends Process
             $media = App::media();
 
             $stack[__('original')] = 'o';
-            foreach ($media->thumb_sizes as $code => $size) {
+            foreach ($media->getThumbSizes() as $code => $size) {
                 $stack[__($size[2])] = $code;
             }
         } catch (Exception $e) {

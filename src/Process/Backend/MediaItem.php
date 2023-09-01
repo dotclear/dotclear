@@ -121,7 +121,7 @@ class MediaItem extends Process
             }
             # Add parent and direct childs directories if any
             App::media()->getFSDir();
-            foreach (App::media()->dir['dirs'] as $v) {
+            foreach (App::media()->getDirs() as $v) {
                 $dirs_combo['/' . $v->relname] = $v->relname;
             }
             ksort($dirs_combo);
@@ -290,7 +290,7 @@ class MediaItem extends Process
                 $prefs['legend'] = $_POST['pref_legend'];
             }
 
-            $local = App::media()->root . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef.json';
+            $local = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef.json';
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
@@ -300,7 +300,7 @@ class MediaItem extends Process
         if (!empty($_POST['remove_folder_prefs'])) {
             // Delete media insertion settings for the folder (.mediadef and .mediadef.json)
 
-            $local      = App::media()->root . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
+            $local      = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
             $local_json = $local . '.json';
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
@@ -392,7 +392,7 @@ class MediaItem extends Process
             }
 
             try {
-                $local = App::media()->root . '/' . dirname($file->relname) . '/' . '.mediadef';
+                $local = App::media()->getRoot() . '/' . dirname($file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
@@ -504,7 +504,7 @@ class MediaItem extends Process
                     echo
                     '<label class="classic">' .
                     form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    App::media()->thumb_sizes[$s][2] . '</label><br /> ';
+                    App::media()->getThumbSizes()[$s][2] . '</label><br /> ';
                 }
                 $s_checked = (!isset(App::backend()->file->media_thumb[$defaults['size']]));
                 echo
@@ -572,7 +572,7 @@ class MediaItem extends Process
                     echo
                     '<label class="classic">' .
                     form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    App::media()->thumb_sizes[$s][2] . '</label><br /> ';
+                    App::media()->getThumbSizes()[$s][2] . '</label><br /> ';
                 }
                 $s_checked = (!isset(App::backend()->file->media_thumb[$defaults['size']]));
                 echo
@@ -740,7 +740,7 @@ class MediaItem extends Process
                 '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '" /> ' . __('or') . ' ' .
                 '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '" />';
 
-                $local = App::media()->root . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
+                $local = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
@@ -782,7 +782,7 @@ class MediaItem extends Process
         if (App::backend()->file->media_image) {
             $thumb_size = !empty($_GET['size']) ? (string) $_GET['size'] : 's';
 
-            if (!isset(App::media()->thumb_sizes[$thumb_size]) && $thumb_size !== 'o') {
+            if (!isset(App::media()->getThumbSizes()[$thumb_size]) && $thumb_size !== 'o') {
                 $thumb_size = 's';
             }
 
@@ -809,7 +809,7 @@ class MediaItem extends Process
                 sprintf($strong_link, '<a href="' . App::backend()->url->get('admin.media.item', array_merge(
                     App::backend()->page_url_params,
                     ['size' => $s, 'tab' => 'media-details-tab']
-                )) . '">' . App::media()->thumb_sizes[$s][2] . '</a> | ');
+                )) . '">' . App::media()->getThumbSizes()[$s][2] . '</a> | ');
             }
 
             echo
@@ -822,10 +822,10 @@ class MediaItem extends Process
                 $alpha     = strtolower($path_info['extension']) === 'png';
                 $webp      = strtolower($path_info['extension']) === 'webp';
                 $thumb_tp  = ($alpha ?
-                    App::media()->thumb_tp_alpha :
+                    App::media()->getThumbnailFilePattern('alpha') :
                     ($webp ?
-                        App::media()->thumb_tp_webp :
-                        App::media()->thumb_tp));
+                        App::media()->getThumbnailFilePattern('webp') :
+                        App::media()->getThumbnailFilePattern()));
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
                 $image_size = getimagesize($thumb_file);

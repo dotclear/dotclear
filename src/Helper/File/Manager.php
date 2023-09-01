@@ -59,6 +59,8 @@ class Manager
     /**
      * Current directory content array
      *
+     * @deprecated since 2.28, use self::getDirs() or self::getFiles();
+     *
      * @var        array
      */
     public $dir = [
@@ -272,6 +274,26 @@ class Manager
         }
 
         return false;
+    }
+
+    /**
+     * Get current dirs.
+     *
+     * @return array<int,File>
+     */
+    public function getDirs(): array
+    {
+        return $this->dir['dirs'];
+    }
+
+    /**
+     * Get current dirs.
+     *
+     * @return array<int,File>
+     */
+    public function getFiles(): array
+    {
+        return $this->dir['files'];
     }
 
     /**
