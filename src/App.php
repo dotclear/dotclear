@@ -457,15 +457,11 @@ namespace Dotclear {
                 define('DC_UPGRADE', dcUtils::path([DC_ROOT, 'inc', 'upgrade']));
             }
 
-            if (!defined('DC_CORE_FACTORY_CLASS')) {
-                define('DC_CORE_FACTORY_CLASS', '');
-            }
-
             L10n::init();
 
             try {
                 // instanciate once new core
-                new App(DC_CORE_FACTORY_CLASS);
+                new App();
 
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();

@@ -2,7 +2,9 @@
 /**
  * Core container.
  *
- * Core container serves uniq instances of main Core classes using Factory.
+ * Core container search factories for requested methods.
+ * Available container methods are explicitly set 
+ * to keep track of returned types.
  *
  * @package Dotclear
  *
@@ -13,6 +15,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Factories;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogsInterface;
@@ -50,51 +53,60 @@ class Container
     /** @var    Container   Container unique instance */
     private static Container $instance;
 
-    /** @var    FactoryInterface    Factory instance */
-    private FactoryInterface $factory;
+    /** @var    array<int,FactoryInterface>    Factory instance */
+    private array $factories;
 
     /// @name Container methods
     //@{
     /**
      * Constructor.
      *
-     * @param   string  $factory_class  The Core factory class name
+     * Instanciate all available core factories.
      */
-    public function __construct(string $factory_class)
+    public function __construct()
     {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
-        // Factory class, implement all methods of Container,
-        // third party Core factory MUST implements FactoryInterface and SHOULD extends Factory
-        if (!class_exists($factory_class) || !is_subclass_of($factory_class, FactoryInterface::class)) {
-            $factory_class = Factory::class;
-        }
 
         self::$instance = $this;
-        $this->factory  = new $factory_class($this);
+
+        // Get third party core factories and instaciate them
+        foreach (Factories::getFactories('core') as $factory_class) {
+            // Factory class, implement all methods of Container,
+            // third party core factory MUST implements FactoryInterface and SHOULD extends Factory
+            if (class_exists($factory_class) && is_subclass_of($factory_class, FactoryInterface::class)) {
+                $this->factories[] = new $factory_class($this);
+            }
+        }
+
+        // Append dotclear default core factory to the end of stack
+        $this->factories[] = new Factory($this);
     }
 
     /**
      * Get instance of a core object.
      *
-     * By default, instances are uniques.
+     * By default, an object is instanciated once.
      *
      * @param   string  $id         The object ID
      * @param   bool    $reload     Force reload of the class
      */
     public function get(string $id, bool $reload = false)
     {
-        if ($this->has($id)) {
-            if ($reload) {
-                $this->stack[$id] = $this->factory->{$id}();
-            }
-
-            return $this->stack[$id] ?? $this->stack[$id] = $this->factory->{$id}();
+        if (!$reload && array_key_exists($id, $this->stack)) {
+            return $this->stack[$id];
         }
 
-        throw new Exception('Can not call ' . $id . ' on Core factory class ' . $this->factory::class);
+        // Search first core factory having requested method
+        foreach ($this->factories as $factory) {
+            if (method_exists($factory, $id)) {
+                return $this->stack[$id] = $factory->{$id}();
+            }
+        }
+
+        throw new Exception('Call to undefined factory method ' . $id);
     }
 
     /**
@@ -106,7 +118,13 @@ class Container
      */
     public function has(string $id): bool
     {
-        return method_exists($this->factory, $id);
+        foreach ($this->factories as $factory) {
+            if (method_exists($factory, $id)) {
+                return true;
+            }
+        }
+
+        return false;
     }
     //@}
 
