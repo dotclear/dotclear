@@ -248,9 +248,11 @@ class Utility extends Process
             App::blog()->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
-        // deprecated load of themes
+        // Load themes
         if (App::themes()->isEmpty() && !is_null(App::blog())) {
-            App::themes()->loadModules(App::blog()->themes_path);
+            App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+
+            // deprecated Since 2.28, use App::themes()->menus instead
             dcCore::app()->themes = App::themes();
         }
 
