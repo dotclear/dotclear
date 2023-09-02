@@ -1,96 +1,83 @@
 <html>
 <head>
-  <title>Configuration du thème Ductile</title>
+
+<title>Configuration de Ductile</title>
 </head>
 
 <body>
-
-<p>En modifiant la configuration du thème Ductile, vous pouvez personnaliser votre thème très facilement.</p>
+<p>En modifiant la configuration du thème Ductile, vous pouvez personnaliser votre thème très facilement</p>
 
 <h3>Personnalisation du contenu</h3>
+<p>Cet onglet vous permet de personnaliser le contenu de votre blog.</p>
+<dl>
+  <dt>Entête</dt>
+    <dd>Cochez la case "Cacher la description du blog" afin de ne pas afficher la description du blog habituellement affichée sous le titre.</dd>
 
-<p>Sur cet onglet vous pouvez personnaliser le contenu de votre blog.</p>
+<p>Si le plugin "Simple menu" est installé et actif, vous pouvez cliquer sur le lien désigné pour configurer le menu de l'en-tête. (menu principal ?)</p>
 
-<h4>Entête</h4>
+<p>Spécifiez l'URL du logo à utiliser à la place du logo par défaut. Si l'URL ne commence pas par <code>/</code> , il s'agira d'une URL relative à partir du dossier <code>img</code> du thème (mettre <code>logo.png</code>, par exemple, revient à utiliser le logo par défaut). Effacez ce champ pour revenir à la configuration par défaut.</p>
 
-<p>Cochez la case qui suit « Cacher la description du blog » pour ne pas afficher la description du blog habituellement affichée sous le titre.</p>
-<p>Vous pouvez, si « Menu Simple » est installé et actif, cliquer sur le lien indiqué pour paramétrer le menu affiché en entête.</p>
-<p>Vous pouvez indiquer l'URL d'un logo à utiliser à la place du logo par défaut. Si l'URL ne débute pas par un <code>/</code> il s'agira d'une URL relative au dossier <code>img</code> du thème (mettre <code>logo.png</code> revient par exemple à utiliser le logo par défaut). Videz ce champ pour revenir à la configuration par défaut.</p>
+  <dt>Etiquettes</dt>
+    <dd>Les étiquettes seront affichées en haut de l'écran sous forme de petites images sur les grands écrans et en bas de la page sur les très petits écrans. Toutes les images dont le nom de fichier correspond au schéma sticker-*.png et placées dans le sous-dossier img du thème sont listées. Vous pouvez indiquer pour chacune un libellé et l'url correspondante. (Laissez l'un des deux champs vide pour ne pas l'afficher.)<br />
+Vous pouvez également modifier l'ordre d'affichage par un glisser-déposer si javascript est activé et si vous ne l'avez pas désactivé dans vos préférences. Si javascript est désactivé, un champ vous permet d'indiquer l'ordre d'affichage (1 à n).</dd>
 
-<h4>Étiquettes (« stickers »)</h4>
+  <dt>Types et limites pour les listes de publications</dt>
 
-<p>Les étiquettes s'afficheront en haut de l'écran sous forme d'imagettes sur les écrans larges et en bas de la page sous forme de boutons sur les tout petits écrans. Toutes les images dont le nom de fichier correspond au schéma <code>sticker-*.png</code> et se trouvant dans le sous-répertoire <code>img</code> du thème sont listées. Vous pourrez indiquer pour chacune un libellé et l'URL correspondante. (Laissez l'un de ces deux champs vide pour ne pas l'afficher.)</p>
+    <dd>Certains contextes d'affichage de votre blog se présentent sous la forme d'une liste d'articles. C'est le cas par exemple de la page d'accueil ou des archives mensuelles. Pour chacun des contextes listés dans le tableau, vous pouvez spécifier si le contenu de chaque billet affiché doit se présenter sous la forme d'un titre uniquement, d'une forme courte (contenu du champ extrait des 300 premiers caractères) ou de leur forme complète. NB. Sur la page d'accueil, le premier message s'affiche toujours en entier.<br />
+De plus, pour certains de ces contextes, vous pouvez également spécifier le nombre de billets affichés par page. Si vous laissez ce champ vide, c'est la valeur spécifiée dans les paramètres généraux du blog qui sera utilisée.</dd>
 
-<p>Vous pouvez également modifier l'ordre d'affichage par tiré-lâché si javascript est actif et que vous ne l'avez pas interdit dans vos préférences. Si javascript est désactivé, un champ supplémentaire permet d'indiquer l'ordre d'affichage (de 1 à n).</p>
-
-<h4>Types et limites des listes de billets</h4>
-
-<p>Certains contextes d'affichage de votre blog se présentent sous la forme d'une liste de billets. C'est le cas par exemple pour la page d'accueil ou bien pour les archives mensuelles. Pour chacun des contextes listés dans le tableau vous pouvez préciser si le contenu de chacun des billets affichés doit l'être sous la forme d'un titre uniquement, d'une forme réduite (contenu du champ Extrait ou les 300 premiers caractères) ou sous leur forme complète. À noter : à l'accueil, le premier billet s'affiche systématiquement en entier.</p>
-
-<p>De plus, pour certains de ces contextes, vous pouvez également indiquer le nombre de billets affichés par page. Si vous laissez ce champ vide c'est la valeur précisée dans les paramètres du blog qui sera utilisée.</p>
+</dl>
 
 <h3>Personnalisation de la présentation</h3>
-
-<p>Sur cet onglet vous pouvez personnaliser quelques éléments de présentation de votre blog.</p>
+<p>Cet onglet vous permet de personnaliser certains éléments de présentation de votre blog.</p>
 
 <h4>Paramètres généraux</h4>
 
-<p>Ces paramètres seront utilisés quelle que soit la largeur d'affichage du blog.</p>
+<p>Ces paramètres seront utilisés pour toutes les largeurs d'affichage du blog.</p>
+<dl>
+  <dt>Polices de caractères</dt>
+    <dd>Vous pouvez choisir ici la famille de polices principale qui sera utilisée pour la plupart des textes. Vous pouvez également spécifier une deuxième famille de polices (secondaire) qui sera utilisée pour certains titres du deuxième niveau et pour les commentaires. L'option "default" permet de laisser le choix initial.</dd>
 
-<h5>Polices de caractères</h5>
+  <dt>Titre du blog</dt>
 
-<p>Vous pouvez ici choisir la famille principale de police de caractères qui sera utilisée pour l'essentiel des textes. Vous pouvez également sélectionner une seconde famille (secondaire) qui sera utilisée pour certains titres de second niveau et les commentaires. L'option « Par défaut » permet de laisser le choix prévu à l'origine.</p>
+    <dd>Vous pouvez spécifier ici si le titre du blog doit être affiché en gras, sa taille, (par défaut em, les unités reconnues sont %, pt, px, em et ex) ainsi que la couleur, en utilisant le format #rrggbb avec rr, gg et bb choisis entre 0 et ff.<br />
+Videz un ou tous les champs pour annuler votre choix et revenir à la valeur par défaut.</dd>
 
-<h5>Titre du blog</h5>
 
-<p>Vous pouvez indiquer ici si le titre du blog doit être affiché en gras ou pas, sa taille (en <em>em</em> par défaut, les unités reconnues sont %, pt, px, em et ex) ainsi que sa couleur en utilisant le <em>Color Picker</em> disponible en cliquant sur la pipette ou en précisant directement la couleur en utilisant le format <code>#rrggbb</code> avec rr, gg et bb compris entre 0 et ff.</p>
+  <dt>Titres des publications</dt>
+    <dd>Vous pouvez spécifier ici si le titre du blog doit être affiché en gras, sa taille, (par défaut em, les unités reconnues sont %, pt, px, em et ex) ainsi que la couleur, en utilisant le format #rrggbb avec rr, gg et bb choisis entre 0 et ff.<br />
+Videz un ou tous les champs pour annuler votre choix et revenir à la valeur par défaut.</dd>
 
-<p>Videz un ou tous les champs pour annuler votre choix et revenir à celui défini à l'origine.</p>
+  <dt>Titres sans lien</dt>
+    <dd>Vous pouvez spécifier ici si le titre du blog doit être affiché en gras, sa taille, (par défaut em, les unités reconnues sont %, pt, px, em et ex) ainsi que la couleur, en utilisant le format #rrggbb avec rr, gg et bb choisis entre 0 et ff.<br />
+Videz un ou tous les champs pour annuler votre choix et revenir à la valeur par défaut.</dd>
 
-<h5>Titre des billets</h5>
+  <dt>Liens dans les publications</dt>
+    <dd>Vous pouvez spécifier ici si le titre du blog doit être affiché en gras, sa taille, (par défaut em, les unités reconnues sont %, pt, px, em et ex) ainsi que la couleur, en utilisant le format #rrggbb avec rr, gg et bb choisis entre 0 et ff.<br />
+Videz un ou tous les champs pour annuler votre choix et revenir à la valeur par défaut.</dd>
 
-<p>Vous pouvez indiquer ici si les titres des billets doivent être affichés en gras ou pas, leur taille (en <em>em</em> par défaut, les unités reconnues sont %, pt, px, em et ex) ainsi que leur couleur en utilisant le <em>Color Picker</em> disponible en cliquant sur la pipette ou en précisant directement la couleur en utilisant le format <code>#rrggbb</code> avec rr, gg et bb compris entre 0 et ff.</p>
+<h4>Paramètres spécifiques aux téléphones mobiles</h4>
 
-<p>Videz un ou tous les champs pour annuler votre choix et revenir à celui défini à l'origine.</p>
+<p>Ces paramètres ne sont utilisés que lorsque la largeur d'affichage est inférieure à 480 pixels (par exemple sur les téléphones portables). S'ils sont spécifiés, ils remplaceront les paramètres équivalents spécifiés dans les paramètres généraux ci-dessus.</p>
 
-<h5>Titres sans lien</h5>
+  <dt>Titre du blog</dt>
 
-<p>Vous pouvez indiquer ici la couleur des titres sans lien (essentiellement : le titre du billet lorsqu'il est affiché seul, les intertitres au sein des billets, l'item actif du menu horizontal) en utilisant le <em>Color Picker</em> disponible en cliquant sur la pipette ou en précisant directement la couleur en utilisant le format <code>#rrggbb</code> avec rr, gg et bb compris entre 0 et ff.</p>
+    <dd>Vous pouvez spécifier ici si le titre du blog doit être affiché en gras, sa taille, (par défaut em, les unités reconnues sont %, pt, px, em et ex) ainsi que la couleur, en utilisant le format #rrggbb avec rr, gg et bb choisis entre 0 et ff.<br />
+Videz un ou tous les champs pour annuler votre choix et revenir à la valeur par défaut.</dd>
 
-<p>Videz le champ pour annuler votre choix et revenir à celui défini à l'origine.</p>
 
-<h5>Liens dans les billets</h5>
+  <dt>Titres des publications</dt>
+    <dd>Vous pouvez spécifier ici si le titre du blog doit être affiché en gras, sa taille, (par défaut em, les unités reconnues sont %, pt, px, em et ex) ainsi que la couleur, en utilisant le format #rrggbb avec rr, gg et bb choisis entre 0 et ff.<br />
+Videz un ou tous les champs pour annuler votre choix et revenir à la valeur par défaut.</dd>
 
-<p>Vous pouvez indiquer ici si les liens cités dans les billets doivent être affichés en gras ou non et définir leur couleur à l'état normal et déjà visités, leur couleur à l'état actif, ou lorsqu'ils sont survolés ou prennent le focus en utilisant le <em>Color Picker</em> disponible en cliquant sur la pipette ou en précisant directement la couleur en utilisant le format <code>#rrggbb</code> avec rr, gg et bb compris entre 0 et ff.</p>
+<h3>Accessibilité et contraste entre les couleurs</h3>
 
-<p>Videz un ou tous les champs pour annuler votre choix et revenir à celui défini à l'origine.</p>
-
-<h4>Paramètres spécifiques pour les mobiles</h4>
-
-<p>Ces paramètres seront utilisés uniquement lorsque la largeur de l'affichage sera inférieure à 480 pixels (par exemple sur les mobiles). Ils viendront remplacer, s'il sont précisés, les paramètres de même nature décrits dans la partie générale ci-dessus.</p>
-
-<h5>Titre du blog</h5>
-
-<p>Vous pouvez indiquer ici si le titre du blog doit être affiché en gras ou pas, sa taille (en <em>em</em> par défaut, les unités reconnues sont %, pt, px, em et ex) ainsi que sa couleur en utilisant le <em>Color Picker</em> disponible en cliquant sur la pipette ou en précisant directement la couleur en utilisant le format <code>#rrggbb</code> avec rr, gg et bb compris entre 0 et ff.</p>
-
-<p>Videz un ou tous les champs pour annuler votre choix et revenir à celui défini à l'origine.</p>
-
-<h5>Titres des billets</h5>
-
-<p>Vous pouvez indiquer ici si les titres des billets doivent être affichés en gras ou pas, leur taille (en <em>em</em> par défaut, les unités reconnues sont %, pt, px, em et ex) ainsi que leur couleur en utilisant le <em>Color Picker</em> disponible en cliquant sur la pipette ou en précisant directement la couleur en utilisant le format <code>#rrggbb</code> avec rr, gg et bb compris entre 0 et ff.</p>
-
-<p>Videz un ou tous les champs pour annuler votre choix et revenir à celui défini à l'origine.</p>
-
-<h3>Accessibilité des contrastes de couleurs</h3>
-
-<p>Après l'enregistrement du choix d'une couleur, le ratio de contraste s'affiche à côté du champ et précise, quand c'est le cas, que ce contraste est conforme aux recommandations des <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a>. Pour être conforme, le contraste entre la couleur de fond et la couleur des caractères doit présenter les valeurs suivantes :</p>
-
+<p>Après le choix d'une couleur, le rapport de contraste sera affiché à proximité du champ et il sera précisé, le cas échéant, que ce contraste est conforme aux recommandations des WCAG 2.0. Pour être valide, le contraste entre la couleur d'arrière-plan et la couleur de la police doit avoir les valeurs suivantes :</p>
 <ul>
-	<li>Au moins 4,5:1 pour les textes de taille courante pour le niveau AA ;</li>
-	<li>Au moins 7:1 pour les textes de taille courante pour le niveau AAA ;</li>
-	<li>Au moins 3:1 pour les textes de taille agrandie (150 % ou 120 % gras) pour le niveau AA ;</li>
-	<li>Au moins 4,5:1 pour les textes de taille agrandie (150 % ou 120 % gras) pour le niveau AAA.</li>
+<li>Au moins 4,5:1 pour un texte de taille normale pour le niveau AA ;</li>
+<li>Au moins 7:1 pour un texte de taille normale pour le niveau AA ;</li>
+<li>Au moins 3:1 pour les textes de taille agrandie (150 % ou 120 % en gras) pour le niveau AA ;</li>
+<li>Au moins 4,5:1 pour les textes de taille agrandie (150 % ou 120 % en gras) pour le niveau AAA.</li>
 </ul>
-
 </body>
 </html>
