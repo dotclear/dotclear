@@ -54,7 +54,7 @@ class MediaPage extends FilterMedia
     {
         parent::__construct('media');
 
-        $this->media_uploader = App::auth()->user_prefs->interface->enhanceduploader;
+        $this->media_uploader = App::auth()->prefs()->interface->enhanceduploader;
 
         // try to load core media and themes
         try {
@@ -197,7 +197,7 @@ class MediaPage extends FilterMedia
      */
     public function showLast(): int
     {
-        return abs((int) App::auth()->user_prefs->interface->media_nb_last_dirs);
+        return abs((int) App::auth()->prefs()->interface->media_nb_last_dirs);
     }
 
     /**
@@ -208,7 +208,7 @@ class MediaPage extends FilterMedia
     public function getLast(): array
     {
         if ($this->media_last === null) {
-            $m = App::auth()->user_prefs->interface->media_last_dirs;
+            $m = App::auth()->prefs()->interface->media_last_dirs;
             if (!is_array($m)) {
                 $m = [];
             }
@@ -264,7 +264,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_last = $last_dirs;
-            App::auth()->user_prefs->interface->put('media_last_dirs', $last_dirs, 'array');
+            App::auth()->prefs()->interface->put('media_last_dirs', $last_dirs, 'array');
         }
 
         return $done;
@@ -278,7 +278,7 @@ class MediaPage extends FilterMedia
     public function getFav(): array
     {
         if ($this->media_fav === null) {
-            $m = App::auth()->user_prefs->interface->media_fav_dirs;
+            $m = App::auth()->prefs()->interface->media_fav_dirs;
             if (!is_array($m)) {
                 $m = [];
             }
@@ -319,7 +319,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_fav = $fav_dirs;
-            App::auth()->user_prefs->interface->put('media_fav_dirs', $fav_dirs, 'array');
+            App::auth()->prefs()->interface->put('media_fav_dirs', $fav_dirs, 'array');
         }
 
         return $done;

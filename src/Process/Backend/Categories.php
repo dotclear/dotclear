@@ -124,7 +124,7 @@ class Categories extends Process
 
         $starting_script = '';
 
-        if (!App::auth()->user_prefs->accessibility->nodragdrop
+        if (!App::auth()->prefs()->accessibility->nodragdrop
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id)
@@ -226,7 +226,7 @@ class Categories extends Process
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id) && $rs->count() > 1) {
-                if (!App::auth()->user_prefs->accessibility->nodragdrop) {
+                if (!App::auth()->prefs()->accessibility->nodragdrop) {
                     echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
                 }
                 echo

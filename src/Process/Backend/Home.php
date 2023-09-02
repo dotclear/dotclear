@@ -88,34 +88,34 @@ class Home extends Process
     public static function render(): void
     {
         // Check dashboard module prefs
-        if (!App::auth()->user_prefs->dashboard->prefExists('doclinks')) {
-            if (!App::auth()->user_prefs->dashboard->prefExists('doclinks', true)) {
-                App::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean', '', false, true);
+        if (!App::auth()->prefs()->dashboard->prefExists('doclinks')) {
+            if (!App::auth()->prefs()->dashboard->prefExists('doclinks', true)) {
+                App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
             }
-            App::auth()->user_prefs->dashboard->put('doclinks', true, 'boolean');
+            App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean');
         }
-        if (!App::auth()->user_prefs->dashboard->prefExists('dcnews')) {
-            if (!App::auth()->user_prefs->dashboard->prefExists('dcnews', true)) {
-                App::auth()->user_prefs->dashboard->put('dcnews', true, 'boolean', '', false, true);
+        if (!App::auth()->prefs()->dashboard->prefExists('dcnews')) {
+            if (!App::auth()->prefs()->dashboard->prefExists('dcnews', true)) {
+                App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
             }
-            App::auth()->user_prefs->dashboard->put('dcnews', true, 'boolean');
+            App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean');
         }
-        if (!App::auth()->user_prefs->dashboard->prefExists('quickentry')) {
-            if (!App::auth()->user_prefs->dashboard->prefExists('quickentry', true)) {
-                App::auth()->user_prefs->dashboard->put('quickentry', false, 'boolean', '', false, true);
+        if (!App::auth()->prefs()->dashboard->prefExists('quickentry')) {
+            if (!App::auth()->prefs()->dashboard->prefExists('quickentry', true)) {
+                App::auth()->prefs()->dashboard->put('quickentry', false, 'boolean', '', false, true);
             }
-            App::auth()->user_prefs->dashboard->put('quickentry', false, 'boolean');
+            App::auth()->prefs()->dashboard->put('quickentry', false, 'boolean');
         }
-        if (!App::auth()->user_prefs->dashboard->prefExists('nodcupdate')) {
-            if (!App::auth()->user_prefs->dashboard->prefExists('nodcupdate', true)) {
-                App::auth()->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+        if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate')) {
+            if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate', true)) {
+                App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
             }
-            App::auth()->user_prefs->dashboard->put('nodcupdate', false, 'boolean');
+            App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean');
         }
 
         // Handle folded/unfolded sections in admin from user preferences
-        if (!App::auth()->user_prefs->toggles->prefExists('unfolded_sections')) {
-            App::auth()->user_prefs->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
+        if (!App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
+            App::auth()->prefs()->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
         }
 
         // Dashboard icons
@@ -127,7 +127,7 @@ class Home extends Process
         $dashboardItem     = 0;
 
         // Documentation links
-        if (App::auth()->user_prefs->dashboard->doclinks && !empty(App::backend()->resources->entries('doc'))) {
+        if (App::auth()->prefs()->dashboard->doclinks && !empty(App::backend()->resources->entries('doc'))) {
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
             foreach (App::backend()->resources->entries('doc') as $k => $v) {
@@ -150,7 +150,7 @@ class Home extends Process
         // Editor stuff
         $quickentry          = '';
         $admin_post_behavior = '';
-        if (App::auth()->user_prefs->dashboard->quickentry) {
+        if (App::auth()->prefs()->dashboard->quickentry) {
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -171,7 +171,7 @@ class Home extends Process
         // Dashboard drag'n'drop switch for its elements
         $dragndrop      = '';
         $dragndrop_head = '';
-        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $dragndrop_msg = [
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
@@ -313,19 +313,19 @@ class Home extends Process
         }
 
         // Get current main orders
-        $main_order = App::auth()->user_prefs->dashboard->main_order;
+        $main_order = App::auth()->prefs()->dashboard->main_order;
         $main_order = ($main_order != '' ? explode(',', $main_order) : []);
 
         // Get current boxes orders
-        $boxes_order = App::auth()->user_prefs->dashboard->boxes_order;
+        $boxes_order = App::auth()->prefs()->dashboard->boxes_order;
         $boxes_order = ($boxes_order != '' ? explode(',', $boxes_order) : []);
 
         // Get current boxes items orders
-        $boxes_items_order = App::auth()->user_prefs->dashboard->boxes_items_order;
+        $boxes_items_order = App::auth()->prefs()->dashboard->boxes_items_order;
         $boxes_items_order = ($boxes_items_order != '' ? explode(',', $boxes_items_order) : []);
 
         // Get current boxes contents orders
-        $boxes_contents_order = App::auth()->user_prefs->dashboard->boxes_contents_order;
+        $boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order;
         $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
         $composeItems = function ($list, $blocks, $flat = false) {
@@ -398,7 +398,7 @@ class Home extends Process
 
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
-        if (!App::auth()->user_prefs->dashboard->nofavicons) {
+        if (!App::auth()->prefs()->dashboard->nofavicons) {
             // Dashboard icons
 
             $dashboardIcons = '<div id="icons">';
@@ -410,7 +410,7 @@ class Home extends Process
             $__dashboard_main[] = $dashboardIcons;
         }
 
-        if (App::auth()->user_prefs->dashboard->quickentry && App::auth()->check(App::auth()->makePermissions([
+        if (App::auth()->prefs()->dashboard->quickentry && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id)) {

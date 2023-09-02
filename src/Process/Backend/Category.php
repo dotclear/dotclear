@@ -208,7 +208,7 @@ class Category extends Process
 
         $category_editor = App::auth()->getOption('editor');
         $rte_flag        = true;
-        $rte_flags       = @App::auth()->user_prefs->interface->rte_flags;
+        $rte_flags       = @App::auth()->prefs()->interface->rte_flags;
         if (is_array($rte_flags) && in_array('cat_descr', $rte_flags)) {
             $rte_flag = $rte_flags['cat_descr'];
         }

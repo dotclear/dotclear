@@ -143,7 +143,7 @@ class Utility extends Process
                     $redir = (string) preg_replace('/\?$/', '', $redir);
                 }
 
-                App::auth()->user_prefs->interface->drop('media_manager_dir');
+                App::auth()->prefs()->interface->drop('media_manager_dir');
 
                 if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || strstr($redir, 'media.php') !== false) {
                     // Remove current media dir from media manager URL
@@ -212,7 +212,7 @@ class Utility extends Process
         // Contextual help flag
         App::backend()->resources->context(false);
 
-        $user_ui_nofavmenu = App::auth()->user_prefs->interface->nofavmenu;
+        $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
 
         App::backend()->favs  = new Favorites();
         App::backend()->menus = new Menus();

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcNamespace;
@@ -107,9 +106,9 @@ class FlatImportV2 extends FlatBackup
         $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
         $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
-        $this->cur_user        = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
+        $this->cur_user        = $this->con->openCursor($this->prefix . App::auth()::USER_TABLE_NAME);
         $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
-        $this->cur_permissions = $this->con->openCursor($this->prefix . dcAuth::PERMISSIONS_TABLE_NAME);
+        $this->cur_permissions = $this->con->openCursor($this->prefix . App::auth()::PERMISSIONS_TABLE_NAME);
         $this->cur_post        = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
         $this->cur_meta        = $this->con->openCursor($this->prefix . App::meta()::META_TABLE_NAME);
         $this->cur_media       = $this->con->openCursor($this->prefix . App::media()::MEDIA_TABLE_NAME);
@@ -135,7 +134,7 @@ class FlatImportV2 extends FlatBackup
         }
 
         if (!App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_ADMIN,
+            App::auth()::PERMISSION_ADMIN,
         ]), App::blog()->id)) {
             throw new Exception(__('Permission denied.'));
         }
@@ -765,7 +764,7 @@ class FlatImportV2 extends FlatBackup
         }
 
         $strReq = 'SELECT user_id ' .
-        'FROM ' . $this->prefix . dcAuth::USER_TABLE_NAME . ' ' .
+        'FROM ' . $this->prefix . App::auth()::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
 
         $rs = new MetaRecord($this->con->select($strReq));

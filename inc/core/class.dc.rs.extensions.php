@@ -33,7 +33,7 @@ class rsExtPost
     {
         # If user is admin or contentadmin, true
         if (App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id)) {
             return true;
         }
@@ -45,7 +45,7 @@ class rsExtPost
 
         # If user is usage and owner of the entry
         if (App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_USAGE,
+            App::auth()::PERMISSION_USAGE,
         ]), App::blog()->id)
             && $rs->user_id == App::auth()->userID()) {
             return true;
@@ -65,7 +65,7 @@ class rsExtPost
     {
         # If user is admin, or contentadmin, true
         if (App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_CONTENT_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id)) {
             return true;
         }
@@ -77,7 +77,7 @@ class rsExtPost
 
         # If user has delete rights and is owner of the entrie
         if (App::auth()->check(App::auth()->makePermissions([
-            dcAuth::PERMISSION_DELETE,
+            App::auth()::PERMISSION_DELETE,
         ]), App::blog()->id)
             && $rs->user_id == App::auth()->userID()) {
             return true;
@@ -937,7 +937,7 @@ class rsExtDates
 @brief Dotclear dates Record helpers.
 
 This class adds new methods to database dates results.
-You can call them on every record comming from dcAuth::checkUser and
+You can call them on every record comming from Auth::checkUser and
 Users::getUsers.
 
 @warning You should not give the first argument (usualy $rs) of every described

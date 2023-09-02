@@ -129,7 +129,7 @@ class Manage extends Process
             '' . App::backend()->page_name);
 
         $head = Page::jsPageTabs(App::backend()->default_tab);
-        if (!App::auth()->user_prefs->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcAuth;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
@@ -188,7 +187,7 @@ class Auth extends Process
                     throw new Exception(__("You didn't change your password."));
                 }
 
-                $cur                  = App::con()->openCursor(App::con()->prefix() . dcAuth::USER_TABLE_NAME);
+                $cur                  = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
                 App::users()->updUser(App::auth()->userID(), $cur);

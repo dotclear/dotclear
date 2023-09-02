@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dcAuth;
 use dcBlog;
 use dcCategories;
 use dcTrackback;
@@ -414,7 +413,7 @@ class ModuleImportWp extends Module
                 $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
                 $this->vars['user_ids'][$rs->ID] = $user_login;
                 if (!App::users()->userExists($user_login)) {
-                    $cur                   = $this->con->openCursor($this->prefix . dcAuth::USER_TABLE_NAME);
+                    $cur                   = $this->con->openCursor($this->prefix . App::auth()::USER_TABLE_NAME);
                     $cur->user_id          = $user_login;
                     $cur->user_pwd         = Crypt::createPassword();
                     $cur->user_displayname = $rs->user_nicename;

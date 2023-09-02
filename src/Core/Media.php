@@ -135,7 +135,7 @@ class Media extends Manager implements MediaInterface
 
     /**
      * Get available thumb sizes.
-     * 
+     *
      * Tubmnail sizes:
      * - m: medium image
      * - s: small image
@@ -267,7 +267,7 @@ class Media extends Manager implements MediaInterface
 
     public function getThumbnailFilePattern(string $type = ''): string
     {
-        return match($type) {
+        return match ($type) {
             'alpha' => $this->thumb_tp_alpha,
             'webp'  => $this->thumb_tp_webp,
             default => $this->thumb_tp,

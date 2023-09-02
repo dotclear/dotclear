@@ -58,7 +58,7 @@ class Favorites
     public function __construct()
     {
         $this->favorites      = new ArrayObject();
-        $this->workspace      = App::auth()->user_prefs->dashboard;
+        $this->workspace      = App::auth()->prefs()->dashboard;
         $this->user_favorites = [];
 
         if ($this->workspace->prefExists('favorites')) {
@@ -205,7 +205,7 @@ class Favorites
      */
     protected function migrateFavorites()
     {
-        $favorites_workspace        = App::auth()->user_prefs->favorites;
+        $favorites_workspace        = App::auth()->prefs()->favorites;
         $this->local_favorites_ids  = [];
         $this->global_favorites_ids = [];
         foreach ($favorites_workspace->dumpPrefs() as $pref) {

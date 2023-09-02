@@ -34,7 +34,7 @@ class Backend extends Process
             }
 
             echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
-            if (!App::auth()->user_prefs->accessibility->nodragdrop) {
+            if (!App::auth()->prefs()->accessibility->nodragdrop) {
                 echo
                 Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');

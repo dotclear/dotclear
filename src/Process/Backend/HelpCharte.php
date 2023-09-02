@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcAuth;
 use dcUtils;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
@@ -25,14 +24,14 @@ class HelpCharte extends Process
     {
         Page::check(
             App::auth()->makePermissions([
-                dcAuth::PERMISSION_USAGE,
-                dcAuth::PERMISSION_CONTENT_ADMIN,
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
             ])
         );
 
-        App::backend()->data_theme = App::auth()->user_prefs->interface->theme;
+        App::backend()->data_theme = App::auth()->prefs()->interface->theme;
         App::backend()->js         = [
-            'htmlFontSize' => App::auth()->user_prefs->interface->htmlfontsize,
+            'htmlFontSize' => App::auth()->prefs()->interface->htmlfontsize,
             'debug'        => !!DC_DEBUG,
         ];
 
