@@ -26,7 +26,7 @@ class Config extends Process
         // limit to backend permissions
         if (My::checkContext(My::CONFIG)) {
             // load locales
-            My::l10n('main');
+            My::l10n('admin');
             App::backend()->css_file = Path::real(App::blog()->public_path) . '/custom_style.css';
 
             if (!is_file(App::backend()->css_file) && !is_writable(dirname(App::backend()->css_file))) {

@@ -26,7 +26,15 @@ class Config extends Process
 {
     public static function init(): bool
     {
-        return self::status(My::checkContext(My::CONFIG));
+        // limit to backend permissions
+        if (My::checkContext(My::CONFIG)) {
+            // load locales
+            My::l10n('admin');
+
+            self::status(true);
+        }
+
+        return self::status();
     }
 
     public static function process(): bool
