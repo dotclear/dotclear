@@ -248,6 +248,12 @@ class Utility extends Process
             App::blog()->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
+        // deprecated load of themes
+        if (App::themes()->isEmpty() && !is_null(App::blog())) {
+            App::themes()->loadModules(App::blog()->themes_path);
+            dcCore::app()->themes = App::themes();
+        }
+
         // Admin behaviors
         App::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
 
