@@ -45,7 +45,7 @@ class Widgets
         self::$widgets = new WidgetsStack();
 
         // deprecated since 2.28, use Widgets::$widgets instead
-        dcCore::app()->widgets = self::$widgets;
+        dcCore::app()->widgets = self::$widgets;    // @phpstan-ignore-line
 
         // deprecated since 2.23, use Widgets::$widgets instead
         $__widgets = self::$widgets;

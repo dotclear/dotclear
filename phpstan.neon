@@ -110,10 +110,6 @@ parameters:
     - message : '#Access to an undefined property dcWorkspace::#'
       path: %currentWorkingDirectory%
 
-    # context object and auto properties
-    - message: '#Access to an undefined property context::#'
-      path: %currentWorkingDirectory%
-
     # dcSettings object and auto properties
     - message : '#Access to an undefined property dcSettings::#'
       path: %currentWorkingDirectory%
@@ -128,14 +124,6 @@ parameters:
 
     # arrayObject/type
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
-      path: %currentWorkingDirectory%
-
-    # dcAdmin::$widgets user-defined properties
-    - message: '#Access to an undefined property dcCore::\$widgets.#'
-      path: %currentWorkingDirectory%
-
-    # dcAdmin::$default_widgets user-defined properties
-    - message: '#Access to an undefined property dcCore::\$default_widgets.#'
       path: %currentWorkingDirectory%
 
     # 2.25+
