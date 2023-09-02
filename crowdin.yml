@@ -28,3 +28,13 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
+  - source: /themes/**/locales/_pot/
+    ignore:
+      - _*.pot
+    translation: /themes/**/locales/%two_letters_code%/%file_name%.po
+    languages_mapping:
+      two_letters_code:
+        es-AR: es-ar
+        pt-BR: pt-br
+        zh-CN: zh-cn
+        vls: nl

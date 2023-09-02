@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2 berlin module\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 13:44+0200\n"
+"POT-Creation-Date: 2023-09-02 15:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: themes/berlin/_public.php:28
+#: themes/berlin/src/Frontend.php:35
 msgid "Show menu"
 msgstr ""
 
-#: themes/berlin/_public.php:29
+#: themes/berlin/src/Frontend.php:36
 msgid "Hide menu"
 msgstr ""
 
-#: themes/berlin/_public.php:30
+#: themes/berlin/src/Frontend.php:37
 msgid "Main menu"
 msgstr ""

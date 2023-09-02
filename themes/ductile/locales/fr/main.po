@@ -1,2 +1,5 @@
+msgid "Pages"
+msgstr ""
+
 msgid "To top"
 msgstr "Haut de page"
