@@ -61,7 +61,7 @@ class dcCategories extends nestedTree
     public function __construct()
     {
         $this->con           = App::con();
-        $this->blog_id       = App::blog()->id;
+        $this->blog_id       = App::blog()->id();
         $this->table         = App::con()->prefix() . self::CATEGORY_TABLE_NAME;
         $this->add_condition = ['blog_id' => "'" . $this->con->escape($this->blog_id) . "'"];
     }

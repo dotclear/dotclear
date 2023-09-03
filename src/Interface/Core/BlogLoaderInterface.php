@@ -11,8 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use dcBlog;
-
 interface BlogLoaderInterface
 {
     /**
@@ -25,11 +23,12 @@ interface BlogLoaderInterface
     /**
      * Get current blog.
      *
-     * Returns null if no blog is currently set
+     * Allways return a blog instance.
+     * Use App::blog()->isDefined() to check if a blog is loaded
      *
-     * @return null|dcBlog
+     * @return BlogInterface
      */
-    public function getBlog(): ?dcBlog;
+    public function getBlog(): BlogInterface;
 
     /**
      * Set the blog to use.

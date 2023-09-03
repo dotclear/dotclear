@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Interface\Core\BlogInterface;
 use Exception;
 
 class Prepend extends Process
@@ -30,22 +30,22 @@ class Prepend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('coreFirstPublicationEntries', function (dcBlog $blog) {
-            if (!$blog->settings->pings->pings_active) {
+        App::behavior()->addBehavior('coreFirstPublicationEntries', function (BlogInterface $blog) {
+            if (!$blog->settings()->pings->pings_active) {
                 return;
             }
-            if (!$blog->settings->pings->pings_auto) {
+            if (!$blog->settings()->pings->pings_auto) {
                 return;
             }
 
-            $pings_uris = $blog->settings->pings->pings_uris;
+            $pings_uris = $blog->settings()->pings->pings_uris;
             if (empty($pings_uris) || !is_array($pings_uris)) {
                 return;
             }
 
             foreach ($pings_uris as $uri) {
                 try {
-                    PingsAPI::doPings($uri, $blog->name, $blog->url);
+                    PingsAPI::doPings($uri, $blog->name(), $blog->url());
                 } catch (Exception $e) {
                 }
             }

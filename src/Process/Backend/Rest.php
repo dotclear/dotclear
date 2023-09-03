@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcBlog;
 use dcCategories;
 use dcCore;
 use dcStore;
@@ -242,14 +241,14 @@ class Rest extends Process
         $url = '';
         if ($post['store'] == 'themes') {
             // load once themes
-            if (App::themes()->isEmpty() && !is_null(App::blog())) {
-                App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+            if (App::themes()->isEmpty() && App::blog()->isDefined()) {
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
             }
             $mod = App::themes();
-            $url = App::blog()->settings->system->store_theme_url;
+            $url = App::blog()->settings()->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
             $mod = App::plugins();
-            $url = App::blog()->settings->system->store_plugin_url;
+            $url = App::blog()->settings()->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
             App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
@@ -412,7 +411,7 @@ class Rest extends Process
         # Create category
         if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $cur_cat            = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
@@ -428,7 +427,7 @@ class Rest extends Process
             App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
-        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+        $cur = App::blog()->openPostCursor();
 
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
         $cur->user_id           = App::auth()->userID();
@@ -436,9 +435,9 @@ class Rest extends Process
         $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
         $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
-        $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : dcBlog::POST_UNPUBLISHED;
-        $cur->post_open_comment = (int) App::blog()->settings->system->allow_comments;
-        $cur->post_open_tb      = (int) App::blog()->settings->system->allow_trackbacks;
+        $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : App::blog()::POST_UNPUBLISHED;
+        $cur->post_open_comment = (int) App::blog()->settings()->system->allow_comments;
+        $cur->post_open_tb      = (int) App::blog()->settings()->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor
         App::behavior()->callBehavior('adminBeforePostCreate', $cur);
@@ -477,7 +476,7 @@ class Rest extends Process
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception('Permission denied');
         }
 

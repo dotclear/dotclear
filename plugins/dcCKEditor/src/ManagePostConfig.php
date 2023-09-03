@@ -228,7 +228,7 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
 ?>
     ],
 <?php // footnotes related
-$tag = match (App::blog()->settings->system->note_title_tag) {
+$tag = match (App::blog()->settings()->system->note_title_tag) {
     1       => 'h3',
     2       => 'p',
     default => 'h4',

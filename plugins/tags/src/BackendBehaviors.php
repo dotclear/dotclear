@@ -41,7 +41,7 @@ class BackendBehaviors
             return '';
         }
 
-        $tag_url = App::blog()->url . App::url()->getURLFor('tag');
+        $tag_url = App::blog()->url() . App::url()->getURLFor('tag');
 
         if ($editor === 'dcLegacyEditor') {
             // dcLegacyEditor
@@ -139,7 +139,7 @@ class BackendBehaviors
             $content = substr($content, 4);
         }
 
-        $tag_url        = Html::stripHostURL(App::blog()->url . App::url()->getURLFor('tag'));
+        $tag_url        = Html::stripHostURL(App::blog()->url() . App::url()->getURLFor('tag'));
         $res['url']     = $tag_url . '/' . rawurlencode(App::meta()::sanitizeMetaID($url));
         $res['content'] = $content;
 
@@ -202,7 +202,7 @@ class BackendBehaviors
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [My::name() => [__('Remove tags') => 'tags_remove']],
                 BackendBehaviors::adminRemoveTags(...)
@@ -268,7 +268,7 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name) => '',
+                        Html::escapeHTML(App::blog()->name()) => '',
                         __('Entries')                       => $ap->getRedirection(true),
                         __('Add tags to this selection')    => '',
                     ]
@@ -306,7 +306,7 @@ class BackendBehaviors
         if (!empty($post['meta_id']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $meta  = App::meta();
             $posts = $ap->getRS();
             while ($posts->fetch()) {
@@ -344,7 +344,7 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)            => '',
+                        Html::escapeHTML(App::blog()->name())            => '',
                         __('Entries')                                  => App::backend()->url->get('admin.posts'),
                         __('Remove selected tags from this selection') => '',
                     ]

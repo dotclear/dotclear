@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcBlog;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -35,7 +34,7 @@ class Comment extends Process
 
         App::backend()->show_ip = App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id);
+        ]), App::blog()->id());
 
         App::backend()->comment_id      = null;
         App::backend()->comment_dt      = '';
@@ -71,7 +70,7 @@ class Comment extends Process
                     throw new Exception(__('Entry does not exist.'));
                 }
 
-                $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                $cur = App::blog()->openCommentCursor();
 
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
@@ -135,20 +134,20 @@ class Comment extends Process
         if (!App::error()->flag() && isset(App::backend()->rs)) {
             $can_edit = App::backend()->can_delete = App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id);
+            ]), App::blog()->id());
 
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id) && App::auth()->userID() == App::backend()->rs->user_id) {
+            ]), App::blog()->id()) && App::auth()->userID() == App::backend()->rs->user_id) {
                 $can_edit = true;
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_DELETE,
-                ]), App::blog()->id)) {
+                ]), App::blog()->id())) {
                     App::backend()->can_delete = true;
                 }
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_PUBLISH,
-                ]), App::blog()->id)) {
+                ]), App::blog()->id())) {
                     App::backend()->can_publish = true;
                 }
             }
@@ -156,7 +155,7 @@ class Comment extends Process
             if (!empty($_POST['update']) && $can_edit) {
                 // update comment
 
-                $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                $cur = App::blog()->openCommentCursor();
 
                 $cur->comment_author  = $_POST['comment_author'];
                 $cur->comment_email   = Html::clean($_POST['comment_email']);
@@ -210,7 +209,7 @@ class Comment extends Process
     public static function render(): void
     {
         $breadcrumb = [
-            Html::escapeHTML(App::blog()->name) => '',
+            Html::escapeHTML(App::blog()->name()) => '',
         ];
 
         if (App::postTypes()->exists(App::backend()->post_type)) {
@@ -242,7 +241,7 @@ class Comment extends Process
             $comment_mailto = '';
             if (App::backend()->comment_email) {
                 $comment_mailto = '<a href="mailto:' . Html::escapeHTML(App::backend()->comment_email) .
-                    '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name)) .
+                    '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name())) .
                     '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), App::backend()->rs->getPostURL())) . '">' . __('Send an e-mail') . '</a>';
             }
 

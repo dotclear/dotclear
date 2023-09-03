@@ -78,7 +78,7 @@ class dcTrackback
      */
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url)
     {
-        if (App::blog() === null) {
+        if (!App::blog()->isDefined()) {
             return false;
         }
 
@@ -127,7 +127,7 @@ class dcTrackback
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
-                'blog_name' => trim(Html::escapeHTML(Html::clean(App::blog()->name))),
+                'blog_name' => trim(Html::escapeHTML(Html::clean(App::blog()->name()))),
                 //,'__debug' => false
             ];
 
@@ -213,7 +213,7 @@ class dcTrackback
         $err = false;
         $msg = '';
 
-        if (App::blog() === null) {
+        if (!App::blog()->isDefined()) {
             $err = true;
             $msg = 'No blog.';
         } elseif ($url == '') {
@@ -438,7 +438,7 @@ class dcTrackback
             $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
-            $code = App::blog()->settings->system->trackbacks_pub ? 200 : 202;
+            $code = App::blog()->settings()->system->trackbacks_pub ? 200 : 202;
             Http::head($code);
 
             return;
@@ -495,13 +495,13 @@ class dcTrackback
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
-        $cur                    = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+        $cur                    = App::blog()->openCommentCursor();
         $cur->comment_author    = (string) $blog_name;
         $cur->comment_site      = (string) $url;
         $cur->comment_content   = (string) $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = App::blog()->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+        $cur->comment_status    = App::blog()->settings()->system->trackbacks_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
@@ -523,7 +523,7 @@ class dcTrackback
     private function delBacklink(int $post_id, string $url)
     {
         App::con()->execute(
-            'DELETE FROM ' . App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' ' .
+            'DELETE FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' ' .
             'WHERE post_id = ' . ((int) $post_id) . ' ' .
             "AND comment_site = '" . App::con()->escape((string) $url) . "' " .
             'AND comment_trackback = 1 '
@@ -578,7 +578,7 @@ class dcTrackback
      */
     private function getTargetPost(string $to_url): MetaRecord
     {
-        $reg = '!^' . preg_quote(App::blog()->url) . '(.*)!';
+        $reg = '!^' . preg_quote(App::blog()->url()) . '(.*)!';
 
         # Are you dumb?
         if (!preg_match($reg, $to_url, $m)) {

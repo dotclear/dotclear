@@ -84,7 +84,7 @@ class Posts extends Process
             Page::jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url->get('admin.posts')),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                         => '',
                 ]
             )

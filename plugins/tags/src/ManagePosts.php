@@ -96,7 +96,7 @@ class ManagePosts extends Process
         if (!empty($_POST['delete']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             // Delete a tag
 
             try {
@@ -144,7 +144,7 @@ class ManagePosts extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name)                                        => '',
+                Html::escapeHTML(App::blog()->name())                                        => '',
                 My::name()                                                                 => App::backend()->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(App::backend()->tag) . '&rdquo;' => '',
             ]
@@ -168,7 +168,7 @@ class ManagePosts extends Process
                 // Remove tag
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_CONTENT_ADMIN,
-                ]), App::blog()->id)) {
+                ]), App::blog()->id())) {
                     echo
                     '<form id="tag_delete" action="' . $this_url . '" method="post">' .
                     '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .

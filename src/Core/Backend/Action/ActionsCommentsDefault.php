@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Action;
 
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
@@ -29,7 +28,7 @@ class ActionsCommentsDefault
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -44,7 +43,7 @@ class ActionsCommentsDefault
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -53,8 +52,8 @@ class ActionsCommentsDefault
         }
 
         $ip_filter_active = false;
-        if (App::blog()->settings->antispam->antispam_filters !== null) {
-            $filters_opt = App::blog()->settings->antispam->antispam_filters;
+        if (App::blog()->settings()->antispam->antispam_filters !== null) {
+            $filters_opt = App::blog()->settings()->antispam->antispam_filters;
             if (is_array($filters_opt)) {
                 $filterActive     = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
                 $ip_filter_active = $filterActive('dcFilterIP') || $filterActive('dcFilterIPv6');
@@ -89,10 +88,10 @@ class ActionsCommentsDefault
         }
 
         $status = match ($ap->getAction()) {
-            'unpublish' => dcBlog::COMMENT_UNPUBLISHED,
-            'pending'   => dcBlog::COMMENT_PENDING,
-            'junk'      => dcBlog::COMMENT_JUNK,
-            default     => dcBlog::COMMENT_PUBLISHED,
+            'unpublish' => App::blog()::COMMENT_UNPUBLISHED,
+            'pending'   => App::blog()::COMMENT_PENDING,
+            'junk'      => App::blog()::COMMENT_JUNK,
+            default     => App::blog()::COMMENT_PUBLISHED,
         };
 
         App::blog()->updCommentsStatus($ids, $status);
@@ -146,7 +145,7 @@ class ActionsCommentsDefault
         $action = $ap->getAction();
         $global = !empty($action) && $action == 'blocklist_global' && App::auth()->isSuperAdmin();
 
-        $filters_opt  = App::blog()->settings->antispam->antispam_filters;
+        $filters_opt  = App::blog()->settings()->antispam->antispam_filters;
         $filterActive = fn ($name) => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
         $filters      = [
             'v4' => $filterActive('dcFilterIP'),

@@ -247,8 +247,8 @@ class FrontendTemplate
         '<?php ' . "\n" .
         'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
         '    $url = $attach_f->media_thumb[\'sq\'];' . "\n" .
-        '    if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {' . "\n" .
-        '        $url = substr($url, strlen(App::blog()->host));' . "\n" .
+        '    if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
+        '        $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '    }' . "\n" .
         '    echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '}' . "\n" .
@@ -271,8 +271,8 @@ class FrontendTemplate
         return
         '<?php ' . "\n" .
         '$url = $attach_f->file_url;' . "\n" .
-        'if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {' . "\n" .
-        '    $url = substr($url, strlen(App::blog()->host));' . "\n" .
+        'if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
+        '    $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '}' . "\n" .
         'echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
@@ -294,8 +294,8 @@ class FrontendTemplate
         return
         '<?php ' . "\n" .
         '$url = App::frontend()->ctx->file_url;' . "\n" .
-        'if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {' . "\n" .
-        '    $url = substr($url, strlen(App::blog()->host));' . "\n" .
+        'if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
+        '    $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '}' . "\n" .
         'echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
         '?>';

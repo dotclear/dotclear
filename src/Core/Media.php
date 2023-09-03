@@ -177,17 +177,17 @@ class Media extends Manager implements MediaInterface
         $this->postmedia = new PostMedia();
         $this->type      = $type;
 
-        if (App::blog() == null) {
+        if (!App::blog()->isDefined()) {
             throw new Exception(__('No blog defined.'));
         }
 
         $this->table = App::con()->prefix() . self::MEDIA_TABLE_NAME;
-        $root        = App::blog()->public_path;
+        $root        = App::blog()->publicPath();
 
-        if (preg_match('#^http(s)?://#', (string) App::blog()->settings->system->public_url)) {
-            $root_url = rawurldecode(App::blog()->settings->system->public_url);
+        if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->public_url)) {
+            $root_url = rawurldecode(App::blog()->settings()->system->public_url);
         } else {
-            $root_url = rawurldecode(App::blog()->host . Path::clean(App::blog()->settings->system->public_url));
+            $root_url = rawurldecode(App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url));
         }
 
         if (!is_dir($root)) {
@@ -202,12 +202,12 @@ class Media extends Manager implements MediaInterface
         parent::__construct($root, $root_url);
         $this->chdir('');
 
-        $this->path = App::blog()->settings->system->public_path;
+        $this->path = App::blog()->settings()->system->public_path;
 
         $this->addExclusion(DC_RC_PATH);
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->exclude_pattern = App::blog()->settings->system->media_exclusion;
+        $this->exclude_pattern = App::blog()->settings()->system->media_exclusion;
 
         # Event handlers
         $this->addFileHandler('image/jpeg', 'create', $this->imageThumbCreate(...));
@@ -234,9 +234,9 @@ class Media extends Manager implements MediaInterface
         $this->addFileHandler('image/webp', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs(App::blog()->settings->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs(App::blog()->settings->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs(App::blog()->settings->system->media_img_t_size);
+        $this->thumb_sizes['m'][0] = abs(App::blog()->settings()->system->media_img_m_size);
+        $this->thumb_sizes['s'][0] = abs(App::blog()->settings()->system->media_img_s_size);
+        $this->thumb_sizes['t'][0] = abs(App::blog()->settings()->system->media_img_t_size);
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager
         App::behavior()->callBehavior('coreMediaConstruct', $this);
@@ -370,7 +370,7 @@ class Media extends Manager implements MediaInterface
 
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_MEDIA_ADMIN,
-            ]), App::blog()->id)
+            ]), App::blog()->id())
                 && App::auth()->userID() != $fi->media_user) {
                 $fi->del      = false;
                 $fi->editable = false;
@@ -604,7 +604,7 @@ class Media extends Manager implements MediaInterface
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $list = ['media_private <> 1'];
             if ($user_id = App::auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
@@ -709,7 +709,7 @@ class Media extends Manager implements MediaInterface
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             foreach ($p_dir['files'] as $f) {
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
                 if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates)) {
@@ -749,7 +749,7 @@ class Media extends Manager implements MediaInterface
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $list = ['media_private <> 1'];
             if ($user_id = App::auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
@@ -792,7 +792,7 @@ class Media extends Manager implements MediaInterface
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $list = ['media_private <> 1'];
             if ($user_id = App::auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
@@ -963,7 +963,7 @@ class Media extends Manager implements MediaInterface
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1049,7 +1049,7 @@ class Media extends Manager implements MediaInterface
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1061,7 +1061,7 @@ class Media extends Manager implements MediaInterface
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)
+        ]), App::blog()->id())
             && App::auth()->userID() != $file->media_user) {
             throw new Exception(__('You are not the file owner.'));
         }
@@ -1126,7 +1126,7 @@ class Media extends Manager implements MediaInterface
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1142,7 +1142,7 @@ class Media extends Manager implements MediaInterface
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1160,7 +1160,7 @@ class Media extends Manager implements MediaInterface
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1174,7 +1174,7 @@ class Media extends Manager implements MediaInterface
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
 

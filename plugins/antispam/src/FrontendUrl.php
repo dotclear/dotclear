@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
@@ -57,16 +56,16 @@ class FrontendUrl extends Url
 
         header('Content-Type: application/xml; charset=UTF-8');
 
-        $title   = App::blog()->name . ' - ' . __('Spam moderation') . ' - ';
+        $title   = App::blog()->name() . ' - ' . __('Spam moderation') . ' - ';
         $params  = [];
         $end_url = '';
         if ($type == 'spam') {
             $title .= __('Spam');
-            $params['comment_status'] = dcBlog::COMMENT_JUNK;
-            $end_url                  = '&status=' . (string) dcBlog::COMMENT_PUBLISHED;
+            $params['comment_status'] = App::blog()::COMMENT_JUNK;
+            $end_url                  = '&status=' . (string) App::blog()::COMMENT_PUBLISHED;
         } else {
             $title .= __('Ham');
-            $params['sql'] = ' AND comment_status IN (' . (string) dcBlog::COMMENT_PUBLISHED . ',' . (string) dcBlog::COMMENT_PENDING . ') ';
+            $params['sql'] = ' AND comment_status IN (' . (string) App::blog()::COMMENT_PUBLISHED . ',' . (string) App::blog()::COMMENT_PENDING . ') ';
         }
 
         echo

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcBlog;
 use dcCategories;
 use dcNamespace;
 use dcTrackback;
@@ -46,9 +45,9 @@ class ModuleExportFlat extends Module
         // Export a blog
         if ($do === 'export_blog' && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
-        ]), App::blog()->id)) {
-            $fullname = App::blog()->public_path . '/.backup_' . sha1(uniqid());
-            $blog_id  = App::con()->escape(App::blog()->id);
+        ]), App::blog()->id())) {
+            $fullname = App::blog()->publicPath() . '/.backup_' . sha1(uniqid());
+            $blog_id  = App::con()->escape(App::blog()->id());
 
             try {
                 $exp = new FlatExport(App::con(), $fullname, App::con()->prefix());
@@ -71,39 +70,39 @@ class ModuleExportFlat extends Module
                 );
                 $exp->export(
                     'post',
-                    'SELECT * FROM ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
-                    'FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' M, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' M, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'media',
                     'SELECT * FROM ' . App::con()->prefix() . App::media()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
-                    App::con()->escape(App::blog()->settings->system->public_path) . "'"
+                    App::con()->escape(App::blog()->settings()->system->public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
                     'SELECT media_id, M.post_id ' .
-                    'FROM ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' M, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' M, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
-                    'FROM ' . App::con()->prefix() . dcTrackback::PING_TABLE_NAME . ' ping, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . dcTrackback::PING_TABLE_NAME . ' ping, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'comment',
                     'SELECT C.* ' .
-                    'FROM ' . App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' C, ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' C, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
@@ -124,7 +123,7 @@ class ModuleExportFlat extends Module
 
         // Export all content
         if ($do === 'export_all' && App::auth()->isSuperAdmin()) {
-            $fullname = App::blog()->public_path . '/.backup_' . sha1(uniqid());
+            $fullname = App::blog()->publicPath() . '/.backup_' . sha1(uniqid());
 
             try {
                 $exp = new FlatExport(App::con(), $fullname, App::con()->prefix());
@@ -217,10 +216,10 @@ class ModuleExportFlat extends Module
         echo
         '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . Html::escapeHTML(App::blog()->name)) . '</strong>.</p>' .
+        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . Html::escapeHTML(App::blog()->name())) . '</strong>.</p>' .
 
         '<p><label for="file_name">' . __('File name:') . '</label>' .
-        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . Html::escapeHTML(App::blog()->id . '-backup.txt')) .
+        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . Html::escapeHTML(App::blog()->id() . '-backup.txt')) .
         '</p>' .
 
         '<p><label for="file_zip" class="classic">' .

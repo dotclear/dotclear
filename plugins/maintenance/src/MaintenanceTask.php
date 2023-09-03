@@ -150,7 +150,7 @@ class MaintenanceTask
         }
 
         if ($this->perm() === null && !App::auth()->isSuperAdmin()
-            || !App::auth()->check($this->perm(), App::blog()->id)) {
+            || !App::auth()->check($this->perm(), App::blog()->id())) {
             return;
         }
 

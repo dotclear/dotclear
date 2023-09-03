@@ -125,17 +125,17 @@ class Manage extends Process
         if (!empty($_POST['save_system'])) {
             try {
                 // Default (global) settings
-                App::blog()->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
-                App::blog()->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
+                App::blog()->settings()->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
+                App::blog()->settings()->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
                 // Current blog settings
-                App::blog()->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
-                App::blog()->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
+                App::blog()->settings()->system->put('csp_admin_on', !empty($_POST['system_csp']));
+                App::blog()->settings()->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
 
                 Notices::addSuccessNotice(__('System settings have been saved.'));
 
                 if (!empty($_POST['system_csp_reset'])) {
-                    App::blog()->settings->system->dropEvery('csp_admin_on');
-                    App::blog()->settings->system->dropEvery('csp_admin_report_only');
+                    App::blog()->settings()->system->dropEvery('csp_admin_on');
+                    App::blog()->settings()->system->dropEvery('csp_admin_report_only');
                     Notices::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
@@ -270,8 +270,8 @@ class Manage extends Process
                                 $res_task .= '<br /> <span class="warn">' .
                                     sprintf(
                                         __('Last execution of this task was on %s.'),
-                                        Date::str(App::blog()->settings->system->date_format, $ts) . ' ' .
-                                        Date::str(App::blog()->settings->system->time_format, $ts)
+                                        Date::str(App::blog()->settings()->system->date_format, $ts) . ' ' .
+                                        Date::str(App::blog()->settings()->system->time_format, $ts)
                                     ) . ' ' .
                                     __('You should execute it now.') . '</span>';
                             }
@@ -392,19 +392,19 @@ class Manage extends Process
 
                 '<div class="col">' .
                 '<p><label for="system_csp" class="classic">' .
-                form::checkbox('system_csp', '1', App::blog()->settings->system->csp_admin_on) .
+                form::checkbox('system_csp', '1', App::blog()->settings()->system->csp_admin_on) .
                 __('Enable Content-Security-Policy system') . '</label></p>' .
                 '<p><label for="system_csp_report_only" class="classic">' .
-                form::checkbox('system_csp_report_only', '1', App::blog()->settings->system->csp_admin_report_only) .
+                form::checkbox('system_csp_report_only', '1', App::blog()->settings()->system->csp_admin_report_only) .
                 __('Enable Content-Security-Policy report only') . '</label></p>' .
                 '</div>' .
 
                 '<div class="col">' .
                 '<p><label for="system_csp_global" class="classic">' .
-                form::checkbox('system_csp_global', '1', App::blog()->settings->system->getGlobal('csp_admin_on')) .
+                form::checkbox('system_csp_global', '1', App::blog()->settings()->system->getGlobal('csp_admin_on')) .
                 __('Enable Content-Security-Policy system by default') . '</label></p>' .
                 '<p><label for="system_csp_global_report_only" class="classic">' .
-                form::checkbox('system_csp_global_report_only', '1', App::blog()->settings->system->getGlobal('csp_admin_report_only')) .
+                form::checkbox('system_csp_global_report_only', '1', App::blog()->settings()->system->getGlobal('csp_admin_report_only')) .
                 __('Enable Content-Security-Policy report only by default') . '</label></p>' .
                 '<p><label for="system_csp_reset" class="classic">' .
                 form::checkbox('system_csp_reset', '1', 0) .

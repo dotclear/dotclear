@@ -74,7 +74,7 @@ class Menus extends ArrayObject
     public function setDefaultItems(): void
     {
         // nullsafe and context
-        if (!defined('DC_CONTEXT_ADMIN') || is_null(App::blog())) {
+        if (!defined('DC_CONTEXT_ADMIN') || !App::blog()->isDefined()) {
             return;
         }
 
@@ -91,7 +91,7 @@ class Menus extends ArrayObject
             ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'BlogTheme'
@@ -103,7 +103,7 @@ class Menus extends ArrayObject
             ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'BlogPref'
@@ -116,7 +116,7 @@ class Menus extends ArrayObject
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_MEDIA,
                 App::auth()::PERMISSION_MEDIA_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'Media'
@@ -128,7 +128,7 @@ class Menus extends ArrayObject
             ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'Categories'
@@ -141,7 +141,7 @@ class Menus extends ArrayObject
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'Search'
@@ -154,7 +154,7 @@ class Menus extends ArrayObject
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'Comments'
@@ -167,7 +167,7 @@ class Menus extends ArrayObject
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             false,
             false,
             'Posts'
@@ -180,7 +180,7 @@ class Menus extends ArrayObject
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id),
+            ]), App::blog()->id()),
             true,
             true,
             'NewPost'
@@ -246,7 +246,7 @@ class Menus extends ArrayObject
                     App::auth()::PERMISSION_USAGE,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
-                App::blog()->id
+                App::blog()->id()
             ) && App::auth()->getBlogCount() > 1,
             false,
             false,

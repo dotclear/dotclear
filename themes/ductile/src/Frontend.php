@@ -57,7 +57,7 @@ class Frontend extends Process
     {
         $nb_other = $nb_first = 0;
 
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_counts');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_counts');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
@@ -153,7 +153,7 @@ class Frontend extends Process
 
     public static function ductileEntriesListHelper(string $default): string
     {
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_lists');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s) && isset($s[App::url()->type])) {
@@ -173,7 +173,7 @@ class Frontend extends Process
     {
         $img_url = My::fileURL('img/logo.png');
 
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
         if ($s === null) {
             // no settings yet, return default logo
             return $img_url;
@@ -199,7 +199,7 @@ class Frontend extends Process
 
     public static function IfPreviewIsNotMandatory(ArrayObject $attr, string $content): string
     {
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s) && isset($s['preview_not_mandatory']) && $s['preview_not_mandatory']) {
@@ -216,7 +216,7 @@ class Frontend extends Process
         $default = false;
         $img_url = My::fileURL('img/');
 
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_stickers');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
 
         if ($s === null) {
             $default = true;
@@ -239,7 +239,7 @@ class Frontend extends Process
         }
 
         if ($default || $res == '') {
-            $res = self::setSticker(1, true, __('Subscribe'), App::blog()->url .
+            $res = self::setSticker(1, true, __('Subscribe'), App::blog()->url() .
                 App::url()->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
         }
 
@@ -288,7 +288,7 @@ class Frontend extends Process
 
     public static function ductileWebfontHelper()
     {
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
 
         if ($s === null) {
             return;
@@ -356,7 +356,7 @@ class Frontend extends Process
 
     public static function ductileStyleHelper()
     {
-        $s = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
+        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
 
         if ($s === null) {
             return;

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\Database\Cursor;
-use dcBlog;
 use dcCore;
+use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 class SpamFilters
@@ -98,7 +98,7 @@ class SpamFilters
                 if ($f->auto_delete) {
                     $cur->clean();
                 } else {
-                    $cur->comment_status      = dcBlog::COMMENT_JUNK;
+                    $cur->comment_status      = App::blog()::COMMENT_JUNK;
                     $cur->comment_spam_status = $status;
                     $cur->comment_spam_filter = $fid;
                 }

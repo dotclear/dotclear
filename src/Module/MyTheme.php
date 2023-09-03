@@ -30,8 +30,8 @@ abstract class MyTheme extends MyModule
     protected static function define(): dcModuleDefine
     {
         // load once themes
-        if (App::themes()->isEmpty() && !is_null(App::blog())) {
-            App::themes()->loadModules(App::blog()->themes_path);
+        if (App::themes()->isEmpty() && App::blog()->isDefined()) {
+            App::themes()->loadModules(App::blog()->themesPath());
         }
 
         return static::getDefineFromNamespace(App::themes());
@@ -43,10 +43,10 @@ abstract class MyTheme extends MyModule
         return match ($context) {
             self::BACKEND, self::CONFIG => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission, allowed to blog admin for themes
-                    && !is_null(App::blog())
+                    && App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
                         App::auth()::PERMISSION_ADMIN,
-                    ]), App::blog()->id),
+                    ]), App::blog()->id()),
             default => null,
         };
     }
@@ -67,13 +67,13 @@ abstract class MyTheme extends MyModule
             $resource = '/' . $resource;
         }
 
-        if (is_null(App::blog())) {
+        if (!App::blog()->isDefined()) {
             return '';
         }
 
-        $base = preg_match('#^http(s)?://#', (string) App::blog()->settings->system->themes_url) ?
-            Http::concatURL(App::blog()->settings->system->themes_url, '/' . self::id()) :
-            Http::concatURL(App::blog()->url, App::blog()->settings->system->themes_url . '/' . self::id());
+        $base = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
+            Http::concatURL(App::blog()->settings()->system->themes_url, '/' . self::id()) :
+            Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . self::id());
 
         return  $base . $resource;
     }

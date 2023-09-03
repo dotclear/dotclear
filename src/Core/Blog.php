@@ -1,16 +1,23 @@
 <?php
 /**
+ * Version handler.
+ *
+ * Handle id,version pairs through database.
+ *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @brief Dotclear blog class.
- *
- * Dotclear blog class instance is provided by dcCore $blog property.
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core;
+
+use ArrayObject;
+use dcCategories;
+use dcTraitDynamicProperties;
+use dcSettings;
+use dcUtils;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -24,9 +31,12 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\BlogInterface;
+use Exception;
 
-class dcBlog
+class Blog implements BlogInterface
 {
+    // deprecate since 2.28,
     use dcTraitDynamicProperties;
 
     // Constants
@@ -53,9 +63,10 @@ class dcBlog
     public const COMMENT_TABLE_NAME = 'comment';
 
     // Blog statuses
-    public const BLOG_ONLINE  = 1;
-    public const BLOG_OFFLINE = 0;
-    public const BLOG_REMOVED = -1;
+    public const BLOG_ONLINE    = 1;
+    public const BLOG_OFFLINE   = 0;
+    public const BLOG_REMOVED   = -1;
+    public const BLOG_UNDEFINED = -2;
 
     // Post statuses
     public const POST_PENDING     = -2;
@@ -74,12 +85,16 @@ class dcBlog
     /**
      * Database connection object
      *
+     * @deprecated since 2.28, use App::con() instead
+     *
      * @var object
      */
     public $con;
 
     /**
      * Database table prefix
+     *
+     * @deprecated since 2.28, use App::con()->prefix() instead
      *
      * @var string
      */
@@ -88,12 +103,16 @@ class dcBlog
     /**
      * Blog ID
      *
+     * @deprecated since 2.28, use App::blog()->id() instead
+     *
      * @var string
      */
     public $id;
 
     /**
      * Blog unique ID
+     *
+     * @deprecated since 2.28, use App::blog()->uid() instead
      *
      * @var string
      */
@@ -102,12 +121,16 @@ class dcBlog
     /**
      * Blog name
      *
+     * @deprecated since 2.28, use App::blog()->name() instead
+     *
      * @var string
      */
     public $name;
 
     /**
      * Blog description
+     *
+     * @deprecated since 2.28, use App::blog()->desc() instead
      *
      * @var string
      */
@@ -116,12 +139,16 @@ class dcBlog
     /**
      * Blog URL
      *
+     * @deprecated since 2.28, use App::blog()->url() instead
+     *
      * @var string
      */
     public $url;
 
     /**
      * Blog host
+     *
+     * @deprecated since 2.28, use App::blog()->host() instead
      *
      * @var string
      */
@@ -130,26 +157,34 @@ class dcBlog
     /**
      * Blog creation date
      *
-     * @var mixed
+     * @deprecated since 2.28, use App::blog()->creadt() instead
+     *
+     * @var int
      */
     public $creadt;
 
     /**
      * Blog last update date
      *
-     * @var mixed
+     * @deprecated since 2.28, use App::blog()->upddt() instead
+     *
+     * @var int
      */
     public $upddt;
 
     /**
      * Blog status
      *
-     * @var string
+     * @deprecated since 2.28, use App::blog()->status() instead
+     *
+     * @var int
      */
-    public $status;
+    public $status = self::BLOG_UNDEFINED;
 
     /**
      * Blog parameters
+     *
+     * @deprecated since 2.28, use App::blog()->settings()() instead
      *
      * @var dcSettings
      */
@@ -158,12 +193,16 @@ class dcBlog
     /**
      * Blog theme path
      *
+     * @deprecated since 2.28, use App::blog()->themesPath() instead
+     *
      * @var string
      */
     public $themes_path;
 
     /**
      * Blog public path
+     *
+     * @deprecated since 2.28, use App::blog()->publicPath() instead
      *
      * @var string
      */
@@ -193,30 +232,32 @@ class dcBlog
     /**
      * Disallow entries password protection
      *
-     * @var bool
+     * @deprecated since 2.28, use App::blog()->withoutPassword() instead
+     *
+     * @var ?bool
      */
     public $without_password = true;
 
     /**
      * Constructs a new instance.
      *
-     * @param      string  $id     The blog identifier
+     * @param   string  $id     The blog identifier
      */
-    public function __construct($id)
+    public function __construct(string $id = '')
     {
         $this->con    = App::con();
         $this->prefix = App::con()->prefix();
 
-        if (($blog = App::blogs()->getBlog($id)) !== false) {
+        if (!empty($id) && ($blog = App::blogs()->getBlog($id)) !== false) {
             $this->id     = $id;
             $this->uid    = $blog->blog_uid;
             $this->name   = $blog->blog_name;
             $this->desc   = $blog->blog_desc;
             $this->url    = $blog->blog_url;
             $this->host   = Http::getHostFromURL($this->url);
-            $this->creadt = strtotime($blog->blog_creadt);
-            $this->upddt  = strtotime($blog->blog_upddt);
-            $this->status = $blog->blog_status;
+            $this->creadt = (int) strtotime($blog->blog_creadt);
+            $this->upddt  = (int) strtotime($blog->blog_upddt);
+            $this->status = (int) $blog->blog_status;
 
             $this->settings = new dcSettings($this->id);
 
@@ -233,10 +274,104 @@ class dcBlog
             $this->comment_status[(string) self::COMMENT_UNPUBLISHED] = __('Unpublished');
             $this->comment_status[(string) self::COMMENT_PUBLISHED]   = __('Published');
 
-            # --BEHAVIOR-- coreBlogConstruct -- dcBlog
+            # --BEHAVIOR-- coreBlogConstruct -- BlogInterface
             App::behavior()->callBehavior('coreBlogConstruct', $this);
         }
     }
+
+    /// @name Class public methods
+    //@{
+
+    public function openBlogCursor(): Cursor
+    {
+        return App::con()->openCursor($this->prefix . self::BLOG_TABLE_NAME);
+    }
+
+    public function openPostCursor(): Cursor
+    {
+        return App::con()->openCursor($this->prefix . self::POST_TABLE_NAME);
+    }
+
+    public function openCommentCursor(): Cursor
+    {
+        return App::con()->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
+    }
+
+    public function isDefined(): bool
+    {
+        return $this->status !== self::BLOG_UNDEFINED;
+    }
+
+    //@}
+
+    /// @name Properties public methods
+    //@{
+
+    public function id(): string
+    {
+        return $this->id;
+    }
+
+    public function uid(): string
+    {
+        return $this->uid;
+    }
+
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    public function desc(): string
+    {
+        return $this->desc;
+    }
+
+    public function url(): string
+    {
+        return $this->url;
+    }
+
+    public function host(): string
+    {
+        return $this->host;
+    }
+
+    public function creadt(): int
+    {
+        return $this->creadt;
+    }
+
+    public function upddt(): int
+    {
+        return $this->upddt;
+    }
+
+    public function status(): int
+    {
+        return $this->status;
+    }
+
+    public function settings(): dcSettings
+    {
+        if ($this->isDefined()) {
+            return $this->settings;
+        }
+
+        throw new Exception(__('No blog defined.'));
+    }
+
+    public function themesPath(): string
+    {
+        return $this->themes_path;
+    }
+
+    public function publicPath(): string
+    {
+        return $this->public_path;
+    }
+
+    //@}
 
     /// @name Common public methods
     //@{
@@ -332,7 +467,7 @@ class dcBlog
     /**
      * Returns an array of available entry status codes and names.
      *
-     * @return     array  Simple array with codes in keys and names in value.
+     * @return  array<string,string>    Simple array with codes in keys and names in value.
      */
     public function getAllPostStatus(): array
     {
@@ -342,7 +477,7 @@ class dcBlog
     /**
      * Returns an array of available comment status codes and names.
      *
-     * @return    array Simple array with codes in keys and names in value
+     * @return  array<string,string>    Simple array with codes in keys and names in value
      */
     public function getAllCommentStatus(): array
     {
@@ -350,14 +485,19 @@ class dcBlog
     }
 
     /**
-     * Disallows entries password protection. You need to set it to
-     * <var>false</var> while serving a public blog.
+     * Disallows entries password protection.
      *
-     * @param      bool  $value
+     * You need to set it to <var>false</var> while serving a public blog.
+     *
+     * @param   null|bool   $value Null to only read value
      */
-    public function withoutPassword(bool $value): void
+    public function withoutPassword(?bool $value = null): bool
     {
-        $this->without_password = $value;
+        if (is_bool($value)) {
+            $this->without_password = $value;
+        }
+
+        return $this->without_password;
     }
 
     //@}
@@ -761,7 +901,7 @@ class dcBlog
         $this->fillCategoryCursor($cur);
         $cur->blog_id = (string) $this->id;
 
-        # --BEHAVIOR-- coreBeforeCategoryCreate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreBeforeCategoryCreate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
 
         $id = $this->categories()->addNode($cur, $parent);
@@ -773,7 +913,7 @@ class dcBlog
             $cur->cat_rgt = $rs->cat_rgt;
         }
 
-        # --BEHAVIOR-- coreAfterCategoryCreate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreAfterCategoryCreate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
@@ -811,7 +951,7 @@ class dcBlog
 
         $this->fillCategoryCursor($cur, $id);
 
-        # --BEHAVIOR-- coreBeforeCategoryUpdate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreBeforeCategoryUpdate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
         $sql = new UpdateStatement();
@@ -821,7 +961,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterCategoryUpdate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreAfterCategoryUpdate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreAfterCategoryUpdate', $this, $cur);
 
         $this->triggerBlog();
@@ -1619,7 +1759,7 @@ class dcBlog
                 $cur->post_status = self::POST_PENDING;
             }
 
-            # --BEHAVIOR-- coreBeforePostCreate -- dcBlog, Cursor
+            # --BEHAVIOR-- coreBeforePostCreate -- BlogInterface, Cursor
             App::behavior()->callBehavior('coreBeforePostCreate', $this, $cur);
 
             $cur->insert();
@@ -1630,7 +1770,7 @@ class dcBlog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterPostCreate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreAfterPostCreate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreAfterPostCreate', $this, $cur);
 
         $this->triggerBlog();
@@ -1697,12 +1837,12 @@ class dcBlog
             }
         }
 
-        # --BEHAVIOR-- coreBeforePostUpdate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreBeforePostUpdate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreBeforePostUpdate', $this, $cur);
 
         $cur->update('WHERE post_id = ' . $id . ' ');
 
-        # --BEHAVIOR-- coreAfterPostUpdate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreAfterPostUpdate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreAfterPostUpdate', $this, $cur);
 
         $this->triggerBlog();
@@ -2032,7 +2172,7 @@ class dcBlog
             }
         }
         if (count($to_change)) {
-            # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- dcBlog, ArrayObject
+            # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- BlogInterface, ArrayObject
             App::behavior()->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
             $sql = new UpdateStatement();
@@ -2045,7 +2185,7 @@ class dcBlog
             $sql->update();
             $this->triggerBlog();
 
-            # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- dcBlog, ArrayObject
+            # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- BlogInterface, ArrayObject
             App::behavior()->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
 
             $this->firstPublicationEntries($to_change);
@@ -2080,7 +2220,7 @@ class dcBlog
 
             $sql->update();
 
-            # --BEHAVIOR-- coreFirstPublicationEntries -- dcBlog, ArrayObject
+            # --BEHAVIOR-- coreFirstPublicationEntries -- BlogInterface, ArrayObject
             App::behavior()->callBehavior('coreFirstPublicationEntries', $this, $to_change);
         }
     }
@@ -2676,7 +2816,7 @@ class dcBlog
                 $cur->comment_ip = Http::realIP();
             }
 
-            # --BEHAVIOR-- coreBeforeCommentCreate -- dcBlog, Cursor
+            # --BEHAVIOR-- coreBeforeCommentCreate -- BlogInterface, Cursor
             App::behavior()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
             $cur->insert();
@@ -2687,7 +2827,7 @@ class dcBlog
             throw $e;
         }
 
-        # --BEHAVIOR-- coreAfterCommentCreate -- dcBlog, Cursor
+        # --BEHAVIOR-- coreAfterCommentCreate -- BlogInterface, Cursor
         App::behavior()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
@@ -2747,7 +2887,7 @@ class dcBlog
             $cur->unsetField('comment_status');
         }
 
-        # --BEHAVIOR-- coreBeforeCommentUpdate -- dcBlog, Cursor, MetaRecord
+        # --BEHAVIOR-- coreBeforeCommentUpdate -- BlogInterface, Cursor, MetaRecord
         App::behavior()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
         $sql = new UpdateStatement();
@@ -2755,7 +2895,7 @@ class dcBlog
 
         $sql->update($cur);
 
-        # --BEHAVIOR-- coreAfterCommentUpdate -- dcBlog, Cursor, MetaRecord
+        # --BEHAVIOR-- coreAfterCommentUpdate -- BlogInterface, Cursor, MetaRecord
         App::behavior()->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
 
         $this->triggerComment($id);

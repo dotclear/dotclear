@@ -120,14 +120,14 @@ class Meta implements MetaInterface
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
         # If user can only publish, we need to check the post's owner
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $sql = new SelectStatement();
             $sql
                 ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
@@ -170,7 +170,7 @@ class Meta implements MetaInterface
 
         $post_meta = serialize($meta);
 
-        $cur            = App::con()->openCursor(App::con()->prefix() . App::blog()::POST_TABLE_NAME);
+        $cur            = App::blog()->openPostCursor();
         $cur->post_meta = $post_meta;
 
         $sql = new UpdateStatement();
@@ -252,7 +252,7 @@ class Meta implements MetaInterface
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
-            ->where('P.blog_id = ' . $sql->quote(App::blog()->id));
+            ->where('P.blog_id = ' . $sql->quote(App::blog()->id()));
 
         if (isset($params['meta_type'])) {
             $sql->and('meta_type = ' . $sql->quote($params['meta_type']));
@@ -268,11 +268,11 @@ class Meta implements MetaInterface
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $user_id = App::auth()->userID();
 
             $and = ['post_status = ' . (string) App::blog()::POST_PUBLISHED];
-            if (App::blog()->without_password) {
+            if (App::blog()->withoutPassword()) {
                 $and[] = 'post_password IS NULL';
             }
 
@@ -392,11 +392,11 @@ class Meta implements MetaInterface
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote(App::blog()->id));
+            ->and('P.blog_id = ' . $sql->quote(App::blog()->id()));
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $sql->and('P.user_id = ' . $sql->quote(App::auth()->userID()));
         }
         if ($post_type !== null) {
@@ -487,7 +487,7 @@ class Meta implements MetaInterface
                 $sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote(App::blog()->id))
+            ->and('P.blog_id = ' . $sql->quote(App::blog()->id()))
             ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {

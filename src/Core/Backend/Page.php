@@ -52,15 +52,15 @@ class Page
      */
     public static function check(string $permissions, bool $home = false)
     {
-        if (App::blog() && App::auth()->check($permissions, App::blog()->id)) {
+        if (App::blog()->isDefined() && App::auth()->check($permissions, App::blog()->id())) {
             return;
         }
 
         // Check if dashboard is not the current page et if it is granted for the user
-        if (!$home && App::blog() && App::auth()->check(App::auth()->makePermissions([
+        if (!$home && App::blog()->isDefined() && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             // Go back to the dashboard
             Http::redirect(DC_ADMIN_URL);
         }
@@ -80,10 +80,10 @@ class Page
     {
         if (!App::auth()->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
-            if (!$home && App::blog() && App::auth()->check(App::auth()->makePermissions([
+            if (!$home && App::blog()->isDefined() && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id)) {
+            ]), App::blog()->id())) {
                 // Go back to the dashboard
                 Http::redirect(DC_ADMIN_URL);
             }
@@ -109,8 +109,8 @@ class Page
 
         # List of user's blogs
         if (App::auth()->getBlogCount() == 1 || App::auth()->getBlogCount() > 20) {
-            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(App::blog()->url) . '">' .
-            Html::escapeHTML(App::blog()->name) . '</strong>';
+            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . Html::escapeHTML(App::blog()->url()) . '">' .
+            Html::escapeHTML(App::blog()->name()) . '</strong>';
 
             if (App::auth()->getBlogCount() > 20) {
                 $blog_box .= ' - <a href="' . App::backend()->url->get('admin.blogs') . '">' . __('Change blog') . '</a>';
@@ -123,7 +123,7 @@ class Page
                 $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
-            App::nonce()->getFormNonce() . form::combo('switchblog', $blogs, App::blog()->id) .
+            App::nonce()->getFormNonce() . form::combo('switchblog', $blogs, App::blog()->id()) .
             form::hidden(['redir'], $_SERVER['REQUEST_URI']) .
             '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
         }
@@ -147,7 +147,7 @@ class Page
         }
 
         # Content-Security-Policy (only if safe mode if not active, it may help)
-        if (!$safe_mode && App::blog()->settings->system->csp_admin_on) {
+        if (!$safe_mode && App::blog()->settings()->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults
             $csp = new ArrayObject([]);
 
@@ -156,27 +156,27 @@ class Page
             $csp_prefix = App::con()->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
             $csp_suffix = App::con()->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
-            $csp['default-src'] = App::blog()->settings->system->csp_admin_default ?:
+            $csp['default-src'] = App::blog()->settings()->system->csp_admin_default ?:
             $csp_prefix . "'self'" . $csp_suffix;
-            $csp['script-src'] = App::blog()->settings->system->csp_admin_script ?:
+            $csp['script-src'] = App::blog()->settings()->system->csp_admin_script ?:
             $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix;
-            $csp['style-src'] = App::blog()->settings->system->csp_admin_style ?:
+            $csp['style-src'] = App::blog()->settings()->system->csp_admin_style ?:
             $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix;
-            $csp['img-src'] = App::blog()->settings->system->csp_admin_img ?:
+            $csp['img-src'] = App::blog()->settings()->system->csp_admin_img ?:
             $csp_prefix . "'self' data: https://media.dotaddict.org blob:";
 
             # Cope with blog post preview (via public URL in iframe)
-            if (App::blog()->host) {
-                $csp['default-src'] .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
-                $csp['script-src']  .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
-                $csp['style-src']   .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
+            if (App::blog()->host()) {
+                $csp['default-src'] .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
+                $csp['script-src']  .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
+                $csp['style-src']   .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
             }
             # Cope with media display in media manager (via public URL)
             if (App::media()->getRootUrl()) {
                 $csp['img-src'] .= ' ' . parse_url(App::media()->getRootUrl(), PHP_URL_HOST);
-            } elseif (!is_null(App::blog()->host)) {
+            } elseif (!is_null(App::blog()->host())) {
                 // Let's try with the blog URL
-                $csp['img-src'] .= ' ' . parse_url(App::blog()->host, PHP_URL_HOST);
+                $csp['img-src'] .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
             }
             # Allow everything in iframe (used by editors to preview public content)
             $csp['frame-src'] = '*';
@@ -193,7 +193,7 @@ class Page
             }
             if (count($directives)) {
                 $directives[]   = 'report-uri ' . DC_ADMIN_URL . App::backend()->url->get('admin.csp.report');
-                $report_only    = (App::blog()->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
+                $report_only    = (App::blog()->settings()->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
         }
@@ -214,7 +214,7 @@ class Page
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -242,9 +242,9 @@ class Page
 
         $js['debug'] = !!DC_DEBUG;
 
-        $js['showIp'] = App::blog() && App::blog()->id ? App::auth()->check(App::auth()->makePermissions([
+        $js['showIp'] = App::blog()->isDefined() ? App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id) : false;
+        ]), App::blog()->id()) : false;
 
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
@@ -275,7 +275,7 @@ class Page
         echo
         '<form action="' . App::backend()->url->get('admin.home') . '" method="post" id="top-info-blog">' .
         $blog_box .
-        '<p><a href="' . App::blog()->url . '" class="outgoing" title="' . __('Go to site') .
+        '<p><a href="' . App::blog()->url() . '" class="outgoing" title="' . __('Go to site') .
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
@@ -542,7 +542,7 @@ class Page
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
@@ -1028,7 +1028,7 @@ class Page
         (
             DC_DEBUG ?
             self::jsJson('dotclear_jquery', [
-                'mute' => (empty(App::blog()) || App::blog()->settings->system->jquery_migrate_mute),
+                'mute' => (!App::blog()->isDefined() || App::blog()->settings()->system->jquery_migrate_mute),
             ]) .
             self::jsLoad('js/jquery-mute.js') .
             self::jsLoad('js/jquery/jquery-migrate.js') :

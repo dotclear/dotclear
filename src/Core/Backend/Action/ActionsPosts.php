@@ -104,9 +104,9 @@ class ActionsPosts extends Actions
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
-                    $this->getCallerTitle()             => $this->getRedirection(true),
-                    __('Posts actions')                 => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
+                    $this->getCallerTitle()               => $this->getRedirection(true),
+                    __('Posts actions')                   => '',
                 ]
             )
         );

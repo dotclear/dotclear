@@ -38,7 +38,7 @@ class Category extends Process
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
-        $blog_settings = new dcSettings(App::blog()->id);
+        $blog_settings = new dcSettings(App::blog()->id());
 
         App::backend()->cat_id    = '';
         App::backend()->cat_title = '';
@@ -196,7 +196,7 @@ class Category extends Process
         $title = App::backend()->cat_id ? Html::escapeHTML(App::backend()->cat_title) : __('New category');
 
         $elements = [
-            Html::escapeHTML(App::blog()->name) => '',
+            Html::escapeHTML(App::blog()->name()) => '',
             __('Categories')                    => App::backend()->url->get('admin.categories'),
         ];
         if (App::backend()->cat_id) {

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcBlog;
 use dcCategories;
 use dcTrackback;
 use Dotclear\Core\Backend\Action\ActionsComments;
@@ -47,7 +46,7 @@ class Post extends Process
             App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            App::blog()->id
+            App::blog()->id()
         );
 
         App::backend()->post_id            = '';
@@ -66,8 +65,8 @@ class Post extends Process
         App::backend()->post_notes         = '';
         App::backend()->post_status        = App::auth()->getInfo('user_post_status');
         App::backend()->post_selected      = false;
-        App::backend()->post_open_comment  = App::blog()->settings->system->allow_comments;
-        App::backend()->post_open_tb       = App::blog()->settings->system->allow_trackbacks;
+        App::backend()->post_open_comment  = App::blog()->settings()->system->allow_comments;
+        App::backend()->post_open_tb       = App::blog()->settings()->system->allow_trackbacks;
 
         App::backend()->page_title = __('New post');
 
@@ -75,11 +74,11 @@ class Post extends Process
         App::backend()->can_edit_post = App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id);
+        ]), App::blog()->id());
         App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id);
+        ]), App::blog()->id());
         App::backend()->can_delete = false;
 
         $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
@@ -92,7 +91,7 @@ class Post extends Process
 
         # If user can't publish
         if (!App::backend()->can_publish) {
-            App::backend()->post_status = dcBlog::POST_PENDING;
+            App::backend()->post_status = App::blog()::POST_PENDING;
         }
 
         # Getting categories
@@ -233,7 +232,7 @@ class Post extends Process
         if (!empty($_POST['ping'])) {
             // Ping blogs
 
-            if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status == dcBlog::POST_PUBLISHED && App::backend()->can_edit_post) {
+            if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status == App::blog()::POST_PUBLISHED && App::backend()->can_edit_post) {
                 App::backend()->tb_urls = $_POST['tb_urls'];
                 App::backend()->tb_urls = str_replace("\r", '', App::backend()->tb_urls);
 
@@ -362,7 +361,7 @@ class Post extends Process
 
             if (!empty($_POST['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
-            ]), App::blog()->id)) {
+            ]), App::blog()->id())) {
                 // Create category
 
                 $cur_cat = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
@@ -381,7 +380,7 @@ class Post extends Process
                 App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, App::backend()->cat_id);
             }
 
-            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            $cur = App::blog()->openPostCursor();
 
             $cur->cat_id  = (App::backend()->cat_id ?: null);
             $cur->post_dt = App::backend()->post_dt ?
@@ -474,10 +473,10 @@ class Post extends Process
             $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
             $img_status = match ((int) App::backend()->post_status) {
-                dcBlog::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
-                dcBlog::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
-                dcBlog::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
-                dcBlog::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
+                App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
+                App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
+                App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
+                App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
                 default                  => '',
             };
 
@@ -539,7 +538,7 @@ class Post extends Process
             App::backend()->next_headlink . "\n" . App::backend()->prev_headlink,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                         => App::backend()->url->get('admin.posts'),
                     (App::backend()->post_id ?
                         $page_title_edit :
@@ -547,7 +546,7 @@ class Post extends Process
                 ]
             ),
             [
-                'x-frame-allow' => App::blog()->url,
+                'x-frame-allow' => App::blog()->url(),
             ]
         );
 
@@ -577,7 +576,7 @@ class Post extends Process
             Notices::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && App::backend()->post->post_status == dcBlog::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post->post_status == App::blog()::POST_PUBLISHED) {
             echo
             '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
         }
@@ -657,7 +656,7 @@ class Post extends Process
                         '</p>' .
                         (App::auth()->check(App::auth()->makePermissions([
                             App::auth()::PERMISSION_CATEGORIES,
-                        ]), App::blog()->id) ?
+                        ]), App::blog()->id()) ?
                             '<div>' .
                             '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
                             '<p><label for="new_cat_title">' . __('Title:') . ' ' .
@@ -678,7 +677,7 @@ class Post extends Process
                         '<p><label for="post_open_comment" class="classic">' .
                         form::checkbox('post_open_comment', 1, App::backend()->post_open_comment) . ' ' .
                         __('Accept comments') . '</label></p>' .
-                        (App::blog()->settings->system->allow_comments ?
+                        (App::blog()->settings()->system->allow_comments ?
                             (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
                             __('Warning: Comments are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' .
@@ -686,7 +685,7 @@ class Post extends Process
                         '<p><label for="post_open_tb" class="classic">' .
                         form::checkbox('post_open_tb', 1, App::backend()->post_open_tb) . ' ' .
                         __('Accept trackbacks') . '</label></p>' .
-                        (App::blog()->settings->system->allow_trackbacks ?
+                        (App::blog()->settings()->system->allow_trackbacks ?
                             (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
                             __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
@@ -782,7 +781,7 @@ class Post extends Process
             'accesskey="s" name="save" /> ';
 
             if (App::backend()->post_id) {
-                $preview_url = App::blog()->url . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . App::backend()->post->post_url);
+                $preview_url = App::blog()->url() . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . App::backend()->post->post_url);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
@@ -922,7 +921,7 @@ class Post extends Process
             '</div>'; #comments
         }
 
-        if (App::backend()->post_id && App::backend()->post_status == dcBlog::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post_status == App::blog()::POST_PUBLISHED) {
             // Trackbacks
 
             $params     = ['post_id' => App::backend()->post_id, 'order' => 'comment_dt ASC'];
@@ -1034,11 +1033,11 @@ class Post extends Process
             return true;
         }
         if ($com) {
-            if ((App::blog()->settings->system->comments_ttl == 0) || (time() - App::blog()->settings->system->comments_ttl * 86400 < $dt)) {
+            if ((App::blog()->settings()->system->comments_ttl == 0) || (time() - App::blog()->settings()->system->comments_ttl * 86400 < $dt)) {
                 return true;
             }
         } else {
-            if ((App::blog()->settings->system->trackbacks_ttl == 0) || (time() - App::blog()->settings->system->trackbacks_ttl * 86400 < $dt)) {
+            if ((App::blog()->settings()->system->trackbacks_ttl == 0) || (time() - App::blog()->settings()->system->trackbacks_ttl * 86400 < $dt)) {
                 return true;
             }
         }
@@ -1080,22 +1079,22 @@ class Post extends Process
             $img_status = '';
             $sts_class  = '';
             switch ($rs->comment_status) {
-                case dcBlog::COMMENT_PUBLISHED:
+                case App::blog()::COMMENT_PUBLISHED:
                     $img_status = sprintf($img, __('Published'), 'check-on.png');
                     $sts_class  = 'sts-online';
 
                     break;
-                case dcBlog::COMMENT_UNPUBLISHED:
+                case App::blog()::COMMENT_UNPUBLISHED:
                     $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
                     $sts_class  = 'sts-offline';
 
                     break;
-                case dcBlog::COMMENT_PENDING:
+                case App::blog()::COMMENT_PENDING:
                     $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
                     $sts_class  = 'sts-pending';
 
                     break;
-                case dcBlog::COMMENT_JUNK:
+                case App::blog()::COMMENT_JUNK:
                     $img_status = sprintf($img, __('Junk'), 'junk.png');
                     $sts_class  = 'sts-junk';
 
@@ -1103,7 +1102,7 @@ class Post extends Process
             }
 
             echo
-            '<tr class="line ' . ($rs->comment_status != dcBlog::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '"' .
+            '<tr class="line ' . ($rs->comment_status != App::blog()::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '"' .
             ' id="c' . $rs->comment_id . '">';
 
             echo

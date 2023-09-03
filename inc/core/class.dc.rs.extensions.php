@@ -3,7 +3,7 @@
  * @brief Dotclear post record helpers
  *
  * This class adds new methods to database post results.
- * You can call them on every record comming from dcBlog::getPosts and similar
+ * You can call them on every record comming from Blog::getPosts and similar
  * methods.
  *
  * @warning You should not give the first argument (usualy $rs) of every described function.
@@ -34,7 +34,7 @@ class rsExtPost
         # If user is admin or contentadmin, true
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             return true;
         }
 
@@ -46,7 +46,7 @@ class rsExtPost
         # If user is usage and owner of the entry
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
-        ]), App::blog()->id)
+        ]), App::blog()->id())
             && $rs->user_id == App::auth()->userID()) {
             return true;
         }
@@ -66,7 +66,7 @@ class rsExtPost
         # If user is admin, or contentadmin, true
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             return true;
         }
 
@@ -78,7 +78,7 @@ class rsExtPost
         # If user has delete rights and is owner of the entrie
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
-        ]), App::blog()->id)
+        ]), App::blog()->id())
             && $rs->user_id == App::auth()->userID()) {
             return true;
         }
@@ -138,9 +138,9 @@ class rsExtPost
     public static function commentsActive(MetaRecord $rs): bool
     {
         return
-        App::blog()->settings->system->allow_comments
+        App::blog()->settings()->system->allow_comments
             && $rs->post_open_comment
-            && (App::blog()->settings->system->comments_ttl == 0 || time() - (App::blog()->settings->system->comments_ttl * 86400) < $rs->getTS());
+            && (App::blog()->settings()->system->comments_ttl == 0 || time() - (App::blog()->settings()->system->comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -153,9 +153,9 @@ class rsExtPost
     public static function trackbacksActive(MetaRecord $rs): bool
     {
         return
-        App::blog()->settings->system->allow_trackbacks
+        App::blog()->settings()->system->allow_trackbacks
             && $rs->post_open_tb
-            && (App::blog()->settings->system->trackbacks_ttl == 0 || time() - (App::blog()->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
+            && (App::blog()->settings()->system->trackbacks_ttl == 0 || time() - (App::blog()->settings()->system->trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -204,7 +204,7 @@ class rsExtPost
      */
     public static function getURL(MetaRecord $rs): string
     {
-        return App::blog()->url . App::postTypes()->get((string) $rs->post_type)->publicUrl(
+        return App::blog()->url() . App::postTypes()->get((string) $rs->post_type)->publicUrl(
             Html::sanitizeURL($rs->post_url)
         );
     }
@@ -218,7 +218,7 @@ class rsExtPost
      */
     public static function getCategoryURL(MetaRecord $rs): string
     {
-        return App::blog()->url . App::url()->getURLFor('category', Html::sanitizeURL($rs->cat_url));
+        return App::blog()->url() . App::url()->getURLFor('category', Html::sanitizeURL($rs->cat_url));
     }
 
     /**
@@ -299,7 +299,7 @@ class rsExtPost
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = App::blog()->settings->system->date_format;
+            $format = App::blog()->settings()->system->date_format;
         }
 
         if ($type == 'upddt') {
@@ -324,7 +324,7 @@ class rsExtPost
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = App::blog()->settings->system->time_format;
+            $format = App::blog()->settings()->system->time_format;
         }
 
         if ($type == 'upddt') {
@@ -399,7 +399,7 @@ class rsExtPost
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        return 'urn:md5:' . md5(App::blog()->uid . $rs->post_id);
+        return 'urn:md5:' . md5(App::blog()->uid() . $rs->post_id);
     }
 
     /**
@@ -437,7 +437,7 @@ class rsExtPost
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        return App::blog()->url . App::url()->getURLFor('trackback', (string) $rs->post_id);
+        return App::blog()->url() . App::url()->getURLFor('trackback', (string) $rs->post_id);
     }
 
     /**
@@ -522,7 +522,7 @@ class rsExtPost
 @brief Dotclear comment Record helpers.
 
 This class adds new methods to database comment results.
-You can call them on every record comming from dcBlog::getComments and similar
+You can call them on every record comming from Blog::getComments and similar
 methods.
 
 @warning You should not give the first argument (usualy $rs) of every described
@@ -543,7 +543,7 @@ class rsExtComment
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = App::blog()->settings->system->date_format;
+            $format = App::blog()->settings()->system->date_format;
         }
 
         if ($type === 'upddt') {
@@ -566,7 +566,7 @@ class rsExtComment
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (!$format) {
-            $format = App::blog()->settings->system->time_format;
+            $format = App::blog()->settings()->system->time_format;
         }
 
         if ($type === 'upddt') {
@@ -640,7 +640,7 @@ class rsExtComment
     {
         $res = (string) $rs->comment_content;
 
-        if (App::blog()->settings->system->comments_nofollow) {
+        if (App::blog()->settings()->system->comments_nofollow) {
             $res = preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function ($m) {
@@ -696,7 +696,7 @@ class rsExtComment
      */
     public static function getPostURL(MetaRecord $rs): string
     {
-        return App::blog()->url . App::postTypes()->get($rs->post_type)->publicUrl(
+        return App::blog()->url() . App::postTypes()->get($rs->post_type)->publicUrl(
             Html::sanitizeURL($rs->post_url)
         );
     }
@@ -717,7 +717,7 @@ class rsExtComment
         }
 
         $rel = 'ugc';
-        if (App::blog()->settings->system->comments_nofollow) {
+        if (App::blog()->settings()->system->comments_nofollow) {
             $rel .= ' nofollow';
         }
 
@@ -787,7 +787,7 @@ class rsExtComment
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        return 'urn:md5:' . md5(App::blog()->uid . $rs->comment_id);
+        return 'urn:md5:' . md5(App::blog()->uid() . $rs->comment_id);
     }
 
     /**
@@ -817,7 +817,7 @@ class rsExtComment
 @brief Dotclear dates Record helpers.
 
 This class adds new methods to database dates results.
-You can call them on every record comming from dcBlog::getDates.
+You can call them on every record comming from Blog::getDates.
 
 @warning You should not give the first argument (usualy $rs) of every described
 function.
@@ -883,7 +883,7 @@ class rsExtDates
     {
         $url = date('Y/m', strtotime((string) $rs->dt));
 
-        return App::blog()->url . App::url()->getURLFor('archive', $url);
+        return App::blog()->url() . App::url()->getURLFor('archive', $url);
     }
 
     /**

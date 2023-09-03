@@ -103,7 +103,7 @@ class ListingUsers extends Listing
 
         $p = App::users()->getUserPermissions($this->rs->user_id);
 
-        if (isset($p[App::blog()->id]['p']['admin'])) {
+        if (isset($p[App::blog()->id()]['p']['admin'])) {
             $img_status = sprintf($img, __('admin'), 'admin.png');
         }
         if ($this->rs->user_super) {

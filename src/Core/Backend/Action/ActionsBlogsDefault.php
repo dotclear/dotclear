@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Action;
 
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Exception;
@@ -62,16 +61,16 @@ class ActionsBlogsDefault
         }
 
         $status = match ($ap->getAction()) {
-            'offline' => dcBlog::BLOG_OFFLINE,
-            'remove'  => dcBlog::BLOG_REMOVED,
-            default   => dcBlog::BLOG_ONLINE,
+            'offline' => App::blog()::BLOG_OFFLINE,
+            'remove'  => App::blog()::BLOG_REMOVED,
+            default   => App::blog()::BLOG_ONLINE,
         };
 
-        $cur              = App::con()->openCursor(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
+        $cur              = App::blog()->openBlogCursor();
         $cur->blog_status = $status;
         $cur->update('WHERE blog_id ' . App::con()->in($ids));
 
-        if ($status === dcBlog::BLOG_REMOVED) {
+        if ($status === App::blog()::BLOG_REMOVED) {
             // Remove these blogs from user default blog
             App::users()->removeUsersDefaultBlogs($ids);
         }
@@ -104,7 +103,7 @@ class ActionsBlogsDefault
 
         $checked_ids = [];
         foreach ($ids as $id) {
-            if ($id === App::blog()->id) {
+            if ($id === App::blog()->id()) {
                 Notices::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $checked_ids[] = $id;

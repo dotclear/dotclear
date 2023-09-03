@@ -12,27 +12,31 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use dcBlog;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 
 class BlogLoader implements BlogLoaderInterface
 {
-    /** @var    null|dcBlog     The current loaded blog instance */
-    private ?dcBlog $blog = null;
+    /** @var    BlogInterface  The current loaded blog instance */
+    private ?BlogInterface $blog;
 
     public function hasBLog(): bool
     {
-        return !is_null($this->blog);
+        return $this->getBlog()->isDefined();
     }
 
-    public function getBlog(): ?dcBlog
+    public function getBlog(): BlogInterface
     {
+        if (!isset($this->blog)) {
+            $this->unsetBlog();
+        }
+
         return $this->blog;
     }
 
     public function setBlog(string $id): void
     {
-        $this->blog = new dcBlog($id);
+        $this->blog = new Blog($id);
 
         // deprecated since 2.28, use App::blogLoader()->setBlog() instead
         dcCore::app()->blog = $this->blog;
@@ -40,7 +44,7 @@ class BlogLoader implements BlogLoaderInterface
 
     public function unsetBlog(): void
     {
-        $this->blog = null;
+        $this->blog = new Blog();
 
         // deprecated since 2.28, use App::blogLoader()->unsetBlog() instead
         dcCore::app()->blog = null;

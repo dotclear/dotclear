@@ -27,7 +27,7 @@ class Frontend extends Process
             App::behavior()->addBehavior('publicHeadContent', function () {
                 echo
                 '<link rel="stylesheet" type="text/css" href="' .
-                App::blog()->settings->system->public_url .
+                App::blog()->settings()->system->public_url .
                 '/custom_style.css" media="screen">' . "\n";
             });
         }

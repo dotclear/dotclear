@@ -288,7 +288,7 @@ class Maintenance
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == App::blog()->id,
+                    'blog' => $rs->blog_id == App::blog()->id(),
                 ];
             }
         }

@@ -105,16 +105,16 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->user_theme   = Path::real(App::blog()->themes_path . '/' . App::blog()->settings->system->theme);
+        $this->user_theme   = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
         if (null !== App::themes()) {
-            $parent_theme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'parent');
+            $parent_theme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'parent');
             if ($parent_theme) {
-                $this->parent_theme = Path::real(App::blog()->themes_path . '/' . $parent_theme);
+                $this->parent_theme = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
                 $this->parent_name  = $parent_theme;
             }
-            $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+            $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
             if ($tplset) {
                 $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
                 $this->tplset_name  = $tplset;

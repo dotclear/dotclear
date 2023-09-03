@@ -184,7 +184,7 @@ class WidgetsElement
          *
          * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering below)
         */
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'widgetcontainerformat');
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetcontainerformat');
         if (empty($wtscheme)) {
             $wtscheme = '<div class="%1$s" %2$s>%3$s</div>';
         }
@@ -208,9 +208,9 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'widgettitleformat');
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgettitleformat');
         if (empty($wtscheme)) {
-            $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+            $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
             if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h2>%s</h2>';
@@ -237,9 +237,9 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'widgetsubtitleformat');
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat');
         if (empty($wtscheme)) {
-            $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+            $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
             if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h3>%s</h3>';

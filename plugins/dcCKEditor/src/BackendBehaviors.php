@@ -48,7 +48,7 @@ class BackendBehaviors
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => (array) $alt_tags],
             'admin_base_url'        => DC_ADMIN_URL,
-            'base_url'              => App::blog()->host,
+            'base_url'              => App::blog()->host(),
             'dcckeditor_plugin_url' => DC_ADMIN_URL . My::fileURL(''),
             'user_language'         => App::auth()->getInfo('user_lang'),
         ]) .

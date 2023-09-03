@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcBlog;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
@@ -128,7 +127,7 @@ class MediaItem extends Process
 
             if (App::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --
-                App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
             }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -254,16 +253,16 @@ class MediaItem extends Process
                 if (!($s = array_search($_POST['pref_src'], App::backend()->file->media_thumb))) {
                     $s = 'o';
                 }
-                App::blog()->settings->system->put('media_img_default_size', $s);
+                App::blog()->settings()->system->put('media_img_default_size', $s);
             }
             if (!empty($_POST['pref_alignment'])) {
-                App::blog()->settings->system->put('media_img_default_alignment', $_POST['pref_alignment']);
+                App::blog()->settings()->system->put('media_img_default_alignment', $_POST['pref_alignment']);
             }
             if (!empty($_POST['pref_insertion'])) {
-                App::blog()->settings->system->put('media_img_default_link', ($_POST['pref_insertion'] == 'link'));
+                App::blog()->settings()->system->put('media_img_default_link', ($_POST['pref_insertion'] == 'link'));
             }
             if (!empty($_POST['pref_legend'])) {
-                App::blog()->settings->system->put('media_img_default_legend', $_POST['pref_legend']);
+                App::blog()->settings()->system->put('media_img_default_legend', $_POST['pref_legend']);
             }
 
             Notices::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
@@ -380,10 +379,10 @@ class MediaItem extends Process
 
         $getImageDefaults = function (?File $file): array {
             $defaults = [
-                'size'      => App::blog()->settings->system->media_img_default_size ?: 'm',
-                'alignment' => App::blog()->settings->system->media_img_default_alignment ?: 'none',
-                'link'      => (bool) App::blog()->settings->system->media_img_default_link,
-                'legend'    => App::blog()->settings->system->media_img_default_legend ?: 'legend',
+                'size'      => App::blog()->settings()->system->media_img_default_size ?: 'm',
+                'alignment' => App::blog()->settings()->system->media_img_default_alignment ?: 'none',
+                'link'      => (bool) App::blog()->settings()->system->media_img_default_link,
+                'legend'    => App::blog()->settings()->system->media_img_default_legend ?: 'legend',
                 'mediadef'  => false,
             ];
 
@@ -430,7 +429,7 @@ class MediaItem extends Process
             (App::backend()->popup ? Page::jsPageTabs(App::backend()->tab) : ''),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Media manager')                 => $home_url,
                     $breadcrumb                         => '',
                 ],
@@ -485,9 +484,9 @@ class MediaItem extends Process
                 $media_type  = 'image';
                 $media_title = $getImageTitle(
                     App::backend()->file,
-                    App::blog()->settings->system->media_img_title_pattern,
-                    (bool) App::blog()->settings->system->media_img_use_dto_first,
-                    (bool) App::blog()->settings->system->media_img_no_date_alone
+                    App::blog()->settings()->system->media_img_title_pattern,
+                    (bool) App::blog()->settings()->system->media_img_use_dto_first,
+                    (bool) App::blog()->settings()->system->media_img_no_date_alone
                 );
                 if ($media_title == App::backend()->file->basename || Files::tidyFileName($media_title) == App::backend()->file->basename) {
                     $media_title = '';
@@ -553,9 +552,9 @@ class MediaItem extends Process
                 $media_type  = 'image';
                 $media_title = $getImageTitle(
                     App::backend()->file,
-                    App::blog()->settings->system->media_img_title_pattern,
-                    (bool) App::blog()->settings->system->media_img_use_dto_first,
-                    (bool) App::blog()->settings->system->media_img_no_date_alone
+                    App::blog()->settings()->system->media_img_title_pattern,
+                    (bool) App::blog()->settings()->system->media_img_use_dto_first,
+                    (bool) App::blog()->settings()->system->media_img_no_date_alone
                 );
                 if ($media_title == App::backend()->file->basename || Files::tidyFileName($media_title) == App::backend()->file->basename) {
                     $media_title = '';
@@ -662,11 +661,11 @@ class MediaItem extends Process
                 }
 
                 $url = App::backend()->file->file_url;
-                if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {
-                    $url = substr($url, strlen(App::blog()->host));
+                if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {
+                    $url = substr($url, strlen(App::blog()->host()));
                 }
                 echo
-                form::hidden('blog_host', Html::escapeHTML(App::blog()->host)) .
+                form::hidden('blog_host', Html::escapeHTML(App::blog()->host())) .
                 form::hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url))) .
                 '</p>' .
                 '</div>';
@@ -679,9 +678,9 @@ class MediaItem extends Process
                 '<div class="two-boxes">' .
                 '<h3>' . __('Video size') . '</h3>' .
                 '<p><label for="video_w" class="classic">' . __('Width:') . '</label> ' .
-                form::number('video_w', 0, 9999, (string) App::blog()->settings->system->media_video_width) . '  ' .
+                form::number('video_w', 0, 9999, (string) App::blog()->settings()->system->media_video_width) . '  ' .
                 '<label for="video_h" class="classic">' . __('Height:') . '</label> ' .
-                form::number('video_h', 0, 9999, (string) App::blog()->settings->system->media_video_height) .
+                form::number('video_h', 0, 9999, (string) App::blog()->settings()->system->media_video_height) .
                 '</p>' .
                 '</div>';
 
@@ -704,11 +703,11 @@ class MediaItem extends Process
                 }
 
                 $url = App::backend()->file->file_url;
-                if (substr($url, 0, strlen(App::blog()->host)) === App::blog()->host) {
-                    $url = substr($url, strlen(App::blog()->host));
+                if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {
+                    $url = substr($url, strlen(App::blog()->host()));
                 }
                 echo
-                form::hidden('blog_host', Html::escapeHTML(App::blog()->host)) .
+                form::hidden('blog_host', Html::escapeHTML(App::blog()->host())) .
                 form::hidden('public_player', Html::escapeHTML(App::media()::videoPlayer(App::backend()->file->type, $url))) .
                 '</p>' .
                 '</div>';
@@ -890,10 +889,10 @@ class MediaItem extends Process
 
             if (App::backend()->file->media_image) {
                 // We look for thumbnails too
-                if (preg_match('#^http(s)?://#', (string) App::blog()->settings->system->public_url)) {
-                    $media_root = App::blog()->settings->system->public_url;
+                if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->public_url)) {
+                    $media_root = App::blog()->settings()->system->public_url;
                 } else {
-                    $media_root = App::blog()->host . Path::clean(App::blog()->settings->system->public_url) . '/';
+                    $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
                 }
                 foreach (App::backend()->file->media_thumb as $v) {
                     $v = preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v);
@@ -915,10 +914,10 @@ class MediaItem extends Process
                 while ($rs->fetch()) {
                     $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
                     $img_status = match ((int) $rs->post_status) {
-                        dcBlog::POST_PUBLISHED   => sprintf($img, __('published'), 'check-on.png'),
-                        dcBlog::POST_UNPUBLISHED => sprintf($img, __('unpublished'), 'check-off.png'),
-                        dcBlog::POST_SCHEDULED   => sprintf($img, __('scheduled'), 'scheduled.png'),
-                        dcBlog::POST_PENDING     => sprintf($img, __('pending'), 'check-wrn.png'),
+                        App::blog()::POST_PUBLISHED   => sprintf($img, __('published'), 'check-on.png'),
+                        App::blog()::POST_UNPUBLISHED => sprintf($img, __('unpublished'), 'check-off.png'),
+                        App::blog()::POST_SCHEDULED   => sprintf($img, __('scheduled'), 'scheduled.png'),
+                        App::blog()::POST_PENDING     => sprintf($img, __('pending'), 'check-wrn.png'),
                         default                  => '',
                     };
 

@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
-use dcBlog;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Core\BlogInterface;
 use initAntispam;
 
 class Antispam extends initAntispam
@@ -81,20 +81,20 @@ class Antispam extends initAntispam
     /**
      * Train the filters with current record
      *
-     * @param      dcBlog        $blog   The blog
-     * @param      Cursor        $cur    The Cursor
+     * @param      BlogInterface   $blog   The blog
+     * @param      Cursor          $cur    The Cursor
      * @param      MetaRecord      $rs     The comment record
      */
-    public static function trainFilters(dcBlog $blog, Cursor $cur, MetaRecord $rs): void
+    public static function trainFilters(BlogInterface $blog, Cursor $cur, MetaRecord $rs): void
     {
         $status = null;
         // From ham to spam
-        if ($rs->comment_status != dcBlog::COMMENT_JUNK && $cur->comment_status == dcBlog::COMMENT_JUNK) {
+        if ($rs->comment_status != $blog::COMMENT_JUNK && $cur->comment_status == $blog::COMMENT_JUNK) {
             $status = 'spam';
         }
 
         // From spam to ham
-        if ($rs->comment_status == dcBlog::COMMENT_JUNK && $cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
+        if ($rs->comment_status == $blog::COMMENT_JUNK && $cur->comment_status == $blog::COMMENT_PUBLISHED) {
             $status = 'ham';
         }
 
@@ -116,7 +116,7 @@ class Antispam extends initAntispam
      */
     public static function statusMessage(MetaRecord $rs): string
     {
-        if ($rs->exists('comment_status') && $rs->comment_status == dcBlog::COMMENT_JUNK) {
+        if ($rs->exists('comment_status') && $rs->comment_status == App::blog()::COMMENT_JUNK) {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
 
             self::initFilters();
@@ -163,7 +163,7 @@ class Antispam extends initAntispam
      */
     public static function countSpam(): int
     {
-        return (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+        return (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
     }
 
     /**
@@ -173,7 +173,7 @@ class Antispam extends initAntispam
      */
     public static function countPublishedComments(): int
     {
-        return (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
+        return (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PUBLISHED], true)->f(0);
     }
 
     /**
@@ -184,10 +184,10 @@ class Antispam extends initAntispam
     public static function delAllSpam(?string $beforeDate = null): void
     {
         $strReq = 'SELECT comment_id ' .
-        'FROM ' . App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' C ' .
-        'JOIN ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
-        "WHERE blog_id = '" . App::con()->escape(App::blog()->id) . "' " .
-            'AND comment_status = ' . (string) dcBlog::COMMENT_JUNK . ' ';
+        'FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' C ' .
+        'JOIN ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
+        "WHERE blog_id = '" . App::con()->escape(App::blog()->id()) . "' " .
+            'AND comment_status = ' . (string) App::blog()::COMMENT_JUNK . ' ';
         if ($beforeDate) {
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
@@ -202,7 +202,7 @@ class Antispam extends initAntispam
             return;
         }
 
-        $strReq = 'DELETE FROM ' . App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME . ' ' .
+        $strReq = 'DELETE FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' ' .
         'WHERE comment_id ' . App::con()->in($r) . ' ';
 
         App::con()->execute($strReq);
@@ -253,7 +253,7 @@ class Antispam extends initAntispam
             return false;
         }
 
-        $permissions = App::blogs()->getBlogPermissions(App::blog()->id);
+        $permissions = App::blogs()->getBlogPermissions(App::blog()->id());
 
         if (empty($permissions[$rs->user_id])) {
             return false;

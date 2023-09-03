@@ -1106,7 +1106,7 @@ class ModulesList
         }
         if ($config || $index || !empty($settings)) {
             if ($config) {
-                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id)) {
+                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                     $params = ['module' => $id, 'conf' => '1'];
                     if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = App::backend()->url->get('admin.plugin.' . $id);
@@ -1122,7 +1122,7 @@ class ModulesList
                         case 'blog':
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
                                 App::auth()::PERMISSION_ADMIN,
-                            ]), App::blog()->id)) {
+                            ]), App::blog()->id())) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 App::backend()->url->get('admin.blog.pref') . $sv .
                                 '">' . __('Plugin settings (in blog parameters)') . '</a>';
@@ -1133,7 +1133,7 @@ class ModulesList
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
                                 App::auth()::PERMISSION_USAGE,
                                 App::auth()::PERMISSION_CONTENT_ADMIN,
-                            ]), App::blog()->id)) {
+                            ]), App::blog()->id())) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 App::backend()->url->get('admin.user.preferences') . $sv .
                                 '">' . __('Plugin settings (in user preferences)') . '</a>';
@@ -1142,7 +1142,7 @@ class ModulesList
                             break;
                         case 'self':
                             if ($self) {
-                                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id)) {
+                                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                                     $settings_urls[] = '<a class="module-config" href="' .
                                     App::backend()->url->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
@@ -1153,7 +1153,7 @@ class ModulesList
 
                             break;
                         case 'other':
-                            if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id)) {
+                            if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                                 $settings_urls[] = '<a class="module-config" href="' .
                                 $sv .
                                 '">' . __('Plugin settings') . '</a>';
@@ -1164,7 +1164,7 @@ class ModulesList
                 }
             }
             if ($index && $self) {
-                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id)) {
+                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                     $settings_urls[] = '<a class="module-config" href="' .
                     App::backend()->url->get('admin.plugin.' . $id) .
                     '">' . __('Plugin main page') . '</a>';
@@ -1697,7 +1697,7 @@ class ModulesList
         }
 
         if (!App::auth()->isSuperAdmin()
-            && !App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id)
+            && !App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())
         ) {
             App::error()->add(__('Insufficient permissions'));
 

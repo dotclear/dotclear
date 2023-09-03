@@ -157,7 +157,7 @@ class dcXmlRpc extends IntrospectionServer
         App::blogLoader()->setBlog($this->blog_id);
         $this->blog_loaded = true;
 
-        if (!App::blog()->id) {
+        if (!App::blog()->id()) {
             App::blogLoader()->unsetBlog();
 
             throw new Exception('Blog does not exist.');

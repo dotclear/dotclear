@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility;
@@ -118,7 +117,7 @@ class FrontendUrl extends Url
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
-                            if (App::blog()->settings->system->wiki_comments) {
+                            if (App::blog()->settings()->system->wiki_comments) {
                                 App::filter()->initWikiComment();
                             } else {
                                 App::filter()->initWikiSimpleComment();
@@ -141,18 +140,18 @@ class FrontendUrl extends Url
                         App::frontend()->ctx->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
-                        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                        $cur = App::blog()->openCommentCursor();
 
                         $cur->comment_author  = $name;
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->ctx->posts->post_id;
-                        $cur->comment_status  = App::blog()->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = App::frontend()->ctx->posts->getURL();
-                        $redir .= App::blog()->settings->system->url_scan == 'query_string' ? '&' : '?';
+                        $redir .= App::blog()->settings()->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -168,7 +167,7 @@ class FrontendUrl extends Url
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
+                            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
                                 $redir_arg = 'pub=1';
                             } else {
                                 $redir_arg = 'pub=0';
@@ -183,10 +182,10 @@ class FrontendUrl extends Url
 
                 # The entry
                 if (App::frontend()->ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . App::blog()->url . App::url()->getURLFor('xmlrpc', App::blog()->id));
+                    header('X-Pingback: ' . App::blog()->url() . App::url()->getURLFor('xmlrpc', App::blog()->id()));
                 }
 
-                $tplset           = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+                $tplset           = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
                 $default_template = Path::real(App::plugins()->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);

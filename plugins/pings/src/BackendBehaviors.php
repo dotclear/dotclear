@@ -79,7 +79,7 @@ class BackendBehaviors
         foreach ($_POST['pings_do'] as $uri) {
             if (in_array($uri, $pings_uris)) {
                 try {
-                    PingsAPI::doPings($uri, App::blog()->name, App::blog()->url);
+                    PingsAPI::doPings($uri, App::blog()->name(), App::blog()->url());
                 } catch (Exception $e) {
                 }
             }

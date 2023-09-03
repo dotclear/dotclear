@@ -27,6 +27,7 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\LogInterface;
@@ -90,13 +91,13 @@ final class dcCore
     public readonly string $prefix;
 
     /**
-     * dcBlog instance
+     * Blog instance
      *
      * @deprecated since 2.28, use App::blogLodaer()->getBlog() instead
      *
-     * @var dcBlog|null
+     * @var BlogInterface|null
      */
-    public $blog;
+    public ?BlogInterface $blog;
 
     /**
      * Auth instance

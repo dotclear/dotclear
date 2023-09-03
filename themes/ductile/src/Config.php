@@ -35,16 +35,16 @@ class Config extends Process
         // load locales
         My::l10n('admin');
 
-        if (preg_match('#^http(s)?://#', (string) App::blog()->settings->system->themes_url)) {
-            App::backend()->img_url = Http::concatURL(App::blog()->settings->system->themes_url, '/' . App::blog()->settings->system->theme . '/img/');
+        if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url)) {
+            App::backend()->img_url = Http::concatURL(App::blog()->settings()->system->themes_url, '/' . App::blog()->settings()->system->theme . '/img/');
         } else {
-            App::backend()->img_url = Http::concatURL(App::blog()->url, App::blog()->settings->system->themes_url . '/' . App::blog()->settings->system->theme . '/img/');
+            App::backend()->img_url = Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . App::blog()->settings()->system->theme . '/img/');
         }
 
         $img_path = My::path() . '/img/';
         $tpl_path = My::path() . '/tpl/';
 
-        App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings->system->theme, 'standalone_config');
+        App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'standalone_config');
 
         // Load contextual help
         App::themes()->loadModuleL10Nresources(My::id(), App::lang());
@@ -164,35 +164,35 @@ class Config extends Process
             'search'       => null,
         ];
 
-        App::backend()->ductile_user = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_style');
+        App::backend()->ductile_user = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
         App::backend()->ductile_user = @unserialize(App::backend()->ductile_user);
         if (!is_array(App::backend()->ductile_user)) {
             App::backend()->ductile_user = [];
         }
         App::backend()->ductile_user = array_merge($ductile_base, App::backend()->ductile_user);
 
-        App::backend()->ductile_lists = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_lists');
+        App::backend()->ductile_lists = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
         App::backend()->ductile_lists = @unserialize(App::backend()->ductile_lists);
         if (!is_array(App::backend()->ductile_lists)) {
             App::backend()->ductile_lists = $ductile_lists_base;
         }
         App::backend()->ductile_lists = array_merge($ductile_lists_base, App::backend()->ductile_lists);
 
-        App::backend()->ductile_counts = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_entries_counts');
+        App::backend()->ductile_counts = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_counts');
         App::backend()->ductile_counts = @unserialize(App::backend()->ductile_counts);
         if (!is_array(App::backend()->ductile_counts)) {
             App::backend()->ductile_counts = App::backend()->ductile_counts_base;
         }
         App::backend()->ductile_counts = array_merge(App::backend()->ductile_counts_base, App::backend()->ductile_counts);
 
-        $ductile_stickers = App::blog()->settings->themes->get(App::blog()->settings->system->theme . '_stickers');
+        $ductile_stickers = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
         $ductile_stickers = @unserialize((string) $ductile_stickers);
 
         // If no stickers defined, add feed Atom one
         if (!is_array($ductile_stickers)) {
             $ductile_stickers = [[
                 'label' => __('Subscribe'),
-                'url'   => App::blog()->url .
+                'url'   => App::blog()->url() .
                 App::url()->getURLFor('feed', 'atom'),
                 'image' => 'sticker-feed.png',
             ]];
@@ -326,10 +326,10 @@ class Config extends Process
                     App::backend()->ductile_user = $ductile_user;
                 }
 
-                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_style', serialize(App::backend()->ductile_user));
-                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_stickers', serialize(App::backend()->ductile_stickers));
-                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_entries_lists', serialize(App::backend()->ductile_lists));
-                App::blog()->settings->themes->put(App::blog()->settings->system->theme . '_entries_counts', serialize(App::backend()->ductile_counts));
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_style', serialize(App::backend()->ductile_user));
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_stickers', serialize(App::backend()->ductile_stickers));
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_entries_lists', serialize(App::backend()->ductile_lists));
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_entries_counts', serialize(App::backend()->ductile_counts));
 
                 // Blog refresh
                 App::blog()->triggerBlog();

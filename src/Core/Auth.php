@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcBlog;
 use dcCore;
 use dcPrefs;
 use dcUtils;
@@ -180,7 +179,7 @@ class Auth implements AuthInterface
     public function __construct()
     {
         $this->con        = App::con();
-        $this->blog_table = App::con()->prefix() . dcBlog::BLOG_TABLE_NAME;
+        $this->blog_table = App::con()->prefix() . App::blog()::BLOG_TABLE_NAME;
         $this->user_table = App::con()->prefix() . self::USER_TABLE_NAME;
         $this->perm_table = App::con()->prefix() . self::PERMISSIONS_TABLE_NAME;
 
@@ -523,7 +522,7 @@ class Auth implements AuthInterface
                 return $blog_id;
             }
             $rs = App::blogs()->getBlog($blog_id);
-            if ($rs !== false && $rs->blog_status !== dcBlog::BLOG_REMOVED) {
+            if ($rs !== false && $rs->blog_status !== App::blog()::BLOG_REMOVED) {
                 return $blog_id;
             }
         }
@@ -550,7 +549,7 @@ class Auth implements AuthInterface
                     $sql->like('permissions', '%|' . self::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . self::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status >= ' . (string) dcBlog::BLOG_OFFLINE)
+                ->and('blog_status >= ' . (string) App::blog()::BLOG_OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }

@@ -75,7 +75,7 @@ class FiltersLibrary
     public static function getCurrentBlogFilter(string $id = 'current_blog'): Filter
     {
         return (new Filter($id))
-            ->value(App::con()->escape(App::blog()->id))
-            ->param('where', fn ($f) => " AND P.blog_id = '" . App::con()->escape(App::blog()->id) . "' ");
+            ->value(App::con()->escape(App::blog()->id()))
+            ->param('where', fn ($f) => " AND P.blog_id = '" . App::con()->escape(App::blog()->id()) . "' ");
     }
 }

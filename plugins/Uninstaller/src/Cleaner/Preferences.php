@@ -166,7 +166,7 @@ class Preferences extends CleanerParent
         }
         if ($action == 'delete_local' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
-                ->where('user_id = ' . $sql->quote((string) App::blog()?->id))
+                ->where('user_id = ' . $sql->quote((string) App::blog()->id()))
                 ->and('pref_ws = ' . $sql->quote((string) $ns))
                 ->delete();
 

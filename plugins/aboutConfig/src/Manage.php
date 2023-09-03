@@ -60,7 +60,7 @@ class Manage extends Process
                         if ($_POST['s_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        App::blog()->settings->$ns->put($k, $v);
+                        App::blog()->settings()->$ns->put($k, $v);
                     }
                     App::blog()->triggerBlog();
                 }
@@ -80,7 +80,7 @@ class Manage extends Process
                         if ($_POST['gs_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
-                        App::blog()->settings->$ns->put($k, $v, null, null, true, true);
+                        App::blog()->settings()->$ns->put($k, $v, null, null, true, true);
                     }
                     App::blog()->triggerBlog();
                 }
@@ -116,13 +116,13 @@ class Manage extends Process
         Page::breadcrumb(
             [
                 __('System')                        => '',
-                Html::escapeHTML(App::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                          => '',
             ]
         ) .
         Notices::getNotices() .
-        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(App::blog()->name)) . '">' .
-        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(App::blog()->name)) . '</h3>';
+        '<div id="local" class="multi-part" title="' . sprintf(__('Settings for %s'), Html::escapeHTML(App::blog()->name())) . '">' .
+        '<h3 class="out-of-screen-if-js">' . sprintf(__('Settings for %s'), Html::escapeHTML(App::blog()->name())) . '</h3>';
 
         self::settingsTable(false);
 
@@ -163,7 +163,7 @@ class Manage extends Process
         $table_footer = '</tbody></table></div>';
 
         /** @var array<string|dcNamespace> */
-        $namespaces = App::blog()->settings->dumpNamespaces();
+        $namespaces = App::blog()->settings()->dumpNamespaces();
         $settings   = [];
         if ($global) {
             $prefix     = 'g_';

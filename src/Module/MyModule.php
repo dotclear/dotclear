@@ -128,21 +128,21 @@ abstract class MyModule
             // Backend context
             self::BACKEND => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(App::blog())
+                    && App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
                         App::auth()::PERMISSION_USAGE,
                         App::auth()::PERMISSION_CONTENT_ADMIN,
-                    ]), App::blog()->id),
+                    ]), App::blog()->id()),
 
             // Main page of module, Admin menu, Blog widgets
             self::MANAGE,
             self::MENU,
             self::WIDGETS => defined('DC_CONTEXT_ADMIN')
                     // Check specific permission
-                    && !is_null(App::blog())
+                    && App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
                         App::auth()::PERMISSION_ADMIN,  // Admin+
-                    ]), App::blog()->id),
+                    ]), App::blog()->id()),
 
             // Config page of module
             self::CONFIG => defined('DC_CONTEXT_ADMIN')
@@ -190,11 +190,13 @@ abstract class MyModule
     /**
      * The module settings instance.
      *
-     * @return  null|dcNamespace    The module settings instance
+     * @throws  Exception   Since 2.28 if blog is not defined
+     *
+     * @return  dcNamespace    The module settings instance
      */
-    final public static function settings(): ?dcNamespace
+    final public static function settings(): dcNamespace
     {
-        return is_null(App::blog()) ? null : App::blog()->settings->get(static::id());
+        return App::blog()->settings()->get(static::id());
     }
 
     /**
@@ -237,7 +239,7 @@ abstract class MyModule
             return urldecode(App::backend()->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }
 
-        return is_null(App::blog()) ? '' : urldecode(App::blog()->getQmarkURL() . 'pf=' . self::id() . $resource);
+        return App::blog()->isDefined() ? urldecode(App::blog()->getQmarkURL() . 'pf=' . self::id() . $resource) : '';
     }
 
     /**

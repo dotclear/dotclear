@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcBlog;
 use dcCategories;
 use dcNamespace;
 use dcTrackback;
@@ -102,20 +101,20 @@ class FlatImportV2 extends FlatBackup
         $this->con    = App::con();
         $this->prefix = App::con()->prefix();
 
-        $this->cur_blog        = $this->con->openCursor($this->prefix . dcBlog::BLOG_TABLE_NAME);
+        $this->cur_blog        = $this->con->openCursor($this->prefix . App::blog()::BLOG_TABLE_NAME);
         $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
         $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
         $this->cur_user        = $this->con->openCursor($this->prefix . App::auth()::USER_TABLE_NAME);
         $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
         $this->cur_permissions = $this->con->openCursor($this->prefix . App::auth()::PERMISSIONS_TABLE_NAME);
-        $this->cur_post        = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
+        $this->cur_post        = $this->con->openCursor($this->prefix . App::blog()::POST_TABLE_NAME);
         $this->cur_meta        = $this->con->openCursor($this->prefix . App::meta()::META_TABLE_NAME);
         $this->cur_media       = $this->con->openCursor($this->prefix . App::media()::MEDIA_TABLE_NAME);
         $this->cur_post_media  = $this->con->openCursor($this->prefix . App::postMedia()::POST_MEDIA_TABLE_NAME);
         $this->cur_log         = $this->con->openCursor($this->prefix . App::log()::LOG_TABLE_NAME);
         $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
-        $this->cur_comment     = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
+        $this->cur_comment     = $this->con->openCursor($this->prefix . App::blog()::COMMENT_TABLE_NAME);
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
         # --BEHAVIOR-- importInit -- FlatBackup
@@ -135,11 +134,11 @@ class FlatImportV2 extends FlatBackup
 
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
-        $this->blog_id = App::blog()->id;
+        $this->blog_id = App::blog()->id();
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
@@ -153,13 +152,13 @@ class FlatImportV2 extends FlatBackup
         $rs                     = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
         $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = new MetaRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME));
+        $rs                     = new MetaRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME));
         $this->stack['post_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                      = new MetaRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME));
         $this->stack['media_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                        = new MetaRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME));
+        $rs                        = new MetaRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME));
         $this->stack['comment_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                    = new MetaRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME));
@@ -167,12 +166,12 @@ class FlatImportV2 extends FlatBackup
 
         $rs = new MetaRecord($this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
-            "WHERE blog_id = '" . $this->con->escape(App::blog()->id) . "'"
+            "WHERE blog_id = '" . $this->con->escape(App::blog()->id()) . "'"
         ));
 
         if ((int) $rs->cat_rgt > 0) {
             $this->has_categories                    = true;
-            $this->stack['cat_lft'][App::blog()->id] = (int) $rs->cat_rgt + 1;
+            $this->stack['cat_lft'][App::blog()->id()] = (int) $rs->cat_rgt + 1;
         }
 
         $this->con->begin();
@@ -261,7 +260,7 @@ class FlatImportV2 extends FlatBackup
         }
 
         $this->con->begin();
-        $this->con->execute('DELETE FROM ' . $this->prefix . dcBlog::BLOG_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . App::blog()::BLOG_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . dcNamespace::NS_TABLE_NAME);
@@ -316,7 +315,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_blog->blog_name   = (string) $blog->blog_name;
         $this->cur_blog->blog_desc   = (string) $blog->blog_desc;
 
-        $this->cur_blog->blog_status = $blog->exists('blog_status') ? (int) $blog->blog_status : dcBlog::BLOG_ONLINE;
+        $this->cur_blog->blog_status = $blog->exists('blog_status') ? (int) $blog->blog_status : App::blog()::BLOG_ONLINE;
 
         $this->cur_blog->insert();
     }
@@ -658,7 +657,7 @@ class FlatImportV2 extends FlatBackup
         $old_id   = $media->media_id;
 
         $media->media_id   = $media_id;
-        $media->media_path = App::blog()->settings->system->public_path;
+        $media->media_path = App::blog()->settings()->system->public_path;
         $media->user_id    = $this->getUserId($media->user_id);
 
         $this->insertMedia($media);

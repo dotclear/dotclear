@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Frontend;
 
-use dcBlog;
 use dcDeprecated;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
@@ -18,6 +17,7 @@ use Dotclear\Database\Record;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\BlogInterface;
 use Exception;
 
 class Ctx
@@ -521,7 +521,7 @@ class Ctx
         $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
         $page_number = self::PaginationPosition($offset);
-        $url         = App::blog()->url . $args;
+        $url         = App::blog()->url() . $args;
         if ($page_number > 1) {
             $url = preg_replace('#/$#', '', $url);
             $url .= '/page/' . $page_number;
@@ -576,11 +576,11 @@ class Ctx
     /**
      * Get the smilies defined for a blog
      *
-     * @param dcBlog    $blog   The blog
+     * @param BlogInterface    $blog   The blog
      *
      * @return array|false
      */
-    public static function getSmilies(dcBlog $blog)
+    public static function getSmilies(BlogInterface $blog)
     {
         $definitions = [];
 
@@ -592,8 +592,8 @@ class Ctx
             }
         }
 
-        $definition_pattern = $blog->themes_path . '/%s/smilies/smilies.txt';
-        $base_url_pattern   = $blog->settings->system->themes_url . '/%s/smilies/';
+        $definition_pattern = $blog->themesPath() . '/%s/smilies/smilies.txt';
+        $base_url_pattern   = $blog->settings()->system->themes_url . '/%s/smilies/';
 
         foreach ($paths as $path) {
             $definition = sprintf($definition_pattern, $path);
@@ -751,9 +751,9 @@ class Ctx
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
-            $p_url  = App::blog()->settings->system->public_url;
-            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url);
-            $p_root = App::blog()->public_path;
+            $p_url  = App::blog()->settings()->system->public_url;
+            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
+            $p_root = App::blog()->publicPath();
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);

@@ -82,7 +82,7 @@ class MediaPage extends FilterMedia
 
             if (App::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --
-                App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
             }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -121,7 +121,7 @@ class MediaPage extends FilterMedia
 
             $this->media_archivable = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_MEDIA_ADMIN,
-            ]), App::blog()->id)
+            ]), App::blog()->id())
                 && !((is_countable($rs) ? count($rs) : 0) === 0 || ((is_countable($rs) ? count($rs) : 0) === 1 && $rs->parent)); // @phpstan-ignore-line
         }
 
@@ -385,8 +385,8 @@ class MediaPage extends FilterMedia
         }
 
         $elements = [
-            Html::escapeHTML(App::blog()->name) => '',
-            __('Media manager')                 => empty($param) ? '' :
+            Html::escapeHTML(App::blog()->name()) => '',
+            __('Media manager')                   => empty($param) ? '' :
                 App::backend()->url->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];
         $options = [

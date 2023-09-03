@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 // classes that move to \Dotclear\Core
-use dcBlog;
 use dcPlugins;
 use dcThemes;
 //
@@ -28,6 +27,7 @@ use Dotclear\Database\AbstractHandler;
 
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
@@ -69,7 +69,7 @@ class Factory implements FactoryInterface
         return new Behavior();
     }
 
-    public function blog(): ?dcBlog
+    public function blog(): BlogInterface
     {
         return $this->container->get('blogLoader')->getBlog();
     }

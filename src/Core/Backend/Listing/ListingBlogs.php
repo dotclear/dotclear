@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -148,7 +147,7 @@ class ListingBlogs extends Listing
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
                 '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
-                ($this->rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
+                ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
                 App::blogs()->getBlogStatus((int) $this->rs->blog_status)
             ) .
             '</td>',

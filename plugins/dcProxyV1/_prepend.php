@@ -179,6 +179,7 @@ dcProxyV1::classAliases([
     // Core -----------------------
 
     'dcAuth'       => 'Dotclear\Core\Auth',
+    'dcBlog'       => 'Dotclear\Core\Blog',
     'dcError'      => 'Dotclear\Core\Error',
     'dcMedia'      => 'Dotclear\Core\Media',
     'dcMeta'       => 'Dotclear\Core\Meta',

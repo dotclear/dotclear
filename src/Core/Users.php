@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -194,10 +193,15 @@ class Users implements UsersInterface
         $rs = $sql->select();
 
         if ($rs) {
+            $old_blog = App::blog()->id();
             while ($rs->fetch()) {
-                $b = new dcBlog($rs->blog_id);
-                $b->triggerBlog();
-                unset($b);
+                App::blogLoader()->setBlog($rs->blog_id);
+                App::blog()->triggerBlog();
+            }
+            if (empty($old_blog)) {
+                App::blogLoader()->unsetBlog();
+            } else {
+                App::blogLoader()->setBlog($old_blog);
             }
         }
 

@@ -82,7 +82,7 @@ class BackendBehaviors
     {
         $js = [
             'dialog_url'            => 'popup.php',
-            'base_url'              => App::blog()->host,
+            'base_url'              => App::blog()->host(),
             'switcher_visual_title' => __('visual'),
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
@@ -150,7 +150,7 @@ class BackendBehaviors
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $js['elements']['img_select']['disabled'] = true;
         }
 

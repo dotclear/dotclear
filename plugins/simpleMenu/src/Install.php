@@ -30,14 +30,14 @@ class Install extends Process
         }
 
         # Menu par défaut
-        $blog_url     = Html::stripHostURL(App::blog()->url);
+        $blog_url     = Html::stripHostURL(App::blog()->url());
         $menu_default = [
             ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false],
             ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . App::url()->getURLFor('archive'), 'targetBlank' => false],
         ];
 
-        App::blog()->settings->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
-        App::blog()->settings->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
+        App::blog()->settings()->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
+        App::blog()->settings()->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
 
         return true;
     }

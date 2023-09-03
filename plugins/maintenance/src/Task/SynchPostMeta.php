@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance\Task;
 
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -126,12 +125,12 @@ class SynchPostsMeta extends MaintenanceTask
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {
         // Get number of posts
-        $rs    = new MetaRecord(App::con()->select('SELECT COUNT(post_id) FROM ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME));
+        $rs    = new MetaRecord(App::con()->select('SELECT COUNT(post_id) FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME));
         $count = $rs->f(0);
 
         // Get posts ids to update
         $req_limit = $start !== null && $limit !== null ? App::con()->limit($start, $limit) : '';
-        $rs        = new MetaRecord(App::con()->select('SELECT post_id FROM ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME . ' ' . $req_limit));
+        $rs        = new MetaRecord(App::con()->select('SELECT post_id FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' . $req_limit));
 
         // Update posts meta
         while ($rs->fetch()) {
@@ -142,7 +141,7 @@ class SynchPostsMeta extends MaintenanceTask
                 $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
             }
 
-            $cur            = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            $cur            = App::blog()->openPostCursor();
             $cur->post_meta = serialize($meta);
             $cur->update('WHERE post_id = ' . $rs->post_id);
         }

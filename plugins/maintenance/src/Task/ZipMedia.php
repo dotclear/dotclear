@@ -83,7 +83,7 @@ class ZipMedia extends MaintenanceTask
         $this->log();
 
         // Send zip
-        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id . '-' . 'media.zip');
+        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . 'media.zip');
         header('Content-Type: application/x-zip');
 
         $zip->write();

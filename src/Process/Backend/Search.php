@@ -95,7 +95,7 @@ class Search extends Process
             $starting_scripts,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Search')                        => '',
                 ]
             )
@@ -243,7 +243,7 @@ class Search extends Process
             App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            App::blog()->id
+            App::blog()->id()
         );
 
         self::$list->display(

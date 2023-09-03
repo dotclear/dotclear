@@ -92,7 +92,7 @@ class FilterComments extends Filters
     {
         if (!App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             return null;
         }
 

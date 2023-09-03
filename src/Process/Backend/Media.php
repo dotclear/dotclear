@@ -46,7 +46,7 @@ class Media extends Process
         # Zip download
         if (!empty($_GET['zipdl']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             try {
                 if (strpos(realpath(App::media()->getRoot() . '/' . App::backend()->page->d), (string) realpath(App::media()->getRoot())) === 0) {
                     // Media folder or one of it's sub-folder(s)
@@ -55,7 +55,7 @@ class Media extends Process
                     $zip = new Zip($fp);
                     $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp)$/');
                     $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->page->d, '', true);
-                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id . '-' . (App::backend()->page->d ?: 'media') . '.zip');
+                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . (App::backend()->page->d ?: 'media') . '.zip');
                     header('Content-Type: application/x-zip');
                     $zip->write();
                     unset($zip);

@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
@@ -40,17 +39,17 @@ class Install extends Process
             if ($counter->f(0) == 0 && My::settings()->firstpage == null) {
                 My::settings()->put('firstpage', true, 'boolean');
 
-                $cur                     = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+                $cur                     = App::blog()->openPostCursor();
                 $cur->user_id            = App::auth()->userID();
                 $cur->post_type          = 'page';
                 $cur->post_format        = 'xhtml';
-                $cur->post_lang          = App::blog()->settings->system->lang;
+                $cur->post_lang          = App::blog()->settings()->system->lang;
                 $cur->post_title         = __('My first page');
                 $cur->post_content       = '<p>' . __('This is your first page. When you\'re ready to blog, log in to edit or delete it.') . '</p>';
                 $cur->post_content_xhtml = $cur->post_content;
                 $cur->post_excerpt       = '';
                 $cur->post_excerpt_xhtml = $cur->post_excerpt;
-                $cur->post_status        = dcBlog::POST_PENDING; // Pending status
+                $cur->post_status        = App::blog()::POST_PENDING; // Pending status
                 $cur->post_open_comment  = 0;
                 $cur->post_open_tb       = 0;
                 $post_id                 = App::blog()->addPost($cur);

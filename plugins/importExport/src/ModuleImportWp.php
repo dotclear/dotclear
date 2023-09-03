@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dcBlog;
 use dcCategories;
 use dcTrackback;
 use Dotclear\Core\Backend\Combos;
@@ -92,7 +91,7 @@ class ModuleImportWp extends Module
     {
         $this->con     = App::con();
         $this->prefix  = App::con()->prefix();
-        $this->blog_id = App::blog()->id;
+        $this->blog_id = App::blog()->id();
 
         if (!isset($_SESSION['wp_import_vars'])) {
             $_SESSION['wp_import_vars'] = $this->base_vars;
@@ -214,7 +213,7 @@ class ModuleImportWp extends Module
                 echo
                 '<p>' . sprintf(
                     __('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(App::blog()->name) . '</strong>'
+                    '<strong>' . Html::escapeHTML(App::blog()->name()) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -420,8 +419,8 @@ class ModuleImportWp extends Module
                     $cur->user_email       = $rs->user_email;
                     $cur->user_url         = $rs->user_url;
                     $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = App::blog()->settings->system->lang;
-                    $cur->user_tz          = App::blog()->settings->system->blog_timezone;
+                    $cur->user_lang        = App::blog()->settings()->system->lang;
+                    $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
                     $permissions           = [];
 
                     $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
@@ -616,7 +615,7 @@ class ModuleImportWp extends Module
         try {
             if ($this->post_offset == 0) {
                 $this->con->execute(
-                    'DELETE FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' ' .
+                    'DELETE FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
                 );
             }
@@ -659,7 +658,7 @@ class ModuleImportWp extends Module
             $user_id = $this->vars['user_ids'][$rs->post_author];
         }
 
-        $cur              = $this->con->openCursor($this->prefix . dcBlog::POST_TABLE_NAME);
+        $cur              = App::blog()->openPostCursor();
         $cur->blog_id     = $this->blog_id;
         $cur->user_id     = $user_id;
         $cur->post_dt     = $post_date;
@@ -726,19 +725,19 @@ class ModuleImportWp extends Module
 
         switch ($rs->post_status) {
             case 'publish':
-                $cur->post_status = dcBlog::POST_PUBLISHED;
+                $cur->post_status = App::blog()::POST_PUBLISHED;
 
                 break;
             case 'draft':
-                $cur->post_status = dcBlog::POST_UNPUBLISHED;
+                $cur->post_status = App::blog()::POST_UNPUBLISHED;
 
                 break;
             case 'pending':
-                $cur->post_status = dcBlog::POST_PENDING;
+                $cur->post_status = App::blog()::POST_PENDING;
 
                 break;
             default:
-                $cur->post_status = dcBlog::POST_PENDING;
+                $cur->post_status = App::blog()::POST_PENDING;
         }
         $cur->post_type         = $rs->post_type;
         $cur->post_password     = $rs->post_password ?: null;
@@ -752,7 +751,7 @@ class ModuleImportWp extends Module
         ));
 
         $cur->post_id = (new MetaRecord($this->con->select(
-            'SELECT MAX(post_id) FROM ' . $this->prefix . dcBlog::POST_TABLE_NAME
+            'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
         )))->f(0) + 1;
 
         $cur->post_url = App::blog()->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
@@ -789,7 +788,7 @@ class ModuleImportWp extends Module
         );
 
         while ($rs->fetch()) {
-            $cur                    = $this->con->openCursor($this->prefix . dcBlog::COMMENT_TABLE_NAME);
+            $cur                    = App::blog()->openCommentCursor();
             $cur->post_id           = (int) $new_post_id;
             $cur->comment_author    = Text::cleanStr($rs->comment_author);
             $cur->comment_status    = (int) $rs->comment_approved;
@@ -804,18 +803,18 @@ class ModuleImportWp extends Module
             }
 
             if ($rs->comment_approved == 'spam') {
-                $cur->comment_status = dcBlog::COMMENT_JUNK;
+                $cur->comment_status = App::blog()::COMMENT_JUNK;
             }
 
             $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
 
             $cur->comment_id = (new MetaRecord($this->con->select(
-                'SELECT MAX(comment_id) FROM ' . $this->prefix . dcBlog::COMMENT_TABLE_NAME
+                'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
             )))->f(0) + 1;
 
             $cur->insert();
 
-            if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
+            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
                 if ($cur->comment_trackback) {
                     $count_t++;
                 } else {
@@ -826,7 +825,7 @@ class ModuleImportWp extends Module
 
         if ($count_t > 0 || $count_c > 0) {
             $this->con->execute(
-                'UPDATE ' . $this->prefix . dcBlog::POST_TABLE_NAME . ' SET ' .
+                'UPDATE ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' SET ' .
                 'nb_comment = ' . $count_c . ', ' .
                 'nb_trackback = ' . $count_t . ' ' .
                 'WHERE post_id = ' . $new_post_id . ' '

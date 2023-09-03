@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Frontend;
 
 use ArrayObject;
-use dcBlog;
 use dcTrackback;
 use dcXmlRpc;
 use Dotclear\App;
@@ -33,7 +32,7 @@ class Url extends UrlHandler
      */
     protected function getHomeType(): string
     {
-        return App::blog()->settings->system->static_home ? 'static' : 'default';
+        return App::blog()->settings()->system->static_home ? 'static' : 'default';
     }
 
     /**
@@ -134,7 +133,7 @@ class Url extends UrlHandler
     protected static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
         if (App::frontend()->ctx->nb_entry_per_page === null) {
-            App::frontend()->ctx->nb_entry_per_page = App::blog()->settings->system->nb_post_per_page;
+            App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_page;
         }
         if (App::frontend()->ctx->nb_entry_first_page === null) {
             App::frontend()->ctx->nb_entry_first_page = App::frontend()->ctx->nb_entry_per_page;
@@ -163,7 +162,7 @@ class Url extends UrlHandler
 
         // Additional headers
         $headers = new ArrayObject();
-        if (App::blog()->settings->system->prevents_clickjacking) {
+        if (App::blog()->settings()->system->prevents_clickjacking) {
             // Prevents Clickjacking as far as possible
             $header = 'X-Frame-Options: SAMEORIGIN';
             if (App::frontend()->ctx->exists('xframeoption')) {
@@ -191,7 +190,7 @@ class Url extends UrlHandler
             'content'      => App::frontend()->tpl->getData(App::frontend()->ctx->current_tpl),
             'content_type' => App::frontend()->ctx->content_type,
             'tpl'          => App::frontend()->ctx->current_tpl,
-            'blogupddt'    => App::blog()->upddt,
+            'blogupddt'    => App::blog()->upddt(),
             'headers'      => headers_list(),
         ]);
 
@@ -307,8 +306,8 @@ class Url extends UrlHandler
             }
 
             if (empty($_GET['q'])) {
-                if (App::blog()->settings->system->nb_post_for_home !== null) {
-                    App::frontend()->ctx->nb_entry_first_page = App::blog()->settings->system->nb_post_for_home;
+                if (App::blog()->settings()->system->nb_post_for_home !== null) {
+                    App::frontend()->ctx->nb_entry_first_page = App::blog()->settings()->system->nb_post_for_home;
                 }
                 self::serveDocument('home.html');
                 App::blog()->publishScheduledEntries();
@@ -343,7 +342,7 @@ class Url extends UrlHandler
      */
     public static function search(): void
     {
-        if (App::blog()->settings->system->no_search) {
+        if (App::blog()->settings()->system->no_search) {
             // Search is disabled for this blog.
             self::p404();
         } else {
@@ -556,7 +555,7 @@ class Url extends UrlHandler
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
-                            if (App::blog()->settings->system->wiki_comments) {
+                            if (App::blog()->settings()->system->wiki_comments) {
                                 App::filter()->initWikiComment();
                             } else {
                                 App::filter()->initWikiSimpleComment();
@@ -579,18 +578,18 @@ class Url extends UrlHandler
                         App::frontend()->ctx->comment_preview['preview'] = true;
                     } else {
                         // Post the comment
-                        $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                        $cur = App::blog()->openCommentCursor();
 
                         $cur->comment_author  = $name;
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->ctx->posts->post_id;
-                        $cur->comment_status  = App::blog()->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
+                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = App::frontend()->ctx->posts->getURL();
-                        $redir .= App::blog()->settings->system->url_scan == 'query_string' ? '&' : '?';
+                        $redir .= App::blog()->settings()->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -606,7 +605,7 @@ class Url extends UrlHandler
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
+                            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
                                 $redir_arg = 'pub=1';
                             } else {
                                 $redir_arg = 'pub=0';
@@ -625,8 +624,8 @@ class Url extends UrlHandler
                 // The entry
                 if (App::frontend()->ctx->posts->trackbacksActive()) {
                     // Send additional headers if pingbacks/webmentions are allowed
-                    header('X-Pingback: ' . App::blog()->url . App::url()->getURLFor('xmlrpc', App::blog()->id));
-                    header('Link: <' . App::blog()->url . App::url()->getURLFor('webmention') . '>; rel="webmention"');
+                    header('X-Pingback: ' . App::blog()->url() . App::url()->getURLFor('xmlrpc', App::blog()->id()));
+                    header('Link: <' . App::blog()->url() . App::url()->getURLFor('webmention') . '>; rel="webmention"');
                 }
                 self::serveDocument('post.html');
             }
@@ -683,10 +682,10 @@ class Url extends UrlHandler
                 // The user has no access to the theme preview.
                 self::p404();
             } else {
-                $current = App::blog()->settings->system->theme;
+                $current = App::blog()->settings()->system->theme;
 
                 // Switch to theme to try
-                App::blog()->settings->system->set('theme', $theme);
+                App::blog()->settings()->system->set('theme', $theme);
                 App::frontend()->theme = $theme;
 
                 // Simulate Utility\Frontend::process() for theme preview
@@ -705,12 +704,12 @@ class Url extends UrlHandler
                 App::frontend()->cache()->resetFiles();
                 App::frontend()->cache()->addFiles(get_included_files());
                 $tpl_path = [
-                    App::blog()->themes_path . '/' . App::frontend()->theme . '/tpl',
+                    App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
                 ];
                 if (App::frontend()->parent_theme) {
-                    $tpl_path[] = App::blog()->themes_path . '/' . App::frontend()->parent_theme . '/tpl';
+                    $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
                 }
-                $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+                $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
                 $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     App::frontend()->tpl->setPath(
@@ -738,7 +737,7 @@ class Url extends UrlHandler
                 self::home(null);
 
                 // And finally back to current theme
-                App::blog()->settings->system->set('theme', $current);
+                App::blog()->settings()->system->set('theme', $current);
             }
         }
     }
@@ -842,11 +841,11 @@ class Url extends UrlHandler
         if ($comments) {
             // Comments feed
             $tpl .= '-comments';
-            App::frontend()->ctx->nb_comment_per_page = App::blog()->settings->system->nb_comment_per_feed;
+            App::frontend()->ctx->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
         } else {
             // Posts feed
-            App::frontend()->ctx->nb_entry_per_page = App::blog()->settings->system->nb_post_per_feed;
-            App::frontend()->ctx->short_feed_items  = App::blog()->settings->system->short_feed_items;
+            App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
+            App::frontend()->ctx->short_feed_items  = App::blog()->settings()->system->short_feed_items;
         }
         $tpl .= '.xml';
 
@@ -856,7 +855,7 @@ class Url extends UrlHandler
 
         App::frontend()->ctx->feed_subtitle = $subtitle;
 
-        header('X-Robots-Tag: ' . Ctx::robotsPolicy(App::blog()->settings->system->robots_policy, ''));
+        header('X-Robots-Tag: ' . Ctx::robotsPolicy(App::blog()->settings()->system->robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {

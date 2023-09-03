@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -78,12 +77,12 @@ class ManagePage extends Process
         App::backend()->can_edit_page = App::auth()->check(App::auth()->makePermissions([
             My::PERMISSION_PAGES,
             App::auth()::PERMISSION_USAGE,
-        ]), App::blog()->id);
+        ]), App::blog()->id());
         App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
             My::PERMISSION_PAGES,
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id);
+        ]), App::blog()->id());
         App::backend()->can_delete = false;
 
         $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" />';
@@ -94,7 +93,7 @@ class ManagePage extends Process
 
         // If user can't publish
         if (!App::backend()->can_publish) {
-            App::backend()->post_status = dcBlog::POST_PENDING;
+            App::backend()->post_status = App::blog()::POST_PENDING;
         }
 
         // Status combo
@@ -300,10 +299,10 @@ class ManagePage extends Process
         if (!empty($_POST) && !empty($_POST['save']) && App::backend()->can_edit_page && !App::backend()->bad_dt) {
             // Create or update page
 
-            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            $cur = App::blog()->openPostCursor();
 
             // Magic tweak :)
-            App::blog()->settings->system->post_url_format = '{t}';
+            App::blog()->settings()->system->post_url_format = '{t}';
 
             $cur->post_type          = 'page';
             $cur->post_dt            = App::backend()->post_dt ? date('Y-m-d H:i:00', strtotime(App::backend()->post_dt)) : '';
@@ -448,10 +447,10 @@ class ManagePage extends Process
         if (App::backend()->post_id) {
             try {
                 $img_status = match (App::backend()->post_status) {
-                    dcBlog::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
-                    dcBlog::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
-                    dcBlog::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
-                    dcBlog::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
+                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
+                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
+                    App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
+                    App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
                 };
             } catch (UnhandledMatchError) {
             }
@@ -461,7 +460,7 @@ class ManagePage extends Process
         }
         echo Page::breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                          => App::backend()->getPageURL(),
                 $edit_entry_title                   => '',
             ]
@@ -486,7 +485,7 @@ class ManagePage extends Process
             Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && App::backend()->post->post_status == dcBlog::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post->post_status == App::blog()::POST_PUBLISHED) {
             echo
             '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
         }
@@ -569,7 +568,7 @@ class ManagePage extends Process
                         '<p><label for="post_open_comment" class="classic">' .
                         form::checkbox('post_open_comment', 1, App::backend()->post_open_comment) . ' ' .
                         __('Accept comments') . '</label></p>' .
-                        (App::blog()->settings->system->allow_comments ?
+                        (App::blog()->settings()->system->allow_comments ?
                             (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
                             __('Warning: Comments are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' .
@@ -577,7 +576,7 @@ class ManagePage extends Process
                         '<p><label for="post_open_tb" class="classic">' .
                         form::checkbox('post_open_tb', 1, App::backend()->post_open_tb) . ' ' .
                         __('Accept trackbacks') . '</label></p>' .
-                        (App::blog()->settings->system->allow_trackbacks ?
+                        (App::blog()->settings()->system->allow_trackbacks ?
                             (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
                             __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
@@ -672,7 +671,7 @@ class ManagePage extends Process
             '<input type="submit" value="' . __('Save') . ' (s)" accesskey="s" name="save" /> ';
 
             if (App::backend()->post_id) {
-                $preview_url = App::blog()->url .
+                $preview_url = App::blog()->url() .
                     App::url()->getURLFor(
                         'pagespreview',
                         App::auth()->userID() . '/' .
@@ -876,11 +875,11 @@ class ManagePage extends Process
             return true;
         }
         if ($com) {
-            if ((App::blog()->settings->system->comments_ttl == 0) || (time() - App::blog()->settings->system->comments_ttl * 86400 < $dt)) {
+            if ((App::blog()->settings()->system->comments_ttl == 0) || (time() - App::blog()->settings()->system->comments_ttl * 86400 < $dt)) {
                 return true;
             }
         } else {
-            if ((App::blog()->settings->system->trackbacks_ttl == 0) || (time() - App::blog()->settings->system->trackbacks_ttl * 86400 < $dt)) {
+            if ((App::blog()->settings()->system->trackbacks_ttl == 0) || (time() - App::blog()->settings()->system->trackbacks_ttl * 86400 < $dt)) {
                 return true;
             }
         }
@@ -901,7 +900,7 @@ class ManagePage extends Process
             App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            App::blog()->id
+            App::blog()->id()
         );
 
         echo
@@ -951,7 +950,7 @@ class ManagePage extends Process
             }
 
             echo
-            '<tr class="line ' . ($rs->comment_status != dcBlog::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '" id="c' . $rs->comment_id . '">' .
+            '<tr class="line ' . ($rs->comment_status != App::blog()::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '" id="c' . $rs->comment_id . '">' .
             '<td class="nowrap">' .
             ($has_action ?
                 form::checkbox(

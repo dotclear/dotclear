@@ -76,7 +76,7 @@ class FrontendTemplate
      */
     public static function blogrollXbelLink(ArrayObject $attr)
     {
-        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), 'App::blog()->url.App::url()->getURLFor("xbel")') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("xbel")') . '; ?>';
     }
 
     /**
