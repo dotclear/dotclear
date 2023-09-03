@@ -20,7 +20,6 @@ use Autoloader;
 use dcDeprecated;
 use dcModuleDefine;
 use dcModules;
-use dcStore;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -28,6 +27,7 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Module\Store;
 use Exception;
 use form;
 
@@ -43,9 +43,9 @@ class ModulesList
     /**
      * Store instance
      *
-     * @var dcStore
+     * @var Store
      */
-    public $store;
+    public readonly Store $store;
 
     /**
      * Work with multiple root directories
@@ -57,7 +57,7 @@ class ModulesList
     /**
      * List of modules distributed with Dotclear
      *
-     * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
+     * @deprecated since 2.26, use dcModules::getDefine($id)->distributed
      *
      * @var        array
      */
@@ -176,7 +176,7 @@ class ModulesList
     /**
      * Constructor.
      *
-     * Note that this creates dcStore instance.
+     * Note that this creates Store instance.
      *
      * @param    dcModules      $modules        dcModules instance
      * @param    string         $modules_root   Modules root directories
@@ -186,7 +186,7 @@ class ModulesList
     public function __construct(dcModules $modules, string $modules_root, ?string $xml_url, ?bool $force = false)
     {
         $this->modules = $modules;
-        $this->store   = new dcStore($modules, $xml_url, $force);
+        $this->store   = new Store($modules, $xml_url, $force);
 
         $this->page_url = App::backend()->url->get('admin.plugins');
 

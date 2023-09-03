@@ -1,45 +1,37 @@
 <?php
 /**
- * @brief Repository modules XML feed parser
+ * Repository modules XML feed parser.
  *
  * Provides an object to parse XML feed of modules from a repository.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  *
  * @since 2.6
  */
-class dcStoreParser
+declare(strict_types=1);
+
+namespace Dotclear\Module;
+
+use dcDeprecated;
+use dcModuleDefine;
+use dcUtils;
+use SimpleXMLElement;
+
+class StoreParser
 {
-    /**
-     * XML object of feed contents
-     *
-     * @var    false|SimpleXMLElement
-     */
+    /** @var    false|SimpleXMLElement  XML object of feed contents  */
     protected $xml;
 
-    /**
-     * Array of feed contents
-     *
-     * @var    array
-     */
+    /** @var    array   Array of feed contents */
     protected $items = [];
 
-    /**
-     * Array of Define instances of feed contents
-     *
-     * @var    array
-     */
+    /** @var    array<int,dcModuleDefine>   Array of Define instances of feed contents */
     protected $defines = [];
 
-    /**
-     * XML bloc tag
-     *
-     * @var    string
-     */
+    /** @var    string  XML bloc tag */
     protected static $bloc = 'http://dotaddict.org/da/';
 
     /**
@@ -62,9 +54,9 @@ class dcStoreParser
     }
 
     /**
-     * Parse XML into array
+     * Parse XML into array.
      */
-    protected function _parse()
+    protected function _parse(): void
     {
         if (empty($this->xml->module)) {
             return;
@@ -109,7 +101,7 @@ class dcStoreParser
     /**
      * Get modules Defines.
      *
-     * @return    array        Modules Define list
+     * @return  array<int,dcModuleDefine>   Modules Define list
      */
     public function getDefines(): array
     {
@@ -119,13 +111,13 @@ class dcStoreParser
     /**
      * Get modules.
      *
-     * @deprecated since 2.26 Use self::getDefines()
+     * @deprecated  since 2.26, use self::getDefines() instead
      *
-     * @return    array        Modules list
+     * @return  array   Modules list
      */
     public function getModules(): array
     {
-        dcDeprecated::set('dcStoreParser::getDefines()', '2.26');
+        dcDeprecated::set(self::class . '::getDefines()', '2.26');
 
         // fill property once on demand
         if (empty($this->items) && !empty($this->defines)) {

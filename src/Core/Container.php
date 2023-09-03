@@ -53,8 +53,11 @@ class Container
     /** @var    Container   Container unique instance */
     private static Container $instance;
 
-    /** @var    array<int,FactoryInterface>    Factory instance */
-    private array $factories;
+    /** @var    array<string,FactoryInterface>    Factory instance */
+    private array $factories = [];
+
+    /** @var    array<string,string>    Method / Factory pairs stack */
+    private array $methods = [];
 
     /// @name Container methods
     //@{
@@ -72,17 +75,34 @@ class Container
 
         self::$instance = $this;
 
-        // Get third party core factories and instaciate them
-        foreach (Factories::getFactories('core') as $factory_class) {
-            // Factory class, implement all methods of Container,
-            // third party core factory MUST implements FactoryInterface and SHOULD extends Factory
-            if (class_exists($factory_class) && is_subclass_of($factory_class, FactoryInterface::class)) {
-                $this->factories[] = new $factory_class($this);
+        // Get required methods from Factory interface
+        $methods = get_class_methods(FactoryInterface::class);
+
+        // Get third party core factorie
+        $factories = Factories::getFactories('core');
+        
+        // Append dotclear default core factory to the end of stack
+        array_push($factories, Factory::class);
+
+        // loop trhough factories
+        foreach ($factories as $class) {
+            // Third party core factory MUST implements FactoryInterface and SHOULD extends Factory
+            if (!class_exists($class) || !is_subclass_of($class, FactoryInterface::class)) {
+                continue;
+            }
+
+            // Instanciate factory
+            $this->factories[$class] = new $class($this);
+
+            foreach($methods as $method) {
+                if (!method_exists($this->factories[$class], $method)) {
+                    continue;
+                }
+
+                // Set method / factory pairs
+                $this->methods[$method] = $class;
             }
         }
-
-        // Append dotclear default core factory to the end of stack
-        $this->factories[] = new Factory($this);
     }
 
     /**
@@ -99,11 +119,8 @@ class Container
             return $this->stack[$id];
         }
 
-        // Search first core factory having requested method
-        foreach ($this->factories as $factory) {
-            if (method_exists($factory, $id)) {
-                return $this->stack[$id] = $factory->{$id}();
-            }
+        if (array_key_exists($id, $this->methods)) {
+            return $this->stack[$id] = $this->factories[$this->methods[$id]]->{$id}();
         }
 
         throw new Exception('Call to undefined factory method ' . $id);

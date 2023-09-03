@@ -32,7 +32,7 @@ class ThemesList extends ModulesList
     /**
      * Constructor.
      *
-     * Note that this creates dcStore instance.
+     * Note that this creates Store instance.
      *
      * @param    dcModules    $modules        dcModules instance
      * @param    string       $modules_root   Modules root directories
