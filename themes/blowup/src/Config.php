@@ -26,15 +26,7 @@ class Config extends Process
 {
     public static function init(): bool
     {
-        // limit to backend permissions
-        if (My::checkContext(My::CONFIG)) {
-            // load locales
-            My::l10n('admin');
-
-            self::status(true);
-        }
-
-        return self::status();
+        return self::status(My::checkContext(My::CONFIG));
     }
 
     public static function process(): bool
@@ -42,6 +34,9 @@ class Config extends Process
         if (!self::status()) {
             return false;
         }
+
+        // load locales
+        My::l10n('admin');
 
         // Load contextual help
         App::themes()->loadModuleL10Nresources(My::id(), App::lang());
