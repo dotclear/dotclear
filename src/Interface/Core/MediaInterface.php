@@ -25,7 +25,7 @@ interface MediaInterface
      *
      * @return  Cursor  The media database table cursor
      */
-    public function openCursor(): Cursor;
+    public function openMediaCursor(): Cursor;
 
     /**
      * Get post media instance

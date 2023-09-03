@@ -182,7 +182,7 @@ class UserPreferences extends Process
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
-                $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur = App::auth()->openUserCursor();
 
                 $cur->user_name        = App::backend()->user_name = $_POST['user_name'];
                 $cur->user_firstname   = App::backend()->user_firstname = $_POST['user_firstname'];
@@ -253,7 +253,7 @@ class UserPreferences extends Process
 
                 App::backend()->user_options = $user_options;
 
-                $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur = App::auth()->openUserCursor();
 
                 $cur->user_name        = App::backend()->user_name;
                 $cur->user_firstname   = App::backend()->user_firstname;

@@ -511,7 +511,7 @@ class Blog implements BlogInterface
      */
     public function triggerBlog(): void
     {
-        $cur = $this->con->openCursor($this->prefix . self::BLOG_TABLE_NAME);
+        $cur = $this->openBlogCursor();
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
@@ -597,7 +597,7 @@ class Blog implements BlogInterface
         }
 
         // Update number of comments on affected posts
-        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        $cur = $this->openPostCursor();
         foreach ($affected_posts as $post_id) {
             $cur->clean();
 
@@ -1893,7 +1893,7 @@ class Blog implements BlogInterface
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        $cur = $this->openPostCursor();
 
         $cur->post_status = $status;
         $cur->post_upddt  = date('Y-m-d H:i:s');
@@ -1936,7 +1936,7 @@ class Blog implements BlogInterface
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        $cur = $this->openPostCursor();
 
         $cur->post_firstpub = $status;
         $cur->post_upddt    = date('Y-m-d H:i:s');
@@ -1990,7 +1990,7 @@ class Blog implements BlogInterface
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        $cur = $this->openPostCursor();
 
         $cur->post_selected = (int) $selected;
         $cur->post_upddt    = date('Y-m-d H:i:s');
@@ -2042,7 +2042,7 @@ class Blog implements BlogInterface
             $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
         }
 
-        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        $cur = $this->openPostCursor();
 
         $cur->cat_id     = ($cat_id ?: null);
         $cur->post_upddt = date('Y-m-d H:i:s');
@@ -2076,7 +2076,7 @@ class Blog implements BlogInterface
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('cat_id = ' . (int) $old_cat_id);
 
-        $cur = $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        $cur = $this->openPostCursor();
 
         $cur->cat_id     = ($new_cat_id ?: null);
         $cur->post_upddt = date('Y-m-d H:i:s');

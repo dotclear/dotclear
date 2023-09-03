@@ -233,7 +233,7 @@ class Maintenance
         }
 
         // Add new log
-        $cur = App::log()->openCursor();
+        $cur = App::log()->openLogCursor();
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';

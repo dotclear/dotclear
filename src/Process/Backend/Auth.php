@@ -187,7 +187,7 @@ class Auth extends Process
                     throw new Exception(__("You didn't change your password."));
                 }
 
-                $cur                  = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur                  = App::auth()->openUserCursor();
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
                 App::users()->updUser(App::auth()->userID(), $cur);

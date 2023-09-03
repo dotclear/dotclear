@@ -38,7 +38,7 @@ class Version implements VersionInterface
         $this->table = App::con()->prefix() . self::VERSION_TABLE_NAME;
     }
 
-    public function openCursor(): Cursor
+    public function openVersionCursor(): Cursor
     {
         return App::con()->openCursor(App::con()->prefix() . self::VERSION_TABLE_NAME);
     }
@@ -59,7 +59,7 @@ class Version implements VersionInterface
 
     public function setVersion(string $module, string $version): void
     {
-        $cur = $this->openCursor();
+        $cur = $this->openVersionCursor();
         $cur->setField('module', $module);
         $cur->setField('version', $version);
 

@@ -53,7 +53,7 @@ class Log implements LogInterface
         return self::LOG_TABLE_NAME;
     }
 
-    public function openCursor(): Cursor
+    public function openLogCursor(): Cursor
     {
         return App::con()->openCursor($this->log_table);
     }

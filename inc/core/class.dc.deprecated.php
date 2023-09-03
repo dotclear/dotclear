@@ -71,7 +71,7 @@ class dcDeprecated extends Deprecated
         }
 
         // log deprecated to log table
-        $cursor = $log->openCursor();
+        $cursor = $log->openLogCursor();
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
         $cursor->setField('user_id', (defined('DC_CONTEXT_ADMIN')) ? App::auth()->userID() : 'unknown');

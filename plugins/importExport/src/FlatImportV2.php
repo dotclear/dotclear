@@ -101,20 +101,20 @@ class FlatImportV2 extends FlatBackup
         $this->con    = App::con();
         $this->prefix = App::con()->prefix();
 
-        $this->cur_blog        = $this->con->openCursor($this->prefix . App::blog()::BLOG_TABLE_NAME);
+        $this->cur_blog        = App::blog()->openBlogCursor();
         $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
         $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
-        $this->cur_user        = $this->con->openCursor($this->prefix . App::auth()::USER_TABLE_NAME);
+        $this->cur_user        = App::auth()->openUserCursor();
         $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
-        $this->cur_permissions = $this->con->openCursor($this->prefix . App::auth()::PERMISSIONS_TABLE_NAME);
-        $this->cur_post        = $this->con->openCursor($this->prefix . App::blog()::POST_TABLE_NAME);
-        $this->cur_meta        = $this->con->openCursor($this->prefix . App::meta()::META_TABLE_NAME);
-        $this->cur_media       = $this->con->openCursor($this->prefix . App::media()::MEDIA_TABLE_NAME);
-        $this->cur_post_media  = $this->con->openCursor($this->prefix . App::postMedia()::POST_MEDIA_TABLE_NAME);
-        $this->cur_log         = $this->con->openCursor($this->prefix . App::log()::LOG_TABLE_NAME);
+        $this->cur_permissions = App::auth()->openPermCursor();
+        $this->cur_post        = App::blog()->openPostCursor();
+        $this->cur_meta        = App::meta()->openMetaCursor();
+        $this->cur_media       = App::media()->openMediaCursor();
+        $this->cur_post_media  = App::postMedia()->openPostMediaCursor();
+        $this->cur_log         = App::log()->openLogCursor();
         $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
-        $this->cur_comment     = $this->con->openCursor($this->prefix . App::blog()::COMMENT_TABLE_NAME);
+        $this->cur_comment     = App::blog()->openCommentCursor();
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
         # --BEHAVIOR-- importInit -- FlatBackup

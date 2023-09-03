@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
@@ -36,6 +37,11 @@ class Meta implements MetaInterface
     public function __construct()
     {
         $this->table = App::con()->prefix() . self::META_TABLE_NAME;
+    }
+
+    public function openMetaCursor(): Cursor
+    {
+        return App::con()->openCursor($this->table);
     }
 
     public function splitMetaValues(string $str): array
@@ -342,7 +348,7 @@ class Meta implements MetaInterface
             return;
         }
 
-        $cur = App::con()->openCursor($this->table);
+        $cur = $this->openMetaCursor();
 
         $cur->post_id   = (int) $post_id;
         $cur->meta_id   = (string) $value;

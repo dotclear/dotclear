@@ -11,15 +11,21 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
 interface MetaInterface
 {
-    // Constants
-
     /** @var    string  The Meta database table name */
     public const META_TABLE_NAME = 'meta';
+
+    /**
+     * Open a database table cursor.
+     *
+     * @return  Cursor  The meta database table cursor
+     */
+    public function openMetaCursor(): Cursor;
 
     /**
      * Splits up comma-separated values into an array of unique, URL-proof metadata values.

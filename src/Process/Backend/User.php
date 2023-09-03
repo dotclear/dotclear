@@ -100,7 +100,7 @@ class User extends Process
                     throw new Exception(__('Password verification failed'));
                 }
 
-                $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur = App::auth()->openUserCursor();
 
                 $cur->user_id          = $_POST['user_id'];
                 $cur->user_super       = App::backend()->user_super = !empty($_POST['user_super']) ? 1 : 0;

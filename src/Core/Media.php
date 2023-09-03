@@ -255,7 +255,7 @@ class Media extends Manager implements MediaInterface
         }
     }
 
-    public function openCursor(): Cursor
+    public function openMediaCursor(): Cursor
     {
         return App::con()->openCursor($this->table);
     }
@@ -975,7 +975,7 @@ class Media extends Manager implements MediaInterface
         $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $name) : Path::clean($name);
         $media_type = Files::getMimeType($name);
 
-        $cur = $this->openCursor();
+        $cur = $this->openMediaCursor();
 
         $sql = new SelectStatement();
         $sql
@@ -1066,7 +1066,7 @@ class Media extends Manager implements MediaInterface
             throw new Exception(__('You are not the file owner.'));
         }
 
-        $cur = $this->openCursor();
+        $cur = $this->openMediaCursor();
 
         # We need to tidy newFile basename. If dir isn't empty, concat to basename
         $newFile->relname = Files::tidyFileName($newFile->basename);
@@ -1419,7 +1419,7 @@ class Media extends Manager implements MediaInterface
         $meta = ImageMeta::readMeta($file);
         $xml->insertNode($meta);
 
-        $c             = $this->openCursor();
+        $c             = $this->openMediaCursor();
         $c->media_meta = $xml->toXML();
 
         if ($cur->media_title !== null && $cur->media_title == basename($cur->media_file)) {
