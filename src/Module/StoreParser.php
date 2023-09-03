@@ -18,6 +18,7 @@ namespace Dotclear\Module;
 use dcDeprecated;
 use dcModuleDefine;
 use dcUtils;
+use Exception;
 use SimpleXMLElement;
 
 class StoreParser

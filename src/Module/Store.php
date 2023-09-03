@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use dcDeprecated;
+use dcModuleDefine;
 use dcModules;
 use dcUtils;
 use Dotclear\Helper\Network\Http;
@@ -42,13 +43,13 @@ class Store
     /** @var    null|string     XML feed URL */
     protected $xml_url = null;
 
-    /** @var    array<string,array<string,array>    Array of new/update modules from repository */
+    /** @var    array<string,array<string,array>>   Array of new/update modules from repository */
     protected $data = [
         'new'    => [],
         'update' => [],
     ];
 
-    /** @var    array<string,array<int,dcModuleDefine>  Array of new/update modules Define from repository */
+    /** @var    array<string,array<int,dcModuleDefine>>     Array of new/update modules Define from repository */
     protected $defines = [
         'new'    => [],
         'update' => [],
