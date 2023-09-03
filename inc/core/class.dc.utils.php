@@ -14,6 +14,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Text;
+use Dotclear\Module\StoreReader;
 
 class dcUtils
 {
@@ -402,6 +403,16 @@ class dcUtils
     {
         if (defined('DC_TPL_CACHE') && is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
             Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER);
+        }
+    }
+
+    /**
+     * Empty modules store cache directory
+     */
+    public static function emptyModulesStoreCache(): void
+    {
+        if (defined('DC_TPL_CACHE') && is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER)) {
+            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER);
         }
     }
 }

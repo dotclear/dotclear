@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use dcModuleDefine;
-use dcThemes;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Core\Backend\{
@@ -31,6 +29,7 @@ use Dotclear\Helper\Html\Form\{
     Submit,
     Text
 };
+use Dotclear\Module\ModuleDefine;
 use Exception;
 
 class Manage extends Process
@@ -51,13 +50,13 @@ class Manage extends Process
             self::doRedirect();
         }
 
-        // load dcThemes if required
+        // load Themes if required
         if (self::getType() == 'theme' && App::themes()->isEmpty()) {
             App::themes()->loadModules((string) App::blog()->themesPath());
         }
 
         // get selected module
-        $define = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
             App::error()->add(__('Unknown module id to uninstall'));
             self::doRedirect();
@@ -112,7 +111,7 @@ class Manage extends Process
         }
 
         // load module uninstaller
-        $define      = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define      = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => ModuleDefine::STATE_ENABLED]);
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $fields      = [];
 

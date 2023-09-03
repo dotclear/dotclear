@@ -30,6 +30,9 @@ class StoreReader extends HttpClient
     /** @var    int  Read from repository server */
     public const READ_FROM_SOURCE = 1;
 
+    /** @var string     Default modules store cache sub folder */
+    public const CACHE_FOLDER = 'dcrepo';
+
     /**
      * User agent used to query repository
      *
@@ -56,7 +59,7 @@ class StoreReader extends HttpClient
      *
      * @var    string
      */
-    protected $cache_file_prefix = 'dcrepo';
+    protected $cache_file_prefix = self::CACHE_FOLDER;
 
     /**
      * Cache TTL

@@ -16,16 +16,15 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use dcDeprecated;
-use dcModuleDefine;
-use dcModules;
 use dcUtils;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
+use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
 class Store
 {
-    /** @var    dcModules   dcModules instance */
+    /** @var    ModulesInterface    Modules instance */
     public $modules;
 
     /** @var    array<string,int>   Modules fields to search on and their weight */
@@ -49,7 +48,7 @@ class Store
         'update' => [],
     ];
 
-    /** @var    array<string,array<int,dcModuleDefine>>     Array of new/update modules Define from repository */
+    /** @var    array<string,array<int,ModuleDefine>>     Array of new/update modules Define from repository */
     protected $defines = [
         'new'    => [],
         'update' => [],
@@ -61,11 +60,11 @@ class Store
     /**
      * Constructor.
      *
-     * @param   dcModules   $modules    dcModules instance
-     * @param   string      $xml_url    XML feed URL
-     * @param   null|bool   $force  Force query repository
+     * @param   ModulesInterface    $modules    Modules instance
+     * @param   string              $xml_url    XML feed URL
+     * @param   null|bool           $force  Force query repository
      */
-    public function __construct(dcModules $modules, ?string $xml_url, ?bool $force = false)
+    public function __construct(ModulesInterface $modules, ?string $xml_url, ?bool $force = false)
     {
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
@@ -201,7 +200,7 @@ class Store
      *
      * @param   bool    $update     True to get update modules, false for new ones
      *
-     * @return  array<int,dcModuleDefine>   List of update/new modules defines
+     * @return  array<int,ModuleDefine>   List of update/new modules defines
      */
     public function getDefines(bool $update = false): array
     {
@@ -237,7 +236,7 @@ class Store
      *
      * @param   string  $pattern    String to search
      *
-     * @return  array<int,dcModuleDefine>   Match modules defines
+     * @return  array<int,ModuleDefine>     Match modules defines
      */
     public function searchDefines(string $pattern): array
     {
@@ -307,7 +306,7 @@ class Store
      * @param    string    $url    Module package URL
      * @param    string    $dest    Path to install module
      *
-     * @return  int     dcModules::PACKAGE_INSTALLED (1), dcModules::PACKAGE_UPDATED (2)
+     * @return  int     Modules::PACKAGE_INSTALLED (1), Modules::PACKAGE_UPDATED (2)
      */
     public function process(string $url, string $dest): int
     {
@@ -357,7 +356,7 @@ class Store
      */
     public function install(string $path): int
     {
-        return dcModules::installPackage($path, $this->modules);
+        return $this->modules::installPackage($path, $this->modules);
     }
 
     /**

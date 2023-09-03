@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcModuleDefine;
 use Dotclear\App;
 use Dotclear\Helper\Network\Http;
 
@@ -27,7 +26,7 @@ use Dotclear\Helper\Network\Http;
  */
 abstract class MyTheme extends MyModule
 {
-    protected static function define(): dcModuleDefine
+    protected static function define(): ModuleDefine
     {
         // load once themes
         if (App::themes()->isEmpty() && App::blog()->isDefined()) {

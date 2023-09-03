@@ -1,78 +1,54 @@
 <?php
 /**
- * @brief Modules defined properties.
+ * Module defined properties.
  *
  * Provides an object to handle modules properties (themes or plugins).
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  *
  * @since 2.25
  */
-class dcModuleDefine
+declare(strict_types=1);
+
+namespace Dotclear\Module;
+
+class ModuleDefine
 {
-    /**
-     * Disabled state
-     *
-     * @var        int
-     */
-    public const STATE_ENABLED       = 0;
+    /** @var    int     Module state : enabled */
+    public const STATE_ENABLED = 0;
+    /** @var    int     Module state : disbaled */
     public const STATE_INIT_DISABLED = 1;
+    /** @var    int     Module state : soft disabled */
     public const STATE_SOFT_DISABLED = 2;
+    /** @var    int     Module state : hard disabled */
     public const STATE_HARD_DISABLED = 4;
 
-    /**
-     * Undefined module's name.
-     *
-     * @var        string
-     */
+    /** @var    string  Undefined module's name  */
     public const DEFAULT_NAME = 'undefined';
 
-    /**
-     * Undefined module's type.
-     *
-     * @var        string
-     */
+    /** @var    string  Undefined module's type */
     public const DEFAULT_TYPE = 'undefined';
 
-    /**
-     * Default module's priority.
-     *
-     * @var        int
-     */
+    /** @var    int     Default module's priority */
     public const DEFAULT_PRIORITY = 1000;
 
-    /**
-     * Module id, must be module's root path.
-     *
-     * @var     string
-     */
+    /** @var    string  Module id, must be module's root path */
     private string $id;
 
-    /**
-     * Dependencies.
-     *
-     * @var     array
-     */
+    /** @var array  Dependencies : implies */
     private array $implies = [];
+    /** @var array  Dependencies : missing */
     private array $missing = [];
-    private array $using   = [];
+    /** @var array  Dependencies : using */
+    private array $using = [];
 
-    /**
-     * Module properties.
-     *
-     * @var     array
-     */
+    /** @var    array   Module properties */
     private array $properties = [];
 
-    /**
-     * Module default properties.
-     *
-     * @var     array
-     */
+    /** @var    array   Module default properties */
     private array $default = [
         // set by dc
         'state'         => self::STATE_INIT_DISABLED,
@@ -127,7 +103,7 @@ class dcModuleDefine
     ];
 
     /**
-     * Create a module definition
+     * Create a module definition.
      *
      * @param   string  $id The module identifier (root path)
      */
@@ -138,7 +114,7 @@ class dcModuleDefine
     }
 
     /**
-     * Initialize module's properties
+     * Initialize module's properties.
      *
      * Module's define class must use this to set
      * their properties.
@@ -148,7 +124,7 @@ class dcModuleDefine
     }
 
     /**
-     * Check if module is defined
+     * Check if module is defined.
      *
      * @return  bool    True if module is defined
      */
@@ -164,7 +140,7 @@ class dcModuleDefine
      */
     public function updLocked(): bool
     {
-        return is_string($this->get('root')) && file_exists($this->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_LOCKED);
+        return is_string($this->get('root')) && file_exists($this->get('root') . DIRECTORY_SEPARATOR . Modules::MODULE_FILE_LOCKED);
     }
 
     public function addImplies(string $dep): void
@@ -203,17 +179,17 @@ class dcModuleDefine
     }
 
     /**
-     * Gets array of properties
+     * Gets array of properties.
      *
      * Mainly used for backward compatibility.
      *
-     * @return array The properties
+     * @return  array<string,mixed>     The properties
      */
     public function dump(): array
     {
         return array_merge($this->default, $this->properties, [
             'id'             => $this->id,
-            'enabled'        => $this->state == self::STATE_ENABLED,
+            'enabled'        => $this->get('state') == self::STATE_ENABLED,
             'implies'        => $this->implies,
             'cannot_enable'  => $this->missing,
             'cannot_disable' => $this->using,
@@ -221,12 +197,16 @@ class dcModuleDefine
     }
 
     /**
-     * Store a property and its value
+     * Store a property and its value.
      *
-     * @param      string  $identifier  The identifier
-     * @param      mixed   $value       The value
+     * The property key MUST exist in default properties
+     *
+     * @param   string  $identifier     The identifier
+     * @param   mixed   $value          The value
+     *
+     * @return  ModuleDefine
      */
-    public function set(string $identifier, $value = null): dcModuleDefine
+    public function set(string $identifier, $value = null): ModuleDefine
     {
         if (array_key_exists($identifier, $this->default)) {
             $this->properties[$identifier] = $value;
@@ -236,12 +216,12 @@ class dcModuleDefine
     }
 
     /**
-     * Magic function, store a property and its value
+     * Magic function, store a property and its value.
      *
-     * @param      string  $identifier  The identifier
-     * @param      mixed   $value       The value
+     * @param   string  $identifier     The identifier
+     * @param   mixed   $value          The value
      */
-    public function __set(string $identifier, $value = null)
+    public function __set(string $identifier, $value = null): void
     {
         $this->set($identifier, $value);
     }
@@ -249,11 +229,13 @@ class dcModuleDefine
     /**
      * Gets the specified property value (null if does not exist).
      *
-     * @param      string  $identifier  The identifier
+     * This returns null if property does not exists
      *
-     * @return     mixed
+     * @param   string  $identifier     The identifier
+     *
+     * @return  mixed
      */
-    public function get(string $identifier)
+    public function get(string $identifier): mixed
     {
         if ($identifier == 'id') {
             return $this->id;
@@ -269,21 +251,21 @@ class dcModuleDefine
     /**
      * Gets the specified property value (null if does not exist).
      *
-     * @param      string  $identifier  The identifier
+     * @param   string  $identifier     The identifier
      *
-     * @return     mixed
+     * @return  mixed
      */
-    public function __get(string $identifier)
+    public function __get(string $identifier): mixed
     {
         return $this->get($identifier);
     }
 
     /**
-     * Test if a property exists
+     * Test if a property exists.
      *
-     * @param      string  $identifier  The identifier
+     * @param   string  $identifier     The identifier
      *
-     * @return     bool
+     * @return  bool
      */
     public function __isset(string $identifier): bool
     {
@@ -291,11 +273,11 @@ class dcModuleDefine
     }
 
     /**
-     * Unset a property
+     * Unset a property.
      *
-     * @param      string  $identifier  The identifier
+     * @param   string  $identifier  The identifier
      */
-    public function __unset(string $identifier)
+    public function __unset(string $identifier): void
     {
         if (array_key_exists($identifier, $this->default)) {
             $this->properties[$identifier] = $this->default[$identifier];

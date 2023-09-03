@@ -16,7 +16,6 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use dcDeprecated;
-use dcModuleDefine;
 use dcUtils;
 use Exception;
 use SimpleXMLElement;
@@ -29,7 +28,7 @@ class StoreParser
     /** @var    array   Array of feed contents */
     protected $items = [];
 
-    /** @var    array<int,dcModuleDefine>   Array of Define instances of feed contents */
+    /** @var    array<int,ModuleDefine>   Array of Define instances of feed contents */
     protected $defines = [];
 
     /** @var    string  XML bloc tag */
@@ -69,7 +68,7 @@ class StoreParser
                 continue;
             }
 
-            $define = new dcModuleDefine((string) $attrs['id']);
+            $define = new ModuleDefine((string) $attrs['id']);
 
             # DC/DA shared markers
             $define->set('file', (string) $i->file);
@@ -102,7 +101,7 @@ class StoreParser
     /**
      * Get modules Defines.
      *
-     * @return  array<int,dcModuleDefine>   Modules Define list
+     * @return  array<int,ModuleDefine>     Modules Define list
      */
     public function getDefines(): array
     {

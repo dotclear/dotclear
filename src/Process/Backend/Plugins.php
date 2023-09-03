@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcModuleDefine;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -23,6 +22,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Module\ModuleDefine;
 use Exception;
 
 class Plugins extends Process
@@ -197,7 +197,7 @@ class Plugins extends Process
 
         # Activated modules
         $defines = App::backend()->list->modules->getDefines(
-            ['state' => App::backend()->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+            ['state' => App::backend()->list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
             echo
@@ -221,7 +221,7 @@ class Plugins extends Process
 
         # Deactivated modules
         if (App::auth()->isSuperAdmin()) {
-            $defines = App::backend()->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+            $defines = App::backend()->list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
             if (!empty($defines)) {
                 echo
                 '<h3>' . __('Deactivated plugins') . '</h3>' .

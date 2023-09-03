@@ -37,11 +37,8 @@ use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
+use Dotclear\Interface\Module\ModulesInterface;
 
-// classes that move to \Dotclear\Core
-use dcPlugins;
-use dcThemes;
-//
 use Dotclear\Core\Frontend\Url;
 use Exception;
 
@@ -218,7 +215,7 @@ class Container
         return self::$instance->get('notice');
     }
 
-    public static function plugins(): dcPlugins
+    public static function plugins(): ModulesInterface
     {
         return self::$instance->get('plugins');
     }
@@ -243,7 +240,7 @@ class Container
         return self::$instance->get('session');
     }
 
-    public static function themes(): dcThemes
+    public static function themes(): ModulesInterface
     {
         return self::$instance->get('themes');
     }

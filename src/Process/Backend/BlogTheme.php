@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcModuleDefine;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
@@ -26,6 +25,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Module\ModuleDefine;
 use Exception;
 
 class BlogTheme extends Process
@@ -221,7 +221,7 @@ class BlogTheme extends Process
 
         // Activated themes
         $defines = App::backend()->list->modules->getDefines(
-            ['state' => App::backend()->list->modules->safeMode() ? dcModuleDefine::STATE_SOFT_DISABLED : dcModuleDefine::STATE_ENABLED]
+            ['state' => App::backend()->list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
             echo
@@ -248,7 +248,7 @@ class BlogTheme extends Process
         }
 
         // Deactivated modules
-        $defines = App::backend()->list->modules->getDefines(['state' => dcModuleDefine::STATE_HARD_DISABLED]);
+        $defines = App::backend()->list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
         if (!empty($defines)) {
             echo
             '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .

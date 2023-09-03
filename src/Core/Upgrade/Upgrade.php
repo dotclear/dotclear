@@ -66,6 +66,7 @@ class Upgrade
                 # Empty templates cache directory
                 try {
                     dcUtils::emptyTemplatesCache();
+                    dcUtils::emptyModulesStoreCache();
                 } catch (Exception $e) {
                 }
 
