@@ -13,13 +13,13 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use dcNamespace;
-use dcUtils;
 use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\Utils;
 use Dotclear\Core\Session;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
-use Dotclear\Core\Install\Utils;
+use Dotclear\Core\Install\Utils as InstallUtils;
 use Exception;
 
 class Upgrade
@@ -49,7 +49,7 @@ class Upgrade
                 $_s = new Structure(App::con(), App::con()->prefix());
 
                 # Fill database structrue
-                Utils::dbSchema($_s);
+                InstallUtils::dbSchema($_s);
 
                 $si      = new Structure(App::con(), App::con()->prefix());
                 $changes = $si->synchronize($_s);
@@ -65,8 +65,8 @@ class Upgrade
 
                 # Empty templates cache directory
                 try {
-                    dcUtils::emptyTemplatesCache();
-                    dcUtils::emptyModulesStoreCache();
+                    Utils::emptyTemplatesCache();
+                    Utils::emptyModulesStoreCache();
                 } catch (Exception $e) {
                 }
 
@@ -154,7 +154,7 @@ class Upgrade
 
         // set dc version
         App::version()->setVersion('core', DC_VERSION);
-        Utils::blogDefaults();
+        InstallUtils::blogDefaults();
 
         return $cleanup_sessions;
     }

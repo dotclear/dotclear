@@ -1,27 +1,31 @@
 <?php
 /**
- * @brief Deprecated logger class
+ * Deprecated logger handler.
  *
  * @since 2.26
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Helper\Deprecated;
+use Dotclear\Helper\Deprecated as HelperDeprecated;
 use Dotclear\Interface\Core\LogInterface;
+use Exception;
+use Throwable;
 
-class dcDeprecated extends Deprecated
+class Deprecated extends HelperDeprecated
 {
     /** @var    string  The log table name for deprecated */
-    public const DEPRECATED_LOG_TABLE = 'dcDeprecated';
+    public const DEPRECATED_LOG_TABLE = 'deprecated';
 
     /** @var    int     Logs limit in table */
     public const DEPRECATED_PURGE_LIMIT = 200;

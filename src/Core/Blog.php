@@ -17,7 +17,6 @@ use ArrayObject;
 use dcCategories;
 use dcTraitDynamicProperties;
 use dcSettings;
-use dcUtils;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -546,7 +545,7 @@ class Blog implements BlogInterface
      */
     public function triggerComments($ids, bool $del = false, $affected_posts = null): void
     {
-        $comments_ids = dcUtils::cleanIds($ids);
+        $comments_ids = Utils::cleanIds($ids);
 
         // Get posts affected by comments edition
         if (empty($affected_posts)) {
@@ -1878,7 +1877,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
-        $posts_ids = dcUtils::cleanIds($ids);
+        $posts_ids = Utils::cleanIds($ids);
         $status    = (int) $status;
 
         $sql = new UpdateStatement();
@@ -1921,7 +1920,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
-        $posts_ids = dcUtils::cleanIds($ids);
+        $posts_ids = Utils::cleanIds($ids);
         $status    = (int) $status;
 
         $sql = new UpdateStatement();
@@ -1975,7 +1974,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry category'));
         }
 
-        $posts_ids = dcUtils::cleanIds($ids);
+        $posts_ids = Utils::cleanIds($ids);
         $selected  = (bool) $selected;
 
         $sql = new UpdateStatement();
@@ -2027,7 +2026,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry category'));
         }
 
-        $posts_ids = dcUtils::cleanIds($ids);
+        $posts_ids = Utils::cleanIds($ids);
         $cat_id    = (int) $cat_id;
 
         $sql = new UpdateStatement();
@@ -2111,7 +2110,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to delete entries'));
         }
 
-        $posts_ids = dcUtils::cleanIds($ids);
+        $posts_ids = Utils::cleanIds($ids);
 
         if (empty($posts_ids)) {
             throw new Exception(__('No such entry ID'));
@@ -2200,7 +2199,7 @@ class Blog implements BlogInterface
     public function firstPublicationEntries($ids): void
     {
         $posts = $this->getPosts([
-            'post_id'       => dcUtils::cleanIds($ids),
+            'post_id'       => Utils::cleanIds($ids),
             'post_status'   => self::POST_PUBLISHED,
             'post_firstpub' => 0,
         ]);
@@ -2930,7 +2929,7 @@ class Blog implements BlogInterface
             throw new Exception(__("You are not allowed to change this comment's status"));
         }
 
-        $co_ids = dcUtils::cleanIds($ids);
+        $co_ids = Utils::cleanIds($ids);
         $status = (int) $status;
 
         $sql = new UpdateStatement();
@@ -2983,7 +2982,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to delete comments'));
         }
 
-        $co_ids = dcUtils::cleanIds($ids);
+        $co_ids = Utils::cleanIds($ids);
 
         if (empty($co_ids)) {
             throw new Exception(__('No such comment ID'));

@@ -17,8 +17,8 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Autoloader;
-use dcDeprecated;
 use Dotclear\App;
+use Dotclear\Core\Deprecated;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -597,7 +597,7 @@ class ModulesList
      */
     public function setModules(array $modules): ModulesList
     {
-        dcDeprecated::set('adminModulesList::setDefines()', '2.26');
+        Deprecated::set('adminModulesList::setDefines()', '2.26');
 
         $defines = [];
         foreach ($modules as $id => $module) {
@@ -620,7 +620,7 @@ class ModulesList
      */
     public function getModules(): array
     {
-        dcDeprecated::set('adminModulesList::getDefines()', '2.26');
+        Deprecated::set('adminModulesList::getDefines()', '2.26');
 
         $res = [];
         foreach ($this->defines as $define) {
@@ -671,7 +671,7 @@ class ModulesList
      */
     public static function sanitizeModule(string $id, array $module): array
     {
-        dcDeprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
+        Deprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
 
         $define = new ModuleDefine($id);
         self::fillSanitizeModule($define, $module);
@@ -695,7 +695,7 @@ class ModulesList
      */
     public function doSanitizeModule(string $id, array $module): array
     {
-        dcDeprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
+        Deprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
 
         $define = $this->modules->getDefine($id);
         self::fillSanitizeModule($define, $module);
@@ -714,7 +714,7 @@ class ModulesList
      */
     public static function isDistributedModule(string $id): bool
     {
-        dcDeprecated::set('Modules::getDefine($id)->distributed', '2.26');
+        Deprecated::set('Modules::getDefine($id)->distributed', '2.26');
 
         return in_array($id, self::$distributed_modules);
     }
@@ -732,7 +732,7 @@ class ModulesList
      */
     public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
-        dcDeprecated::set('uasort()', '2.26');
+        Deprecated::set('uasort()', '2.26');
 
         $origin = $sorter = $final = [];
 

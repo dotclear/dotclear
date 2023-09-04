@@ -15,8 +15,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcDeprecated;
-use dcUtils;
+use Dotclear\Core\Deprecated;
+use Dotclear\Core\Utils;
 use Exception;
 use SimpleXMLElement;
 
@@ -92,7 +92,7 @@ class StoreParser
             $define->set('tags', implode(', ', $tags));
 
             # First filter right now. If DC_DEV is set all modules are parse
-            if (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare(DC_VERSION, $define->get('dc_min'), '>=', false)) {
+            if (defined('DC_DEV') && DC_DEV === true || Utils::versionsCompare(DC_VERSION, $define->get('dc_min'), '>=', false)) {
                 $this->defines[] = $define;
             }
         }
@@ -117,7 +117,7 @@ class StoreParser
      */
     public function getModules(): array
     {
-        dcDeprecated::set(self::class . '::getDefines()', '2.26');
+        Deprecated::set(self::class . '::getDefines()', '2.26');
 
         // fill property once on demand
         if (empty($this->items) && !empty($this->defines)) {

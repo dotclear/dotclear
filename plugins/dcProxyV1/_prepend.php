@@ -180,6 +180,7 @@ dcProxyV1::classAliases([
 
     'dcAuth'         => 'Dotclear\Core\Auth',
     'dcBlog'         => 'Dotclear\Core\Blog',
+    'dcDeprecated'   => 'Dotclear\Core\dcDeprecated',
     'dcError'        => 'Dotclear\Core\Error',
     'dcLog'          => 'Dotclear\Core\Log',
     'dcMedia'        => 'Dotclear\Core\Media',
@@ -196,6 +197,9 @@ dcProxyV1::classAliases([
     'dcStoreParser'  => 'Dotclear\Module\StoreParser',
     'dcStoreReader'  => 'Dotclear\Module\StoreReader',
     'dcThemes'       => 'Dotclear\Module\Themes',
+    'dcUpdate'       => 'Dotclear\Core\Update',
+    'dcUtils'        => 'Dotclear\Core\Utils',
+    'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
 
     // Core admin -----------------
 

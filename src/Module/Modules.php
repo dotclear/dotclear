@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Autoloader;
-use dcDeprecated;
-use dcUtils;
 use Dotclear\App;
+use Dotclear\Core\Deprecated;
+use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -712,7 +712,7 @@ class Modules implements ModulesInterface
                     unlink($zip_file);
 
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
-                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || Utils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
@@ -891,7 +891,7 @@ class Modules implements ModulesInterface
 
     public function getModules(?string $id = null): array
     {
-        dcDeprecated::set(self::class . '::getDefines()', '2.26');
+        Deprecated::set(self::class . '::getDefines()', '2.26');
 
         $modules = $this->getDefines(['state' => $this->safe_mode ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED], true);
 
@@ -900,7 +900,7 @@ class Modules implements ModulesInterface
 
     public function getAnyModules(?string $id = null): array
     {
-        dcDeprecated::set(self::class . '::getDefines()', '2.26');
+        Deprecated::set(self::class . '::getDefines()', '2.26');
 
         $modules = $this->getDefines([], true);
 
@@ -914,28 +914,28 @@ class Modules implements ModulesInterface
 
     public function getDisabledModules(): array
     {
-        dcDeprecated::set(self::class . '::getDefines()', '2.26');
+        Deprecated::set(self::class . '::getDefines()', '2.26');
 
         return $this->getDefines(['state' => '!' . ModuleDefine::STATE_ENABLED], true);
     }
 
     public function getHardDisabledModules(): array
     {
-        dcDeprecated::set(self::class . '::getDefines()', '2.26');
+        Deprecated::set(self::class . '::getDefines()', '2.26');
 
         return $this->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED], true);
     }
 
     public function getSoftDisabledModules(): array
     {
-        dcDeprecated::set(self::class . '::getDefines()', '2.26');
+        Deprecated::set(self::class . '::getDefines()', '2.26');
 
         return $this->getDefines(['state' => ModuleDefine::STATE_SOFT_DISABLED], true);
     }
 
     public function moduleRoot(string $id): ?string
     {
-        dcDeprecated::set(self::class . '::moduleInfo()', '2.26');
+        Deprecated::set(self::class . '::moduleInfo()', '2.26');
 
         return $this->moduleInfo($id, 'root');
     }
@@ -947,7 +947,7 @@ class Modules implements ModulesInterface
 
     public function loadNsFiles(?string $ns = null): void
     {
-        dcDeprecated::set('nothing', '2.27');
+        Deprecated::set('nothing', '2.27');
 
         foreach ($this->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $module) {
             $this->loadNsFile($module->getId(), $ns);

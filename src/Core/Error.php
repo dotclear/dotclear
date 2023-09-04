@@ -54,6 +54,8 @@ class Error implements ErrorInterface
      */
     public function toHTML(bool $reset = true): string
     {
+        Deprecated::set('', '2.28');
+
         $res = '';
 
         if ($this->flag) {

@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Frontend;
 
-use dcDeprecated;
 use Dotclear\App;
+use Dotclear\Core\Deprecated;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
 use Dotclear\Helper\File\Path;
@@ -155,7 +155,7 @@ class Ctx
      */
     public static function global_filter($str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
     {
-        dcDeprecated::set('Ctx::global_filters()', '2.11');
+        Deprecated::set('Ctx::global_filters()', '2.11');
 
         return self::global_filters(
             $str,

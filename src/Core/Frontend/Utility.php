@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Core\Frontend;
 
 use dcCore;
-use dcUtils;
 use dcTraitDynamicProperties;
 use Dotclear\App;
+use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
@@ -211,7 +211,7 @@ class Utility extends Process
         L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('public', App::lang());
+        Utils::setlexicalLang('public', App::lang());
 
         # Loading plugins
         try {

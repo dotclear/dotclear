@@ -9,6 +9,7 @@
 
 use Dotclear\App;
 use Dotclear\Core\Frontend\Ctx;
+use Dotclear\Core\Utils;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\BlogInterface;
@@ -33,10 +34,10 @@ class rsExtendPublic
     public static function publicHeadContent()
     {
         if (!App::blog()->settings()->system->no_public_css) {
-            echo dcUtils::cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
+            echo Utils::cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
         }
         if (App::blog()->settings()->system->use_smilies) {
-            echo dcUtils::cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
+            echo Utils::cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
         }
     }
 

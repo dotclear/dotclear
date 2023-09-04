@@ -21,9 +21,9 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use dcNamespace;
-use dcUtils;
 use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\Utils;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
@@ -262,7 +262,7 @@ abstract class MyModule
             $version = App::version()->getVersion(self::id());
         }
 
-        return dcUtils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
+        return Utils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
     }
 
     /**
@@ -289,7 +289,7 @@ abstract class MyModule
             $version = App::version()->getVersion(self::id());
         }
 
-        return dcUtils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
+        return Utils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
     }
 
     /**

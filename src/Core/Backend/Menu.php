@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcUtils;
+use Dotclear\Core\Utils;
 
 class Menu
 {
@@ -120,7 +120,7 @@ class Menu
 
         // 2. Display unpinned items (sorted)
         $items = $this->items;
-        dcUtils::lexicalKeySort($items, dcUtils::ADMIN_LOCALE);
+        Utils::lexicalKeySort($items, Utils::ADMIN_LOCALE);
         foreach ($items as $item) {
             $res .= $item . "\n";
         }

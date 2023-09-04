@@ -1,19 +1,25 @@
 <?php
 /**
+ * Core update helper.
+ *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Network\HttpClient;
+use Exception;
+use SimpleXMLElement;
 
-class dcUpdate
+class Update
 {
     // Constants
 
@@ -86,12 +92,12 @@ class dcUpdate
     protected $bad_files = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string $url           Versions file URL
-     * @param string $subject       Subject to check
-     * @param string $version       Version channel
-     * @param string $cache_dir     Directory cache path
+     * @param   string  $url        Versions file URL
+     * @param   string  $subject    Subject to check
+     * @param   string  $version    Version channel
+     * @param   string  $cache_dir  Directory cache path
      */
     public function __construct(string $url, string $subject, string $version, string $cache_dir)
     {
@@ -103,14 +109,15 @@ class dcUpdate
 
     /**
      * Checks for Dotclear updates.
+     *
      * Returns latest version if available or false.
      *
      * @param   string  $version    Current version to compare
      * @param   bool    $nocache    Force checking
      *
-     * @return  mixed   Latest version if available
+     * @return  false|string    Latest version if available
      */
-    public function check(string $version, bool $nocache = false)
+    public function check(string $version, bool $nocache = false): bool|string
     {
         $this->getVersionInfo($nocache);
         $v = $this->getVersion();
@@ -124,13 +131,13 @@ class dcUpdate
     /**
      * Gets the version information.
      *
-     * @param      bool       $nocache  The no cache flag
+     * @param   bool    $nocache    The no cache flag
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     mixed
+     * @return  null|HttpClient
      */
-    public function getVersionInfo(bool $nocache = false)
+    public function getVersionInfo(bool $nocache = false): ?HttpClient
     {
         # Check cached file
         if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl) && !$nocache) {
@@ -139,7 +146,7 @@ class dcUpdate
             if (is_array($c)) {
                 $this->version_info = $c;
 
-                return;
+                return null;
             }
         }
 
@@ -150,14 +157,14 @@ class dcUpdate
 
         # If we can't write file, don't bug host with queries
         if (!$can_write) {
-            return;
+            return null;
         }
 
         if (!is_dir($cache_dir)) {
             try {
                 Files::makeDir($cache_dir);
             } catch (Exception $e) {
-                return;
+                return null;
             }
         }
 
@@ -193,17 +200,19 @@ class dcUpdate
             }
             $this->readVersion($client->getContent());
         } catch (Exception $e) {
-            return;
+            return null;
         }
 
         # Create cache
         file_put_contents($this->cache_file, serialize($this->version_info));
+
+        return null;
     }
 
     /**
      * Gets the version.
      *
-     * @return     string|null  The version.
+     * @return  string|null     The version.
      */
     public function getVersion(): ?string
     {
@@ -213,7 +222,7 @@ class dcUpdate
     /**
      * Gets the file url.
      *
-     * @return     string|null  The file url.
+     * @return  string|null     The file url.
      */
     public function getFileURL(): ?string
     {
@@ -283,9 +292,9 @@ class dcUpdate
     /**
      * Sets the forced files.
      *
-     * @param      mixed  ...$args  The arguments
+     * @param   mixed   ...$args    The arguments
      */
-    public function setForcedFiles(...$args)
+    public function setForcedFiles(...$args): void
     {
         $this->forced_files = $args;
     }
@@ -293,9 +302,9 @@ class dcUpdate
     /**
      * Sets the notify flag.
      *
-     * @param      mixed  $n      The new value
+     * @param   mixed   $n  The new value
      */
-    public function setNotify($n)
+    public function setNotify($n): void
     {
         if (!is_writable($this->cache_file)) {
             return;
@@ -306,14 +315,14 @@ class dcUpdate
     }
 
     /**
-     * Check integrity
+     * Check integrity.
      *
-     * @param      string     $digests_file  The digests file
-     * @param      string     $root          The root
+     * @param   string  $digests_file    The digests file
+     * @param   string  $root           The root
      *
-     * @throws     Exception    If some files have changed
+     * @throws  Exception   If some files have changed
      *
-     * @return     bool
+     * @return  bool
      */
     public function checkIntegrity(string $digests_file, string $root): bool
     {
@@ -336,7 +345,7 @@ class dcUpdate
     /**
      * Gets the bad files.
      *
-     * @return     array  The bad files.
+     * @return  array   The bad files.
      */
     public function getBadFiles(): array
     {
@@ -346,9 +355,9 @@ class dcUpdate
     /**
      * Downloads new version to destination.
      *
-     * @param      string     $dest   The destination
+     * @param   string  $dest   The destination
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function download(string $dest): void
     {
@@ -402,11 +411,11 @@ class dcUpdate
     }
 
     /**
-     * Check downloaded file
+     * Check downloaded file.
      *
-     * @param      string  $zip    The zip
+     * @param   string  $zip    The zip
      *
-     * @return     bool
+     * @return  bool
      */
     public function checkDownload(string $zip): bool
     {
@@ -418,15 +427,15 @@ class dcUpdate
     /**
      * Backups changed files before an update.
      *
-     * @param      string     $zip_file      The zip file
-     * @param      string     $zip_digests   The zip digests
-     * @param      string     $root          The root
-     * @param      string     $root_digests  The root digests
-     * @param      string     $dest          The destination
+     * @param   string  $zip_file       The zip file
+     * @param   string  $zip_digests    The zip digests
+     * @param   string  $root           The root
+     * @param   string  $root_digests   The root digests
+     * @param   string  $dest           The destination
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool
+     * @return  bool
      */
     public function backup(string $zip_file, string $zip_digests, string $root, string $root_digests, string $dest): bool
     {
@@ -506,13 +515,13 @@ class dcUpdate
     /**
      * Performs an upgrade.
      *
-     * @param      string     $zip_file      The zip file
-     * @param      string     $zip_digests   The zip digests
-     * @param      string     $zip_root      The zip root
-     * @param      string     $root          The root
-     * @param      string     $root_digests  The root digests
+     * @param   string  $zip_file       The zip file
+     * @param   string  $zip_digests    The zip digests
+     * @param   string  $zip_root       The zip root
+     * @param   string  $root           The root
+     * @param   string  $root_digests   The root digests
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function performUpgrade(string $zip_file, string $zip_digests, string $zip_root, string $root, string $root_digests): void
     {
@@ -599,10 +608,10 @@ class dcUpdate
     /**
      * Gets the new files.
      *
-     * @param      array  $cur_digests  The current digests
-     * @param      array  $new_digests  The new digests
+     * @param   array   $cur_digests    The current digests
+     * @param   array   $new_digests    The new digests
      *
-     * @return     array  The new files.
+     * @return  array   The new files.
      */
     protected function getNewFiles(array $cur_digests, array $new_digests): array
     {
@@ -623,7 +632,7 @@ class dcUpdate
     /**
      * Reads a version information from string.
      *
-     * @param      string  $str    The string
+     * @param   string  $str    The string
      */
     protected function readVersion(string $str): void
     {
@@ -646,14 +655,14 @@ class dcUpdate
     }
 
     /**
-     * Return list of changed files
+     * Return list of changed files.
      *
-     * @param      string     $root          The root
-     * @param      string     $digests_file  The digests file
+     * @param   string  $root           The root
+     * @param   string  $digests_file   The digests file
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     array
+     * @return  array<int,string>
      */
     protected function md5sum(string $root, string $digests_file): array
     {
@@ -689,13 +698,13 @@ class dcUpdate
     }
 
     /**
-     * Parse digests file line
+     * Parse digests file line.
      *
-     * @param      mixed     $v     The value
-     * @param      mixed     $k     The key/index
-     * @param      mixed     $n     array_walk() 3rd arg
+     * @param   mixed   $v  The value
+     * @param   mixed   $k  The key/index
+     * @param   mixed   $n  array_walk() 3rd arg
      */
-    protected function parseLine(&$v, $k, $n)
+    protected function parseLine(&$v, $k, $n): void
     {
         if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $v, $m)) {
             return;
@@ -705,12 +714,12 @@ class dcUpdate
     }
 
     /**
-     * Check the MD5 of a file
+     * Check the MD5 of a file.
      *
-     * @param      string  $filename  The filename
-     * @param      string  $md5       The MD5 checksum
+     * @param   string  $filename   The filename
+     * @param   string  $md5        The MD5 checksum
      *
-     * @return     bool
+     * @return  bool
      */
     protected static function md5_check(string $filename, string $md5): bool
     {

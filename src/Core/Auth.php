@@ -16,7 +16,6 @@ namespace Dotclear\Core;
 
 use dcCore;
 use dcPrefs;
-use dcUtils;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\SelectStatement;
@@ -313,7 +312,7 @@ class Auth implements AuthInterface
         $this->user_info['user_creadt']       = $rs->user_creadt;
         $this->user_info['user_upddt']        = $rs->user_upddt;
 
-        $this->user_info['user_cn'] = dcUtils::getUserCN(
+        $this->user_info['user_cn'] = Utils::getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,

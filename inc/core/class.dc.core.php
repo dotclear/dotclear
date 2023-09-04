@@ -19,9 +19,10 @@ use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
-use Dotclear\Core\Install\Utils;
+use Dotclear\Core\Install\Utils as InstallUtils;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Session;
+use Dotclear\Core\Utils;
 use Dotclear\Core\Version;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -1285,7 +1286,7 @@ final class dcCore
      */
     public function blogDefaults(?array $defaults = null): void
     {
-        Utils::blogDefaults($defaults);
+        InstallUtils::blogDefaults($defaults);
     }
 
     /**
@@ -1324,11 +1325,11 @@ final class dcCore
     /**
      * Empty templates cache directory.
      *
-     * @deprecated since 2.28, use dcUtils::emptyTemplatesCache() instead
+     * @deprecated since 2.28, use Utils::emptyTemplatesCache() instead
      */
     public function emptyTemplatesCache(): void
     {
-        dcUtils::emptyTemplatesCache();
+        Utils::emptyTemplatesCache();
     }
 
     /**

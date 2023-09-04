@@ -14,10 +14,10 @@ namespace Dotclear\Process\Backend;
 
 use dcCategories;
 use dcCore;
-use dcUpdate;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Core\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
@@ -163,7 +163,7 @@ class Rest extends Process
         ];
 
         if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !App::auth()->prefs()->dashboard->nodcupdate) {
-            $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
+            $updater      = new Update(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);
             $version_info = $new_v ? $updater->getInfoURL() : '';
 
