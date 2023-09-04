@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
-use Exception;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\App;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Trackback;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use initBlogroll;
+use Exception;
 use form;
 
 class ModuleImportWp extends Module
