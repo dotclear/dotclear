@@ -181,6 +181,7 @@ dcProxyV1::classAliases([
     'dcAuth'         => 'Dotclear\Core\Auth',
     'dcBlog'         => 'Dotclear\Core\Blog',
     'dcError'        => 'Dotclear\Core\Error',
+    'dcLog'          => 'Dotclear\Core\Log',
     'dcMedia'        => 'Dotclear\Core\Media',
     'dcMeta'         => 'Dotclear\Core\Meta',
     'dcModuleDefine' => 'Dotclear\Module\ModuleDefine',
