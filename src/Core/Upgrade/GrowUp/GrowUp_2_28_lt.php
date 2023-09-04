@@ -28,6 +28,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.auth.php',
                 'inc/core/class.dc.blog.php',
                 'inc/core/class.dc.error.php',
+                'inc/core/class.dc.log.php',
                 'inc/core/class.dc.media.php',
                 'inc/core/class.dc.meta.php',
                 'inc/core/class.dc.module.define.php',
