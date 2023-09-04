@@ -48,7 +48,7 @@ class Trackback
      *
      * @return  Cursor  The ping database table cursor
      */
-    public function openPingCursor(): Cursor
+    public static function openTrackbackCursor(): Cursor
     {
         return App::con()->openCursor(App::con()->prefix() . self::PING_TABLE_NAME);
     }
@@ -178,7 +178,7 @@ class Trackback
             throw new Exception(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
         }
         # Notify ping result in database
-        $cur           = $this->openPingCursor();
+        $cur           = $this->openTrackbackCursor();
         $cur->post_id  = $post_id;
         $cur->ping_url = $url;
         $cur->ping_dt  = date('Y-m-d H:i:s');

@@ -689,7 +689,7 @@ class ModuleImportDc1 extends Module
                 continue;
             }
 
-            $cur           = $this->con->openCursor($this->prefix . Trackback::PING_TABLE_NAME);
+            $cur           = Trackback::openTrackbackCursor();
             $cur->post_id  = (int) $new_post_id;
             $cur->ping_url = $url;
             $cur->ping_dt  = $rs->ping_dt;

@@ -143,7 +143,7 @@ class Categories
 
         if (is_array($data)) {
             $D    = $data;
-            $data = App::con()->openCursor($this->table);
+            $data = $this->openCategoryCursor();
             foreach ($D as $k => $v) {
                 $data->{$k} = $v;
             }
