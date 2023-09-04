@@ -33,7 +33,6 @@ $__autoload = [
     'dcNamespace'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.namespace.php']),
     'dcSettings'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.settings.php']),
     'dcTrackback'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.trackback.php']),
-    'dcUpdate'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.update.php']),
     'dcXmlRpc'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.xmlrpc.php']),
     'rsExtLog'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'lib.rs.ext.log.php']),
     'dcWorkspace'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.workspace.php']),

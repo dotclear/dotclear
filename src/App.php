@@ -199,7 +199,6 @@ namespace Dotclear {
                 'dcNamespace'    => $inc('core', 'class.dc.namespace.php'),
                 'dcSettings'     => $inc('core', 'class.dc.settings.php'),
                 'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
-                'dcUpdate'       => $inc('core', 'class.dc.update.php'),
                 'dcXmlRpc'       => $inc('core', 'class.dc.xmlrpc.php'),
                 'rsExtLog'       => $inc('core', 'lib.rs.ext.log.php'),
                 'dcWorkspace'    => $inc('core', 'class.dc.workspace.php'),
