@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -27,9 +26,9 @@ class Blogs implements BlogsInterface
     public function getAllBlogStatus(): array
     {
         return [
-            dcBlog::BLOG_ONLINE  => __('online'),
-            dcBlog::BLOG_OFFLINE => __('offline'),
-            dcBlog::BLOG_REMOVED => __('removed'),
+            App::blog()::BLOG_ONLINE  => __('online'),
+            App::blog()::BLOG_OFFLINE => __('offline'),
+            App::blog()::BLOG_REMOVED => __('removed'),
         ];
     }
 
@@ -113,7 +112,7 @@ class Blogs implements BlogsInterface
 
         if ($count_only) {
             $strReq = 'SELECT count(B.blog_id) ' .
-            'FROM ' . App::con()->prefix() . dcBlog::BLOG_TABLE_NAME . ' B ' .
+            'FROM ' . App::con()->prefix() . App::blog()::BLOG_TABLE_NAME . ' B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -129,7 +128,7 @@ class Blogs implements BlogsInterface
                 }
                 $strReq .= ' ';
             }
-            $strReq .= 'FROM ' . App::con()->prefix() . dcBlog::BLOG_TABLE_NAME . ' B ' .
+            $strReq .= 'FROM ' . App::con()->prefix() . App::blog()::BLOG_TABLE_NAME . ' B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -149,9 +148,9 @@ class Blogs implements BlogsInterface
             $join  = 'INNER JOIN ' . App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
             $where = "AND PE.user_id = '" . App::con()->escape(App::auth()->userID()) . "' " .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                'AND blog_status IN (' . (string) dcBlog::BLOG_ONLINE . ',' . (string) dcBlog::BLOG_OFFLINE . ') ';
+                'AND blog_status IN (' . (string) App::blog()::BLOG_ONLINE . ',' . (string) App::blog()::BLOG_OFFLINE . ') ';
         } elseif (!App::auth()->userID()) {
-            $where = 'AND blog_status IN (' . (string) dcBlog::BLOG_ONLINE . ',' . (string) dcBlog::BLOG_OFFLINE . ') ';
+            $where = 'AND blog_status IN (' . (string) App::blog()::BLOG_ONLINE . ',' . (string) App::blog()::BLOG_OFFLINE . ') ';
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && App::auth()->isSuperAdmin()) {
@@ -227,7 +226,7 @@ class Blogs implements BlogsInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME)
+            ->from(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->delete();
     }
@@ -237,7 +236,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $rs  = $sql
             ->column('blog_id')
-            ->from(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME)
+            ->from(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->select();
 
@@ -249,7 +248,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('post_id'))
-            ->from(App::con()->prefix() . dcBlog::POST_TABLE_NAME)
+            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id));
 
         if ($type) {

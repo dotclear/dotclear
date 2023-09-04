@@ -111,9 +111,9 @@ class ActionsComments extends Actions
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
-                    __('Comments')                      => App::backend()->url->get('admin.comments'),
-                    __('Comments actions')              => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
+                    __('Comments')                        => App::backend()->url->get('admin.comments'),
+                    __('Comments actions')                => '',
                 ]
             )
         );

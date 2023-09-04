@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -50,34 +49,34 @@ class ListingPosts extends Listing
             if ($filter) {
                 $html_block .= '<caption>' . sprintf(__('List of %s entries matching the filter.'), $this->rs_count) . '</caption>';
             } else {
-                $nb_published   = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_PUBLISHED], true)->f(0);
-                $nb_pending     = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_PENDING], true)->f(0);
-                $nb_programmed  = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_SCHEDULED], true)->f(0);
-                $nb_unpublished = (int) App::blog()->getPosts(['post_status' => dcBlog::POST_UNPUBLISHED], true)->f(0);
+                $nb_published   = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_PUBLISHED], true)->f(0);
+                $nb_pending     = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_PENDING], true)->f(0);
+                $nb_programmed  = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_SCHEDULED], true)->f(0);
+                $nb_unpublished = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of entries (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_PUBLISHED]),
+                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_PENDING]),
+                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_programmed ?
                     sprintf(
                         __(', <a href="%s">programmed</a> (1)', ', <a href="%s">programmed</a> (%s)', $nb_programmed),
-                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_SCHEDULED]),
+                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_SCHEDULED]),
                         $nb_programmed
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        App::backend()->url->get('admin.posts', ['status' => dcBlog::POST_UNPUBLISHED]),
+                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -146,7 +145,7 @@ class ListingPosts extends Listing
     {
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $cat_link = '<a href="' . App::backend()->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
             $cat_link = '%2$s';
@@ -166,22 +165,22 @@ class ListingPosts extends Listing
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {
-            case dcBlog::POST_PUBLISHED:
+            case App::blog()::POST_PUBLISHED:
                 $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
                 $sts_class  = 'sts-online';
 
                 break;
-            case dcBlog::POST_UNPUBLISHED:
+            case App::blog()::POST_UNPUBLISHED:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
                 $sts_class  = 'sts-offline';
 
                 break;
-            case dcBlog::POST_SCHEDULED:
+            case App::blog()::POST_SCHEDULED:
                 $img_status = sprintf($img, __('Scheduled'), 'scheduled.png', 'scheduled');
                 $sts_class  = 'sts-scheduled';
 
                 break;
-            case dcBlog::POST_PENDING:
+            case App::blog()::POST_PENDING:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                 $sts_class  = 'sts-pending';
 
@@ -205,7 +204,7 @@ class ListingPosts extends Listing
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png', 'attach');
         }
 
-        $res = '<tr class="line ' . ($this->rs->post_status != dcBlog::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
+        $res = '<tr class="line ' . ($this->rs->post_status != App::blog()::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [

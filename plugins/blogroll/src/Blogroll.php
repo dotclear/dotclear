@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Core\BlogInterface;
 use initBlogroll;
 
 class Blogroll extends initBlogroll
@@ -23,7 +23,7 @@ class Blogroll extends initBlogroll
     /**
      * Current blog
      *
-     * @var        dcBlog
+     * @var        BlogInterface
      */
     private $blog;
 
@@ -35,9 +35,9 @@ class Blogroll extends initBlogroll
     /**
      * Constructs a new instance.
      *
-     * @param      dcBlog  $blog   The blog
+     * @param      BlogInterface    $blog   The blog
      */
-    public function __construct(dcBlog $blog)
+    public function __construct(BlogInterface $blog)
     {
         $this->blog  = $blog;
         $this->table = App::con()->prefix() . self::LINK_TABLE_NAME;
@@ -55,7 +55,7 @@ class Blogroll extends initBlogroll
         $strReq = 'SELECT link_id, link_title, link_desc, link_href, ' .
         'link_lang, link_xfn, link_position ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . $this->blog->con->escape($this->blog->id) . "' ";
+        "WHERE blog_id = '" . App::con()->escape($this->blog->id()) . "' ";
 
         if (isset($params['link_id'])) {
             $strReq .= 'AND link_id = ' . (int) $params['link_id'] . ' ';
@@ -63,7 +63,7 @@ class Blogroll extends initBlogroll
 
         $strReq .= 'ORDER BY link_position ';
 
-        $rs = new MetaRecord($this->blog->con->select($strReq));
+        $rs = new MetaRecord(App::con()->select($strReq));
         $rs = $rs->toStatic();
 
         $this->setLinksData($rs);
@@ -83,12 +83,12 @@ class Blogroll extends initBlogroll
         // Use post_lang as an alias of link_lang to be able to use the backend Combos::getLangsCombo() function
         $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . $this->blog->con->escape($this->blog->id) . "' " .
+        "WHERE blog_id = '" . App::con()->escape($this->blog->id()) . "' " .
             "AND link_lang <> '' " .
             'AND link_lang IS NOT NULL ';
 
         if (isset($params['lang'])) {
-            $strReq .= "AND link_lang = '" . $this->blog->con->escape($params['lang']) . "' ";
+            $strReq .= "AND link_lang = '" . App::con()->escape($params['lang']) . "' ";
         }
 
         $strReq .= 'GROUP BY link_lang ';
@@ -99,7 +99,7 @@ class Blogroll extends initBlogroll
         }
         $strReq .= 'ORDER BY link_lang ' . $order . ' ';
 
-        return new MetaRecord($this->blog->con->select($strReq));
+        return new MetaRecord(App::con()->select($strReq));
     }
 
     /**
@@ -127,9 +127,9 @@ class Blogroll extends initBlogroll
      */
     public function addLink(string $title, string $href, string $desc = '', string $lang = '', string $xfn = ''): void
     {
-        $cur = $this->blog->con->openCursor($this->table);
+        $cur = App::con()->openCursor($this->table);
 
-        $cur->blog_id    = (string) $this->blog->id;
+        $cur->blog_id    = (string) $this->blog->id();
         $cur->link_title = $title;
         $cur->link_href  = $href;
         $cur->link_desc  = $desc;
@@ -145,7 +145,7 @@ class Blogroll extends initBlogroll
         }
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = new MetaRecord($this->blog->con->select($strReq));
+        $rs           = new MetaRecord(App::con()->select($strReq));
         $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
@@ -166,7 +166,7 @@ class Blogroll extends initBlogroll
      */
     public function updateLink(string $id, string $title, string $href, string $desc = '', string $lang = '', string $xfn = ''): void
     {
-        $cur = $this->blog->con->openCursor($this->table);
+        $cur = App::con()->openCursor($this->table);
 
         $cur->link_title = (string) $title;
         $cur->link_href  = (string) $href;
@@ -183,7 +183,7 @@ class Blogroll extends initBlogroll
         }
 
         $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . $this->blog->con->escape($this->blog->id) . "'");
+            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
         $this->blog->triggerBlog();
     }
 
@@ -197,7 +197,7 @@ class Blogroll extends initBlogroll
      */
     public function updateCategory(string $id, string $desc): void
     {
-        $cur = $this->blog->con->openCursor($this->table);
+        $cur = App::con()->openCursor($this->table);
 
         $cur->link_desc = $desc;
 
@@ -206,7 +206,7 @@ class Blogroll extends initBlogroll
         }
 
         $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . $this->blog->con->escape($this->blog->id) . "'");
+            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
         $this->blog->triggerBlog();
     }
 
@@ -221,9 +221,9 @@ class Blogroll extends initBlogroll
      */
     public function addCategory(string $title): int
     {
-        $cur = $this->blog->con->openCursor($this->table);
+        $cur = App::con()->openCursor($this->table);
 
-        $cur->blog_id    = (string) $this->blog->id;
+        $cur->blog_id    = (string) $this->blog->id();
         $cur->link_desc  = (string) $title;
         $cur->link_href  = '';
         $cur->link_title = '';
@@ -233,7 +233,7 @@ class Blogroll extends initBlogroll
         }
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = new MetaRecord($this->blog->con->select($strReq));
+        $rs           = new MetaRecord(App::con()->select($strReq));
         $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
@@ -252,10 +252,10 @@ class Blogroll extends initBlogroll
         $id = (int) $id;
 
         $strReq = 'DELETE FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . $this->blog->con->escape($this->blog->id) . "' " .
+        "WHERE blog_id = '" . App::con()->escape($this->blog->id()) . "' " .
             'AND link_id = ' . $id . ' ';
 
-        $this->blog->con->execute($strReq);
+        App::con()->execute($strReq);
         $this->blog->triggerBlog();
     }
 
@@ -267,11 +267,11 @@ class Blogroll extends initBlogroll
      */
     public function updateOrder(string $id, string $position): void
     {
-        $cur                = $this->blog->con->openCursor($this->table);
+        $cur                = App::con()->openCursor($this->table);
         $cur->link_position = (int) $position;
 
         $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . $this->blog->con->escape($this->blog->id) . "'");
+            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
         $this->blog->triggerBlog();
     }
 

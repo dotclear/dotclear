@@ -355,7 +355,7 @@ class dcUtils
                 // Set locale with user prefs
                 self::ADMIN_LOCALE => setlocale(LC_COLLATE, App::auth()->getInfo('user_lang')),
                 // Set locale with blog params
-                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, App::blog()->settings->system->lang),
+                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, App::blog()->settings()->system->lang),
                 // Set locale with arg
                 self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
             };

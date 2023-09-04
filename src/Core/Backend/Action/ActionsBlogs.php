@@ -111,9 +111,9 @@ class ActionsBlogs extends Actions
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
-                    __('Blogs')                         => App::backend()->url->get('admin.blogs'),
-                    __('Blogs actions')                 => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
+                    __('Blogs')                           => App::backend()->url->get('admin.blogs'),
+                    __('Blogs actions')                   => '',
                 ]
             )
         );

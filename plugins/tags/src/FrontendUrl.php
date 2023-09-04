@@ -111,10 +111,10 @@ class FrontendUrl extends Url
                 $tpl = $type;
                 if ($comments) {
                     $tpl .= '-comments';
-                    App::frontend()->ctx->nb_comment_per_page = App::blog()->settings->system->nb_comment_per_feed;
+                    App::frontend()->ctx->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
                 } else {
-                    App::frontend()->ctx->nb_entry_per_page = App::blog()->settings->system->nb_post_per_feed;
-                    App::frontend()->ctx->short_feed_items  = App::blog()->settings->system->short_feed_items;
+                    App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
+                    App::frontend()->ctx->short_feed_items  = App::blog()->settings()->system->short_feed_items;
                 }
                 $tpl .= '.xml';
 

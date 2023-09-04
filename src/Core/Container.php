@@ -18,6 +18,7 @@ namespace Dotclear\Core;
 use Dotclear\Factories;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
@@ -38,7 +39,6 @@ use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 // classes that move to \Dotclear\Core
-use dcBlog;
 use dcPlugins;
 use dcThemes;
 //
@@ -126,6 +126,7 @@ class Container
 
         return false;
     }
+
     //@}
 
     /// @name Core container methods
@@ -140,9 +141,9 @@ class Container
         return self::$instance->get('behavior');
     }
 
-    public static function blog(): ?dcBlog
+    public static function blog(): BlogInterface
     {
-        return self::$instance->get('blog', true);
+        return self::$instance->get('blog', reload: true);
     }
 
     public static function blogLoader(): BlogLoaderInterface

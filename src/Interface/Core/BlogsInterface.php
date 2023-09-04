@@ -21,7 +21,7 @@ interface BlogsInterface
     /**
      * Gets all blog status.
      *
-     * This SHOULD use blog status from dcBlog constante
+     * This SHOULD use blog status from Blog constante
      *
      * @return     array<int,string>    An array of available blog status codes and names.
      */

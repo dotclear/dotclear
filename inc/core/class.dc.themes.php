@@ -33,9 +33,9 @@ class dcThemes extends dcModules
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        if ($ns == 'admin' && !is_null(App::blog())) {
+        if ($ns == 'admin' && App::blog()->isDefined()) {
             // Load current theme Backend process (and its parent)
-            $this->loadNsFile((string) App::blog()->settings->system->theme, 'admin');
+            $this->loadNsFile((string) App::blog()->settings()->system->theme, 'admin');
         }
     }
 

@@ -233,7 +233,7 @@ class Maintenance
         }
 
         // Add new log
-        $cur = App::log()->openCursor();
+        $cur = App::log()->openLogCursor();
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';
@@ -288,7 +288,7 @@ class Maintenance
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == App::blog()->id,
+                    'blog' => $rs->blog_id == App::blog()->id(),
                 ];
             }
         }

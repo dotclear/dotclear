@@ -34,7 +34,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         $this->name = __('Database export');
         $this->task = __('Download database of current blog');
 
-        $this->export_name = Html::escapeHTML(App::blog()->id . '-backup.txt');
+        $this->export_name = Html::escapeHTML(App::blog()->id() . '-backup.txt');
         $this->export_type = 'export_blog';
     }
 

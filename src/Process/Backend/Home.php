@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
@@ -35,7 +34,7 @@ class Home extends Process
 
         if (!empty($_GET['default_blog'])) {
             try {
-                App::users()->setUserDefaultBlog(App::auth()->userID(), App::blog()->id);
+                App::users()->setUserDefaultBlog(App::auth()->userID(), App::blog()->id());
                 App::backend()->url->redirect('admin.home');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -154,7 +153,7 @@ class Home extends Process
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id)) {
+            ]), App::blog()->id())) {
                 $post_format = App::auth()->getOption('post_format');
                 $post_editor = App::auth()->getOption('editor');
                 if ($post_editor && !empty($post_editor[$post_format])) {
@@ -163,8 +162,8 @@ class Home extends Process
                 }
             }
             $quickentry = Page::jsJson('dotclear_quickentry', [
-                'post_published' => dcBlog::POST_PUBLISHED,
-                'post_pending'   => dcBlog::POST_PENDING,
+                'post_published' => App::blog()::POST_PUBLISHED,
+                'post_pending'   => App::blog()::POST_PENDING,
             ]);
         }
 
@@ -200,20 +199,20 @@ class Home extends Process
             App::behavior()->callBehavior('adminDashboardHeaders'),
             Page::breadcrumb(
                 [
-                    __('Dashboard') . ' : ' . Html::escapeHTML(App::blog()->name) => '',
+                    __('Dashboard') . ' : ' . Html::escapeHTML(App::blog()->name()) => '',
                 ],
                 ['home_link' => false]
             )
         );
 
-        if (App::auth()->getInfo('user_default_blog') != App::blog()->id && App::auth()->getBlogCount() > 1) {
+        if (App::auth()->getInfo('user_default_blog') != App::blog()->id() && App::auth()->getBlogCount() > 1) {
             echo
             '<p><a href="' . App::backend()->url->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
         }
 
-        if (App::blog()->status == dcBlog::BLOG_OFFLINE) {
+        if (App::blog()->status() == App::blog()::BLOG_OFFLINE) {
             Notices::message(__('This blog is offline'), false);
-        } elseif (App::blog()->status == dcBlog::BLOG_REMOVED) {
+        } elseif (App::blog()->status() == App::blog()::BLOG_REMOVED) {
             Notices::message(__('This blog is removed'), false);
         }
 
@@ -248,11 +247,11 @@ class Home extends Process
 
         // Check public directory
         if (App::auth()->isSuperAdmin()) {
-            if (!is_dir(App::blog()->public_path) || !is_writable(App::blog()->public_path)) {
+            if (!is_dir(App::blog()->publicPath()) || !is_writable(App::blog()->publicPath())) {
                 $err[] = __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).');
             }
         } else {
-            if (!is_dir(App::blog()->public_path) || !is_writable(App::blog()->public_path)) {
+            if (!is_dir(App::blog()->publicPath()) || !is_writable(App::blog()->publicPath())) {
                 $err[] = __('There is no writable root directory for the media manager. You should contact your administrator.');
             }
         }
@@ -413,7 +412,7 @@ class Home extends Process
         if (App::auth()->prefs()->dashboard->quickentry && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             // Quick entry
 
             // Get categories
@@ -439,7 +438,7 @@ class Home extends Process
                 form::combo('cat_id', $categories_combo) . '</p>' .
                 (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_CATEGORIES,
-                ]), App::blog()->id)
+                ]), App::blog()->id())
                     ? '<div>' .
                     '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
                     '<p class="q-cat"><label for="new_cat_title">' . __('Title:') . '</label> ' .
@@ -453,11 +452,11 @@ class Home extends Process
                 '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
                 (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_PUBLISH,
-                ]), App::blog()->id)
+                ]), App::blog()->id())
                     ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
                     : '') .
                 App::nonce()->getFormNonce() .
-                form::hidden('post_status', dcBlog::POST_PENDING) .
+                form::hidden('post_status', App::blog()::POST_PENDING) .
                 form::hidden('post_format', App::auth()->getOption('post_format')) .
                 form::hidden('post_excerpt', '') .
                 form::hidden('post_lang', App::auth()->getInfo('user_lang')) .

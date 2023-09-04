@@ -188,7 +188,7 @@ class Utility extends Process
         App::postTypes()->set(new PostType('post', urldecode(App::backend()->url->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
-        if (!(App::auth()->userID() && App::blog() !== null)) {
+        if (!(App::auth()->userID() && App::blog()->isDefined())) {
             return true;
         }
 
@@ -241,16 +241,16 @@ class Utility extends Process
             App::backend()->favs->appendMenu(App::backend()->menus);
         }
 
-        if (empty(App::blog()->settings->system->jquery_migrate_mute)) {
-            App::blog()->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
+        if (empty(App::blog()->settings()->system->jquery_migrate_mute)) {
+            App::blog()->settings()->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
         }
-        if (empty(App::blog()->settings->system->jquery_allow_old_version)) {
-            App::blog()->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
+        if (empty(App::blog()->settings()->system->jquery_allow_old_version)) {
+            App::blog()->settings()->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
         // Load themes
-        if (App::themes()->isEmpty() && !is_null(App::blog())) {
-            App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+        if (App::themes()->isEmpty()) {
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
 
             // deprecated Since 2.28, use App::themes()->menus instead
             dcCore::app()->themes = App::themes();

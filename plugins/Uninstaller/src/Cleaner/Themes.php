@@ -57,7 +57,7 @@ class Themes extends CleanerParent
 
     public function values(): array
     {
-        if (($path = App::blog()?->themes_path) === null) {
+        if (($path = App::blog()->themesPath()) == '') {
             return [];
         }
 
@@ -74,7 +74,7 @@ class Themes extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action != 'delete' || ($path = App::blog()?->themes_path) === null) {
+        if ($action != 'delete' || ($path = App::blog()->themesPath()) == '') {
             return false;
         }
 

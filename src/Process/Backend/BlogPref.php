@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcBlog;
 use dcSettings;
 use dcUtils;
 use Dotclear\Core\Backend\Combos;
@@ -52,12 +51,12 @@ class BlogPref extends Process
                 App::auth()::PERMISSION_ADMIN,
             ]));
 
-            $da->blog_id       = App::blog()->id;
-            $da->blog_status   = App::blog()->status;
-            $da->blog_name     = App::blog()->name;
-            $da->blog_desc     = App::blog()->desc;
-            $da->blog_settings = App::blog()->settings;
-            $da->blog_url      = App::blog()->url;
+            $da->blog_id       = App::blog()->id();
+            $da->blog_status   = App::blog()->status();
+            $da->blog_name     = App::blog()->name();
+            $da->blog_desc     = App::blog()->desc();
+            $da->blog_settings = App::blog()->settings();
+            $da->blog_url      = App::blog()->url();
 
             $da->action = App::backend()->url->get('admin.blog.pref');
             $da->redir  = App::backend()->url->get('admin.blog.pref');
@@ -65,7 +64,7 @@ class BlogPref extends Process
             Page::checkSuper();
 
             $da->blog_id       = false;
-            $da->blog_status   = dcBlog::BLOG_OFFLINE;
+            $da->blog_status   = App::blog()::BLOG_OFFLINE;
             $da->blog_name     = '';
             $da->blog_desc     = '';
             $da->blog_settings = null;
@@ -99,7 +98,7 @@ class BlogPref extends Process
         $da->lang_combo = Combos::getAdminLangsCombo();
 
         // Status combo
-        $da->status_combo = Combos::getBlogStatusescombo();
+        $da->status_combo = Combos::getBlogStatusesCombo();
 
         // Date format combo
         $da->now = time();
@@ -233,7 +232,7 @@ class BlogPref extends Process
             ]
         ), $da->blog_id)) {
             // Update a blog
-            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
+            $cur = App::blog()->openBlogCursor();
 
             $cur->blog_id   = $_POST['blog_id'];
             $cur->blog_url  = preg_replace('/\?+$/', '?', (string) $_POST['blog_url']);
@@ -306,7 +305,7 @@ class BlogPref extends Process
 
                 App::blogs()->updBlog($da->blog_id, $cur);
 
-                if (App::auth()->isSuperAdmin() && $cur->blog_status === dcBlog::BLOG_REMOVED) {
+                if (App::auth()->isSuperAdmin() && $cur->blog_status === App::blog()::BLOG_REMOVED) {
                     // Remove this blog from user default blog
                     App::users()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
@@ -315,10 +314,10 @@ class BlogPref extends Process
                 App::behavior()->callBehavior('adminAfterBlogUpdate', $cur, $da->blog_id);
 
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
-                    if ($da->blog_id == App::blog()->id) {
+                    if ($da->blog_id == App::blog()->id()) {
                         App::blogLoader()->setBlog($cur->blog_id);
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
-                        $da->blog_settings        = App::blog()->settings;
+                        $da->blog_settings        = App::blog()->settings();
                     } else {
                         $da->blog_settings = new dcSettings($cur->blog_id);
                     }
@@ -904,7 +903,7 @@ class BlogPref extends Process
             '</p>' .
             '</form>';
 
-            if (App::auth()->isSuperAdmin() && $da->blog_id != App::blog()->id) {
+            if (App::auth()->isSuperAdmin() && $da->blog_id != App::blog()->id()) {
                 echo
                 '<form action="' . App::backend()->url->get('admin.blog.del') . '" method="post">' .
                 '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
@@ -912,7 +911,7 @@ class BlogPref extends Process
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             } else {
-                if ($da->blog_id == App::blog()->id) {
+                if ($da->blog_id == App::blog()->id()) {
                     echo '<p class="message">' . __('The current blog cannot be deleted.') . '</p>';
                 } else {
                     echo '<p class="message">' . __('Only superadmin can delete a blog.') . '</p>';
@@ -947,8 +946,8 @@ class BlogPref extends Process
                 }
 
                 $post_types      = App::postTypes()->dump();
-                $current_blog_id = App::blog()->id;
-                if ($da->blog_id != App::blog()->id) {
+                $current_blog_id = App::blog()->id();
+                if ($da->blog_id != App::blog()->id()) {
                     App::blogLoader()->setBlog($da->blog_id);
                 }
 
@@ -1023,7 +1022,7 @@ class BlogPref extends Process
                     }
                 }
                 echo '</div>';
-                if ($current_blog_id != App::blog()->id) {
+                if ($current_blog_id != App::blog()->id()) {
                     App::blogLoader()->setBlog($current_blog_id);
                 }
             }

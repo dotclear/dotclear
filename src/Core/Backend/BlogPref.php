@@ -29,7 +29,7 @@ class BlogPref
 
         return
         Page::jsJson('admin.blog_pref', [
-            'base_url' => App::blog()->url,
+            'base_url' => App::blog()->url(),
         ]) .
         Page::jsLoad('js/_blog_pref_popup_posts.js');
     }

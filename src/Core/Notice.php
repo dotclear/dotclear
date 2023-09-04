@@ -38,7 +38,7 @@ class Notice implements NoticeInterface
         $this->table = App::con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
-    public function openCursor(): Cursor
+    public function openNoticeCursor(): Cursor
     {
         return App::con()->openCursor($this->table);
     }

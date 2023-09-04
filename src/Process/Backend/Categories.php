@@ -127,7 +127,7 @@ class Categories extends Process
         if (!App::auth()->prefs()->accessibility->nodragdrop
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
-            ]), App::blog()->id)
+            ]), App::blog()->id())
             && $rs->count() > 1) {
             $starting_script .= Page::jsLoad('js/jquery/jquery-ui.custom.js');
             $starting_script .= Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
@@ -141,7 +141,7 @@ class Categories extends Process
             $starting_script,
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Categories')                    => '',
                 ]
             )
@@ -225,7 +225,7 @@ class Categories extends Process
 
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
-            ]), App::blog()->id) && $rs->count() > 1) {
+            ]), App::blog()->id()) && $rs->count() > 1) {
                 if (!App::auth()->prefs()->accessibility->nodragdrop) {
                     echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
                 }

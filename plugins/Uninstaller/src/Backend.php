@@ -36,7 +36,7 @@ class Backend extends Process
             // add "unsinstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, dcModuleDefine $define): string {
                 // do not unsintall current theme
-                if ($define->get('type') == 'theme' && $define->getId() == App::blog()?->settings->get('system')->get('theme')) {
+                if ($define->get('type') == 'theme' && $define->getId() == App::blog()->settings()->get('system')->get('theme')) {
                     return '';
                 }
 

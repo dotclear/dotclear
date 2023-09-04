@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
-use dcBlog;
 use dcCategories;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
@@ -42,7 +41,7 @@ class ActionsPostsDefault
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -56,7 +55,7 @@ class ActionsPostsDefault
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [__('First publication') => [
                     __('Never published')   => 'never',
@@ -86,7 +85,7 @@ class ActionsPostsDefault
         );
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
@@ -96,7 +95,7 @@ class ActionsPostsDefault
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -115,10 +114,10 @@ class ActionsPostsDefault
     public static function doChangePostStatus(ActionsPosts $ap)
     {
         $status = match ($ap->getAction()) {
-            'unpublish' => dcBlog::POST_UNPUBLISHED,
-            'schedule'  => dcBlog::POST_SCHEDULED,
-            'pending'   => dcBlog::POST_PENDING,
-            default     => dcBlog::POST_PUBLISHED,
+            'unpublish' => App::blog()::POST_UNPUBLISHED,
+            'schedule'  => App::blog()::POST_SCHEDULED,
+            'pending'   => App::blog()::POST_PENDING,
+            default     => App::blog()::POST_PUBLISHED,
         };
 
         $ids = $ap->getIDs();
@@ -127,12 +126,12 @@ class ActionsPostsDefault
         }
 
         // Do not switch to scheduled already published entries
-        if ($status === dcBlog::POST_SCHEDULED) {
+        if ($status === App::blog()::POST_SCHEDULED) {
             $rs           = $ap->getRS();
             $excluded_ids = [];
             if ($rs->rows()) {
                 while ($rs->fetch()) {
-                    if ((int) $rs->post_status === dcBlog::POST_PUBLISHED) {
+                    if ((int) $rs->post_status === App::blog()::POST_PUBLISHED) {
                         $excluded_ids[] = (int) $rs->post_id;
                     }
                 }
@@ -298,7 +297,7 @@ class ActionsPostsDefault
             $new_cat_id = (int) $post['new_cat_id'];
             if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
-            ]), App::blog()->id)) {
+            ]), App::blog()->id())) {
                 $cur_cat            = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
                 $cur_cat->cat_title = $post['new_cat_title'];
                 $cur_cat->cat_url   = '';
@@ -337,7 +336,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)      => '',
+                        Html::escapeHTML(App::blog()->name())    => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
                         __('Change category for this selection') => '',
                     ]
@@ -363,7 +362,7 @@ class ActionsPostsDefault
 
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
-            ]), App::blog()->id)) {
+            ]), App::blog()->id())) {
                 $items[] = (new Div())
                     ->items([
                         (new Text('p', __('Create a new category for the post(s)')))
@@ -419,7 +418,7 @@ class ActionsPostsDefault
     {
         if (isset($post['new_auth_id']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
-        ]), App::blog()->id)) {
+        ]), App::blog()->id())) {
             $new_user_id = $post['new_auth_id'];
             $ids         = $ap->getIDs();
             if (empty($ids)) {
@@ -429,7 +428,7 @@ class ActionsPostsDefault
                 throw new Exception(__('This user does not exist'));
             }
 
-            $cur          = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            $cur          = App::blog()->openPostCursor();
             $cur->user_id = $new_user_id;
             $cur->update('WHERE post_id ' . App::con()->in($ids));
             Notices::addSuccessNotice(
@@ -449,7 +448,7 @@ class ActionsPostsDefault
             $usersList = [];
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
-            ]), App::blog()->id)) {
+            ]), App::blog()->id())) {
                 $params = [
                     'limit' => 100,
                     'order' => 'nb_post DESC',
@@ -466,7 +465,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)    => '',
+                        Html::escapeHTML(App::blog()->name())  => '',
                         $ap->getCallerTitle()                  => $ap->getRedirection(true),
                         __('Change author for this selection') => '', ]
                 ),
@@ -520,7 +519,7 @@ class ActionsPostsDefault
         }
         if (isset($post['new_lang'])) {
             $new_lang       = $post['new_lang'];
-            $cur            = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+            $cur            = App::blog()->openPostCursor();
             $cur->post_lang = $new_lang;
             $cur->update('WHERE post_id ' . App::con()->in($post_ids));
             Notices::addSuccessNotice(
@@ -539,7 +538,7 @@ class ActionsPostsDefault
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name)      => '',
+                        Html::escapeHTML(App::blog()->name())    => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
                         __('Change language for this selection') => '',
                     ]

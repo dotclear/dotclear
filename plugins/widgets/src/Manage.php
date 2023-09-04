@@ -260,7 +260,7 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                          => '',
             ]
         ) .

@@ -65,7 +65,7 @@ class PostsPopup extends Process
 
         if (App::themes()->isEmpty()) {
             // Loading themes, may be useful for some configurable theme --
-            App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
         }
 
         return self::status(true);

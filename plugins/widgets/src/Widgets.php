@@ -180,7 +180,7 @@ class Widgets
      */
     public static function search(WidgetsElement $widget): string
     {
-        if (App::blog()->settings->system->no_search) {
+        if (App::blog()->settings()->system->no_search) {
             return '';
         }
 
@@ -199,7 +199,7 @@ class Widgets
             $widget->class,
             'id="search"',
             ($widget->title ? $widget->renderTitle('<label for="q">' . Html::escapeHTML($widget->title) . '</label>') : '') .
-            '<form action="' . App::blog()->url . '" method="get" role="search">' .
+            '<form action="' . App::blog()->url() . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
             ($widget->placeholder ? 'placeholder="' . Html::escapeHTML($widget->placeholder) . '"' : '') .
             ' aria-label="' . __('Search') . '"/> ' .
@@ -231,23 +231,23 @@ class Widgets
         if (!App::url()->isHome(App::url()->type)) {
             // Not on home page (standard or static), add home link
             $res .= '<li class="topnav-home">' .
-            '<a href="' . App::blog()->url . '">' . __('Home') . '</a></li>';
-            if (App::blog()->settings->system->static_home) {
+            '<a href="' . App::blog()->url() . '">' . __('Home') . '</a></li>';
+            if (App::blog()->settings()->system->static_home) {
                 // Static mode: add recent posts link
                 $res .= '<li class="topnav-posts">' .
-                '<a href="' . App::blog()->url . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
         } else {
             // On home page (standard or static)
-            if (App::blog()->settings->system->static_home) {
+            if (App::blog()->settings()->system->static_home) {
                 // Static mode: add recent posts link
                 $res .= '<li class="topnav-posts">' .
-                '<a href="' . App::blog()->url . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
         }
 
         $res .= '<li class="topnav-arch">' .
-        '<a href="' . App::blog()->url . App::url()->getURLFor('archive') . '">' .
+        '<a href="' . App::blog()->url() . App::url()->getURLFor('archive') . '">' .
         __('Archives') . '</a></li>' .
             '</ul></nav>';
 
@@ -296,7 +296,7 @@ class Widgets
                 $res .= '</li><li' . $class . '>';
             }
 
-            $res .= '<a href="' . App::blog()->url . App::url()->getURLFor('category', $rs->cat_url) . '">' .
+            $res .= '<a href="' . App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url) . '">' .
             Html::escapeHTML($rs->cat_title) . '</a>' .
                 ($widget->postcount ? ' <span>(' . ($widget->subcatscount ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
 
@@ -390,7 +390,7 @@ class Widgets
             $res .= ' <li>' .
             sprintf(
                 $l,
-                '<a href="' . App::blog()->url . App::url()->getURLFor('lang', $rs->post_lang) . '" ' .
+                '<a href="' . App::blog()->url() . App::url()->getURLFor('lang', $rs->post_lang) . '" ' .
                 'class="lang-' . $rs->post_lang . '">' .
                 $lang_name . '</a>'
             ) .
@@ -432,13 +432,13 @@ class Widgets
             '<ul>';
 
         $res .= '<li><a type="' . $mime . '" ' .
-        'href="' . App::blog()->url . App::url()->getURLFor('feed', $type) . '" ' .
+        'href="' . App::blog()->url() . App::url()->getURLFor('feed', $type) . '" ' .
         'title="' . sprintf($p_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
         __('Entries feed') . '</a></li>';
 
-        if (App::blog()->settings->system->allow_comments || App::blog()->settings->system->allow_trackbacks) {
+        if (App::blog()->settings()->system->allow_comments || App::blog()->settings()->system->allow_trackbacks) {
             $res .= '<li><a type="' . $mime . '" ' .
-            'href="' . App::blog()->url . App::url()->getURLFor('feed', $type . '/comments') . '" ' .
+            'href="' . App::blog()->url() . App::url()->getURLFor('feed', $type . '/comments') . '" ' .
             'title="' . sprintf($c_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
             __('Comments feed') . '</a></li>';
         }

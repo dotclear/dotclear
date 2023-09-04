@@ -60,7 +60,7 @@ class Manage extends Process
             // Remove all spam
             if (!empty($_POST['delete_all'])) {
                 $ts = isset($_POST['ts']) ? (int) $_POST['ts'] : null;
-                $ts = Date::str('%Y-%m-%d %H:%M:%S', $ts, App::blog()->settings->system->blog_timezone);
+                $ts = Date::str('%Y-%m-%d %H:%M:%S', $ts, App::blog()->settings()->system->blog_timezone);
 
                 Antispam::delAllSpam($ts);
 
@@ -269,11 +269,11 @@ class Manage extends Process
 
             // Syndication
             if (DC_ADMIN_URL) {
-                $ham_feed = App::blog()->url . App::url()->getURLFor(
+                $ham_feed = App::blog()->url() . App::url()->getURLFor(
                     'hamfeed',
                     Antispam::getUserCode()
                 );
-                $spam_feed = App::blog()->url . App::url()->getURLFor(
+                $spam_feed = App::blog()->url() . App::url()->getURLFor(
                     'spamfeed',
                     Antispam::getUserCode()
                 );

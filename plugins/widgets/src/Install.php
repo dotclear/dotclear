@@ -34,9 +34,7 @@ class Install extends Process
             throw new Exception(__('Unable to initialize default widgets.'));
         }
 
-        if (($s = My::settings()) === null) {
-            return false;
-        }
+        $s = My::settings();
         if ($s->widgets_nav != null) {
             $s->put('widgets_nav', WidgetsStack::load($s->widgets_nav)->store());
         } else {

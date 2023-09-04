@@ -38,14 +38,14 @@ class BlogTheme extends Process
 
         // Loading themes
         if (App::themes()->isEmpty()) {
-            App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
         }
 
         // Page helper
         App::backend()->list = new ThemesList(
             App::themes(),
-            App::blog()->themes_path,
-            App::blog()->settings->system->store_theme_url,
+            App::blog()->themesPath(),
+            App::blog()->settings()->system->store_theme_url,
             !empty($_GET['nocache']) ? true : null
         );
         // deprecated since 2.26
@@ -63,7 +63,7 @@ class BlogTheme extends Process
             exit;
         }
 
-        if (App::backend()->list->setConfiguration(App::blog()->settings->system->theme)) {
+        if (App::backend()->list->setConfiguration(App::blog()->settings()->system->theme)) {
             // Display module configuration page
 
             // Get content before page headers
@@ -85,7 +85,7 @@ class BlogTheme extends Process
                 Page::breadcrumb(
                     [
                         // Active links
-                        Html::escapeHTML(App::blog()->name) => '',
+                        Html::escapeHTML(App::blog()->name()) => '',
                         __('Blog appearance')               => App::backend()->list->getURL('', false),
                         // inactive link
                         '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
@@ -119,8 +119,8 @@ class BlogTheme extends Process
             // Get a theme screenshot
             $filename = Path::real(
                 empty($_GET['src']) ?
-                App::blog()->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
-                App::blog()->themes_path . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
+                App::blog()->themesPath() . '/' . $_GET['shot'] . '/screenshot.jpg' :
+                App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
             if (!file_exists($filename)) {
@@ -157,7 +157,7 @@ class BlogTheme extends Process
             App::behavior()->callBehavior('themesToolsHeadersV2', false),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name)                             => '',
+                    Html::escapeHTML(App::blog()->name())                             => '',
                     '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
                 ]
             )
@@ -165,7 +165,7 @@ class BlogTheme extends Process
 
         // Display themes lists --
         if (App::auth()->isSuperAdmin()) {
-            if (null == App::blog()->settings->system->store_theme_url) {
+            if (null == App::blog()->settings()->system->store_theme_url) {
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 

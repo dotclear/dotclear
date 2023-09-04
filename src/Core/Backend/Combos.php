@@ -284,7 +284,7 @@ class Combos
             App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            App::blog()->id
+            App::blog()->id()
         );
         if ($show_ip) {
             $sortby_combo[__('IP')] = 'comment_ip';

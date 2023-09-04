@@ -3,7 +3,7 @@
  * @brief Blog settings handler
  *
  * dcSettings provides blog settings management. This class instance exists as
- * dcBlog $settings property. You should create a new settings instance when
+ * Blog $settings property. You should create a new settings instance when
  * updating another blog settings.
  *
  * @package Dotclear

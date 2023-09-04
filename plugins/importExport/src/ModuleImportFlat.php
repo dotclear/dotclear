@@ -201,7 +201,7 @@ class ModuleImportFlat extends Module
         echo
         '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name)) . '</p>' .
+        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name())) . '</p>' .
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
         ' (' . sprintf(__('maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
@@ -272,7 +272,7 @@ class ModuleImportFlat extends Module
     protected function getPublicFiles(): array
     {
         $public_files = [];
-        $dir          = @dir(App::blog()->public_path);
+        $dir          = @dir(App::blog()->publicPath());
         if ($dir) {
             while (($entry = $dir->read()) !== false) {
                 $entry_path = $dir->path . '/' . $entry;

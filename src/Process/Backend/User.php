@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcBlog;
 use dcPrefs;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
@@ -43,7 +42,7 @@ class User extends Process
         App::backend()->user_url         = '';
         App::backend()->user_lang        = App::auth()->getInfo('user_lang');
         App::backend()->user_tz          = App::auth()->getInfo('user_tz');
-        App::backend()->user_post_status = dcBlog::POST_PENDING; // Pending
+        App::backend()->user_post_status = App::blog()::POST_PENDING; // Pending
 
         App::backend()->user_options = App::users()->userDefaults();
 
@@ -101,7 +100,7 @@ class User extends Process
                     throw new Exception(__('Password verification failed'));
                 }
 
-                $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur = App::auth()->openUserCursor();
 
                 $cur->user_id          = $_POST['user_id'];
                 $cur->user_super       = App::backend()->user_super = !empty($_POST['user_super']) ? 1 : 0;

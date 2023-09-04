@@ -12,7 +12,6 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use dcAntispam;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -72,34 +71,34 @@ class ListingComments extends Listing
                 ), $this->rs_count) .
                     '</caption>';
             } else {
-                $nb_published   = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
-                $nb_spam        = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
-                $nb_pending     = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_PENDING], true)->f(0);
-                $nb_unpublished = (int) App::blog()->getComments(['comment_status' => dcBlog::COMMENT_UNPUBLISHED], true)->f(0);
+                $nb_published   = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PUBLISHED], true)->f(0);
+                $nb_spam        = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
+                $nb_pending     = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PENDING], true)->f(0);
+                $nb_unpublished = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_PUBLISHED]),
+                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_spam ?
                     sprintf(
                         __(', <a href="%s">spam</a> (1)', ', <a href="%s">spam</a> (%s)', $nb_spam),
-                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_JUNK]),
+                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_JUNK]),
                         $nb_spam
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_PENDING]),
+                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        App::backend()->url->get('admin.comments', ['status' => dcBlog::COMMENT_UNPUBLISHED]),
+                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -181,22 +180,22 @@ class ListingComments extends Listing
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->comment_status) {
-            case dcBlog::COMMENT_PUBLISHED:
+            case App::blog()::COMMENT_PUBLISHED:
                 $img_status = sprintf($img, __('Published'), 'check-on.png');
                 $sts_class  = 'sts-online';
 
                 break;
-            case dcBlog::COMMENT_UNPUBLISHED:
+            case App::blog()::COMMENT_UNPUBLISHED:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
                 $sts_class  = 'sts-offline';
 
                 break;
-            case dcBlog::COMMENT_PENDING:
+            case App::blog()::COMMENT_PENDING:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
                 $sts_class  = 'sts-pending';
 
                 break;
-            case dcBlog::COMMENT_JUNK:
+            case App::blog()::COMMENT_JUNK:
                 $img_status = sprintf($img, __('Junk'), 'junk.png');
                 $sts_class  = 'sts-junk';
 
@@ -213,7 +212,7 @@ class ListingComments extends Listing
             Html::escapeHTML($this->rs->comment_author)
         );
 
-        $res = '<tr class="line ' . ($this->rs->comment_status != dcBlog::COMMENT_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
+        $res = '<tr class="line ' . ($this->rs->comment_status != App::blog()::COMMENT_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
         ' id="c' . $this->rs->comment_id . '">';
 
         $cols = [

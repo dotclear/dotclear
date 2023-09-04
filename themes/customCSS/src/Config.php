@@ -25,7 +25,7 @@ class Config extends Process
     {
         // limit to backend permissions
         if (My::checkContext(My::CONFIG)) {
-            App::backend()->css_file = Path::real(App::blog()->public_path) . '/custom_style.css';
+            App::backend()->css_file = Path::real(App::blog()->publicPath()) . '/custom_style.css';
 
             if (!is_file(App::backend()->css_file) && !is_writable(dirname(App::backend()->css_file))) {
                 throw new Exception(

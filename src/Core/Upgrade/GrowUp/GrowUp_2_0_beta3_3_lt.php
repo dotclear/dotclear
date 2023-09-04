@@ -22,7 +22,7 @@ class GrowUp_2_0_beta3_3_lt
         $strReq = 'SELECT media_id, media_file FROM ' . App::con()->prefix() . App::media()::MEDIA_TABLE_NAME . ' ';
         $rs_m   = App::con()->select($strReq);
         while ($rs_m->fetch()) {
-            $cur            = App::con()->openCursor(App::con()->prefix() . App::media()::MEDIA_TABLE_NAME);
+            $cur            = App::media()->openMediaCursor();
             $cur->media_dir = dirname($rs_m->media_file);
             $cur->update('WHERE media_id = ' . (int) $rs_m->media_id);
         }

@@ -171,7 +171,7 @@ class Settings extends CleanerParent
         }
         if ($action == 'delete_local' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
-                ->where('blog_id = ' . $sql->quote((string) App::blog()?->id))
+                ->where('blog_id = ' . $sql->quote((string) App::blog()->id()))
                 ->and('setting_ns = ' . $sql->quote((string) $ns))
                 ->delete();
 

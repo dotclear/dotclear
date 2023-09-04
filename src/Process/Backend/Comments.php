@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcBlog;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
@@ -68,7 +67,7 @@ class Comments extends Process
 
         // default filter ? do not display spam
         if (!App::backend()->comment_filter->show() && App::backend()->comment_filter->status == '') {
-            $params['comment_status_not'] = dcBlog::COMMENT_JUNK;
+            $params['comment_status_not'] = App::blog()::COMMENT_JUNK;
         }
         $params['no_content'] = true;
 
@@ -78,7 +77,7 @@ class Comments extends Process
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id) && App::backend()->comment_filter->status == -2) {
+        ]), App::blog()->id()) && App::backend()->comment_filter->status == -2) {
             App::backend()->default_action = 'delete';
         }
 
@@ -111,7 +110,7 @@ class Comments extends Process
             App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
-            App::blog()->id
+            App::blog()->id()
         );
 
         Page::open(
@@ -119,7 +118,7 @@ class Comments extends Process
             Page::jsLoad('js/_comments.js') . App::backend()->comment_filter->js(App::backend()->url->get('admin.comments')),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Comments and trackbacks')       => '',
                 ]
             )
@@ -136,7 +135,7 @@ class Comments extends Process
                 unset($_SESSION['comments_del_spam']);
             }
 
-            $spam_count = App::blog()->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+            $spam_count = App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
             if ($spam_count > 0) {
                 echo
                 '<form action="' . App::backend()->url->get('admin.comments') . '" method="post" class="fieldset">';

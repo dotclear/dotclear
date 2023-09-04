@@ -41,7 +41,7 @@ class Config extends Process
         // Load contextual help
         App::themes()->loadModuleL10Nresources(My::id(), App::lang());
 
-        App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings->system->theme, 'standalone_config');
+        App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'standalone_config');
 
         App::backend()->can_write_images = Blowup::canWriteImages();
         App::backend()->can_write_css    = Blowup::canWriteCss();
@@ -107,7 +107,7 @@ class Config extends Process
             'extra_css' => null,
         ];
 
-        $blowup_user = App::blog()->settings->themes->blowup_style;
+        $blowup_user = App::blog()->settings()->themes->blowup_style;
 
         if ($blowup_user) {
             $blowup_user = @unserialize($blowup_user);
@@ -222,7 +222,7 @@ class Config extends Process
                     Blowup::createCss($blowup_user);
                 }
 
-                App::blog()->settings->themes->put('blowup_style', serialize($blowup_user));
+                App::blog()->settings()->themes->put('blowup_style', serialize($blowup_user));
                 App::blog()->triggerBlog();
 
                 App::backend()->blowup_user = $blowup_user;
@@ -317,7 +317,7 @@ class Config extends Process
 
         if (App::backend()->can_write_images) {
             if (App::backend()->blowup_user['top_image'] == 'custom' && App::backend()->blowup_user['uploaded']) {
-                $preview_image = Http::concatURL(App::blog()->url, Blowup::imagesURL() . '/page-t.png');
+                $preview_image = Http::concatURL(App::blog()->url(), Blowup::imagesURL() . '/page-t.png');
             } else {
                 $preview_image = Blowup::themeURL() . '/alpha-img/page-t/' . App::backend()->blowup_user['top_image'] . '.png';
             }

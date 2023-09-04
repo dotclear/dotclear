@@ -46,7 +46,7 @@ class Manage extends Process
         App::backend()->page_title = __('Simple menu');
 
         # Url du blog
-        App::backend()->blog_url = Html::stripHostURL(App::blog()->url);
+        App::backend()->blog_url = Html::stripHostURL(App::blog()->url());
 
         # Liste des catégories
         $categories_label                = [];
@@ -113,7 +113,7 @@ class Manage extends Process
         $items         = new ArrayObject();
         $items['home'] = new ArrayObject([__('Home'), false]);
 
-        if (App::blog()->settings->system->static_home) {
+        if (App::blog()->settings()->system->static_home) {
             $items['posts'] = new ArrayObject([__('Posts'), false]);
         }
 
@@ -148,13 +148,13 @@ class Manage extends Process
         App::backend()->items_combo = $items_combo;
 
         # Lecture menu existant
-        App::backend()->current_menu = App::blog()->settings->system->get('simpleMenu');
+        App::backend()->current_menu = App::blog()->settings()->system->get('simpleMenu');
         if (!is_array(App::backend()->current_menu)) {
             App::backend()->current_menu = [];
         }
 
         # Récupération état d'activation du menu
-        App::backend()->menu_active = (bool) App::blog()->settings->system->simpleMenu_active;
+        App::backend()->menu_active = (bool) App::blog()->settings()->system->simpleMenu_active;
 
         // Saving new configuration
         App::backend()->item_type         = '';
@@ -174,7 +174,7 @@ class Manage extends Process
         if (!empty($_POST['saveconfig'])) {
             try {
                 App::backend()->menu_active = (empty($_POST['active'])) ? false : true;
-                App::blog()->settings->system->put('simpleMenu_active', App::backend()->menu_active, 'boolean');
+                App::blog()->settings()->system->put('simpleMenu_active', App::backend()->menu_active, 'boolean');
                 App::blog()->triggerBlog();
 
                 // All done successfully, return to menu items list
@@ -223,7 +223,7 @@ class Manage extends Process
                         switch (App::backend()->item_type) {
                             case 'home':
                                 App::backend()->item_label = __('Home');
-                                App::backend()->item_descr = App::blog()->settings->system->static_home ? __('Home page') : __('Recent posts');
+                                App::backend()->item_descr = App::blog()->settings()->system->static_home ? __('Home page') : __('Recent posts');
 
                                 break;
                             case 'posts':
@@ -330,7 +330,7 @@ class Manage extends Process
                                 ];
 
                                 // Save menu in blog settings
-                                App::blog()->settings->system->put('simpleMenu', $menu);
+                                App::blog()->settings()->system->put('simpleMenu', $menu);
                                 App::blog()->triggerBlog();
 
                                 // All done successfully, return to menu items list
@@ -368,7 +368,7 @@ class Manage extends Process
                             }
                             $menu = $newmenu;
                             // Save menu in blog settings
-                            App::blog()->settings->system->put('simpleMenu', $menu);
+                            App::blog()->settings()->system->put('simpleMenu', $menu);
                             App::blog()->triggerBlog();
 
                             // All done successfully, return to menu items list
@@ -433,7 +433,7 @@ class Manage extends Process
                         }
 
                         // Save menu in blog settings
-                        App::blog()->settings->system->put('simpleMenu', $menu);
+                        App::blog()->settings()->system->put('simpleMenu', $menu);
                         App::blog()->triggerBlog();
 
                         // All done successfully, return to menu items list
@@ -496,7 +496,7 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     App::backend()->page_title          => App::backend()->getPageURL(),
                     __('Add item')                      => '',
                     $step_label                         => '',
@@ -510,7 +510,7 @@ class Manage extends Process
             echo
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     App::backend()->page_title          => '',
                 ]
             ) .

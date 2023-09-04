@@ -235,7 +235,7 @@ class FrontendTemplate
     {
         $f = App::frontend()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::blog()->url.App::url()->getURLFor("tag",' .
+        return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag",' .
             'rawurlencode(App::frontend()->ctx->meta->meta_id))') . '; ?>';
     }
 
@@ -254,7 +254,7 @@ class FrontendTemplate
     {
         $f = App::frontend()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::blog()->url.App::url()->getURLFor("tags")') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tags")') . '; ?>';
     }
 
     /**
@@ -279,7 +279,7 @@ class FrontendTemplate
 
         $f = App::frontend()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::blog()->url.App::url()->getURLFor("tag_feed",' .
+        return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag_feed",' .
             'rawurlencode(App::frontend()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
 
@@ -353,7 +353,7 @@ class FrontendTemplate
                     }
                 }
             }
-            $res .= '<li' . $class . '><a href="' . App::blog()->url . App::url()->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
+            $res .= '<li' . $class . '><a href="' . App::blog()->url() . App::url()->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
             'class="tag' . $rs->roundpercent . '">' .
             $rs->meta_id . '</a> </li>';
         }
@@ -361,7 +361,7 @@ class FrontendTemplate
         $res .= '</ul>';
 
         if (App::url()->getURLFor('tags') && !is_null($widget->alltagslinktitle) && $widget->alltagslinktitle !== '') {
-            $res .= '<p><strong><a href="' . App::blog()->url . App::url()->getURLFor('tags') . '">' .
+            $res .= '<p><strong><a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' .
             Html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
         }
 

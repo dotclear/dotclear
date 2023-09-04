@@ -24,7 +24,7 @@ interface PostMediaInterface
      *
      * @return  Cursor  The post media database table cursor
      */
-    public function openCursor(): Cursor;
+    public function openPostMediaCursor(): Cursor;
 
     /**
      * Returns media items attached to a blog post.

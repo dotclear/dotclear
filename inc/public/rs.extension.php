@@ -11,6 +11,7 @@ use Dotclear\App;
 use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\BlogInterface;
 
 class rsExtendPublic
 {
@@ -31,10 +32,10 @@ class rsExtendPublic
      */
     public static function publicHeadContent()
     {
-        if (!App::blog()->settings->system->no_public_css) {
+        if (!App::blog()->settings()->system->no_public_css) {
             echo dcUtils::cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
         }
-        if (App::blog()->settings->system->use_smilies) {
+        if (App::blog()->settings()->system->use_smilies) {
             echo dcUtils::cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
         }
     }
@@ -88,7 +89,7 @@ class rsExtPostPublic extends rsExtPost
             return $content;
         }
 
-        if (App::blog()->settings->system->use_smilies) {
+        if (App::blog()->settings()->system->use_smilies) {
             return self::smilies(parent::getContent($rs, $absolute_urls), App::blog());
         }
 
@@ -107,7 +108,7 @@ class rsExtPostPublic extends rsExtPost
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
-        if (App::blog()->settings->system->use_smilies) {
+        if (App::blog()->settings()->system->use_smilies) {
             return self::smilies(parent::getExcerpt($rs, $absolute_urls), App::blog());
         }
 
@@ -117,12 +118,12 @@ class rsExtPostPublic extends rsExtPost
     /**
      * Cope with smileys in content
      *
-     * @param      string  $content  The content
-     * @param      dcBlog  $blog     The blog
+     * @param      string         $content  The content
+     * @param      BlogInterface  $blog     The blog
      *
      * @return     string
      */
-    protected static function smilies(string $content, dcBlog $blog): string
+    protected static function smilies(string $content, BlogInterface $blog): string
     {
         if (!isset(App::frontend()->smilies)) {
             App::frontend()->smilies = Ctx::getSmilies($blog);
@@ -146,7 +147,7 @@ class rsExtCommentPublic extends rsExtComment
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
-        if (App::blog()->settings->system->use_smilies) {
+        if (App::blog()->settings()->system->use_smilies) {
             $content = parent::getContent($rs, $absolute_urls);
 
             if (!isset(App::frontend()->smilies)) {

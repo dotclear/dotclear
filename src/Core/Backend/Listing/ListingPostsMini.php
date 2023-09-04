@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -82,22 +81,22 @@ class ListingPostsMini extends Listing
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {
-            case dcBlog::POST_PUBLISHED:
+            case App::blog()::POST_PUBLISHED:
                 $img_status = sprintf($img, __('Published'), 'check-on.png');
                 $sts_class  = 'sts-online';
 
                 break;
-            case dcBlog::POST_UNPUBLISHED:
+            case App::blog()::POST_UNPUBLISHED:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
                 $sts_class  = 'sts-offline';
 
                 break;
-            case dcBlog::POST_SCHEDULED:
+            case App::blog()::POST_SCHEDULED:
                 $img_status = sprintf($img, __('Scheduled'), 'scheduled.png');
                 $sts_class  = 'sts-scheduled';
 
                 break;
-            case dcBlog::POST_PENDING:
+            case App::blog()::POST_PENDING:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
                 $sts_class  = 'sts-pending';
 
@@ -121,7 +120,7 @@ class ListingPostsMini extends Listing
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png');
         }
 
-        $res = '<tr class="line ' . ($this->rs->post_status != dcBlog::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
+        $res = '<tr class="line ' . ($this->rs->post_status != App::blog()::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [

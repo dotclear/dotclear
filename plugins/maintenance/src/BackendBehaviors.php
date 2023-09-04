@@ -153,8 +153,8 @@ class BackendBehaviors
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    Date::dt2str(App::blog()->settings->system->date_format, (string) $ts) . ' ' .
-                    Date::dt2str(App::blog()->settings->system->time_format, (string) $ts)
+                    Date::dt2str(App::blog()->settings()->system->date_format, (string) $ts) . ' ' .
+                    Date::dt2str(App::blog()->settings()->system->time_format, (string) $ts)
                 )
             ) . '">' . $t->task() . '</li>';
         }

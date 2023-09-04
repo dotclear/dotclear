@@ -141,7 +141,7 @@ class IpLookup extends SpamFilter
 
         if (isset($_POST['bls'])) {
             try {
-                App::blog()->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
+                App::blog()->settings()->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
                 Notices::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
                 Http::redirect($url);
             } catch (Exception $e) {
@@ -168,9 +168,9 @@ class IpLookup extends SpamFilter
      */
     private function getServers(): string
     {
-        $bls = App::blog()->settings->antispam->antispam_dnsbls;
+        $bls = App::blog()->settings()->antispam->antispam_dnsbls;
         if ($bls === null) {
-            App::blog()->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
+            App::blog()->settings()->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
 
             return $this->default_bls;
         }

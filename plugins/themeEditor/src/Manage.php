@@ -55,10 +55,10 @@ class Manage extends Process
         ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
         if (App::themes()->isEmpty()) {
-            App::themes()->loadModules(App::blog()->themes_path, 'admin', App::lang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
         }
 
-        App::backend()->theme  = App::themes()->getDefine(App::blog()->settings->system->theme);
+        App::backend()->theme  = App::themes()->getDefine(App::blog()->settings()->system->theme);
         App::backend()->editor = new ThemeEditor();
 
         try {
@@ -176,7 +176,7 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name) => '',
+                Html::escapeHTML(App::blog()->name()) => '',
                 __('Blog appearance')               => App::backend()->url->get('admin.blog.theme'),
                 __('Edit theme files')              => '',
             ]
@@ -186,8 +186,8 @@ class Manage extends Process
         echo
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(App::backend()->theme->get('name'))) . '</strong></p>';
 
-        if (App::blog()->settings->system->themes_path !== App::blog()->settings->system->getGlobal('themes_path')
-            || !App::themes()->getDefine(App::blog()->settings->system->theme)->distributed
+        if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
+            || !App::themes()->getDefine(App::blog()->settings()->system->theme)->distributed
         ) {
             echo
             '<div id="file-box">' .

@@ -81,7 +81,7 @@ class ThemesList extends ModulesList
                 }
             }
 
-            $current = App::blog()->settings->system->theme == $id && $this->modules->moduleExists($id);
+            $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = $define->get('distributed') ? ' dc-box' : '';
 
             $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
@@ -116,7 +116,7 @@ class ThemesList extends ModulesList
                     $sshot = $define->get('sshot');
                 }
                 # Screenshot from installed module
-                elseif (file_exists(App::blog()->themes_path . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . 'screenshot.jpg')) {
+                elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . 'screenshot.jpg')) {
                     $sshot = $this->getURL('shot=' . rawurlencode($id));
                 }
                 # Default screenshot
@@ -204,10 +204,10 @@ class ThemesList extends ModulesList
             # Plugins actions
             if ($current) {
                 # _GET actions
-                if (file_exists(Path::real(App::blog()->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
-                    $theme_url = preg_match('#^http(s)?://#', (string) App::blog()->settings->system->themes_url) ?
-                    Http::concatURL(App::blog()->settings->system->themes_url, '/' . $id) :
-                    Http::concatURL(App::blog()->url, App::blog()->settings->system->themes_url . '/' . $id);
+                if (file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
+                    $theme_url = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
+                    Http::concatURL(App::blog()->settings()->system->themes_url, '/' . $id) :
+                    Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . $id);
                     $line .= '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';
                 }
 
@@ -219,7 +219,7 @@ class ThemesList extends ModulesList
                     $config = $class::init();
                     // by file name
                 } else {
-                    $config = file_exists(Path::real(App::blog()->themes_path . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+                    $config = file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
                 }
 
                 if ($config) {
@@ -290,13 +290,13 @@ class ThemesList extends ModulesList
             $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
         }
 
-        if ($id != App::blog()->settings->system->theme) {
+        if ($id != App::blog()->settings()->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
                 $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
             if (in_array('try', $actions)) {
-                $preview_url = App::blog()->url . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . $id);
+                $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . $id);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
@@ -398,7 +398,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                App::blog()->settings->system->put('theme', $define->getId());
+                App::blog()->settings()->system->put('theme', $define->getId());
                 App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));

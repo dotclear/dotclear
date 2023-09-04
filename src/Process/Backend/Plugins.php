@@ -33,7 +33,7 @@ class Plugins extends Process
         App::backend()->list = new ModulesList(
             App::plugins(),
             DC_PLUGINS_ROOT,
-            App::blog()->settings->system->store_plugin_url,
+            App::blog()->settings()->system->store_plugin_url,
             !empty($_GET['nocache']) ? true : null
         );
 
@@ -137,7 +137,7 @@ class Plugins extends Process
 
         // -- Display modules lists --
         if (App::auth()->isSuperAdmin()) {
-            if (null == App::blog()->settings->system->store_plugin_url) {
+            if (null == App::blog()->settings()->system->store_plugin_url) {
                 Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 
@@ -325,7 +325,7 @@ class Plugins extends Process
             App::behavior()->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name)                                  => '',
+                    Html::escapeHTML(App::blog()->name())                                  => '',
                     __('Plugins management')                                             => App::backend()->list->getURL('', false),
                     '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
                 ]

@@ -215,7 +215,7 @@ class ThemeConfig
      */
     public static function cssPath(string $folder): string
     {
-        return Path::real(App::blog()->public_path) . '/' . $folder;
+        return Path::real(App::blog()->publicPath()) . '/' . $folder;
     }
 
     /**
@@ -227,7 +227,7 @@ class ThemeConfig
      */
     public static function cssURL(string $folder): string
     {
-        return App::blog()->settings->system->public_url . '/' . $folder;
+        return App::blog()->settings()->system->public_url . '/' . $folder;
     }
 
     /**
@@ -240,7 +240,7 @@ class ThemeConfig
      */
     public static function canWriteCss(string $folder, bool $create = false): bool
     {
-        $public = Path::real(App::blog()->public_path);
+        $public = Path::real(App::blog()->publicPath());
         $css    = self::cssPath($folder);
 
         if (!is_dir($public)) {
@@ -338,7 +338,7 @@ class ThemeConfig
      */
     public static function publicCssUrlHelper(string $folder)
     {
-        $theme = App::blog()->settings->system->theme;
+        $theme = App::blog()->settings()->system->theme;
         $url   = self::cssURL($folder);
         $path  = self::cssPath($folder);
 
@@ -356,7 +356,7 @@ class ThemeConfig
      */
     public static function imagesPath(string $folder)
     {
-        return Path::real(App::blog()->public_path) . '/' . $folder;
+        return Path::real(App::blog()->publicPath()) . '/' . $folder;
     }
 
     /**
@@ -368,7 +368,7 @@ class ThemeConfig
      */
     public static function imagesURL(string $folder): string
     {
-        return App::blog()->settings->system->public_url . '/' . $folder;
+        return App::blog()->settings()->system->public_url . '/' . $folder;
     }
 
     /**
@@ -381,7 +381,7 @@ class ThemeConfig
      */
     public static function canWriteImages(string $folder, bool $create = false): bool
     {
-        $public = Path::real(App::blog()->public_path);
+        $public = Path::real(App::blog()->publicPath());
         $imgs   = self::imagesPath($folder);
 
         if (!function_exists('imagecreatetruecolor') || !function_exists('imagepng') || !function_exists('imagecreatefrompng')) {

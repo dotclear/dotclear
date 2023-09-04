@@ -34,7 +34,7 @@ class PostMedia implements PostMediaInterface
         $this->table = App::con()->prefix() . self::POST_MEDIA_TABLE_NAME;
     }
 
-    public function openCursor(): Cursor
+    public function openPostMediaCursor(): Cursor
     {
         return App::con()->openCursor($this->table);
     }
@@ -110,7 +110,7 @@ class PostMedia implements PostMediaInterface
             return;
         }
 
-        $cur            = $this->openCursor();
+        $cur            = $this->openPostMediaCursor();
         $cur->post_id   = $post_id;
         $cur->media_id  = $media_id;
         $cur->link_type = $link_type;

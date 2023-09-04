@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Frontend;
 
-use dcBlog;
 use dcCore;
 use dcUtils;
 use dcTraitDynamicProperties;
@@ -150,11 +149,11 @@ class Utility extends Process
             }
         }
 
-        if (is_null(App::blog()) || App::blog()->id == null) {
+        if (!App::blog()->isDefined()) {
             new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
         }
 
-        if ((int) App::blog()->status !== dcBlog::BLOG_ONLINE) {
+        if ((int) App::blog()->status() !== App::blog()::BLOG_ONLINE) {
             App::blogLoader()->unsetBlog();
             new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
@@ -173,7 +172,7 @@ class Utility extends Process
         App::blog()->checkSleepmodeTimeout();
 
         # Cope with static home page option
-        if (App::blog()->settings->system->static_home) {
+        if (App::blog()->settings()->system->static_home) {
             App::url()->registerDefault(Url::static_home(...));
         }
 
@@ -199,7 +198,7 @@ class Utility extends Process
         }
 
         # Loading locales
-        App::setLang((string) App::blog()->settings->system->lang);
+        App::setLang((string) App::blog()->settings()->system->lang);
 
         // deprecated since 2.23, use App::lang() instead
         $GLOBALS['_lang'] = App::lang();
@@ -225,20 +224,20 @@ class Utility extends Process
         dcCore::app()->themes = App::themes();
 
         # Loading themes
-        App::themes()->loadModules(App::blog()->themes_path);
+        App::themes()->loadModules(App::blog()->themesPath());
 
         # Defining theme if not defined
         if (!isset(App::frontend()->theme)) {
-            App::frontend()->theme = App::blog()->settings->system->theme;
+            App::frontend()->theme = App::blog()->settings()->system->theme;
         }
 
         if (!App::themes()->moduleExists(App::frontend()->theme)) {
-            App::frontend()->theme = App::blog()->settings->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->theme = App::blog()->settings()->system->theme = DC_DEFAULT_THEME;
         }
 
         App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
         if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme) && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
-            App::frontend()->theme        = App::blog()->settings->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->theme        = App::blog()->settings()->system->theme = DC_DEFAULT_THEME;
             App::frontend()->parent_theme = null;
         }
 
@@ -263,7 +262,7 @@ class Utility extends Process
 
         # Prepare the HTTP cache thing
         App::frontend()->cache()->addFiles(get_included_files());
-        App::frontend()->cache()->addTime(App::blog()->upddt);
+        App::frontend()->cache()->addTime(App::blog()->upddt());
 
         // deprecated Since 2.23, use App::frontend()->cache()->addFiles() or App::frontend()->cache()->getFiles() instead
         $GLOBALS['mod_files'] = App::frontend()->cache()->getFiles();
@@ -272,12 +271,12 @@ class Utility extends Process
         $GLOBALS['mod_ts'] = App::frontend()->cache()->getTimes();
 
         $tpl_path = [
-            App::blog()->themes_path . '/' . App::frontend()->theme . '/tpl',
+            App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
         ];
         if (App::frontend()->parent_theme) {
-            $tpl_path[] = App::blog()->themes_path . '/' . App::frontend()->parent_theme . '/tpl';
+            $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
         }
-        $tplset = App::themes()->moduleInfo(App::blog()->settings->system->theme, 'tplset');
+        $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
             App::frontend()->tpl->setPath(
@@ -291,7 +290,7 @@ class Utility extends Process
                 App::frontend()->tpl->getPath()
             );
         }
-        App::url()->mode = App::blog()->settings->system->url_scan;
+        App::url()->mode = App::blog()->settings()->system->url_scan;
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --

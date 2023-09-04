@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcBlog;
 use dcNamespace;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
@@ -69,9 +68,9 @@ class GrowUp_2_11_lt
         App::con()->execute($strReq);
 
         # Update first publication on published posts
-        $strReq = 'UPDATE ' . App::con()->prefix() . dcBlog::POST_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME .
             ' SET post_firstpub = 1' .
-            ' WHERE post_status = ' . (string) dcBlog::POST_PUBLISHED;
+            ' WHERE post_status = ' . (string) App::blog()::POST_PUBLISHED;
         App::con()->execute($strReq);
 
         // A bit of housecleaning for no longer needed folders

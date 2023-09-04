@@ -25,7 +25,7 @@ class Install extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            App::blog()->settings->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
+            App::blog()->settings()->themes->put('blowup_style', '', 'string', 'Blow Up custom style', false);
         }
 
         return self::status();

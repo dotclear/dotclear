@@ -25,7 +25,7 @@ interface VersionInterface
      *
      * @return  Cursor  The version database table cursor
      */
-    public function openCursor(): Cursor;
+    public function openVersionCursor(): Cursor;
 
     /**
      * Get the version of a module.

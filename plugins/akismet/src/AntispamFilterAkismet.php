@@ -102,7 +102,7 @@ class AntispamFilterAkismet extends SpamFilter
             return false;
         }
 
-        return new Akismet(App::blog()->url, My::settings()->ak_key);
+        return new Akismet(App::blog()->url(), My::settings()->ak_key);
     }
 
     /**
@@ -213,7 +213,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         if (My::settings()->ak_key) {
             try {
-                $ak          = new Akismet(App::blog()->url, My::settings()->ak_key);
+                $ak          = new Akismet(App::blog()->url(), My::settings()->ak_key);
                 $ak_verified = $ak->verify();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

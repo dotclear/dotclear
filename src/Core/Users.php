@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcBlog;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -194,10 +193,15 @@ class Users implements UsersInterface
         $rs = $sql->select();
 
         if ($rs) {
+            $old_blog = App::blog()->id();
             while ($rs->fetch()) {
-                $b = new dcBlog($rs->blog_id);
-                $b->triggerBlog();
-                unset($b);
+                App::blogLoader()->setBlog($rs->blog_id);
+                App::blog()->triggerBlog();
+            }
+            if (empty($old_blog)) {
+                App::blogLoader()->unsetBlog();
+            } else {
+                App::blogLoader()->setBlog($old_blog);
             }
         }
 
@@ -358,7 +362,7 @@ class Users implements UsersInterface
 
         $perms = '|' . implode('|', array_keys($perms)) . '|';
 
-        $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME);
+        $cur = App::auth()->openPermCursor();
 
         $cur->user_id     = (string) $id;
         $cur->blog_id     = (string) $blog_id;
@@ -387,7 +391,7 @@ class Users implements UsersInterface
      */
     public function setUserDefaultBlog(string $id, string $blog_id): void
     {
-        $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+        $cur = App::auth()->openUserCursor();
 
         $cur->user_default_blog = (string) $blog_id;
 
@@ -404,7 +408,7 @@ class Users implements UsersInterface
      */
     public function removeUsersDefaultBlogs(array $ids): void
     {
-        $cur = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+        $cur = App::auth()->openUserCursor();
 
         $cur->user_default_blog = null;
 

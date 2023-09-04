@@ -30,17 +30,13 @@ class Install extends Process
 
         // Rename settings namespace
         if (version_compare(App::version()->getVersion(My::id()), '2.0', '<=')
-            && App::blog()->settings->exists('dcckeditor')
+            && App::blog()->settings()->exists('dcckeditor')
         ) {
-            App::blog()->settings->delNamespace(My::id());
-            App::blog()->settings->renNamespace('dcckeditor', My::id());
+            App::blog()->settings()->delNamespace(My::id());
+            App::blog()->settings()->renNamespace('dcckeditor', My::id());
         }
 
         $s = My::settings();
-
-        if (($s = My::settings()) === null) {
-            return false;
-        }
         $s->put('active', true, 'boolean', 'dcCKEditor plugin activated?', false, true);
         $s->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);
         $s->put('list_buttons', true, 'boolean', 'Add list buttons?', false, true);

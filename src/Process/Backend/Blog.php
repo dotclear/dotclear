@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcBlog;
 use dcSettings;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
@@ -48,7 +47,7 @@ class Blog extends Process
     {
         if (!isset($_POST['id']) && (isset($_POST['create']))) {
             // Create a blog
-            $cur = App::con()->openCursor(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
+            $cur = App::blog()->openBlogCursor();
 
             App::backend()->blog_id   = $cur->blog_id = $_POST['blog_id'];
             App::backend()->blog_url  = $cur->blog_url = $_POST['blog_url'];

@@ -24,7 +24,7 @@ interface LogInterface
      *
      * @return  Cursor  The log database table cursor
      */
-    public function openCursor(): Cursor;
+    public function openLogCursor(): Cursor;
 
     /**
      * Retrieves logs.

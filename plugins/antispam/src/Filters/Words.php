@@ -263,7 +263,7 @@ class Words extends SpamFilter
         $strReq = 'SELECT rule_id, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = 'word' " .
-        "AND ( blog_id = '" . App::con()->escape(App::blog()->id) . "' " .
+        "AND ( blog_id = '" . App::con()->escape(App::blog()->id()) . "' " .
             'OR blog_id IS NULL ) ' .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
@@ -284,7 +284,7 @@ class Words extends SpamFilter
         "WHERE rule_type = 'word' " .
         "AND rule_content = '" . App::con()->escape($content) . "' ";
         if (!$general) {
-            $strReq .= ' AND blog_id = \'' . App::blog()->id . '\'';
+            $strReq .= ' AND blog_id = \'' . App::blog()->id() . '\'';
         }
         $rs = new MetaRecord(App::con()->select($strReq));
 
@@ -299,7 +299,7 @@ class Words extends SpamFilter
         if ($general && App::auth()->isSuperAdmin()) {
             $cur->blog_id = null;
         } else {
-            $cur->blog_id = App::blog()->id;
+            $cur->blog_id = App::blog()->id();
         }
 
         if (!$rs->isEmpty() && $general) {
@@ -331,7 +331,7 @@ class Words extends SpamFilter
         }
 
         if (!App::auth()->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . App::con()->escape(App::blog()->id) . "' ";
+            $strReq .= "AND blog_id = '" . App::con()->escape(App::blog()->id()) . "' ";
         }
 
         App::con()->execute($strReq);

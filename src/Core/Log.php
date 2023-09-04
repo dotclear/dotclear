@@ -53,7 +53,7 @@ class Log implements LogInterface
         return self::LOG_TABLE_NAME;
     }
 
-    public function openCursor(): Cursor
+    public function openLogCursor(): Cursor
     {
         return App::con()->openCursor($this->log_table);
     }
@@ -99,7 +99,7 @@ class Log implements LogInterface
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote((string) App::blog()->id));
+            $sql->where('L.blog_id = ' . $sql->quote((string) App::blog()->id()));
         }
 
         if (!empty($params['user_id'])) {
@@ -144,7 +144,7 @@ class Log implements LogInterface
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) App::blog()->id;
+            $cur->blog_id = (string) App::blog()->id();
             $cur->log_dt  = date('Y-m-d H:i:s');
 
             $this->fillLogCursor($cur);

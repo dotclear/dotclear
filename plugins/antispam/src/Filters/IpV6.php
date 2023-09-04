@@ -282,7 +282,7 @@ class IpV6 extends SpamFilter
             if ($global && App::auth()->isSuperAdmin()) {
                 $cur->blog_id = null;
             } else {
-                $cur->blog_id = App::blog()->id;
+                $cur->blog_id = App::blog()->id();
             }
 
             $cur->insert();
@@ -305,7 +305,7 @@ class IpV6 extends SpamFilter
         $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . App::con()->escape($type) . "' " .
-        "AND (blog_id = '" . App::blog()->id . "' OR blog_id IS NULL) " .
+        "AND (blog_id = '" . App::blog()->id() . "' OR blog_id IS NULL) " .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
         return new MetaRecord(App::con()->select($strReq));
@@ -329,7 +329,7 @@ class IpV6 extends SpamFilter
         $strReq = 'SELECT * FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . App::con()->escape($type) . "' " .
         "AND rule_content LIKE '" . $ip . "%' " .
-        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . App::blog()->id . "' ");
+        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . App::blog()->id() . "' ");
 
         return new MetaRecord(App::con()->select($strReq));
     }
@@ -347,7 +347,7 @@ class IpV6 extends SpamFilter
         $strReq = 'SELECT DISTINCT(rule_content) ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . App::con()->escape($type) . "' " .
-        "AND (blog_id = '" . App::blog()->id . "' OR blog_id IS NULL) " .
+        "AND (blog_id = '" . App::blog()->id() . "' OR blog_id IS NULL) " .
             'ORDER BY rule_content ASC ';
 
         $rs = new MetaRecord(App::con()->select($strReq));
@@ -381,7 +381,7 @@ class IpV6 extends SpamFilter
         }
 
         if (!App::auth()->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . App::blog()->id . "' ";
+            $strReq .= "AND blog_id = '" . App::blog()->id() . "' ";
         }
 
         App::con()->execute($strReq);

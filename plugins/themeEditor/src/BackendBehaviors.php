@@ -30,7 +30,7 @@ class BackendBehaviors
     {
         if (App::auth()->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
-            if (App::blog()->settings->system->themes_path !== App::blog()->settings->system->getGlobal('themes_path')
+            if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
                 || !App::themes()->getDefine($id)->distributed
             ) {
                 return '<p><a href="' . My::manageUrl() . '" class="button">' . __('Edit theme files') . '</a></p>';

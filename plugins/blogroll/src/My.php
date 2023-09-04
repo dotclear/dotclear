@@ -23,12 +23,12 @@ class My extends MyPlugin
     {
         return in_array($context, [self::MANAGE, self::MENU]) ?
             defined('DC_CONTEXT_ADMIN')
-            && !is_null(App::blog())
+            && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 Blogroll::PERMISSION_BLOGROLL,
                 App::auth()::PERMISSION_ADMIN,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id)
+            ]), App::blog()->id())
             : null;
     }
 }

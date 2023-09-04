@@ -203,7 +203,7 @@ class Filter implements FilterInterface
 
     public function wikiPostLink(string $url, string $content): array
     {
-        if (!App::blog()) {
+        if (!App::blog()->isDefined()) {
             return [];
         }
 
@@ -236,7 +236,7 @@ class Filter implements FilterInterface
 
     public function HTMLfilter(string $str): string
     {
-        if (!App::blog() || !App::blog()->settings->system->enable_html_filter) {
+        if (!App::blog()->isDefined() || !App::blog()->settings()->system->enable_html_filter) {
             return $str;
         }
 

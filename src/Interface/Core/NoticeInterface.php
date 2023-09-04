@@ -24,7 +24,7 @@ interface NoticeInterface
      *
      * @return  Cursor  The notice database table cursor
      */
-    public function openCursor(): Cursor;
+    public function openNoticeCursor(): Cursor;
 
     /**
      * Gets the notices.

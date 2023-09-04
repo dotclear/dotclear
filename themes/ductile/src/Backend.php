@@ -29,7 +29,7 @@ class Backend extends Process
         }
 
         App::behavior()->addBehavior('adminPageHTMLHead', function () {
-            if (App::blog()->settings->system->theme !== My::id()) {
+            if (App::blog()->settings()->system->theme !== My::id()) {
                 return;
             }
 

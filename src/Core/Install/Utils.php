@@ -9,7 +9,6 @@
 
 namespace Dotclear\Core\Install;
 
-use dcBlog;
 use dcNamespace;
 use dcSettings;
 use Dotclear\App;
@@ -107,7 +106,7 @@ class Utils
             ->blog_url('varchar', 255, false)
             ->blog_name('varchar', 255, false)
             ->blog_desc('text', 0, true)
-            ->blog_status('smallint', 0, false, defined('dcBlog::BLOG_ONLINE') ? dcBlog::BLOG_ONLINE : 1) // 2.24+ transition (update)
+            ->blog_status('smallint', 0, false, App::blog()::BLOG_ONLINE) // 2.24+ transition (update)
 
             ->primary('pk_blog', 'blog_id')
         ;
@@ -164,7 +163,7 @@ class Utils
             ->user_options('text', 0, true)
             ->user_lang('varchar', 5, true, null)
             ->user_tz('varchar', 128, false, "'UTC'")
-            ->user_post_status('smallint', 0, false, dcBlog::POST_PENDING)
+            ->user_post_status('smallint', 0, false, App::blog()::POST_PENDING)
             ->user_creadt('timestamp', 0, false, 'now()')
             ->user_upddt('timestamp', 0, false, 'now()')
 
@@ -201,7 +200,7 @@ class Utils
             ->post_notes('text', 0, true, null)
             ->post_meta('text', 0, true, null)
             ->post_words('text', 0, true, null)
-            ->post_status('smallint', 0, false, dcBlog::POST_UNPUBLISHED)
+            ->post_status('smallint', 0, false, App::blog()::POST_UNPUBLISHED)
             ->post_firstpub('smallint', 0, false, 0)
             ->post_selected('smallint', 0, false, 0)
             ->post_position('integer', 0, false, 0)
@@ -278,7 +277,7 @@ class Utils
             ->comment_content('text', 0, true)
             ->comment_words('text', 0, true, null)
             ->comment_ip('varchar', 39, true, null)
-            ->comment_status('smallint', 0, true, dcBlog::COMMENT_UNPUBLISHED)
+            ->comment_status('smallint', 0, true, App::blog()::COMMENT_UNPUBLISHED)
             ->comment_spam_status('varchar', 128, true, 0)
             ->comment_spam_filter('varchar', 32, true, null)
             ->comment_trackback('smallint', 0, false, 0)

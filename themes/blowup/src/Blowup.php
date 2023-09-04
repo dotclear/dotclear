@@ -304,10 +304,10 @@ class Blowup
         }
 
         # erase old css file
-        self::dropCss(App::blog()->settings->system->theme);
+        self::dropCss(App::blog()->settings()->system->theme);
 
         # create new css file into public blowup-css subdirectory
-        self::writeCss(App::blog()->settings->system->theme, $res);
+        self::writeCss(App::blog()->settings()->system->theme, $res);
 
         return $res;
     }

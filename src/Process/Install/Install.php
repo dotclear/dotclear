@@ -10,7 +10,6 @@
 namespace Dotclear\Process\Install;
 
 use DateTimeZone;
-use dcBlog;
 use dcSettings;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
@@ -69,7 +68,7 @@ class Install extends Process
 
         # Check if dotclear is already installed
         $schema = AbstractSchema::init(App::con());
-        if (in_array(App::con()->prefix() . dcBlog::POST_TABLE_NAME, $schema->getTables())) {
+        if (in_array(App::con()->prefix() . App::blog()::POST_TABLE_NAME, $schema->getTables())) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
         }
@@ -167,7 +166,7 @@ class Install extends Process
                 self::$root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
 
                 # Create blog
-                $cur            = App::con()->openCursor(App::con()->prefix() . dcBlog::BLOG_TABLE_NAME);
+                $cur            = App::blog()->openBlogCursor();
                 $cur->blog_id   = 'default';
                 $cur->blog_url  = Http::getHost() . self::$root_url . '/index.php?';
                 $cur->blog_name = __('My first blog');
@@ -247,7 +246,7 @@ class Install extends Process
                 );
 
                 # Add Dotclear version
-                $cur          = App::version()->openCursor();
+                $cur          = App::version()->openVersionCursor();
                 $cur->module  = 'core';
                 $cur->version = (string) DC_VERSION;
                 $cur->insert();
@@ -255,7 +254,7 @@ class Install extends Process
                 # Create first post
                 App::blogLoader()->setBlog('default');
 
-                $cur               = App::con()->openCursor(App::con()->prefix() . dcBlog::POST_TABLE_NAME);
+                $cur               = App::blog()->openPostCursor();
                 $cur->user_id      = self::$u_login;
                 $cur->post_format  = 'xhtml';
                 $cur->post_lang    = self::$dlang;
@@ -263,13 +262,13 @@ class Install extends Process
                 $cur->post_content = '<p>' . __('This is your first entry. When you\'re ready ' .
                     'to blog, log in to edit or delete it.') . '</p>';
                 $cur->post_content_xhtml = $cur->post_content;
-                $cur->post_status        = dcBlog::POST_PUBLISHED;
+                $cur->post_status        = App::blog()::POST_PUBLISHED;
                 $cur->post_open_comment  = 1;
                 $cur->post_open_tb       = 0;
                 $post_id                 = App::blog()->addPost($cur);
 
                 # Add a comment to it
-                $cur                  = App::con()->openCursor(App::con()->prefix() . dcBlog::COMMENT_TABLE_NAME);
+                $cur                  = App::blog()->openCommentCursor();
                 $cur->post_id         = $post_id;
                 $cur->comment_tz      = $default_tz;
                 $cur->comment_author  = __('Dotclear Team');

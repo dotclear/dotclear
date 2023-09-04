@@ -47,7 +47,7 @@ class BackendActions extends ActionsPosts
         $this->beginPage(
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name) => '',
+                    Html::escapeHTML(App::blog()->name()) => '',
                     __('Pages')                         => $this->getRedirection(true),
                     __('Pages actions')                 => '',
                 ]

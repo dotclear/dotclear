@@ -119,7 +119,7 @@ class Favorites
                 if (!$favorite['permissions']) {
                     return false;
                 }
-            } elseif (!App::auth()->check($favorite['permissions'], App::blog()->id)) {
+            } elseif (!App::auth()->check($favorite['permissions'], App::blog()->id())) {
                 return false;
             }
         } elseif (!App::auth()->isSuperAdmin()) {
