@@ -33,6 +33,9 @@ namespace Dotclear {
 
     /**
      * Application.
+     *
+     * Note this class includes all core container methods.
+     * @see Dotclear\Core\Container
      */
     final class App extends Container
     {

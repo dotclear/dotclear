@@ -29,7 +29,7 @@ class Factories
 {
     /** @var    array<string,array<int,string>> The containers factories stack */
     private static array $stack = [
-        'core' => [], // for now only core has factory
+        'core' => [], // for now only core has factory, see Dotclear\Interface\Core\FactoryInterface
     ];
 
     /**
