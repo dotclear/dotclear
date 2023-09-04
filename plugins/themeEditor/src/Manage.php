@@ -13,14 +13,13 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use ArrayObject;
-use Exception;
-use dcThemes;
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
+use Exception;
 use form;
 
 class Manage extends Process
@@ -84,15 +83,15 @@ class Manage extends Process
                 && !empty($_POST['lock'])
                 && is_string(App::backend()->theme->get('root'))
             ) {
-                file_put_contents(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED, '');
+                file_put_contents(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED, '');
                 Notices::addSuccessNotice(__('The theme update has been locked.'));
             }
             if (App::auth()->isSuperAdmin()
                 && !empty($_POST['unlock'])
                 && is_string(App::backend()->theme->get('root'))
-                && file_exists(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED)
+                && file_exists(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED)
             ) {
-                unlink(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . dcThemes::MODULE_FILE_LOCKED);
+                unlink(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED);
                 Notices::addSuccessNotice(__('The theme update has been unocked.'));
             }
 
@@ -187,7 +186,7 @@ class Manage extends Process
         '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(App::backend()->theme->get('name'))) . '</strong></p>';
 
         if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
-            || !App::themes()->getDefine(App::blog()->settings()->system->theme)->distributed
+            || !App::themes()->getDefine(App::blog()->settings()->system->theme)->get('distributed')
         ) {
             echo
             '<div id="file-box">' .

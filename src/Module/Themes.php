@@ -1,21 +1,26 @@
 <?php
 /**
- * @brief Themes specific handler
+ * Themes specific handler
  *
- * Provides an specialized object to handle themes. An instance of this
- * class should be created when needed.
+ * An instance of this class is provided by App::themes()
+ * and used for themes.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @since 2.6
  */
+declare(strict_types=1);
+
+namespace Dotclear\Module;
 
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
+use Exception;
 
-class dcThemes extends dcModules
+class Themes extends Modules
 {
     /**
      * Module type
@@ -56,7 +61,7 @@ class dcThemes extends dcModules
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        $define = new dcModuleDefine($this->id);
+        $define = new ModuleDefine($this->id);
 
         $define
             ->set('name', $name)
@@ -86,7 +91,7 @@ class dcThemes extends dcModules
         $this->defineModule($define);
     }
 
-    protected function defineModule(dcModuleDefine $define)
+    protected function defineModule(ModuleDefine $define): void
     {
         // Themes specifics properties
         $define->set('permissions', App::auth()->makePermissions([
@@ -117,11 +122,11 @@ class dcThemes extends dcModules
         }
 
         $counter = 0;
-        $new_dir = sprintf('%s_copy', $module->root);
+        $new_dir = sprintf('%s_copy', $module->get('root'));
         while (is_dir($new_dir)) {
-            $new_dir = sprintf('%s_copy_%s', $module->root, ++$counter);
+            $new_dir = sprintf('%s_copy_%s', $module->get('root'), ++$counter);
         }
-        $new_name = $module->name . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
+        $new_name = $module->get('name') . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
             try {
@@ -130,11 +135,11 @@ class dcThemes extends dcModules
 
                 // Clone directories and files
 
-                $content = Files::getDirList($module->root);
+                $content = Files::getDirList($module->get('root'));
 
                 // Create sub directories if necessary
                 foreach ($content['dirs'] as $dir) {
-                    $rel = substr($dir, strlen($module->root));
+                    $rel = substr($dir, strlen($module->get('root')));
                     if ($rel !== '') {
                         Files::makeDir($new_dir . $rel);
                     }
@@ -143,7 +148,7 @@ class dcThemes extends dcModules
                 // Copy files from source to destination
                 foreach ($content['files'] as $file) {
                     // Copy file
-                    $rel = substr($file, strlen($module->root));
+                    $rel = substr($file, strlen($module->get('root')));
                     copy($file, $new_dir . $rel);
 
                     if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
@@ -153,9 +158,9 @@ class dcThemes extends dcModules
                         // Change theme name to $new_name in _define.php
                         if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                             // Change only first occurence in registerModule parameters (should be the theme name)
-                            $matches[2] = preg_replace('/' . preg_quote($module->name) . '/', $new_name, $matches[2], 1);
+                            $matches[2] = preg_replace('/' . preg_quote($module->get('name')) . '/', $new_name, $matches[2], 1);
                             $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
-                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module->name);
+                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module->get('name'));
                             file_put_contents($new_dir . $rel, $buf);
                         } else {
                             throw new Exception(__('Unable to modify _define.php'));
@@ -203,12 +208,12 @@ class dcThemes extends dcModules
      */
     public function loadNsFile(string $id, ?string $ns = null): void
     {
-        $define = $this->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined() || !in_array($ns, ['admin', 'public'])) {
             return;
         }
 
-        $parent = $this->getDefine((string) $define->parent, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $parent = $this->getDefine((string) $define->get('parent'), ['state' => ModuleDefine::STATE_ENABLED]);
 
         switch ($ns) {
             case 'admin':
@@ -229,13 +234,13 @@ class dcThemes extends dcModules
             // by class name
             if ($this->loadNsClass($parent->getId(), $class) === '') {
                 // by file name
-                $this->loadModuleFile((string) $parent->root . DIRECTORY_SEPARATOR . $file, true);
+                $this->loadModuleFile((string) $parent->get('root') . DIRECTORY_SEPARATOR . $file, true);
             }
         }
         // by class name
         if ($this->loadNsClass($id, $class) === '') {
             // by file name
-            $this->loadModuleFile((string) $define->root . DIRECTORY_SEPARATOR . $file, true);
+            $this->loadModuleFile((string) $define->get('root') . DIRECTORY_SEPARATOR . $file, true);
         }
     }
 }

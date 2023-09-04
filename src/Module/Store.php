@@ -1,35 +1,33 @@
 <?php
 /**
- * @brief Repository modules XML feed reader
+ * Repository modules XML feed reader.
  *
  * Provides an object to parse XML feed of modules from repository.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  *
  * @since 2.6
  */
+declare(strict_types=1);
 
+namespace Dotclear\Module;
+
+use dcDeprecated;
+use dcUtils;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
+use Dotclear\Interface\Module\ModulesInterface;
+use Exception;
 
-class dcStore
+class Store
 {
-    /**
-     * dcModules instance
-     *
-     * @var    object
-     */
+    /** @var    ModulesInterface    Modules instance */
     public $modules;
 
-    /**
-     * Modules fields to search on and their weight
-     *
-     * @var    array
-     */
+    /** @var    array<string,int>   Modules fields to search on and their weight */
     public static $weighting = [
         'id'     => 10,
         'name'   => 8,
@@ -38,55 +36,35 @@ class dcStore
         'author' => 2,
     ];
 
-    /**
-     * User agent used to query repository
-     *
-     * @var    string
-     */
+    /** @var   string   User agent used to query repository */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
 
-    /**
-     * XML feed URL
-     *
-     * @var    null|string
-     */
+    /** @var    null|string     XML feed URL */
     protected $xml_url = null;
 
-    /**
-     * Array of new/update modules from repository
-     *
-     * @var    array
-     */
+    /** @var    array<string,array<string,array>>   Array of new/update modules from repository */
     protected $data = [
         'new'    => [],
         'update' => [],
     ];
 
-    /**
-     * Array of new/update modules Define from repository
-     *
-     * @var    array
-     */
+    /** @var    array<string,array<int,ModuleDefine>>     Array of new/update modules Define from repository */
     protected $defines = [
         'new'    => [],
         'update' => [],
     ];
 
-    /**
-     * Repositories new updates status.
-     *
-     * @var     bool
-     */
+    /** @var    bool    Repositories new updates status */
     private bool $has_new_update = false;
 
     /**
      * Constructor.
      *
-     * @param    dcModules      $modules        dcModules instance
-     * @param    string         $xml_url        XML feed URL
-     * @param    null|bool      $force          Force query repository
+     * @param   ModulesInterface    $modules    Modules instance
+     * @param   string              $xml_url    XML feed URL
+     * @param   null|bool           $force  Force query repository
      */
-    public function __construct(dcModules $modules, ?string $xml_url, ?bool $force = false)
+    public function __construct(ModulesInterface $modules, ?string $xml_url, ?bool $force = false)
     {
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
@@ -98,9 +76,9 @@ class dcStore
     /**
      * Check repository.
      *
-     * @param    bool    $force        Force query repository
+     * @param   bool    $force  Force query repository
      *
-     * @return    bool    True if get feed or cache
+     * @return  bool    True if get feed or cache
      */
     public function check(?bool $force = false): bool
     {
@@ -109,7 +87,7 @@ class dcStore
         }
 
         try {
-            $str_parser = DC_STORE_NOT_UPDATE ? false : dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
+            $str_parser = DC_STORE_NOT_UPDATE ? false : StoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
         } catch (Exception $e) {
             return false;
         }
@@ -136,7 +114,7 @@ class dcStore
                         $upd_defines[] = $str_define;
 
                         // This update is new from main repository
-                        if (dcStoreReader::readCode() === dcStoreReader::READ_FROM_SOURCE) {
+                        if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
                             $this->has_new_update = true;
                         }
                     }
@@ -152,7 +130,7 @@ class dcStore
             if ($cur_define->get('repository') != '' && DC_ALLOW_REPOSITORIES) {
                 try {
                     $str_url    = substr($cur_define->get('repository'), -12, 12) == '/dcstore.xml' ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
-                    $str_parser = dcStoreReader::quickParse($str_url, DC_TPL_CACHE, $force);
+                    $str_parser = StoreReader::quickParse($str_url, DC_TPL_CACHE, $force);
                     if ($str_parser === false) {
                         continue;
                     }
@@ -172,7 +150,7 @@ class dcStore
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
 
                                 // This update is new from third party repository
-                                if (dcStoreReader::readCode() === dcStoreReader::READ_FROM_SOURCE) {
+                                if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
                                     $this->has_new_update = true;
                                 }
                             }
@@ -220,9 +198,9 @@ class dcStore
     /**
      * Get a list of modules.
      *
-     * @param    bool    $update    True to get update modules, false for new ones
+     * @param   bool    $update     True to get update modules, false for new ones
      *
-     * @return    array    List of update/new modules defines
+     * @return  array<int,ModuleDefine>   List of update/new modules defines
      */
     public function getDefines(bool $update = false): array
     {
@@ -232,15 +210,15 @@ class dcStore
     /**
      * Get a list of modules.
      *
-     * @deprecated since 2.26 Use self::getDefines()
+     * @deprecated since 2.26, use self::getDefines() instead
      *
-     * @param    bool    $update    True to get update modules, false for new ones
+     * @param   bool    $update     True to get update modules, false for new ones
      *
-     * @return    array    List of update/new modules
+     * @return  array   List of update/new modules
      */
     public function get(bool $update = false): array
     {
-        dcDeprecated::set('dcStore::getDefines()', '2.26');
+        dcDeprecated::set(self::class . '::getDefines()', '2.26');
 
         return $this->data[$update ? 'update' : 'new'];
     }
@@ -256,9 +234,9 @@ class dcStore
      * Every time a part of query is find on module,
      * result accuracy grow. Result is sorted by accuracy.
      *
-     * @param    string    $pattern    String to search
+     * @param   string  $pattern    String to search
      *
-     * @return    array    Match modules defines
+     * @return  array<int,ModuleDefine>     Match modules defines
      */
     public function searchDefines(string $pattern): array
     {
@@ -304,15 +282,15 @@ class dcStore
     /**
      * Search a module.
      *
-     * @deprecated since 2.26 Use self::searchDefines()
+     * @deprecated  since 2.26, use self::searchDefines() instead
      *
-     * @param    string    $pattern    String to search
+     * @param   string  $pattern    String to search
      *
-     * @return    array    Match modules
+     * @return  array   Match modules
      */
     public function search(string $pattern): array
     {
-        dcDeprecated::set('dcStore::searchDefines()', '2.26');
+        dcDeprecated::set(self::class . '::searchDefines()', '2.26');
 
         $result = [];
         foreach ($this->searchDefines($pattern) as $define) {
@@ -328,7 +306,7 @@ class dcStore
      * @param    string    $url    Module package URL
      * @param    string    $dest    Path to install module
      *
-     * @return    int      dcModules::PACKAGE_INSTALLED (1), dcModules::PACKAGE_UPDATED (2)
+     * @return  int     Modules::PACKAGE_INSTALLED (1), Modules::PACKAGE_UPDATED (2)
      */
     public function process(string $url, string $dest): int
     {
@@ -340,8 +318,8 @@ class dcStore
     /**
      * Download a module.
      *
-     * @param    string    $url    Module package URL
-     * @param    string    $dest    Path to put module package
+     * @param   string  $url    Module package URL
+     * @param   string  $dest   Path to put module package
      */
     public function download(string $url, string $dest): void
     {
@@ -372,21 +350,21 @@ class dcStore
     /**
      * Install a previously downloaded module.
      *
-     * @param    string    $path    Path to module package
+     * @param   string  $path   Path to module package
      *
-     * @return    int        1 = installed, 2 = update
+     * @return  int     1 = installed, 2 = update
      */
     public function install(string $path): int
     {
-        return dcModules::installPackage($path, $this->modules);
+        return $this->modules::installPackage($path, $this->modules);
     }
 
     /**
      * User Agent String.
      *
-     * @param    string    $str        User agent string
+     * @param   string  $str    User agent string
      */
-    public function agent(string $str)
+    public function agent(string $str): void
     {
         $this->user_agent = $str;
     }
@@ -394,11 +372,11 @@ class dcStore
     /**
      * Split and clean pattern.
      *
-     * @param    string    $str        String to sanitize
+     * @param   string  $str    String to sanitize
      *
-     * @return    array|false    Array of cleaned pieces of string or false if none
+     * @return  array|false     Array of cleaned pieces of string or false if none
      */
-    private static function patternize(string $str)
+    private static function patternize(string $str): bool|array
     {
         $arr = [];
 

@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 
 use dcCategories;
 use dcCore;
-use dcStore;
 use dcUpdate;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\App;
@@ -24,6 +23,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Text;
+use Dotclear\Module\Store;
 use Dotclear\Plugin\antispam\Antispam;
 use Exception;
 
@@ -250,7 +250,7 @@ class Rest extends Process
             $mod = App::plugins();
             $url = App::blog()->settings()->system->store_plugin_url;
         } else {
-            # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,dcModules>, array<int,string>
+            # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,Modules>, array<int,string>
             App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
@@ -258,7 +258,7 @@ class Rest extends Process
             }
         }
 
-        $repo = new dcStore($mod, $url);
+        $repo = new Store($mod, $url);
         $upd  = $repo->getDefines(true);
         if (!empty($upd)) {
             $data = [
