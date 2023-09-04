@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcCategories;
 use dcNamespace;
 use dcTrackback;
 use Dotclear\App;
@@ -55,7 +54,7 @@ class ModuleExportFlat extends Module
 
                 $exp->export(
                     'category',
-                    'SELECT * FROM ' . App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(

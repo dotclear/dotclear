@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcCategories;
 use dcTraitDynamicProperties;
 use dcSettings;
 use Dotclear\App;
@@ -227,7 +226,7 @@ class Blog implements BlogInterface
     /**
      * Blog's categories
      *
-     * @var dcCategories
+     * @var Categories
      */
     private $categories;
 
@@ -623,14 +622,14 @@ class Blog implements BlogInterface
     //@{
 
     /**
-     * Get dcCategories instance
+     * Get Categories instance
      *
-     * @return     dcCategories
+     * @return     Categories
      */
-    public function categories(): dcCategories
+    public function categories(): Categories
     {
-        if (!($this->categories instanceof dcCategories)) {
-            $this->categories = new dcCategories();
+        if (!($this->categories instanceof Categories)) {
+            $this->categories = new Categories();
         }
 
         return $this->categories;
@@ -835,7 +834,7 @@ class Blog implements BlogInterface
                 'C.cat_id',
                 $sql->count('P.post_id', 'nb_post'),
             ])
-            ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
+            ->from($sql->as($this->prefix . $this->categories()::CATEGORY_TABLE_NAME, 'C'))
             ->join(
                 (new JoinStatement())
                     ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
@@ -1068,7 +1067,7 @@ class Blog implements BlogInterface
         $sql = new SelectStatement();
         $sql
             ->column('cat_url')
-            ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
+            ->from($this->prefix . $this->categories()::CATEGORY_TABLE_NAME)
             ->where('cat_url = ' . $sql->quote($url))
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('cat_url DESC');
@@ -1082,7 +1081,7 @@ class Blog implements BlogInterface
             $sql = new SelectStatement();
             $sql
                 ->column('cat_url')
-                ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
+                ->from($this->prefix . $this->categories()::CATEGORY_TABLE_NAME)
                 ->where('cat_url' . $sql->regexp($url))
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('cat_url DESC');
@@ -1271,7 +1270,7 @@ class Blog implements BlogInterface
             ->join(
                 (new JoinStatement())
                     ->left()
-                    ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
+                    ->from($sql->as($this->prefix . $this->categories()::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             );
@@ -1631,7 +1630,7 @@ class Blog implements BlogInterface
             ->join(
                 (new JoinStatement())
                     ->left()
-                    ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
+                    ->from($sql->as($this->prefix . $this->categories()::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             )
@@ -2306,7 +2305,7 @@ class Blog implements BlogInterface
                     'cat_lft',
                     'cat_rgt',
                 ])
-                ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
+                ->from($this->prefix . $this->categories()::CATEGORY_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and($field . $sql->in(array_keys($sub)));
 

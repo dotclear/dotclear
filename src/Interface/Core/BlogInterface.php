@@ -13,6 +13,7 @@ namespace Dotclear\Interface\Core;
 
 use ArrayObject;
 use dcSettings;
+use Dotclear\Core\Categories;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -292,6 +293,13 @@ interface BlogInterface
 
     /// @name Categories management methods
     //@{
+
+    /**
+     * Get Categories instance.
+     *
+     * @return  Categories
+     */
+    public function categories(): Categories;
 
     /**
      * Retrieves categories.

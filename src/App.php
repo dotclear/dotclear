@@ -195,7 +195,6 @@ namespace Dotclear {
                 // Core
                 'dcCore' => $inc('core', 'class.dc.core.php'),
 
-                'dcCategories' => $inc('core', 'class.dc.categories.php'),
                 'dcNamespace'  => $inc('core', 'class.dc.namespace.php'),
                 'dcSettings'   => $inc('core', 'class.dc.settings.php'),
                 'dcTrackback'  => $inc('core', 'class.dc.trackback.php'),

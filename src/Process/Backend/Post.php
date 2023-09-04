@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcCategories;
 use dcTrackback;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
@@ -364,7 +363,7 @@ class Post extends Process
             ]), App::blog()->id())) {
                 // Create category
 
-                $cur_cat = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
+                $cur_cat = App::blog()->categories()->openCategoryCursor();
 
                 $cur_cat->cat_title = $_POST['new_cat_title'];
                 $cur_cat->cat_url   = '';

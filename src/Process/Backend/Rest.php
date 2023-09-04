@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCategories;
 use dcCore;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\App;
@@ -412,7 +411,7 @@ class Rest extends Process
         if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]), App::blog()->id())) {
-            $cur_cat            = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
+            $cur_cat            = App::blog()->categories()->openCategoryCursor();
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
 

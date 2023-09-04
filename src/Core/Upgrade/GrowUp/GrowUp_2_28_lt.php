@@ -25,6 +25,7 @@ class GrowUp_2_28_lt
                 'src/Upgrade/dummy.txt',
                 'inc/core/class.dc.auth.php',
                 'inc/core/class.dc.blog.php',
+                'inc/core/class.dc.categories.php',
                 'inc/core/class.dc.deprecated.php',
                 'inc/core/class.dc.error.php',
                 'inc/core/class.dc.log.php',

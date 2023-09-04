@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcCategories;
 use dcNamespace;
 use dcTrackback;
 use dcWorkspace;
@@ -102,7 +101,7 @@ class FlatImportV2 extends FlatBackup
         $this->prefix = App::con()->prefix();
 
         $this->cur_blog        = App::blog()->openBlogCursor();
-        $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
+        $this->cur_category    = App::blog()->categories()->openCategoryCursor();
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
         $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
         $this->cur_user        = App::auth()->openUserCursor();
@@ -142,11 +141,11 @@ class FlatImportV2 extends FlatBackup
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
-            'FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+            'FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
         ));
 
-        $rs                    = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME));
+        $rs                    = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME));
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                     = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
@@ -165,7 +164,7 @@ class FlatImportV2 extends FlatBackup
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
         $rs = new MetaRecord($this->con->select(
-            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape(App::blog()->id()) . "'"
         ));
 
