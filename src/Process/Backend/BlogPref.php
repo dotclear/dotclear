@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcSettings;
-use dcUtils;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
+use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -941,7 +941,7 @@ class BlogPref extends Process
 
                 // Sort users list on user_id key
                 $blog_users = $da->blog_users;
-                if (dcUtils::lexicalKeySort($blog_users, dcUtils::ADMIN_LOCALE)) {
+                if (Utils::lexicalKeySort($blog_users, Utils::ADMIN_LOCALE)) {
                     $da->blog_users = $blog_users;
                 }
 
@@ -957,7 +957,7 @@ class BlogPref extends Process
                         echo
                         '<div class="user-perm' . ($v['super'] ? ' user_super' : '') . '">' .
                         '<h4>' . sprintf($user_url_p, Html::escapeHTML($k)) .
-                        ' (' . Html::escapeHTML(dcUtils::getUserCN(
+                        ' (' . Html::escapeHTML(Utils::getUserCN(
                             $k,
                             $v['name'],
                             $v['firstname'],

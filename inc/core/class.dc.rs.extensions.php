@@ -16,6 +16,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Core\Utils;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -346,7 +347,7 @@ class rsExtPost
      */
     public static function getAuthorCN(MetaRecord $rs): string
     {
-        return dcUtils::getUserCN(
+        return Utils::getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,

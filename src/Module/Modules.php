@@ -15,8 +15,8 @@ namespace Dotclear\Module;
 
 use Autoloader;
 use dcDeprecated;
-use dcUtils;
 use Dotclear\App;
+use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -712,7 +712,7 @@ class Modules implements ModulesInterface
                     unlink($zip_file);
 
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
-                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || Utils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));

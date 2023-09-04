@@ -196,6 +196,7 @@ dcProxyV1::classAliases([
     'dcStoreParser'  => 'Dotclear\Module\StoreParser',
     'dcStoreReader'  => 'Dotclear\Module\StoreReader',
     'dcThemes'       => 'Dotclear\Module\Themes',
+    'dcUtils'        => 'Dotclear\Core\Utils',
 
     // Core admin -----------------
 

@@ -9,6 +9,7 @@
  */
 declare(strict_types=1);
 
+use Dotclear\Core\Utils;
 use Dotclear\Database\MetaRecord;
 
 /**
@@ -25,7 +26,7 @@ class rsExtLog
      */
     public static function getUserCN(MetaRecord $rs): string
     {
-        $user = dcUtils::getUserCN(
+        $user = Utils::getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,

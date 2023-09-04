@@ -10,13 +10,13 @@ declare(strict_types=1);
 namespace Dotclear {
     use Autoloader;
     use dcCore;
-    use dcUtils;
-    use Dotclear\Core\Container;
-    use Dotclear\Core\Process;
-    use Dotclear\Core\PostType;
     use Dotclear\Core\Backend\Utility as Backend;
+    use Dotclear\Core\Container;
     use Dotclear\Core\Frontend\Url;
     use Dotclear\Core\Frontend\Utility as Frontend;
+    use Dotclear\Core\PostType;
+    use Dotclear\Core\Process;
+    use Dotclear\Core\Utils;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
@@ -200,7 +200,6 @@ namespace Dotclear {
                 'dcSettings'     => $inc('core', 'class.dc.settings.php'),
                 'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
                 'dcUpdate'       => $inc('core', 'class.dc.update.php'),
-                'dcUtils'        => $inc('core', 'class.dc.utils.php'),
                 'dcXmlRpc'       => $inc('core', 'class.dc.xmlrpc.php'),
                 'dcDeprecated'   => $inc('core', 'class.dc.deprecated.php'),
                 'rsExtLog'       => $inc('core', 'lib.rs.ext.log.php'),
@@ -317,8 +316,8 @@ namespace Dotclear {
             }
 
             // Other constants
-            define('DC_DIGESTS', dcUtils::path([DC_ROOT, 'inc', 'digests']));
-            define('DC_L10N_ROOT', dcUtils::path([DC_ROOT, 'locales']));
+            define('DC_DIGESTS', Utils::path([DC_ROOT, 'inc', 'digests']));
+            define('DC_L10N_ROOT', Utils::path([DC_ROOT, 'locales']));
             define('DC_L10N_UPDATE_URL', self::release('l10n_update_url'));
 
             // Update Makefile if the following list is modified
@@ -407,7 +406,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_TPL_CACHE')) {
-                define('DC_TPL_CACHE', dcUtils::path([DC_ROOT, 'cache']));
+                define('DC_TPL_CACHE', Utils::path([DC_ROOT, 'cache']));
             }
             // Check existence of cache directory
             if (!is_dir(DC_TPL_CACHE)) {
@@ -425,7 +424,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_VAR')) {
-                define('DC_VAR', dcUtils::path([DC_ROOT, 'var']));
+                define('DC_VAR', Utils::path([DC_ROOT, 'var']));
             }
             // Check existence of var directory
             if (!is_dir(DC_VAR)) {
@@ -447,7 +446,7 @@ namespace Dotclear {
 
             // REST server watchdog file (used to enable/disable REST services during last phase of Dotclear upgrade)
             if (!defined('DC_UPGRADE')) {
-                define('DC_UPGRADE', dcUtils::path([DC_ROOT, 'inc', 'upgrade']));
+                define('DC_UPGRADE', Utils::path([DC_ROOT, 'inc', 'upgrade']));
             }
 
             L10n::init();

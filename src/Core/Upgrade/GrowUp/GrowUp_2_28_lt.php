@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcUtils;
 use Dotclear\Core\Upgrade\Upgrade;
 use Exception;
 
@@ -41,6 +40,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.store.parser.php',
                 'inc/core/class.dc.store.reader.php',
                 'inc/core/class.dc.themes.php',
+                'inc/core/class.dc.utils.php',
                 'inc/public/lib.urlhandlers.php',
                 'inc/public/class.dc.template.php',
                 'inc/public/lib.tpl.context.php',
@@ -49,12 +49,6 @@ class GrowUp_2_28_lt
             [
             ]
         );
-
-        # Empty module store cache directory
-        try {
-            dcUtils::emptyModulesStoreCache();
-        } catch (Exception $e) {
-        }
 
         return $cleanup_sessions;
     }
