@@ -184,6 +184,7 @@ dcProxyV1::classAliases([
     'dcMedia'        => 'Dotclear\Core\Media',
     'dcMeta'         => 'Dotclear\Core\Meta',
     'dcModuleDefine' => 'Dotclear\Module\ModuleDefine',
+    'dcModules'      => 'Dotclear\Module\Modules',
     'dcNotices'      => 'Dotclear\Core\Notice',
     'dcNsProcess'    => 'Dotclear\Core\Process',
     'dcPlugins'      => 'Dotclear\Module\Plugins',
@@ -193,6 +194,7 @@ dcProxyV1::classAliases([
     'dcStore'        => 'Dotclear\Module\Store',
     'dcStoreParser'  => 'Dotclear\Module\StoreParser',
     'dcStoreReader'  => 'Dotclear\Module\StoreReader',
+    'dcThemes'       => 'Dotclear\Module\Themes',
 
     // Core admin -----------------
 
