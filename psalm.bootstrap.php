@@ -23,9 +23,6 @@ $autoloader->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, 'sr
 // Clearbricks Autoloader (deprecated)
 
 $__autoload = [
-    // Traits
-    'dcTraitDynamicProperties' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'trait.dc.dynprop.php']),
-
     // Core
     'dcCore' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.core.php']),
 

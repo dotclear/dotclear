@@ -10,7 +10,11 @@
  *
  * Dotclear trait to add dynamic properties management to a class.
  */
-trait dcTraitDynamicProperties
+declare(strict_types=1);
+
+namespace Dotclear\Helper;
+
+trait TraitDynamicProperties
 {
     // User-defined - experimental (may be changed in future)
 

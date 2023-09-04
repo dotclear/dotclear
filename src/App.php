@@ -186,15 +186,8 @@ namespace Dotclear {
             // Dotclear root path
             define('DC_ROOT', dirname(__DIR__));
 
-            // Load core classes (old way) This will moved to namespace from Autoloader in the near futur
-            $inc = fn (string $folder, string $file) => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', $folder, $file]);
-            Clearbricks::lib()->autoload([
-                // Traits
-                'dcTraitDynamicProperties' => $inc('core', 'trait.dc.dynprop.php'),
-
-                // Core
-                'dcCore' => $inc('core', 'class.dc.core.php'),
-            ]);
+            // deprecated since 2.28 Load core classes (old way)
+            Clearbricks::lib()->autoload(['dcCore' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.core.php'])]);
 
             // CLI_MODE, boolean constant that tell if we are in CLI mode
             define('CLI_MODE', PHP_SAPI == 'cli');

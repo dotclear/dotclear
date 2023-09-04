@@ -51,6 +51,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.xmlrpc.php',
                 'inc/core/class.dc.rs.extensions.php',
                 'inc/core/lib.rs.ext.log.php',
+                'inc/core/trait.dc.dynprop.php',
                 'inc/public/lib.urlhandlers.php',
                 'inc/public/class.dc.template.php',
                 'inc/public/rs.extension.php',

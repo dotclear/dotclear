@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Frontend;
 
 use dcCore;
-use dcTraitDynamicProperties;
 use Dotclear\App;
 use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
@@ -22,13 +21,14 @@ use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpCacheStack;
+use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Schema\Extension\CommentPublic;
 use Dotclear\Schema\Extension\PostPublic;
 use Exception;
 
 class Utility extends Process
 {
-    use dcTraitDynamicProperties;
+    use TraitDynamicProperties;
 
     /** @var    string  The default templates folder name */
     public const TPL_ROOT = 'default-templates';

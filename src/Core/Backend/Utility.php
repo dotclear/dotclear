@@ -13,19 +13,19 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
-use dcTraitDynamicProperties;
 use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\TraitDynamicProperties;
 use Exception;
 
 class Utility extends Process
 {
     /** Allow dynamic properties */
-    use dcTraitDynamicProperties;
+    use TraitDynamicProperties;
 
     /** @var    string  Current admin page URL */
     private string $p_url = '';

@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcTraitDynamicProperties;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -28,6 +27,7 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
@@ -36,8 +36,8 @@ use Exception;
 
 class Blog implements BlogInterface
 {
-    // deprecate since 2.28,
-    use dcTraitDynamicProperties;
+    // deprecated since 2.28,
+    use TraitDynamicProperties;
 
     // Constants
 

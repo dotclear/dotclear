@@ -213,6 +213,8 @@ dcProxyV1::classAliases([
     'rsExtUser'    => 'Dotclear\Schema\Extension\User',
     'rsExtBlog'    => 'Dotclear\Schema\Extension\Blog',
 
+    'TraitDynamicProperties' => 'Dotclear\Helper\TraitDynamicProperties',
+
     // Core admin -----------------
 
     'adminBlogFilter'      => 'Dotclear\Core\Backend\Filter\FilterBlogs',
