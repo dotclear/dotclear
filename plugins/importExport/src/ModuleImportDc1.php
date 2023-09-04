@@ -14,8 +14,8 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dcTrackback;
 use Dotclear\App;
+use Dotclear\Core\Trackback;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -689,7 +689,7 @@ class ModuleImportDc1 extends Module
                 continue;
             }
 
-            $cur           = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
+            $cur           = $this->con->openCursor($this->prefix . Trackback::PING_TABLE_NAME);
             $cur->post_id  = (int) $new_post_id;
             $cur->ping_url = $url;
             $cur->ping_dt  = $rs->ping_dt;

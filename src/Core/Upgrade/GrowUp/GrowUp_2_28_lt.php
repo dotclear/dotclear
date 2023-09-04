@@ -41,6 +41,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.store.parser.php',
                 'inc/core/class.dc.store.reader.php',
                 'inc/core/class.dc.themes.php',
+                'inc/core/class.dc.trackback.php',
                 'inc/core/class.dc.update.php',
                 'inc/core/class.dc.utils.php',
                 'inc/core/class.dc.xmlrpc.php',

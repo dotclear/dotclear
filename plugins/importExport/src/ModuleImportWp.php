@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Exception;
-use dcTrackback;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
@@ -857,7 +856,7 @@ class ModuleImportWp extends Module
                 continue;
             }
 
-            $cur           = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
+            $cur           = $this->con->openCursor($this->prefix . Trackback::PING_TABLE_NAME);
             $cur->post_id  = $new_post_id;
             $cur->ping_url = $url;
             $cur->insert();
