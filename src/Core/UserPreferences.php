@@ -23,60 +23,40 @@ use Exception;
 
 class UserPreferences
 {
-    // Properties
-
-    /**
-     * Database connection object
-     *
-     * @var object
-     */
-    protected $con;
-
-    /**
-     * Preferences table name
-     *
-     * @var string
-     */
+    /** @var    string  Preferences table name */
     protected $table;
 
-    /**
-     * User ID
-     *
-     * @var string
-     */
+    /** @var    string  User ID  */
     protected $user_id;
 
-    /**
-     * Associative workspaces array
-     *
-     * @var        array
-     */
+    /** @var    array   Associative workspaces array */
     protected $workspaces = [];
 
     /**
-     * Object constructor. Retrieves user prefs and puts them in $workspaces
+     * Constructor.
+     *
+     * Retrieves user prefs and puts them in $workspaces
      * array. Local (user) prefs have a highest priority than global prefs.
      *
-     * @param      string      $user_id   The user identifier
-     * @param      string      $workspace The workspace to load
+     * @param   string  $user_id   The user identifier
+     * @param   string  $workspace The workspace to load
      */
     public function __construct(string $user_id, ?string $workspace = null)
     {
-        $this->con     = App::con();
         $this->table   = App::con()->prefix() . UserWorkspace::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {
             $this->loadPrefs($workspace);
         } catch (Exception $e) {
-            trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
+            trigger_error(__('Unable to retrieve workspaces:') . ' ' . App::con()->error(), E_USER_ERROR);
         }
     }
 
     /**
      * Loads preferences.
      *
-     * @param      null|string  $workspace  The workspace
+     * @param   null|string     $workspace  The workspace
      */
     private function loadPrefs(?string $workspace = null): void
     {
@@ -126,11 +106,13 @@ class UserPreferences
     }
 
     /**
-     * Create a new workspace. If the workspace already exists, return it without modification.
+     * Create a new workspace.
      *
-     * @param      string  $workspace     Workspace name
+     * If the workspace already exists, return it without modification.
      *
-     * @return     UserWorkspace
+     * @param   string  $workspace  Workspace name
+     *
+     * @return  UserWorkspace
      */
     public function addWorkspace(string $workspace): UserWorkspace
     {
@@ -144,12 +126,12 @@ class UserPreferences
     /**
      * Rename a workspace.
      *
-     * @param      string     $old_workspace  The old workspace name
-     * @param      string     $new_workspace  The new workspace name
+     * @param   string  $old_workspace  The old workspace name
+     * @param   string  $new_workspace  The new workspace name
      *
-     * @throws     Exception  (description)
+     * @throws  Exception
      *
-     * @return     bool
+     * @return  bool
      */
     public function renWorkspace(string $old_workspace, string $new_workspace): bool
     {
@@ -181,9 +163,9 @@ class UserPreferences
     /**
      * Delete a whole workspace with all preferences pertaining to it.
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     bool
+     * @return  bool
      */
     public function delWorkspace(string $workspace): bool
     {
@@ -208,9 +190,9 @@ class UserPreferences
     /**
      * Returns full workspace with all prefs pertaining to it.
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     UserWorkspace
+     * @return  UserWorkspace
      */
     public function get(string $workspace): UserWorkspace
     {
@@ -222,21 +204,21 @@ class UserPreferences
      *
      * @copydoc ::get
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     UserWorkspace
+     * @return  UserWorkspace
      */
     public function __get(string $workspace): UserWorkspace
     {
-        return $this->get($workspace);
+        return $this->addWorkspace($workspace);
     }
 
     /**
-     * Check if a workspace exists
+     * Check if a workspace exists.
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     boolean
+     * @return  boolean
      */
     public function exists(string $workspace): bool
     {
@@ -246,7 +228,7 @@ class UserPreferences
     /**
      * Dumps workspaces.
      *
-     * @return     array
+     * @return  array
      */
     public function dumpWorkspaces(): array
     {

@@ -23,52 +23,34 @@ use Exception;
 
 class BlogSettings
 {
-    // Properties
-
-    /**
-     * Database connection object
-     *
-     * @var object
-     */
-    protected $con;
-
-    /**
-     * Settings table name
-     *
-     * @var string
-     */
+    /** @var    string  Settings table name */
     protected $table;
 
-    /**
-     * Blog ID
-     *
-     * @var string
-     */
+    /** @var    string  Blog ID  */
     protected $blog_id;
 
-    /**
-     * Associative namespaces array
-     *
-     * @var        array
-     */
-    protected $namespaces = [];
+    /** @var    array   Associative namespaces array */
+    protected $workspaces = [];
 
     /**
-     * Object constructor. Retrieves blog settings and puts them in $namespaces
+     * Constructor.
+     *
+     * Retrieves blog settings and puts them in $workspaces
      * array. Local (blog) settings have a highest priority than global settings.
      *
-     * @param      mixed    $blog_id  The blog identifier
+     * @param   mixed   $blog_id  The blog identifier
      */
     public function __construct($blog_id)
     {
-        $this->con     = App::con();
         $this->table   = App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
         $this->loadSettings();
     }
 
     /**
-    Retrieves all namespaces (and their settings) from database, with one query.
+     * Retrieves all workspaces.
+     *
+     * and their settings, from database, with one query.
      */
     private function loadSettings(): void
     {
@@ -93,7 +75,7 @@ class BlogSettings
         try {
             $rs = $sql->select();
         } catch (Exception $e) {
-            trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
+            trigger_error(__('Unable to retrieve namespaces:') . ' ' . App::con()->error(), E_USER_ERROR);
         }
 
         /* Prevent empty tables (install phase, for instance) */
@@ -104,88 +86,90 @@ class BlogSettings
         do {
             $ns = trim((string) $rs->f('setting_ns'));
             if (!$rs->isStart()) {
-                // we have to go up 1 step, since namespaces construction performs a fetch()
+                // we have to go up 1 step, since workspaces construction performs a fetch()
                 // at very first time
                 $rs->movePrev();
             }
-            $this->namespaces[$ns] = new BlogWorkspace($this->blog_id, $ns, $rs);
+            $this->workspaces[$ns] = new BlogWorkspace($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
     /**
-     * Create a new namespace. If the namespace already exists, return it without modification.
+     * Create a new workspace.
      *
-     * @param      string  $namespace     Namespace name
+     * If the workspace already exists, return it without modification.
      *
-     * @return     BlogWorkspace
+     * @param   string  $workspace  Namespace name
+     *
+     * @return  BlogWorkspace
      */
-    public function addNamespace(string $namespace): BlogWorkspace
+    public function addWorkspace(string $workspace): BlogWorkspace
     {
-        if (!$this->exists($namespace)) {
-            $this->namespaces[$namespace] = new BlogWorkspace($this->blog_id, $namespace);
+        if (!$this->exists($workspace)) {
+            $this->workspaces[$workspace] = new BlogWorkspace($this->blog_id, $workspace);
         }
 
-        return $this->namespaces[$namespace];
+        return $this->workspaces[$workspace];
     }
 
     /**
      * Rename a namespace.
      *
-     * @param      string     $old_namespace  The old ns
-     * @param      string     $new_namespace  The new ns
+     * @param   string  $old_workspace  The old ns
+     * @param   string  $new_workspace  The new ns
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool      return true if no error, else false
+     * @return  bool    return true if no error, else false
      */
-    public function renNamespace(string $old_namespace, string $new_namespace): bool
+    public function renWorkspace(string $old_workspace, string $new_workspace): bool
     {
-        if (!$this->exists($old_namespace) || $this->exists($new_namespace)) {
+        if (!$this->exists($old_workspace) || $this->exists($new_workspace)) {
             return false;
         }
 
-        if (!preg_match(BlogWorkspace::NS_NAME_SCHEMA, $new_namespace)) {
-            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_namespace));
+        if (!preg_match(BlogWorkspace::NS_NAME_SCHEMA, $new_workspace)) {
+            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_workspace));
         }
 
         // Rename the namespace in the database
         $sql = new UpdateStatement();
         $sql
             ->ref($this->table)
-            ->set('setting_ns = ' . $sql->quote($new_namespace))
-            ->where('setting_ns = ' . $sql->quote($old_namespace));
+            ->set('setting_ns = ' . $sql->quote($new_workspace))
+            ->where('setting_ns = ' . $sql->quote($old_workspace));
         $sql->update();
 
         // Reload the renamed namespace in the namespace array
-        $this->namespaces[$new_namespace] = new BlogWorkspace($this->blog_id, $new_namespace);
+        $this->workspaces[$new_workspace] = new BlogWorkspace($this->blog_id, $new_workspace);
 
         // Remove the old namespace from the namespace array
-        unset($this->namespaces[$old_namespace]);
+        unset($this->workspaces[$old_workspace]);
 
         return true;
     }
 
     /**
-     * Delete a whole namespace with all settings pertaining to it.
+     * Delete a whole workspace with all settings pertaining to it.
      *
-     * @param      string  $namespace     Namespace name
+     * @param   string  $workspace  workspace name
      *
-     * @return     bool
+     * @return  bool
      */
-    public function delNamespace(string $namespace): bool
+    public function delWorkspace(string $workspace): bool
     {
-        if (!$this->exists($namespace)) {
+        if (!$this->exists($workspace)) {
             return false;
         }
 
-        // Remove the namespace from the namespace array
-        unset($this->namespaces[$namespace]);
+        // Remove the workspace from the workspace array
+        unset($this->workspaces[$workspace]);
 
-        // Delete all settings from the namespace in the database
+        // Delete all settings from the workspace in the database
         $sql = new DeleteStatement();
         $sql
             ->from($this->table)
-            ->where('setting_ns = ' . $sql->quote($namespace));
+            ->where('setting_ns = ' . $sql->quote($workspace));
 
         $sql->delete();
 
@@ -193,48 +177,96 @@ class BlogSettings
     }
 
     /**
-     * Returns full namespace with all settings pertaining to it.
+     * Returns full workspace with all settings pertaining to it.
      *
-     * @param      string  $namespace     Namespace name
+     * @param   string  $workspace  workspace name
      *
-     * @return     BlogWorkspace
+     * @return  BlogWorkspace
      */
-    public function get(string $namespace): BlogWorkspace
+    public function get(string $workspace): BlogWorkspace
     {
-        return $this->addNamespace($namespace);
+        return $this->addWorkspace($workspace);
     }
 
     /**
      * Magic __get method.
      *
-     * @param      string  $namespace      namespace name
+     * @param   string  $workspace  workspace name
      *
-     * @return     BlogWorkspace
+     * @return  BlogWorkspace
      */
-    public function __get(string $namespace): BlogWorkspace
+    public function __get(string $workspace): BlogWorkspace
     {
-        return $this->get($namespace);
+        return $this->addWorkspace($workspace);
     }
 
     /**
-     * Check if a namespace exists
+     * Check if a workspace exists.
      *
-     * @param      string  $namespace     Namespace name
+     * @param   string  $workspace  Namespace name
      *
-     * @return     bool
+     * @return  bool
      */
-    public function exists(string $namespace): bool
+    public function exists(string $workspace): bool
     {
-        return array_key_exists($namespace, $this->namespaces);
+        return array_key_exists($workspace, $this->workspaces);
     }
 
     /**
-     * Dumps namespaces.
+     * Dumps workspaces.
      *
-     * @return     array
+     * @return  array
+     */
+    public function dumpWorkspaces(): array
+    {
+        return $this->workspaces;
+    }
+
+    /**
+     * Alias of addWorkspace.
+     *
+     * @deprecated  since 2.28, use self::addWorkspace()  instead
+     */
+    public function addNamespace(string $namespace): BlogWorkspace
+    {
+        Deprecated::set(self::class . '->addWorkspace()', '2.28');
+
+        return $this->addWorkspace($namespace);
+    }
+
+    /**
+     * Alias of renWorkspace.
+     *
+     * @deprecated  since 2.28, use self::renWorkspace()  instead
+     */
+    public function renNamespace(string $old_namespace, string $new_namespace): bool
+    {
+        Deprecated::set(self::class . '->renWorkspace()', '2.28');
+
+        return $this->renWorkspace($old_namespace, $new_namespace);
+    }
+
+    /**
+     * Alias of delWorkspace.
+     *
+     * @deprecated  since 2.28, use self::delWorkspace()  instead
+     */
+    public function delNamespace(string $namespace): bool
+    {
+        Deprecated::set(self::class . '->delWorkspace()', '2.28');
+
+        return $this->delWorkspace($namespace);
+    }
+
+    /**
+     * Alias of dumpWorkspaces.
+     *
+     * @deprecated  since 2.28, use self::dumpWorkspaces()  instead
      */
     public function dumpNamespaces(): array
     {
-        return $this->namespaces;
+        Deprecated::set(self::class . '->dumpWorkspaces()', '2.28');
+
+        return $this->workspaces;
     }
 }

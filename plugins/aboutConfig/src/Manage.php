@@ -163,7 +163,7 @@ class Manage extends Process
         $table_footer = '</tbody></table></div>';
 
         /** @var array<string|BlogWorkspace> */
-        $namespaces = App::blog()->settings()->dumpNamespaces();
+        $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {
             $prefix     = 'g_';
