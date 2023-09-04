@@ -17,7 +17,6 @@ namespace Dotclear\Core;
 use dcCore;
 use dcPrefs;
 use Dotclear\App;
-use Dotclear\Core\Utils;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;

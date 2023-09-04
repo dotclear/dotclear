@@ -74,7 +74,7 @@ class Utils
 
     /**
      * Build user's common name.
-     * 
+     *
      * Returns user's common name given to his
      * <var>user_id</var>, <var>user_name</var>, <var>user_firstname</var> and
      * <var>user_displayname</var>.

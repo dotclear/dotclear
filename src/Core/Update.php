@@ -11,13 +11,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
+use SimpleXMLElement;
 
 class Update
 {
@@ -115,7 +115,7 @@ class Update
      * @param   string  $version    Current version to compare
      * @param   bool    $nocache    Force checking
      *
-     * @return  fasle|string    Latest version if available
+     * @return  false|string    Latest version if available
      */
     public function check(string $version, bool $nocache = false): bool|string
     {

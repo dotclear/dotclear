@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\Core\Upgrade\Upgrade;
-use Exception;
 
 class GrowUp_2_28_lt
 {
