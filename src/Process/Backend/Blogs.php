@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Schema\Extension\User;
 use Exception;
 
 class Blogs extends Process
@@ -71,7 +72,7 @@ class Blogs extends Process
             $rsStatic = $rs->toStatic();
             if ((App::backend()->blog_filter->sortby != 'blog_upddt') && (App::backend()->blog_filter->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
-                $rsStatic->extend('rsExtUser');
+                $rsStatic->extend(User::class);
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort((App::backend()->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->blog_filter->order);
             }

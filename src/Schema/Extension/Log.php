@@ -1,13 +1,22 @@
 <?php
 /**
- * Core notice handler.
+ * @brief Dotclear post record helpers
+ *
+ * This class adds new methods to database post results.
+ * You can call them on every record comming from Blog::getPosts and similar
+ * methods.
+ *
+ * @warning You should not give the first argument (usualy $rs) of every described function.
  *
  * @package Dotclear
+ * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
 declare(strict_types=1);
+
+namespace Dotclear\Schema\Extension;
 
 use Dotclear\Core\Utils;
 use Dotclear\Database\MetaRecord;
@@ -15,7 +24,7 @@ use Dotclear\Database\MetaRecord;
 /**
  * Extent log Record class.
  */
-class rsExtLog
+class Log
 {
     /**
      * Gets the user common name.

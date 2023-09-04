@@ -20,6 +20,7 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\UsersInterface;
+use Dotclear\Schema\Extension\User;
 use Exception;
 
 class Users implements UsersInterface
@@ -129,7 +130,7 @@ class Users implements UsersInterface
         }
 
         $rs = $sql->select() ?? MetaRecord::newFromArray([]);
-        $rs->extend('rsExtUser');
+        $rs->extend(User::class);
 
         return $rs;
     }

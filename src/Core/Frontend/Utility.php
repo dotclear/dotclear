@@ -17,12 +17,14 @@ use dcTraitDynamicProperties;
 use Dotclear\App;
 use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpCacheStack;
+use Dotclear\Schema\Extension\CommentPublic;
+use Dotclear\Schema\Extension\PostPublic;
 use Exception;
-use rsExtendPublic;
 
 class Utility extends Process
 {
@@ -159,7 +161,22 @@ class Utility extends Process
         }
 
         // Load some class extents and set some public behaviors (was in public prepend before)
-        rsExtendPublic::init();
+        App::behavior()->addBehaviors([
+            'publicHeadContent' => function () {
+                if (!App::blog()->settings()->system->no_public_css) {
+                    echo Utils::cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
+                }
+                if (App::blog()->settings()->system->use_smilies) {
+                    echo Utils::cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
+                }
+            },
+            'coreBlogGetPosts' => function (MetaRecord $rs) {
+                $rs->extend(PostPublic::class);
+            },
+            'coreBlogGetComments' => function (MetaRecord $rs) {
+                $rs->extend(CommentPublic::class);
+            },
+        ]);
 
         /*
          * @var        integer

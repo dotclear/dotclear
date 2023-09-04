@@ -31,6 +31,9 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\BlogInterface;
+use Dotclear\Schema\Extension\Comment;
+use Dotclear\Schema\Extension\Dates;
+use Dotclear\Schema\Extension\Post;
 use Exception;
 
 class Blog implements BlogInterface
@@ -1450,7 +1453,7 @@ class Blog implements BlogInterface
         $rs = $sql->select();
 
         $rs->_nb_media = [];
-        $rs->extend('rsExtPost');
+        $rs->extend(Post::class);
 
         # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
         App::behavior()->callBehavior('coreBlogGetPosts', $rs);
@@ -1705,7 +1708,7 @@ class Blog implements BlogInterface
         $sql->order('dt ' . $order);
 
         $rs = $sql->select();
-        $rs->extend('rsExtDates');
+        $rs->extend(Dates::class);
 
         return $rs;
     }
@@ -2774,7 +2777,7 @@ class Blog implements BlogInterface
         }
 
         $rs = $sql->select();
-        $rs->extend('rsExtComment');
+        $rs->extend(Comment::class);
 
         # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
         App::behavior()->callBehavior('coreBlogGetComments', $rs);

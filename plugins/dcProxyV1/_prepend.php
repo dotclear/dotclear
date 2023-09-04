@@ -201,6 +201,12 @@ dcProxyV1::classAliases([
     'dcUtils'        => 'Dotclear\Core\Utils',
     'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
 
+    'rsExtPost'    => 'Dotclear\Schema\Extension\Post',
+    'rsExtComment' => 'Dotclear\Schema\Extension\Comment',
+    'rsExtDates'   => 'Dotclear\Schema\Extension\Dates',
+    'rsExtUser'    => 'Dotclear\Schema\Extension\User',
+    'rsExtBlog'    => 'Dotclear\Schema\Extension\Blog',
+
     // Core admin -----------------
 
     'adminBlogFilter'      => 'Dotclear\Core\Backend\Filter\FilterBlogs',
@@ -244,6 +250,9 @@ dcProxyV1::classAliases([
     'dcTemplate'    => 'Dotclear\Core\Frontend\Tpl',
     'dcUrlHandlers' => 'Dotclear\Core\Frontend\Url',
     'context'       => 'Dotclear\Core\Frontend\Ctx',
+
+    'rsExtPostPublic'    => 'Dotclear\Schema\Extension\PostPublic',
+    'rsExtCommentPublic' => 'Dotclear\Schema\Extension\CommentPublic',
 
     // Upgrade --------------------
 

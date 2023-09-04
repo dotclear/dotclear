@@ -27,6 +27,7 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Dotclear\Schema\Extension\User;
 use Exception;
 
 class ActionsPostsDefault
@@ -455,7 +456,7 @@ class ActionsPostsDefault
                 ];
                 $rs       = App::users()->getUsers($params);
                 $rsStatic = $rs->toStatic();
-                $rsStatic->extend('rsExtUser');
+                $rsStatic->extend(User::class);
                 $rsStatic = $rsStatic->toExtStatic();
                 $rsStatic->lexicalSort('user_id');
                 while ($rsStatic->fetch()) {

@@ -29,23 +29,12 @@ $__autoload = [
     // Core
     'dcCore' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.core.php']),
 
-    'dcCategories'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.categories.php']),
-    'dcNamespace'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.namespace.php']),
-    'dcSettings'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.settings.php']),
-    'dcTrackback'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.trackback.php']),
-    'rsExtLog'       => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'lib.rs.ext.log.php']),
-    'dcWorkspace'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.workspace.php']),
-    'dcPrefs'        => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.prefs.php']),
-    'rsExtPost'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
-    'rsExtComment'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
-    'rsExtDates'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
-    'rsExtUser'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
-    'rsExtBlog'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.rs.extensions.php']),
-
-    // Public
-    'rsExtendPublic'     => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'rs.extension.php']),
-    'rsExtPostPublic'    => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'rs.extension.php']),
-    'rsExtCommentPublic' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'public', 'rs.extension.php']),
+    'dcCategories' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.categories.php']),
+    'dcNamespace'  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.namespace.php']),
+    'dcSettings'   => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.settings.php']),
+    'dcTrackback'  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.trackback.php']),
+    'dcWorkspace'  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.workspace.php']),
+    'dcPrefs'      => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.prefs.php']),
 
     // Moved to src
     'form'             => implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),

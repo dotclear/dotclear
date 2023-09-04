@@ -23,6 +23,7 @@ use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Schema\Extension\User;
 use Exception;
 
 class Auth implements AuthInterface
@@ -246,7 +247,7 @@ class Auth implements AuthInterface
             return false;
         }
 
-        $rs->extend('rsExtUser');
+        $rs->extend(User::class);
 
         if (is_string($pwd) && $pwd !== '') {
             $rehash = false;

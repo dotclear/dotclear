@@ -195,23 +195,12 @@ namespace Dotclear {
                 // Core
                 'dcCore' => $inc('core', 'class.dc.core.php'),
 
-                'dcCategories'   => $inc('core', 'class.dc.categories.php'),
-                'dcNamespace'    => $inc('core', 'class.dc.namespace.php'),
-                'dcSettings'     => $inc('core', 'class.dc.settings.php'),
-                'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
-                'rsExtLog'       => $inc('core', 'lib.rs.ext.log.php'),
-                'dcWorkspace'    => $inc('core', 'class.dc.workspace.php'),
-                'dcPrefs'        => $inc('core', 'class.dc.prefs.php'),
-                'rsExtPost'      => $inc('core', 'class.dc.rs.extensions.php'),
-                'rsExtComment'   => $inc('core', 'class.dc.rs.extensions.php'),
-                'rsExtDates'     => $inc('core', 'class.dc.rs.extensions.php'),
-                'rsExtUser'      => $inc('core', 'class.dc.rs.extensions.php'),
-                'rsExtBlog'      => $inc('core', 'class.dc.rs.extensions.php'),
-
-                // Public
-                'rsExtendPublic'     => $inc('public', 'rs.extension.php'),
-                'rsExtPostPublic'    => $inc('public', 'rs.extension.php'),
-                'rsExtCommentPublic' => $inc('public', 'rs.extension.php'),
+                'dcCategories' => $inc('core', 'class.dc.categories.php'),
+                'dcNamespace'  => $inc('core', 'class.dc.namespace.php'),
+                'dcSettings'   => $inc('core', 'class.dc.settings.php'),
+                'dcTrackback'  => $inc('core', 'class.dc.trackback.php'),
+                'dcWorkspace'  => $inc('core', 'class.dc.workspace.php'),
+                'dcPrefs'      => $inc('core', 'class.dc.prefs.php'),
             ]);
 
             // CLI_MODE, boolean constant that tell if we are in CLI mode

@@ -20,6 +20,7 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\LogInterface;
+use Dotclear\Schema\Extension\Log as ExtLog;
 use Exception;
 
 class Log implements LogInterface
@@ -127,7 +128,7 @@ class Log implements LogInterface
         }
 
         $rs = $sql->select();
-        $rs->extend('rsExtLog');
+        $rs->extend(ExtLog::class);
 
         return $rs;
     }

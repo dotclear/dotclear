@@ -26,6 +26,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Schema\Extension\User;
 use Exception;
 
 class Users extends Process
@@ -80,8 +81,8 @@ class Users extends Process
             $rsStatic = $rs->toStatic();
             if (App::backend()->user_filter->sortby != 'nb_post') {
                 // Sort user list using lexical order if necessary
-                $rsStatic->extend('rsExtUser');
-                $rsStatic = $rsStatic->toExtStatic();
+                $rsStatic->extend(User::class);
+                $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort(App::backend()->user_filter->sortby, App::backend()->user_filter->order);
             }
             App::backend()->user_list = new ListingUsers($rsStatic, $counter->f(0));
