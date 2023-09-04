@@ -3,8 +3,15 @@
  * Core container.
  *
  * Core container search factories for requested methods.
+ *
  * Available container methods are explicitly set
  * to keep track of returned types.
+ *
+ * Methods are searched by factories order,
+ * Change order using Factories::append() / Factories::prepend()
+ * Dotclear default factories will by append to the end of stack.
+ *
+ * @see Dotclear\Factories
  *
  * @package Dotclear
  *
@@ -47,14 +54,17 @@ use Exception;
 
 class Container
 {
-    /** @var    array<string,mixed>     Unique instances stack */
-    private array $stack = [];
-
     /** @var    Container   Container unique instance */
     private static Container $instance;
 
-    /** @var    array<int,FactoryInterface>    Factory instance */
-    private array $factories;
+    /** @var    array<string,mixed>     Unique instances stack */
+    private array $stack = [];
+
+    /** @var    array<string,FactoryInterface>    Factory instance */
+    private array $factories = [];
+
+    /** @var    array<string,string>    Method / Factory pairs stack */
+    private array $methods = [];
 
     /// @name Container methods
     //@{
@@ -72,17 +82,43 @@ class Container
 
         self::$instance = $this;
 
-        // Get third party core factories and instaciate them
-        foreach (Factories::getFactories('core') as $factory_class) {
-            // Factory class, implement all methods of Container,
-            // third party core factory MUST implements FactoryInterface and SHOULD extends Factory
-            if (class_exists($factory_class) && is_subclass_of($factory_class, FactoryInterface::class)) {
-                $this->factories[] = new $factory_class($this);
-            }
-        }
+        // Get required methods from Factory interface
+        $methods = get_class_methods(FactoryInterface::class);
+
+        // Get third party core factorie
+        $factories = Factories::getFactories('core');
 
         // Append dotclear default core factory to the end of stack
-        $this->factories[] = new Factory($this);
+        $factories[] = Factory::class;
+
+        // Loop through factories
+        foreach ($factories as $class) {
+            // Third party core factory MUST implements FactoryInterface and SHOULD extends Factory
+            if (!class_exists($class) || !is_subclass_of($class, FactoryInterface::class)) {
+                continue;
+            }
+
+            // Instanciate factory
+            $this->factories[$class] = new $class($this);
+
+            $has_methods = false;
+            // Loop through methods IDs
+            foreach ($methods as $method) {
+                // Check if factory has this method
+                if (!method_exists($this->factories[$class], $method)) {
+                    continue;
+                }
+
+                // Set method / factory pairs
+                $this->methods[$method] = $class;
+                $has_methods            = true;
+            }
+
+            // Do not keep factory without methods
+            if (!$has_methods) {
+                unset($this->factories[$class]);
+            }
+        }
     }
 
     /**
@@ -99,11 +135,8 @@ class Container
             return $this->stack[$id];
         }
 
-        // Search first core factory having requested method
-        foreach ($this->factories as $factory) {
-            if (method_exists($factory, $id)) {
-                return $this->stack[$id] = $factory->{$id}();
-            }
+        if (array_key_exists($id, $this->methods)) {
+            return $this->stack[$id] = $this->factories[$this->methods[$id]]->{$id}();
         }
 
         throw new Exception('Call to undefined factory method ' . $id);
@@ -127,6 +160,30 @@ class Container
         return false;
     }
 
+     /**
+      * Get registered methods.
+      *
+      * Return an array of method id /factory class name pairs,
+      * used for debugging perpose only.
+      *
+      * @return  array<string,string>    The registred factories
+      */
+     public function dump(): array
+     {
+         return $this->methods;
+     }
+
+    /**
+     * Get registered methods (The static way).
+     *
+     * @see self::dump()
+     *
+     * @return  array<string,string>    The registred factories
+     */
+    public static function dumpFactories(): array
+    {
+        return self::$instance->dump();
+    }
     //@}
 
     /// @name Core container methods
