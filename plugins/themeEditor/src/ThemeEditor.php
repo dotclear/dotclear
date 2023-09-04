@@ -12,14 +12,14 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\themeEditor;
 
-use Exception;
-use dcModuleDefine;
 use Dotclear\App;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Dotclear\Module\ModuleDefine;
+use Exception;
 
 class ThemeEditor
 {
@@ -450,7 +450,7 @@ class ThemeEditor
         $this->tpl = array_merge($this->tpl, $this->getFilesInDir($this->user_theme . '/tpl'));
 
         # Then we look in Utility::TPL_ROOT plugins directory
-        foreach (App::plugins()->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
+        foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
             // Looking in Utility::TPL_ROOT directory
             $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl);
             $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl_model);

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use dcModuleDefine;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Text;
+use Dotclear\Module\ModuleDefine;
 use Exception;
 
 /**
@@ -30,10 +30,10 @@ class Uninstaller
     /** @var    CleanersStack    $cleaners The cleaners stack */
     public readonly CleanersStack $cleaners;
 
-    /** @var    null|dcModuleDefine     $module Current module */
-    private ?dcModuleDefine $module = null;
+    /** @var    null|ModuleDefine   $module Current module */
+    private ?ModuleDefine $module = null;
 
-    /** @var    array<string,dcModuleDefine>    $modules Loaded modules stack */
+    /** @var    array<string,ModuleDefine>  $modules Loaded modules stack */
     private array $modules = [];
 
     /** @var    array<int,string>   List of modules with custom actions render */
@@ -75,7 +75,7 @@ class Uninstaller
      *
      * This also resets previously loaded modules and actions.
      *
-     * @param   array<int,dcModuleDefine>  $modules   List of modules Define
+     * @param   array<int,ModuleDefine>     $modules    List of modules Define
      *
      * @return  Uninstaller     Uninstaller instance
      */
@@ -89,7 +89,7 @@ class Uninstaller
         $this->direct_actions = [];
 
         foreach ($modules as $module) {
-            if (!($module instanceof dcModuleDefine)) {
+            if (!($module instanceof ModuleDefine)) {
                 continue;
             }
             $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;

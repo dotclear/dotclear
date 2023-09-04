@@ -18,9 +18,6 @@ namespace Dotclear\Core\Backend;
 
 use Autoloader;
 use dcDeprecated;
-use dcModuleDefine;
-use dcModules;
-use dcStore;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -28,6 +25,9 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Module\ModulesInterface;
+use Dotclear\Module\ModuleDefine;
+use Dotclear\Module\Store;
 use Exception;
 use form;
 
@@ -36,16 +36,16 @@ class ModulesList
     /**
      * Stack of known modules
      *
-     * @var dcModules
+     * @var ModulesInterface
      */
     public $modules;
 
     /**
      * Store instance
      *
-     * @var dcStore
+     * @var Store
      */
-    public $store;
+    public readonly Store $store;
 
     /**
      * Work with multiple root directories
@@ -57,7 +57,7 @@ class ModulesList
     /**
      * List of modules distributed with Dotclear
      *
-     * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
+     * @deprecated since 2.26, use Modules::getDefine($id)->distributed
      *
      * @var        array
      */
@@ -80,7 +80,7 @@ class ModulesList
     /**
      * Module define to configure
      *
-     * @var        dcModuleDefine
+     * @var        ModuleDefine
      */
     protected $config_define;
     /**
@@ -176,17 +176,17 @@ class ModulesList
     /**
      * Constructor.
      *
-     * Note that this creates dcStore instance.
+     * Note that this creates Store instance.
      *
-     * @param    dcModules      $modules        dcModules instance
-     * @param    string         $modules_root   Modules root directories
-     * @param    null|string    $xml_url        URL of modules feed from repository
-     * @param    null|bool      $force          Force query repository
+     * @param    ModulesInterface   $modules        Modules instance
+     * @param    string             $modules_root   Modules root directories
+     * @param    null|string        $xml_url        URL of modules feed from repository
+     * @param    null|bool          $force          Force query repository
      */
-    public function __construct(dcModules $modules, string $modules_root, ?string $xml_url, ?bool $force = false)
+    public function __construct(ModulesInterface $modules, string $modules_root, ?string $xml_url, ?bool $force = false)
     {
         $this->modules = $modules;
-        $this->store   = new dcStore($modules, $xml_url, $force);
+        $this->store   = new Store($modules, $xml_url, $force);
 
         $this->page_url = App::backend()->url->get('admin.plugins');
 
@@ -566,7 +566,7 @@ class ModulesList
         $this->defines = [];
 
         foreach ($defines as $define) {
-            if (!($define instanceof dcModuleDefine)) {
+            if (!($define instanceof ModuleDefine)) {
                 continue;
             }
             self::fillSanitizeModule($define);
@@ -601,7 +601,7 @@ class ModulesList
 
         $defines = [];
         foreach ($modules as $id => $module) {
-            $define = new dcModuleDefine($id);
+            $define = new ModuleDefine($id);
             foreach ($module as $k => $v) {
                 $define->set($k, $v);
             }
@@ -637,10 +637,10 @@ class ModulesList
      * and clean some of them, sanitize module can safely
      * be used in lists.
      *
-     * @param      dcModuleDefine   $define The module definition
+     * @param      ModuleDefine     $define The module definition
      * @param      array            $module  The module
      */
-    public static function fillSanitizeModule(dcModuleDefine $define, array $module = []): void
+    public static function fillSanitizeModule(ModuleDefine $define, array $module = []): void
     {
         foreach ($module as $k => $v) {
             $define->set($k, $v);
@@ -649,7 +649,7 @@ class ModulesList
         $define
             ->set('sid', self::sanitizeString($define->getId()))
             ->set('label', empty($define->get('label')) ? $define->getId() : $define->get('label'))
-            ->set('name', __(empty($define->get('name')) ? $define->label : $define->get('name')))
+            ->set('name', __(empty($define->get('name')) ? $define->get('label') : $define->get('name')))
             ->set('sname', self::sanitizeString(strtolower(Text::removeDiacritics($define->get('name')))));
     }
 
@@ -673,7 +673,7 @@ class ModulesList
     {
         dcDeprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
 
-        $define = new dcModuleDefine($id);
+        $define = new ModuleDefine($id);
         self::fillSanitizeModule($define, $module);
 
         return $define->dump();
@@ -706,7 +706,7 @@ class ModulesList
     /**
      * Check if a module is part of the distribution.
      *
-     * @deprecated 2.26 Use dcModules::getDefine($id)->distributed
+     * @deprecated 2.26 Use Modules::getDefine($id)->distributed
      *
      * @param    string    $id        Module root directory
      *
@@ -714,7 +714,7 @@ class ModulesList
      */
     public static function isDistributedModule(string $id): bool
     {
-        dcDeprecated::set('dcModules::getDefine($id)->distributed', '2.26');
+        dcDeprecated::set('Modules::getDefine($id)->distributed', '2.26');
 
         return in_array($id, self::$distributed_modules);
     }
@@ -925,7 +925,7 @@ class ModulesList
             if (in_array('desc', $cols)) {
                 $tds++;
                 $note = '';
-                if (!empty($define->getUsing()) && $define->get('state') == dcModuleDefine::STATE_ENABLED) {
+                if (!empty($define->getUsing()) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
                     $note .= '<p><span class="info">' .
                     sprintf(
                         __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
@@ -1019,18 +1019,18 @@ class ModulesList
                         '</ul></div>';
                 }
 
-                if (self::hasFileOrClass($id, dcModules::MODULE_CLASS_CONFIG, dcModules::MODULE_FILE_CONFIG)
-                 || self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE)
+                if (self::hasFileOrClass($id, $this->modules::MODULE_CLASS_CONFIG, $this->modules::MODULE_FILE_CONFIG)
+                 || self::hasFileOrClass($id, $this->modules::MODULE_CLASS_MANAGE, $this->modules::MODULE_FILE_MANAGE)
                  || !empty($define->get('section'))
                  || !empty($define->get('tags'))
-                 || !empty($define->get('settings'))   && $define->get('state') == dcModuleDefine::STATE_ENABLED
+                 || !empty($define->get('settings'))   && $define->get('state') == ModuleDefine::STATE_ENABLED
                  || !empty($define->get('repository')) && DC_DEBUG && DC_ALLOW_REPOSITORIES
                 ) {
                     echo
                         '<div><ul class="mod-more">';
 
                     $settings = static::getSettingsUrls($id);
-                    if (!empty($settings) && $define->get('state') == dcModuleDefine::STATE_ENABLED) {
+                    if (!empty($settings) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
@@ -1095,8 +1095,8 @@ class ModulesList
     {
         $settings_urls = [];
 
-        $config = self::hasFileOrClass($id, dcModules::MODULE_CLASS_CONFIG, dcModules::MODULE_FILE_CONFIG);
-        $index  = self::hasFileOrClass($id, dcModules::MODULE_CLASS_MANAGE, dcModules::MODULE_FILE_MANAGE);
+        $config = self::hasFileOrClass($id, App::plugins()::MODULE_CLASS_CONFIG, App::plugins()::MODULE_FILE_CONFIG);
+        $index  = self::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
 
         $settings = App::plugins()->moduleInfo($id, 'settings');
         if ($self) {
@@ -1178,18 +1178,18 @@ class ModulesList
     /**
      * Get action buttons to add to modules list.
      *
-     * @param    dcModuleDefine     $define     Module info
+     * @param    ModuleDefine     $define     Module info
      * @param    array              $actions    Actions keys
      *
      * @return   array    Array of actions buttons
      */
-    protected function getActions(dcModuleDefine $define, array $actions): array
+    protected function getActions(ModuleDefine $define, array $actions): array
     {
         $submits = [];
         $id      = $define->getId();
 
         // mark module state
-        if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
             $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
         }
 
@@ -1199,7 +1199,7 @@ class ModulesList
                 # Deactivate
                 case 'activate':
                     // do not allow activation of duplciate modules already activated
-                    $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => dcModuleDefine::STATE_ENABLED])) > 0;
+                    $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
                         $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
                     }
@@ -1250,7 +1250,7 @@ class ModulesList
                     # Behavior
                 case 'behavior':
 
-                    # --BEHAVIOR-- adminModulesListGetActions -- ModulesList, dcModuleDefine
+                    # --BEHAVIOR-- adminModulesListGetActions -- ModulesList, ModuleDefine
                     $tmp = App::behavior()->callBehavior('adminModulesListGetActionsV2', $this, $define);
 
                     if (!empty($tmp)) {
@@ -1357,7 +1357,7 @@ class ModulesList
             $count  = 0;
             foreach ($modules as $id) {
                 $disabled = !empty($_POST['disabled'][$id]);
-                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
+                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
                 // module is not defined
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such plugin.'));
@@ -1368,12 +1368,12 @@ class ModulesList
                     continue;
                 }
 
-                # --BEHAVIOR-- moduleBeforeDelete -- dcModuleDefine
+                # --BEHAVIOR-- moduleBeforeDelete -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeDeleteV2', $define);
 
                 $this->modules->deleteModule($define->getId(), $disabled);
 
-                # --BEHAVIOR-- moduleAfterDelete -- dcModuleDefine
+                # --BEHAVIOR-- moduleAfterDelete -- ModuleDefine
                 App::behavior()->callBehavior('pluginAfterDeleteV2', $define);
 
                 $count++;
@@ -1402,12 +1402,12 @@ class ModulesList
 
                 $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
 
-                # --BEHAVIOR-- moduleBeforeAdd -- dcModuleDefine
+                # --BEHAVIOR-- moduleBeforeAdd -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeAddV2', $define);
 
                 $this->store->process($define->get('file'), $dest);
 
-                # --BEHAVIOR-- moduleAfterAdd -- dcModuleDefine
+                # --BEHAVIOR-- moduleAfterAdd -- ModuleDefine
                 App::behavior()->callBehavior('pluginAfterAddV2', $define);
 
                 $count++;
@@ -1428,7 +1428,7 @@ class ModulesList
 
             $count = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id, ['state' => '!' . dcModuleDefine::STATE_ENABLED]);
+                $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_ENABLED]);
                 if (!$define->isDefined()) {
                     continue;
                 }
@@ -1460,7 +1460,7 @@ class ModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id, ['state' => '!' . dcModuleDefine::STATE_HARD_DISABLED]);
+                $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_HARD_DISABLED]);
                 if (!$define->isDefined()) {
                     continue;
                 }
@@ -1471,12 +1471,12 @@ class ModulesList
                     continue;
                 }
 
-                # --BEHAVIOR-- moduleBeforeDeactivate -- dcModuleDefine
+                # --BEHAVIOR-- moduleBeforeDeactivate -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeDeactivateV2', $define);
 
                 $this->modules->deactivateModule($define->getId());
 
-                # --BEHAVIOR-- moduleAfterDeactivate -- dcModuleDefine
+                # --BEHAVIOR-- moduleAfterDeactivate -- ModuleDefine
                 App::behavior()->callBehavior('pluginAfterDeactivateV2', $define);
 
                 $count++;
@@ -1518,16 +1518,16 @@ class ModulesList
                 } else {
                     $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
                     if ($define->get('root') != $dest) {
-                        @file_put_contents($define->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_DISABLED, '');
+                        @file_put_contents($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
                     }
                 }
 
-                # --BEHAVIOR-- moduleBeforeUpdate -- dcModuleDefine
+                # --BEHAVIOR-- moduleBeforeUpdate -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeUpdateV2', $define);
 
                 $this->store->process($define->get('file'), $dest);
 
-                # --BEHAVIOR-- moduleAfterUpdate -- dcModuleDefine
+                # --BEHAVIOR-- moduleAfterUpdate -- ModuleDefine
                 App::behavior()->callBehavior('pluginAfterUpdateV2', $define);
 
                 $count++;
@@ -1578,7 +1578,7 @@ class ModulesList
             App::behavior()->callBehavior('pluginAfterAdd', null);
 
             Notices::addSuccessNotice(
-                $ret_code === dcModules::PACKAGE_UPDATED ?
+                $ret_code === $this->modules::PACKAGE_UPDATED ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
@@ -1678,7 +1678,7 @@ class ModulesList
             $id = $_REQUEST['module'];
         }
 
-        $define = $this->modules->getDefine($id, ['state' => dcModuleDefine::STATE_ENABLED]);
+        $define = $this->modules->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
             App::error()->add(__('Unknown plugin ID'));
 
@@ -1686,9 +1686,9 @@ class ModulesList
         }
 
         self::fillSanitizeModule($define);
-        $class = $define->get('namespace') . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
+        $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
         $class = is_subclass_of($class, Process::class) ? $class : '';
-        $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+        $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
 
         if (empty($class) && empty($file)) {
             App::error()->add(__('This plugin has no configuration file.'));
@@ -1770,7 +1770,7 @@ class ModulesList
      */
     public function displayConfiguration(): ModulesList
     {
-        if (($this->config_define instanceof dcModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
+        if (($this->config_define instanceof ModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
             if (!$this->config_define->get('standalone_config')) {
                 echo
                 '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">' .

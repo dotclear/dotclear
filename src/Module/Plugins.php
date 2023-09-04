@@ -1,19 +1,22 @@
 <?php
 /**
- * @brief Plugins specific handler
+ * Plugins specific handler
  *
- * An instance of this class is provided by dcCore $plugins property
+ * An instance of this class is provided by App::plugins()
  * and used for plugins.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  *
  * @since 2.6
  */
-class dcPlugins extends dcModules
+declare(strict_types=1);
+
+namespace Dotclear\Module;
+
+class Plugins extends Modules
 {
     protected $type = 'plugin';
 
@@ -33,9 +36,9 @@ class dcPlugins extends dcModules
      * @param      string  $version     The module version
      * @param      mixed   $properties  The properties
      */
-    public function registerModule(string $name, string $desc, string $author, string $version, $properties = [])
+    public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        $define = new dcModuleDefine($this->id);
+        $define = new ModuleDefine($this->id);
 
         $define
             ->set('name', $name)

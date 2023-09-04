@@ -13,11 +13,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-// classes that move to \Dotclear\Core
-use dcPlugins;
-use dcThemes;
-//
 use Dotclear\Core\Frontend\Url;
+use Dotclear\Interface\Module\ModulesInterface;
 
 interface FactoryInterface
 {
@@ -35,12 +32,12 @@ interface FactoryInterface
     public function meta(): MetaInterface;
     public function nonce(): NonceInterface;
     public function notice(): NoticeInterface;
-    public function plugins(): dcPlugins;
+    public function plugins(): ModulesInterface;
     public function postMedia(): PostMediaInterface;
     public function postTypes(): PostTypesInterface;
     public function rest(): RestInterface;
     public function session(): SessionInterface;
-    public function themes(): dcThemes;
+    public function themes(): ModulesInterface;
     public function url(): Url;
     public function users(): UsersInterface;
     public function version(): VersionInterface;

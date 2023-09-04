@@ -37,6 +37,7 @@ use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Module\ModulesInterface;
 
 final class dcCore
 {
@@ -158,16 +159,16 @@ final class dcCore
      *
      * @deprecated since 2.28, Use App::plugins() instead
      *
-     * @var dcPlugins
+     * @var ModulesInterface
      */
-    public readonly dcPlugins $plugins;
+    public readonly ModulesInterface $plugins;
 
     /**
      * Themes
      *
      * @deprecated since 2.28, Use App::themes() instead
      *
-     * @var dcThemes
+     * @var ModulesInterface
      */
     public $themes;
 

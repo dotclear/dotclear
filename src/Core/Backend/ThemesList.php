@@ -17,13 +17,13 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Autoloader;
-use dcModuleDefine;
-use dcModules;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Interface\Module\ModulesInterface;
+use Dotclear\Module\ModuleDefine;
 use Exception;
 use form;
 
@@ -32,14 +32,14 @@ class ThemesList extends ModulesList
     /**
      * Constructor.
      *
-     * Note that this creates dcStore instance.
+     * Note that this creates Store instance.
      *
-     * @param    dcModules    $modules        dcModules instance
-     * @param    string       $modules_root   Modules root directories
-     * @param    string       $xml_url        URL of modules feed from repository
-     * @param    null|bool    $force          Force query repository
+     * @param    ModulesInterface   $modules        ModulesInterface instance
+     * @param    string             $modules_root   Modules root directories
+     * @param    string             $xml_url        URL of modules feed from repository
+     * @param    null|bool          $force          Force query repository
      */
-    public function __construct(dcModules $modules, string $modules_root, string $xml_url, ?bool $force = false)
+    public function __construct(ModulesInterface $modules, string $modules_root, string $xml_url, ?bool $force = false)
     {
         parent::__construct($modules, $modules_root, $xml_url, $force);
         $this->page_url = App::backend()->url->get('admin.blog.theme');
@@ -214,19 +214,19 @@ class ThemesList extends ModulesList
                 $line .= '<div class="current-actions">';
 
                 // by class name
-                $class = $define->get('namespace') . Autoloader::NS_SEP . dcModules::MODULE_CLASS_CONFIG;
+                $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
                 if (!empty($define->get('namespace')) && class_exists($class)) {
                     $config = $class::init();
                     // by file name
                 } else {
-                    $config = file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_CONFIG);
+                    $config = file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
                 }
 
                 if ($config) {
                     $line .= '<p><a href="' . $this->getURL('module=' . $id . '&amp;conf=1', false) . '" class="button submit">' . __('Configure theme') . '</a></p>';
                 }
 
-                # --BEHAVIOR-- adminCurrentThemeDetails -- string, dcModuleDefine
+                # --BEHAVIOR-- adminCurrentThemeDetails -- string, ModuleDefine
                 $line .= App::behavior()->callBehavior('adminCurrentThemeDetailsV2', $define->getId(), $define);
 
                 $line .= '</div>';
@@ -275,18 +275,18 @@ class ThemesList extends ModulesList
     /**
      * Gets the actions.
      *
-     * @param      dcModuleDefine   $define   The module define
+     * @param      ModuleDefine     $define   The module define
      * @param      array            $actions  The actions
      *
      * @return     array  The actions.
      */
-    protected function getActions(dcModuleDefine $define, array $actions): array
+    protected function getActions(ModuleDefine $define, array $actions): array
     {
         $submits = [];
         $id      = $define->getId();
 
         // mark module state
-        if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
             $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
         }
 
@@ -417,7 +417,7 @@ class ThemesList extends ModulesList
                 $count = 0;
                 foreach ($modules as $id) {
                     $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined() || $define->get('state') == dcModuleDefine::STATE_ENABLED) {
+                    if (!$define->isDefined() || $define->get('state') == ModuleDefine::STATE_ENABLED) {
                         continue;
                     }
 
@@ -449,7 +449,7 @@ class ThemesList extends ModulesList
                 $count  = 0;
                 foreach ($modules as $id) {
                     $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined() || $define->get('state') == dcModuleDefine::STATE_HARD_DISABLED) {
+                    if (!$define->isDefined() || $define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
                         continue;
                     }
 
@@ -459,12 +459,12 @@ class ThemesList extends ModulesList
                         continue;
                     }
 
-                    # --BEHAVIOR-- themeBeforeDeactivate -- dcModuleDefine
+                    # --BEHAVIOR-- themeBeforeDeactivate -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeDeactivateV2', $define);
 
                     $this->modules->deactivateModule($define->getId());
 
-                    # --BEHAVIOR-- themeAfterDeactivate -- dcModuleDefine
+                    # --BEHAVIOR-- themeAfterDeactivate -- ModuleDefine
                     App::behavior()->callBehavior('themeAfterDeactivateV2', $define);
 
                     $count++;
@@ -490,7 +490,7 @@ class ThemesList extends ModulesList
                 $count = 0;
                 foreach ($modules as $id) {
                     $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined() || $define->get('state') != dcModuleDefine::STATE_ENABLED) {
+                    if (!$define->isDefined() || $define->get('state') != ModuleDefine::STATE_ENABLED) {
                         continue;
                     }
 
@@ -523,7 +523,7 @@ class ThemesList extends ModulesList
                 foreach ($modules as $id) {
                     $disabled = !empty($_POST['disabled'][$id]);
                     ;
-                    $define = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . dcModuleDefine::STATE_ENABLED]);
+                    $define = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
                     if (!$define->isDefined()) {
                         continue;
                     }
@@ -533,12 +533,12 @@ class ThemesList extends ModulesList
                         continue;
                     }
 
-                    # --BEHAVIOR-- themeBeforeDelete -- dcModuleDefine
+                    # --BEHAVIOR-- themeBeforeDelete -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeDeleteV2', $define);
 
                     $this->modules->deleteModule($define->getId(), $disabled);
 
-                    # --BEHAVIOR-- themeAfterDelete -- dcModuleDefine
+                    # --BEHAVIOR-- themeAfterDelete -- ModuleDefine
                     App::behavior()->callBehavior('themeAfterDeleteV2', $define);
 
                     $count++;
@@ -569,12 +569,12 @@ class ThemesList extends ModulesList
 
                     $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
 
-                    # --BEHAVIOR-- themeBeforeAdd -- dcModuleDefine
+                    # --BEHAVIOR-- themeBeforeAdd -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeAddV2', $define);
 
                     $this->store->process($define->get('file'), $dest);
 
-                    # --BEHAVIOR-- themeAfterAdd -- dcModuleDefine
+                    # --BEHAVIOR-- themeAfterAdd -- ModuleDefine
                     App::behavior()->callBehavior('themeAfterAddV2', $define);
 
                     $count++;
@@ -609,12 +609,12 @@ class ThemesList extends ModulesList
 
                     $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
 
-                    # --BEHAVIOR-- themeBeforeUpdate -- dcModuleDefine
+                    # --BEHAVIOR-- themeBeforeUpdate -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeUpdateV2', $define);
 
                     $this->store->process($define->get('file'), $dest);
 
-                    # --BEHAVIOR-- themeAfterUpdate -- dcModuleDefine
+                    # --BEHAVIOR-- themeAfterUpdate -- ModuleDefine
                     App::behavior()->callBehavior('themeAfterUpdateV2', $define);
 
                     $count++;
@@ -665,7 +665,7 @@ class ThemesList extends ModulesList
                 App::behavior()->callBehavior('themeAfterAdd', null);
 
                 Notices::addSuccessNotice(
-                    $ret_code == dcModules::PACKAGE_UPDATED ?
+                    $ret_code == $this->modules::PACKAGE_UPDATED ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')
                 );

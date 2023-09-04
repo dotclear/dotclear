@@ -178,16 +178,21 @@ dcProxyV1::classAliases([
 
     // Core -----------------------
 
-    'dcAuth'       => 'Dotclear\Core\Auth',
-    'dcBlog'       => 'Dotclear\Core\Blog',
-    'dcError'      => 'Dotclear\Core\Error',
-    'dcMedia'      => 'Dotclear\Core\Media',
-    'dcMeta'       => 'Dotclear\Core\Meta',
-    'dcNotices'    => 'Dotclear\Core\Notice',
-    'dcPostMedia'  => 'Dotclear\Core\PostMedia',
-    'dcRecord'     => 'Dotclear\Database\MetaRecord',
-    'dcRestServer' => 'Dotclear\Core\Rest',
-    'dcNsProcess'  => 'Dotclear\Core\Process',
+    'dcAuth'         => 'Dotclear\Core\Auth',
+    'dcBlog'         => 'Dotclear\Core\Blog',
+    'dcError'        => 'Dotclear\Core\Error',
+    'dcMedia'        => 'Dotclear\Core\Media',
+    'dcMeta'         => 'Dotclear\Core\Meta',
+    'dcModuleDefine' => 'Dotclear\Module\ModuleDefine',
+    'dcNotices'      => 'Dotclear\Core\Notice',
+    'dcNsProcess'    => 'Dotclear\Core\Process',
+    'dcPlugins'      => 'Dotclear\Module\Plugins',
+    'dcPostMedia'    => 'Dotclear\Core\PostMedia',
+    'dcRecord'       => 'Dotclear\Database\MetaRecord',
+    'dcRestServer'   => 'Dotclear\Core\Rest',
+    'dcStore'        => 'Dotclear\Module\Store',
+    'dcStoreParser'  => 'Dotclear\Module\StoreParser',
+    'dcStoreReader'  => 'Dotclear\Module\StoreReader',
 
     // Core admin -----------------
 

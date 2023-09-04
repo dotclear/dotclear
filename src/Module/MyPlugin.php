@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcModuleDefine;
 use Dotclear\App;
 use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Menus;
@@ -29,7 +28,7 @@ use Dotclear\Helper\Html\Form\Hidden;
  */
 abstract class MyPlugin extends MyModule
 {
-    protected static function define(): dcModuleDefine
+    protected static function define(): ModuleDefine
     {
         return static::getDefineFromNamespace(App::plugins());
     }

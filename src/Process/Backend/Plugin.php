@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcModules;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
@@ -56,7 +55,7 @@ class Plugin extends Process
             }
 
             // by class name
-            $class = App::plugins()->loadNsClass($plugin, dcModules::MODULE_CLASS_MANAGE);
+            $class = App::plugins()->loadNsClass($plugin, App::plugins()::MODULE_CLASS_MANAGE);
             if (!empty($class)) {
                 ob_start();
                 $class::render();
@@ -64,7 +63,7 @@ class Plugin extends Process
                 ob_end_clean();
                 // by file name
             } elseif (App::plugins()->moduleExists($plugin)) {
-                $p_file = App::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . dcModules::MODULE_FILE_MANAGE;
+                $p_file = App::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . App::plugins()::MODULE_FILE_MANAGE;
                 if (file_exists($p_file)) {
                     ob_start();
                     include $p_file;

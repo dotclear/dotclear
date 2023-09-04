@@ -1,22 +1,25 @@
 <?php
 /**
- * @brief Repository modules XML feed reader
+ * Repository modules XML feed reader.
  *
  * Provides an object to parse XML feed of modules from repository.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  *
  * @since 2.6
  */
+declare(strict_types=1);
+
+namespace Dotclear\Module;
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\HttpClient;
+use Exception;
 
-class dcStoreReader extends HttpClient
+class StoreReader extends HttpClient
 {
     /** @var    int  Read nothing */
     public const READ_FROM_NONE = -1;
@@ -26,6 +29,9 @@ class dcStoreReader extends HttpClient
 
     /** @var    int  Read from repository server */
     public const READ_FROM_SOURCE = 1;
+
+    /** @var string     Default modules store cache sub folder */
+    public const CACHE_FOLDER = 'dcrepo';
 
     /**
      * User agent used to query repository
@@ -53,7 +59,7 @@ class dcStoreReader extends HttpClient
      *
      * @var    string
      */
-    protected $cache_file_prefix = 'dcrepo';
+    protected $cache_file_prefix = self::CACHE_FOLDER;
 
     /**
      * Cache TTL
@@ -103,9 +109,9 @@ class dcStoreReader extends HttpClient
      *
      * @param    string    $url        XML feed URL
      *
-     * @return   mixed     Feed content, dcStoreParser instance or false
+     * @return   false|StoreParser  Feed content, StoreParser instance or false
      */
-    public function parse(string $url)
+    public function parse(string $url): bool|StoreParser
     {
         $this->validators = [];
 
@@ -119,7 +125,7 @@ class dcStoreReader extends HttpClient
 
         self::$read_code = static::READ_FROM_SOURCE;
 
-        return new dcStoreParser($this->getContent());
+        return new StoreParser($this->getContent());
     }
 
     /**
@@ -129,7 +135,7 @@ class dcStoreReader extends HttpClient
      * @param    string     $cache_dir    Cache directoy or null for no cache
      * @param    null|bool  $force        Force query repository. null to use cache without ttl
      *
-     * @return   mixed     Feed content, dcStoreParser instance or false
+     * @return   mixed     Feed content, StoreParser instance or false
      */
     public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false)
     {
@@ -289,7 +295,7 @@ class dcStoreReader extends HttpClient
                 return unserialize(file_get_contents($cached_file));
                 # Ok, parse feed
             case '200':
-                $modules         = new dcStoreParser($this->getContent());
+                $modules         = new StoreParser($this->getContent());
                 self::$read_code = static::READ_FROM_SOURCE;
 
                 try {

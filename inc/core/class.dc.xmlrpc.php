@@ -9,6 +9,7 @@
 
 use Dotclear\App;
 use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
+use Dotclear\Module\ModuleDefine;
 
 class dcXmlRpc extends IntrospectionServer
 {
@@ -163,7 +164,7 @@ class dcXmlRpc extends IntrospectionServer
             throw new Exception('Blog does not exist.');
         }
 
-        foreach (App::plugins()->getDefines(['state' => dcModuleDefine::STATE_ENABLED]) as $define) {
+        foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
             App::plugins()->loadNsFile($define->getId(), 'xmlrpc');
         }
 

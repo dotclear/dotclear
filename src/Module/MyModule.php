@@ -20,13 +20,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcModules;
-use dcModuleDefine;
 use dcNamespace;
 use dcUtils;
 use dcWorkspace;
 use Dotclear\App;
 use Dotclear\Helper\L10n;
+use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
 /**
@@ -64,7 +63,7 @@ abstract class MyModule
     /** @var    int     Uninstall context */
     public const UNINSTALL = 8;
 
-    /** @var    array<string,dcModuleDefine>    The know modules defines */
+    /** @var    array<string,ModuleDefine>    The know modules defines */
     protected static $defines = [];
 
     /**
@@ -72,9 +71,9 @@ abstract class MyModule
      *
      * This method is defined in MyPlugin or MyTheme.
      *
-     * @return  dcModuleDefine  The module define
+     * @return  ModuleDefine  The module define
      */
-    abstract protected static function define(): dcModuleDefine;
+    abstract protected static function define(): ModuleDefine;
 
     /**
      * Check context permission.
@@ -299,11 +298,11 @@ abstract class MyModule
      * This method is used to load module define.
      * see MyPlugin::define() and MyTheme::define()
      *
-     * @param   null|dcModules  $modules    The modules instance (Themes or Plugins)
+     * @param   null|ModulesInterface   $modules    The modules instance (Themes or Plugins)
      *
-     * @return  dcModuleDefine  The module define
+     * @return  ModuleDefine  The module define
      */
-    final protected static function getDefineFromNamespace(?dcModules $modules): dcModuleDefine
+    final protected static function getDefineFromNamespace(?ModulesInterface $modules): ModuleDefine
     {
         // take into account modules not loaded
         if (null === $modules) {

@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use dcModuleDefine;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Module\ModuleDefine;
 use Exception;
 
 class Backend extends Process
@@ -34,7 +34,7 @@ class Backend extends Process
 
         App::behavior()->addBehaviors([
             // add "unsinstall" button to modules list
-            'adminModulesListGetActionsV2' => function (ModulesList $list, dcModuleDefine $define): string {
+            'adminModulesListGetActionsV2' => function (ModulesList $list, ModuleDefine $define): string {
                 // do not unsintall current theme
                 if ($define->get('type') == 'theme' && $define->getId() == App::blog()->settings()->get('system')->get('theme')) {
                     return '';
@@ -47,11 +47,11 @@ class Backend extends Process
                     );
             },
             // perform direct action on theme deletion
-            'themeBeforeDeleteV2' => function (dcModuleDefine $define): void {
+            'themeBeforeDeleteV2' => function (ModuleDefine $define): void {
                 self::moduleBeforeDelete($define);
             },
             // perform direct action on plugin deletion
-            'pluginBeforeDeleteV2' => function (dcModuleDefine $define): void {
+            'pluginBeforeDeleteV2' => function (ModuleDefine $define): void {
                 self::moduleBeforeDelete($define);
             },
             // add js to hide delete button when uninstaller exists
@@ -68,9 +68,9 @@ class Backend extends Process
      *
      * This does not perform action on disabled module.
      *
-     * @param   dcModuleDefine  $define     The module
+     * @param   ModuleDefine    $define     The module
      */
-    protected static function moduleBeforeDelete(dcModuleDefine $define): void
+    protected static function moduleBeforeDelete(ModuleDefine $define): void
     {
         if (My::settings()->get('no_direct_uninstall')) {
             return;
@@ -80,7 +80,7 @@ class Backend extends Process
             $uninstaller = Uninstaller::instance()->loadModules([$define]);
 
             // Do not perform action on disabled module if a duplicate exists.
-            if ($define->get('state') != dcModuleDefine::STATE_ENABLED) {
+            if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
                 if (!in_array($define->get('type'), ['plugin', 'theme'])
                     || $define->get('type') == 'plugin' && 1 < count(App::plugins()->getDefines(['id' => $define->getId()]))
                     || $define->get('type') == 'theme'  && 1 < count(App::themes()->getDefines(['id' => $define->getId()]))

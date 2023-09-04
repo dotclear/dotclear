@@ -18,12 +18,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-// classes that move to \Dotclear\Core
-use dcPlugins;
-use dcThemes;
-//
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
+use Dotclear\Module\Plugins;
+use Dotclear\Module\Themes;
 
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -46,6 +44,7 @@ use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
+use Dotclear\Interface\Module\ModulesInterface;
 
 class Factory implements FactoryInterface
 {
@@ -137,9 +136,9 @@ class Factory implements FactoryInterface
         return new Notice();
     }
 
-    public function plugins(): dcPlugins
+    public function plugins(): ModulesInterface
     {
-        return new dcPlugins();
+        return new Plugins();
     }
 
     public function postMedia(): PostMediaInterface
@@ -168,9 +167,9 @@ class Factory implements FactoryInterface
         );
     }
 
-    public function themes(): dcThemes
+    public function themes(): ModulesInterface
     {
-        return new dcThemes();
+        return new Themes();
     }
 
     public function url(): Url
