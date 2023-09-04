@@ -44,12 +44,14 @@ class Log implements LogInterface
     /**
      * Get log table name.
      *
-     * @deprecated since 2.28, use self::LOG_TABLE_NAME instead
+     * @deprecated since 2.28, use App::log()::LOG_TABLE_NAME instead
      *
      * @return  string  The log database table name
      */
     public function getTable(): string
     {
+        Deprecated::set('App::log()::LOG_TABLE_NAME', '2.28');
+
         return self::LOG_TABLE_NAME;
     }
 

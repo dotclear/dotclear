@@ -56,7 +56,7 @@ class Logs extends CleanerParent
     public function distributed(): array
     {
         return [
-            'dcDeprecated',
+            'deprecated',
             'maintenance',
         ];
     }

@@ -201,7 +201,6 @@ namespace Dotclear {
                 'dcTrackback'    => $inc('core', 'class.dc.trackback.php'),
                 'dcUpdate'       => $inc('core', 'class.dc.update.php'),
                 'dcXmlRpc'       => $inc('core', 'class.dc.xmlrpc.php'),
-                'dcDeprecated'   => $inc('core', 'class.dc.deprecated.php'),
                 'rsExtLog'       => $inc('core', 'lib.rs.ext.log.php'),
                 'dcWorkspace'    => $inc('core', 'class.dc.workspace.php'),
                 'dcPrefs'        => $inc('core', 'class.dc.prefs.php'),

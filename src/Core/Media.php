@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcDeprecated;
 use SimpleXMLElement;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
@@ -1491,11 +1490,11 @@ class Media extends Manager implements MediaInterface
     /**
      * Returns HTML code for FLV player.
      *
-     * @deprecated since 2.15
+     * @deprecated  since 2.15
      */
     public static function flvplayer(string $url, ?string $player = null, $args = null): string
     {
-        dcDeprecated::set('', '2.15');
+        Deprecated::set('', '2.15');
 
         return '';
     }

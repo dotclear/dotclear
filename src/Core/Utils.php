@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcDeprecated;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
@@ -208,7 +207,7 @@ class Utils
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        dcDeprecated::set('My::cssLoad()', '2.27');
+        Deprecated::set('My::cssLoad()', '2.27');
 
         return self::cssLoad(App::blog()->getPF($src), $media, $version);
     }
@@ -243,7 +242,7 @@ class Utils
      */
     public static function jsModuleLoad(string $src, ?string $version = null, bool $module = false): string
     {
-        dcDeprecated::set('My::jsLoad()', '2.27');
+        Deprecated::set('My::jsLoad()', '2.27');
 
         return self::jsLoad(App::blog()->getPF($src), $version);
     }
@@ -259,7 +258,7 @@ class Utils
      */
     public static function jsVars(array $vars): string
     {
-        dcDeprecated::set(self::class . '::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        Deprecated::set(self::class . '::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
@@ -282,7 +281,7 @@ class Utils
      */
     public static function jsVar(string $name, $value): string
     {
-        dcDeprecated::set(self::class . '::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        Deprecated::set(self::class . '::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         return self::jsVars([$name => $value]);
     }
@@ -402,6 +401,8 @@ class Utils
      */
     public static function removeDiacritics(string $str): string
     {
+        Deprecated::set('Text::removeDiacritics()', '2.26');
+
         return Text::removeDiacritics($str);
     }
 

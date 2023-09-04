@@ -186,6 +186,8 @@ class Notice implements NoticeInterface
      */
     public function delNotices(?int $id, bool $all = false): void
     {
+        Deprecated::set('App::notice()->delNotice() or App::notice()->delAllNotices()', '2.28');
+
         $sql = new DeleteStatement();
         $sql
             ->from($this->table);
