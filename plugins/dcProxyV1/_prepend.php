@@ -199,6 +199,7 @@ dcProxyV1::classAliases([
     'dcThemes'       => 'Dotclear\Module\Themes',
     'dcUpdate'       => 'Dotclear\Core\Update',
     'dcUtils'        => 'Dotclear\Core\Utils',
+    'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
 
     // Core admin -----------------
 

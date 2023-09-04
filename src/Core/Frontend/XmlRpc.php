@@ -1,17 +1,23 @@
 <?php
 /**
+ * XmlRpc handler.
+ *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
 
+namespace Dotclear\Core\Frontend;
+
+use dcTrackback;
 use Dotclear\App;
 use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
 use Dotclear\Module\ModuleDefine;
+use Exception;
 
-class dcXmlRpc extends IntrospectionServer
+class XmlRpc extends IntrospectionServer
 {
     /**
      * Blog ID
@@ -23,42 +29,42 @@ class dcXmlRpc extends IntrospectionServer
     /**
      * Set to true as soon as Blog is set (using Blog ID)
      *
-     * @var        bool
+     * @var     bool
      */
     private bool $blog_loaded = false;
 
     /**
      * Debug mode
      *
-     * @var        bool
+     * @var     bool
      */
     private bool $debug = false;
 
     /**
      * Debug file log
      *
-     * @var        string
+     * @var     string
      */
     private string $debug_file = DC_TPL_CACHE . '/dotclear-xmlrpc.log';
 
     /**
      * Trace arguments
      *
-     * @var        bool
+     * @var     bool
      */
     private bool $trace_args = true;
 
     /**
      * Trace response
      *
-     * @var        bool
+     * @var     bool
      */
     private bool $trace_response = true;
 
     /**
      * Constructs a new instance.
      *
-     * @param      string  $blog_id  The blog ID
+     * @param   string  $blog_id  The blog ID
      */
     public function __construct(string $blog_id)
     {
@@ -76,9 +82,9 @@ class dcXmlRpc extends IntrospectionServer
     }
 
     /**
-     * Start the XML-RPC server
+     * Start the XML-RPC server.
      *
-     * @param      bool  $data   The data
+     * @param   bool    $data   The data
      */
     public function serve($data = false): void
     {
@@ -86,12 +92,12 @@ class dcXmlRpc extends IntrospectionServer
     }
 
     /**
-     * Call a XML-RPC method
+     * Call a XML-RPC method.
      *
-     * @param      string  $methodname  The methodname
-     * @param      mixed   $args        The arguments
+     * @param   string  $methodname     The methodname
+     * @param   mixed   $args           The arguments
      *
-     * @return     mixed
+     * @return  mixed
      */
     public function call(string $methodname, $args)
     {
@@ -108,11 +114,11 @@ class dcXmlRpc extends IntrospectionServer
     }
 
     /**
-     * Trace method response
+     * Trace method response.
      *
-     * @param      string  $methodname  The methodname
-     * @param      mixed   $args        The arguments
-     * @param      mixed   $rsp         The response
+     * @param   string  $methodname     The methodname
+     * @param   mixed   $args           The arguments
+     * @param   mixed   $rsp            The response
      */
     private function debugTrace(string $methodname, $args, $rsp)
     {
@@ -141,9 +147,9 @@ class dcXmlRpc extends IntrospectionServer
     /**
      * Sets the blog.
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool
+     * @return  bool
      */
     private function setBlog()
     {
@@ -174,12 +180,12 @@ class dcXmlRpc extends IntrospectionServer
     // XML-RPC methods
 
     /**
-     * Receive a pingback
+     * Receive a pingback.
      *
-     * @param      string  $from_url  The from url
-     * @param      string  $to_url    To url
+     * @param   string  $from_url   The from url
+     * @param   string  $to_url     To url
      *
-     * @return     string  Message sent back to the sender
+     * @return  string  Message sent back to the sender
      */
     public function pingback_ping(string $from_url, string $to_url): string
     {

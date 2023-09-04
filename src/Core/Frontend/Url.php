@@ -12,7 +12,6 @@ namespace Dotclear\Core\Frontend;
 
 use ArrayObject;
 use dcTrackback;
-use dcXmlRpc;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -917,7 +916,7 @@ class Url extends UrlHandler
     public static function xmlrpc(?string $args): void
     {
         $blog_id = preg_replace('#^([^/]*).*#', '$1', (string) $args);
-        (new dcXmlRpc($blog_id))->serve();
+        (new XmlRpc($blog_id))->serve();
     }
 
     /**

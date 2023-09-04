@@ -43,6 +43,7 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.themes.php',
                 'inc/core/class.dc.update.php',
                 'inc/core/class.dc.utils.php',
+                'inc/core/class.dc.xmlrpc.php',
                 'inc/public/lib.urlhandlers.php',
                 'inc/public/class.dc.template.php',
                 'inc/public/lib.tpl.context.php',
