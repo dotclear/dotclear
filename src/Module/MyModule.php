@@ -20,9 +20,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use dcNamespace;
-use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
+use Dotclear\Core\UserWorkspace;
 use Dotclear\Core\Utils;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Module\ModulesInterface;
@@ -191,9 +191,9 @@ abstract class MyModule
      *
      * @throws  Exception   Since 2.28 if blog is not defined
      *
-     * @return  dcNamespace    The module settings instance
+     * @return  BlogWorkspace    The module settings instance
      */
-    final public static function settings(): dcNamespace
+    final public static function settings(): BlogWorkspace
     {
         return App::blog()->settings()->get(static::id());
     }
@@ -201,9 +201,9 @@ abstract class MyModule
     /**
      * The module preferences instance.
      *
-     * @return  null|dcWorkspace    The module preferences instance
+     * @return  null|UserWorkspace    The module preferences instance
      */
-    final public static function prefs(): ?dcWorkspace
+    final public static function prefs(): ?UserWorkspace
     {
         return App::auth()->prefs()->get(static::id());
     }

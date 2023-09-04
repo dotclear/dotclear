@@ -407,6 +407,6 @@ class Categories
      */
     protected function getFields(array $fields = [], string $prefix = ''): string
     {
-        return ', ' . $prefix . implode(', '. $prefix, array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields));
+        return ', ' . $prefix . implode(', ' . $prefix, array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields));
     }
 }

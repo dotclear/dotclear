@@ -1,24 +1,27 @@
 <?php
 /**
- * @brief Blog settings handler
+ * Blog settings handler.
  *
- * dcSettings provides blog settings management. This class instance exists as
+ * This class provides blog settings management. This class instance exists as
  * Blog $settings property. You should create a new settings instance when
  * updating another blog settings.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Exception;
 
-class dcSettings
+class BlogSettings
 {
     // Properties
 
@@ -59,7 +62,7 @@ class dcSettings
     public function __construct($blog_id)
     {
         $this->con     = App::con();
-        $this->table   = App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
+        $this->table   = App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
         $this->loadSettings();
     }
@@ -105,7 +108,7 @@ class dcSettings
                 // at very first time
                 $rs->movePrev();
             }
-            $this->namespaces[$ns] = new dcNamespace($this->blog_id, $ns, $rs);
+            $this->namespaces[$ns] = new BlogWorkspace($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
@@ -114,12 +117,12 @@ class dcSettings
      *
      * @param      string  $namespace     Namespace name
      *
-     * @return     dcNamespace
+     * @return     BlogWorkspace
      */
-    public function addNamespace(string $namespace): dcNamespace
+    public function addNamespace(string $namespace): BlogWorkspace
     {
         if (!$this->exists($namespace)) {
-            $this->namespaces[$namespace] = new dcNamespace($this->blog_id, $namespace);
+            $this->namespaces[$namespace] = new BlogWorkspace($this->blog_id, $namespace);
         }
 
         return $this->namespaces[$namespace];
@@ -141,7 +144,7 @@ class dcSettings
             return false;
         }
 
-        if (!preg_match(dcNamespace::NS_NAME_SCHEMA, $new_namespace)) {
+        if (!preg_match(BlogWorkspace::NS_NAME_SCHEMA, $new_namespace)) {
             throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_namespace));
         }
 
@@ -154,7 +157,7 @@ class dcSettings
         $sql->update();
 
         // Reload the renamed namespace in the namespace array
-        $this->namespaces[$new_namespace] = new dcNamespace($this->blog_id, $new_namespace);
+        $this->namespaces[$new_namespace] = new BlogWorkspace($this->blog_id, $new_namespace);
 
         // Remove the old namespace from the namespace array
         unset($this->namespaces[$old_namespace]);
@@ -194,9 +197,9 @@ class dcSettings
      *
      * @param      string  $namespace     Namespace name
      *
-     * @return     dcNamespace
+     * @return     BlogWorkspace
      */
-    public function get(string $namespace): dcNamespace
+    public function get(string $namespace): BlogWorkspace
     {
         return $this->addNamespace($namespace);
     }
@@ -206,9 +209,9 @@ class dcSettings
      *
      * @param      string  $namespace      namespace name
      *
-     * @return     dcNamespace
+     * @return     BlogWorkspace
      */
-    public function __get(string $namespace): dcNamespace
+    public function __get(string $namespace): BlogWorkspace
     {
         return $this->get($namespace);
     }

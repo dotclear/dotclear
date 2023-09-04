@@ -194,11 +194,6 @@ namespace Dotclear {
 
                 // Core
                 'dcCore' => $inc('core', 'class.dc.core.php'),
-
-                'dcNamespace'  => $inc('core', 'class.dc.namespace.php'),
-                'dcSettings'   => $inc('core', 'class.dc.settings.php'),
-                'dcWorkspace'  => $inc('core', 'class.dc.workspace.php'),
-                'dcPrefs'      => $inc('core', 'class.dc.prefs.php'),
             ]);
 
             // CLI_MODE, boolean constant that tell if we are in CLI mode

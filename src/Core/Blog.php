@@ -15,7 +15,6 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcTraitDynamicProperties;
-use dcSettings;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -185,9 +184,9 @@ class Blog implements BlogInterface
     /**
      * Blog parameters
      *
-     * @deprecated since 2.28, use App::blog()->settings()() instead
+     * @deprecated since 2.28, use App::blog()->settings() instead
      *
-     * @var dcSettings
+     * @var BlogSettings
      */
     public $settings;
 
@@ -260,7 +259,7 @@ class Blog implements BlogInterface
             $this->upddt  = (int) strtotime($blog->blog_upddt);
             $this->status = (int) $blog->blog_status;
 
-            $this->settings = new dcSettings($this->id);
+            $this->settings = new BlogSettings($this->id);
 
             $this->themes_path = Path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
             $this->public_path = Path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
@@ -353,7 +352,7 @@ class Blog implements BlogInterface
         return $this->status;
     }
 
-    public function settings(): dcSettings
+    public function settings(): BlogSettings
     {
         if ($this->isDefined()) {
             return $this->settings;

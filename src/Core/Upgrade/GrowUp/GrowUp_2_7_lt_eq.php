@@ -12,24 +12,24 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcNamespace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
 
 class GrowUp_2_7_lt_eq
 {
     public static function init(bool $cleanup_sessions): bool
     {
         # Some new settings should be initialized, prepare db queries
-        $strReqFormat = 'INSERT INTO ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
+        $strReqFormat = 'INSERT INTO ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
         $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
         $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
 
-        $strReqCount = 'SELECT count(1) FROM ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
+        $strReqCount = 'SELECT count(1) FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
         $strReqCount .= ' WHERE setting_id = \'%s\'';
         $strReqCount .= ' AND setting_ns = \'system\'';
         $strReqCount .= ' AND blog_id IS NULL';
 
-        $strReqSelect = 'SELECT setting_value FROM ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME;
+        $strReqSelect = 'SELECT setting_value FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
         $strReqSelect .= ' WHERE setting_id = \'%s\'';
         $strReqSelect .= ' AND setting_ns = \'system\'';
         $strReqSelect .= ' AND blog_id IS NULL';

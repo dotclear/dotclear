@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcNamespace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\File\Files;
 
@@ -41,7 +41,7 @@ class GrowUp_2_10_lt
         }
 
         # Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
         # Import feed control

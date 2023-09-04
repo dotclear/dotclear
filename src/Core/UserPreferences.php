@@ -2,23 +2,26 @@
 /**
  * @brief User prefs handler
  *
- * dcPrefs provides user preferences management. This class instance exists as
+ * UserPreferences provides user preferences management. This class instance exists as
  * Auth $prefs property. You should create a new prefs instance when
  * updating another user prefs.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Exception;
 
-class dcPrefs
+class UserPreferences
 {
     // Properties
 
@@ -60,7 +63,7 @@ class dcPrefs
     public function __construct(string $user_id, ?string $workspace = null)
     {
         $this->con     = App::con();
-        $this->table   = App::con()->prefix() . dcWorkspace::WS_TABLE_NAME;
+        $this->table   = App::con()->prefix() . UserWorkspace::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {
@@ -118,7 +121,7 @@ class dcPrefs
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$workspace] = new dcWorkspace($this->user_id, $workspace, $rs);
+            $this->workspaces[$workspace] = new UserWorkspace($this->user_id, $workspace, $rs);
         } while (!$rs->isStart());
     }
 
@@ -127,12 +130,12 @@ class dcPrefs
      *
      * @param      string  $workspace     Workspace name
      *
-     * @return     dcWorkspace
+     * @return     UserWorkspace
      */
-    public function addWorkspace(string $workspace): dcWorkspace
+    public function addWorkspace(string $workspace): UserWorkspace
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = new dcWorkspace($this->user_id, $workspace);
+            $this->workspaces[$workspace] = new UserWorkspace($this->user_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -154,8 +157,8 @@ class dcPrefs
             return false;
         }
 
-        if (!preg_match(dcWorkspace::WS_NAME_SCHEMA, $new_workspace)) {
-            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $new_workspace));
+        if (!preg_match(UserWorkspace::WS_NAME_SCHEMA, $new_workspace)) {
+            throw new Exception(sprintf(__('Invalid UserWorkspace: %s'), $new_workspace));
         }
 
         // Rename the workspace in the database
@@ -167,7 +170,7 @@ class dcPrefs
         $sql->update();
 
         // Reload the renamed workspace in the workspace array
-        $this->workspaces[$new_workspace] = new dcWorkspace($this->user_id, $new_workspace);
+        $this->workspaces[$new_workspace] = new UserWorkspace($this->user_id, $new_workspace);
 
         // Remove the old workspace from the workspace array
         unset($this->workspaces[$old_workspace]);
@@ -207,9 +210,9 @@ class dcPrefs
      *
      * @param      string  $workspace     Workspace name
      *
-     * @return     dcWorkspace
+     * @return     UserWorkspace
      */
-    public function get(string $workspace): dcWorkspace
+    public function get(string $workspace): UserWorkspace
     {
         return $this->addWorkspace($workspace);
     }
@@ -221,9 +224,9 @@ class dcPrefs
      *
      * @param      string  $workspace     Workspace name
      *
-     * @return     dcWorkspace
+     * @return     UserWorkspace
      */
-    public function __get(string $workspace): dcWorkspace
+    public function __get(string $workspace): UserWorkspace
     {
         return $this->get($workspace);
     }

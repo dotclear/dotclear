@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcSettings;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -61,7 +61,7 @@ class Blog extends Process
                 App::blogs()->addBlog($cur);
 
                 # Default settings and override some
-                $blog_settings = new dcSettings($cur->blog_id);
+                $blog_settings = new BlogSettings($cur->blog_id);
                 $blog_settings->system->put('lang', App::auth()->getInfo('user_lang'));
                 $blog_settings->system->put('blog_timezone', App::auth()->getInfo('user_tz'));
 
@@ -71,7 +71,7 @@ class Blog extends Process
                     $blog_settings->system->put('url_scan', 'path_info');
                 }
 
-                # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, dcSettings
+                # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, BlogSettings
                 App::behavior()->callBehavior('adminAfterBlogCreate', $cur, App::backend()->blog_id, $blog_settings);
                 Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 App::backend()->url->redirect('admin.blog', ['id' => $cur->blog_id]);

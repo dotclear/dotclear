@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
-use dcNamespace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
 use Dotclear\Database\Statement\{
     DeleteStatement,
     SelectStatement
@@ -100,7 +100,7 @@ class Settings extends CleanerParent
     public function values(): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
+        $sql->from(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'setting_ns',
@@ -130,7 +130,7 @@ class Settings extends CleanerParent
     public function related(string $ns): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
+        $sql->from(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'setting_id',
@@ -162,7 +162,7 @@ class Settings extends CleanerParent
         $sql = new DeleteStatement();
 
         if ($action == 'delete_global' && self::checkNs($ns)) {
-            $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME)
                 ->where('blog_id IS NULL')
                 ->and('setting_ns = ' . $sql->quote((string) $ns))
                 ->delete();
@@ -170,7 +170,7 @@ class Settings extends CleanerParent
             return true;
         }
         if ($action == 'delete_local' && self::checkNs($ns)) {
-            $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote((string) App::blog()->id()))
                 ->and('setting_ns = ' . $sql->quote((string) $ns))
                 ->delete();
@@ -178,7 +178,7 @@ class Settings extends CleanerParent
             return true;
         }
         if ($action == 'delete_all' && self::checkNs($ns)) {
-            $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME)
                 ->where('setting_ns = ' . $sql->quote((string) $ns))
                 ->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();
@@ -187,8 +187,8 @@ class Settings extends CleanerParent
         }
         if ($action == 'delete_related') {
             // check ns match ns:id;
-            $reg_ws = substr(dcNamespace::NS_NAME_SCHEMA, 2, -2);
-            $reg_id = substr(dcNamespace::NS_ID_SCHEMA, 2, -2);
+            $reg_ws = substr(BlogWorkspace::NS_NAME_SCHEMA, 2, -2);
+            $reg_id = substr(BlogWorkspace::NS_ID_SCHEMA, 2, -2);
             if (!preg_match_all('#((' . $reg_ws . '):(' . $reg_id . ');?)#', $ns, $matches)) {
                 return false;
             }
@@ -202,7 +202,7 @@ class Settings extends CleanerParent
                 return false;
             }
 
-            $sql->from(App::con()->prefix() . dcNamespace::NS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME)
                 ->where($sql->orGroup($or))
                 ->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();
@@ -222,6 +222,6 @@ class Settings extends CleanerParent
      */
     private static function checkNs(string $ns): bool
     {
-        return (bool) preg_match(dcNamespace::NS_NAME_SCHEMA, $ns);
+        return (bool) preg_match(BlogWorkspace::NS_NAME_SCHEMA, $ns);
     }
 }

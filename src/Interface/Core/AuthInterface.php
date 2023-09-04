@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use dcPrefs;
+use Dotclear\Core\UserPreferences;
 use Dotclear\Database\Cursor;
 use Dotclear\Helper\Crypt;
 
@@ -177,9 +177,9 @@ interface AuthInterface
      *
      * @throws  \Error   if no user is set
      *
-     * @return  dcPrefs
+     * @return  UserPreferences
      */
-    public function prefs(): dcPrefs;
+    public function prefs(): UserPreferences;
 
     /**
      * Returns user permissions for a blog.

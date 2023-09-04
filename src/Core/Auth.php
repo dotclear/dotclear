@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use dcPrefs;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\SelectStatement;
@@ -138,13 +137,13 @@ class Auth implements AuthInterface
     protected $perm_types;
 
     /**
-     * dcPrefs (user preferences) object
+     * UserPreferences (user preferences) object
      *
      * @deprecated since 2.28, use App::auth()->prefs() instead
      *
-     * @var dcPrefs
+     * @var UserPreferences
      */
-    public dcPrefs $user_prefs;
+    public UserPreferences $user_prefs;
 
     /**
      * Create a new instance of authentication class (user-defined or default)
@@ -322,7 +321,7 @@ class Auth implements AuthInterface
 
         $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
-        $this->user_prefs = new dcPrefs($this->user_id);
+        $this->user_prefs = new UserPreferences($this->user_id);
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -461,7 +460,7 @@ class Auth implements AuthInterface
     /// @name User information and options
     //@{
 
-    public function prefs(): dcPrefs
+    public function prefs(): UserPreferences
     {
         return $this->user_prefs;
     }

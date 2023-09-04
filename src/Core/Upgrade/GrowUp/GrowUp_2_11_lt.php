@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcNamespace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_11_lt
@@ -21,7 +21,7 @@ class GrowUp_2_11_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
         App::con()->execute(
@@ -34,25 +34,25 @@ class GrowUp_2_11_lt
         $csp_suffix = App::con()->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
         # Try to fix some CSP directive wrongly stored for SQLite drivers
-        $strReq = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_default' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self' ";
         App::con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline'' ''unsafe-eval''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_script' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' ''unsafe-inline'' ''unsafe-eval' ";
         App::con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_style' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' ''unsafe-inline' ";
         App::con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .
@@ -60,7 +60,7 @@ class GrowUp_2_11_lt
         App::con()->execute($strReq);
 
         # Update CSP img-src default directive
-        $strReq = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .

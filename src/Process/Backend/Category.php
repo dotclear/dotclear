@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcSettings;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -37,7 +37,7 @@ class Category extends Process
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
-        $blog_settings = new dcSettings(App::blog()->id());
+        $blog_settings = new BlogSettings(App::blog()->id());
 
         App::backend()->cat_id    = '';
         App::backend()->cat_title = '';
