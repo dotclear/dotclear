@@ -13,11 +13,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+//use Dotclear\Core\Container;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Interface\Module\ModulesInterface;
 
 interface FactoryInterface
 {
+    //public function __construct(Container $container);
     public function auth(): AuthInterface;
     public function behavior(): BehaviorInterface;
     public function blog(): BlogInterface;

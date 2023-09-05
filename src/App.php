@@ -424,8 +424,8 @@ namespace Dotclear {
             L10n::init();
 
             try {
-                // instanciate once new core
-                new App();
+                // Instanciate once App with core factory
+                new App(Factories::getFactory('core'));
 
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
