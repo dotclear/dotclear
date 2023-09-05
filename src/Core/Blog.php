@@ -610,7 +610,7 @@ class Blog implements BlogInterface
             }
 
             $sql = new UpdateStatement();
-            $sql->where('post_id = ' . $sql->quote($post_id));
+            $sql->where('post_id = ' . $post_id);
 
             $sql->update($cur);
         }
