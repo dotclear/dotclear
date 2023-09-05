@@ -201,7 +201,7 @@ dcProxyV1::classAliases([
     'dcStoreParser'  => 'Dotclear\Module\StoreParser',
     'dcStoreReader'  => 'Dotclear\Module\StoreReader',
     'dcThemes'       => 'Dotclear\Module\Themes',
-    'dcTrackback'    => 'Dotclear\Module\Trackback',
+    'dcTrackback'    => 'Dotclear\Core\Trackback',
     'dcUpdate'       => 'Dotclear\Core\Update',
     'dcUtils'        => 'Dotclear\Core\Utils',
     'dcWorkspace'    => 'Dotclear\Core\UserWorkspace',
