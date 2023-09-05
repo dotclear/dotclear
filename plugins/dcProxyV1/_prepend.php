@@ -181,7 +181,7 @@ dcProxyV1::classAliases([
     'dcAuth'         => 'Dotclear\Core\Auth',
     'dcBlog'         => 'Dotclear\Core\Blog',
     'dcCategories'   => 'Dotclear\Core\Categories',
-    'dcDeprecated'   => 'Dotclear\Core\dcDeprecated',
+    'dcDeprecated'   => 'Dotclear\Core\Deprecated',
     'dcError'        => 'Dotclear\Core\Error',
     'dcLog'          => 'Dotclear\Core\Log',
     'dcMedia'        => 'Dotclear\Core\Media',
