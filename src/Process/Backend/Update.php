@@ -16,7 +16,7 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Core\Update;
+use Dotclear\Core\Update as CoreUpdate;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
@@ -71,7 +71,7 @@ class Update extends Process
             exit;
         }
 
-        App::backend()->updater = new Update(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
+        App::backend()->updater = new CoreUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
         App::backend()->new_v   = App::backend()->updater->check(DC_VERSION, !empty($_GET['nocache']));
 
         App::backend()->zip_file       = '';
@@ -194,14 +194,14 @@ class Update extends Process
             } catch (Exception $e) {
                 $msg = $e->getMessage();
 
-                if ($e->getCode() == Update::ERR_FILES_CHANGED) {
+                if ($e->getCode() == CoreUpdate::ERR_FILES_CHANGED) {
                     $msg = __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="https://dotclear.org/download">update manually</a>.');
-                } elseif ($e->getCode() == Update::ERR_FILES_UNREADABLE) {
+                } elseif ($e->getCode() == CoreUpdate::ERR_FILES_UNREADABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                         '<strong>backup-' . DC_VERSION . '.zip</strong>'
                     );
-                } elseif ($e->getCode() == Update::ERR_FILES_UNWRITALBE) {
+                } elseif ($e->getCode() == CoreUpdate::ERR_FILES_UNWRITALBE) {
                     $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
                 }
 
