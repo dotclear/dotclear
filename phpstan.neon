@@ -228,6 +228,10 @@ parameters:
     - message : '#Access to an undefined property Dotclear\\Core\\UserPreferences::#'
       path: %currentWorkingDirectory%
 
+    # Dotclear\Module\ModuleDefine object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Module\\ModuleDefine::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
