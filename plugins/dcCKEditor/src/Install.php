@@ -32,8 +32,8 @@ class Install extends Process
         if (version_compare(App::version()->getVersion(My::id()), '2.0', '<=')
             && App::blog()->settings()->exists('dcckeditor')
         ) {
-            App::blog()->settings()->delNamespace(My::id());
-            App::blog()->settings()->renNamespace('dcckeditor', My::id());
+            App::blog()->settings()->delWorkspace(My::id());
+            App::blog()->settings()->renWorkspace('dcckeditor', My::id());
         }
 
         $s = My::settings();

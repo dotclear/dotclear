@@ -12,7 +12,8 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use ArrayObject;
-use dcSettings;
+use Dotclear\Core\BlogSettings;
+use Dotclear\Core\Categories;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -159,9 +160,9 @@ interface BlogInterface
     /**
      * Get blog settings instance.
      *
-     * @return  dcSettings  The settings instance
+     * @return  BlogSettings  The settings instance
      */
-    public function settings(): dcSettings;
+    public function settings(): BlogSettings;
 
     /**
      * Get blog themes path.
@@ -292,6 +293,13 @@ interface BlogInterface
 
     /// @name Categories management methods
     //@{
+
+    /**
+     * Get Categories instance.
+     *
+     * @return  Categories
+     */
+    public function categories(): Categories;
 
     /**
      * Retrieves categories.

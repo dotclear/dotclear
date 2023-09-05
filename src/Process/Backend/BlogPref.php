@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcSettings;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
@@ -84,7 +84,7 @@ class BlogPref extends Process
                 $da->blog_status   = $rs->blog_status;
                 $da->blog_name     = $rs->blog_name;
                 $da->blog_desc     = $rs->blog_desc;
-                $da->blog_settings = new dcSettings($da->blog_id);
+                $da->blog_settings = new BlogSettings($da->blog_id);
                 $da->blog_url      = $rs->blog_url;
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -319,7 +319,7 @@ class BlogPref extends Process
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
                         $da->blog_settings        = App::blog()->settings();
                     } else {
-                        $da->blog_settings = new dcSettings($cur->blog_id);
+                        $da->blog_settings = new BlogSettings($cur->blog_id);
                     }
 
                     $da->blog_id = $cur->blog_id;
@@ -374,7 +374,7 @@ class BlogPref extends Process
 
                 $da->blog_settings->system->put('sleepmode_timeout', $_POST['sleepmode_timeout']);
 
-                # --BEHAVIOR-- adminBeforeBlogSettingsUpdate -- dcSettings
+                # --BEHAVIOR-- adminBeforeBlogSettingsUpdate -- BlogSettings
                 App::behavior()->callBehavior('adminBeforeBlogSettingsUpdate', $da->blog_settings);
 
                 if (App::auth()->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
@@ -892,7 +892,7 @@ class BlogPref extends Process
 
             '<div id="plugins-pref"><h3>' . __('Plugins parameters') . '</h3>';
 
-            # --BEHAVIOR-- adminBlogPreferencesForm -- dcSettings
+            # --BEHAVIOR-- adminBlogPreferencesForm -- BlogSettings
             App::behavior()->callBehavior('adminBlogPreferencesFormV2', $da->blog_settings);
 
             echo '</div>' . // End 3rd party, aka plugins

@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
-use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\UserWorkspace;
 use Dotclear\Database\Statement\{
     DeleteStatement,
     SelectStatement
@@ -95,7 +95,7 @@ class Preferences extends CleanerParent
     public function values(): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
+        $sql->from(App::con()->prefix() . UserWorkspace::WS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'pref_ws',
@@ -125,7 +125,7 @@ class Preferences extends CleanerParent
     public function related(string $ns): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
+        $sql->from(App::con()->prefix() . UserWorkspace::WS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'pref_id',
@@ -157,7 +157,7 @@ class Preferences extends CleanerParent
         $sql = new DeleteStatement();
 
         if ($action == 'delete_global' && self::checkNs($ns)) {
-            $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . UserWorkspace::WS_TABLE_NAME)
                 ->where('user_id IS NULL')
                 ->and('pref_ws = ' . $sql->quote((string) $ns))
                 ->delete();
@@ -165,7 +165,7 @@ class Preferences extends CleanerParent
             return true;
         }
         if ($action == 'delete_local' && self::checkNs($ns)) {
-            $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . UserWorkspace::WS_TABLE_NAME)
                 ->where('user_id = ' . $sql->quote((string) App::blog()->id()))
                 ->and('pref_ws = ' . $sql->quote((string) $ns))
                 ->delete();
@@ -173,7 +173,7 @@ class Preferences extends CleanerParent
             return true;
         }
         if ($action == 'delete_all' && self::checkNs($ns)) {
-            $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . UserWorkspace::WS_TABLE_NAME)
                 ->where('pref_ws = ' . $sql->quote((string) $ns))
                 ->and($sql->orGroup(['user_id IS NULL', 'user_id IS NOT NULL']))
                 ->delete();
@@ -182,8 +182,8 @@ class Preferences extends CleanerParent
         }
         if ($action == 'delete_related') {
             // check ns match ws:id;
-            $reg_ws = substr(dcWorkspace::WS_NAME_SCHEMA, 2, -2);
-            $reg_id = substr(dcWorkspace::WS_ID_SCHEMA, 2, -2);
+            $reg_ws = substr(UserWorkspace::WS_NAME_SCHEMA, 2, -2);
+            $reg_id = substr(UserWorkspace::WS_ID_SCHEMA, 2, -2);
             if (!preg_match_all('#((' . $reg_ws . '):(' . $reg_id . ');?)#', $ns, $matches)) {
                 return false;
             }
@@ -197,7 +197,7 @@ class Preferences extends CleanerParent
                 return false;
             }
 
-            $sql->from(App::con()->prefix() . dcWorkspace::WS_TABLE_NAME)
+            $sql->from(App::con()->prefix() . UserWorkspace::WS_TABLE_NAME)
                 ->where($sql->orGroup($or))
                 ->and($sql->orGroup(['user_id IS NULL', 'user_id IS NOT NULL']))
                 ->delete();
@@ -217,6 +217,6 @@ class Preferences extends CleanerParent
      */
     private static function checkNs(string $ns): bool
     {
-        return (bool) preg_match(dcWorkspace::WS_NAME_SCHEMA, $ns);
+        return (bool) preg_match(UserWorkspace::WS_NAME_SCHEMA, $ns);
     }
 }

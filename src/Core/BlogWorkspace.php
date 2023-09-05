@@ -1,21 +1,26 @@
 <?php
 /**
- * @brief Blog namespace for settings handler
+ * Blog namespace for settings handler.
+ *
+ * Handle id,version pairs through database.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Exception;
 
-class dcNamespace
+class BlogWorkspace
 {
     // Constants
 

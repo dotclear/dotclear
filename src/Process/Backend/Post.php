@@ -13,12 +13,11 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcCategories;
-use dcTrackback;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Trackback;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
@@ -121,7 +120,7 @@ class Post extends Process
         App::backend()->bad_dt = false;
 
         // Trackbacks
-        App::backend()->tb      = new dcTrackback();
+        App::backend()->tb      = new Trackback();
         App::backend()->tb_urls = App::backend()->tb_excerpt = '';
 
         // Get entry informations
@@ -364,7 +363,7 @@ class Post extends Process
             ]), App::blog()->id())) {
                 // Create category
 
-                $cur_cat = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
+                $cur_cat = App::blog()->categories()->openCategoryCursor();
 
                 $cur_cat->cat_title = $_POST['new_cat_title'];
                 $cur_cat->cat_url   = '';

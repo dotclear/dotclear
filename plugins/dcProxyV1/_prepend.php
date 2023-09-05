@@ -180,6 +180,7 @@ dcProxyV1::classAliases([
 
     'dcAuth'         => 'Dotclear\Core\Auth',
     'dcBlog'         => 'Dotclear\Core\Blog',
+    'dcCategories'   => 'Dotclear\Core\Categories',
     'dcDeprecated'   => 'Dotclear\Core\dcDeprecated',
     'dcError'        => 'Dotclear\Core\Error',
     'dcLog'          => 'Dotclear\Core\Log',
@@ -187,18 +188,23 @@ dcProxyV1::classAliases([
     'dcMeta'         => 'Dotclear\Core\Meta',
     'dcModuleDefine' => 'Dotclear\Module\ModuleDefine',
     'dcModules'      => 'Dotclear\Module\Modules',
+    'dcNamespace'    => 'Dotclear\Core\BlogWorkspace',
     'dcNotices'      => 'Dotclear\Core\Notice',
     'dcNsProcess'    => 'Dotclear\Core\Process',
     'dcPlugins'      => 'Dotclear\Module\Plugins',
     'dcPostMedia'    => 'Dotclear\Core\PostMedia',
+    'dcPrefs'        => 'Dotclear\Core\UserPreferences',
     'dcRecord'       => 'Dotclear\Database\MetaRecord',
     'dcRestServer'   => 'Dotclear\Core\Rest',
+    'dcSettings'     => 'Dotclear\Core\BlogSettings',
     'dcStore'        => 'Dotclear\Module\Store',
     'dcStoreParser'  => 'Dotclear\Module\StoreParser',
     'dcStoreReader'  => 'Dotclear\Module\StoreReader',
     'dcThemes'       => 'Dotclear\Module\Themes',
+    'dcTrackback'    => 'Dotclear\Module\Trackback',
     'dcUpdate'       => 'Dotclear\Core\Update',
     'dcUtils'        => 'Dotclear\Core\Utils',
+    'dcWorkspace'    => 'Dotclear\Core\UserWorkspace',
     'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
 
     'rsExtPost'    => 'Dotclear\Schema\Extension\Post',
@@ -206,6 +212,8 @@ dcProxyV1::classAliases([
     'rsExtDates'   => 'Dotclear\Schema\Extension\Dates',
     'rsExtUser'    => 'Dotclear\Schema\Extension\User',
     'rsExtBlog'    => 'Dotclear\Schema\Extension\Blog',
+
+    'TraitDynamicProperties' => 'Dotclear\Helper\TraitDynamicProperties',
 
     // Core admin -----------------
 

@@ -14,9 +14,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcCategories;
-use dcTraitDynamicProperties;
-use dcSettings;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -30,6 +27,7 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
@@ -38,8 +36,8 @@ use Exception;
 
 class Blog implements BlogInterface
 {
-    // deprecate since 2.28,
-    use dcTraitDynamicProperties;
+    // deprecated since 2.28,
+    use TraitDynamicProperties;
 
     // Constants
 
@@ -186,9 +184,9 @@ class Blog implements BlogInterface
     /**
      * Blog parameters
      *
-     * @deprecated since 2.28, use App::blog()->settings()() instead
+     * @deprecated since 2.28, use App::blog()->settings() instead
      *
-     * @var dcSettings
+     * @var BlogSettings
      */
     public $settings;
 
@@ -227,7 +225,7 @@ class Blog implements BlogInterface
     /**
      * Blog's categories
      *
-     * @var dcCategories
+     * @var Categories
      */
     private $categories;
 
@@ -261,7 +259,7 @@ class Blog implements BlogInterface
             $this->upddt  = (int) strtotime($blog->blog_upddt);
             $this->status = (int) $blog->blog_status;
 
-            $this->settings = new dcSettings($this->id);
+            $this->settings = new BlogSettings($this->id);
 
             $this->themes_path = Path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
             $this->public_path = Path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
@@ -354,7 +352,7 @@ class Blog implements BlogInterface
         return $this->status;
     }
 
-    public function settings(): dcSettings
+    public function settings(): BlogSettings
     {
         if ($this->isDefined()) {
             return $this->settings;
@@ -623,14 +621,14 @@ class Blog implements BlogInterface
     //@{
 
     /**
-     * Get dcCategories instance
+     * Get Categories instance
      *
-     * @return     dcCategories
+     * @return     Categories
      */
-    public function categories(): dcCategories
+    public function categories(): Categories
     {
-        if (!($this->categories instanceof dcCategories)) {
-            $this->categories = new dcCategories();
+        if (!($this->categories instanceof Categories)) {
+            $this->categories = new Categories();
         }
 
         return $this->categories;
@@ -835,7 +833,7 @@ class Blog implements BlogInterface
                 'C.cat_id',
                 $sql->count('P.post_id', 'nb_post'),
             ])
-            ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
+            ->from($sql->as($this->prefix . $this->categories()::CATEGORY_TABLE_NAME, 'C'))
             ->join(
                 (new JoinStatement())
                     ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
@@ -1068,7 +1066,7 @@ class Blog implements BlogInterface
         $sql = new SelectStatement();
         $sql
             ->column('cat_url')
-            ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
+            ->from($this->prefix . $this->categories()::CATEGORY_TABLE_NAME)
             ->where('cat_url = ' . $sql->quote($url))
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('cat_url DESC');
@@ -1082,7 +1080,7 @@ class Blog implements BlogInterface
             $sql = new SelectStatement();
             $sql
                 ->column('cat_url')
-                ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
+                ->from($this->prefix . $this->categories()::CATEGORY_TABLE_NAME)
                 ->where('cat_url' . $sql->regexp($url))
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('cat_url DESC');
@@ -1271,7 +1269,7 @@ class Blog implements BlogInterface
             ->join(
                 (new JoinStatement())
                     ->left()
-                    ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
+                    ->from($sql->as($this->prefix . $this->categories()::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             );
@@ -1631,7 +1629,7 @@ class Blog implements BlogInterface
             ->join(
                 (new JoinStatement())
                     ->left()
-                    ->from($sql->as($this->prefix . dcCategories::CATEGORY_TABLE_NAME, 'C'))
+                    ->from($sql->as($this->prefix . $this->categories()::CATEGORY_TABLE_NAME, 'C'))
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             )
@@ -2306,7 +2304,7 @@ class Blog implements BlogInterface
                     'cat_lft',
                     'cat_rgt',
                 ])
-                ->from($this->prefix . dcCategories::CATEGORY_TABLE_NAME)
+                ->from($this->prefix . $this->categories()::CATEGORY_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and($field . $sql->in(array_keys($sub)));
 

@@ -12,11 +12,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use dcCategories;
-use dcSettings;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -38,7 +37,7 @@ class Category extends Process
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
-        $blog_settings = new dcSettings(App::blog()->id());
+        $blog_settings = new BlogSettings(App::blog()->id());
 
         App::backend()->cat_id    = '';
         App::backend()->cat_title = '';
@@ -139,7 +138,7 @@ class Category extends Process
 
         if (isset($_POST['cat_title'])) {
             // Create or update a category
-            $cur = App::con()->openCursor(App::con()->prefix() . dcCategories::CATEGORY_TABLE_NAME);
+            $cur = App::blog()->categories()->openCategoryCursor();
 
             $cur->cat_title = App::backend()->cat_title = $_POST['cat_title'];
             if (isset($_POST['cat_desc'])) {

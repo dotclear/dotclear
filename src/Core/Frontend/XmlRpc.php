@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Frontend;
 
-use dcTrackback;
 use Dotclear\App;
+use Dotclear\Core\Trackback;
 use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
 use Dotclear\Module\ModuleDefine;
 use Exception;
@@ -189,7 +189,7 @@ class XmlRpc extends IntrospectionServer
      */
     public function pingback_ping(string $from_url, string $to_url): string
     {
-        dcTrackback::checkURLs($from_url, $to_url);
+        Trackback::checkURLs($from_url, $to_url);
 
         $args = [
             'type'     => 'pingback',
@@ -203,6 +203,6 @@ class XmlRpc extends IntrospectionServer
         # --BEHAVIOR-- publicBeforeReceiveTrackback -- array<string,string>
         App::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-        return (new dcTrackback())->receivePingback($from_url, $to_url);
+        return (new Trackback())->receivePingback($from_url, $to_url);
     }
 }

@@ -13,10 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\aboutConfig;
 
 use Exception;
-use dcNamespace;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -57,7 +57,7 @@ class Manage extends Process
             try {
                 foreach ($_POST['s'] as $ns => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
+                        if ($_POST['s_type'][$ns][$k] === BlogWorkspace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::blog()->settings()->$ns->put($k, $v);
@@ -77,7 +77,7 @@ class Manage extends Process
             try {
                 foreach ($_POST['gs'] as $ns => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ns][$k] === dcNamespace::NS_ARRAY) {
+                        if ($_POST['gs_type'][$ns][$k] === BlogWorkspace::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::blog()->settings()->$ns->put($k, $v, null, null, true, true);
@@ -162,8 +162,8 @@ class Manage extends Process
                 '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        /** @var array<string|dcNamespace> */
-        $namespaces = App::blog()->settings()->dumpNamespaces();
+        /** @var array<string|BlogWorkspace> */
+        $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {
             $prefix     = 'g_';
@@ -243,27 +243,27 @@ class Manage extends Process
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
     {
         $field = match ((string) $s['type']) {
-            dcNamespace::NS_BOOL, dcNamespace::NS_BOOLEAN => form::combo(
+            BlogWorkspace::NS_BOOL, BlogWorkspace::NS_BOOLEAN => form::combo(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
                 $s['value'] ? 1 : 0
             ),
 
-            dcNamespace::NS_ARRAY => form::field(
+            BlogWorkspace::NS_ARRAY => form::field(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 40,
                 null,
                 Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
             ),
 
-            dcNamespace::NS_INTEGER, dcNamespace::NS_INT, dcNamespace::NS_FLOAT => form::number(
+            BlogWorkspace::NS_INTEGER, BlogWorkspace::NS_INT, BlogWorkspace::NS_FLOAT => form::number(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 null,
                 null,
                 Html::escapeHTML((string) $s['value'])
             ),
 
-            //dcNamespace::NS_STRING, dcNamespace::NS_TEXT,
+            //BlogWorkspace::NS_STRING, BlogWorkspace::NS_TEXT,
             default => form::field(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 40,

@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\userPref;
 
-use Exception;
-use dcWorkspace;
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Core\UserWorkspace;
 use Dotclear\Helper\Html\Html;
+use Exception;
 use form;
 
 class Manage extends Process
@@ -60,7 +60,7 @@ class Manage extends Process
             try {
                 foreach ($_POST['s'] as $ws => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ws][$k] === dcWorkspace::WS_ARRAY) {
+                        if ($_POST['s_type'][$ws][$k] === UserWorkspace::WS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::auth()->prefs()->$ws->put($k, $v);
@@ -79,7 +79,7 @@ class Manage extends Process
             try {
                 foreach ($_POST['gs'] as $ws => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ws][$k] === dcWorkspace::WS_ARRAY) {
+                        if ($_POST['gs_type'][$ws][$k] === UserWorkspace::WS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::auth()->prefs()->$ws->put($k, $v, null, null, true, true);
@@ -156,7 +156,7 @@ class Manage extends Process
             '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        /** @var array<string|dcWorkspace> */
+        /** @var array<string|UserWorkspace> */
         $workspaces = App::auth()->prefs()->dumpWorkspaces();
         $prefs      = [];
         if ($global) {
@@ -236,27 +236,27 @@ class Manage extends Process
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
     {
         $field = match ((string) $s['type']) {
-            dcWorkspace::WS_BOOLEAN, dcWorkspace::WS_BOOL => form::combo(
+            UserWorkspace::WS_BOOLEAN, UserWorkspace::WS_BOOL => form::combo(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
                 $s['value'] ? 1 : 0
             ),
 
-            dcWorkspace::WS_ARRAY => form::field(
+            UserWorkspace::WS_ARRAY => form::field(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 40,
                 null,
                 Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
             ),
 
-            dcWorkspace::WS_INTEGER, dcWorkspace::WS_INT, dcWorkspace::WS_FLOAT, 'integer', 'float' => form::number(
+            UserWorkspace::WS_INTEGER, UserWorkspace::WS_INT, UserWorkspace::WS_FLOAT, 'integer', 'float' => form::number(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 null,
                 null,
                 Html::escapeHTML((string) $s['value'])
             ),
 
-            //dcWorkspace::WS_STRING, dcWorkspace::WS_TEXT,
+            //UserWorkspace::WS_STRING, UserWorkspace::WS_TEXT,
             default => form::field(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 40,

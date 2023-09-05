@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade;
 
-use dcNamespace;
-use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
+use Dotclear\Core\UserWorkspace;
 use Dotclear\Core\Utils;
 use Dotclear\Core\Session;
 use Dotclear\Database\Structure;
@@ -167,7 +167,7 @@ class Upgrade
      */
     public static function settings2array(string $ns, string $setting)
     {
-        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
+        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
             "WHERE setting_id = '%s' " .
             "AND setting_ns = '%s' " .
             "AND setting_type = 'string'";
@@ -179,7 +179,7 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
+            $rs2   = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
             "SET setting_type='array', setting_value = '" . App::con()->escape($value) . "' " .
             "WHERE setting_id='" . App::con()->escape($rs->setting_id) . "' " .
             "AND setting_ns='" . App::con()->escape($rs->setting_ns) . "' ";
@@ -200,7 +200,7 @@ class Upgrade
      */
     public static function prefs2array(string $ws, string $pref)
     {
-        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . App::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' ' .
+        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . App::con()->prefix() . UserWorkspace::WS_TABLE_NAME . ' ' .
             "WHERE pref_id = '%s' " .
             "AND pref_ws = '%s' " .
             "AND pref_type = 'string'";
@@ -212,7 +212,7 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::con()->prefix() . dcWorkspace::WS_TABLE_NAME . ' ' .
+            $rs2   = 'UPDATE ' . App::con()->prefix() . UserWorkspace::WS_TABLE_NAME . ' ' .
             "SET pref_type='array', pref_value = '" . App::con()->escape($value) . "' " .
             "WHERE pref_id='" . App::con()->escape($rs->pref_id) . "' " .
             "AND pref_ws='" . App::con()->escape($rs->pref_ws) . "' ";

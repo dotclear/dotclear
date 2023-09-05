@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use dcNamespace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
 
 class GrowUp_2_2_alpha1_r3043_lt
 {
@@ -27,14 +27,14 @@ class GrowUp_2_2_alpha1_r3043_lt
 
         # Tags template class has been renamed
         $sqlstr = 'SELECT blog_id, setting_id, setting_value ' .
-        'FROM ' . App::con()->prefix() . dcNamespace::NS_TABLE_NAME . ' ' .
+        'FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
             'WHERE (setting_id = \'widgets_nav\' OR setting_id = \'widgets_extra\') ' .
             'AND setting_ns = \'widgets\';';
         $rs = App::con()->select($sqlstr);
         while ($rs->fetch()) {
             $widgetsettings     = base64_decode($rs->setting_value);
             $widgetsettings     = str_replace('s:11:"tplMetadata"', 's:7:"tplTags"', $widgetsettings);
-            $cur                = App::con()->openCursor(App::con()->prefix() . dcNamespace::NS_TABLE_NAME);
+            $cur                = App::con()->openCursor(App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME);
             $cur->setting_value = base64_encode($widgetsettings);
             $sqlstr             = 'WHERE setting_id = \'' . $rs->setting_id . '\' AND setting_ns = \'widgets\' ' .
                 'AND blog_id ' .

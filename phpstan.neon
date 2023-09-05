@@ -102,22 +102,6 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # dcNamespace  object and auto properties
-    - message: '#Access to an undefined property dcNamespace::#'
-      path: %currentWorkingDirectory%
-
-    # dcWorkspace object and auto properties
-    - message : '#Access to an undefined property dcWorkspace::#'
-      path: %currentWorkingDirectory%
-
-    # dcSettings object and auto properties
-    - message : '#Access to an undefined property dcSettings::#'
-      path: %currentWorkingDirectory%
-
-    # dcPrefs object and auto properties
-    - message : '#Access to an undefined property dcPrefs::#'
-      path: %currentWorkingDirectory%
-
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
     - message: '#Call to an undefined method form[a-zA-Z0-9\\_]+::#'
       path: %currentWorkingDirectory%
@@ -226,6 +210,22 @@ parameters:
 
     # Dotclear\Core\Frontend\Ctx object and auto properties
     - message: '#Access to an undefined property Dotclear\\Core\\Frontend\\Ctx::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\BlogWorkspace object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Core\\BlogWorkspace::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\BlogSettings object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Core\\BlogSettings::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\UserWorkspace object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Core\\UserWorkspace::#'
+      path: %currentWorkingDirectory%
+
+    # Dotclear\Core\UserPreferences object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Core\\UserPreferences::#'
       path: %currentWorkingDirectory%
 
 # Notes:

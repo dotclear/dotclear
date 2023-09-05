@@ -2,78 +2,61 @@
 /**
  * @brief User prefs handler
  *
- * dcPrefs provides user preferences management. This class instance exists as
+ * UserPreferences provides user preferences management. This class instance exists as
  * Auth $prefs property. You should create a new prefs instance when
  * updating another user prefs.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Exception;
 
-class dcPrefs
+class UserPreferences
 {
-    // Properties
-
-    /**
-     * Database connection object
-     *
-     * @var object
-     */
-    protected $con;
-
-    /**
-     * Preferences table name
-     *
-     * @var string
-     */
+    /** @var    string  Preferences table name */
     protected $table;
 
-    /**
-     * User ID
-     *
-     * @var string
-     */
+    /** @var    string  User ID  */
     protected $user_id;
 
-    /**
-     * Associative workspaces array
-     *
-     * @var        array
-     */
+    /** @var    array   Associative workspaces array */
     protected $workspaces = [];
 
     /**
-     * Object constructor. Retrieves user prefs and puts them in $workspaces
+     * Constructor.
+     *
+     * Retrieves user prefs and puts them in $workspaces
      * array. Local (user) prefs have a highest priority than global prefs.
      *
-     * @param      string      $user_id   The user identifier
-     * @param      string      $workspace The workspace to load
+     * @param   string  $user_id   The user identifier
+     * @param   string  $workspace The workspace to load
      */
     public function __construct(string $user_id, ?string $workspace = null)
     {
-        $this->con     = App::con();
-        $this->table   = App::con()->prefix() . dcWorkspace::WS_TABLE_NAME;
+        $this->table   = App::con()->prefix() . UserWorkspace::WS_TABLE_NAME;
         $this->user_id = $user_id;
 
         try {
             $this->loadPrefs($workspace);
         } catch (Exception $e) {
-            trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
+            trigger_error(__('Unable to retrieve workspaces:') . ' ' . App::con()->error(), E_USER_ERROR);
         }
     }
 
     /**
      * Loads preferences.
      *
-     * @param      null|string  $workspace  The workspace
+     * @param   null|string     $workspace  The workspace
      */
     private function loadPrefs(?string $workspace = null): void
     {
@@ -118,21 +101,23 @@ class dcPrefs
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$workspace] = new dcWorkspace($this->user_id, $workspace, $rs);
+            $this->workspaces[$workspace] = new UserWorkspace($this->user_id, $workspace, $rs);
         } while (!$rs->isStart());
     }
 
     /**
-     * Create a new workspace. If the workspace already exists, return it without modification.
+     * Create a new workspace.
      *
-     * @param      string  $workspace     Workspace name
+     * If the workspace already exists, return it without modification.
      *
-     * @return     dcWorkspace
+     * @param   string  $workspace  Workspace name
+     *
+     * @return  UserWorkspace
      */
-    public function addWorkspace(string $workspace): dcWorkspace
+    public function addWorkspace(string $workspace): UserWorkspace
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = new dcWorkspace($this->user_id, $workspace);
+            $this->workspaces[$workspace] = new UserWorkspace($this->user_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -141,12 +126,12 @@ class dcPrefs
     /**
      * Rename a workspace.
      *
-     * @param      string     $old_workspace  The old workspace name
-     * @param      string     $new_workspace  The new workspace name
+     * @param   string  $old_workspace  The old workspace name
+     * @param   string  $new_workspace  The new workspace name
      *
-     * @throws     Exception  (description)
+     * @throws  Exception
      *
-     * @return     bool
+     * @return  bool
      */
     public function renWorkspace(string $old_workspace, string $new_workspace): bool
     {
@@ -154,8 +139,8 @@ class dcPrefs
             return false;
         }
 
-        if (!preg_match(dcWorkspace::WS_NAME_SCHEMA, $new_workspace)) {
-            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $new_workspace));
+        if (!preg_match(UserWorkspace::WS_NAME_SCHEMA, $new_workspace)) {
+            throw new Exception(sprintf(__('Invalid UserWorkspace: %s'), $new_workspace));
         }
 
         // Rename the workspace in the database
@@ -167,7 +152,7 @@ class dcPrefs
         $sql->update();
 
         // Reload the renamed workspace in the workspace array
-        $this->workspaces[$new_workspace] = new dcWorkspace($this->user_id, $new_workspace);
+        $this->workspaces[$new_workspace] = new UserWorkspace($this->user_id, $new_workspace);
 
         // Remove the old workspace from the workspace array
         unset($this->workspaces[$old_workspace]);
@@ -178,9 +163,9 @@ class dcPrefs
     /**
      * Delete a whole workspace with all preferences pertaining to it.
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     bool
+     * @return  bool
      */
     public function delWorkspace(string $workspace): bool
     {
@@ -205,11 +190,11 @@ class dcPrefs
     /**
      * Returns full workspace with all prefs pertaining to it.
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     dcWorkspace
+     * @return  UserWorkspace
      */
-    public function get(string $workspace): dcWorkspace
+    public function get(string $workspace): UserWorkspace
     {
         return $this->addWorkspace($workspace);
     }
@@ -219,21 +204,21 @@ class dcPrefs
      *
      * @copydoc ::get
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     dcWorkspace
+     * @return  UserWorkspace
      */
-    public function __get(string $workspace): dcWorkspace
+    public function __get(string $workspace): UserWorkspace
     {
-        return $this->get($workspace);
+        return $this->addWorkspace($workspace);
     }
 
     /**
-     * Check if a workspace exists
+     * Check if a workspace exists.
      *
-     * @param      string  $workspace     Workspace name
+     * @param   string  $workspace  Workspace name
      *
-     * @return     boolean
+     * @return  boolean
      */
     public function exists(string $workspace): bool
     {
@@ -243,7 +228,7 @@ class dcPrefs
     /**
      * Dumps workspaces.
      *
-     * @return     array
+     * @return  array
      */
     public function dumpWorkspaces(): array
     {

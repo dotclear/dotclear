@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\UserWorkspace;
 
 class Favorites
 {
@@ -27,7 +28,7 @@ class Favorites
     /**
      * Current favorite landing workspace
      *
-     * @var \dcWorkspace
+     * @var UserWorkspace
      */
     protected $workspace;
 

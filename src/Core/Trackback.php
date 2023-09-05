@@ -1,18 +1,21 @@
 <?php
 /**
- * @brief Trackbacks/Pingbacks sender and server
+ * Trackbacks/Pingbacks sender and server
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.
  *
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
 
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -20,29 +23,34 @@ use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Network\XmlRpc\Client;
 use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
+use Exception;
 
-class dcTrackback
+class Trackback
 {
     // Constants
 
-    /**
-     * Trackbacks table name
-     *
-     * @var        string
-     */
+    /** @var    string  Trackbacks table name */
     public const PING_TABLE_NAME = 'ping';
 
-    /**
-     * Pings table name
-     */
+    /** @var    string  Pings table name */
     public $table;
 
     /**
-     * Object constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->table = App::con()->prefix() . self::PING_TABLE_NAME;
+    }
+
+    /**
+     * Open a database table cursor.
+     *
+     * @return  Cursor  The ping database table cursor
+     */
+    public static function openTrackbackCursor(): Cursor
+    {
+        return App::con()->openCursor(App::con()->prefix() . self::PING_TABLE_NAME);
     }
 
     /// @name Send
@@ -50,11 +58,11 @@ class dcTrackback
     /**
      * Get all pings sent for a given post.
      *
-     * @param      integer  $post_id  The post identifier
+     * @param   int     $post_id    The post identifier
      *
-     * @return     MetaRecord   The post pings.
+     * @return  MetaRecord  The post pings.
      */
-    public function getPostPings(int $post_id)
+    public function getPostPings(int $post_id): MetaRecord
     {
         $strReq = 'SELECT ping_url, ping_dt ' .
         'FROM ' . $this->table . ' ' .
@@ -66,17 +74,17 @@ class dcTrackback
     /**
      * Sends a ping to given <var>$url</var>.
      *
-     * @param      string     $url           The url
-     * @param      int        $post_id       The post identifier
-     * @param      string     $post_title    The post title
-     * @param      string     $post_excerpt  The post excerpt
-     * @param      string     $post_url      The post url
+     * @param   string  $url            The url
+     * @param   int     $post_id        The post identifier
+     * @param   string  $post_title     The post title
+     * @param   string  $post_excerpt   The post excerpt
+     * @param   string  $post_url       The post url
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     mixed    false if error
+     * @return  bool    false if error
      */
-    public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url)
+    public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
     {
         if (!App::blog()->isDefined()) {
             return false;
@@ -170,12 +178,14 @@ class dcTrackback
             throw new Exception(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
         }
         # Notify ping result in database
-        $cur           = App::con()->openCursor($this->table);
+        $cur           = $this->openTrackbackCursor();
         $cur->post_id  = $post_id;
         $cur->ping_url = $url;
         $cur->ping_dt  = date('Y-m-d H:i:s');
 
         $cur->insert();
+
+        return true;
     }
     //@}
 

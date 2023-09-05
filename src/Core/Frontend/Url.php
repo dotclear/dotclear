@@ -11,11 +11,11 @@ declare(strict_types=1);
 namespace Dotclear\Core\Frontend;
 
 use ArrayObject;
-use dcTrackback;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\UrlHandler;
+use Dotclear\Core\Trackback;
 use Dotclear\Helper\Text;
 use Exception;
 
@@ -885,7 +885,7 @@ class Url extends UrlHandler
             # --BEHAVIOR-- publicBeforeReceiveTrackback -- string|null
             App::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-            (new dcTrackback())->receiveTrackback($post_id);
+            (new Trackback())->receiveTrackback($post_id);
         }
     }
 
@@ -903,7 +903,7 @@ class Url extends UrlHandler
         # --BEHAVIOR-- publicBeforeReceiveTrackback -- string|null
         App::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-        (new dcTrackback())->receiveWebmention();
+        (new Trackback())->receiveWebmention();
     }
 
     /**

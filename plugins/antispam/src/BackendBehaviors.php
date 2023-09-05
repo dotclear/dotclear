@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
-use dcSettings;
 use Dotclear\App;
+use Dotclear\Core\BlogSettings;
 use form;
 
 class BackendBehaviors
@@ -48,9 +48,9 @@ class BackendBehaviors
     /**
      * Display fieldset for spam deletion setting
      *
-     * @param      dcSettings  $settings  The settings
+     * @param      BlogSettings  $settings  The settings
      */
-    public static function adminBlogPreferencesForm(dcSettings $settings): void
+    public static function adminBlogPreferencesForm(BlogSettings $settings): void
     {
         echo
         '<div class="fieldset"><h4 id="antispam_params">Antispam</h4>' .
@@ -70,9 +70,9 @@ class BackendBehaviors
     /**
      * Save the spam deletion setting
      *
-     * @param      dcSettings  $settings  The settings
+     * @param      BlogSettings  $settings  The settings
      */
-    public static function adminBeforeBlogSettingsUpdate(dcSettings $settings): void
+    public static function adminBeforeBlogSettingsUpdate(BlogSettings $settings): void
     {
         $settings->antispam->put('antispam_moderation_ttl', (int) $_POST['antispam_moderation_ttl']);
     }

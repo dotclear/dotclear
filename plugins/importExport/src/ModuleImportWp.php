@@ -13,11 +13,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
-use Exception;
-use dcCategories;
-use dcTrackback;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\App;
+use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Trackback;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
@@ -25,6 +23,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use initBlogroll;
+use Exception;
 use form;
 
 class ModuleImportWp extends Module
@@ -519,13 +518,13 @@ class ModuleImportWp extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+                'DELETE FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
             $ord = 2;
             while ($rs->fetch()) {
-                $cur            = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
+                $cur            = App::blog()->categories()->openCategoryCursor();
                 $cur->blog_id   = $this->blog_id;
                 $cur->cat_title = Text::cleanStr($rs->name);
                 $cur->cat_desc  = Text::cleanStr($rs->description);
@@ -534,7 +533,7 @@ class ModuleImportWp extends Module
                 $cur->cat_rgt   = $ord++;
 
                 $cur->cat_id = (new MetaRecord($this->con->select(
-                    'SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME
+                    'SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME
                 )))->f(0) + 1;
                 $this->vars['cat_ids'][$rs->term_id] = $cur->cat_id;
                 $cur->insert();
@@ -858,7 +857,7 @@ class ModuleImportWp extends Module
                 continue;
             }
 
-            $cur           = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
+            $cur           = $this->con->openCursor($this->prefix . Trackback::PING_TABLE_NAME);
             $cur->post_id  = $new_post_id;
             $cur->ping_url = $url;
             $cur->insert();

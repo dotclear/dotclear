@@ -13,11 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use dcCategories;
-use dcNamespace;
-use dcTrackback;
-use dcWorkspace;
 use Dotclear\App;
+use Dotclear\Core\BlogWorkspace;
+use Dotclear\Core\Trackback;
+use Dotclear\Core\UserWorkspace;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
@@ -102,18 +101,18 @@ class FlatImportV2 extends FlatBackup
         $this->prefix = App::con()->prefix();
 
         $this->cur_blog        = App::blog()->openBlogCursor();
-        $this->cur_category    = $this->con->openCursor($this->prefix . dcCategories::CATEGORY_TABLE_NAME);
+        $this->cur_category    = App::blog()->categories()->openCategoryCursor();
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
-        $this->cur_setting     = $this->con->openCursor($this->prefix . dcNamespace::NS_TABLE_NAME);
+        $this->cur_setting     = $this->con->openCursor($this->prefix . BlogWorkspace::NS_TABLE_NAME);
         $this->cur_user        = App::auth()->openUserCursor();
-        $this->cur_pref        = $this->con->openCursor($this->prefix . dcWorkspace::WS_TABLE_NAME);
+        $this->cur_pref        = $this->con->openCursor($this->prefix . UserWorkspace::WS_TABLE_NAME);
         $this->cur_permissions = App::auth()->openPermCursor();
         $this->cur_post        = App::blog()->openPostCursor();
         $this->cur_meta        = App::meta()->openMetaCursor();
         $this->cur_media       = App::media()->openMediaCursor();
         $this->cur_post_media  = App::postMedia()->openPostMediaCursor();
         $this->cur_log         = App::log()->openLogCursor();
-        $this->cur_ping        = $this->con->openCursor($this->prefix . dcTrackback::PING_TABLE_NAME);
+        $this->cur_ping        = Trackback::openTrackbackCursor();
         $this->cur_comment     = App::blog()->openCommentCursor();
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 
@@ -142,11 +141,11 @@ class FlatImportV2 extends FlatBackup
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
             'SELECT cat_id, cat_title, cat_url ' .
-            'FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+            'FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
         ));
 
-        $rs                    = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME));
+        $rs                    = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME));
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                     = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
@@ -165,7 +164,7 @@ class FlatImportV2 extends FlatBackup
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
         $rs = new MetaRecord($this->con->select(
-            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . dcCategories::CATEGORY_TABLE_NAME . ' ' .
+            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape(App::blog()->id()) . "'"
         ));
 
@@ -263,7 +262,7 @@ class FlatImportV2 extends FlatBackup
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blog()::BLOG_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
-        $this->con->execute('DELETE FROM ' . $this->prefix . dcNamespace::NS_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . BlogWorkspace::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME);
 
         $line = false;
@@ -776,7 +775,7 @@ class FlatImportV2 extends FlatBackup
     private function prefExists($pref_ws, $pref_id, $user_id)
     {
         $strReq = 'SELECT pref_id,pref_ws,user_id ' .
-        'FROM ' . $this->prefix . dcWorkspace::WS_TABLE_NAME . ' ' .
+        'FROM ' . $this->prefix . UserWorkspace::WS_TABLE_NAME . ' ' .
         "WHERE pref_id = '" . $this->con->escape($pref_id) . "' " .
         "AND pref_ws = '" . $this->con->escape($pref_ws) . "' ";
         if (!$user_id) {
