@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_15_lt
@@ -21,7 +20,7 @@ class GrowUp_2_15_lt
     public static function init(bool $cleanup_sessions): bool
     {
         # switch from jQuery 1.11.3 to 1.12.4
-        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '1.12.4' " .
             " WHERE setting_id = 'jquery_version' " .
             " AND setting_ns = 'system' " .

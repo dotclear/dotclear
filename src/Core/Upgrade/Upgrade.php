@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\UserWorkspace;
 use Dotclear\Core\Utils;
 use Dotclear\Core\Session;
@@ -167,7 +166,7 @@ class Upgrade
      */
     public static function settings2array(string $ns, string $setting)
     {
-        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
+        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
             "WHERE setting_id = '%s' " .
             "AND setting_ns = '%s' " .
             "AND setting_type = 'string'";
@@ -179,7 +178,7 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
+            $rs2   = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
             "SET setting_type='array', setting_value = '" . App::con()->escape($value) . "' " .
             "WHERE setting_id='" . App::con()->escape($rs->setting_id) . "' " .
             "AND setting_ns='" . App::con()->escape($rs->setting_ns) . "' ";

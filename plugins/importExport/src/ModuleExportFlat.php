@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Trackback;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
@@ -64,7 +63,7 @@ class ModuleExportFlat extends Module
                 );
                 $exp->export(
                     'setting',
-                    'SELECT * FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(

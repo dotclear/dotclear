@@ -20,23 +20,26 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BlogSettingsInterface;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 class BlogSettings implements BlogSettingsInterface
 {
+    /** @var    ConnectionInterface     The connetion handler */
+    protected ConnectionInterface $con;
+
     /** @var    string  Settings table name */
     protected $table;
-
-    /** @var    string  Blog ID  */
-    protected $blog_id;
 
     /** @var    array   Associative namespaces array */
     protected $workspaces = [];
 
-    public function __construct(?string $blog_id)
-    {
-        $this->table   = App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
-        $this->blog_id = $blog_id;
+    public function __construct(
+        protected ?string $blog_id
+    ) {
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
         $this->loadSettings();
     }
 
@@ -68,7 +71,7 @@ class BlogSettings implements BlogSettingsInterface
         try {
             $rs = $sql->select();
         } catch (Exception $e) {
-            trigger_error(__('Unable to retrieve namespaces:') . ' ' . App::con()->error(), E_USER_ERROR);
+            trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
         }
 
         /* Prevent empty tables (install phase, for instance) */
@@ -83,14 +86,14 @@ class BlogSettings implements BlogSettingsInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ns] = new BlogWorkspace($this->blog_id, $ns, $rs);
+            $this->workspaces[$ns] = App::blogWorkspace()->init($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
-    public function addWorkspace(string $workspace): BlogWorkspace
+    public function addWorkspace(string $workspace): BlogWorkspaceInterface
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = new BlogWorkspace($this->blog_id, $workspace);
+            $this->workspaces[$workspace] = App::blogWorkspace()->init($this->blog_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -102,7 +105,7 @@ class BlogSettings implements BlogSettingsInterface
             return false;
         }
 
-        if (!preg_match(BlogWorkspace::NS_NAME_SCHEMA, $new_workspace)) {
+        if (!preg_match(App::blogWorkspace()::NS_NAME_SCHEMA, $new_workspace)) {
             throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_workspace));
         }
 
@@ -115,7 +118,7 @@ class BlogSettings implements BlogSettingsInterface
         $sql->update();
 
         // Reload the renamed namespace in the namespace array
-        $this->workspaces[$new_workspace] = new BlogWorkspace($this->blog_id, $new_workspace);
+        $this->workspaces[$new_workspace] = App::blogWorkspace()->init($this->blog_id, $new_workspace);
 
         // Remove the old namespace from the namespace array
         unset($this->workspaces[$old_workspace]);
@@ -143,12 +146,12 @@ class BlogSettings implements BlogSettingsInterface
         return true;
     }
 
-    public function get(string $workspace): BlogWorkspace
+    public function get(string $workspace): BlogWorkspaceInterface
     {
         return $this->addWorkspace($workspace);
     }
 
-    public function __get(string $workspace): BlogWorkspace
+    public function __get(string $workspace): BlogWorkspaceInterface
     {
         return $this->addWorkspace($workspace);
     }
@@ -163,7 +166,7 @@ class BlogSettings implements BlogSettingsInterface
         return $this->workspaces;
     }
 
-    public function addNamespace(string $namespace): BlogWorkspace
+    public function addNamespace(string $namespace): BlogWorkspaceInterface
     {
         Deprecated::set(self::class . '->addWorkspace()', '2.28');
 

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_19_lt
@@ -44,7 +43,7 @@ class GrowUp_2_19_lt
         );
 
         # Global settings
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
         App::con()->execute(

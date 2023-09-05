@@ -1,6 +1,6 @@
 <?php
 /**
- * Blog namespace for settings handler.
+ * Blog workspace for settings handler.
  *
  * Handle id,version pairs through database.
  *
@@ -14,134 +14,89 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
-class BlogWorkspace
+class BlogWorkspace implements BlogWorkspaceInterface
 {
-    // Constants
-
-    /**
-     * Namespace (blog parameters) table name
-     *
-     * @var        string
-     */
     public const NS_TABLE_NAME = 'setting';
 
-    /**
-     * Regexp namespace name schema
-     *
-     * @var        string
-     */
     public const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    public const NS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
-    /**
-     * Regexp namespace ID schema
-     *
-     * @var        string
-     */
-    public const NS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
-
-    // Settings types (stored in table, subset of settype() allowed type)
     public const NS_STRING = 'string';
     public const NS_FLOAT  = 'float';
     public const NS_BOOL   = 'boolean';
     public const NS_INT    = 'integer';
     public const NS_ARRAY  = 'array';
 
-    // Settings types converted to another type
     public const NS_DOUBLE = 'double';     // -> NS_FLOAT
 
-    // Settings types aliases
     public const NS_TEXT    = self::NS_STRING;
     public const NS_BOOLEAN = self::NS_BOOL;
     public const NS_INTEGER = self::NS_INT;
 
-    // Properties
+    /** @var    ConnectionInterface     The connetion handler */
+    protected ConnectionInterface $con;
 
-    /**
-     * Database connection object
-     *
-     * @var object
-     */
-    protected $con;
+    /** @var    string  Settings table name */
+    protected string $table;
 
-    /**
-     * Settings table name
-     *
-     * @var string
-     */
-    protected $table;
+    /** @var    array   Global settings */
+    protected array $global_settings = [];
 
-    /**
-     * Blog ID
-     *
-     * @var string
-     */
-    protected $blog_id;
-
-    /**
-     * Global settings
-     *
-     * @var array
-     */
-    protected $global_settings = [];
-
-    /**
-     * Local settings
-     *
-     * @var array
-     */
+    /** @var    array   Local settings */
     protected $local_settings = [];
 
-    /**
-     * Blog settings
-     *
-     * @var array
-     */
+    /** @var    array   Blog settings */
     protected $settings = [];
 
-    /**
-     * Current namespace
-     *
-     * @var string
-     */
-    protected $namespace;
+    /** @var    string  Settings table name */
+    protected ?string $blog_id;
 
-    /**
-     * Object constructor. Retrieves blog settings and puts them in $settings
-     * array. Local (blog) settings have a highest priority than global settings.
-     *
-     * @param      mixed      $blog_id  The blog identifier
-     * @param      string     $name     The namespace ID
-     * @param      MetaRecord   $rs       The recordset
-     *
-     * @throws     Exception
-     */
-    public function __construct($blog_id, string $name, ?MetaRecord $rs = null)
+    /** @var    string  Settings table name */
+    protected ?string $workspace;
+
+    public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null)
     {
-        if (preg_match(self::NS_NAME_SCHEMA, $name)) {
-            $this->namespace = $name;
-        } else {
-            throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $name));
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::NS_TABLE_NAME;
+
+        if ($workspace !== null) {
+            if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
+                throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
+            }
+
+            $this->settings  = $this->local_settings = $this->global_settings = [];
+            $this->blog_id   = $blog_id;
+            $this->workspace = $workspace;
+
+            $this->getSettings($rs);
         }
+    }
 
-        $this->con     = App::con();
-        $this->table   = App::con()->prefix() . self::NS_TABLE_NAME;
-        $this->blog_id = $blog_id;
+    public function openBlogWorkspaceCursor(): Cursor
+    {
+        return $this->con->openCursor($this->table);
+    }
 
-        $this->getSettings($rs);
+    public function init(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
+    {
+        return new self($blog_id, $workspace, $rs);
     }
 
     /**
      * Gets the settings.
      *
-     * @param      MetaRecord  $rs     The recordset
+     * @param   MetaRecord  $rs     The recordset
      */
-    private function getSettings(?MetaRecord $rs = null)
+    private function getSettings(?MetaRecord $rs = null): void
     {
         if ($rs === null) {
             $sql = new SelectStatement();
@@ -159,7 +114,7 @@ class BlogWorkspace
                     'blog_id = ' . $sql->quote((string) $this->blog_id),
                     'blog_id IS NULL',
                 ]))
-                ->and('setting_ns = ' . $sql->quote($this->namespace))
+                ->and('setting_ns = ' . $sql->quote($this->workspace))
                 ->order('setting_id DESC');
 
             try {
@@ -169,7 +124,7 @@ class BlogWorkspace
             }
         }
         while ($rs->fetch()) {
-            if ($rs->f('setting_ns') !== $this->namespace) {
+            if ($rs->f('setting_ns') !== $this->workspace) {
                 break;
             }
             $id    = trim((string) $rs->f('setting_id'));
@@ -191,7 +146,7 @@ class BlogWorkspace
             $array = ($rs->blog_id ? 'local' : 'global') . '_settings';
 
             $this->{$array}[$id] = [
-                'ns'     => $this->namespace,
+                'ns'     => $this->workspace,
                 'value'  => $value,
                 'type'   => $type,
                 'label'  => (string) $rs->f('setting_label'),
@@ -203,14 +158,6 @@ class BlogWorkspace
         $this->settings = array_merge($this->global_settings, $this->local_settings);
     }
 
-    /**
-     * Returns true if a setting exist, else false
-     *
-     * @param      string   $name      The identifier
-     * @param      bool     $global    The global
-     *
-     * @return     bool
-     */
     public function settingExists(string $name, bool $global = false): bool
     {
         $array = ($global ? 'global' : 'local') . '_settings';
@@ -218,13 +165,6 @@ class BlogWorkspace
         return isset($this->{$array}[$name]);
     }
 
-    /**
-     * Returns setting value if exists.
-     *
-     * @param      string  $name      Setting name
-     *
-     * @return     mixed
-     */
     public function get($name)
     {
         if (isset($this->settings[$name]) && isset($this->settings[$name]['value'])) {
@@ -232,13 +172,6 @@ class BlogWorkspace
         }
     }
 
-    /**
-     * Returns global setting value if exists.
-     *
-     * @param      string  $name      Setting name
-     *
-     * @return     mixed
-     */
     public function getGlobal($name)
     {
         if (isset($this->global_settings[$name]) && isset($this->global_settings[$name]['value'])) {
@@ -246,13 +179,6 @@ class BlogWorkspace
         }
     }
 
-    /**
-     * Returns local setting value if exists.
-     *
-     * @param      string  $name      Setting name
-     *
-     * @return     mixed
-     */
     public function getLocal($name)
     {
         if (isset($this->local_settings[$name]) && isset($this->local_settings[$name]['value'])) {
@@ -260,61 +186,23 @@ class BlogWorkspace
         }
     }
 
-    /**
-     * Magic __get method.
-     *
-     * @param      string  $name      Setting name
-     *
-     * @return     mixed
-     */
     public function __get($name)
     {
         return $this->get($name);
     }
 
-    /**
-     * Sets a setting in $settings property. This sets the setting for script
-     * execution time only and if setting exists.
-     *
-     * @param      string  $name       The setting name
-     * @param      mixed   $value      The setting value
-     */
-    public function set($name, $value)
+    public function set($name, $value): void
     {
         if (isset($this->settings[$name])) {
             $this->settings[$name]['value'] = $value;
         }
     }
 
-    /**
-     * Magic __set method.
-     *
-     * @param      string  $name       The setting name
-     * @param      mixed   $value      The setting value
-     */
-    public function __set($name, $value)
+    public function __set($name, $value): void
     {
         $this->set($name, $value);
     }
 
-    /**
-     * Creates or updates a setting.
-     *
-     * $type could be self::NS_STRING, self::NS_INT, self::NS_FLOAT, self::NS_BOOL, self::NS_ARRAY or null. If $type is
-     * null and setting exists, it will keep current setting type.
-     *
-     * $ignore_value allow you to not change setting. Useful if you need to change
-     * a setting label or type and don't want to change its value.
-     *
-     * @param      string     $name          The setting identifier
-     * @param      mixed      $value         The setting value
-     * @param      string     $type          The setting type
-     * @param      string     $label         The setting label
-     * @param      bool       $ignore_value  Change setting value or not
-     * @param      bool       $global        Setting is global
-     *
-     * @throws     Exception
-     */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::NS_ID_SCHEMA, $name)) {
@@ -373,7 +261,7 @@ class BlogWorkspace
         #If we are local, compare to global value
         if (!$global && $this->settingExists($name, true)) {
             $g            = $this->global_settings[$name];
-            $same_setting = ($g['ns'] === $this->namespace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
+            $same_setting = ($g['ns'] === $this->workspace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
 
             # Drop setting if same value as global
             if ($same_setting && $this->settingExists($name, false)) {
@@ -383,7 +271,7 @@ class BlogWorkspace
             }
         }
 
-        if ($this->settingExists($name, $global) && $this->namespace == $this->settings[$name]['ns']) {
+        if ($this->settingExists($name, $global) && $this->workspace == $this->settings[$name]['ns']) {
             $sql = new UpdateStatement();
 
             if ($global) {
@@ -393,31 +281,21 @@ class BlogWorkspace
             }
             $sql
                 ->and('setting_id = ' . $sql->quote($name))
-                ->and('setting_ns = ' . $sql->quote($this->namespace));
+                ->and('setting_ns = ' . $sql->quote($this->workspace));
 
             $sql->update($cur);
         } else {
             $cur->setting_id = $name;
             $cur->blog_id    = $global ? null : $this->blog_id;
-            $cur->setting_ns = $this->namespace;
+            $cur->setting_ns = $this->workspace;
 
             $cur->insert();
         }
     }
 
-    /**
-     * Rename an existing setting in a Namespace
-     *
-     * @param      string     $old_name  The old setting identifier
-     * @param      string     $new_name  The new setting identifier
-     *
-     * @throws     Exception
-     *
-     * @return     bool
-     */
     public function rename(string $old_name, string $new_name): bool
     {
-        if (!$this->namespace) {
+        if (!$this->workspace) {
             throw new Exception(__('No namespace specified'));
         }
 
@@ -447,7 +325,7 @@ class BlogWorkspace
         $sql
             ->ref($this->table)
             ->set('setting_id = ' . $sql->quote($new_name))
-            ->where('setting_ns = ' . $sql->quote($this->namespace))
+            ->where('setting_ns = ' . $sql->quote($this->workspace))
             ->and('setting_id = ' . $sql->quote($old_name));
 
         $sql->update();
@@ -455,16 +333,9 @@ class BlogWorkspace
         return true;
     }
 
-    /**
-     * Removes an existing setting in a Namespace.
-     *
-     * @param      string     $name     The setting identifier
-     *
-     * @throws     Exception
-     */
     public function drop(string $name): void
     {
-        if (!$this->namespace) {
+        if (!$this->workspace) {
             throw new Exception(__('No namespace specified'));
         }
 
@@ -480,22 +351,14 @@ class BlogWorkspace
 
         $sql
             ->and('setting_id = ' . $sql->quote($name))
-            ->and('setting_ns = ' . $sql->quote($this->namespace));
+            ->and('setting_ns = ' . $sql->quote($this->workspace));
 
         $sql->delete();
     }
 
-    /**
-     * Removes every existing specific setting in a namespace
-     *
-     * @param      string     $name      Setting ID
-     * @param      boolean    $global  Remove global setting too
-     *
-     * @throws     Exception
-     */
     public function dropEvery(string $name, bool $global = false): void
     {
-        if (!$this->namespace) {
+        if (!$this->workspace) {
             throw new Exception(__('No namespace specified'));
         }
 
@@ -508,21 +371,14 @@ class BlogWorkspace
         }
         $sql
             ->and('setting_id = ' . $sql->quote($name))
-            ->and('setting_ns = ' . $sql->quote($this->namespace));
+            ->and('setting_ns = ' . $sql->quote($this->workspace));
 
         $sql->delete();
     }
 
-    /**
-     * Removes all existing settings in a Namespace.
-     *
-     * @param      bool       $force_global  Force global pref drop
-     *
-     * @throws     Exception
-     */
     public function dropAll(bool $force_global = false): void
     {
-        if (!$this->namespace) {
+        if (!$this->workspace) {
             throw new Exception(__('No namespace specified'));
         }
 
@@ -538,7 +394,7 @@ class BlogWorkspace
             $global = false;
         }
 
-        $sql->and('setting_ns = ' . $sql->quote($this->namespace));
+        $sql->and('setting_ns = ' . $sql->quote($this->workspace));
 
         $sql->delete();
 
@@ -549,43 +405,30 @@ class BlogWorkspace
         $this->settings = array_merge($this->global_settings, $this->local_settings);
     }
 
-    /**
-     * Dumps a namespace.
-     *
-     * @return     string
-     */
-    public function dumpNamespace()
+    public function dumpWorkspace(): string
     {
-        return $this->namespace;
+        return $this->workspace;
     }
 
-    /**
-     * Dumps settings.
-     *
-     * @return     array
-     */
-    public function dumpSettings()
+    public function dumpSettings(): array
     {
         return $this->settings;
     }
 
-    /**
-     * Dumps local settings.
-     *
-     * @return     array
-     */
-    public function dumpLocalSettings()
+    public function dumpLocalSettings(): array
     {
         return $this->local_settings;
     }
 
-    /**
-     * Dumps global settings.
-     *
-     * @return     array
-     */
-    public function dumpGlobalSettings()
+    public function dumpGlobalSettings(): array
     {
         return $this->global_settings;
+    }
+
+    public function dumpNamespace(): string
+    {
+        Deprecated::set(self::class . '::dumpWorkspace()', '2.28');
+
+        return $this->workspace;
     }
 }

@@ -22,13 +22,13 @@ use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
-
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
@@ -87,6 +87,11 @@ class Factory implements FactoryInterface
     public function blogs(): BlogsInterface
     {
         return new Blogs();
+    }
+
+    public function blogWorkspace(): BlogWorkspaceInterface
+    {
+        return new BlogWorkspace();
     }
 
     public function con(): ConnectionInterface

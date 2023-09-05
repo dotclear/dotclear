@@ -15,8 +15,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Core\BlogWorkspace;
-
 interface BlogSettingsInterface
 {
     /**
@@ -28,7 +26,7 @@ interface BlogSettingsInterface
      * If instance is created without blog ID, only globals settings are
      * manageabled.
      *
-     * @param   null|string     $blog_id    The blog identifier
+     * @param   null|string             $blog_id    The blog identifier
      */
     public function __construct(?string $blog_id);
 
@@ -39,9 +37,9 @@ interface BlogSettingsInterface
      *
      * @param   string  $workspace  Namespace name
      *
-     * @return  BlogWorkspace
+     * @return  BlogWorkspaceInterface
      */
-    public function addWorkspace(string $workspace): BlogWorkspace;
+    public function addWorkspace(string $workspace): BlogWorkspaceInterface;
 
     /**
      * Rename a namespace.
@@ -69,18 +67,18 @@ interface BlogSettingsInterface
      *
      * @param   string  $workspace  workspace name
      *
-     * @return  BlogWorkspace
+     * @return  BlogWorkspaceInterface
      */
-    public function get(string $workspace): BlogWorkspace;
+    public function get(string $workspace): BlogWorkspaceInterface;
 
     /**
      * Magic __get method.
      *
      * @param   string  $workspace  workspace name
      *
-     * @return  BlogWorkspace
+     * @return  BlogWorkspaceInterface
      */
-    public function __get(string $workspace): BlogWorkspace;
+    public function __get(string $workspace): BlogWorkspaceInterface;
 
     /**
      * Check if a workspace exists.
@@ -103,7 +101,7 @@ interface BlogSettingsInterface
      *
      * @deprecated  since 2.28, use self::addWorkspace()  instead
      */
-    public function addNamespace(string $namespace): BlogWorkspace;
+    public function addNamespace(string $namespace): BlogWorkspaceInterface;
 
     /**
      * Alias of renWorkspace.

@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Trackback;
 use Dotclear\Core\UserWorkspace;
 use Dotclear\Database\MetaRecord;
@@ -103,7 +102,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_blog        = App::blog()->openBlogCursor();
         $this->cur_category    = App::blog()->categories()->openCategoryCursor();
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
-        $this->cur_setting     = $this->con->openCursor($this->prefix . BlogWorkspace::NS_TABLE_NAME);
+        $this->cur_setting     = App::blogWrokspace()->openBlogWorkspaceCursor();
         $this->cur_user        = App::auth()->openUserCursor();
         $this->cur_pref        = $this->con->openCursor($this->prefix . UserWorkspace::WS_TABLE_NAME);
         $this->cur_permissions = App::auth()->openPermCursor();
@@ -262,7 +261,7 @@ class FlatImportV2 extends FlatBackup
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blog()::BLOG_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
-        $this->con->execute('DELETE FROM ' . $this->prefix . BlogWorkspace::NS_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . App::blogWorkspace()::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME);
 
         $line = false;

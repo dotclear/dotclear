@@ -30,6 +30,7 @@ use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
@@ -156,6 +157,11 @@ class Container
     public static function blogs(): BlogsInterface
     {
         return self::$instance->get('blogs');
+    }
+
+    public static function blogWorkspace(): BlogWorkspaceInterface
+    {
+        return self::$instance->get('blogWorkspace');
     }
 
     public static function con(): ConnectionInterface

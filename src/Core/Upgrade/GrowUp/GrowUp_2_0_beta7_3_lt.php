@@ -13,14 +13,13 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 
 class GrowUp_2_0_beta7_3_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         // Blowup becomes default theme
-        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME . ' ' .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
             "SET setting_value = '%s' " .
             "WHERE setting_id = 'theme' " .
             "AND setting_value = '%s' " .

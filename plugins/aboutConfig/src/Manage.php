@@ -16,7 +16,6 @@ use Exception;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
@@ -57,7 +56,7 @@ class Manage extends Process
             try {
                 foreach ($_POST['s'] as $ns => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ns][$k] === BlogWorkspace::NS_ARRAY) {
+                        if ($_POST['s_type'][$ns][$k] === App::blogWorkspace()::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::blog()->settings()->$ns->put($k, $v);
@@ -77,7 +76,7 @@ class Manage extends Process
             try {
                 foreach ($_POST['gs'] as $ns => $s) {
                     foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ns][$k] === BlogWorkspace::NS_ARRAY) {
+                        if ($_POST['gs_type'][$ns][$k] === App::blogWorkspace()::NS_ARRAY) {
                             $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::blog()->settings()->$ns->put($k, $v, null, null, true, true);
@@ -162,7 +161,7 @@ class Manage extends Process
                 '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        /** @var array<string|BlogWorkspace> */
+        /** @var array<string|BlogWorkspaceInterface> */
         $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {
@@ -243,27 +242,27 @@ class Manage extends Process
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
     {
         $field = match ((string) $s['type']) {
-            BlogWorkspace::NS_BOOL, BlogWorkspace::NS_BOOLEAN => form::combo(
+            App::blogWorkspace()::NS_BOOL, App::blogWorkspace()::NS_BOOLEAN => form::combo(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
                 $s['value'] ? 1 : 0
             ),
 
-            BlogWorkspace::NS_ARRAY => form::field(
+            App::blogWorkspace()::NS_ARRAY => form::field(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 40,
                 null,
                 Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
             ),
 
-            BlogWorkspace::NS_INTEGER, BlogWorkspace::NS_INT, BlogWorkspace::NS_FLOAT => form::number(
+            App::blogWorkspace()::NS_INTEGER, App::blogWorkspace()::NS_INT, App::blogWorkspace()::NS_FLOAT => form::number(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 null,
                 null,
                 Html::escapeHTML((string) $s['value'])
             ),
 
-            //BlogWorkspace::NS_STRING, BlogWorkspace::NS_TEXT,
+            //App::blogWorkspace()::NS_STRING, App::blogWorkspace()::NS_TEXT,
             default => form::field(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 40,

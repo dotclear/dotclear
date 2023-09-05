@@ -25,6 +25,7 @@ interface FactoryInterface
     public function blog(): BlogInterface;
     public function blogSettings(?string $blog_id): BlogSettingsInterface;
     public function blogLoader(): BlogLoaderInterface;
+    public function blogWorkspace(): BlogWorkspaceInterface;
     public function blogs(): BlogsInterface;
     public function con(): ConnectionInterface;
     public function error(): ErrorInterface;

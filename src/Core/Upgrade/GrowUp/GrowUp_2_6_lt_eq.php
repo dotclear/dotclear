@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\File\Files;
 
@@ -50,11 +49,11 @@ class GrowUp_2_6_lt_eq
         }
 
         # Some settings change, prepare db queries
-        $strReqFormat = 'INSERT INTO ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
+        $strReqFormat = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
         $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
         $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
 
-        $strReqSelect = 'SELECT count(1) FROM ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
+        $strReqSelect = 'SELECT count(1) FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
         $strReqSelect .= ' WHERE setting_id = \'%s\'';
         $strReqSelect .= ' AND setting_ns = \'system\'';
         $strReqSelect .= ' AND blog_id IS NULL';
