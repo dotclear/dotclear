@@ -27,6 +27,7 @@ use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
@@ -71,6 +72,11 @@ class Factory implements FactoryInterface
     public function blog(): BlogInterface
     {
         return $this->container->get('blogLoader')->getBlog();
+    }
+
+    public function blogSettings(?string $blog_id): BlogSettingsInterface
+    {
+        return new BlogSettings(blog_id: $blog_id);
     }
 
     public function blogLoader(): BlogLoaderInterface

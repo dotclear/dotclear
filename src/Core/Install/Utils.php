@@ -10,7 +10,6 @@
 namespace Dotclear\Core\Install;
 
 use Dotclear\App;
-use Dotclear\Core\BlogSettings;
 use Dotclear\Core\BlogWorkspace;
 use Dotclear\Database\Structure;
 use Dotclear\Interface\Core\ConnectionInterface;
@@ -487,7 +486,7 @@ class Utils
             ];
         }
 
-        $settings = new BlogSettings(null);
+        $settings = App::blogSettings(null);
 
         foreach ($defaults as $v) {
             $settings->system->put($v[0], $v[2], $v[1], $v[3], false, true);

@@ -430,8 +430,8 @@ class MediaItem extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
-                    __('Media manager')                 => $home_url,
-                    $breadcrumb                         => '',
+                    __('Media manager')                   => $home_url,
+                    $breadcrumb                           => '',
                 ],
                 [
                     'home_link' => !App::backend()->popup,
@@ -918,7 +918,7 @@ class MediaItem extends Process
                         App::blog()::POST_UNPUBLISHED => sprintf($img, __('unpublished'), 'check-off.png'),
                         App::blog()::POST_SCHEDULED   => sprintf($img, __('scheduled'), 'scheduled.png'),
                         App::blog()::POST_PENDING     => sprintf($img, __('pending'), 'check-wrn.png'),
-                        default                  => '',
+                        default                       => '',
                     };
 
                     echo

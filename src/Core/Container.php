@@ -28,6 +28,7 @@ use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
@@ -97,15 +98,16 @@ class Container
      *
      * @param   string  $id         The object ID
      * @param   bool    $reload     Force reload of the class
+     * @param   mixed   ...$args    The method arguments
      */
-    public function get(string $id, bool $reload = false)
+    public function get(string $id, bool $reload = false, ...$args)
     {
         if (!$reload && array_key_exists($id, $this->stack)) {
             return $this->stack[$id];
         }
 
         if ($this->has($id)) {
-            return $this->stack[$id] = $this->factory->{$id}();
+            return $this->stack[$id] = $this->factory->{$id}(...$args);
         }
 
         throw new Exception('Call to undefined factory method ' . $id);
@@ -144,6 +146,11 @@ class Container
     public static function blogLoader(): BlogLoaderInterface
     {
         return self::$instance->get('blogLoader');
+    }
+
+    public static function blogSettings(?string $blog_id): BlogSettingsInterface
+    {
+        return self::$instance->get('blogSettings', reload: true, blog_id: $blog_id);
     }
 
     public static function blogs(): BlogsInterface

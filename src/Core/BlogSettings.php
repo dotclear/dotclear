@@ -19,9 +19,10 @@ use Dotclear\App;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\BlogSettingsInterface;
 use Exception;
 
-class BlogSettings
+class BlogSettings implements BlogSettingsInterface
 {
     /** @var    string  Settings table name */
     protected $table;
@@ -32,15 +33,7 @@ class BlogSettings
     /** @var    array   Associative namespaces array */
     protected $workspaces = [];
 
-    /**
-     * Constructor.
-     *
-     * Retrieves blog settings and puts them in $workspaces
-     * array. Local (blog) settings have a highest priority than global settings.
-     *
-     * @param   mixed   $blog_id  The blog identifier
-     */
-    public function __construct($blog_id)
+    public function __construct(?string $blog_id)
     {
         $this->table   = App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME;
         $this->blog_id = $blog_id;
@@ -94,15 +87,6 @@ class BlogSettings
         } while (!$rs->isStart());
     }
 
-    /**
-     * Create a new workspace.
-     *
-     * If the workspace already exists, return it without modification.
-     *
-     * @param   string  $workspace  Namespace name
-     *
-     * @return  BlogWorkspace
-     */
     public function addWorkspace(string $workspace): BlogWorkspace
     {
         if (!$this->exists($workspace)) {
@@ -112,16 +96,6 @@ class BlogSettings
         return $this->workspaces[$workspace];
     }
 
-    /**
-     * Rename a namespace.
-     *
-     * @param   string  $old_workspace  The old ns
-     * @param   string  $new_workspace  The new ns
-     *
-     * @throws  Exception
-     *
-     * @return  bool    return true if no error, else false
-     */
     public function renWorkspace(string $old_workspace, string $new_workspace): bool
     {
         if (!$this->exists($old_workspace) || $this->exists($new_workspace)) {
@@ -149,13 +123,6 @@ class BlogSettings
         return true;
     }
 
-    /**
-     * Delete a whole workspace with all settings pertaining to it.
-     *
-     * @param   string  $workspace  workspace name
-     *
-     * @return  bool
-     */
     public function delWorkspace(string $workspace): bool
     {
         if (!$this->exists($workspace)) {
@@ -176,57 +143,26 @@ class BlogSettings
         return true;
     }
 
-    /**
-     * Returns full workspace with all settings pertaining to it.
-     *
-     * @param   string  $workspace  workspace name
-     *
-     * @return  BlogWorkspace
-     */
     public function get(string $workspace): BlogWorkspace
     {
         return $this->addWorkspace($workspace);
     }
 
-    /**
-     * Magic __get method.
-     *
-     * @param   string  $workspace  workspace name
-     *
-     * @return  BlogWorkspace
-     */
     public function __get(string $workspace): BlogWorkspace
     {
         return $this->addWorkspace($workspace);
     }
 
-    /**
-     * Check if a workspace exists.
-     *
-     * @param   string  $workspace  Namespace name
-     *
-     * @return  bool
-     */
     public function exists(string $workspace): bool
     {
         return array_key_exists($workspace, $this->workspaces);
     }
 
-    /**
-     * Dumps workspaces.
-     *
-     * @return  array
-     */
     public function dumpWorkspaces(): array
     {
         return $this->workspaces;
     }
 
-    /**
-     * Alias of addWorkspace.
-     *
-     * @deprecated  since 2.28, use self::addWorkspace()  instead
-     */
     public function addNamespace(string $namespace): BlogWorkspace
     {
         Deprecated::set(self::class . '->addWorkspace()', '2.28');
@@ -234,11 +170,6 @@ class BlogSettings
         return $this->addWorkspace($namespace);
     }
 
-    /**
-     * Alias of renWorkspace.
-     *
-     * @deprecated  since 2.28, use self::renWorkspace()  instead
-     */
     public function renNamespace(string $old_namespace, string $new_namespace): bool
     {
         Deprecated::set(self::class . '->renWorkspace()', '2.28');
@@ -246,11 +177,6 @@ class BlogSettings
         return $this->renWorkspace($old_namespace, $new_namespace);
     }
 
-    /**
-     * Alias of delWorkspace.
-     *
-     * @deprecated  since 2.28, use self::delWorkspace()  instead
-     */
     public function delNamespace(string $namespace): bool
     {
         Deprecated::set(self::class . '->delWorkspace()', '2.28');
@@ -258,11 +184,6 @@ class BlogSettings
         return $this->delWorkspace($namespace);
     }
 
-    /**
-     * Alias of dumpWorkspaces.
-     *
-     * @deprecated  since 2.28, use self::dumpWorkspaces()  instead
-     */
     public function dumpNamespaces(): array
     {
         Deprecated::set(self::class . '->dumpWorkspaces()', '2.28');

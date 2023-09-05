@@ -325,7 +325,7 @@ class Plugins extends Process
             App::behavior()->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name())                                  => '',
+                    Html::escapeHTML(App::blog()->name())                                => '',
                     __('Plugins management')                                             => App::backend()->list->getURL('', false),
                     '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
                 ]

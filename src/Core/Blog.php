@@ -29,6 +29,7 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Interface\Core\BlogInterface;
+use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
@@ -186,7 +187,7 @@ class Blog implements BlogInterface
      *
      * @deprecated since 2.28, use App::blog()->settings() instead
      *
-     * @var BlogSettings
+     * @var BlogSettingsInterface
      */
     public $settings;
 
@@ -259,7 +260,7 @@ class Blog implements BlogInterface
             $this->upddt  = (int) strtotime($blog->blog_upddt);
             $this->status = (int) $blog->blog_status;
 
-            $this->settings = new BlogSettings($this->id);
+            $this->settings = App::blogSettings($this->id);
 
             $this->themes_path = Path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
             $this->public_path = Path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
@@ -352,7 +353,7 @@ class Blog implements BlogInterface
         return $this->status;
     }
 
-    public function settings(): BlogSettings
+    public function settings(): BlogSettingsInterface
     {
         if ($this->isDefined()) {
             return $this->settings;
