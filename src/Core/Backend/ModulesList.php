@@ -309,7 +309,7 @@ class ModulesList
     public function getURL($queries = '', bool $with_tab = true): string
     {
         return $this->page_url .
-            (!empty($queries) ? strpos($this->page_url, '?') ? '&amp;' : '?' : '') .
+            (!empty($queries) ? (strpos($this->page_url, '?') ? '&amp;' : '?') : '') .
             (is_array($queries) ? http_build_query($queries) : $queries) .
             ($with_tab && !empty($this->page_tab) ? '#' . $this->page_tab : '');
     }
@@ -1216,7 +1216,7 @@ class ModulesList
 
                     # Delete
                 case 'delete':
-                    if (App::auth()->isSuperAdmin() && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
+                    if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
                         $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }
