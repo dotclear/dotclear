@@ -2,14 +2,16 @@
 /**
  * Core container.
  *
- * Core container search factories for requested methods.
+ * Core container search factory for requested methods.
  *
  * Available container methods are explicitly set
- * to keep track of returned types.
+ * in this class to keep track of returned types.
  *
- * Methods are searched by factories order,
- * Change order using Factories::append() / Factories::prepend()
- * Dotclear default factories will by append to the end of stack.
+ * Third party core factory MUST implements
+ * Dotclear\Interface\Core\FactoryInterface
+ * and SHOULD extends Factory.
+ *
+ * Dotclear default factory will be used at least.
  *
  * @see Dotclear\Factories
  *
@@ -22,7 +24,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Factories;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -57,65 +58,36 @@ class Container
     /** @var    array<string,mixed>     Unique instances stack */
     private array $stack = [];
 
-    /** @var    array<string,FactoryInterface>    Factory instance */
-    private array $factories = [];
+    /** @var    FactoryInterface    Factory instance */
+    private FactoryInterface $factory;
 
-    /** @var    array<string,string>    Method / Factory pairs stack */
+    /** @var    array<int,string>   The FactoryInterface methods list */
     private array $methods = [];
 
     /// @name Container methods
     //@{
     /**
-     * Constructor.
-     *
-     * Instanciate all available core factories.
+     * Constructor instanciates core factory.
      */
-    public function __construct()
+    public function __construct(string $class)
     {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
-
         self::$instance = $this;
 
-        // Get required methods from Factory interface
-        $methods = get_class_methods(FactoryInterface::class);
-
-        // Get third party core factorie
-        $factories = Factories::getFactories('core');
-
-        // Append dotclear default core factory to the end of stack
-        $factories[] = Factory::class;
-
-        // Loop through factories
-        foreach ($factories as $class) {
-            // Third party core factory MUST implements FactoryInterface and SHOULD extends Factory
-            if (!class_exists($class) || !is_subclass_of($class, FactoryInterface::class)) {
-                continue;
-            }
-
-            // Instanciate factory
-            $this->factories[$class] = new $class($this);
-
-            $has_methods = false;
-            // Loop through methods IDs
-            foreach ($methods as $method) {
-                // Check if factory has this method
-                if (!method_exists($this->factories[$class], $method)) {
-                    continue;
-                }
-
-                // Set method / factory pairs
-                $this->methods[$method] = $class;
-                $has_methods            = true;
-            }
-
-            // Do not keep factory without methods
-            if (!$has_methods) {
-                unset($this->factories[$class]);
-            }
+        // Check factory requirements
+        if (empty($class) || !is_subclass_of($class, FactoryInterface::class)) {
+            // Else get dotclear default factory
+            $class = Factory::class;
         }
+
+        // Create Factory instance
+        $this->factory = new $class($this);
+
+        // Get required methods once
+        $this->methods = get_class_methods(FactoryInterface::class);
     }
 
     /**
@@ -132,8 +104,8 @@ class Container
             return $this->stack[$id];
         }
 
-        if (array_key_exists($id, $this->methods)) {
-            return $this->stack[$id] = $this->factories[$this->methods[$id]]->{$id}();
+        if ($this->has($id)) {
+            return $this->stack[$id] = $this->factory->{$id}();
         }
 
         throw new Exception('Call to undefined factory method ' . $id);
@@ -148,38 +120,7 @@ class Container
      */
     public function has(string $id): bool
     {
-        foreach ($this->factories as $factory) {
-            if (method_exists($factory, $id)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-     /**
-      * Get registered methods.
-      *
-      * Return an array of method id /factory class name pairs,
-      * used for debugging perpose only.
-      *
-      * @return  array<string,string>    The registred factories
-      */
-     public function dump(): array
-     {
-         return $this->methods;
-     }
-
-    /**
-     * Get registered methods (The static way).
-     *
-     * @see self::dump()
-     *
-     * @return  array<string,string>    The registred factories
-     */
-    public static function dumpFactories(): array
-    {
-        return self::$instance->dump();
+        return in_array($id, $this->methods);
     }
     //@}
 

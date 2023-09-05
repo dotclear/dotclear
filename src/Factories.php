@@ -20,16 +20,17 @@ namespace Dotclear;
  * require_once path_to_this_file/Factories.php;
  * Factories::addFactory('core', MyCoreFactory::class);
  *
- * * Third party factory must be accessible from Dotclear Autoloaer.
+ * * Third party factory must be accessible from Autoloaer.
+ * * A container factory is set once.
  * * This MUST be done before any call to App.
  * * Once a container is instanciated, changes to factories stack have no effects.
  * * By default 'core' container is available.
  */
 class Factories
 {
-    /** @var    array<string,array<int,string>> The containers factories stack */
+    /** @var    array<string,string> The containers factories stack */
     private static array $stack = [
-        'core' => [], // for now only core has factory, see Dotclear\Interface\Core\FactoryInterface
+        'core' => '', // for now only core has factory, see Dotclear\Interface\Core\FactoryInterface
     ];
 
     /**
@@ -45,18 +46,6 @@ class Factories
     }
 
     /**
-     * Add a container.
-     *
-     * @param   string  $container  The container ID
-     */
-    public static function addContainer(string $container): void
-    {
-        if (!self::hasContainer($container)) {
-            self::$stack[$container] = [];
-        }
-    }
-
-    /**
      * Check if a container factory is set.
      *
      * @param   string  $container  The container ID
@@ -66,48 +55,31 @@ class Factories
      */
     public static function hasFactory(string $container, string $factory): bool
     {
-        return self::hasContainer($container) && in_array($factory, self::$stack[$container]);
+        return self::hasContainer($container) && self::$stack[$container] == $factory;
     }
 
     /**
-     * Prepend a factory.
-     *
-     * This adds a factory at the top of the container factories list
+     * Add a container factory.
      *
      * @param   string  $container  The container ID
      * @param   string  $factory    The factory class name
      */
-    public static function prependFactory(string $container, string $factory): void
+    public static function addFactory(string $container, string $factory): void
     {
-        if (self::hasContainer($container)) {
-            array_unshift(self::$stack[$container], $factory);
+        if (!self::hasFactory($container, $factory)) {
+            self::$stack[$container] = $factory;
         }
     }
 
     /**
-     * Append a factory.
-     *
-     * This adds a factory at the end of the container factories list
-     *
-     * @param   string  $container  The container ID
-     * @param   string  $factory    The factory class name
-     */
-    public static function appendFactory(string $container, string $factory): void
-    {
-        if (self::hasContainer($container)) {
-            array_push(self::$stack[$container], $factory);
-        }
-    }
-
-    /**
-     * Get a container factories list.
+     * Get a container factory.
      *
      * @param   string  $container  The container ID
      *
-     * @return  array<int,string>   The factories class names
+     * @return  string   The factory class name
      */
-    public static function getFactories(string $container): array
+    public static function getFactory(string $container): string
     {
-        return self::$stack[$container] ?? [];
+        return self::$stack[$container] ?? '';
     }
 }
