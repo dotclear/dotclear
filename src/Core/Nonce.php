@@ -1,7 +1,5 @@
 <?php
 /**
- * form nonce handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +13,9 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Interface\Core\NonceInterface;
 
+/**
+ * Form nonce handler.
+ */
 class Nonce implements NonceInterface
 {
     public function getNonce(): string

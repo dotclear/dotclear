@@ -1,7 +1,5 @@
 <?php
 /**
- * Error handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,9 @@ namespace Dotclear\Core;
 use Dotclear\Core\Backend\Notices; // deprecated
 use Dotclear\Interface\Core\ErrorInterface;
 
+/**
+ * Error handler.
+ */
 class Error implements ErrorInterface
 {
     /** @var    array<int,string>   Errors stack */

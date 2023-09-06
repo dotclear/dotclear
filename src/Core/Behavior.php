@@ -1,7 +1,5 @@
 <?php
 /**
- * Behavior handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +11,9 @@ namespace Dotclear\Core;
 
 use Dotclear\Interface\Core\BehaviorInterface;
 
+/**
+ * Behavior handler.
+ */
 class Behavior implements BehaviorInterface
 {
     /** @var    array<string,array<int,callable>>   The behaviors stack */

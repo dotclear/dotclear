@@ -1,11 +1,5 @@
 <?php
 /**
- * @class StaticRecord
- *
- * Query Result Static Record Class
- *
- * Unlike Record parent class, this one contains all results in an associative array.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -17,6 +11,13 @@ namespace Dotclear\Database;
 
 use Dotclear\Helper\Text;
 
+/**
+ * @class StaticRecord
+ *
+ * Query Result Static Record Class
+ *
+ * Unlike Record parent class, this one contains all results in an associative array.
+ */
 class StaticRecord extends Record
 {
     /**

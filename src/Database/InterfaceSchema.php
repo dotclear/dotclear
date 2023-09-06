@@ -1,9 +1,5 @@
 <?php
 /**
- * @class InterfaceSchema
- *
- * Database schema interface
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+/**
+ * @class InterfaceSchema
+ *
+ * Database schema interface
+ */
 interface InterfaceSchema
 {
     /**

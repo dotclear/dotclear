@@ -5,15 +5,16 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @brief Dotclear dynamic properties management trait.
- *
- * Dotclear trait to add dynamic properties management to a class.
  */
 declare(strict_types=1);
 
 namespace Dotclear\Helper;
 
+/**
+ * @brief Dotclear dynamic properties management trait.
+ *
+ * Dotclear trait to add dynamic properties management to a class.
+ */
 trait TraitDynamicProperties
 {
     // User-defined - experimental (may be changed in future)

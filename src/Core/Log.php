@@ -1,7 +1,5 @@
 <?php
 /**
- * Core log handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -23,6 +21,9 @@ use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Schema\Extension\Log as ExtLog;
 use Exception;
 
+/**
+ * Core log handler.
+ */
 class Log implements LogInterface
 {
     public const LOG_TABLE_NAME = 'log';

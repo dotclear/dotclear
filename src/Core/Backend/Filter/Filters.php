@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Generic class for admin list filters form
- *
- * @since 2.20
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -23,6 +19,11 @@ use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Select;
 use form;
 
+/**
+ * Generic class for admin list filters form
+ *
+ * @since 2.20
+ */
 class Filters
 {
     /**

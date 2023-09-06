@@ -1,9 +1,5 @@
 <?php
 /**
- * Blog workspace for settings handler.
- *
- * Handle id,version pairs through database.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -23,6 +19,11 @@ use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
+/**
+ * Blog workspace for settings handler.
+ *
+ * Handle id,version pairs through database.
+ */
 class BlogWorkspace implements BlogWorkspaceInterface
 {
     public const NS_TABLE_NAME = 'setting';

@@ -1,7 +1,5 @@
 <?php
 /**
- * Core update helper.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +17,9 @@ use Dotclear\Helper\Network\HttpClient;
 use Exception;
 use SimpleXMLElement;
 
+/**
+ * Core update helper.
+ */
 class Update
 {
     // Constants

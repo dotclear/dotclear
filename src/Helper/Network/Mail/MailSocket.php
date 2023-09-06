@@ -1,9 +1,5 @@
 <?php
 /**
- * @class SocketMail
- *
- * Send email through socket
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Helper\Network\Mail;
 use Dotclear\Helper\Text;
 use Exception;
 
+/**
+ * @class SocketMail
+ *
+ * Send email through socket
+ */
 class MailSocket
 {
     /**

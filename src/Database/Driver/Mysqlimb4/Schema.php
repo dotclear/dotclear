@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Schema
- *
- * MySQL (mb4) Database schema Handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Driver\Mysqlimb4;
 
 use Dotclear\Database\Driver\Mysqli\Schema as MysqliSchema;
 
+/**
+ * @class Schema
+ *
+ * MySQL (mb4) Database schema Handler
+ */
 class Schema extends MysqliSchema
 {
     /**

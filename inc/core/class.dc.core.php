@@ -1,10 +1,5 @@
 <?php
 /**
- * @brief Dotclear core class
- *
- * dcCore is deprecated since 2.28.
- * Use App and their methods instead...
- *
  * @package Dotclear
  * @subpackage Core
  *
@@ -41,6 +36,11 @@ use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
+/**
+ * @brief Dotclear core class
+ *
+ * @deprecated dcCore is deprecated since 2.28. Use App and their methods instead...
+ */
 final class dcCore
 {
     // deprecated as App class does not allow dynamic properties

@@ -1,9 +1,5 @@
 <?php
 /**
- * @class L10n
- *
- * Localization utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +8,11 @@
 declare(strict_types=1);
 
 namespace Dotclear\Helper {
+    /**
+     * @class L10n
+     *
+     * Localization utilities
+     */
     class L10n
     {
         /**

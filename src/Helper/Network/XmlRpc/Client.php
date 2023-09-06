@@ -1,13 +1,5 @@
 <?php
 /**
- * @class Client
- *
- * XML-RPC Client
- *
- * This class library is fully based on Simon Willison's IXR library (http://scripts.incutio.com/xmlrpc/).
- *
- * Basic XML-RPC Client.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -20,6 +12,15 @@ namespace Dotclear\Helper\Network\XmlRpc;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
+/**
+ * @class Client
+ *
+ * XML-RPC Client
+ *
+ * This class library is fully based on Simon Willison's IXR library (http://scripts.incutio.com/xmlrpc/).
+ *
+ * Basic XML-RPC Client.
+ */
 class Client extends HttpClient
 {
     /**

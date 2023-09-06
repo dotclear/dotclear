@@ -1,7 +1,5 @@
 <?php
 /**
- * Posts types handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,9 @@ namespace Dotclear\Core;
 use Dotclear\Interface\Core\PostTypeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 
+/**
+ * Posts types handler.
+ */
 class PostTypes implements PostTypesInterface
 {
     /** @var    array<string,PostTypeInterface>  The post types stack */

@@ -1,14 +1,9 @@
 <?php
 /**
- * @class form and formSelectOption
- * @brief HTML Form helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @deprecated Since 2.26 Use Dotclear\Helper\Html\Form\* instead
  */
 
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -28,6 +23,12 @@ use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Form\Time;
 use Dotclear\Helper\Html\Form\Url;
 
+/**
+ * @class form and formSelectOption
+ * @brief HTML Form helpers
+ *
+ * @deprecated Since 2.26 Use Dotclear\Helper\Html\Form\* instead
+ */
 class form
 {
     /**

@@ -1,7 +1,5 @@
 <?php
 /**
- * Blog hanlder interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,12 +13,12 @@ use ArrayObject;
 use Dotclear\Core\Categories;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Database\Record;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Helper\Date;
-use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * Blog hanlder interface.
+ */
 interface BlogInterface
 {
     /** @var    string  Blog table name */

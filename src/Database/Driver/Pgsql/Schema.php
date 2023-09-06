@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Schema
- *
- * PostgreSQL Database schema Handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Driver\Pgsql;
 
 use Dotclear\Database\AbstractSchema;
 
+/**
+ * @class Schema
+ *
+ * PostgreSQL Database schema Handler
+ */
 class Schema extends AbstractSchema
 {
     protected $ref_actions_map = [

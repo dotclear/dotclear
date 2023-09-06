@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use dcAntispam;
 use Dotclear\App;
-use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use form;

@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Caption
- * @brief HTML Forms caption (table) creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Caption
+ * @brief HTML Forms caption (table) creation helpers
+ */
 class Caption extends Component
 {
     private const DEFAULT_ELEMENT = 'caption';

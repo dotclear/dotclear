@@ -1,7 +1,5 @@
 <?php
 /**
- * User workspace for preferences handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -18,6 +16,9 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Exception;
 
+/**
+ * User workspace for preferences handler.
+ */
 class UserWorkspace
 {
     // Constants

@@ -1,7 +1,5 @@
 <?php
 /**
- * Users handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +14,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Exception;
 
+/**
+ * Users handler interface.
+ */
 interface UsersInterface
 {
     /**

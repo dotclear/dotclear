@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Cursor
- *
- * This class implements facilities to insert or update in a table.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -17,6 +13,11 @@ use Dotclear\Database\Statement\InsertStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Exception;
 
+/**
+ * @class Cursor
+ *
+ * This class implements facilities to insert or update in a table.
+ */
 class Cursor
 {
     /**

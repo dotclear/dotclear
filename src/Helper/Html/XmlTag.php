@@ -1,8 +1,5 @@
 <?php
 /**
- * @class XmlTag
- * @brief XML Tree
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
+/**
+ * @class XmlTag
+ * @brief XML Tree
+ */
 class XmlTag
 {
     /**

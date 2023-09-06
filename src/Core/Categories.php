@@ -1,12 +1,5 @@
 <?php
 /**
- * Categories handler.
- *
- * Categories nested tree is based on excellent work of Kuzma Feskov
- * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
- *
- * @package Dotclear
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +14,12 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Exception;
 
+/**
+ * Categories handler.
+ *
+ * Categories nested tree is based on excellent work of Kuzma Feskov
+ * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
+ */
 class Categories
 {
     // Constants

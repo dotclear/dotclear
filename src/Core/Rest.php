@@ -1,10 +1,5 @@
 <?php
 /**
- * Rest server handler.
- *
- * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
- * Instance of this class is provided by App::rest().
-*
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +14,12 @@ use Dotclear\Helper\RestServer;
 use Dotclear\Interface\Core\RestInterface;
 use Exception;
 
+/**
+ * Rest server handler.
+ *
+ * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
+ * Instance of this class is provided by App::rest().
+ */
 class Rest extends RestServer implements RestInterface
 {
     public const XML_RESPONSE = 0;

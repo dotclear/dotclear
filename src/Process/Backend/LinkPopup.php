@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/popup_link.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -19,6 +17,9 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @since 2.27 Before as admin/popup_link.php
+ */
 class LinkPopup extends Process
 {
     public static function init(): bool

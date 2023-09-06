@@ -12,7 +12,6 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use form;
 

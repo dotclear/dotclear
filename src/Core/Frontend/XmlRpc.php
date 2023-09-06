@@ -1,8 +1,7 @@
 <?php
 /**
- * XmlRpc handler.
- *
  * @package Dotclear
+ * @subpackage Frontend
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -17,6 +16,9 @@ use Dotclear\Helper\Network\XmlRpc\IntrospectionServer;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
+/**
+ * XmlRpc handler.
+ */
 class XmlRpc extends IntrospectionServer
 {
     /**

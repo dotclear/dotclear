@@ -1,7 +1,5 @@
 <?php
 /**
- * @class Template
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -17,6 +15,9 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * @class Template
+ */
 class Template
 {
     // Constants

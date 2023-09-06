@@ -1,7 +1,5 @@
 <?php
 /**
- * @class UrlHandler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +11,9 @@ namespace Dotclear\Helper\Network;
 
 use Exception;
 
+/**
+ * @class UrlHandler
+ */
 class UrlHandler
 {
     /**
@@ -241,6 +242,7 @@ class UrlHandler
                     return;
                 }
             }
+
             // propagate exception, as it has not been processed by handlers
             throw $e;
         }

@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Hidden
- * @brief HTML Forms hidden field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Hidden
+ * @brief HTML Forms hidden field creation helpers
+ */
 class Hidden extends Input
 {
     /**

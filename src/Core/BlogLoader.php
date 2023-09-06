@@ -1,7 +1,5 @@
 <?php
 /**
- * Blog loader.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +13,9 @@ use dcCore;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 
+/**
+ * Blog loader.
+ */
 class BlogLoader implements BlogLoaderInterface
 {
     /** @var    BlogInterface  The current loaded blog instance */

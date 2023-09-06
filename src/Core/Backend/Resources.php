@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Backend help resources.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -14,6 +12,9 @@ namespace Dotclear\Core\Backend;
 
 use dcCore;
 
+/**
+ * Backend help resources.
+ */
 class Resources
 {
     /** @var    bool    Non global help context */

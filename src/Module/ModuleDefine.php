@@ -1,20 +1,21 @@
 <?php
 /**
- * Module defined properties.
- *
- * Provides an object to handle modules properties (themes or plugins).
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.25
  */
 declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+/**
+ * Module defined properties.
+ *
+ * Provides an object to handle modules properties (themes or plugins).
+ *
+ * @since 2.25
+ */
 class ModuleDefine
 {
     /** @var    int     Module state : enabled */

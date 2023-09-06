@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/update.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -24,6 +22,9 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/update.php
+ */
 class Update extends Process
 {
     public static function init(): bool

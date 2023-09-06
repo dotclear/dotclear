@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Table
- * @brief HTML Forms table creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Table
+ * @brief HTML Forms table creation helpers
+ */
 class Table extends Component
 {
     private const DEFAULT_ELEMENT = 'table';

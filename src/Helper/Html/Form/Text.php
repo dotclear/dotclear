@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Text
- * @brief HTML Forms text creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Text
+ * @brief HTML Forms text creation helpers
+ */
 class Text extends Component
 {
     private const DEFAULT_ELEMENT = '';

@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Message
- *
- * XLM-RPC helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Helper\Network\XmlRpc;
 use DOMDocument;
 use Exception;
 
+/**
+ * @class Message
+ *
+ * XLM-RPC helpers
+ */
 class Message
 {
     /**

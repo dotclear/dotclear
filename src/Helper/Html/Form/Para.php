@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Para
- * @brief HTML Forms paragraph creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Para
+ * @brief HTML Forms paragraph creation helpers
+ */
 class Para extends Component
 {
     private const DEFAULT_ELEMENT = 'p';

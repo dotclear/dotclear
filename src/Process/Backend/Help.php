@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/help.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -17,6 +15,9 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
+/**
+ * @since 2.27 Before as admin/help.php
+ */
 class Help extends Process
 {
     public static function init(): bool

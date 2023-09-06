@@ -1,9 +1,5 @@
 <?php
 /**
- * Modules handler
- *
- * Provides an object to handle modules (themes or plugins).
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -26,6 +22,11 @@ use Dotclear\Helper\L10n;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
+/**
+ * Modules handler
+ *
+ * Provides an object to handle modules (themes or plugins).
+ */
 class Modules implements ModulesInterface
 {
     public const PACKAGE_INSTALLED = 1;

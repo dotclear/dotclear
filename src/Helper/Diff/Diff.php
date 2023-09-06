@@ -1,10 +1,5 @@
 <?php
 /**
- * @class Diff
- * @brief Unified diff
- *
- * Diff utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +11,12 @@ namespace Dotclear\Helper\Diff;
 
 use Exception;
 
+/**
+ * @class Diff
+ * @brief Unified diff
+ *
+ * Diff utilities
+ */
 class Diff
 {
     // Constants

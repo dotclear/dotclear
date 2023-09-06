@@ -1,9 +1,5 @@
 <?php
 /**
- * @class TplNodeBlockDefinition
- *
- * Block node, for all <tpl:Tag>...</tpl:Tag>
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Helper\Html\Template;
 
 use ArrayObject;
 
+/**
+ * @class TplNodeBlockDefinition
+ *
+ * Block node, for all <tpl:Tag>...</tpl:Tag>
+ */
 class TplNodeBlockDefinition extends TplNodeBlock
 {
     /**

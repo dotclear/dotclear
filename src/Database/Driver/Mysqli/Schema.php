@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Schema
- *
- * MySQL Database schema Handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Driver\Mysqli;
 
 use Dotclear\Database\AbstractSchema;
 
+/**
+ * @class Schema
+ *
+ * MySQL Database schema Handler
+ */
 class Schema extends AbstractSchema
 {
     /**

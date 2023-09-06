@@ -1,7 +1,5 @@
 <?php
 /**
- * Text formater handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,9 @@ namespace Dotclear\Core;
 use Dotclear\App;
 use Dotclear\Interface\Core\FormaterInterface;
 
+/**
+ * Text formater handler.
+ */
 class Formater implements FormaterInterface
 {
     /** @var     array<string,array<string,callable>>    Stack of registered content formaters */

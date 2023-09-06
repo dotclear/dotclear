@@ -1,9 +1,5 @@
 <?php
 /**
- * Version handler.
- *
- * Handle id,version pairs through database.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -35,6 +31,9 @@ use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
 use Exception;
 
+/**
+ * This class describes a blog.
+ */
 class Blog implements BlogInterface
 {
     // deprecated since 2.28,

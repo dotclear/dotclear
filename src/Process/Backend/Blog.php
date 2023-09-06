@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/blog.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -28,6 +26,9 @@ use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * @since 2.27 Before as admin/blog.php
+ */
 class Blog extends Process
 {
     public static function init(): bool

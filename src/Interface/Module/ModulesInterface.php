@@ -1,9 +1,5 @@
 <?php
 /**
- * Version hanlder interface.
- *
- * Tracks core or modules id,version pairs.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,9 @@ namespace Dotclear\Interface\Module;
 
 use Dotclear\Module\ModuleDefine;
 
+/**
+ * Modules handler interface.
+ */
 interface ModulesInterface
 {
     /** @var    int     Return code for package installation */

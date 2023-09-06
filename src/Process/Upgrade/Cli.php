@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as inc/dbschema/upgrade-cli.php
- *
  * @package Dotclear
  * @subpackage Upgrade
  *
@@ -17,6 +15,9 @@ use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
 use Exception;
 
+/**
+ * @since 2.27 Before as inc/dbschema/upgrade-cli.php
+ */
 class Cli extends Process
 {
     public static function init(): bool

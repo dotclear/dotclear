@@ -1,9 +1,5 @@
 <?php
 /**
- * Behavior handler interface.
- *
- * Collect, stack, use callable callback.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+/**
+ * Behavior handler interface.
+ *
+ * Collect, stack, use callable callback.
+ */
 interface BehaviorInterface
 {
     /**

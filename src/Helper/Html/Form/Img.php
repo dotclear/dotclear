@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Img
- * @brief HTML Forms img creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Img
+ * @brief HTML Forms img creation helpers
+ */
 class Img extends Component
 {
     private const DEFAULT_ELEMENT = 'img';

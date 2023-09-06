@@ -1,13 +1,5 @@
 <?php
 /**
- * @class ClientMulticall
- *
- * Multicall XML-RPC Client
- *
- * This class library is fully based on Simon Willison's IXR library (http://scripts.incutio.com/xmlrpc/).
- *
- * Multicall client using system.multicall method of server.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -17,6 +9,15 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Network\XmlRpc;
 
+/**
+ * @class ClientMulticall
+ *
+ * Multicall XML-RPC Client
+ *
+ * This class library is fully based on Simon Willison's IXR library (http://scripts.incutio.com/xmlrpc/).
+ *
+ * Multicall client using system.multicall method of server.
+ */
 class ClientMulticall extends Client
 {
     /**

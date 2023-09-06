@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/preferences.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -26,6 +24,9 @@ use Dotclear\Helper\Text;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/preferences.php
+ */
 class UserPreferences extends Process
 {
     public static function init(): bool

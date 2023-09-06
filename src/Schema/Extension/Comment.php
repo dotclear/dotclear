@@ -1,13 +1,5 @@
 <?php
 /**
- * @brief Dotclear post record helpers
- *
- * This class adds new methods to database post results.
- * You can call them on every record comming from Blog::getPosts and similar
- * methods.
- *
- * @warning You should not give the first argument (usualy $rs) of every described function.
- *
  * @package Dotclear
  * @subpackage Core
  *
@@ -25,15 +17,13 @@ use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
 /**
- * @ingroup DC_CORE
- * @brief Dotclear comment Record helpers.
+ * @brief Dotclear comment record helpers
  *
  * This class adds new methods to database comment results.
  * You can call them on every record comming from Blog::getComments and similar
  * methods.
  *
- * @warning You should not give the first argument (usualy $rs) of every described
- * function.
+ * @warning You should not give the first argument (usualy $rs) of every described function.
  */
 class Comment
 {

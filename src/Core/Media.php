@@ -1,7 +1,5 @@
 <?php
 /**
- * Media items handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -32,6 +30,9 @@ use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Exception;
 
+/**
+ * Media items handler.
+ */
 class Media extends Manager implements MediaInterface
 {
     // Constants

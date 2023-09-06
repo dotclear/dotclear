@@ -1,10 +1,5 @@
 <?php
 /**
- * @class TidyDiffLine
- * @brief TIDY diff line
- *
- * A diff line representation. Used by a TIDY chunk.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +9,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Diff;
 
+/**
+ * @class TidyDiffLine
+ * @brief TIDY diff line
+ *
+ * A diff line representation. Used by a TIDY chunk.
+ */
 class TidyDiffLine
 {
     /**

@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Email
- * @brief HTML Forms email field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Email
+ * @brief HTML Forms email field creation helpers
+ */
 class Email extends Input
 {
     /**

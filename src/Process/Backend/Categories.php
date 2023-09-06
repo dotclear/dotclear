@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/cateogires.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -21,6 +19,9 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/cateogires.php
+ */
 class Categories extends Process
 {
     public static function init(): bool

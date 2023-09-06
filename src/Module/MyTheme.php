@@ -1,16 +1,10 @@
 <?php
 /**
- * @brief Theme My module class.
- *
- * A theme My class must extend this class.
- *
  * @package Dotclear
  * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.27
  */
 declare(strict_types=1);
 
@@ -20,9 +14,11 @@ use Dotclear\App;
 use Dotclear\Helper\Network\Http;
 
 /**
- * Theme module helper.
+ * @brief Theme My module class.
  *
- * My class of module of type "theme" SHOULD extends this class.
+ * A theme My class must extend this class.
+ *
+ * @since 2.27
  */
 abstract class MyTheme extends MyModule
 {

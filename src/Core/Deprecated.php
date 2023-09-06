@@ -1,9 +1,5 @@
 <?php
 /**
- * Deprecated logger handler.
- *
- * @since 2.26
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -22,6 +18,11 @@ use Dotclear\Interface\Core\LogInterface;
 use Exception;
 use Throwable;
 
+/**
+ * Deprecated logger handler.
+ *
+ * @since 2.26
+ */
 class Deprecated extends HelperDeprecated
 {
     /** @var    string  The log table name for deprecated */

@@ -1,9 +1,5 @@
 <?php
 /**
- * Core factory interface.
- *
- * Core factory interface protect Core compatibility.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -17,6 +13,11 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Interface\Module\ModulesInterface;
 
+/**
+ * Core factory interface.
+ *
+ * Core factory interface protect Core compatibility.
+ */
 interface FactoryInterface
 {
     //public function __construct(Container $container);

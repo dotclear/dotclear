@@ -1,20 +1,10 @@
 <?php
 /**
- * @brief Generic My module class.
- *
- * This class is an helper to have short access to
- * module properties and common requiremets.
- *
- * A module My class must not extend this class
- * but must extend MyPlugin or MyTheme class.
- *
  * @package Dotclear
  * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.27
  */
 declare(strict_types=1);
 
@@ -29,10 +19,15 @@ use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
 /**
- * Module helper.
+ * @brief Generic My module class.
  *
- * Module My class MUST NOT extend this class
- * but MyPlugin or MyTheme.
+ * This class is an helper to have short access to
+ * module properties and common requiremets.
+ *
+ * A module My class must not extend this class
+ * but must extend MyPlugin or MyTheme class.
+ *
+ * @since 2.27
  */
 abstract class MyModule
 {

@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Optgroup
- * @brief HTML Forms optgroup creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Optgroup
+ * @brief HTML Forms optgroup creation helpers
+ */
 class Optgroup extends Component
 {
     private const DEFAULT_ELEMENT = 'optgroup';

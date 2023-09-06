@@ -1,7 +1,5 @@
 <?php
 /**
- * Wiki and HTML filter handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +17,9 @@ use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\FilterInterface;
 
+/**
+ * Wiki and HTML filter handler.
+ */
 class Filter implements FilterInterface
 {
     /** @var    WikiToHtml TH ewiki instance */

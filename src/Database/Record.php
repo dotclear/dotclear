@@ -1,13 +1,5 @@
 <?php
 /**
- * @class Record
- *
- * Query Result Record Class
- *
- * This class acts as an iterator over database query result. It does not fetch
- * all results on instantiation and thus, depending on database engine, should not
- * fill PHP process memory.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +13,15 @@ use Countable;
 use Iterator;
 use ReflectionClass;
 
+/**
+ * @class Record
+ *
+ * Query Result Record Class
+ *
+ * This class acts as an iterator over database query result. It does not fetch
+ * all results on instantiation and thus, depending on database engine, should not
+ * fill PHP process memory.
+ */
 class Record implements Iterator, Countable
 {
     /**

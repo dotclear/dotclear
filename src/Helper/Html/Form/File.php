@@ -1,8 +1,5 @@
 <?php
 /**
- * @class File
- * @brief HTML Forms file field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class File
+ * @brief HTML Forms file field creation helpers
+ */
 class File extends Input
 {
     /**

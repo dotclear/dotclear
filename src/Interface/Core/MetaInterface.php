@@ -1,7 +1,5 @@
 <?php
 /**
- * Meta hanlder interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +13,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
+/**
+ * Meta hanlder interface.
+ */
 interface MetaInterface
 {
     /** @var    string  The Meta database table name */

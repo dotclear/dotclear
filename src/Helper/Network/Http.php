@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Http
- *
- * HTTP utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Helper\Network;
 use Dotclear\Helper\Crypt;
 use Exception;
 
+/**
+ * @class Http
+ *
+ * HTTP utilities
+ */
 class Http
 {
     /**

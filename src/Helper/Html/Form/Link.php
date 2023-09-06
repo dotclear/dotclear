@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Link
- * @brief HTML Forms note creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Link
+ * @brief HTML Forms note creation helpers
+ */
 class Link extends Component
 {
     public const DEFAULT_ELEMENT = 'a';

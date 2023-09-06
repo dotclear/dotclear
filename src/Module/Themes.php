@@ -1,16 +1,9 @@
 <?php
 /**
- * Themes specific handler
- *
- * An instance of this class is provided by App::themes()
- * and used for themes.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.6
  */
 declare(strict_types=1);
 
@@ -20,6 +13,14 @@ use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Exception;
 
+/**
+ * Themes specific handler
+ *
+ * An instance of this class is provided by App::themes()
+ * and used for themes.
+ *
+ * @since 2.6
+ */
 class Themes extends Modules
 {
     /**

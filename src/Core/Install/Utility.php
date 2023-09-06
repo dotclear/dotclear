@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage install
  *
- * Utility class for install context.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -17,6 +15,9 @@ use Dotclear\Process\Install\Install;
 use Dotclear\Process\Install\Wizard;
 use Dotclear\Core\Process;
 
+/**
+ * Utility class for install context.
+ */
 class Utility extends Process
 {
     public static function init(): bool

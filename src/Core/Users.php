@@ -1,7 +1,5 @@
 <?php
 /**
- * Users handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -23,6 +21,9 @@ use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Schema\Extension\User;
 use Exception;
 
+/**
+ * Users handler.
+ */
 class Users implements UsersInterface
 {
     public function getUser(string $id): MetaRecord

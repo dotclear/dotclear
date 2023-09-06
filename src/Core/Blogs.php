@@ -1,7 +1,5 @@
 <?php
 /**
- * Blogs handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +19,9 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BlogsInterface;
 use Exception;
 
+/**
+ * Blogs handler.
+ */
 class Blogs implements BlogsInterface
 {
     public function getAllBlogStatus(): array

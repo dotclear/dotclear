@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Thead
- * @brief HTML Forms Thead creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Thead
+ * @brief HTML Forms Thead creation helpers
+ */
 class Thead extends Component
 {
     private const DEFAULT_ELEMENT = 'thead';

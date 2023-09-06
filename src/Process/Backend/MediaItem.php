@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/media_item.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -25,6 +23,9 @@ use Exception;
 use form;
 use SimpleXMLElement;
 
+/**
+ * @since 2.27 Before as admin/media_item.php
+ */
 class MediaItem extends Process
 {
     public static function init(): bool

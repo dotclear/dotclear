@@ -3,12 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Helper for admin list of plugins.
- *
- * Provides an object to parse XML feed of modules from a repository.
- *
- * @since 2.6
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -31,6 +25,13 @@ use Dotclear\Module\Store;
 use Exception;
 use form;
 
+/**
+ * Helper for admin list of plugins.
+ *
+ * Provides an object to parse XML feed of modules from a repository.
+ *
+ * @since 2.6
+ */
 class ModulesList
 {
     /**

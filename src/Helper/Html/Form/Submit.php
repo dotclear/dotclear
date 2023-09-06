@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Submit
- * @brief HTML Forms password field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Submit
+ * @brief HTML Forms password field creation helpers
+ */
 class Submit extends Input
 {
     /**

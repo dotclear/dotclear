@@ -1,10 +1,5 @@
 <?php
 /**
- * @class TplNode
- *
- * Template nodes, for parsing purposes
- * Generic list node, this one may only be instanciated once for root element
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +11,12 @@ namespace Dotclear\Helper\Html\Template;
 
 use ArrayObject;
 
+/**
+ * @class TplNode
+ *
+ * Template nodes, for parsing purposes
+ * Generic list node, this one may only be instanciated once for root element
+ */
 class TplNode
 {
     /**

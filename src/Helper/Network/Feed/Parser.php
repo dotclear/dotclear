@@ -1,10 +1,5 @@
 <?php
 /**
- * @class Parser
- *
- * This class can read RSS 1.0, RSS 2.0, Atom 0.3 and Atom 1.0 feeds. Works with
- * {@link Reader}
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -17,6 +12,12 @@ namespace Dotclear\Helper\Network\Feed;
 use SimpleXMLElement;
 use stdClass;
 
+/**
+ * @class Parser
+ *
+ * This class can read RSS 1.0, RSS 2.0, Atom 0.3 and Atom 1.0 feeds. Works with
+ * {@link Reader}
+ */
 class Parser
 {
     /**

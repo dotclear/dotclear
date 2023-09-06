@@ -1,9 +1,5 @@
 <?php
 /**
- * @class JoinStatement
- *
- * Join (sub)Statement : small utility to build join query fragments
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 
+/**
+ * @class JoinStatement
+ *
+ * Join (sub)Statement : small utility to build join query fragments
+ */
 class JoinStatement extends SqlStatement
 {
     protected $type;

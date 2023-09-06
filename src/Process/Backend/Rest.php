@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/services.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -26,6 +24,9 @@ use Dotclear\Module\Store;
 use Dotclear\Plugin\antispam\Antispam;
 use Exception;
 
+/**
+ * @since 2.27 Before as admin/services.php
+ */
 class Rest extends Process
 {
     public static function init(): bool

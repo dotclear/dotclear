@@ -1,9 +1,5 @@
 <?php
 /**
- * @class SelectStatement
- *
- * Select Statement : small utility to build select queries
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Database\Statement;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * @class SelectStatement
+ *
+ * Select Statement : small utility to build select queries
+ */
 class SelectStatement extends SqlStatement
 {
     protected $join;

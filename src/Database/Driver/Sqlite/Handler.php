@@ -1,11 +1,5 @@
 <?php
 /**
- * @class Handler
- *
- * SQLite Database handler
- *
- * This class adds a method for PostgreSQL only: {@link callFunction()}.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -22,6 +16,11 @@ use Exception;
 use PDO;
 use PDOStatement;
 
+/**
+ * @class Handler
+ *
+ * SQLite Database handler
+ */
 class Handler extends AbstractHandler
 {
     protected $__driver        = 'sqlite';

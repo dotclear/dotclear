@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Color
- * @brief HTML Forms color field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Color
+ * @brief HTML Forms color field creation helpers
+ */
 class Color extends Input
 {
     /**

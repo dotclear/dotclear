@@ -1,7 +1,5 @@
 <?php
 /**
- * Rest server hanlder interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -11,6 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+/**
+ * Rest server hanlder interface.
+ */
 interface RestInterface
 {
     /** @var    int     XML response format */

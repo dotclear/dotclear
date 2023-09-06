@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Posts list filters form helper.
- *
- * @since 2.20
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -21,6 +17,11 @@ use Dotclear\Core\Utils;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * Posts list filters form helper.
+ *
+ * @since 2.20
+ */
 class FilterPosts extends Filters
 {
     protected $post_type = 'post';

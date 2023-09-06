@@ -1,5 +1,18 @@
 <?php
 /**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network;
+
+use Dotclear\Helper\Network\Socket\Socket;
+use Exception;
+
+/**
  * @class HttpClient
  *
  * HTTP Client
@@ -31,19 +44,7 @@
  * - SSL support (if possible)
  * - Handles redirects on other hosts
  * - Configurable output
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
  */
-declare(strict_types=1);
-
-namespace Dotclear\Helper\Network;
-
-use Dotclear\Helper\Network\Socket\Socket;
-use Exception;
-
 class HttpClient extends Socket
 {
     /**

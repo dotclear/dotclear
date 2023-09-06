@@ -1,11 +1,5 @@
 <?php
 /**
- * @brief User prefs handler
- *
- * UserPreferences provides user preferences management. This class instance exists as
- * Auth $prefs property. You should create a new prefs instance when
- * updating another user prefs.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +15,13 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Exception;
 
+/**
+ * @brief User prefs handler
+ *
+ * UserPreferences provides user preferences management. This class instance exists as
+ * Auth $prefs property. You should create a new prefs instance when
+ * updating another user prefs.
+ */
 class UserPreferences
 {
     /** @var    string  Preferences table name */

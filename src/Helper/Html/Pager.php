@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Pager
- * @brief Implements a pager helper to browse any type of results
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
+/**
+ * @class Pager
+ * @brief Implements a pager helper to browse any type of results
+ */
 class Pager
 {
     /**

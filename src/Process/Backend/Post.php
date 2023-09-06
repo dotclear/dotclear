@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/post.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -28,6 +26,9 @@ use Dotclear\Helper\Text;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/post.php
+ */
 class Post extends Process
 {
     public static function init(): bool

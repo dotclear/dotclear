@@ -1,9 +1,5 @@
 <?php
 /**
- * @class XmlRpcException
- *
- * XLM-RPC helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Helper\Network\XmlRpc;
 
 use Exception;
 
+/**
+ * @class XmlRpcException
+ *
+ * XLM-RPC helpers
+ */
 class XmlRpcException extends Exception
 {
     /**

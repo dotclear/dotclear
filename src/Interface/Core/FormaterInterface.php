@@ -1,7 +1,5 @@
 <?php
 /**
- * Text formater handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -11,6 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+/**
+ * Text formater handler interface.
+ */
 interface FormaterInterface
 {
     /**

@@ -1,21 +1,22 @@
 <?php
 /**
- * Plugins specific handler
- *
- * An instance of this class is provided by App::plugins()
- * and used for plugins.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.6
  */
 declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+/**
+ * Plugins specific handler
+ *
+ * An instance of this class is provided by App::plugins()
+ * and used for plugins.
+ *
+ * @since 2.6
+ */
 class Plugins extends Modules
 {
     protected $type = 'plugin';

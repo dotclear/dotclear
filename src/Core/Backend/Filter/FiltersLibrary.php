@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Admin list generic filters library.
- *
- * @since 2.20
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -16,6 +12,11 @@ namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\App;
 
+/**
+ * Admin list generic filters library.
+ *
+ * @since 2.20
+ */
 class FiltersLibrary
 {
     /**

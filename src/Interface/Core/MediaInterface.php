@@ -1,7 +1,5 @@
 <?php
 /**
- * Media manager interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +13,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Helper\File\File;
 use Exception;
 
+/**
+ * Media manager interface.
+ */
 interface MediaInterface
 {
     /** @var     string  The Media database table name */

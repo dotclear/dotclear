@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Fieldset
- * @brief HTML Forms fieldset creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Fieldset
+ * @brief HTML Forms fieldset creation helpers
+ */
 class Fieldset extends Component
 {
     private const DEFAULT_ELEMENT = 'fieldset';

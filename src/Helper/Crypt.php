@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Crypt
- *
- * Cryptographic helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper;
 
+/**
+ * @class Crypt
+ *
+ * Cryptographic helpers
+ */
 class Crypt
 {
     /**

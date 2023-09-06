@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Utility class for admin menu stack.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -15,6 +13,9 @@ namespace Dotclear\Core\Backend;
 use ArrayObject;
 use Dotclear\App;
 
+/**
+ * Utility class for admin menu stack.
+ */
 class Menus extends ArrayObject
 {
     // Menu sections

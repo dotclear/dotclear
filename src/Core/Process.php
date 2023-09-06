@@ -1,11 +1,5 @@
 <?php
 /**
- * @brief Modules handler
- *
- * Provides an object to handle process in three steps:
- * init ? => process ? => render
- * (Before as modules file in dcModules::loadNsFile)
- *
  * @package Dotclear
  * @subpackage Core
  *
@@ -16,6 +10,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+/**
+ * @brief Modules handler
+ *
+ * Provides an object to handle process in three steps:
+ * init ? => process ? => render
+ * (Before as modules file in dcModules::loadNsFile)
+ */
 abstract class Process
 {
     /**

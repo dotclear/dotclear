@@ -1,9 +1,5 @@
 <?php
 /**
- * @class RestServer
- *
- * A very simple REST server implementation
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Helper;
 use Dotclear\Helper\Html\XmlTag;
 use Exception;
 
+/**
+ * @class RestServer
+ *
+ * A very simple REST server implementation
+ */
 class RestServer
 {
     // Constants

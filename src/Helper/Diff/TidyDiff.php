@@ -1,10 +1,5 @@
 <?php
 /**
- * @class TidyDiff
- * @brief TIDY diff
- *
- * A TIDY diff representation
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +9,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Diff;
 
+/**
+ * @class TidyDiff
+ * @brief TIDY diff
+ *
+ * A TIDY diff representation
+ */
 class TidyDiff
 {
     // Constants

@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/media.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -19,7 +17,6 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
@@ -27,6 +24,9 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/media.php
+ */
 class Media extends Process
 {
     public static function init(): bool

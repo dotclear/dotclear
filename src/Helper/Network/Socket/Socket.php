@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Socket
- *
- * This class handles network socket through an iterator.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Helper\Network\Socket;
 
 use Exception;
 
+/**
+ * @class Socket
+ *
+ * This class handles network socket through an iterator.
+ */
 class Socket
 {
     /**
