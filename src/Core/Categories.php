@@ -2,11 +2,6 @@
 /**
  * Categories handler.
  *
- * Categories nested tree is based on excellent work of Kuzma Feskov
- * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
- *
- * @package Dotclear
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,55 +14,49 @@ namespace Dotclear\Core;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Core\CategoriesInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
-class Categories
+/**
+ * Categories handler.
+ *
+ * Categories nested tree is based on excellent work of Kuzma Feskov
+ * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
+ */
+class Categories implements CategoriesInterface
 {
-    // Constants
-
-    /**  @var   string  Categories table name */
     public const CATEGORY_TABLE_NAME = 'category';
 
+    /** @var    ConnectionInterface     The connetion handler */
+    protected ConnectionInterface $con;
+
     /** @var    string  Table name */
-    protected $table;
+    protected string $table;
 
     /** @var    string  Left cat field name (integer type) */
-    protected $f_left = 'cat_lft';
+    protected string $f_left = 'cat_lft';
 
     /** @var    string  Right cat field name (integer type) */
-    protected $f_right = 'cat_rgt';
+    protected string $f_right = 'cat_rgt';
 
     /** @var    string  Cat ID field name (integer type) */
-    protected $f_id = 'cat_id';
+    protected string $f_id = 'cat_id';
 
     /**
-     * Constructs a new instance.
+     * Constructor.
      */
     public function __construct()
     {
-        $this->table = App::con()->prefix() . self::CATEGORY_TABLE_NAME;
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
     }
 
-    /**
-     * Open a database table cursor.
-     *
-     * @return  Cursor  The category database table cursor
-     */
     public function openCategoryCursor(): Cursor
     {
-        return App::con()->openCursor(App::con()->prefix() . self::CATEGORY_TABLE_NAME);
+        return $this->con->openCursor($this->con->prefix() . self::CATEGORY_TABLE_NAME);
     }
 
-    /**
-     * Gets the category children.
-     *
-     * @param   int     $start      The start
-     * @param   int     $id         The identifier
-     * @param   string  $sort       The sort
-     * @param   array   $fields     The fields
-     *
-     * @return  MetaRecord  The children.
-     */
     public function getChildren(int $start = 0, int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
     {
         $fields = $this->getFields($fields, 'C2.');
@@ -88,53 +77,23 @@ class Categories
 
         $sql = sprintf($sql, $from, $where, $having);
 
-        return new MetaRecord(App::con()->select($sql));
+        return new MetaRecord($this->con->select($sql));
     }
 
-    /**
-     * Gets the parents.
-     *
-     * @param   int     $id         The category identifier
-     * @param   array   $fields     The fields
-     *
-     * @return  MetaRecord  The parents.
-     */
     public function getParents(int $id, array $fields = []): MetaRecord
     {
-        return new MetaRecord(App::con()->select(
+        return new MetaRecord($this->con->select(
             'SELECT C1.' . $this->f_id . ' ' . $this->getFields($fields, 'C1.') . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' ASC '
         ));
     }
 
-    /**
-     * Gets the parent.
-     *
-     * @param   int     $id         The category identifier
-     * @param   array   $fields     The fields
-     *
-     * @return  MetaRecord  The parent.
-     */
     public function getParent(int $id, array $fields = []): MetaRecord
     {
-        return new MetaRecord(App::con()->select(
-            'SELECT C1.' . $this->f_id . ' ' . $this->getFields($fields, 'C1.') . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . App::con()->limit(1)
+        return new MetaRecord($this->con->select(
+            'SELECT C1.' . $this->f_id . ' ' . $this->getFields($fields, 'C1.') . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . $this->con->limit(1)
         ));
     }
 
-    /* ------------------------------------------------
-     * Tree manipulations
-     * ---------------------------------------------- */
-
-    /**
-     * Add a node.
-     *
-     * @param   mixed   $data       The data
-     * @param   int     $target     The target
-     *
-     * @throws  Exception
-     *
-     * @return  mixed
-     */
     public function addNode($data, int $target = 0)
     {
         if (!is_array($data) && !($data instanceof Cursor)) {
@@ -151,13 +110,13 @@ class Categories
         }
 
         # We want to put it at the end
-        App::con()->writeLock($this->table);
+        $this->con->writeLock($this->table);
 
         try {
-            $rs = new MetaRecord(App::con()->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
+            $rs = new MetaRecord($this->con->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
             $id = (int) $rs->n_id;
 
-            $rs = new MetaRecord(App::con()->select(
+            $rs = new MetaRecord($this->con->select(
                 'SELECT MAX(' . $this->f_right . ') as n_r ' .
                 'FROM ' . $this->table .
                 $this->getCondition('WHERE')
@@ -169,7 +128,7 @@ class Categories
             $data->{$this->f_right} = $last + 2;
 
             $data->insert();
-            App::con()->unlock();
+            $this->con->unlock();
 
             try {
                 $this->setNodeParent($id + 1, $target);
@@ -179,44 +138,28 @@ class Categories
                 // We don't mind error in this case
             }
         } catch (Exception $e) {
-            App::con()->unlock();
+            $this->con->unlock();
 
             throw $e;
         }
     }
 
-    /**
-     * Update position.
-     *
-     * @param   int     $id     The identifier
-     * @param   int     $left   The left
-     * @param   int     $right  The right
-     */
-    public function updatePosition(int $id, int $left, int $right)
+    public function updatePosition(int $id, int $left, int $right): void
     {
         $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . $left . ', ' . $this->f_right . ' = ' . $right . ' WHERE ' . $this->f_id . ' = ' . $id . $this->getCondition();
 
-        App::con()->begin();
+        $this->con->begin();
 
         try {
-            App::con()->execute($sql);
-            App::con()->commit();
+            $this->con->execute($sql);
+            $this->con->commit();
         } catch (Exception $e) {
-            App::con()->rollback();
+            $this->con->rollback();
 
             throw $e;
         }
     }
-
-    /**
-     * Delete a node.
-     *
-     * @param   int     $node           The node
-     * @param   bool    $keep_children  keep children
-     *
-     * @throws  Exception
-     */
-    public function deleteNode(int $node, bool $keep_children = true)
+    public function deleteNode(int $node, bool $keep_children = true): void
     {
         $rs = $this->getChildren(0, $node);
         if ($rs->isEmpty()) {
@@ -226,63 +169,52 @@ class Categories
         $node_right = (int) $rs->{$this->f_right};
 
         try {
-            App::con()->begin();
+            $this->con->begin();
 
             if ($keep_children) {
-                App::con()->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_id . ' = ' . $node);
+                $this->con->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_id . ' = ' . $node);
 
                 $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE ' . 'WHEN ' . $this->f_right . ' BETWEEN ' . $node_left . ' AND ' . $node_right . ' ' . 'THEN ' . $this->f_right . ' - 1 ' . 'WHEN ' . $this->f_right . ' > ' . $node_right . ' ' . 'THEN ' . $this->f_right . ' - 2 ' . 'ELSE ' . $this->f_right . ' ' . 'END, ' . $this->f_left . ' = CASE ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right . ' ' . 'THEN ' . $this->f_left . ' - 1 ' . 'WHEN ' . $this->f_left . ' > ' . $node_right . ' ' . 'THEN ' . $this->f_left . ' - 2 ' . 'ELSE ' . $this->f_left . ' ' . 'END ' . 'WHERE ' . $this->f_right . ' > ' . $node_left . $this->getCondition();
 
-                App::con()->execute($sql);
+                $this->con->execute($sql);
             } else {
-                App::con()->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right);
+                $this->con->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right);
 
                 $node_delta = $node_right - $node_left + 1;
                 $sql        = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = CASE ' . 'WHEN ' . $this->f_left . ' > ' . $node_left . ' ' . 'THEN ' . $this->f_left . ' - (' . $node_delta . ') ' . 'ELSE ' . $this->f_left . ' ' . 'END, ' . $this->f_right . ' = CASE ' . 'WHEN ' . $this->f_right . ' > ' . $node_left . ' ' . 'THEN ' . $this->f_right . ' - (' . $node_delta . ') ' . 'ELSE ' . $this->f_right . ' ' . 'END ' . 'WHERE ' . $this->f_right . ' > ' . $node_right . $this->getCondition();
             }
 
-            App::con()->commit();
+            $this->con->commit();
         } catch (Exception $e) {
-            App::con()->rollback();
+            $this->con->rollback();
 
             throw $e;
         }
     }
 
-    /**
-     * Reset order.
-     */
     public function resetOrder(): void
     {
-        $rs = new MetaRecord(App::con()->select(
+        $rs = new MetaRecord($this->con->select(
             'SELECT ' . $this->f_id . ' ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE') . 'ORDER BY ' . $this->f_left . ' ASC '
         ));
         $lft = 2;
-        App::con()->begin();
+        $this->con->begin();
 
         try {
             while ($rs->fetch()) {
-                App::con()->execute(
+                $this->con->execute(
                     'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . ($lft++) . ', ' . $this->f_right . ' = ' . ($lft++) . ' ' . 'WHERE ' . $this->f_id . ' = ' . (int) $rs->{$this->f_id} . ' ' . $this->getCondition()
                 );
             }
-            App::con()->commit();
+            $this->con->commit();
         } catch (Exception $e) {
-            App::con()->rollback();
+            $this->con->rollback();
 
             throw $e;
         }
     }
 
-    /**
-     * Set the node parent.
-     *
-     * @param   int     $node       The node
-     * @param   int     $target     The target
-     *
-     * @throws  Exception
-     */
-    public function setNodeParent(int $node, int $target = 0)
+    public function setNodeParent(int $node, int $target = 0): void
     {
         if ($node === $target) {
             return;
@@ -299,7 +231,7 @@ class Categories
         if ($target > 0) {
             $rs = $this->getChildren(0, $target);
         } else {
-            $rs = new MetaRecord(App::con()->select(
+            $rs = new MetaRecord($this->con->select(
                 'SELECT MIN(' . $this->f_left . ')-1 AS ' . $this->f_left . ', MAX(' . $this->f_right . ')+1 AS ' . $this->f_right . ', 0 AS level ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE')
             ));
         }
@@ -323,19 +255,10 @@ class Categories
         }
         $sql .= ' ' . $this->getCondition();
 
-        App::con()->execute($sql);
+        $this->con->execute($sql);
     }
 
-    /**
-     * Set the node position.
-     *
-     * @param   int     $nodeA      The node a
-     * @param   int     $nodeB      The node b
-     * @param   string  $position   The position
-     *
-     * @throws  Exception
-     */
-    public function setNodePosition(int $nodeA, int $nodeB, string $position = 'after')
+    public function setNodePosition(int $nodeA, int $nodeB, string $position = 'after'): void
     {
         $rs = $this->getChildren(0, $nodeA);
         if ($rs->isEmpty()) {
@@ -381,7 +304,7 @@ class Categories
         }
 
         $sql .= $this->getCondition();
-        App::con()->execute($sql);
+        $this->con->execute($sql);
     }
 
     /**
@@ -394,7 +317,7 @@ class Categories
      */
     protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
-        return ' ' . $start . ' ' . $prefix . "blog_id = '" . App::con()->escape(App::blog()->id()) . "' ";
+        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape(App::blog()->id()) . "' ";
     }
 
     /**

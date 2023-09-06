@@ -28,6 +28,7 @@ interface FactoryInterface
     public function blogWorkspace(): BlogWorkspaceInterface;
     public function blogs(): BlogsInterface;
     public function con(): ConnectionInterface;
+    public function categories(): CategoriesInterface;
     public function error(): ErrorInterface;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;

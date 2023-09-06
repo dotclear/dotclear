@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use ArrayObject;
-use Dotclear\Core\Categories;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -296,9 +295,9 @@ interface BlogInterface
     /**
      * Get Categories instance.
      *
-     * @return  Categories
+     * @return  CategoriesInterface
      */
-    public function categories(): Categories;
+    public function categories(): CategoriesInterface;
 
     /**
      * Retrieves categories.
