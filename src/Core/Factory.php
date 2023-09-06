@@ -36,6 +36,8 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
@@ -198,6 +200,16 @@ class Factory implements FactoryInterface
     public function users(): UsersInterface
     {
         return new Users();
+    }
+
+    public function userPreferences(string $user_id, ?string $workspace): UserPreferencesInterface
+    {
+        return new UserPreferences(user_id: $user_id, workspace: $workspace);
+    }
+
+    public function userWorkspace(): UserWorkspaceInterface
+    {
+        return new UserWorkspace();
     }
 
     public function version(): VersionInterface

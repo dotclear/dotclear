@@ -46,5 +46,7 @@ interface FactoryInterface
     public function themes(): ModulesInterface;
     public function url(): Url;
     public function users(): UsersInterface;
+    public function userPreferences(string $user_id, ?string $workspace): UserPreferencesInterface;
+    public function userWorkspace(): UserWorkspaceInterface;
     public function version(): VersionInterface;
 }

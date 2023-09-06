@@ -32,6 +32,8 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
@@ -254,6 +256,16 @@ class Container
     public static function users(): UsersInterface
     {
         return self::$instance->get('users');
+    }
+
+    public static function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface
+    {
+        return self::$instance->get('userPreferences', reload: true, user_id: $user_id, workspace: $workspace);
+    }
+
+    public static function userWorkspace(): UserWorkspaceInterface
+    {
+        return self::$instance->get('userWorkspace');
     }
 
     public static function version(): VersionInterface

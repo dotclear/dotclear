@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\importExport;
 use Exception;
 use Dotclear\App;
 use Dotclear\Core\Trackback;
-use Dotclear\Core\UserWorkspace;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
@@ -104,7 +103,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
         $this->cur_setting     = App::blogWorkspace()->openBlogWorkspaceCursor();
         $this->cur_user        = App::auth()->openUserCursor();
-        $this->cur_pref        = $this->con->openCursor($this->prefix . UserWorkspace::WS_TABLE_NAME);
+        $this->cur_pref        = App::userWorkspace()->openUserWorkspaceCursor();
         $this->cur_permissions = App::auth()->openPermCursor();
         $this->cur_post        = App::blog()->openPostCursor();
         $this->cur_meta        = App::meta()->openMetaCursor();
@@ -774,7 +773,7 @@ class FlatImportV2 extends FlatBackup
     private function prefExists($pref_ws, $pref_id, $user_id)
     {
         $strReq = 'SELECT pref_id,pref_ws,user_id ' .
-        'FROM ' . $this->prefix . UserWorkspace::WS_TABLE_NAME . ' ' .
+        'FROM ' . $this->prefix . App::userWorkspace()::WS_TABLE_NAME . ' ' .
         "WHERE pref_id = '" . $this->con->escape($pref_id) . "' " .
         "AND pref_ws = '" . $this->con->escape($pref_ws) . "' ";
         if (!$user_id) {
