@@ -15,7 +15,6 @@ namespace Dotclear\Plugin\widgets;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -103,9 +102,9 @@ class Manage extends Process
                 }
 
                 try {
-                    My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), BlogWorkspace::NS_ARRAY);
-                    My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), BlogWorkspace::NS_ARRAY);
-                    My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), BlogWorkspace::NS_ARRAY);
+                    My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
+                    My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
+                    My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
                     App::blog()->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
@@ -187,9 +186,9 @@ class Manage extends Process
                 App::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], Widgets::$widgets);
                 App::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], Widgets::$widgets);
 
-                My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), BlogWorkspace::NS_ARRAY);
-                My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), BlogWorkspace::NS_ARRAY);
-                My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), BlogWorkspace::NS_ARRAY);
+                My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
+                My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
+                My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
                 App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));

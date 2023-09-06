@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use ArrayObject;
-use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Categories;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -160,9 +159,9 @@ interface BlogInterface
     /**
      * Get blog settings instance.
      *
-     * @return  BlogSettings  The settings instance
+     * @return  BlogSettingsInterface  The settings instance
      */
-    public function settings(): BlogSettings;
+    public function settings(): BlogSettingsInterface;
 
     /**
      * Get blog themes path.

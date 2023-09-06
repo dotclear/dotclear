@@ -24,34 +24,33 @@ use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Module\ModulesInterface;
-use Dotclear\Module\ModuleDefine;
 use Exception;
 
 class Modules implements ModulesInterface
 {
     public const PACKAGE_INSTALLED = 1;
-    public const PACKAGE_UPDATED = 2;
+    public const PACKAGE_UPDATED   = 2;
 
-    public const MODULE_FILE_INSTALL = '_install.php';
-    public const MODULE_FILE_INIT = '_init.php';
-    public const MODULE_FILE_DEFINE = '_define.php';
-    public const MODULE_FILE_PREPEND = '_prepend.php';
-    public const MODULE_FILE_ADMIN = '_admin.php';
-    public const MODULE_FILE_CONFIG = '_config.php';
-    public const MODULE_FILE_MANAGE = 'index.php';
-    public const MODULE_FILE_PUBLIC = '_public.php';
-    public const MODULE_FILE_XMLRPC = '_xmlrpc.php';
+    public const MODULE_FILE_INSTALL  = '_install.php';
+    public const MODULE_FILE_INIT     = '_init.php';
+    public const MODULE_FILE_DEFINE   = '_define.php';
+    public const MODULE_FILE_PREPEND  = '_prepend.php';
+    public const MODULE_FILE_ADMIN    = '_admin.php';
+    public const MODULE_FILE_CONFIG   = '_config.php';
+    public const MODULE_FILE_MANAGE   = 'index.php';
+    public const MODULE_FILE_PUBLIC   = '_public.php';
+    public const MODULE_FILE_XMLRPC   = '_xmlrpc.php';
     public const MODULE_FILE_DISABLED = '_disabled';
-    public const MODULE_FILE_LOCKED = '_locked';
+    public const MODULE_FILE_LOCKED   = '_locked';
 
-    public const MODULE_CLASS_DIR = 'src';
+    public const MODULE_CLASS_DIR     = 'src';
     public const MODULE_CLASS_PREPEND = 'Prepend';
     public const MODULE_CLASS_INSTALL = 'Install';
-    public const MODULE_CLASS_ADMIN = 'Backend';
-    public const MODULE_CLASS_CONFIG = 'Config';
-    public const MODULE_CLASS_MANAGE = 'Manage';
-    public const MODULE_CLASS_PUPLIC = 'Frontend';
-    public const MODULE_CLASS_XMLRPC = 'Xmlrpc';
+    public const MODULE_CLASS_ADMIN   = 'Backend';
+    public const MODULE_CLASS_CONFIG  = 'Config';
+    public const MODULE_CLASS_MANAGE  = 'Manage';
+    public const MODULE_CLASS_PUPLIC  = 'Frontend';
+    public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';
 
     /** @var    bool    Safe mode execution */
     protected $safe_mode = false;

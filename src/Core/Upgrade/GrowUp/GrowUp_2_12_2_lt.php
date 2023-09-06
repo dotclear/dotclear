@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 
 class GrowUp_2_12_2_lt
 {
@@ -24,7 +23,7 @@ class GrowUp_2_12_2_lt
         $csp_prefix = App::con()->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
 
         # Update CSP img-src default directive
-        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: http://media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .

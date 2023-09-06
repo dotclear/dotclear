@@ -85,7 +85,7 @@ class Posts extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
-                    __('Posts')                         => '',
+                    __('Posts')                           => '',
                 ]
             )
         );

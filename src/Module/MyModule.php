@@ -21,10 +21,10 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\UserWorkspace;
 use Dotclear\Core\Utils;
 use Dotclear\Helper\L10n;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
@@ -191,9 +191,9 @@ abstract class MyModule
      *
      * @throws  Exception   Since 2.28 if blog is not defined
      *
-     * @return  BlogWorkspace    The module settings instance
+     * @return  BlogWorkspaceInterface  The module settings instance
      */
-    final public static function settings(): BlogWorkspace
+    final public static function settings(): BlogWorkspaceInterface
     {
         return App::blog()->settings()->get(static::id());
     }

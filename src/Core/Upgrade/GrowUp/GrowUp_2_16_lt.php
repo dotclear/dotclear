@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
-use Dotclear\Core\BlogWorkspace;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_16_lt
@@ -21,25 +20,25 @@ class GrowUp_2_16_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Update DotAddict plugins store URL
-        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
             " WHERE setting_id = 'store_plugin_url' " .
             " AND setting_ns = 'system' ";
         App::con()->execute($strReq);
         // Update DotAddict themes store URL
-        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
             " WHERE setting_id = 'store_theme_url' " .
             " AND setting_ns = 'system' ";
         App::con()->execute($strReq);
         // Update CSP img-src default directive for media.dotaddict.org
-        $strReq = 'UPDATE ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = REPLACE(setting_value, 'http://media.dotaddict.org', 'https://media.dotaddict.org') " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' ";
         App::con()->execute($strReq);
         // Set default jQuery loading for blog
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . BlogWorkspace::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
         App::con()->execute(

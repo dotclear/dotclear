@@ -476,7 +476,7 @@ class Post extends Process
                 App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
                 App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
                 App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
-                default                  => '',
+                default                       => '',
             };
 
             $edit_entry_str  = __('&ldquo;%s&rdquo;');
@@ -538,7 +538,7 @@ class Post extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
-                    __('Posts')                         => App::backend()->url->get('admin.posts'),
+                    __('Posts')                           => App::backend()->url->get('admin.posts'),
                     (App::backend()->post_id ?
                         $page_title_edit :
                         App::backend()->page_title) => '',
