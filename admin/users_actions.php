@@ -2,7 +2,7 @@
 /**
  * @deprecated since 2.27 Use name "admin.user.actions" on App::backend()->url methods
  *
- * @todo Move to backend Actions
+ * @todo 	Move UsersActions to backend Actions
  *
  * @package Dotclear
  * @subpackage Backend

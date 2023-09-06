@@ -20,9 +20,9 @@ use Exception;
 use form;
 
 /**
- * @since 2.27 Before as admin/users_actions.php
+ * @since   2.27 Before as admin/users_actions.php
  *
- * @todo Move to backend Actions
+ * @todo    Move UsersActions to backend Actions
  */
 class UsersActions extends Process
 {

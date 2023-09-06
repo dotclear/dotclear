@@ -4265,12 +4265,13 @@ class Tpl extends Template
      * tpl:SysBehavior [attributes] : Call a given behavior (tpl value)
      *
      * attributes:
+     * * behavior        string      Behavior to call
      *
-     *      - behavior        string      Behavior to call
+     * @todo    Remove old dcCore from tpl::SysBehavior returned call parameters
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject    $attr     The attributes
      *
-     * @return     string
+     * @return  string
      */
     public function SysBehavior(ArrayObject $attr): string
     {
@@ -4280,7 +4281,6 @@ class Tpl extends Template
 
         $behavior = addslashes($attr['behavior']);
 
-        // todo remove dcCore from methods
         return
             '<?php if (App::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
             'App::behavior()->callBehavior(\'' . $behavior . '\',dcCore::app(),App::frontend()->ctx);' .

@@ -202,7 +202,7 @@ class Factory implements FactoryInterface
         return new Users();
     }
 
-    public function userPreferences(string $user_id, ?string $workspace): UserPreferencesInterface
+    public function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface
     {
         return new UserPreferences(user_id: $user_id, workspace: $workspace);
     }

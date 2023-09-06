@@ -207,9 +207,13 @@ class StoreReader extends HttpClient
     /**
      * Request repository XML feed.
      *
-     * @param    string    $url        XML feed URL
+     * @todo    Log StoreReader error when repository query fail
      *
-     * @return   bool      True on success, else false
+     * @throws  Exception
+     *
+     * @param   string  $url    XML feed URL
+     *
+     * @return  bool    True on success, else false
      */
     protected function getModulesXML(string $url): bool
     {
@@ -230,7 +234,6 @@ class StoreReader extends HttpClient
         try {
             return $this->get($path);
         } catch (Exception $e) {
-            // @todo Log error when repository query fail
             return false;
         }
     }

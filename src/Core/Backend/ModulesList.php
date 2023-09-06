@@ -537,16 +537,14 @@ class ModulesList
     }
 
     /**
-     * Display sort field form.
+     * Display sort field form. (not implemented)
      *
-     * @todo      This method is not implemented yet
+     * @todo    Implement ModulesList::displaySort method
      *
-     * @return    ModulesList self instance
+     * @return  ModulesList self instance
      */
     public function displaySort(): ModulesList
     {
-        // TODO
-
         return $this;
     }
 

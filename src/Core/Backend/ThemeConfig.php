@@ -195,15 +195,16 @@ class ThemeConfig
     }
 
     /**
-     * Check and clean CSS
+     * Check and clean CSS. (not implemented)
      *
-     * @param  string $css CSS to be checked
+     * @todo    Implement ModulesList::displaySort method
      *
-     * @return string      checked CSS
+     * @param   string  $css    CSS to be checked
+     *
+     * @return  string  checked CSS
      */
     public static function cleanCSS(string $css): string
     {
-        // TODO
         return $css;
     }
 

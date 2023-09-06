@@ -150,9 +150,11 @@ class Auth implements AuthInterface
     /**
      * Create a new instance of authentication class (user-defined or default)
      *
-     * @throws     Exception
+     * @todo    Remove old dcCore from Auth::init returned new instance parameters
      *
-     * @return     AuthInterface
+     * @throws  Exception
+     *
+     * @return  AuthInterface
      */
     public static function init(): AuthInterface
     {
@@ -168,7 +170,6 @@ class Auth implements AuthInterface
             throw new Exception('Authentication class ' . $class . ' does not inherit AuthInterface.');
         }
 
-        // todo remove dcCore from method
         return new $class(dcCore::app());
     }
 
