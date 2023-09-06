@@ -11,10 +11,10 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use dcCore;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\App;
+use Dotclear\Core\Backend\Update;
+use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
-use Dotclear\Core\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;

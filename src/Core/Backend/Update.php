@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Core;
+namespace Dotclear\Core\Backend;
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;

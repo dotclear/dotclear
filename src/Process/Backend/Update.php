@@ -10,11 +10,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
+use Dotclear\Core\Backend\Update as CoreUpdate;
 use Dotclear\Core\Process;
-use Dotclear\Core\Update as CoreUpdate;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
