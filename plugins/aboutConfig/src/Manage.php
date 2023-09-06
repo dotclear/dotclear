@@ -114,9 +114,9 @@ class Manage extends Process
         echo
         Page::breadcrumb(
             [
-                __('System')                        => '',
+                __('System')                          => '',
                 Html::escapeHTML(App::blog()->name()) => '',
-                My::name()                          => '',
+                My::name()                            => '',
             ]
         ) .
         Notices::getNotices() .
@@ -161,7 +161,7 @@ class Manage extends Process
                 '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        /** @var array<string|BlogWorkspaceInterface> */
+        /** @var array<string|\Dotclear\Interface\Core\BlogWorkspaceInterface> */
         $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {

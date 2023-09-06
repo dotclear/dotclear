@@ -102,7 +102,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_blog        = App::blog()->openBlogCursor();
         $this->cur_category    = App::blog()->categories()->openCategoryCursor();
         $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
-        $this->cur_setting     = App::blogWrokspace()->openBlogWorkspaceCursor();
+        $this->cur_setting     = App::blogWorkspace()->openBlogWorkspaceCursor();
         $this->cur_user        = App::auth()->openUserCursor();
         $this->cur_pref        = $this->con->openCursor($this->prefix . UserWorkspace::WS_TABLE_NAME);
         $this->cur_permissions = App::auth()->openPermCursor();
@@ -168,7 +168,7 @@ class FlatImportV2 extends FlatBackup
         ));
 
         if ((int) $rs->cat_rgt > 0) {
-            $this->has_categories                    = true;
+            $this->has_categories                      = true;
             $this->stack['cat_lft'][App::blog()->id()] = (int) $rs->cat_rgt + 1;
         }
 

@@ -212,8 +212,8 @@ parameters:
     - message: '#Access to an undefined property Dotclear\\Core\\Frontend\\Ctx::#'
       path: %currentWorkingDirectory%
 
-    # Dotclear\Core\BlogWorkspace object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Core\\BlogWorkspace::#'
+    # Dotclear\Interface\Core\BlogWorkspaceInterface object and auto properties
+    - message: '#Access to an undefined property Dotclear\\Interface\\Core\\BlogWorkspaceInterface::#'
       path: %currentWorkingDirectory%
 
     # Dotclear\Interface\Core\BlogSettingsInterface object and auto properties
