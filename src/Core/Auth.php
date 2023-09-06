@@ -17,6 +17,7 @@ use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Schema\Extension\User;
 use Exception;
 
@@ -142,9 +143,9 @@ class Auth implements AuthInterface
      *
      * @deprecated since 2.28, use App::auth()->prefs() instead
      *
-     * @var UserPreferences
+     * @var UserPreferencesInterface
      */
-    public UserPreferences $user_prefs;
+    public UserPreferencesInterface $user_prefs;
 
     /**
      * Create a new instance of authentication class (user-defined or default)
@@ -322,7 +323,7 @@ class Auth implements AuthInterface
 
         $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
-        $this->user_prefs = new UserPreferences($this->user_id);
+        $this->user_prefs = App::userPreferences($this->user_id);
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -461,7 +462,7 @@ class Auth implements AuthInterface
     /// @name User information and options
     //@{
 
-    public function prefs(): UserPreferences
+    public function prefs(): UserPreferencesInterface
     {
         return $this->user_prefs;
     }

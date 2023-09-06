@@ -20,6 +20,7 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
@@ -35,6 +36,8 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
@@ -93,6 +96,11 @@ class Factory implements FactoryInterface
     public function blogWorkspace(): BlogWorkspaceInterface
     {
         return new BlogWorkspace();
+    }
+
+    public function categories(): CategoriesInterface
+    {
+        return new Categories();
     }
 
     public function con(): ConnectionInterface
@@ -192,6 +200,16 @@ class Factory implements FactoryInterface
     public function users(): UsersInterface
     {
         return new Users();
+    }
+
+    public function userPreferences(string $user_id, ?string $workspace): UserPreferencesInterface
+    {
+        return new UserPreferences(user_id: $user_id, workspace: $workspace);
+    }
+
+    public function userWorkspace(): UserWorkspaceInterface
+    {
+        return new UserWorkspace();
     }
 
     public function version(): VersionInterface

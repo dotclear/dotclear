@@ -16,6 +16,7 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
@@ -31,6 +32,8 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
@@ -165,6 +168,11 @@ class Container
         return self::$instance->get('blogWorkspace');
     }
 
+    public static function categories(): CategoriesInterface
+    {
+        return self::$instance->get('categories');
+    }
+
     public static function con(): ConnectionInterface
     {
         return self::$instance->get('con');
@@ -248,6 +256,16 @@ class Container
     public static function users(): UsersInterface
     {
         return self::$instance->get('users');
+    }
+
+    public static function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface
+    {
+        return self::$instance->get('userPreferences', reload: true, user_id: $user_id, workspace: $workspace);
+    }
+
+    public static function userWorkspace(): UserWorkspaceInterface
+    {
+        return self::$instance->get('userWorkspace');
     }
 
     public static function version(): VersionInterface

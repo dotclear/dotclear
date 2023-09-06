@@ -29,6 +29,7 @@ use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
+use Dotclear\Interface\Core\CategoriesInterface;
 use Exception;
 
 /**
@@ -225,7 +226,7 @@ class Blog implements BlogInterface
     /**
      * Blog's categories
      *
-     * @var Categories
+     * @var CategoriesInterface
      */
     private $categories;
 
@@ -623,12 +624,12 @@ class Blog implements BlogInterface
     /**
      * Get Categories instance
      *
-     * @return     Categories
+     * @return     CategoriesInterface
      */
-    public function categories(): Categories
+    public function categories(): CategoriesInterface
     {
-        if (!($this->categories instanceof Categories)) {
-            $this->categories = new Categories();
+        if (!($this->categories instanceof CategoriesInterface)) {
+            $this->categories = App::categories();
         }
 
         return $this->categories;

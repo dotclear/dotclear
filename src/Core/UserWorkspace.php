@@ -10,139 +10,95 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
  * User workspace for preferences handler.
  */
-class UserWorkspace
+class UserWorkspace implements UserWorkspaceInterface
 {
-    // Constants
-
-    /**
-     * Workspace (user preferences) table name
-     *
-     * @var        string
-     */
     public const WS_TABLE_NAME = 'pref';
 
-    /**
-     * Regexp workspace name schema
-     *
-     * @var        string
-     */
     public const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
-    /**
-     * Regexp workspace ID schema
-     *
-     * @var        string
-     */
     public const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
-    // Preferences types (stored in table, subset of settype() allowed type)
     public const WS_STRING = 'string';
     public const WS_FLOAT  = 'float';
     public const WS_BOOL   = 'boolean';
     public const WS_INT    = 'integer';
     public const WS_ARRAY  = 'array';
 
-    // Preferences types converted to another type
-    public const WS_DOUBLE = 'double';     // -> NS_FLOAT
+    public const WS_DOUBLE = 'double';
 
-    // Preferences types aliases
     public const WS_TEXT    = self::WS_STRING;
     public const WS_BOOLEAN = self::WS_BOOL;
     public const WS_INTEGER = self::WS_INT;
 
-    // Properties
+    /** @var    ConnectionInterface     Database connection object */
+    protected ConnectionInterface $con;
 
-    /**
-     * Database connection object
-     *
-     * @var object
-     */
-    protected $con;
+    /** @var    string  Preferences table name */
+    protected string $table;
 
-    /**
-     * Preferences table name
-     *
-     * @var string
-     */
-    protected $table;
+    /** @var    string  User ID */
+    protected ?string $user_id;
 
-    /**
-     * User ID
-     *
-     * @var string
-     */
-    protected $user_id;
+    /** @var    array   Global preferences */
+    protected array $global_prefs = [];
 
-    /**
-     * Global preferences
-     *
-     * @var array
-     */
-    protected $global_prefs = [];
+    /** @var    array   Local preferences */
+    protected array $local_prefs = [];
 
-    /**
-     * Local preferences
-     *
-     * @var array
-     */
-    protected $local_prefs = [];
+    /** @var    array   User preferences */
+    protected array $prefs = [];
 
-    /**
-     * User preferences
-     *
-     * @var array
-     */
-    protected $prefs = [];
+    /** @var    string  Current workspace name */
+    protected ?string $workspace;
 
-    /**
-     * Current workspace name
-     *
-     * @var string
-     */
-    protected $workspace;
-
-    /**
-     * Object constructor. Retrieves user prefs and puts them in $prefs
-     * array. Local (user) prefs have a highest priority than global prefs.
-     *
-     * @param      string        $user_id  The user identifier
-     * @param      string        $name     The workspace name
-     * @param      MetaRecord      $rs       The recordset
-     *
-     * @throws     Exception
-     */
-    public function __construct(string $user_id, string $name, ?MetaRecord $rs = null)
+    public function __construct(?string $user_id = null, ?string $workspace = null, ?MetaRecord $rs = null)
     {
-        if (preg_match(self::WS_NAME_SCHEMA, $name)) {
-            $this->workspace = $name;
-        } else {
-            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
-        }
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::WS_TABLE_NAME;
 
-        $this->con     = App::con();
-        $this->table   = App::con()->prefix() . self::WS_TABLE_NAME;
-        $this->user_id = $user_id;
+        if ($workspace !== null) {
+            if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
+                throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
+            }
 
-        try {
-            $this->getPrefs($rs);
-        } catch (Exception $e) {
-            trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
+            $this->prefs     = $this->local_prefs = $this->global_prefs = [];
+            $this->user_id   = $user_id;
+            $this->workspace = $workspace;
+
+            try {
+                $this->getPrefs($rs);
+            } catch (Exception $e) {
+                trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
+            }
         }
+    }
+
+    public function openUserWorkspaceCursor(): Cursor
+    {
+        return $this->con->openCursor($this->table);
+    }
+
+    public function init(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
+    {
+        return new self($user_id, $workspace, $rs);
     }
 
     /**
      * Gets the preferences.
      *
-     * @param      MetaRecord      $rs       The recordset
+     * @param   MetaRecord  $rs     The recordset
      */
     private function getPrefs(?MetaRecord $rs = null): void
     {
@@ -206,14 +162,6 @@ class UserWorkspace
         $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
-    /**
-     * Returns true if a pref exist, else false
-     *
-     * @param      string   $name    The identifier
-     * @param      bool     $global  The global
-     *
-     * @return     bool
-     */
     public function prefExists(string $name, bool $global = false): bool
     {
         $array = ($global ? 'global' : 'local') . '_prefs';
@@ -221,13 +169,6 @@ class UserWorkspace
         return isset($this->{$array}[$name]);
     }
 
-    /**
-     * Returns pref value if exists.
-     *
-     * @param      string  $name      Pref name
-     *
-     * @return     mixed
-     */
     public function get(string $name)
     {
         if (isset($this->prefs[$name]) && isset($this->prefs[$name]['value'])) {
@@ -235,13 +176,6 @@ class UserWorkspace
         }
     }
 
-    /**
-     * Returns global pref value if exists.
-     *
-     * @param      string  $name      Pref name
-     *
-     * @return     mixed
-     */
     public function getGlobal(string $name)
     {
         if (isset($this->global_prefs[$name]) && isset($this->global_prefs[$name]['value'])) {
@@ -249,77 +183,30 @@ class UserWorkspace
         }
     }
 
-    /**
-     * Returns local pref value if exists.
-     *
-     * @param      string  $name      Pref name
-     *
-     * @return     mixed
-     */
     public function getLocal(string $name)
     {
         if (isset($this->local_prefs[$name]) && isset($this->local_prefs[$name]['value'])) {
             return $this->local_prefs[$name]['value'];
         }
     }
-    /**
 
-     */
-    /**
-     * Magic __get method.
-     *
-     * @param      string  $name      Pref name
-     *
-     * @return     mixed
-     */
     public function __get(string $name)
     {
         return $this->get($name);
     }
 
-    /**
-     * Sets a pref in $prefs property. This sets the pref for script
-     * execution time only and if pref exists.
-     *
-     * @param      string  $name      The pref name
-     * @param      mixed   $value     The pref value
-     */
-    public function set(string $name, $value)
+    public function set(string $name, $value): void
     {
         if (isset($this->prefs[$name])) {
             $this->prefs[$name]['value'] = $value;
         }
     }
 
-    /**
-     * Magic __set method.
-     *
-     * @param      string  $name      The pref name
-     * @param      mixed   $value     The pref value
-     */
-    public function __set(string $name, $value)
+    public function __set(string $name, $value): void
     {
         $this->set($name, $value);
     }
 
-    /**
-     * Creates or updates a pref.
-     *
-     * $type could be self::WS_STRING, self::WS_INT, self::WS_FLOAT, self::WS_BOOL or null. If $type is
-     * null and pref exists, it will keep current pref type.
-     *
-     * $ignore_value allow you to not change pref. Useful if you need to change
-     * a pref label or type and don't want to change its value.
-     *
-     * @param      string     $name          The pref identifier
-     * @param      mixed      $value         The pref value
-     * @param      string     $type          The pref type
-     * @param      string     $label         The pref label
-     * @param      bool       $ignore_value  Change pref value or not
-     * @param      bool       $global        Pref is global
-     *
-     * @throws     Exception
-     */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::WS_ID_SCHEMA, $name)) {
@@ -410,16 +297,6 @@ class UserWorkspace
         }
     }
 
-    /**
-     * Rename an existing pref in a Workspace
-     *
-     * @param      string     $old_name  The old identifier
-     * @param      string     $new_name  The new identifier
-     *
-     * @throws     Exception
-     *
-     * @return     bool       false is error, true if renamed
-     */
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
@@ -455,14 +332,6 @@ class UserWorkspace
         return true;
     }
 
-    /**
-     * Removes an existing pref. Workspace
-     *
-     * @param      string     $name          The pref identifier
-     * @param      bool       $force_global  Force global pref drop
-     *
-     * @throws     Exception
-     */
     public function drop(string $name, bool $force_global = false): void
     {
         if (!$this->workspace) {
@@ -496,12 +365,6 @@ class UserWorkspace
         $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
-    /**
-     * Removes every existing specific pref. in a workspace
-     *
-     * @param      string     $name    Pref ID
-     * @param      bool       $global  Remove global pref too
-     */
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
@@ -532,13 +395,6 @@ class UserWorkspace
         $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
-    /**
-     * Removes all existing pref. in a Workspace
-     *
-     * @param      bool       $force_global  Remove global prefs too
-     *
-     * @throws     Exception
-     */
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
@@ -569,41 +425,21 @@ class UserWorkspace
         $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
     }
 
-    /**
-     * Dumps a workspace.
-     *
-     * @return     string
-     */
     public function dumpWorkspace(): string
     {
         return $this->workspace;
     }
 
-    /**
-     * Dumps preferences.
-     *
-     * @return     array
-     */
     public function dumpPrefs(): array
     {
         return $this->prefs;
     }
 
-    /**
-     * Dumps local preferences.
-     *
-     * @return     array
-     */
     public function dumpLocalPrefs(): array
     {
         return $this->local_prefs;
     }
 
-    /**
-     * Dumps global preferences.
-     *
-     * @return     array
-     */
     public function dumpGlobalPrefs(): array
     {
         return $this->global_prefs;

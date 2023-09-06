@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
-use Dotclear\Core\UserPreferences;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -296,7 +295,7 @@ class Comment
      */
     public static function isMe(MetaRecord $rs): bool
     {
-        $user_prefs         = new UserPreferences((string) $rs->user_id, 'profile');
+        $user_prefs         = App::userPreferences((string) $rs->user_id, 'profile');
         $user_profile_mails = $user_prefs->profile->mails ?
             array_map('trim', explode(',', $user_prefs->profile->mails)) :
             [];

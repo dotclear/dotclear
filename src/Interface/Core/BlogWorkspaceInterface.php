@@ -42,7 +42,7 @@ interface BlogWorkspaceInterface
     /** @var    string  Settings types converted to another type : double */
     public const NS_DOUBLE = 'double';     // -> NS_FLOAT
 
-    /** @var    string  Settings types aliases : text = double */
+    /** @var    string  Settings types aliases : text = string */
     public const NS_TEXT = self::NS_STRING;
     /** @var    string  Settings types aliases : boolean = bool */
     public const NS_BOOLEAN = self::NS_BOOL;
@@ -64,7 +64,7 @@ interface BlogWorkspaceInterface
     public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null);
 
     /**
-     * Creat e a new instance a BLogWrokspace.
+     * Creat e a new instance a BLogWorkspace.
      *
      * @param   null|string         $blog_id    The blog identifier
      * @param   string              $workspace  The namespace ID
