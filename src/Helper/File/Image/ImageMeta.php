@@ -1,11 +1,5 @@
 <?php
 /**
- * @class ImageMeta
- *
- * This class reads EXIF, IPTC and XMP metadata from a JPEG file.
- *
- * - Contributor: Mathieu Lecarme.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +13,13 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use Exception;
 
+/**
+ * @class ImageMeta
+ *
+ * This class reads EXIF, IPTC and XMP metadata from a JPEG file.
+ *
+ * - Contributor: Mathieu Lecarme.
+ */
 class ImageMeta
 {
     /**

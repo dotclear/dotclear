@@ -1,7 +1,5 @@
 <?php
 /**
- * @brief MetaRecord class
- *
  * @package Dotclear
  * @subpackage Core
  *
@@ -16,6 +14,9 @@ use Countable;
 use Iterator;
 
 #[\AllowDynamicProperties]
+/**
+ * @brief MetaRecord class
+ */
 class MetaRecord implements Iterator, Countable
 {
     /**

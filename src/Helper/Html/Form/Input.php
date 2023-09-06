@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Input
- * @brief HTML Forms input field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Input
+ * @brief HTML Forms input field creation helpers
+ */
 class Input extends Component
 {
     private const DEFAULT_ELEMENT = 'input';

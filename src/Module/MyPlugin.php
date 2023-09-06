@@ -1,16 +1,10 @@
 <?php
 /**
- * @brief Plugin My module class.
- *
- * A plugin My class must extend this class.
- *
  * @package Dotclear
  * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.27
  */
 declare(strict_types=1);
 
@@ -22,9 +16,11 @@ use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Html\Form\Hidden;
 
 /**
- * Plugin module helper.
+ * @brief Plugin My module class.
  *
- * My class of module of type "plugin" SHOULD extends this class.
+ * A plugin My class must extend this class.
+ *
+ * @since 2.27
  */
 abstract class MyPlugin extends MyModule
 {

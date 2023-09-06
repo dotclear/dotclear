@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Path
- *
- * Path manipulation utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Helper\File;
 
 use Exception;
 
+/**
+ * @class Path
+ *
+ * Path manipulation utilities
+ */
 class Path
 {
     /**

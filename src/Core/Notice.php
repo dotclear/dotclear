@@ -1,7 +1,5 @@
 <?php
 /**
- * Core notice handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +17,9 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\NoticeInterface;
 use Exception;
 
+/**
+ * Core notice handler.
+ */
 class Notice implements NoticeInterface
 {
     public const NOTICE_TABLE_NAME = 'notice';

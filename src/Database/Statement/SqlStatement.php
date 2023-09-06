@@ -1,9 +1,5 @@
 <?php
 /**
- * @class SqlStatement
- *
- * SQL query statement builder
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 
+/**
+ * @class SqlStatement
+ *
+ * SQL query statement builder
+ */
 class SqlStatement
 {
     // Constants

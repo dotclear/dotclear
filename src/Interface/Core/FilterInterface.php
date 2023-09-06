@@ -1,7 +1,5 @@
 <?php
 /**
- * Wiki and HTML filter handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +11,9 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Helper\Html\WikiToHtml;
 
+/**
+ * Wiki and HTML filter handler interface.
+ */
 interface FilterInterface
 {
     /// @name WikiToHtml methods

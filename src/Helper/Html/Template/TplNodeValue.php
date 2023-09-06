@@ -1,9 +1,5 @@
 <?php
 /**
- * @class TplNodeValue
- *
- * Value node, for all {{tpl:Tag}}
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Template;
 
+/**
+ * @class TplNodeValue
+ *
+ * Value node, for all {{tpl:Tag}}
+ */
 class TplNodeValue extends TplNode
 {
     /**

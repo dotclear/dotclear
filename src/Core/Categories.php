@@ -1,7 +1,5 @@
 <?php
 /**
- * Categories handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear

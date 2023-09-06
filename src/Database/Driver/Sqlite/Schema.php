@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Schema
- *
- * SQLite Database schema Handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Database\Driver\Sqlite;
 use Dotclear\Database\AbstractSchema;
 use Exception;
 
+/**
+ * @class Schema
+ *
+ * SQLite Database schema Handler
+ */
 class Schema extends AbstractSchema
 {
     private array $table_hist = [];

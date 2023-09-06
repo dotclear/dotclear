@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Upgrade
  *
- * Dotclear upgrade procedure.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -21,6 +19,9 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Core\Install\Utils as InstallUtils;
 use Exception;
 
+/**
+ * Dotclear upgrade procedure.
+ */
 class Upgrade
 {
     /**

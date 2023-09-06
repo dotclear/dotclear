@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/plugin.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -19,6 +17,9 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
+/**
+ * @since 2.27 Before as admin/plugin.php
+ */
 class Plugin extends Process
 {
     public static function init(): bool

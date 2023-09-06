@@ -3,11 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Admin user preference library
- *
- * Dotclear utility class that provides reuseable user preference
- * across all admin page with lists and filters
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -18,6 +13,12 @@ namespace Dotclear\Core\Backend;
 use ArrayObject;
 use Dotclear\App;
 
+/**
+ * Admin user preference library
+ *
+ * Dotclear utility class that provides reuseable user preference
+ * across all admin page with lists and filters
+ */
 class UserPref
 {
     /**

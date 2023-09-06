@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Checkbox
- * @brief HTML Forms checkbox button creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Checkbox
+ * @brief HTML Forms checkbox button creation helpers
+ */
 class Checkbox extends Input
 {
     /**

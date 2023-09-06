@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Number
- * @brief HTML Forms number field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Number
+ * @brief HTML Forms number field creation helpers
+ */
 class Number extends Input
 {
     /**

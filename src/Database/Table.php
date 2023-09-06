@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Table
- *
- * Database Table structure Handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database;
 
 use Exception;
 
+/**
+ * @class Table
+ *
+ * Database Table structure Handler
+ */
 class Table
 {
     /**

@@ -1,9 +1,5 @@
 <?php
 /**
- * Session handler.
- *
- * Transitionnal class to set Dotclear default session handler table.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Session as databaseSession;
 
+/**
+ * Session handler.
+ *
+ * Transitionnal class to set Dotclear default session handler table.
+ */
 class Session extends databaseSession
 {
     public const SESSION_TABLE_NAME = 'session';

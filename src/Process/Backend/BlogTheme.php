@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/blog_theme.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -28,6 +26,9 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
+/**
+ * @since 2.27 Before as admin/blog_theme.php
+ */
 class BlogTheme extends Process
 {
     public static function init(): bool

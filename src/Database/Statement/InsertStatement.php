@@ -1,9 +1,5 @@
 <?php
 /**
- * @class InsertStatement
- *
- * Insert Statement : small utility to build insert queries
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 
+/**
+ * @class InsertStatement
+ *
+ * Insert Statement : small utility to build insert queries
+ */
 class InsertStatement extends SqlStatement
 {
     protected $lines;

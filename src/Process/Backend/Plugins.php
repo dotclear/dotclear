@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/plugins.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -25,6 +23,9 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
+/**
+ * @since 2.27 Before as admin/plugins.php
+ */
 class Plugins extends Process
 {
     public static function init(): bool
@@ -56,6 +57,7 @@ class Plugins extends Process
         if (App::backend()->list->setConfiguration()) {
             // -- Display module configuration page --
             self::renderConfig();
+
             // Stop reading code here, rendering will be done before returning (see below)
             return self::status(false);
         }

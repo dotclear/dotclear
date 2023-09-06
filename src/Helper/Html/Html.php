@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Html
- *
- * HTML utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
+/**
+ * @class Html
+ *
+ * HTML utilities
+ */
 class Html
 {
     /**

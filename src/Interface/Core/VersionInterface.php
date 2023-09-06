@@ -1,9 +1,5 @@
 <?php
 /**
- * Version hanlder interface.
- *
- * Tracks core or modules id,version pairs.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 
+/**
+ * Version hanlder interface.
+ *
+ * Tracks core or modules id,version pairs.
+ */
 interface VersionInterface
 {
     /** @var     string  The Version database table name */

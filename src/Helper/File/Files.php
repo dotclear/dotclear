@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Files
- *
- * Files manipulation utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Helper\File;
 use Dotclear\Helper\Text;
 use Exception;
 
+/**
+ * @class Files
+ *
+ * Files manipulation utilities
+ */
 class Files
 {
     /**

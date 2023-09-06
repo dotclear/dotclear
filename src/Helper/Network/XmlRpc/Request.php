@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Request
- *
- * XLM-RPC helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Network\XmlRpc;
 
+/**
+ * @class Request
+ *
+ * XLM-RPC helpers
+ */
 class Request
 {
     /**

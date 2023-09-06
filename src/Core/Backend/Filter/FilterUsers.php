@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Users list filters form helper.
- *
- * @since 2.20
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -17,6 +13,11 @@ namespace Dotclear\Core\Backend\Filter;
 use ArrayObject;
 use Dotclear\App;
 
+/**
+ * Users list filters form helper.
+ *
+ * @since 2.20
+ */
 class FilterUsers extends Filters
 {
     public function __construct()

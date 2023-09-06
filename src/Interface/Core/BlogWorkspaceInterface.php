@@ -1,9 +1,5 @@
 <?php
 /**
- * Blog namespace for settings handler.
- *
- * Handle id,version pairs through database.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * Blog namespace for settings handler.
+ */
 interface BlogWorkspaceInterface
 {
     // Constants

@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Li
- * @brief HTML Forms Li creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Li
+ * @brief HTML Forms Li creation helpers
+ */
 class Li extends Component
 {
     public const DEFAULT_ELEMENT = 'li';

@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Upgrade
  *
- * Utility class for upgrade context.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -16,6 +14,9 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Process\Upgrade\Cli;
 
+/**
+ * Utility class for upgrade context.
+ */
 class Utility extends Process
 {
     public static function init(): bool

@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Handler
- *
- * MySQL Database handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -18,6 +14,11 @@ use Exception;
 use mysqli;
 use mysqli_result;
 
+/**
+ * @class Handler
+ *
+ * MySQL Database handler
+ */
 class Handler extends AbstractHandler
 {
     /**

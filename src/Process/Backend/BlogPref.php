@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/blog_pref.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -25,6 +23,9 @@ use Dotclear\Helper\Network\HttpClient;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/blog_pref.php
+ */
 class BlogPref extends Process
 {
     public static function init(): bool

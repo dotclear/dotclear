@@ -1,7 +1,5 @@
 <?php
 /**
- * @class HttpCacheStack
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -11,6 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Network;
 
+/**
+ * @class HttpCacheStack
+ */
 class HttpCacheStack
 {
     /** @var    array<int,string>   The files path stack */

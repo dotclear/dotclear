@@ -1,20 +1,5 @@
 <?php
 /**
- * Core container.
- *
- * Core container search factory for requested methods.
- *
- * Available container methods are explicitly set
- * in this class to keep track of returned types.
- *
- * Third party core factory MUST implements
- * Dotclear\Interface\Core\FactoryInterface
- * and SHOULD extends Factory.
- *
- * Dotclear default factory will be used at least.
- *
- * @see Dotclear\Factories
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -53,6 +38,22 @@ use Dotclear\Interface\Module\ModulesInterface;
 use Dotclear\Core\Frontend\Url;
 use Exception;
 
+/**
+ * Core container.
+ *
+ * Core container search factory for requested methods.
+ *
+ * Available container methods are explicitly set
+ * in this class to keep track of returned types.
+ *
+ * Third party core factory MUST implements
+ * Dotclear\Interface\Core\FactoryInterface
+ * and SHOULD extends Factory.
+ *
+ * Dotclear default factory will be used at least.
+ *
+ * @see Dotclear\Factories
+ */
 class Container
 {
     /** @var    Container   Container unique instance */

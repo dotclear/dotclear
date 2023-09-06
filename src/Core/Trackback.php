@@ -1,10 +1,5 @@
 <?php
 /**
- * Trackbacks/Pingbacks sender and server
- *
- * Sends and receives trackbacks/pingbacks.
- * Also handles trackbacks/pingbacks auto discovery.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -25,6 +20,12 @@ use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
 use Exception;
 
+/**
+ * Trackbacks/Pingbacks sender and server
+ *
+ * Sends and receives trackbacks/pingbacks.
+ * Also handles trackbacks/pingbacks auto discovery.
+ */
 class Trackback
 {
     // Constants

@@ -1,7 +1,5 @@
 <?php
 /**
- * Core notice handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * Core notice handler interface.
+ */
 interface NoticeInterface
 {
     /** @var     string  The Notice database table name */

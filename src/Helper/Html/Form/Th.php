@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Th
- * @brief HTML Forms Th creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Th
+ * @brief HTML Forms Th creation helpers
+ */
 class Th extends Component
 {
     public const DEFAULT_ELEMENT = 'th';

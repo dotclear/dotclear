@@ -1,10 +1,5 @@
 <?php
 /**
- * Authentication handler.
- *
- * Auth is a class used to handle everything related to user authentication
- * and credentials. Object is provided by dcCore $auth property.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -25,6 +20,12 @@ use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Schema\Extension\User;
 use Exception;
 
+/**
+ * Authentication handler.
+ *
+ * Auth is a class used to handle everything related to user authentication
+ * and credentials. Object is provided by App::auth() method.
+ */
 class Auth implements AuthInterface
 {
     public const USER_TABLE_NAME        = 'user';

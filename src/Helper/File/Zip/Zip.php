@@ -1,7 +1,5 @@
 <?php
 /**
- * @class Zip
- *
  * @package Clearbricks
  * @subpackage Zip
  *
@@ -14,6 +12,9 @@ namespace Dotclear\Helper\File\Zip;
 use Dotclear\Helper\File\Files;
 use Exception;
 
+/**
+ * @class Zip
+ */
 class Zip
 {
     protected $entries  = [];

@@ -14,7 +14,7 @@ use Exception;
 /**
  * Dotclear runtime error handler.
  *
- * Since 2.27, errors code returns on 3 digits
+ * @since 2.27, errors code returns on 3 digits
  * as some servers (ie Nginx) do not support HTTP1.0 code on 2 digits.
  */
 class Fault

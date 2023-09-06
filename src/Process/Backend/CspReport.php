@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/csp_report.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -17,11 +15,14 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Exception;
 
-// From: https://github.com/nico3333fr/CSP-useful
-//
-// Note: this script requires PHP ≥ 5.4.
-// Inspired from https://mathiasbynens.be/notes/csp-reports
-
+/**
+ * @since 2.27 Before as admin/csp_report.php
+ *
+ * From: https://github.com/nico3333fr/CSP-useful
+ *
+ * Note: this script requires PHP ≥ 5.4.
+ * Inspired from https://mathiasbynens.be/notes/csp-reports
+ */
 class CspReport extends Process
 {
     public static function init(): bool

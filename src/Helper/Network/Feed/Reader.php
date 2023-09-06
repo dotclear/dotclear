@@ -1,13 +1,5 @@
 <?php
 /**
- * @class Parser
- *
- * Features:
- *
- * - Reads RSS 1.0 (rdf), RSS 2.0 and Atom feeds.
- * - HTTP cache negociation support
- * - Cache TTL.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +13,15 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
+/**
+ * @class Parser
+ *
+ * Features:
+ *
+ * - Reads RSS 1.0 (rdf), RSS 2.0 and Atom feeds.
+ * - HTTP cache negociation support
+ * - Cache TTL.
+ */
 class Reader extends HttpClient
 {
     /**

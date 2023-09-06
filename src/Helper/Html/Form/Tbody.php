@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Tbody
- * @brief HTML Forms Tbody creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Tbody
+ * @brief HTML Forms Tbody creation helpers
+ */
 class Tbody extends Component
 {
     private const DEFAULT_ELEMENT = 'tbody';

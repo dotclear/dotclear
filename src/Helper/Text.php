@@ -1,7 +1,5 @@
 <?php
 /**
- * @class Text
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +11,9 @@ namespace Dotclear\Helper;
 
 use Dotclear\Helper\Html\Html;
 
+/**
+ * @class Text
+ */
 class Text
 {
     /**

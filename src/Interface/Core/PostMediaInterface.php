@@ -1,7 +1,5 @@
 <?php
 /**
- * Post media database handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * Post media database handler interface.
+ */
 interface PostMediaInterface
 {
     /** @var    string  The post media database table name */

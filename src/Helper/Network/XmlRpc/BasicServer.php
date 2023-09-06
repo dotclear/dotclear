@@ -1,17 +1,5 @@
 <?php
 /**
- * @class BasicServer
- *
- * XLM-RPC Server
- *
- * This class library is fully based on Simon Willison's IXR library (http://scripts.incutio.com/xmlrpc/).
- *
- * This is the most basic XML-RPC server you can create. Built-in methods are:
- *
- * - system.getCapabilities
- * - system.listMethods
- * - system.multicall
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -23,6 +11,19 @@ namespace Dotclear\Helper\Network\XmlRpc;
 
 use Exception;
 
+/**
+ * @class BasicServer
+ *
+ * XLM-RPC Server
+ *
+ * This class library is fully based on Simon Willison's IXR library (http://scripts.incutio.com/xmlrpc/).
+ *
+ * This is the most basic XML-RPC server you can create. Built-in methods are:
+ *
+ * - system.getCapabilities
+ * - system.listMethods
+ * - system.multicall
+ */
 class BasicServer
 {
     /**

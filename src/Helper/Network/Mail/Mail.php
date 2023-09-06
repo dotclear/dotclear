@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Mail
- *
- * Mail helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Helper\Network\Mail;
 
 use Exception;
 
+/**
+ * @class Mail
+ *
+ * Mail helpers
+ */
 class Mail
 {
     /**

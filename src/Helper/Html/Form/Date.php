@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Date
- * @brief HTML Forms date field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Date
+ * @brief HTML Forms date field creation helpers
+ */
 class Date extends Input
 {
     /**

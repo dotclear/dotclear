@@ -1,9 +1,5 @@
 <?php
 /**
- * @class AbstractSchema
- *
- * Database schema abstraction
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+/**
+ * @class AbstractSchema
+ *
+ * Database schema abstraction
+ */
 abstract class AbstractSchema implements InterfaceSchema
 {
     /**

@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Favorites handling facilities
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -16,6 +14,9 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\UserWorkspace;
 
+/**
+ * Favorites handling facilities
+ */
 class Favorites
 {
     /**

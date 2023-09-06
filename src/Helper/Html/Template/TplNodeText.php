@@ -1,9 +1,5 @@
 <?php
 /**
- * @class TplNodeText
- *
- * Text node, for any non-tpl content
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Template;
 
+/**
+ * @class TplNodeText
+ *
+ * Text node, for any non-tpl content
+ */
 class TplNodeText extends TplNode
 {
     /**

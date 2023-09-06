@@ -1,5 +1,15 @@
 <?php
 /**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Helper\Network\XmlRpc;
+
+/**
  * @class IntrospectionServer
  *
  * This class implements the most used type of XML-RPC Server.
@@ -12,16 +22,7 @@
  * - system.listMethods
  * - system.methodHelp
  * - system.multicall
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
  */
-declare(strict_types=1);
-
-namespace Dotclear\Helper\Network\XmlRpc;
-
 class IntrospectionServer extends BasicServer
 {
     /**

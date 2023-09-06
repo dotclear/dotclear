@@ -1,9 +1,5 @@
 <?php
 /**
- * Authentication hanlder interface.
- *
- * Tracks core or modules id,version pairs.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,8 +11,12 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Core\UserPreferences;
 use Dotclear\Database\Cursor;
-use Dotclear\Helper\Crypt;
 
+/**
+ * Authentication hanlder interface.
+ *
+ * Tracks core or modules id,version pairs.
+ */
 interface AuthInterface
 {
     // Constants

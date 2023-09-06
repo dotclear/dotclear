@@ -1,11 +1,5 @@
 <?php
 /**
- * @class Handler
- *
- * PostgreSQL Database handler
- *
- * This class adds a method for PostgreSQL only: {@link callFunction()}.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +15,13 @@ use Exception;
 use PgSql\Connection;
 use PgSql\Result;
 
+/**
+ * @class Handler
+ *
+ * PostgreSQL Database handler
+ *
+ * This class adds a method for PostgreSQL only: {@link callFunction()}.
+ */
 class Handler extends AbstractHandler
 {
     protected $__driver        = 'pgsql';

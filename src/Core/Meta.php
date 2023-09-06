@@ -1,9 +1,5 @@
 <?php
 /**
- * Meta handler.
- *
- * Dotclear metadata class instance is provided by dcCore $meta property.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -24,6 +20,11 @@ use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\MetaInterface;
 use Exception;
 
+/**
+ * Meta handler.
+ *
+ * Dotclear metadata class instance is provided by App::meta() method.
+ */
 class Meta implements MetaInterface
 {
     public const META_TABLE_NAME = 'meta';

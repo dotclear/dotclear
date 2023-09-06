@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Deprecated
- *
- * @since 2.26
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper;
 
+/**
+ * @class Deprecated
+ *
+ * @since 2.26
+ */
 class Deprecated
 {
     /** @var    int     Error level */

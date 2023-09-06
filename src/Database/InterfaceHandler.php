@@ -1,9 +1,5 @@
 <?php
 /**
- * @class InterfaceHandler
- *
- * Database handler interface
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+/**
+ * @class InterfaceHandler
+ *
+ * Database handler interface
+ */
 interface InterfaceHandler
 {
     /**

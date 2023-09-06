@@ -1,9 +1,5 @@
 <?php
 /**
- * Version handler.
- *
- * Handle id,version pairs through database.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -20,6 +16,11 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\VersionInterface;
 
+/**
+ * Version handler.
+ *
+ * Handle id,version pairs through database.
+ */
 class Version implements VersionInterface
 {
     public const VERSION_TABLE_NAME = 'version';

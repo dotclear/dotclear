@@ -1,7 +1,5 @@
 <?php
 /**
- * @class WikiToHtml
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -11,144 +9,145 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
-/*
-Contributor(s):
-Stephanie Booth
-Mathieu Pillard
-Christophe Bonijol
-Jean-Charles Bagneris
-Nicolas Chachereau
-Jérôme Lipowicz
-Franck Paul
-
-Version : 3.2.24
-Release date : 2021-10-25
-
-History :
-
-3.2.24 - Franck
-=> Ajout support bloc détail (|summary en première ligne du bloc, | en dernière ligne du bloc, contenu du bloc libre)
-
-3.2.23 - Franck
-=> Ajout support attributs supplémentaires (§attributs§) pour les éléments en ligne (sans imbrication)
-=> Ajout support ;;span;;
-
-3.2.22 - Franck
-=> Ajout support attributs supplémentaires (§§attributs[|attributs parent]§§ en fin de 1re ligne) pour les blocs
-=> Ajout support ,,indice,,
-
-3.2.21 - Franck
-=> Suppression du support _indice_ (conflit fréquent avec les noms de fichier/URL/…)
-
-3.2.20 - Franck
-=> Suppression des p entourant les figures ou les liens incluants une figure
-
-3.2.19 - Franck
-=> abbr, img, em, strong, i, code, del, ins, mark, sup are only elements converted inside a link text
-
-3.2.18 - Franck
-=> Def lists required at least a space after : or =
-
-3.2.17 - Franck
-=> Added ££text|lang££ support which gives an <i>…</i>
-
-3.2.16 - Franck
-=> Added _indice_ support
-
-3.2.15 - Franck
-=> Added ^exponant^ support
-
-3.2.14 - Franck
-=> Ajout de la gestion d'un fichier externe d'acronymes (fusionné avec le fichier existant)
-
-3.2.13 - Franck
-=> Added = <term>, : <definition> support (definition list)
-
-3.2.12 - Franck
-=> PHP 7.2 compliance
-
-3.2.11 - Franck
-=> Added ) aside block support (HTML5 only)
-
-3.2.10 - Franck
-=> Added ""marked text"" support (HTML5 only)
-
-3.2.9 - Franck
-=> <a name="anchor"></a> est remplacé par <a id="anchor"></a> pour assurer la compatibilité avec HTML5
-
-3.2.8 - Franck
-=> <acronym> est remplacé par <abbr> pour assurer la compatibilité avec HTML5
-
-3.2.7 - Franck
-=> Les styles d'alignement des images sont modifiables via les options
-
-3.2.6 - Franck
-=> Added ``inline html`` support
-
-3.2.5 - Franck
-=> Changed longdesc by title in images
-
-3.2.4 - Olivier
-=> Auto links
-=> Code cleanup
-
-3.2.3 - Olivier
-=> PHP5 Strict
-
-3.2.2 - Olivier
-=> Changement de la gestion des URL spéciales
-
-3.2.1 - Olivier
-=> Changement syntaxe des macros
-
-3.2 - Olivier
-=> Changement de fonctionnement des macros
-=> Passage de fonctions externes pour les macros et les mots wiki
-
-3.1d - Jérôme Lipowicz
-=> antispam
-- Olivier
-=> centrage d'image
-
-3.1c - Olivier
-=> Possibilité d'échaper les | dans les marqueurs avec \
-
-3.1b - Nicolas Chachereau
-=> Changement de regexp pour la correction syntaxique
-
-3.1a - Olivier
-=> Bug du Call-time pass-by-reference
-
-3.1 - Olivier
-=> Ajout des macros «««..»»»
-=> Ajout des blocs vides øøø
-=> Ajout du niveau de titre paramétrable
-=> Option de blocage du parseur dans les <pre>
-=> Titres au format setext (experimental, désactivé)
-
-3.0 - Olivier
-=> Récriture du parseur inline, plus d'erreur XHTML
-=> Ajout d'une vérification d'intégrité pour les listes
-=> Les acronymes sont maintenant dans un fichier texte
-=> Ajout d'un tag images ((..)), del --..-- et ins ++..++
-=> Plus possible de faire des liens JS [lien|javascript:...]
-=> Ajout des notes de bas de page §§...§§
-=> Ajout des mots wiki
-
-2.5 - Olivier
-=> Récriture du code, plus besoin du saut de ligne entre blocs !=
-
-2.0 - Stephanie
-=> correction des PCRE et ajout de fonctionnalités
-- Mathieu
-=> ajout du strip-tags, implementation des options, reconnaissance automatique d'url, etc.
-- Olivier
-=> changement de active_link en active_urls
-=> ajout des options pour les blocs
-=> intégration de l'aide dans le code, avec les options
-=> début de quelque chose pour la reconnaissance auto d'url (avec Mat)
+/**
+ * @class WikiToHtml
+ *
+ * Contributor(s):
+ * Stephanie Booth
+ * Mathieu Pillard
+ * Christophe Bonijol
+ * Jean-Charles Bagneris
+ * Nicolas Chachereau
+ * Jérôme Lipowicz
+ * Franck Paul
+ *
+ * Version : 3.2.24
+ * Release date : 2021-10-25
+ *
+ * History :
+ *
+ * 3.2.24 - Franck
+ * => Ajout support bloc détail (|summary en première ligne du bloc, | en dernière ligne du bloc, contenu du bloc libre)
+ *
+ * 3.2.23 - Franck
+ * => Ajout support attributs supplémentaires (§attributs§) pour les éléments en ligne (sans imbrication)
+ * => Ajout support ;;span;;
+ *
+ * 3.2.22 - Franck
+ * => Ajout support attributs supplémentaires (§§attributs[|attributs parent]§§ en fin de 1re ligne) pour les blocs
+ * => Ajout support ,,indice,,
+ *
+ * 3.2.21 - Franck
+ * => Suppression du support _indice_ (conflit fréquent avec les noms de fichier/URL/…)
+ *
+ * 3.2.20 - Franck
+ * => Suppression des p entourant les figures ou les liens incluants une figure
+ *
+ * 3.2.19 - Franck
+ * => abbr, img, em, strong, i, code, del, ins, mark, sup are only elements converted inside a link text
+ *
+ * 3.2.18 - Franck
+ * => Def lists required at least a space after : or =
+ *
+ * 3.2.17 - Franck
+ * => Added ££text|lang££ support which gives an <i>…</i>
+ *
+ * 3.2.16 - Franck
+ * => Added _indice_ support
+ *
+ * 3.2.15 - Franck
+ * => Added ^exponant^ support
+ *
+ * 3.2.14 - Franck
+ * => Ajout de la gestion d'un fichier externe d'acronymes (fusionné avec le fichier existant)
+ *
+ * 3.2.13 - Franck
+ * => Added = <term>, : <definition> support (definition list)
+ *
+ * 3.2.12 - Franck
+ * => PHP 7.2 compliance
+ *
+ * 3.2.11 - Franck
+ * => Added ) aside block support (HTML5 only)
+ *
+ * 3.2.10 - Franck
+ * => Added ""marked text"" support (HTML5 only)
+ *
+ * 3.2.9 - Franck
+ * => <a name="anchor"></a> est remplacé par <a id="anchor"></a> pour assurer la compatibilité avec HTML5
+ *
+ * 3.2.8 - Franck
+ * => <acronym> est remplacé par <abbr> pour assurer la compatibilité avec HTML5
+ *
+ * 3.2.7 - Franck
+ * => Les styles d'alignement des images sont modifiables via les options
+ *
+ * 3.2.6 - Franck
+ * => Added ``inline html`` support
+ *
+ * 3.2.5 - Franck
+ * => Changed longdesc by title in images
+ *
+ * 3.2.4 - Olivier
+ * => Auto links
+ * => Code cleanup
+ *
+ * 3.2.3 - Olivier
+ * => PHP5 Strict
+ *
+ * 3.2.2 - Olivier
+ * => Changement de la gestion des URL spéciales
+ *
+ * 3.2.1 - Olivier
+ * => Changement syntaxe des macros
+ *
+ * 3.2 - Olivier
+ * => Changement de fonctionnement des macros
+ * => Passage de fonctions externes pour les macros et les mots wiki
+ *
+ * 3.1d - Jérôme Lipowicz
+ * => antispam
+ * - Olivier
+ * => centrage d'image
+ *
+ * 3.1c - Olivier
+ * => Possibilité d'échaper les | dans les marqueurs avec \
+ *
+ * 3.1b - Nicolas Chachereau
+ * => Changement de regexp pour la correction syntaxique
+ *
+ * 3.1a - Olivier
+ * => Bug du Call-time pass-by-reference
+ *
+ * 3.1 - Olivier
+ * => Ajout des macros «««..»»»
+ * => Ajout des blocs vides øøø
+ * => Ajout du niveau de titre paramétrable
+ * => Option de blocage du parseur dans les <pre>
+ * => Titres au format setext (experimental, désactivé)
+ *
+ * 3.0 - Olivier
+ * => Récriture du parseur inline, plus d'erreur XHTML
+ * => Ajout d'une vérification d'intégrité pour les listes
+ * => Les acronymes sont maintenant dans un fichier texte
+ * => Ajout d'un tag images ((..)), del --..-- et ins ++..++
+ * => Plus possible de faire des liens JS [lien|javascript:...]
+ * => Ajout des notes de bas de page §§...§§
+ * => Ajout des mots wiki
+ *
+ * 2.5 - Olivier
+ * => Récriture du code, plus besoin du saut de ligne entre blocs !=
+ *
+ * 2.0 - Stephanie
+ * => correction des PCRE et ajout de fonctionnalités
+ * - Mathieu
+ * => ajout du strip-tags, implementation des options, reconnaissance automatique d'url, etc.
+ * - Olivier
+ * => changement de active_link en active_urls
+ * => ajout des options pour les blocs
+ * => intégration de l'aide dans le code, avec les options
+ * => début de quelque chose pour la reconnaissance auto d'url (avec Mat)
  */
-
 class WikiToHtml
 {
     // Constants

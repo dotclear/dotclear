@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Handler for action page on selected entries
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -27,6 +25,9 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use formSelectOption;
 
+/**
+ * @brief Handler for action page on selected entries
+ */
 abstract class Actions
 {
     /**

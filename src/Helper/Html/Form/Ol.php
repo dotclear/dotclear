@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Ol
- * @brief HTML Forms Ol creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Ol
+ * @brief HTML Forms Ol creation helpers
+ */
 class Ol extends Component
 {
     private const DEFAULT_ELEMENT = 'ol';

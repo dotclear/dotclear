@@ -1,11 +1,5 @@
 <?php
 /**
- * @class HtmlValidator
- *
- * HTML Validator
- *
- * This class will perform an HTML validation upon WDG validator.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -18,6 +12,13 @@ namespace Dotclear\Helper\Html;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
+/**
+ * @class HtmlValidator
+ *
+ * HTML Validator
+ *
+ * This class will perform an HTML validation upon W3.ORG validator.
+ */
 class HtmlValidator extends HttpClient
 {
     /**

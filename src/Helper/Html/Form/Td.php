@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Td
- * @brief HTML Forms Td creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Td
+ * @brief HTML Forms Td creation helpers
+ */
 class Td extends Component
 {
     public const DEFAULT_ELEMENT = 'td';

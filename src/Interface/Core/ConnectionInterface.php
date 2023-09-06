@@ -1,11 +1,5 @@
 <?php
 /**
- * Connetion handler interface.
- *
- * Handle database connection.
- *
- * @see \Dotclear\Database\InterfaceHandler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -18,6 +12,13 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Record;
 
+/**
+ * Connetion handler interface.
+ *
+ * Handle database connection.
+ *
+ * @see \Dotclear\Database\InterfaceHandler
+ */
 interface ConnectionInterface
 {
     /**

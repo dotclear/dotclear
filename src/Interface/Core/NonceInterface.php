@@ -1,7 +1,5 @@
 <?php
 /**
- * form nonce handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +11,9 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Helper\Html\Form\Hidden;
 
+/**
+ * Form nonce handler interface.
+ */
 interface NonceInterface
 {
     /**

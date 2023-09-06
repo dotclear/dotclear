@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Handler
- *
- * MySQL (utf8mb4) Database handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Database\Driver\Mysqlimb4;
 use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
 use Exception;
 
+/**
+ * @class Handler
+ *
+ * MySQL (utf8mb4) Database handler
+ */
 class Handler extends MysqliHandler
 {
     /**

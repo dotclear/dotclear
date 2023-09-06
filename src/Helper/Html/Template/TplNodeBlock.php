@@ -1,9 +1,5 @@
 <?php
 /**
- * @class TplNodeBlock
- *
- * Block node, for all <tpl:Tag>...</tpl:Tag>
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -13,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Template;
 
+/**
+ * @class TplNodeBlock
+ *
+ * Block node, for all <tpl:Tag>...</tpl:Tag>
+ */
 class TplNodeBlock extends TplNode
 {
     /**
@@ -91,6 +92,7 @@ class TplNodeBlock extends TplNode
 
             return $tpl->compileBlockNode($this->tag, $this->attr, $content);
         }
+
         // if tag has not been closed, silently ignore its content...
         return '';
     }

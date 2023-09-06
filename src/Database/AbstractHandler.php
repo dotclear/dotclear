@@ -1,9 +1,5 @@
 <?php
 /**
- * @class AbstractHandler
- *
- * Database handler abstraction
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database;
 
 use Dotclear\Interface\Core\ConnectionInterface;
 
+/**
+ * @class AbstractHandler
+ *
+ * Database handler abstraction
+ */
 abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
 {
     /**

@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/post_media.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -24,6 +22,9 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
+/**
+ * @since 2.27 Before as admin/post_media.php
+ */
 class PostMedia extends Process
 {
     public static function init(): bool

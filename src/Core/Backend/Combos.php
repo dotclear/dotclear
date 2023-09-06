@@ -3,11 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Admin combo library
- *
- * Dotclear utility class that provides reuseable combos across all admin
- * form::combo -compatible format
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -23,6 +18,12 @@ use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
+/**
+ * Admin combo library
+ *
+ * Dotclear utility class that provides reuseable combos across all admin
+ * form::combo -compatible format
+ */
 class Combos
 {
     /**

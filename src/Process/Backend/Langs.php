@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/langs.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -25,6 +23,9 @@ use Dotclear\Helper\Network\HttpClient;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/langs.php
+ */
 class Langs extends Process
 {
     // Local constants

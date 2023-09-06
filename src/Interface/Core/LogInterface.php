@@ -1,7 +1,5 @@
 <?php
 /**
- * Core log handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * Core log handler interface.
+ */
 interface LogInterface
 {
     /** @var    string  The Log database table name */

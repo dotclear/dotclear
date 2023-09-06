@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Blogs list filters form helper.
- *
- * @since 2.20
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -18,6 +14,11 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 
+/**
+ * Blogs list filters form helper.
+ *
+ * @since 2.20
+ */
 class FilterBlogs extends Filters
 {
     public function __construct()

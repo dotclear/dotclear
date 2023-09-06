@@ -1,10 +1,5 @@
 <?php
 /**
- * @class File item class
- *
- * File item class used by {@link Manager}. In this class {@link $file} could
- * be either a file or a directory.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +10,12 @@ declare(strict_types=1);
 namespace Dotclear\Helper\File;
 
 #[\AllowDynamicProperties]
+/**
+ * @class File item class
+ *
+ * File item class used by {@link Manager}. In this class {@link $file} could
+ * be either a file or a directory.
+ */
 class File
 {
     /**

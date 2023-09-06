@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Backend notices handling facilities
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -16,6 +14,9 @@ use dcCore;
 use Dotclear\App;
 use Dotclear\Helper\Date;
 
+/**
+ * Backend notices handling facilities
+ */
 class Notices
 {
     /* Constants */

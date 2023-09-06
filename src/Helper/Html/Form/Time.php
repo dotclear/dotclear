@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Time
- * @brief HTML Forms time field creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Time
+ * @brief HTML Forms time field creation helpers
+ */
 class Time extends Input
 {
     /**

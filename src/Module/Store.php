@@ -1,15 +1,9 @@
 <?php
 /**
- * Repository modules XML feed reader.
- *
- * Provides an object to parse XML feed of modules from repository.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @since 2.6
  */
 declare(strict_types=1);
 
@@ -22,6 +16,13 @@ use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
+/**
+ * Repository modules XML feed reader.
+ *
+ * Provides an object to parse XML feed of modules from repository.
+ *
+ * @since 2.6
+ */
 class Store
 {
     /** @var    ModulesInterface    Modules instance */

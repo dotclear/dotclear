@@ -1,13 +1,5 @@
 <?php
 /**
- * @class HtmlFilter
- *
- * HTML code filter
- *
- * This class removes all unwanted tags and attributes from an HTML string.
- *
- * This was inspired by Ulf Harnhammar's Kses (http://sourceforge.net/projects/kses)
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +11,15 @@ namespace Dotclear\Helper\Html;
 
 use XMLParser;
 
+/**
+ * @class HtmlFilter
+ *
+ * HTML code filter
+ *
+ * This class removes all unwanted tags and attributes from an HTML string.
+ *
+ * This was inspired by Ulf Harnhammar's Kses (http://sourceforge.net/projects/kses)
+ */
 class HtmlFilter
 {
     /**

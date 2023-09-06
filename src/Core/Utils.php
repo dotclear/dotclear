@@ -1,9 +1,5 @@
 <?php
 /**
- * Helpers handler.
- *
- * Handle id,version pairs through database.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -22,6 +18,9 @@ use Dotclear\Helper\Text;
 use Dotclear\Module\StoreReader;
 use UnhandledMatchError;
 
+/**
+ * Helpers handler.
+ */
 class Utils
 {
     public const ADMIN_LOCALE  = 'admin';

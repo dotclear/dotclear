@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Helper for theme configurators
- *
- * @since 2.7
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -19,6 +15,11 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Exception;
 
+/**
+ * Helper for theme configurators
+ *
+ * @since 2.7
+ */
 class ThemeConfig
 {
     /**

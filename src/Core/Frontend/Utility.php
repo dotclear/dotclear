@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Frontend
  *
- * Utility class for public context.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -26,6 +24,9 @@ use Dotclear\Schema\Extension\CommentPublic;
 use Dotclear\Schema\Extension\PostPublic;
 use Exception;
 
+/**
+ * Utility class for public context.
+ */
 class Utility extends Process
 {
     use TraitDynamicProperties;

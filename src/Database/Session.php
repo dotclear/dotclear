@@ -1,11 +1,5 @@
 <?php
 /**
- * @class Session
- *
- * Database Session Handler
- *
- * This class allows you to handle session data in database.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -20,6 +14,13 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\SessionInterface;
 
+/**
+ * @class Session
+ *
+ * Database Session Handler
+ *
+ * This class allows you to handle session data in database.
+ */
 class Session implements SessionInterface
 {
     /**

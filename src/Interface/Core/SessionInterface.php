@@ -1,7 +1,5 @@
 <?php
 /**
- * Session Handler interface
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -11,6 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+/**
+ * Session Handler interface
+ */
 interface SessionInterface
 {
     /** @var     string  The Session database table name */

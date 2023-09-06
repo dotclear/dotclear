@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/search.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -24,6 +22,9 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/search.php
+ */
 class Search extends Process
 {
     // Local properties (used by behavior callbacks)

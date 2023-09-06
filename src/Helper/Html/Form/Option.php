@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Option
- * @brief HTML Forms option creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +11,10 @@ namespace Dotclear\Helper\Html\Form;
 
 use html;
 
+/**
+ * @class Option
+ * @brief HTML Forms option creation helpers
+ */
 class Option extends Component
 {
     private const DEFAULT_ELEMENT = 'option';

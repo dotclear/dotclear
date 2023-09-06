@@ -1,14 +1,5 @@
 <?php
 /**
- * Core default factory.
- *
- * Core factory instanciates main Core classes.
- * The factory should use Core container to get classes
- * required by constructors.
- *
- * Default factory uses Dotclear\Database clases for
- * database connection handler and session handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -48,6 +39,16 @@ use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
+/**
+ * Core default factory.
+ *
+ * Core factory instanciates main Core classes.
+ * The factory should use Core container to get classes
+ * required by constructors.
+ *
+ * Default factory uses Dotclear\Database clases for
+ * database connection handler and session handler.
+ */
 class Factory implements FactoryInterface
 {
     /**

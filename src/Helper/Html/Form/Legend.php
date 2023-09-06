@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Legend
- * @brief HTML Forms legend creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Legend
+ * @brief HTML Forms legend creation helpers
+ */
 class Legend extends Component
 {
     private const DEFAULT_ELEMENT = 'legend';

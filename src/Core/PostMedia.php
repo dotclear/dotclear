@@ -1,7 +1,5 @@
 <?php
 /**
- * Post media database handler.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -19,6 +17,9 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\PostMediaInterface;
 
+/**
+ * Post media database handler.
+ */
 class PostMedia implements PostMediaInterface
 {
     public const POST_MEDIA_TABLE_NAME = 'post_media';

@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/comment.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -23,6 +21,9 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/comment.php
+ */
 class Comment extends Process
 {
     public static function init(): bool

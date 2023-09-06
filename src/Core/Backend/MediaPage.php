@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * URL Handler for admin urls
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */

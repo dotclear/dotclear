@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Component
- * @brief HTML Forms creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Component
+ * @brief HTML Forms creation helpers
+ *
+ * This class describes a component.
+ */
 abstract class Component
 {
     /**

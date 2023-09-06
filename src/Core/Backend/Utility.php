@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Utility class for admin context.
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -22,6 +20,9 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\TraitDynamicProperties;
 use Exception;
 
+/**
+ * Utility class for admin context.
+ */
 class Utility extends Process
 {
     /** Allow dynamic properties */

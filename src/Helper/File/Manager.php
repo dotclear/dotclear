@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Manager
- *
- * Files management class
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Helper\File;
 
 use Exception;
 
+/**
+ * @class Manager
+ *
+ * Files management class
+ */
 class Manager
 {
     /**

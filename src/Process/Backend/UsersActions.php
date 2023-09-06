@@ -1,9 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/users_actions.php
- *
- * @todo Move to backend Actions
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -23,6 +19,11 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/users_actions.php
+ *
+ * @todo Move to backend Actions
+ */
 class UsersActions extends Process
 {
     public static function init(): bool

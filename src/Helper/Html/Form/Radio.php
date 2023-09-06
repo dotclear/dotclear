@@ -1,8 +1,5 @@
 <?php
 /**
- * @class Radio
- * @brief HTML Forms radio button creation helpers
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -12,6 +9,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+/**
+ * @class Radio
+ * @brief HTML Forms radio button creation helpers
+ */
 class Radio extends Input
 {
     /**

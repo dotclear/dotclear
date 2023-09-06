@@ -1,9 +1,5 @@
 <?php
 /**
- * @class ImageTools
- *
- * Class to manipulate images. Some methods are based on https://dev.media-box.net/big/
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Helper\File\Image;
 use Dotclear\Helper\File\Files;
 use Exception;
 
+/**
+ * @class ImageTools
+ *
+ * Class to manipulate images. Some methods are based on https://dev.media-box.net/big/
+ */
 class ImageTools
 {
     /**

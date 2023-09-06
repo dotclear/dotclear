@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Date
- *
- * @brief Date/time utilities
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -21,6 +17,11 @@ use IntlDateFormatter;
 use IntlGregorianCalendar;
 use InvalidArgumentException;
 
+/**
+ * @class Date
+ *
+ * @brief Date/time utilities
+ */
 class Date
 {
     private static ?array $timezones = null;

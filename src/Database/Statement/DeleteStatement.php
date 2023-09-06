@@ -1,9 +1,5 @@
 <?php
 /**
- * @class DeleteStatement
- *
- * Delete Statement : small utility to build delete queries
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 
+/**
+ * @class DeleteStatement
+ *
+ * Delete Statement : small utility to build delete queries
+ */
 class DeleteStatement extends SqlStatement
 {
     /**

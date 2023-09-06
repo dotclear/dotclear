@@ -1,9 +1,5 @@
 <?php
 /**
- * @class Structure
- *
- * Database Structure Handler
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database;
 
 use Exception;
 
+/**
+ * @class Structure
+ *
+ * Database Structure Handler
+ */
 class Structure
 {
     /**

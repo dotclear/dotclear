@@ -1,9 +1,5 @@
 <?php
 /**
- * @class UpdateStatement
- *
- * Update Statement : small utility to build update queries
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -16,6 +12,11 @@ namespace Dotclear\Database\Statement;
 use Dotclear\Database\Cursor;
 use Dotclear\App;
 
+/**
+ * @class UpdateStatement
+ *
+ * Update Statement : small utility to build update queries
+ */
 class UpdateStatement extends SqlStatement
 {
     protected $sets;

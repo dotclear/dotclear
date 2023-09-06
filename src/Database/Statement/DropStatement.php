@@ -1,9 +1,5 @@
 <?php
 /**
- * @class DropStatement
- *
- * Drop Statement : small utility to build srop queries
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +11,11 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 
+/**
+ * @class DropStatement
+ *
+ * Drop Statement : small utility to build drop queries
+ */
 class DropStatement extends SqlStatement
 {
     /**

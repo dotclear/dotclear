@@ -3,8 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * URL Handler for admin urls
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -17,6 +15,9 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
+/**
+ * URL Handler for admin urls
+ */
 class Url
 {
     /** @var    ArrayObject     List of registered admin URLs */

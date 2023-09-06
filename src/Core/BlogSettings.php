@@ -1,11 +1,5 @@
 <?php
 /**
- * Blog settings handler.
- *
- * This class provides blog settings management. This class instance exists as
- * Blog $settings property. You should create a new settings instance when
- * updating another blog settings.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -24,6 +18,13 @@ use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
+/**
+ * Blog settings handler.
+ *
+ * This class provides blog settings management. This class instance exists as
+ * Blog $settings property. You should create a new settings instance when
+ * updating another blog settings.
+ */
 class BlogSettings implements BlogSettingsInterface
 {
     /** @var    ConnectionInterface     The connetion handler */

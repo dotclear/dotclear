@@ -1,7 +1,5 @@
 <?php
 /**
- * @since 2.27 Before as admin/auth.php
- *
  * @package Dotclear
  * @subpackage Backend
  *
@@ -23,6 +21,9 @@ use Dotclear\Core\Upgrade\Upgrade;
 use Exception;
 use form;
 
+/**
+ * @since 2.27 Before as admin/auth.php
+ */
 class Auth extends Process
 {
     public static function init(): bool

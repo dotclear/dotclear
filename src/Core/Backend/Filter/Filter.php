@@ -3,10 +3,6 @@
  * @package Dotclear
  * @subpackage Backend
  *
- * Generic class for admin list filters form
- *
- * @since 2.20
- *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
@@ -19,6 +15,11 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Select;
 use Exception;
 
+/**
+ * Generic class for admin list filters form
+ *
+ * @since 2.20
+ */
 class Filter
 {
     /** @var array The filter properties */

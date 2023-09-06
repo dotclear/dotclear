@@ -1,7 +1,5 @@
 <?php
 /**
- * Posts type descriptor.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -15,6 +13,9 @@ use Dotclear\Interface\Core\PostTypeInterface;
 
 use Dotclear\Helper\Html\Html;
 
+/**
+ * Posts type descriptor.
+ */
 class PostType implements PostTypeInterface
 {
     /** @var    string  $label  The post type name (untranslated) */
