@@ -2529,6 +2529,7 @@ class Blog implements BlogInterface
         $rs = $sql->select();
 
         if (!$rs->isEmpty()) {
+            $i   = 1;
             $sql = new SelectStatement();
             $sql
                 ->column('post_url')
@@ -2539,19 +2540,18 @@ class Blog implements BlogInterface
                 ->order('post_url DESC');
 
             $rs = $sql->select();
-            $a  = [];
-            while ($rs->fetch()) {
-                $a[] = $rs->post_url;
-            }
+            if ($rs->count()) {
+                $a = [];
+                while ($rs->fetch()) {
+                    $a[] = $rs->post_url;
+                }
 
-            natsort($a);
-            $t_url = end($a);
-
-            if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
-                $i   = (int) $m[2];
-                $url = $m[1];
-            } else {
-                $i = 1;
+                natsort($a);
+                $t_url = end($a);
+                if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
+                    $i   = (int) $m[2];
+                    $url = $m[1];
+                }
             }
 
             return $url . ($i + 1);
