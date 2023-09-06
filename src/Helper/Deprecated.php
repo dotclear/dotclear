@@ -16,15 +16,39 @@ namespace Dotclear\Helper;
  */
 class Deprecated
 {
-    /** @var    int     Error level */
+    /**
+     * Error level.
+     *
+     * @var     int  DEPRECATED_ERROR_LEVEL
+     */
     public const DEPRECATED_ERROR_LEVEL = E_USER_DEPRECATED;
 
-    /** @var    Deprecated  Logger instance */
-    private static $logger;
+    /**
+     * Deprecated Logger instance
+     *
+     * @var     Deprecated  $logger
+     */
+    private static Deprecated $logger;
 
-    // log contents parser
+    /**
+     * Log parser bloc.
+     *
+     * @var     string  $bloc
+     */
     public static string $bloc = '<pre>%s<ul>%s</ul></pre>';
+
+    /**
+     * Log parser bloc header.
+     *
+     * @var     string  $head
+     */
     public static string $head = '<p>%s</p>';
+
+    /**
+     * Log parser bloc line.
+     *
+     * @var     string  $line
+     */
     public static string $line = '<li>%s</li>';
 
     /**

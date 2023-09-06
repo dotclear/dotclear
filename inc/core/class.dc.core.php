@@ -159,7 +159,7 @@ final class dcCore
     /**
      * Plugins
      *
-     * @deprecated since 2.28, Use App::plugins() instead
+     * @deprecated since 2.28, use App::plugins() instead
      *
      * @var ModulesInterface
      */
@@ -168,7 +168,7 @@ final class dcCore
     /**
      * Themes
      *
-     * @deprecated since 2.28, Use App::themes() instead
+     * @deprecated since 2.28, use App::themes() instead
      *
      * @var ModulesInterface
      */
@@ -213,7 +213,7 @@ final class dcCore
     /**
      * Notice instance
      *
-     * @deprecated since 2.28, Use App::notice() instead
+     * @deprecated since 2.28, use App::notice() instead
      *
      * @var NoticeInterface
      */
@@ -222,7 +222,7 @@ final class dcCore
     /**
      * Log instance
      *
-     * @deprecated since 2.28, Use App::log() instead
+     * @deprecated since 2.28, use App::log() instead
      *
      * @var LogInterface
      */
@@ -231,7 +231,7 @@ final class dcCore
     /**
      * Current language
      *
-     * @deprecated since 2.28, Use App::lang() and App::setLang() instead
+     * @deprecated since 2.28, use App::lang() and App::setLang() instead
      *
      * @var string
      */
@@ -251,7 +251,7 @@ final class dcCore
     /**
      * Backend Utility instance
      *
-     * @deprecated since 2.28, Use App::backend() instead
+     * @deprecated since 2.28, use App::backend() instead
      *
      * @var \Dotclear\Core\Backend\Utility
      */
@@ -260,7 +260,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.28, Use App::backend()->url instead
+     * @deprecated since 2.28, use App::backend()->url instead
      *
      * @var \Dotclear\Core\Backend\Url
      */
@@ -269,7 +269,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.28, Use App::backend()->favs instead
+     * @deprecated since 2.28, use App::backend()->favs instead
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
@@ -278,7 +278,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.28, Use App::backend()->menus instead
+     * @deprecated since 2.28, use App::backend()->menus instead
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -287,7 +287,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * @deprecated since 2.28, Use App::backend()->resources instance
+     * @deprecated since 2.28, use App::backend()->resources instance
      *
      * @var array
      */
@@ -298,7 +298,7 @@ final class dcCore
     /**
      * Frontend Utility instance
      *
-     * @deprecated since 2.28, Use App::frontend() instead
+     * @deprecated since 2.28, use App::frontend() instead
      *
      * @var \Dotclear\Core\Frontend\Utility
      */
@@ -307,7 +307,7 @@ final class dcCore
     /**
      * Tpl instance
      *
-     * @deprecated since 2.28, Use App::frontend()->tpl instead
+     * @deprecated since 2.28, use App::frontend()->tpl instead
      *
      * @var Tpl
      */
@@ -316,7 +316,7 @@ final class dcCore
     /**
      * context instance
      *
-     * @deprecated since 2.28, Use App::frontend()->ctx instead
+     * @deprecated since 2.28, use App::frontend()->ctx instead
      *
      * @var Ctx
      */
@@ -337,7 +337,7 @@ final class dcCore
     /**
      * Array of antispam filters (names)
      *
-     * @deprecated since 2.28, Use AntispamInitFilters behavior instead
+     * @deprecated since 2.28, use AntispamInitFilters behavior instead
      *
      * @var array|null
      */

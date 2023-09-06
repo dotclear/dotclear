@@ -1401,7 +1401,7 @@ class Page
     // ------------------
 
     /**
-     * @deprecated since 2.24
+     * @deprecated  since 2.24, permanetly removed
      */
     public static function help()
     {
@@ -1411,7 +1411,7 @@ class Page
     }
 
     /**
-     * @deprecated since version 2.16
+     * @deprecated  since 2.16, permanetly removed
      *
      * @return     string
      */
@@ -1425,7 +1425,7 @@ class Page
     /**
      * Get HTML code for date picker JS utility
      *
-     * @deprecated since 2.21
+     * @deprecated  since 2.21, permanetly removed
      *
      * @return     string
      */
@@ -1439,7 +1439,7 @@ class Page
     /**
      * Load jsToolBar
      *
-     * @deprecated since 2.??
+     * @deprecated  since 2.??, permanetly removed
      *
      * @return  string
      */
@@ -1455,7 +1455,7 @@ class Page
     /**
      * return a javascript variable definition line code
      *
-     * @deprecated 2.15 use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
+     * @deprecated  since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
      *
      * @param      string  $name      variable name
      * @param      mixed   $value      value
@@ -1472,7 +1472,7 @@ class Page
     /**
      * return a list of javascript variables définitions code
      *
-     * @deprecated 2.15 use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
+     * @deprecated since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript intead
      *
      * @param      array  $vars   The variables
      *
@@ -1492,7 +1492,7 @@ class Page
     }
 
     /**
-     * @deprecated since version 2.11
+     * @deprecated  since 2.11, permanetly removed
      *
      * @return     string  ( description_of_the_return_value )
      */
@@ -1504,7 +1504,7 @@ class Page
     }
 
     /**
-     * @deprecated since 2.27 use My::cssLoad()
+     * @deprecated  since 2.27, use My::cssLoad() instead
      *
      * @param      string       $src         The source
      * @param      string       $media       The media
@@ -1520,7 +1520,7 @@ class Page
     }
 
     /**
-     * @deprecated since 2.27 use My::jsLoad()
+     * @deprecated  since 2.27, use My::jsLoad() intead
      *
      * @param      string       $src         The source
      * @param      null|string  $version     The version

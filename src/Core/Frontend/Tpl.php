@@ -1162,7 +1162,7 @@ class Tpl extends Template
      *
      * @return     string
      *
-     * @deprecated since 2.24
+     * @deprecated  since 2.24, use another format instead !
      */
     public function BlogRSDURL(ArrayObject $attr): string
     {

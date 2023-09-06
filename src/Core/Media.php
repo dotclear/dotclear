@@ -1491,7 +1491,7 @@ class Media extends Manager implements MediaInterface
     /**
      * Returns HTML code for FLV player.
      *
-     * @deprecated  since 2.15
+     * @deprecated  since 2.15, use another format instead !
      */
     public static function flvplayer(string $url, ?string $player = null, $args = null): string
     {

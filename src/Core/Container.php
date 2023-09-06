@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Interface\ContainerInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -54,26 +55,46 @@ use Exception;
  *
  * Dotclear default factory will be used at least.
  *
- * @see Dotclear\Factories
+ * @see Factories
  */
-class Container
+class Container implements ContainerInterface
 {
-    /** @var    Container   Container unique instance */
+    /**
+     * Container "singleton" instance.
+     *
+     * @var    Container    $instance
+     */
     private static Container $instance;
 
-    /** @var    array<string,mixed>     Unique instances stack */
+    /**
+     * Stack of loaded factory objects.
+     *
+     * @var    array<string,mixed>  $stack
+     */
     private array $stack = [];
 
-    /** @var    FactoryInterface    Factory instance */
+    /**
+     * Factory instance.
+     *
+     * @var    FactoryInterface     $factory
+     */
     private FactoryInterface $factory;
 
-    /** @var    array<int,string>   The FactoryInterface methods list */
+    /**
+     * The FactoryInterface methods list.
+     *
+     * @var    array<int,string>   $methods
+     */
     private array $methods = [];
 
     /// @name Container methods
     //@{
     /**
      * Constructor instanciates core factory.
+     *
+     * @throws  Exception 
+     *
+     * @param   string  $class  The factory full class name
      */
     public function __construct(string $class)
     {
@@ -118,17 +139,11 @@ class Container
         throw new Exception('Call to undefined factory method ' . $id);
     }
 
-    /**
-     * Check if core object exists.
-     *
-     * @param   string  $id The object ID.
-     *
-     * @return  bool    True if it exists
-     */
     public function has(string $id): bool
     {
         return in_array($id, $this->methods);
     }
+
     //@}
 
     /// @name Core container methods

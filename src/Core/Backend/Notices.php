@@ -107,7 +107,7 @@ class Notices
                     if ($lines->notice_options !== null) {
                         $notification = array_merge($notification, @json_decode($lines->notice_options, true, 512, JSON_THROW_ON_ERROR));
                     }
-                    
+
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
                     $notice = App::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 

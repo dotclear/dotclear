@@ -62,11 +62,11 @@ class Home extends Process
         return self::status(true);
     }
 
+    /**
+     * @deprecated  use of logout=1 in URL since 2.27, use App::backend()->url->redirect('admin.logout'); instead
+     */
     public static function process(): bool
     {
-        /*
-         * @deprecated since 2.27 Use App::backend()->url->redirect('admin.logout');
-         */
         if (!empty($_GET['logout'])) {
             // Enable REST service if disabled, for next requests
             if (!App::rest()->serveRestRequests()) {
