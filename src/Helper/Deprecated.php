@@ -28,7 +28,7 @@ class Deprecated
      *
      * @var     Deprecated  $logger
      */
-    private static Deprecated $logger;
+    private static $logger;
 
     /**
      * Log parser bloc.
