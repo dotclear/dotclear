@@ -17,6 +17,7 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Schema\Extension\User;
 use Exception;
@@ -26,6 +27,21 @@ use Exception;
  */
 class Users implements UsersInterface
 {
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->con = App::con();
+    }
+
     public function getUser(string $id): MetaRecord
     {
         $params['user_id'] = $id;
@@ -40,7 +56,7 @@ class Users implements UsersInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('U.user_id'))
-                ->from($sql->as(App::con()->prefix() . App::auth()::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->con->prefix() . App::auth()::USER_TABLE_NAME, 'U'))
                 ->where('NULL IS NULL');
         } else {
             $sql
@@ -62,7 +78,7 @@ class Users implements UsersInterface
                     'user_options',
                     $sql->count('P.post_id', 'nb_post'),
                 ])
-                ->from($sql->as(App::con()->prefix() . App::auth()::USER_TABLE_NAME, 'U'));
+                ->from($sql->as($this->con->prefix() . App::auth()::USER_TABLE_NAME, 'U'));
 
             if (!empty($params['columns'])) {
                 $sql->columns($params['columns']);
@@ -71,7 +87,7 @@ class Users implements UsersInterface
                 ->join(
                     (new JoinStatement())
                         ->left()
-                        ->from($sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
+                        ->from($sql->as($this->con->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
                         ->on('U.user_id = P.user_id')
                         ->statement()
                 )
@@ -189,7 +205,7 @@ class Users implements UsersInterface
         $sql
             ->distinct()
             ->column('blog_id')
-            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
+            ->from($this->con->prefix() . App::blog()::POST_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -235,7 +251,7 @@ class Users implements UsersInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
+            ->from($this->con->prefix() . App::auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -256,7 +272,7 @@ class Users implements UsersInterface
         $sql = new SelectStatement();
         $sql
             ->column('user_id')
-            ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
+            ->from($this->con->prefix() . App::auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -288,11 +304,11 @@ class Users implements UsersInterface
                 'blog_url',
                 'permissions',
             ])
-            ->from($sql->as(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME, 'P'))
+            ->from($sql->as($this->con->prefix() . App::auth()::PERMISSIONS_TABLE_NAME, 'P'))
             ->join(
                 (new JoinStatement())
                 ->inner()
-                ->from($sql->as(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as($this->con->prefix() . App::blog()::BLOG_TABLE_NAME, 'B'))
                 ->on('P.blog_id = B.blog_id')
                 ->statement()
             )
@@ -334,7 +350,7 @@ class Users implements UsersInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME)
+            ->from($this->con->prefix() . App::auth()::PERMISSIONS_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -373,7 +389,7 @@ class Users implements UsersInterface
         if ($delete_first || $no_perm) {
             $sql = new DeleteStatement();
             $sql
-                ->from(App::con()->prefix() . App::auth()::PERMISSIONS_TABLE_NAME)
+                ->from($this->con->prefix() . App::auth()::PERMISSIONS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id))
                 ->and('user_id = ' . $sql->quote($id));
 

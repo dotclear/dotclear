@@ -26,13 +26,25 @@ use Exception;
  */
 class UserPreferences implements UserPreferencesInterface
 {
-    /** @var    string  Preferences table name */
+    /**
+     * Preferences table name.
+     *
+     * @var     string  $table
+     */
     protected $table;
 
-    /** @var    string  User ID  */
+    /**
+     * User ID.
+     *
+     * @var     string  $user_id
+    */
     protected $user_id;
 
-    /** @var    array   Associative workspaces array */
+    /**
+     * Associative workspaces array.
+     *
+     * @var     array   $workspaces
+     */
     protected $workspaces = [];
 
     public function __construct(string $user_id, ?string $workspace = null)

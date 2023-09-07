@@ -35,6 +35,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\TrackbackInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
@@ -163,7 +164,7 @@ class Factory implements FactoryInterface
 
     public function postMedia(): PostMediaInterface
     {
-        return $this->container->get('media')->postMedia();
+        return new PostMedia();
     }
 
     public function postTypes(): PostTypesInterface
@@ -190,6 +191,11 @@ class Factory implements FactoryInterface
     public function themes(): ModulesInterface
     {
         return new Themes();
+    }
+
+    public function trackback(): TrackbackInterface
+    {
+        return new Trackback();
     }
 
     public function url(): Url

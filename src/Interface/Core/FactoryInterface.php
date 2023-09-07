@@ -44,6 +44,7 @@ interface FactoryInterface
     public function rest(): RestInterface;
     public function session(): SessionInterface;
     public function themes(): ModulesInterface;
+    public function trackback(): TrackbackInterface;
     public function url(): Url;
     public function users(): UsersInterface;
     public function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface;

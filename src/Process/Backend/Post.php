@@ -15,7 +15,6 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Trackback;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
@@ -121,7 +120,7 @@ class Post extends Process
         App::backend()->bad_dt = false;
 
         // Trackbacks
-        App::backend()->tb      = new Trackback();
+        App::backend()->tb      = App::trackback();
         App::backend()->tb_urls = App::backend()->tb_excerpt = '';
 
         // Get entry informations

@@ -25,16 +25,32 @@ use Throwable;
  */
 class Deprecated extends HelperDeprecated
 {
-    /** @var    string  The log table name for deprecated */
+    /**
+     * The log table name for deprecated
+     *
+     * @var     string  DEPRECATED_LOG_TABLE
+     */
     public const DEPRECATED_LOG_TABLE = 'deprecated';
 
-    /** @var    int     Logs limit in table */
+    /**
+     * Logs limit in table.
+     *
+     * @var     int     DEPRECATED_PURGE_LIMIT
+     */
     public const DEPRECATED_PURGE_LIMIT = 200;
 
-    /** @var    string  The trace lines separator */
+    /**
+     * The trace lines separator.
+     *
+     * @var     string  DEPRECATED_LINE_SEPARATOR
+     */
     public const DEPRECATED_LINE_SEPARATOR = "\n";
 
-    /** @var    bool    Purge limit checked */
+    /**
+     * Purge limit checked.
+     *
+     * @var     bool    $purged
+     */
     private static bool $purged = false;
 
     /**

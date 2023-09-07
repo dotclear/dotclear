@@ -17,6 +17,7 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MetaInterface;
 use Exception;
 
@@ -27,20 +28,32 @@ use Exception;
  */
 class Meta implements MetaInterface
 {
-    /** @var    string  The mate table name with prefix */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
+
+    /**
+     * The mate table name with prefix.
+     *
+     * @var     string  $table
+     */
     private string $table;
 
     /**
-     * Constructs.
+     * Constructor.
      */
     public function __construct()
     {
-        $this->table = App::con()->prefix() . self::META_TABLE_NAME;
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::META_TABLE_NAME;
     }
 
     public function openMetaCursor(): Cursor
     {
-        return App::con()->openCursor($this->table);
+        return $this->con->openCursor($this->table);
     }
 
     public function splitMetaValues(string $str): array
@@ -135,7 +148,7 @@ class Meta implements MetaInterface
         ]), App::blog()->id())) {
             $sql = new SelectStatement();
             $sql
-                ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
+                ->from($this->con->prefix() . App::blog()::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
                 ->and('user_id = ' . $sql->quote(App::auth()->userID()));
@@ -253,7 +266,7 @@ class Meta implements MetaInterface
             ->join(
                 (new JoinStatement())
                 ->left()
-                ->from($sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
+                ->from($sql->as($this->con->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
@@ -393,7 +406,7 @@ class Meta implements MetaInterface
         $sql
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
+                $sql->as($this->con->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
@@ -489,7 +502,7 @@ class Meta implements MetaInterface
             ->column('M.post_id')
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
+                $sql->as($this->con->prefix() . App::blog()::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote(App::blog()->id()))

@@ -17,7 +17,11 @@ use Dotclear\Interface\Core\PostTypesInterface;
  */
 class PostTypes implements PostTypesInterface
 {
-    /** @var    array<string,PostTypeInterface>  The post types stack */
+    /**
+     * The post types stack.
+     *
+     * @var     array<string,PostTypeInterface>     $stack
+     */
     private array $stack;
 
     public function exists(string $type): bool

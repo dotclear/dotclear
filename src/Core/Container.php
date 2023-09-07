@@ -32,6 +32,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\TrackbackInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
@@ -92,7 +93,7 @@ class Container implements ContainerInterface
     /**
      * Constructor instanciates core factory.
      *
-     * @throws  Exception 
+     * @throws  Exception
      *
      * @param   string  $class  The factory full class name
      */
@@ -261,6 +262,11 @@ class Container implements ContainerInterface
     public static function themes(): ModulesInterface
     {
         return self::$instance->get('themes');
+    }
+
+    public static function trackback(): TrackbackInterface
+    {
+        return self::$instance->get('trackback');
     }
 
     public static function url(): Url

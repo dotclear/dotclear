@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use Dotclear\App;
-use Dotclear\Core\Trackback;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -93,7 +92,7 @@ class ModuleExportFlat extends Module
                 $exp->export(
                     'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
-                    'FROM ' . App::con()->prefix() . Trackback::PING_TABLE_NAME . ' ping, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::con()->prefix() . App::trackback()::PING_TABLE_NAME . ' ping, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );

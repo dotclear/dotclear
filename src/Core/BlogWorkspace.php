@@ -26,25 +26,53 @@ use Exception;
  */
 class BlogWorkspace implements BlogWorkspaceInterface
 {
-    /** @var    ConnectionInterface     The connetion handler */
+    /**
+     * The connetion handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
     protected ConnectionInterface $con;
 
-    /** @var    string  Settings table name */
+    /**
+     * Settings table name.
+     *
+     * @var     string  $table
+     */
     protected string $table;
 
-    /** @var    array   Global settings */
+    /**
+     * Global settings.
+     *
+     * @var     array   $global_settings
+     */
     protected array $global_settings = [];
 
-    /** @var    array   Local settings */
+    /**
+     * Local settings.
+     *
+     * @var     array   $local_settings
+     */
     protected $local_settings = [];
 
-    /** @var    array   Blog settings */
+    /**
+     * Blog settings.
+     *
+     * @var     array   $setting
+     */
     protected $settings = [];
 
-    /** @var    string  Settings table name */
+    /**
+     * Settings table name.
+     *
+     * @var     string  $blog_id
+     */
     protected ?string $blog_id;
 
-    /** @var    string  Settings table name */
+    /**
+     * Settings table name.
+     *
+     * @var     string  $workspace
+     */
     protected ?string $workspace;
 
     public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null)

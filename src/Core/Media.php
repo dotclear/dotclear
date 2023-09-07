@@ -26,6 +26,7 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Exception;
@@ -36,13 +37,11 @@ use Exception;
 class Media extends Manager implements MediaInterface
 {
     /**
-     * Database connection
+     * Database connection handler.
      *
-     * @deprecated since 2.28, use App::con() instead
-     *
-     * @var object
+     * @var     ConnectionInterface     $con
      */
-    protected $con;
+    protected ConnectionInterface $con;
 
     /**
      * Media table name
@@ -91,7 +90,7 @@ class Media extends Manager implements MediaInterface
      *
      * @deprecated since 2.28, use App::media() instead
      *
-     * @var PostMedia
+     * @var PostMediaInterface
      */
     protected $postmedia;
 
@@ -160,17 +159,15 @@ class Media extends Manager implements MediaInterface
      */
     public function __construct(string $type = '')
     {
-        // deprecated since 2.28, use App::con() instead
-        $this->con = App::con();
-
-        $this->postmedia = new PostMedia();
+        $this->con       = App::con();
+        $this->postmedia = App::postMedia();
         $this->type      = $type;
 
         if (!App::blog()->isDefined()) {
             throw new Exception(__('No blog defined.'));
         }
 
-        $this->table = App::con()->prefix() . self::MEDIA_TABLE_NAME;
+        $this->table = $this->con->prefix() . self::MEDIA_TABLE_NAME;
         $root        = App::blog()->publicPath();
 
         if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->public_url)) {
@@ -246,7 +243,7 @@ class Media extends Manager implements MediaInterface
 
     public function openMediaCursor(): Cursor
     {
-        return App::con()->openCursor($this->table);
+        return $this->con->openCursor($this->table);
     }
 
     public function postMedia(): PostMediaInterface
@@ -976,7 +973,7 @@ class Media extends Manager implements MediaInterface
         $rs = $sql->select();
 
         if ($rs->isEmpty()) {
-            App::con()->writeLock($this->table);
+            $this->con->writeLock($this->table);
 
             try {
                 $sql = new SelectStatement();
@@ -1011,9 +1008,9 @@ class Media extends Manager implements MediaInterface
 
                     throw $e;
                 }
-                App::con()->unlock();
+                $this->con->unlock();
             } catch (Exception $e) {
-                App::con()->unlock();
+                $this->con->unlock();
 
                 throw $e;
             }
@@ -1169,7 +1166,7 @@ class Media extends Manager implements MediaInterface
 
         $sql->delete();
 
-        if (App::con()->changes() == 0) {
+        if ($this->con->changes() == 0) {
             throw new Exception(__('File does not exist in the database.'));
         }
 

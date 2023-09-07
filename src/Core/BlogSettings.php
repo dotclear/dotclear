@@ -27,13 +27,25 @@ use Exception;
  */
 class BlogSettings implements BlogSettingsInterface
 {
-    /** @var    ConnectionInterface     The connetion handler */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
     protected ConnectionInterface $con;
 
-    /** @var    string  Settings table name */
+    /**
+     * Settings table name.
+     *
+     * @var     string  $table
+     */
     protected $table;
 
-    /** @var    array   Associative namespaces array */
+    /**
+     * Associative namespaces array.
+     *
+     * @var     array   $workspaces
+     */
     protected $workspaces = [];
 
     public function __construct(

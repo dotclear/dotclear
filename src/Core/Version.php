@@ -14,6 +14,7 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 /**
@@ -23,10 +24,25 @@ use Dotclear\Interface\Core\VersionInterface;
  */
 class Version implements VersionInterface
 {
-    /** @var    array<string,string>    The version stack */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
+
+    /**
+     * The version stack.
+     *
+     * @var     array<string,string>    $stack;
+     */
     private array $stack;
 
-    /** @var    string  Full table name (including db prefix) */
+    /**
+     * Full table name (including db prefix).
+     *
+     * @var     string  $table
+     */
     protected string $table;
 
     /**
@@ -34,12 +50,13 @@ class Version implements VersionInterface
      */
     public function __construct()
     {
-        $this->table = App::con()->prefix() . self::VERSION_TABLE_NAME;
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::VERSION_TABLE_NAME;
     }
 
     public function openVersionCursor(): Cursor
     {
-        return App::con()->openCursor(App::con()->prefix() . self::VERSION_TABLE_NAME);
+        return $this->con->openCursor($this->con->prefix() . self::VERSION_TABLE_NAME);
     }
 
     public function getVersion(string $module = 'core'): string
