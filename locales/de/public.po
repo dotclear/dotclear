@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
-"PO-Revision-Date: 2023-07-10 07:07\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-07 14:31\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -190,7 +190,6 @@ msgstr "Vorheriger Eintrag:"
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "<abbr xml:lang=\"de\" lang=\"de\" title=\"Really Simple Syndication\">RSS</abbr> ist eine kostenlose Inhaltsübersicht für den Blog. Man kann Inhalte (z.B. Einträge oder Kommentare) oder auch Auszüge von Inhalten mit Links und anderen Metadaten abonnieren. Diese kannst du dann in einem beliebigen <a href=\"http://de.wikipedia.org/wiki/Feedreader\">Feedreader</a>. lesen."
 
-#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "Lesen"
 
