@@ -15,8 +15,8 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
@@ -24,25 +24,53 @@ use Exception;
  */
 class UserWorkspace implements UserWorkspaceInterface
 {
-    /** @var    ConnectionInterface     Database connection object */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
     protected ConnectionInterface $con;
 
-    /** @var    string  Preferences table name */
+    /**
+     * Preferences table name.
+     *
+     * @var     string  $table
+     */
     protected string $table;
 
-    /** @var    string  User ID */
+    /**
+     * User ID.
+     *
+     * @var     string  $user_id
+     */
     protected ?string $user_id;
 
-    /** @var    array   Global preferences */
+    /**
+     * Global preferences.
+     *
+     * @var     array   Global preferences
+     */
     protected array $global_prefs = [];
 
-    /** @var    array   Local preferences */
+    /**
+     * Local preferences.
+     *
+     * @var     array   $local_prefs
+     */
     protected array $local_prefs = [];
 
-    /** @var    array   User preferences */
+    /**
+     * User preferences.
+     *
+     * @var     array   $prefs
+     */
     protected array $prefs = [];
 
-    /** @var    string  Current workspace name */
+    /**
+     * Current workspace name.
+     *
+     * @var     string  $workspace
+     */
     protected ?string $workspace;
 
     public function __construct(?string $user_id = null, ?string $workspace = null, ?MetaRecord $rs = null)

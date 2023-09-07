@@ -20,6 +20,9 @@ use UnhandledMatchError;
 
 /**
  * Helpers handler.
+ *
+ * Utils is not part of Core container has
+ * this class provide a collection of small static methods.
  */
 class Utils
 {

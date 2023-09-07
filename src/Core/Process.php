@@ -20,13 +20,19 @@ namespace Dotclear\Core;
 abstract class Process
 {
     /**
+     * Kepp track of parent status.
+     *
      * @deprecated since 2.27, use self::status()
      *
-     * @var     bool
+     * @var     bool    $init
      */
     protected static $init = false;
 
-    /** @var    array<string,bool>  All process statuses */
+    /**
+     * All process statuses.
+     *
+     * @var     array<string,bool>  $statuses
+     */
     private static $statuses = [];
 
     /**

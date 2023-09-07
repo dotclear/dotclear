@@ -164,7 +164,7 @@ class Factory implements FactoryInterface
 
     public function postMedia(): PostMediaInterface
     {
-        return $this->container->get('media')->postMedia();
+        return new PostMedia();
     }
 
     public function postTypes(): PostTypesInterface

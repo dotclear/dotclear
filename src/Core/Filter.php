@@ -22,7 +22,11 @@ use Dotclear\Interface\Core\FilterInterface;
  */
 class Filter implements FilterInterface
 {
-    /** @var    WikiToHtml TH ewiki instance */
+    /**
+     * The wiki instance.
+     *
+     * @var     WikiToHtml  $wiki
+     */
     private ?WikiToHtml $wiki = null;
 
     /**

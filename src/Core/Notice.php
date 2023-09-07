@@ -14,6 +14,7 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Exception;
 
@@ -23,9 +24,16 @@ use Exception;
 class Notice implements NoticeInterface
 {
     /**
-     * Full table name (including db prefix)
+     * Database connection handler.
      *
-     * @var        string
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
+
+    /**
+     * Full table name (including db prefix).
+     *
+     * @var     string  $table
      */
     protected string $table;
 
@@ -34,12 +42,13 @@ class Notice implements NoticeInterface
      */
     public function __construct()
     {
-        $this->table = App::con()->prefix() . self::NOTICE_TABLE_NAME;
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     public function openNoticeCursor(): Cursor
     {
-        return App::con()->openCursor($this->table);
+        return $this->con->openCursor($this->table);
     }
 
     public function getNotices(array $params = [], bool $count_only = false): MetaRecord
@@ -104,7 +113,7 @@ class Notice implements NoticeInterface
 
     public function addNotice(Cursor $cur): int
     {
-        App::con()->writeLock($this->table);
+        $this->con->writeLock($this->table);
 
         try {
             # Get ID
@@ -124,9 +133,9 @@ class Notice implements NoticeInterface
             App::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            App::con()->unlock();
+            $this->con->unlock();
         } catch (Exception $e) {
-            App::con()->unlock();
+            $this->con->unlock();
 
             throw $e;
         }

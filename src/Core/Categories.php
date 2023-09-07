@@ -24,19 +24,39 @@ use Exception;
  */
 class Categories implements CategoriesInterface
 {
-    /** @var    ConnectionInterface     The connetion handler */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
     protected ConnectionInterface $con;
 
-    /** @var    string  Table name */
+    /**
+     * Table name.
+     *
+     * @var     string  $table
+     */
     protected string $table;
 
-    /** @var    string  Left cat field name (integer type) */
+    /**
+     * Left cat field name (integer type).
+     *
+     * @var     string  $f_left
+     */
     protected string $f_left = 'cat_lft';
 
-    /** @var    string  Right cat field name (integer type) */
+    /**
+     * Right cat field name (integer type).
+     *
+     * @var     string  f_right
+     */
     protected string $f_right = 'cat_rgt';
 
-    /** @var    string  Cat ID field name (integer type) */
+    /**
+     * Cat ID field name (integer type).
+     *
+     * @var     string  $f_id
+     */
     protected string $f_id = 'cat_id';
 
     /**

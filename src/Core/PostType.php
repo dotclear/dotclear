@@ -18,7 +18,11 @@ use Dotclear\Helper\Html\Html;
  */
 class PostType implements PostTypeInterface
 {
-    /** @var    string  $label  The post type name (untranslated) */
+    /**
+     * The post type name (untranslated).
+     *
+     * @var     string  $label  $label
+     */
     public readonly string $label;
 
     /**

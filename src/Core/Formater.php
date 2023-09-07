@@ -17,10 +17,18 @@ use Dotclear\Interface\Core\FormaterInterface;
  */
 class Formater implements FormaterInterface
 {
-    /** @var     array<string,array<string,callable>>    Stack of registered content formaters */
+    /**
+     * Stack of registered content formaters.
+     *
+     * @var     array<string,array<string,callable>>    $stack
+     */
     private $stack = [];
 
-    /** @var     array<string,string>   Stack of registered content formaters' name */
+    /**
+     * Stack of registered content formaters' name.
+     *
+     * @var     array<string,string>    $names
+     */
     private $names = [];
 
     public function addEditorFormater(string $editor_id, string $name, $func): void

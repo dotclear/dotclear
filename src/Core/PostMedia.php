@@ -15,6 +15,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 
 /**
@@ -22,7 +23,18 @@ use Dotclear\Interface\Core\PostMediaInterface;
  */
 class PostMedia implements PostMediaInterface
 {
-    /** @var    string  Full table name (including db prefix) */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
+
+    /**
+     * Full table name (including db prefix).
+     *
+     * @var     string  $table
+     */
     protected string $table;
 
     /**
@@ -30,12 +42,13 @@ class PostMedia implements PostMediaInterface
      */
     public function __construct()
     {
-        $this->table = App::con()->prefix() . self::POST_MEDIA_TABLE_NAME;
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::POST_MEDIA_TABLE_NAME;
     }
 
     public function openPostMediaCursor(): Cursor
     {
-        return App::con()->openCursor($this->table);
+        return $this->con->openCursor($this->table);
     }
 
     public function getPostMedia(array $params = []): MetaRecord
@@ -61,7 +74,7 @@ class PostMedia implements PostMediaInterface
         }
 
         $sql
-            ->from($sql->as(App::con()->prefix() . App::media()::MEDIA_TABLE_NAME, 'M'))
+            ->from($sql->as($this->con->prefix() . App::media()::MEDIA_TABLE_NAME, 'M'))
             ->join(
                 (new JoinStatement())
                 ->inner()

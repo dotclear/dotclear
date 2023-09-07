@@ -17,6 +17,7 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Schema\Extension\Log as ExtLog;
 use Exception;
@@ -26,10 +27,25 @@ use Exception;
  */
 class Log implements LogInterface
 {
-    /** @var    string  Full log table name (including db prefix) */
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
+
+    /**
+     * Full log table name (including db prefix).
+     *
+     * @var     string  $log_table
+     */
     protected $log_table;
 
-    /** @var    string  Full user table name (including db prefix) */
+    /**
+     * Full user table name (including db prefix).
+     *
+     * @var     string  $user_table
+     */
     protected $user_table;
 
     /**
@@ -37,8 +53,9 @@ class Log implements LogInterface
      */
     public function __construct()
     {
-        $this->log_table  = App::con()->prefix() . self::LOG_TABLE_NAME;
-        $this->user_table = App::con()->prefix() . App::auth()::USER_TABLE_NAME;
+        $this->con        = App::con();
+        $this->log_table  = $this->con->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = $this->con->prefix() . App::auth()::USER_TABLE_NAME;
     }
 
     /**
@@ -57,7 +74,7 @@ class Log implements LogInterface
 
     public function openLogCursor(): Cursor
     {
-        return App::con()->openCursor($this->log_table);
+        return $this->con->openCursor($this->log_table);
     }
 
     public function getLogs(array $params = [], bool $count_only = false): MetaRecord
@@ -134,7 +151,7 @@ class Log implements LogInterface
 
     public function addLog(Cursor $cur): int
     {
-        App::con()->writeLock($this->log_table);
+        $this->con->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -155,9 +172,9 @@ class Log implements LogInterface
             App::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            App::con()->unlock();
+            $this->con->unlock();
         } catch (Exception $e) {
-            App::con()->unlock();
+            $this->con->unlock();
 
             throw $e;
         }

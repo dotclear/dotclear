@@ -17,10 +17,18 @@ use Dotclear\Interface\Core\ErrorInterface;
  */
 class Error implements ErrorInterface
 {
-    /** @var    array<int,string>   Errors stack */
+    /**
+     * Errors stack.
+     *
+     * @var     array<int,string>   $stack
+     */
     protected $stack = [];
 
-    /** @var    bool True if stack is not empty */
+    /**
+     * True if stack is not empty
+     *
+     * @var     bool    $flag
+     */
     protected $flag = false;
 
     public function add(string $msg): void

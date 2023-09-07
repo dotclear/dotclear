@@ -18,8 +18,12 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
  */
 class BlogLoader implements BlogLoaderInterface
 {
-    /** @var    BlogInterface  The current loaded blog instance */
-    private ?BlogInterface $blog;
+    /**
+     * The current loaded blog instance.
+     *
+     * @var     BlogInterface   $blog
+     */
+    private BlogInterface $blog;
 
     public function hasBLog(): bool
     {
