@@ -17,7 +17,11 @@ use Dotclear\Database\MetaRecord;
  */
 interface LogInterface
 {
-    /** @var    string  The Log database table name */
+    /**
+     * The Log database table name.
+     *
+     * @var    string   LOG_TABLE_NAME
+     */
     public const LOG_TABLE_NAME = 'log';
 
     /**

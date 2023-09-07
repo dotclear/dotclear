@@ -41,49 +41,6 @@ class Blog implements BlogInterface
     // deprecated since 2.28,
     use TraitDynamicProperties;
 
-    // Constants
-
-    /**
-     * Blog table name
-     *
-     * @var        string
-     */
-    public const BLOG_TABLE_NAME = 'blog';
-
-    /**
-     * Post table name
-     *
-     * @var        string
-     */
-    public const POST_TABLE_NAME = 'post';
-
-    /**
-     * Comment table name
-     *
-     * @var        string
-     */
-    public const COMMENT_TABLE_NAME = 'comment';
-
-    // Blog statuses
-    public const BLOG_ONLINE    = 1;
-    public const BLOG_OFFLINE   = 0;
-    public const BLOG_REMOVED   = -1;
-    public const BLOG_UNDEFINED = -2;
-
-    // Post statuses
-    public const POST_PENDING     = -2;
-    public const POST_SCHEDULED   = -1;
-    public const POST_UNPUBLISHED = 0;
-    public const POST_PUBLISHED   = 1;
-
-    // Comment statuses
-    public const COMMENT_JUNK        = -2;
-    public const COMMENT_PENDING     = -1;
-    public const COMMENT_UNPUBLISHED = 0;
-    public const COMMENT_PUBLISHED   = 1;
-
-    // Properties
-
     /**
      * Database connection handler.
      *

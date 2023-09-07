@@ -17,7 +17,11 @@ use Dotclear\Database\MetaRecord;
  */
 interface NoticeInterface
 {
-    /** @var     string  The Notice database table name */
+    /**
+     * The Notice database table name.
+     *
+     * @var     string  NOTICE_TABLE_NAME
+     */
     public const NOTICE_TABLE_NAME = 'notice';
 
     /**

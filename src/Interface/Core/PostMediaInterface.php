@@ -17,7 +17,11 @@ use Dotclear\Database\MetaRecord;
  */
 interface PostMediaInterface
 {
-    /** @var    string  The post media database table name */
+    /**
+     * The post media database table name.
+     *
+     * @var    string  POST_MEDIA_TABLE_NAME
+     */
     public const POST_MEDIA_TABLE_NAME = 'post_media';
 
     /**

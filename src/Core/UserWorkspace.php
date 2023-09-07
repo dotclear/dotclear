@@ -24,24 +24,6 @@ use Exception;
  */
 class UserWorkspace implements UserWorkspaceInterface
 {
-    public const WS_TABLE_NAME = 'pref';
-
-    public const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
-
-    public const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
-
-    public const WS_STRING = 'string';
-    public const WS_FLOAT  = 'float';
-    public const WS_BOOL   = 'boolean';
-    public const WS_INT    = 'integer';
-    public const WS_ARRAY  = 'array';
-
-    public const WS_DOUBLE = 'double';
-
-    public const WS_TEXT    = self::WS_STRING;
-    public const WS_BOOLEAN = self::WS_BOOL;
-    public const WS_INTEGER = self::WS_INT;
-
     /** @var    ConnectionInterface     Database connection object */
     protected ConnectionInterface $con;
 

@@ -11,7 +11,6 @@ namespace Dotclear\Core;
 
 use dcCore;
 use Dotclear\Helper\RestServer;
-use Dotclear\Interface\Core\RestInterface;
 use Exception;
 
 /**
@@ -19,15 +18,11 @@ use Exception;
  *
  * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
  * Instance of this class is provided by App::rest().
+ *
+ * Rest class uses RestServer (class that RestInterface interface) constants.
  */
-class Rest extends RestServer implements RestInterface
+class Rest extends RestServer
 {
-    public const XML_RESPONSE = 0;
-
-    public const JSON_RESPONSE = 1;
-
-    public const DEFAULT_RESPONSE = self::XML_RESPONSE;
-
     /**
      * @todo    Remove old dcCore from RestServer::serve returned parent parameters
      */

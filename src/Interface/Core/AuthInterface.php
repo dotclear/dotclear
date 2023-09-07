@@ -20,27 +20,74 @@ interface AuthInterface
 {
     // Constants
 
-    /** @var    string  User table name */
+    /**
+     * User table name .
+     *
+     * @var    string  USER_TABLE_NAME
+     */
     public const USER_TABLE_NAME = 'user';
 
-    /** @var    string  User permissions table name */
+    /**
+     * User permissions table name.
+     *
+     * @var    string  PERMISSIONS_TABLE_NAME
+     */
     public const PERMISSIONS_TABLE_NAME = 'permissions';
 
-    /** @var    string  User blog permission code for : All */
+    /**
+     * User blog permission code for : All.
+     *
+     * @var    string  PERMISSION_ADMIN
+     */
     public const PERMISSION_ADMIN = 'admin';
-    /** @var    string  User blog permission code for : All entries/comments */
+
+    /**
+     * User blog permission code for : All entries/comments.
+     *
+     * @var    string  PERMISSION_CONTENT_ADMIN
+     */
     public const PERMISSION_CONTENT_ADMIN = 'contentadmin';
-    /** @var    string  User blog permission code for : Own entries/comments */
+
+    /**
+     * User blog permission code for : Own entries/comments.
+     *
+     * @var    string  PERMISSION_USAGE
+     */
     public const PERMISSION_USAGE = 'usage';
-    /** @var    string  User blog permission code for : Publication of entries/comments */
+
+    /**
+     * User blog permission code for : Publication of entries/comments.
+     *
+     * @var    string  PERMISSION_PUBLISH
+     */
     public const PERMISSION_PUBLISH = 'publish';
-    /** @var    string  User blog permission code for : Deletion of entries/comments */
+
+    /**
+     * User blog permission code for : Deletion of entries/comments.
+     *
+     * @var    string  PERMISSION_DELETE
+     */
     public const PERMISSION_DELETE = 'delete';
-    /** @var    string  User blog permission code for : Categories */
+
+    /**
+     * User blog permission code for : Categories.
+     *
+     * @var    string  PERMISSION_CATEGORIES
+     */
     public const PERMISSION_CATEGORIES = 'categories';
-    /** @var    string  User blog permission code for : All media */
+
+    /**
+     * User blog permission code for : All media.
+     *
+     * @var    string  PERMISSION_MEDIA_ADMIN
+     */
     public const PERMISSION_MEDIA_ADMIN = 'media_admin';
-    /** @var    string  User blog permission code for : Own media */
+
+    /**
+     * User blog permission code for : Own media.
+     *
+     * @var    string  PERMISSION_MEDIA
+     */
     public const PERMISSION_MEDIA = 'media';
 
     /**

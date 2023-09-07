@@ -35,17 +35,6 @@ use Exception;
  */
 class Media extends Manager implements MediaInterface
 {
-    // Constants
-
-    /**
-     * Media table name
-     *
-     * @var        string
-     */
-    public const MEDIA_TABLE_NAME = 'media';
-
-    // Properties
-
     /**
      * Database connection
      *

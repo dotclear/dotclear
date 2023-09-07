@@ -14,7 +14,11 @@ namespace Dotclear\Interface\Core;
  */
 interface SessionInterface
 {
-    /** @var     string  The Session database table name */
+    /**
+     * The Session database table name.
+     *
+     * @var     string  SESSION_TABLE_NAME
+     */
     public const SESSION_TABLE_NAME = 'session';
 
     /**

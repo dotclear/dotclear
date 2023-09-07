@@ -26,23 +26,6 @@ use Exception;
  */
 class BlogWorkspace implements BlogWorkspaceInterface
 {
-    public const NS_TABLE_NAME = 'setting';
-
-    public const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
-    public const NS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
-
-    public const NS_STRING = 'string';
-    public const NS_FLOAT  = 'float';
-    public const NS_BOOL   = 'boolean';
-    public const NS_INT    = 'integer';
-    public const NS_ARRAY  = 'array';
-
-    public const NS_DOUBLE = 'double';     // -> NS_FLOAT
-
-    public const NS_TEXT    = self::NS_STRING;
-    public const NS_BOOLEAN = self::NS_BOOL;
-    public const NS_INTEGER = self::NS_INT;
-
     /** @var    ConnectionInterface     The connetion handler */
     protected ConnectionInterface $con;
 

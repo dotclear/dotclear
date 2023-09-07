@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper;
 
 use Dotclear\Helper\Html\XmlTag;
+use Dotclear\Interface\Core\RestInterface;
 use Exception;
 
 /**
@@ -17,36 +18,26 @@ use Exception;
  *
  * A very simple REST server implementation
  */
-class RestServer
+class RestServer implements RestInterface
 {
-    // Constants
-
     /**
-     * Response format
-     */
-    public const XML_RESPONSE  = 0;
-    public const JSON_RESPONSE = 1;
-
-    public const DEFAULT_RESPONSE = self::XML_RESPONSE;
-
-    /**
-     * Response (XML)
+     * Response: XML.
      *
-     * @var null|XmlTag
+     * @var     null|XmlTag     $rsp
      */
     public $rsp;
 
     /**
-     * Response (JSON)
+     * Response: JSON.
      *
-     * @var null|array
+     * @var     null|array  $json
      */
     public $json;
 
     /**
-     * Server's functions
+     * Server's functions.
      *
-     * @var array
+     * @var     array   $functions
      */
     public array $functions = [];
 
@@ -59,17 +50,17 @@ class RestServer
     }
 
     /**
-     * Add Function
+     * Add Function.
      *
      * This adds a new function to the server. <var>$callback</var> should be a valid PHP callback.
      *
      * Callback function takes two or three arguments:
-     *  - supplemental parameter (if not null)
-     *  - GET values
-     *  - POST values
+     * * supplemental parameter (if not null)
+     * * GET values
+     * * POST values
      *
-     * @param string            $name        Function name
-     * @param callable|array    $callback    Callback function
+     * @param   string          $name     Function name
+     * @param   callable|array  $callback   Callback function
      */
     public function addFunction(string $name, $callback): void
     {
@@ -79,16 +70,16 @@ class RestServer
     }
 
     /**
-     * Call Function
+     * Call Function.
      *
      * This method calls callback named <var>$name</var>.
      *
-     * @param string    $name        Function name
-     * @param array     $get         GET values
-     * @param array     $post        POST values
-     * @param mixed     $param       Supplemental parameter
+     * @param   string  $name   Function name
+     * @param   array   $get    GET values
+     * @param   array   $post   POST values
+     * @param   mixed   $param  Supplemental parameter
      *
-     * @return mixed
+     * @return  mixed
      */
     protected function callFunction(string $name, array $get, array $post, $param = null)
     {
@@ -106,11 +97,11 @@ class RestServer
      *
      * This method creates the main server.
      *
-     * @param string    $encoding       Server charset
-     * @param int       $format         Response format
-     * @param mixed     $param          Supplemental parameter
+     * @param   string  $encoding   Server charset
+     * @param   int     $format     Response format
+     * @param   mixed   $param  Supplemental parameter
      *
-     * @return bool
+     * @return  bool
      */
     public function serve(string $encoding = 'UTF-8', int $format = self::DEFAULT_RESPONSE, $param = null): bool
     {
@@ -201,9 +192,9 @@ class RestServer
     }
 
     /**
-     * Stream the XML data (header and body)
+     * Stream the XML data (header and body).
      *
-     * @param      string  $encoding  The encoding
+     * @param   string   $encoding  The encoding
      */
     private function getXML(string $encoding = 'UTF-8')
     {
@@ -212,13 +203,33 @@ class RestServer
     }
 
     /**
-     * Stream the JSON data (header and body)
+     * Stream the JSON data (header and body).
      *
-     * @param      string  $encoding  The encoding
+     * @param   string  $encoding   The encoding
      */
     private function getJSON(string $encoding = 'UTF-8')
     {
         header('Content-Type: application/json; charset=' . $encoding);
         echo json_encode($this->json, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES);
+    }
+
+    /**
+     * Serve or not the REST requests.
+     *
+     * @param   bool    $serve  The flag
+     */
+    public function enableRestServer(bool $serve = true): void
+    {
+
+    }
+
+    /**
+     * Check if we need to serve REST requests.
+     *
+     * @return  bool
+     */
+    public function serveRestRequests(): bool
+    {
+        return true;
     }
 }

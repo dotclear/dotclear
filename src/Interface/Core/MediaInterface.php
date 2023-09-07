@@ -18,7 +18,11 @@ use Exception;
  */
 interface MediaInterface
 {
-    /** @var     string  The Media database table name */
+    /**
+     * The Media database table name.
+     *
+     * @var     string  MEDIA_TABLE_NAME
+     */
     public const MEDIA_TABLE_NAME = 'media';
 
     /**

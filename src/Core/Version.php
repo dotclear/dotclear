@@ -23,8 +23,6 @@ use Dotclear\Interface\Core\VersionInterface;
  */
 class Version implements VersionInterface
 {
-    public const VERSION_TABLE_NAME = 'version';
-
     /** @var    array<string,string>    The version stack */
     private array $stack;
 

@@ -22,8 +22,6 @@ use Dotclear\Interface\Core\PostMediaInterface;
  */
 class PostMedia implements PostMediaInterface
 {
-    public const POST_MEDIA_TABLE_NAME = 'post_media';
-
     /** @var    string  Full table name (including db prefix) */
     protected string $table;
 
