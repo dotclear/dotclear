@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
-"PO-Revision-Date: 2023-07-10 07:07\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-07 14:31\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -190,7 +190,6 @@ msgstr "الإدخال السابق:"
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "تغذية RSS هي ملخص مدونة مجاني. وهو يقدم المحتوى (إما منشورات أو تعليقات) أو ملخصات المحتوى، إلى جانب وصلات إلى الإصدارات الكاملة، وغيرها من البيانات الفوقية. بعد ذلك يمكن قراءة آخر العناصر المنشورة بواسطة مجمع <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS المفضل الخاص بك</a>."
 
-#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "قراءة"
 
