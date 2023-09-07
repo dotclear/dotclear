@@ -279,8 +279,19 @@ class Blog implements BlogInterface
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface
             App::behavior()->callBehavior('coreBlogConstruct', $this);
         } else {
-            /* @phpstan-ignore-next-line can not see if else condition */
-            $this->status = self::BLOG_UNDEFINED;
+            // Initialize readonly properties
+            $this->id          = '';
+            $this->uid         = '';
+            $this->name        = '';
+            $this->desc        = '';
+            $this->url         = '';
+            $this->host        = '';
+            $this->creadt      = 0;
+            $this->upddt       = 0;
+            $this->status      = self::BLOG_UNDEFINED;
+            $this->settings    = App::blogSettings(null);
+            $this->themes_path = '';
+            $this->public_path = '';
         }
     }
 
