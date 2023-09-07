@@ -28,7 +28,7 @@ class Deprecated
      *
      * @var     Deprecated  $logger
      */
-    private static Deprecated $logger;
+    private static $logger;
 
     /**
      * Log parser bloc.
@@ -61,7 +61,7 @@ class Deprecated
     public static function setLogger(string $logger): void
     {
         // chek and set only once an external logger
-        if (!(self::$logger instanceof self) || !is_subclass_of($logger, self::class, true)) {
+        if (isset(self::$logger) || !is_subclass_of($logger, self::class, true)) {
             return;
         }
 
