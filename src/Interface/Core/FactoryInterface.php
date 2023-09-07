@@ -29,6 +29,7 @@ interface FactoryInterface
     public function blogWorkspace(): BlogWorkspaceInterface;
     public function blogs(): BlogsInterface;
     public function con(): ConnectionInterface;
+    public function categories(): CategoriesInterface;
     public function error(): ErrorInterface;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;
@@ -45,5 +46,7 @@ interface FactoryInterface
     public function themes(): ModulesInterface;
     public function url(): Url;
     public function users(): UsersInterface;
+    public function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface;
+    public function userWorkspace(): UserWorkspaceInterface;
     public function version(): VersionInterface;
 }

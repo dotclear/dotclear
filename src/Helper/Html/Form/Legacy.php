@@ -27,7 +27,7 @@ use Dotclear\Helper\Html\Form\Url;
  * @class form and formSelectOption
  * @brief HTML Form helpers
  *
- * @deprecated Since 2.26 Use Dotclear\Helper\Html\Form\* instead
+ * @deprecated  Since 2.26, use Dotclear\Helper\Html\Form\* instead
  */
 class form
 {

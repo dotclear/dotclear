@@ -28,6 +28,9 @@ class Rest extends RestServer implements RestInterface
 
     public const DEFAULT_RESPONSE = self::XML_RESPONSE;
 
+    /**
+     * @todo    Remove old dcCore from RestServer::serve returned parent parameters
+     */
     public function serve(string $encoding = 'UTF-8', int $format = parent::XML_RESPONSE, $param = null): bool
     {
         if (isset($_REQUEST['json'])) {
@@ -35,7 +38,6 @@ class Rest extends RestServer implements RestInterface
             return parent::serve($encoding, parent::JSON_RESPONSE);
         }
 
-        // todo remove dcCore from method
         // Use dcCore::app() as supplemental parameter to ensure retro-compatibility
         return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
     }

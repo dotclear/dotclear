@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Core\UserPreferences;
 use Dotclear\Database\Cursor;
 
 /**
@@ -177,9 +176,9 @@ interface AuthInterface
      *
      * @throws  \Error   if no user is set
      *
-     * @return  UserPreferences
+     * @return  UserPreferencesInterface
      */
-    public function prefs(): UserPreferences;
+    public function prefs(): UserPreferencesInterface;
 
     /**
      * Returns user permissions for a blog.

@@ -17,6 +17,8 @@ use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Schema\Extension\User;
 use Exception;
 
@@ -41,117 +43,124 @@ class Auth implements AuthInterface
     public const PERMISSION_MEDIA         = 'media';        // Own media
 
     /**
-     * Database connection object
+     * Database connection handler.
      *
-     * @var object
+     * @var  ConnectionInterface $con
      */
     protected $con;
 
     /**
-     * User table name
+     * User table name.
      *
-     * @var string
+     * @var     string  $user_table
      */
     protected $user_table;
 
     /**
-     * Perm table name
+     * Perm table name.
      *
-     * @var string
+     * @var  string     $perm_table
      */
     protected $perm_table;
 
     /**
-     * Blog table name
+     * Blog table name.
      *
-     * @var string
+     * @var     string  $blog_table
      */
     protected $blog_table;
 
     /**
-     * Current user ID
+     * Current user ID.
      *
-     * @var string|null
+     * @var     string|null     $user_id
      */
     protected $user_id;
 
     /**
-     * Array with user information
+     * Array with user information.
      *
-     * @var array
+     * @var     array   $user_info
      */
     protected $user_info = [];
 
     /**
-     * Array with user options
+     * Array with user options.
      *
-     * @var array
+     * @var     array   $user_options
      */
     protected $user_options = [];
 
     /**
-     * User must change his password after login
+     * User must change his password after login.
      *
-     * @var bool
+     * @var     bool    $user_change_pwd
      */
     protected $user_change_pwd;
 
     /**
-     * User is super admin
+     * User is super admin.
      *
-     * @var bool
+     * @var     bool    $user_admin
      */
     protected $user_admin;
 
     /**
-     * Permissions for each blog
+     * Permissions for each blog.
      *
-     * @var array
+     * @var     array   $permissions
      */
     protected $permissions = [];
 
     /**
-     * User can change its password
+     * User can change its password.
      *
-     * @var bool */
+     * @var     bool    $allow_pass_change
+     */
     protected $allow_pass_change = true;
 
     /**
-     * List of blogs on which the user has permissions
+     * List of blogs on which the user has permissions.
      *
-     * @var array
+     * @var     array   $blogs
      */
     protected $blogs = [];
 
     /**
-     * Count of user blogs
+     * Count of user blogs.
      *
-     * @var integer
+     * @todo    Set Auth::$blog_count as a protected property
+     *
+     * @deprecated  since 2.??, use App::auth()->getBlogCount() instead
+     *
+     * @var     ?int     $blog_count
      */
-    public $blog_count = null;
+    public $blog_count;
 
     /**
-     * Permission types
+     * Permission types.
      *
-     * @var array
+     * @var     array   $perm_types
      */
     protected $perm_types;
 
     /**
-     * UserPreferences (user preferences) object
+     * UserPreferences (user preferences) object.
      *
-     * @deprecated since 2.28, use App::auth()->prefs() instead
+     * @deprecated  since 2.28, use App::auth()->prefs() instead
      *
-     * @var UserPreferences
+     * @var     UserPreferencesInterface    $user_prefs
      */
-    public UserPreferences $user_prefs;
+    public $user_prefs;
 
     /**
-     * Create a new instance of authentication class (user-defined or default)
+     * Create a new instance of authentication class (user-defined or default).
      *
-     * @throws     Exception
+     * @todo    Remove old dcCore from Auth::init returned new instance parameters
      *
-     * @return     AuthInterface
+     * @throws  Exception
+     *
+     * @return  AuthInterface
      */
     public static function init(): AuthInterface
     {
@@ -167,7 +176,6 @@ class Auth implements AuthInterface
             throw new Exception('Authentication class ' . $class . ' does not inherit AuthInterface.');
         }
 
-        // todo remove dcCore from method
         return new $class(dcCore::app());
     }
 
@@ -179,9 +187,9 @@ class Auth implements AuthInterface
     public function __construct()
     {
         $this->con        = App::con();
-        $this->blog_table = App::con()->prefix() . App::blog()::BLOG_TABLE_NAME;
-        $this->user_table = App::con()->prefix() . self::USER_TABLE_NAME;
-        $this->perm_table = App::con()->prefix() . self::PERMISSIONS_TABLE_NAME;
+        $this->blog_table = $this->con->prefix() . App::blog()::BLOG_TABLE_NAME;
+        $this->user_table = $this->con->prefix() . self::USER_TABLE_NAME;
+        $this->perm_table = $this->con->prefix() . self::PERMISSIONS_TABLE_NAME;
 
         $this->perm_types = [
             self::PERMISSION_ADMIN         => __('administrator'),
@@ -197,12 +205,12 @@ class Auth implements AuthInterface
 
     public function openUserCursor(): Cursor
     {
-        return App::con()->openCursor($this->user_table);
+        return $this->con->openCursor($this->user_table);
     }
 
     public function openPermCursor(): Cursor
     {
-        return App::con()->openCursor($this->perm_table);
+        return $this->con->openCursor($this->perm_table);
     }
 
     /// @name Credentials and user permissions
@@ -322,7 +330,7 @@ class Auth implements AuthInterface
 
         $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
-        $this->user_prefs = new UserPreferences($this->user_id);
+        $this->user_prefs = App::userPreferences($this->user_id);
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -461,7 +469,7 @@ class Auth implements AuthInterface
     /// @name User information and options
     //@{
 
-    public function prefs(): UserPreferences
+    public function prefs(): UserPreferencesInterface
     {
         return $this->user_prefs;
     }
@@ -508,7 +516,7 @@ class Auth implements AuthInterface
 
     public function getBlogCount(): int
     {
-        if ($this->blog_count === null) {
+        if (!isset($this->blog_count)) {
             $this->blog_count = (int) App::blogs()->getBlogs([], true)->f(0);
         }
 

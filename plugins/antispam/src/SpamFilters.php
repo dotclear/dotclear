@@ -34,7 +34,9 @@ class SpamFilters
     /**
      * Initializes the given filters.
      *
-     * @param      array  $filters  The filters
+     * @todo    Remove old dcCore from SpamFilters::init new filter parameters
+     *
+     * @param   array   $filters    The filters
      */
     public function init(array $filters): void
     {

@@ -23,6 +23,9 @@ use Dotclear\Helper\Html\Html;
 
 class Manage extends Process
 {
+    /**
+     * @todo    Remove old dcCore from ImportExport Manage::init new module parameters
+     */
     public static function init(): bool
     {
         self::status(My::checkContext(My::MANAGE));
@@ -42,7 +45,6 @@ class Manage extends Process
 
         $module = $_REQUEST['module'] ?? false;
         if (App::backend()->type && $module !== false && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
-            // todo remove dcCore from method
             App::backend()->module = new $module(dcCore::app());
             App::backend()->module->init();
         }
@@ -125,12 +127,14 @@ class Manage extends Process
         Page::closeModule();
     }
 
+    /**
+     * @todo    Remove old dcCore from ImportExport Manage::listImportExportModules new module parameters
+     */
     protected static function listImportExportModules($modules)
     {
         $res = '';
         foreach ($modules as $id) {
             if (is_subclass_of($id, Module::class)) {
-                // todo remove dcCore from method
                 $o = new $id(dcCore::app());
 
                 $res .= '<dt><a href="' . $o->getURL(true) . '">' . Html::escapeHTML($o->name) . '</a></dt>' .

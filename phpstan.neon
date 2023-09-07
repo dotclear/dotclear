@@ -220,12 +220,12 @@ parameters:
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\BlogSettingsInterface::#'
       path: %currentWorkingDirectory%
 
-    # Dotclear\Core\UserWorkspace object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Core\\UserWorkspace::#'
+    # Dotclear\Interface\Core\UserWorkspaceInterface object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UserWorkspaceInterface::#'
       path: %currentWorkingDirectory%
 
-    # Dotclear\Core\UserPreferences object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Core\\UserPreferences::#'
+    # Dotclear\Interface\Core\UserPreferencesInterface object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UserPreferencesInterface::#'
       path: %currentWorkingDirectory%
 
     # Dotclear\Module\ModuleDefine object and auto properties

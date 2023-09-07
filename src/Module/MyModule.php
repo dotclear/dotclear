@@ -11,10 +11,10 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
-use Dotclear\Core\UserWorkspace;
 use Dotclear\Core\Utils;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
@@ -196,9 +196,9 @@ abstract class MyModule
     /**
      * The module preferences instance.
      *
-     * @return  null|UserWorkspace    The module preferences instance
+     * @return  null|UserWorkspaceInterface     The module preferences instance
      */
-    final public static function prefs(): ?UserWorkspace
+    final public static function prefs(): ?UserWorkspaceInterface
     {
         return App::auth()->prefs()->get(static::id());
     }

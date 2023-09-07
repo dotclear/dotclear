@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Interface\ContainerInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -16,6 +17,7 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
@@ -31,6 +33,8 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UsersInterface;
+use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
@@ -51,26 +55,46 @@ use Exception;
  *
  * Dotclear default factory will be used at least.
  *
- * @see Dotclear\Factories
+ * @see Factories
  */
-class Container
+class Container implements ContainerInterface
 {
-    /** @var    Container   Container unique instance */
+    /**
+     * Container "singleton" instance.
+     *
+     * @var    Container    $instance
+     */
     private static Container $instance;
 
-    /** @var    array<string,mixed>     Unique instances stack */
+    /**
+     * Stack of loaded factory objects.
+     *
+     * @var    array<string,mixed>  $stack
+     */
     private array $stack = [];
 
-    /** @var    FactoryInterface    Factory instance */
+    /**
+     * Factory instance.
+     *
+     * @var    FactoryInterface     $factory
+     */
     private FactoryInterface $factory;
 
-    /** @var    array<int,string>   The FactoryInterface methods list */
+    /**
+     * The FactoryInterface methods list.
+     *
+     * @var    array<int,string>   $methods
+     */
     private array $methods = [];
 
     /// @name Container methods
     //@{
     /**
      * Constructor instanciates core factory.
+     *
+     * @throws  Exception 
+     *
+     * @param   string  $class  The factory full class name
      */
     public function __construct(string $class)
     {
@@ -115,17 +139,11 @@ class Container
         throw new Exception('Call to undefined factory method ' . $id);
     }
 
-    /**
-     * Check if core object exists.
-     *
-     * @param   string  $id The object ID.
-     *
-     * @return  bool    True if it exists
-     */
     public function has(string $id): bool
     {
         return in_array($id, $this->methods);
     }
+
     //@}
 
     /// @name Core container methods
@@ -163,6 +181,11 @@ class Container
     public static function blogWorkspace(): BlogWorkspaceInterface
     {
         return self::$instance->get('blogWorkspace');
+    }
+
+    public static function categories(): CategoriesInterface
+    {
+        return self::$instance->get('categories');
     }
 
     public static function con(): ConnectionInterface
@@ -248,6 +271,16 @@ class Container
     public static function users(): UsersInterface
     {
         return self::$instance->get('users');
+    }
+
+    public static function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface
+    {
+        return self::$instance->get('userPreferences', reload: true, user_id: $user_id, workspace: $workspace);
+    }
+
+    public static function userWorkspace(): UserWorkspaceInterface
+    {
+        return self::$instance->get('userWorkspace');
     }
 
     public static function version(): VersionInterface

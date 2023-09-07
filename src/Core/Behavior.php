@@ -16,7 +16,11 @@ use Dotclear\Interface\Core\BehaviorInterface;
  */
 class Behavior implements BehaviorInterface
 {
-    /** @var    array<string,array<int,callable>>   The behaviors stack */
+    /**
+     * The behaviors stack.
+     *
+     * @var    array<string,array<int,callable>>    $stack 
+     */
     private array $stack = [];
 
     public function addBehavior(string $behavior, $func): void

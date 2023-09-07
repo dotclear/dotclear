@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\UserWorkspace;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 
 /**
  * Favorites handling facilities
@@ -29,7 +29,7 @@ class Favorites
     /**
      * Current favorite landing workspace
      *
-     * @var UserWorkspace
+     * @var UserWorkspaceInterface
      */
     protected $workspace;
 

@@ -58,7 +58,7 @@ class ModulesList
     /**
      * List of modules distributed with Dotclear
      *
-     * @deprecated since 2.26, use Modules::getDefine($id)->distributed
+     * @deprecated  since 2.26, use Modules::getDefine($id)->distributed instead
      *
      * @var        array
      */
@@ -537,16 +537,14 @@ class ModulesList
     }
 
     /**
-     * Display sort field form.
+     * Display sort field form. (not implemented)
      *
-     * @todo      This method is not implemented yet
+     * @todo    Implement ModulesList::displaySort method
      *
-     * @return    ModulesList self instance
+     * @return  ModulesList self instance
      */
     public function displaySort(): ModulesList
     {
-        // TODO
-
         return $this;
     }
 
@@ -590,7 +588,7 @@ class ModulesList
     /**
      * Set modules and sanitize them.
      *
-     * @deprecated since 2.26 Use self::setDefines()
+     * @deprecated  since 2.26, use self::setDefines() instead
      *
      * @param   array   $modules
      *
@@ -615,7 +613,7 @@ class ModulesList
     /**
      * Get modules currently set.
      *
-     * @deprecated since 2.26 Use self::getDefines()
+     * @deprecated  since 2.26, use self::getDefines() instead
      *
      * @return    array        Array of modules
      */
@@ -663,7 +661,7 @@ class ModulesList
      *
      * Warning: this static method will not fill module dependencies
      *
-     * @deprecated since 2.26 Use self::fillSanitizeModule()
+     * @deprecated  since 2.26, use self::fillSanitizeModule() instead
      *
      * @param      string  $id      The identifier
      * @param      array   $module  The module
@@ -687,7 +685,7 @@ class ModulesList
      * and clean some of them, sanitize module can safely
      * be used in lists.
      *
-     * @deprecated since 2.26 Use self::fillSanitizeModule()
+     * @deprecated  since 2.26, use self::fillSanitizeModule() instead
      *
      * @param      string  $id      The identifier
      * @param      array   $module  The module
@@ -707,7 +705,7 @@ class ModulesList
     /**
      * Check if a module is part of the distribution.
      *
-     * @deprecated 2.26 Use Modules::getDefine($id)->distributed
+     * @deprecated  since 2.26, use Modules::getDefine($id)->distributed instead
      *
      * @param    string    $id        Module root directory
      *
@@ -723,7 +721,7 @@ class ModulesList
     /**
      * Sort modules list by specific field.
      *
-     * @deprecated since 2.26 Use something like uasort($defines, fn ($a, $b) => $a->get($field) <=> $b->get($field));
+     * @deprecated  since 2.26, use something like uasort($defines, fn ($a, $b) => $a->get($field) <=> $b->get($field)); instead
      *
      * @param    array     $modules      Array of modules
      * @param    string    $field        Field to sort from

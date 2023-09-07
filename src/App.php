@@ -35,26 +35,50 @@ namespace Dotclear {
      * Application.
      *
      * Note this class includes all core container methods.
-     * @see Dotclear\Core\Container
+     * @see Container
      */
     final class App extends Container
     {
-        /** @var    string  Dotclear default release config file name */
+        /**
+         * Dotclear default release config file name
+         *
+         * @var    string   RELEASE_FILE
+         */
         public const RELEASE_FILE = 'release.json';
 
-        /** @var    array<string,mixed>     Dotclear default release config */
+        /**
+         * Dotclear default release config
+         *
+         * @var    array<string,mixed>  $release
+         */
         private static array $release = [];
 
-        /** @var    bool    Requirements loaded */
+        /**
+         * Requirements are loaded.
+         *
+         * @var     bool    $initialized
+         */
         private static bool $initialized = false;
 
-        /** @var    Backend  Backend Utility instance  */
+        /**
+         * Backend Utility instance.
+         *
+         * @var    Backend  $backend
+         */
         private static Backend $backend;
 
-        /** @var    Frontend  Frontend Utility instance  */
+        /**
+         * Frontend Utility instance
+         *
+         * @var    Frontend  $frontend
+         */
         private static Frontend $frontend;
 
-        /** @var string     The current lang */
+        /**
+         * The current lang
+         *
+         * @var     string     $lang
+         */
         private static string $lang = 'en';
 
         /**
@@ -62,9 +86,11 @@ namespace Dotclear {
          *
          * Load application with their utility and process, if any.
          *
-         * Use:
+         * Usage:
+         * @code{php}
          * require_once path/to/App.php
          * Dotclear\App::bootstrap(Utility, Process);
+         * @endcode
          *
          * utility and process MUST extend Dotclear\Core\Process.
          *
@@ -104,7 +130,7 @@ namespace Dotclear {
          *
          * A process MUST extends Dotclear\Core\Process class.
          *
-         * @param      string  $process  The process
+         * @param   string  $process    The process
          */
         public static function process(string $process): void
         {
@@ -547,10 +573,10 @@ namespace Dotclear {
          *
          * An utility MUST extends Dotclear\Core\Process class.
          *
-         * @param      string  $utility  The utility
-         * @param      bool    $next     Go to process step
+         * @param   string  $utility    The utility
+         * @param   bool    $next       Go to process step
          *
-         * @return     bool    Result of $utility::init() or $utility::process() if exist
+         * @return  bool    Result of $utility::init() or $utility::process() if exist
          */
         private static function utility(string $utility, bool $next = false): bool
         {
@@ -569,8 +595,6 @@ namespace Dotclear {
          * Check if app is initialized.
          *
          * @param   bool    $is     true to exit if it is initialized
-         *
-         * @return  void
          */
         private static function initialized(bool $is = false): void
         {
@@ -585,9 +609,9 @@ namespace Dotclear {
         /**
          * Call Dotclear autoloader.
          *
-         * @return Autoloader $autoload The autoload instance
+         * @deprecated  Since 2.27, use Autoloader::me() instead
          *
-         * @deprecated Since 2.27 Use Autoloader::me() instead
+         * @return  Autoloader $autoload The autoload instance
          */
         public static function autoload(): Autoloader
         {
@@ -633,7 +657,7 @@ namespace Dotclear {
         /**
          * Get current lang.
          *
-         * @return string
+         * @return  string
          */
         public static function lang(): string
         {
@@ -643,7 +667,7 @@ namespace Dotclear {
         /**
          * Set the lang to use.
          *
-         * @param      string  $id     The lang ID
+         * @param   string  $id     The lang ID
          */
         public static function setLang($id): void
         {
@@ -659,11 +683,11 @@ namespace {
     use Dotclear\Fault;
 
     /**
-     * @deprecated since 2.27 Use new Dotclear\Fault();
+     * @deprecated  since 2.27, use new Dotclear\Fault();
      *
-     * @param      string  $summary  The summary
-     * @param      string  $message  The message
-     * @param      int     $code     The code
+     * @param   string  $summary    The summary
+     * @param   string  $message    The message
+     * @param   int     $code   The code
      */
     function __error(string $summary, string $message, int $code = 0): void
     {

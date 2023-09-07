@@ -29,6 +29,8 @@ use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
+use Dotclear\Interface\Core\CategoriesInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
@@ -83,160 +85,160 @@ class Blog implements BlogInterface
     // Properties
 
     /**
-     * Database connection object
+     * Database connection handler.
      *
      * @deprecated since 2.28, use App::con() instead
      *
-     * @var object
+     * @var     ConnectionInterface     $con
      */
-    public $con;
+    public readonly ConnectionInterface $con;
 
     /**
-     * Database table prefix
+     * Database table prefix.
      *
-     * @deprecated since 2.28, use App::con()->prefix() instead
+     * @deprecated  since 2.28, use App::con()->prefix() instead
+     *
+     * @var     string  $prefix
+     */
+    public readonly string $prefix;
+
+    /**
+     * Blog ID.
+     *
+     * @deprecated  since 2.28, use App::blog()->id() instead
+     *
+     * @var     string  $id
+     */
+    public readonly string $id;
+
+    /**
+     * Blog unique ID.
+     *
+     * @deprecated  since 2.28, use App::blog()->uid() instead
+     *
+     * @var     string  $uid
+     */
+    public readonly string $uid;
+
+    /**
+     * Blog name.
+     *
+     * @deprecated  since 2.28, use App::blog()->name() instead
+     *
+     * @var     string  $name
+     */
+    public readonly string $name;
+
+    /**
+     * Blog description.
+     *
+     * @deprecated  since 2.28, use App::blog()->desc() instead
+     *
+     * @var     string  $desc
+     */
+    public readonly string $desc;
+
+    /**
+     * Blog URL.
+     *
+     * @deprecated  since 2.28, use App::blog()->url() instead
      *
      * @var string
      */
-    public $prefix;
+    public readonly string $url;
 
     /**
-     * Blog ID
+     * Blog host.
      *
-     * @deprecated since 2.28, use App::blog()->id() instead
+     * @deprecated  since 2.28, use App::blog()->host() instead
      *
      * @var string
      */
-    public $id;
+    public readonly string $host;
 
     /**
-     * Blog unique ID
+     * Blog creation date.
      *
-     * @deprecated since 2.28, use App::blog()->uid() instead
-     *
-     * @var string
-     */
-    public $uid;
-
-    /**
-     * Blog name
-     *
-     * @deprecated since 2.28, use App::blog()->name() instead
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * Blog description
-     *
-     * @deprecated since 2.28, use App::blog()->desc() instead
-     *
-     * @var string
-     */
-    public $desc;
-
-    /**
-     * Blog URL
-     *
-     * @deprecated since 2.28, use App::blog()->url() instead
-     *
-     * @var string
-     */
-    public $url;
-
-    /**
-     * Blog host
-     *
-     * @deprecated since 2.28, use App::blog()->host() instead
-     *
-     * @var string
-     */
-    public $host;
-
-    /**
-     * Blog creation date
-     *
-     * @deprecated since 2.28, use App::blog()->creadt() instead
+     * @deprecated  since 2.28, use App::blog()->creadt() instead
      *
      * @var int
      */
-    public $creadt;
+    public readonly int $creadt;
 
     /**
-     * Blog last update date
+     * Blog last update date.
      *
-     * @deprecated since 2.28, use App::blog()->upddt() instead
+     * @deprecated  since 2.28, use App::blog()->upddt() instead
      *
-     * @var int
+     * @var     int     $upddt
      */
-    public $upddt;
+    public readonly int $upddt;
 
     /**
-     * Blog status
+     * Blog status.
      *
-     * @deprecated since 2.28, use App::blog()->status() instead
+     * @deprecated  since 2.28, use App::blog()->status() instead
      *
-     * @var int
+     * @var     int     $status
      */
-    public $status = self::BLOG_UNDEFINED;
+    public readonly int $status;
 
     /**
-     * Blog parameters
+     * Blog parameters.
      *
      * @deprecated since 2.28, use App::blog()->settings() instead
      *
      * @var BlogSettingsInterface
      */
-    public $settings;
+    public readonly BlogSettingsInterface $settings;
 
     /**
-     * Blog theme path
+     * Blog theme path.
      *
-     * @deprecated since 2.28, use App::blog()->themesPath() instead
+     * @deprecated  since 2.28, use App::blog()->themesPath() instead
      *
-     * @var string
+     * @var     string  $themes_path
      */
-    public $themes_path;
+    public readonly string $themes_path;
 
     /**
-     * Blog public path
+     * Blog public path.
      *
      * @deprecated since 2.28, use App::blog()->publicPath() instead
      *
-     * @var string
+     * @var     string  $public_path
      */
-    public $public_path;
+    public readonly string $public_path;
 
     /**
-     * Stack of entries statuses
+     * Stack of entries statuses.
      *
-     * @var array
+     * @var     array   $post_status
      */
-    private $post_status = [];
+    private array $post_status = [];
 
     /**
-     * Stack of comment statuses
+     * Stack of comment statuses.
      *
-     * @var array
+     * @var     array   $comment_status
      */
-    private $comment_status = [];
+    private array $comment_status = [];
 
     /**
-     * Blog's categories
+     * Blog's categories.
      *
-     * @var Categories
+     * @var     CategoriesInterface     $categories
      */
-    private $categories;
+    private CategoriesInterface $categories;
 
     /**
-     * Disallow entries password protection
+     * Disallow entries password protection.
      *
      * @deprecated since 2.28, use App::blog()->withoutPassword() instead
      *
-     * @var ?bool
+     * @var     bool    $without_password
      */
-    public $without_password = true;
+    public bool $without_password = true;
 
     /**
      * Constructs a new instance.
@@ -246,7 +248,7 @@ class Blog implements BlogInterface
     public function __construct(string $id = '')
     {
         $this->con    = App::con();
-        $this->prefix = App::con()->prefix();
+        $this->prefix = $this->con->prefix();
 
         if (!empty($id) && ($blog = App::blogs()->getBlog($id)) !== false) {
             $this->id     = $id;
@@ -276,6 +278,9 @@ class Blog implements BlogInterface
 
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface
             App::behavior()->callBehavior('coreBlogConstruct', $this);
+        } else {
+            /* @phpstan-ignore-next-line can not see if else condition */
+            $this->status = self::BLOG_UNDEFINED;
         }
     }
 
@@ -284,17 +289,17 @@ class Blog implements BlogInterface
 
     public function openBlogCursor(): Cursor
     {
-        return App::con()->openCursor($this->prefix . self::BLOG_TABLE_NAME);
+        return $this->con->openCursor($this->prefix . self::BLOG_TABLE_NAME);
     }
 
     public function openPostCursor(): Cursor
     {
-        return App::con()->openCursor($this->prefix . self::POST_TABLE_NAME);
+        return $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
     }
 
     public function openCommentCursor(): Cursor
     {
-        return App::con()->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
+        return $this->con->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
     }
 
     public function isDefined(): bool
@@ -383,11 +388,7 @@ class Blog implements BlogInterface
      */
     public function getQmarkURL(): string
     {
-        if (substr($this->url, -1) !== '?') {
-            return $this->url . '?';
-        }
-
-        return $this->url;
+        return substr($this->url, -1) !== '?' ? $this->url . '?' : $this->url;
     }
 
     /**
@@ -457,11 +458,7 @@ class Blog implements BlogInterface
      */
     public function getPostStatus(int $status): string
     {
-        if (isset($this->post_status[$status])) {
-            return $this->post_status[$status];
-        }
-
-        return $this->post_status[(string) self::POST_UNPUBLISHED];
+        return $this->post_status[$status] ?? $this->post_status[(string) self::POST_UNPUBLISHED];
     }
 
     /**
@@ -493,11 +490,7 @@ class Blog implements BlogInterface
      */
     public function withoutPassword(?bool $value = null): bool
     {
-        if (is_bool($value)) {
-            $this->without_password = $value;
-        }
-
-        return $this->without_password;
+        return is_bool($value) ? $this->without_password = $value : $this->without_password;
     }
 
     //@}
@@ -623,15 +616,11 @@ class Blog implements BlogInterface
     /**
      * Get Categories instance
      *
-     * @return     Categories
+     * @return     CategoriesInterface
      */
-    public function categories(): Categories
+    public function categories(): CategoriesInterface
     {
-        if (!($this->categories instanceof Categories)) {
-            $this->categories = new Categories();
-        }
-
-        return $this->categories;
+        return $this->categories ?? $this->categories = App::categories();
     }
 
     /**

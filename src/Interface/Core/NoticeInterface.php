@@ -61,7 +61,7 @@ interface NoticeInterface
     /**
      * Delete notice(s)
      *
-     * @deprecated since 2.28 use self::delNotice() or self::delAllNotices()
+     * @deprecated since 2.28, use self::delNotice() or self::delAllNotices() instead
      *
      * @param      int|null  $id     The identifier
      * @param      bool      $all    All

@@ -20,7 +20,7 @@ namespace Dotclear\Core;
 abstract class Process
 {
     /**
-     * @deprecated since 2.27 Use self::status()
+     * @deprecated since 2.27, use self::status()
      *
      * @var     bool
      */
