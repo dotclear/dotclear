@@ -30,18 +30,6 @@ use Exception;
  */
 class Auth implements AuthInterface
 {
-    public const USER_TABLE_NAME        = 'user';
-    public const PERMISSIONS_TABLE_NAME = 'permissions';
-
-    public const PERMISSION_ADMIN         = 'admin';        // All
-    public const PERMISSION_CONTENT_ADMIN = 'contentadmin'; // All entries/comments
-    public const PERMISSION_USAGE         = 'usage';        // Own entries/comments
-    public const PERMISSION_PUBLISH       = 'publish';      // Publication of entries/comments
-    public const PERMISSION_DELETE        = 'delete';       // Deletion of entries/comments
-    public const PERMISSION_CATEGORIES    = 'categories';   // Categories
-    public const PERMISSION_MEDIA_ADMIN   = 'media_admin';  // All media
-    public const PERMISSION_MEDIA         = 'media';        // Own media
-
     /**
      * Database connection handler.
      *

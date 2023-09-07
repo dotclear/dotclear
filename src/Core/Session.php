@@ -18,5 +18,4 @@ use Dotclear\Database\Session as databaseSession;
  */
 class Session extends databaseSession
 {
-    public const SESSION_TABLE_NAME = 'session';
 }

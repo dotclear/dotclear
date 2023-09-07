@@ -26,8 +26,6 @@ use Exception;
  */
 class Log implements LogInterface
 {
-    public const LOG_TABLE_NAME = 'log';
-
     /** @var    string  Full log table name (including db prefix) */
     protected $log_table;
 

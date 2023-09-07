@@ -27,8 +27,6 @@ use Exception;
  */
 class Meta implements MetaInterface
 {
-    public const META_TABLE_NAME = 'meta';
-
     /** @var    string  The mate table name with prefix */
     private string $table;
 

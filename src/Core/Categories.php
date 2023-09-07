@@ -24,8 +24,6 @@ use Exception;
  */
 class Categories implements CategoriesInterface
 {
-    public const CATEGORY_TABLE_NAME = 'category';
-
     /** @var    ConnectionInterface     The connetion handler */
     protected ConnectionInterface $con;
 

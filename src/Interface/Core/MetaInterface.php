@@ -18,7 +18,11 @@ use Dotclear\Database\Statement\SelectStatement;
  */
 interface MetaInterface
 {
-    /** @var    string  The Meta database table name */
+    /**
+     * The Meta database table name.
+     *
+     * @var    string   META_TABLE_NAME
+     */
     public const META_TABLE_NAME = 'meta';
 
     /**

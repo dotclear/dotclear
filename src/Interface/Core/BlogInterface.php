@@ -20,38 +20,108 @@ use Exception;
  */
 interface BlogInterface
 {
-    /** @var    string  Blog table name */
+    /**
+     * Blog table name.
+     *
+     * @var    string  BLOG_TABLE_NAME
+     */
     public const BLOG_TABLE_NAME = 'blog';
 
-    /** @var    string  Post table name */
+    /**
+     * Post table name .
+     *
+     * @var    string  POST_TABLE_NAME
+     */
     public const POST_TABLE_NAME = 'post';
 
-    /** @var    string  Comment table name */
+    /**
+     * Comment table name.
+     *
+     * @var    string  COMMENT_TABLE_NAME
+     */
     public const COMMENT_TABLE_NAME = 'comment';
 
-    /** @var    int     Blog statuses : blog online */
+    /**
+     * Blog statuses : blog online.
+     *
+     * @var    int  BLOG_ONLINE
+     */
     public const BLOG_ONLINE = 1;
-    /** @var    int     Blog statuses : blog offline */
+
+    /**
+     * Blog statuses : blog offline.
+     *
+     * @var    int  BLOG_OFFLINE
+     */
     public const BLOG_OFFLINE = 0;
-    /** @var    int     Blog statuses : blog removed */
+
+    /**
+     * Blog statuses : blog removed.
+     *
+     * @var    int     BLOG_REMOVED
+     */
     public const BLOG_REMOVED = -1;
 
-    /** @var    int     Post statuses : post pending */
+    /**
+     * Blog statuses : blog removed.
+     *
+     * @var    int     BLOG_REMOVED
+     */
+    public const BLOG_UNDEFINED = -2;
+
+    /**
+     * Post statuses : post pending.
+     *
+     * @var    int     POST_PENDING
+     */
     public const POST_PENDING = -2;
-    /** @var    int     Post statuses : post scheduled */
+
+    /**
+     * Post statuses : post scheduled.
+     *
+     * @var    int     POST_SCHEDULED
+     */
     public const POST_SCHEDULED = -1;
-    /** @var    int     Post statuses : post unpublished */
+
+    /**
+     * Post statuses : post unpublished.
+     *
+     * @var    int     POST_UNPUBLISHED
+     */
     public const POST_UNPUBLISHED = 0;
-    /** @var    int     Post statuses : post published */
+
+    /**
+     * Post statuses : post published.
+     *
+     * @var    int     POST_PUBLISHED
+     */
     public const POST_PUBLISHED = 1;
 
-    /** @var    int     Comment statuses : comment junk */
+    /**
+     * Comment statuses : comment junk.
+     *
+     * @var    int     COMMENT_JUNK
+     */
     public const COMMENT_JUNK = -2;
-    /** @var    int     Comment statuses : comment pending */
+
+    /**
+     * Comment statuses : comment pending.
+     *
+     * @var    int     COMMENT_PENDING
+     */
     public const COMMENT_PENDING = -1;
-    /** @var    int     Comment statuses : comment unpublished */
+
+    /**
+     * Comment statuses : comment unpublished.
+     *
+     * @var    int     COMMENT_UNPUBLISHED
+     */
     public const COMMENT_UNPUBLISHED = 0;
-    /** @var    int     Comment statuses : comment published */
+
+    /**
+     * Comment statuses : comment published.
+     *
+     * @var    int     COMMENT_PUBLISHED */
     public const COMMENT_PUBLISHED = 1;
 
     /// @name Class public methods

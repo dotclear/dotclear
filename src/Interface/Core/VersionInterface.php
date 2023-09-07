@@ -18,7 +18,11 @@ use Dotclear\Database\Cursor;
  */
 interface VersionInterface
 {
-    /** @var     string  The Version database table name */
+    /**
+     * The Version database table name.
+     *
+     * @var     string  VERSION_TABLE_NAME
+     */
     public const VERSION_TABLE_NAME = 'version';
 
     /**

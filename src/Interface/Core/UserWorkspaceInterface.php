@@ -17,34 +17,88 @@ use Dotclear\Database\MetaRecord;
  */
 interface UserWorkspaceInterface
 {
-    /** @var    string  Workspace (user preferences) table name */
+    /**
+     * Workspace (user preferences) table name.
+     *
+     * @var    string  WS_TABLE_NAME
+     */
     public const WS_TABLE_NAME = 'pref';
 
-    /** @var    string  Regexp workspace name schema */
+    /**
+     * Regexp workspace name schema.
+     *
+     * @var    string  WS_NAME_SCHEMA
+     */
     public const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
-    /** @var    string  Regexp workspace ID schema */
+    /**
+     * Regexp workspace ID schema.
+     *
+     * @var    string  WS_ID_SCHEMA
+     */
     public const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
-    /** @var    string  Preferences types stored in table, subset of settype() allowed type : string */
+    /**
+     * Preferences types stored in table, subset of settype() allowed type : string.
+     *
+     * @var    string   WS_STRING
+     */
     public const WS_STRING = 'string';
-    /** @var    string  Preferences types stored in table, subset of settype() allowed type : float */
+
+    /**
+     * Preferences types stored in table, subset of settype() allowed type : float.
+     *
+     * @var    string   WS_FLOAT
+     */
     public const WS_FLOAT = 'float';
-    /** @var    string  Preferences types stored in table, subset of settype() allowed type : bool */
+
+    /**
+     * Preferences types stored in table, subset of settype() allowed type : bool.
+     *
+     * @var    string   WS_BOOL
+     */
     public const WS_BOOL = 'boolean';
-    /** @var    string  Preferences types stored in table, subset of settype() allowed type : int */
+
+    /**
+     * Preferences types stored in table, subset of settype() allowed type : int.
+     *
+     * @var    string   WS_INT
+     */
     public const WS_INT = 'integer';
-    /** @var    string  Preferences types stored in table, subset of settype() allowed type : array */
+
+    /**
+     * Preferences types stored in table, subset of settype() allowed type : array.
+     *
+     * @var    string   WS_ARRAY
+     */
     public const WS_ARRAY = 'array';
 
-    /** @var    string  Preferences types converted to another type : double */
+    /**
+     * Preferences types converted to another type : double.
+     *
+     * @var    string   WS_DOUBLE
+     */
     public const WS_DOUBLE = 'double';     // -> NS_FLOAT
 
-    /** @var    string  Preferences types aliases : text = string */
+    /**
+     * Preferences types aliases : text = string.
+     *
+     * @var    string   WS_TEXT
+     */
     public const WS_TEXT = self::WS_STRING;
-    /** @var    string  Preferences types aliases : boolean = bool */
+
+    /**
+     * Preferences types aliases : boolean = bool.
+     *
+     * @var    string   WS_BOOLEAN
+     */
     public const WS_BOOLEAN = self::WS_BOOL;
-    /** @var    string  Preferences types aliases : inetegr = int */
+
+    /**
+     * Preferences types aliases : inetegr = int.
+     *
+     * @var    string   WS_INTEGER
+     */
     public const WS_INTEGER = self::WS_INT;
 
     /**

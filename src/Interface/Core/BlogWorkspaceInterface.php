@@ -19,34 +19,87 @@ interface BlogWorkspaceInterface
 {
     // Constants
 
-    /** @var    string  Namespace (blog parameters) table name */
+    /**
+     * Namespace (blog parameters) table name.
+     *
+     * @var    string   NS_TABLE_NAME
+     */
     public const NS_TABLE_NAME = 'setting';
 
-    /** @var    string  Regexp namespace name schema */
+    /**
+     * Regexp namespace name schema.
+     *
+     * @var    string  NS_NAME_SCHEMA
+     */
     public const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
-    /** @var    string  Regexp namespace ID schema */
+    /**
+     * Regexp namespace ID schema.
+     *
+     * @var    string  Regexp NS_ID_SCHEMA */
     public const NS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
-    /** @var    string  Settings types stored in table subset of settype() allowed type : string */
+    /**
+     * Settings types stored in table subset of settype() allowed type : string.
+     *
+     * @var    string   NS_STRING
+     */
     public const NS_STRING = 'string';
-    /** @var    string  Settings types stored in table subset of settype() allowed type : float */
+
+    /**
+     * Settings types stored in table subset of settype() allowed type : float.
+     *
+     * @var    string   NS_FLOAT
+     */
     public const NS_FLOAT = 'float';
-    /** @var    string  Settings types stored in table subset of settype() allowed type : bool */
+
+    /**
+     * Settings types stored in table subset of settype() allowed type : bool
+     *
+     * @var    string  NS_BOOL
+     */
     public const NS_BOOL = 'boolean';
-    /** @var    string  Settings types stored in table subset of settype() allowed type : int */
+
+    /**
+     * Settings types stored in table subset of settype() allowed type : int.
+     *
+     * @var    string  NS_INT
+     */
     public const NS_INT = 'integer';
-    /** @var    string  Settings types stored in table subset of settype() allowed type : array */
+
+    /**
+     * Settings types stored in table subset of settype() allowed type : array.
+     *
+     * @var    string   NS_ARRAY
+     */
     public const NS_ARRAY = 'array';
 
-    /** @var    string  Settings types converted to another type : double */
+    /**
+     * Settings types converted to another type : double.
+     *
+     * @var    string  NS_DOUBLE
+     */
     public const NS_DOUBLE = 'double';     // -> NS_FLOAT
 
-    /** @var    string  Settings types aliases : text = string */
+    /**
+     * Settings types aliases : text = string.
+     *
+     * @var    string  NS_TEXT
+     */
     public const NS_TEXT = self::NS_STRING;
-    /** @var    string  Settings types aliases : boolean = bool */
+
+    /**
+     * Settings types aliases : boolean = bool.
+     *
+     * @var    string  NS_BOOLEAN
+     */
     public const NS_BOOLEAN = self::NS_BOOL;
-    /** @var    string  Settings types aliases : integer = int */
+
+    /**
+     * Settings types aliases : integer = int.
+     *
+     * @var    string  NS_INTEGER
+     */
     public const NS_INTEGER = self::NS_INT;
 
     /**

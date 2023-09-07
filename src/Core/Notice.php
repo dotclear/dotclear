@@ -22,8 +22,6 @@ use Exception;
  */
 class Notice implements NoticeInterface
 {
-    public const NOTICE_TABLE_NAME = 'notice';
-
     /**
      * Full table name (including db prefix)
      *

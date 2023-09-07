@@ -16,7 +16,11 @@ use Dotclear\Database\MetaRecord;
 
 interface CategoriesInterface
 {
-    /**  @var   string  Categories table name */
+    /**
+     * Categories table name.
+     *
+     * @var   string  CATEGORY_TABLE_NAME
+     */
     public const CATEGORY_TABLE_NAME = 'category';
 
     /**
