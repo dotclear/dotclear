@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
 "PO-Revision-Date: 2016-07-18 15:46+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -16,6 +16,343 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
+
+msgid "Uninstall"
+msgstr ""
+
+msgid "Plugin has been successfully uninstalled."
+msgstr ""
+
+msgid "Cache"
+msgstr ""
+
+msgid "Folders from cache directory"
+msgstr ""
+
+msgid "delete selected cache directories"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr ""
+
+msgid "empty selected cache directories"
+msgstr ""
+
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr ""
+
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Logs in Dotclear logs table"
+msgstr ""
+
+msgid "delete selected logs tables"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr ""
+
+msgid "Folders from plugins directories"
+msgstr ""
+
+msgid "delete selected plugins files and directories"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Users preferences workspaces"
+msgstr ""
+
+msgid "delete selected global preferences workspaces"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr ""
+
+msgid "delete selected users preferences workspaces"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr ""
+
+msgid "delete selected preferences workspaces"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr ""
+
+msgid "delete related preferences"
+msgstr ""
+
+msgid "related preferences deleted"
+msgstr ""
+
+msgid "Failed to delete related preferences"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Namespaces registered in dcSettings"
+msgstr ""
+
+msgid "delete selected global settings namespaces"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr ""
+
+msgid "delete selected blog settings namespaces"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr ""
+
+msgid "delete selected settings namespaces"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr ""
+
+msgid "delete related settings"
+msgstr ""
+
+msgid "related settings deleted"
+msgstr ""
+
+msgid "Failed to delete related settings"
+msgstr ""
+
+msgid "Tables"
+msgstr ""
+
+msgid "All database tables of Dotclear"
+msgstr ""
+
+msgid "delete selected tables"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" table"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr ""
+
+msgid "empty selected tables"
+msgstr ""
+
+#, php-format
+msgid "empty \"%s\" table"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr ""
+
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr ""
+
+msgid "Themes"
+msgstr ""
+
+msgid "Folders from blog themes directory"
+msgstr ""
+
+msgid "delete selected themes files and directories"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr ""
+
+msgid "Var"
+msgstr ""
+
+msgid "Folders from Dotclear VAR directory"
+msgstr ""
+
+msgid "delete selected var directories"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr ""
+
+msgid "Versions"
+msgstr ""
+
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr ""
+
+msgid "delete selected versions numbers"
+msgstr ""
+
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr ""
+
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr ""
+
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr ""
+
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr ""
+
+msgid "Unsintaller can't remove itself"
+msgstr ""
+
+msgid "Unknown module id to uninstall"
+msgstr ""
+
+msgid "There are no uninstall actions for this module"
+msgstr ""
+
+msgid "Uninstall action successfuly excecuted"
+msgstr ""
+
+msgid "No uninstall action done"
+msgstr ""
+
+msgid "Perform selected actions"
+msgstr ""
+
+msgid "Are you sure you perform these ations?"
+msgstr ""
+
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr ""
+
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr ""
+
+#, php-format
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr ""
 
 msgid "Cope with old core classes (< 2.26)"
 msgstr ""
@@ -653,9 +990,6 @@ msgid "The configuration has been updated."
 msgstr ""
 
 msgid "Note(s)"
-msgstr ""
-
-msgid "Settings"
 msgstr ""
 
 msgid "Plugin activation"
@@ -1403,9 +1737,6 @@ msgstr ""
 msgid "This page's comments feed"
 msgstr ""
 
-msgid "You must provide a valid email address."
-msgstr ""
-
 msgid "My first page"
 msgstr ""
 
@@ -1881,6 +2212,14 @@ msgstr ""
 
 #, php-format
 msgid "File %s is not readable"
+msgstr ""
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
 
 msgid "user:preferences"

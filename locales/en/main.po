@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
 "PO-Revision-Date: 2016-07-18 15:46+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -33,414 +33,6 @@ msgid "Posts"
 msgstr ""
 
 msgid "Pages"
-msgstr ""
-
-msgid "administrator"
-msgstr ""
-
-msgid "manage all entries and comments"
-msgstr ""
-
-msgid "manage their own entries and comments"
-msgstr ""
-
-msgid "publish entries and comments"
-msgstr ""
-
-msgid "delete entries and comments"
-msgstr ""
-
-msgid "manage categories"
-msgstr ""
-
-msgid "manage all media items"
-msgstr ""
-
-msgid "manage their own media items"
-msgstr ""
-
-msgid "That user does not exist in the database."
-msgstr ""
-
-msgid "That key does not exist in the database."
-msgstr ""
-
-msgid "Pending"
-msgstr ""
-
-msgid "Scheduled"
-msgstr ""
-
-msgid "Unpublished"
-msgstr ""
-
-msgid "Published"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-msgid "You are not allowed to add categories"
-msgstr ""
-
-msgid "You are not allowed to update categories"
-msgstr ""
-
-msgid "You are not allowed to delete categories"
-msgstr ""
-
-msgid "This category is not empty."
-msgstr ""
-
-msgid "You are not allowed to reset categories order"
-msgstr ""
-
-msgid "Empty category URL"
-msgstr ""
-
-msgid "You must provide a category title"
-msgstr ""
-
-msgid "You must provide a category URL"
-msgstr ""
-
-msgid "You are not allowed to create an entry"
-msgstr ""
-
-msgid "You are not allowed to update entries"
-msgstr ""
-
-msgid "No such entry ID"
-msgstr ""
-
-msgid "You are not allowed to edit this entry"
-msgstr ""
-
-msgid "You are not allowed to change this entry status"
-msgstr ""
-
-msgid "You are not allowed to change this entry category"
-msgstr ""
-
-msgid "You are not allowed to change entries category"
-msgstr ""
-
-msgid "You are not allowed to delete entries"
-msgstr ""
-
-msgid "No entry title"
-msgstr ""
-
-msgid "No entry content"
-msgstr ""
-
-msgid "Notes"
-msgstr ""
-
-msgid "Note"
-msgstr ""
-
-msgid "Empty entry URL"
-msgstr ""
-
-msgid "You are not allowed to update comments"
-msgstr ""
-
-msgid "No such comment ID"
-msgstr ""
-
-msgid "You are not allowed to update this comment"
-msgstr ""
-
-msgid "You are not allowed to change this comment's status"
-msgstr ""
-
-msgid "You are not allowed to delete comments"
-msgstr ""
-
-msgid "You must provide a comment"
-msgstr ""
-
-msgid "You must provide an author name"
-msgstr ""
-
-msgid "Email address is not valid."
-msgstr ""
-
-msgid "online"
-msgstr ""
-
-msgid "offline"
-msgstr ""
-
-msgid "removed"
-msgstr ""
-
-msgid "You are not an administrator"
-msgstr ""
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "No password given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Password must contain at least 6 characters."
-msgstr ""
-
-msgid "Invalid user language code"
-msgstr ""
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "No blog name"
-msgstr ""
-
-msgid "No blog URL"
-msgstr ""
-
-msgid "No log message"
-msgstr ""
-
-msgid "unknown"
-msgstr ""
-
-msgid "No blog defined."
-msgstr ""
-
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
-
-msgid "You are not a super administrator."
-msgstr ""
-
-msgid "Permission denied."
-msgstr ""
-
-msgid "You are not the file owner."
-msgstr ""
-
-msgid "This file is not allowed."
-msgstr ""
-
-msgid "New file already exists."
-msgstr ""
-
-msgid "File does not exist in the database."
-msgstr ""
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
-
-msgid "Empty module zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr ""
-
-msgid "An error occurred during module deletion."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
-msgstr ""
-
-msgid "No such module."
-msgstr ""
-
-msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot activate plugin."
-msgstr ""
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr ""
-
-msgid "Unable to retrieve settings:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr ""
-
-msgid "No namespace specified"
-msgstr ""
-
-msgid "No notice message"
-msgstr ""
-
-msgid "Unable to retrieve workspaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr ""
-
-msgid "Unable to retrieve namespaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr ""
-
-msgid "Wrong data feed"
-msgstr ""
-
-msgid "An error occurred while downloading the file."
-msgstr ""
-
-msgid "Themes folder unreachable"
-msgstr ""
-
-msgid "Themes folder unreadable"
-msgstr ""
-
-#, php-format
-msgid " (copy #%s)"
-msgstr ""
-
-msgid " (copy)"
-msgstr ""
-
-msgid "Unable to modify _define.php"
-msgstr ""
-
-msgid "Destination folder already exist"
-msgstr ""
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr ""
-
-msgid "Unable to ping URL"
-msgstr ""
-
-msgid "Bad server response code"
-msgstr ""
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr ""
-
-#, php-format
-msgid "%s, ping error:"
-msgstr ""
-
-msgid "Don't repeat yourself, please."
-msgstr ""
-
-msgid "Where's your title?"
-msgstr ""
-
-msgid "Sorry, an internal problem has occured."
-msgstr ""
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
-
-msgid "Sorry but you can not ping this type of content."
-msgstr ""
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
-
-msgid "Digests file not found."
-msgstr ""
-
-msgid "No file to download"
-msgstr ""
-
-msgid "Root directory is not writable."
-msgstr ""
-
-msgid "An error occurred while downloading archive."
-msgstr ""
-
-msgid "Archive not found."
-msgstr ""
-
-msgid "Unable to read current digests file."
-msgstr ""
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr ""
-
-msgid "Incomplete archive."
-msgstr ""
-
-msgid "Unable to read digests file."
-msgstr ""
-
-msgid "Invalid digests file."
-msgstr ""
-
-msgid "Unable to retrieve prefs:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid pref id"
-msgstr ""
-
-msgid "No workspace specified"
 msgstr ""
 
 #, php-format
@@ -481,6 +73,36 @@ msgstr ""
 
 #, php-format
 msgid "Unable to find or initialize class %s"
+msgstr ""
+
+msgid "administrator"
+msgstr ""
+
+msgid "manage all entries and comments"
+msgstr ""
+
+msgid "manage their own entries and comments"
+msgstr ""
+
+msgid "publish entries and comments"
+msgstr ""
+
+msgid "delete entries and comments"
+msgstr ""
+
+msgid "manage categories"
+msgstr ""
+
+msgid "manage all media items"
+msgstr ""
+
+msgid "manage their own media items"
+msgstr ""
+
+msgid "That user does not exist in the database."
+msgstr ""
+
+msgid "That key does not exist in the database."
 msgstr ""
 
 msgid "Title"
@@ -957,6 +579,15 @@ msgstr ""
 msgid "Legend: "
 msgstr ""
 
+msgid "online"
+msgstr ""
+
+msgid "offline"
+msgstr ""
+
+msgid "removed"
+msgstr ""
+
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr ""
@@ -1012,6 +643,18 @@ msgid "Type"
 msgstr ""
 
 msgid "Entry"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Junk"
 msgstr ""
 
 #, php-format
@@ -1095,6 +738,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Trackbacks"
+msgstr ""
+
+msgid "Scheduled"
 msgstr ""
 
 msgid "Protected"
@@ -1839,6 +1485,36 @@ msgstr ""
 msgid "The theme has been successfully installed."
 msgstr ""
 
+msgid "Digests file not found."
+msgstr ""
+
+msgid "No file to download"
+msgstr ""
+
+msgid "Root directory is not writable."
+msgstr ""
+
+msgid "An error occurred while downloading archive."
+msgstr ""
+
+msgid "Archive not found."
+msgstr ""
+
+msgid "Unable to read current digests file."
+msgstr ""
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr ""
+
+msgid "Incomplete archive."
+msgstr ""
+
+msgid "Unable to read digests file."
+msgstr ""
+
+msgid "Invalid digests file."
+msgstr ""
+
 msgid "users per page"
 msgstr ""
 
@@ -1864,6 +1540,132 @@ msgid "There seems to be no Session table in your database. Is Dotclear completl
 msgstr ""
 
 msgid "Precondition Failed"
+msgstr ""
+
+msgid "No blog defined."
+msgstr ""
+
+msgid "You are not allowed to add categories"
+msgstr ""
+
+msgid "You are not allowed to update categories"
+msgstr ""
+
+msgid "You are not allowed to delete categories"
+msgstr ""
+
+msgid "This category is not empty."
+msgstr ""
+
+msgid "You are not allowed to reset categories order"
+msgstr ""
+
+msgid "Empty category URL"
+msgstr ""
+
+msgid "You must provide a category title"
+msgstr ""
+
+msgid "You must provide a category URL"
+msgstr ""
+
+msgid "You are not allowed to create an entry"
+msgstr ""
+
+msgid "You are not allowed to update entries"
+msgstr ""
+
+msgid "No such entry ID"
+msgstr ""
+
+msgid "You are not allowed to edit this entry"
+msgstr ""
+
+msgid "You are not allowed to change this entry status"
+msgstr ""
+
+msgid "You are not allowed to change this entry category"
+msgstr ""
+
+msgid "You are not allowed to change entries category"
+msgstr ""
+
+msgid "You are not allowed to delete entries"
+msgstr ""
+
+msgid "No entry title"
+msgstr ""
+
+msgid "No entry content"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Empty entry URL"
+msgstr ""
+
+msgid "You are not allowed to update comments"
+msgstr ""
+
+msgid "No such comment ID"
+msgstr ""
+
+msgid "You are not allowed to update this comment"
+msgstr ""
+
+msgid "You are not allowed to change this comment's status"
+msgstr ""
+
+msgid "You are not allowed to delete comments"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "Email address is not valid."
+msgstr ""
+
+msgid "Unable to retrieve namespaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr ""
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr ""
+
+msgid "Unable to retrieve settings:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr ""
+
+msgid "No namespace specified"
+msgstr ""
+
+msgid "You are not an administrator"
+msgstr ""
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "No blog name"
+msgstr ""
+
+msgid "No blog URL"
+msgstr ""
+
+msgid "You must provide a valid email address."
 msgstr ""
 
 msgid "Database problem"
@@ -1932,7 +1734,131 @@ msgstr ""
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr ""
 
+msgid "No log message"
+msgstr ""
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+msgid "You are not a super administrator."
+msgstr ""
+
+msgid "Permission denied."
+msgstr ""
+
+msgid "You are not the file owner."
+msgstr ""
+
+msgid "This file is not allowed."
+msgstr ""
+
+msgid "New file already exists."
+msgstr ""
+
+msgid "File does not exist in the database."
+msgstr ""
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr ""
+
+msgid "No notice message"
+msgstr ""
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr ""
+
+msgid "Unable to ping URL"
+msgstr ""
+
+msgid "Bad server response code"
+msgstr ""
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr ""
+
+#, php-format
+msgid "%s, ping error:"
+msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+msgid "LOL!"
+msgstr ""
+
 msgid "Something went wrong with auto upgrade:"
+msgstr ""
+
+msgid "Unable to retrieve workspaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid UserWorkspace: %s"
+msgstr ""
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
+msgid "Unable to retrieve prefs:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr ""
+
+msgid "No workspace specified"
+msgstr ""
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "No password given"
+msgstr ""
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Password must contain at least 6 characters."
+msgstr ""
+
+msgid "Invalid user language code"
 msgstr ""
 
 msgid "SQL DELETE requires a FROM source"
@@ -2106,6 +2032,88 @@ msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+#, php-format
+msgid "Module is not installed: %s"
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr ""
+
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr ""
+
+#, php-format
+msgid "Unable to read new %s file"
+msgstr ""
+
+msgid "Cannot deactivate plugin."
+msgstr ""
+
+msgid "No such module."
+msgstr ""
+
+msgid "Cannot remove module files"
+msgstr ""
+
+msgid "Cannot activate plugin."
+msgstr ""
+
+msgid "An error occurred while downloading the file."
+msgstr ""
+
+msgid "Wrong data feed"
+msgstr ""
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+msgid "Unable to modify _define.php"
+msgstr ""
+
+msgid "Destination folder already exist"
 msgstr ""
 
 msgid "Dotclear has been upgraded."
@@ -4329,4 +4337,10 @@ msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
 
 msgid "Continue"
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Read"
 msgstr ""
