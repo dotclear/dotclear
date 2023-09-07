@@ -207,21 +207,33 @@ class Blog implements BlogInterface
         $this->con    = App::con();
         $this->prefix = $this->con->prefix();
 
+        // deprecated public readonly properties
+        $uid         = '';
+        $name        = '';
+        $desc        = '';
+        $url         = '';
+        $host        = '';
+        $creadt      = 0;
+        $upddt       = 0;
+        $status      = self::BLOG_UNDEFINED;
+        $settings    = App::blogSettings(null);
+        $themes_path = '';
+        $public_path = '';
+
         if (!empty($id) && ($blog = App::blogs()->getBlog($id)) !== false) {
-            $this->id     = $id;
-            $this->uid    = $blog->blog_uid;
-            $this->name   = $blog->blog_name;
-            $this->desc   = $blog->blog_desc;
-            $this->url    = $blog->blog_url;
-            $this->host   = Http::getHostFromURL($this->url);
-            $this->creadt = (int) strtotime($blog->blog_creadt);
-            $this->upddt  = (int) strtotime($blog->blog_upddt);
-            $this->status = (int) $blog->blog_status;
+            $uid    = $blog->blog_uid;
+            $name   = $blog->blog_name;
+            $desc   = $blog->blog_desc;
+            $url    = $blog->blog_url;
+            $host   = Http::getHostFromURL($url);
+            $creadt = (int) strtotime($blog->blog_creadt);
+            $upddt  = (int) strtotime($blog->blog_upddt);
+            $status = (int) $blog->blog_status;
 
-            $this->settings = App::blogSettings($this->id);
+            $settings = App::blogSettings($id);
 
-            $this->themes_path = Path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
-            $this->public_path = Path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
+            $themes_path = Path::fullFromRoot($settings->system->themes_path, DC_ROOT);
+            $public_path = Path::fullFromRoot($settings->system->public_path, DC_ROOT);
 
             $this->post_status[(string) self::POST_PENDING]     = __('Pending');
             $this->post_status[(string) self::POST_SCHEDULED]   = __('Scheduled');
@@ -232,23 +244,25 @@ class Blog implements BlogInterface
             $this->comment_status[(string) self::COMMENT_PENDING]     = __('Pending');
             $this->comment_status[(string) self::COMMENT_UNPUBLISHED] = __('Unpublished');
             $this->comment_status[(string) self::COMMENT_PUBLISHED]   = __('Published');
+        }
 
+        // Initialize deprecated public readonly properties
+        $this->id          = $id;
+        $this->uid         = $uid;
+        $this->name        = $name;
+        $this->desc        = $desc;
+        $this->url         = $url;
+        $this->host        = $host;
+        $this->creadt      = $creadt;
+        $this->upddt       = $upddt;
+        $this->status      = $status;
+        $this->settings    = $settings;
+        $this->themes_path = $themes_path;
+        $this->public_path = $public_path;
+
+        if (!empty($id)) {
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface
             App::behavior()->callBehavior('coreBlogConstruct', $this);
-        } else {
-            // Initialize readonly properties
-            $this->id          = '';
-            $this->uid         = '';
-            $this->name        = '';
-            $this->desc        = '';
-            $this->url         = '';
-            $this->host        = '';
-            $this->creadt      = 0;
-            $this->upddt       = 0;
-            $this->status      = self::BLOG_UNDEFINED;
-            $this->settings    = App::blogSettings(null);
-            $this->themes_path = '';
-            $this->public_path = '';
         }
     }
 
