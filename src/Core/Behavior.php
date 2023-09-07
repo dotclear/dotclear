@@ -19,7 +19,7 @@ class Behavior implements BehaviorInterface
     /**
      * The behaviors stack.
      *
-     * @var    array<string,array<int,callable>>    $stack 
+     * @var    array<string,array<int,callable>>    $stack
      */
     private array $stack = [];
 

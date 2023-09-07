@@ -220,7 +220,6 @@ class RestServer implements RestInterface
      */
     public function enableRestServer(bool $serve = true): void
     {
-
     }
 
     /**

@@ -14,7 +14,6 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use Dotclear\App;
-use Dotclear\Core\Trackback;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use initAntispam;
@@ -110,7 +109,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_media       = App::media()->openMediaCursor();
         $this->cur_post_media  = App::postMedia()->openPostMediaCursor();
         $this->cur_log         = App::log()->openLogCursor();
-        $this->cur_ping        = Trackback::openTrackbackCursor();
+        $this->cur_ping        = App::trackback()->openTrackbackCursor();
         $this->cur_comment     = App::blog()->openCommentCursor();
         $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
 

@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\UrlHandler;
-use Dotclear\Core\Trackback;
 use Dotclear\Helper\Text;
 use Exception;
 
@@ -885,7 +884,7 @@ class Url extends UrlHandler
             # --BEHAVIOR-- publicBeforeReceiveTrackback -- string|null
             App::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-            (new Trackback())->receiveTrackback($post_id);
+            App::trackback()->receiveTrackback($post_id);
         }
     }
 
@@ -903,7 +902,7 @@ class Url extends UrlHandler
         # --BEHAVIOR-- publicBeforeReceiveTrackback -- string|null
         App::behavior()->callBehavior('publicBeforeReceiveTrackbackV2', $args);
 
-        (new Trackback())->receiveWebmention();
+        App::trackback()->receiveWebmention();
     }
 
     /**

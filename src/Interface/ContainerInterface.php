@@ -24,7 +24,7 @@ interface ContainerInterface
      *
      * By default, an object is instanciated once.
      *
-     * @throws  \Exception 
+     * @throws  \Exception
      *
      * @param   string  $id     The object ID
      *

@@ -18,22 +18,30 @@ use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Network\XmlRpc\Client;
 use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\TrackbackInterface;
 use Exception;
 
 /**
- * Trackbacks/Pingbacks sender and server
+ * Trackbacks/Pingbacks sender and server.
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.
  */
-class Trackback
+class Trackback implements TrackbackInterface
 {
-    // Constants
+    /**
+     * Database connection handler.
+     *
+     * @var     ConnectionInterface     $con
+     */
+    protected ConnectionInterface $con;
 
-    /** @var    string  Trackbacks table name */
-    public const PING_TABLE_NAME = 'ping';
-
-    /** @var    string  Pings table name */
+    /**
+     * Pings table name.
+     *
+     * @var    string   $table
+     */
     public $table;
 
     /**
@@ -41,50 +49,26 @@ class Trackback
      */
     public function __construct()
     {
-        $this->table = App::con()->prefix() . self::PING_TABLE_NAME;
+        $this->con   = App::con();
+        $this->table = $this->con->prefix() . self::PING_TABLE_NAME;
     }
 
-    /**
-     * Open a database table cursor.
-     *
-     * @return  Cursor  The ping database table cursor
-     */
-    public static function openTrackbackCursor(): Cursor
+    public function openTrackbackCursor(): Cursor
     {
-        return App::con()->openCursor(App::con()->prefix() . self::PING_TABLE_NAME);
+        return $this->con->openCursor($this->con->prefix() . self::PING_TABLE_NAME);
     }
 
     /// @name Send
     //@{
-    /**
-     * Get all pings sent for a given post.
-     *
-     * @param   int     $post_id    The post identifier
-     *
-     * @return  MetaRecord  The post pings.
-     */
     public function getPostPings(int $post_id): MetaRecord
     {
         $strReq = 'SELECT ping_url, ping_dt ' .
         'FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . (int) $post_id;
 
-        return new MetaRecord(App::con()->select($strReq));
+        return new MetaRecord($this->con->select($strReq));
     }
 
-    /**
-     * Sends a ping to given <var>$url</var>.
-     *
-     * @param   string  $url            The url
-     * @param   int     $post_id        The post identifier
-     * @param   string  $post_title     The post title
-     * @param   string  $post_excerpt   The post excerpt
-     * @param   string  $post_url       The post url
-     *
-     * @throws  Exception
-     *
-     * @return  bool    false if error
-     */
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
     {
         if (!App::blog()->isDefined()) {
@@ -94,9 +78,9 @@ class Trackback
         # Check for previously done trackback
         $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . $post_id . ' ' .
-        "AND ping_url = '" . App::con()->escape($url) . "' ";
+        "AND ping_url = '" . $this->con->escape($url) . "' ";
 
-        $rs = new MetaRecord(App::con()->select($strReq));
+        $rs = new MetaRecord($this->con->select($strReq));
 
         if (!$rs->isEmpty()) {
             throw new Exception(sprintf(__('%s has still been pinged'), $url));
@@ -192,12 +176,7 @@ class Trackback
 
     /// @name Receive
     //@{
-    /**
-     * Receives a trackback and insert it as a comment of given post.
-     *
-     * @param      int      $post_id  The post identifier
-     */
-    public function receiveTrackback(int $post_id)
+    public function receiveTrackback(int $post_id): void
     {
         header('Content-Type: text/xml; charset=UTF-8');
         if (empty($_POST)) {
@@ -312,16 +291,6 @@ class Trackback
         echo $resp . '</response>';
     }
 
-    /**
-     * Receives a pingback and insert it as a comment of given post.
-     *
-     * @param      string     $from_url  Source URL
-     * @param      string     $to_url    Target URL
-     *
-     * @throws     Exception
-     *
-     * @return     string
-     */
     public function receivePingback(string $from_url, string $to_url): string
     {
         try {
@@ -376,14 +345,7 @@ class Trackback
         return __('Thanks, mate. It was a pleasure.');
     }
 
-    /**
-     * Receives a webmention and insert it as a comment of given post.
-     *
-     * NB: plugin Fair Trackback check source content to find url.
-     *
-     * @throws     Exception
-     */
-    public function receiveWebmention()
+    public function receiveWebmention(): void
     {
         $err = $post_id = false;
         header('Content-Type: text/html; charset=UTF-8');
@@ -464,10 +426,10 @@ class Trackback
     /**
      * Check if a post previously received a ping a from an URL.
      *
-     * @param      int      $post_id   The post identifier
-     * @param      string   $from_url  The from url
+     * @param   int     $post_id    The post identifier
+     * @param   string  $from_url   The from url
      *
-     * @return     bool
+     * @return  bool
      */
     private function pingAlreadyDone(int $post_id, string $from_url): bool
     {
@@ -488,14 +450,14 @@ class Trackback
     /**
      * Create a comment marked as trackback for a given post.
      *
-     * @param      int      $post_id    The post identifier
-     * @param      string   $url        The url
-     * @param      string   $blog_name  The blog name
-     * @param      string   $title      The title
-     * @param      string   $excerpt    The excerpt
-     * @param      string   $comment    The comment
+     * @param   int     $post_id    The post identifier
+     * @param   string  $url        The url
+     * @param   string  $blog_name  The blog name
+     * @param   string  $title      The title
+     * @param   string  $excerpt    The excerpt
+     * @param   string  $comment    The comment
      */
-    private function addBacklink(int $post_id, string $url, string $blog_name, string $title, string $excerpt, string &$comment)
+    private function addBacklink(int $post_id, string $url, string $blog_name, string $title, string $excerpt, string &$comment): void
     {
         if (empty($blog_name)) {
             // Let use title as text link for this backlink
@@ -528,25 +490,25 @@ class Trackback
     /**
      * Delete previously received comment made from an URL for a given post.
      *
-     * @param      int      $post_id  The post identifier
-     * @param      string   $url      The url
+     * @param   int     $post_id    The post identifier
+     * @param   string  $url        The url
      */
-    private function delBacklink(int $post_id, string $url)
+    private function delBacklink(int $post_id, string $url): void
     {
-        App::con()->execute(
-            'DELETE FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' ' .
+        $this->con->execute(
+            'DELETE FROM ' . $this->con->prefix() . App::blog()::COMMENT_TABLE_NAME . ' ' .
             'WHERE post_id = ' . ((int) $post_id) . ' ' .
-            "AND comment_site = '" . App::con()->escape((string) $url) . "' " .
+            "AND comment_site = '" . $this->con->escape((string) $url) . "' " .
             'AND comment_trackback = 1 '
         );
     }
 
     /**
-     * Gets the charset from HTTP headers.
+     * Get the charset from HTTP headers.
      *
-     * @param      string  $header  The header
+     * @param   string  $header     The header
      *
-     * @return     mixed   The charset from request.
+     * @return  mixed   The charset from request.
      */
     private static function getCharsetFromRequest(string $header = '')
     {
@@ -564,13 +526,13 @@ class Trackback
     /**
      * Detect encoding.
      *
-     * @param      string  $content  The content
+     * @param   string  $content    The content
      *
-     * @return     string
+     * @return  string
      */
     private static function detectCharset(string $content): string
     {
-        return mb_detect_encoding(
+        return (string) mb_detect_encoding(
             $content,
             'UTF-8,ISO-8859-1,ISO-8859-2,ISO-8859-3,' .
             'ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,' .
@@ -581,11 +543,11 @@ class Trackback
     /**
      * Retrieve local post from a given URL.
      *
-     * @param      string     $to_url  To url
+     * @param   string  $to_url  To url
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     MetaRecord     The target post.
+     * @return  MetaRecord  The target post.
      */
     private function getTargetPost(string $to_url): MetaRecord
     {
@@ -636,13 +598,13 @@ class Trackback
     }
 
     /**
-     * Returns content of a distant page.
+     * Get content of a distant page.
      *
-     * @param      string     $from_url  Target URL
+     * @param   string  $from_url  Target URL
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     string
+     * @return  string
      */
     private function getRemoteContent(string $from_url): string
     {
@@ -679,13 +641,6 @@ class Trackback
 
     /// @name Discover
     //@{
-    /**
-     * Returns an array containing all discovered trackbacks URLs in <var>$text</var>.
-     *
-     * @param      string  $text   The text
-     *
-     * @return     array
-     */
     public function discover(string $text): array
     {
         $res = [];
@@ -700,10 +655,12 @@ class Trackback
     }
 
     /**
-     * Try to find source blog name or author from remote HTML page content
+     * Try to find source blog name or author.
+     *
+     * Does this from remote HTML page content
      * Used when receive a webmention or a pingback
      *
-     * @param      string  $content  The content
+     * @param   string  $content    The content
      *
      * @return  string
      */
@@ -741,9 +698,9 @@ class Trackback
     /**
      * Find links into a text.
      *
-     * @param      string  $text   The text
+     * @param   string  $text   The text
      *
-     * @return     array  The text links.
+     * @return  array   The text links.
      */
     private function getTextLinks(string $text): array
     {
@@ -774,9 +731,9 @@ class Trackback
     /**
      * Check remote header/content to find API trace.
      *
-     * @param      string  $url    The url
+     * @param   string  $url    The url
      *
-     * @return     mixed   The ping url.
+     * @return  mixed   The ping url.
      */
     private function getPingURL(string $url)
     {
@@ -867,10 +824,10 @@ class Trackback
     /**
      * HTTP helper.
      *
-     * @param      string  $url    The url
-     * @param      string  $path   The path
+     * @param   string  $url    The url
+     * @param   string  $path   The path
      *
-     * @return     false|HttpClient
+     * @return  false|HttpClient
      */
     private static function initHttp(string $url, string &$path)
     {
@@ -883,14 +840,6 @@ class Trackback
         return $client;
     }
 
-    /**
-     * URL helper.
-     *
-     * @param      string     $from_url  The from url
-     * @param      string     $to_url    To url
-     *
-     * @throws     Exception
-     */
     public static function checkURLs(string $from_url, string $to_url): void
     {
         if (!(filter_var($from_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!', $from_url))) {
