@@ -1,20 +1,21 @@
-# German translation of DotClear
-# Copyright (C) 2008.
-# Andreas Diller <nendilo@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2016-07-18 15:49+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-08 03:02\n"
+"Last-Translator: \n"
+"Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && (n%100>19 || n%100<11) ? 0 : (n%10>=2 && n%10<=9) && (n%100>19 || n%100<11) ? 1 : n%1!=0 ? 2: 3);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: lt\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
 msgstr "%d prisegimai"
@@ -26,21 +27,21 @@ msgid "%d trackbacks"
 msgstr "%d trackback"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s reakcijos"
 
-# Not found strings
-#, fuzzy
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr "Į turinį"
+msgstr "Prieiga prie turinio"
 
 msgid "Add a comment"
 msgstr "Pridėti komentarą"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "Pridėti ping"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Papildomos stiliaus direktyvos"
 
 msgid "All keywords"
 msgstr "Visi raktažodžiai"
@@ -54,24 +55,29 @@ msgstr "Prisegimai"
 msgid "Best of me"
 msgstr "Mano geriausia"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "Tinklaraščio informacija"
 
-#, fuzzy
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr "Į meniu"
+msgstr "Tinklaraščio meniu"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "Įrašė"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "Pagal kategoriją"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "Pagal datą"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "Pagal žymę"
 
 msgid "Categories"
 msgstr "Kategorijos"
@@ -83,17 +89,20 @@ msgid "Comments"
 msgstr "Komentarai"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Komentarus galima formatuoti naudojant paprastą wiki sintaksę."
 
 msgid "Comments feed"
 msgstr "Komentarų rss feed"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Skaityti toliau"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "Dokumentas nerastas"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "El. pašto adresas"
 
@@ -103,21 +112,25 @@ msgstr "El. pašto adresas netinkamas"
 msgid "Entries feed"
 msgstr "Įrašų rss feed"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "Naršyti archyvus"
 
-#, fuzzy
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr "Į meniu"
+msgstr "Papildomas meniu"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
-msgstr ""
+msgstr "Iš"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
-msgstr ""
+msgstr "NuoDay"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
-msgstr ""
+msgstr "Eiti į pagrindinį puslapį"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML kodas yra rodomas kaip tekstas ir internetiniai adresai yra automatiškai konvertuojami."
@@ -126,7 +139,7 @@ msgid "Home"
 msgstr "Pradžia"
 
 msgid "In"
-msgstr ""
+msgstr "Svetainėje"
 
 msgid "Languages"
 msgstr "Kalbos"
@@ -134,41 +147,45 @@ msgstr "Kalbos"
 msgid "Links"
 msgstr "Nuorodos"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "Vardas ar slapyvardis"
 
-#, fuzzy
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
-msgstr "sekantys įrašai"
+msgstr "Kitas įrašas:"
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr ", "
 
 msgid "Page top"
-msgstr ""
+msgstr "Puslapio viršus"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
-msgstr ""
+msgstr "Puslapių žymėjimas"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Reikalingas slaptažodis"
 
 msgid "Password:"
 msgstr "Slaptažodis:"
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "nuoroda"
 
 msgid "Powered by %s"
 msgstr "bogą gamina %s"
 
-#, fuzzy
 msgid "Preview"
-msgstr "peržiūrėti"
+msgstr "Peržiūra"
 
-#, fuzzy
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
-msgstr "ankstesni įrašai"
+msgstr "Ankstesnis įrašas:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS yra nemokama interneto naujienų suvestinė. RSS pateikiamos naujienos ar naujienų komentarai, kartu su nuorodomis į pilną turinį ir kita. Tokiu būdu naujausius publikuotus įrašus tuomet galite perskaityti savo pasirinkta <a href=\"http://en.wikipedia.org/wiki/Aggregator\">priemone</a>."
@@ -176,21 +193,23 @@ msgstr "RSS yra nemokama interneto naujienų suvestinė. RSS pateikiamos naujien
 msgid "Read"
 msgstr "Skaityti"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Prisiminti mane šiame bloge"
 
 msgid "Required field"
-msgstr ""
+msgstr "Privalomas laukas"
 
 msgid "Search"
 msgstr "Paieška"
 
 msgid "Send"
-msgstr ""
+msgstr "Siųsti"
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Paprasčiausiai nukopijuokite URL nuorodą į savo RSS programą."
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "Subkategorijos"
 
@@ -200,58 +219,73 @@ msgstr "Prenumeruoti"
 msgid "Subscribe to"
 msgstr "Prenumeruoti"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "Pasiūlymai:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "Dokumentas kurio ieškote neegzistuoja"
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "Naujausių pranešimų sąrašą galima rasti"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "Jie parašė ta pačia tema"
 
 msgid "This blog's comments Atom feed"
 msgstr "Šio blogo komentarų Atom feed"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "Šios kategorijos komentarų Atom feed"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "Šios kategorijos įrašų Atom feed"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "Šios įrašo komentarų Atom feed"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Šios įrašo komentarų rss feed"
 
-# Not found strings
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Į turinį"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Į meniu"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Į paiešką"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "Trackback URL"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "bandytame URL yra rašybos klaidų arba puslapis buvo ištrintas ar perkeltas."
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "Naudokite paieškos formą"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Tinklapis"
 
 msgid "What is an RSS feed?"
 msgstr "Kas yra RSS feed?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Norėdami čia apsilankyti turite nurodyti slaptažodį."
 
@@ -264,12 +298,15 @@ msgstr "Turite nurodyti teisingą el. pašto adresą."
 msgid "You must provide an author name"
 msgstr "Turite nurodyti autoriaus vardą"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "Jūsų komentaras"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "Jūsų komentaras paskelbtas."
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Jūsų komentaras priimtas ir bus peržiūrėtas prieš skelbiant."
 
@@ -282,34 +319,38 @@ msgstr "Jūsų <em>%1$s</em> paieška atitiko <strong>%2$s</strong> įrašus."
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Jūsų <em>%1$s</em> paieška nieko nerado."
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "įrašė"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "čia"
 
 msgid "in"
-msgstr ""
+msgstr "svetainėje"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "sekantys įrašai"
 
 msgid "no attachments"
 msgstr "prisegimų nėra"
 
-#, fuzzy
 msgid "no comments"
-msgstr "komentarų nėra"
+msgstr "jokių komentarų"
 
 msgid "no reactions"
-msgstr ""
+msgstr "jokių reakcijų"
 
 msgid "no trackbacks"
 msgstr "trackback nėra"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "iš"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr ", "
 
@@ -319,38 +360,36 @@ msgstr "vienas prisegimas"
 msgid "one comment"
 msgstr "vienas komentaras"
 
-#, fuzzy
 msgid "one reaction"
-msgstr "Skaityti toliau"
+msgstr "viena reakcija"
 
 msgid "one trackback"
 msgstr "vienas trackback"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "pasirinktinai"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "puslapis"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "peržiūrėti"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "ankstesni įrašai"
 
 msgid "reactions"
-msgstr ""
+msgstr "reakcijos"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "siųsti"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "Diena"
 
-#, fuzzy
-#~ msgid "Hide password"
-#~ msgstr "Slaptažodis:"
-
-#, fuzzy
-#~ msgid "Show password"
-#~ msgstr "Slaptažodis:"
