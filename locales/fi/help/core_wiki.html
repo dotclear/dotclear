@@ -1,0 +1,94 @@
+<html>
+<head>
+  <title>Wiki-syntaksiviite</title>
+</head>
+
+<body>
+
+<h4>Wiki-syntaksiviite</h4>
+
+<p>Wikisyntaksi on tapa parantaa tekstiä minimaalisella joukolla
+tunnisteita, jotka on tutkittu kattamaan perustarpeet (otsikot, kappaleet, lainaukset,
+luettelot...).</p>
+
+<dl>
+<dt>Lohkoelementit</dt>
+<dd>
+<ul>
+  <li>Jätä tyhjä rivi kahden samanlaisen lohkon väliin.</li>
+  <li><strong>Kohta:</strong> Vapaata tekstiä, joka päättyy tyhjälle riville, jos
+  seuraa toinen kappale.</li>
+  <li><strong>Otsikko:</strong> <code>!!! otsikko</code>, <code>!! otsikko</code>
+  tai <code>!! otsikko</code>, jolloin voit käyttää kolmea eritasoista
+  otsikkoa.</li>
+  <li><strong>Vaakaviiva:</strong> <code>----</code></li>
+  <li><strong>Luettelot:</strong> Aloita jokainen rivi numeroimattomien luetteloiden kohdalla
+  <code>*</code> tai <code>#</code> tai numeroitujen luetteloiden kohdalla # .
+  Luetteloiden yhdistäminen tapahtuu sekoittamalla luettelomerkkejä tällä tavoin:
+  <pre>
+    <code>*</code> kohta 1
+    <code>**</code> kohta 1.1
+    <code>*</code> kohta 2
+    <code>*#</code> kohta 2.1
+  ...
+  </pre>
+  </li>
+  <li><strong>Määritelmäluettelot:</strong> Aloita jokainen rivi määrittelemäsi termin kohdalla <code>=</code> ja termin määritelmän kohdalla <code>:</code> .
+  <pre>
+  <code>=</code> termi
+  <code>:</code> termin kuvaus
+  </pre>
+  </li>
+  <li><strong>Esimuotoiltu teksti:</strong> Jokainen rivi on aloitettava välilyönnillä.</li>
+  <li><strong>Lainaus:</strong> Jokainen rivi on aloitettava <code>&gt;</code>.</li>
+  <li><strong>Sivulohko:</strong> Jokaisen rivin on alettava <code>)</code>.</li>
+</ul>
+</dd>
+
+<dt>Muotoilutunnisteet</dt>
+<dd>
+<ul>
+  <li><strong>Painotus:</strong> Kaksi lainausmerkkiä <code>''teksti''</code></li>
+  <li><strong>Vahva painotus:</strong> Kaksi alleviivausta <code>__text__</code></li>
+  <li><strong>Korostettu:</strong> Kaksi kaksinkertaista lainausmerkkiä <code>""teksti""</code></li>
+  <li><strong>Uusi linja:</strong> <code>%%%</code></li>
+  <li><strong>Sisällytys:</strong> Kaksi plussaa <code>++text++</code></li>
+  <li><strong>Poistaminen:</strong> Kaksi miinusta <code>--text--</code></li>
+  <li><strong>Linkki:</strong> <code>[url]</code>, <code>[name|url]</code>,
+    <code>[name|url|language]</code> tai <code>[name|url|language|title]</code>.</li>
+  <li><strong>Kuva:</strong>
+    <code>((url|vaihtoehtoinen teksti))</code>,
+    <code>((url|vaihtoehtoinen teksti|asento))</code> tai
+    <code>((url|vaihtoehtoinen teksti|asento|pitkä kuvaus))</code>.
+    <br />Sijainti voi olla joko L (vasen), R (oikea) tai C (keskitetty).</li>
+  <li><strong>Ankkuri:</strong> <code>~anchor~</code></li>
+  <li><strong>Lyhenne:</strong> <code>??acronym|title??</code></li>
+  <li><strong>Inline HTML:</strong> Kaksi lainausmerkkiä <code>``HTML-koodi``</code></li>
+  <li><strong>Lainaus rivissä:</strong> <code>{{quote}}</code>,
+    <code>{{quote|language}}</code> tai <code>{{quote|language|url}}</code></li>
+  <li><strong>Koodi:</strong> <code></code></li>
+  <li><strong>Alaviitteet:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Ylinumero</strong>&nbsp;: <code>^superscript^</code></li>
+  <li><strong>Alaindeksi</strong>&nbsp;: <code>,,subscript,,</code></li>
+</ul>
+</dd>
+
+<dt>Muotoilematon teksti</dt>
+<dd>Jos et halua, että yhtä muotoilumerkkiä tulkitaan sellaiseksi, lisää
+<code>\</code> juuri ennen sitä. Esimerkiksi:
+<code>\[Teksti suluissa ilman linkkiä\]</code>
+</dd>
+
+<dt>HTML-koodi</dt>
+<dd>Vaikka valitsisit Wiki-syntaksin, saatat joskus tarvita tehokkaampaa
+muotoilua eli HTML-syntaksia. Tee se seuraavalla tavalla:
+<pre>
+///html
+&lt;p style="color:red"&gt;tekstini punaisella&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+</body>
+</html>
