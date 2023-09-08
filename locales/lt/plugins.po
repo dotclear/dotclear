@@ -1,2648 +1,3355 @@
-# German translation of DotClear
-# Copyright (C) 2008.
-# Andreas Diller <nendilo@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2016-07-18 15:50+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
-"Language: lt\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-08 03:01\n"
+"Last-Translator: \n"
+"Language-Team: Lithuanian\n"
+"Language: lt_LT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && (n%100>19 || n%100<11) ? 0 : (n%10>=2 && n%10<=9) && (n%100>19 || n%100<11) ? 1 : n%1!=0 ? 2: 3);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: lt\n"
+"X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
+"X-Crowdin-File-ID: 264\n"
 
+#: plugins/Uninstaller/src/Backend.php:45
+msgid "Uninstall"
+msgstr "Pašalinti"
+
+#: plugins/Uninstaller/src/Backend.php:105
+msgid "Plugin has been successfully uninstalled."
+msgstr "Įskiepis sėkmingai pašalintas."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Cache"
+msgstr "Talpykla"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:39
+msgid "Folders from cache directory"
+msgstr "Aplankai iš talpyklos katalogo"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+msgid "delete selected cache directories"
+msgstr "ištrinti pasirinktus talpyklos katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr "ištrinti \"%s\" talpyklos katalogą"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr "\"%s\" talpyklos katalogas ištrintas"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:47
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "Nepavyko ištrinti \"%s\" talpyklos katalogo"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+msgid "empty selected cache directories"
+msgstr "ištuštinti pasirinktus talpyklos katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr "tuščias \"%s\" talpyklos katalogas"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr "\"%s\" talpyklos katalogas ištuštintas"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:56
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "Nepavyko ištuštinti \"%s\" talpyklos katalogo"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:40
+msgid "Logs"
+msgstr "Žurnalai"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:41
+msgid "Logs in Dotclear logs table"
+msgstr "Žurnalai Dotclear žurnalų lentelėje"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+msgid "delete selected logs tables"
+msgstr "ištrinti pasirinktas žurnalų lenteles"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr "ištrinti \"%s\" žurnalų lentelę"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:48
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr "\"%s\" žurnalų lentelė ištrinta"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:49
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr "Nepavyko ištrinti \"%s\" žurnalų lentelės"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
+msgid "Folders from plugins directories"
+msgstr "Įskiepių katalogų aplankai"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+msgid "delete selected plugins files and directories"
+msgstr "ištrinti pasirinktus papildinių failus ir katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr "ištrinti \"%s\" įskiepių failus ir katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "\"%s\" ištrinti įskiepių failai ir katalogai"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "Nepavyko ištrinti \"%s\" įskiepių failų ir katalogų"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
+msgid "Preferences"
+msgstr "Nustatymai"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:40
+msgid "Users preferences workspaces"
+msgstr "Vartotojų nuostatos darbo vietos"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+msgid "delete selected global preferences workspaces"
+msgstr "ištrinti pasirinktas pasaulinių nuostatų darbines erdves"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr "ištrinti \"%s\" pasaulinių nuostatų darbinė erdvė"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "\"%s\" ištrintos pasaulinės nuostatos darbo erdvė"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "Nepavyko ištrinti \"%s\" pasaulinių nuostatų darbo vietos"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+msgid "delete selected users preferences workspaces"
+msgstr "ištrinti pasirinktų naudotojų nuostatų darbo vietas"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr "ištrinti \"%s\" naudotojų nuostatas darbo erdvė"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "\"%s\" vartotojų nuostatos darbo erdvė ištrinta"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:57
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "Nepavyko ištrinti \"%s\" naudotojų nuostatų darbo vietos"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+msgid "delete selected preferences workspaces"
+msgstr "ištrinti pasirinktas nuostatų darbo vietas"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr "ištrinti \"%s\" nustatymų darbinė erdvė"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr "\"%s\" ištrintos nustatymų darbo vietos"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:66
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "Nepavyko ištrinti \"%s\" nuostatų darbo vietos"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "delete related preferences"
+msgstr "ištrinti susijusias nuostatas"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
+msgid "related preferences deleted"
+msgstr "ištrintos susijusios nuostatos"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:74
+msgid "Failed to delete related preferences"
+msgstr "Nepavyko ištrinti susijusių nuostatų"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
+#: plugins/dcCKEditor/tpl/index.php:9 plugins/dcLegacyEditor/tpl/index.php:4
+msgid "Settings"
+msgstr "Nustatymai"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:40
+msgid "Namespaces registered in dcSettings"
+msgstr "Vardų sritys, registruotos dcSettings"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+msgid "delete selected global settings namespaces"
+msgstr "ištrinti pasirinktas visuotinių nustatymų vardų erdves"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr "ištrinti \"%s\" pasaulinių nustatymų vardų erdvę"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr "\"%s\" pasaulinių nustatymų vardų erdvė ištrinta"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "Nepavyko ištrinti \"%s\" visuotinių nustatymų vardų srities"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+msgid "delete selected blog settings namespaces"
+msgstr "ištrinti pasirinktas tinklaraščio nustatymų vardų erdves"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr "ištrinti \"%s\" tinklaraščio nustatymai vardų erdvė"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "\"%s\" tinklaraščio nustatymai vardų erdvė ištrinta"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:57
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "Nepavyko ištrinti \"%s\" tinklaraščio nustatymų vardų erdvės"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+msgid "delete selected settings namespaces"
+msgstr "ištrinti pasirinktas nustatymų vardų erdves"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr "ištrinti \"%s\" nustatymų vardų erdvę"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr "\"%s\" \" parametrų vardų erdvė ištrinta"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:66
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "Nepavyko ištrinti \"%s\" nustatymų vardų srities"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "delete related settings"
+msgstr "ištrinti susijusius nustatymus"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
+msgid "related settings deleted"
+msgstr "ištrinti susiję nustatymai"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:74
+msgid "Failed to delete related settings"
+msgstr "Nepavyko ištrinti susijusių nustatymų"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:43
+msgid "Tables"
+msgstr "Lentelės"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+msgid "All database tables of Dotclear"
+msgstr "Visos \"Dotclear\" duomenų bazės lentelės"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:49
+msgid "delete selected tables"
+msgstr "ištrinti pasirinktas lenteles"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:50
+#, php-format
+msgid "delete \"%s\" table"
+msgstr "ištrinti \"%s\" lentelę"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:51
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr "\"%s\" lentelė ištrinta"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:52
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr "Nepavyko ištrinti \"%s\" lentelės"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:58
+msgid "empty selected tables"
+msgstr "tuščios pasirinktos lentelės"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:59
+#, php-format
+msgid "empty \"%s\" table"
+msgstr "tuščia \"%s\" lentelė"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:60
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr "\"%s\" lentelė ištuštinta"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:61
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr "Nepavyko ištuštinti \"%s\" lentelės"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
+msgid "Themes"
+msgstr "Temos"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:38
+msgid "Folders from blog themes directory"
+msgstr "Aplankai iš tinklaraščio temų katalogo"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+msgid "delete selected themes files and directories"
+msgstr "ištrinti pasirinktus temų failus ir katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr "ištrinti \"%s\" temos failus ir katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr "\"%s\" ištrinti temos failai ir katalogai"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:46
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "Nepavyko ištrinti \"%s\" temos failų ir katalogų"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Var"
+msgstr "Var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
+msgid "Folders from Dotclear VAR directory"
+msgstr "Dotclear VAR katalogo aplankai"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+msgid "delete selected var directories"
+msgstr "ištrinti pasirinktus var katalogus"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr "ištrinti \"%s\" var katalogas"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr "\"%s\" var katalogas ištrintas"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr "Nepavyko ištrinti \"%s\" var katalogo"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
+msgid "Versions"
+msgstr "Versijos"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:38
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "Lentelėje \"version\" užregistruotos Dotclear versijos"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+msgid "delete selected versions numbers"
+msgstr "ištrinti pasirinktų versijų numerius"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr "ištrinti \"%s\" versijos numerį"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr "\"%s\" versijos numeris ištrintas"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:46
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr "Nepavyko ištrinti \"%s\" versijos numerio"
+
+#: plugins/Uninstaller/src/CleanersStack.php:118
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr "Nežinomas valiklis \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:121
+msgid "Unsintaller can't remove itself"
+msgstr "\"Unsintaller\" negali pašalinti savęs"
+
+#: plugins/Uninstaller/src/Manage.php:61
+msgid "Unknown module id to uninstall"
+msgstr "Nežinomas modulio id, kurį reikia pašalinti"
+
+#: plugins/Uninstaller/src/Manage.php:69
+msgid "There are no uninstall actions for this module"
+msgstr "Nėra jokių šio modulio pašalinimo veiksmų"
+
+#: plugins/Uninstaller/src/Manage.php:94
+msgid "Uninstall action successfuly excecuted"
+msgstr "Sėkmingai atliktas pašalinimo veiksmas"
+
+#: plugins/Uninstaller/src/Manage.php:97
+msgid "No uninstall action done"
+msgstr "Nebuvo atliktas joks pašalinimo veiksmas"
+
+#: plugins/Uninstaller/src/Manage.php:142
+msgid "Perform selected actions"
+msgstr "Atlikti pasirinktus veiksmus"
+
+#: plugins/Uninstaller/src/Manage.php:157
+msgid "Are you sure you perform these ations?"
+msgstr "Ar tikrai atliekate šiuos veiksmus?"
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr "Įskiepio pašalinimas \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr "Pašalinti temą \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:174
+#, php-format
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr "Modulis \"%s %s\" siūlo išplėstinį išmontavimo procesą:"
+
+#: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgstr "Susidoroti su senomis pagrindinėmis klasėmis (< 2.26)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:27
 msgid "Generic antispam plugin for Dotclear"
-msgstr ""
+msgstr "Bendrasis \"Dotclear\" antispaam įskiepis"
 
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:23
 msgid "Akismet interface for Dotclear"
-msgstr ""
+msgstr "\"Akismet\" sąsaja su \"Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Trackback validity check"
-msgstr ""
+msgstr "Trackback galiojimo patikrinimas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:23
 msgid "Manage post attachments"
-msgstr ""
+msgstr "Tvarkyti posto priedus"
 
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
-msgstr ""
+msgstr "Pateikite įrašus kaip paprastus tinklalapius"
 
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "Manage every blog configuration directive"
-msgstr ""
+msgstr "Valdykite kiekvieną tinklaraščio konfigūracijos direktyvą"
 
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
-msgstr ""
+msgstr "\"dotclear legacy\" redaktorius"
 
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:23
 msgid "Theme Editor"
 msgstr "Temų redaktorius"
 
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
-msgstr ""
+msgstr "Paprastas \"Dotclear\" meniu"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:25
 msgid "Import and Export your blog"
-msgstr "Eksportuoti blogą"
+msgstr "Importuokite ir eksportuokite savo tinklaraštį"
 
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:23
 msgid "Manage every user preference directive"
-msgstr ""
+msgstr "Tvarkykite kiekvieną naudotojo pageidavimų direktyvą"
 
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:23
 msgid "dotclear CKEditor integration"
-msgstr ""
+msgstr "\"dotclear CKEditor\" integracija"
 
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:23
 msgid "Maintain your installation"
-msgstr ""
+msgstr "Įrenginio priežiūra"
 
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb for Dotclear"
-msgstr ""
+msgstr "Drobulė Dotclear"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:26
 msgid "Manage your blogroll"
-msgstr "tvarkyti Bogroll"
+msgstr "Tvarkykite savo tinklaraštį"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
-msgstr "Testuoti ping servisus"
+msgstr "Ping paslaugos"
 
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
-msgstr ""
+msgstr "Žymos pranešimams"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
-msgstr "pridėti valdiklius prie šoninių juostų"
+msgstr "Tinklaraščio šoninės juostos valdikliai"
 
+#: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
+msgstr "Susitvarkyti su funkcijos/metodo pėdsaku V1 (< 2.24, 2.25)"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
-msgstr "Paie.kos variklis"
+msgstr "Paieškos sistemos forma"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
-msgstr "Navigacijos nuorodos"
+msgstr "Navigacijos nuorodų sąrašas"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
-msgstr "Pasirinktiems įrašams žymų nėra"
+msgstr "Pasirinktų įrašų sąrašas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
-msgstr ""
+msgstr "Galimų kalbų sąrašas"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:88
 msgid "List of categories"
-msgstr "Visos kategorijos"
+msgstr "Kategorijų sąrašas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
-msgstr ""
+msgstr "Kanalo prenumeratos nuorodos (RSS arba \"Atom\")"
 
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr ""
+msgstr "Paskutinių įrašų iš kanalo (RSS arba \"Atom\") sąrašas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
-msgstr ""
+msgstr "Paprastas tekstas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
-msgstr ""
+msgstr "Paskutinių paskelbtų įrašų sąrašas"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
-msgstr "Šio blogo komentarų %s rss"
+msgstr "Paskutinių paskelbtų komentarų sąrašas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
-msgstr ""
+msgstr "Paskelbtų puslapių sąrašas"
 
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
-msgstr ""
+msgstr "Paprastų meniu elementų sąrašas"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
-msgstr "Blogroll"
+msgstr "Blogroll sąrašas"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
-msgstr "Pridedamos žymos:"
+msgstr "Žymos debesis"
 
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "about:config"
-msgstr ""
+msgstr "apie:config"
 
+#: plugins/aboutConfig/src/Manage.php:67 plugins/aboutConfig/src/Manage.php:87
 msgid "Configuration successfully updated"
 msgstr "Nustatymai sėkmingai atnaujinti"
 
-#, fuzzy, php-format
+#: plugins/aboutConfig/src/Manage.php:123
+#: plugins/aboutConfig/src/Manage.php:124
+#, php-format
 msgid "Settings for %s"
-msgstr "Redaguojamas failas %s"
+msgstr "%snustatymai"
 
-#, fuzzy
+#: plugins/aboutConfig/src/Manage.php:131
+#: plugins/aboutConfig/src/Manage.php:132
 msgid "Global settings"
-msgstr "bendri nustatymai"
+msgstr "Visuotiniai nustatymai"
 
-#, fuzzy
+#: plugins/aboutConfig/src/Manage.php:155 plugins/userPref/src/Manage.php:150
 msgid "Setting ID"
-msgstr "Nustatymo pavadinimas"
+msgstr "Nustatymo ID"
 
+#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:151
 msgid "Value"
 msgstr "Reikšmė"
 
+#: plugins/aboutConfig/src/Manage.php:158 plugins/antispam/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:252 plugins/blogroll/src/Manage.php:395
+#: plugins/simpleMenu/src/Manage.php:221 plugins/simpleMenu/src/Manage.php:669
+#: plugins/userPref/src/Manage.php:153
 msgid "Description"
 msgstr "Aprašymas"
 
+#: plugins/aboutConfig/src/Manage.php:202 plugins/userPref/src/Manage.php:197
 msgid "Goto:"
-msgstr ""
+msgstr "Goto:"
 
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "no"
 msgstr "ne"
 
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "yes"
-msgstr ""
+msgstr "taip"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:78
 msgid "Akismet spam filter"
 msgstr "Aksimet spamo filtras"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:91
 #, php-format
 msgid "Filtered by %s."
 msgstr "Filtruota pagal %s"
 
-#, fuzzy
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
 msgid "Filter configuration have been successfully saved."
-msgstr "Filtrų nustatymai sėkmingai išsaugoti."
+msgstr "Filtro konfigūracija sėkmingai išsaugota."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:226
 msgid "Akismet API key:"
 msgstr "Akismet API raktas:"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key verified"
 msgstr "API raktas patvirtintas"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:233
 msgid "API key not verified"
 msgstr "API raktas nepatvirtintas"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:239
 msgid "Get your own API key"
 msgstr "Gaukite savo API raktą"
 
-#, fuzzy
+#: plugins/akismet/src/Prepend.php:23
 msgid "Akismet"
-msgstr "Akismet API raktas:"
+msgstr "Akismet"
 
+#: plugins/antispam/src/Antispam.php:125
 msgid "This comment is a spam:"
 msgstr "Šis komentaras yra spamas:"
 
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(įskaitant %d spamo komentarą)"
 
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(įskaitant %d spamo komentarus)"
 
+#: plugins/antispam/src/Backend.php:27
 msgid "Antispam"
 msgstr "Antispam"
 
+#: plugins/antispam/src/BackendBehaviors.php:41
+#: plugins/antispam/src/Manage.php:192
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Senesni nei %s dienų spamo komentarai bus automatiškai ištrinami."
 
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:193
 #, php-format
 msgid "You can modify this duration in the %s"
-msgstr ""
+msgstr "Šią trukmę galite keisti %s"
 
+#: plugins/antispam/src/BackendBehaviors.php:57
 msgid "Delete junk comments older than"
 msgstr "Trinti šiukšlėmis pažymųtus komentarus senesnius nei"
 
+#: plugins/antispam/src/BackendBehaviors.php:63
 msgid "days"
 msgstr "dienų"
 
+#: plugins/antispam/src/BackendBehaviors.php:65
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
+msgstr "Nustatykite -1, kad ši funkcija būtų išjungta; palikite tuščią, kad būtų naudojamas numatytasis 7 dienų atidėjimas."
 
-#, fuzzy
+#: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set spam filters."
-msgstr "Aksimet spamo filtras"
+msgstr "Nustatykite nepageidaujamų laiškų filtrus."
 
+#: plugins/antispam/src/Filters/Ip.php:74
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP Blocklist sąrašas / Allowlist filtras"
 
+#: plugins/antispam/src/Filters/Ip.php:87
+#: plugins/antispam/src/Filters/IpV6.php:87
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Filtruota pagal %1$s taikant taisyklę %2$s."
 
+#: plugins/antispam/src/Filters/Ip.php:147
+#: plugins/antispam/src/Filters/IpV6.php:147
 msgid "IP address has been successfully added."
 msgstr "IP adresas sėkmingai pridėtas."
 
+#: plugins/antispam/src/Filters/Ip.php:158
+#: plugins/antispam/src/Filters/IpV6.php:158
 msgid "IP addresses have been successfully removed."
 msgstr "IP adresas sųkmingai pašalintas."
 
+#: plugins/antispam/src/Filters/Ip.php:168
+#: plugins/antispam/src/Filters/IpV6.php:167
 msgid "Blocklist"
-msgstr "Blocklist"
+msgstr "Blokų sąrašas"
 
+#: plugins/antispam/src/Filters/Ip.php:169
+#: plugins/antispam/src/Filters/IpV6.php:168
 msgid "Allowlist"
-msgstr "Allowlist"
+msgstr "Leidimų sąrašas"
 
-#, fuzzy
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:188
 msgid "Add an IP address: "
-msgstr "Pridėti IP adresą"
+msgstr "Pridėkite IP adresą: "
 
+#: plugins/antispam/src/Filters/Ip.php:193
+#: plugins/antispam/src/Filters/IpV6.php:192
 msgid "Global IP (used for all blogs)"
-msgstr ""
+msgstr "Pasaulinis IP (naudojamas visiems tinklaraščiams)"
 
+#: plugins/antispam/src/Filters/Ip.php:198
+#: plugins/antispam/src/Filters/IpV6.php:197
+#: plugins/antispam/src/Filters/Words.php:186
+#: plugins/widgets/src/Manage.php:287
 msgid "Add"
 msgstr "Pridėti"
 
+#: plugins/antispam/src/Filters/Ip.php:204
+#: plugins/antispam/src/Filters/IpV6.php:203
 msgid "No IP address in list."
 msgstr "Sąraše nėra IP adreso"
 
+#: plugins/antispam/src/Filters/Ip.php:207
+#: plugins/antispam/src/Filters/IpV6.php:206
 msgid "IP list"
 msgstr "IP sąrašas"
 
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:235
 msgid "Local IPs (used only for this blog)"
-msgstr ""
+msgstr "Vietiniai IP (naudojami tik šiame tinklaraštyje)"
 
+#: plugins/antispam/src/Filters/Ip.php:243
+#: plugins/antispam/src/Filters/IpV6.php:241
 msgid "Global IPs (used for all blogs)"
-msgstr ""
+msgstr "Visuotiniai IP (naudojami visiems tinklaraščiams)"
 
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Patikrina siuntėjo IP adresą DNSLB serveriuose"
 
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:70
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtruota pagal %1$s su %2$s serveriu."
 
-#, fuzzy
+#: plugins/antispam/src/Filters/IpLookup.php:145
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr "Išdėstymas sėkmingai atnaujintas."
+msgstr "DNSBL serverių sąrašas sėkmingai atnaujintas."
 
+#: plugins/antispam/src/Filters/IpLookup.php:156
 msgid "IP Lookup servers"
 msgstr "IP paieškos serveriai"
 
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "Add here a coma separated list of servers."
 msgstr "Čia pridėkite kableliais atskirtų serverių sąrašą."
 
-#, fuzzy
+#: plugins/antispam/src/Filters/IpV6.php:74
 msgid "IP v6 Blocklist / Allowlist Filter"
-msgstr "IP Blocklist sąrašas / Allowlist filtras"
+msgstr "\"IP v6\" blokavimo sąrašo / leidimų sąrašo filtras"
 
+#: plugins/antispam/src/Filters/LinksLookup.php:57
 msgid "Checks links in comments against surbl.org"
 msgstr "Patikrinkite komentarų nuorodos pagal surbl.org"
 
+#: plugins/antispam/src/Filters/Words.php:74
 msgid "Words Blocklist"
 msgstr "Žodžių Blocklist"
 
+#: plugins/antispam/src/Filters/Words.php:87
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Filtruota pagal %1$s su žodžiu %2$s."
 
+#: plugins/antispam/src/Filters/Words.php:143
 msgid "Words have been successfully added."
 msgstr "Žodžiai sėkmingai pridėti."
 
+#: plugins/antispam/src/Filters/Words.php:156
 msgid "Word has been successfully added."
 msgstr "Žodžis sėkmingai pridėtas."
 
+#: plugins/antispam/src/Filters/Words.php:167
 msgid "Words have been successfully removed."
 msgstr "Žodžiai sėkmingai pašalinti."
 
-#, fuzzy
+#: plugins/antispam/src/Filters/Words.php:177
 msgid "Add a word "
-msgstr "Pridėti žodį."
+msgstr "Pridėti žodį "
 
+#: plugins/antispam/src/Filters/Words.php:181
 msgid "Global word (used for all blogs)"
-msgstr ""
+msgstr "Visuotinis žodis (naudojamas visiems tinklaraščiams)"
 
+#: plugins/antispam/src/Filters/Words.php:191
 msgid "No word in list."
 msgstr "Sąraše žodžių nėra"
 
+#: plugins/antispam/src/Filters/Words.php:194
 msgid "List of bad words"
-msgstr ""
+msgstr "Blogų žodžių sąrašas"
 
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
-msgstr ""
+msgstr "Vietiniai žodžiai (naudojami tik šiame tinklaraštyje)"
 
+#: plugins/antispam/src/Filters/Words.php:229
 msgid "Global words (used for all blogs)"
-msgstr ""
+msgstr "Visuotiniai žodžiai (naudojami visiems tinklaraščiams)"
 
+#: plugins/antispam/src/Filters/Words.php:240
 msgid "Delete selected words"
 msgstr "Trinti pasirinktus žodžius"
 
+#: plugins/antispam/src/Filters/Words.php:246
 msgid "Create default wordlist"
 msgstr "Sukurti nustatytą žodžių sąrašą"
 
+#: plugins/antispam/src/Filters/Words.php:292
 msgid "This word exists"
 msgstr "Toks žodis yra"
 
+#: plugins/antispam/src/FrontendUrl.php:59
 msgid "Spam moderation"
 msgstr "Spamo tvarkymas"
 
+#: plugins/antispam/src/FrontendUrl.php:63
 msgid "Spam"
 msgstr "Spamas"
 
+#: plugins/antispam/src/FrontendUrl.php:67
 msgid "Ham"
 msgstr "Hamas"
 
+#: plugins/antispam/src/Manage.php:49
 msgid "Filter does not exist."
 msgstr "Nėra filtro"
 
+#: plugins/antispam/src/Manage.php:53
 msgid "Filter has no user interface."
 msgstr "Filtras neturi vartotojo sąsajos."
 
+#: plugins/antispam/src/Manage.php:111 plugins/antispam/src/Manage.php:204
 msgid "Filters configuration has been successfully saved."
 msgstr "Filtrų nustatymai sėkmingai išsaugoti."
 
+#: plugins/antispam/src/Manage.php:128
 #, php-format
 msgid "%s configuration"
 msgstr "%s nustatymai"
 
-#, fuzzy, php-format
+#: plugins/antispam/src/Manage.php:148
+#, php-format
 msgid "%s filter configuration"
-msgstr "Filtro nustatymai"
+msgstr "%s filtro konfigūracija"
 
-#, fuzzy
+#: plugins/antispam/src/Manage.php:152
 msgid "Back to filters list"
-msgstr "Atgal į žymų sąrašą"
+msgstr "Atgal į filtrų sąrašą"
 
+#: plugins/antispam/src/Manage.php:176
 msgid "Information"
 msgstr "Informacija"
 
+#: plugins/antispam/src/Manage.php:178
 msgid "Junk comments:"
 msgstr "Komentarų šiukšlės:"
 
+#: plugins/antispam/src/Manage.php:180
 msgid "Published comments:"
 msgstr "Publikuoti komentarai:"
 
+#: plugins/antispam/src/Manage.php:210
 msgid "Available spam filters"
 msgstr "Galimi spam filtrai"
 
+#: plugins/antispam/src/Manage.php:212
+#: plugins/pages/src/BackendDefaultActions.php:76
 msgid "Order"
 msgstr "Rūšiavimas"
 
+#: plugins/antispam/src/Manage.php:213 plugins/antispam/src/Manage.php:244
 msgid "Active"
 msgstr "Aktyvus"
 
+#: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:252
 msgid "Auto Del."
 msgstr "Auto tryn."
 
+#: plugins/antispam/src/Manage.php:215
 msgid "Filter name"
 msgstr "Filtro pavadinimas"
 
+#: plugins/antispam/src/Manage.php:225 plugins/antispam/src/Manage.php:226
 msgid "Filter configuration"
 msgstr "Filtro nustatymai"
 
-#, fuzzy
+#: plugins/antispam/src/Manage.php:236 plugins/blogroll/src/Manage.php:269
 msgid "position"
-msgstr "Puslapio pozicija"
+msgstr "pozicija"
 
+#: plugins/antispam/src/Manage.php:282
 msgid "Syndication"
 msgstr "Sindikavimas"
 
+#: plugins/antispam/src/Manage.php:284
 msgid "Junk comments RSS feed"
 msgstr "Šlamšto komentarų RSS "
 
+#: plugins/antispam/src/Manage.php:285
 msgid "Published comments RSS feed"
 msgstr "Publikuotų komentarų RSS"
 
+#: plugins/antispam/src/SpamFilter.php:110
 msgid "No description"
 msgstr "Nėra aprašymo"
 
+#: plugins/antispam/src/SpamFilter.php:163
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtruota pagal %1$s (%2$s)"
 
+#: plugins/antispam/src/SpamFilters.php:155
 msgid "Unknown filter."
 msgstr "Nežinomas filtras."
 
-#, fuzzy
+#: plugins/attachments/src/Backend.php:23
 msgid "attachments"
-msgstr "Paskutiniai komentarai"
+msgstr "priedai"
 
+#: plugins/attachments/src/BackendBehaviors.php:51
 #, php-format
 msgid "Attachments (%d)"
-msgstr ""
+msgstr "Priedai (%d)"
 
+#: plugins/attachments/src/BackendBehaviors.php:75
 msgid "remove"
-msgstr ""
+msgstr "pašalinti"
 
+#: plugins/attachments/src/BackendBehaviors.php:83
 msgid "No attachment."
-msgstr ""
+msgstr "Priedo nėra."
 
-#, fuzzy
+#: plugins/attachments/src/BackendBehaviors.php:86
 msgid "Add files to this entry"
-msgstr "Pridėti failus prie šio puslapio"
+msgstr "Pridėti failus prie šio įrašo"
 
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
-msgstr "Blogroll"
+msgstr "Tinklaraštis"
 
+#: plugins/blogroll/src/Backend.php:37
 msgid "manage blogroll"
 msgstr "tvarkyti Bogroll"
 
+#: plugins/blogroll/src/Blogroll.php:140 plugins/blogroll/src/Blogroll.php:178
 msgid "You must provide a link title"
 msgstr "Turite įrašyti nuorodos pavadinimą"
 
+#: plugins/blogroll/src/Blogroll.php:144 plugins/blogroll/src/Blogroll.php:182
 msgid "You must provide a link URL"
 msgstr "Turite įrašyti nuorodos URL"
 
+#: plugins/blogroll/src/Manage.php:82 plugins/blogroll/src/Manage.php:390
 msgid "Nothing to import"
 msgstr "Nėra ką įkelti"
 
+#: plugins/blogroll/src/Manage.php:105
 msgid "links have been successfully imported."
 msgstr "nuorodos sėkmingai įkeltos."
 
+#: plugins/blogroll/src/Manage.php:112
 msgid "Import operation cancelled."
 msgstr "Įkėlimas atšauktas."
 
+#: plugins/blogroll/src/Manage.php:127
 msgid "Link has been successfully created."
 msgstr "Nuoroda sėkmingai sukurta."
 
+#: plugins/blogroll/src/Manage.php:142
 msgid "category has been successfully created."
 msgstr "Kategorija sėkmingai sukurta."
 
+#: plugins/blogroll/src/Manage.php:164
 msgid "Items have been successfully removed."
 msgstr "Sėkmingai pašalinti."
 
+#: plugins/blogroll/src/Manage.php:194
 msgid "Items order has been successfully updated"
 msgstr "Išdėstymas sėkmingai atnaujintas."
 
+#: plugins/blogroll/src/Manage.php:254
 msgid "Lang"
 msgstr "Kalba"
 
-#, fuzzy
+#: plugins/blogroll/src/Manage.php:276
 msgid "select this link"
-msgstr "Trinti šią žymą"
+msgstr "pasirinkite šią nuorodą"
 
+#: plugins/blogroll/src/Manage.php:310
 msgid "Are you sure you want to delete selected links?"
 msgstr "Ar tikrai norite ištrinti pasirinktas nuorodas?"
 
+#: plugins/blogroll/src/Manage.php:310
 msgid "Delete selected links"
 msgstr "Trinti pasirinktas nuorodas"
 
+#: plugins/blogroll/src/Manage.php:315
 msgid "The link list is empty."
 msgstr "Šis nuorodų sąrašas yra tuščias."
 
+#: plugins/blogroll/src/Manage.php:323
 msgid "Add a new link"
 msgstr "Pridėti naują nuorodą"
 
+#: plugins/blogroll/src/Manage.php:353
 msgid "Add a category"
 msgstr "Pridėti naują kategoriją"
 
+#: plugins/blogroll/src/Manage.php:370 plugins/blogroll/src/Manage.php:375
+#: plugins/blogroll/src/Manage.php:387
 msgid "Import links"
 msgstr "Įkelti nuorodas"
 
+#: plugins/blogroll/src/Manage.php:376
 msgid "OPML or XBEL File:"
 msgstr "OPML arba XBEL failas:"
 
+#: plugins/blogroll/src/Manage.php:380 plugins/blogroll/src/Manage.php:424
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleImportFeed.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:261
 msgid "Import"
 msgstr "Importuoti"
 
+#: plugins/blogroll/src/ManageEdit.php:47
 msgid "No such link or title"
 msgstr "Tokios nuorodos ar pavadinimo nėra"
 
+#: plugins/blogroll/src/ManageEdit.php:97
 msgid "Link has been successfully updated"
 msgstr "Nuoroda sėkmingai atnaujinta"
 
+#: plugins/blogroll/src/ManageEdit.php:114
 msgid "Category has been successfully updated"
 msgstr "Kategorija sėkmingai atnaujinta"
 
+#: plugins/blogroll/src/ManageEdit.php:143
 msgid "Return to blogroll"
 msgstr "Grįžti į Blogroll"
 
+#: plugins/blogroll/src/ManageEdit.php:149
 msgid "Edit category"
 msgstr "Taisyti kategoriją"
 
+#: plugins/blogroll/src/ManageEdit.php:167
 msgid "Edit link"
 msgstr "Taisyti nuorodą"
 
-#, fuzzy
+#: plugins/blogroll/src/ManageEdit.php:203
 msgid "XFN information"
-msgstr "Informacija"
+msgstr "XFN informacija"
 
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
-msgstr ""
+msgstr "Daugiau informacijos <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Vikipedijos</a> svetainėje"
 
+#: plugins/blogroll/src/ManageEdit.php:210
 msgid "_xfn_Me"
 msgstr "Aš"
 
+#: plugins/blogroll/src/ManageEdit.php:213
 msgid "_xfn_Another link for myself"
 msgstr "Kita nuoroda man"
 
+#: plugins/blogroll/src/ManageEdit.php:217
 msgid "_xfn_Friendship"
 msgstr "Draugystė"
 
+#: plugins/blogroll/src/ManageEdit.php:223
 msgid "_xfn_Contact"
 msgstr "Kontaktas"
 
+#: plugins/blogroll/src/ManageEdit.php:228
 msgid "_xfn_Acquaintance"
 msgstr "Pažįstamas"
 
+#: plugins/blogroll/src/ManageEdit.php:233
 msgid "_xfn_Friend"
 msgstr "Draugas"
 
+#: plugins/blogroll/src/ManageEdit.php:239
 msgid "_xfn_Physical"
 msgstr "Fizinis"
 
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "_xfn_Met"
 msgstr "Sutiktas"
 
+#: plugins/blogroll/src/ManageEdit.php:250
 msgid "_xfn_Professional"
 msgstr "Profesionalas"
 
+#: plugins/blogroll/src/ManageEdit.php:256
 msgid "_xfn_Co-worker"
 msgstr "Bendradarbis"
 
+#: plugins/blogroll/src/ManageEdit.php:261
 msgid "_xfn_Colleague"
 msgstr "Kolega"
 
+#: plugins/blogroll/src/ManageEdit.php:266
 msgid "_xfn_Geographical"
 msgstr "Geografinis"
 
+#: plugins/blogroll/src/ManageEdit.php:272
 msgid "_xfn_Co-resident"
 msgstr "Rezidentas"
 
+#: plugins/blogroll/src/ManageEdit.php:277
 msgid "_xfn_Neighbor"
 msgstr "Kaimynas"
 
+#: plugins/blogroll/src/ManageEdit.php:283
 msgid "_xfn_Family"
 msgstr "Šeima"
 
+#: plugins/blogroll/src/ManageEdit.php:289
 msgid "_xfn_Child"
 msgstr "Vaikas"
 
+#: plugins/blogroll/src/ManageEdit.php:294
 msgid "_xfn_Parent"
 msgstr "Tėvas"
 
+#: plugins/blogroll/src/ManageEdit.php:299
 msgid "_xfn_Sibling"
 msgstr "Giminaitis"
 
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "_xfn_Spouse"
 msgstr "Sutuoktinis"
 
+#: plugins/blogroll/src/ManageEdit.php:309
 msgid "_xfn_Kin"
 msgstr "Giminė"
 
+#: plugins/blogroll/src/ManageEdit.php:315
 msgid "_xfn_Romantic"
 msgstr "Romntiškas"
 
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Muse"
 msgstr "Mūza"
 
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Crush"
 msgstr "Meilė"
 
+#: plugins/blogroll/src/ManageEdit.php:331
 msgid "_xfn_Date"
 msgstr "Pasimatymas"
 
+#: plugins/blogroll/src/ManageEdit.php:336
 msgid "_xfn_Sweetheart"
 msgstr "Mylimas"
 
+#: plugins/blogroll/src/UtilsImport.php:37
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Turite pateikti XBEL arba OPML failą."
 
+#: plugins/blogroll/src/UtilsImport.php:48
+#: plugins/blogroll/src/UtilsImport.php:83
 msgid "File is not in XML format."
 msgstr "Tai ne XML formato failas."
 
+#: plugins/blogroll/src/Widgets.php:32
 msgid "All categories"
 msgstr "Visos kategorijos"
 
+#: plugins/blogroll/src/Widgets.php:41
 msgid "Links"
 msgstr "Nuorodos"
 
+#: plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Duonos trupiniai"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:31
 msgid "Enable breadcrumb for this blog"
-msgstr ""
+msgstr "Įjungti šio tinklaraščio nuorodą"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr ""
+msgstr "Šablone turi būti {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} žyma (arba įterpta, jei jos nėra)."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:34
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr ""
+msgstr "Neįtraukite \"breadcrumb\" į &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; žymą."
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:69
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:85
+#: plugins/breadcrumb/src/FrontendTemplate.php:96
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:114 plugins/simpleMenu/src/Manage.php:225
+#: plugins/widgets/src/Widgets.php:234
 msgid "Home"
 msgstr "Pagrindinis"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
-msgstr ""
+msgstr "puslapis %d"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:252 plugins/widgets/src/Widgets.php:251
 msgid "Archives"
 msgstr "Archyvas"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:103 plugins/simpleMenu/src/Manage.php:272
+#: plugins/tags/src/Widgets.php:53
 msgid "All tags"
 msgstr "Visos žymos"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
-msgstr ""
+msgstr "404"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Generate fake l10n"
-msgstr ""
+msgstr "Generuoti netikrą l10n"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "fake l10n file generated."
-msgstr ""
+msgstr "sukurtas netikras l10n failas."
 
-#, fuzzy
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "Failed to generate fake l10n file."
-msgstr "Įkelti atsarginės kopijos failą"
+msgstr "Nepavyko sukurti netikro l10n failo."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
-msgstr ""
+msgstr "Sukurti php failą, kurio turinys yra verčiamos eilutės, kurių negalima išversti naudojant pagrindinius įrankius."
 
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:6
 msgid "dcCKEditor"
-msgstr ""
+msgstr "dcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:38
+#: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Media chooser"
-msgstr ""
+msgstr "Žiniasklaidos pasirinkimas"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "m"
-msgstr ""
+msgstr "m"
 
-#, fuzzy
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Link to an entry"
-msgstr "Nuoroda į visas žymas:"
+msgstr "Nuoroda į įrašą"
 
-#, fuzzy
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Link"
-msgstr "Nuorodos"
+msgstr "Nuoroda"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "l"
-msgstr ""
+msgstr "l"
 
-#, fuzzy
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "External image"
-msgstr "Externes Medium"
+msgstr "Išorinis vaizdas"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
-msgstr ""
+msgstr "URL laukas negali būti tuščias."
 
-#, fuzzy
+#: plugins/dcCKEditor/src/Manage.php:130
+#: plugins/dcLegacyEditor/src/Manage.php:42
 msgid "The configuration has been updated."
-msgstr "Nustatymai sėkmingai atnaujiti."
+msgstr "Konfigūracija buvo atnaujinta."
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:237
 msgid "Note(s)"
-msgstr ""
+msgstr "Pastaba (-os)"
 
-#, fuzzy
-msgid "Settings"
-msgstr "Nustatymo pavadinimas"
-
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:14 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
-msgstr "Aktyvus"
+msgstr "Įskiepio aktyvavimas"
 
+#: plugins/dcCKEditor/tpl/index.php:19
 msgid "Enable dcCKEditor plugin"
-msgstr ""
+msgstr "Įjungti dcCKEditor įskiepį"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:31
 msgid "Add alignment buttons"
-msgstr "Ausrichtung des Mediums"
+msgstr "Pridėti derinimo mygtukus"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:37
 msgid "Add lists buttons"
-msgstr "Pridėti žymas prie įrašų"
+msgstr "Pridėti sąrašų mygtukai"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:43
 msgid "Add text color button"
-msgstr "Šoninės juostos teksto spalva:"
+msgstr "Pridėti teksto spalvos mygtuką"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:49
 msgid "Add background text color button"
-msgstr "Fono spalva:"
+msgstr "Pridėti fono teksto spalvos mygtuką"
 
+#: plugins/dcCKEditor/tpl/index.php:54
 msgid "Custom colors list:"
-msgstr ""
+msgstr "Pasirinktinių spalvų sąrašas:"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Add colors without # separated by a comma."
-msgstr "Įveslite žymas atskirtas kableliais"
+msgstr "Pridėkite spalvas be #, atskirtas kableliu."
 
+#: plugins/dcCKEditor/tpl/index.php:60
 msgid "Leave empty to use the default palette:"
-msgstr ""
+msgstr "Palikite tuščią, jei norite naudoti numatytąją paletę:"
 
+#: plugins/dcCKEditor/tpl/index.php:62
 msgid "Example of custom color list:"
-msgstr ""
+msgstr "Pasirinktinių spalvų sąrašo pavyzdys:"
 
+#: plugins/dcCKEditor/tpl/index.php:67
 msgid "Colors per row in palette:"
-msgstr ""
+msgstr "Spalvos kiekvienoje paletės eilutėje:"
 
+#: plugins/dcCKEditor/tpl/index.php:72
 msgid "Valid range: 4 to 16"
-msgstr ""
+msgstr "Galiojantis diapazonas: Nuo 4 iki 16"
 
+#: plugins/dcCKEditor/tpl/index.php:77
 msgid "Add collapse button"
-msgstr ""
+msgstr "Pridėti žlugimo mygtuką"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:83
 msgid "Add format selection"
-msgstr "Pridėti %s? prie šio įrašo"
+msgstr "Pridėti formato pasirinkimą"
 
+#: plugins/dcCKEditor/tpl/index.php:88
 msgid "Custom formats"
-msgstr ""
+msgstr "Pasirinktiniai formatai"
 
+#: plugins/dcCKEditor/tpl/index.php:93
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr ""
+msgstr "Numatytieji formatai yra p;h1;h2;h3;h4;h5;h6;pre;address"
 
+#: plugins/dcCKEditor/tpl/index.php:98
 msgid "Add table button"
-msgstr ""
+msgstr "Pridėti lentelės mygtuką"
 
+#: plugins/dcCKEditor/tpl/index.php:104
 msgid "Add clipboard buttons"
-msgstr ""
+msgstr "Pridėti iškarpinės mygtukus"
 
+#: plugins/dcCKEditor/tpl/index.php:108
 msgid "Copy, Paste, Paste Text, Paste from Word"
-msgstr ""
+msgstr "Kopijuoti, Įklijuoti, Įklijuoti tekstą, Įklijuoti iš \"Word"
 
+#: plugins/dcCKEditor/tpl/index.php:113
 msgid "Add undo/redo buttons"
-msgstr ""
+msgstr "Pridėti atšaukimo ir (arba) grąžinimo mygtukus"
 
+#: plugins/dcCKEditor/tpl/index.php:119
 msgid "Disables the built-in spell checker if the browser provides one"
-msgstr ""
+msgstr "Išjungia integruotą rašybos tikrintuvą, jei naršyklėje yra toks tikrintuvas"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:127 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/simpleMenu/src/Manage.php:632
 msgid "Save configuration"
-msgstr "%s nustatymai"
+msgstr "Išsaugoti konfigūraciją"
 
+#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/tpl/index.php:1
 msgid "dcLegacyEditor"
-msgstr ""
+msgstr "dcLegacyEditor"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "Dotclear wiki"
-msgstr "Dotclear 1.2 importavimas"
+msgstr "Dotclear wiki"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:86
 msgid "visual"
-msgstr ""
+msgstr "vaizdas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
 msgid "source"
-msgstr ""
+msgstr "šaltinis"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:88
 msgid "You can use the following shortcuts to format your text."
-msgstr ""
+msgstr "Tekstui formatuoti galite naudoti šiuos sparčiuosius klavišus."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
 msgid "Block format"
-msgstr ""
+msgstr "Bloko formatas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
 msgid "-- none --"
-msgstr ""
+msgstr "-- nėra --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
 msgid "-- block format --"
-msgstr ""
+msgstr "-- bloko formatas --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
 msgid "Paragraph"
-msgstr ""
+msgstr "Pastraipa"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
 msgid "Level 1 header"
-msgstr "Rss skaityklė"
+msgstr "1 lygio antraštė"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
 msgid "Level 2 header"
-msgstr "Rss skaityklė"
+msgstr "2 lygio antraštė"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:98
 msgid "Level 3 header"
-msgstr "Rss skaityklė"
+msgstr "3 lygio antraštė"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:99
 msgid "Level 4 header"
-msgstr "Rss skaityklė"
+msgstr "4 lygio antraštė"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
 msgid "Level 5 header"
-msgstr "Rss skaityklė"
+msgstr "5 lygio antraštė"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
 msgid "Level 6 header"
-msgstr "Rss skaityklė"
+msgstr "6 lygio antraštė"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "Strong emphasis"
-msgstr ""
+msgstr "Didelis dėmesys"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "Emphasis"
-msgstr ""
+msgstr "Akcentas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "Inserted"
-msgstr ""
+msgstr "Įdėta"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
 msgid "Deleted"
-msgstr "Registras ištrintas."
+msgstr "Ištrintas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
 msgid "Inline quote"
-msgstr ""
+msgstr "Inline citata"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Code"
-msgstr ""
+msgstr "Kodas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "Line break"
-msgstr ""
+msgstr "Linijos pertraukimas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "Blockquote"
-msgstr ""
+msgstr "Blokinė citata"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Preformated text"
-msgstr ""
+msgstr "Iš anksto parengtas tekstas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Unordered list"
-msgstr ""
+msgstr "Nerūšiuotas sąrašas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Ordered list"
-msgstr ""
+msgstr "Užsakytas sąrašas"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "URL?"
-msgstr ""
+msgstr "URL?"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "Language?"
-msgstr "Kalba"
+msgstr "Kalba?"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Remove text formating"
-msgstr "Naikinti žymėjimą"
+msgstr "Pašalinti teksto formavimą"
 
+#: plugins/dcLegacyEditor/tpl/index.php:11
 msgid "Enable dcLegacyEditor plugin"
-msgstr ""
+msgstr "Įjungti dcLegacyEditor įskiepį"
 
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:62
 msgid "Checks trackback source for a link to the post"
 msgstr "Patikrina trackback šaltinio nuorodą į įrašą."
 
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Fair Trackbacks"
-msgstr ""
+msgstr "Sąžiningas Trackbacks"
 
-#, fuzzy
+#: plugins/importExport/src/Backend.php:25
 msgid "Import / Export"
-msgstr "Import./Eksport."
+msgstr "Importas / eksportas"
 
-#, fuzzy
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:34
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:32
 msgid "Database export"
-msgstr "Paprasto failo eksportavimas"
+msgstr "Duomenų bazės eksportas"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
 msgid "Download database of current blog"
-msgstr ""
+msgstr "Atsisiųsti dabartinio dienoraščio duomenų bazę"
 
-#, fuzzy
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:93
+#: plugins/importExport/src/ModuleExportFlat.php:224
+#: plugins/importExport/src/ModuleExportFlat.php:248
 msgid "Compress file"
-msgstr "Šablonų failai"
+msgstr "Suspausti failą"
 
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Download database of all blogs"
-msgstr ""
+msgstr "Atsisiųsti visų tinklaraščių duomenų bazę"
 
+#: plugins/importExport/src/FlatBackup.php:37
 msgid "No file to read."
 msgstr "Nėra skaitomo failo."
 
-#, fuzzy
+#: plugins/importExport/src/FlatExport.php:35
 msgid "Unable to create output file."
-msgstr "Nepavyksta sukurti paveikslėlių."
+msgstr "Nepavyksta sukurti išvesties failo."
 
+#: plugins/importExport/src/FlatImportV2.php:75
 msgid "File is not a DotClear backup."
 msgstr "Tai nėra Dotclear atsarginės kopijos failas."
 
+#: plugins/importExport/src/FlatImportV2.php:128
 msgid "File is not a single blog export."
 msgstr "Tai nėra vieno blogo eksportuotas failas."
 
+#: plugins/importExport/src/FlatImportV2.php:242
+#: plugins/importExport/src/FlatImportV2.php:296
 #, php-format
 msgid "Error raised at line %s"
-msgstr ""
+msgstr "Klaida padaryta eilutėje %s"
 
+#: plugins/importExport/src/FlatImportV2.php:251
 msgid "File is not a full export."
 msgstr "Nepilnai eksportuotas failas."
 
+#: plugins/importExport/src/FlatImportV2.php:710
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
+msgstr "Atsarginės kopijos failo eilutėje %2$s esančio įrašo \"%3$s\" ID nesutampa su įrašo \"%1$s\" ID."
 
+#: plugins/importExport/src/Manage.php:84
+#: plugins/maintenance/src/Manage.php:175
 msgid "Please wait..."
 msgstr "Prašome palaukti…"
 
+#: plugins/importExport/src/Manage.php:117
+#: plugins/importExport/src/ModuleExportFlat.php:230
+#: plugins/importExport/src/ModuleExportFlat.php:251
 msgid "Export"
 msgstr "Eksportavimas"
 
+#: plugins/importExport/src/Manage.php:119
 #, php-format
 msgid "Export functions are in the page %s."
-msgstr ""
+msgstr "Eksportavimo funkcijos pateikiamos puslapyje %s."
 
+#: plugins/importExport/src/Manage.php:121
+#: plugins/maintenance/src/Backend.php:23
+#: plugins/maintenance/src/BackendBehaviors.php:169
 msgid "Maintenance"
 msgstr "Priežiūra"
 
+#: plugins/importExport/src/Module.php:160
 msgid "Congratulation!"
 msgstr "Sveikiname!"
 
+#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "Jūsų blogas sėkmingai importuotas. Sveiki prisijungę prie Dotclear 2!"
 
+#: plugins/importExport/src/Module.php:165
 msgid "Why don't you blog this now?"
 msgstr "Kodėl jums neparašius apie tai į blogą?"
 
+#: plugins/importExport/src/Module.php:170
 msgid "visit your dashboard"
 msgstr "užeikite į savo nustatymų puslapį"
 
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Flat file export"
 msgstr "Paprasto failo eksportavimas"
 
+#: plugins/importExport/src/ModuleExportFlat.php:32
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Eksportuoja blogą arba pilną Dotclear instaliaciją į bendrą failą."
 
+#: plugins/importExport/src/ModuleExportFlat.php:162
 msgid "Export file not found."
 msgstr "Eksportuojamas failas nerastas."
 
+#: plugins/importExport/src/ModuleExportFlat.php:201
 msgid "Failed to compress export file."
-msgstr ""
+msgstr "Nepavyko suspausti eksporto failo."
 
-#, fuzzy
+#: plugins/importExport/src/ModuleExportFlat.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:203
 msgid "Single blog"
-msgstr "Importuoti vieną blogą"
+msgstr "Vienas dienoraštis"
 
+#: plugins/importExport/src/ModuleExportFlat.php:216
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Bus sukurtas eksportuojamas failas jūsų dabartiniam blogui: %s"
 
+#: plugins/importExport/src/ModuleExportFlat.php:228
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Tai pat galite parsisiųsti savo media direktoriją kaip zip failą."
 
+#: plugins/importExport/src/ModuleExportFlat.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "Multiple blogs"
-msgstr ""
+msgstr "Keli tinklaraščiai"
 
-#, fuzzy
+#: plugins/importExport/src/ModuleExportFlat.php:240
 msgid "This will create an export of all the content of your database."
-msgstr "Dėmesio: Bus ištrintas visas jūsų duomenų bazės turinys išskyrus dalyvius."
+msgstr "Taip bus sukurtas visos duomenų bazės turinio eksportas."
 
+#: plugins/importExport/src/ModuleImportDc1.php:60
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 importavimas"
 
+#: plugins/importExport/src/ModuleImportDc1.php:61
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importuoja Dotclear 1.2 Instaliaciją į dabartinį blogą."
 
-#, fuzzy, php-format
+#: plugins/importExport/src/ModuleImportDc1.php:190
+#, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
-msgstr "Importuoja Dotclear 1.2 Instaliaciją į dabartinį blogą."
+msgstr "Importuokite \"Dotclear 1.2\" tinklaraščio turinį į dabartinį tinklaraštį: %s."
 
+#: plugins/importExport/src/ModuleImportDc1.php:193
+#: plugins/importExport/src/ModuleImportWp.php:216
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Atkreipkite dėmesį, kad šis procesas gali ištrinti jūsų kategorijas, blogroll, įrašus ir komentarus dabartiniame bloge."
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "General information"
 msgstr "Bendra informacija"
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Import my blog now"
 msgstr "Importuoti mano blogą"
 
+#: plugins/importExport/src/ModuleImportDc1.php:198
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Pirmiausiai mums reikalinga informacija apie jūsų seną Dotclear 1.2 instaliaciją."
 
-#, fuzzy
+#: plugins/importExport/src/ModuleImportDc1.php:199
 msgid "Database driver:"
-msgstr "Paprasto failo eksportavimas"
+msgstr "Duomenų bazės tvarkyklė:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:211
+#: plugins/importExport/src/ModuleImportWp.php:233
 msgid "Entries import options"
 msgstr "Įrašų importavimo pasirinkimai"
 
+#: plugins/importExport/src/ModuleImportDc1.php:212
+#: plugins/importExport/src/ModuleImportWp.php:258
 msgid "Number of entries to import at once:"
 msgstr "Vienu kartu importuojamų įrašų skaičius:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportWp.php:275
 msgid "Importing users"
 msgstr "Importuojami dalyviai"
 
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:282
 msgid "Importing categories"
 msgstr "Importuojamos kategorijos"
 
+#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportWp.php:289
 msgid "Importing blogroll"
 msgstr "Importuojamas Blogroll"
 
+#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportWp.php:296
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importuojami įrašai iš %d į %d / %d"
 
+#: plugins/importExport/src/ModuleImportDc1.php:254
 msgid "Please read carefully"
 msgstr "Prašome atidžiai perskaityti"
 
+#: plugins/importExport/src/ModuleImportDc1.php:256
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Kiekvienam nauujai importuotam dalyviui suteiktas skirtingas slaptažodis, kuris gali būti pakeistas sekant \"Pamiršau slaptažodį\" instrukcijas prisijungimo puslapyje (Jų el. pašto adresai turi būti galiojantys)."
 
+#: plugins/importExport/src/ModuleImportDc1.php:261
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Atkreipkite dėmesį, kad Dotclear 2 turi naują URL išdėstymą. Galite išvengti neveikiančių nuorodų instaliuodami <a href=\"%s\">DC1 redirect</a> plugin'ą ir aktyvuodami jį savo blogo nustatymuose."
 
+#: plugins/importExport/src/ModuleImportDc1.php:285
+#: plugins/importExport/src/ModuleImportWp.php:331
 msgid "next step"
 msgstr "kitas žingsnis"
 
+#: plugins/importExport/src/ModuleImportDc1.php:295
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Tai gali užtrukti iki kelių minučių priklausomai nuo jūsų blogo dydžio."
 
+#: plugins/importExport/src/ModuleImportDc1.php:323
 msgid "Dotclear tables not found"
 msgstr "Dotclear lentelės nerastos"
 
+#: plugins/importExport/src/ModuleImportFeed.php:115
 msgid "RSS or Atom feed import"
-msgstr ""
+msgstr "RSS arba \"Atom\" kanalo importas"
 
+#: plugins/importExport/src/ModuleImportFeed.php:116
 msgid "Add a feed content to the blog."
-msgstr ""
+msgstr "Į tinklaraštį įtraukite pašarų turinį."
 
+#: plugins/importExport/src/ModuleImportFeed.php:143
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:158
+#: plugins/importExport/src/ModuleImportFeed.php:163
+#: plugins/importExport/src/ModuleImportFeed.php:169
+#: plugins/importExport/src/ModuleImportFeed.php:176
 msgid "Cannot retrieve feed URL."
 msgstr "Nepavyksta gauti rss URL."
 
+#: plugins/importExport/src/ModuleImportFeed.php:179
 msgid "No items in feed."
 msgstr "Nėra rss įrašų."
 
+#: plugins/importExport/src/ModuleImportFeed.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:187
 msgid "Content successfully imported."
 msgstr "Turinys sėkmingai importuotas."
 
-#, fuzzy, php-format
+#: plugins/importExport/src/ModuleImportFeed.php:221
+#, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
-msgstr "Importuojama viena blogo atsarginė kopija kaip naujas turinys jūsų bloge: %s."
+msgstr "Pridėti kanalo turinį į dabartinį tinklaraštį: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/widgets/src/Widgets.php:110
 msgid "Feed URL:"
 msgstr "Rss URL:"
 
+#: plugins/importExport/src/ModuleImportFlat.php:41
 msgid "Flat file import"
 msgstr "Paprastas failo importavimas"
 
+#: plugins/importExport/src/ModuleImportFlat.php:42
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importuoja blogą arba pilną Dotclear instaliaciją iš failo."
 
+#: plugins/importExport/src/ModuleImportFlat.php:182
 msgid "Single blog successfully imported."
 msgstr "Vienas blogas sėkmingai importuotas."
 
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Ar tikrai norite importuoti visą atsarginės kopijos failą?"
 
+#: plugins/importExport/src/ModuleImportFlat.php:204
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Importuojama viena blogo atsarginė kopija kaip naujas turinys jūsų bloge: %s."
 
+#: plugins/importExport/src/ModuleImportFlat.php:206
+#: plugins/importExport/src/ModuleImportFlat.php:233
 msgid "Upload a backup file"
 msgstr "Įkelti atsarginės kopijos failą"
 
+#: plugins/importExport/src/ModuleImportFlat.php:207
+#: plugins/importExport/src/ModuleImportFlat.php:234
 #, php-format
 msgid "maximum size %s"
-msgstr ""
+msgstr "Didžiausias dydis %s"
 
+#: plugins/importExport/src/ModuleImportFlat.php:213
+#: plugins/importExport/src/ModuleImportFlat.php:240
 msgid "or pick up a local file in your public directory"
 msgstr "arba pasirinkite vietinį failą iš savo public direktorijos"
 
-#, fuzzy
+#: plugins/importExport/src/ModuleImportFlat.php:231
 msgid "This will reset all the content of your database, except users."
-msgstr "Dėmesio: Bus ištrintas visas jūsų duomenų bazės turinys išskyrus dalyvius."
+msgstr "Taip bus iš naujo nustatytas visas duomenų bazės turinys, išskyrus naudotojus."
 
+#: plugins/importExport/src/ModuleImportFlat.php:352
 msgid "Another file with same name exists."
-msgstr ""
+msgstr "Egzistuoja kitas tokio paties pavadinimo failas."
 
-#, fuzzy
+#: plugins/importExport/src/ModuleImportFlat.php:360
 msgid "Failed to extract backup file."
-msgstr "Įkelti atsarginės kopijos failą"
+msgstr "Nepavyko išgauti atsarginės kopijos failo."
 
+#: plugins/importExport/src/ModuleImportFlat.php:372
 msgid "No backup in compressed file."
-msgstr ""
+msgstr "Suspaustame faile nėra atsarginės kopijos."
 
+#: plugins/importExport/src/ModuleImportWp.php:81
 msgid "WordPress import"
 msgstr "Wordpress importavimas"
 
+#: plugins/importExport/src/ModuleImportWp.php:82
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importuoja WordPress instaliaciją į jūsų dabartinį blogą."
 
+#: plugins/importExport/src/ModuleImportWp.php:213
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "WordPress turinys bus importuotas naujo turinio pavidalu į jūsų blogą: %s."
 
+#: plugins/importExport/src/ModuleImportWp.php:221
 msgid "We first need some information about your old WordPress installation."
 msgstr "Pirmiausiai mums reikalinga tam tikra informacija apie jūsų WordPress instaliaciją."
 
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress ir Dotclear categorijų tvarkymas yra gana skinrtingas. WordPress jūs galite priskirti kelias kategorijas vienam įrašui. Dotclear mes į tai žiūrime labiau kaip \"Viena kategorija, kelios žymos.\". Tokiu būdu Dotclear gali importuoti tik vieną kategoriją kiekvienam įrašui ir pasirinks pirmiausiai įvardintą. Jei norite atkirai atsekti kiekvieną kategoriją, galite jas įkelti kaip žymas, naudodami pasirinktiną prefiksą."
 
-#, fuzzy
+#: plugins/importExport/src/ModuleImportWp.php:242
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr "Kita vertus WordPress įrašams kategorijos negai būti atšauktos ir tipinė instaliaciją pirmą kategoriją įvardina <i>\"Uncategorized\"</i>. Jei jūs nekeitėte šios kategorijos, tiesiog ignoruokite tai nes Dotclear leidžia jūsų įrašų nepriskirti jokiai kategorijai."
+msgstr "Kita vertus, \"WordPress\", įrašas negali būti nekategorizuotas, ir numatytoji instaliacija turi pirmąją kategoriją, pažymėtą <i>\"Nekategorizuotas\"</i>.Jei nepakeitėte šios kategorijos, galite tiesiog ignoruoti ją importuodami savo tinklaraštį, nes \"Dotclear\" leidžia jums iš tikrųjų išlaikyti savo įrašus nekategorizuotus."
 
+#: plugins/importExport/src/ModuleImportWp.php:251
 msgid "Ignore the first category:"
 msgstr "Ignoruoti pirmą kategoriją:"
 
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Import lowest numbered category on posts:"
 msgstr "Importuoti pirmiausiai įvardintą kategoriją įrašuose:"
 
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Import all categories as tags:"
 msgstr "Importuoti visas kategorijas kaip žymas."
 
+#: plugins/importExport/src/ModuleImportWp.php:256
 msgid "Prefix such tags with:"
 msgstr "Tokioms žymoms kurti prefiksus:"
 
+#: plugins/importExport/src/ModuleImportWp.php:264
 msgid "Content filters"
 msgstr "Turinio filtrai"
 
+#: plugins/importExport/src/ModuleImportWp.php:265
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Galite taikyti filtrus šiems savo įrašasms ir/arba komentarams."
 
+#: plugins/importExport/src/ModuleImportWp.php:266
 msgid "Post content formatter:"
 msgstr "Įrašų turinio formatavimas:"
 
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Comment content formatter:"
 msgstr "Komentarų turinio formatavimas:"
 
+#: plugins/importExport/src/ModuleImportWp.php:370
 msgid "WordPress tables not found"
 msgstr "Nerastos Wordpress lentelės"
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Servicing"
-msgstr "Serviso pavadinimas:"
+msgstr "Aptarnavimas"
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Tools to maintain the performance of your blogs."
-msgstr ""
+msgstr "Įrankiai tinklaraščių veikimui palaikyti."
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Backup"
-msgstr "Atgal"
+msgstr "Atsarginė kopija"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to back up your content."
-msgstr ""
+msgstr "Įrankiai, skirti turinio atsarginiam kopijavimui."
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Development"
-msgstr ""
+msgstr "Plėtra"
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Tools to assist in development of plugins, themes and core."
-msgstr ""
+msgstr "Įrankiai, padedantys kurti įskiepius, temas ir šerdį."
 
+#: plugins/maintenance/src/BackendBehaviors.php:38
 msgid "Optimize"
-msgstr ""
+msgstr "Optimizuokite"
 
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Count and index"
-msgstr ""
+msgstr "Skaičius ir indeksas"
 
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Purge"
-msgstr ""
+msgstr "Išvalyti"
 
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Other"
-msgstr ""
+msgstr "Kita"
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "Current blog"
-msgstr "Grįžti į Blogroll"
+msgstr "Dabartinis tinklaraštis"
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:43
 msgid "All blogs"
-msgstr "Visos žymos"
+msgstr "Visi tinklaraščiai"
 
+#: plugins/maintenance/src/BackendBehaviors.php:45
 msgid "Maintain translations"
-msgstr ""
+msgstr "Išlaikyti vertimus"
 
+#: plugins/maintenance/src/BackendBehaviors.php:45
 msgid "Translations"
-msgstr ""
+msgstr "Vertimai"
 
+#: plugins/maintenance/src/BackendBehaviors.php:121
+#: plugins/maintenance/src/Rest.php:85
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Vienos užduoties vykdymas"
+msgstr[1] "%s vykdomos užduotys"
+msgstr[2] "%s vykdomos užduotys"
+msgstr[3] "%s vykdomos užduotys"
 
+#: plugins/maintenance/src/BackendBehaviors.php:152
+#: plugins/maintenance/src/Manage.php:267
 msgid "This task has never been executed."
-msgstr ""
+msgstr "Ši užduotis niekada nebuvo įvykdyta."
 
+#: plugins/maintenance/src/BackendBehaviors.php:155
+#: plugins/maintenance/src/Manage.php:272
 #, php-format
 msgid "Last execution of this task was on %s."
-msgstr ""
+msgstr "Paskutinį kartą ši užduotis buvo atlikta %s."
 
+#: plugins/maintenance/src/BackendBehaviors.php:170
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Reikia atlikti užduotį."
+msgstr[1] "Yra %s užduočių, kurias reikia atlikti."
+msgstr[2] "Yra %s užduočių, kurias reikia atlikti."
+msgstr[3] "Yra %s užduočių, kurias reikia atlikti."
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:172
 msgid "Manage tasks"
-msgstr "tvarkyti puslapius"
+msgstr "Tvarkyti užduotis"
 
+#: plugins/maintenance/src/BackendBehaviors.php:191
 msgid "Display overdue tasks counter on maintenance dashboard icon"
-msgstr ""
+msgstr "Rodyti vėluojančių užduočių skaitiklį techninės priežiūros prietaisų skydelio piktogramoje"
 
+#: plugins/maintenance/src/BackendBehaviors.php:195
 msgid "Display overdue tasks list on dashboard items"
-msgstr ""
+msgstr "Pavėluotų užduočių sąrašo rodymas prietaisų skydelio elementuose"
 
+#: plugins/maintenance/src/MaintenanceTask.php:161
 msgid "Failed to execute task."
-msgstr ""
+msgstr "Nepavyko įvykdyti užduoties."
 
-#, fuzzy
+#: plugins/maintenance/src/MaintenanceTask.php:164
 msgid "Task successfully executed."
-msgstr "Nuoroda sėkmingai sukurta."
+msgstr "Užduotis sėkmingai įvykdyta."
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:116
 msgid "Maintenance plugin has been successfully configured."
-msgstr "Kategorija sėkmingai sukurta."
+msgstr "Priežiūros įskiepis sėkmingai sukonfigūruotas."
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:134
 msgid "System settings have been saved."
-msgstr "Nustatymi sėkmingai atnaujinti."
+msgstr "Sistemos nustatymai buvo išsaugoti."
 
+#: plugins/maintenance/src/Manage.php:139
 msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
+msgstr "Visi tinklaraščio turinio saugumo politikos nustatymai buvo atstatyti į numatytuosius."
 
+#: plugins/maintenance/src/Manage.php:164
 msgid "Every week"
-msgstr ""
+msgstr "Kiekvieną savaitę"
 
+#: plugins/maintenance/src/Manage.php:165
 msgid "Every two weeks"
-msgstr ""
+msgstr "Kas dvi savaites"
 
+#: plugins/maintenance/src/Manage.php:166
 msgid "Every month"
-msgstr ""
+msgstr "Kiekvieną mėnesį"
 
+#: plugins/maintenance/src/Manage.php:167
 msgid "Every two months"
-msgstr ""
+msgstr "Kas du mėnesius"
 
+#: plugins/maintenance/src/Manage.php:191
 msgid "You have not sufficient permissions to view this page."
-msgstr ""
+msgstr "Neturite pakankamai teisių peržiūrėti šį puslapį."
 
+#: plugins/maintenance/src/Manage.php:268
+#: plugins/maintenance/src/Manage.php:276
 msgid "You should execute it now."
-msgstr ""
+msgstr "Dabar turėtumėte jį įvykdyti."
 
+#: plugins/maintenance/src/Manage.php:298
+#: plugins/maintenance/src/Manage.php:320
 msgid "Execute task"
-msgstr ""
+msgstr "Vykdyti užduotį"
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:302
 msgid "This may take a very long time."
-msgstr "gali ilgai užtrukti"
+msgstr "Tai gali užtrukti labai ilgai."
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:332
+#: plugins/maintenance/src/Manage.php:333
 msgid "Alert settings"
-msgstr "blogo nustatymai"
+msgstr "Įspėjimo nustatymai"
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:337
 msgid "Activation"
-msgstr "Aktyvus"
+msgstr "Aktyvavimas"
 
+#: plugins/maintenance/src/Manage.php:340
 msgid "Display alert messages on late tasks"
-msgstr ""
+msgstr "Rodyti įspėjamuosius pranešimus apie vėluojančias užduotis"
 
+#: plugins/maintenance/src/Manage.php:343
 #, php-format
 msgid "You can place list of late tasks on your %s."
-msgstr ""
+msgstr "Pavėluotai atliktų užduočių sąrašą galite patalpinti %s."
 
+#: plugins/maintenance/src/Manage.php:349
 msgid "Frequency"
-msgstr ""
+msgstr "Dažnis"
 
+#: plugins/maintenance/src/Manage.php:352
 msgid "Use one recall time for all tasks"
-msgstr ""
+msgstr "Naudokite vieną atšaukimo laiką visoms užduotims"
 
+#: plugins/maintenance/src/Manage.php:354
 msgid "Recall time for all tasks:"
-msgstr ""
+msgstr "Visų užduočių prisiminimo laikas:"
 
+#: plugins/maintenance/src/Manage.php:360
 msgid "Use one recall time per task"
-msgstr ""
+msgstr "Vienai užduočiai atlikti naudokite vieną atšaukimo laiką"
 
+#: plugins/maintenance/src/Manage.php:391
 msgid "Content-Security-Policy"
-msgstr ""
+msgstr "Turinio saugumo politika"
 
+#: plugins/maintenance/src/Manage.php:396
 msgid "Enable Content-Security-Policy system"
-msgstr ""
+msgstr "Turinio saugumo politikos sistemos įjungimas"
 
+#: plugins/maintenance/src/Manage.php:399
 msgid "Enable Content-Security-Policy report only"
-msgstr ""
+msgstr "Įjungti tik \"Content-Security-Policy\" ataskaitą"
 
+#: plugins/maintenance/src/Manage.php:405
 msgid "Enable Content-Security-Policy system by default"
-msgstr ""
+msgstr "Pagal numatytuosius nustatymus įjungti \"Content-Security-Policy\" sistemą"
 
+#: plugins/maintenance/src/Manage.php:408
 msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
+msgstr "Pagal numatytuosius nustatymus įjungti tik \"Content-Security-Policy\" ataskaitą"
 
+#: plugins/maintenance/src/Manage.php:411
 msgid "Also apply these settings to all blogs"
-msgstr ""
+msgstr "Šiuos nustatymus taip pat taikykite visiems tinklaraščiams"
 
+#: plugins/maintenance/src/Task/CSP.php:34
 msgid "Delete the Content-Security-Policy report file"
-msgstr ""
+msgstr "Ištrinkite \"Content-Security-Policy\" ataskaitos failą"
 
+#: plugins/maintenance/src/Task/CSP.php:35
 msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
+msgstr "Content-Security-Policy ataskaitos failas buvo ištrintas."
 
+#: plugins/maintenance/src/Task/CSP.php:36
 msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
+msgstr "Nepavyko ištrinti Content-Security-Policy ataskaitos failo."
 
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Remove the Content-Security-Policy report file."
-msgstr ""
+msgstr "Pašalinkite \"Content-Security-Policy\" ataskaitos failą."
 
+#: plugins/maintenance/src/Task/Cache.php:35
 msgid "Empty templates cache directory"
 msgstr "Trinti šablonų cache direktoriją"
 
+#: plugins/maintenance/src/Task/Cache.php:36
 msgid "Templates cache directory emptied."
 msgstr "Šablonų cache direktorija išvalyta."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/Cache.php:37
 msgid "Failed to empty templates cache directory."
-msgstr "Trinti šablonų cache direktoriją"
+msgstr "Nepavyko ištuštinti šablonų talpyklos katalogo."
 
+#: plugins/maintenance/src/Task/Cache.php:39
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "Gali būti naudinga ištuštinti šią talpyklą, kai keičiate temos .html arba .css failus (arba kai atnaujinate temą ar įskiepį). Pastaba : kai kurių prieglobos paslaugų teikėjų šablonų talpyklos negalima ištuštinti naudojant šį įskiepį. Tada gali tekti ištrinti katalogą <strong>%s</strong> tiesiogiai serveryje naudojant FTP programinę įrangą."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/CountComments.php:36
 msgid "Count again comments and trackbacks"
-msgstr "Komentarai ir trackback suskaičiuoti."
+msgstr "Vėl skaičiuoti komentarus ir Trackbacks"
 
+#: plugins/maintenance/src/Task/CountComments.php:37
 msgid "Comments and trackback counted."
 msgstr "Komentarai ir trackback suskaičiuoti."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/CountComments.php:38
 msgid "Failed to count comments and trackbacks."
-msgstr "Komentarai ir trackback suskaičiuoti."
+msgstr "Nepavyko suskaičiuoti komentarų ir atgalinių nuorodų."
 
+#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
+msgstr "Dar kartą suskaičiuokite komentarus ir Trackbacks leidžia patikrinti jų tikslų skaičių. Ši operacija gali būti naudinga importuojant iš kitos tinklaraščio platformos (arba migruojant iš \"dotclear 1\" į \"dotclear 2\")."
 
+#: plugins/maintenance/src/Task/IndexComments.php:59
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Search engine index"
 msgstr "Paieškos variklio indeksas"
 
-#, fuzzy
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Index all comments for search engine"
-msgstr "Indeksuoti visus komentarus"
+msgstr "Indeksuoti visus komentarus paieškos sistemai"
 
+#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 msgid "Next"
-msgstr ""
+msgstr "Kitas"
 
+#: plugins/maintenance/src/Task/IndexComments.php:62
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Ineksuojami komentarai nuo %d iki %d."
 
+#: plugins/maintenance/src/Task/IndexComments.php:63
 msgid "Comments index done."
 msgstr "Komentarų indeksavimas baigtas."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Failed to index comments."
-msgstr "Indeksuoti visus komentarus"
+msgstr "Nepavyko indeksuoti komentarų."
 
+#: plugins/maintenance/src/Task/IndexComments.php:66
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "Indeksuokite visus komentarus ir grįžtamąsias nuorodas paieškos sistemos indekse. Ši operacija būtina, kai importuojate turinį į savo tinklaraštį, kad galėtumėte naudoti vidinę paieškos sistemą viešuosiuose ir privačiuose puslapiuose."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Index all entries for search engine"
-msgstr ""
+msgstr "Indeksuoti visus paieškos sistemos įrašus"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Indeksuojami įrašai nuo %d iki %d"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Entries index done."
 msgstr "Įrašų indeksavimas baigtas."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Failed to index entries."
-msgstr "Pasirinkti įrašai"
+msgstr "Nepavyko indeksuoti įrašų."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:66
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "Indeksuokite visus įrašus paieškos sistemos rodyklėje. Ši operacija reikalinga, kai importuojate turinį į savo tinklaraštį, kad galėtumėte naudoti vidinę paieškos sistemą viešuosiuose ir privačiuose puslapiuose."
 
+#: plugins/maintenance/src/Task/Logs.php:41
 msgid "Delete all logs"
 msgstr "Trinti visus registrus"
 
+#: plugins/maintenance/src/Task/Logs.php:42
 msgid "Logs deleted."
 msgstr "Registras ištrintas."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Failed to delete logs."
-msgstr "Nepavyksta sukurti paveikslėlių."
+msgstr "Nepavyko ištrinti žurnalų."
 
+#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr ""
+msgstr "Žurnaluose įrašoma visa veikla ir ryšys su tinklaraščio istorija. Jei jums nereikia išsaugoti šios istorijos, apsvarstykite galimybę retkarčiais ištrinti šiuos žurnalus."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Entries metadata"
-msgstr "Įrašų rss"
+msgstr "Įrašų metaduomenys"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Synchronize entries metadata"
-msgstr ""
+msgstr "Sinchronizuoti įrašų metaduomenis"
 
-#, fuzzy, php-format
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#, php-format
 msgid "Synchronize entry %d to %d."
-msgstr "Indeksuojami įrašai nuo %d iki %d"
+msgstr "Sinchronizuoti įrašą %d su %d."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata synchronize done."
-msgstr "Įrašų indeksavimas baigtas."
+msgstr "Įrašų metaduomenų sinchronizavimas atliktas."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Failed to synchronize entries metadata."
-msgstr ""
+msgstr "Nepavyko sinchronizuoti įrašų metaduomenų."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
-msgstr ""
+msgstr "Sinchronizuoti visus įrašus metaduomenys gali būti naudinga importuoti turinį į savo tinklaraštį arba padaryti blogą operaciją duomenų bazės lentelėse."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/Vacuum.php:35
 msgid "Optimise database"
-msgstr "Optimizuojama duomenų bazės talpa"
+msgstr "Duomenų bazės optimizavimas"
 
-#, fuzzy
+#: plugins/maintenance/src/Task/Vacuum.php:36
 msgid "optimize tables"
-msgstr "Optimizuojama duomenų bazės talpa"
+msgstr "optimizuoti lenteles"
 
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimization successful."
 msgstr "Sėkmingai optimizuota."
 
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "Failed to optimize tables."
-msgstr ""
+msgstr "Nepavyko optimizuoti lentelių."
 
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
-msgstr ""
+msgstr "Atlikus daugybę \"Dotclear\" duomenų bazės trynimo ar atnaujinimo operacijų, ji tampa fragmentiška. Optimizavimas leis ją defragmentuoti. Tai neturi jokios įtakos jūsų duomenų vientisumui. Rekomenduojama optimizuoti prieš bet kokį tinklaraščio eksportą."
 
+#: plugins/maintenance/src/Task/ZipMedia.php:56
 msgid "Download media folder of current blog"
-msgstr ""
+msgstr "Atsisiųsti dabartinio tinklaraščio medijos aplanką"
 
+#: plugins/maintenance/src/Task/ZipMedia.php:58
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
-msgstr ""
+msgstr "Gali būti naudinga sukurti atsarginę medijos aplanko kopiją. Tai suspaudžia visą medijos aplanko turinį į vieną zip failą. Pastaba : kai kurių prieglobos paslaugų teikėjų atveju, jei medijos aplankas yra per didelis, jo negalima suspausti šiuo įskiepiu."
 
+#: plugins/maintenance/src/Task/ZipTheme.php:57
 msgid "Download active theme of current blog"
-msgstr ""
+msgstr "Atsisiųsti aktyvią dabartinio tinklaraščio temą"
 
+#: plugins/maintenance/src/Task/ZipTheme.php:59
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
-msgstr ""
+msgstr "Prieš atliekant bet kokį pakeitimą ar atnaujinimą gali būti naudinga sukurti atsarginę aktyvios temos kopiją. Tai suspaudžia temos aplanką į vieną zip failą."
 
+#: plugins/pages/src/Backend.php:38
 msgid "manage pages"
 msgstr "tvarkyti puslapius"
 
-#, fuzzy, php-format
+#: plugins/pages/src/Backend.php:82
+#, php-format
 msgid "%d page"
-msgstr "Redaguoti puslapį"
+msgstr "%d puslapis"
 
-#, fuzzy, php-format
+#: plugins/pages/src/Backend.php:82
+#, php-format
 msgid "%d pages"
-msgstr "Redaguoti puslapį"
+msgstr "%d puslapiai"
 
+#: plugins/pages/src/Backend.php:89 plugins/pages/src/Manage.php:128
+#: plugins/pages/src/ManagePage.php:74 plugins/pages/src/ManagePage.php:654
 msgid "New page"
 msgstr "Naujas puslapis"
 
-#, fuzzy
+#: plugins/pages/src/BackendActions.php:52
 msgid "Pages actions"
-msgstr "Puslapio pozicija"
+msgstr "Puslapių veiksmai"
 
-#, fuzzy
+#: plugins/pages/src/BackendActions.php:74
 msgid "Back to pages list"
-msgstr "Atgal į žymų sąrašą"
+msgstr "Atgal į puslapių sąrašą"
 
-#, fuzzy
+#: plugins/pages/src/BackendDefaultActions.php:119
+#: plugins/pages/src/Manage.php:125
 msgid "Selected pages have been successfully reordered."
-msgstr "Sėkmingai pašalinti."
+msgstr "Pasirinkti puslapiai buvo sėkmingai pertvarkyti."
 
+#: plugins/pages/src/BackendList.php:35
 msgid "No page"
 msgstr "Puslapio nėra"
 
+#: plugins/pages/src/BackendList.php:93 plugins/pages/src/BackendList.php:146
 msgid "Hidden"
-msgstr ""
+msgstr "Paslėptas"
 
-#, fuzzy
+#: plugins/pages/src/BackendList.php:175
 msgid "Select this page"
-msgstr "Trinti šią žymą"
+msgstr "Pasirinkite šį puslapį"
 
+#: plugins/pages/src/Frontend.php:35
 msgid "Published on"
 msgstr "Publikuota"
 
+#: plugins/pages/src/Frontend.php:36
 msgid "This page's comments feed"
 msgstr "Šio puslapio komentarų rss"
 
-msgid "You must provide a valid email address."
-msgstr "Turite įrašyti el. pašto adresą."
-
-#, fuzzy
+#: plugins/pages/src/Install.php:47
 msgid "My first page"
-msgstr "Redaguoti puslapį"
+msgstr "Mano pirmasis puslapis"
 
+#: plugins/pages/src/Install.php:48
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+msgstr "Tai jūsų pirmasis puslapis. Kai būsite pasiruošę rašyti tinklaraštį, prisijunkite ir jį redaguokite arba ištrinkite."
 
+#: plugins/pages/src/Manage.php:107
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Ar tikrai norite ištrinti pasirinktus puslapius?"
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:121
 msgid "Selected pages have been successfully updated."
-msgstr "Nustatymi sėkmingai atnaujinti."
+msgstr "Pasirinkti puslapiai buvo sėkmingai atnaujinti."
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:123
 msgid "Selected pages have been successfully deleted."
-msgstr "Spamo komentarai sėkmingai ištrinti."
+msgstr "Pasirinkti puslapiai sėkmingai ištrinti."
 
+#: plugins/pages/src/Manage.php:142
 msgid "Selected pages action:"
 msgstr "Veiksmas pasirinktiems puslapiams:"
 
+#: plugins/pages/src/Manage.php:151
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
-msgstr ""
+msgstr "Norėdami pakeisti puslapių tvarką, pakeiskite eilutės pradžioje esantį numerį, tada spustelėkite mygtuką \"Išsaugoti puslapių tvarką\"."
 
+#: plugins/pages/src/Manage.php:153
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
-msgstr ""
+msgstr "Norėdami pertvarkyti puslapių tvarką, perkelkite elementus vilkdami ir nuleisdami, tada spustelėkite mygtuką \"Išsaugoti puslapių tvarką\"."
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:154
 msgid "Save pages order"
-msgstr "Išsaugojimo tvarka"
+msgstr "Išsaugoti puslapių užsakymą"
 
+#: plugins/pages/src/ManagePage.php:131
 msgid "This page does not exist."
 msgstr "Šis puslapis neegzistuoja."
 
+#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:654
+#: plugins/pages/src/ManagePage.php:659
 msgid "Edit page"
 msgstr "Redaguoti puslapį"
 
+#: plugins/pages/src/ManagePage.php:433
 msgid "Are you sure you want to delete this page?"
 msgstr "Ar tikrai norite ištrinti šį puslapį?"
 
+#: plugins/pages/src/ManagePage.php:470
 msgid "Page has been successfully updated."
 msgstr "Puslapis sėkmingai atnaujintas."
 
+#: plugins/pages/src/ManagePage.php:472
 msgid "Page has been successfully created."
 msgstr "Puslapis sėkmingai sukurtas"
 
+#: plugins/pages/src/ManagePage.php:485
 msgid "Don't forget to validate your HTML conversion by saving your post."
-msgstr ""
+msgstr "Nepamirškite patvirtinti savo HTML konvertavimo išsaugodami įrašą."
 
+#: plugins/pages/src/ManagePage.php:490
 msgid "Go to this page on the site"
-msgstr ""
+msgstr "Eikite į šį svetainės puslapį"
 
+#: plugins/pages/src/ManagePage.php:532
 msgid "Page status"
 msgstr "Puslapio statusas:"
 
-#, fuzzy
+#: plugins/pages/src/ManagePage.php:545
 msgid "Page language"
-msgstr "Puslapio kalba:"
+msgstr "Puslapio kalba"
 
+#: plugins/pages/src/ManagePage.php:558 plugins/pages/src/Widgets.php:37
 msgid "Page position"
 msgstr "Puslapio pozicija"
 
-#, fuzzy
+#: plugins/pages/src/ManagePage.php:585
 msgid "Hide in widget Pages"
-msgstr "Slėpti pagrindinę antraštę"
+msgstr "Paslėpti valdiklyje Puslapiai"
 
+#: plugins/pages/src/ManagePage.php:595
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Dėmesio: gali atsirasti konfliktas su kitu puslapiu, jei URL nustatysite rankiniu būdu."
 
+#: plugins/pages/src/ManagePage.php:610
 msgid "Introduction to the page."
-msgstr ""
+msgstr "Įvadas į puslapį."
 
-#, fuzzy
+#: plugins/pages/src/ManagePage.php:960
 msgid "Select this comment"
-msgstr "Trinti šią žymą"
+msgstr "Pasirinkite šį komentarą"
 
+#: plugins/pages/src/Widgets.php:36
 msgid "Page title"
 msgstr "Puslapio antraštė"
 
+#: plugins/pages/src/Widgets.php:38
 msgid "Publication date"
 msgstr "Publikavimo data"
 
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:50
 msgid "Pings"
 msgstr "Pingai"
 
+#: plugins/pings/src/Manage.php:61
 msgid "Settings have been successfully updated."
 msgstr "Nustatymi sėkmingai atnaujinti."
 
+#: plugins/pings/src/Manage.php:82
 msgid "Pings configuration"
 msgstr "Pings nustatymai"
 
+#: plugins/pings/src/Manage.php:88
 msgid "Activate pings extension"
 msgstr "Įjungti ping'ų išplėtimus"
 
+#: plugins/pings/src/Manage.php:93 plugins/pings/src/Manage.php:115
 msgid "Service name:"
 msgstr "Serviso pavadinimas:"
 
+#: plugins/pings/src/Manage.php:95 plugins/pings/src/Manage.php:117
 msgid "Service URI:"
 msgstr "Serviso URI:"
 
-#, fuzzy
+#: plugins/pings/src/Manage.php:106
 msgid "Error"
-msgstr "klaida"
+msgstr "Klaida"
 
+#: plugins/pings/src/Manage.php:123
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr ""
+msgstr "Automatinis visų paslaugų pingas pirmą kartą paskelbus įrašą (tik dabartiniame tinklaraštyje)"
 
+#: plugins/pings/src/Manage.php:130
 msgid "Test ping services"
 msgstr "Testuoti ping servisus"
 
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:46
+#: plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
-msgstr ""
+msgstr "Paprastas meniu"
 
-#, fuzzy
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "Active page"
-msgstr "Aktyvus"
+msgstr "Aktyvus puslapis"
 
-#, fuzzy
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "active page"
-msgstr "Žiūrėti puslapį"
+msgstr "aktyvus puslapis"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:69
 msgid "All months"
-msgstr "Visos žymos"
+msgstr "Visi mėnesiai"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:127
 msgid "Archive"
 msgstr "Archyvas"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:130
 msgid "Page"
-msgstr "Puslapiai"
+msgstr "Puslapis"
 
+#: plugins/simpleMenu/src/Manage.php:133 plugins/tags/src/Backend.php:24
+#: plugins/tags/src/Widgets.php:29
 msgid "Tags"
 msgstr "Žymos"
 
+#: plugins/simpleMenu/src/Manage.php:140
 msgid "User defined"
-msgstr ""
+msgstr "Nustatytas naudotojo"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:181
 msgid "Configuration successfully updated."
-msgstr "Nustatymai sėkmingai atnaujinti"
+msgstr "Konfigūracija sėkmingai atnaujinta."
 
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:668
 msgid "Label"
-msgstr ""
+msgstr "Etiketė"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Home page"
-msgstr "Tik namų puslapis"
+msgstr "Pagrindinis puslapis"
 
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:231
+#: plugins/widgets/src/Widgets.php:238 plugins/widgets/src/Widgets.php:245
 msgid "Recent posts"
-msgstr ""
+msgstr "Naujausi pranešimai"
 
+#: plugins/simpleMenu/src/Manage.php:238
 #, php-format
 msgid "Switch to %s language"
-msgstr ""
+msgstr "Perjungti į %s kalbą"
 
+#: plugins/simpleMenu/src/Manage.php:245
 msgid "Recent Posts from this category"
-msgstr ""
+msgstr "Naujausios žinutės iš šios kategorijos"
 
-#, fuzzy, php-format
+#: plugins/simpleMenu/src/Manage.php:257
+#, php-format
 msgid "Posts from %s"
-msgstr "Pasirinkite iš sąrašo"
+msgstr "Pranešimai iš %s"
 
+#: plugins/simpleMenu/src/Manage.php:277
 #, php-format
 msgid "Recent posts for %s tag"
-msgstr ""
+msgstr "Naujausi pranešimai apie %s žyma"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:337
 msgid "Menu item has been successfully added."
-msgstr "Žodžis sėkmingai pridėtas."
+msgstr "Meniu elementas sėkmingai pridėtas."
 
+#: plugins/simpleMenu/src/Manage.php:342
 msgid "Label and URL of menu item are mandatory."
-msgstr ""
+msgstr "Meniu elemento etiketė ir URL yra privalomi."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu items have been successfully removed."
-msgstr "Sėkmingai pašalinti."
+msgstr "Meniu elementai sėkmingai pašalinti."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:378
 msgid "No menu items selected."
-msgstr "Nėra rss įrašų."
+msgstr "Nėra pasirinktų meniu elementų."
 
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label is mandatory."
-msgstr ""
+msgstr "Etiketė yra privaloma."
 
+#: plugins/simpleMenu/src/Manage.php:395
 msgid "URL is mandatory."
-msgstr ""
+msgstr "URL yra privalomas."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:440
 msgid "Menu items have been successfully updated."
-msgstr "Nustatymi sėkmingai atnaujinti."
+msgstr "Meniu elementai sėkmingai atnaujinti."
 
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Step #1"
-msgstr ""
+msgstr "Žingsnis Nr. 1"
 
+#: plugins/simpleMenu/src/Manage.php:483 plugins/simpleMenu/src/Manage.php:491
 msgid "Step #2"
-msgstr ""
+msgstr "2 žingsnis"
 
+#: plugins/simpleMenu/src/Manage.php:489
 msgid "Step #3"
-msgstr ""
+msgstr "Žingsnis Nr. 3"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:501
 msgid "Add item"
-msgstr "Pridėti žymėjimą"
+msgstr "Pridėti elementą"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Select type"
-msgstr "Pasirinkti įrašai"
+msgstr "Pasirinkite tipą"
 
+#: plugins/simpleMenu/src/Manage.php:530
 msgid "Type of item menu:"
-msgstr ""
+msgstr "Elemento meniu tipas:"
 
+#: plugins/simpleMenu/src/Manage.php:533 plugins/simpleMenu/src/Manage.php:572
 msgid "Continue..."
-msgstr ""
+msgstr "Tęsti..."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
-msgstr "Blogo kalbos"
+msgstr "Pasirinkite kalbą:"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:552
 msgid "Select category:"
-msgstr "Taisyti kategoriją"
+msgstr "Pasirinkite kategoriją:"
 
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Select month (if necessary):"
-msgstr ""
+msgstr "Pasirinkite mėnesį (jei reikia):"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:558
 msgid "Select page:"
-msgstr "Veiksmas pasirinktiems puslapiams:"
+msgstr "Pasirinkite puslapį:"
 
+#: plugins/simpleMenu/src/Manage.php:561
 msgid "Select tag (if necessary):"
-msgstr ""
+msgstr "Pasirinkite žymą (jei reikia):"
 
+#: plugins/simpleMenu/src/Manage.php:587
 msgid "Label of item menu:"
-msgstr ""
+msgstr "Elemento meniu etiketė:"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Description of item menu:"
-msgstr "Aprašymas"
+msgstr "Elemento meniu aprašymas:"
 
+#: plugins/simpleMenu/src/Manage.php:605
 msgid "URL of item menu:"
-msgstr ""
+msgstr "Elemento meniu URL:"
 
+#: plugins/simpleMenu/src/Manage.php:614 plugins/simpleMenu/src/Manage.php:671
 msgid "Open URL on a new tab"
-msgstr ""
+msgstr "URL atidaryti naujame skirtuke"
 
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Add this item"
-msgstr ""
+msgstr "Pridėti šį elementą"
 
+#: plugins/simpleMenu/src/Manage.php:630
 msgid "Enable simple menu for this blog"
-msgstr ""
+msgstr "Įgalinti paprastą šio tinklaraščio meniu"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Add an item"
-msgstr "Pridėti naują nuorodą"
+msgstr "Pridėti elementą"
 
+#: plugins/simpleMenu/src/Manage.php:657
 msgid "Menu items list"
-msgstr ""
+msgstr "Meniu elementų sąrašas"
 
+#: plugins/simpleMenu/src/Manage.php:740
 msgid "Update menu"
-msgstr ""
+msgstr "Atnaujinti meniu"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Delete selected menu items"
-msgstr "Trinti pasirinktas nuorodas"
+msgstr "Ištrinti pasirinktus meniu elementus"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Are you sure you want to remove selected menu items?"
-msgstr "Ar tikrai norite ištrinti pasirinktas nuorodas?"
+msgstr "Ar tikrai norite pašalinti pasirinktus meniu elementus?"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:750
 msgid "No menu items so far."
-msgstr "Nėra rss įrašų."
+msgstr "Kol kas meniu punktų nėra."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Widgets.php:31
 msgid "Item description"
-msgstr "Nėra aprašymo"
+msgstr "Prekės aprašymas"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Widgets.php:35
 msgid "Displayed in link"
-msgstr "Trinti šią žymą"
+msgstr "Rodoma nuorodoje"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Widgets.php:36
 msgid "Used as link title"
-msgstr "Tokios nuorodos ar pavadinimo nėra"
+msgstr "Naudojamas kaip nuorodos pavadinimas"
 
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link and used as title"
-msgstr ""
+msgstr "Rodoma nuorodoje ir naudojama kaip antraštė"
 
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Not displayed nor used"
-msgstr ""
+msgstr "Nerodoma ir nenaudojama"
 
+#: plugins/tags/src/BackendBehaviors.php:51
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
 msgstr "Žyma"
 
+#: plugins/tags/src/BackendBehaviors.php:198
 msgid "Add tags"
 msgstr "Pridėti žymėjimą"
 
+#: plugins/tags/src/BackendBehaviors.php:207
 msgid "Remove tags"
 msgstr "Naikinti žymėjimą"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:242
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "Žyma sėkmingai pašalinta"
-msgstr[1] "Žyma sėkmingai pašalinta"
+msgstr[0] "Žyma sėkmingai pridėta prie pasirinktų įrašų"
+msgstr[1] "Žymos sėkmingai pridėtos prie pasirinktų įrašų"
+msgstr[2] "Žymos sėkmingai pridėtos prie pasirinktų įrašų"
+msgstr[3] "Žymos sėkmingai pridėtos prie pasirinktų įrašų"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:255
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Are you sure you want to remove this tag?"
-msgstr "Ar tikrai norite pašalinti šį %s?"
+msgstr "Ar tikrai norite pašalinti šią žymą?"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:256
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Add a tag to this entry"
-msgstr "Pridėti %s? prie šio įrašo"
+msgstr "Pridėti žymą prie šio įrašo"
 
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:396
 msgid "Choose from list"
 msgstr "Pasirinkite iš sąrašo"
 
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:397
 msgid "all"
 msgstr "visi"
 
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Enter tags separated by comma"
 msgstr "Įveslite žymas atskirtas kableliais"
 
+#: plugins/tags/src/BackendBehaviors.php:263
+#: plugins/tags/src/BackendBehaviors.php:402
 msgid "used in %e - frequency %p%"
 msgstr "naudojama %e - dažnumas %p%"
 
+#: plugins/tags/src/BackendBehaviors.php:264
+#: plugins/tags/src/BackendBehaviors.php:403 plugins/tags/src/Manage.php:95
 msgid "entry"
 msgstr "įrašas"
 
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:404 plugins/tags/src/Manage.php:95
 msgid "entries"
 msgstr "įrašai"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:273
 msgid "Add tags to this selection"
-msgstr "Pridėti %s? prie šio įrašo"
+msgstr "Pridėti žymas prie šio pasirinkimo"
 
+#: plugins/tags/src/BackendBehaviors.php:286
 msgid "Tags to add:"
 msgstr "Pridedamos žymos:"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:319
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "Žyma sėkmingai pašalinta"
-msgstr[1] "Žyma sėkmingai pašalinta"
+msgstr[0] "Žyma sėkmingai pašalinta iš pasirinktų įrašų"
+msgstr[1] "Žymos sėkmingai pašalintos iš pasirinktų įrašų"
+msgstr[2] "Žymos sėkmingai pašalintos iš pasirinktų įrašų"
+msgstr[3] "Žymos sėkmingai pašalintos iš pasirinktų įrašų"
 
+#: plugins/tags/src/BackendBehaviors.php:342
 msgid "No tags for selected entries"
 msgstr "Pasirinktiems įrašams žymų nėra"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:349
 msgid "Remove selected tags from this selection"
-msgstr "Pašalinti pasirinktas žymas nuo įrašų"
+msgstr "Pašalinti pasirinktas žymes iš šios atrankos"
 
+#: plugins/tags/src/BackendBehaviors.php:358
 msgid "Following tags have been found in selected entries:"
 msgstr "Pasirinktuose įrašuose rastos tokios žymos:"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:423
 msgid "Short"
-msgstr "trumpas"
+msgstr "Trumpas"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:424
 msgid "Extended"
-msgstr "išplėstas"
+msgstr "Išplėstas"
 
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Tags list format:"
 msgstr "Žymų sąrašo formatas:"
 
+#: plugins/tags/src/FrontendBehaviors.php:28
 msgid "This tag's comments Atom feed"
 msgstr "Šią žymą turinčių komentarų Atom feed"
 
+#: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's entries Atom feed"
 msgstr "Šią žymą turinčių įrašų Atom feed"
 
+#: plugins/tags/src/Manage.php:114
 msgid "No tags on this blog."
 msgstr "Šiame bloge nėra žymų"
 
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
 msgstr "Žyma sėkmingai pervadinta"
 
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
 msgstr "Žyma sėkmingai pašalinta"
 
-#, fuzzy, php-format
+#: plugins/tags/src/ManagePosts.php:138
+#, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr "Ar tikrai norite pašalinti šį %s?"
+msgstr "Ar tikrai norite pašalinti žymą: \"%s\"?"
 
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
 msgstr "Atgal į žymų sąrašą"
 
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
-msgstr ""
+msgstr "Pervadinti"
 
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr "Trinti šią žymą"
 
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
-msgstr ""
+msgstr "Įrašų su žyma \"%s\" sąrašas"
 
+#: plugins/tags/src/Widgets.php:30
 msgid "Limit (empty means no limit):"
 msgstr "Riboti (jei tuščia - apribojimo nėra)"
 
+#: plugins/tags/src/Widgets.php:37
 msgid "Tag name"
 msgstr "Žymos pavadinimas"
 
+#: plugins/tags/src/Widgets.php:38
 msgid "Entries count"
 msgstr "Įrašų skaičius"
 
+#: plugins/tags/src/Widgets.php:39
 msgid "Newest entry"
-msgstr ""
+msgstr "Naujausias įrašas"
 
+#: plugins/tags/src/Widgets.php:40
 msgid "Oldest entry"
-msgstr ""
+msgstr "Seniausias įrašas"
 
+#: plugins/tags/src/Widgets.php:53
 msgid "Link to all tags:"
 msgstr "Nuoroda į visas žymas:"
 
-#, fuzzy
+#: plugins/themeEditor/src/Backend.php:23
 msgid "themeEditor"
-msgstr "Temų redaktorius"
+msgstr "TemaEditor"
 
-#, fuzzy
+#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Edit theme files"
-msgstr "Redaguojamas failas %s"
+msgstr "Redaguoti temos failus"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:76
 msgid "Syntax highlighting"
-msgstr ""
+msgstr "Sintaksės paryškinimas"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:81
 msgid "Syntax highlighting in theme editor"
-msgstr ""
+msgstr "Sintaksės paryškinimas temos redaktoriuje"
 
+#: plugins/themeEditor/src/Manage.php:87
 msgid "The theme update has been locked."
-msgstr ""
+msgstr "Temos naujinimas buvo užrakintas."
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:95
 msgid "The theme update has been unocked."
-msgstr "Nustatymai sėkmingai atnaujiti."
+msgstr "Temos atnaujinimas buvo atšauktas."
 
+#: plugins/themeEditor/src/Manage.php:118
 msgid "The file has been reset."
-msgstr ""
+msgstr "Failas buvo iš naujo nustatytas."
 
+#: plugins/themeEditor/src/Manage.php:144
 msgid "Unlock update"
-msgstr ""
+msgstr "Atrakinimo atnaujinimas"
 
+#: plugins/themeEditor/src/Manage.php:145
 msgid "Lock update"
-msgstr ""
+msgstr "Užrakto atnaujinimas"
 
+#: plugins/themeEditor/src/Manage.php:149
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr ""
+msgstr "Užrakinti temos atnaujinimas netrukdo keisti savo failus, tik atnaujinti jį visuotinai."
 
+#: plugins/themeEditor/src/Manage.php:161
 msgid "Saving document..."
 msgstr "Saugomas dokumentas..."
 
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Document saved"
 msgstr "Dokumentas išsaugotas"
 
+#: plugins/themeEditor/src/Manage.php:163
 msgid "An error occurred:"
 msgstr "Įvyko klaida:"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:164
 msgid "Are you sure you want to reset this file?"
-msgstr "Ar tikrai norite ištrinti šį puslapį?"
+msgstr "Ar tikrai norite iš naujo nustatyti šį failą?"
 
+#: plugins/themeEditor/src/Manage.php:186
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Dabartinė jūsų blogo tema yra \"%s\"."
 
+#: plugins/themeEditor/src/Manage.php:197
 msgid "Please select a file to edit."
 msgstr "Pasirinkite failą redagavimui."
 
+#: plugins/themeEditor/src/Manage.php:202
 msgid "File editor"
 msgstr "Failų redagavimas"
 
+#: plugins/themeEditor/src/Manage.php:203
 #, php-format
 msgid "Editing file %s"
 msgstr "Redaguojamas failas %s"
 
+#: plugins/themeEditor/src/Manage.php:213
 msgid "Reset"
-msgstr ""
+msgstr "Iš naujo nustatyti"
 
+#: plugins/themeEditor/src/Manage.php:219
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Negalima įrašyti į failą. Patikrinkite temų failams suteiktas teises."
 
+#: plugins/themeEditor/src/Manage.php:246
 msgid "Templates files"
 msgstr "Šablonų failai"
 
+#: plugins/themeEditor/src/Manage.php:249
 msgid "CSS files"
 msgstr "CSS failai"
 
+#: plugins/themeEditor/src/Manage.php:252
 msgid "JavaScript files"
 msgstr "JavaScript failai"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:255
 msgid "Locales files"
-msgstr "Šablonų failai"
+msgstr "Vietovių failai"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:258
 msgid "PHP files"
-msgstr "CSS failai"
+msgstr "PHP failai"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:267
 msgid "You can't edit a distributed theme."
-msgstr "Tipinės temos redaguoti negalima."
+msgstr "Išplatintos temos redaguoti negalima."
 
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "Failo nėra"
 
+#: plugins/themeEditor/src/ThemeEditor.php:164
 msgid "From theme:"
-msgstr ""
+msgstr "Iš temos:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:166
 msgid "From parent:"
-msgstr ""
+msgstr "Iš tėvų:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:171
 msgid "From template set:"
-msgstr ""
+msgstr "Iš šablonų rinkinio:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:206
+#: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:325
 msgid "File does not exist."
 msgstr "Failas neegzistuoja"
 
+#: plugins/themeEditor/src/ThemeEditor.php:211
 #, php-format
 msgid "File %s is not readable"
 msgstr "Failas %s yra neperskaitomas"
 
+#: plugins/themeEditor/src/ThemeEditor.php:273
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
+
+#: plugins/themeEditor/src/ThemeEditor.php:338
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Nepavyksta ištrinti failo %s. Patikrinkite temos failų ir aplankų leidimus."
+
+#: plugins/userPref/src/Backend.php:23
 msgid "user:preferences"
-msgstr ""
+msgstr "naudotojas:preferencijos"
 
-#, fuzzy
+#: plugins/userPref/src/Manage.php:70 plugins/userPref/src/Manage.php:89
 msgid "Preferences successfully updated"
-msgstr "Puslapis sėkmingai atnaujintas."
+msgstr "Nustatymai sėkmingai atnaujinti"
 
+#: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
 msgid "User preferences"
-msgstr ""
+msgstr "Naudotojo parinktys"
 
+#: plugins/userPref/src/Manage.php:127 plugins/userPref/src/Manage.php:128
 msgid "Global preferences"
-msgstr ""
+msgstr "Visuotinės nuostatos"
 
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
 msgstr "Valdikliai"
 
-#, fuzzy
+#: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
-msgstr "Valdiklių šablonų žymės"
+msgstr "Valdiklio tekstinės sritys"
 
+#: plugins/widgets/src/Install.php:34
 msgid "Unable to initialize default widgets."
-msgstr ""
+msgstr "Nepavyksta inicializuoti numatytųjų valdiklių."
 
+#: plugins/widgets/src/Manage.php:57
 msgid "navigation"
 msgstr "navigacija"
 
+#: plugins/widgets/src/Manage.php:58
 msgid "extra"
 msgstr "ekstra"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:59
 msgid "custom"
-msgstr "Kitoks…"
+msgstr "pasirinktinis"
 
+#: plugins/widgets/src/Manage.php:194
 msgid "Sidebars and their widgets have been saved."
-msgstr ""
+msgstr "Išsaugotos šoninės juostos ir jų valdikliai."
 
+#: plugins/widgets/src/Manage.php:206
 msgid "Sidebars have been resetting."
-msgstr ""
+msgstr "Iš naujo nustatomos šoninės juostos."
 
+#: plugins/widgets/src/Manage.php:237
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Ar tikrai norite išvalyti šonines juostas?"
 
+#: plugins/widgets/src/Manage.php:270
 msgid "Available widgets"
 msgstr "Galimi valdikliai"
 
+#: plugins/widgets/src/Manage.php:271
 msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+msgstr "Vilkite valdiklius iš šio sąrašo į vieną iš šoninių juostų ir pridėkite."
 
+#: plugins/widgets/src/Manage.php:281 plugins/widgets/src/Manage.php:399
 msgid "order"
 msgstr "rūšiavimas"
 
+#: plugins/widgets/src/Manage.php:285
 msgid "Append to:"
 msgstr "Pritaikyti:"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:296
 msgid "Add widgets to sidebars"
-msgstr "pridėti valdiklius prie šoninių juostų"
+msgstr "Pridėti valdiklių į šonines juostas"
 
+#: plugins/widgets/src/Manage.php:303
 msgid "Navigation sidebar"
 msgstr "Navigacinė soninė juosta"
 
+#: plugins/widgets/src/Manage.php:308
 msgid "Extra sidebar"
 msgstr "Papildoma šoninė juosta"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:313
 msgid "Custom sidebar"
-msgstr "nutrinti šonines juostas"
+msgstr "Pasirinktinė šoninė juosta"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:318
 msgid "Update sidebars"
-msgstr "atnaujinti šonines juostas"
+msgstr "Atnaujinti šonines juostas"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:320
 msgid "Reset sidebars"
-msgstr "nutrinti šonines juostas"
+msgstr "Iš naujo nustatyti šonines juostas"
 
+#: plugins/widgets/src/Manage.php:328
 msgid "Widget ID:"
 msgstr "Valdiklio ID:"
 
+#: plugins/widgets/src/Manage.php:334
 msgid "No setting for this widget"
 msgstr "Nėra valdiklio nustatymų"
 
+#: plugins/widgets/src/Manage.php:340
 msgid "boolean"
-msgstr ""
+msgstr "boolean"
 
+#: plugins/widgets/src/Manage.php:340 plugins/widgets/src/Manage.php:345
 msgid "possible values:"
-msgstr ""
+msgstr "galimos reikšmės:"
 
+#: plugins/widgets/src/Manage.php:344
 msgid "empty string"
-msgstr ""
+msgstr "tuščia eilutė"
 
+#: plugins/widgets/src/Manage.php:345
 msgid "listitem"
-msgstr ""
+msgstr "listitem"
 
+#: plugins/widgets/src/Manage.php:351
 msgid "string"
-msgstr ""
+msgstr "eilutė"
 
+#: plugins/widgets/src/Manage.php:357
 msgid "Setting name:"
 msgstr "Nustatymo pavadiminas:"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:382
 msgid "No widget as far."
-msgstr "Valdiklio nėra."
+msgstr "Kol kas nėra valdiklio."
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:389 plugins/widgets/src/Manage.php:404
 msgid "Up the widget"
-msgstr "Pašalinti valdiklį"
+msgstr "Į viršų valdiklį"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:390 plugins/widgets/src/Manage.php:405
 msgid "Down the widget"
-msgstr "Pašalinti valdiklį"
+msgstr "Žemyn valdikliu"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove the widget"
-msgstr "Pašalinti valdiklį"
+msgstr "Valdiklio pašalinimas"
 
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove widget"
 msgstr "Pašalinti valdiklį"
 
+#: plugins/widgets/src/Manage.php:418
 msgid "Drag widgets here to remove."
-msgstr ""
+msgstr "Vilkite čia valdiklius, kad pašalintumėte."
 
+#: plugins/widgets/src/Widgets.php:54
 msgid "Search engine"
 msgstr "Paie.kos variklis"
 
+#: plugins/widgets/src/Widgets.php:56
 msgid "Placeholder (HTML5 only, optional):"
-msgstr ""
+msgstr "Vietoj nuorodos (tik HTML5, neprivaloma):"
 
+#: plugins/widgets/src/Widgets.php:63
 msgid "Navigation links"
 msgstr "Navigacijos nuorodos"
 
+#: plugins/widgets/src/Widgets.php:71
 msgid "Selected entries"
 msgstr "Pasirinkti įrašai"
 
+#: plugins/widgets/src/Widgets.php:72
 msgid "Best of me"
 msgstr "Mano geriausia"
 
+#: plugins/widgets/src/Widgets.php:80
 msgid "Blog languages"
 msgstr "Blogo kalbos"
 
+#: plugins/widgets/src/Widgets.php:90
 msgid "With entries counts"
 msgstr "Su įrašų skaičiumi"
 
+#: plugins/widgets/src/Widgets.php:91
 msgid "Include sub cats in count"
-msgstr ""
+msgstr "Įskaičiuokite subkatus į skaičių"
 
-#, fuzzy
+#: plugins/widgets/src/Widgets.php:92
 msgid "Include empty categories"
-msgstr "Importuojamos kategorijos"
+msgstr "Įtraukti tuščias kategorijas"
 
+#: plugins/widgets/src/Widgets.php:99
 msgid "Subscribe links"
 msgstr "Sekti nuorodas"
 
+#: plugins/widgets/src/Widgets.php:100
 msgid "Subscribe"
 msgstr "Sekti naujienas"
 
+#: plugins/widgets/src/Widgets.php:101
 msgid "Feeds type:"
 msgstr "Rss tipai:"
 
+#: plugins/widgets/src/Widgets.php:108
 msgid "Feed reader"
 msgstr "Rss skaityklė"
 
+#: plugins/widgets/src/Widgets.php:109
 msgid "Somewhere else"
 msgstr "Kitur"
 
+#: plugins/widgets/src/Widgets.php:111 plugins/widgets/src/Widgets.php:139
 msgid "Entries limit:"
 msgstr "Įrašų limitas:"
 
+#: plugins/widgets/src/Widgets.php:118
 msgid "Text"
 msgstr "Tekstas"
 
+#: plugins/widgets/src/Widgets.php:120
 msgid "Text:"
 msgstr "Tekstas:"
 
+#: plugins/widgets/src/Widgets.php:127
 msgid "Uncategorized"
 msgstr "Nerūšiuota"
 
+#: plugins/widgets/src/Widgets.php:131 plugins/widgets/src/Widgets.php:133
 msgid "Last entries"
 msgstr "Paskutiniai įrašai"
 
+#: plugins/widgets/src/Widgets.php:136
 msgid "Tag:"
 msgstr "Žyma:"
 
+#: plugins/widgets/src/Widgets.php:147 plugins/widgets/src/Widgets.php:148
 msgid "Last comments"
 msgstr "Paskutiniai komentarai"
 
+#: plugins/widgets/src/Widgets.php:149
 msgid "Comments limit:"
 msgstr "Komentarų limitas:"
 
+#: plugins/widgets/src/Widgets.php:428
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Šio blogo įrašų %s rss"
 
+#: plugins/widgets/src/Widgets.php:429
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Šio blogo komentarų %s rss"
 
+#: plugins/widgets/src/Widgets.php:437
 msgid "Entries feed"
 msgstr "Įrašų rss"
 
+#: plugins/widgets/src/Widgets.php:443
 msgid "Comments feed"
 msgstr "Komentarų rss"
 
+#: plugins/widgets/src/WidgetsElement.php:479
 msgid "Title (optional)"
-msgstr ""
+msgstr "Pavadinimas (neprivaloma)"
 
-#, fuzzy
+#: plugins/widgets/src/WidgetsElement.php:490
 msgid "All pages"
-msgstr "Visos žymos"
+msgstr "Visi puslapiai"
 
+#: plugins/widgets/src/WidgetsElement.php:491
 msgid "Home page only"
 msgstr "Tik namų puslapis"
 
+#: plugins/widgets/src/WidgetsElement.php:492
 msgid "Except on home page"
-msgstr ""
+msgstr "Išskyrus pagrindiniame puslapyje"
 
+#: plugins/widgets/src/WidgetsElement.php:500
 msgid "Display on:"
-msgstr ""
+msgstr "Ekranas įjungtas:"
 
-#, fuzzy
+#: plugins/widgets/src/WidgetsElement.php:536
 msgid "Content only"
-msgstr "Turinio filtrai"
+msgstr "Tik turinys"
 
-#, fuzzy
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "CSS class:"
-msgstr "CSS failai"
+msgstr "CSS klasė:"
 
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Offline"
-msgstr ""
+msgstr "Neprisijungus prie interneto"
 
-#, php-format
-#~ msgid "Unable to write file %s. Please check your theme files and folders permissions."
-#~ msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
-
-#, fuzzy, php-format
-#~ msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-#~ msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
-
-#~ msgid "Presentation widgets"
-#~ msgstr "Vaizdavimo valdikliai"
-
-#~ msgid "default"
-#~ msgstr "standartinis"
-
-#, fuzzy
-#~ msgid "Unable to create css file."
-#~ msgstr "Nepavyksta sukurti paveikslėlių."
-
-#~ msgid "Unable to open image."
-#~ msgstr "Nepavyko atidaryti paveikslėlio."
-
-#~ msgid "Light linear gradient"
-#~ msgstr "Šviesus linijinis gradientas"
-
-#~ msgid "Medium linear gradient"
-#~ msgstr "Vidutinis linijinis gradientas"
-
-#~ msgid "Dark linear gradient"
-#~ msgstr "Tamsus linijinis gradientas"
-
-#~ msgid "Solid color"
-#~ msgstr "Spalva"
-
-#~ msgid "Custom..."
-#~ msgstr "Kitoks…"
-
-#~ msgid "Theme configuration has been successfully updated."
-#~ msgstr "Nustatymai sėkmingai atnaujiti."
-
-#~ msgid "Blowup configuration"
-#~ msgstr "Blowup nustatymai"
-
-#~ msgid "Predefined styles"
-#~ msgstr "Numatyti stiliai"
-
-#~ msgid "Apply code"
-#~ msgstr "Taikyti kodą"
-
-#, fuzzy
-#~ msgid "Choose a predefined style"
-#~ msgstr "Numatyti stiliai"
-
-#~ msgid "General"
-#~ msgstr "Bendras"
-
-#~ msgid "Background color:"
-#~ msgstr "Fono spalva:"
-
-#~ msgid "Background color fill:"
-#~ msgstr "Fono spalvos užpildas:"
-
-#~ msgid "Main text font:"
-#~ msgstr "Pagrindinio teksto šriftas:"
-
-#~ msgid "Main text font size:"
-#~ msgstr "Pagrindinio teksto dydis:"
-
-#~ msgid "Main text color:"
-#~ msgstr "Pagrindinio teksto spalva:"
-
-#~ msgid "Text line height:"
-#~ msgstr "Linijos aukštis:"
-
-#~ msgid "Links color:"
-#~ msgstr "Nuorodų spalva:"
-
-#~ msgid "Visited links color:"
-#~ msgstr "Aplankytų nuorodų spalva:"
-
-#~ msgid "Focus links color:"
-#~ msgstr "Fokusuotų nuorodų spalva:"
-
-#~ msgid "Prelude color:"
-#~ msgstr "Įžangos spalva:"
-
-#~ msgid "Hide main title"
-#~ msgstr "Slėpti pagrindinę antraštę"
-
-#~ msgid "Main title font:"
-#~ msgstr "Pagrindinės antraštės šriftas:"
-
-#~ msgid "Main title font size:"
-#~ msgstr "Pagrindinės antraštės šrifto spalva:"
-
-#~ msgid "Main title color:"
-#~ msgstr "Pagrindinės antraštės spalva:"
-
-#~ msgid "Main title alignment:"
-#~ msgstr "Pagrindinės antraštės lygiavimas:"
-
-#~ msgid "center"
-#~ msgstr "centre"
-
-#~ msgid "left"
-#~ msgstr "kairėje"
-
-#~ msgid "right"
-#~ msgstr "dešinėje"
-
-#~ msgid "Main title position (x:y)"
-#~ msgstr "Pagrindinės antraštės pozicija (x:y):"
-
-#~ msgid "Top image"
-#~ msgstr "Viršutinis paveikslėlis"
-
-#~ msgid "Choose \"Custom...\" to upload your own image."
-#~ msgstr "Pasirinkite \"Kitoks…\" norėdami įkelti savo paveikslėlį."
-
-#~ msgid "Add your image:"
-#~ msgstr "Pridėkite savo paveikslėlį:"
-
-#, php-format
-#~ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-#~ msgstr "800 pikselių pločio, maksimalaus %s dydžio, JPEG arba PNG failas."
-
-#~ msgid "Sidebar"
-#~ msgstr "Šoninė juosta"
-
-#~ msgid "Sidebar position:"
-#~ msgstr "Šoninės juostos pozicija:"
-
-#~ msgid "Sidebar text font:"
-#~ msgstr "Šoninės juostos teksto šriftas:"
-
-#~ msgid "Sidebar text font size:"
-#~ msgstr "Šoninės juostos teksto šrifto dydis:"
-
-#~ msgid "Sidebar text color:"
-#~ msgstr "Šoninės juostos teksto spalva:"
-
-#~ msgid "Sidebar titles font:"
-#~ msgstr "Šoninės juostos antraštės šriftas:"
-
-#~ msgid "Sidebar titles font size:"
-#~ msgstr "Šoninės juostos antraštės šrifto dydis:"
-
-#~ msgid "Sidebar titles color:"
-#~ msgstr "Šoninės juostos antraštės spalva:"
-
-#~ msgid "Sidebar 2nd level titles font:"
-#~ msgstr "Šoninės juostos 2 eilės antraštės šriftas:"
-
-#~ msgid "Sidebar 2nd level titles font size:"
-#~ msgstr "Šoninės juostos 2 eilės antraštės šrifto dydis:"
-
-#~ msgid "Sidebar 2nd level titles color:"
-#~ msgstr "Šoninės juostos 2 eilės antraštės spalva:"
-
-#~ msgid "Sidebar lines color:"
-#~ msgstr "Šoninės juostos linijų spalva:"
-
-#~ msgid "Sidebar links color:"
-#~ msgstr "Šoninės juostos nuorodų spalva:"
-
-#~ msgid "Sidebar visited links color:"
-#~ msgstr "Šoninės juostos aplankytų nuorodų spalva:"
-
-#~ msgid "Sidebar focus links color:"
-#~ msgstr "Šoninės juostos fokusuotų nuorodų spalva:"
-
-#~ msgid "Date title font:"
-#~ msgstr "Datos antraštės šriftas:"
-
-#~ msgid "Date title font size:"
-#~ msgstr "Datos antraštės šrifto dydis:"
-
-#~ msgid "Date title color:"
-#~ msgstr "Datos antraštės spalva:"
-
-#~ msgid "Entry title font:"
-#~ msgstr "Įrašo antraštės šriftas:"
-
-#~ msgid "Entry title font size:"
-#~ msgstr "Įrašo antraštės šrifto dydis:"
-
-#~ msgid "Entry title color:"
-#~ msgstr "Įrašo antraštės spalva:"
-
-#~ msgid "Comment background color:"
-#~ msgstr "Komentaro fono spalva:"
-
-#~ msgid "Comment text color:"
-#~ msgstr "Komentaro teksto spalva:"
-
-#~ msgid "My comment background color:"
-#~ msgstr "Mano komentaro fono spalva:"
-
-#~ msgid "My comment text color:"
-#~ msgstr "Mao komentaro teksto spalva:"
-
-#~ msgid "Footer"
-#~ msgstr "Apatinė dalis"
-
-#~ msgid "Footer font:"
-#~ msgstr "Apatinės dalies šriftas:"
-
-#~ msgid "Footer font size:"
-#~ msgstr "Apatinės dalies šrifto dydis:"
-
-#~ msgid "Footer color:"
-#~ msgstr "Apatinės dalies spalva:"
-
-#~ msgid "Footer links color:"
-#~ msgstr "Apatinės dalies nuorodų spalva:"
-
-#~ msgid "Footer background color:"
-#~ msgstr "Apatinės dalies fono spalva:"
-
-#~ msgid "Configuration import / export"
-#~ msgstr "Nustatymų importavimas / eksportavimas"
-
-#~ msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-#~ msgstr "Galite dalintis savo nustatymai naudodamiesi šiuo kodu. Norėdami pritaikyti nustatymus, ikelkite kodą, paspauskite \"Taikyti kodą\" ir išsaugokite."
-
-#, fuzzy
-#~ msgid "Liste des auteurs"
-#~ msgstr "Visos kategorijos"
-
-#, fuzzy
-#~ msgid "Liste des séries"
-#~ msgstr "Paskutiniai įrašai"
-
-#~ msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-#~ msgstr "Dėl šių priežasčių paveikslėliai negali būti sukurti. Nebus galima keisti kai kurių fono nustatymų."
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Ar tikrai norite ištrinti šį puslapį?"
-
-#~ msgid "Check all"
-#~ msgstr "Patikrinti visus"
-
-#~ msgid "Page top"
-#~ msgstr "Puslapio viršus"
-
-#~ msgid "URL"
-#~ msgstr "URL"
-
-#~ msgid "or"
-#~ msgstr "arba"
-
-#~ msgid "Settings definition successfully updated"
-#~ msgstr "Nustatymų aprašas sėkmingai atnaujintas"
-
-#~ msgid "Global IP"
-#~ msgstr "Globalus IP"
-
-#~ msgid "Global word"
-#~ msgstr "Bendras žodis"
-
-#~ msgid "List"
-#~ msgstr "Sąrašas"
-
-#~ msgid "Return to filters"
-#~ msgstr "Grįžti į filtrus"
-
-#~ msgid "Delete all spams"
-#~ msgstr "Trinti visą spamą"
-
-#~ msgid "XFN"
-#~ msgstr "XFN"
-
-#~ msgid "import"
-#~ msgstr "įkelti"
-
-#~ msgid "Preview"
-#~ msgstr "Peržiūrėti"
-
-#~ msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-#~ msgstr "Negalima bent viena iš šių funkcijų: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-#~ msgid "The 'public' directory does not exist."
-#~ msgstr "Direktorija 'public' neegzistuoja"
-
-#~ msgid "The '%s' directory cannot be modified."
-#~ msgstr "Negalima modifikuoti '%s' direktorijos."
-
-#~ msgid "Invalid file type."
-#~ msgstr "Netinkamas failo tipas."
-
-#~ msgid "Uploaded image is not 800 pixels wide."
-#~ msgstr "Įkeltas paveikslėlis yra ne 800 pikselių pločio."
-
-#~ msgid "Export all content"
-#~ msgstr "Eksportuoti visą turinį"
-
-#~ msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
-#~ msgstr "Visas Dotclear 1.2 turinys bus importuotas į dabartinį blogą (%s) kaip naujas turinys."
-
-#~ msgid "Feed import"
-#~ msgstr "Feed importas"
-
-#~ msgid "Imports a feed as new entries."
-#~ msgstr "Importuoja rss feed kaip naujus įrašus"
-
-#~ msgid "Import from a feed"
-#~ msgstr "Importuoti iš rss"
-
-#~ msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
-#~ msgstr "Bus importuota RSS arba Atom įrašai kaip nauji įrašai jūsų bloge: %s"
-
-#~ msgid "Send"
-#~ msgstr "Siųsti"
-
-#~ msgid "Import a full backup file"
-#~ msgstr "Importuoti visą atsarginės kopijos failą"
-
-#~ msgid "The backup file does not appear to be well formed."
-#~ msgstr "Atsarginės kopijos failas yra blogai formatuotas,"
-
-#~ msgid "next"
-#~ msgstr "kitas"
-
-#~ msgid "Vacuum tables"
-#~ msgstr "Vacuum lentelės"
-
-#~ msgid "Counters"
-#~ msgstr "Skaičiuoklės"
-
-#~ msgid "Reset comments and ping counters"
-#~ msgstr "Išvalyti komentarų ir ping skaitiklius"
-
-#~ msgid "Index all posts"
-#~ msgstr "Indeksuoti visus įrašus"
-
-#~ msgid "Vacuum logs"
-#~ msgstr "Vacuum registras"
-
-#~ msgid "Empty directory"
-#~ msgstr "Trinti direktoriją"
-
-#~ msgid "next page"
-#~ msgstr "kitas puslapis"
-
-#~ msgid "previous page"
-#~ msgstr "ankstesnis puslapis"
-
-#~ msgid "Preview page"
-#~ msgstr "Peržiūrėti puslapį"
-
-#~ msgid "Page password"
-#~ msgstr "Puslapio slaptažodis:"
-
-#~ msgid "Pings:"
-#~ msgstr "Ping'ai"
-
-#~ msgid "Tags:"
-#~ msgstr "Žymos:"
-
-#~ msgid "Edit tag"
-#~ msgstr "Redaguoti žymą"
-
-#~ msgid "Rename this tag:"
-#~ msgstr "Pervadinti šią žymą:"
-
-#~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-#~ msgstr "Jei jums leidžiama redaguoti savo temos šablonus, valdiklius galite pridėti tiesiogiai kaip šablonų žymas su savais nustatymais."
-
-#~ msgid "To add a widget in your template, you need to write code like this:"
-#~ msgstr "Norėdami pridėti valdiklį į savo šabloną, turite šitaip rašyti kodą:"
-
-#~ msgid "Widget ID"
-#~ msgstr "Valdiklio ID"
-
-#~ msgid "Setting value"
-#~ msgstr "Nustatymo reikšmė"
-
-#~ msgid "Here are the following available widgets for your blog:"
-#~ msgstr "Šiuos valdiklius galite naudoti savo bloge:"
-
-#~ msgid "External media selector"
-#~ msgstr "Externe Medienauswahl"
-
-#~ msgid "Supported media services"
-#~ msgstr "Unterstützte Medienservices"
-
-#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
-#~ msgstr "Bitte gebe einen URL der Seite ein von der Du das Video einfügen willst."
-
-#~ msgid "Page URL:"
-#~ msgstr "URL der Seite:"
-
-#~ msgid "Media title"
-#~ msgstr "Titel des Mediums"
-
-#~ msgid "Unsupported service"
-#~ msgstr "Nicht unterstützter Service"
-
-#~ msgid "Invalid page URL"
-#~ msgstr "Falscher URL der Seite"
