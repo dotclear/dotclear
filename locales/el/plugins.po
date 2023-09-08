@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2023-07-10 07:06\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-08 03:01\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -16,6 +16,440 @@ msgstr ""
 "X-Crowdin-Language: el\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+#: plugins/Uninstaller/src/Backend.php:45
+msgid "Uninstall"
+msgstr "Απεγκατάσταση του"
+
+#: plugins/Uninstaller/src/Backend.php:105
+msgid "Plugin has been successfully uninstalled."
+msgstr "Το πρόσθετο έχει απεγκατασταθεί επιτυχώς."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Cache"
+msgstr "Κρυφή μνήμη"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:39
+msgid "Folders from cache directory"
+msgstr "Φάκελοι από τον κατάλογο cache"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+msgid "delete selected cache directories"
+msgstr "διαγραφή επιλεγμένων καταλόγων cache"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr "delete \"%s\" cache directory"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr "\"%s\" cache directory deleted"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:47
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "Απέτυχε η διαγραφή του καταλόγου cache \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+msgid "empty selected cache directories"
+msgstr "άδεια επιλεγμένων καταλόγων cache"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr "άδειο \"%s\" cache directory"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr "\"%s\" cache directory empty"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:56
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "Απέτυχε η εκκένωση του καταλόγου cache \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:40
+msgid "Logs"
+msgstr "Ημερολόγια"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:41
+msgid "Logs in Dotclear logs table"
+msgstr "Καταγραφές στον πίνακα Dotclear logs"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+msgid "delete selected logs tables"
+msgstr "διαγραφή επιλεγμένων πινάκων καταγραφής"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr "delete \"%s\" πίνακας logs"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:48
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr "\"%s\" πίνακας καταγραφών διαγράφεται"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:49
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr "Απέτυχε η διαγραφή του πίνακα \"%s\" logs"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
+msgid "Folders from plugins directories"
+msgstr "Φάκελοι από καταλόγους plugins"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+msgid "delete selected plugins files and directories"
+msgstr "διαγραφή επιλεγμένων αρχείων και καταλόγων plugins"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr "delete \"%s\" αρχεία και κατάλογοι πρόσθετων προγραμμάτων"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "\"%s\" Διαγραφή αρχείων και καταλόγων του plugin"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "Απέτυχε η διαγραφή αρχείων και καταλόγων του πρόσθετου \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:40
+msgid "Users preferences workspaces"
+msgstr "Προτιμήσεις χρηστών χώροι εργασίας"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+msgid "delete selected global preferences workspaces"
+msgstr "διαγραφή επιλεγμένων χώρων εργασίας παγκόσμιων προτιμήσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr "delete \"%s\" global preferences workspace"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "\"%s\" global preferences workspace deleted"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "Απέτυχε η διαγραφή του χώρου εργασίας \"%s\" global preferences"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+msgid "delete selected users preferences workspaces"
+msgstr "διαγραφή επιλεγμένων χώρων εργασίας προτιμήσεων χρηστών"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr "delete \"%s\" users preferences workspace"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "\"%s\" διαγραφή χώρου εργασίας προτιμήσεων χρηστών"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:57
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "Απέτυχε η διαγραφή του χώρου εργασίας \"%s\" users preferences"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+msgid "delete selected preferences workspaces"
+msgstr "διαγραφή επιλεγμένων χώρων εργασίας προτιμήσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr "delete \"%s\" preferences workspace"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr "\"%s\" διαγραφή χώρου εργασίας προτιμήσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:66
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "Απέτυχε η διαγραφή του χώρου εργασίας προτιμήσεων \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "delete related preferences"
+msgstr "διαγραφή σχετικών προτιμήσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
+msgid "related preferences deleted"
+msgstr "σχετικές προτιμήσεις διαγράφονται"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:74
+msgid "Failed to delete related preferences"
+msgstr "Απέτυχε η διαγραφή σχετικών προτιμήσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
+#: plugins/dcCKEditor/tpl/index.php:9 plugins/dcLegacyEditor/tpl/index.php:4
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:40
+msgid "Namespaces registered in dcSettings"
+msgstr "Χώροι ονομάτων καταχωρημένοι στο dcSettings"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+msgid "delete selected global settings namespaces"
+msgstr "διαγραφή επιλεγμένων χώρων ονομάτων παγκόσμιων ρυθμίσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr "delete \"%s\" global settings namespace"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr "\"%s\" global settings namespace deleted"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "Απέτυχε η διαγραφή του χώρου ονομάτων των παγκόσμιων ρυθμίσεων \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+msgid "delete selected blog settings namespaces"
+msgstr "διαγραφή επιλεγμένων χώρων ονομάτων ρυθμίσεων ιστολογίου"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr "delete \"%s\" blog settings namespace"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "\"%s\" Διαγραφή του χώρου ονομάτων των ρυθμίσεων του ιστολογίου"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:57
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "Απέτυχε η διαγραφή του χώρου ονομάτων \"%s\" blog settings"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+msgid "delete selected settings namespaces"
+msgstr "διαγραφή επιλεγμένων χώρων ονομάτων ρυθμίσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr "delete \"%s\" settings namespace"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr "\"%s\" settings namespace διαγράφηκε"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:66
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "Απέτυχε η διαγραφή του χώρου ονομάτων ρυθμίσεων \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "delete related settings"
+msgstr "διαγραφή σχετικών ρυθμίσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
+msgid "related settings deleted"
+msgstr "σχετικές ρυθμίσεις διαγράφονται"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:74
+msgid "Failed to delete related settings"
+msgstr "Απέτυχε η διαγραφή σχετικών ρυθμίσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:43
+msgid "Tables"
+msgstr "Πίνακες"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+msgid "All database tables of Dotclear"
+msgstr "Όλοι οι πίνακες της βάσης δεδομένων της Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:49
+msgid "delete selected tables"
+msgstr "διαγραφή επιλεγμένων πινάκων"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:50
+#, php-format
+msgid "delete \"%s\" table"
+msgstr "delete \"%s\" table"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:51
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr "\"%s\" πίνακας διαγράφηκε"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:52
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr "Απέτυχε η διαγραφή του πίνακα \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:58
+msgid "empty selected tables"
+msgstr "άδεια επιλεγμένα τραπέζια"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:59
+#, php-format
+msgid "empty \"%s\" table"
+msgstr "άδειος πίνακας \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:60
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr "\"%s\" πίνακας άδειασε"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:61
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr "Απέτυχε να αδειάσει ο πίνακας \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
+msgid "Themes"
+msgstr "Θέματα"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:38
+msgid "Folders from blog themes directory"
+msgstr "Φάκελοι από τον κατάλογο θεμάτων του ιστολογίου"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+msgid "delete selected themes files and directories"
+msgstr "διαγραφή επιλεγμένων αρχείων και καταλόγων θεμάτων"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr "delete \"%s\" theme files and directories"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr "\"%s\" διαγραφή αρχείων και καταλόγων του θέματος"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:46
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "Απέτυχε η διαγραφή αρχείων και καταλόγων του θέματος \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Var"
+msgstr "Var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
+msgid "Folders from Dotclear VAR directory"
+msgstr "Φάκελοι από τον κατάλογο Dotclear VAR"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+msgid "delete selected var directories"
+msgstr "διαγραφή επιλεγμένων καταλόγων var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr "delete \"%s\" var directory"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr "\"%s\" var directory deleted"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr "Απέτυχε η διαγραφή του καταλόγου \"%s\" var"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
+msgid "Versions"
+msgstr "Εκδόσεις"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:38
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "Εκδόσεις καταχωρημένες στον πίνακα \"version\" του Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+msgid "delete selected versions numbers"
+msgstr "διαγραφή επιλεγμένων αριθμών εκδόσεων"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr "delete \"%s\" αριθμός έκδοσης"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr "\"%s\" αριθμός έκδοσης διαγράφεται"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:46
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr "Απέτυχε να διαγράψει τον αριθμό έκδοσης \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:118
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr "Άγνωστος καθαριστής \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:121
+msgid "Unsintaller can't remove itself"
+msgstr "Το Unsintaller δεν μπορεί να αφαιρέσει τον εαυτό του"
+
+#: plugins/Uninstaller/src/Manage.php:61
+msgid "Unknown module id to uninstall"
+msgstr "Άγνωστο αναγνωριστικό ενότητας για απεγκατάσταση"
+
+#: plugins/Uninstaller/src/Manage.php:69
+msgid "There are no uninstall actions for this module"
+msgstr "Δεν υπάρχουν ενέργειες απεγκατάστασης για αυτήν την ενότητα"
+
+#: plugins/Uninstaller/src/Manage.php:94
+msgid "Uninstall action successfuly excecuted"
+msgstr "Η ενέργεια απεγκατάστασης εκτελέστηκε επιτυχώς"
+
+#: plugins/Uninstaller/src/Manage.php:97
+msgid "No uninstall action done"
+msgstr "Δεν έχει γίνει καμία ενέργεια απεγκατάστασης"
+
+#: plugins/Uninstaller/src/Manage.php:142
+msgid "Perform selected actions"
+msgstr "Εκτέλεση επιλεγμένων ενεργειών"
+
+#: plugins/Uninstaller/src/Manage.php:157
+msgid "Are you sure you perform these ations?"
+msgstr "Είστε σίγουροι ότι εκτελείτε αυτές τις ενέργειες;"
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr "Απεγκατάσταση πρόσθετου \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr "Απεγκατάσταση θέματος \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:174
+#, php-format
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr "Η ενότητα \"%s %s\" προσφέρει προηγμένη διαδικασία unsintall:"
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
@@ -39,7 +473,7 @@ msgstr "Έλεγχος εγκυρότητας Trackback"
 msgid "Manage post attachments"
 msgstr "Διαχείριση συνημμένων δημοσιεύσεων"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
 msgstr "Σερβίρετε καταχωρήσεις ως απλές ιστοσελίδες"
 
@@ -49,7 +483,7 @@ msgid "Manage every blog configuration directive"
 msgstr "Διαχείριση κάθε οδηγίας ρύθμισης ιστολογίου"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
 msgstr "τελεία επεξεργαστή παλαιού τύπου"
 
@@ -120,7 +554,7 @@ msgstr "Λίστα επιλεγμένων καταχωρήσεων"
 msgid "List of available languages"
 msgstr "Λίστα διαθέσιμων γλωσσών"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:84
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:88
 msgid "List of categories"
 msgstr "Λίστα κατηγοριών"
 
@@ -164,45 +598,45 @@ msgstr "Ετικέτες σύννεφο"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:68 plugins/aboutConfig/src/Manage.php:88
+#: plugins/aboutConfig/src/Manage.php:67 plugins/aboutConfig/src/Manage.php:87
 msgid "Configuration successfully updated"
 msgstr "Οι ρυθμίσεις ενημερώθηκαν επιτυχώς"
 
+#: plugins/aboutConfig/src/Manage.php:123
 #: plugins/aboutConfig/src/Manage.php:124
-#: plugins/aboutConfig/src/Manage.php:125
 #, php-format
 msgid "Settings for %s"
 msgstr "Ρυθμίσεις για %s"
 
+#: plugins/aboutConfig/src/Manage.php:131
 #: plugins/aboutConfig/src/Manage.php:132
-#: plugins/aboutConfig/src/Manage.php:133
 msgid "Global settings"
 msgstr "Καθολικές ρυθμίσεις"
 
-#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:150
+#: plugins/aboutConfig/src/Manage.php:155 plugins/userPref/src/Manage.php:150
 msgid "Setting ID"
 msgstr "Ρύθμιση ID"
 
-#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:151
 msgid "Value"
 msgstr "Τιμή"
 
-#: plugins/aboutConfig/src/Manage.php:159 plugins/antispam/src/Manage.php:216
+#: plugins/aboutConfig/src/Manage.php:158 plugins/antispam/src/Manage.php:216
 #: plugins/blogroll/src/Manage.php:252 plugins/blogroll/src/Manage.php:395
-#: plugins/simpleMenu/src/Manage.php:221 plugins/simpleMenu/src/Manage.php:689
+#: plugins/simpleMenu/src/Manage.php:221 plugins/simpleMenu/src/Manage.php:669
 #: plugins/userPref/src/Manage.php:153
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:197
+#: plugins/aboutConfig/src/Manage.php:202 plugins/userPref/src/Manage.php:197
 msgid "Goto:"
 msgstr "Γκότο:"
 
-#: plugins/aboutConfig/src/Manage.php:250 plugins/userPref/src/Manage.php:243
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "no"
 msgstr "όχι"
 
-#: plugins/aboutConfig/src/Manage.php:250 plugins/userPref/src/Manage.php:243
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "yes"
 msgstr "ναι"
 
@@ -239,16 +673,16 @@ msgstr "Αποκτήστε το δικό σας κλειδί API"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:103
+#: plugins/antispam/src/Antispam.php:125
 msgid "This comment is a spam:"
 msgstr "Αυτό το σχόλιο είναι ένα spam:"
 
-#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:30
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(συμπεριλαμβανομένου %d σχολιασμού spam)"
 
-#: plugins/antispam/src/Antispam.php:118 plugins/antispam/src/Rest.php:30
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(συμπεριλαμβανομένων %d spam σχολίων)"
@@ -328,7 +762,7 @@ msgstr "Καθολική IP (χρησιμοποιείται για όλα τα b
 #: plugins/antispam/src/Filters/Ip.php:198
 #: plugins/antispam/src/Filters/IpV6.php:197
 #: plugins/antispam/src/Filters/Words.php:186
-#: plugins/widgets/src/Manage.php:292
+#: plugins/widgets/src/Manage.php:287
 msgid "Add"
 msgstr "Προσθήκη"
 
@@ -439,15 +873,15 @@ msgstr "Δημιουργία προεπιλεγμένης λίστας λέξε�
 msgid "This word exists"
 msgstr "Αυτή η λέξη υπάρχει"
 
-#: plugins/antispam/src/FrontendUrl.php:60
+#: plugins/antispam/src/FrontendUrl.php:59
 msgid "Spam moderation"
 msgstr "Διαμεσολάβηση spam"
 
-#: plugins/antispam/src/FrontendUrl.php:64
+#: plugins/antispam/src/FrontendUrl.php:63
 msgid "Spam"
 msgstr "Ανεπιθύμητα"
 
-#: plugins/antispam/src/FrontendUrl.php:68
+#: plugins/antispam/src/FrontendUrl.php:67
 msgid "Ham"
 msgstr "Ham"
 
@@ -494,7 +928,7 @@ msgid "Available spam filters"
 msgstr "Διαθέσιμα φίλτρα spam"
 
 #: plugins/antispam/src/Manage.php:212
-#: plugins/pages/src/BackendDefaultActions.php:77
+#: plugins/pages/src/BackendDefaultActions.php:76
 msgid "Order"
 msgstr "Σειρά"
 
@@ -539,7 +973,7 @@ msgstr "Χωρίς περιγραφή"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Φιλτραρισμένο από %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:152
+#: plugins/antispam/src/SpamFilters.php:155
 msgid "Unknown filter."
 msgstr "Άγνωστο φίλτρο."
 
@@ -646,8 +1080,8 @@ msgid "OPML or XBEL File:"
 msgstr "Αρχείο OPML ή XBEL:"
 
 #: plugins/blogroll/src/Manage.php:380 plugins/blogroll/src/Manage.php:424
-#: plugins/importExport/src/Manage.php:110
-#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleImportFeed.php:229
 #: plugins/importExport/src/ModuleImportFlat.php:223
 #: plugins/importExport/src/ModuleImportFlat.php:261
 msgid "Import"
@@ -834,7 +1268,7 @@ msgstr "Μην εγκλωβίζεις το breadcrumb σε μια ετικέτα
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
 #: plugins/simpleMenu/src/Manage.php:114 plugins/simpleMenu/src/Manage.php:225
-#: plugins/widgets/src/Widgets.php:230
+#: plugins/widgets/src/Widgets.php:234
 msgid "Home"
 msgstr "Αρχική"
 
@@ -848,7 +1282,7 @@ msgstr "σελίδα %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:252 plugins/widgets/src/Widgets.php:247
+#: plugins/simpleMenu/src/Manage.php:252 plugins/widgets/src/Widgets.php:251
 msgid "Archives"
 msgstr "Αρχειοθέτηση"
 
@@ -879,12 +1313,12 @@ msgstr "Αποτυχία δημιουργίας ψεύτικου αρχείου 
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Δημιουργήστε ένα αρχείο php που περιέχει συμβολοσειρές για μετάφραση που δεν γίνονται με εργαλεία πυρήνα."
 
-#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:5
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:6
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:38
-#: plugins/dcLegacyEditor/src/Backend.php:44
+#: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
 msgstr "HTML"
 
@@ -923,113 +1357,109 @@ msgid "URL field cannot be empty."
 msgstr "Το πεδίο URL δεν μπορεί να είναι κενό."
 
 #: plugins/dcCKEditor/src/Manage.php:130
-#: plugins/dcLegacyEditor/src/Manage.php:41
+#: plugins/dcLegacyEditor/src/Manage.php:42
 msgid "The configuration has been updated."
 msgstr "Οι ρυθμίσεις έχουν ενημερωθεί."
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:244
+#: plugins/dcCKEditor/src/ManagePostConfig.php:237
 msgid "Note(s)"
 msgstr "Σημείωση(-εις)"
 
-#: plugins/dcCKEditor/tpl/index.php:8 plugins/dcLegacyEditor/tpl/index.php:4
-msgid "Settings"
-msgstr "Ρυθμίσεις"
-
-#: plugins/dcCKEditor/tpl/index.php:13 plugins/dcLegacyEditor/tpl/index.php:7
+#: plugins/dcCKEditor/tpl/index.php:14 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
 msgstr "Ενεργοποίηση πρόσθετων"
 
-#: plugins/dcCKEditor/tpl/index.php:18
+#: plugins/dcCKEditor/tpl/index.php:19
 msgid "Enable dcCKEditor plugin"
 msgstr "Ενεργοποίηση του πρόσθετου dcCKEditor"
 
-#: plugins/dcCKEditor/tpl/index.php:30
+#: plugins/dcCKEditor/tpl/index.php:31
 msgid "Add alignment buttons"
 msgstr "Προσθήκη κουμπιών ευθυγράμμισης"
 
-#: plugins/dcCKEditor/tpl/index.php:36
+#: plugins/dcCKEditor/tpl/index.php:37
 msgid "Add lists buttons"
 msgstr "Προσθήκη κουμπιών λιστών"
 
-#: plugins/dcCKEditor/tpl/index.php:42
+#: plugins/dcCKEditor/tpl/index.php:43
 msgid "Add text color button"
 msgstr "Προσθήκη κουμπιού χρώματος κειμένου"
 
-#: plugins/dcCKEditor/tpl/index.php:48
+#: plugins/dcCKEditor/tpl/index.php:49
 msgid "Add background text color button"
 msgstr "Προσθήκη κουμπιού χρώματος κειμένου φόντου"
 
-#: plugins/dcCKEditor/tpl/index.php:53
+#: plugins/dcCKEditor/tpl/index.php:54
 msgid "Custom colors list:"
 msgstr "Λίστα προσαρμοσμένων χρωμάτων:"
 
-#: plugins/dcCKEditor/tpl/index.php:58
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Add colors without # separated by a comma."
 msgstr "Προσθήκη χρωμάτων χωρίς # χωρισμένων με κόμμα."
 
-#: plugins/dcCKEditor/tpl/index.php:59
+#: plugins/dcCKEditor/tpl/index.php:60
 msgid "Leave empty to use the default palette:"
 msgstr "Αφήστε κενό για να χρησιμοποιήσετε την προεπιλεγμένη παλέτα:"
 
-#: plugins/dcCKEditor/tpl/index.php:61
+#: plugins/dcCKEditor/tpl/index.php:62
 msgid "Example of custom color list:"
 msgstr "Παράδειγμα λίστας προσαρμοσμένων χρωμάτων:"
 
-#: plugins/dcCKEditor/tpl/index.php:66
+#: plugins/dcCKEditor/tpl/index.php:67
 msgid "Colors per row in palette:"
 msgstr "Χρώματα ανά σειρά στην παλέτα:"
 
-#: plugins/dcCKEditor/tpl/index.php:71
+#: plugins/dcCKEditor/tpl/index.php:72
 msgid "Valid range: 4 to 16"
 msgstr "Έγκυρο εύρος: 4 έως 16"
 
-#: plugins/dcCKEditor/tpl/index.php:76
+#: plugins/dcCKEditor/tpl/index.php:77
 msgid "Add collapse button"
 msgstr "Προσθήκη κουμπιού σύμπτυξης"
 
-#: plugins/dcCKEditor/tpl/index.php:82
+#: plugins/dcCKEditor/tpl/index.php:83
 msgid "Add format selection"
 msgstr "Προσθήκη επιλογής μορφής"
 
-#: plugins/dcCKEditor/tpl/index.php:87
+#: plugins/dcCKEditor/tpl/index.php:88
 msgid "Custom formats"
 msgstr "Προσαρμοσμένες μορφές"
 
-#: plugins/dcCKEditor/tpl/index.php:92
+#: plugins/dcCKEditor/tpl/index.php:93
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Οι προεπιλεγμένες μορφές είναι p;h1;h2;h3;h4;h5;h6;pre;address"
 
-#: plugins/dcCKEditor/tpl/index.php:97
+#: plugins/dcCKEditor/tpl/index.php:98
 msgid "Add table button"
 msgstr "Προσθήκη κουμπιού πίνακα"
 
-#: plugins/dcCKEditor/tpl/index.php:103
+#: plugins/dcCKEditor/tpl/index.php:104
 msgid "Add clipboard buttons"
 msgstr "Προσθήκη κουμπιών πρόχειρου"
 
-#: plugins/dcCKEditor/tpl/index.php:107
+#: plugins/dcCKEditor/tpl/index.php:108
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Αντιγραφή, Επικόλληση, Επικόλληση κειμένου, Επικόλληση από το Word"
 
-#: plugins/dcCKEditor/tpl/index.php:112
+#: plugins/dcCKEditor/tpl/index.php:113
 msgid "Add undo/redo buttons"
 msgstr "Προσθήκη κουμπιών αναίρεσης/επανάληψης"
 
-#: plugins/dcCKEditor/tpl/index.php:118
+#: plugins/dcCKEditor/tpl/index.php:119
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Απενεργοποιεί τον ενσωματωμένο ορθογραφικό έλεγχο αν ο περιηγητής παρέχει ένα"
 
-#: plugins/dcCKEditor/tpl/index.php:126 plugins/dcLegacyEditor/tpl/index.php:19
-#: plugins/simpleMenu/src/Manage.php:652
+#: plugins/dcCKEditor/tpl/index.php:127 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/simpleMenu/src/Manage.php:632
 msgid "Save configuration"
 msgstr "Αποθήκευση διαμόρφωσης"
 
-#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/src/Backend.php:24
 #: plugins/dcLegacyEditor/tpl/index.php:1
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
-#: plugins/dcLegacyEditor/src/Backend.php:47
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "Dotclear wiki"
 msgstr "Wiki Dotclear"
 
@@ -1169,8 +1599,8 @@ msgstr "Λήψη βάσης δεδομένων του τρέχοντος ιστ�
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:93
-#: plugins/importExport/src/ModuleExportFlat.php:231
-#: plugins/importExport/src/ModuleExportFlat.php:255
+#: plugins/importExport/src/ModuleExportFlat.php:224
+#: plugins/importExport/src/ModuleExportFlat.php:248
 msgid "Compress file"
 msgstr "Συμπίεση αρχείου"
 
@@ -1186,46 +1616,46 @@ msgstr "Κανένα αρχείο για ανάγνωση."
 msgid "Unable to create output file."
 msgstr "Αδυναμία δημιουργίας αρχείου εξόδου."
 
-#: plugins/importExport/src/FlatImportV2.php:84
+#: plugins/importExport/src/FlatImportV2.php:75
 msgid "File is not a DotClear backup."
 msgstr "Το αρχείο δεν είναι αντίγραφο ασφαλείας DotClear."
 
-#: plugins/importExport/src/FlatImportV2.php:137
+#: plugins/importExport/src/FlatImportV2.php:128
 msgid "File is not a single blog export."
 msgstr "Το αρχείο δεν είναι μια απλή εξαγωγή ιστολογίου."
 
-#: plugins/importExport/src/FlatImportV2.php:272
-#: plugins/importExport/src/FlatImportV2.php:368
+#: plugins/importExport/src/FlatImportV2.php:242
+#: plugins/importExport/src/FlatImportV2.php:296
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Παρουσιάστηκε σφάλμα στη γραμμή %s"
 
-#: plugins/importExport/src/FlatImportV2.php:281
+#: plugins/importExport/src/FlatImportV2.php:251
 msgid "File is not a full export."
 msgstr "Το αρχείο δεν είναι πλήρης εξαγωγή."
 
-#: plugins/importExport/src/FlatImportV2.php:782
+#: plugins/importExport/src/FlatImportV2.php:710
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "Το ID του \"%3$s\" δεν ταιριάζει στην εγγραφή \"%1$s\" στη γραμμή %2$s του αρχείου αντιγράφου ασφαλείας."
 
-#: plugins/importExport/src/Manage.php:80
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/importExport/src/Manage.php:84
+#: plugins/maintenance/src/Manage.php:175
 msgid "Please wait..."
 msgstr "Παρακαλώ περιμένετε..."
 
-#: plugins/importExport/src/Manage.php:113
-#: plugins/importExport/src/ModuleExportFlat.php:237
-#: plugins/importExport/src/ModuleExportFlat.php:258
+#: plugins/importExport/src/Manage.php:117
+#: plugins/importExport/src/ModuleExportFlat.php:230
+#: plugins/importExport/src/ModuleExportFlat.php:251
 msgid "Export"
 msgstr "Εξαγωγή"
 
-#: plugins/importExport/src/Manage.php:115
+#: plugins/importExport/src/Manage.php:119
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Οι λειτουργίες εξαγωγής είναι στη σελίδα %s."
 
-#: plugins/importExport/src/Manage.php:117
+#: plugins/importExport/src/Manage.php:121
 #: plugins/maintenance/src/Backend.php:23
 #: plugins/maintenance/src/BackendBehaviors.php:169
 msgid "Maintenance"
@@ -1247,173 +1677,173 @@ msgstr "Γιατί δεν το blog αυτό τώρα?"
 msgid "visit your dashboard"
 msgstr "επισκεφθείτε το ταμπλό σας"
 
-#: plugins/importExport/src/ModuleExportFlat.php:38
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Flat file export"
 msgstr "Επίπεδη εξαγωγή αρχείου"
 
-#: plugins/importExport/src/ModuleExportFlat.php:39
+#: plugins/importExport/src/ModuleExportFlat.php:32
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Εξάγει ένα blog ή μια πλήρη εγκατάσταση Dotclear σε επίπεδο αρχείο."
 
-#: plugins/importExport/src/ModuleExportFlat.php:169
+#: plugins/importExport/src/ModuleExportFlat.php:162
 msgid "Export file not found."
 msgstr "Δεν βρέθηκε το αρχείο εξαγωγής."
 
-#: plugins/importExport/src/ModuleExportFlat.php:208
+#: plugins/importExport/src/ModuleExportFlat.php:201
 msgid "Failed to compress export file."
 msgstr "Αποτυχία συμπίεσης αρχείου εξαγωγής."
 
-#: plugins/importExport/src/ModuleExportFlat.php:222
+#: plugins/importExport/src/ModuleExportFlat.php:215
 #: plugins/importExport/src/ModuleImportFlat.php:203
 msgid "Single blog"
 msgstr "Μονό ιστολόγιο"
 
-#: plugins/importExport/src/ModuleExportFlat.php:223
+#: plugins/importExport/src/ModuleExportFlat.php:216
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Αυτό θα δημιουργήσει μια εξαγωγή του τρέχοντος ιστολογίου σας: %s"
 
-#: plugins/importExport/src/ModuleExportFlat.php:235
+#: plugins/importExport/src/ModuleExportFlat.php:228
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Μπορεί επίσης να θέλετε να κατεβάσετε τον κατάλογο πολυμέσων σας ως αρχείο zip"
 
-#: plugins/importExport/src/ModuleExportFlat.php:246
+#: plugins/importExport/src/ModuleExportFlat.php:239
 #: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "Multiple blogs"
 msgstr "Πολλαπλά blogs"
 
-#: plugins/importExport/src/ModuleExportFlat.php:247
+#: plugins/importExport/src/ModuleExportFlat.php:240
 msgid "This will create an export of all the content of your database."
 msgstr "Αυτό θα δημιουργήσει μια εξαγωγή όλου του περιεχομένου της βάσης δεδομένων σας."
 
-#: plugins/importExport/src/ModuleImportDc1.php:64
+#: plugins/importExport/src/ModuleImportDc1.php:60
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 εισαγωγή"
 
-#: plugins/importExport/src/ModuleImportDc1.php:65
+#: plugins/importExport/src/ModuleImportDc1.php:61
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Εισαγωγή μιας εγκατάστασης Dotclear 1.2 στο τρέχον blog σας."
 
-#: plugins/importExport/src/ModuleImportDc1.php:194
+#: plugins/importExport/src/ModuleImportDc1.php:190
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Εισαγάγετε το περιεχόμενο ενός Dotclear 1.2 blog στο τρέχον blog: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:197
-#: plugins/importExport/src/ModuleImportWp.php:220
+#: plugins/importExport/src/ModuleImportDc1.php:193
+#: plugins/importExport/src/ModuleImportWp.php:216
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Παρακαλώ σημειώστε ότι αυτή η διαδικασία θα αδειάσει τις κατηγορίες, το blogroll, τις καταχωρήσεις και τα σχόλια στο τρέχον blog."
 
-#: plugins/importExport/src/ModuleImportDc1.php:201
-#: plugins/importExport/src/ModuleImportWp.php:224
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "General information"
 msgstr "Γενικές πληροφορίες"
 
-#: plugins/importExport/src/ModuleImportDc1.php:201
-#: plugins/importExport/src/ModuleImportWp.php:224
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Import my blog now"
 msgstr "Εισαγωγή του ιστολογίου μου τώρα"
 
-#: plugins/importExport/src/ModuleImportDc1.php:202
+#: plugins/importExport/src/ModuleImportDc1.php:198
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Χρειαζόμαστε πρώτα κάποιες πληροφορίες σχετικά με την παλιά εγκατάσταση Dotclear 1.2."
 
-#: plugins/importExport/src/ModuleImportDc1.php:203
+#: plugins/importExport/src/ModuleImportDc1.php:199
 msgid "Database driver:"
 msgstr "Οδηγός βάσης δεδομένων:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:215
-#: plugins/importExport/src/ModuleImportWp.php:237
+#: plugins/importExport/src/ModuleImportDc1.php:211
+#: plugins/importExport/src/ModuleImportWp.php:233
 msgid "Entries import options"
 msgstr "Επιλογές εισαγωγής καταχωρήσεων"
 
-#: plugins/importExport/src/ModuleImportDc1.php:216
-#: plugins/importExport/src/ModuleImportWp.php:262
+#: plugins/importExport/src/ModuleImportDc1.php:212
+#: plugins/importExport/src/ModuleImportWp.php:258
 msgid "Number of entries to import at once:"
 msgstr "Αριθμός καταχωρήσεων για εισαγωγή ταυτόχρονα:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:223
-#: plugins/importExport/src/ModuleImportWp.php:279
+#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportWp.php:275
 msgid "Importing users"
 msgstr "Εισαγωγή χρηστών"
 
-#: plugins/importExport/src/ModuleImportDc1.php:230
-#: plugins/importExport/src/ModuleImportWp.php:286
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:282
 msgid "Importing categories"
 msgstr "Εισαγωγή κατηγοριών"
 
-#: plugins/importExport/src/ModuleImportDc1.php:237
-#: plugins/importExport/src/ModuleImportWp.php:293
+#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportWp.php:289
 msgid "Importing blogroll"
 msgstr "Εισαγωγή blogroll"
 
-#: plugins/importExport/src/ModuleImportDc1.php:244
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportWp.php:296
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Εισαγωγή καταχωρήσεων από %d έως %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:258
+#: plugins/importExport/src/ModuleImportDc1.php:254
 msgid "Please read carefully"
 msgstr "Παρακαλώ διαβάστε προσεκτικά"
 
-#: plugins/importExport/src/ModuleImportDc1.php:260
-#: plugins/importExport/src/ModuleImportWp.php:314
+#: plugins/importExport/src/ModuleImportDc1.php:256
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Κάθε νεοεισαχθείς χρήστης έχει λάβει έναν τυχαίο κωδικό πρόσβασης και θα πρέπει να ζητήσει ένα νέο ακολουθώντας τον σύνδεσμο \"Ξέχασα τον κωδικό μου\" στη σελίδα σύνδεσης (η καταχωρημένη διεύθυνση ηλεκτρονικού ταχυδρομείου τους πρέπει να είναι έγκυρη.)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:265
+#: plugins/importExport/src/ModuleImportDc1.php:261
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Παρακαλώ σημειώστε ότι το Dotclear 2 έχει μια νέα διάταξη URL. Μπορείτε να αποφύγετε τους χαλασμένους συνδέσμους εγκαθιστώντας το πρόσθετο <a href=\"%s\">DC1 ανακατευθύνει</a> και ενεργοποιήστε το στις ρυθμίσεις του blog σας."
 
-#: plugins/importExport/src/ModuleImportDc1.php:289
-#: plugins/importExport/src/ModuleImportWp.php:335
+#: plugins/importExport/src/ModuleImportDc1.php:285
+#: plugins/importExport/src/ModuleImportWp.php:331
 msgid "next step"
 msgstr "επόμενο βήμα"
 
-#: plugins/importExport/src/ModuleImportDc1.php:299
-#: plugins/importExport/src/ModuleImportWp.php:345
+#: plugins/importExport/src/ModuleImportDc1.php:295
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Ανάλογα με το μέγεθος του ιστολογίου σας, θα μπορούσε να διαρκέσει μερικά λεπτά."
 
-#: plugins/importExport/src/ModuleImportDc1.php:327
+#: plugins/importExport/src/ModuleImportDc1.php:323
 msgid "Dotclear tables not found"
 msgstr "Dotclear πίνακες δεν βρέθηκαν"
 
-#: plugins/importExport/src/ModuleImportFeed.php:117
+#: plugins/importExport/src/ModuleImportFeed.php:115
 msgid "RSS or Atom feed import"
 msgstr "Εισαγωγή ροής RSS ή Atom"
 
-#: plugins/importExport/src/ModuleImportFeed.php:118
+#: plugins/importExport/src/ModuleImportFeed.php:116
 msgid "Add a feed content to the blog."
 msgstr "Προσθήκη περιεχομένου ροής στο ιστολόγιο."
 
-#: plugins/importExport/src/ModuleImportFeed.php:145
-#: plugins/importExport/src/ModuleImportFeed.php:151
-#: plugins/importExport/src/ModuleImportFeed.php:160
-#: plugins/importExport/src/ModuleImportFeed.php:165
-#: plugins/importExport/src/ModuleImportFeed.php:171
-#: plugins/importExport/src/ModuleImportFeed.php:178
+#: plugins/importExport/src/ModuleImportFeed.php:143
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:158
+#: plugins/importExport/src/ModuleImportFeed.php:163
+#: plugins/importExport/src/ModuleImportFeed.php:169
+#: plugins/importExport/src/ModuleImportFeed.php:176
 msgid "Cannot retrieve feed URL."
 msgstr "Δεν μπορεί να ανακτηθεί το URL της ροής"
 
-#: plugins/importExport/src/ModuleImportFeed.php:181
+#: plugins/importExport/src/ModuleImportFeed.php:179
 msgid "No items in feed."
 msgstr "Δεν υπάρχουν στοιχεία στη ροή."
 
-#: plugins/importExport/src/ModuleImportFeed.php:218
+#: plugins/importExport/src/ModuleImportFeed.php:216
 #: plugins/importExport/src/ModuleImportFlat.php:187
 msgid "Content successfully imported."
 msgstr "Το περιεχόμενο εισήχθη επιτυχώς."
 
-#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/importExport/src/ModuleImportFeed.php:221
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Προσθήκη περιεχομένου ροής στο τρέχον blog: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:225
-#: plugins/widgets/src/Widgets.php:106
+#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/widgets/src/Widgets.php:110
 msgid "Feed URL:"
 msgstr "Url Ροής:"
 
@@ -1470,64 +1900,64 @@ msgstr "Αποτυχία εξαγωγής αρχείου αντιγράφου α
 msgid "No backup in compressed file."
 msgstr "Δεν υπάρχει αντίγραφο ασφαλείας σε συμπιεσμένο αρχείο."
 
-#: plugins/importExport/src/ModuleImportWp.php:85
+#: plugins/importExport/src/ModuleImportWp.php:81
 msgid "WordPress import"
 msgstr "Εισαγωγή WordPress"
 
-#: plugins/importExport/src/ModuleImportWp.php:86
+#: plugins/importExport/src/ModuleImportWp.php:82
 msgid "Import a WordPress installation into your current blog."
 msgstr "Εισαγωγή μιας εγκατάστασης WordPress στο τρέχον ιστολόγιό σας."
 
-#: plugins/importExport/src/ModuleImportWp.php:217
+#: plugins/importExport/src/ModuleImportWp.php:213
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Αυτό θα εισάγει το περιεχόμενο WordPress σας ως νέο περιεχόμενο στο τρέχον ιστολόγιο: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:225
+#: plugins/importExport/src/ModuleImportWp.php:221
 msgid "We first need some information about your old WordPress installation."
 msgstr "Πρώτα χρειαζόμαστε κάποιες πληροφορίες σχετικά με την παλιά εγκατάσταση WordPress σας."
 
-#: plugins/importExport/src/ModuleImportWp.php:241
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "Ο χειρισμός των κατηγοριών του WordPress και του Dotclear's είναι αρκετά διαφορετικός. Μπορείτε να εκχωρήσετε διάφορες κατηγορίες σε ένα μόνο post στο WordPress. Στον κόσμο Dotclear το βλέπουμε περισσότερο σαν \"Μία κατηγορία, αρκετές ετικέτες. Ως εκ τούτου, η Dotclear μπορεί να εισάγει μόνο μία κατηγορία ανά θέση και θα επιλέξει τη χαμηλότερη αριθμημένη. Αν θέλετε να διατηρήσετε ένα ίχνος κάθε κατηγορίας, μπορείτε να τις εισάγετε ως ετικέτες, με ένα προαιρετικό πρόθεμα."
 
-#: plugins/importExport/src/ModuleImportWp.php:246
+#: plugins/importExport/src/ModuleImportWp.php:242
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Από την άλλη πλευρά, στο WordPress, μια δημοσίευση δεν μπορεί να είναι αταξινόμητη, και μια προεπιλεγμένη εγκατάσταση έχει μια πρώτη κατηγορία με ετικέτα <i>\"Uncategorized\"</i>. f δεν αλλάξατε αυτή την κατηγορία, μπορείτε απλά να την αγνοήσετε κατά την εισαγωγή του ιστολογίου σας, όπως Dotclear σας επιτρέπει να κρατήσετε πραγματικά τις δημοσιεύσεις σας χωρίς στρατηγική."
 
-#: plugins/importExport/src/ModuleImportWp.php:255
+#: plugins/importExport/src/ModuleImportWp.php:251
 msgid "Ignore the first category:"
 msgstr "Αγνοήστε την πρώτη κατηγορία:"
 
-#: plugins/importExport/src/ModuleImportWp.php:257
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Import lowest numbered category on posts:"
 msgstr "Εισαγωγή κατώτατης αριθμημένης κατηγορίας στις δημοσιεύσεις:"
 
-#: plugins/importExport/src/ModuleImportWp.php:259
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Import all categories as tags:"
 msgstr "Εισαγωγή όλων των κατηγοριών ως ετικέτες:"
 
-#: plugins/importExport/src/ModuleImportWp.php:260
+#: plugins/importExport/src/ModuleImportWp.php:256
 msgid "Prefix such tags with:"
 msgstr "Πρόθεμα τέτοιων ετικετών με:"
 
-#: plugins/importExport/src/ModuleImportWp.php:268
+#: plugins/importExport/src/ModuleImportWp.php:264
 msgid "Content filters"
 msgstr "Φίλτρα περιεχομένου"
 
-#: plugins/importExport/src/ModuleImportWp.php:269
+#: plugins/importExport/src/ModuleImportWp.php:265
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Μπορεί να θέλετε να επεξεργαστείτε το περιεχόμενό σας ανάρτησης ή/και σχολίων με τα ακόλουθα φίλτρα."
 
-#: plugins/importExport/src/ModuleImportWp.php:270
+#: plugins/importExport/src/ModuleImportWp.php:266
 msgid "Post content formatter:"
 msgstr "Μορφοποιητής περιεχομένου ανάρτησης:"
 
-#: plugins/importExport/src/ModuleImportWp.php:272
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Comment content formatter:"
 msgstr "Σχόλιο μορφοποιητή περιεχομένου:"
 
-#: plugins/importExport/src/ModuleImportWp.php:374
+#: plugins/importExport/src/ModuleImportWp.php:370
 msgid "WordPress tables not found"
 msgstr "Οι πίνακες WordPress δεν βρέθηκαν"
 
@@ -1596,12 +2026,12 @@ msgstr[0] "Μία εργασία για εκτέλεση"
 msgstr[1] "%s εργασίες για εκτέλεση"
 
 #: plugins/maintenance/src/BackendBehaviors.php:152
-#: plugins/maintenance/src/Manage.php:268
+#: plugins/maintenance/src/Manage.php:267
 msgid "This task has never been executed."
 msgstr "Αυτή η εργασία δεν έχει εκτελεστεί ποτέ."
 
 #: plugins/maintenance/src/BackendBehaviors.php:155
-#: plugins/maintenance/src/Manage.php:273
+#: plugins/maintenance/src/Manage.php:272
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Η τελευταία εκτέλεση αυτής της εργασίας ήταν στο %s."
@@ -1633,107 +2063,107 @@ msgstr "Απέτυχε η εκτέλεση της εργασίας."
 msgid "Task successfully executed."
 msgstr "Η εργασία εκτελέστηκε επιτυχώς."
 
-#: plugins/maintenance/src/Manage.php:117
+#: plugins/maintenance/src/Manage.php:116
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Το πρόσθετο συντήρησης έχει ρυθμιστεί με επιτυχία."
 
-#: plugins/maintenance/src/Manage.php:135
+#: plugins/maintenance/src/Manage.php:134
 msgid "System settings have been saved."
 msgstr "Οι ρυθμίσεις συστήματος αποθηκεύτηκαν."
 
-#: plugins/maintenance/src/Manage.php:140
+#: plugins/maintenance/src/Manage.php:139
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Όλες οι ρυθμίσεις Content-Security-Policy του ιστολογίου έχουν επαναφερθεί στην προεπιλογή."
 
-#: plugins/maintenance/src/Manage.php:165
+#: plugins/maintenance/src/Manage.php:164
 msgid "Every week"
 msgstr "Κάθε εβδομάδα"
 
-#: plugins/maintenance/src/Manage.php:166
+#: plugins/maintenance/src/Manage.php:165
 msgid "Every two weeks"
 msgstr "Κάθε δύο εβδομάδες"
 
-#: plugins/maintenance/src/Manage.php:167
+#: plugins/maintenance/src/Manage.php:166
 msgid "Every month"
 msgstr "Κάθε μήνα"
 
-#: plugins/maintenance/src/Manage.php:168
+#: plugins/maintenance/src/Manage.php:167
 msgid "Every two months"
 msgstr "Κάθε δύο μήνες"
 
-#: plugins/maintenance/src/Manage.php:192
+#: plugins/maintenance/src/Manage.php:191
 msgid "You have not sufficient permissions to view this page."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να δείτε αυτή τη σελίδα."
 
-#: plugins/maintenance/src/Manage.php:269
-#: plugins/maintenance/src/Manage.php:277
+#: plugins/maintenance/src/Manage.php:268
+#: plugins/maintenance/src/Manage.php:276
 msgid "You should execute it now."
 msgstr "Θα πρέπει να το εκτελέσετε τώρα."
 
-#: plugins/maintenance/src/Manage.php:299
-#: plugins/maintenance/src/Manage.php:321
+#: plugins/maintenance/src/Manage.php:298
+#: plugins/maintenance/src/Manage.php:320
 msgid "Execute task"
 msgstr "Εκτέλεση εργασίας"
 
-#: plugins/maintenance/src/Manage.php:303
+#: plugins/maintenance/src/Manage.php:302
 msgid "This may take a very long time."
 msgstr "Αυτό μπορεί να διαρκέσει πάρα πολύ."
 
+#: plugins/maintenance/src/Manage.php:332
 #: plugins/maintenance/src/Manage.php:333
-#: plugins/maintenance/src/Manage.php:334
 msgid "Alert settings"
 msgstr "Ρυθμίσεις ειδοποίησης"
 
-#: plugins/maintenance/src/Manage.php:338
+#: plugins/maintenance/src/Manage.php:337
 msgid "Activation"
 msgstr "Ενεργοποίηση"
 
-#: plugins/maintenance/src/Manage.php:341
+#: plugins/maintenance/src/Manage.php:340
 msgid "Display alert messages on late tasks"
 msgstr "Εμφάνιση μηνυμάτων ειδοποίησης στις καθυστερημένες εργασίες"
 
-#: plugins/maintenance/src/Manage.php:344
+#: plugins/maintenance/src/Manage.php:343
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Μπορείς να τοποθετήσεις λίστα με τις καθυστερημένες εργασίες στο %s σου."
 
-#: plugins/maintenance/src/Manage.php:350
+#: plugins/maintenance/src/Manage.php:349
 msgid "Frequency"
 msgstr "Συχνότητα"
 
-#: plugins/maintenance/src/Manage.php:353
+#: plugins/maintenance/src/Manage.php:352
 msgid "Use one recall time for all tasks"
 msgstr "Χρήση χρόνου ανάκλησης για όλες τις εργασίες"
 
-#: plugins/maintenance/src/Manage.php:355
+#: plugins/maintenance/src/Manage.php:354
 msgid "Recall time for all tasks:"
 msgstr "Ανάκληση χρόνου για όλες τις εργασίες:"
 
-#: plugins/maintenance/src/Manage.php:361
+#: plugins/maintenance/src/Manage.php:360
 msgid "Use one recall time per task"
 msgstr "Χρήση χρόνου ανάκλησης ανά εργασία"
 
-#: plugins/maintenance/src/Manage.php:392
+#: plugins/maintenance/src/Manage.php:391
 msgid "Content-Security-Policy"
 msgstr "Πολιτική Περιεχομένου"
 
-#: plugins/maintenance/src/Manage.php:397
+#: plugins/maintenance/src/Manage.php:396
 msgid "Enable Content-Security-Policy system"
 msgstr "Ενεργοποίηση συστήματος πολιτικής περιεχομένου"
 
-#: plugins/maintenance/src/Manage.php:400
+#: plugins/maintenance/src/Manage.php:399
 msgid "Enable Content-Security-Policy report only"
 msgstr "Ενεργοποίηση μόνο αναφοράς πολιτικής περιεχομένου"
 
-#: plugins/maintenance/src/Manage.php:406
+#: plugins/maintenance/src/Manage.php:405
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Ενεργοποίηση συστήματος πολιτικής περιεχομένου από προεπιλογή"
 
-#: plugins/maintenance/src/Manage.php:409
+#: plugins/maintenance/src/Manage.php:408
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Ενεργοποίηση αναφοράς πολιτικής περιεχομένου μόνο από προεπιλογή"
 
-#: plugins/maintenance/src/Manage.php:412
+#: plugins/maintenance/src/Manage.php:411
 msgid "Also apply these settings to all blogs"
 msgstr "Επίσης εφαρμόστε αυτές τις ρυθμίσεις σε όλα τα blogs"
 
@@ -1770,113 +2200,113 @@ msgstr "Αποτυχία κενού φακέλου προσωρινής αποθ
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Μπορεί να είναι χρήσιμο να αδειάσει αυτή η μνήμη cache κατά την τροποποίηση των αρχείων .html ή .css ενός θέματος (ή κατά την ενημέρωση ενός θέματος ή ενός plugin). Σημείωση : με ορισμένους υπολογιστές, η προσωρινή μνήμη προτύπων δεν μπορεί να αδειάσει με αυτό το πρόσθετο. Στη συνέχεια, μπορεί να χρειαστεί να διαγράψετε τον κατάλογο <strong>%s</strong> απευθείας στο διακομιστή με το λογισμικό FTP σας."
 
-#: plugins/maintenance/src/Task/CountComments.php:34
+#: plugins/maintenance/src/Task/CountComments.php:36
 msgid "Count again comments and trackbacks"
 msgstr "Μέτρηση σχολίων και ιχνηλασιών"
 
-#: plugins/maintenance/src/Task/CountComments.php:35
+#: plugins/maintenance/src/Task/CountComments.php:37
 msgid "Comments and trackback counted."
 msgstr "Τα σχόλια και η παρακολούθηση μετρήθηκαν."
 
-#: plugins/maintenance/src/Task/CountComments.php:36
+#: plugins/maintenance/src/Task/CountComments.php:38
 msgid "Failed to count comments and trackbacks."
 msgstr "Αποτυχία μέτρησης σχολίων και ιχνηλασιών."
 
-#: plugins/maintenance/src/Task/CountComments.php:38
+#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Μετρήστε και πάλι σχόλια και trackbacks σας επιτρέπει να ελέγξετε τους ακριβείς αριθμούς τους. Αυτή η λειτουργία μπορεί να είναι χρήσιμη κατά την εισαγωγή από μια άλλη πλατφόρμα blog (ή κατά τη μετάβαση από dotclear 1 σε dotclear 2)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:59
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Search engine index"
 msgstr "Δείκτης μηχανών αναζήτησης"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Index all comments for search engine"
 msgstr "Ευρετήριο όλων των σχολίων για μηχανή αναζήτησης"
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 msgid "Next"
 msgstr "Επόμενο"
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:62
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Ευρετήριο σχολίου %d προς %d."
 
-#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexComments.php:63
 msgid "Comments index done."
 msgstr "Σχόλια ευρετηρίου έγινε."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Failed to index comments."
 msgstr "Αποτυχία σχολιασμού ευρετηρίου."
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:66
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Ευρετήριο όλων των σχολίων και των ιχνών στο ευρετήριο μηχανών αναζήτησης. Αυτή η λειτουργία είναι απαραίτητη, μετά την εισαγωγή περιεχομένου στο ιστολόγιό σας, για χρήση εσωτερικής μηχανής αναζήτησης, σε δημόσιες και ιδιωτικές σελίδες."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Index all entries for search engine"
 msgstr "Ευρετήριο όλων των καταχωρήσεων για μηχανή αναζήτησης"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Ευρετήριο καταχώρησης %d προς %d."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Entries index done."
 msgstr "Έγινε ολοκλήρωση του ευρετηρίου καταχωρήσεων."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Failed to index entries."
 msgstr "Αποτυχία καταχώρησης ευρετηρίου."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:66
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Ευρετήριο όλων των καταχωρήσεων στο δείκτη μηχανών αναζήτησης. Αυτή η λειτουργία είναι απαραίτητη, μετά την εισαγωγή περιεχομένου στο ιστολόγιό σας, για χρήση εσωτερικής μηχανής αναζήτησης, σε δημόσιες και ιδιωτικές σελίδες."
 
-#: plugins/maintenance/src/Task/Logs.php:42
+#: plugins/maintenance/src/Task/Logs.php:41
 msgid "Delete all logs"
 msgstr "Διαγραφή όλων των αρχείων καταγραφής"
 
-#: plugins/maintenance/src/Task/Logs.php:43
+#: plugins/maintenance/src/Task/Logs.php:42
 msgid "Logs deleted."
 msgstr "Οι καταγραφές διαγράφηκαν."
 
-#: plugins/maintenance/src/Task/Logs.php:44
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Failed to delete logs."
 msgstr "Αποτυχία διαγραφής αρχείων καταγραφής."
 
-#: plugins/maintenance/src/Task/Logs.php:46
+#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Καταγράφει όλη τη δραστηριότητα και τη σύνδεση με το ιστορικό του ιστολογίου σας. Εκτός αν χρειάζεστε να διατηρήσετε αυτό το ιστορικό, σκεφτείτε να διαγράψετε αυτά τα αρχεία καταγραφής από καιρό σε καιρό."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Entries metadata"
 msgstr "Μεταδεδομένα καταχωρήσεων"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Synchronize entries metadata"
 msgstr "Συγχρονισμός μεταδεδομένων καταχωρήσεων"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 #, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Συγχρονισμός καταχώρησης %d σε %d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata synchronize done."
 msgstr "Ο συγχρονισμός μεταδεδομένων καταχωρήσεων ολοκληρώθηκε."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Failed to synchronize entries metadata."
 msgstr "Αποτυχία συγχρονισμού μεταδεδομένων καταχωρήσεων."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Συγχρονισμός όλων των μεταδεδομένων καταχωρήσεων θα μπορούσε να είναι χρήσιμη μετά την εισαγωγή περιεχομένου στο blog σας ή να κάνει κακή λειτουργία στους πίνακες της βάσης δεδομένων."
 
@@ -1900,11 +2330,11 @@ msgstr "Αποτυχία βελτιστοποίησης πινάκων."
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Μετά από πολλές ενέργειες διαγραφής ή ενημέρωσης στη βάση δεδομένων του Dotclear, κατακερματίζεται. Η βελτιστοποίηση θα επιτρέψει την ανασυγκρότηση του. Δεν έχει καμία επίπτωση στην ακεραιότητα των δεδομένων σας. Συνιστάται η βελτιστοποίηση πριν από οποιαδήποτε εξαγωγή ιστολογίου."
 
-#: plugins/maintenance/src/Task/ZipMedia.php:57
+#: plugins/maintenance/src/Task/ZipMedia.php:56
 msgid "Download media folder of current blog"
 msgstr "Λήψη φακέλου πολυμέσων του τρέχοντος ιστολογίου"
 
-#: plugins/maintenance/src/Task/ZipMedia.php:59
+#: plugins/maintenance/src/Task/ZipMedia.php:58
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "Μπορεί να είναι χρήσιμο να δημιουργήσετε αντίγραφο ασφαλείας του φακέλου πολυμέσων. Αυτό συμπιέζει όλο το περιεχόμενο του φακέλου πολυμέσων σε ένα μόνο αρχείο zip. Σημείωση : με ορισμένους υπολογιστές, ο φάκελος πολυμέσων δεν μπορεί να συμπιεσθεί με αυτό το πρόσθετο αν είναι πολύ μεγάλο."
 
@@ -1916,22 +2346,22 @@ msgstr "Λήψη του ενεργού θέματος του τρέχοντος 
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Μπορεί να είναι χρήσιμο να δημιουργήσετε αντίγραφα ασφαλείας του ενεργού θέματος πριν από οποιαδήποτε αλλαγή ή ενημέρωση. Αυτή η συμπίεση του φακέλου θέματος σε ένα μόνο αρχείο zip."
 
-#: plugins/pages/src/Backend.php:37
+#: plugins/pages/src/Backend.php:38
 msgid "manage pages"
 msgstr "διαχείριση σελίδων"
 
-#: plugins/pages/src/Backend.php:74
+#: plugins/pages/src/Backend.php:82
 #, php-format
 msgid "%d page"
 msgstr "%d σελίδα"
 
-#: plugins/pages/src/Backend.php:74
+#: plugins/pages/src/Backend.php:82
 #, php-format
 msgid "%d pages"
 msgstr "%d σελίδες"
 
-#: plugins/pages/src/Backend.php:81 plugins/pages/src/Manage.php:128
-#: plugins/pages/src/ManagePage.php:76 plugins/pages/src/ManagePage.php:657
+#: plugins/pages/src/Backend.php:89 plugins/pages/src/Manage.php:128
+#: plugins/pages/src/ManagePage.php:74 plugins/pages/src/ManagePage.php:654
 msgid "New page"
 msgstr "Νέα σελίδα"
 
@@ -1943,20 +2373,20 @@ msgstr "Ενέργειες σελίδων"
 msgid "Back to pages list"
 msgstr "Πίσω στη λίστα σελίδων"
 
-#: plugins/pages/src/BackendDefaultActions.php:120
+#: plugins/pages/src/BackendDefaultActions.php:119
 #: plugins/pages/src/Manage.php:125
 msgid "Selected pages have been successfully reordered."
 msgstr "Οι επιλεγμένες σελίδες αναδιατάχθηκαν επιτυχώς."
 
-#: plugins/pages/src/BackendList.php:36
+#: plugins/pages/src/BackendList.php:35
 msgid "No page"
 msgstr "Καμία σελίδα"
 
-#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
+#: plugins/pages/src/BackendList.php:93 plugins/pages/src/BackendList.php:146
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:176
+#: plugins/pages/src/BackendList.php:175
 msgid "Select this page"
 msgstr "Επιλέξτε αυτή τη σελίδα"
 
@@ -1968,15 +2398,11 @@ msgstr "Δημοσιεύθηκε στις"
 msgid "This page's comments feed"
 msgstr "Ροή σχολίων αυτής της σελίδας"
 
-#: plugins/pages/src/FrontendUrl.php:159
-msgid "You must provide a valid email address."
-msgstr "Πρέπει να δώσετε μια έγκυρη διεύθυνση email."
-
-#: plugins/pages/src/Install.php:48
+#: plugins/pages/src/Install.php:47
 msgid "My first page"
 msgstr "Η πρώτη μου σελίδα"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:48
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Αυτή είναι η πρώτη σας σελίδα. Όταν είστε έτοιμοι να το blog, συνδεθείτε για να το επεξεργαστείτε ή να το διαγράψετε."
 
@@ -2008,60 +2434,60 @@ msgstr "Για να αλλάξετε τη σειρά των σελίδων, με
 msgid "Save pages order"
 msgstr "Αποθήκευση παραγγελίας σελίδων"
 
-#: plugins/pages/src/ManagePage.php:133
+#: plugins/pages/src/ManagePage.php:131
 msgid "This page does not exist."
 msgstr "Αυτή η σελίδα δεν υπάρχει."
 
-#: plugins/pages/src/ManagePage.php:154 plugins/pages/src/ManagePage.php:657
-#: plugins/pages/src/ManagePage.php:662
+#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:654
+#: plugins/pages/src/ManagePage.php:659
 msgid "Edit page"
 msgstr "Επεξεργασία σελίδας"
 
-#: plugins/pages/src/ManagePage.php:427
+#: plugins/pages/src/ManagePage.php:433
 msgid "Are you sure you want to delete this page?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή τη σελίδα?"
 
-#: plugins/pages/src/ManagePage.php:473
+#: plugins/pages/src/ManagePage.php:470
 msgid "Page has been successfully updated."
 msgstr "Η σελίδα έχει ενημερωθεί με επιτυχία."
 
-#: plugins/pages/src/ManagePage.php:475
+#: plugins/pages/src/ManagePage.php:472
 msgid "Page has been successfully created."
 msgstr "Η σελίδα έχει δημιουργηθεί με επιτυχία."
 
-#: plugins/pages/src/ManagePage.php:488
+#: plugins/pages/src/ManagePage.php:485
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Μην ξεχάσετε να επικυρώσετε τη μετατροπή σας σε HTML αποθηκεύοντας την ανάρτησή σας."
 
-#: plugins/pages/src/ManagePage.php:493
+#: plugins/pages/src/ManagePage.php:490
 msgid "Go to this page on the site"
 msgstr "Μεταβείτε σε αυτή τη σελίδα στην ιστοσελίδα"
 
-#: plugins/pages/src/ManagePage.php:535
+#: plugins/pages/src/ManagePage.php:532
 msgid "Page status"
 msgstr "Κατάσταση σελίδας"
 
-#: plugins/pages/src/ManagePage.php:548
+#: plugins/pages/src/ManagePage.php:545
 msgid "Page language"
 msgstr "Γλώσσα σελίδας"
 
-#: plugins/pages/src/ManagePage.php:561 plugins/pages/src/Widgets.php:37
+#: plugins/pages/src/ManagePage.php:558 plugins/pages/src/Widgets.php:37
 msgid "Page position"
 msgstr "Θέση σελίδας"
 
-#: plugins/pages/src/ManagePage.php:588
+#: plugins/pages/src/ManagePage.php:585
 msgid "Hide in widget Pages"
 msgstr "Απόκρυψη σε σελίδες widget"
 
-#: plugins/pages/src/ManagePage.php:598
+#: plugins/pages/src/ManagePage.php:595
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Προειδοποίηση: Αν ορίσετε το URL χειροκίνητα, ενδέχεται να έρθει σε σύγκρουση με άλλη σελίδα."
 
-#: plugins/pages/src/ManagePage.php:613
+#: plugins/pages/src/ManagePage.php:610
 msgid "Introduction to the page."
 msgstr "Εισαγωγή στη σελίδα."
 
-#: plugins/pages/src/ManagePage.php:959
+#: plugins/pages/src/ManagePage.php:960
 msgid "Select this comment"
 msgstr "Επιλέξτε αυτό το σχόλιο"
 
@@ -2135,6 +2561,7 @@ msgid "Page"
 msgstr "Σελίδα"
 
 #: plugins/simpleMenu/src/Manage.php:133 plugins/tags/src/Backend.php:24
+#: plugins/tags/src/Widgets.php:29
 msgid "Tags"
 msgstr "Ετικέτες"
 
@@ -2146,8 +2573,8 @@ msgstr "Ορίστηκε χρήστης"
 msgid "Configuration successfully updated."
 msgstr "Οι ρυθμίσεις ενημερώθηκαν επιτυχώς."
 
-#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:610
-#: plugins/simpleMenu/src/Manage.php:688
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:668
 msgid "Label"
 msgstr "Ετικέτα"
 
@@ -2156,7 +2583,7 @@ msgid "Home page"
 msgstr "Αρχική σελίδα"
 
 #: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:231
-#: plugins/widgets/src/Widgets.php:234 plugins/widgets/src/Widgets.php:241
+#: plugins/widgets/src/Widgets.php:238 plugins/widgets/src/Widgets.php:245
 msgid "Recent posts"
 msgstr "Πρόσφατες δημοσιεύσεις"
 
@@ -2231,75 +2658,75 @@ msgstr "Επιλογή τύπου"
 msgid "Type of item menu:"
 msgstr "Τύπος μενού στοιχείων:"
 
-#: plugins/simpleMenu/src/Manage.php:533 plugins/simpleMenu/src/Manage.php:592
+#: plugins/simpleMenu/src/Manage.php:533 plugins/simpleMenu/src/Manage.php:572
 msgid "Continue..."
 msgstr "Συνέχεια..."
 
-#: plugins/simpleMenu/src/Manage.php:550
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
 msgstr "Επιλέξτε γλώσσα:"
 
-#: plugins/simpleMenu/src/Manage.php:557
+#: plugins/simpleMenu/src/Manage.php:552
 msgid "Select category:"
 msgstr "Επιλέξτε κατηγορία:"
 
-#: plugins/simpleMenu/src/Manage.php:564
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Select month (if necessary):"
 msgstr "Επιλέξτε μήνα (εάν είναι απαραίτητο):"
 
-#: plugins/simpleMenu/src/Manage.php:571
+#: plugins/simpleMenu/src/Manage.php:558
 msgid "Select page:"
 msgstr "Επιλογή σελίδας:"
 
-#: plugins/simpleMenu/src/Manage.php:578
+#: plugins/simpleMenu/src/Manage.php:561
 msgid "Select tag (if necessary):"
 msgstr "Επιλέξτε ετικέτα (εάν είναι απαραίτητο):"
 
-#: plugins/simpleMenu/src/Manage.php:607
+#: plugins/simpleMenu/src/Manage.php:587
 msgid "Label of item menu:"
 msgstr "Ετικέτα του μενού στοιχείων:"
 
-#: plugins/simpleMenu/src/Manage.php:614
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Description of item menu:"
 msgstr "Περιγραφή του μενού στοιχείων:"
 
-#: plugins/simpleMenu/src/Manage.php:625
+#: plugins/simpleMenu/src/Manage.php:605
 msgid "URL of item menu:"
 msgstr "URL του μενού στοιχείων:"
 
-#: plugins/simpleMenu/src/Manage.php:634 plugins/simpleMenu/src/Manage.php:691
+#: plugins/simpleMenu/src/Manage.php:614 plugins/simpleMenu/src/Manage.php:671
 msgid "Open URL on a new tab"
 msgstr "Άνοιγμα URL σε νέα καρτέλα"
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Add this item"
 msgstr "Προσθέστε αυτό το στοιχείο"
 
-#: plugins/simpleMenu/src/Manage.php:650
+#: plugins/simpleMenu/src/Manage.php:630
 msgid "Enable simple menu for this blog"
 msgstr "Ενεργοποίηση απλού μενού για αυτό το ιστολόγιο"
 
-#: plugins/simpleMenu/src/Manage.php:663
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Add an item"
 msgstr "Προσθήκη αντικειμένου"
 
-#: plugins/simpleMenu/src/Manage.php:677
+#: plugins/simpleMenu/src/Manage.php:657
 msgid "Menu items list"
 msgstr "Λίστα στοιχείων μενού"
 
-#: plugins/simpleMenu/src/Manage.php:760
+#: plugins/simpleMenu/src/Manage.php:740
 msgid "Update menu"
 msgstr "Μενού ενημέρωσης"
 
-#: plugins/simpleMenu/src/Manage.php:762
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Delete selected menu items"
 msgstr "Διαγραφή επιλεγμένων στοιχείων μενού"
 
-#: plugins/simpleMenu/src/Manage.php:763
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα στοιχεία μενού?"
 
-#: plugins/simpleMenu/src/Manage.php:770
+#: plugins/simpleMenu/src/Manage.php:750
 msgid "No menu items so far."
 msgstr "Δεν υπάρχουν στοιχεία μενού μέχρι τώρα."
 
@@ -2323,101 +2750,101 @@ msgstr "Εμφανίζεται στο σύνδεσμο και χρησιμοπο
 msgid "Not displayed nor used"
 msgstr "Δεν εμφανίζεται ούτε χρησιμοποιείται"
 
-#: plugins/tags/src/BackendBehaviors.php:52
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:150
+#: plugins/tags/src/BackendBehaviors.php:51
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
 msgstr "Ετικέτα"
 
-#: plugins/tags/src/BackendBehaviors.php:199
+#: plugins/tags/src/BackendBehaviors.php:198
 msgid "Add tags"
 msgstr "Προσθήκη ετικετών"
 
-#: plugins/tags/src/BackendBehaviors.php:208
+#: plugins/tags/src/BackendBehaviors.php:207
 msgid "Remove tags"
 msgstr "Αφαίρεση ετικετών"
 
-#: plugins/tags/src/BackendBehaviors.php:244
+#: plugins/tags/src/BackendBehaviors.php:242
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Η ετικέτα προστέθηκε επιτυχώς στις επιλεγμένες καταχωρήσεις"
 msgstr[1] "Οι ετικέτες προστέθηκαν επιτυχώς στις επιλεγμένες καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:258
-#: plugins/tags/src/BackendBehaviors.php:399
+#: plugins/tags/src/BackendBehaviors.php:255
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Are you sure you want to remove this tag?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε αυτήν την ετικέτα?"
 
-#: plugins/tags/src/BackendBehaviors.php:259
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:256
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Add a tag to this entry"
 msgstr "Προσθήκη ετικέτας σε αυτήν την καταχώρηση"
 
-#: plugins/tags/src/BackendBehaviors.php:260
-#: plugins/tags/src/BackendBehaviors.php:401
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:396
 msgid "Choose from list"
 msgstr "Επιλέξτε από τη λίστα"
 
-#: plugins/tags/src/BackendBehaviors.php:261
-#: plugins/tags/src/BackendBehaviors.php:402
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:397
 msgid "all"
 msgstr "όλα"
 
-#: plugins/tags/src/BackendBehaviors.php:262
-#: plugins/tags/src/BackendBehaviors.php:403
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Enter tags separated by comma"
 msgstr "Εισάγετε ετικέτες διαχωρισμένες με κόμμα"
 
-#: plugins/tags/src/BackendBehaviors.php:266
-#: plugins/tags/src/BackendBehaviors.php:407
+#: plugins/tags/src/BackendBehaviors.php:263
+#: plugins/tags/src/BackendBehaviors.php:402
 msgid "used in %e - frequency %p%"
 msgstr "χρησιμοποιείται σε %e - συχνότητα %p%"
 
-#: plugins/tags/src/BackendBehaviors.php:267
-#: plugins/tags/src/BackendBehaviors.php:408 plugins/tags/src/Manage.php:95
+#: plugins/tags/src/BackendBehaviors.php:264
+#: plugins/tags/src/BackendBehaviors.php:403 plugins/tags/src/Manage.php:95
 msgid "entry"
 msgstr "εγγραφή"
 
-#: plugins/tags/src/BackendBehaviors.php:268
-#: plugins/tags/src/BackendBehaviors.php:409 plugins/tags/src/Manage.php:95
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:404 plugins/tags/src/Manage.php:95
 msgid "entries"
 msgstr "καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:276
+#: plugins/tags/src/BackendBehaviors.php:273
 msgid "Add tags to this selection"
 msgstr "Προσθήκη ετικετών σε αυτήν την επιλογή"
 
-#: plugins/tags/src/BackendBehaviors.php:289
+#: plugins/tags/src/BackendBehaviors.php:286
 msgid "Tags to add:"
 msgstr "Ετικέτες για προσθήκη:"
 
-#: plugins/tags/src/BackendBehaviors.php:323
+#: plugins/tags/src/BackendBehaviors.php:319
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Η ετικέτα αφαιρέθηκε επιτυχώς από τις επιλεγμένες καταχωρήσεις"
 msgstr[1] "Οι ετικέτες αφαιρέθηκαν επιτυχώς από τις επιλεγμένες καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:347
+#: plugins/tags/src/BackendBehaviors.php:342
 msgid "No tags for selected entries"
 msgstr "Δεν υπάρχουν ετικέτες για τις επιλεγμένες καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:354
+#: plugins/tags/src/BackendBehaviors.php:349
 msgid "Remove selected tags from this selection"
 msgstr "Αφαίρεση επιλεγμένων ετικετών από αυτήν την επιλογή"
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:358
 msgid "Following tags have been found in selected entries:"
 msgstr "Οι παρακάτω ετικέτες έχουν βρεθεί σε επιλεγμένες καταχωρήσεις:"
 
-#: plugins/tags/src/BackendBehaviors.php:428
+#: plugins/tags/src/BackendBehaviors.php:423
 msgid "Short"
 msgstr "Σύντομο"
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:424
 msgid "Extended"
 msgstr "Εκτεταμένη"
 
-#: plugins/tags/src/BackendBehaviors.php:436
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Tags list format:"
 msgstr "Μορφή λίστας ετικετών:"
 
@@ -2433,32 +2860,32 @@ msgstr "Αυτή η ετικέτα καταχωρήσεις Atom feed"
 msgid "No tags on this blog."
 msgstr "Δεν υπάρχουν ετικέτες σε αυτό το blog."
 
-#: plugins/tags/src/ManagePosts.php:86
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
 msgstr "Η ετικέτα μετονομάστηκε με επιτυχία"
 
-#: plugins/tags/src/ManagePosts.php:105
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
 msgstr "Η ετικέτα αφαιρέθηκε με επιτυχία"
 
-#: plugins/tags/src/ManagePosts.php:139
+#: plugins/tags/src/ManagePosts.php:138
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε την ετικέτα: “%s”?"
 
-#: plugins/tags/src/ManagePosts.php:154
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
 msgstr "Επιστροφή στη λίστα ετικετών"
 
-#: plugins/tags/src/ManagePosts.php:162
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
 msgstr "Μετονομασία"
 
-#: plugins/tags/src/ManagePosts.php:175
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr "Διαγραφή ετικέτας"
 
-#: plugins/tags/src/ManagePosts.php:186
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
 msgstr "Λίστα καταχωρήσεων με ετικέτα “%s”"
@@ -2492,8 +2919,8 @@ msgid "themeEditor"
 msgstr "Επεξεργαστής θέματος"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:36
-#: plugins/themeEditor/src/Manage.php:175
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Edit theme files"
 msgstr "Επεξεργασία αρχείων θέματος"
 
@@ -2505,93 +2932,93 @@ msgstr "Επισήμανση σύνταξης"
 msgid "Syntax highlighting in theme editor"
 msgstr "Επισήμανση σύνταξης στον επεξεργαστή θέματος"
 
-#: plugins/themeEditor/src/Manage.php:89
+#: plugins/themeEditor/src/Manage.php:87
 msgid "The theme update has been locked."
 msgstr "Η ενημέρωση του θέματος έχει κλειδωθεί."
 
-#: plugins/themeEditor/src/Manage.php:97
+#: plugins/themeEditor/src/Manage.php:95
 msgid "The theme update has been unocked."
 msgstr "Η ενημέρωση του θέματος δεν έχει εκτιμηθεί."
 
-#: plugins/themeEditor/src/Manage.php:120
+#: plugins/themeEditor/src/Manage.php:118
 msgid "The file has been reset."
 msgstr "Το αρχείο έχει επαναφερθεί."
 
-#: plugins/themeEditor/src/Manage.php:146
+#: plugins/themeEditor/src/Manage.php:144
 msgid "Unlock update"
 msgstr "Ξεκλείδωμα ενημέρωσης"
 
-#: plugins/themeEditor/src/Manage.php:147
+#: plugins/themeEditor/src/Manage.php:145
 msgid "Lock update"
 msgstr "Κλείδωμα ενημέρωσης"
 
-#: plugins/themeEditor/src/Manage.php:151
+#: plugins/themeEditor/src/Manage.php:149
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr "Η ενημέρωση κλειδώματος του θέματος δεν εμποδίζει να τροποποιήσει τα αρχεία του, μόνο για να τα ενημερώσει σε παγκόσμιο επίπεδο."
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:161
 msgid "Saving document..."
 msgstr "Αποθήκευση εγγράφου..."
 
-#: plugins/themeEditor/src/Manage.php:164
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Document saved"
 msgstr "Το έγγραφο αποθηκεύτηκε"
 
-#: plugins/themeEditor/src/Manage.php:165
+#: plugins/themeEditor/src/Manage.php:163
 msgid "An error occurred:"
 msgstr "Παρουσιάστηκε σφάλμα:"
 
-#: plugins/themeEditor/src/Manage.php:166
+#: plugins/themeEditor/src/Manage.php:164
 msgid "Are you sure you want to reset this file?"
 msgstr "Είστε βέβαιοι ότι θέλετε να επαναφέρετε αυτό το αρχείο?"
 
-#: plugins/themeEditor/src/Manage.php:188
+#: plugins/themeEditor/src/Manage.php:186
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Το τρέχον θέμα σας σε αυτό το blog είναι \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:199
+#: plugins/themeEditor/src/Manage.php:197
 msgid "Please select a file to edit."
 msgstr "Παρακαλώ επιλέξτε ένα αρχείο για επεξεργασία."
 
-#: plugins/themeEditor/src/Manage.php:204
+#: plugins/themeEditor/src/Manage.php:202
 msgid "File editor"
 msgstr "Επεξεργαστής αρχείων"
 
-#: plugins/themeEditor/src/Manage.php:205
+#: plugins/themeEditor/src/Manage.php:203
 #, php-format
 msgid "Editing file %s"
 msgstr "Επεξεργασία αρχείου %s"
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:213
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:221
+#: plugins/themeEditor/src/Manage.php:219
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Αυτό το αρχείο δεν είναι εγγράψιμο. Παρακαλώ ελέγξτε τα δικαιώματα αρχείων του θέματος σας."
 
-#: plugins/themeEditor/src/Manage.php:248
+#: plugins/themeEditor/src/Manage.php:246
 msgid "Templates files"
 msgstr "Αρχεία προτύπων"
 
-#: plugins/themeEditor/src/Manage.php:251
+#: plugins/themeEditor/src/Manage.php:249
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:254
+#: plugins/themeEditor/src/Manage.php:252
 msgid "JavaScript files"
 msgstr "JavaScript αρχεία"
 
-#: plugins/themeEditor/src/Manage.php:257
+#: plugins/themeEditor/src/Manage.php:255
 msgid "Locales files"
 msgstr "Τοπικά αρχεία"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:258
 msgid "PHP files"
 msgstr "PHP αρχεία"
 
-#: plugins/themeEditor/src/Manage.php:269
+#: plugins/themeEditor/src/Manage.php:267
 msgid "You can't edit a distributed theme."
 msgstr "Δεν μπορείτε να επεξεργαστείτε ένα κατανεμημένο θέμα."
 
@@ -2613,6 +3040,7 @@ msgstr "Από το σύνολο προτύπων:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:206
 #: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:325
 msgid "File does not exist."
 msgstr "Το αρχείο δεν υπάρχει"
 
@@ -2620,6 +3048,16 @@ msgstr "Το αρχείο δεν υπάρχει"
 #, php-format
 msgid "File %s is not readable"
 msgstr "Το αρχείο %s δεν είναι αναγνώσιμο"
+
+#: plugins/themeEditor/src/ThemeEditor.php:273
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Δεν είναι δυνατή η εγγραφή του αρχείου %s. Παρακαλώ ελέγξτε τα αρχεία του θέματος και τα δικαιώματα φακέλων."
+
+#: plugins/themeEditor/src/ThemeEditor.php:338
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Δεν είναι δυνατή η διαγραφή του αρχείου %s. Παρακαλώ ελέγξτε τα δικαιώματα του θέματος αρχεία και φακέλους."
 
 #: plugins/userPref/src/Backend.php:23
 msgid "user:preferences"
@@ -2645,233 +3083,233 @@ msgstr "Widget"
 msgid "Widget's textareas"
 msgstr "textareas του widget"
 
-#: plugins/widgets/src/Install.php:35
+#: plugins/widgets/src/Install.php:34
 msgid "Unable to initialize default widgets."
 msgstr "Αδυναμία αρχικοποίησης προεπιλεγμένων γραφικών συστατικών."
 
-#: plugins/widgets/src/Manage.php:56
+#: plugins/widgets/src/Manage.php:57
 msgid "navigation"
 msgstr "navigation"
 
-#: plugins/widgets/src/Manage.php:57
+#: plugins/widgets/src/Manage.php:58
 msgid "extra"
 msgstr "επιπλέον"
 
-#: plugins/widgets/src/Manage.php:58
+#: plugins/widgets/src/Manage.php:59
 msgid "custom"
 msgstr "προσαρμοσμένο"
 
-#: plugins/widgets/src/Manage.php:199
+#: plugins/widgets/src/Manage.php:194
 msgid "Sidebars and their widgets have been saved."
 msgstr "Οι πλαϊνές μπάρες και τα widget τους έχουν αποθηκευτεί."
 
-#: plugins/widgets/src/Manage.php:211
+#: plugins/widgets/src/Manage.php:206
 msgid "Sidebars have been resetting."
 msgstr "Οι πλευρικές μπάρες επανεγκαθίστανται."
 
-#: plugins/widgets/src/Manage.php:242
+#: plugins/widgets/src/Manage.php:237
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Είστε βέβαιοι ότι θέλετε να επαναφέρετε τις πλαϊνές μπάρες?"
 
-#: plugins/widgets/src/Manage.php:275
+#: plugins/widgets/src/Manage.php:270
 msgid "Available widgets"
 msgstr "Διαθέσιμα widget"
 
-#: plugins/widgets/src/Manage.php:276
+#: plugins/widgets/src/Manage.php:271
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Σύρετε widgets από αυτή τη λίστα σε μία από τις πλαϊνές μπάρες, για προσθήκη."
 
-#: plugins/widgets/src/Manage.php:286 plugins/widgets/src/Manage.php:404
+#: plugins/widgets/src/Manage.php:281 plugins/widgets/src/Manage.php:399
 msgid "order"
 msgstr "παραγγελία"
 
-#: plugins/widgets/src/Manage.php:290
+#: plugins/widgets/src/Manage.php:285
 msgid "Append to:"
 msgstr "Προσάρτηση σε:"
 
-#: plugins/widgets/src/Manage.php:301
+#: plugins/widgets/src/Manage.php:296
 msgid "Add widgets to sidebars"
 msgstr "Προσθήκη γραφικών συστατικών σε πλαϊνές μπάρες"
 
-#: plugins/widgets/src/Manage.php:308
+#: plugins/widgets/src/Manage.php:303
 msgid "Navigation sidebar"
 msgstr "Navigation sidebar"
 
-#: plugins/widgets/src/Manage.php:313
+#: plugins/widgets/src/Manage.php:308
 msgid "Extra sidebar"
 msgstr "Extra sidebar"
 
-#: plugins/widgets/src/Manage.php:318
+#: plugins/widgets/src/Manage.php:313
 msgid "Custom sidebar"
 msgstr "Προσαρμοσμένη πλευρική μπάρα"
 
-#: plugins/widgets/src/Manage.php:323
+#: plugins/widgets/src/Manage.php:318
 msgid "Update sidebars"
 msgstr "Ενημέρωση πλαϊνών γραμμών"
 
-#: plugins/widgets/src/Manage.php:325
+#: plugins/widgets/src/Manage.php:320
 msgid "Reset sidebars"
 msgstr "Επαναφορά πλαϊνών γραμμών"
 
-#: plugins/widgets/src/Manage.php:333
+#: plugins/widgets/src/Manage.php:328
 msgid "Widget ID:"
 msgstr "Αναγνωριστικό Widget:"
 
-#: plugins/widgets/src/Manage.php:339
+#: plugins/widgets/src/Manage.php:334
 msgid "No setting for this widget"
 msgstr "Καμία ρύθμιση για αυτό το widget"
 
-#: plugins/widgets/src/Manage.php:345
+#: plugins/widgets/src/Manage.php:340
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:345 plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:340 plugins/widgets/src/Manage.php:345
 msgid "possible values:"
 msgstr "πιθανές τιμές:"
 
-#: plugins/widgets/src/Manage.php:349
+#: plugins/widgets/src/Manage.php:344
 msgid "empty string"
 msgstr "άδεια συμβολοσειρά"
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:345
 msgid "listitem"
 msgstr "listitem"
 
-#: plugins/widgets/src/Manage.php:356
+#: plugins/widgets/src/Manage.php:351
 msgid "string"
 msgstr "συμβολοσειρά"
 
-#: plugins/widgets/src/Manage.php:362
+#: plugins/widgets/src/Manage.php:357
 msgid "Setting name:"
 msgstr "Όνομα ρύθμισης:"
 
-#: plugins/widgets/src/Manage.php:387
+#: plugins/widgets/src/Manage.php:382
 msgid "No widget as far."
 msgstr "Δεν υπάρχει γραφικό στοιχείο μέχρι τώρα."
 
-#: plugins/widgets/src/Manage.php:394 plugins/widgets/src/Manage.php:409
+#: plugins/widgets/src/Manage.php:389 plugins/widgets/src/Manage.php:404
 msgid "Up the widget"
 msgstr "Επάνω το widget"
 
-#: plugins/widgets/src/Manage.php:395 plugins/widgets/src/Manage.php:410
+#: plugins/widgets/src/Manage.php:390 plugins/widgets/src/Manage.php:405
 msgid "Down the widget"
 msgstr "Κάτω από το widget"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove the widget"
 msgstr "Αφαιρέστε το widget"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove widget"
 msgstr "Αφαίρεση γραφικού στοιχείου"
 
-#: plugins/widgets/src/Manage.php:423
+#: plugins/widgets/src/Manage.php:418
 msgid "Drag widgets here to remove."
 msgstr "Σύρετε τα widget εδώ για να αφαιρέσετε."
 
-#: plugins/widgets/src/Widgets.php:50
+#: plugins/widgets/src/Widgets.php:54
 msgid "Search engine"
 msgstr "Μηχανή αναζήτησης"
 
-#: plugins/widgets/src/Widgets.php:52
+#: plugins/widgets/src/Widgets.php:56
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Υποστηρικτής θέσης (HTML5 μόνο, προαιρετικό):"
 
-#: plugins/widgets/src/Widgets.php:59
+#: plugins/widgets/src/Widgets.php:63
 msgid "Navigation links"
 msgstr "Σύνδεσμοι πλοήγησης"
 
-#: plugins/widgets/src/Widgets.php:67
+#: plugins/widgets/src/Widgets.php:71
 msgid "Selected entries"
 msgstr "Επιλεγμένες καταχωρήσεις"
 
-#: plugins/widgets/src/Widgets.php:68
+#: plugins/widgets/src/Widgets.php:72
 msgid "Best of me"
 msgstr "Καλύτερο από μένα"
 
-#: plugins/widgets/src/Widgets.php:76
+#: plugins/widgets/src/Widgets.php:80
 msgid "Blog languages"
 msgstr "Blog γλώσσες"
 
-#: plugins/widgets/src/Widgets.php:86
+#: plugins/widgets/src/Widgets.php:90
 msgid "With entries counts"
 msgstr "Με καταμέτρηση εγγραφών"
 
-#: plugins/widgets/src/Widgets.php:87
+#: plugins/widgets/src/Widgets.php:91
 msgid "Include sub cats in count"
 msgstr "Συμπερίληψη υπογάτων στην αρίθμηση"
 
-#: plugins/widgets/src/Widgets.php:88
+#: plugins/widgets/src/Widgets.php:92
 msgid "Include empty categories"
 msgstr "Συμπερίληψη κενών κατηγοριών"
 
-#: plugins/widgets/src/Widgets.php:95
+#: plugins/widgets/src/Widgets.php:99
 msgid "Subscribe links"
 msgstr "Συνδρομή συνδέσμων"
 
-#: plugins/widgets/src/Widgets.php:96
+#: plugins/widgets/src/Widgets.php:100
 msgid "Subscribe"
 msgstr "Εγγραφή"
 
-#: plugins/widgets/src/Widgets.php:97
+#: plugins/widgets/src/Widgets.php:101
 msgid "Feeds type:"
 msgstr "Τύπος ροών:"
 
-#: plugins/widgets/src/Widgets.php:104
+#: plugins/widgets/src/Widgets.php:108
 msgid "Feed reader"
 msgstr "Αναγνώστης ροών"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:109
 msgid "Somewhere else"
 msgstr "Κάπου αλλού"
 
-#: plugins/widgets/src/Widgets.php:107 plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:111 plugins/widgets/src/Widgets.php:139
 msgid "Entries limit:"
 msgstr "Όριο καταχωρήσεων:"
 
-#: plugins/widgets/src/Widgets.php:114
+#: plugins/widgets/src/Widgets.php:118
 msgid "Text"
 msgstr "Κείμενο"
 
-#: plugins/widgets/src/Widgets.php:116
+#: plugins/widgets/src/Widgets.php:120
 msgid "Text:"
 msgstr "Κείμενο:"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:127
 msgid "Uncategorized"
 msgstr "Αταξινόμητο"
 
-#: plugins/widgets/src/Widgets.php:127 plugins/widgets/src/Widgets.php:129
+#: plugins/widgets/src/Widgets.php:131 plugins/widgets/src/Widgets.php:133
 msgid "Last entries"
 msgstr "Τελευταίες καταχωρήσεις"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:136
 msgid "Tag:"
 msgstr "Ετικέτα:"
 
-#: plugins/widgets/src/Widgets.php:143 plugins/widgets/src/Widgets.php:144
+#: plugins/widgets/src/Widgets.php:147 plugins/widgets/src/Widgets.php:148
 msgid "Last comments"
 msgstr "Τελευταία σχόλια"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:149
 msgid "Comments limit:"
 msgstr "Όριο σχολίων:"
 
-#: plugins/widgets/src/Widgets.php:424
+#: plugins/widgets/src/Widgets.php:428
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Οι καταχωρήσεις του ιστολογίου %s τροφοδοτούν"
 
-#: plugins/widgets/src/Widgets.php:425
+#: plugins/widgets/src/Widgets.php:429
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Σχόλια αυτού του ιστολογίου %s feed"
 
-#: plugins/widgets/src/Widgets.php:433
+#: plugins/widgets/src/Widgets.php:437
 msgid "Entries feed"
 msgstr "Τροφοδοσία καταχωρήσεων"
 
-#: plugins/widgets/src/Widgets.php:439
+#: plugins/widgets/src/Widgets.php:443
 msgid "Comments feed"
 msgstr "Ροή σχολίων"
 
