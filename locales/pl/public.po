@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
-"PO-Revision-Date: 2023-07-10 07:07\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-07 14:32\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -190,7 +190,6 @@ msgstr "Poprzedni wpis:"
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Kanał RSS/Atom jest darmowym i wolnym podsumowaniem bloga. Udostępnia on treść (zarówno posty jak i komentarze) lub ich streszczenia razem z linkami do pełnej wersji oraz inne dane. Ostatnio opublikowane elementy mogą być wtedy czytane za pomocą Twojego ulubionego <a·href=\"http://pl.wikipedia.org/wiki/Czytnik_kanałów\">czytnika</a>."
 
-#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "Czytaj"
 

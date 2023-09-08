@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-09-08 03:15\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: ar\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "متدرج خطي فاتح"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "معامل تدرج خطي متوسط"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "معامل تدرج خطي داكن"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "لون صلب"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "مخصص..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "تم تحديث تكوين السمة بنجاح."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "العودة إلى مظهر المدونة"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "التخصيص"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "عام"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "لون الخلفية:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "تعبئة لون الخلفية:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "خط النص الرئيسي:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "حجم خط النص الرئيسي:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "لون النص الرئيسي:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "ارتفاع خط النص:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "لون الروابط:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "لون الروابط الزائرة:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "لون روابط التركيز:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "لون اللون:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "إخفاء العنوان الرئيسي"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "خط العنوان الرئيسي:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "حجم خط العنوان الرئيسي:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "لون العنوان الرئيسي:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "مواءمة العنوان الرئيسي:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "الوسط"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "اليسار"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "يمين"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "وضع العنوان الرئيسي (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "أعلى صورة"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "اختر \"مخصص...\" لتحميل صورتك الخاصة."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "أضف صورتك:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "ملف JPEG أو PNG ، عرض 800 بكسل ، الحد الأقصى للحجم %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "موضع الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Sidebar text font:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "حجم خط الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "لون نص الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "خط عناوين الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "حجم خط عناوين الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "لون عناوين الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "خط عناوين المستوى الثاني للشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "حجم خط الخط في الشريط الجانبي الثاني:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "لون عناوين المستوى الثاني للشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "لون الخطوط الجانبية:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "لون روابط الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "لون روابط الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "لون روابط تركيز الشريط الجانبي:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "خط عنوان التاريخ:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "حجم خط عنوان التاريخ:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "لون عنوان التاريخ:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "خط عنوان المادة:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "حجم خط عنوان المادة:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "لون عنوان المادة:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "لون خلفية التعليق:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "لون نص التعليق:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "لون خلفية تعليقي:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "لون نص تعليقي:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "تذييل"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Footer font:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "حجم خط تذييل الصفحة"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "لون تذييل الصفحة"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "لون روابط تذييل:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "لون خلفية تذييل:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "CSS إضافية"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "أي أنماط CSS إضافية (يجب أن تكتب باستخدام بناء CSS):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "استيراد / تصدير الإعدادات"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "يمكنك مشاركة إعداداتك باستخدام الكود التالي. لتطبيق تكوين ، لصق الكود ، انقر فوق \"تطبيق الكود\" وحفظه."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "نسخ هذا الرمز:"
+

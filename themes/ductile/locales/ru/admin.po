@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:12+0200\n"
+"PO-Revision-Date: 2023-09-08 03:16\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 565\n"
+
+#: themes/ductile/src/Config.php:55
+msgid "Full"
+msgstr "Полный"
+
+#: themes/ductile/src/Config.php:68
+msgid "Home (first page)"
+msgstr "Главная (первая страница)"
+
+#: themes/ductile/src/Config.php:69
+msgid "Home (other pages)"
+msgstr "Главная (другие страницы)"
+
+#: themes/ductile/src/Config.php:70
+msgid "Entries for a category"
+msgstr "Заявки на участие в категории"
+
+#: themes/ductile/src/Config.php:71
+msgid "Entries for a tag"
+msgstr "Записи для тега"
+
+#: themes/ductile/src/Config.php:72
+msgid "Search result entries"
+msgstr "Записи результатов поиска"
+
+#: themes/ductile/src/Config.php:73
+msgid "Month archive entries"
+msgstr "Архивные записи за месяц"
+
+#: themes/ductile/src/Config.php:78
+msgid "Ductile primary"
+msgstr "Вязкие первичные"
+
+#: themes/ductile/src/Config.php:79
+msgid "Ductile secondary"
+msgstr "Вязкие вторичные"
+
+#: themes/ductile/src/Config.php:80
+msgid "Times New Roman"
+msgstr "Times New Roman"
+
+#: themes/ductile/src/Config.php:81
+msgid "Georgia"
+msgstr "Грузия"
+
+#: themes/ductile/src/Config.php:82
+msgid "Garamond"
+msgstr "Garamond"
+
+#: themes/ductile/src/Config.php:83
+msgid "Helvetica/Arial"
+msgstr "Helvetica/Arial"
+
+#: themes/ductile/src/Config.php:84
+msgid "Verdana"
+msgstr "Verdana"
+
+#: themes/ductile/src/Config.php:85
+msgid "Trebuchet MS"
+msgstr "Требушет МС"
+
+#: themes/ductile/src/Config.php:86
+msgid "Impact"
+msgstr "Воздействие"
+
+#: themes/ductile/src/Config.php:87
+msgid "Monospace"
+msgstr "Monospace"
+
+#: themes/ductile/src/Config.php:91
+msgid "none"
+msgstr "нет"
+
+#: themes/ductile/src/Config.php:92
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+#: themes/ductile/src/Config.php:93
+msgid "stylesheet (Google)"
+msgstr "таблица стилей (Google)"
+
+#: themes/ductile/src/Config.php:340
+msgid "Theme configuration upgraded."
+msgstr "Обновлена конфигурация темы."
+
+#: themes/ductile/src/Config.php:361
+msgid "Font family"
+msgstr "Семейство шрифтов"
+
+#: themes/ductile/src/Config.php:377
+msgid "Header"
+msgstr "Заголовок"
+
+#: themes/ductile/src/Config.php:378
+msgid "Hide blog description:"
+msgstr "Скрыть описание блога:"
+
+#: themes/ductile/src/Config.php:381
+msgid "Logo URL:"
+msgstr "URL-адрес логотипа:"
+
+#: themes/ductile/src/Config.php:388
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "Для настройки верхнего меню перейдите на страницу администрирования <a href=\"%s\">Simple Menu</a>."
+
+#: themes/ductile/src/Config.php:395
+msgid "Stickers"
+msgstr "Наклейки"
+
+#: themes/ductile/src/Config.php:397
+msgid "Stickers (footer)"
+msgstr "Наклейки (нижний колонтитул)"
+
+#: themes/ductile/src/Config.php:401
+msgid "Image"
+msgstr "Изображение"
+
+#: themes/ductile/src/Config.php:429
+msgid "Entries list types and limits"
+msgstr "Типы и ограничения списков записей"
+
+#: themes/ductile/src/Config.php:430
+msgid "Entries lists"
+msgstr "Списки записей"
+
+#: themes/ductile/src/Config.php:433
+msgid "Context"
+msgstr "Контекст"
+
+#: themes/ductile/src/Config.php:434
+msgid "Entries list type"
+msgstr "Тип списка записей"
+
+#: themes/ductile/src/Config.php:465
+msgid "Miscellaneous options"
+msgstr "Различные опции"
+
+#: themes/ductile/src/Config.php:466
+msgid "Comment preview is not mandatory:"
+msgstr "Предварительный просмотр комментариев не является обязательным:"
+
+#: themes/ductile/src/Config.php:479
+msgid "Presentation"
+msgstr "Презентация"
+
+#: themes/ductile/src/Config.php:483
+msgid "General settings"
+msgstr "Общие настройки"
+
+#: themes/ductile/src/Config.php:485
+msgid "Fonts"
+msgstr "Шрифты"
+
+#: themes/ductile/src/Config.php:489
+msgid "Main text"
+msgstr "Основной текст"
+
+#: themes/ductile/src/Config.php:490
+msgid "Main font:"
+msgstr "Основной шрифт:"
+
+#: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
+msgid "Set to Default to use a webfont."
+msgstr "Установите значение Default, чтобы использовать веб-шрифт."
+
+#: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
+msgid "Webfont family:"
+msgstr "Семейство Webfont:"
+
+#: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
+msgid "Webfont URL:"
+msgstr "URL Webfont:"
+
+#: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
+msgid "Webfont API:"
+msgstr "Webfont API:"
+
+#: themes/ductile/src/Config.php:506
+msgid "Secondary text"
+msgstr "Вторичный текст"
+
+#: themes/ductile/src/Config.php:507
+msgid "Secondary font:"
+msgstr "Вторичный шрифт:"
+
+#: themes/ductile/src/Config.php:522
+msgid "Titles"
+msgstr "Названия"
+
+#: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
+msgid "Blog title"
+msgstr "Название блога"
+
+#: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
+#: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
+#: themes/ductile/src/Config.php:625
+msgid "In bold:"
+msgstr "Выделено жирным шрифтом:"
+
+#: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
+#: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
+msgid "Font size (in em by default):"
+msgstr "Размер шрифта (по умолчанию в em):"
+
+#: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
+#: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
+#: themes/ductile/src/Config.php:631
+msgid "Color:"
+msgstr "Цвет:"
+
+#: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
+msgid "Post title"
+msgstr "Название должности"
+
+#: themes/ductile/src/Config.php:566
+msgid "Titles without link"
+msgstr "Названия без ссылки"
+
+#: themes/ductile/src/Config.php:577
+msgid "Inside posts links"
+msgstr "Ссылки на внутренние сообщения"
+
+#: themes/ductile/src/Config.php:581
+msgid "Normal and visited links color:"
+msgstr "Цвет обычных и посещенных ссылок:"
+
+#: themes/ductile/src/Config.php:591
+msgid "Active, hover and focus links color:"
+msgstr "Цвет активной, наведенной и фокусной ссылок:"
+
+#: themes/ductile/src/Config.php:601
+msgid "Mobile specific settings"
+msgstr "Настройки для конкретных мобильных устройств"
+

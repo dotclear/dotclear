@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-09-08 03:15\n"
+"Last-Translator: \n"
+"Language-Team: Greek\n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: el\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "Ελαφριά γραμμική διαβάθμιση"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "Μέτρια γραμμική κλίση"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "Σκούρα γραμμική κλίση"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "Αμιγές χρώμα"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "Προσαρμοσμένη..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "Η διαμόρφωση του θέματος ενημερώθηκε με επιτυχία."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "Επιστροφή στην εμφάνιση του Blog"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "Προσαρμογή"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "Γενικά"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "Χρώμα φόντου:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "Χρώμα φόντου γεμίσματος:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "Γραμματοσειρά κύριου κειμένου:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "Μέγεθος γραμματοσειράς κύριου κειμένου:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "Κύριο χρώμα κειμένου:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "Ύψος γραμμής κειμένου:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "Χρώμα συνδέσμων:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "Επισκεπτόμενοι σύνδεσμοι χρώμα:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "Χρώμα συνδέσμων εστίασης:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "Χρώμα Prelude:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "Απόκρυψη κύριου τίτλου"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "Γραμματοσειρά κύριου τίτλου:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "Μέγεθος γραμματοσειράς κύριου τίτλου:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "Κύριο χρώμα τίτλου:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "Ευθυγράμμιση του κύριου τίτλου:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "κέντρο"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "αριστερά"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "δεξιά"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "Θέση κύριου τίτλου (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "Κορυφαία εικόνα"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Επιλέξτε \"Προσαρμοσμένη...\" για να ανεβάσετε τη δική σας εικόνα."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "Προσθέστε την εικόνα σας:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "Αρχείο JPEG ή PNG, πλάτους 800 pixels, μέγιστου μεγέθους %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Πλαϊνή μπάρα"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "Θέση πλευρικής μπάρας:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Γραμματοσειρά κειμένου πλαϊνής γραμμής:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "Μέγεθος γραμματοσειράς κειμένου πλευρικής γραμμής:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "Χρώμα κειμένου πλαϊνής γραμμής:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "Γραμματοσειρά τίτλων πλαϊνής γραμμής:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "Μέγεθος γραμματοσειράς τίτλων πλευρικής γραμμής:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "Χρώμα τίτλων πλαϊνών γραμμών:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "Γραμματοσειρά τίτλων 2ου επιπέδου πλαϊνής γραμμής:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Μέγεθος γραμματοσειράς τίτλων 2ου επιπέδου πλαϊνής γραμμής:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "Χρώμα τίτλων 2ου επιπέδου πλαϊνής γραμμής:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "Χρώμα γραμμών πλευρικής γραμμής:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "Χρώμα συνδέσμων πλευρικής γραμμής:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "Χρώμα των συνδέσμων που επισκέφθηκε η πλαϊνή μπάρα:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "Χρώμα συνδέσμων εστίασης πλευρικής γραμμής:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "Γραμματοσειρά τίτλου ημερομηνίας:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "Μέγεθος γραμματοσειράς τίτλου ημερομηνίας:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "Ημερομηνία τίτλος χρώμα:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "Γραμματοσειρά τίτλου καταχώρησης:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "Μέγεθος γραμματοσειράς τίτλου καταχώρησης:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "Χρώμα τίτλου εισόδου:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "Χρώμα φόντου σχολίου:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "Χρώμα κειμένου σχολίου:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "Το χρώμα φόντου του σχολίου μου:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "Το χρώμα του κειμένου του σχολίου μου:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "Υποσέλιδο"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Γραμματοσειρά υποσέλιδου:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "Μέγεθος γραμματοσειράς υποσέλιδου:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "Χρώμα υποσέλιδου:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "Χρώμα συνδέσμων υποσέλιδου:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "Χρώμα φόντου υποσέλιδου:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "Πρόσθετη CSS"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Τυχόν πρόσθετα στυλ CSS (πρέπει να γράφονται με τη σύνταξη CSS):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "Εισαγωγή/εξαγωγή ρυθμίσεων"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Μπορείτε να μοιραστείτε τη διαμόρφωσή σας χρησιμοποιώντας τον ακόλουθο κώδικα. Για να εφαρμόσετε μια διαμόρφωση, επικολλήστε τον κωδικό, κάντε κλικ στο \"Εφαρμογή κώδικα\" και αποθηκεύστε."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "Αντιγράψτε αυτόν τον κωδικό:"
+

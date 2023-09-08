@@ -4,94 +4,152 @@
 </head>
 
 <body>
-
-<h3>Blogdetails</h3>
+<h4>Tinklaraščio informacija</h4>
 <dl>
-  <dt>Blog ID</dt>
+  <dt>Tinklaraščio ID</dt>
   <dd>Einmalvergebene ID Deines Blogs. Diese kann nur in der Funktion des Super 
     Adminstrators vergeben werden..</dd>
-  
+
   <dt>Blogname</dt>
   <dd>Name des Blogs, erforderlich.</dd>
-  
-  <dt>Blog URL</dt>
+
+  <dt>Tinklaraščio URL</dt>
   <dd>Vollst&auml;ndige Blog URL. Erforderlich und kann nur in der Funktion des 
     Super Adminstrators vergeben werden..</dd>
-  
+
   <dt>Blogstatus</dt>
+  <dd>Apibrėžia URL skaitymo būdą. Rekomenduojama naudoti PATH_INFO, jei PATH_INFO neveikia, reikia naudoti QUERY_STRING. Naudojant PATH_INFO režimą, tinklaraščio URL turi baigtis "/", o naudojant QUERY_STRING - "?".</dd>
+
+  <dt>Blogbeschreibung</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: Blog f&uuml;r alle Besucher ge&ouml;ffnet</li>
-      <li><strong>offline</strong>: Blog f&uuml;r  Besucher geschlossen, jedoch offen f&uuml;r Besucher mit Schreibrechten
-      </li>
-      <li><strong>Entfernt</strong>: Blog geschlossen f&uuml;r Besucher und Besucher mit Schreibrechten.</li>
+      <li><strong>Internete:</strong> Tinklaraštis atviras lankytojams.</li>
+      <li><strong>Neprisijungus prie interneto:</strong> Tinklaraštis uždarytas lankytojams, bet atviras rašytojams.</li>
+      <li><strong>Pašalinta:</strong> Dienoraštis uždarytas lankytojams ir rašytojams, atviras tik superadministratoriams.</li>
     </ul>
   </dd>
-  
-  <dt>Blogbeschreibung</dt>
-  <dd>Hier kannst Du eine Beschreibung Deines Blogs einf&uuml;gen. Verwende einfachen Text ohne Formatierung.</dd>
+
+  <dt>Tinklaraščio aprašymas</dt>
+  <dd>Čia galite įrašyti bet kokį norimą tinklaraščio aprašymą. Tai paprastas tekstas be jokio formatavimo.</dd>
 </dl>
 
-<h3>Blogkonfiguration</h3>
+<h4>Tinklaraščio konfigūracija</h4>
 <dl>
   <dt>Name des Eigent&uuml;mer des Blogs</dt>
   <dd>Name der Person, die f&uuml;r das Blog verantwortlich ist. Es k&ouml;nnte auch der Eigent&uuml;mer oder Herausgeber sein, sofern dieser existiert.</dd>
-  
+
   <dt>Copyright Hinweis</dt>
   <dd>Hinweis &uuml;ber die Urheberrechte des Blogs.</dd>
-  
+
   <dt>Standardsprache</dt>
-  <dd>Sprache des Bloginterfaces. Entweder der vorhandenen Landessprache oder, wenn diese nicht verf&uuml;gbar ist, wird Englisch als Standard eingesetzt.
-  </dd>
-  
+  <dd>Sprache des Bloginterfaces. Entweder der vorhandenen Landessprache oder, wenn diese nicht verf&uuml;gbar ist, wird Englisch als Standard eingesetzt.</dd>
+
   <dt>Blogzeitzone</dt>
-  <dd>Definiert die Zeitzone des Blogs und wird f&uuml;r Kommentare und Trackbacks verwendet.
-  </dd>
-  
+  <dd>Definiert die Zeitzone des Blogs und wird f&uuml;r Kommentare und Trackbacks verwendet.</dd>
+
   <dt>Datumsformate</dt>
-  <dd>Das Datumsformat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.
-  </dd>
-  
+  <dd>Das Datumsformat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
+
   <dt>Zeitformat</dt>
-  <dd>Das Zeitormat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.
-  </dd>
-  
-  <dt>Anzeige .. Eintr&auml;ge pro Seite </dt>
+  <dd>Das Zeitormat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
+
+  <dt>Anzeige .. Eintr&auml;ge pro Seite</dt>
   <dd>Diese Nummer wird die Begrenzung der Eintr&auml;ge auf der Homepage, der Startseite, der ersten Seite
   jeder Kategorie und des RSS Feeds sein.</dd>
-  
-  <dt>Kommentare offen lassen f&uuml;r .. Tage</dt>
-  <dd>Die Anzahl der Tage zwischen der Ver&ouml;ffentlichung der Kommentare und Trackbacks nach der Ver&ouml;ffentlichung des Beitrages.
-  Bleibt das Feld frei, alle Kommentare sind offen.</dd>
-  
-  <dt>Anzeige von Smilies in Eintr&auml;gen und Kommentare </dt>
-  <dd>Anzeigeausschnitte von Abk&uuml;rzungen wie :-) oder ;-) als Icons.</dd>
-  
-  <dt>Kommentare akzeptieren</dt>
-  <dd>Globale Einstellung f&uuml;r das Akzeptieren von Kommentare im Blog. Du kannst auch die Priorit&auml;t f&uuml;r jeden einzelnen
-  Eintrag im Blogeintrag selbst setzen.</dd>
-  
-  <dt>Trackbacks akzeptieren</dt>
-  <dd>Globale Einstellung f&uuml;r das Akzptieren von Trackbacks im Blog. Du kannst auch die Priorit&auml;t f&uuml;r jeden einzelnen
-  Eintrag im Blogeintrag selbst setzen.
-  </dd>
-  
-  <dt>Kommentare und Trackbacks moderieren</dt>
-  <dd>Diese Kommentare und Trackbacks werden nur mit Einwilligung des Blogeigent&uuml;mers ver&ouml;ffentlicht.</dd>
-  
-  <dt>Hinzuf&uuml;gen der "nofollow" Anweisung auf Kommentare und Trackbacklinks</dt>
-  <dd>F&uuml;gt ein Attribut dem Kommentar und Trackbacklink bei, das Suchbots nicht erlaubt, diese Links zu verfolgen. 
-  Dieser Antispam-Filter hat seine Wirksamkeit.
-   </dd>
-  
-  <dt>Wiki syntax f&uuml;r Kommentare </dt>
-  <dd>Erlaubt das Verwenden der wiki syntax in Kommentaren.
-  </dd>
 </dl>
 
-<h3>Formatreferenzen</h3>
+<h4>Komentarai ir Trackbacks</h4>
+<dl>
+  <dt>Priimti pastabas</dt>
+  <dd>Visuotinai priima komentarus tinklaraštyje. Turi pirmenybę prieš nustatymą vienam įrašui.</dd>
+
+  <dt>Nuosaikios pastabos</dt>
+  <dd>Pasirinkus šią parinktį, komentarai bus skelbiami tik redaktoriui sutikus.</dd>
+
+  <dt>Palikite komentarus atvirus X dienų</dt>
+  <dd>Dienų, per kurias bus galima teikti komentarus po pranešimo paskelbimo, skaičius. Jei ši reikšmė yra tuščia, komentarai bus atviri neribotą laiką.</dd>
+
+  <dt>"Wiki" komentarų sintaksė</dt>
+  <dd>Leidžia komentaruose naudoti wiki sintaksės poaibį.</dd>
+
+  <dt>Priimti atgalines nuorodas</dt>
+  <dd>Visuotinai priima atgalines nuorodas tinklaraštyje. Turi pirmenybę prieš nustatymą vienam įrašui.</dd>
+
+  <dt>Nuosaikūs Trackbacks</dt>
+  <dd>Pasirinkus šią parinktį, atgalinės nuorodos bus skelbiamos tik redaktoriui sutikus.</dd>
+
+  <dt>Palikite atgalines nuorodas atviras X dienų</dt>
+  <dd>Dienų, per kurias bus galima naudotis atgalinėmis nuorodomis po pranešimo paskelbimo, skaičius. Jei ši reikšmė yra tuščia, atgalinės nuorodos bus atidarytos neribotam laikui.</dd>
+
+  <dt>Pridėti "nofollow" ryšį komentaruose ir "Trackbacks" nuorodose</dt>
+  <dd>Prideda komentaruose ir atgalinėse nuorodose esančių nuorodų atributą, nurodantį paieškos robotams jų nesekti. Ši kovos su šlamštu funkcija dar turi įrodyti savo vertę.</dd>
+</dl>
+
+<h4>Tinklaraščio pristatymas</h4>
+<dl>
+  <dt>Datos formatas</dt>
+  <dd>Nustato tinklaraščio įrašų datos formatą. Daugiau informacijos žr. toliau esančiame skyriuje "Formato nuoroda". Išskleidžiamąjį sąrašą galite naudoti norėdami greitai pasirinkti jau egzistuojantį šabloną.</dd>
+
+  <dt>Laiko formatas</dt>
+  <dd>Nustato tinklaraščio įrašų laiko formatą. Daugiau informacijos žr. toliau esančiame skyriuje "Formato nuoroda". Išskleidžiamąjį sąrašą galite naudoti norėdami greitai pasirinkti jau egzistuojantį šabloną.</dd>
+
+  <dt>Rodyti šypsenėles įrašuose ir komentaruose</dt>
+  <dd>Kai kurias eilutes, pavyzdžiui, :-) arba ;-), paverčia paveikslėliais.</dd>
+
+  <dt>Rodyti X įrašų viename puslapyje</dt>
+  <dd>Bus rodomi X įrašai pagrindiniame tinklaraščio puslapyje ir įvairiose kategorijose.</dd>
+
+  <dt>Rodyti X įrašų viename kanale</dt>
+  <dd>Bus rodomi X įrašai tinklaraščio kanaluose.</dd>
+
+  <dt>Rodyti X komentarų viename kanale</dt>
+  <dd>Bus rodomi X komentarai tinklaraščio komentarų kanaluose.</dd>
+
+  <dt>Sutrumpinti kanalus</dt>
+  <dd>Ši parinktis pateiks tik tinklaraščio įrašų santrauką iš kanalų.</dd>
+
+  <dt>Įtraukti subkategorijas į kategorijos puslapį ir kategorijos pranešimų kanalą</dt>
+  <dd>Įjungus šią parinktį, subkategorijų įrašai bus rodomi pagrindinių kategorijų puslapiuose ir jų kanaluose.</dd>
+</dl>
+
+<h4>Žiniasklaida ir vaizdai</h4>
+<dl>
+  <dt>Generuojamų vaizdų dydžiai (pikseliais)</dt>
+  <dd>Medijos tvarkyklėje pridėjus paveikslėlį, automatiškai sukuriami kiti dydžiai. Čia galite nustatyti kiekvieno tipo sugeneruotų vaizdų ilgiausio dydžio (pločio arba aukščio) matmenį. Jei vieną lauką paliksite tuščią, medijos tvarkyklė nesukurs atitinkamo miniatiūrinio dydžio.</dd>
+
+  <dt>Numatytieji vaizdo įterpimo atributai</dt>
+  <dd>Pasirinkti nustatymai bus taikomi visiems naujiems vaizdams, pridėtiems prie medijos tvarkyklės.</dd>
+
+  <dt>Įterpto vaizdo pavadinimas</dt>
+  <dd>Pasirinkite vaizdams taikomų žymų "title" formatą, remdamiesi iš vaizdų metaduomenų gauta informacija.</dd>
+
+  <dt>Jei įmanoma, naudokite originalios laikmenos datą</dt>
+  <dd>Kai ši parinktis įjungta, jei vaizdo metaduomenyse yra data, ji bus naudojama. Jei ne, bus naudojama įkėlimo data.</dd>
+
+  <dt>Įterpto vaizdo dydis</dt>
+  <dd>Nustato numatytąjį dydį, naudojamą įterpiant paveikslėlį į tinklaraščio įrašą.</dd>
+
+  <dt>Vaizdų lyginimas</dt>
+  <dd>Nustato numatytąjį išlyginimą, naudojamą įterpiant paveikslėlį į tinklaraščio įrašą.</dd>
+
+  <dt>Įterpkite nuorodą į originalų paveikslėlį</dt>
+  <dd>Įjungus šią parinktį, į tinklaraščio įrašą įterptas nuotraukas bus galima spustelėti ir jos nukreips į originalaus dydžio nuotrauką.</dd>
+
+</dl>
+
+<h4>Paieškos sistemų robotų politika</h4>
 <p>Einige Felder k&ouml;nnen in Verh&auml;ltnis zu Datum und Zeit gesetzt werden.
 Hier ist die Referenz:</p>
+
+<h4>Antispam</h4>
+<p>Galite nustatyti dienų skaičių, po kurio norite, kad nepageidaujami komentarai būtų automatiškai ištrinami. Norėdami išjungti šią funkciją, palikite šį lauką tuščią (arba įrašykite 0).</p>
+
+<h4>Vartotojai</h4>
+<p>Pateikiamas šio tinklaraščio naudotojų sąrašas ir jų leidimai.</p>
+
+<h3>Blogdetails</h3>
+<p>Kai kuriuos laukus galima sukonfigūruoti taip, kad data ir laikas būtų formatuojami pagal jūsų poreikius.
+Čia pateikiama nuoroda:</p>
 
 <ul>
   <li><strong>%a</strong>: gek&uuml;rzter Wochentag (lokal)</li>
@@ -114,7 +172,7 @@ Hier ist die Referenz:</p>
   <li><strong>%I</strong>: digitale Uhrzeit, 12H Modus
   (von 01 bis 12)</li>
   <li><strong>%j</strong>: Tag eines Jahres, digital (von 001 bis 366)</li>
-  <li><strong>%m</strong>: Monat, digital (von 1 bis� 12)</li>
+  <li><strong>%m</strong>: Monat, digital (von 1 bis  12)</li>
   <li><strong>%M</strong>: Minute, digital</li>
   <li><strong>%n</strong>: Zeilentrennung Character</li>
   <li><strong>%p</strong>: entweder `am' oder `pm', bezogen zur absoluten Zeit
@@ -138,7 +196,7 @@ Hier ist die Referenz:</p>
   <li><strong>%y</strong>: Jahr, 2stellig (von 00 bis 99)</li>
   <li><strong>%Y</strong>: tJahr, 4stellig</li>
   <li><strong>%Z ou %z</strong>: Zeitzone, Name oder Kurzzeichen</li>
-  <li><strong>%%</strong>: ein Charakter in Worten `%' </li>
+  <li>: ein Charakter in Worten `%'</li>
 </ul>
 
 </body>

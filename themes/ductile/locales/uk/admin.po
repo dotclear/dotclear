@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:12+0200\n"
+"PO-Revision-Date: 2023-09-08 03:16\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: uk\n"
+"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 565\n"
+
+#: themes/ductile/src/Config.php:55
+msgid "Full"
+msgstr "Повний"
+
+#: themes/ductile/src/Config.php:68
+msgid "Home (first page)"
+msgstr "Головна (перша сторінка)"
+
+#: themes/ductile/src/Config.php:69
+msgid "Home (other pages)"
+msgstr "Головна (інші сторінки)"
+
+#: themes/ductile/src/Config.php:70
+msgid "Entries for a category"
+msgstr "Заявки на участь у категорії"
+
+#: themes/ductile/src/Config.php:71
+msgid "Entries for a tag"
+msgstr "Записи для тегу"
+
+#: themes/ductile/src/Config.php:72
+msgid "Search result entries"
+msgstr "Записи в результатах пошуку"
+
+#: themes/ductile/src/Config.php:73
+msgid "Month archive entries"
+msgstr "Архівні записи за місяць"
+
+#: themes/ductile/src/Config.php:78
+msgid "Ductile primary"
+msgstr "Пластична первинна сировина"
+
+#: themes/ductile/src/Config.php:79
+msgid "Ductile secondary"
+msgstr "Пластична вторинна сировина"
+
+#: themes/ductile/src/Config.php:80
+msgid "Times New Roman"
+msgstr "Times New Roman"
+
+#: themes/ductile/src/Config.php:81
+msgid "Georgia"
+msgstr "Грузія"
+
+#: themes/ductile/src/Config.php:82
+msgid "Garamond"
+msgstr "Гарамонд."
+
+#: themes/ductile/src/Config.php:83
+msgid "Helvetica/Arial"
+msgstr "Helvetica/Arial"
+
+#: themes/ductile/src/Config.php:84
+msgid "Verdana"
+msgstr "Вердана."
+
+#: themes/ductile/src/Config.php:85
+msgid "Trebuchet MS"
+msgstr "Требуше МС"
+
+#: themes/ductile/src/Config.php:86
+msgid "Impact"
+msgstr "Вплив"
+
+#: themes/ductile/src/Config.php:87
+msgid "Monospace"
+msgstr "Монопростір"
+
+#: themes/ductile/src/Config.php:91
+msgid "none"
+msgstr "ні"
+
+#: themes/ductile/src/Config.php:92
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+#: themes/ductile/src/Config.php:93
+msgid "stylesheet (Google)"
+msgstr "таблиця стилів (Google)"
+
+#: themes/ductile/src/Config.php:340
+msgid "Theme configuration upgraded."
+msgstr "Оновлена конфігурація теми."
+
+#: themes/ductile/src/Config.php:361
+msgid "Font family"
+msgstr "Сімейство шрифтів"
+
+#: themes/ductile/src/Config.php:377
+msgid "Header"
+msgstr "Заголовок"
+
+#: themes/ductile/src/Config.php:378
+msgid "Hide blog description:"
+msgstr "Приховати опис блогу:"
+
+#: themes/ductile/src/Config.php:381
+msgid "Logo URL:"
+msgstr "URL-адреса логотипу:"
+
+#: themes/ductile/src/Config.php:388
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "Для налаштування верхнього меню перейдіть на сторінку адміністрування простого меню <a href=\"%s\"></a>."
+
+#: themes/ductile/src/Config.php:395
+msgid "Stickers"
+msgstr "Наклейки"
+
+#: themes/ductile/src/Config.php:397
+msgid "Stickers (footer)"
+msgstr "Наклейки (нижній колонтитул)"
+
+#: themes/ductile/src/Config.php:401
+msgid "Image"
+msgstr "Зображення"
+
+#: themes/ductile/src/Config.php:429
+msgid "Entries list types and limits"
+msgstr "Типи та обмеження списку записів"
+
+#: themes/ductile/src/Config.php:430
+msgid "Entries lists"
+msgstr "Списки конкурсних робіт"
+
+#: themes/ductile/src/Config.php:433
+msgid "Context"
+msgstr "Контекст"
+
+#: themes/ductile/src/Config.php:434
+msgid "Entries list type"
+msgstr "Тип списку записів"
+
+#: themes/ductile/src/Config.php:465
+msgid "Miscellaneous options"
+msgstr "Різні опції"
+
+#: themes/ductile/src/Config.php:466
+msgid "Comment preview is not mandatory:"
+msgstr "Попередній перегляд коментарів не є обов'язковим:"
+
+#: themes/ductile/src/Config.php:479
+msgid "Presentation"
+msgstr "Презентація"
+
+#: themes/ductile/src/Config.php:483
+msgid "General settings"
+msgstr "Загальні налаштування"
+
+#: themes/ductile/src/Config.php:485
+msgid "Fonts"
+msgstr "Шрифти"
+
+#: themes/ductile/src/Config.php:489
+msgid "Main text"
+msgstr "Основний текст"
+
+#: themes/ductile/src/Config.php:490
+msgid "Main font:"
+msgstr "Основний шрифт:"
+
+#: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
+msgid "Set to Default to use a webfont."
+msgstr "Встановіть значення За замовчуванням, щоб використовувати веб-шрифт."
+
+#: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
+msgid "Webfont family:"
+msgstr "Сімейство веб-шрифтів:"
+
+#: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
+msgid "Webfont URL:"
+msgstr "URL-адреса веб-шрифту:"
+
+#: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
+msgid "Webfont API:"
+msgstr "Webfont API:"
+
+#: themes/ductile/src/Config.php:506
+msgid "Secondary text"
+msgstr "Вторинний текст"
+
+#: themes/ductile/src/Config.php:507
+msgid "Secondary font:"
+msgstr "Другий шрифт:"
+
+#: themes/ductile/src/Config.php:522
+msgid "Titles"
+msgstr "Назви"
+
+#: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
+msgid "Blog title"
+msgstr "Назва блогу"
+
+#: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
+#: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
+#: themes/ductile/src/Config.php:625
+msgid "In bold:"
+msgstr "Жирним шрифтом:"
+
+#: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
+#: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
+msgid "Font size (in em by default):"
+msgstr "Розмір шрифту (за замовчуванням - em):"
+
+#: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
+#: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
+#: themes/ductile/src/Config.php:631
+msgid "Color:"
+msgstr "Колір:"
+
+#: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
+msgid "Post title"
+msgstr "Назва посади"
+
+#: themes/ductile/src/Config.php:566
+msgid "Titles without link"
+msgstr "Назви без посилання"
+
+#: themes/ductile/src/Config.php:577
+msgid "Inside posts links"
+msgstr "Посилання всередині постів"
+
+#: themes/ductile/src/Config.php:581
+msgid "Normal and visited links color:"
+msgstr "Колір звичайних та відвіданих посилань:"
+
+#: themes/ductile/src/Config.php:591
+msgid "Active, hover and focus links color:"
+msgstr "Активні посилання, посилання при наведенні курсору та фокусуванні - кольорові:"
+
+#: themes/ductile/src/Config.php:601
+msgid "Mobile specific settings"
+msgstr "Налаштування для мобільних пристроїв"
+

@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:12+0200\n"
+"PO-Revision-Date: 2023-09-08 03:16\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese, Brazilian\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: pt-BR\n"
+"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 565\n"
+
+#: themes/ductile/src/Config.php:55
+msgid "Full"
+msgstr "Completo"
+
+#: themes/ductile/src/Config.php:68
+msgid "Home (first page)"
+msgstr "Início (primeira página)"
+
+#: themes/ductile/src/Config.php:69
+msgid "Home (other pages)"
+msgstr "Início (outras páginas)"
+
+#: themes/ductile/src/Config.php:70
+msgid "Entries for a category"
+msgstr "Entradas para uma categoria"
+
+#: themes/ductile/src/Config.php:71
+msgid "Entries for a tag"
+msgstr "Entradas para uma etiqueta"
+
+#: themes/ductile/src/Config.php:72
+msgid "Search result entries"
+msgstr "Entradas de resultados de pesquisa"
+
+#: themes/ductile/src/Config.php:73
+msgid "Month archive entries"
+msgstr "Entradas de arquivo do mês"
+
+#: themes/ductile/src/Config.php:78
+msgid "Ductile primary"
+msgstr "Primário dúctil"
+
+#: themes/ductile/src/Config.php:79
+msgid "Ductile secondary"
+msgstr "Secundário dúctil"
+
+#: themes/ductile/src/Config.php:80
+msgid "Times New Roman"
+msgstr "Times New Roman"
+
+#: themes/ductile/src/Config.php:81
+msgid "Georgia"
+msgstr "Geórgia"
+
+#: themes/ductile/src/Config.php:82
+msgid "Garamond"
+msgstr "Garamond"
+
+#: themes/ductile/src/Config.php:83
+msgid "Helvetica/Arial"
+msgstr "Helvetica/Arial"
+
+#: themes/ductile/src/Config.php:84
+msgid "Verdana"
+msgstr "Verdana"
+
+#: themes/ductile/src/Config.php:85
+msgid "Trebuchet MS"
+msgstr "Trebuchet MS"
+
+#: themes/ductile/src/Config.php:86
+msgid "Impact"
+msgstr "Impacto"
+
+#: themes/ductile/src/Config.php:87
+msgid "Monospace"
+msgstr "Monoespaço"
+
+#: themes/ductile/src/Config.php:91
+msgid "none"
+msgstr "nenhum"
+
+#: themes/ductile/src/Config.php:92
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+#: themes/ductile/src/Config.php:93
+msgid "stylesheet (Google)"
+msgstr "folha de estilos (Google)"
+
+#: themes/ductile/src/Config.php:340
+msgid "Theme configuration upgraded."
+msgstr "Configuração do tema actualizada."
+
+#: themes/ductile/src/Config.php:361
+msgid "Font family"
+msgstr "Família de fontes"
+
+#: themes/ductile/src/Config.php:377
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: themes/ductile/src/Config.php:378
+msgid "Hide blog description:"
+msgstr "Ocultar a descrição do blogue:"
+
+#: themes/ductile/src/Config.php:381
+msgid "Logo URL:"
+msgstr "URL do logótipo:"
+
+#: themes/ductile/src/Config.php:388
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "Para configurar o menu superior, aceda à página de administração do menu simples <a href=\"%s\"></a>."
+
+#: themes/ductile/src/Config.php:395
+msgid "Stickers"
+msgstr "Autocolantes"
+
+#: themes/ductile/src/Config.php:397
+msgid "Stickers (footer)"
+msgstr "Autocolantes (rodapé)"
+
+#: themes/ductile/src/Config.php:401
+msgid "Image"
+msgstr "Imagem"
+
+#: themes/ductile/src/Config.php:429
+msgid "Entries list types and limits"
+msgstr "Tipos e limites da lista de entradas"
+
+#: themes/ductile/src/Config.php:430
+msgid "Entries lists"
+msgstr "Listas de entradas"
+
+#: themes/ductile/src/Config.php:433
+msgid "Context"
+msgstr "Contexto"
+
+#: themes/ductile/src/Config.php:434
+msgid "Entries list type"
+msgstr "Tipo de lista de entradas"
+
+#: themes/ductile/src/Config.php:465
+msgid "Miscellaneous options"
+msgstr "Opções diversas"
+
+#: themes/ductile/src/Config.php:466
+msgid "Comment preview is not mandatory:"
+msgstr "A pré-visualização dos comentários não é obrigatória:"
+
+#: themes/ductile/src/Config.php:479
+msgid "Presentation"
+msgstr "Apresentação"
+
+#: themes/ductile/src/Config.php:483
+msgid "General settings"
+msgstr "Definições gerais"
+
+#: themes/ductile/src/Config.php:485
+msgid "Fonts"
+msgstr "Fontes"
+
+#: themes/ductile/src/Config.php:489
+msgid "Main text"
+msgstr "Texto principal"
+
+#: themes/ductile/src/Config.php:490
+msgid "Main font:"
+msgstr "Fonte principal:"
+
+#: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
+msgid "Set to Default to use a webfont."
+msgstr "Defina como Predefinição para utilizar uma fonte web."
+
+#: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
+msgid "Webfont family:"
+msgstr "Família Webfont:"
+
+#: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
+msgid "Webfont URL:"
+msgstr "URL do Webfont:"
+
+#: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
+msgid "Webfont API:"
+msgstr "API Webfont:"
+
+#: themes/ductile/src/Config.php:506
+msgid "Secondary text"
+msgstr "Texto secundário"
+
+#: themes/ductile/src/Config.php:507
+msgid "Secondary font:"
+msgstr "Tipo de letra secundário:"
+
+#: themes/ductile/src/Config.php:522
+msgid "Titles"
+msgstr "Títulos"
+
+#: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
+msgid "Blog title"
+msgstr "Título do blogue"
+
+#: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
+#: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
+#: themes/ductile/src/Config.php:625
+msgid "In bold:"
+msgstr "Em negrito:"
+
+#: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
+#: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
+msgid "Font size (in em by default):"
+msgstr "Tamanho do tipo de letra (em em por defeito):"
+
+#: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
+#: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
+#: themes/ductile/src/Config.php:631
+msgid "Color:"
+msgstr "Cor:"
+
+#: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
+msgid "Post title"
+msgstr "Título da publicação"
+
+#: themes/ductile/src/Config.php:566
+msgid "Titles without link"
+msgstr "Títulos sem ligação"
+
+#: themes/ductile/src/Config.php:577
+msgid "Inside posts links"
+msgstr "Ligações para os artigos internos"
+
+#: themes/ductile/src/Config.php:581
+msgid "Normal and visited links color:"
+msgstr "Cor das ligações normais e visitadas:"
+
+#: themes/ductile/src/Config.php:591
+msgid "Active, hover and focus links color:"
+msgstr "Cor das hiperligações activas, de foco e de passagem:"
+
+#: themes/ductile/src/Config.php:601
+msgid "Mobile specific settings"
+msgstr "Definições específicas do telemóvel"
+

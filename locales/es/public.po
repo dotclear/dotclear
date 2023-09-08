@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
-"PO-Revision-Date: 2023-07-10 07:07\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-09-07 14:31\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -190,7 +190,6 @@ msgstr "Entrada anterior:"
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Una fuente RSS recoge la información de actualizaciones de un sitio web. Proporciona el contenido de las entradas o comentarios, o un extracto de ellos, junto con un enlace a la versión completa y otros metadatos. Esta fuente tiene como objetivo ser leído por un <a href=\"http://es.wikipedia.org/wiki/Agregador/\">agregador</a> de RSS."
 
-#: __html_tpl_dummy.php:39
 msgid "Read"
 msgstr "Leer"
 
