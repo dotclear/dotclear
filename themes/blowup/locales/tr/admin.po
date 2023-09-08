@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-09-08 03:15\n"
+"Last-Translator: \n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: tr\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "Hafif doğrusal gradyan"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "Orta doğrusal gradyan"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "Koyu doğrusal gradyan"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "Düz renk"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "Özel..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "Tema yapılandırması başarıyla güncellendi."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "Blog görünümüne geri dön"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "Özelleştirme"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "Genel"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "Arka plan rengi:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "Arka plan rengi dolgusu:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "Ana metin yazı tipi:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "Ana metin yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "Ana metin rengi:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "Metin satırı yüksekliği:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "Bağlantı rengi:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "Ziyaret edilen bağlantıların rengi:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "Odak bağlantıları renk:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "Prelude rengi:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "Ana başlığı gizle"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "Ana başlık yazı tipi:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "Ana başlık yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "Ana başlık rengi:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "Ana başlık hizalaması:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "Merkez"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "Sol"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "doğru"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "Ana başlık konumu (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "Üstteki resim"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Kendi resminizi yüklemek için \"Özel...\" seçeneğini seçin."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "Resminizi ekleyin:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG veya PNG dosyası, 800 piksel genişliğinde, maksimum boyut %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Kenar Çubuğu"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "Kenar çubuğu konumu:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Kenar çubuğu metin yazı tipi:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "Kenar çubuğu metin yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "Kenar çubuğu metin rengi:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "Kenar çubuğu başlıkları yazı tipi:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "Kenar çubuğu başlıkları yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "Kenar çubuğu başlık rengi:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "Kenar çubuğu 2. seviye başlıklar yazı tipi:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Kenar çubuğu 2. seviye başlıkları yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "Kenar çubuğu 2. seviye başlık rengi:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "Kenar çubuğu çizgileri rengi:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "Kenar çubuğu bağlantıları rengi:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "Kenar çubuğu ziyaret edilen bağlantılar rengi:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "Kenar çubuğu odak bağlantıları rengi:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "Tarih başlığı yazı tipi:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "Tarih başlığı yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "Tarih başlık renk:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "Giriş başlığı yazı tipi:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "Giriş başlığı yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "Giriş başlık rengi:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "Yorum arka plan rengi:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "Yorum metni rengi:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "Yorumumun arka plan rengi:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "Yorum metnimin rengi:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "Altbilgi"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Altbilgi yazı tipi:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "Altbilgi yazı tipi boyutu:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "Altbilgi rengi:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "Altbilgi bağlantıları rengi:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "Altbilgi arka plan rengi:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "Ek CSS"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Herhangi bir ek CSS stili (CSS sözdizimi kullanılarak yazılmalıdır):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "Konfigürasyon içe / dışa aktarma"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Aşağıdaki kodu kullanarak yapılandırmanızı paylaşabilirsiniz. Bir yapılandırmayı uygulamak için kodu yapıştırın, \"Kodu uygula \"ya tıklayın ve kaydedin."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "Bu kodu kopyala:"
+
