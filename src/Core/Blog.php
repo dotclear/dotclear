@@ -250,7 +250,7 @@ class Blog implements BlogInterface
         $this->id          = $id;
         $this->uid         = $uid;
         $this->name        = $name;
-        $this->desc        = $desc;
+        $this->desc        = (string) $desc;
         $this->url         = $url;
         $this->host        = $host;
         $this->creadt      = $creadt;
