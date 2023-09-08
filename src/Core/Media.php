@@ -220,9 +220,9 @@ class Media extends Manager implements MediaInterface
         $this->addFileHandler('image/webp', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs(App::blog()->settings()->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs(App::blog()->settings()->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs(App::blog()->settings()->system->media_img_t_size);
+        $this->thumb_sizes['m'][0] = abs((int) App::blog()->settings()->system->media_img_m_size);
+        $this->thumb_sizes['s'][0] = abs((int) App::blog()->settings()->system->media_img_s_size);
+        $this->thumb_sizes['t'][0] = abs((int) App::blog()->settings()->system->media_img_t_size);
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager
         App::behavior()->callBehavior('coreMediaConstruct', $this);
