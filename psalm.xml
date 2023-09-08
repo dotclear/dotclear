@@ -33,5 +33,36 @@
         <file name="themes/*/_define.php" />
       </errorLevel>
     </InvalidScope>
+    <NoInterfaceProperties>
+      <errorLevel type="suppress">
+        <referencedClass name="Dotclear\Interface\Core\BlogSettingsInterface" />
+        <referencedClass name="Dotclear\Interface\Core\BlogWorkspaceInterface" />
+        <referencedClass name="Dotclear\Interface\Core\UserPreferencesInterface" />
+        <referencedClass name="Dotclear\Interface\Core\UserWorkspaceInterface" />
+      </errorLevel>
+    </NoInterfaceProperties>
+    <UndefinedPropertyAssignment>
+      <errorLevel type="suppress">
+        <referencedProperty name="Dotclear\Helper\File\File::$editable" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_id" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_title" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_meta" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_user" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_priv" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_dt" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_image" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_preview" />
+        <referencedProperty name="Dotclear\Database\MetaRecord::$_nb_media" />
+      </errorLevel>
+    </UndefinedPropertyAssignment>
+    <UndefinedPropertyFetch>
+      <errorLevel type="suppress">
+        <referencedProperty name="Dotclear\Helper\File\File::$media_title" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_id" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_icon" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
+      </errorLevel>
+    </UndefinedPropertyFetch>
   </issueHandlers>
 </psalm>

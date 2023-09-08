@@ -111,12 +111,17 @@ class UsersActions extends Process
 
                     foreach (App::backend()->users as $u) {
                         foreach (App::backend()->blogs as $b) {
+                            /**
+                             * User permissions
+                             *
+                             * @var        array<string, bool>
+                             */
                             $set_perms = [];
 
                             if (!empty($_POST['perm'][$b])) {
                                 foreach ($_POST['perm'][$b] as $perm_id => $v) {
                                     if ($v) {
-                                        $set_perms[$perm_id] = true;
+                                        $set_perms[(string) $perm_id] = true;
                                     }
                                 }
                             }

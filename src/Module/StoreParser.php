@@ -59,7 +59,7 @@ class StoreParser
      */
     protected function _parse(): void
     {
-        if (empty($this->xml->module)) {
+        if (!$this->xml || empty($this->xml->module)) {
             return;
         }
 

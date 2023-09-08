@@ -113,6 +113,10 @@ class Parser
     {
         $this->feed_type = 'rss 1.0 (rdf)';
 
+        if (!$this->xml) {
+            return;
+        }
+
         $this->title       = (string) $this->xml->channel->title;
         $this->link        = (string) $this->xml->channel->link;
         $this->description = (string) $this->xml->channel->description;
@@ -154,6 +158,10 @@ class Parser
      */
     protected function parseRSS(): void
     {
+        if (!$this->xml) {
+            return;
+        }
+
         $this->feed_type = 'rss ' . $this->xml['version'];
 
         $this->title       = (string) $this->xml->channel->title;
@@ -202,6 +210,10 @@ class Parser
     protected function parseAtom03(): void
     {
         $this->feed_type = 'atom 0.3';
+
+        if (!$this->xml) {
+            return;
+        }
 
         $this->title       = (string) $this->xml->title;
         $this->description = (string) $this->xml->subtitle;
@@ -252,6 +264,10 @@ class Parser
     protected function parseAtom10(): void
     {
         $this->feed_type = 'atom 1.0';
+
+        if (!$this->xml) {
+            return;
+        }
 
         $this->title       = (string) $this->xml->title;
         $this->description = (string) $this->xml->subtitle;
