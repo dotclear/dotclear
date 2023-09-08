@@ -44,7 +44,7 @@ class Combos
             $option = new Option(
                 str_repeat('&nbsp;', ($categories->level - 1) * 4) .
                 Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')',
-                ($use_url ? $categories->cat_url : $categories->cat_id)
+                ($use_url ? $categories->cat_url : (string) $categories->cat_id)
             );
             if ($categories->level - 1) {
                 $option->class('sub-option' . ($categories->level - 1));
