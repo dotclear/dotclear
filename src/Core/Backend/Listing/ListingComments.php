@@ -109,10 +109,10 @@ class ListingComments extends Listing
                 'date'   => '<th scope="col">' . __('Date') . '</th>',
                 'status' => '<th scope="col" class="txt-center">' . __('Status') . '</th>',
             ];
+            if ($show_ip) {
+                $cols['ip'] = '<th scope="col">' . __('IP') . '</th>';
+            }
             if ($spam) {
-                if ($show_ip) {
-                    $cols['ip'] = '<th scope="col">' . __('IP') . '</th>';
-                }
                 $cols['spam_filter'] = '<th scope="col">' . __('Spam filter') . '</th>';
             }
             $cols['entry'] = '<th scope="col" abbr="entry">' . __('Entry') . '</th>';
@@ -232,6 +232,11 @@ class ListingComments extends Listing
             'status' => '<td class="nowrap status txt-center">' . $img_status . '</td>',
         ];
 
+        if ($show_ip) {
+            $cols['ip'] = '<td class="nowrap"><a href="' .
+                App::backend()->url->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+                $this->rs->comment_ip . '</a></td>';
+        }
         if ($spam) {
             $filter_name = '';
             if ($this->rs->comment_spam_filter) {
@@ -240,11 +245,6 @@ class ListingComments extends Listing
                 } else {
                     $filter_name = $this->rs->comment_spam_filter;
                 }
-            }
-            if ($show_ip) {
-                $cols['ip'] = '<td class="nowrap"><a href="' .
-                    App::backend()->url->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
-                    $this->rs->comment_ip . '</a></td>';
             }
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';
         }
