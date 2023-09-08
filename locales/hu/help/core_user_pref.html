@@ -5,16 +5,16 @@
 
 <body>
 
-<h3>User preferences</h3>
+<h4>Profilom</h4>
 <dl>
   <dt>Name, First name</dt>
   <dd>If the display name is empty, the author's name will be displayed
   as his Firstname and Name as set here.</dd>
   
-  <dt>Display name</dt>
+  <dt>Név megjelenítése</dt>
   <dd>You can choose here how your name will be displayed under your posts.</dd>
   
-  <dt>Email</dt>
+  <dt>E-mail</dt>
   <dd>Address where will be sent the new comment notifications.</dd>
   
   <dt>URL</dt>
@@ -27,35 +27,102 @@
   understanding of HTML, we advise you to choose the wiki syntax.</dd>
   
   <dt>Default entry status</dt>
-  <dd>The default entry status can be set to:
-    <ul>
-      <li><strong>pending:</strong> the publication status has not yet been decided.</li>
-      <li><strong>scheduled:</strong> the post will be set online at the time and date
-      set in the <em>Published on</em> field.</li>
-      <li><strong>unpublished:</strong> the post is offline.</li>
-      <li><strong>published:</strong> the post is online.</li>
-    </ul>
-  </dd>
+  <dd>Ez a választás határozza meg a közzététel után megjelenő időpontot.</dd>
   
   <dt>Entry edit field height</dt>
   <dd>The height of the Entry edit field. Defaults to 24.</dd>
-  
-  <dt>User language</dt>
-  <dd>The language in wich one publishes his posts. If the translation exists,
-  the interface will also be displayed in that language.</dd>
-  
-  <dt>User timezone</dt>
-  <dd>That choice will define the time displayed on post publication.</dd>
-  
-  <dt>Enable WYSIWYG mode</dt>
-  <dd>Allow the use of the WYSIWYG editor for the posts and description fields.</dd>
 </dl>
 
-<h3>Change your password</h3>
-<p>To change your password, write down twice your password in the fields
-<em>New password</em> and <em>Confirm password</em>. The minimal password
-lenght is 6 characters.</p>
-<p>If no new password is provided, the current one is kept.</p>
 
+<h4>A lehetőségeim</h4>
+<h5>Interfész</h5>
+<dl>  
+  <dt>Fokozott feltöltő aktiválása a médiakezelőben</dt>
+  <dd>Lehetővé teszi a médiakezelő fejlett felületének aktiválását, amely lehetővé teszi a 
+  több fájl egyidejű feltöltését (Megjegyzés: A webböngészőnek támogatnia kell a Javascriptet 
+  , hogy használni tudja ezt a funkciót).</dd>
+
+  <dt>Javascript-alapú drag and drop letiltása a tételek rendeléséhez</dt>
+  <dd>Lehetővé teszi a "drag and drop" kikapcsolását az elemek rendezéséhez. A drag and drop funkciót a 
+  fogja helyettesíteni numerikus mezőkkel, amelyek lehetővé teszik a mezők pozíciójának megadását.</dd>
+
+  <dt>A médiakezelőben oldalanként megjelenített elemek száma</dt>
+  <dd>Meghatározza a médiakezelőben megjelenő médiumok számát (a
+  mappákat nem veszi figyelembe az elemek számolásakor).</dd>
+  
+  <dt>Ne használjon szabványos favicont</dt>
+  <dd>Lehetővé teszi az alapértelmezett favicon letiltását a webböngésző címsorában.</dd>
+</dl>
+
+<h5>Kiadás</h5>
+<dl>    
+  <dt>Előnyös formátum</dt>
+  <dd>Válassza ki a bejegyzés szintaxisát. A Wiki egy egyszerűsített szintaxis
+  és érvényes HTML-be lesz konvertálva. Hacsak nem ért tökéletesen a
+  HTML-hez, javasoljuk, hogy válassza a Wiki szintaxist.
+  További információért lásd a Wiki szintaxis referenciát.</dd>
+  
+  <dt>Alapértelmezett belépési státusz</dt>
+  <dd>Az új bejegyzések alapértelmezett állapota a következőre állítható:
+    <ul>
+      <li><strong>Függőben:</strong> A közzététel státuszáról még nem született döntés.</li>
+      <li><strong>Tervezett:</strong> A bejegyzés a <strong>Published on</strong> mezőben megadott időpontban és dátummal kerül online beállításra.</li>
+      <li><strong>Kiadatlan:</strong> Offline bejegyzés.</li>
+      <li><strong>Megjelent:</strong> Online bejegyzés.</li>
+    </ul>
+  </dd>
+  
+  <dt>Bejegyzés szerkesztési mező magassága</dt>
+  <dd>Beállítja egy bejegyzés kiadási mezőjének magasságát. Alapértelmezés szerint ez a paraméter 24-re van beállítva.</dd>
+  
+  <dt>WYSIWYG mód engedélyezése</dt>
+  <dd>Lehetővé teszi a vizuális szerkesztő (WYSIWYG: What You See Is What You Get) használatát a bejegyzések, oldalak és kategóriák leíró mezőihez.</dd>
+</dl>
+
+<h5>Egyéb lehetőségek</h5>
+<dl>
+  <dt>Címkék lista formátum</dt>
+  <dd>Kiválaszthatja, hogy egy bejegyzés szerkesztése közben az összes használt címkét (<strong>Extended</strong>) vagy csak a leggyakrabban használtakat (<strong>Short</strong>) szeretné-e látni.</dd>
+
+  <dt>Szintaxis kiemelés a témaszerkesztőben</dt>
+  <dd>Szintaxis kiemelés engedélyezése a témaszerkesztő használatakor (HTML és CSS fájlok)</dd>     
+</dl>
+
+
+<h4>Az én műszerfalam</h4>
+<dl>
+  <dt>A kedvenceim</dt>
+  <dd>Ez a zóna megjeleníti a kiválasztott kedvenceket a blog műszerfalán. 
+  Az egérrel átrendezhetők, ha a böngészőben a Javascript aktiválva van. 
+  Ellenkező esetben egy mező lehetővé teszi, hogy megadjon nekik egy sorszámot. Ha végzett, ne felejtse el elmenteni a módosításokat a <strong>Save order</strong>gomb megnyomásával.<br />
+  A kedvenceket törölheti is, ha kijelöli őket, és megnyomja a <strong>Kijelölt kedvencek törlése</strong>gombot.</dd>
+  
+  <dt>Alapértelmezett kedvencekként definiálni (szuper adminisztrátor)</dt> 
+  <dd>Engedélyezi, hogy az aktuálisan meghatározott kedvencek listáját az összes felhasználó számára alapértelmezett kedvencek listájává tegye. Ez a lista lesz javasolt a felhasználóknak, ha még nem határozták meg saját kedvenceiket.</dd>
+
+  <dt>Egyéb elérhető kedvencek</dt>
+  <dd>Itt jelenik meg minden olyan bővítmény, amely lehetővé teszi a kedvencek közé helyezést. Jelölje be a megfelelő négyzeteket, és adja hozzá őket a műszerfalhoz a <strong>Add tp my favorites</strong>gomb megnyomásával.</dd>
+
+  <dt>Kedvencek megjelenítése a menü tetején</dt>
+  <dd>Ha engedélyezve van, a kedvencek a menü tetején jelennek meg.</dd>
+
+  <dt>Műszerfal modulok</dt>
+  <dd>Az ebben a zónában tett döntések megjelennek a blog műszerfalán.</dd>
+  
+  <dt>Dokumentációs hivatkozások megjelenítése</dt>
+  <dd>Engedélyezze a dokumentációs hivatkozások megjelenítését a műszerfal céloldalán.</dd>
+  
+  <dt>Dotclear hírek megjelenítése</dt>
+  <dd>Engedélyezze a Dotclear hírek megjelenítését a műszerfal céloldalán.</dd>
+
+  <dt>Gyorsbeviteli űrlap megjelenítése</dt>
+  <dd>Engedélyezze a "gyorsbejegyzés" űrlap megjelenítését a műszerfal céloldalán.</dd>
+
+  <dt>Késedelmes feladatok számlálójának megjelenítése a karbantartási műszerfal ikonján</dt>
+  <dd>Lehetővé teszi a késedelmes (azaz feldolgozandó) feladatok számának megjelenítését a <strong>Karbantartás</strong> ikon alatt. <strong>A funkció használatához a Karbantartás</strong> ikont be kell állítani a kedvencek közé.</dd>
+
+  <dt>Késedelmes feladatok listájának megjelenítése a műszerfal elemein</dt>
+  <dd>Engedélyezze a késedelmes (azaz feldolgozandó) feladatok listájának megjelenítését a Dashboard céloldalon egy külön erre a célra szolgáló szakaszban.</dd>
+</dl>
 </body>
 </html>
