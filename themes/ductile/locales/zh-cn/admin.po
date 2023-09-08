@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:12+0200\n"
+"PO-Revision-Date: 2023-09-08 03:16\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 565\n"
+
+#: themes/ductile/src/Config.php:55
+msgid "Full"
+msgstr "全部"
+
+#: themes/ductile/src/Config.php:68
+msgid "Home (first page)"
+msgstr "主页（第一页）"
+
+#: themes/ductile/src/Config.php:69
+msgid "Home (other pages)"
+msgstr "主页（其他页面）"
+
+#: themes/ductile/src/Config.php:70
+msgid "Entries for a category"
+msgstr "参赛作品类别"
+
+#: themes/ductile/src/Config.php:71
+msgid "Entries for a tag"
+msgstr "标签条目"
+
+#: themes/ductile/src/Config.php:72
+msgid "Search result entries"
+msgstr "搜索结果条目"
+
+#: themes/ductile/src/Config.php:73
+msgid "Month archive entries"
+msgstr "月档案条目"
+
+#: themes/ductile/src/Config.php:78
+msgid "Ductile primary"
+msgstr "韧性初级"
+
+#: themes/ductile/src/Config.php:79
+msgid "Ductile secondary"
+msgstr "韧性二级管"
+
+#: themes/ductile/src/Config.php:80
+msgid "Times New Roman"
+msgstr "Times New Roman"
+
+#: themes/ductile/src/Config.php:81
+msgid "Georgia"
+msgstr "格鲁吉亚"
+
+#: themes/ductile/src/Config.php:82
+msgid "Garamond"
+msgstr "加拉蒙德"
+
+#: themes/ductile/src/Config.php:83
+msgid "Helvetica/Arial"
+msgstr "Helvetica/Arial"
+
+#: themes/ductile/src/Config.php:84
+msgid "Verdana"
+msgstr "Verdana"
+
+#: themes/ductile/src/Config.php:85
+msgid "Trebuchet MS"
+msgstr "Trebuchet MS"
+
+#: themes/ductile/src/Config.php:86
+msgid "Impact"
+msgstr "影响"
+
+#: themes/ductile/src/Config.php:87
+msgid "Monospace"
+msgstr "Monospace"
+
+#: themes/ductile/src/Config.php:91
+msgid "none"
+msgstr "无"
+
+#: themes/ductile/src/Config.php:92
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+#: themes/ductile/src/Config.php:93
+msgid "stylesheet (Google)"
+msgstr "样式表"
+
+#: themes/ductile/src/Config.php:340
+msgid "Theme configuration upgraded."
+msgstr "主题配置已升级。"
+
+#: themes/ductile/src/Config.php:361
+msgid "Font family"
+msgstr "字体系列"
+
+#: themes/ductile/src/Config.php:377
+msgid "Header"
+msgstr "页眉"
+
+#: themes/ductile/src/Config.php:378
+msgid "Hide blog description:"
+msgstr "隐藏博客描述："
+
+#: themes/ductile/src/Config.php:381
+msgid "Logo URL:"
+msgstr "徽标 URL："
+
+#: themes/ductile/src/Config.php:388
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "要配置顶部菜单，请访问 <a href=\"%s\">简单菜单管理页面</a>。"
+
+#: themes/ductile/src/Config.php:395
+msgid "Stickers"
+msgstr "贴纸"
+
+#: themes/ductile/src/Config.php:397
+msgid "Stickers (footer)"
+msgstr "贴纸（页脚）"
+
+#: themes/ductile/src/Config.php:401
+msgid "Image"
+msgstr "图片"
+
+#: themes/ductile/src/Config.php:429
+msgid "Entries list types and limits"
+msgstr "条目列表类型和限制"
+
+#: themes/ductile/src/Config.php:430
+msgid "Entries lists"
+msgstr "条目列表"
+
+#: themes/ductile/src/Config.php:433
+msgid "Context"
+msgstr "背景"
+
+#: themes/ductile/src/Config.php:434
+msgid "Entries list type"
+msgstr "条目列表类型"
+
+#: themes/ductile/src/Config.php:465
+msgid "Miscellaneous options"
+msgstr "杂项选项"
+
+#: themes/ductile/src/Config.php:466
+msgid "Comment preview is not mandatory:"
+msgstr "评论预览不是强制性的："
+
+#: themes/ductile/src/Config.php:479
+msgid "Presentation"
+msgstr "介绍"
+
+#: themes/ductile/src/Config.php:483
+msgid "General settings"
+msgstr "常规设置"
+
+#: themes/ductile/src/Config.php:485
+msgid "Fonts"
+msgstr "字体"
+
+#: themes/ductile/src/Config.php:489
+msgid "Main text"
+msgstr "正文"
+
+#: themes/ductile/src/Config.php:490
+msgid "Main font:"
+msgstr "主要字体"
+
+#: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
+msgid "Set to Default to use a webfont."
+msgstr "设为默认值即可使用网络字体。"
+
+#: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
+msgid "Webfont family:"
+msgstr "网络字体系列："
+
+#: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
+msgid "Webfont URL:"
+msgstr "网络字体 URL："
+
+#: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
+msgid "Webfont API:"
+msgstr "网络字体 API："
+
+#: themes/ductile/src/Config.php:506
+msgid "Secondary text"
+msgstr "辅助文本"
+
+#: themes/ductile/src/Config.php:507
+msgid "Secondary font:"
+msgstr "辅助字体："
+
+#: themes/ductile/src/Config.php:522
+msgid "Titles"
+msgstr "标题"
+
+#: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
+msgid "Blog title"
+msgstr "博客标题"
+
+#: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
+#: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
+#: themes/ductile/src/Config.php:625
+msgid "In bold:"
+msgstr "粗体字："
+
+#: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
+#: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
+msgid "Font size (in em by default):"
+msgstr "字体大小（默认单位为 em）："
+
+#: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
+#: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
+#: themes/ductile/src/Config.php:631
+msgid "Color:"
+msgstr "颜色"
+
+#: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
+msgid "Post title"
+msgstr "职位名称"
+
+#: themes/ductile/src/Config.php:566
+msgid "Titles without link"
+msgstr "无链接的标题"
+
+#: themes/ductile/src/Config.php:577
+msgid "Inside posts links"
+msgstr "内部职位链接"
+
+#: themes/ductile/src/Config.php:581
+msgid "Normal and visited links color:"
+msgstr "正常链接和已访问链接的颜色："
+
+#: themes/ductile/src/Config.php:591
+msgid "Active, hover and focus links color:"
+msgstr "活动、悬停和焦点链接的颜色："
+
+#: themes/ductile/src/Config.php:601
+msgid "Mobile specific settings"
+msgstr "手机专用设置"
+
