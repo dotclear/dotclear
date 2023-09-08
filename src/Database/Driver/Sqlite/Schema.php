@@ -155,8 +155,8 @@ class Schema extends AbstractSchema
         while ($rs->fetch()) {
             $field   = trim($rs->name);
             $type    = trim($rs->type);
-            $null    = trim($rs->notnull) == 0;
-            $default = trim($rs->dflt_value);
+            $null    = $rs->notnull == 0;
+            $default = trim((string) $rs->dflt_value);
 
             $len = null;
             if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
