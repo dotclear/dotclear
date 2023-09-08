@@ -1,97 +1,158 @@
 <html>
 <head>
-  <title>Blog settings</title>
+  <title>Blog beállítások</title>
 </head>
 
 <body>
-
-<h3>Blog details</h3>
+<h4>Blog részletek</h4>
 <dl>
-  <dt>Blog ID</dt>
-  <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-  
-  <dt>Blog name</dt>
+  <dt>Blog azonosító</dt>
+  <dd>A blog egyedi azonosítója. Kötelező, csak szuperadminisztrátor módosíthatja.</dd>
+
+  <dt>Blog neve</dt>
   <dd>Name of the blog, mandatory.</dd>
-  
+
   <dt>Blog URL</dt>
   <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-  
+
   <dt>Blog status</dt>
+  <dd>Meghatározza az URL beolvasásának módját. A PATH_INFO ajánlott, a QUERY_STRING-et kell használni, ha a PATH_INFO nem működik. A PATH_INFO módot használva a blog URL-jének "/" betűvel kell végződnie, a QUERY_STRING módot használva pedig "?" betűvel kell végződnie.</dd>
+
+  <dt>Blog description</dt>
   <dd>
     <ul>
-      <li><strong>online</strong>: blog open to visitors</li>
-      <li><strong>offline</strong>: blog closed to visitors
-      but open to writers.</li>
-      <li><strong>removed</strong>: blog closed to both visitors and writers.</li>
+      <li><strong>Online:</strong> A blog nyitva áll a látogatók előtt.</li>
+      <li><strong>Offline:</strong> A látogatók számára zárt, de az írók számára nyitott blog.</li>
+      <li><strong>Eltávolítva:</strong> Blog bezárva a látogatók és az írók számára, csak a szuperadminisztrátorok számára nyitott.</li>
     </ul>
   </dd>
-  
-  <dt>Blog description</dt>
-  <dd>Here you can put any description you want for your blog. This is a
-  simple text, without formatting.</dd>
+
+  <dt>Blog leírás</dt>
+  <dd>Itt bármilyen leírást megadhatsz a blogodhoz. Ez egy egyszerű szöveg, mindenféle formázás nélkül.</dd>
 </dl>
 
-<h3>Blog configuration</h3>
+<h4>Blog konfiguráció</h4>
 <dl>
-  <dt>Blog editor's name</dt>
+  <dt>Blog szerkesztő neve</dt>
   <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-  
+
   <dt>Copyright notice</dt>
   <dd>Note about the reproduction rights for the blog.</dd>
-  
+
   <dt>Default language</dt>
   <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-  
+
   <dt>Blog timezone</dt>
   <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-  
+
   <dt>Date formats</dt>
   <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Time format</dt>
   <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-  
+
   <dt>Display .. entries per page</dt>
   <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-  
-  <dt>Leave comments open for .. days</dt>
-  <dd>The number of days during wich comments and trackbacks will be open 
-  after the post publication. When empty, the comments will be kept open
-  indefinitly.</dd>
-  
-  <dt>Display smilies on entries and comments </dt>
-  <dd>Display sequences of characters as :-) or ;-) as images.</dd>
-  
-  <dt>Accept comments</dt>
-  <dd>Globally accepts comments on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Accept trackbacks</dt>
-  <dd>Globally accepts trackbacks on the blog. Takes precedence over the
-  per post setting.</dd>
-  
-  <dt>Moderate comments and trackbacks</dt>
-  <dd>With such an option, comments and trackbacks will be published after
-  editor agreement.</dd>
-  
-  <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-  <dd>Adds an attribut on the links in comments and trackbacks, instructing the
-  search bots not to follow those links. This antispam features has yet to
-  prove its value.</dd>
-  
-  <dt>Wiki syntax for comments </dt>
-  <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
 </dl>
 
-<h3>Format reference</h3>
+<h4>Hozzászólások és trackbackek</h4>
+<dl>
+  <dt>Hozzászólások elfogadása</dt>
+  <dd>Globálisan elfogadja a bloghoz fűzött megjegyzéseket. Elsőbbséget élvez a bejegyzésenkénti beállítással szemben.</dd>
+
+  <dt>Mérsékelt megjegyzések</dt>
+  <dd>Ezzel az opcióval a hozzászólások csak a szerkesztő beleegyezése után kerülnek közzétételre.</dd>
+
+  <dt>Hagyja nyitva a hozzászólásokat X napig</dt>
+  <dd>Azoknak a napoknak a száma, amelyek alatt a hozzászólások a poszt közzététele után nyitva lesznek. Ha üres, akkor a hozzászólások határozatlan ideig nyitva maradnak.</dd>
+
+  <dt>Wiki szintaxis a megjegyzésekhez</dt>
+  <dd>Lehetővé teszi a wiki szintaxis egy részhalmazának használatát a megjegyzésekben.</dd>
+
+  <dt>Trackbackek elfogadása</dt>
+  <dd>Globálisan elfogadja a trackbackeket a blogon. Elsőbbséget élvez a bejegyzésenkénti beállítással szemben.</dd>
+
+  <dt>Mérsékelt trackbackek</dt>
+  <dd>Ezzel az opcióval a trackbackek csak a szerkesztő beleegyezése után kerülnek közzétételre.</dd>
+
+  <dt>Hagyja nyitva a trackbackeket X napig</dt>
+  <dd>Azoknak a napoknak a száma, amelyek alatt a trackbackek nyitva lesznek a poszt közzététele után. Ha üres, a trackbackek határozatlan ideig nyitva maradnak.</dd>
+
+  <dt>Hozzáadás "nofollow" kapcsolat a hozzászólások és trackbacks linkekhez</dt>
+  <dd>Hozzáad egy attribútumot a kommentekben és a trackbackekben található linkekhez, amely arra utasítja a keresőrobotokat, hogy ne kövessék azokat. Ez a spam-ellenes funkció még nem bizonyította értékét.</dd>
+</dl>
+
+<h4>Blog bemutató</h4>
+<dl>
+  <dt>Dátum formátum</dt>
+  <dd>Meghatározza a blogbejegyzések dátumformátumát. További információkért lásd a "Formátumreferencia" című részt. A legördülő lista segítségével gyorsan kiválaszthat egy már meglévő mintát.</dd>
+
+  <dt>Idő formátum</dt>
+  <dd>Meghatározza a blogbejegyzések időformátumát. További információkért lásd a "Formátumreferencia" című részt. A legördülő lista segítségével gyorsan kiválaszthat egy már meglévő mintát.</dd>
+
+  <dt>Smilies megjelenítése a bejegyzésekben és megjegyzésekben</dt>
+  <dd>Néhány karakterláncot, mint például :-) vagy ;-), képpé alakít.</dd>
+
+  <dt>X bejegyzés megjelenítése oldalanként</dt>
+  <dd>Megjeleníti az X bejegyzéseket a blog főoldalán és a különböző kategóriákban.</dd>
+
+  <dt>X bejegyzés megjelenítése takarmányonként</dt>
+  <dd>Megjeleníti az X bejegyzést a blogbejegyzésekben.</dd>
+
+  <dt>X hozzászólás megjelenítése takarmányonként</dt>
+  <dd>Megjeleníti az X hozzászólást a blog hozzászólásokban.</dd>
+
+  <dt>Táplálékok csonkítása</dt>
+  <dd>Ez az opció csak egy kivonatot ad a blogbejegyzésekből a tápokban.</dd>
+
+  <dt>Al-kategóriák felvétele a kategória oldalra és a kategória bejegyzések feedjébe</dt>
+  <dd>Ha ez az opció aktiválva van, az alkategóriákhoz tartozó bejegyzések megjelennek a szülő kategóriák oldalain, valamint azok feedjeiben is.</dd>
+</dl>
+
+<h4>Média és képek</h4>
+<dl>
+  <dt>Generált képméretek (pixelben)</dt>
+  <dd>Amikor képet ad hozzá a médiakezelőben, a rendszer automatikusan létrehoz más méreteket. Itt határozhatja meg az egyes generált képtípusok leghosszabb méretének (szélesség vagy magasság) méretét. Ha valamelyik mezőt üresen hagyja, a médiakezelő nem fogja létrehozni a megfelelő miniatűr képet.</dd>
+
+  <dt>Alapértelmezett képbeillesztési attribútumok</dt>
+  <dd>A kiválasztott beállítások a médiakezelőhöz hozzáadott összes új képre érvényesek lesznek.</dd>
+
+  <dt>Beillesztett kép címe</dt>
+  <dd>A képek metaadataiból kinyert információk alapján kiválaszthatja a képekre alkalmazott "cím" címkék formátumát.</dd>
+
+  <dt>Ha lehetséges, használja az eredeti adathordozó dátumát</dt>
+  <dd>Ha ez az opció aktiválva van, akkor a rendszer azt használja, ha a kép metaadatai tartalmaznak dátumot. Ha nem, akkor a feltöltés dátumát használja a rendszer.</dd>
+
+  <dt>A beillesztett kép mérete</dt>
+  <dd>Meghatározza a kép blogbejegyzésbe való beillesztésekor használt alapértelmezett méretet.</dd>
+
+  <dt>Képigazítás</dt>
+  <dd>Meghatározza a kép blogbejegyzésbe való beillesztésekor használt alapértelmezett igazítást.</dd>
+
+  <dt>Az eredeti képre mutató link beillesztése</dt>
+  <dd>Ha ez az opció aktiválva van, a blogbejegyzésbe beillesztett képek kattinthatóak lesznek, és az eredeti méretű képre mutatnak.</dd>
+
+</dl>
+
+<h4>Keresőmotorok robotok politikája</h4>
 <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
+
+<h4>Antispam</h4>
+<p>Beállíthatja, hogy hány nap elteltével a kéretlen hozzászólások automatikusan törlődjenek. A funkció kikapcsolásához hagyja üresen ezt a mezőt (vagy írja be a 0 értéket).</p>
+
+<h4>Felhasználók</h4>
+<p>A blog felhasználóinak és jogosultságainak listája.</p>
+
+<h3>Blog details</h3>
+<p>Néhány mezőt úgy lehet konfigurálni, hogy a dátum és az idő az Ön igényeinek megfelelően legyen formázva.
+Itt egy referencia:</p>
 
 <ul>
   <li><strong>%a</strong>: abreviated week day (local).</li>
@@ -141,7 +202,7 @@ Here is a reference:</p>
   <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
   <li><strong>%Y</strong>: the year, four digits</li>
   <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li><strong>%%</strong>: a litteral `%' character</li>
+  <li>: a litteral `%' character</li>
 </ul>
 
 </body>
