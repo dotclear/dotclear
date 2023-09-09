@@ -20,12 +20,14 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\LexicalInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\MetaInterface;
@@ -81,7 +83,9 @@ class Factory implements FactoryInterface
 
     public function blogSettings(?string $blog_id): BlogSettingsInterface
     {
-        return new BlogSettings(blog_id: $blog_id);
+        return new BlogSettings(
+            blog_id: $blog_id
+        );
     }
 
     public function blogLoader(): BlogLoaderInterface
@@ -97,6 +101,13 @@ class Factory implements FactoryInterface
     public function blogWorkspace(): BlogWorkspaceInterface
     {
         return new BlogWorkspace();
+    }
+
+    public function cache(): CacheInterface
+    {
+        return new Cache(
+            cache_dir: defined('DC_TPL_CACHE') ? DC_TPL_CACHE : ''
+        );
     }
 
     public function categories(): CategoriesInterface
@@ -130,6 +141,11 @@ class Factory implements FactoryInterface
     public function formater(): FormaterInterface
     {
         return new Formater();
+    }
+
+    public function lexical(): LexicalInterface
+    {
+        return new Lexical();
     }
 
     public function log(): LogInterface
@@ -210,7 +226,10 @@ class Factory implements FactoryInterface
 
     public function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface
     {
-        return new UserPreferences(user_id: $user_id, workspace: $workspace);
+        return new UserPreferences(
+            user_id: $user_id,
+            workspace: $workspace
+        );
     }
 
     public function userWorkspace(): UserWorkspaceInterface

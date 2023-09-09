@@ -195,4 +195,20 @@ class Html
 
         return $str;
     }
+
+    /**
+     * Return a list of variables into a HML script (application/json) container.
+     *
+     * @param   string  $id     The identifier
+     * @param   mixed   $vars   The variables
+     *
+     * @return  string
+     */
+    public static function jsJson(string $id, $vars): string
+    {
+        // Use echo Html::jsLoad(App::blog()->getPF('util.js'));
+        // to call the JS dotclear.getData() decoder in public mode
+        return '<script type="application/json" id="' . self::escapeHTML($id) . '-data">' . "\n" .
+            json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
+    }
 }

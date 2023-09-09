@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\Core\Deprecated;
-use Dotclear\Core\Utils;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Interface\Module\ModulesInterface;
@@ -104,7 +103,7 @@ class Store
                 $cur_define = $this->modules->getDefine($str_define->getId());
                 if ($cur_define->isDefined()) {
                     // is update ?
-                    if (Utils::versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
+                    if ($this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
                         $str_define->set('root', $cur_define->get('root'));
                         $str_define->set('root_writable', $cur_define->get('root_writable'));
                         $str_define->set('current_version', $cur_define->get('version'));
@@ -137,7 +136,7 @@ class Store
                     }
 
                     foreach ($str_parser->getDefines() as $str_define) {
-                        if ($str_define->getId() == $cur_define->getId() && Utils::versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
+                        if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
                             $str_define->set('repository', true);
                             $str_define->set('root', $cur_define->get('root'));
                             $str_define->set('root_writable', $cur_define->get('root_writable'));
@@ -147,7 +146,7 @@ class Store
                             if (!isset($upd_versions[$str_define->getId()])) {
                                 $upd_defines[] = $str_define;
                                 // if update from third party repo is more recent than main repo, replace this last one
-                            } elseif (Utils::versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
+                            } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
 
                                 // This update is new from third party repository
@@ -178,7 +177,7 @@ class Store
         }
         foreach ($this->defines['update'] as $define) {
             // keep only higher vesion
-            if (!isset($this->data['update'][$define->getId()]) || Utils::versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')) {
+            if (!isset($this->data['update'][$define->getId()]) || $this->modules->versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')) {
                 $this->data['update'][$define->getId()] = $define->dump();
             }
         }

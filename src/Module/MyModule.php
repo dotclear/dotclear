@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
-use Dotclear\Core\Utils;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
@@ -257,7 +256,7 @@ abstract class MyModule
             $version = App::version()->getVersion(self::id());
         }
 
-        return Utils::cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
+        return App::plugins()->cssLoad(static::fileURL($base . $resource . $ext), $media, $version);
     }
 
     /**
@@ -284,7 +283,7 @@ abstract class MyModule
             $version = App::version()->getVersion(self::id());
         }
 
-        return Utils::jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
+        return App::plugins()->jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
     }
 
     /**

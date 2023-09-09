@@ -12,7 +12,6 @@ namespace Dotclear\Module;
 use Autoloader;
 use Dotclear\App;
 use Dotclear\Core\Deprecated;
-use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -712,7 +711,7 @@ class Modules implements ModulesInterface
                     unlink($zip_file);
 
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
-                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || Utils::versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
@@ -1075,5 +1074,57 @@ class Modules implements ModulesInterface
 
         // Or just require file
         return require $________;
+    }
+
+    public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
+    {
+        if ($strict) {
+            $current_version  = preg_replace('!-r(\d+)$!', '-p$1', $current_version);
+            $required_version = preg_replace('!-r(\d+)$!', '-p$1', $required_version);
+        } else {
+            $current_version  = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $current_version);
+            $required_version = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
+        }
+
+        return (bool) version_compare($current_version, $required_version, $operator);
+    }
+
+    /**
+     * Appends a version to a resource URL fragment.
+     *
+     * @param   string  $src        The source
+     * @param   string  $version    The version
+     *
+     * @return  string
+     */
+    private function appendVersion(string $src, ?string $version = ''): string
+    {
+        if (defined('DC_DEBUG') && DC_DEBUG) {
+            return $src;
+        }
+
+        return $src .
+            (strpos($src, '?') === false ? '?' : '&amp;') .
+            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
+    }
+
+    public function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
+    {
+        $escaped_src = Html::escapeHTML($src);
+        if ($version !== null) {
+            $escaped_src = $this->appendVersion($escaped_src, $version);
+        }
+
+        return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+    }
+
+    public function jsLoad(string $src, ?string $version = null, bool $module = false): string
+    {
+        $escaped_src = Html::escapeHTML($src);
+        if ($version !== null) {
+            $escaped_src = $this->appendVersion($escaped_src, $version);
+        }
+
+        return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . $escaped_src . '"></script>' . "\n";
     }
 }

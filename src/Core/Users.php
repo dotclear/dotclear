@@ -226,13 +226,6 @@ class Users implements UsersInterface
         return $id;
     }
 
-    /**
-     * Deletes a user.
-     *
-     * @param      string     $id     The user identifier
-     *
-     * @throws     Exception
-     */
     public function delUser(string $id): void
     {
         if (!App::auth()->isSuperAdmin()) {
@@ -260,13 +253,6 @@ class Users implements UsersInterface
         App::behavior()->callBehavior('coreAfterDelUser', $id);
     }
 
-    /**
-     * Determines if user exists.
-     *
-     * @param      string  $id     The identifier
-     *
-     * @return      bool  True if user exists, False otherwise.
-     */
     public function userExists(string $id): bool
     {
         $sql = new SelectStatement();
@@ -280,20 +266,6 @@ class Users implements UsersInterface
         return !$rs || !$rs->isEmpty();
     }
 
-    /**
-     * Returns all user permissions as an array which looks like:
-     *
-     * - [blog_id]
-     * - [name] => Blog name
-     * - [url] => Blog URL
-     * - [p]
-     * - [permission] => true
-     * - ...
-     *
-     * @param      string  $id     The user identifier
-     *
-     * @return     array<string,array<string,string|array<string,bool>>>   The user permissions.
-     */
     public function getUserPermissions(string $id): array
     {
         $sql = new SelectStatement();
@@ -331,17 +303,6 @@ class Users implements UsersInterface
         return $res;
     }
 
-    /**
-     * Sets user permissions. The <var>$perms</var> array looks like:
-     *
-     * - [blog_id] => '|perm1|perm2|'
-     * - ...
-     *
-     * @param      string     $id     The user identifier
-     * @param      array<string,array<string,bool>>      $perms  The permissions
-     *
-     * @throws     Exception
-     */
     public function setUserPermissions(string $id, array $perms): void
     {
         if (!App::auth()->isSuperAdmin()) {
@@ -360,16 +321,6 @@ class Users implements UsersInterface
         }
     }
 
-    /**
-     * Sets the user blog permissions.
-     *
-     * @param      string     $id            The user identifier
-     * @param      string     $blog_id       The blog identifier
-     * @param      array<string,bool>      $perms         The permissions
-     * @param      bool       $delete_first  Delete permissions first
-     *
-     * @throws     Exception  (description)
-     */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
         if (!App::auth()->isSuperAdmin()) {
@@ -401,12 +352,6 @@ class Users implements UsersInterface
         }
     }
 
-    /**
-     * Sets the user default blog. This blog will be selected when user log in.
-     *
-     * @param      string  $id       The user identifier
-     * @param      string  $blog_id  The blog identifier
-     */
     public function setUserDefaultBlog(string $id, string $blog_id): void
     {
         $cur = App::auth()->openUserCursor();
@@ -419,11 +364,6 @@ class Users implements UsersInterface
         $sql->update($cur);
     }
 
-    /**
-     * Removes users default blogs.
-     *
-     * @param      array<int,int|string>  $ids    The blogs to remove
-     */
     public function removeUsersDefaultBlogs(array $ids): void
     {
         $cur = App::auth()->openUserCursor();
@@ -476,11 +416,6 @@ class Users implements UsersInterface
         }
     }
 
-    /**
-     * Returns user default settings in an associative array with setting names in keys.
-     *
-     * @return     array<string,int|bool|array<string,string>|string>
-     */
     public function userDefaults(): array
     {
         return [
@@ -490,5 +425,24 @@ class Users implements UsersInterface
             'editor'         => ['xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'],
             'post_format'    => 'xhtml',
         ];
+    }
+
+    public function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string
+    {
+        if (!empty($user_displayname)) {
+            return $user_displayname;
+        }
+
+        if (!empty($user_name)) {
+            if (!empty($user_firstname)) {
+                return $user_firstname . ' ' . $user_name;
+            }
+
+            return $user_name;
+        } elseif (!empty($user_firstname)) {
+            return $user_firstname;
+        }
+
+        return $user_id;
     }
 }

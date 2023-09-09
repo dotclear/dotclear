@@ -17,12 +17,14 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\LexicalInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\MetaInterface;
@@ -184,6 +186,11 @@ class Container implements ContainerInterface
         return self::$instance->get('blogWorkspace');
     }
 
+    public static function cache(): CacheInterface
+    {
+        return self::$instance->get('cache');
+    }
+
     public static function categories(): CategoriesInterface
     {
         return self::$instance->get('categories');
@@ -207,6 +214,11 @@ class Container implements ContainerInterface
     public static function formater(): FormaterInterface
     {
         return self::$instance->get('formater');
+    }
+
+    public static function lexical(): LexicalInterface
+    {
+        return self::$instance->get('lexical');
     }
 
     public static function log(): LogInterface

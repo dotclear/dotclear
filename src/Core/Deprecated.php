@@ -14,9 +14,6 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Deprecated as HelperDeprecated;
-use Dotclear\Interface\Core\LogInterface;
-use Exception;
-use Throwable;
 
 /**
  * Deprecated logger handler.
@@ -73,13 +70,8 @@ class Deprecated extends HelperDeprecated
             return;
         }
 
-        // to early to use core
-        try {
-            $log = App::log();
-            if (!($log instanceof LogInterface)) {
-                throw new Exception('too early');
-            }
-        } catch (Throwable) {
+        // too early to use log
+        if (!App::blog()->isDefined()) {
             parent::log($title, $lines);
 
             return;
@@ -92,6 +84,7 @@ class Deprecated extends HelperDeprecated
         }
 
         // log deprecated to log table
+        $log    = App::log();
         $cursor = $log->openLogCursor();
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);

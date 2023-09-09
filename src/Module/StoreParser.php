@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+use Dotclear\App;
 use Dotclear\Core\Deprecated;
-use Dotclear\Core\Utils;
 use Exception;
 use SimpleXMLElement;
 
@@ -93,7 +93,7 @@ class StoreParser
             $define->set('tags', implode(', ', $tags));
 
             # First filter right now. If DC_DEV is set all modules are parse
-            if (defined('DC_DEV') && DC_DEV === true || Utils::versionsCompare(DC_VERSION, $define->get('dc_min'), '>=', false)) {
+            if (defined('DC_DEV') && DC_DEV === true || App::plugins()->versionsCompare(DC_VERSION, $define->get('dc_min'), '>=', false)) {
                 $this->defines[] = $define;
             }
         }

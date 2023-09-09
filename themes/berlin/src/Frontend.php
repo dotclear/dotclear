@@ -14,7 +14,7 @@ namespace Dotclear\Theme\berlin;
 
 use Dotclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Core\Utils;
+use Dotclear\Helper\Html\Html;
 
 class Frontend extends Process
 {
@@ -31,7 +31,7 @@ class Frontend extends Process
 
         App::behavior()->addBehavior('publicHeadContent', function () {
             echo
-            Utils::jsJson('dotclear_berlin', [
+            Html::jsJson('dotclear_berlin', [
                 'show_menu'  => __('Show menu'),
                 'hide_menu'  => __('Hide menu'),
                 'navigation' => __('Main menu'),

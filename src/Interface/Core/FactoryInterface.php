@@ -29,11 +29,13 @@ interface FactoryInterface
     public function blogWorkspace(): BlogWorkspaceInterface;
     public function blogs(): BlogsInterface;
     public function con(): ConnectionInterface;
+    public function cache(): CacheInterface;
     public function categories(): CategoriesInterface;
     public function error(): ErrorInterface;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;
     public function log(): LogInterface;
+    public function lexical(): LexicalInterface;
     public function media(): MediaInterface;
     public function meta(): MetaInterface;
     public function nonce(): NonceInterface;

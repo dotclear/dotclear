@@ -16,7 +16,6 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
-use Dotclear\Core\Utils;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -335,7 +334,7 @@ class Config extends Process
                 App::blog()->triggerBlog();
 
                 // Template cache reset
-                Utils::emptyTemplatesCache();
+                App::cache()->emptyTemplatesCache();
 
                 Notices::message(__('Theme configuration upgraded.'), true, true);
             } catch (Exception $e) {

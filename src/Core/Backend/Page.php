@@ -14,7 +14,6 @@ use ArrayObject;
 use Autoloader;
 use Dotclear\App;
 use Dotclear\Core\Deprecated;
-use Dotclear\Core\Utils;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -247,7 +246,7 @@ class Page
         ]), App::blog()->id()) : false;
 
         // Set some JSON data
-        echo Utils::jsJson('dotclear_init', $js);
+        echo Html::jsJson('dotclear_init', $js);
 
         echo
             self::jsCommon() .
@@ -586,7 +585,7 @@ class Page
         $js['debug'] = !!DC_DEBUG;
 
         // Set JSON data
-        echo Utils::jsJson('dotclear_init', $js);
+        echo Html::jsJson('dotclear_init', $js);
 
         echo
         self::jsCommon() .
@@ -929,7 +928,7 @@ class Page
      */
     public static function jsJson(string $id, $vars): string
     {
-        return Utils::jsJson($id, $vars);
+        return Html::jsJson($id, $vars);
     }
 
     /**

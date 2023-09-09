@@ -115,6 +115,50 @@ class Path
     }
 
     /**
+     * Make a path from a list of names.
+     *
+     * The .. (parent folder) names will be reduce if possible by removing their's previous item
+     * Ex: path(['main', 'sub', '..', 'inc']) will return 'main/inc'
+     *
+     * @param   array<int,string>   $elements   The elements
+     * @param   string              $separator  The separator
+     *
+     * @return  string
+     */
+    public static function reduce(array $elements, string $separator = DIRECTORY_SEPARATOR): string
+    {
+        // Flattened all elements in list
+        $flatten = function (array $list) {
+            $new = [];
+            array_walk_recursive($list, function ($array) use (&$new) { $new[] = $array; });
+
+            return $new;
+        };
+        $flat = $flatten($elements);
+
+        if ($separator !== '') {
+            // Explode all elements with given separator
+            $list = [];
+            foreach ($flat as $value) {
+                array_push($list, ... explode($separator, $value));
+            }
+        } else {
+            $list = $flat;
+        }
+
+        $table = [];
+        foreach ($list as $element) {
+            if ($element === '..' && count($table)) {
+                array_pop($table);  // Remove previous element from $table
+            } elseif ($element !== '.') {
+                array_push($table, $element);   // Add element to $table
+            }
+        }
+
+        return implode($separator, $table);
+    }
+
+    /**
      * Path information
      *
      * Returns an array of information:

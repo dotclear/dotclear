@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
-use Dotclear\Core\Utils;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -351,7 +350,7 @@ class Post
      */
     public static function getAuthorCN(MetaRecord $rs): string
     {
-        return Utils::getUserCN(
+        return App::users()->getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,

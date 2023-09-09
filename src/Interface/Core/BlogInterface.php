@@ -861,4 +861,13 @@ interface BlogInterface
      */
     public function checkSleepmodeTimeout(bool $apply = true): bool;
     //@}
+
+    /**
+     * Cleanup a list of IDs.
+     *
+     * @param   mixed   $ids    The identifiers
+     *
+     * @return  array<int,int>
+     */
+    public function cleanIds($ids): array;
 }

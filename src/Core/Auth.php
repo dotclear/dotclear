@@ -309,7 +309,7 @@ class Auth implements AuthInterface
         $this->user_info['user_creadt']       = $rs->user_creadt;
         $this->user_info['user_upddt']        = $rs->user_upddt;
 
-        $this->user_info['user_cn'] = Utils::getUserCN(
+        $this->user_info['user_cn'] = App::users()->getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,

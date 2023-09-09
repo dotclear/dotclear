@@ -35,21 +35,21 @@ class Deprecated
      *
      * @var     string  $bloc
      */
-    public static string $bloc = '<pre>%s<ul>%s</ul></pre>';
+    public static string $bloc = "%s\n%s\n";
 
     /**
      * Log parser bloc header.
      *
      * @var     string  $head
      */
-    public static string $head = '<p>%s</p>';
+    public static string $head = "%s\n";
 
     /**
      * Log parser bloc line.
      *
      * @var     string  $line
      */
-    public static string $line = '<li>%s</li>';
+    public static string $line = "%s\n";
 
     /**
      * Set a custom logger.
@@ -130,5 +130,7 @@ class Deprecated
             ),
             self::DEPRECATED_ERROR_LEVEL
         );
+
+        exit;
     }
 }
