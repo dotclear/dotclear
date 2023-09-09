@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
-use Dotclear\Core\Deprecated;
+use Dotclear\App;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Interface\Module\ModulesInterface;
@@ -218,7 +218,7 @@ class Store
      */
     public function get(bool $update = false): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         return $this->data[$update ? 'update' : 'new'];
     }
@@ -290,7 +290,7 @@ class Store
      */
     public function search(string $pattern): array
     {
-        Deprecated::set(self::class . '::searchDefines()', '2.26');
+        App::deprecated()->set(self::class . '::searchDefines()', '2.26');
 
         $result = [];
         foreach ($this->searchDefines($pattern) as $define) {

@@ -1329,7 +1329,7 @@ final class dcCore
      */
     public function emptyTemplatesCache(): void
     {
-        Deprecated::set('App::cache()->emptyTemplatesCache()', '2.28');
+        App::deprecated()->set('App::cache()->emptyTemplatesCache()', '2.28');
 
         App::cache()->emptyTemplatesCache();
     }

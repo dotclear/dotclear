@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
-use Dotclear\Core\Deprecated;
 use Exception;
 use SimpleXMLElement;
 
@@ -118,7 +117,7 @@ class StoreParser
      */
     public function getModules(): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         // fill property once on demand
         if (empty($this->items) && !empty($this->defines)) {

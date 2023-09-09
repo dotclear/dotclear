@@ -181,28 +181,28 @@ class BlogSettings implements BlogSettingsInterface
 
     public function addNamespace(string $namespace): BlogWorkspaceInterface
     {
-        Deprecated::set(self::class . '->addWorkspace()', '2.28');
+        App::deprecated()->set(self::class . '->addWorkspace()', '2.28');
 
         return $this->addWorkspace($namespace);
     }
 
     public function renNamespace(string $old_namespace, string $new_namespace): bool
     {
-        Deprecated::set(self::class . '->renWorkspace()', '2.28');
+        App::deprecated()->set(self::class . '->renWorkspace()', '2.28');
 
         return $this->renWorkspace($old_namespace, $new_namespace);
     }
 
     public function delNamespace(string $namespace): bool
     {
-        Deprecated::set(self::class . '->delWorkspace()', '2.28');
+        App::deprecated()->set(self::class . '->delWorkspace()', '2.28');
 
         return $this->delWorkspace($namespace);
     }
 
     public function dumpNamespaces(): array
     {
-        Deprecated::set(self::class . '->dumpWorkspaces()', '2.28');
+        App::deprecated()->set(self::class . '->dumpWorkspaces()', '2.28');
 
         return $this->workspaces;
     }

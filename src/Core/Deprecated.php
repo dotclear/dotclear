@@ -13,36 +13,15 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Helper\Deprecated as HelperDeprecated;
+use Dotclear\Interface\Core\DeprecatedInterface;
 
 /**
  * Deprecated logger handler.
  *
  * @since 2.26
  */
-class Deprecated extends HelperDeprecated
+class Deprecated implements DeprecatedInterface
 {
-    /**
-     * The log table name for deprecated
-     *
-     * @var     string  DEPRECATED_LOG_TABLE
-     */
-    public const DEPRECATED_LOG_TABLE = 'deprecated';
-
-    /**
-     * Logs limit in table.
-     *
-     * @var     int     DEPRECATED_PURGE_LIMIT
-     */
-    public const DEPRECATED_PURGE_LIMIT = 200;
-
-    /**
-     * The trace lines separator.
-     *
-     * @var     string  DEPRECATED_LINE_SEPARATOR
-     */
-    public const DEPRECATED_LINE_SEPARATOR = "\n";
-
     /**
      * Purge limit checked.
      *
@@ -50,30 +29,41 @@ class Deprecated extends HelperDeprecated
      */
     private static bool $purged = false;
 
-    /**
-     * Get deprecated logs
-     *
-     * @param   mixed   $limit          Limit parameter
-     * @param   bool    $count_only     Count only resultats
-     *
-     * @return  MetaRecord    The logs.
-     */
-    public static function get($limit, bool $count_only = false): MetaRecord
+    public static function set(?string $replacement = null, ?string $since = null, ?string $upto = null): void
     {
-        return App::log()->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
-    }
-
-    protected static function log(string $title, array $lines): void
-    {
-        // only log on DEV mode
-        if (!defined('DC_DEV') || !DC_DEV) {
+        // too early to use log
+        if (!App::blog()->isDefined()) {
             return;
         }
 
-        // too early to use log
-        if (!App::blog()->isDefined()) {
-            parent::log($title, $lines);
+        // get backtrace
+        $traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
 
+        // remove call to this method
+        array_shift($traces);
+
+        // clean trace
+        $title = '';
+        $lines = [];
+        foreach ($traces as $line) {
+            $class = !empty($line['class']) ? $line['class'] . '::' : '';
+            $func  = !empty($line['function']) ? $line['function'] . '() ' : '';
+            $file  = !empty($line['file']) ? $line['file'] . ':' : '';
+            $line  = !empty($line['line']) ? $line['line'] : '';
+
+            if ($replacement !== null && empty($lines)) {
+                $title = $class . $func . ' is deprecated' .
+                    ($since !== null ? ' since version ' . $since : '') .
+                    ($upto !== null ? ' and wil be removed in version ' . $upto : '') .
+                    (!empty($replacement) ? ', use ' . $replacement . ' as replacement' : '') .
+                    '.';
+            }
+
+            $lines[] = $class . $func . $file . $line;
+        }
+
+        // only log on DEV mode
+        if (!defined('DC_DEV') || !DC_DEV) {
             return;
         }
 
@@ -92,6 +82,11 @@ class Deprecated extends HelperDeprecated
         $log->addLog($cursor);
     }
 
+    public static function get($limit, bool $count_only = false): MetaRecord
+    {
+        return App::log()->getLogs(['limit' => $limit, 'log_table' => self::DEPRECATED_LOG_TABLE], $count_only);
+    }
+
     /**
      * Purge deprecated logs.
      *
@@ -106,7 +101,7 @@ class Deprecated extends HelperDeprecated
         self::$purged = true;
 
         // count deprecated logs
-        $count = static::get(null, true)->f(0);
+        $count = self::get(null, true)->f(0);
         $count = is_numeric($count) ? (int) $count : 0;
 
         // check logs limit and delete them if it's required

@@ -20,6 +20,7 @@ use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
@@ -199,6 +200,11 @@ class Container implements ContainerInterface
     public static function con(): ConnectionInterface
     {
         return self::$instance->get('con');
+    }
+
+    public static function deprecated(): DeprecatedInterface
+    {
+        return self::$instance->get('deprecated');
     }
 
     public static function error(): ErrorInterface

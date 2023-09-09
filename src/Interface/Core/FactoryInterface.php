@@ -31,6 +31,7 @@ interface FactoryInterface
     public function con(): ConnectionInterface;
     public function cache(): CacheInterface;
     public function categories(): CategoriesInterface;
+    public function deprecated(): DeprecatedInterface;
     public function error(): ErrorInterface;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;

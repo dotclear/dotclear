@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend;
 use ArrayObject;
 use Autoloader;
 use Dotclear\App;
-use Dotclear\Core\Deprecated;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -318,7 +317,7 @@ class Page
      */
     public static function notices(): string
     {
-        Deprecated::set('Notices::getNotices()', '2.27');
+        App::deprecated()->set('Notices::getNotices()', '2.27');
 
         return Notices::getNotices();
     }
@@ -333,7 +332,7 @@ class Page
      */
     public static function addMessageNotice(string $message, array $options = [])
     {
-        Deprecated::set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('Notices::addNotices()', '2.27');
 
         Notices::addNotice(Notices::NOTICE_MESSAGE, $message, $options);
     }
@@ -348,7 +347,7 @@ class Page
      */
     public static function addSuccessNotice(string $message, array $options = [])
     {
-        Deprecated::set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('Notices::addNotices()', '2.27');
 
         Notices::addNotice(Notices::NOTICE_SUCCESS, $message, $options);
     }
@@ -363,7 +362,7 @@ class Page
      */
     public static function addWarningNotice(string $message, array $options = [])
     {
-        Deprecated::set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('Notices::addNotices()', '2.27');
 
         Notices::addNotice(Notices::NOTICE_WARNING, $message, $options);
     }
@@ -378,7 +377,7 @@ class Page
      */
     public static function addErrorNotice(string $message, array $options = [])
     {
-        Deprecated::set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('Notices::addNotices()', '2.27');
 
         Notices::addNotice(Notices::NOTICE_ERROR, $message, $options);
     }
@@ -398,7 +397,7 @@ class Page
      */
     public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
     {
-        Deprecated::set('Notices::message()', '2.27');
+        App::deprecated()->set('Notices::message()', '2.27');
 
         return Notices::message($msg, $timestamp, $div, $echo, $class);
     }
@@ -417,7 +416,7 @@ class Page
      */
     public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        Deprecated::set('Notices::success()', '2.27');
+        App::deprecated()->set('Notices::success()', '2.27');
 
         return Notices::success($msg, $timestamp, $div, $echo);
     }
@@ -436,7 +435,7 @@ class Page
      */
     public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        Deprecated::set('Notices::warning()', '2.27');
+        App::deprecated()->set('Notices::warning()', '2.27');
 
         return Notices::warning($msg, $timestamp, $div, $echo);
     }
@@ -455,7 +454,7 @@ class Page
      */
     public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        Deprecated::set('Notices::error()', '2.27');
+        App::deprecated()->set('Notices::error()', '2.27');
 
         return Notices::error($msg, $timestamp, $div, $echo);
     }
@@ -1404,7 +1403,7 @@ class Page
      */
     public static function help()
     {
-        Deprecated::set('', '2.24');
+        App::deprecated()->set('', '2.24');
 
         # Deprecated but we keep this for plugins.
     }
@@ -1416,7 +1415,7 @@ class Page
      */
     public static function jsColorPicker(): string
     {
-        Deprecated::set('', '2.16');
+        App::deprecated()->set('', '2.16');
 
         return '';
     }
@@ -1430,7 +1429,7 @@ class Page
      */
     public static function jsDatePicker(): string
     {
-        Deprecated::set('', '2.21');
+        App::deprecated()->set('', '2.21');
 
         return '';
     }
@@ -1444,7 +1443,7 @@ class Page
      */
     public static function jsToolBar()
     {
-        Deprecated::set('', '2.21');
+        App::deprecated()->set('', '2.21');
 
         # Deprecated but we keep this for plugins.
 
@@ -1463,7 +1462,7 @@ class Page
      */
     public static function jsVar(string $name, $value): string
     {
-        Deprecated::set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         return $name . " = '" . Html::escapeJS($value) . "';\n";
     }
@@ -1479,7 +1478,7 @@ class Page
      */
     public static function jsVars(array $vars): string
     {
-        Deprecated::set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
@@ -1497,7 +1496,7 @@ class Page
      */
     public static function jsLoadIE7()
     {
-        Deprecated::set('', '2.11', '2.27');
+        App::deprecated()->set('', '2.11', '2.27');
 
         return '';
     }
@@ -1513,7 +1512,7 @@ class Page
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = ''): string
     {
-        Deprecated::set('My::cssLoad()', '2.27');
+        App::deprecated()->set('My::cssLoad()', '2.27');
 
         return self::cssLoad(urldecode(self::getPF($src)), $media, $version);
     }
@@ -1529,7 +1528,7 @@ class Page
      */
     public static function jsModuleLoad(string $src, ?string $version = '', bool $module = false): string
     {
-        Deprecated::set('My::jsLoad()', '2.27');
+        App::deprecated()->set('My::jsLoad()', '2.27');
 
         return self::jsLoad(urldecode(self::getPF($src)), $version, $module);
     }

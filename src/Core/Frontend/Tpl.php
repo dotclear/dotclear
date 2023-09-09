@@ -12,7 +12,6 @@ namespace Dotclear\Core\Frontend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Deprecated;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Template\Template;
@@ -1166,7 +1165,7 @@ class Tpl extends Template
      */
     public function BlogRSDURL(ArrayObject $attr): string
     {
-        Deprecated::set('', '2.24');
+        App::deprecated()->set('', '2.24');
 
         return '';
     }

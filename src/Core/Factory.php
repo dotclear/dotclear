@@ -23,6 +23,7 @@ use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FactoryInterface;
 use Dotclear\Interface\Core\FilterInterface;
@@ -131,6 +132,11 @@ class Factory implements FactoryInterface
     public function error(): ErrorInterface
     {
         return new Error();
+    }
+
+    public function deprecated(): DeprecatedInterface
+    {
+        return new Deprecated();
     }
 
     public function filter(): FilterInterface

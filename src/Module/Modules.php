@@ -11,7 +11,6 @@ namespace Dotclear\Module;
 
 use Autoloader;
 use Dotclear\App;
-use Dotclear\Core\Deprecated;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -890,7 +889,7 @@ class Modules implements ModulesInterface
 
     public function getModules(?string $id = null): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         $modules = $this->getDefines(['state' => $this->safe_mode ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED], true);
 
@@ -899,7 +898,7 @@ class Modules implements ModulesInterface
 
     public function getAnyModules(?string $id = null): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         $modules = $this->getDefines([], true);
 
@@ -913,28 +912,28 @@ class Modules implements ModulesInterface
 
     public function getDisabledModules(): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         return $this->getDefines(['state' => '!' . ModuleDefine::STATE_ENABLED], true);
     }
 
     public function getHardDisabledModules(): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         return $this->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED], true);
     }
 
     public function getSoftDisabledModules(): array
     {
-        Deprecated::set(self::class . '::getDefines()', '2.26');
+        App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         return $this->getDefines(['state' => ModuleDefine::STATE_SOFT_DISABLED], true);
     }
 
     public function moduleRoot(string $id): ?string
     {
-        Deprecated::set(self::class . '::moduleInfo()', '2.26');
+        App::deprecated()->set(self::class . '::moduleInfo()', '2.26');
 
         return $this->moduleInfo($id, 'root');
     }
@@ -946,7 +945,7 @@ class Modules implements ModulesInterface
 
     public function loadNsFiles(?string $ns = null): void
     {
-        Deprecated::set('nothing', '2.27');
+        App::deprecated()->set('nothing', '2.27');
 
         foreach ($this->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $module) {
             $this->loadNsFile($module->getId(), $ns);

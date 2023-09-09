@@ -67,7 +67,7 @@ class Log implements LogInterface
      */
     public function getTable(): string
     {
-        Deprecated::set('App::log()::LOG_TABLE_NAME', '2.28');
+        App::deprecated()->set('App::log()::LOG_TABLE_NAME', '2.28');
 
         return self::LOG_TABLE_NAME;
     }

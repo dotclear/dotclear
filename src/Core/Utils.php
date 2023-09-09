@@ -54,7 +54,7 @@ class Utils
      */
     public static function path(array $elements, string $separator = DIRECTORY_SEPARATOR): string
     {
-        Deprecated::set('Path::reduce()', '2.28');
+        App::deprecated()->set('Path::reduce()', '2.28');
 
         return Path::reduce($elements, $separator);
     }
@@ -73,7 +73,7 @@ class Utils
      */
     public static function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string
     {
-        Deprecated::set('App::users()->getUserCN()', '2.28');
+        App::deprecated()->set('App::users()->getUserCN()', '2.28');
 
         return App::users()->getUserCN($user_id, $user_name, $user_firstname, $user_displayname);
     }
@@ -89,7 +89,7 @@ class Utils
      */
     public static function cleanIds($ids): array
     {
-        Deprecated::set('App::blog()->cleanIds()', '2.28');
+        App::deprecated()->set('App::blog()->cleanIds()', '2.28');
 
         return App::blog()->cleanIds($ids);
     }
@@ -108,7 +108,7 @@ class Utils
      */
     public static function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
-        Deprecated::set('Modules::versionCompare()', '2.28');
+        App::deprecated()->set('Modules::versionCompare()', '2.28');
 
         return App::plugins()->versionsCompare($current_version, $required_version, $operator, $strict);
     }
@@ -126,7 +126,7 @@ class Utils
      */
     public static function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        Deprecated::set('Modules::cssLoad()', '2.28');
+        App::deprecated()->set('Modules::cssLoad()', '2.28');
 
         return App::plugins()->cssLoad($src, $media, $version);
     }
@@ -142,7 +142,7 @@ class Utils
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        Deprecated::set('My::cssLoad()', '2.27');
+        App::deprecated()->set('My::cssLoad()', '2.27');
 
         return App::plugins()->cssLoad(App::blog()->getPF($src), $media, $version);
     }
@@ -160,7 +160,7 @@ class Utils
      */
     public static function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {
-        Deprecated::set('Modules::jsLoad()', '2.28');
+        App::deprecated()->set('Modules::jsLoad()', '2.28');
 
         return App::plugins()->jsLoad($src, $version, $module);
     }
@@ -176,7 +176,7 @@ class Utils
      */
     public static function jsModuleLoad(string $src, ?string $version = null, bool $module = false): string
     {
-        Deprecated::set('My::jsLoad()', '2.27');
+        App::deprecated()->set('My::jsLoad()', '2.27');
 
         return App::plugins()->jsLoad(App::blog()->getPF($src), $version);
     }
@@ -192,7 +192,7 @@ class Utils
      */
     public static function jsVars(array $vars): string
     {
-        Deprecated::set('Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
@@ -215,7 +215,7 @@ class Utils
      */
     public static function jsVar(string $name, $value): string
     {
-        Deprecated::set('Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         return self::jsVars([$name => $value]);
     }
@@ -232,7 +232,7 @@ class Utils
      */
     public static function jsJson(string $id, $vars): string
     {
-        Deprecated::set('Html::jsJson()', '2.28');
+        App::deprecated()->set('Html::jsJson()', '2.28');
 
         return Html::jsJson($id, $vars);
     }
@@ -250,7 +250,7 @@ class Utils
      */
     public static function lexicalSort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        Deprecated::set('App::lexical()->lexicalSort()', '2.28');
+        App::deprecated()->set('App::lexical()->lexicalSort()', '2.28');
 
         return App::lexical()->lexicalSort($arr, $namespace, $lang);
     }
@@ -268,7 +268,7 @@ class Utils
      */
     public static function lexicalArraySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        Deprecated::set('App::lexical()->lexicalArraySort()', '2.28');
+        App::deprecated()->set('App::lexical()->lexicalArraySort()', '2.28');
 
         return App::lexical()->lexicalArraySort($arr, $namespace, $lang);
     }
@@ -286,7 +286,7 @@ class Utils
      */
     public static function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        Deprecated::set('App::lexical()->lexicalKeySort()', '2.28');
+        App::deprecated()->set('App::lexical()->lexicalKeySort()', '2.28');
 
         return App::lexical()->lexicalKeySort($arr, $namespace, $lang);
     }
@@ -301,7 +301,7 @@ class Utils
      */
     public static function setLexicalLang(string $namespace = '', string $lang = 'en_US'): void
     {
-        Deprecated::set('App::lexical()->setLexicalLang()', '2.28');
+        App::deprecated()->set('App::lexical()->setLexicalLang()', '2.28');
 
         App::lexical()->setLexicalLang($namespace, $lang);
     }
@@ -322,7 +322,7 @@ class Utils
      */
     public static function removeDiacritics(string $str): string
     {
-        Deprecated::set('Text::removeDiacritics()', '2.26');
+        App::deprecated()->set('Text::removeDiacritics()', '2.26');
 
         return Text::removeDiacritics($str);
     }

@@ -12,7 +12,6 @@ namespace Dotclear\Core\Backend;
 
 use Autoloader;
 use Dotclear\App;
-use Dotclear\Core\Deprecated;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -596,7 +595,7 @@ class ModulesList
      */
     public function setModules(array $modules): ModulesList
     {
-        Deprecated::set('adminModulesList::setDefines()', '2.26');
+        App::deprecated()->set('adminModulesList::setDefines()', '2.26');
 
         $defines = [];
         foreach ($modules as $id => $module) {
@@ -619,7 +618,7 @@ class ModulesList
      */
     public function getModules(): array
     {
-        Deprecated::set('adminModulesList::getDefines()', '2.26');
+        App::deprecated()->set('adminModulesList::getDefines()', '2.26');
 
         $res = [];
         foreach ($this->defines as $define) {
@@ -670,7 +669,7 @@ class ModulesList
      */
     public static function sanitizeModule(string $id, array $module): array
     {
-        Deprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
+        App::deprecated()->set('adminModulesList::fillSanitizeModule()', '2.26');
 
         $define = new ModuleDefine($id);
         self::fillSanitizeModule($define, $module);
@@ -694,7 +693,7 @@ class ModulesList
      */
     public function doSanitizeModule(string $id, array $module): array
     {
-        Deprecated::set('adminModulesList::fillSanitizeModule()', '2.26');
+        App::deprecated()->set('adminModulesList::fillSanitizeModule()', '2.26');
 
         $define = $this->modules->getDefine($id);
         self::fillSanitizeModule($define, $module);
@@ -713,7 +712,7 @@ class ModulesList
      */
     public static function isDistributedModule(string $id): bool
     {
-        Deprecated::set('Modules::getDefine($id)->distributed', '2.26');
+        App::deprecated()->set('Modules::getDefine($id)->distributed', '2.26');
 
         return in_array($id, self::$distributed_modules);
     }
@@ -731,7 +730,7 @@ class ModulesList
      */
     public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
-        Deprecated::set('uasort()', '2.26');
+        App::deprecated()->set('uasort()', '2.26');
 
         $origin = $sorter = $final = [];
 
