@@ -147,4 +147,20 @@ interface UsersInterface
      * @return     array<string,int|bool|array<string,string>|string>
      */
     public function userDefaults(): array;
+
+    /**
+     * Build user's common name.
+     *
+     * Returns user's common name given to his
+     * <var>user_id</var>, <var>user_name</var>, <var>user_firstname</var> and
+     * <var>user_displayname</var>.
+     *
+     * @param   string  $user_id           The user identifier
+     * @param   string  $user_name          The user name
+     * @param   string  $user_firstname     The user firstname
+     * @param   string  $user_displayname   The user displayname
+     *
+     * @return  string  The user cn.
+     */
+    public function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string;
 }

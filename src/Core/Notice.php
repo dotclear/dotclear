@@ -190,11 +190,11 @@ class Notice implements NoticeInterface
     }
 
     /**
-     * @deprecated since 2.28 use self::delNotice() or self::delAllNotices()
+     * @deprecated since 2.28 use self::delNotice() or self::delSessionNotices()
      */
     public function delNotices(?int $id, bool $all = false): void
     {
-        Deprecated::set('App::notice()->delNotice() or App::notice()->delAllNotices()', '2.28');
+        App::deprecated()->set('App::notice()->delNotice() or App::notice()->delSessionNotices()', '2.28');
 
         $sql = new DeleteStatement();
         $sql

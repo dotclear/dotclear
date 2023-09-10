@@ -221,11 +221,11 @@ class Blog implements BlogInterface
         $public_path = '';
 
         if (!empty($id) && ($blog = App::blogs()->getBlog($id)) !== false) {
-            $uid    = $blog->blog_uid;
-            $name   = $blog->blog_name;
-            $desc   = $blog->blog_desc;
-            $url    = $blog->blog_url;
-            $host   = Http::getHostFromURL($url);
+            $uid    = (string) $blog->blog_uid;
+            $name   = (string) $blog->blog_name;
+            $desc   = (string) $blog->blog_desc;
+            $url    = (string) $blog->blog_url;
+            $host   = (string) Http::getHostFromURL($url);
             $creadt = (int) strtotime($blog->blog_creadt);
             $upddt  = (int) strtotime($blog->blog_upddt);
             $status = (int) $blog->blog_status;
@@ -250,7 +250,7 @@ class Blog implements BlogInterface
         $this->id          = $id;
         $this->uid         = $uid;
         $this->name        = $name;
-        $this->desc        = (string) $desc;
+        $this->desc        = $desc;
         $this->url         = $url;
         $this->host        = $host;
         $this->creadt      = $creadt;
@@ -521,7 +521,7 @@ class Blog implements BlogInterface
      */
     public function triggerComments($ids, bool $del = false, $affected_posts = null): void
     {
-        $comments_ids = Utils::cleanIds($ids);
+        $comments_ids = $this->cleanIds($ids);
 
         // Get posts affected by comments edition
         if (empty($affected_posts)) {
@@ -1849,7 +1849,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
-        $posts_ids = Utils::cleanIds($ids);
+        $posts_ids = $this->cleanIds($ids);
         $status    = (int) $status;
 
         $sql = new UpdateStatement();
@@ -1892,7 +1892,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
-        $posts_ids = Utils::cleanIds($ids);
+        $posts_ids = $this->cleanIds($ids);
         $status    = (int) $status;
 
         $sql = new UpdateStatement();
@@ -1946,7 +1946,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry category'));
         }
 
-        $posts_ids = Utils::cleanIds($ids);
+        $posts_ids = $this->cleanIds($ids);
         $selected  = (bool) $selected;
 
         $sql = new UpdateStatement();
@@ -1998,7 +1998,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to change this entry category'));
         }
 
-        $posts_ids = Utils::cleanIds($ids);
+        $posts_ids = $this->cleanIds($ids);
         $cat_id    = (int) $cat_id;
 
         $sql = new UpdateStatement();
@@ -2082,7 +2082,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to delete entries'));
         }
 
-        $posts_ids = Utils::cleanIds($ids);
+        $posts_ids = $this->cleanIds($ids);
 
         if (empty($posts_ids)) {
             throw new Exception(__('No such entry ID'));
@@ -2171,7 +2171,7 @@ class Blog implements BlogInterface
     public function firstPublicationEntries($ids): void
     {
         $posts = $this->getPosts([
-            'post_id'       => Utils::cleanIds($ids),
+            'post_id'       => $this->cleanIds($ids),
             'post_status'   => self::POST_PUBLISHED,
             'post_firstpub' => 0,
         ]);
@@ -2901,7 +2901,7 @@ class Blog implements BlogInterface
             throw new Exception(__("You are not allowed to change this comment's status"));
         }
 
-        $co_ids = Utils::cleanIds($ids);
+        $co_ids = $this->cleanIds($ids);
         $status = (int) $status;
 
         $sql = new UpdateStatement();
@@ -2954,7 +2954,7 @@ class Blog implements BlogInterface
             throw new Exception(__('You are not allowed to delete comments'));
         }
 
-        $co_ids = Utils::cleanIds($ids);
+        $co_ids = $this->cleanIds($ids);
 
         if (empty($co_ids)) {
             throw new Exception(__('No such comment ID'));
@@ -3108,4 +3108,27 @@ class Blog implements BlogInterface
         return true;
     }
     //@}
+
+    public function cleanIds($ids): array
+    {
+        $clean_ids = [];
+
+        if (!is_array($ids) && !($ids instanceof ArrayObject)) {
+            $ids = [$ids];
+        }
+
+        foreach ($ids as $id) {
+            if (is_array($id) || ($id instanceof ArrayObject)) {
+                $clean_ids = array_merge($clean_ids, $this->cleanIds($id));
+            } else {
+                $id = abs((int) $id);
+
+                if (!empty($id)) {
+                    $clean_ids[] = $id;
+                }
+            }
+        }
+
+        return $clean_ids;
+    }
 }

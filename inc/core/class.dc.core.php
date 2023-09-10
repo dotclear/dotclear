@@ -14,10 +14,9 @@ use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
-use Dotclear\Core\Install\Utils as InstallUtils;
+use Dotclear\Core\Install\Utils;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Session;
-use Dotclear\Core\Utils;
 use Dotclear\Core\Version;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -39,7 +38,7 @@ use Dotclear\Interface\Module\ModulesInterface;
 /**
  * @brief Dotclear core class
  *
- * @deprecated dcCore is deprecated since 2.28. Use App and their methods instead...
+ * @deprecated dcCore is deprecated since 2.28, use App and their methods instead...
  */
 final class dcCore
 {
@@ -1287,7 +1286,7 @@ final class dcCore
      */
     public function blogDefaults(?array $defaults = null): void
     {
-        InstallUtils::blogDefaults($defaults);
+        Utils::blogDefaults($defaults);
     }
 
     /**
@@ -1326,11 +1325,13 @@ final class dcCore
     /**
      * Empty templates cache directory.
      *
-     * @deprecated since 2.28, use Utils::emptyTemplatesCache() instead
+     * @deprecated  since 2.28, use App::cache()->emptyTemplatesCache() instead
      */
     public function emptyTemplatesCache(): void
     {
-        Utils::emptyTemplatesCache();
+        App::deprecated()->set('App::cache()->emptyTemplatesCache()', '2.28');
+
+        App::cache()->emptyTemplatesCache();
     }
 
     /**

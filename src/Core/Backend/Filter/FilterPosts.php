@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Filter;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Utils;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -78,7 +77,7 @@ class FilterPosts extends Filters
         }
 
         $combo = Combos::getUsersCombo($users);
-        Utils::lexicalKeySort($combo, Utils::ADMIN_LOCALE);
+        App::lexical()->lexicalKeySort($combo, App::lexical()::ADMIN_LOCALE);
 
         return (new Filter('user_id'))
             ->param()

@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Utils;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
@@ -82,7 +81,7 @@ class Combos
     {
         $users_combo = [];
         while ($users->fetch()) {
-            $user_cn = Utils::getUserCN(
+            $user_cn = App::users()->getUserCN(
                 $users->user_id,
                 $users->user_name,
                 $users->user_firstname,

@@ -12,8 +12,8 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Html;
 
 class HelpCharte extends Process
 {
@@ -77,7 +77,7 @@ class HelpCharte extends Process
 <?php
             echo
             Page::cssLoad('style/default.css') . // Set some JSON data
-            Utils::jsJson('dotclear_init', self::getJS());
+            Html::jsJson('dotclear_init', self::getJS());
         ?>
   <script src="js/jquery/jquery.js"></script>
   <script src="js/jquery/jquery-ui.custom.js"></script>

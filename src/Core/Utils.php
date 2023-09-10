@@ -9,32 +9,43 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use ArrayObject;
 use Dotclear\App;
-use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Text;
-use Dotclear\Module\StoreReader;
-use UnhandledMatchError;
 
 /**
  * Helpers handler.
  *
- * Utils is not part of Core container has
- * this class provide a collection of small static methods.
+ * @deprecated Utils is deprecated since 2.28, use appropriate class and methods instead...
  */
 class Utils
 {
-    public const ADMIN_LOCALE  = 'admin';
+    /**
+     * @deprecated  sicne 2.28, use App::lexical()::ADMIN_LOCALE instaed
+     *
+     * @var     string  ADMIN_LOCALE
+     */
+    public const ADMIN_LOCALE = 'admin';
+
+    /**
+     * @deprecated  sicne 2.28, use App::lexical()::PUBLIC_LOCALE instaed
+     *
+     * @var     string  PUBLIC_LOCALE
+     */
     public const PUBLIC_LOCALE = 'public';
+
+    /**
+     * @deprecated  sicne 2.28, use App::lexical()::CUSTOM_LOCALE instaed
+     *
+     * @var     string  CUSTOM_LOCALE
+     */
     public const CUSTOM_LOCALE = 'lang';
 
     /**
      * Make a path from a list of names.
      *
-     * The .. (parent folder) names will be reduce if possible by removing their's previous item
-     * Ex: path(['main', 'sub', '..', 'inc']) will return 'main/inc'
+     * @deprecated  since 2.28, use Path::reduce() instead
      *
      * @param   array   $elements   The elements
      * @param   string  $separator  The separator
@@ -43,43 +54,15 @@ class Utils
      */
     public static function path(array $elements, string $separator = DIRECTORY_SEPARATOR): string
     {
-        // Flattened all elements in list
-        $flatten = function (array $list) {
-            $new = [];
-            array_walk_recursive($list, function ($array) use (&$new) { $new[] = $array; });
+        App::deprecated()->set('Path::reduce()', '2.28');
 
-            return $new;
-        };
-        $flat = $flatten($elements);
-
-        if ($separator !== '') {
-            // Explode all elements with given separator
-            $list = [];
-            foreach ($flat as $value) {
-                array_push($list, ... explode($separator, $value));
-            }
-        } else {
-            $list = $flat;
-        }
-
-        $table = [];
-        foreach ($list as $element) {
-            if ($element === '..' && count($table)) {
-                array_pop($table);  // Remove previous element from $table
-            } elseif ($element !== '.') {
-                array_push($table, $element);   // Add element to $table
-            }
-        }
-
-        return implode($separator, $table);
+        return Path::reduce($elements, $separator);
     }
 
     /**
      * Build user's common name.
      *
-     * Returns user's common name given to his
-     * <var>user_id</var>, <var>user_name</var>, <var>user_firstname</var> and
-     * <var>user_displayname</var>.
+     * @deprecated  since 2.28, use App::users()->getUserCN() instead
      *
      * @param   string  $user_id           The user identifier
      * @param   string  $user_name          The user name
@@ -90,25 +73,15 @@ class Utils
      */
     public static function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string
     {
-        if (!empty($user_displayname)) {
-            return $user_displayname;
-        }
+        App::deprecated()->set('App::users()->getUserCN()', '2.28');
 
-        if (!empty($user_name)) {
-            if (!empty($user_firstname)) {
-                return $user_firstname . ' ' . $user_name;
-            }
-
-            return $user_name;
-        } elseif (!empty($user_firstname)) {
-            return $user_firstname;
-        }
-
-        return $user_id;
+        return App::users()->getUserCN($user_id, $user_name, $user_firstname, $user_displayname);
     }
 
     /**
      * Cleanup a list of IDs.
+     *
+     * @deprecated  since 2.28, use App::blog()->cleanIds() instead
      *
      * @param   mixed   $ids    The identifiers
      *
@@ -116,29 +89,15 @@ class Utils
      */
     public static function cleanIds($ids): array
     {
-        $clean_ids = [];
+        App::deprecated()->set('App::blog()->cleanIds()', '2.28');
 
-        if (!is_array($ids) && !($ids instanceof ArrayObject)) {
-            $ids = [$ids];
-        }
-
-        foreach ($ids as $id) {
-            if (is_array($id) || ($id instanceof ArrayObject)) {
-                $clean_ids = array_merge($clean_ids, self::cleanIds($id));
-            } else {
-                $id = abs((int) $id);
-
-                if (!empty($id)) {
-                    $clean_ids[] = $id;
-                }
-            }
-        }
-
-        return $clean_ids;
+        return App::blog()->cleanIds($ids);
     }
 
     /**
      * Compare two versions with option of using only main numbers.
+     *
+     * @deprecated  since 2.28, use App::plugins()->versionsCompare() instead
      *
      * @param   string  $current_version    Current version
      * @param   string  $required_version   Required version
@@ -149,38 +108,15 @@ class Utils
      */
     public static function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
-        if ($strict) {
-            $current_version  = preg_replace('!-r(\d+)$!', '-p$1', $current_version);
-            $required_version = preg_replace('!-r(\d+)$!', '-p$1', $required_version);
-        } else {
-            $current_version  = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $current_version);
-            $required_version = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
-        }
+        App::deprecated()->set('Modules::versionCompare()', '2.28');
 
-        return (bool) version_compare($current_version, $required_version, $operator);
-    }
-
-    /**
-     * Appends a version to a resource URL fragment.
-     *
-     * @param   string  $src        The source
-     * @param   string  $version    The version
-     *
-     * @return  string
-     */
-    private static function appendVersion(string $src, ?string $version = ''): string
-    {
-        if (defined('DC_DEBUG') && DC_DEBUG) {
-            return $src;
-        }
-
-        return $src .
-            (strpos($src, '?') === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
+        return App::plugins()->versionsCompare($current_version, $required_version, $operator, $strict);
     }
 
     /**
      * Return a HTML CSS resource load (usually in HTML head)
+     *
+     * @deprecated  since 2.28, use App::plugins()->cssLoad() instead
      *
      * @param   string  $src        The source
      * @param   string  $media      The media
@@ -190,12 +126,9 @@ class Utils
      */
     public static function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        $escaped_src = Html::escapeHTML($src);
-        if ($version !== null) {
-            $escaped_src = self::appendVersion($escaped_src, $version);
-        }
+        App::deprecated()->set('Modules::cssLoad()', '2.28');
 
-        return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+        return App::plugins()->cssLoad($src, $media, $version);
     }
 
     /**
@@ -209,13 +142,15 @@ class Utils
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
-        Deprecated::set('My::cssLoad()', '2.27');
+        App::deprecated()->set('My::cssLoad()', '2.27');
 
-        return self::cssLoad(App::blog()->getPF($src), $media, $version);
+        return App::plugins()->cssLoad(App::blog()->getPF($src), $media, $version);
     }
 
     /**
      * Return a HTML JS resource load (usually in HTML head).
+     *
+     * @deprecated  since 2.28, use App::plugins()->jsLoad() instead
      *
      * @param   string  $src        The source
      * @param   string  $version    The version
@@ -225,12 +160,9 @@ class Utils
      */
     public static function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {
-        $escaped_src = Html::escapeHTML($src);
-        if ($version !== null) {
-            $escaped_src = self::appendVersion($escaped_src, $version);
-        }
+        App::deprecated()->set('Modules::jsLoad()', '2.28');
 
-        return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . $escaped_src . '"></script>' . "\n";
+        return App::plugins()->jsLoad($src, $version, $module);
     }
 
     /**
@@ -244,15 +176,15 @@ class Utils
      */
     public static function jsModuleLoad(string $src, ?string $version = null, bool $module = false): string
     {
-        Deprecated::set('My::jsLoad()', '2.27');
+        App::deprecated()->set('My::jsLoad()', '2.27');
 
-        return self::jsLoad(App::blog()->getPF($src), $version);
+        return App::plugins()->jsLoad(App::blog()->getPF($src), $version);
     }
 
     /**
      * Return a list of javascript variables définitions code.
      *
-     * @deprecated  since 2.15, use Utils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
+     * @deprecated  since 2.15, use Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
      *
      * @param   array   $vars   The variables
      *
@@ -260,7 +192,7 @@ class Utils
      */
     public static function jsVars(array $vars): string
     {
-        Deprecated::set(self::class . '::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
@@ -274,7 +206,7 @@ class Utils
     /**
      * Return a javascript variable definition line code.
      *
-     * @deprecated  since 2.15, use Utils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
+     * @deprecated  since 2.15, use Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
      *
      * @param   string  $name   variable name
      * @param   mixed   $value  value
@@ -283,13 +215,15 @@ class Utils
      */
     public static function jsVar(string $name, $value): string
     {
-        Deprecated::set(self::class . '::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         return self::jsVars([$name => $value]);
     }
 
     /**
      * Return a list of variables into a HML script (application/json) container.
+     *
+     * @deprecated  since 2.28, use Html::jsJson() instead
      *
      * @param   string  $id     The identifier
      * @param   mixed   $vars   The variables
@@ -298,14 +232,15 @@ class Utils
      */
     public static function jsJson(string $id, $vars): string
     {
-        // Use echo Utils::jsLoad(App::blog()->getPF('util.js'));
-        // to call the JS dotclear.getData() decoder in public mode
-        return '<script type="application/json" id="' . Html::escapeHTML($id) . '-data">' . "\n" .
-            json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
+        App::deprecated()->set('Html::jsJson()', '2.28');
+
+        return Html::jsJson($id, $vars);
     }
 
     /**
      * Locale specific array sorting function.
+     *
+     * @deprecated  since 2.28, use App:lexical()->lexicalSort() instead
      *
      * @param   array   $arr        single array of strings
      * @param   string  $namespace  admin/public/lang
@@ -315,13 +250,15 @@ class Utils
      */
     public static function lexicalSort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        self::setLexicalLang($namespace, $lang);
+        App::deprecated()->set('App::lexical()->lexicalSort()', '2.28');
 
-        return usort($arr, self::lexicalSortHelper(...));
+        return App::lexical()->lexicalSort($arr, $namespace, $lang);
     }
 
     /**
      * Locale specific array sorting function (preserving keys).
+     *
+     * @deprecated  since 2.28, use App:lexical()->lexicalArraySort() instead
      *
      * @param   array   $arr        single array of strings
      * @param   string  $namespace  admin/public/lang
@@ -331,13 +268,15 @@ class Utils
      */
     public static function lexicalArraySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        self::setLexicalLang($namespace, $lang);
+        App::deprecated()->set('App::lexical()->lexicalArraySort()', '2.28');
 
-        return uasort($arr, self::lexicalSortHelper(...));
+        return App::lexical()->lexicalArraySort($arr, $namespace, $lang);
     }
 
     /**
      * Locale specific array sorting function (sorting keys).
+     *
+     * @deprecated  since 2.28, use App:lexical()->lexicalKeySort() instead
      *
      * @param   array   $arr        single array of strings
      * @param   string  $namespace  admin/public/lang
@@ -347,44 +286,24 @@ class Utils
      */
     public static function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
-        self::setLexicalLang($namespace, $lang);
+        App::deprecated()->set('App::lexical()->lexicalKeySort()', '2.28');
 
-        return uksort($arr, self::lexicalSortHelper(...));
+        return App::lexical()->lexicalKeySort($arr, $namespace, $lang);
     }
 
     /**
      * Sets the lexical language.
+     *
+     * @deprecated  since 2.28, use App:lexical()->setLexicalLang() instead
      *
      * @param   string  $namespace  The namespace (admin/public/lang)
      * @param   string  $lang       The language
      */
     public static function setLexicalLang(string $namespace = '', string $lang = 'en_US'): void
     {
-        try {
-            // Switch to appropriate locale depending on $ns
-            match ($namespace) {
-                // Set locale with user prefs
-                self::ADMIN_LOCALE => setlocale(LC_COLLATE, App::auth()->getInfo('user_lang')),
-                // Set locale with blog params
-                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, App::blog()->settings()->system->lang),
-                // Set locale with arg
-                self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
-            };
-        } catch (UnhandledMatchError) {
-        }
-    }
+        App::deprecated()->set('App::lexical()->setLexicalLang()', '2.28');
 
-    /**
-     * Callback helper for lexical sort.
-     *
-     * @param   mixed   $a
-     * @param   mixed   $b
-     *
-     * @return  int
-     */
-    private static function lexicalSortHelper($a, $b): int
-    {
-        return strcoll(strtolower(Text::removeDiacritics($a)), strtolower(Text::removeDiacritics($b)));
+        App::lexical()->setLexicalLang($namespace, $lang);
     }
 
     /**
@@ -403,28 +322,8 @@ class Utils
      */
     public static function removeDiacritics(string $str): string
     {
-        Deprecated::set('Text::removeDiacritics()', '2.26');
+        App::deprecated()->set('Text::removeDiacritics()', '2.26');
 
         return Text::removeDiacritics($str);
-    }
-
-    /**
-     * Empty templates cache directory.
-     */
-    public static function emptyTemplatesCache(): void
-    {
-        if (defined('DC_TPL_CACHE') && is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
-            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER);
-        }
-    }
-
-    /**
-     * Empty modules store cache directory.
-     */
-    public static function emptyModulesStoreCache(): void
-    {
-        if (defined('DC_TPL_CACHE') && is_dir(DC_TPL_CACHE . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER)) {
-            Files::deltree(DC_TPL_CACHE . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER);
-        }
     }
 }

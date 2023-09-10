@@ -37,7 +37,7 @@ class UserPreferences implements UserPreferencesInterface
      * User ID.
      *
      * @var     string  $user_id
-    */
+     */
     protected $user_id;
 
     /**

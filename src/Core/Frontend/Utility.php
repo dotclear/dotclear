@@ -12,7 +12,6 @@ namespace Dotclear\Core\Frontend;
 
 use dcCore;
 use Dotclear\App;
-use Dotclear\Core\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Fault;
@@ -165,10 +164,10 @@ class Utility extends Process
         App::behavior()->addBehaviors([
             'publicHeadContent' => function () {
                 if (!App::blog()->settings()->system->no_public_css) {
-                    echo Utils::cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
+                    echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
                 }
                 if (App::blog()->settings()->system->use_smilies) {
-                    echo Utils::cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
+                    echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
                 }
             },
             'coreBlogGetPosts' => function (MetaRecord $rs) {
@@ -229,7 +228,7 @@ class Utility extends Process
         L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        Utils::setlexicalLang('public', App::lang());
+        App::lexical()->setLexicalLang('public', App::lang());
 
         # Loading plugins
         try {

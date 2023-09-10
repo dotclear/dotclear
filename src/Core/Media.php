@@ -1481,7 +1481,7 @@ class Media extends Manager implements MediaInterface
      */
     public static function flvplayer(string $url, ?string $player = null, $args = null): string
     {
-        Deprecated::set('', '2.15');
+        App::deprecated()->set('', '2.15');
 
         return '';
     }

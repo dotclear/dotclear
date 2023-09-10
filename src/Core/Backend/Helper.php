@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Utils;
 use Dotclear\Helper\L10n;
 
 class Helper
@@ -71,7 +70,7 @@ class Helper
         L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
-        Utils::setlexicalLang('admin', App::lang());
+        App::lexical()->setLexicalLang('admin', App::lang());
     }
 
     /**

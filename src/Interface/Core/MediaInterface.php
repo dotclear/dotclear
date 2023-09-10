@@ -57,7 +57,7 @@ interface MediaInterface
      * - t: thumbnail image
      * - sq: square image
      *
-     * @return array<string,array<int,string,string>>
+     * @return array<string,array<int|string,string>>
      */
     public function getThumbSizes(): array;
 

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\Extension;
 
-use Dotclear\Core\Utils;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
 /**
@@ -33,7 +33,7 @@ class Log
      */
     public static function getUserCN(MetaRecord $rs): string
     {
-        $user = Utils::getUserCN(
+        $user = App::users()->getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices; // deprecated
 use Dotclear\Interface\Core\ErrorInterface;
 
@@ -63,7 +64,7 @@ class Error implements ErrorInterface
      */
     public function toHTML(bool $reset = true): string
     {
-        Deprecated::set('', '2.28');
+        App::deprecated()->set('', '2.28');
 
         $res = '';
 

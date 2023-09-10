@@ -439,7 +439,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function dumpNamespace(): string
     {
-        Deprecated::set(self::class . '::dumpWorkspace()', '2.28');
+        App::deprecated()->set(self::class . '::dumpWorkspace()', '2.28');
 
         return $this->workspace;
     }

@@ -16,11 +16,11 @@ namespace Dotclear {
     use Dotclear\Core\Frontend\Utility as Frontend;
     use Dotclear\Core\PostType;
     use Dotclear\Core\Process;
-    use Dotclear\Core\Utils;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
     use Dotclear\Helper\File\Files;
+    use Dotclear\Helper\File\Path;
     use Dotclear\Helper\L10n;
     use Dotclear\Helper\Network\Http;
     use Exception;
@@ -314,8 +314,8 @@ namespace Dotclear {
             }
 
             // Other constants
-            define('DC_DIGESTS', Utils::path([DC_ROOT, 'inc', 'digests']));
-            define('DC_L10N_ROOT', Utils::path([DC_ROOT, 'locales']));
+            define('DC_DIGESTS', Path::reduce([DC_ROOT, 'inc', 'digests']));
+            define('DC_L10N_ROOT', Path::reduce([DC_ROOT, 'locales']));
             define('DC_L10N_UPDATE_URL', self::release('l10n_update_url'));
 
             // Update Makefile if the following list is modified
@@ -404,7 +404,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_TPL_CACHE')) {
-                define('DC_TPL_CACHE', Utils::path([DC_ROOT, 'cache']));
+                define('DC_TPL_CACHE', Path::reduce([DC_ROOT, 'cache']));
             }
             // Check existence of cache directory
             if (!is_dir(DC_TPL_CACHE)) {
@@ -422,7 +422,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_VAR')) {
-                define('DC_VAR', Utils::path([DC_ROOT, 'var']));
+                define('DC_VAR', Path::reduce([DC_ROOT, 'var']));
             }
             // Check existence of var directory
             if (!is_dir(DC_VAR)) {
@@ -444,7 +444,7 @@ namespace Dotclear {
 
             // REST server watchdog file (used to enable/disable REST services during last phase of Dotclear upgrade)
             if (!defined('DC_UPGRADE')) {
-                define('DC_UPGRADE', Utils::path([DC_ROOT, 'inc', 'upgrade']));
+                define('DC_UPGRADE', Path::reduce([DC_ROOT, 'inc', 'upgrade']));
             }
 
             L10n::init();

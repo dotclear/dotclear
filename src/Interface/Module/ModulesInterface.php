@@ -408,4 +408,38 @@ interface ModulesInterface
      * @return  array<int,string>   The errors.
      */
     public function getErrors(): array;
+
+    /**
+     * Compare two versions with option of using only main numbers.
+     *
+     * @param   string  $current_version    Current version
+     * @param   string  $required_version   Required version
+     * @param   string  $operator           Comparison operand
+     * @param   bool    $strict             Use full version
+     *
+     * @return  bool    True if comparison success
+     */
+    public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool;
+
+    /**
+     * Return a HTML CSS resource load (usually in HTML head)
+     *
+     * @param   string  $src        The source
+     * @param   string  $media      The media
+     * @param   string  $version    The version
+     *
+     * @return  string
+     */
+    public function cssLoad(string $src, string $media = 'screen', ?string $version = null): string;
+
+    /**
+     * Return a HTML JS resource load (usually in HTML head).
+     *
+     * @param   string  $src        The source
+     * @param   string  $version    The version
+     * @param   bool    $module     Load source as JS module
+     *
+     * @return  string
+     */
+    public function jsLoad(string $src, ?string $version = null, bool $module = false): string;
 }
