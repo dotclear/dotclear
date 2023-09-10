@@ -46,7 +46,6 @@ class GrowUp_2_28_lt
                 'inc/core/class.dc.themes.php',
                 'inc/core/class.dc.trackback.php',
                 'inc/core/class.dc.update.php',
-                'inc/core/class.dc.utils.php',
                 'inc/core/class.dc.workspace.php',
                 'inc/core/class.dc.xmlrpc.php',
                 'inc/core/class.dc.rs.extensions.php',

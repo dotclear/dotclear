@@ -203,7 +203,6 @@ dcProxyV1::classAliases([
     'dcThemes'       => 'Dotclear\Module\Themes',
     'dcTrackback'    => 'Dotclear\Core\Trackback',
     'dcUpdate'       => 'Dotclear\Core\Backend\Update',
-    'dcUtils'        => 'Dotclear\Core\Utils',
     'dcWorkspace'    => 'Dotclear\Core\UserWorkspace',
     'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
 
