@@ -213,7 +213,10 @@ namespace Dotclear {
             define('DC_ROOT', dirname(__DIR__));
 
             // deprecated since 2.28 Load core classes (old way)
-            Clearbricks::lib()->autoload(['dcCore' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.core.php'])]);
+            Clearbricks::lib()->autoload([
+                'dcCore' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.core.php']),
+                'dcUtils' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.utils.php'])
+            ]);
 
             // CLI_MODE, boolean constant that tell if we are in CLI mode
             define('CLI_MODE', PHP_SAPI == 'cli');

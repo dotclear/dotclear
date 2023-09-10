@@ -5,9 +5,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-declare(strict_types=1);
-
-namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Helper\File\Path;
@@ -17,9 +14,9 @@ use Dotclear\Helper\Text;
 /**
  * Helpers handler.
  *
- * @deprecated Utils is deprecated since 2.28, use appropriate class and methods instead...
+ * @deprecated dcUtils is deprecated since 2.28, use appropriate class and methods instead...
  */
-class Utils
+class dcUtils
 {
     /**
      * @deprecated  sicne 2.28, use App::lexical()::ADMIN_LOCALE instaed
