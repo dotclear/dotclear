@@ -54,8 +54,8 @@ class Versions extends CleanerParent
     {
         return array_merge(
             ['core'],
-            explode(',', DC_DISTRIB_THEMES),
-            explode(',', DC_DISTRIB_PLUGINS)
+            explode(',', App::config()->distributedThemes()),
+            explode(',', App::config()->distributedPlugins())
         );
     }
 

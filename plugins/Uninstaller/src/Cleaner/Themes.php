@@ -52,7 +52,7 @@ class Themes extends CleanerParent
 
     public function distributed(): array
     {
-        return explode(',', DC_DISTRIB_THEMES);
+        return explode(',', App::config()->distributedThemes());
     }
 
     public function values(): array

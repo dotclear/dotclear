@@ -777,7 +777,7 @@ class ModulesList
             '<th class="first nowrap"' . ($colspan > 1 ? ' colspan="' . $colspan . '"' : '') . '>' . __('Name') . '</th>';
         }
 
-        if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+        if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
             echo
             '<th class="nowrap">' . __('Score') . '</th>';
         }
@@ -836,7 +836,7 @@ class ModulesList
                     continue;
                 }
             }
-            $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . '/.git');
+            $git = ((defined('DC_DEV') && DC_DEV) || App::config()->debugMode()) && file_exists($define->get('root') . '/.git');
 
             echo
             '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . Html::escapeHTML($this->list_id) . '_m_' . Html::escapeHTML($id) . '"' .
@@ -902,7 +902,7 @@ class ModulesList
             '</td>';
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+            if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
                 $tds++;
                 echo
                 '<td class="module-version nowrap count"><span class="debug">' . $define->get('score') . '</span></td>';
@@ -1022,7 +1022,7 @@ class ModulesList
                  || !empty($define->get('section'))
                  || !empty($define->get('tags'))
                  || !empty($define->get('settings'))   && $define->get('state') == ModuleDefine::STATE_ENABLED
-                 || !empty($define->get('repository')) && DC_DEBUG && DC_ALLOW_REPOSITORIES
+                 || !empty($define->get('repository')) && App::config()->debugMode() && DC_ALLOW_REPOSITORIES
                 ) {
                     echo
                         '<div><ul class="mod-more">';
@@ -1032,7 +1032,7 @@ class ModulesList
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
-                    if (!empty($define->get('repository')) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
+                    if (!empty($define->get('repository')) && App::config()->debugMode() && DC_ALLOW_REPOSITORIES) {
                         echo '<li class="modules-repository"><a href="' . $define->get('repository') . '">' . __('Third-party repository') . '</a></li>';
                     }
 

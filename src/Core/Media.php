@@ -190,7 +190,7 @@ class Media extends Manager implements MediaInterface
 
         $this->path = App::blog()->settings()->system->public_path;
 
-        $this->addExclusion(DC_RC_PATH);
+        $this->addExclusion(App::config()->configPath());
         $this->addExclusion(__DIR__ . '/../');
 
         $this->exclude_pattern = App::blog()->settings()->system->media_exclusion;

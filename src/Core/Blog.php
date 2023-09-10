@@ -232,8 +232,8 @@ class Blog implements BlogInterface
 
             $settings = App::blogSettings($id);
 
-            $themes_path = Path::fullFromRoot($settings->system->themes_path, DC_ROOT);
-            $public_path = Path::fullFromRoot($settings->system->public_path, DC_ROOT);
+            $themes_path = Path::fullFromRoot($settings->system->themes_path, App::config()->dotclearRoot());
+            $public_path = Path::fullFromRoot($settings->system->public_path, App::config()->dotclearRoot());
 
             $this->post_status[(string) self::POST_PENDING]     = __('Pending');
             $this->post_status[(string) self::POST_SCHEDULED]   = __('Scheduled');

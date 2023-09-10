@@ -110,13 +110,13 @@ abstract class MyModule
                     && App::version()->newerVersion(self::id(), (string) App::plugins()->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
-            self::UNINSTALL => defined('DC_RC_PATH')
+            self::UNINSTALL => App::config()->configPath() != ''
                     // Manageable only by super-admin
                     && App::auth()->isSuperAdmin(),
 
             // Prepend and Frontend context
             self::PREPEND,
-            self::FRONTEND => defined('DC_RC_PATH'),
+            self::FRONTEND => App::config()->configPath() != '',
 
             // Backend context
             self::BACKEND => defined('DC_CONTEXT_ADMIN')

@@ -202,7 +202,7 @@ class Menus extends ArrayObject
             __('Update'),
             'admin.update',
             ['images/menu/update.svg', 'images/menu/update-dark.svg'],
-            App::auth()->isSuperAdmin() && is_readable(DC_DIGESTS),
+            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,
             false,
             'Update'

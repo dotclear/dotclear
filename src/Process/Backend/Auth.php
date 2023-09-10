@@ -39,7 +39,7 @@ class Auth extends Process
         App::backend()->dlang = (App::backend()->dlang === '' ? 'en' : App::backend()->dlang);
         if (App::backend()->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', App::backend()->dlang)) {
             L10n::lang(App::backend()->dlang);
-            L10n::set(DC_L10N_ROOT . '/' . App::backend()->dlang . '/main');
+            L10n::set(App::config()->l10nRoot() . '/' . App::backend()->dlang . '/main');
         }
 
         if (defined('DC_ADMIN_URL')) {

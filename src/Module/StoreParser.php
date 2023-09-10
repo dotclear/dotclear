@@ -92,7 +92,7 @@ class StoreParser
             $define->set('tags', implode(', ', $tags));
 
             # First filter right now. If DC_DEV is set all modules are parse
-            if (defined('DC_DEV') && DC_DEV === true || App::plugins()->versionsCompare(DC_VERSION, $define->get('dc_min'), '>=', false)) {
+            if (defined('DC_DEV') && DC_DEV === true || App::plugins()->versionsCompare(App::config()->dotclearVersion(), $define->get('dc_min'), '>=', false)) {
                 $this->defines[] = $define;
             }
         }

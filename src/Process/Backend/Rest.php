@@ -162,9 +162,9 @@ class Rest extends Process
             'ret'   => __('Dotclear update not available'),
         ];
 
-        if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !App::auth()->prefs()->dashboard->nodcupdate) {
+        if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(App::config()->digestsRoot()) && !App::auth()->prefs()->dashboard->nodcupdate) {
             $updater      = new Update(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
-            $new_v        = $updater->check(DC_VERSION);
+            $new_v        = $updater->check(App::config()->dotclearVersion());
             $version_info = $new_v ? $updater->getInfoURL() : '';
 
             if ($updater->getNotify() && $new_v) {

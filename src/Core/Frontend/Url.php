@@ -708,7 +708,7 @@ class Url extends UrlHandler
                     $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
                 }
                 $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-                $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
+                $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     App::frontend()->tpl->setPath(
                         $tpl_path,

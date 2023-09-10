@@ -51,7 +51,7 @@ class Manage extends Process
         App::backend()->user_ui_colorsyntax_theme = App::auth()->prefs()->interface->colorsyntax_theme;
 
         # Loading themes // deprecated since 2.26
-        ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());

@@ -48,7 +48,7 @@ class ModuleExportFlat extends Module
 
             try {
                 $exp = new FlatExport(App::con(), $fullname, App::con()->prefix());
-                fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|single\n");
+                fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|single\n");
 
                 $exp->export(
                     'category',
@@ -124,7 +124,7 @@ class ModuleExportFlat extends Module
 
             try {
                 $exp = new FlatExport(App::con(), $fullname, App::con()->prefix());
-                fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|full\n");
+                fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|full\n");
                 $exp->exportTable('blog');
                 $exp->exportTable('category');
                 $exp->exportTable('link');

@@ -137,7 +137,7 @@ class Utility extends Process
                 (function () {
                     $detected_languages = Http::getAcceptLanguages();
                     foreach ($detected_languages as $language) {
-                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
                             L10n::lang($language);
 
                             // We stop at first accepted language
@@ -145,7 +145,7 @@ class Utility extends Process
                         }
                     }
                 })();
-                new Fault(__('Database problem'), DC_DEBUG ?
+                new Fault(__('Database problem'), App::config()->debugMode() ?
             __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
             __('Something went wrong while trying to read the database.'), Fault::DATABASE_ISSUE);
             }
@@ -221,11 +221,11 @@ class Utility extends Process
         $GLOBALS['_lang'] = App::lang();
 
         L10n::lang(App::lang());
-        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
-            L10n::set(DC_L10N_ROOT . '/en/date');
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
+            L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
         App::lexical()->setLexicalLang('public', App::lang());
@@ -294,7 +294,7 @@ class Utility extends Process
             $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
         }
         $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-        $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
+        $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
             App::frontend()->tpl->setPath(
                 $tpl_path,

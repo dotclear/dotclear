@@ -196,16 +196,16 @@ class Utility extends Process
         // Load resources and help files
         App::backend()->resources = new Resources();
 
-        require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', App::lang())) {
+        require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
+        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang())) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, App::lang(), 'help']))) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, App::lang(), 'help', $hfile]));
+                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang(), 'help', $hfile]));
                 }
             }
         }

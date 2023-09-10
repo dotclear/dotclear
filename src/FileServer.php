@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;
@@ -104,7 +105,7 @@ class FileServer
      */
     public function __construct(string $type, string $resource)
     {
-        $this->debug     = defined('DC_DEBUG') && DC_DEBUG === true || defined('DC_DEV') && DC_DEV === true;
+        $this->debug     = App::config()->debugMode() === true || defined('DC_DEV') && DC_DEV === true;
         $this->type      = $type;
         $this->resource  = Path::clean($resource);
         $this->extension = Files::getExtension($this->resource);
@@ -157,7 +158,7 @@ class FileServer
 
         unset($_GET['pf'], $_GET['vf']);
 
-        if (!defined('DC_ROOT') || !defined('DC_PLUGINS_ROOT') || !defined('DC_VAR')) {
+        if (!App::config()->dotclearRoot() || !defined('DC_PLUGINS_ROOT') || !defined('DC_VAR')) {
             self::p404();
         }
 
@@ -191,7 +192,7 @@ class FileServer
     protected function findCoreFile(): void
     {
         foreach (self::DEFAULT_CORE_LIMITS as $folder) {
-            if ($this->setFile(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', $folder, $this->resource]))) {
+            if ($this->setFile(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', $folder, $this->resource]))) {
                 break;
             }
         }

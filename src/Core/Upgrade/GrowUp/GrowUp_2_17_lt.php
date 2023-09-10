@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 class GrowUp_2_17_lt
@@ -32,15 +33,15 @@ class GrowUp_2_17_lt
         );
 
         // Help specific (files was moved)
-        $remtree  = scandir(DC_ROOT . '/locales');
+        $remtree  = scandir(App::config()->dotclearRoot() . '/locales');
         $remfiles = [
             'help/blowupConfig.html',
             'help/themeEditor.html',
         ];
         foreach ($remtree as $dir) {
-            if (is_dir(DC_ROOT . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
+            if (is_dir(App::config()->dotclearRoot() . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
                 foreach ($remfiles as $f) {
-                    @unlink(DC_ROOT . '/' . 'locales' . '/' . $dir . '/' . $f);
+                    @unlink(App::config()->dotclearRoot() . '/' . 'locales' . '/' . $dir . '/' . $f);
                 }
             }
         }

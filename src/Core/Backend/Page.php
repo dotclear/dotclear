@@ -212,7 +212,7 @@ class Page
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -238,7 +238,7 @@ class Page
 
         $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
-        $js['debug'] = !!DC_DEBUG;
+        $js['debug'] = !!App::config()->debugMode();
 
         $js['showIp'] = App::blog()->isDefined() ? App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -260,7 +260,7 @@ class Page
         '<body id="dotclear-admin" class="no-js' .
         ($rtl ? ' rtl ' : '') .
         ($safe_mode ? ' safe-mode' : '') .
-        (DC_DEBUG ? ' debug-mode' : '') .
+        (App::config()->debugMode() ? ' debug-mode' : '') .
         '">' . "\n" .
         '<ul id="prelude">' .
         '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
@@ -488,7 +488,7 @@ class Page
             echo App::backend()->menus[$k]->draw();
         }
 
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION . '<br />(Codename: ' . DC_NAME . ')');
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br />(Codename: ' . App::config()->dotclearName() . ')');
 
         # --BEHAVIOR-- adminPageFooter --
         $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
@@ -558,7 +558,7 @@ class Page
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
@@ -581,7 +581,7 @@ class Page
 
         $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
-        $js['debug'] = !!DC_DEBUG;
+        $js['debug'] = !!App::config()->debugMode();
 
         // Set JSON data
         echo Html::jsJson('dotclear_init', $js);
@@ -599,7 +599,7 @@ class Page
             '<body id="dotclear-admin" class="popup' .
             ($rtl ? 'rtl' : '') .
             ($safe_mode ? ' safe-mode' : '') .
-            (DC_DEBUG ? ' debug-mode' : '') .
+            (App::config()->debugMode() ? ' debug-mode' : '') .
             '">' . "\n" .
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
 
@@ -758,7 +758,7 @@ class Page
                 $res      .= '<p><a href="' . Html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
             }
         } else {
-            $start    = DC_START_TIME;
+            $start    = App::config()->startTime();
             $end      = microtime(true);
             $duration = (int) (($end - $start) * 1000); // in milliseconds
             $res .= sprintf('<p>Page construction time (without asynchronous/secondary HTTP requests): %dms</p>', $duration);
@@ -908,13 +908,13 @@ class Page
      */
     private static function appendVersion(string $src, ?string $version = ''): string
     {
-        if (defined('DC_DEBUG') && DC_DEBUG) {
+        if (App::config()->debugMode()) {
             return $src;
         }
 
         return $src .
             (strpos($src, '?') === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: DC_VERSION));
+            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
     /**
@@ -1042,7 +1042,7 @@ class Page
         self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
         (
-            DC_DEBUG ?
+            App::config()->debugMode() ?
             self::jsJson('dotclear_jquery', [
                 'mute' => (!App::blog()->isDefined() || App::blog()->settings()->system->jquery_migrate_mute),
             ]) .

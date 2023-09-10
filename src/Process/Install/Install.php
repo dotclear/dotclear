@@ -55,9 +55,9 @@ class Install extends Process
         self::$dlang = Http::getAcceptLanguage();
         if (self::$dlang != 'en') {
             L10n::init(self::$dlang);
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/date');
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/main');
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/plugins');
+            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/date');
+            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
+            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/plugins');
         }
 
         if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {
@@ -247,7 +247,7 @@ class Install extends Process
                 # Add Dotclear version
                 $cur          = App::version()->openVersionCursor();
                 $cur->module  = 'core';
-                $cur->version = (string) DC_VERSION;
+                $cur->version = App::config()->dotclearVersion();
                 $cur->insert();
 
                 # Create first post

@@ -32,7 +32,7 @@ class HelpCharte extends Process
         App::backend()->data_theme = App::auth()->prefs()->interface->theme;
         App::backend()->js         = [
             'htmlFontSize' => App::auth()->prefs()->interface->htmlfontsize,
-            'debug'        => !!DC_DEBUG,
+            'debug'        => !!App::config()->debugMode(),
         ];
 
         return self::status(true);

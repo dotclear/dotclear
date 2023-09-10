@@ -49,7 +49,7 @@ class l10nFaker
         foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v->get('label'));
         }
-        file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'core', '_fake_l10n.php']), $main);
+        file_put_contents(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'core', '_fake_l10n.php']), $main);
 
         $plugin .= "\n// Plugin names\n\n";
         foreach (App::plugins()->getDefines() as $define) {
@@ -66,9 +66,9 @@ class l10nFaker
             }
         }
 
-        if (!is_dir(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin']))) {
-            mkdir(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin']));
+        if (!is_dir(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'plugins', '_fake_plugin']))) {
+            mkdir(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'plugins', '_fake_plugin']));
         }
-        file_put_contents(implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'plugins', '_fake_plugin', '_fake_l10n.php']), $plugin);
+        file_put_contents(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'plugins', '_fake_plugin', '_fake_l10n.php']), $plugin);
     }
 }

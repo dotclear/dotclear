@@ -62,12 +62,12 @@ class Helper
         App::setLang((string) App::auth()->getInfo('user_lang'));
 
         L10n::lang(App::lang());
-        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
-            L10n::set(DC_L10N_ROOT . '/en/date');
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
+            L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/main');
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/main');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
         App::lexical()->setLexicalLang('admin', App::lang());

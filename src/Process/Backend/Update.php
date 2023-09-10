@@ -32,7 +32,7 @@ class Update extends Process
         Page::checkSuper();
 
         if (!defined('DC_BACKUP_PATH')) {
-            define('DC_BACKUP_PATH', DC_ROOT);
+            define('DC_BACKUP_PATH', App::config()->dotclearRoot());
         } else {
             // Check backup path existence
             if (!is_dir(DC_BACKUP_PATH)) {
@@ -54,7 +54,7 @@ class Update extends Process
             }
         }
 
-        if (!is_readable(DC_DIGESTS)) {
+        if (!is_readable(App::config()->digestsRoot())) {
             Page::open(
                 __('Dotclear update'),
                 '',
@@ -73,7 +73,7 @@ class Update extends Process
         }
 
         App::backend()->updater = new CoreUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
-        App::backend()->new_v   = App::backend()->updater->check(DC_VERSION, !empty($_GET['nocache']));
+        App::backend()->new_v   = App::backend()->updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
         App::backend()->zip_file       = '';
         App::backend()->version_info   = '';
@@ -147,7 +147,7 @@ class Update extends Process
 
                 switch (App::backend()->step) {
                     case 'check':
-                        App::backend()->updater->checkIntegrity(DC_ROOT . '/inc/digests', DC_ROOT);
+                        App::backend()->updater->checkIntegrity(App::config()->dotclearRoot() . '/inc/digests', App::config()->dotclearRoot());
                         App::backend()->url->redirect('admin.update', ['step' => 'download']);
 
                         break;
@@ -171,9 +171,9 @@ class Update extends Process
                         App::backend()->updater->backup(
                             App::backend()->zip_file,
                             'dotclear/inc/digests',
-                            DC_ROOT,
-                            DC_ROOT . '/inc/digests',
-                            DC_BACKUP_PATH . '/backup-' . DC_VERSION . '.zip'
+                            App::config()->dotclearRoot(),
+                            App::config()->dotclearRoot() . '/inc/digests',
+                            DC_BACKUP_PATH . '/backup-' . App::config()->dotclearVersion() . '.zip'
                         );
                         App::backend()->url->redirect('admin.update', ['step' => 'unzip']);
 
@@ -183,8 +183,8 @@ class Update extends Process
                             App::backend()->zip_file,
                             'dotclear/inc/digests',
                             'dotclear',
-                            DC_ROOT,
-                            DC_ROOT . '/inc/digests'
+                            App::config()->dotclearRoot(),
+                            App::config()->dotclearRoot() . '/inc/digests'
                         );
 
                         // Disable REST service until next authentication
@@ -200,7 +200,7 @@ class Update extends Process
                 } elseif ($e->getCode() == CoreUpdate::ERR_FILES_UNREADABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
-                        '<strong>backup-' . DC_VERSION . '.zip</strong>'
+                        '<strong>backup-' . App::config()->dotclearVersion() . '.zip</strong>'
                     );
                 } elseif ($e->getCode() == CoreUpdate::ERR_FILES_UNWRITALBE) {
                     $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');

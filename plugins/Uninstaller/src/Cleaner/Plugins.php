@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
+use Dotclear\App;
 use Dotclear\Plugin\Uninstaller\{
     ActionDescriptor,
     CleanerDescriptor,
@@ -51,7 +52,7 @@ class Plugins extends CleanerParent
 
     public function distributed(): array
     {
-        return explode(',', DC_DISTRIB_PLUGINS);
+        return explode(',', App::config()->distributedPlugins());
     }
 
     public function values(): array

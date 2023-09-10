@@ -68,7 +68,7 @@ class Store
     {
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
-        $this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);
+        $this->user_agent = sprintf('Dotclear/%s)', App::config()->dotclearVersion());
 
         $this->check($force);
     }

@@ -85,7 +85,7 @@ class ThemesList extends ModulesList
             $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = $define->get('distributed') ? ' dc-box' : '';
 
-            $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
+            $git = ((defined('DC_DEV') && DC_DEV) || App::config()->debugMode()) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
 
             $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . ($git ? ' module-git' : '') . '">';
 
@@ -107,7 +107,7 @@ class ThemesList extends ModulesList
             }
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+            if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
                 $line .= '<p class="module-score debug">' . sprintf(__('Score: %s'), $define->get('score')) . '</p>';
             }
 
