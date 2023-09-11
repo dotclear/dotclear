@@ -54,6 +54,20 @@ interface UrlInterface
     public function register(string $type, string $url, string $representation, $handler): void;
 
     /**
+     * Register the default URL handler
+     *
+     * @param      callable|array  $handler  The handler
+     */
+    public function registerDefault($handler): void;
+
+    /**
+     * Register an error handler (prepend at the begining of the error handler stack)
+     *
+     * @param      callable|array  $handler  The handler
+     */
+    public function registerError($handler): void;
+
+    /**
      * Throws a 404 (page not found) exception
      *
      * @throws     Exception

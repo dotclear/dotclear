@@ -33,6 +33,7 @@ use Dotclear\Interface\Core\NoticeInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**
@@ -124,9 +125,9 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::url() instead
      *
-     * @var Url
+     * @var UrlInterface
      */
-    public readonly Url $url;
+    public readonly UrlInterface $url;
 
     /**
      * Rest instance
