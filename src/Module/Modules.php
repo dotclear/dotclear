@@ -710,7 +710,7 @@ class Modules implements ModulesInterface
                     unlink($zip_file);
 
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
-                } elseif ($cur_define->isDefined() && (defined('DC_DEV') && DC_DEV === true || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                } elseif ($cur_define->isDefined() && (App::config()->devMode() === true || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
@@ -1104,7 +1104,7 @@ class Modules implements ModulesInterface
 
         return $src .
             (strpos($src, '?') === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
+            'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
     public function cssLoad(string $src, string $media = 'screen', ?string $version = null): string

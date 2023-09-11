@@ -832,7 +832,7 @@ class Trackback implements TrackbackInterface
     private static function initHttp(string $url, string &$path)
     {
         $client = HttpClient::initClient($url, $path);
-        $client->setTimeout(DC_QUERY_TIMEOUT);
+        $client->setTimeout(App::config()->queryTimeout());
         $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);
         $client->setPersistReferers(false);

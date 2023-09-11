@@ -28,6 +28,7 @@ interface FactoryInterface
     public function blogWorkspace(): BlogWorkspaceInterface;
     public function blogs(): BlogsInterface;
     public function con(): ConnectionInterface;
+    public function config(): ConfigInterface;
     public function cache(): CacheInterface;
     public function categories(): CategoriesInterface;
     public function deprecated(): DeprecatedInterface;

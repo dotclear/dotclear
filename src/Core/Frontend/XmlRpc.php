@@ -46,7 +46,7 @@ class XmlRpc extends IntrospectionServer
      *
      * @var     string
      */
-    private string $debug_file = DC_TPL_CACHE . '/dotclear-xmlrpc.log';
+    private string $debug_file;
 
     /**
      * Trace arguments
@@ -69,6 +69,8 @@ class XmlRpc extends IntrospectionServer
      */
     public function __construct(string $blog_id)
     {
+        $this->debug_file = App::config()->cacheRoot() . '/dotclear-xmlrpc.log';
+
         parent::__construct();
 
         $this->blog_id = $blog_id;

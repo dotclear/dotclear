@@ -29,7 +29,7 @@ class CspReport extends Process
     {
         // Specify admin CSP log file if necessary
         if (!defined('DC_CSP_LOGFILE')) {
-            define('DC_CSP_LOGFILE', Path::real(DC_VAR) . '/csp/csp_report.json');
+            define('DC_CSP_LOGFILE', Path::real(App::config()->varRoot()) . '/csp/csp_report.json');
         }
 
         // Dareboost wants it? Not a problem.

@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
-use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;
@@ -105,7 +104,7 @@ class FileServer
      */
     public function __construct(string $type, string $resource)
     {
-        $this->debug     = App::config()->debugMode() === true || defined('DC_DEV') && DC_DEV === true;
+        $this->debug     = App::config()->debugMode() === true || App::config()->devMode() === true;
         $this->type      = $type;
         $this->resource  = Path::clean($resource);
         $this->extension = Files::getExtension($this->resource);
@@ -158,7 +157,7 @@ class FileServer
 
         unset($_GET['pf'], $_GET['vf']);
 
-        if (!App::config()->dotclearRoot() || !defined('DC_PLUGINS_ROOT') || !defined('DC_VAR')) {
+        if (!App::config()->dotclearRoot() || !App::config()->pluginsRoot() || !App::config()->varRoot()) {
             self::p404();
         }
 
@@ -172,7 +171,7 @@ class FileServer
      */
     protected function findPluginFile(): void
     {
-        $paths = array_reverse(explode(PATH_SEPARATOR, DC_PLUGINS_ROOT));
+        $paths = array_reverse(explode(PATH_SEPARATOR, App::config()->pluginsRoot()));
 
         foreach ($paths as $path) {
             $file = Path::real($path . '/' . $this->resource);
@@ -203,7 +202,7 @@ class FileServer
      */
     protected function findVarFile(): void
     {
-        $file = Path::real(DC_VAR . '/' . $this->resource);
+        $file = Path::real(App::config()->varRoot() . '/' . $this->resource);
 
         if ($file !== false) {
             $this->setFile($file);

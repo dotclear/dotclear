@@ -217,7 +217,7 @@ class Home extends Process
             Notices::message(__('This blog is removed'), false);
         }
 
-        if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
+        if (App::config()->adminUrl() == '') {
             Notices::message(
                 sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
                 __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
@@ -225,7 +225,7 @@ class Home extends Process
             );
         }
 
-        if (!defined('DC_ADMIN_MAILFROM') || !strpos(DC_ADMIN_MAILFROM, '@')) {
+        if (App::config()->adminMailfrom() == 'dotclear@local') {
             Notices::message(
                 sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
                 __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
@@ -237,11 +237,11 @@ class Home extends Process
 
         // Check cache directory
         if (App::auth()->isSuperAdmin()) {
-            if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+            if (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {
                 $err[] = __('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.');
             }
         } else {
-            if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+            if (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {
                 $err[] = __('The cache directory does not exist or is not writable. You should contact your administrator.');
             }
         }

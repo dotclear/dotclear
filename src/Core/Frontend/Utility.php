@@ -206,7 +206,7 @@ class Utility extends Process
         $GLOBALS['_ctx'] = App::frontend()->ctx;
 
         try {
-            App::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'App::frontend()->tpl');
+            App::frontend()->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->tpl');
 
             // deprecated since 2.28, use App::frontend()->tpl instead
             dcCore::app()->tpl = App::frontend()->tpl;
@@ -232,7 +232,7 @@ class Utility extends Process
 
         # Loading plugins
         try {
-            App::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', App::lang());
+            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang());
         } catch (Exception $e) {
             // Ignore
         }
@@ -249,12 +249,12 @@ class Utility extends Process
         }
 
         if (!App::themes()->moduleExists(App::frontend()->theme)) {
-            App::frontend()->theme = App::blog()->settings()->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->theme = App::blog()->settings()->system->theme = App::config()->defaultTheme();
         }
 
         App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
         if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme) && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
-            App::frontend()->theme        = App::blog()->settings()->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->theme        = App::blog()->settings()->system->theme = App::config()->defaultTheme();
             App::frontend()->parent_theme = null;
         }
 

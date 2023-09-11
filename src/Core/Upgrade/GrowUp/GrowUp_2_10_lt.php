@@ -33,8 +33,8 @@ class GrowUp_2_10_lt
         );
 
         # Create new var directory and its .htaccess file
-        @Files::makeDir(DC_VAR);
-        $f = DC_VAR . '/.htaccess';
+        @Files::makeDir(App::config()->varRoot());
+        $f = App::config()->varRoot() . '/.htaccess';
         if (!file_exists($f)) {
             @file_put_contents($f, 'Require all denied' . "\n" . 'Deny from all' . "\n");
         }

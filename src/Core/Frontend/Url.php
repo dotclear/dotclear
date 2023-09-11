@@ -653,8 +653,8 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             } else {
                 App::frontend()->ctx->preview = true;
-                if (defined('DC_ADMIN_URL')) {
-                    App::frontend()->ctx->xframeoption = DC_ADMIN_URL;
+                if (App::config()->adminUrl() != '') {
+                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
                 }
                 self::post($post_url);
             }
@@ -731,8 +731,8 @@ class Url extends UrlHandler implements UrlInterface
                 App::frontend()->tpl->use_cache = false;
                 // Reset HTTP cache
                 App::frontend()->cache()->resetTimes();
-                if (defined('DC_ADMIN_URL')) {
-                    App::frontend()->ctx->xframeoption = DC_ADMIN_URL;
+                if (App::config()->adminUrl() != '') {
+                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
                 }
 
                 // Then go to blog home page

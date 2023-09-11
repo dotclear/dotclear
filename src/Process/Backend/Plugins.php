@@ -33,12 +33,12 @@ class Plugins extends Process
         // -- Page helper --
         App::backend()->list = new ModulesList(
             App::plugins(),
-            DC_PLUGINS_ROOT,
+            App::config()->pluginsRoot(),
             App::blog()->settings()->system->store_plugin_url,
             !empty($_GET['nocache']) ? true : null
         );
 
-        ModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
+        ModulesList::$allow_multi_install = App::config()->allowMultiModules();
         // deprecated since 2.26
         ModulesList::$distributed_modules = explode(',', App::config()->distributedPlugins());
 

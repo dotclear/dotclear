@@ -194,10 +194,10 @@ class BlogPref extends Process
 
         // jQuery available versions
         $jquery_root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'inc', 'js', 'jquery']);
-        $stack       = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => ''];
+        $stack       = [__('Default') . ' (' . App::config()->defaultJQuery() . ')' => ''];
         if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root)) !== false) {
             while (($entry = $d->read()) !== false) {
-                if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root . '/' . $entry) && $entry != DC_DEFAULT_JQUERY) {
+                if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root . '/' . $entry) && $entry != App::config()->defaultJQuery()) {
                     $stack[$entry] = $entry;
                 }
             }
@@ -803,7 +803,7 @@ class BlogPref extends Process
 
                     $client = HttpClient::initClient($file, $path);
                     if ($client !== false) {
-                        $client->setTimeout(DC_QUERY_TIMEOUT);
+                        $client->setTimeout(App::config()->queryTimeout());
                         $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                         $client->get($path);
                         $status  = $client->getStatus();

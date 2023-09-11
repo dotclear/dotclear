@@ -504,7 +504,7 @@ class Media extends Process
             '<h4>' . __('Add files') . '</h4>' .
             '<p class="more-info">' . __('Please take care to publish media that you own and that are not protected by copyright.') . '</p>' .
             '<form id="fileupload" action="' . Html::escapeURL(App::backend()->url->get('admin.media', App::backend()->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
-            '<p>' . form::hidden(['MAX_FILE_SIZE'], (string) DC_MAX_UPLOAD_SIZE) .
+            '<p>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
             App::nonce()->getFormNonce() . '</p>' .
                 '<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>' .
 
@@ -514,7 +514,7 @@ class Media extends Process
             '<button class="button choose_files">' . __('Choose files') . '</button>' .
             '<input type="file" id="upfile" name="upfile[]"' . (App::backend()->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(App::backend()->url->get('admin.media', App::backend()->page->values())) . '" /></p>' .
 
-            '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size((int) DC_MAX_UPLOAD_SIZE) . '</p>' .
+            '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(App::config()->maxUploadSize()) . '</p>' .
 
             '<p class="one-file"><label for="upfiletitle">' . __('Title:') . '</label>' . form::field('upfiletitle', 35, 255) . '</p>' .
             '<p class="one-file"><label for="upfilepriv" class="classic">' . __('Private') . '</label> ' .

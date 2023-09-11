@@ -63,7 +63,7 @@ class Deprecated implements DeprecatedInterface
         }
 
         // only log on DEV mode
-        if (!defined('DC_DEV') || !DC_DEV) {
+        if (!App::config()->devMode()) {
             return;
         }
 

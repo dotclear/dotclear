@@ -54,15 +54,6 @@ namespace Dotclear {
         private static array $release = [];
 
         /**
-         * Dotclear App config.
-         *
-         * This contains all value from DC_ constants
-         *
-         * @var    Config  $config
-         */
-        private static Config $config;
-
-        /**
          * Requirements are loaded.
          *
          * @var     bool    $initialized
@@ -178,7 +169,7 @@ namespace Dotclear {
             try {
                 // Load once release file
                 if (empty(self::$release)) {
-                    $file = self::config()->dotclearRoot() . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+                    $file = DC_ROOT . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
                     if (!is_file($file) || !is_readable($file)) {
                         throw new Exception(__('Dotclear release file was not found'), Fault::SETUP_ISSUE);
                     }
@@ -203,15 +194,6 @@ namespace Dotclear {
             }
         }
 
-        public static function config(): Config
-        {
-            if (!isset(self::$config)) {
-                throw new Exception('No application running.', Fault::SETUP_ISSUE);
-            }
-
-            return self::$config;
-        }
-
         /**
          * Preload requirements (namespace, class, constant).
          *
@@ -224,26 +206,20 @@ namespace Dotclear {
                 return;
             }
 
-            // Force to set config instance from App
-            self::$config = new Config();
-
             // Start tick
             define('DC_START_TIME', microtime(true));
-            self::config()->startTime(\DC_START_TIME);
 
             // Dotclear root path
             define('DC_ROOT', dirname(__DIR__));
-            self::config()->dotclearRoot(\DC_ROOT);
 
             // deprecated since 2.28 Load core classes (old way)
             Clearbricks::lib()->autoload([
-                'dcCore' => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-                'dcUtils' => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php'])
+                'dcCore' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.core.php']),
+                'dcUtils' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.utils.php'])
             ]);
 
             // CLI_MODE, boolean constant that tell if we are in CLI mode
             define('CLI_MODE', PHP_SAPI == 'cli');
-            self::config()->cliMode(\CLI_MODE);
 
             mb_internal_encoding('UTF-8');
 
@@ -258,9 +234,7 @@ namespace Dotclear {
 
             // Release constants
             define('DC_VERSION', self::release('release_version'));
-            self::config()->dotclearVersion(\DC_VERSION);
             define('DC_NAME', self::release('release_name'));
-            self::config()->dotclearName(\DC_NAME);
         }
 
         /**
@@ -302,14 +276,13 @@ namespace Dotclear {
             } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
                 define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
             } else {
-                define('DC_RC_PATH', implode(DIRECTORY_SEPARATOR, [self::config()->dotclearRoot(), 'inc', 'config.php']));
+                define('DC_RC_PATH', implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'config.php']));
             }
-            self::config()->configPath(\DC_RC_PATH);
 
             // no config file and not in install process
-            if (!is_file(self::config()->configPath())) {
+            if (!is_file(DC_RC_PATH)) {
                 // do not process install on CLI mode
-                if (self::config()->cliMode()) {
+                if (CLI_MODE) {
                     new Fault('Dotclear is not installed or failed to load config file.', '', Fault::CONFIG_ISSUE);
                 }
                 if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
@@ -327,7 +300,7 @@ namespace Dotclear {
                 class_alias('Dotclear\Helper\File\Path', 'path');
             }
 
-            require self::config()->configPath();
+            require DC_RC_PATH;
 
             //*== DC_DEBUG ==
             if (!defined('DC_DEBUG')) {
@@ -342,22 +315,16 @@ namespace Dotclear {
             if (!defined('DC_DEBUG')) {
                 define('DC_DEBUG', false);
             }
-            self::config()->debugMode(\DC_DEBUG);
 
             // Other constants
-            define('DC_DIGESTS', Path::reduce([App::config()->dotclearRoot(), 'inc', 'digests']));
-            self::config()->digestsRoot(\DC_DIGESTS);
-            define('DC_L10N_ROOT', Path::reduce([App::config()->dotclearRoot(), 'locales']));
-            self::config()->l10nRoot(\DC_L10N_ROOT);
+            define('DC_DIGESTS', Path::reduce([DC_ROOT, 'inc', 'digests']));
+            define('DC_L10N_ROOT', Path::reduce([DC_ROOT, 'locales']));
             define('DC_L10N_UPDATE_URL', self::release('l10n_update_url'));
-            self::config()->l10nUrl(\DC_L10N_UPDATE_URL);
 
             // Update Makefile if the following list is modified
             define('DC_DISTRIB_PLUGINS', self::release('distributed_plugins'));
-            self::config()->distributedPlugins(\DC_DISTRIB_PLUGINS);
             // Update Makefile if the following list is modified
             define('DC_DISTRIB_THEMES', self::release('distributed_themes'));
-            self::config()->distributedThemes(\DC_DISTRIB_THEMES);
 
             define('DC_DEFAULT_THEME', self::release('default_theme'));
             define('DC_DEFAULT_TPLSET', self::release('default_tplset'));
@@ -440,7 +407,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_TPL_CACHE')) {
-                define('DC_TPL_CACHE', Path::reduce([App::config()->dotclearRoot(), 'cache']));
+                define('DC_TPL_CACHE', Path::reduce([DC_ROOT, 'cache']));
             }
             // Check existence of cache directory
             if (!is_dir(DC_TPL_CACHE)) {
@@ -458,7 +425,7 @@ namespace Dotclear {
             }
 
             if (!defined('DC_VAR')) {
-                define('DC_VAR', Path::reduce([App::config()->dotclearRoot(), 'var']));
+                define('DC_VAR', Path::reduce([DC_ROOT, 'var']));
             }
             // Check existence of var directory
             if (!is_dir(DC_VAR)) {
@@ -480,7 +447,7 @@ namespace Dotclear {
 
             // REST server watchdog file (used to enable/disable REST services during last phase of Dotclear upgrade)
             if (!defined('DC_UPGRADE')) {
-                define('DC_UPGRADE', Path::reduce([App::config()->dotclearRoot(), 'inc', 'upgrade']));
+                define('DC_UPGRADE', Path::reduce([DC_ROOT, 'inc', 'upgrade']));
             }
 
             L10n::init();
@@ -496,7 +463,7 @@ namespace Dotclear {
                 // Loading locales for detected language
                 $detected_languages = Http::getAcceptLanguages();
                 foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [self::config()->l10nRoot(), $language, 'main'])) !== false) {
+                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
                         L10n::lang($language);
 
                         // We stop at first accepted language
@@ -527,7 +494,7 @@ namespace Dotclear {
                             '<p>If you\'re unsure what these terms mean you should probably contact ' .
                             'your host. If you still need help you can always visit the ' .
                             '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            (self::config()->debugMode() ?
+                            (DC_DEBUG ?
                                 '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
                                 ''),
                             (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')

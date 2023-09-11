@@ -72,7 +72,7 @@ class Update extends Process
             exit;
         }
 
-        App::backend()->updater = new CoreUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
+        App::backend()->updater = new CoreUpdate(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
         App::backend()->new_v   = App::backend()->updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
         App::backend()->zip_file       = '';
@@ -256,12 +256,12 @@ class Update extends Process
             '<div class="multi-part" id="update" title="' . __('Dotclear update') . '">';
 
             // Warning about PHP version if necessary
-            if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
+            if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
                 echo
                 '<p class="info more-info">' .
                 sprintf(
                     __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-                    DC_NEXT_REQUIRED_PHP,
+                    App::config()->nextRequiredPhp(),
                     phpversion()
                 ) .
                 '</p>';

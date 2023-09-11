@@ -383,11 +383,11 @@ class Blog implements BlogInterface
         $version = $this->settings->system->jquery_version;
         if ($version == '') {
             // Version not set, use default one
-            $version = DC_DEFAULT_JQUERY; // defined in src/App.php
+            $version = App::config()->defaultJQuery(); // defined in src/App.php
         } else {
-            if ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, DC_DEFAULT_JQUERY, '<')) {
+            if ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, App::config()->defaultJQuery(), '<')) {
                 // Use the blog defined version only if more recent than default
-                $version = DC_DEFAULT_JQUERY; // defined in src/App.php
+                $version = App::config()->defaultJQuery(); // defined in src/App.php
             }
         }
 

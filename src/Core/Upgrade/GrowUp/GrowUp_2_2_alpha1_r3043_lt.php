@@ -19,7 +19,7 @@ class GrowUp_2_2_alpha1_r3043_lt
     public static function init(bool $cleanup_sessions): bool
     {
         # metadata has been integrated to the core.
-        App::plugins()->loadModules(DC_PLUGINS_ROOT);
+        App::plugins()->loadModules(App::config()->pluginsRoot());
         if (App::plugins()->moduleExists('metadata')) {
             App::plugins()->deleteModule('metadata');
         }

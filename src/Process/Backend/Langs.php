@@ -45,12 +45,12 @@ class Langs extends Process
 
         $feed_reader = new Reader();
 
-        $feed_reader->setCacheDir(DC_TPL_CACHE);
+        $feed_reader->setCacheDir(App::config()->cacheRoot());
         $feed_reader->setTimeout(5);
         $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
 
         try {
-            $parse = $feed_reader->parse(sprintf(App::config()->l10nUrl(), App::config()->dotclearVersion()));
+            $parse = $feed_reader->parse(sprintf(App::config()->l10nUpdateUrl(), App::config()->dotclearVersion()));
             if ($parse !== false) {
                 App::backend()->dc_langs = $parse->items;
             }

@@ -60,7 +60,7 @@ class Page
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             // Go back to the dashboard
-            Http::redirect(DC_ADMIN_URL);
+            Http::redirect(App::config()->adminUrl());
         }
 
         if (session_id()) {
@@ -83,7 +83,7 @@ class Page
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id())) {
                 // Go back to the dashboard
-                Http::redirect(DC_ADMIN_URL);
+                Http::redirect(App::config()->adminUrl());
             }
 
             if (session_id()) {
@@ -190,7 +190,7 @@ class Page
                 }
             }
             if (count($directives)) {
-                $directives[]   = 'report-uri ' . DC_ADMIN_URL . App::backend()->url->get('admin.csp.report');
+                $directives[]   = 'report-uri ' . App::config()->adminUrl() . App::backend()->url->get('admin.csp.report');
                 $report_only    = (App::blog()->settings()->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
@@ -212,7 +212,7 @@ class Page
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -268,7 +268,7 @@ class Page
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
-        '<h1><a href="' . App::backend()->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
+        '<h1><a href="' . App::backend()->url->get('admin.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . App::config()->vendorName() . '</span></a></h1>' . "\n";
 
         echo
         '<form action="' . App::backend()->url->get('admin.home') . '" method="post" id="top-info-blog">' .
@@ -520,7 +520,7 @@ class Page
             $figure .
             ' -->' . "\n";
 
-        if (defined('DC_DEV') && DC_DEV === true) {
+        if (App::config()->devMode()=== true) {
             echo self::debugInfo();
         }
 
@@ -558,7 +558,7 @@ class Page
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(DC_VENDOR_NAME) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
@@ -601,7 +601,7 @@ class Page
             ($safe_mode ? ' safe-mode' : '') .
             (App::config()->debugMode() ? ' debug-mode' : '') .
             '">' . "\n" .
-            '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
+            '<h1>' . App::config()->vendorName() . '</h1>' . "\n";
 
         echo
             '<div id="wrapper">' . "\n" .
@@ -637,8 +637,11 @@ class Page
      * @param      string       $title  The title
      * @param      null|string  $head   The head
      */
-    public static function openModule(string $title = DC_VENDOR_NAME, ?string $head = '')
+    public static function openModule(string $title = '', ?string $head = '')
     {
+        if (!$title) {
+            $title = App::config()->vendorName();
+        }
         echo '<html><head><title>' . $title . '</title>' . $head . '</head><body>';
     }
 
@@ -914,7 +917,7 @@ class Page
 
         return $src .
             (strpos($src, '?') === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
+            'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
     /**

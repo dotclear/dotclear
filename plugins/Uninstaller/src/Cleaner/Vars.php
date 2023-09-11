@@ -58,7 +58,7 @@ class Vars extends CleanerParent
     public function values(): array
     {
         $stack = [];
-        foreach (self::getDirs(DC_VAR) as $path => $count) {
+        foreach (self::getDirs(App::config()->varRoot()) as $path => $count) {
             $stack[] = new ValueDescriptor(
                 ns:    $path,
                 count: $count
@@ -71,7 +71,7 @@ class Vars extends CleanerParent
     public function execute(string $action, string $ns): bool
     {
         if ($action == 'delete') {
-            self::delDir(DC_VAR, $ns, true);
+            self::delDir(App::config()->varRoot(), $ns, true);
 
             return true;
         }

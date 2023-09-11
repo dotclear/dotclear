@@ -78,7 +78,7 @@ class BackendBehaviors
         $extraPlugins[] = [
             'name'   => 'dctags',
             'button' => 'dcTags',
-            'url'    => DC_ADMIN_URL . My::fileURL('js/ckeditor-tags-plugin.js'),
+            'url'    => App::config()->adminUrl() . My::fileURL('js/ckeditor-tags-plugin.js'),
         ];
     }
 

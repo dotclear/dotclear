@@ -22,6 +22,7 @@ use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
@@ -108,7 +109,7 @@ class Factory implements FactoryInterface
     public function cache(): CacheInterface
     {
         return new Cache(
-            cache_dir: defined('DC_TPL_CACHE') ? DC_TPL_CACHE : ''
+            cache_dir: $this->container->get('config')->cacheRoot()
         );
     }
 
@@ -120,14 +121,19 @@ class Factory implements FactoryInterface
     public function con(): ConnectionInterface
     {
         return AbstractHandler::init(
-            driver: DC_DBDRIVER,
-            host: DC_DBHOST,
-            database: DC_DBNAME,
-            user: DC_DBUSER,
-            password: DC_DBPASSWORD,
-            persistent: DC_DBPERSIST,
-            prefix: DC_DBPREFIX
+            driver: $this->container->get('config')->dbDriver(),
+            host: $this->container->get('config')->dbHost(),
+            database: $this->container->get('config')->dbName(),
+            user: $this->container->get('config')->dbUser(),
+            password: $this->container->get('config')->dbPassword(),
+            persistent: $this->container->get('config')->dbPersist(),
+            prefix: $this->container->get('config')->dbPrefix()
         );
+    }
+
+    public function config(): ConfigInterface
+    {
+        return new Config();
     }
 
     public function error(): ErrorInterface
@@ -205,9 +211,9 @@ class Factory implements FactoryInterface
         return new Session(
             con: $this->container->get('con'),
             table : $this->container->get('con')->prefix() . Session::SESSION_TABLE_NAME,
-            cookie_name: DC_SESSION_NAME,
-            cookie_secure: DC_ADMIN_SSL,
-            ttl: DC_SESSION_TTL
+            cookie_name: $this->container->get('config')->sessionName(),
+            cookie_secure: $this->container->get('config')->adminSsl(),
+            ttl: $this->container->get('config')->sessionTtl()
         );
     }
 

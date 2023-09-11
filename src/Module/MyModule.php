@@ -326,7 +326,7 @@ abstract class MyModule
      */
     final protected static function exception(string $msg = '')
     {
-        $msg = defined('DC_DEV') && DC_DEV && !empty($msg) ? ': ' . $msg : '';
+        $msg = App::config()->devMode() && !empty($msg) ? ': ' . $msg : '';
 
         throw new Exception('Invalid module structure' . $msg);
     }

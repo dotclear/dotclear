@@ -211,7 +211,7 @@ class WidgetsElement
         $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgettitleformat');
         if (empty($wtscheme)) {
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
+            if (empty($tplset) || $tplset == App::config()->defaultTplset()) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h2>%s</h2>';
             } else {
@@ -240,7 +240,7 @@ class WidgetsElement
         $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat');
         if (empty($wtscheme)) {
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
+            if (empty($tplset) || $tplset == App::config()->defaultTplset()) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h3>%s</h3>';
             } else {

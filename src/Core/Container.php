@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Config;
 use Dotclear\Interface\ContainerInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -19,6 +20,7 @@ use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
@@ -100,8 +102,7 @@ class Container implements ContainerInterface
      *
      * @param   string  $class  The factory full class name
      */
-    public function __construct(string $class)
-    {
+    public function __construct(string $class) {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
@@ -200,6 +201,11 @@ class Container implements ContainerInterface
     public static function con(): ConnectionInterface
     {
         return self::$instance->get('con');
+    }
+
+    public static function config(): ConfigInterface
+    {
+        return self::$instance->get('config');
     }
 
     public static function deprecated(): DeprecatedInterface

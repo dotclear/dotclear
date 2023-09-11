@@ -190,7 +190,7 @@ class FrontendUrl extends Url
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
                     App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);
                 } else {
-                    App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . DC_DEFAULT_TPLSET);
+                    App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . App::config()->defaultTplset());
                 }
                 self::serveDocument('page.html');
             }
@@ -216,8 +216,8 @@ class FrontendUrl extends Url
                 self::p404();
             } else {
                 App::frontend()->ctx->preview = true;
-                if (defined('DC_ADMIN_URL')) {
-                    App::frontend()->ctx->xframeoption = DC_ADMIN_URL;
+                if (dApp::config()->adminUrl() != '') {
+                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
                 }
 
                 self::pages($post_url);

@@ -52,7 +52,7 @@ class Plugin extends Process
                 App::backend()->setPageURL(App::backend()->url->get('admin.plugin.' . $plugin));
             } catch (Exception $e) {
                 // Unknown URL handler for plugin, back to dashboard
-                Http::redirect(DC_ADMIN_URL);
+                Http::redirect(App::config()->adminUrl());
             }
 
             // by class name
