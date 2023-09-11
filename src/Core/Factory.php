@@ -39,6 +39,7 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
+use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
@@ -220,7 +221,7 @@ class Factory implements FactoryInterface
         return new Trackback();
     }
 
-    public function url(): Url
+    public function url(): UrlInterface
     {
         return new Url();
     }

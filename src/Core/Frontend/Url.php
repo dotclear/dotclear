@@ -16,19 +16,23 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\UrlHandler;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\UrlInterface;
 use Exception;
 
-class Url extends UrlHandler
+/**
+ * URL Handler for public urls
+ */
+class Url extends UrlHandler implements UrlInterface
 {
     /** @var string URI arguments (depends on URL representation) */
-    public ?string $args;
+    public ?string $args = null;
 
     /**
      * Gets the home type set for the blog.
      *
      * @return     string  The home type (static or default)
      */
-    protected function getHomeType(): string
+    public function getHomeType(): string
     {
         return App::blog()->settings()->system->static_home ? 'static' : 'default';
     }
@@ -92,7 +96,7 @@ class Url extends UrlHandler
      * @throws     Exception
      * @return never
      */
-    public static function p404(): void
+    public static function p404(): never
     {
         throw new Exception('Page not found', 404);
     }
@@ -104,7 +108,7 @@ class Url extends UrlHandler
      *
      * @return     false|int  The page number or false if none found.
      */
-    protected static function getPageNumber(&$args): bool|int
+    public static function getPageNumber(&$args): bool|int
     {
         if (preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
             $n = (int) $m[2];
@@ -128,7 +132,7 @@ class Url extends UrlHandler
      *
      * @throws     Exception
      */
-    protected static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
+    public static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
         if (App::frontend()->ctx->nb_entry_per_page === null) {
             App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_page;
@@ -926,7 +930,7 @@ class Url extends UrlHandler
      * @param      null|string  $args   The arguments
      * @return never
      */
-    public static function wpfaker(?string $args): void
+    public static function wpfaker(?string $args): never
     {
         // Rick Roll script kiddies
         Http::redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
