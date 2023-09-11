@@ -68,6 +68,22 @@ interface UrlInterface
     public function registerError($handler): void;
 
     /**
+     * Gets the registered URL handlers.
+     *
+     * @return     array  The types.
+     */
+    public function getTypes(): array;
+
+    /**
+     * Gets the base URI of an URL handler.
+     *
+     * @param      string  $type   The type
+     *
+     * @return     mixed
+     */
+    public function getBase(string $type);
+
+    /**
      * Throws a 404 (page not found) exception
      *
      * @throws     Exception
