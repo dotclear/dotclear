@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 //use Dotclear\Core\Container;
-use Dotclear\Core\Frontend\Url;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**
@@ -48,7 +47,7 @@ interface FactoryInterface
     public function session(): SessionInterface;
     public function themes(): ModulesInterface;
     public function trackback(): TrackbackInterface;
-    public function url(): Url;
+    public function url(): UrlInterface;
     public function users(): UsersInterface;
     public function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface;
     public function userWorkspace(): UserWorkspaceInterface;

@@ -36,13 +36,13 @@ use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
+use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
-use Dotclear\Core\Frontend\Url;
 use Exception;
 
 /**
@@ -287,7 +287,7 @@ class Container implements ContainerInterface
         return self::$instance->get('trackback');
     }
 
-    public static function url(): Url
+    public static function url(): UrlInterface
     {
         return self::$instance->get('url');
     }
