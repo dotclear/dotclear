@@ -246,8 +246,8 @@ namespace Dotclear {
 
             // deprecated since 2.28, loads core classes (old way)
             Clearbricks::lib()->autoload([
-                'dcCore'  => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.core.php']),
-                'dcUtils' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.utils.php']),
+                'dcCore'  => implode(DIRECTORY_SEPARATOR, [$config->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+                'dcUtils' => implode(DIRECTORY_SEPARATOR, [$config->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
             ]);
 
             // Check and serve plugins and var files. (from ?pf= and ?vf= URI)
@@ -267,7 +267,7 @@ namespace Dotclear {
                 // Loading locales for detected language
                 $detected_languages = Http::getAcceptLanguages();
                 foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$config->l10nRoot(), $language, 'main'])) !== false) {
                         L10n::lang($language);
 
                         // We stop at first accepted language
@@ -298,10 +298,10 @@ namespace Dotclear {
                             '<p>If you\'re unsure what these terms mean you should probably contact ' .
                             'your host. If you still need help you can always visit the ' .
                             '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            (DC_DEBUG ?
+                            ($config->debugMode() ?
                                 '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
                                 ''),
-                            (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')
+                            ($config->dbHost() !== '' ? $config->dbHost() : 'localhost')
                         ) :
                         '',
                         Fault::DATABASE_ISSUE
