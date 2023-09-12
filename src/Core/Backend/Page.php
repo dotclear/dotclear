@@ -520,7 +520,7 @@ class Page
             $figure .
             ' -->' . "\n";
 
-        if (App::config()->devMode()=== true) {
+        if (App::config()->devMode() === true) {
             echo self::debugInfo();
         }
 

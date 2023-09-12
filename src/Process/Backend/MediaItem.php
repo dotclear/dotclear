@@ -1041,7 +1041,7 @@ class MediaItem extends Process
             '<h4>' . __('Change file') . '</h4>' .
             '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) . '</div>' .
             '<p><label for="upfile">' . __('Choose a file:') .
-            ' (' . sprintf(__('Maximum size %s'), Files::size(App::config()->maxUploadSize()) . ') ' .
+            ' (' . sprintf(__('Maximum size %s'), Files::size(App::config()->maxUploadSize())) . ') ' .
             '<input type="file" id="upfile" name="upfile" size="35" />' .
             '</label></p>' .
             '<p><input type="submit" value="' . __('Send') . '" />' .

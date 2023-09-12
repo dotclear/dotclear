@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Config;
+use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\ContainerInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -20,7 +20,6 @@ use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
-use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
@@ -73,6 +72,13 @@ class Container implements ContainerInterface
     private static Container $instance;
 
     /**
+     * Configuration instance.
+     *
+     * @var    ConfigInterface   $config
+     */
+    private static ConfigInterface $config;
+
+    /**
      * Stack of loaded factory objects.
      *
      * @var    array<string,mixed>  $stack
@@ -100,14 +106,17 @@ class Container implements ContainerInterface
      *
      * @throws  Exception
      *
-     * @param   string  $class  The factory full class name
+     * @param   ConfigInterface     $config     Dotclear config
+     * @param   string              $class      The factory full class name
      */
-    public function __construct(string $class) {
+    public function __construct(ConfigInterface $config, string $class)
+    {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
         self::$instance = $this;
+        self::$config   = $config;
 
         // Check factory requirements
         if (empty($class) || !is_subclass_of($class, FactoryInterface::class)) {
@@ -205,7 +214,7 @@ class Container implements ContainerInterface
 
     public static function config(): ConfigInterface
     {
-        return self::$instance->get('config');
+        return self::$config;
     }
 
     public static function deprecated(): DeprecatedInterface
