@@ -53,7 +53,9 @@ class BlogSettings implements BlogSettingsInterface
     ) {
         $this->con   = App::con();
         $this->table = $this->con->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
-        $this->loadSettings();
+        if ($blog_id) {
+            $this->loadSettings();
+        }
     }
 
     /**

@@ -80,7 +80,7 @@ class Factory implements FactoryInterface
 
     public function blog(): BlogInterface
     {
-        return $this->container->get('blogLoader')->getBlog();
+        return $this->container->blogLoader()->getBlog();
     }
 
     public function blogSettings(?string $blog_id): BlogSettingsInterface
@@ -203,8 +203,8 @@ class Factory implements FactoryInterface
     public function session(): SessionInterface
     {
         return new Session(
-            con: $this->container->get('con'),
-            table : $this->container->get('con')->prefix() . Session::SESSION_TABLE_NAME,
+            con: $this->container->con(),
+            table : $this->container->con()->prefix() . Session::SESSION_TABLE_NAME,
             cookie_name: $this->container->config()->sessionName(),
             cookie_secure: $this->container->config()->adminSsl(),
             ttl: $this->container->config()->sessionTtl()

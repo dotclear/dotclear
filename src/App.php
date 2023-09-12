@@ -234,16 +234,6 @@ namespace Dotclear {
                 exit;
             }
 
-            // no config file and not in install process
-            if (!is_file($config->configPath())) {
-                if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
-                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
-                } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
-                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
-                }
-                return;
-            }
-
             // deprecated since 2.28, loads core classes (old way)
             Clearbricks::lib()->autoload([
                 'dcCore'  => implode(DIRECTORY_SEPARATOR, [$config->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
@@ -259,7 +249,37 @@ namespace Dotclear {
                     config: $config,
                     class: Factories::getFactory('core')
                 );
+            } catch (Exception $e) {
+                if (!defined('DC_CONTEXT_ADMIN')) {
+                    new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
+                } else {
+                    new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
+                }
+                exit;
+            }
 
+            // no config file and not in install process
+            if (!is_file($config->configPath())) {
+                if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
+                } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
+                }
+
+                return;
+            }
+
+            if ($config->httpScheme443()) {
+                Http::$https_scheme_on_443 = true;
+            }
+
+            if ($config->httpReverseProxy()) {
+                Http::$reverse_proxy = true;
+            }
+
+            // try connection
+            try {
+                App::con();
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;

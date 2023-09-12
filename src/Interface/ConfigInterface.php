@@ -464,4 +464,22 @@ interface ConfigInterface
      * @return  bool    True for show
      */
     public function showHiddenDirs(): bool;
+
+    /**
+     * Force HTTP scheme on 443.
+     *
+     * Returns false if not set.
+     *
+     * @return  bool    True for force http
+     */
+    public function httpScheme443(): bool;
+
+    /**
+     * Use http reverse proxy.
+     *
+     * Returns false if not set.
+     *
+     * @return  bool    True for use
+     */
+    public function httpReverseProxy(): bool;
 }

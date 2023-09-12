@@ -13,6 +13,7 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 
 /**
  * @class Session
@@ -24,9 +25,9 @@ use Dotclear\Interface\Core\SessionInterface;
 class Session implements SessionInterface
 {
     /**
-     * AbstractHandler handler
+     * Connection handler
      *
-     * @var AbstractHandler
+     * @var ConnectionInterface
      */
     private $con;
 
@@ -74,17 +75,17 @@ class Session implements SessionInterface
      *
      * This method creates an instance of Session class.
      *
-     * @param AbstractHandler   $con               AbstractHandler inherited database instance
-     * @param string            $table             Table name
-     * @param string            $cookie_name       Session cookie name
-     * @param string            $cookie_path       Session cookie path
-     * @param string            $cookie_domain     Session cookie domaine
-     * @param bool              $cookie_secure     Session cookie is available only through SSL if true
-     * @param string            $ttl               TTL (default -120 minutes)
-     * @param bool              $transient         Transient session : no db optimize on session destruction if true
+     * @param ConnectionInterface   $con               AbstractHandler inherited database instance
+     * @param string                $table             Table name
+     * @param string                $cookie_name       Session cookie name
+     * @param string                $cookie_path       Session cookie path
+     * @param string                $cookie_domain     Session cookie domaine
+     * @param bool                  $cookie_secure     Session cookie is available only through SSL if true
+     * @param string                $ttl               TTL (default -120 minutes)
+     * @param bool                  $transient         Transient session : no db optimize on session destruction if true
      */
     public function __construct(
-        AbstractHandler $con,
+        ConnectionInterface $con,
         string $table,
         string $cookie_name,
         ?string $cookie_path = null,

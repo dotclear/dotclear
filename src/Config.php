@@ -12,7 +12,6 @@ namespace Dotclear;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
-use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\ConfigInterface;
 use Exception;
 
@@ -40,12 +39,13 @@ use Exception;
  * * DC_CSP_LOGFILE
  * * DC_ERRORFILE
  * * DC_BLOG_ID
- * * DC_SHOW_HIDDEN_DIRS
  * * DC_ADBLOCKER_CHECK
  * * DC_FAIRTRACKBACKS_FORCE (plugin)
  * * DC_ANTISPAM_CONF_SUPER (plugin)
  * * DC_DNSBL_SUPER (plugin)
  * * DC_AKISMET_SUPER (plugin)
+ * * HTTP_PROXY_HOST
+ * * HTTP_PROXY_PORT
  */
 class Config implements ConfigInterface
 {
@@ -115,6 +115,8 @@ class Config implements ConfigInterface
     private int $max_upload_size;
     private int $query_timeout;
     private bool $show_hidden_dirs;
+    private bool $http_scheme_443;
+    private bool $http_revers_proxy;
 
     /**
      * Constructor.
@@ -157,7 +159,7 @@ class Config implements ConfigInterface
             return;
         }
 
-        # Store upload_max_filesize in bytes
+        // Store upload_max_filesize in bytes
         $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
         $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
         if ($p_max_size < $u_max_size) {
@@ -166,7 +168,7 @@ class Config implements ConfigInterface
         $this->max_upload_size = (int) $u_max_size;
         unset($u_max_size, $p_max_size);
 
-        // deprecated constants that can be used in config.php file
+        // constants that can be used in config.php file
         define('DC_ROOT', $this->dotclear_root);
         define('CLI_MODE', $this->cli_mode);
         define('DC_VERSION', $this->dotclear_version);
@@ -185,7 +187,7 @@ class Config implements ConfigInterface
         // load config file
         require $this->config_path;
 
-        // deprecated constants that can be set in config.php file
+        // constants that can be set in config.php file
 
         //*== DC_DEBUG ==
         $this->debug_mode = defined('DC_DEBUG') ? DC_DEBUG : true;
@@ -239,12 +241,12 @@ class Config implements ConfigInterface
             define('DC_ADMIN_MAILFROM', 'dotclear@local');
         }
 
-        if (defined('DC_FORCE_SCHEME_443') && DC_FORCE_SCHEME_443) {
-            Http::$https_scheme_on_443 = true;
+        if (!defined('DC_FORCE_SCHEME_443')) {
+            define('DC_FORCE_SCHEME_443', false);
         }
 
-        if (defined('DC_REVERSE_PROXY') && DC_REVERSE_PROXY) {
-            Http::$reverse_proxy = true;
+        if (!defined('DC_REVERSE_PROXY')) {
+            define('DC_REVERSE_PROXY', false);
         }
 
         if (!defined('DC_DBDRIVER')) {
@@ -368,6 +370,8 @@ class Config implements ConfigInterface
         $this->var_root            = DC_VAR;
         $this->core_upgrade        = DC_UPGRADE;
         $this->start_time          = DC_START_TIME;
+        $this->http_scheme_443     = DC_FORCE_SCHEME_443;
+        $this->http_revers_proxy   = DC_REVERSE_PROXY;
 
         // Check master key
         if ($this->master_key == '') {
@@ -657,5 +661,15 @@ class Config implements ConfigInterface
     public function showHiddenDirs(): bool
     {
         return $this->show_hidden_dirs;
+    }
+
+    public function httpScheme443(): bool
+    {
+        return $this->http_scheme_443;
+    }
+
+    public function httpReverseProxy(): bool
+    {
+        return $this->http_revers_proxy;
     }
 }
