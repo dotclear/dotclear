@@ -231,7 +231,7 @@ class ModuleImportFlat extends Module
             '<p class="warning">' . __('This will reset all the content of your database, except users.') . '</p>' .
 
             '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
-            ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize()) . ')' . ' </label>' .
+            ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
                 '<input type="file" id="up_full_file" name="up_full_file" size="20" />' .
                 '</p>';
 

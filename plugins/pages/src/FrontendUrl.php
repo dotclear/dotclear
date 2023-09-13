@@ -216,7 +216,7 @@ class FrontendUrl extends Url
                 self::p404();
             } else {
                 App::frontend()->ctx->preview = true;
-                if (dApp::config()->adminUrl() != '') {
+                if (App::config()->adminUrl() != '') {
                     App::frontend()->ctx->xframeoption = App::config()->adminUrl();
                 }
 
