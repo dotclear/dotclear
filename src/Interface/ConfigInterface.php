@@ -35,7 +35,8 @@ interface ConfigInterface
     /**
      * Application start time.
      *
-     * Keep only thhe first timer start.
+     * From App.
+     * Keep only the first timer start.
      *
      * @return  float   The start time
      */
@@ -44,6 +45,7 @@ interface ConfigInterface
     /**
      * Does app run in CLI mode.
      *
+     * From PHP.
      * Returns false if not set.
      *
      * @return  bool    True for CLI mode
@@ -53,6 +55,7 @@ interface ConfigInterface
     /**
      * Does app run in debug mode.
      *
+     * From config file or canal.
      * Returns false if not set.
      *
      * @return  bool    True for debug mode
@@ -62,6 +65,7 @@ interface ConfigInterface
     /**
      * Does app run in dev mode.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for dev mode
@@ -71,6 +75,7 @@ interface ConfigInterface
     /**
      * Blog ID requested from file.
      *
+     * From index file.
      * Returns emtpy string if not set.
      *
      * @return  string  Blog ID
@@ -80,6 +85,7 @@ interface ConfigInterface
     /**
      * Root path directory.
      *
+     * From App.
      * Returns emtpy string if not set.
      *
      * @return  string  Dotclear root
@@ -89,6 +95,7 @@ interface ConfigInterface
     /**
      * Release version.
      *
+     * From release file.
      * Returns empty string if not set.
      *
      * @return  string  Dotclear version
@@ -98,6 +105,7 @@ interface ConfigInterface
     /**
      * Release name.
      *
+     * From release file.
      * Returns empty string if not set.
      *
      * @return  string  Dotclear name
@@ -107,6 +115,7 @@ interface ConfigInterface
     /**
      * Configuration file path.
      *
+     * From server vars or construct in place.
      * Returns empty string if not set.
      *
      * @return  string  Dotclear config file path
@@ -116,6 +125,7 @@ interface ConfigInterface
     /**
      * Digests path.
      *
+     * Construct in place.
      * Returns empty string if not set.
      *
      * @return  string  Dotclear digests path.
@@ -125,6 +135,7 @@ interface ConfigInterface
     /**
      * Locales root path directory.
      *
+     * Construct in place.
      * Returns empty string if not set.
      *
      * @return  string  l10n path
@@ -134,6 +145,7 @@ interface ConfigInterface
     /**
      * Locales Update URL.
      *
+     * From release file.
      * Retruns empty string if not set.
      *
      * @return  string  l10n update URL
@@ -143,6 +155,7 @@ interface ConfigInterface
     /**
      * Distributed plugins list.
      *
+     * From release file.
      * Returns comma separated list of distributed plugins
      * or empty string if not set.
      *
@@ -153,6 +166,7 @@ interface ConfigInterface
     /**
      * Distributed themes list.
      *
+     * From release file.
      * Returns comma separated list of distributed themes
      * or empty string if not set.
      *
@@ -163,6 +177,7 @@ interface ConfigInterface
     /**
      * Default theme.
      *
+     * From release file.
      * Returns empty string if not set.
      *
      * @return  string  Default theme
@@ -172,6 +187,7 @@ interface ConfigInterface
     /**
      * Default templates set.
      *
+     * From release file.
      * Returns empty string if not set.
      *
      * @return  string  Default templates set
@@ -181,6 +197,7 @@ interface ConfigInterface
     /**
      * Default JQuery version.
      *
+     * From release file.
      * Returns empty string if not set.
      *
      * @return  string  Default JQeury version
@@ -190,6 +207,7 @@ interface ConfigInterface
     /**
      * Next release required PHP version.
      *
+     * From release file or anywhere.
      * Returns empty string if not set.
      *
      * @return  string  Next required PHP version
@@ -199,6 +217,7 @@ interface ConfigInterface
     /**
      * Multiblog vendor name.
      *
+     * From config file or release file.
      * Returns 'Dotclear' string if not set.
      *
      * @return  string  Vendor name
@@ -208,6 +227,7 @@ interface ConfigInterface
     /**
      * XML RPC URL.
      *
+     * From config file or construct in place.
      * Returns '%1$sxmlrpc/%2$s' string if not set.
      *
      * @return  string  Vendor name
@@ -217,6 +237,7 @@ interface ConfigInterface
     /**
      * Session TTl (time to live).
      *
+     * From config file.
      * Returns null if not set.
      *
      * @return  null|string     Session TTL
@@ -226,6 +247,7 @@ interface ConfigInterface
     /**
      * Session name.
      *
+     * From config file or construct in place.
      * Returns 'dcxd' string if not set.
      *
      * @return  string  Session name
@@ -235,6 +257,7 @@ interface ConfigInterface
     /**
      * Does backend use SSL.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for SSL mode
@@ -244,6 +267,7 @@ interface ConfigInterface
     /**
      * Backend URL
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Admin URL
@@ -254,7 +278,7 @@ interface ConfigInterface
      * Admin mail from address.
      *
      * Used for password recovery and such.
-     *
+     * From config file.
      * Returns 'dotclear@local' string if not set.
      *
      * @return  string  Mailfrom address
@@ -267,6 +291,7 @@ interface ConfigInterface
      * Default Dotclear database handler driver can be:
      * mysqli, mysqlimb4 (full UTF-8), pgsql, sqlite
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Database driver
@@ -276,6 +301,7 @@ interface ConfigInterface
     /**
      * Dotclear database handler host.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Database host
@@ -285,6 +311,7 @@ interface ConfigInterface
     /**
      * Dotclear database handler user.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Database user
@@ -294,6 +321,7 @@ interface ConfigInterface
     /**
      * Dotclear database handler password.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Database password
@@ -303,6 +331,7 @@ interface ConfigInterface
     /**
      * Dotclear database handler db name.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Database name
@@ -312,6 +341,7 @@ interface ConfigInterface
     /**
      * Dotclear database handler table prefix.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Database table prefix
@@ -319,8 +349,9 @@ interface ConfigInterface
     public function dbPrefix(): string;
 
     /**
-     * Does databse use persist connection.
+     * Does database use persist connection.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for persisant
@@ -330,6 +361,7 @@ interface ConfigInterface
     /**
      * Master key.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  Master key
@@ -339,6 +371,7 @@ interface ConfigInterface
     /**
      * The cryptographic algorithm.
      *
+     * From config file.
      * Returns 'sha1' string if not set.
      *
      * @return  string  Crypt algo
@@ -348,6 +381,7 @@ interface ConfigInterface
     /**
      * Dotclear update URL.
      *
+     * From config file or release file.
      * Returns empty string if not set.
      *
      * @return  string  Update URL
@@ -360,6 +394,7 @@ interface ConfigInterface
      * Canal can be:
      * stable, testing, unstable
      *
+     * From config file or release file.
      * Returns 'stable' string if not set.
      *
      * @return  string  Update canal
@@ -369,6 +404,7 @@ interface ConfigInterface
     /**
      * Disabled core udpate.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for not update
@@ -378,6 +414,7 @@ interface ConfigInterface
     /**
      * Allow mulitple modules with same ID.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for allow multi modules
@@ -387,6 +424,7 @@ interface ConfigInterface
     /**
      * Disabled store udpate.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for not update
@@ -396,6 +434,7 @@ interface ConfigInterface
     /**
      * Enabled third party repositories.
      *
+     * From config file.
      * Returns true if not set.
      *
      * @return  bool    True for enabled
@@ -405,6 +444,7 @@ interface ConfigInterface
     /**
      * Enabled REST services.
      *
+     * From config file.
      * Returns true if not set.
      *
      * @return  bool    True for enabled
@@ -414,6 +454,7 @@ interface ConfigInterface
     /**
      * Cache root path directory.
      *
+     * From config file or construct in place.
      * Returns empty string if not set.
      *
      * @return  string  Cache path
@@ -423,6 +464,7 @@ interface ConfigInterface
     /**
      * Var root path directory.
      *
+     * From config file or construct in place.
      * Returns empty string if not set.
      *
      * @return  string  Var path
@@ -432,6 +474,7 @@ interface ConfigInterface
     /**
      * Upgrade backup root path directory.
      *
+     * From config file or construct in place.
      * Returns empty string if not set.
      *
      * @return  string  Backup root
@@ -441,6 +484,7 @@ interface ConfigInterface
     /**
      * REST server watchdog file.
      *
+     * From anywhere or construct in place.
      * Returns empty string if not set.
      *
      * @return  string  The watchdog file path
@@ -450,6 +494,7 @@ interface ConfigInterface
     /**
      * Plugins root.
      *
+     * From config file.
      * Returns empty string if not set.
      *
      * @return  string  The plugins root directories path
@@ -459,6 +504,7 @@ interface ConfigInterface
     /**
      * Max upload size.
      *
+     * Construct in place.
      * Returns 0 if not set.
      *
      * @return  int     The max updload size
@@ -468,6 +514,7 @@ interface ConfigInterface
     /**
      * Query timeout (in seconds).
      *
+     * From config file or construct in place.
      * Returns 4 if not set.
      *
      * @return  int     The query timetout
@@ -477,6 +524,7 @@ interface ConfigInterface
     /**
      * Show hidden direcotries.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for show
@@ -486,6 +534,7 @@ interface ConfigInterface
     /**
      * Force HTTP scheme on 443.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for force http
@@ -495,6 +544,7 @@ interface ConfigInterface
     /**
      * Use http reverse proxy.
      *
+     * From config file.
      * Returns false if not set.
      *
      * @return  bool    True for use
@@ -504,6 +554,7 @@ interface ConfigInterface
     /**
      * Check add blocker use.
      *
+     * From config file.
      * Returns true if not set.
      *
      * @return  bool    True for check
@@ -513,6 +564,7 @@ interface ConfigInterface
     /**
      * CSP report file.
      *
+     * From config file or construct in place.
      * Returns default file if not set.
      *
      * @return  string  CSP report file
