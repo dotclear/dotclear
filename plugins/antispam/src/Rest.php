@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-if (!defined('DC_CONTEXT_ADMIN')) {
+use Dotclear\App;
+
+if (!App::context('BACKEND')) {
     return;
 }
 

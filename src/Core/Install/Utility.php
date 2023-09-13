@@ -22,8 +22,6 @@ class Utility extends Process
 {
     public static function init(): bool
     {
-        define('DC_CONTEXT_INSTALL', true);
-
         return true;
     }
 

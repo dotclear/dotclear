@@ -1707,8 +1707,8 @@ class ModulesList
         $this->config_file    = $file;
         $this->config_content = '';
 
-        if (!defined('DC_CONTEXT_MODULE')) {
-            define('DC_CONTEXT_MODULE', true);
+        if (!App::context('MODULE')) {
+            App::setContext('MODULE');
         }
 
         return true;

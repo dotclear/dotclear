@@ -103,7 +103,7 @@ class Utility extends Process
      */
     public function __construct()
     {
-        if (!defined('DC_CONTEXT_PUBLIC')) {
+        if (!App::context('FRONTEND')) {
             throw new Exception('Application is not in public context.', 500);
         }
     }
@@ -115,8 +115,6 @@ class Utility extends Process
      */
     public static function init(): bool
     {
-        define('DC_CONTEXT_PUBLIC', true);
-
         return true;
     }
 
@@ -129,9 +127,9 @@ class Utility extends Process
         App::frontend();
 
         // Loading blog
-        if (defined('DC_BLOG_ID')) {
+        if (App::config()->blogId() != '') {
             try {
-                App::blogLoader()->setBlog(DC_BLOG_ID);
+                App::blogLoader()->setBlog(App::config()->blogId());
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {

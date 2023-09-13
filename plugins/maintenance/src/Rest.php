@@ -12,10 +12,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-if (!defined('DC_CONTEXT_ADMIN')) {
+if (!App::context('BACKEND')) {
     return;
 }
 

@@ -24,7 +24,7 @@ class My extends MyPlugin
     public static function checkCustomContext(int $context): ?bool
     {
         return in_array($context, [self::MANAGE, self::MENU]) ?
-            defined('DC_CONTEXT_ADMIN')
+            App::context('BACKEND')
             && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,

@@ -19,7 +19,7 @@ class Backend extends Process
 {
     public static function init(): bool
     {
-        return self::status(defined('DC_CONTEXT_ADMIN'));
+        return self::status(App::context('BACKEND'));
     }
 
     public static function process(): bool

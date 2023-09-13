@@ -18,7 +18,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\Files;
 use form;
 
-if (!defined('DC_CONTEXT_ADMIN')) {
+if (!App::context('BACKEND')) {
     return false;
 }
 

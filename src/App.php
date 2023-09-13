@@ -22,6 +22,7 @@ namespace Dotclear {
     use Dotclear\Helper\File\Path;
     use Dotclear\Helper\L10n;
     use Dotclear\Helper\Network\Http;
+    use Error;
     use Exception;
 
     // Load Autoloader file
@@ -67,6 +68,22 @@ namespace Dotclear {
         private static string $lang = 'en';
 
         /**
+         * The context(s).
+         *
+         * Multiple contexts can be set at same time like:
+         * INSTALL / BACKEND, or BACKEND / MODULE
+         *
+         * @var     array<string,bool>  The contexts in use
+         */
+        private static array $context = [
+            'BACKEND'  => false,
+            'FRONTEND' => false,
+            'MODULE'   => false,
+            'INSTALL'  => false,
+            'UPGRADE'  => false,
+        ];
+
+        /**
          * App boostrap.
          *
          * Load application with their utility and process, if any.
@@ -93,6 +110,7 @@ namespace Dotclear {
             self::preload();
 
             // Init app utility. If any.
+            self::setContext($utility);
             $ret = empty($utility) ? false : self::utility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
             // Load app requirements
@@ -152,6 +170,53 @@ namespace Dotclear {
             self::initialized();
 
             return App::config()->release($key);
+        }
+
+        /**
+         * Set a context.
+         *
+         * Method is not case sensitive.
+         *
+         * Context can be one of:
+         * * BACKEND
+         * * FRONTEND
+         * * INSTALL
+         * * MODULE
+         * * UPGRADE
+         *
+         * @param   string  $context    The context to set
+         */
+        public static function setContext(string $context): void
+        {
+            $context = strtoupper($context);
+
+            if (array_key_exists($context, self::$context)) {
+                self::$context[$context] = true;
+
+                // Constant compatibility
+                $constant = 'DC_CONTEXT_' . match ($context) {
+                    'BACKEND'  => 'ADMIN',
+                    'FRONTEND' => 'PUBLIC',
+                    default    => $context
+                };
+                if (!defined($constant)) {
+                    define($constant, true);
+                }
+            }
+        }
+
+        /**
+         * Check if a context is set.
+         *
+         * Method is not case sensitive.
+         *
+         * @param   string  $context    The cotenxt to check
+         *
+         * @return  bool    True if context is set
+         */
+        public static function context(string $context): bool
+        {
+            return self::$context[strtoupper($context)] ?? false;
         }
 
         /**
@@ -225,8 +290,8 @@ namespace Dotclear {
             // Load dotclear config
             try {
                 $config = new Config(dirname(__DIR__));
-            } catch (Exception $e) {
-                if (!defined('DC_CONTEXT_ADMIN')) {
+            } catch (Exception|Error $e) {
+                if (!self::context('BACKEND')) {
                     new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
                 } else {
                     new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
@@ -250,7 +315,7 @@ namespace Dotclear {
                     class: Factories::getFactory('core')
                 );
             } catch (Exception $e) {
-                if (!defined('DC_CONTEXT_ADMIN')) {
+                if (!self::context('BACKEND')) {
                     new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
                 } else {
                     new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
@@ -296,7 +361,7 @@ namespace Dotclear {
                 }
                 unset($detected_languages);
 
-                if (!defined('DC_CONTEXT_ADMIN')) {
+                if (!self::context('BACKEND')) {
                     new Fault(
                         __('Site temporarily unavailable'),
                         __('<p>We apologize for this temporary unavailability.<br />' .

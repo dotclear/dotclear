@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Network\Http;
 use Exception;
@@ -33,7 +34,7 @@ class Url
      */
     public function __construct()
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!App::context('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -274,7 +275,7 @@ class Url
      */
     public function setDefaultUrls(): void
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!App::context('BACKEND')) {
             return;
         }
 

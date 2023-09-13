@@ -23,29 +23,23 @@ use Exception;
  * Simple write once properties for
  * unmutable configuration values.
  *
- * All methods are typed and return
+ * Methods are typed and return
  * also default values in same type.
+ *
+ * Class properties are readonly to prevent
+ * modification from config file.
  *
  * Not yet in config:
  * * DC_DBHANDLER_CLASS
  * * DC_DBSCHEMA_CLASS
  * * DC_AUTH_CLASS
- * * DC_CONTEXT_ADMIN
- * * DC_CONTEXT_INSTALL
- * * DC_CONTEXT_UPGRADE
- * * DC_CONTEXT_PUBLIC
- * * DC_CONTEXT_MODULE
- * * DC_BACKUP_PATH
- * * DC_CSP_LOGFILE
  * * DC_ERRORFILE
- * * DC_BLOG_ID
- * * DC_ADBLOCKER_CHECK
  * * DC_FAIRTRACKBACKS_FORCE (plugin)
  * * DC_ANTISPAM_CONF_SUPER (plugin)
  * * DC_DNSBL_SUPER (plugin)
  * * DC_AKISMET_SUPER (plugin)
- * * HTTP_PROXY_HOST
- * * HTTP_PROXY_PORT
+ * * HTTP_PROXY_HOST (Helper)
+ * * HTTP_PROXY_PORT (Helper)
  */
 class Config implements ConfigInterface
 {
@@ -61,74 +55,111 @@ class Config implements ConfigInterface
      * @var    string   RELEASE_FILE
      */
     public const RELEASE_FILE = 'release.json';
+    /**
+     * Dotclear default release config file name
+     *
+     * @var    string   RELEASE_FILE
+     */
+    public const CSP_REPORT_FILE = 'csp_report.json';
 
     /**
      * Dotclear default release config
      *
      * @var    array<string,mixed>  $release
      */
-    private array $release = [];
+    private readonly array $release;
 
-    private float $start_time;
-    private bool $cli_mode;
-    private bool $debug_mode;
-    private bool $dev_mode;
-    private string $dotclear_version;
-    private string $dotclear_name;
-    private string $config_path;
-    private string $digests_root;
-    private string $l10n_root;
-    private string $l10n_update_url;
-    private string $distributed_plugins;
-    private string $distributed_themes;
-    private string $default_theme;
-    private string $default_tplset;
-    private string $default_jquery;
-    private string $next_required_php;
-    private string $vendor_name;
-    private string $xmlrpc_url;
-    private ?string $session_ttl;
-    private string $session_name;
-    private bool $admin_ssl;
-    private string $admin_url;
-    private string $admin_mailfrom;
-    private string $db_driver;
-    private string $db_host;
-    private string $db_user;
-    private string $db_password;
-    private string $db_name;
-    private string $db_prefix;
-    private bool $db_persist;
-    private string $master_key;
-    private string $crypt_algo;
-    private string $core_update_url;
-    private string $core_update_canal;
-    private bool $core_not_update;
-    private bool $allow_multi_modules;
-    private bool $store_not_update;
-    private bool $allow_repositories;
-    private bool $allow_rest_services;
-    private string $cache_root;
-    private string $var_root;
-    private string $core_upgrade;
-    private string $plugins_root;
-    private int $max_upload_size;
-    private int $query_timeout;
-    private bool $show_hidden_dirs;
-    private bool $http_scheme_443;
-    private bool $http_revers_proxy;
+    // Configuration values, see ConfigInterface for details
+    private readonly float $start_time;
+    private readonly bool $cli_mode;
+    private readonly bool $debug_mode;
+    private readonly bool $dev_mode;
+    private readonly string $blog_id;
+    private readonly string $dotclear_version;
+    private readonly string $dotclear_name;
+    private readonly string $config_path;
+    private readonly string $digests_root;
+    private readonly string $l10n_root;
+    private readonly string $l10n_update_url;
+    private readonly string $distributed_plugins;
+    private readonly string $distributed_themes;
+    private readonly string $default_theme;
+    private readonly string $default_tplset;
+    private readonly string $default_jquery;
+    private readonly string $next_required_php;
+    private readonly string $vendor_name;
+    private readonly string $xmlrpc_url;
+    private readonly ?string $session_ttl;
+    private readonly string $session_name;
+    private readonly bool $admin_ssl;
+    private readonly string $admin_url;
+    private readonly string $admin_mailfrom;
+    private readonly string $db_driver;
+    private readonly string $db_host;
+    private readonly string $db_user;
+    private readonly string $db_password;
+    private readonly string $db_name;
+    private readonly string $db_prefix;
+    private readonly bool $db_persist;
+    private readonly string $master_key;
+    private readonly string $crypt_algo;
+    private readonly string $core_update_url;
+    private readonly string $core_update_canal;
+    private readonly bool $core_not_update;
+    private readonly bool $allow_multi_modules;
+    private readonly bool $store_not_update;
+    private readonly bool $allow_repositories;
+    private readonly bool $allow_rest_services;
+    private readonly string $cache_root;
+    private readonly string $var_root;
+    private readonly string $backup_root;
+    private readonly string $core_upgrade;
+    private readonly string $plugins_root;
+    private readonly int $max_upload_size;
+    private readonly int $query_timeout;
+    private readonly bool $show_hidden_dirs;
+    private readonly bool $http_scheme_443;
+    private readonly bool $http_revers_proxy;
+    private readonly bool $check_add_blocker;
+    private readonly string $csp_report_file;
 
     /**
      * Constructor.
+     *
+     * The constructor grabs all required Dotclear configuration values
+     * from differents places like:
+     * index files, config file, release file, PHP config, etc...
      *
      * @throws  Exception
      *
      * @param   string  $dotclear_root  Dotclear root directory path
      */
     public function __construct(
-        private string $dotclear_root
+        private readonly string $dotclear_root
     ) {
-        $this->cli_mode            = PHP_SAPI == 'cli';
+        // From php
+        $this->cli_mode = PHP_SAPI == 'cli';
+
+        // From index file
+        if (!defined('DC_BLOG_ID')) {
+            define('DC_BLOG_ID', '');
+        }
+
+        $this->blog_id = DC_BLOG_ID;
+
+        // From release file
+        $file = $this->dotclear_root . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+        if (!is_file($file) || !is_readable($file)) {
+            throw new Exception(__('Dotclear release file was not found'));
+        }
+
+        $release = json_decode((string) file_get_contents($file), true);
+        if (!is_array($release)) {
+            throw new Exception(__('Dotclear release file is not readable'));
+        }
+
+        $this->release = $release;
+
         $this->dotclear_version    = $this->release('release_version');
         $this->dotclear_name       = $this->release('release_name');
         $this->digests_root        = Path::reduce([$this->dotclearRoot(), 'inc', 'digests']);
@@ -140,22 +171,21 @@ class Config implements ConfigInterface
         $this->default_tplset      = $this->release('default_tplset');
         $this->default_jquery      = $this->release('default_jquery');
 
-        if (isset($_SERVER['DC_RC_PATH'])) {
-            $this->config_path = $_SERVER['DC_RC_PATH'];
-        } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
-            $this->config_path = $_SERVER['REDIRECT_DC_RC_PATH'];
-        } else {
-            $this->config_path = implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]);
-        }
+        // From config file
+        $this->config_path = match (true) {
+            isset($_SERVER['DC_RC_PATH'])          => $_SERVER['DC_RC_PATH'],
+            isset($_SERVER['REDIRECT_DC_RC_PATH']) => $_SERVER['REDIRECT_DC_RC_PATH'],
+            default                                => implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]),
+        };
 
-        // no config file and not in install process
+        // No config file and not in install process
         if (!is_file($this->config_path)) {
-            // do not process install on CLI mode
+            // Do not process install on CLI mode
             if ($this->cli_mode) {
                 throw new Exception('Dotclear is not installed or failed to load config file.');
             }
 
-            // stop App configuration here on install wizard
+            // Stop configuration here on install wizard (App class takes the rest)
             return;
         }
 
@@ -168,7 +198,7 @@ class Config implements ConfigInterface
         $this->max_upload_size = (int) $u_max_size;
         unset($u_max_size, $p_max_size);
 
-        // constants that can be used in config.php file
+        // Constants that can be used in config.php file
         define('DC_ROOT', $this->dotclear_root);
         define('CLI_MODE', $this->cli_mode);
         define('DC_VERSION', $this->dotclear_version);
@@ -184,14 +214,16 @@ class Config implements ConfigInterface
         define('DC_DEFAULT_JQUERY', $this->default_jquery);
         define('DC_MAX_UPLOAD_SIZE', $this->max_upload_size);
 
-        // load config file
+        // Load config file
         require $this->config_path;
 
-        // constants that can be set in config.php file
+        // Constants that can be set in config.php file
 
         //*== DC_DEBUG ==
-        $this->debug_mode = defined('DC_DEBUG') ? DC_DEBUG : true;
-        if ($this->debug_mode) {
+        if (!defined('DC_DEBUG')) {
+            define('DC_DEBUG', true);
+        }
+        if (DC_DEBUG) {
             ini_set('display_errors', '1');
             error_reporting(E_ALL);
         }
@@ -333,8 +365,16 @@ class Config implements ConfigInterface
             define('DC_UPGRADE', Path::reduce([$this->dotclearRoot(), 'inc', 'upgrade']));
         }
 
+        if (!defined('DC_BACKUP_PATH')) {
+            define('DC_BACKUP_PATH', $this->dotclearRoot());
+        }
+
         if (!defined('DC_START_TIME')) {
             define('DC_START_TIME', microtime(true));
+        }
+
+        if (!defined('DC_ADBLOCKER_CHECK')) {
+            define('DC_ADBLOCKER_CHECK', true);
         }
 
         $this->debug_mode          = DC_DEBUG;
@@ -368,15 +408,18 @@ class Config implements ConfigInterface
         $this->crypt_algo          = DC_CRYPT_ALGO;
         $this->cache_root          = DC_TPL_CACHE;
         $this->var_root            = DC_VAR;
+        $this->backup_root         = DC_BACKUP_PATH;
         $this->core_upgrade        = DC_UPGRADE;
         $this->start_time          = DC_START_TIME;
         $this->http_scheme_443     = DC_FORCE_SCHEME_443;
         $this->http_revers_proxy   = DC_REVERSE_PROXY;
+        $this->check_add_blocker   = DC_ADBLOCKER_CHECK;
 
-        // Check master key
-        if ($this->master_key == '') {
-            //...
+        // Various
+        if (!defined('DC_CSP_LOGFILE')) {
+            define('DC_CSP_LOGFILE', Path::reduce([$this->varRoot(), 'csp', self::CSP_REPORT_FILE]));
         }
+        $this->csp_report_file = DC_CSP_LOGFILE;
 
         // Check length of cryptographic algorithm result and exit if less than 40 characters long
         if (strlen(Crypt::hmac($this->master_key, $this->vendor_name, $this->crypt_algo)) < 40) {
@@ -404,21 +447,6 @@ class Config implements ConfigInterface
 
     public function release(string $key): string
     {
-        // Load once release file
-        if (empty($this->release)) {
-            $file = $this->dotclear_root . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
-            if (!is_file($file) || !is_readable($file)) {
-                throw new Exception(__('Dotclear release file was not found'));
-            }
-
-            $release = json_decode((string) file_get_contents($file), true);
-            if (!is_array($release)) {
-                throw new Exception(__('Dotclear release file is not readable'));
-            }
-
-            $this->release = $release;
-        }
-
         // Release key not found
         if (!array_key_exists($key, $this->release)) {
             throw new Exception(sprintf(__('Dotclear release key %s was not found'), $key));
@@ -446,6 +474,11 @@ class Config implements ConfigInterface
     public function devMode(): bool
     {
         return $this->dev_mode;
+    }
+
+    public function blogId(): string
+    {
+        return $this->blog_id;
     }
 
     public function dotclearRoot(): string
@@ -638,6 +671,11 @@ class Config implements ConfigInterface
         return $this->var_root;
     }
 
+    public function backupRoot(): string
+    {
+        return $this->backup_root;
+    }
+
     public function pluginsRoot(): string
     {
         return $this->plugins_root;
@@ -671,5 +709,15 @@ class Config implements ConfigInterface
     public function httpReverseProxy(): bool
     {
         return $this->http_revers_proxy;
+    }
+
+    public function checkAddBlocker(): bool
+    {
+        return $this->check_add_blocker;
+    }
+
+    public function cspReportFile(): string
+    {
+        return $this->csp_report_file;
     }
 }

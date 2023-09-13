@@ -21,7 +21,7 @@ namespace Dotclear\Interface;
 interface ConfigInterface
 {
     /**
-     * Read Dotclear release config.
+     * Read Dotclear release config value.
      *
      * This method always returns string,
      * casting int, bool, array, to string.
@@ -67,6 +67,15 @@ interface ConfigInterface
      * @return  bool    True for dev mode
      */
     public function devMode(): bool;
+
+    /**
+     * Blog ID requested from file.
+     *
+     * Returns emtpy string if not set.
+     *
+     * @return  string  Blog ID
+     */
+    public function blogId(): string;
 
     /**
      * Root path directory.
@@ -421,6 +430,15 @@ interface ConfigInterface
     public function varRoot(): string;
 
     /**
+     * Upgrade backup root path directory.
+     *
+     * Returns empty string if not set.
+     *
+     * @return  string  Backup root
+     */
+    public function backupRoot(): string;
+
+    /**
      * REST server watchdog file.
      *
      * Returns empty string if not set.
@@ -482,4 +500,22 @@ interface ConfigInterface
      * @return  bool    True for use
      */
     public function httpReverseProxy(): bool;
+
+    /**
+     * Check add blocker use.
+     *
+     * Returns true if not set.
+     *
+     * @return  bool    True for check
+     */
+    public function checkAddBlocker(): bool;
+
+    /**
+     * CSP report file.
+     *
+     * Returns default file if not set.
+     *
+     * @return  string  CSP report file
+     */
+    public function cspReportFile(): string;
 }

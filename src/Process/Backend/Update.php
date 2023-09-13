@@ -31,27 +31,23 @@ class Update extends Process
     {
         Page::checkSuper();
 
-        if (!defined('DC_BACKUP_PATH')) {
-            define('DC_BACKUP_PATH', App::config()->dotclearRoot());
-        } else {
-            // Check backup path existence
-            if (!is_dir(DC_BACKUP_PATH)) {
-                Page::open(
-                    __('Dotclear update'),
-                    '',
-                    Page::breadcrumb(
-                        [
-                            __('System')          => '',
-                            __('Dotclear update') => '',
-                        ]
-                    )
-                );
-                echo
-                '<h3>' . __('Precheck update error') . '</h3>' .
-                '<p>' . __('Backup directory does not exist') . '</p>';
-                Page::close();
-                exit;
-            }
+        // Check backup path existence
+        if (!is_dir(App::config()->backupRoot())) {
+            Page::open(
+                __('Dotclear update'),
+                '',
+                Page::breadcrumb(
+                    [
+                        __('System')          => '',
+                        __('Dotclear update') => '',
+                    ]
+                )
+            );
+            echo
+            '<h3>' . __('Precheck update error') . '</h3>' .
+            '<p>' . __('Backup directory does not exist') . '</p>';
+            Page::close();
+            exit;
         }
 
         if (!is_readable(App::config()->digestsRoot())) {
@@ -80,7 +76,7 @@ class Update extends Process
         App::backend()->update_warning = false;
 
         if (App::backend()->new_v) {
-            App::backend()->zip_file       = DC_BACKUP_PATH . '/' . basename(App::backend()->updater->getFileURL());
+            App::backend()->zip_file       = App::config()->backupRoot() . '/' . basename(App::backend()->updater->getFileURL());
             App::backend()->version_info   = App::backend()->updater->getInfoURL();
             App::backend()->update_warning = App::backend()->updater->getWarning();
         }
@@ -100,7 +96,7 @@ class Update extends Process
         }
 
         $archives = [];
-        foreach (Files::scanDir(DC_BACKUP_PATH) as $v) {
+        foreach (Files::scanDir(App::config()->backupRoot()) as $v) {
             if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
                 $archives[] = $v;
             }
@@ -123,16 +119,16 @@ class Update extends Process
 
             try {
                 if (!empty($_POST['b_del'])) {
-                    if (!@unlink(DC_BACKUP_PATH . '/' . $b_file)) {
+                    if (!@unlink(App::config()->backupRoot() . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
                     App::backend()->url->redirect('admin.update', ['tab' => 'files']);
                 }
 
                 if (!empty($_POST['b_revert'])) {
-                    $zip = new Unzip(DC_BACKUP_PATH . '/' . $b_file);
-                    $zip->unzipAll(DC_BACKUP_PATH . '/');
-                    @unlink(DC_BACKUP_PATH . '/' . $b_file);
+                    $zip = new Unzip(App::config()->backupRoot() . '/' . $b_file);
+                    $zip->unzipAll(App::config()->backupRoot() . '/');
+                    @unlink(App::config()->backupRoot() . '/' . $b_file);
                     App::backend()->url->redirect('admin.update', ['tab' => 'files']);
                 }
             } catch (Exception $e) {
@@ -173,7 +169,7 @@ class Update extends Process
                             'dotclear/inc/digests',
                             App::config()->dotclearRoot(),
                             App::config()->dotclearRoot() . '/inc/digests',
-                            DC_BACKUP_PATH . '/backup-' . App::config()->dotclearVersion() . '.zip'
+                            App::config()->backupRoot() . '/backup-' . App::config()->dotclearVersion() . '.zip'
                         );
                         App::backend()->url->redirect('admin.update', ['step' => 'unzip']);
 

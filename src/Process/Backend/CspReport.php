@@ -28,11 +28,6 @@ class CspReport extends Process
 {
     public static function init(): bool
     {
-        // Specify admin CSP log file if necessary
-        if (!defined('DC_CSP_LOGFILE')) {
-            define('DC_CSP_LOGFILE', Path::real(App::config()->varRoot()) . '/csp/csp_report.json');
-        }
-
         // Dareboost wants it? Not a problem.
         header('X-Content-Type-Options: "nosniff"');
 
@@ -78,12 +73,12 @@ class CspReport extends Process
 
                 try {
                     // Check report dir (create it if necessary)
-                    Files::makeDir(dirname(DC_CSP_LOGFILE), true);
+                    Files::makeDir(dirname(App::config()->cspReportFile()), true);
 
                     // Check if report is not already stored in log file
                     $contents = '';
-                    if (file_exists(DC_CSP_LOGFILE)) {
-                        $contents = file_get_contents(DC_CSP_LOGFILE);
+                    if (file_exists(App::config()->cspReportFile())) {
+                        $contents = file_get_contents(App::config()->cspReportFile());
                         if ($contents) {
                             if (substr($contents, -1) == ',') {
                                 // Remove final comma if present
@@ -104,7 +99,7 @@ class CspReport extends Process
                     }
 
                     // Add report to the file
-                    if (!($fp = @fopen(DC_CSP_LOGFILE, 'a'))) {
+                    if (!($fp = @fopen(App::config()->cspReportFile(), 'a'))) {
                         // Unable to open file, ignore
                         return false;
                     }

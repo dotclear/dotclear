@@ -1070,7 +1070,7 @@ class Page
      */
     public static function jsAdsBlockCheck(): string
     {
-        $adblockcheck = (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true);
+        $adblockcheck = App::config()->checkAddBlocker();
         if ($adblockcheck) {
             // May not be set (auth page for example)
             if (!is_null(App::auth()->userID())) {

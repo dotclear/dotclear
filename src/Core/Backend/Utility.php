@@ -62,7 +62,7 @@ class Utility extends Process
      */
     public function __construct()
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!App::context('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -76,8 +76,6 @@ class Utility extends Process
      */
     public static function init(): bool
     {
-        define('DC_CONTEXT_ADMIN', true);
-
         return true;
     }
 

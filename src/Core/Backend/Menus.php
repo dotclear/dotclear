@@ -51,7 +51,7 @@ class Menus extends ArrayObject
      */
     public function addItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
-        if (!defined('DC_CONTEXT_ADMIN') || !$this->offsetExists($section)) {
+        if (!App::context('BACKEND') || !$this->offsetExists($section)) {
             return;
         }
 
@@ -75,7 +75,7 @@ class Menus extends ArrayObject
     public function setDefaultItems(): void
     {
         // nullsafe and context
-        if (!defined('DC_CONTEXT_ADMIN') || !App::blog()->isDefined()) {
+        if (!App::context('BACKEND') || !App::blog()->isDefined()) {
             return;
         }
 

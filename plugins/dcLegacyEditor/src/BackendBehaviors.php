@@ -135,7 +135,7 @@ class BackendBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) (defined('DC_CONTEXT_ADMIN') && App::auth()->getOption('toolbar_bottom')),
+            'toolbar_bottom' => (bool) (App::context('BACKEND') && App::auth()->getOption('toolbar_bottom')),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',
@@ -158,7 +158,7 @@ class BackendBehaviors
         My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 
-        if (defined('DC_CONTEXT_ADMIN') && App::auth()->getOption('enable_wysiwyg')) {
+        if (App::context('BACKEND') && App::auth()->getOption('enable_wysiwyg')) {
             $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 
