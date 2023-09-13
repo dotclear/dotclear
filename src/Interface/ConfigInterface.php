@@ -232,7 +232,7 @@ interface ConfigInterface
      *
      * @return  string  Vendor name
      */
-    public function xmlrplUrl(): string;
+    public function xmlrpcUrl(): string;
 
     /**
      * Session TTl (time to live).

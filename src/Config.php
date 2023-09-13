@@ -551,7 +551,7 @@ class Config implements ConfigInterface
         return $this->vendor_name;
     }
 
-    public function xmlrplUrl(): string
+    public function xmlrpcUrl(): string
     {
         return $this->xmlrpc_url;
     }
