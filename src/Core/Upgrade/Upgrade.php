@@ -37,7 +37,7 @@ class Upgrade
             return false;
         }
 
-        if (version_compare($version, App::config()->dotclearVersion(), '<') == 1 || strpos(App::config()->dotclearVersion(), 'dev')) {
+        if (version_compare($version, App::config()->dotclearVersion(), '<') == 1 || str_contains(App::config()->dotclearVersion(), 'dev')) {
             try {
                 if (App::con()->driver() == 'sqlite') {
                     return false; // Need to find a way to upgrade sqlite database
@@ -108,7 +108,7 @@ class Upgrade
         $upgrades = [];
         foreach (Files::scanDir($dir) as $file) {
             // Need only growup files
-            if (strpos($file, $path . '_') === false || strpos($file, '.php') === false) {
+            if (!str_contains($file, $path . '_') || !str_contains($file, '.php')) {
                 continue;
             }
 

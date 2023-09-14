@@ -63,7 +63,7 @@ class Handler extends AbstractHandler
 
         $port   = abs((int) ini_get('mysqli.default_port'));
         $socket = '';
-        if (strpos($host, ':') !== false) {
+        if (str_contains($host, ':')) {
             // Port or socket given
             $bits   = explode(':', $host);
             $host   = array_shift($bits);

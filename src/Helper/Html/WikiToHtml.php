@@ -856,10 +856,10 @@ class WikiToHtml
             $d     = strlen($mode);
             $delta = $d - $dl;
 
-            if ($delta < 0 && strpos($current_mode, $mode) !== 0) {
+            if ($delta < 0 && !str_starts_with($current_mode, $mode)) {
                 $valid = false;
             }
-            if ($delta > 0 && $type == $current_type && strpos($mode, (string) $current_mode) !== 0) {
+            if ($delta > 0 && $type == $current_type && !str_starts_with($mode, (string) $current_mode)) {
                 $valid = false;
             }
             if ($delta == 0 && $mode != $current_mode) {
@@ -1340,7 +1340,7 @@ class WikiToHtml
     private function __specialUrls(string &$url, string &$content, string &$lang, string &$title): void
     {
         foreach ($this->functions as $k => $v) {
-            if (strpos($k, 'url:') === 0 && strpos($url, substr($k, 4)) === 0) {
+            if (str_starts_with($k, 'url:') && str_starts_with($url, substr($k, 4))) {
                 $res = call_user_func($v, $url, $content);
 
                 $url     = $res['url']     ?? $url;
@@ -1658,7 +1658,7 @@ class WikiToHtml
             $first_word = $first_line;
 
             if ($first_line) {
-                if (strpos($first_line, ' ') !== false) {
+                if (str_contains($first_line, ' ')) {
                     $first_word = substr($first_line, 0, strpos($first_line, ' '));
                 }
                 $content = implode("\n", array_slice($lines, 1));

@@ -132,7 +132,7 @@ class FileServer
             self::p403();
         }
 
-        if (strpos($this->resource, '..') !== false) {
+        if (str_contains($this->resource, '..')) {
             self::p403();
         }
 

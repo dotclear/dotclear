@@ -219,17 +219,17 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::radio(
                     ['friendship'],
                     'contact',
-                    strpos(App::backend()->link_xfn, 'contact') !== false
+                    str_contains(App::backend()->link_xfn, 'contact')
                 ) . __('_xfn_Contact') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['friendship'],
                     'acquaintance',
-                    strpos(App::backend()->link_xfn, 'acquaintance') !== false
+                    str_contains(App::backend()->link_xfn, 'acquaintance')
                 ) . __('_xfn_Acquaintance') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['friendship'],
                     'friend',
-                    strpos(App::backend()->link_xfn, 'friend') !== false
+                    str_contains(App::backend()->link_xfn, 'friend')
                 ) . __('_xfn_Friend') . '</label> ' .
                 '<label class="classic">' . form::radio(['friendship'], '') . __('None') . '</label>' .
                 '</p></td>' .
@@ -241,7 +241,7 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::checkbox(
                     ['physical'],
                     'met',
-                    strpos(App::backend()->link_xfn, 'met') !== false
+                    str_contains(App::backend()->link_xfn, 'met')
                 ) . __('_xfn_Met') . '</label>' .
                 '</p></td>' .
                 '</tr>' .
@@ -252,12 +252,12 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::checkbox(
                     ['professional[]'],
                     'co-worker',
-                    strpos(App::backend()->link_xfn, 'co-worker') !== false
+                    str_contains(App::backend()->link_xfn, 'co-worker')
                 ) . __('_xfn_Co-worker') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['professional[]'],
                     'colleague',
-                    strpos(App::backend()->link_xfn, 'colleague') !== false
+                    str_contains(App::backend()->link_xfn, 'colleague')
                 ) . __('_xfn_Colleague') . '</label>' .
                 '</p></td>' .
                 '</tr>' .
@@ -268,12 +268,12 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::radio(
                     ['geographical'],
                     'co-resident',
-                    strpos(App::backend()->link_xfn, 'co-resident') !== false
+                    str_contains(App::backend()->link_xfn, 'co-resident')
                 ) . __('_xfn_Co-resident') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['geographical'],
                     'neighbor',
-                    strpos(App::backend()->link_xfn, 'neighbor') !== false
+                    str_contains(App::backend()->link_xfn, 'neighbor')
                 ) . __('_xfn_Neighbor') . '</label> ' .
                 '<label class="classic">' . form::radio(['geographical'], '') . __('None') . '</label>' .
                 '</p></td>' .
@@ -285,27 +285,27 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'child',
-                    strpos(App::backend()->link_xfn, 'child') !== false
+                    str_contains(App::backend()->link_xfn, 'child')
                 ) . __('_xfn_Child') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'parent',
-                    strpos(App::backend()->link_xfn, 'parent') !== false
+                    str_contains(App::backend()->link_xfn, 'parent')
                 ) . __('_xfn_Parent') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'sibling',
-                    strpos(App::backend()->link_xfn, 'sibling') !== false
+                    str_contains(App::backend()->link_xfn, 'sibling')
                 ) . __('_xfn_Sibling') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'spouse',
-                    strpos(App::backend()->link_xfn, 'spouse') !== false
+                    str_contains(App::backend()->link_xfn, 'spouse')
                 ) . __('_xfn_Spouse') . '</label> ' .
                 '<label class="classic">' . form::radio(
                     ['family'],
                     'kin',
-                    strpos(App::backend()->link_xfn, 'kin') !== false
+                    str_contains(App::backend()->link_xfn, 'kin')
                 ) . __('_xfn_Kin') . '</label> ' .
                 '<label class="classic">' . form::radio(['family'], '') . __('None') . '</label>' .
                 '</p></td>' .
@@ -317,22 +317,22 @@ class ManageEdit extends Process
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'muse',
-                    strpos(App::backend()->link_xfn, 'muse') !== false
+                    str_contains(App::backend()->link_xfn, 'muse')
                 ) . __('_xfn_Muse') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'crush',
-                    strpos(App::backend()->link_xfn, 'crush') !== false
+                    str_contains(App::backend()->link_xfn, 'crush')
                 ) . __('_xfn_Crush') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'date',
-                    strpos(App::backend()->link_xfn, 'date') !== false
+                    str_contains(App::backend()->link_xfn, 'date')
                 ) . __('_xfn_Date') . '</label> ' .
                 '<label class="classic">' . form::checkbox(
                     ['romantic[]'],
                     'sweetheart',
-                    strpos(App::backend()->link_xfn, 'sweetheart') !== false
+                    str_contains(App::backend()->link_xfn, 'sweetheart')
                 ) . __('_xfn_Sweetheart') . '</label> ' .
                 '</p></td>' .
                 '</tr>' .

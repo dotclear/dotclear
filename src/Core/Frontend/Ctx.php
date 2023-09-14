@@ -528,7 +528,7 @@ class Ctx
 
         // Cope with search param if any
         if (!empty($_GET['q'])) {
-            $s = strpos($url, '?') !== false ? '&amp;' : '?';
+            $s = str_contains($url, '?') ? '&amp;' : '?';
             $url .= $s . 'q=' . rawurlencode($_GET['q']);
         }
 

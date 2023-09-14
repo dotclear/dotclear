@@ -105,7 +105,7 @@ class Structure
         $tables = $schema->getTables();
 
         foreach ($tables as $table_name) {
-            if ($this->prefix && strpos($table_name, $this->prefix) !== 0) {
+            if ($this->prefix && !str_starts_with($table_name, $this->prefix)) {
                 continue;
             }
 

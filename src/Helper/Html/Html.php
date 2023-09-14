@@ -170,12 +170,12 @@ class Html
 
                         $parse = parse_url($matches[2]);
                         if (empty($parse['scheme'])) {
-                            if (strpos($url, '//') === 0) {
+                            if (str_starts_with($url, '//')) {
                                 // Nothing to do. Already an absolute URL.
-                            } elseif (strpos($url, '/') === 0) {
+                            } elseif (str_starts_with($url, '/')) {
                                 // Beginning by a / return host + url
                                 $url = $host . $url;
-                            } elseif (strpos($url, '#') === 0) {
+                            } elseif (str_starts_with($url, '#')) {
                                 // Beginning by a # return root + hash
                                 $url = $root . $url;
                             } elseif (preg_match('|/$|', $root)) {

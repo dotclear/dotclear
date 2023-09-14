@@ -122,7 +122,7 @@ abstract class Actions
 
         $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
         if ($uri_parts !== false) {
-            $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || strpos($uri_parts[0], 'plugin.php') !== false;
+            $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
         }
     }
 
@@ -312,7 +312,7 @@ abstract class Actions
             $redirect_args[$this->field_entries] = array_keys($this->entries);
         }
 
-        return $this->uri . (strpos($this->uri, '?') !== false ? '&' : '?') . http_build_query($redirect_args) . $this->redir_anchor;
+        return $this->uri . (str_contains($this->uri, '?') ? '&' : '?') . http_build_query($redirect_args) . $this->redir_anchor;
     }
 
     /**

@@ -71,7 +71,7 @@ class FlatImportV2 extends FlatBackup
         parent::__construct($file);
 
         $first_line = fgets($this->fp);
-        if (strpos($first_line, '///DOTCLEAR|') !== 0) {
+        if (!str_starts_with($first_line, '///DOTCLEAR|')) {
             throw new Exception(__('File is not a DotClear backup.'));
         }
 

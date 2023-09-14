@@ -309,7 +309,7 @@ class ModulesList
     public function getURL($queries = '', bool $with_tab = true): string
     {
         return $this->page_url .
-            (!empty($queries) ? (strpos($this->page_url, '?') ? '&amp;' : '?') : '') .
+            (!empty($queries) ? (str_contains($this->page_url, '?') ? '&amp;' : '?') : '') .
             (is_array($queries) ? http_build_query($queries) : $queries) .
             ($with_tab && !empty($this->page_tab) ? '#' . $this->page_tab : '');
     }
