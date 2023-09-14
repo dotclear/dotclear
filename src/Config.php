@@ -148,17 +148,10 @@ class Config implements ConfigInterface
         $this->blog_id = DC_BLOG_ID;
 
         // From release file
-        $file = $this->dotclear_root . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
-        if (!is_file($file) || !is_readable($file)) {
-            throw new Exception(__('Dotclear release file was not found'));
-        }
+        $file    = $this->dotclearRoot() . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+        $release = is_file($file) && is_readable($file) ? json_decode((string) file_get_contents($file), true) : null;
 
-        $release = json_decode((string) file_get_contents($file), true);
-        if (!is_array($release)) {
-            throw new Exception(__('Dotclear release file is not readable'));
-        }
-
-        $this->release = $release;
+        $this->release = is_array($release) ? $release : [];
 
         $this->dotclear_version    = $this->release('release_version');
         $this->dotclear_name       = $this->release('release_name');
@@ -178,17 +171,6 @@ class Config implements ConfigInterface
             default                                => implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]),
         };
 
-        // No config file and not in install process
-        if (!is_file($this->config_path)) {
-            // Do not process install on CLI mode
-            if ($this->cli_mode) {
-                throw new Exception('Dotclear is not installed or failed to load config file.');
-            }
-
-            // Stop configuration here on install wizard (App class takes the rest)
-            return;
-        }
-
         // Store upload_max_filesize in bytes
         $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
         $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
@@ -199,23 +181,25 @@ class Config implements ConfigInterface
         unset($u_max_size, $p_max_size);
 
         // Constants that can be used in config.php file
-        define('DC_ROOT', $this->dotclear_root);
-        define('CLI_MODE', $this->cli_mode);
-        define('DC_VERSION', $this->dotclear_version);
-        define('DC_NAME', $this->dotclear_name);
-        define('DC_RC_PATH', $this->config_path);
-        define('DC_DIGESTS', $this->digests_root);
-        define('DC_L10N_ROOT', $this->l10n_root);
-        define('DC_L10N_UPDATE_URL', $this->l10n_update_url);
-        define('DC_DISTRIB_PLUGINS', $this->distributed_plugins);
-        define('DC_DISTRIB_THEMES', $this->distributed_themes);
-        define('DC_DEFAULT_THEME', $this->default_theme);
-        define('DC_DEFAULT_TPLSET', $this->default_tplset);
-        define('DC_DEFAULT_JQUERY', $this->default_jquery);
-        define('DC_MAX_UPLOAD_SIZE', $this->max_upload_size);
+        define('DC_ROOT', $this->dotclearRoot());
+        define('CLI_MODE', $this->cliMode());
+        define('DC_VERSION', $this->dotclearVersion());
+        define('DC_NAME', $this->dotclearName());
+        define('DC_RC_PATH', $this->configPath());
+        define('DC_DIGESTS', $this->digestsRoot());
+        define('DC_L10N_ROOT', $this->l10nRoot());
+        define('DC_L10N_UPDATE_URL', $this->l10nUpdateUrl());
+        define('DC_DISTRIB_PLUGINS', $this->distributedPlugins());
+        define('DC_DISTRIB_THEMES', $this->distributedThemes());
+        define('DC_DEFAULT_THEME', $this->defaultTheme());
+        define('DC_DEFAULT_TPLSET', $this->defaultTplset());
+        define('DC_DEFAULT_JQUERY', $this->defaultJQuery());
+        define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
 
         // Load config file
-        require $this->config_path;
+        if (is_file($this->configPath())) {
+            require $this->configPath();
+        }
 
         // Constants that can be set in config.php file
 
@@ -421,26 +405,42 @@ class Config implements ConfigInterface
         }
         $this->csp_report_file = DC_CSP_LOGFILE;
 
+        // no release file
+        if ($this->dotclearVersion() == '') {
+            throw new Exception(__('Dotclear release file is not readable'));
+        }
+
+        // No config file and not in install process
+        if (!is_file($this->configPath())) {
+            // Do not process install on CLI mode
+            if ($this->cliMode()) {
+                throw new Exception('Dotclear is not installed or failed to load config file.');
+            }
+
+            // Stop configuration here on install wizard (App class takes the rest)
+            return;
+        }
+
         // Check length of cryptographic algorithm result and exit if less than 40 characters long
-        if (strlen(Crypt::hmac($this->master_key, $this->vendor_name, $this->crypt_algo)) < 40) {
-            throw new Exception($this->crypt_algo . ' cryptographic algorithm configured is not strong enough, please change it.');
+        if (strlen(Crypt::hmac($this->masterKey(), $this->vendorName(), $this->cryptAlgo())) < 40) {
+            throw new Exception($this->cryptAlgo() . ' cryptographic algorithm configured is not strong enough, please change it.');
         }
 
         // Check existence of cache directory
-        if (!is_dir($this->cache_root)) {
+        if (!is_dir($this->cacheRoot())) {
             // Try to create it
-            @Files::makeDir($this->cache_root);
-            if (!is_dir($this->cache_root)) {
-                throw new Exception($this->cache_root . ' directory does not exist. Please create it.');
+            @Files::makeDir($this->cacheRoot());
+            if (!is_dir($this->cacheRoot())) {
+                throw new Exception($this->cacheRoot() . ' directory does not exist. Please create it.');
             }
         }
 
         // Check existence of var directory
-        if (!is_dir($this->var_root)) {
+        if (!is_dir($this->varRoot())) {
             // Try to create it
-            @Files::makeDir($this->var_root);
-            if (!is_dir($this->var_root)) {
-                throw new Exception($this->var_root . ' directory does not exist. Please create it.');
+            @Files::makeDir($this->varRoot());
+            if (!is_dir($this->varRoot())) {
+                throw new Exception($this->varRoot() . ' directory does not exist. Please create it.');
             }
         }
     }
