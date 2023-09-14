@@ -11,10 +11,10 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use dcAntispam;
 use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Plugin\antispam\Antispam;
 use form;
 
 class ListingComments extends Listing
@@ -41,9 +41,9 @@ class ListingComments extends Listing
             // Get antispam filters' name
             $filters = [];
             if ($spam) {
-                if (class_exists('dcAntispam')) {
-                    dcAntispam::initFilters();
-                    $fs = dcAntispam::$filters->getFilters();
+                if (class_exists('Antispam')) {
+                    Antispam::initFilters();
+                    $fs = Antispam::$filters->getFilters();
                     foreach ($fs as $fid => $f) {
                         $filters[$fid] = $f->name;
                     }

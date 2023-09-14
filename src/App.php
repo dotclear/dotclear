@@ -18,8 +18,6 @@ namespace Dotclear {
     use Dotclear\Core\Process;
     use Dotclear\Helper\Clearbricks;
     use Dotclear\Helper\Date;
-    use Dotclear\Helper\File\Files;
-    use Dotclear\Helper\File\Path;
     use Dotclear\Helper\L10n;
     use Dotclear\Helper\Network\Http;
     use Error;

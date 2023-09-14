@@ -12,7 +12,6 @@ use Dotclear\Core\Auth;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
-use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\PostType;
