@@ -1103,7 +1103,7 @@ class Modules implements ModulesInterface
         }
 
         return $src .
-            (strpos($src, '?') === false ? '?' : '&amp;') .
+            (str_contains($src, '?') ? '&amp;' : '?') .
             'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 

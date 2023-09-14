@@ -57,7 +57,7 @@ class Url
     public function register(string $name, string $class, array $params = []): void
     {
         // by class name
-        if (strpos($class, '.php') === false) {
+        if (!str_contains($class, '.php')) {
             $params = array_merge(['process' => $class], $params);
             $class  = self::INDEX;
         }
@@ -115,7 +115,7 @@ class Url
         $qs  = array_merge($url['qs'], $params);
         $url = $url['url'];
         if (!empty($qs)) {
-            $url .= (strpos($url, '?') === false ? '?' : $separator) . http_build_query($qs, '', $separator);
+            $url .= (str_contains($url, '?') ? $separator : '?') . http_build_query($qs, '', $separator);
         }
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.

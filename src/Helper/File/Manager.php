@@ -198,7 +198,7 @@ class Manager
     protected function isExclude(string $path): bool
     {
         foreach ($this->exclude_list as $item) {
-            if (strpos($path, (string) $item) === 0) {
+            if (str_starts_with($path, (string) $item)) {
                 return true;
             }
         }
@@ -327,7 +327,7 @@ class Manager
                     $directories[] = $directory;
                 }
 
-                if (is_file($filename) && strpos($file, '.') !== 0 && !$this->isFileExclude($file)) {
+                if (is_file($filename) && !str_starts_with($file, '.') && !$this->isFileExclude($file)) {
                     $files[] = new File($filename, $this->root, $this->root_url);
                 }
             }

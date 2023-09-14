@@ -373,7 +373,7 @@ class WikiToHtml extends atoum
         $in  = str_replace($search, $replace, $in);
         $out = str_replace($search, $replace, $out);
 
-        if (strpos($in, '%s') !== false) {
+        if (str_contains($in, '%s')) {
             for ($n = 1; $n <= $count; $n++) {
                 $phrase[$n] = $faker->text(20);
             }

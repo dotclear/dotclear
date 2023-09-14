@@ -322,7 +322,7 @@ class Trackback implements TrackbackInterface
 
             $excerpt = '';
             foreach ($source as $line) {
-                if (strpos($line, $to_url) !== false) {
+                if (str_contains($line, $to_url)) {
                     if (preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
                         $excerpt = strip_tags($line);
 
@@ -393,7 +393,7 @@ class Trackback implements TrackbackInterface
 
             $excerpt = '';
             foreach ($source as $line) {
-                if (strpos($line, $to_url) !== false) {
+                if (str_contains($line, $to_url)) {
                     if (preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
                         $excerpt = strip_tags($line);
 
@@ -737,7 +737,7 @@ class Trackback implements TrackbackInterface
      */
     private function getPingURL(string $url)
     {
-        if (strpos($url, '/') === 0) {
+        if (str_starts_with($url, '/')) {
             $url = Http::getHost() . $url;
         }
 

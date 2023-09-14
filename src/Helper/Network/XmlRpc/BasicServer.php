@@ -122,7 +122,7 @@ class BasicServer
                     }
 
                     # Check CONTENT_TYPE
-                    if (!isset($_SERVER['CONTENT_TYPE']) || strpos($_SERVER['CONTENT_TYPE'], 'text/xml') !== 0) {
+                    if (!isset($_SERVER['CONTENT_TYPE']) || !str_starts_with($_SERVER['CONTENT_TYPE'], 'text/xml')) {
                         throw new Exception('Invalid Content-Type', 400);
                     }
 

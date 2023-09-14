@@ -52,7 +52,7 @@ class PostType implements PostTypeInterface
         $url = sprintf($this->admin_url, $post_id);
 
         if (!empty($params)) {
-            $url .= (strpos($url, '?') === false ? '?' : '&') . http_build_query($params, '', '&');
+            $url .= (str_contains($url, '?') ? '&' : '?') . http_build_query($params, '', '&');
         }
 
         return $escaped ? Html::escapeURL($url) : $url;

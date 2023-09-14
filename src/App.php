@@ -323,9 +323,9 @@ namespace Dotclear {
 
             // no config file and not in install process
             if (!is_file($config->configPath())) {
-                if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
+                if (!str_contains($_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains($_SERVER['SCRIPT_FILENAME'], '/admin')) {
                     Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
-                } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
+                } elseif (!str_contains($_SERVER['PHP_SELF'], '\install') && !str_contains($_SERVER['PHP_SELF'], '/install')) {
                     Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
                 }
 

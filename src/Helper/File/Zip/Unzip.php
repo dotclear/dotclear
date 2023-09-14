@@ -162,12 +162,12 @@ class Unzip
         $root_files = 0;
         $root_dirs  = 0;
         foreach ($files as $v) {
-            if (strpos($v, '/') === false) {
+            if (!str_contains($v, '/')) {
                 $root_files++;
             }
         }
         foreach ($dirs as $v) {
-            if (strpos($v, '/') === false) {
+            if (!str_contains($v, '/')) {
                 $root_dirs++;
             }
         }

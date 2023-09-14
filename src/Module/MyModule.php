@@ -250,7 +250,7 @@ abstract class MyModule
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
         $base = substr($resource, 0, 1)   === '/' ? '' : 'css/';
-        $ext  = strpos($resource, '.css') === false ? '.css' : '';
+        $ext  = str_contains($resource, '.css') ? '' : '.css';
 
         if (is_null($version) || $version === '') {
             $version = App::version()->getVersion(self::id());
@@ -274,9 +274,9 @@ abstract class MyModule
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
         $base = substr($resource, 0, 1)  === '/' ? '' : 'js/';
-        $ext  = strpos($resource, '.js') === false ? '.js' : '';
-        if ($module && strpos($resource, '.js') === false) {
-            $ext = strpos($resource, '.mjs') === false ? '.mjs' : '';
+        $ext  = str_contains($resource, '.js') ? '' : '.js';
+        if ($module && !str_contains($resource, '.js')) {
+            $ext = str_contains($resource, '.mjs') ? '' : '.mjs';
         }
 
         if (is_null($version) || $version === '') {
