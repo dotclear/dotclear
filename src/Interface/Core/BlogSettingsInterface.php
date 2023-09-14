@@ -15,6 +15,8 @@ namespace Dotclear\Interface\Core;
  * This class provides blog settings management. This class instance exists as
  * Blog $settings property. You should create a new settings instance when
  * updating another blog settings.
+ *
+ * @since 2.28
  */
 interface BlogSettingsInterface
 {

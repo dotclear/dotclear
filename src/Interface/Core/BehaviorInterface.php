@@ -13,6 +13,8 @@ namespace Dotclear\Interface\Core;
  * Behavior handler interface.
  *
  * Collect, stack, use callable callback.
+ *
+ * @since 2.28
  */
 interface BehaviorInterface
 {

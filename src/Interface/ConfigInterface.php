@@ -17,6 +17,8 @@ namespace Dotclear\Interface;
  *
  * All methods are typed and return
  * also default values in same type.
+ *
+ * @since 2.28
  */
 interface ConfigInterface
 {
@@ -27,7 +29,7 @@ interface ConfigInterface
      * casting int, bool, array, to string.
      *
      * For default values from release file, use this method
-     * else use App::config()->xxx() for values maybe 
+     * else use App::config()->xxx() for values maybe
      * modified by config file.
      *
      * @param   string  $key The release key

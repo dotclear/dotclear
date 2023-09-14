@@ -17,56 +17,72 @@ declare(strict_types=1);
  * to work with non full standardized project.
  *
  * @ingroup  Helper Autoload Stack
+ * @since 2.25
  */
 class Autoloader
 {
-    /** Directory separator */
+    /**
+     * Directory separator.
+     *
+     * @var     string  DIR_SEP
+     */
     public const DIR_SEP = DIRECTORY_SEPARATOR;
 
-    /** Namespace separator */
+    /**
+     * Namespace separator.
+     *
+     * @var     string  NS_SEP
+     */
     public const NS_SEP = '\\';
 
     /**
-     * @var string $root_prefix
-     *             Root namespace prepend to added ns
+     * Root namespace prepend to added ns.
+     *
+     * @var     string  $root_prefix
      */
     private string $root_prefix = '';
 
     /**
-     * @var string $root_base_dir
-     *             Root directory prepend to added ns
+     * Root directory prepend to added ns.
+     *
+     * @var     string  $root_base_dir
      */
     private string $root_base_dir = '';
 
     /**
-     * @var array<string,array<int,string>> $prefixes
-     *                          Array of registered namespace [prefix=[base dir]]
+     * Array of registered namespace [prefix=[base dir]].
+     *
+     * @var     array<string,array<int,string>>     $prefixes
      */
     private array $prefixes = [];
 
     /**
-     * @var int $loads_count
-     *          Keep track of loads count
+     * Keep track of loads count.
+     *
+     * @var     int     $loads_count
      */
     private int $loads_count = 0;
 
     /**
-     * @var int $request_count
-     *          Keep track of request count
+     * Keep track of request count.
+     *
+     * @var     int     $request_count
      */
     private int $request_count = 0;
 
     /**
-     * Instance singleton
+     * Instance singleton.
+     *
+     * @var    Autoloader    $instance
      */
     private static self $instance;
 
     /**
      * Register loader with SPL autoloader stack.
      *
-     * @param string $root_prefix   Common ns prefix
-     * @param string $root_base_dir Common dir prefix
-     * @param bool   $prepend       Add loader on top of stack
+     * @param   string  $root_prefix    Common ns prefix
+     * @param   string  $root_base_dir  Common dir prefix
+     * @param   bool    $prepend        Add loader on top of stack
      */
     public function __construct(string $root_prefix = '', string $root_base_dir = '', bool $prepend = false)
     {
@@ -88,9 +104,9 @@ class Autoloader
     }
 
     /**
-     * Get Autoloader singleton instance
+     * Get Autoloader singleton instance.
      *
-     * @return     self
+     * @return  self
      */
     public static function me(): self
     {
@@ -105,7 +121,7 @@ class Autoloader
     /**
      * Get root prefix.
      *
-     * @return string Root prefix
+     * @return  string  Root prefix
      */
     public function getRootPrefix(): string
     {
@@ -115,7 +131,7 @@ class Autoloader
     /**
      * Get root base directory.
      *
-     * @return string Root base directory
+     * @return  string  Root base directory
      */
     public function getRootBaseDir(): string
     {
@@ -125,9 +141,9 @@ class Autoloader
     /**
      * Normalize namespace prefix.
      *
-     * @param string $prefix Ns prefix
+     * @param   string  $prefix Ns prefix
      *
-     * @return string Prefix with only right namesapce separator
+     * @return  string  Prefix with only right namesapce separator
      */
     public function normalizePrefix(string $prefix): string
     {
@@ -137,9 +153,9 @@ class Autoloader
     /**
      * Normalize base directory.
      *
-     * @param string $base_dir Dir prefix
+     * @param   string  $base_dir   Dir prefix
      *
-     * @return string Base dir with right directory separator
+     * @return  string  Base dir with right directory separator
      */
     public function normalizeBaseDir(string $base_dir): string
     {
@@ -149,9 +165,9 @@ class Autoloader
     /**
      * Clean up a string into namespace part.
      *
-     * @param string $str string to clean
+     * @param   string  $str    String to clean
      *
-     * @return null|string Cleaned string or null if empty
+     * @return  null|string     Cleaned string or null if empty
      */
     public function qualifyNamespace(string $str): ?string
     {
@@ -173,11 +189,11 @@ class Autoloader
     /**
      * Adds a base directory for a namespace prefix.
      *
-     * @param string $prefix   the namespace prefix
-     * @param string $base_dir a base directory for class files in the namespace
-     * @param bool   $prepend  if true, prepend the base directory to the stack
-     *                         instead of appending it; this causes it to be searched first rather
-     *                         than last
+     * @param   string  $prefix     The namespace prefix
+     * @param   string  $base_dir   A base directory for class files in the namespace
+     * @param   bool    $prepend    If true, prepend the base directory to the stack
+     *                          instead of appending it; this causes it to be searched first rather
+     *                          than last
      */
     public function addNamespace(string $prefix, string $base_dir, bool $prepend = false): void
     {
@@ -198,7 +214,7 @@ class Autoloader
     /**
      * Get list of registered namespace.
      *
-     * @return array<string,array<int,string>> List of namesapce prefix / base dir
+     * @return  array<string,array<int,string>>     List of namesapce prefix / base dir
      */
     public function getNamespaces(): array
     {
@@ -208,9 +224,9 @@ class Autoloader
     /**
      * Loads the class file for a given class name.
      *
-     * @param string $class the fully-qualified class name
+     * @param   string  $class  The fully-qualified class name
      *
-     * @return null|string the mapped file name on success, or null on failure
+     * @return  null|string     The mapped file name on success, or null on failure
      */
     public function loadClass(string $class): ?string
     {
@@ -235,11 +251,11 @@ class Autoloader
     /**
      * Load the mapped file for a namespace prefix and relative class.
      *
-     * @param string $prefix         the namespace prefix
-     * @param string $relative_class the relative class name
+     * @param   string  $prefix             The namespace prefix
+     * @param   string  $relative_class     The relative class name
      *
-     * @return null|string null if no mapped file can be loaded, or the
-     *                     name of the mapped file that was loaded
+     * @return  null|string     Null if no mapped file can be loaded, or the
+     *                      name of the mapped file that was loaded
      */
     private function loadMappedFile(string $prefix, string $relative_class): ?string
     {
@@ -263,9 +279,9 @@ class Autoloader
     /**
      * If a file exists, require it from the file system.
      *
-     * @param string $file the file to require
+     * @param   string  $file   The file to require
      *
-     * @return bool true if the file exists, false if not
+     * @return  bool    True if the file exists, false if not
      */
     private function requireFile(string $file): bool
     {
@@ -283,7 +299,7 @@ class Autoloader
     /**
      * Get number of loads on this autoloader.
      *
-     * @return int Number of loads
+     * @return  int     Number of loads
      */
     public function getLoadsCount(): int
     {
@@ -293,7 +309,7 @@ class Autoloader
     /**
      * Get number of requests on this autoloader.
      *
-     * @return int Number of requests
+     * @return  int     Number of requests
      */
     public function getRequestsCount(): int
     {

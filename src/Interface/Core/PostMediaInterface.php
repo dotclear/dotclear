@@ -14,6 +14,8 @@ use Dotclear\Database\MetaRecord;
 
 /**
  * Post media database handler interface.
+ *
+ * @since 2.28
  */
 interface PostMediaInterface
 {

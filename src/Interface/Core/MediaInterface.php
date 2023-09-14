@@ -15,6 +15,8 @@ use Exception;
 
 /**
  * Media manager interface.
+ *
+ * @since 2.28
  */
 interface MediaInterface
 {

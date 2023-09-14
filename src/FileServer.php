@@ -19,10 +19,16 @@ use Dotclear\Helper\Network\Http;
  *
  * This class checks request URI to find pf and vf queries and serve related file.
  * It is limited as it is loaded before dcCore to speed up requests.
+ *
+ * @since 2.27
  */
 class FileServer
 {
-    /** @var    array<int, string>  Supported types of resource */
+    /**
+     * Supported types of resource.
+     *
+     * @var     array<int, string>  DEFAULT_TYPES
+     */
     public const DEFAULT_TYPES = [
         'plugin',
         'theme',
@@ -30,7 +36,11 @@ class FileServer
         'var',
     ];
 
-    /** @var    array<int, string>  Supported file extension */
+    /**
+     * Supported file extension.
+     *
+     * @var     array<int, string>  DEFAULT_EXTENSIONS
+     */
     public const DEFAULT_EXTENSIONS = [
         'css',
         'eot',
@@ -53,7 +63,11 @@ class FileServer
         'xml',
     ];
 
-    /** @var    array<int, string> Supported core base folder */
+    /**
+     * Supported core base folder.
+     *
+     * @var     array<int, string>  DEFAULT_CORE_LIMITS
+     */
     public const DEFAULT_CORE_LIMITS = [
         'js',
         'css',
@@ -61,14 +75,22 @@ class FileServer
         'smilies',
     ];
 
-    /** @var    array<int, string>  Supported minifield file extension */
+    /**
+     * Supported minifield file extension.
+     *
+     * @var     array<int, string>  DEFAULT_MINIFIED
+     */
     public const DEFAULT_MINIFIED = [
         'css',
         'js',
         'mjs',
     ];
 
-    /** @var    array<int, string>  File extension that does not need cache in dev mode */
+    /**
+     * File extension that does not need cache in dev mode.
+     *
+     * @var     array<int, string>  DEFAULT_NOCACHE
+     */
     public const DEFAULT_NOCACHE = [
         'css',
         'js',
@@ -76,18 +98,47 @@ class FileServer
         'html',
     ];
 
-    /** @var    int  default cache ttl (one week) */
+    /**
+     * Default cache ttl (one week).
+     *
+     * @var     int     $cache_ttl
+     */
     public static int $cache_ttl = 604800;
 
-    protected bool $debug       = false;
-    protected string $resource  = '';
+    /**
+     * Debug mode.
+     *
+     * @var     bool    $debug
+     */
+    protected bool $debug = false;
+
+    /**
+     * The resource to find.
+     *
+     * @var     string  $resource
+     */
+    protected string $resource = '';
+
+    /**
+     * The file extension.
+     *
+     * @var     string  $extension
+     */
     protected string $extension = '';
-    protected ?string $file     = null;
+
+    /**
+     * The file.
+     *
+     * @var     null|string     $file
+     */
+    protected ?string $file = null;
 
     /**
      * Check URL query to find file request.
+     *
+     * @param   ConfigInterface     $config     The configuration handler
      */
-    public static function check($config): void
+    public static function check(ConfigInterface $config): void
     {
         if (!empty($_GET['pf']) && is_string($_GET['pf'])) {
             new self($config, 'plugin', $_GET['pf']);
@@ -99,8 +150,9 @@ class FileServer
     /**
      * Constructor does all job.
      *
-     * @param   string  $type       The resource type
-     * @param   string  $resource   The resource path
+     * @param   ConfigInterface     $config     The configuration handler
+     * @param   string              $type       The resource type
+     * @param   string              $resource   The resource path
      */
     public function __construct(
         protected ConfigInterface $config,
@@ -227,6 +279,8 @@ class FileServer
 
     /**
      * Check and set file.
+     *
+     * @param   string  $file   The file
      *
      * @return  bool    True if it is a readebale file.
      */

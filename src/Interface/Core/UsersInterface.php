@@ -16,6 +16,8 @@ use Exception;
 
 /**
  * Users handler interface.
+ *
+ * @since 2.28
  */
 interface UsersInterface
 {
@@ -29,7 +31,9 @@ interface UsersInterface
     public function getUser(string $id): MetaRecord;
 
     /**
-     * Returns a users list. <b>$params</b> is an array with the following
+     * Returns a users list.
+     *
+     * <b>$params</b> is an array with the following
      * optionnal parameters:
      *
      * - <var>q</var>: search string (on user_id, user_name, user_firstname)
@@ -45,7 +49,9 @@ interface UsersInterface
     public function getUsers(array|ArrayObject $params = [], bool $count_only = false): MetaRecord;
 
     /**
-     * Adds a new user. Takes a Cursor as input and returns the new user ID.
+     * Adds a new user.
+     *
+     * Takes a Cursor as input and returns the new user ID.
      *
      * @param      Cursor     $cur    The user Cursor
      *
@@ -86,8 +92,9 @@ interface UsersInterface
     public function userExists(string $id): bool;
 
     /**
-     * Returns all user permissions as an array which looks like:
+     * Returns all user permissions.
      *
+     * Returns an array which looks like:
      * - [blog_id]
      * - [name] => Blog name
      * - [url] => Blog URL
@@ -102,8 +109,9 @@ interface UsersInterface
     public function getUserPermissions(string $id): array;
 
     /**
-     * Sets user permissions. The <var>$perms</var> array looks like:
+     * Sets user permissions.
      *
+     * The <var>$perms</var> array looks like:
      * - [blog_id] => '|perm1|perm2|'
      * - ...
      *
@@ -127,7 +135,9 @@ interface UsersInterface
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void;
 
     /**
-     * Sets the user default blog. This blog will be selected when user log in.
+     * Sets the user default blog.
+     *
+     * This blog will be selected when user log in.
      *
      * @param      string  $id       The user identifier
      * @param      string  $blog_id  The blog identifier
@@ -142,7 +152,9 @@ interface UsersInterface
     public function removeUsersDefaultBlogs(array $ids): void;
 
     /**
-     * Returns user default settings in an associative array with setting names in keys.
+     * Returns user default settings.
+     *
+     * Returns an associative array with setting names in keys.
      *
      * @return     array<string,int|bool|array<string,string>|string>
      */

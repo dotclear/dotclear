@@ -15,6 +15,8 @@ use Dotclear\Database\Cursor;
  * Version hanlder interface.
  *
  * Tracks core or modules id,version pairs.
+ *
+ * @since 2.28
  */
 interface VersionInterface
 {

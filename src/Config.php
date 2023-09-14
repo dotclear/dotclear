@@ -40,30 +40,32 @@ use Exception;
  * * DC_AKISMET_SUPER (plugin)
  * * HTTP_PROXY_HOST (Helper)
  * * HTTP_PROXY_PORT (Helper)
+ *
+ * @since 2.28
  */
 class Config implements ConfigInterface
 {
     /**
-     * Dotclear default release config file name
+     * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const CONFIG_FILE = 'config.php';
     /**
-     * Dotclear default release config file name
+     * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const RELEASE_FILE = 'release.json';
     /**
-     * Dotclear default release config file name
+     * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const CSP_REPORT_FILE = 'csp_report.json';
 
     /**
-     * Dotclear default release config
+     * Dotclear default release config.
      *
      * @var    array<string,mixed>  $release
      */
@@ -411,7 +413,7 @@ class Config implements ConfigInterface
         }
         $this->csp_report_file = DC_CSP_LOGFILE;
 
-        // no release file
+        // No release file
         if ($this->dotclearVersion() == '') {
             throw new Exception(__('Dotclear release file is not readable'));
         }

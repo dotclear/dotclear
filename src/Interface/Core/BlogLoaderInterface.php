@@ -11,6 +11,8 @@ namespace Dotclear\Interface\Core;
 
 /**
  * Blog loader inerface.
+ *
+ * @since 2.28
  */
 interface BlogLoaderInterface
 {

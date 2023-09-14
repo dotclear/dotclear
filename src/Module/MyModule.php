@@ -249,7 +249,7 @@ abstract class MyModule
      */
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
-        $base = substr($resource, 0, 1)   === '/' ? '' : 'css/';
+        $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
         $ext  = str_contains($resource, '.css') ? '' : '.css';
 
         if (is_null($version) || $version === '') {
@@ -273,7 +273,7 @@ abstract class MyModule
      */
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
-        $base = substr($resource, 0, 1)  === '/' ? '' : 'js/';
+        $base = substr($resource, 0, 1) === '/' ? '' : 'js/';
         $ext  = str_contains($resource, '.js') ? '' : '.js';
         if ($module && !str_contains($resource, '.js')) {
             $ext = str_contains($resource, '.mjs') ? '' : '.mjs';

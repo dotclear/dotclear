@@ -34,6 +34,8 @@ namespace Dotclear {
      *
      * Note this class includes all core container methods.
      * @see Container
+     *
+     * @since 2.27
      */
     final class App extends Container
     {
@@ -270,7 +272,7 @@ namespace Dotclear {
         }
 
         /**
-         * load other requirements.
+         * Load other requirements.
          */
         private static function load(): void
         {
