@@ -39,11 +39,11 @@ class Auth extends Process
         App::backend()->dlang = (App::backend()->dlang === '' ? 'en' : App::backend()->dlang);
         if (App::backend()->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', App::backend()->dlang)) {
             L10n::lang(App::backend()->dlang);
-            L10n::set(DC_L10N_ROOT . '/' . App::backend()->dlang . '/main');
+            L10n::set(App::config()->l10nRoot() . '/' . App::backend()->dlang . '/main');
         }
 
-        if (defined('DC_ADMIN_URL')) {
-            App::backend()->page_url = DC_ADMIN_URL . App::backend()->url->get('admin.auth');
+        if (App::config()->adminUrl() != '') {
+            App::backend()->page_url = App::config()->adminUrl() . App::backend()->url->get('admin.auth');
         } else {
             App::backend()->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
         }
@@ -118,7 +118,7 @@ class Auth extends Process
                 $subject = Mail::B64Header('Dotclear ' . __('Password reset'));
                 $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . App::backend()->page_url . "\n" . __('Username:') . ' ' . App::backend()->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . App::backend()->page_url . '&akey=' . $recover_key;
 
-                $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
+                $headers[] = 'From: ' . App::config()->adminMailfrom();
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 Mail::sendMail(App::backend()->user_email, $subject, $message, $headers);
@@ -134,7 +134,7 @@ class Auth extends Process
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
                 $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) App::backend()->page_url);
-                $headers[] = 'From: ' . (defined('DC_ADMIN_MAILFROM') && strpos(DC_ADMIN_MAILFROM, '@') ? DC_ADMIN_MAILFROM : 'dotclear@local');
+                $headers[] = 'From: ' . App::config()->adminMailfrom();
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 Mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
@@ -195,10 +195,10 @@ class Auth extends Process
 
                 App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
+                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
                 if ($data['user_remember']) {
-                    setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
+                    setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
 
                 App::backend()->url->redirect('admin.home');
@@ -223,7 +223,7 @@ class Auth extends Process
                 $check_perms = false;
             }
 
-            $cookie_admin = Http::browserUID(DC_MASTER_KEY . App::backend()->user_id . App::auth()->cryptLegacy(App::backend()->user_id)) . bin2hex(pack('a32', App::backend()->user_id));
+            $cookie_admin = Http::browserUID(App::config()->masterKey() . App::backend()->user_id . App::auth()->cryptLegacy(App::backend()->user_id)) . bin2hex(pack('a32', App::backend()->user_id));
 
             if ($check_perms && App::auth()->mustChangePassword()) {
                 // User need to change password
@@ -249,7 +249,7 @@ class Auth extends Process
 
                 App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(DC_MASTER_KEY);
+                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
                 if (!empty($_POST['blog'])) {
                     $_SESSION['sess_blog_id'] = $_POST['blog'];
@@ -260,7 +260,7 @@ class Auth extends Process
                 }
 
                 if (!empty($_POST['user_remember'])) {
-                    setcookie('dc_admin', $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
+                    setcookie('dc_admin', $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
 
                 App::backend()->url->redirect('admin.home');
@@ -278,7 +278,7 @@ class Auth extends Process
                 }
                 if (isset($_COOKIE['dc_admin'])) {
                     unset($_COOKIE['dc_admin']);
-                    setcookie('dc_admin', '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => DC_ADMIN_SSL]);
+                    setcookie('dc_admin', '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
             }
         }
@@ -293,7 +293,7 @@ class Auth extends Process
     public static function render(): void
     {
         // nullsafe before header sent
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!App::context('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -301,7 +301,7 @@ class Auth extends Process
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
         $dlang  = App::backend()->dlang;
-        $vendor = Html::escapeHTML(DC_VENDOR_NAME);
+        $vendor = Html::escapeHTML(App::config()->vendorName());
         $buffer = '<!DOCTYPE html>' . "\n" .
             '<html lang="' . $dlang . '">' . "\n" .
             '<head>' . "\n" .
@@ -333,7 +333,7 @@ class Auth extends Process
         Page::jsLoad('js/_auth.js');
 
         $action = App::backend()->url->get('admin.auth');
-        $banner = Html::escapeHTML(DC_VENDOR_NAME);
+        $banner = Html::escapeHTML(App::config()->vendorName());
         $buffer = '</head>' . "\n" .
             '<body id="dotclear-admin" class="auth">' . "\n" .
             '<form action="' . $action . '" method="post" id="login-screen">' . "\n" .

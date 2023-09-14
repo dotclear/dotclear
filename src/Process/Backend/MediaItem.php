@@ -1039,9 +1039,9 @@ class MediaItem extends Process
 
             '<form class="clear fieldset" action="' . App::backend()->url->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
             '<h4>' . __('Change file') . '</h4>' .
-            '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) DC_MAX_UPLOAD_SIZE) . '</div>' .
+            '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) . '</div>' .
             '<p><label for="upfile">' . __('Choose a file:') .
-            ' (' . sprintf(__('Maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ') ' .
+            ' (' . sprintf(__('Maximum size %s'), Files::size(App::config()->maxUploadSize())) . ') ' .
             '<input type="file" id="upfile" name="upfile" size="35" />' .
             '</label></p>' .
             '<p><input type="submit" value="' . __('Send') . '" />' .

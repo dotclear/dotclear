@@ -31,7 +31,7 @@ class GrowUp_2_6_lt_eq
 
         # daInstaller has been integrated to the core.
         # Try to remove it
-        $path = explode(PATH_SEPARATOR, DC_PLUGINS_ROOT);
+        $path = explode(PATH_SEPARATOR, App::config()->pluginsRoot());
         foreach ($path as $root) {
             if (!is_dir($root) || !is_readable($root)) {
                 continue;

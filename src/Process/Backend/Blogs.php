@@ -88,7 +88,7 @@ class Blogs extends Process
     public static function render(): void
     {
         // Nullsafe before header sent
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!App::context('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 

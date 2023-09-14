@@ -653,8 +653,8 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             } else {
                 App::frontend()->ctx->preview = true;
-                if (defined('DC_ADMIN_URL')) {
-                    App::frontend()->ctx->xframeoption = DC_ADMIN_URL;
+                if (App::config()->adminUrl() != '') {
+                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
                 }
                 self::post($post_url);
             }
@@ -712,7 +712,7 @@ class Url extends UrlHandler implements UrlInterface
                     $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
                 }
                 $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-                $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', Utility::TPL_ROOT, $tplset]);
+                $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     App::frontend()->tpl->setPath(
                         $tpl_path,
@@ -731,8 +731,8 @@ class Url extends UrlHandler implements UrlInterface
                 App::frontend()->tpl->use_cache = false;
                 // Reset HTTP cache
                 App::frontend()->cache()->resetTimes();
-                if (defined('DC_ADMIN_URL')) {
-                    App::frontend()->ctx->xframeoption = DC_ADMIN_URL;
+                if (App::config()->adminUrl() != '') {
+                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
                 }
 
                 // Then go to blog home page

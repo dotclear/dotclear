@@ -63,7 +63,7 @@ class Deprecated implements DeprecatedInterface
         }
 
         // only log on DEV mode
-        if (!defined('DC_DEV') || !DC_DEV) {
+        if (!App::config()->devMode()) {
             return;
         }
 
@@ -78,7 +78,7 @@ class Deprecated implements DeprecatedInterface
         $cursor = $log->openLogCursor();
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
-        $cursor->setField('user_id', (defined('DC_CONTEXT_ADMIN')) ? App::auth()->userID() : 'unknown');
+        $cursor->setField('user_id', App::context('BACKEND') ? App::auth()->userID() : 'unknown');
         $log->addLog($cursor);
     }
 

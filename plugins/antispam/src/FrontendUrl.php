@@ -75,7 +75,7 @@ class FrontendUrl extends Url
         'xmlns:content="http://purl.org/rss/1.0/modules/content/">' . "\n" .
         '<channel>' . "\n" .
         '<title>' . Html::escapeHTML($title) . '</title>' . "\n" .
-        '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'index.php?process=Comments' . $end_url : 'about:blank') . '</link>' . "\n" .
+        '<link>' . (App::config()->adminUrl() ? App::config()->adminUrl() . 'index.php?process=Comments' . $end_url : 'about:blank') . '</link>' . "\n" .
         '<description></description>' . "\n";
 
         $rs       = App::blog()->getComments($params);
@@ -84,7 +84,7 @@ class FrontendUrl extends Url
 
         while ($rs->fetch() && ($nbitems < $maxitems)) {
             $nbitems++;
-            $uri    = DC_ADMIN_URL ? DC_ADMIN_URL . 'index.php?process=Comment&id=' . $rs->comment_id : 'about:blank';
+            $uri    = App::config()->adminUrl() ? App::config()->adminUrl() . 'index.php?process=Comment&id=' . $rs->comment_id : 'about:blank';
             $author = $rs->comment_author;
             $title  = $rs->post_title . ' - ' . $author;
             if ($type == 'spam') {

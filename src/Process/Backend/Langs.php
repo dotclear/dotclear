@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -37,7 +37,7 @@ class Langs extends Process
     {
         Page::checkSuper();
 
-        App::backend()->is_writable = is_dir(DC_L10N_ROOT) && is_writable(DC_L10N_ROOT);
+        App::backend()->is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
         App::backend()->iso_codes   = L10n::getISOCodes();
 
         # Get languages list on Dotclear.net
@@ -45,12 +45,12 @@ class Langs extends Process
 
         $feed_reader = new Reader();
 
-        $feed_reader->setCacheDir(DC_TPL_CACHE);
+        $feed_reader->setCacheDir(App::config()->cacheRoot());
         $feed_reader->setTimeout(5);
         $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
 
         try {
-            $parse = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));
+            $parse = $feed_reader->parse(sprintf(App::config()->l10nUpdateUrl(), App::config()->dotclearVersion()));
             if ($parse !== false) {
                 App::backend()->dc_langs = $parse->items;
             }
@@ -105,7 +105,7 @@ class Langs extends Process
         if (App::backend()->is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
             try {
                 $locale_id = $_POST['locale_id'];
-                if (!isset(App::backend()->iso_codes[$locale_id]) || !is_dir(DC_L10N_ROOT . '/' . $locale_id)) {
+                if (!isset(App::backend()->iso_codes[$locale_id]) || !is_dir(App::config()->l10nRoot() . '/' . $locale_id)) {
                     throw new Exception(__('No such installed language'));
                 }
 
@@ -113,7 +113,7 @@ class Langs extends Process
                     throw new Exception(__("You can't remove English language."));
                 }
 
-                if (!Files::deltree(DC_L10N_ROOT . '/' . $locale_id)) {
+                if (!Files::deltree(App::config()->l10nRoot() . '/' . $locale_id)) {
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
@@ -132,7 +132,7 @@ class Langs extends Process
                 }
 
                 $url  = Html::escapeHTML($_POST['pkg_url']);
-                $dest = DC_L10N_ROOT . '/' . basename($url);
+                $dest = App::config()->l10nRoot() . '/' . basename($url);
                 if (!preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
                     throw new Exception(__('Invalid language file URL.'));
                 }
@@ -173,7 +173,7 @@ class Langs extends Process
                 }
 
                 Files::uploadStatus($_FILES['pkg_file']);
-                $dest = DC_L10N_ROOT . '/' . $_FILES['pkg_file']['name'];
+                $dest = App::config()->l10nRoot() . '/' . $_FILES['pkg_file']['name'];
                 if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
@@ -233,13 +233,13 @@ class Langs extends Process
         echo
         '<h3>' . __('Installed languages') . '</h3>';
 
-        $langs      = scandir(DC_L10N_ROOT);
+        $langs      = scandir(App::config()->l10nRoot());
         $langs_list = [];
         foreach ($langs as $lang) {
-            $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(DC_L10N_ROOT . '/' . $lang) || !isset(App::backend()->iso_codes[$lang]));
+            $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(App::config()->l10nRoot() . '/' . $lang) || !isset(App::backend()->iso_codes[$lang]));
 
             if (!$check) {
-                $langs_list[$lang] = DC_L10N_ROOT . '/' . $lang;
+                $langs_list[$lang] = App::config()->l10nRoot() . '/' . $lang;
             }
         }
 
@@ -300,7 +300,7 @@ class Langs extends Process
             '<form method="post" action="' . App::backend()->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Available languages') . '</h4>' .
             '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
-                'Proposed languages are based on your version: %s.'), '<strong>' . DC_VERSION . '</strong>') . '</p>' .
+                'Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>') . '</p>' .
             '<p class="field"><label for="pkg_url" class="classic">' . __('Language:') . '</label> ' .
             form::combo(['pkg_url'], $dc_langs_combo) . '</p>' .
             '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .

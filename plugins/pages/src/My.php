@@ -24,7 +24,7 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return in_array($context, [self::BACKEND, self::MANAGE, self::MENU]) ? // allow pages permissions
-            defined('DC_CONTEXT_ADMIN')
+            App::context('BACKEND')
             && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 My::PERMISSION_PAGES,

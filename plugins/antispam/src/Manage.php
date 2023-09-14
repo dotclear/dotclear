@@ -268,7 +268,7 @@ class Manage extends Process
             '</form>';
 
             // Syndication
-            if (DC_ADMIN_URL) {
+            if (App::config()->adminUrl()) {
                 $ham_feed = App::blog()->url() . App::url()->getURLFor(
                     'hamfeed',
                     Antispam::getUserCode()

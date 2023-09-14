@@ -69,7 +69,7 @@ class ModuleImportFlat extends Module
         if ($single_upl !== null) {
             if ($single_upl) {
                 Files::uploadStatus($_FILES['up_single_file']);
-                $file = DC_TPL_CACHE . '/' . md5(uniqid());
+                $file = App::config()->cacheRoot() . '/' . md5(uniqid());
                 if (!move_uploaded_file($_FILES['up_single_file']['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
@@ -126,7 +126,7 @@ class ModuleImportFlat extends Module
 
             if ($full_upl) {
                 Files::uploadStatus($_FILES['up_full_file']);
-                $file = DC_TPL_CACHE . '/' . md5(uniqid());
+                $file = App::config()->cacheRoot() . '/' . md5(uniqid());
                 if (!move_uploaded_file($_FILES['up_full_file']['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
@@ -204,7 +204,7 @@ class ModuleImportFlat extends Module
         '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name())) . '</p>' .
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
-        ' (' . sprintf(__('maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
+        ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
             ' <input type="file" id="up_single_file" name="up_single_file" size="20" />' .
             '</p>';
 
@@ -219,7 +219,7 @@ class ModuleImportFlat extends Module
         '<p>' .
         App::nonce()->getFormNonce() .
         form::hidden(['do'], 1) .
-        form::hidden(['MAX_FILE_SIZE'], (int) DC_MAX_UPLOAD_SIZE) .
+        form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
             '</form>';
@@ -231,7 +231,7 @@ class ModuleImportFlat extends Module
             '<p class="warning">' . __('This will reset all the content of your database, except users.') . '</p>' .
 
             '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
-            ' (' . sprintf(__('maximum size %s'), Files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
+            ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
                 '<input type="file" id="up_full_file" name="up_full_file" size="20" />' .
                 '</p>';
 
@@ -257,7 +257,7 @@ class ModuleImportFlat extends Module
             '<p>' .
             App::nonce()->getFormNonce() .
             form::hidden(['do'], 1) .
-            form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
+            form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
             '<input type="submit" value="' . __('Import') . '" /></p>' .
 
                 '</form>';

@@ -275,7 +275,7 @@ class ModulesList
     public function isDeletablePath(string $root): bool
     {
         return $this->path_writable
-        && (preg_match('!^' . $this->path_pattern . '!', $root) || defined('DC_DEV') && DC_DEV)
+        && (preg_match('!^' . $this->path_pattern . '!', $root) || App::config()->devMode())
         && App::auth()->isSuperAdmin();
     }
 
@@ -777,7 +777,7 @@ class ModulesList
             '<th class="first nowrap"' . ($colspan > 1 ? ' colspan="' . $colspan . '"' : '') . '>' . __('Name') . '</th>';
         }
 
-        if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+        if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
             echo
             '<th class="nowrap">' . __('Score') . '</th>';
         }
@@ -797,7 +797,7 @@ class ModulesList
             '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
         }
 
-        if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
+        if (in_array('repository', $cols) && App::config()->allowRepositories()) {
             echo
             '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
@@ -836,7 +836,7 @@ class ModulesList
                     continue;
                 }
             }
-            $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . '/.git');
+            $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . '/.git');
 
             echo
             '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . Html::escapeHTML($this->list_id) . '_m_' . Html::escapeHTML($id) . '"' .
@@ -902,7 +902,7 @@ class ModulesList
             '</td>';
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+            if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
                 $tds++;
                 echo
                 '<td class="module-version nowrap count"><span class="debug">' . $define->get('score') . '</span></td>';
@@ -946,7 +946,7 @@ class ModulesList
                 '</td>';
             }
 
-            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
+            if (in_array('repository', $cols) && App::config()->allowRepositories()) {
                 $tds++;
                 echo
                 '<td class="module-repository nowrap count">' . (!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')) . '</td>';
@@ -1022,7 +1022,7 @@ class ModulesList
                  || !empty($define->get('section'))
                  || !empty($define->get('tags'))
                  || !empty($define->get('settings'))   && $define->get('state') == ModuleDefine::STATE_ENABLED
-                 || !empty($define->get('repository')) && DC_DEBUG && DC_ALLOW_REPOSITORIES
+                 || !empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()
                 ) {
                     echo
                         '<div><ul class="mod-more">';
@@ -1032,7 +1032,7 @@ class ModulesList
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
-                    if (!empty($define->get('repository')) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
+                    if (!empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()) {
                         echo '<li class="modules-repository"><a href="' . $define->get('repository') . '">' . __('Third-party repository') . '</a></li>';
                     }
 
@@ -1215,7 +1215,7 @@ class ModulesList
                     # Delete
                 case 'delete':
                     if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
+                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }
 
@@ -1707,8 +1707,8 @@ class ModulesList
         $this->config_file    = $file;
         $this->config_content = '';
 
-        if (!defined('DC_CONTEXT_MODULE')) {
-            define('DC_CONTEXT_MODULE', true);
+        if (!App::context('MODULE')) {
+            App::setContext('MODULE');
         }
 
         return true;

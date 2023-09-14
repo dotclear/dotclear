@@ -14,7 +14,7 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use Dotclear\App;
 
-if (!defined('DC_CONTEXT_ADMIN')) {
+if (!App::context('BACKEND')) {
     return;
 }
 

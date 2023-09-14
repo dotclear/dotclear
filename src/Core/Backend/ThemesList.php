@@ -85,7 +85,7 @@ class ThemesList extends ModulesList
             $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = $define->get('distributed') ? ' dc-box' : '';
 
-            $git = ((defined('DC_DEV') && DC_DEV) || (defined('DC_DEBUG') && DC_DEBUG)) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
+            $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
 
             $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . ($git ? ' module-git' : '') . '">';
 
@@ -107,7 +107,7 @@ class ThemesList extends ModulesList
             }
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+            if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
                 $line .= '<p class="module-score debug">' . sprintf(__('Score: %s'), $define->get('score')) . '</p>';
             }
 
@@ -174,7 +174,7 @@ class ThemesList extends ModulesList
                 }
             }
 
-            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
+            if (in_array('repository', $cols) && App::config()->allowRepositories()) {
                 $line .= '<span class="module-repository">' . (!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')) . '</span> ';
             }
 
@@ -297,7 +297,7 @@ class ThemesList extends ModulesList
                 $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
             if (in_array('try', $actions)) {
-                $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . $id);
+                $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . $id);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));

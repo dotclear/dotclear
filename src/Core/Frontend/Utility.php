@@ -103,7 +103,7 @@ class Utility extends Process
      */
     public function __construct()
     {
-        if (!defined('DC_CONTEXT_PUBLIC')) {
+        if (!App::context('FRONTEND')) {
             throw new Exception('Application is not in public context.', 500);
         }
     }
@@ -115,8 +115,6 @@ class Utility extends Process
      */
     public static function init(): bool
     {
-        define('DC_CONTEXT_PUBLIC', true);
-
         return true;
     }
 
@@ -129,15 +127,15 @@ class Utility extends Process
         App::frontend();
 
         // Loading blog
-        if (defined('DC_BLOG_ID')) {
+        if (App::config()->blogId() != '') {
             try {
-                App::blogLoader()->setBlog(DC_BLOG_ID);
+                App::blogLoader()->setBlog(App::config()->blogId());
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
                     $detected_languages = Http::getAcceptLanguages();
                     foreach ($detected_languages as $language) {
-                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
                             L10n::lang($language);
 
                             // We stop at first accepted language
@@ -145,7 +143,7 @@ class Utility extends Process
                         }
                     }
                 })();
-                new Fault(__('Database problem'), DC_DEBUG ?
+                new Fault(__('Database problem'), App::config()->debugMode() ?
             __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
             __('Something went wrong while trying to read the database.'), Fault::DATABASE_ISSUE);
             }
@@ -206,7 +204,7 @@ class Utility extends Process
         $GLOBALS['_ctx'] = App::frontend()->ctx;
 
         try {
-            App::frontend()->tpl = new Tpl(DC_TPL_CACHE, 'App::frontend()->tpl');
+            App::frontend()->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->tpl');
 
             // deprecated since 2.28, use App::frontend()->tpl instead
             dcCore::app()->tpl = App::frontend()->tpl;
@@ -221,18 +219,18 @@ class Utility extends Process
         $GLOBALS['_lang'] = App::lang();
 
         L10n::lang(App::lang());
-        if (L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
-            L10n::set(DC_L10N_ROOT . '/en/date');
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
+            L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/public');
-        L10n::set(DC_L10N_ROOT . '/' . App::lang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/plugins');
 
         // Set lexical lang
         App::lexical()->setLexicalLang('public', App::lang());
 
         # Loading plugins
         try {
-            App::plugins()->loadModules(DC_PLUGINS_ROOT, 'public', App::lang());
+            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang());
         } catch (Exception $e) {
             // Ignore
         }
@@ -249,12 +247,12 @@ class Utility extends Process
         }
 
         if (!App::themes()->moduleExists(App::frontend()->theme)) {
-            App::frontend()->theme = App::blog()->settings()->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->theme = App::blog()->settings()->system->theme = App::config()->defaultTheme();
         }
 
         App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
         if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme) && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
-            App::frontend()->theme        = App::blog()->settings()->system->theme = DC_DEFAULT_THEME;
+            App::frontend()->theme        = App::blog()->settings()->system->theme = App::config()->defaultTheme();
             App::frontend()->parent_theme = null;
         }
 
@@ -294,7 +292,7 @@ class Utility extends Process
             $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
         }
         $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-        $dir    = implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'public', self::TPL_ROOT, $tplset]);
+        $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
             App::frontend()->tpl->setPath(
                 $tpl_path,

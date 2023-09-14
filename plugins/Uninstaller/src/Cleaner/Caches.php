@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
+use Dotclear\App;
 use Dotclear\Plugin\Uninstaller\{
     ActionDescriptor,
     CleanerDescriptor,
@@ -73,7 +74,7 @@ class Caches extends CleanerParent
     public function values(): array
     {
         $stack = [];
-        foreach (self::getDirs(DC_TPL_CACHE) as $path => $count) {
+        foreach (self::getDirs(App::config()->cacheRoot()) as $path => $count) {
             $stack[] = new ValueDescriptor(
                 ns:    $path,
                 count: $count
@@ -86,12 +87,12 @@ class Caches extends CleanerParent
     public function execute(string $action, string $ns): bool
     {
         if ($action == 'empty') {
-            self::delDir(DC_TPL_CACHE, $ns, false);
+            self::delDir(App::config()->cacheRoot(), $ns, false);
 
             return true;
         }
         if ($action == 'delete') {
-            self::delDir(DC_TPL_CACHE, $ns, true);
+            self::delDir(App::config()->cacheRoot(), $ns, true);
 
             return true;
         }

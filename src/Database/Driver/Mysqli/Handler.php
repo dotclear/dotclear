@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Driver\Mysqli;
 
+use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Exception;
 use mysqli;
@@ -181,7 +182,7 @@ class Handler extends AbstractHandler
             $res = @$handle->query($query);
             if ($res === false) {
                 $msg = (string) $this->db_last_error($handle);
-                if (defined('DC_DEV') && DC_DEV) {
+                if (App::config()->devMode()) {
                     $msg .= ' SQL=[' . $query . ']';
                 }
 

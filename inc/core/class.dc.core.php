@@ -373,7 +373,7 @@ final class dcCore
         $this->log     = App::log();
         $this->notices = App::notice();
 
-        if (defined('DC_CONTEXT_ADMIN')) {
+        if (App::context('BACKEND')) {
             // deprecated since 2.23, use App::backend()->resources instance instead
             $GLOBALS['__resources'] = &$this->resources;
         }

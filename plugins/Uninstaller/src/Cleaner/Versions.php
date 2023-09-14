@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Plugin\Uninstaller\{
@@ -54,8 +53,8 @@ class Versions extends CleanerParent
     {
         return array_merge(
             ['core'],
-            explode(',', DC_DISTRIB_THEMES),
-            explode(',', DC_DISTRIB_PLUGINS)
+            explode(',', App::config()->distributedThemes()),
+            explode(',', App::config()->distributedPlugins())
         );
     }
 

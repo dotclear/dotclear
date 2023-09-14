@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
+use Dotclear\App;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
@@ -74,7 +75,7 @@ class Akismet extends HttpClient
         $this->ak_path = sprintf($this->ak_path, $this->ak_version, '%s');
         $this->ak_host = $this->ak_key . '.' . $this->base_host;
 
-        parent::__construct($this->ak_host, 80, DC_QUERY_TIMEOUT);
+        parent::__construct($this->ak_host, 80, App::config()->queryTimeout());
     }
 
     /**

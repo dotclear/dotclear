@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -50,7 +50,7 @@ class BlogTheme extends Process
             !empty($_GET['nocache']) ? true : null
         );
         // deprecated since 2.26
-        ThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+        ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         $disabled = App::themes()->disableDepModules();
         if (count($disabled)) {

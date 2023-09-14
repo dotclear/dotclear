@@ -78,7 +78,7 @@ class BackendBehaviors
         $extraPlugins[] = [
             'name'   => 'dctags',
             'button' => 'dcTags',
-            'url'    => DC_ADMIN_URL . My::fileURL('js/ckeditor-tags-plugin.js'),
+            'url'    => App::config()->adminUrl() . My::fileURL('js/ckeditor-tags-plugin.js'),
         ];
     }
 
@@ -269,8 +269,8 @@ class BackendBehaviors
                 Page::breadcrumb(
                     [
                         Html::escapeHTML(App::blog()->name()) => '',
-                        __('Entries')                       => $ap->getRedirection(true),
-                        __('Add tags to this selection')    => '',
+                        __('Entries')                         => $ap->getRedirection(true),
+                        __('Add tags to this selection')      => '',
                     ]
                 ),
                 Page::jsMetaEditor() .
@@ -344,7 +344,7 @@ class BackendBehaviors
             $ap->beginPage(
                 Page::breadcrumb(
                     [
-                        Html::escapeHTML(App::blog()->name())            => '',
+                        Html::escapeHTML(App::blog()->name())          => '',
                         __('Entries')                                  => App::backend()->url->get('admin.posts'),
                         __('Remove selected tags from this selection') => '',
                     ]

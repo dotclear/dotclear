@@ -22,7 +22,7 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         // allways limit to super admin
-        return defined('DC_CONTEXT_ADMIN')
+        return App::context('BACKEND')
             && App::auth()->isSuperAdmin();
     }
 }

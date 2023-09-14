@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
+use Dotclear\App;
 use Dotclear\Plugin\Uninstaller\{
     ActionDescriptor,
     CleanerDescriptor,
@@ -51,13 +52,13 @@ class Plugins extends CleanerParent
 
     public function distributed(): array
     {
-        return explode(',', DC_DISTRIB_PLUGINS);
+        return explode(',', App::config()->distributedPlugins());
     }
 
     public function values(): array
     {
         $stack = [];
-        foreach (self::getDirs(DC_PLUGINS_ROOT) as $path => $count) {
+        foreach (self::getDirs(App::config()->pluginsRoot()) as $path => $count) {
             $stack[] = new ValueDescriptor(
                 ns:    $path,
                 count: $count
@@ -70,7 +71,7 @@ class Plugins extends CleanerParent
     public function execute(string $action, string $ns): bool
     {
         if ($action == 'delete') {
-            self::delDir(DC_PLUGINS_ROOT, $ns, true);
+            self::delDir(App::config()->pluginsRoot(), $ns, true);
 
             return true;
         }

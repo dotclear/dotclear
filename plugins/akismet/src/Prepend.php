@@ -22,7 +22,7 @@ class Prepend extends Process
         // Dead but useful code (for l10n)
         __('Akismet') . __('Akismet interface for Dotclear');
 
-        return self::status(defined('DC_RC_PATH'));
+        return self::status(App::config()->configPath() != '');
     }
 
     public static function process(): bool

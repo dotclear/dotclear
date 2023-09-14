@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+use Dotclear\App;
+
 /**
  * Module defined properties.
  *
@@ -80,7 +82,7 @@ class ModuleDefine
 
         // theme specifics
         'parent' => null,
-        'tplset' => DC_DEFAULT_TPLSET,
+        'tplset' => null,
 
         // store specifics
         'file'            => '',
@@ -110,6 +112,8 @@ class ModuleDefine
      */
     public function __construct(string $id)
     {
+        $this->default['tplset'] = App::config()->defaultTplset();
+
         $this->id = $id;
         $this->init();
     }

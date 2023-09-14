@@ -77,7 +77,7 @@ class FrontendBehaviors
         if (!empty($tplset) && is_dir($default_template . $tplset)) {
             App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);
         } else {
-            App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . DC_DEFAULT_TPLSET);
+            App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . App::config()->defaultTplset());
         }
     }
 }

@@ -108,7 +108,7 @@ class Factory implements FactoryInterface
     public function cache(): CacheInterface
     {
         return new Cache(
-            cache_dir: defined('DC_TPL_CACHE') ? DC_TPL_CACHE : ''
+            cache_dir: $this->container->config()->cacheRoot()
         );
     }
 
@@ -120,13 +120,13 @@ class Factory implements FactoryInterface
     public function con(): ConnectionInterface
     {
         return AbstractHandler::init(
-            driver: DC_DBDRIVER,
-            host: DC_DBHOST,
-            database: DC_DBNAME,
-            user: DC_DBUSER,
-            password: DC_DBPASSWORD,
-            persistent: DC_DBPERSIST,
-            prefix: DC_DBPREFIX
+            driver: $this->container->config()->dbDriver(),
+            host: $this->container->config()->dbHost(),
+            database: $this->container->config()->dbName(),
+            user: $this->container->config()->dbUser(),
+            password: $this->container->config()->dbPassword(),
+            persistent: $this->container->config()->dbPersist(),
+            prefix: $this->container->config()->dbPrefix()
         );
     }
 
@@ -205,9 +205,9 @@ class Factory implements FactoryInterface
         return new Session(
             con: $this->container->con(),
             table : $this->container->con()->prefix() . Session::SESSION_TABLE_NAME,
-            cookie_name: DC_SESSION_NAME,
-            cookie_secure: DC_ADMIN_SSL,
-            ttl: DC_SESSION_TTL
+            cookie_name: $this->container->config()->sessionName(),
+            cookie_secure: $this->container->config()->adminSsl(),
+            ttl: $this->container->config()->sessionTtl()
         );
     }
 

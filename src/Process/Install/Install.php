@@ -47,7 +47,7 @@ class Install extends Process
 
     public static function init(): bool
     {
-        if (!self::status(defined('DC_CONTEXT_INSTALL'))) {
+        if (!self::status(App::context('INSTALL'))) {
             throw new Exception('Not found', 404);
         }
 
@@ -55,12 +55,12 @@ class Install extends Process
         self::$dlang = Http::getAcceptLanguage();
         if (self::$dlang != 'en') {
             L10n::init(self::$dlang);
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/date');
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/main');
-            L10n::set(DC_L10N_ROOT . '/' . self::$dlang . '/plugins');
+            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/date');
+            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
+            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/plugins');
         }
 
-        if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') {
+        if (App::config()->masterKey() == '') {
             self::$can_install = false;
             self::$err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
         }
@@ -247,7 +247,7 @@ class Install extends Process
                 # Add Dotclear version
                 $cur          = App::version()->openVersionCursor();
                 $cur->module  = 'core';
-                $cur->version = (string) DC_VERSION;
+                $cur->version = App::config()->dotclearVersion();
                 $cur->insert();
 
                 # Create first post
@@ -278,8 +278,8 @@ class Install extends Process
                 App::blog()->addComment($cur);
 
                 #  Plugins initialization
-                define('DC_CONTEXT_ADMIN', true);
-                App::plugins()->loadModules(DC_PLUGINS_ROOT);
+                App::setContext('BACKEND');
+                App::plugins()->loadModules(App::config()->pluginsRoot());
                 self::$plugins_install = App::plugins()->installModules();
 
                 # Add dashboard module options
@@ -354,8 +354,8 @@ class Install extends Process
         '<h1>' . __('Dotclear installation') . '</h1>' .
             '<div id="main">';
 
-        if (!is_writable(DC_TPL_CACHE)) {
-            echo '<div class="error" role="alert"><p>' . sprintf(__('Cache directory %s is not writable.'), DC_TPL_CACHE) . '</p></div>';
+        if (!is_writable(App::config()->cacheRoot())) {
+            echo '<div class="error" role="alert"><p>' . sprintf(__('Cache directory %s is not writable.'), App::config()->cacheRoot()) . '</p></div>';
         }
 
         if (self::$can_install && !empty(self::$err)) {

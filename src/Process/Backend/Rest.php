@@ -114,7 +114,7 @@ class Rest extends Process
                     throw new Exception();
                 }
                 $feed_reader = new Reader();
-                $feed_reader->setCacheDir(DC_TPL_CACHE);
+                $feed_reader->setCacheDir(App::config()->cacheRoot());
                 $feed_reader->setTimeout(2);
                 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
                 $feed = $feed_reader->parse($rss_news);
@@ -162,9 +162,9 @@ class Rest extends Process
             'ret'   => __('Dotclear update not available'),
         ];
 
-        if (App::auth()->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !App::auth()->prefs()->dashboard->nodcupdate) {
-            $updater      = new Update(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
-            $new_v        = $updater->check(DC_VERSION);
+        if (App::auth()->isSuperAdmin() && !App::config()->coreNotUpdate() && is_readable(App::config()->digestsRoot()) && !App::auth()->prefs()->dashboard->nodcupdate) {
+            $updater      = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
+            $new_v        = $updater->check(App::config()->dotclearVersion());
             $version_info = $new_v ? $updater->getInfoURL() : '';
 
             if ($updater->getNotify() && $new_v) {
@@ -191,12 +191,12 @@ class Rest extends Process
                     'ret'   => $ret,
                 ];
             } else {
-                if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
+                if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
                     if (!App::auth()->prefs()->interface->hidemoreinfo) {
                         $ret = '<p class="info">' .
                         sprintf(
                             __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-                            DC_NEXT_REQUIRED_PHP,
+                            App::config()->nextRequiredPhp(),
                             phpversion()
                         ) .
                         '</p>';

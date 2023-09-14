@@ -55,7 +55,7 @@ Clearbricks::lib()->autoload([
     'dcSpamFilter' => __DIR__ . '/inc/antispam.php',
 ]);
 
-if (!defined('DC_CONTEXT_ADMIN')) {
+if (!App::context('BACKEND')) {
     return false;
 }
 

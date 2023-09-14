@@ -106,8 +106,8 @@ class ThemeEditor
     public function __construct()
     {
         $this->user_theme   = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
-        $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . DC_DEFAULT_TPLSET;
-        $this->tplset_name  = DC_DEFAULT_TPLSET;
+        $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . App::config()->defaultTplset();
+        $this->tplset_name  = App::config()->defaultTplset();
         if (null !== App::themes()) {
             $parent_theme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'parent');
             if ($parent_theme) {
@@ -116,7 +116,7 @@ class ThemeEditor
             }
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
             if ($tplset) {
-                $this->tplset_theme = DC_ROOT . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
+                $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
                 $this->tplset_name  = $tplset;
             }
         }

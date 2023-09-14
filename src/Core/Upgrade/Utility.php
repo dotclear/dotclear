@@ -21,8 +21,6 @@ class Utility extends Process
 {
     public static function init(): bool
     {
-        define('DC_CONTEXT_UPGRADE', true);
-
         // we need to pass CLI argument to App::load()
         if (isset($_SERVER['argv'][1])) {
             $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];

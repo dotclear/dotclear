@@ -438,7 +438,7 @@ class Utils
                     'Search engines robots policy', ],
                 ['short_feed_items', App::blogWorkspace()::NS_BOOL, false,
                     'Display short feed items', ],
-                ['theme', App::blogWorkspace()::NS_STRING, DC_DEFAULT_THEME,
+                ['theme', App::blogWorkspace()::NS_STRING, App::config()->defaultTheme(),
                     'Blog theme', ],
                 ['themes_path', App::blogWorkspace()::NS_STRING, 'themes',
                     'Themes root path', ],

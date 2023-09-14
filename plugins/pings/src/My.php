@@ -22,7 +22,7 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return in_array($context, [self::MANAGE, self::MENU]) ? // only super admin can manage pings
-            defined('DC_CONTEXT_ADMIN')
+            App::context('BACKEND')
             && App::auth()->isSuperAdmin()
             : null;
     }

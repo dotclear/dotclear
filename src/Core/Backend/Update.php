@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -177,7 +178,7 @@ class Update
             $http_get = function ($http_url) use (&$status, $path) {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
-                    $client->setTimeout(DC_QUERY_TIMEOUT);
+                    $client->setTimeout(App::config()->queryTimeout());
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                     $client->get($path);
                     $status = (int) $client->getStatus();
@@ -379,7 +380,7 @@ class Update
             $http_get = function ($http_url) use (&$status, $dest, $path) {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
-                    $client->setTimeout(DC_QUERY_TIMEOUT);
+                    $client->setTimeout(App::config()->queryTimeout());
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                     $client->useGzip(false);
                     $client->setPersistReferers(false);

@@ -17,12 +17,12 @@ namespace Dotclear {
     use Dotclear\Core\PostType;
     use Dotclear\Core\Process;
     use Dotclear\Helper\Clearbricks;
-    use Dotclear\Helper\Crypt;
     use Dotclear\Helper\Date;
     use Dotclear\Helper\File\Files;
     use Dotclear\Helper\File\Path;
     use Dotclear\Helper\L10n;
     use Dotclear\Helper\Network\Http;
+    use Error;
     use Exception;
 
     // Load Autoloader file
@@ -39,20 +39,6 @@ namespace Dotclear {
      */
     final class App extends Container
     {
-        /**
-         * Dotclear default release config file name
-         *
-         * @var    string   RELEASE_FILE
-         */
-        public const RELEASE_FILE = 'release.json';
-
-        /**
-         * Dotclear default release config
-         *
-         * @var    array<string,mixed>  $release
-         */
-        private static array $release = [];
-
         /**
          * Requirements are loaded.
          *
@@ -82,6 +68,22 @@ namespace Dotclear {
         private static string $lang = 'en';
 
         /**
+         * The context(s).
+         *
+         * Multiple contexts can be set at same time like:
+         * INSTALL / BACKEND, or BACKEND / MODULE
+         *
+         * @var     array<string,bool>  The contexts in use
+         */
+        private static array $context = [
+            'BACKEND'  => false,
+            'FRONTEND' => false,
+            'MODULE'   => false,
+            'INSTALL'  => false,
+            'UPGRADE'  => false,
+        ];
+
+        /**
          * App boostrap.
          *
          * Load application with their utility and process, if any.
@@ -108,6 +110,7 @@ namespace Dotclear {
             self::preload();
 
             // Init app utility. If any.
+            self::setContext($utility);
             $ret = empty($utility) ? false : self::utility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
             // Load app requirements
@@ -166,32 +169,54 @@ namespace Dotclear {
             // App::preload() not done
             self::initialized();
 
-            try {
-                // Load once release file
-                if (empty(self::$release)) {
-                    $file = DC_ROOT . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
-                    if (!is_file($file) || !is_readable($file)) {
-                        throw new Exception(__('Dotclear release file was not found'), Fault::SETUP_ISSUE);
-                    }
+            return App::config()->release($key);
+        }
 
-                    $release = json_decode((string) file_get_contents($file), true);
-                    if (!is_array($release)) {
-                        throw new Exception(__('Dotclear release file is not readable'), Fault::SETUP_ISSUE);
-                    }
+        /**
+         * Set a context.
+         *
+         * Method is not case sensitive.
+         *
+         * Context can be one of:
+         * * BACKEND
+         * * FRONTEND
+         * * INSTALL
+         * * MODULE
+         * * UPGRADE
+         *
+         * @param   string  $context    The context to set
+         */
+        public static function setContext(string $context): void
+        {
+            $context = strtoupper($context);
 
-                    self::$release = $release;
+            if (array_key_exists($context, self::$context)) {
+                self::$context[$context] = true;
+
+                // Constant compatibility
+                $constant = 'DC_CONTEXT_' . match ($context) {
+                    'BACKEND'  => 'ADMIN',
+                    'FRONTEND' => 'PUBLIC',
+                    default    => $context
+                };
+                if (!defined($constant)) {
+                    define($constant, true);
                 }
-
-                // Release key not found
-                if (!array_key_exists($key, self::$release)) {
-                    throw new Exception(sprintf(__('Dotclear release key %s was not found'), $key), Fault::SETUP_ISSUE);
-                }
-
-                // Return casted release key value
-                return is_array(self::$release[$key]) ? implode(',', self::$release[$key]) : (string) self::$release[$key];
-            } catch(Exception $e) {
-                Fault::throw(__('Not found'), $e);
             }
+        }
+
+        /**
+         * Check if a context is set.
+         *
+         * Method is not case sensitive.
+         *
+         * @param   string  $context    The cotenxt to check
+         *
+         * @return  bool    True if context is set
+         */
+        public static function context(string $context): bool
+        {
+            return self::$context[strtoupper($context)] ?? false;
         }
 
         /**
@@ -209,18 +234,6 @@ namespace Dotclear {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
-            // Dotclear root path
-            define('DC_ROOT', dirname(__DIR__));
-
-            // deprecated since 2.28 Load core classes (old way)
-            Clearbricks::lib()->autoload([
-                'dcCore' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.core.php']),
-                'dcUtils' => implode(DIRECTORY_SEPARATOR, [DC_ROOT,  'inc', 'core', 'class.dc.utils.php'])
-            ]);
-
-            // CLI_MODE, boolean constant that tell if we are in CLI mode
-            define('CLI_MODE', PHP_SAPI == 'cli');
-
             mb_internal_encoding('UTF-8');
 
             // We may need l10n __() function
@@ -228,22 +241,6 @@ namespace Dotclear {
 
             // We set default timezone to avoid warning
             Date::setTZ('UTC');
-
-            // Say app is initialized (before querying self::release)
-            self::$initialized = true;
-
-            // Release constants
-            define('DC_VERSION', self::release('release_version'));
-            define('DC_NAME', self::release('release_name'));
-        }
-
-        /**
-         * load other requirements.
-         */
-        private static function load(): void
-        {
-            // Preload requirements
-            self::preload();
 
             // Disallow every special wrapper
             if (function_exists('\\stream_wrapper_unregister')) {
@@ -271,191 +268,83 @@ namespace Dotclear {
                 $_SERVER['PATH_INFO'] = '';
             }
 
-            if (isset($_SERVER['DC_RC_PATH'])) {
-                define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);
-            } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
-                define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
-            } else {
-                define('DC_RC_PATH', implode(DIRECTORY_SEPARATOR, [DC_ROOT, 'inc', 'config.php']));
-            }
+            // Say app is initialized (before querying self::release)
+            self::$initialized = true;
+        }
 
-            // no config file and not in install process
-            if (!is_file(DC_RC_PATH)) {
-                // do not process install on CLI mode
-                if (CLI_MODE) {
-                    new Fault('Dotclear is not installed or failed to load config file.', '', Fault::CONFIG_ISSUE);
-                }
-                if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
-                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
-                } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
-                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
-                }
+        /**
+         * load other requirements.
+         */
+        private static function load(): void
+        {
+            // Preload requirements
+            self::preload();
 
-                // stop App init here on install wizard
-                return;
-            }
+            L10n::init();
 
             // path::real() may be used in inc/config.php
             if (!class_exists('path')) {
                 class_alias('Dotclear\Helper\File\Path', 'path');
             }
 
-            require DC_RC_PATH;
-
-            //*== DC_DEBUG ==
-            if (!defined('DC_DEBUG')) {
-                define('DC_DEBUG', true);
-            }
-            if (DC_DEBUG) {
-                ini_set('display_errors', '1');
-                error_reporting(E_ALL);
-            }
-            //*/
-
-            if (!defined('DC_DEBUG')) {
-                define('DC_DEBUG', false);
-            }
-
-            // Other constants
-            define('DC_DIGESTS', Path::reduce([DC_ROOT, 'inc', 'digests']));
-            define('DC_L10N_ROOT', Path::reduce([DC_ROOT, 'locales']));
-            define('DC_L10N_UPDATE_URL', self::release('l10n_update_url'));
-
-            // Update Makefile if the following list is modified
-            define('DC_DISTRIB_PLUGINS', self::release('distributed_plugins'));
-            // Update Makefile if the following list is modified
-            define('DC_DISTRIB_THEMES', self::release('distributed_themes'));
-
-            define('DC_DEFAULT_THEME', self::release('default_theme'));
-            define('DC_DEFAULT_TPLSET', self::release('default_tplset'));
-            define('DC_DEFAULT_JQUERY', self::release('default_jquery'));
-
-            if (!defined('DC_NEXT_REQUIRED_PHP')) {
-                define('DC_NEXT_REQUIRED_PHP', self::release('next_php'));
-            }
-
-            if (!defined('DC_VENDOR_NAME')) {
-                define('DC_VENDOR_NAME', 'Dotclear');
-            }
-
-            if (!defined('DC_XMLRPC_URL')) {
-                define('DC_XMLRPC_URL', '%1$sxmlrpc/%2$s');
-            }
-
-            if (!defined('DC_SESSION_TTL')) {
-                define('DC_SESSION_TTL', null);
-            }
-
-            if (!defined('DC_ADMIN_SSL')) {
-                define('DC_ADMIN_SSL', false);
-            }
-
-            if (defined('DC_FORCE_SCHEME_443') && DC_FORCE_SCHEME_443) {
-                Http::$https_scheme_on_443 = true;
-            }
-            if (defined('DC_REVERSE_PROXY') && DC_REVERSE_PROXY) {
-                Http::$reverse_proxy = true;
-            }
-            if (!defined('DC_DBPERSIST')) {
-                define('DC_DBPERSIST', false);
-            }
-
-            if (!defined('DC_UPDATE_URL')) {
-                define('DC_UPDATE_URL', self::release('release_update_url'));
-            }
-
-            if (!defined('DC_UPDATE_VERSION')) {
-                define('DC_UPDATE_VERSION', self::release('release_update_canal'));
-            }
-
-            if (!defined('DC_NOT_UPDATE')) {
-                define('DC_NOT_UPDATE', false);
-            }
-
-            if (!defined('DC_ALLOW_MULTI_MODULES')) {
-                define('DC_ALLOW_MULTI_MODULES', false);
-            }
-
-            if (!defined('DC_STORE_NOT_UPDATE')) {
-                define('DC_STORE_NOT_UPDATE', false);
-            }
-
-            if (!defined('DC_REST_SERVICES')) {
-                define('DC_REST_SERVICES', true);
-            }
-
-            if (!defined('DC_ALLOW_REPOSITORIES')) {
-                define('DC_ALLOW_REPOSITORIES', true);
-            }
-
-            if (!defined('DC_QUERY_TIMEOUT')) {
-                define('DC_QUERY_TIMEOUT', 4);
-            }
-
-            if (!defined('DC_CRYPT_ALGO')) {
-                define('DC_CRYPT_ALGO', 'sha1'); // As in Dotclear 2.9 and previous
-            } else {
-                // Check length of cryptographic algorithm result and exit if less than 40 characters long
-                if (strlen(Crypt::hmac(DC_MASTER_KEY, DC_VENDOR_NAME, DC_CRYPT_ALGO)) < 40) {
-                    if (!defined('DC_CONTEXT_ADMIN')) {
-                        new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
-                    } else {
-                        new Fault('Dotclear error', DC_CRYPT_ALGO . ' cryptographic algorithm configured is not strong enough, please change it.', Fault::SETUP_ISSUE);
-                    }
-                    exit;
+            // Load dotclear config
+            try {
+                $config = new Config(dirname(__DIR__));
+            } catch (Exception|Error $e) {
+                if (!self::context('BACKEND')) {
+                    new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
+                } else {
+                    new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
                 }
+                exit;
             }
 
-            if (!defined('DC_TPL_CACHE')) {
-                define('DC_TPL_CACHE', Path::reduce([DC_ROOT, 'cache']));
-            }
-            // Check existence of cache directory
-            if (!is_dir(DC_TPL_CACHE)) {
-                // Try to create it
-                @Files::makeDir(DC_TPL_CACHE);
-                if (!is_dir(DC_TPL_CACHE)) {
-                    // Admin must create it
-                    if (!defined('DC_CONTEXT_ADMIN')) {
-                        new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
-                    } else {
-                        new Fault('Dotclear error', DC_TPL_CACHE . ' directory does not exist. Please create it.', Fault::SETUP_ISSUE);
-                    }
-                    exit;
-                }
-            }
-
-            if (!defined('DC_VAR')) {
-                define('DC_VAR', Path::reduce([DC_ROOT, 'var']));
-            }
-            // Check existence of var directory
-            if (!is_dir(DC_VAR)) {
-                // Try to create it
-                @Files::makeDir(DC_VAR);
-                if (!is_dir(DC_VAR)) {
-                    // Admin must create it
-                    if (!defined('DC_CONTEXT_ADMIN')) {
-                        new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
-                    } else {
-                        new Fault('Dotclear error', DC_VAR . ' directory does not exist. Please create it.', Fault::SETUP_ISSUE);
-                    }
-                    exit;
-                }
-            }
+            // deprecated since 2.28, loads core classes (old way)
+            Clearbricks::lib()->autoload([
+                'dcCore'  => implode(DIRECTORY_SEPARATOR, [$config->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+                'dcUtils' => implode(DIRECTORY_SEPARATOR, [$config->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+            ]);
 
             // Check and serve plugins and var files. (from ?pf= and ?vf= URI)
-            FileServer::check();
-
-            // REST server watchdog file (used to enable/disable REST services during last phase of Dotclear upgrade)
-            if (!defined('DC_UPGRADE')) {
-                define('DC_UPGRADE', Path::reduce([DC_ROOT, 'inc', 'upgrade']));
-            }
-
-            L10n::init();
+            FileServer::check($config);
 
             try {
                 // Instanciate once App with core factory
-                new App(Factories::getFactory('core'));
+                new App(
+                    config: $config,
+                    class: Factories::getFactory('core')
+                );
+            } catch (Exception $e) {
+                if (!self::context('BACKEND')) {
+                    new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
+                } else {
+                    new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
+                }
+                exit;
+            }
 
+            // no config file and not in install process
+            if (!is_file($config->configPath())) {
+                if ((strpos($_SERVER['SCRIPT_FILENAME'], '\admin') || strpos($_SERVER['SCRIPT_FILENAME'], '/admin')) === false) {
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
+                } elseif ((strpos($_SERVER['PHP_SELF'], '\install') || strpos($_SERVER['PHP_SELF'], '/install')) === false) {
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
+                }
+
+                return;
+            }
+
+            if ($config->httpScheme443()) {
+                Http::$https_scheme_on_443 = true;
+            }
+
+            if ($config->httpReverseProxy()) {
+                Http::$reverse_proxy = true;
+            }
+
+            // try connection
+            try {
+                App::con();
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
@@ -463,7 +352,7 @@ namespace Dotclear {
                 // Loading locales for detected language
                 $detected_languages = Http::getAcceptLanguages();
                 foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, $language, 'main'])) !== false) {
+                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$config->l10nRoot(), $language, 'main'])) !== false) {
                         L10n::lang($language);
 
                         // We stop at first accepted language
@@ -472,7 +361,7 @@ namespace Dotclear {
                 }
                 unset($detected_languages);
 
-                if (!defined('DC_CONTEXT_ADMIN')) {
+                if (!self::context('BACKEND')) {
                     new Fault(
                         __('Site temporarily unavailable'),
                         __('<p>We apologize for this temporary unavailability.<br />' .
@@ -494,10 +383,10 @@ namespace Dotclear {
                             '<p>If you\'re unsure what these terms mean you should probably contact ' .
                             'your host. If you still need help you can always visit the ' .
                             '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            (DC_DEBUG ?
+                            ($config->debugMode() ?
                                 '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
                                 ''),
-                            (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')
+                            ($config->dbHost() !== '' ? $config->dbHost() : 'localhost')
                         ) :
                         '',
                         Fault::DATABASE_ISSUE
@@ -537,15 +426,6 @@ namespace Dotclear {
 
             // set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
             App::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', App::url()->getURLFor('post', '%s'), 'Posts'));
-
-            # Store upload_max_filesize in bytes
-            $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
-            $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
-            if ($p_max_size < $u_max_size) {
-                $u_max_size = $p_max_size;
-            }
-            define('DC_MAX_UPLOAD_SIZE', $u_max_size);
-            unset($u_max_size, $p_max_size);
 
             /*
              * Register local shutdown handler

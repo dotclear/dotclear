@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -33,14 +33,14 @@ class Plugins extends Process
         // -- Page helper --
         App::backend()->list = new ModulesList(
             App::plugins(),
-            DC_PLUGINS_ROOT,
+            App::config()->pluginsRoot(),
             App::blog()->settings()->system->store_plugin_url,
             !empty($_GET['nocache']) ? true : null
         );
 
-        ModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
+        ModulesList::$allow_multi_install = App::config()->allowMultiModules();
         // deprecated since 2.26
-        ModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
+        ModulesList::$distributed_modules = explode(',', App::config()->distributedPlugins());
 
         $disabled = App::plugins()->disableDepModules();
         if (count($disabled)) {

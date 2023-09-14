@@ -461,8 +461,8 @@ class ManagePage extends Process
         echo Page::breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name()) => '',
-                My::name()                          => App::backend()->getPageURL(),
-                $edit_entry_title                   => '',
+                My::name()                            => App::backend()->getPageURL(),
+                $edit_entry_title                     => '',
             ]
         );
 
@@ -675,7 +675,7 @@ class ManagePage extends Process
                     App::url()->getURLFor(
                         'pagespreview',
                         App::auth()->userID() . '/' .
-                        Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) .
+                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) .
                         '/' . App::backend()->post->post_url
                     );
 

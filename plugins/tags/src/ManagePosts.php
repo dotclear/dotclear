@@ -144,7 +144,7 @@ class ManagePosts extends Process
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name())                                        => '',
+                Html::escapeHTML(App::blog()->name())                                      => '',
                 My::name()                                                                 => App::backend()->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(App::backend()->tag) . '&rdquo;' => '',
             ]

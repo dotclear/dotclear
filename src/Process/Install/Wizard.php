@@ -9,6 +9,7 @@
 
 namespace Dotclear\Process\Install;
 
+use Dotclear\App;
 use Dotclear\Fault;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
@@ -36,7 +37,7 @@ class Wizard extends Process
 
     public static function init(): bool
     {
-        if (!self::status(defined('DC_CONTEXT_INSTALL') && defined('DC_RC_PATH'))) {
+        if (!self::status(App::context('INSTALL') && App::config()->configPath() != '')) {
             throw new Exception('Not found', 404);
         }
 
@@ -44,11 +45,11 @@ class Wizard extends Process
         $dlang = Http::getAcceptLanguage();
         if ($dlang != 'en') {
             L10n::init($dlang);
-            L10n::set(DC_ROOT . '/locales/' . $dlang . '/main');
+            L10n::set(App::config()->dotclearRoot() . '/locales/' . $dlang . '/main');
         }
 
-        if (!is_writable(dirname(DC_RC_PATH))) {
-            self::$err = '<p>' . sprintf(__('Path <strong>%s</strong> is not writable.'), Path::real(dirname(DC_RC_PATH))) . '</p>' .
+        if (!is_writable(dirname(App::config()->configPath()))) {
+            self::$err = '<p>' . sprintf(__('Path <strong>%s</strong> is not writable.'), Path::real(dirname(App::config()->configPath()))) . '</p>' .
             '<p>' . __('Dotclear installation wizard could not create configuration file for you. ' .
                 'You must change folder right or create the <strong>config.php</strong> ' .
                 'file manually, please refer to ' .
@@ -76,7 +77,7 @@ class Wizard extends Process
         if (!empty($_POST)) {
             try {
                 if (self::$DBDRIVER == 'sqlite' && strpos(self::$DBNAME, '/') === false) {
-                    $sqlite_db_directory = dirname(DC_RC_PATH) . '/../db/';
+                    $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
                     Files::makeDir($sqlite_db_directory, true);
 
                     # Can we write sqlite_db_directory ?
@@ -110,14 +111,14 @@ class Wizard extends Process
                 }
 
                 # Does config.php.in exist?
-                $config_in = DC_ROOT . '/inc/config.php.in';
+                $config_in = App::config()->dotclearRoot() . '/inc/config.php.in';
                 if (!is_file($config_in)) {
                     throw new Exception(sprintf(__('File %s does not exist.'), $config_in));
                 }
 
                 # Can we write config.php
-                if (!is_writable(dirname(DC_RC_PATH))) {
-                    throw new Exception(sprintf(__('Cannot write %s file.'), DC_RC_PATH));
+                if (!is_writable(dirname(App::config()->configPath()))) {
+                    throw new Exception(sprintf(__('Cannot write %s file.'), App::config()->configPath()));
                 }
 
                 # Creates config.php file
@@ -136,16 +137,16 @@ class Wizard extends Process
                 self::writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
                 self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
-                $fp = @fopen(DC_RC_PATH, 'wb');
+                $fp = @fopen(App::config()->configPath(), 'wb');
                 if ($fp === false) {
-                    throw new Exception(sprintf(__('Cannot write %s file.'), DC_RC_PATH));
+                    throw new Exception(sprintf(__('Cannot write %s file.'), App::config()->configPath()));
                 }
                 fwrite($fp, $full_conf);
                 fclose($fp);
 
                 if (function_exists('chmod')) {
                     try {
-                        @chmod(DC_RC_PATH, 0o666);
+                        @chmod(App::config()->configPath(), 0o666);
                     } catch (Exception $e) {
                     }
                 }
@@ -162,7 +163,7 @@ class Wizard extends Process
 
     public static function render(): void
     {
-        if (!defined('DC_RC_PATH')) {
+        if (App::config()->configPath() == '') {
             new Fault('Not found', '', 404);
         }
 

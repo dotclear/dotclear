@@ -216,7 +216,7 @@ class Antispam extends initAntispam
     public static function getUserCode(): string
     {
         $code = pack('a32', App::auth()->userID()) .
-        hash(DC_CRYPT_ALGO, App::auth()->cryptLegacy(App::auth()->getInfo('user_pwd')));
+        hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy(App::auth()->getInfo('user_pwd')));
 
         return bin2hex($code);
     }
@@ -249,7 +249,7 @@ class Antispam extends initAntispam
             return false;
         }
 
-        if (hash(DC_CRYPT_ALGO, App::auth()->cryptLegacy($rs->user_pwd)) != $pwd) {
+        if (hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($rs->user_pwd)) != $pwd) {
             return false;
         }
 

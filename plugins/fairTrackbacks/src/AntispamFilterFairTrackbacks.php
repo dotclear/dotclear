@@ -104,7 +104,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 
             $path       = '';
             $http_query = HttpClient::initClient($site, $path);
-            $http_query->setTimeout(DC_QUERY_TIMEOUT);
+            $http_query->setTimeout(App::config()->queryTimeout());
             $http_query->get($path);
 
             // Trackback source does not return 200 status code

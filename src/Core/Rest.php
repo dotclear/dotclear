@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\RestServer;
 use Exception;
 
@@ -39,14 +40,14 @@ class Rest extends RestServer
 
     public function enableRestServer(bool $serve = true): void
     {
-        if (defined('DC_UPGRADE')) {
+        if (App::config()->coreUpgrade() != '') {
             try {
-                if ($serve && file_exists(DC_UPGRADE)) {
+                if ($serve && file_exists(App::config()->coreUpgrade())) {
                     // Remove watchdog file
-                    unlink(DC_UPGRADE);
-                } elseif (!$serve && !file_exists(DC_UPGRADE)) {
+                    unlink(App::config()->coreUpgrade());
+                } elseif (!$serve && !file_exists(App::config()->coreUpgrade())) {
                     // Create watchdog file
-                    touch(DC_UPGRADE);
+                    touch(App::config()->coreUpgrade());
                 }
             } catch (Exception) {
             }
@@ -55,6 +56,6 @@ class Rest extends RestServer
 
     public function serveRestRequests(): bool
     {
-        return defined('DC_UPGRADE') && defined('DC_REST_SERVICES') && !file_exists(DC_UPGRADE) && DC_REST_SERVICES;
+        return !file_exists(App::config()->coreUpgrade()) && App::config()->allowRestServices();
     }
 }

@@ -232,8 +232,8 @@ class Blog implements BlogInterface
 
             $settings = App::blogSettings($id);
 
-            $themes_path = Path::fullFromRoot($settings->system->themes_path, DC_ROOT);
-            $public_path = Path::fullFromRoot($settings->system->public_path, DC_ROOT);
+            $themes_path = Path::fullFromRoot($settings->system->themes_path, App::config()->dotclearRoot());
+            $public_path = Path::fullFromRoot($settings->system->public_path, App::config()->dotclearRoot());
 
             $this->post_status[(string) self::POST_PENDING]     = __('Pending');
             $this->post_status[(string) self::POST_SCHEDULED]   = __('Scheduled');
@@ -383,11 +383,11 @@ class Blog implements BlogInterface
         $version = $this->settings->system->jquery_version;
         if ($version == '') {
             // Version not set, use default one
-            $version = DC_DEFAULT_JQUERY; // defined in src/App.php
+            $version = App::config()->defaultJQuery(); // defined in src/App.php
         } else {
-            if ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, DC_DEFAULT_JQUERY, '<')) {
+            if ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, App::config()->defaultJQuery(), '<')) {
                 // Use the blog defined version only if more recent than default
-                $version = DC_DEFAULT_JQUERY; // defined in src/App.php
+                $version = App::config()->defaultJQuery(); // defined in src/App.php
             }
         }
 

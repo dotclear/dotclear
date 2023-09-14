@@ -780,7 +780,7 @@ class Post extends Process
             'accesskey="s" name="save" /> ';
 
             if (App::backend()->post_id) {
-                $preview_url = App::blog()->url() . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(DC_MASTER_KEY . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . App::backend()->post->post_url);
+                $preview_url = App::blog()->url() . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) . '/' . App::backend()->post->post_url);
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));

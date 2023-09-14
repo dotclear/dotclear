@@ -37,7 +37,7 @@ class Upgrade
             return false;
         }
 
-        if (version_compare($version, DC_VERSION, '<') == 1 || strpos(DC_VERSION, 'dev')) {
+        if (version_compare($version, App::config()->dotclearVersion(), '<') == 1 || strpos(App::config()->dotclearVersion(), 'dev')) {
             try {
                 if (App::con()->driver() == 'sqlite') {
                     return false; // Need to find a way to upgrade sqlite database
@@ -151,7 +151,7 @@ class Upgrade
         }
 
         // set dc version
-        App::version()->setVersion('core', DC_VERSION);
+        App::version()->setVersion('core', App::config()->dotclearVersion());
         Utils::blogDefaults();
 
         return $cleanup_sessions;
@@ -231,22 +231,22 @@ class Upgrade
      */
     public static function houseCleaning(?array $files = null, ?array $folders = null)
     {
-        if (!defined('DC_ROOT') || (DC_ROOT === '')) {
+        if (App::config()->dotclearRoot() === '') {
             return;
         }
 
         if (is_array($files)) {
             foreach ($files as $f) {
-                if (file_exists(DC_ROOT . '/' . $f)) {
-                    @unlink(DC_ROOT . '/' . $f);
+                if (file_exists(App::config()->dotclearRoot() . '/' . $f)) {
+                    @unlink(App::config()->dotclearRoot() . '/' . $f);
                 }
             }
         }
 
         if (is_array($folders)) {
             foreach ($folders as $f) {
-                if (file_exists(DC_ROOT . '/' . $f)) {
-                    Files::deltree(DC_ROOT . '/' . $f);
+                if (file_exists(App::config()->dotclearRoot() . '/' . $f)) {
+                    Files::deltree(App::config()->dotclearRoot() . '/' . $f);
                 }
             }
         }

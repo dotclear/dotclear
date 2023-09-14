@@ -22,7 +22,7 @@ class Cli extends Process
 {
     public static function init(): bool
     {
-        if (!self::status(defined('DC_CONTEXT_UPGRADE') && defined('PHP_SAPI') && PHP_SAPI == 'cli')) {
+        if (!self::status(App::context('UPGRADE') && defined('PHP_SAPI') && PHP_SAPI == 'cli')) {
             throw new Exception('Application is not in CLI mode', 550);
         }
 

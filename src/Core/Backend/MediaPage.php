@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\Listing\ListingMedia;
-use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
@@ -151,7 +151,7 @@ class MediaPage extends FilterMedia
     {
         $dir = $this->media_dir;
         // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
-        if (!defined('DC_SHOW_HIDDEN_DIRS') || (!DC_SHOW_HIDDEN_DIRS)) {
+        if (!App::config()->showHiddenDirs()) {
             for ($i = (is_countable($dir['dirs']) ? count($dir['dirs']) : 0) - 1; $i >= 0; $i--) {
                 if ($dir['dirs'][$i]->d && strpos($dir['dirs'][$i]->basename, '.') === 0) {
                     unset($dir['dirs'][$i]);

@@ -62,7 +62,7 @@ class Utility extends Process
      */
     public function __construct()
     {
-        if (!defined('DC_CONTEXT_ADMIN')) {
+        if (!App::context('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -76,8 +76,6 @@ class Utility extends Process
      */
     public static function init(): bool
     {
-        define('DC_CONTEXT_ADMIN', true);
-
         return true;
     }
 
@@ -196,16 +194,16 @@ class Utility extends Process
         // Load resources and help files
         App::backend()->resources = new Resources();
 
-        require implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(DC_L10N_ROOT, '/resources.php', App::lang())) {
+        require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
+        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang())) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, App::lang(), 'help']))) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [DC_L10N_ROOT, App::lang(), 'help', $hfile]));
+                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang(), 'help', $hfile]));
                 }
             }
         }
@@ -238,7 +236,7 @@ class Utility extends Process
         dcCore::app()->media = App::media();
 
         // Load plugins
-        App::plugins()->loadModules(DC_PLUGINS_ROOT, 'admin', App::lang());
+        App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::lang());
         App::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {
@@ -300,7 +298,7 @@ class Utility extends Process
         // Unset cookie if necessary
         if (isset($_COOKIE['dc_admin'])) {
             unset($_COOKIE['dc_admin']);
-            setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
+            setcookie('dc_admin', '', -600, '', '', App::config()->adminSsl());
         }
     }
 }

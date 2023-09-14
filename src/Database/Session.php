@@ -12,8 +12,8 @@ namespace Dotclear\Database;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 
 /**
  * @class Session
@@ -25,7 +25,7 @@ use Dotclear\Interface\Core\SessionInterface;
 class Session implements SessionInterface
 {
     /**
-     * Connection  handler
+     * Connection handler
      *
      * @var ConnectionInterface
      */

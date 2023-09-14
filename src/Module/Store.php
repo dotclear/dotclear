@@ -68,7 +68,7 @@ class Store
     {
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
-        $this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);
+        $this->user_agent = sprintf('Dotclear/%s)', App::config()->dotclearVersion());
 
         $this->check($force);
     }
@@ -87,7 +87,7 @@ class Store
         }
 
         try {
-            $str_parser = DC_STORE_NOT_UPDATE ? false : StoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
+            $str_parser = App::config()->storeNotUpdate() ? false : StoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force);
         } catch (Exception $e) {
             return false;
         }
@@ -127,10 +127,10 @@ class Store
 
         // check update from third party repositories
         foreach ($this->modules->getDefines() as $cur_define) {
-            if ($cur_define->get('repository') != '' && DC_ALLOW_REPOSITORIES) {
+            if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
                 try {
                     $str_url    = substr($cur_define->get('repository'), -12, 12) == '/dcstore.xml' ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
-                    $str_parser = StoreReader::quickParse($str_url, DC_TPL_CACHE, $force);
+                    $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force);
                     if ($str_parser === false) {
                         continue;
                     }

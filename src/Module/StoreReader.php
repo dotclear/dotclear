@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
@@ -101,8 +102,8 @@ class StoreReader extends HttpClient
     public function __construct()
     {
         parent::__construct('');
-        $this->setUserAgent(sprintf('Dotclear/%s', DC_VERSION));
-        $this->setTimeout(DC_QUERY_TIMEOUT);
+        $this->setUserAgent(sprintf('Dotclear/%s', App::config()->dotclearVersion()));
+        $this->setTimeout(App::config()->queryTimeout());
     }
 
     /**

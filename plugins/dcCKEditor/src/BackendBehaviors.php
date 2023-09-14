@@ -47,13 +47,13 @@ class BackendBehaviors
         Page::jsJson('ck_editor_ctx', [
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => (array) $alt_tags],
-            'admin_base_url'        => DC_ADMIN_URL,
+            'admin_base_url'        => App::config()->adminUrl(),
             'base_url'              => App::blog()->host(),
-            'dcckeditor_plugin_url' => DC_ADMIN_URL . My::fileURL(''),
+            'dcckeditor_plugin_url' => App::config()->adminUrl() . My::fileURL(''),
             'user_language'         => App::auth()->getInfo('user_lang'),
         ]) .
         Page::jsJson('ck_editor_var', [
-            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . My::fileURL('js/ckeditor/'),
+            'CKEDITOR_BASEPATH' => App::config()->adminUrl() . My::fileURL('js/ckeditor/'),
         ]) .
         Page::jsJson('ck_editor_msg', [
             'img_select_title'     => __('Media chooser'),

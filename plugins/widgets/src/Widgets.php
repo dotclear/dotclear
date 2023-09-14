@@ -472,7 +472,7 @@ class Widgets
         $limit = abs((int) $widget->limit);
 
         try {
-            $feed = Reader::quickParse($widget->url, DC_TPL_CACHE);
+            $feed = Reader::quickParse($widget->url, App::config()->cacheRoot());
             if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
                 return '';
             }

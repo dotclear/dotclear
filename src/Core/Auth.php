@@ -258,7 +258,7 @@ class Auth implements AuthInterface
                 $ret = password_get_info($rs->user_pwd);
                 if (is_array($ret) && isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
-                    if (Crypt::hmac(DC_MASTER_KEY, $pwd, DC_CRYPT_ALGO) == $rs->user_pwd) {
+                    if (Crypt::hmac(App::config()->masterKey(), $pwd, App::config()->cryptAlgo()) == $rs->user_pwd) {
                         // Password Ok, need to store it in new fashion way
                         $rs->user_pwd = $this->crypt($pwd);
                         $rehash       = true;
@@ -287,7 +287,7 @@ class Auth implements AuthInterface
             }
         } elseif (is_string($user_key) && $user_key !== '') {
             // Avoid time attacks by measuring server response time during comparison
-            if (!hash_equals(Http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
+            if (!hash_equals(Http::browserUID(App::config()->masterKey() . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
                 return false;
             }
         }
@@ -335,7 +335,7 @@ class Auth implements AuthInterface
 
     public function cryptLegacy(string $pwd): string
     {
-        return Crypt::hmac(DC_MASTER_KEY, $pwd, DC_CRYPT_ALGO);
+        return Crypt::hmac(App::config()->masterKey(), $pwd, App::config()->cryptAlgo());
     }
 
     public function checkPassword(string $pwd): bool
@@ -349,7 +349,7 @@ class Auth implements AuthInterface
 
     public function sessionExists(): bool
     {
-        return isset($_COOKIE[DC_SESSION_NAME]);
+        return isset($_COOKIE[App::config()->sessionName()]);
     }
 
     public function checkSession(?string $uid = null): bool
@@ -363,7 +363,7 @@ class Auth implements AuthInterface
         } else {
             // Check here for user and IP address
             $this->checkUser($_SESSION['sess_user_id']);
-            $uid = $uid ?: Http::browserUID(DC_MASTER_KEY);
+            $uid = $uid ?: Http::browserUID(App::config()->masterKey());
 
             if (($this->userID() === null) || ($uid !== $_SESSION['sess_browser_uid'])) {
                 $welcome = false;

@@ -497,9 +497,9 @@ class Manage extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
-                    App::backend()->page_title          => App::backend()->getPageURL(),
-                    __('Add item')                      => '',
-                    $step_label                         => '',
+                    App::backend()->page_title            => App::backend()->getPageURL(),
+                    __('Add item')                        => '',
+                    $step_label                           => '',
                 ],
                 [
                     'hl_pos' => -2,
@@ -511,7 +511,7 @@ class Manage extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
-                    App::backend()->page_title          => '',
+                    App::backend()->page_title            => '',
                 ]
             ) .
             Notices::getNotices();

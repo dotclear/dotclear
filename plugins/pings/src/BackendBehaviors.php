@@ -18,7 +18,7 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-if (!defined('DC_CONTEXT_ADMIN')) {
+if (!App::context('BACKEND')) {
     return false;
 }
 

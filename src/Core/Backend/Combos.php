@@ -158,7 +158,7 @@ class Combos
         $lang_combo = [];
         $langs      = L10n::getISOcodes(true, true);
         foreach ($langs as $k => $v) {
-            $lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
+            $lang_avail = $v == 'en' || is_dir(App::config()->l10nRoot() . '/' . $v);
             $option     = new Option($k, $v);
             $option->lang($v);
             if ($lang_avail) {
