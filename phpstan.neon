@@ -236,6 +236,10 @@ parameters:
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UrlInterface::#'
       path: %currentWorkingDirectory%
 
+    # Dotclear\Config construct properties
+    - message : '#Class Dotclear\\Config has an uninitialized readonly property#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

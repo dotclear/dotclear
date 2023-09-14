@@ -329,7 +329,7 @@ class Config extends Process
             '<p>' . __('Choose "Custom..." to upload your own image.') . '</p>' .
 
             '<p id="uploader"><label for="upfile">' . __('Add your image:') . '</label> ' .
-            ' (' . sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), Files::size(App::config()->maxUpdloadSize())) . ')' .
+            ' (' . sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' .
             '<input type="file" name="upfile" id="upfile" size="35" />' .
             '</p>' .
 
