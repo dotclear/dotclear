@@ -27,8 +27,8 @@ class Utils
     {
         $err = [];
 
-        if (version_compare(phpversion(), App::release('php_min'), '<')) {
-            $err[] = sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), App::release('php_min'));
+        if (version_compare(phpversion(), App::config()->minRequiredPhp(), '<')) {
+            $err[] = sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), App::config()->minRequiredPhp());
         }
 
         if (!function_exists('mb_detect_encoding')) {
@@ -61,8 +61,8 @@ class Utils
         }
 
         if ($con->syntax() == 'mysql') {
-            if (version_compare($con->version(), App::release('mysql_min'), '<')) {
-                $err[] = sprintf(__('MySQL version is %s (%s or earlier needed).'), $con->version(), App::release('mysql_min'));
+            if (version_compare($con->version(), App::config()->minRequiredMysql(), '<')) {
+                $err[] = sprintf(__('MySQL version is %s (%s or earlier needed).'), $con->version(), App::config()->minRequiredMysql());
             } else {
                 $rs     = $con->select('SHOW ENGINES');
                 $innodb = false;
@@ -79,8 +79,8 @@ class Utils
                 }
             }
         } elseif ($con->driver() == 'pgsql') {
-            if (version_compare($con->version(), App::release('pgsql_min'), '<')) {
-                $err[] = sprintf(__('PostgreSQL version is %s (%s or earlier needed).'), $con->version(), App::release('pgsql_min'));
+            if (version_compare($con->version(), App::config()->minRequiredPgsql(), '<')) {
+                $err[] = sprintf(__('PostgreSQL version is %s (%s or earlier needed).'), $con->version(), App::config()->minRequiredPgsql());
             }
         }
 

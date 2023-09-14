@@ -26,6 +26,10 @@ interface ConfigInterface
      * This method always returns string,
      * casting int, bool, array, to string.
      *
+     * For default values from release file, use this method
+     * else use App::config()->xxx() for values maybe 
+     * modified by config file.
+     *
      * @param   string  $key The release key
      *
      * @return  string  The release value
@@ -203,6 +207,36 @@ interface ConfigInterface
      * @return  string  Default JQeury version
      */
     public function defaultJQuery(): string;
+
+    /**
+     * Minimum required PHP version.
+     *
+     * From release file.
+     * Returns empty string if not set.
+     *
+     * @return  string  PHP min version
+     */
+    public function minRequiredPhp(): string;
+
+    /**
+     * Minimum required MySQL version.
+     *
+     * From release file.
+     * Returns empty string if not set.
+     *
+     * @return  string  MySQL min version
+     */
+    public function minRequiredMysql(): string;
+
+    /**
+     * Minimum required PgSQL version.
+     *
+     * From release file.
+     * Returns empty string if not set.
+     *
+     * @return  string  PgSQL min version
+     */
+    public function minRequiredPgsql(): string;
 
     /**
      * Next release required PHP version.

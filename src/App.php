@@ -155,8 +155,7 @@ namespace Dotclear {
         /**
          * Read Dotclear release config.
          *
-         * This method always returns string,
-         * casting int, bool, array, to string.
+         * @deprecated Since 2.28, use App:config()->release(xxx) or App:config()->yyy() instead.
          *
          * @param   string  $key The release key
          *
@@ -289,11 +288,11 @@ namespace Dotclear {
             try {
                 $config = new Config(dirname(__DIR__));
             } catch (Exception|Error $e) {
-                if (!self::context('BACKEND')) {
-                    new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
-                } else {
-                    new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
-                }
+                new Fault(
+                    'Server error',
+                    self::context('BACKEND') ? $e->getMessage() : 'Site temporarily unavailable',
+                    Fault::SETUP_ISSUE
+                );
                 exit;
             }
 
@@ -313,11 +312,11 @@ namespace Dotclear {
                     class: Factories::getFactory('core')
                 );
             } catch (Exception $e) {
-                if (!self::context('BACKEND')) {
-                    new Fault('Server error', 'Site temporarily unavailable', Fault::SETUP_ISSUE);
-                } else {
-                    new Fault('Dotclear error', $e->getMessage(), Fault::SETUP_ISSUE);
-                }
+                new Fault(
+                    'Server error',
+                    self::context('BACKEND') ? $e->getMessage() : 'Site temporarily unavailable',
+                    Fault::SETUP_ISSUE
+                );
                 exit;
             }
 
@@ -554,7 +553,7 @@ namespace Dotclear {
         {
             self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
 
-            // deprecated since 2.28, use App::setLoang() instead
+            // deprecated since 2.28, use App::setLang() instead
             dcCore::app()->lang = self::$lang;
         }
     }
