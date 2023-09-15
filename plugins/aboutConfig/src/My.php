@@ -21,7 +21,7 @@ class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return App::context('BACKEND')
+        return App::task()->checkContext('BACKEND')
             && App::auth()->isSuperAdmin();
     }
 }

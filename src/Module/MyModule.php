@@ -103,7 +103,7 @@ abstract class MyModule
         // else default permissions
         return match ($context) {
             // Installation of module
-            self::INSTALL => App::context('BACKEND')
+            self::INSTALL => App::task()->checkContext('BACKEND')
                     // Manageable only by super-admin
                     && App::auth()->isSuperAdmin()
                     // And only if new version of module
@@ -119,7 +119,7 @@ abstract class MyModule
             self::FRONTEND => App::config()->configPath() != '',
 
             // Backend context
-            self::BACKEND => App::context('BACKEND')
+            self::BACKEND => App::task()->checkContext('BACKEND')
                     // Check specific permission
                     && App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
@@ -130,7 +130,7 @@ abstract class MyModule
             // Main page of module, Admin menu, Blog widgets
             self::MANAGE,
             self::MENU,
-            self::WIDGETS => App::context('BACKEND')
+            self::WIDGETS => App::task()->checkContext('BACKEND')
                     // Check specific permission
                     && App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
@@ -138,7 +138,7 @@ abstract class MyModule
                     ]), App::blog()->id()),
 
             // Config page of module
-            self::CONFIG => App::context('BACKEND')
+            self::CONFIG => App::task()->checkContext('BACKEND')
                     // Manageable only by super-admin
                     && App::auth()->isSuperAdmin(),
 
@@ -209,7 +209,7 @@ abstract class MyModule
      */
     final public static function l10n(string $process): void
     {
-        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', App::lang(), $process]));
+        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', App::task()->getLang(), $process]));
     }
 
     /**
@@ -228,7 +228,7 @@ abstract class MyModule
         if (!empty($resource) && substr($resource, 0, 1) !== '/') {
             $resource = '/' . $resource;
         }
-        if (App::context('BACKEND') && !$frontend) {
+        if (App::task()->checkContext('BACKEND') && !$frontend) {
             return urldecode(App::backend()->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }
 

@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 //use Dotclear\Core\Container;
+use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**
@@ -23,6 +25,7 @@ interface FactoryInterface
 {
     //public function __construct(Container $container);
     public function auth(): AuthInterface;
+    public function backend(): Backend;
     public function behavior(): BehaviorInterface;
     public function blog(): BlogInterface;
     public function blogSettings(?string $blog_id): BlogSettingsInterface;
@@ -36,6 +39,7 @@ interface FactoryInterface
     public function error(): ErrorInterface;
     public function filter(): FilterInterface;
     public function formater(): FormaterInterface;
+    public function frontend(): Frontend;
     public function log(): LogInterface;
     public function lexical(): LexicalInterface;
     public function media(): MediaInterface;
@@ -47,6 +51,7 @@ interface FactoryInterface
     public function postTypes(): PostTypesInterface;
     public function rest(): RestInterface;
     public function session(): SessionInterface;
+    public function task(): TaskInterface;
     public function themes(): ModulesInterface;
     public function trackback(): TrackbackInterface;
     public function url(): UrlInterface;

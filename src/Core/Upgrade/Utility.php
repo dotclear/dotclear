@@ -32,7 +32,7 @@ class Utility extends Process
     public static function process(): bool
     {
         // Call utility process from here
-        App::process(Cli::class);
+        App::task()->loadProcess(Cli::class);
 
         return true;
     }

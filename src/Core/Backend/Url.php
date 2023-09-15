@@ -34,7 +34,7 @@ class Url
      */
     public function __construct()
     {
-        if (!App::context('BACKEND')) {
+        if (!App::task()->checkContext('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 
@@ -275,7 +275,7 @@ class Url
      */
     public function setDefaultUrls(): void
     {
-        if (!App::context('BACKEND')) {
+        if (!App::task()->checkContext('BACKEND')) {
             return;
         }
 

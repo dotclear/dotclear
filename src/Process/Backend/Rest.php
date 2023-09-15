@@ -242,7 +242,7 @@ class Rest extends Process
         if ($post['store'] == 'themes') {
             // load once themes
             if (App::themes()->isEmpty() && App::blog()->isDefined()) {
-                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
             }
             $mod = App::themes();
             $url = App::blog()->settings()->system->store_theme_url;

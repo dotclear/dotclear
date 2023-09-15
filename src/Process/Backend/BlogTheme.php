@@ -39,7 +39,7 @@ class BlogTheme extends Process
 
         // Loading themes
         if (App::themes()->isEmpty()) {
-            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
         }
 
         // Page helper

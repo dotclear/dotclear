@@ -1,0 +1,342 @@
+<?php
+/**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Core;
+
+use dcCore;
+use Dotclear\App;
+use Dotclear\FileServer;
+use Dotclear\Fault;
+use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Url;
+use Dotclear\Core\Frontend\Utility as Frontend;
+use Dotclear\Helper\Clearbricks;
+use Dotclear\Helper\Date;
+use Dotclear\Helper\L10n;
+use Dotclear\Helper\Network\Http;
+use Exception;
+use Dotclear\Interface\Core\TaskInterface;
+
+class Task implements TaskInterface
+{
+    /**
+     * Watchdog.
+     *
+     * @var     bool    $runned
+     */
+    private static bool $watchdog = false;
+
+    /**
+     * The context(s).
+     *
+     * Multiple contexts can be set at same time like:
+     * INSTALL / BACKEND, or BACKEND / MODULE
+     *
+     * @var     array<string,bool>  The contexts in use
+     */
+    private array $context = [
+        'BACKEND'  => false,
+        'FRONTEND' => false,
+        'MODULE'   => false,
+        'INSTALL'  => false,
+        'UPGRADE'  => false,
+    ];
+
+    /**
+     * The current lang.
+     *
+     * @var     string     $lang
+     */
+    private static string $lang = 'en';
+
+    public function run(string $utility, string $process)
+    {
+        // watchdog
+        if (self::$watchdog) {
+            throw new Exception('Application can not be started twice.', 500);
+        }
+        self::$watchdog = true;
+
+        // Set encoding
+        mb_internal_encoding('UTF-8');
+
+        // We may need l10n __() function
+        L10n::bootstrap();
+
+        // We set default timezone to avoid warning
+        Date::setTZ('UTC');
+
+        // Disallow every special wrapper
+        if (function_exists('\\stream_wrapper_unregister')) {
+            $special_wrappers = array_intersect([
+                'http',
+                'https',
+                'ftp',
+                'ftps',
+                'ssh2.shell',
+                'ssh2.exec',
+                'ssh2.tunnel',
+                'ssh2.sftp',
+                'ssh2.scp',
+                'ogg',
+                'expect',
+                // 'phar',   // Used by PharData to manage Zip/Tar archive
+            ], stream_get_wrappers());
+            foreach ($special_wrappers as $p) {
+                @stream_wrapper_unregister($p);
+            }
+            unset($special_wrappers, $p);
+        }
+
+        // Ensure server PATH_INFO is set
+        if (!isset($_SERVER['PATH_INFO'])) {
+            $_SERVER['PATH_INFO'] = '';
+        }
+
+        // Set called context
+        $this->addContext($utility);
+
+        // Initialize Utility
+        $utility_response = empty($utility) ? false : $this->LoadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
+
+        L10n::init();
+
+        // path::real() may be used in inc/config.php
+        if (!class_exists('path')) {
+            class_alias('Dotclear\Helper\File\Path', 'path');
+        }
+
+        // deprecated since 2.28, loads core classes (old way)
+        Clearbricks::lib()->autoload([
+            'dcCore'  => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+            'dcUtils' => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+        ]);
+
+        // Check and serve plugins and var files. (from ?pf= and ?vf= URI)
+        FileServer::check(App::config());
+
+        // Config file exists
+        if (is_file(App::config()->configPath())) {
+            // Http setup
+            if (App::config()->httpScheme443()) {
+                Http::$https_scheme_on_443 = true;
+            }
+            if (App::config()->httpReverseProxy()) {
+                Http::$reverse_proxy = true;
+            }
+            Http::trimRequest();
+
+            // Test database connection
+            try {
+                App::con();
+                // deprecated since 2.23, use App:: instead
+                $core            = new dcCore();
+                $GLOBALS['core'] = $core;
+            } catch (Exception $e) {
+                // Loading locales for detected language
+                $detected_languages = Http::getAcceptLanguages();
+                foreach ($detected_languages as $language) {
+                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
+                        L10n::lang($language);
+
+                        // We stop at first accepted language
+                        break;
+                    }
+                }
+                unset($detected_languages);
+
+                if (!$this->checkContext('BACKEND')) {
+                    new Fault(
+                        __('Site temporarily unavailable'),
+                        __('<p>We apologize for this temporary unavailability.<br />' .
+                            'Thank you for your understanding.</p>'),
+                        Fault::DATABASE_ISSUE
+                    );
+                } else {
+                    new Fault(
+                        __('Unable to connect to database'),
+                        $e->getCode() == 0 ?
+                        sprintf(
+                            __('<p>This either means that the username and password information in ' .
+                            'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
+                            'the database server at "<em>%s</em>". This could mean your ' .
+                            'host\'s database server is down.</p> ' .
+                            '<ul><li>Are you sure you have the correct username and password?</li>' .
+                            '<li>Are you sure that you have typed the correct hostname?</li>' .
+                            '<li>Are you sure that the database server is running?</li></ul>' .
+                            '<p>If you\'re unsure what these terms mean you should probably contact ' .
+                            'your host. If you still need help you can always visit the ' .
+                            '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
+                            (App::config()->debugMode() ?
+                                '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
+                                ''),
+                            (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
+                        ) :
+                        '',
+                        Fault::DATABASE_ISSUE
+                    );
+                }
+            }
+
+            # If we have some __top_behaviors, we load them
+            if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
+                foreach ($GLOBALS['__top_behaviors'] as $b) {
+                    App::behavior()->addBehavior($b[0], $b[1]);
+                }
+                unset($GLOBALS['__top_behaviors'], $b);
+            }
+
+            // Register default URLs
+            App::url()->registerDefault(Url::home(...));
+
+            App::url()->registerError(Url::default404(...));
+
+            App::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            App::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            App::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
+            App::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            App::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
+            App::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            App::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
+
+            App::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            App::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            App::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            App::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+
+            App::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            App::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+
+            // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
+            App::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', App::url()->getURLFor('post', '%s'), 'Posts'));
+
+            // Register local shutdown handler
+            register_shutdown_function(function () {
+                if (isset($GLOBALS['__shutdown']) && is_array($GLOBALS['__shutdown'])) {
+                    foreach ($GLOBALS['__shutdown'] as $f) {
+                        if (is_callable($f)) {
+                            call_user_func($f);
+                        }
+                    }
+                }
+
+                try {
+                    if (session_id()) {
+                        // Explicitly close session before DB connection
+                        session_write_close();
+                    }
+                    App::con()->close();
+                } catch (Exception $e) {    // @phpstan-ignore-line
+                    // Ignore exceptions
+                }
+            });
+        } else {
+            // Config file does not exist, go to install page
+            if (!str_contains($_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains($_SERVER['SCRIPT_FILENAME'], '/admin')) {
+                Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
+            } elseif (!str_contains($_SERVER['PHP_SELF'], '\install') && !str_contains($_SERVER['PHP_SELF'], '/install')) {
+                Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
+            }
+        }
+
+        // Process app utility. If any.
+        if ($utility_response && true === $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
+            // Try to load utility process, the _REQUEST process as priority on method process.
+            if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
+                $process = $_REQUEST['process'];
+            }
+            if (!empty($process)) {
+                $this->loadProcess('Dotclear\\Process\\' . $utility . '\\' . $process);
+            }
+        }
+    }
+
+    public function checkContext(string $context): bool
+    {
+        return $this->context[strtoupper($context)] ?? false;
+    }
+
+    public function addContext(string $context): void
+    {
+        $context = strtoupper($context);
+
+        if (array_key_exists($context, $this->context)) {
+            $this->context[$context] = true;
+
+            // Constant compatibility
+            $constant = 'DC_CONTEXT_' . match ($context) {
+                'BACKEND'  => 'ADMIN',
+                'FRONTEND' => 'PUBLIC',
+                default    => $context
+            };
+            if (!defined($constant)) {
+                define($constant, true);
+            }
+        }
+    }
+
+    /**
+     * Processes the given process.
+     *
+     * A process MUST extends Dotclear\Core\Process class.
+     *
+     * @param   string  $process    The process
+     */
+    public function loadProcess(string $process): void
+    {
+        try {
+            if (!is_subclass_of($process, Process::class, true)) {
+                throw new Exception(sprintf(__('Unable to find class %s'), $process));
+            }
+
+            // Call process in 3 steps: init, process, render.
+            if ($process::init() !== false && $process::process() !== false) {
+                $process::render();
+            }
+        } catch (Exception $e) {
+            Fault::throw(__('Process failed'), $e);
+        }
+    }
+
+    public static function getLang(): string
+    {
+        return self::$lang;
+    }
+
+    public static function setLang($id): void
+    {
+        self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
+
+        // deprecated since 2.28, use App::task()->setLang() instead
+        dcCore::app()->lang = self::$lang;
+    }
+
+    /**
+     * Instanciate the given utility.
+     *
+     * An utility MUST extends Dotclear\Core\Process class.
+     *
+     * @param   string  $utility    The utility
+     * @param   bool    $next       Go to process step
+     *
+     * @return  bool    Result of $utility::init() or $utility::process() if exist
+     */
+    private function loadUtility(string $utility, bool $next = false): bool
+    {
+        try {
+            if (!is_subclass_of($utility, Process::class, true)) {
+                throw new Exception(sprintf(__('Unable to find or initialize class %s'), $utility));
+            }
+
+            return $next ? $utility::process() : $utility::init();
+        } catch(Exception $e) {
+            Fault::throw(__('Process failed'), $e);
+        }
+    }
+}

@@ -28,7 +28,7 @@ class Utility extends Process
     public static function process(): bool
     {
         // Call utility process from here
-        App::process(is_file(App::config()->configPath()) ? Install::class : Wizard::class);
+        App::task()->loadProcess(is_file(App::config()->configPath()) ? Install::class : Wizard::class);
 
         return true;
     }

@@ -135,7 +135,7 @@ class BackendBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) (App::context('BACKEND') && App::auth()->getOption('toolbar_bottom')),
+            'toolbar_bottom' => (bool) (App::task()->checkContext('BACKEND') && App::auth()->getOption('toolbar_bottom')),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',
@@ -143,7 +143,7 @@ class BackendBehaviors
             ],
         ];
 
-        $rtl              = L10n::getLanguageTextDirection(App::lang()) == 'rtl' ? 'direction: rtl;' : '';
+        $rtl              = L10n::getLanguageTextDirection(App::task()->getLang()) == 'rtl' ? 'direction: rtl;' : '';
         $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 
@@ -158,7 +158,7 @@ class BackendBehaviors
         My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 
-        if (App::context('BACKEND') && App::auth()->getOption('enable_wysiwyg')) {
+        if (App::task()->checkContext('BACKEND') && App::auth()->getOption('enable_wysiwyg')) {
             $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 

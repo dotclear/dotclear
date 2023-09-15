@@ -47,7 +47,7 @@ class Install extends Process
 
     public static function init(): bool
     {
-        if (!self::status(App::context('INSTALL'))) {
+        if (!self::status(App::task()->checkContext('INSTALL'))) {
             throw new Exception('Not found', 404);
         }
 
@@ -278,7 +278,7 @@ class Install extends Process
                 App::blog()->addComment($cur);
 
                 #  Plugins initialization
-                App::setContext('BACKEND');
+                App::task()->addContext('BACKEND');
                 App::plugins()->loadModules(App::config()->pluginsRoot());
                 self::$plugins_install = App::plugins()->installModules();
 

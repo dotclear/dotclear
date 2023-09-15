@@ -29,7 +29,7 @@ class Home extends Process
 {
     public static function init(): bool
     {
-        if (!App::context('BACKEND')) {
+        if (!App::task()->checkContext('BACKEND')) {
             throw new Exception('Application is not in administrative context.', 500);
         }
 

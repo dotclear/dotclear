@@ -54,7 +54,7 @@ class Manage extends Process
         ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         if (App::themes()->isEmpty()) {
-            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
         }
 
         App::backend()->theme  = App::themes()->getDefine(App::blog()->settings()->system->theme);

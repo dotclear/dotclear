@@ -45,7 +45,7 @@ class Prepend extends Process
         App::url()->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', FrontendUrl::spamFeed(...));
         App::url()->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', FrontendUrl::hamFeed(...));
 
-        if (App::context('BACKEND')) {
+        if (App::task()->checkContext('BACKEND')) {
             // Register REST methods
             App::rest()->addFunction('getSpamsCount', Rest::getSpamsCount(...));
         }

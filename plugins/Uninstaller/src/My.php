@@ -21,7 +21,7 @@ class My extends MyPlugin
     {
         // check super admin except install that follows MyPlugin check
         return $context === My::INSTALL ? null :
-            App::context('BACKEND')
+            App::task()->checkContext('BACKEND')
             && App::auth()->isSuperAdmin();
     }
 }

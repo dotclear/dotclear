@@ -1707,9 +1707,7 @@ class ModulesList
         $this->config_file    = $file;
         $this->config_content = '';
 
-        if (!App::context('MODULE')) {
-            App::setContext('MODULE');
-        }
+        App::task()->addContext('MODULE');
 
         return true;
     }
