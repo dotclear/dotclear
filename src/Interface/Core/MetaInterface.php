@@ -15,6 +15,8 @@ use Dotclear\Database\Statement\SelectStatement;
 
 /**
  * Meta hanlder interface.
+ *
+ * @since 2.28
  */
 interface MetaInterface
 {

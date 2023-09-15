@@ -16,6 +16,8 @@ namespace Dotclear\Interface;
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md
  *
  * As complex exceptions handling is not set in Dotclear, only \Exception is thrown.
+ *
+ * @since 2.28
  */
 interface ContainerInterface
 {

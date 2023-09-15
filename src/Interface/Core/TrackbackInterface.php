@@ -17,6 +17,8 @@ use Dotclear\Database\MetaRecord;
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.
+ *
+ * @since 2.28
  */
 interface TrackbackInterface
 {

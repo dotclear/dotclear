@@ -11,6 +11,8 @@ namespace Dotclear\Interface\Core;
 
 /**
  * Post type descriptor interface.
+ *
+ * @since 2.28
  */
 interface PostTypeInterface
 {

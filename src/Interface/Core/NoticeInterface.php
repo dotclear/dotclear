@@ -14,6 +14,8 @@ use Dotclear\Database\MetaRecord;
 
 /**
  * Core notice handler interface.
+ *
+ * @since 2.28
  */
 interface NoticeInterface
 {

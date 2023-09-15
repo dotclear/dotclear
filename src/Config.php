@@ -40,30 +40,32 @@ use Exception;
  * * DC_AKISMET_SUPER (plugin)
  * * HTTP_PROXY_HOST (Helper)
  * * HTTP_PROXY_PORT (Helper)
+ *
+ * @since 2.28
  */
 class Config implements ConfigInterface
 {
     /**
-     * Dotclear default release config file name
+     * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const CONFIG_FILE = 'config.php';
     /**
-     * Dotclear default release config file name
+     * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const RELEASE_FILE = 'release.json';
     /**
-     * Dotclear default release config file name
+     * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const CSP_REPORT_FILE = 'csp_report.json';
 
     /**
-     * Dotclear default release config
+     * Dotclear default release config.
      *
      * @var    array<string,mixed>  $release
      */
@@ -86,6 +88,9 @@ class Config implements ConfigInterface
     private readonly string $default_theme;
     private readonly string $default_tplset;
     private readonly string $default_jquery;
+    private readonly string $min_required_php;
+    private readonly string $min_required_mysql;
+    private readonly string $min_required_pgsql;
     private readonly string $next_required_php;
     private readonly string $vendor_name;
     private readonly string $xmlrpc_url;
@@ -163,6 +168,9 @@ class Config implements ConfigInterface
         $this->default_theme       = $this->release('default_theme');
         $this->default_tplset      = $this->release('default_tplset');
         $this->default_jquery      = $this->release('default_jquery');
+        $this->min_required_php    = $this->release('php_min');
+        $this->min_required_mysql  = $this->release('mysql_min');
+        $this->min_required_pgsql  = $this->release('pgsql_min');
 
         // From config file
         $this->config_path = match (true) {
@@ -405,7 +413,7 @@ class Config implements ConfigInterface
         }
         $this->csp_report_file = DC_CSP_LOGFILE;
 
-        // no release file
+        // No release file
         if ($this->dotclearVersion() == '') {
             throw new Exception(__('Dotclear release file is not readable'));
         }
@@ -539,6 +547,21 @@ class Config implements ConfigInterface
     public function defaultJQuery(): string
     {
         return $this->default_jquery;
+    }
+
+    public function minRequiredPhp(): string
+    {
+        return $this->min_required_php;
+    }
+
+    public function minRequiredMysql(): string
+    {
+        return $this->min_required_mysql;
+    }
+
+    public function minRequiredPgsql(): string
+    {
+        return $this->min_required_pgsql;
     }
 
     public function nextRequiredPhp(): string

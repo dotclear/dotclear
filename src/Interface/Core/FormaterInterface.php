@@ -11,6 +11,8 @@ namespace Dotclear\Interface\Core;
 
 /**
  * Text formater handler interface.
+ *
+ * @since 2.28
  */
 interface FormaterInterface
 {

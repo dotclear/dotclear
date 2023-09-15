@@ -13,6 +13,8 @@ use Dotclear\Helper\Html\Form\Hidden;
 
 /**
  * Form nonce handler interface.
+ *
+ * @since 2.28
  */
 interface NonceInterface
 {

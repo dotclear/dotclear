@@ -11,6 +11,8 @@ namespace Dotclear\Interface\Core;
 
 /**
  * Post types handler interface.
+ *
+ * @since 2.28
  */
 interface PostTypesInterface
 {

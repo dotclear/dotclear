@@ -14,6 +14,8 @@ use Dotclear\Database\MetaRecord;
 
 /**
  * User workspace for preferences handler.
+ *
+ * @since 2.28
  */
 interface UserWorkspaceInterface
 {

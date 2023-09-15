@@ -10,7 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Session Handler interface
+ * Session Handler interface.
+ *
+ * @since 2.28
  */
 interface SessionInterface
 {

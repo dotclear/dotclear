@@ -13,11 +13,13 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\Record;
 
 /**
- * Connetion handler interface.
+ * Connection handler interface.
  *
  * Handle database connection.
  *
  * @see \Dotclear\Database\InterfaceHandler
+ *
+ * @since 2.28
  */
 interface ConnectionInterface
 {

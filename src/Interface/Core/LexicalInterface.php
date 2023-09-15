@@ -11,6 +11,8 @@ namespace Dotclear\Interface\Core;
 
 /**
  * Lexical helper.
+ *
+ * @since 2.28
  */
 interface LexicalInterface
 {

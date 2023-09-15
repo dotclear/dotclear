@@ -19,31 +19,67 @@ use Exception;
  */
 class Fault
 {
-    /** @var    int     Uncoded or undefined error (before as 0) */
+    /**
+     * Uncoded or undefined error (before as 0).
+     *
+     * @var     int     UNDEFINED_ISSUE
+     */
     public const UNDEFINED_ISSUE = 550;
 
-    /** @var    int     Server configuration issue (before as 0) */
+    /**
+     * Server configuration issue (before as 0).
+     *
+     * @var     int     SETUP_ISSUE
+     */
     public const SETUP_ISSUE = 555;
 
-    /** @var    int     Dotclear configuration file issue (before as 10) */
+    /**
+     * Dotclear configuration file issue (before as 10).
+     *
+     * @var     int     CONFIG_ISSUE
+     */
     public const CONFIG_ISSUE = 560;
 
-    /** @var    int     Database connexion issue (before as 20) */
+    /**
+     * Database connexion issue (before as 20).
+     *
+     * @var     int     DATABASE_ISSUE
+     */
     public const DATABASE_ISSUE = 565;
 
-    /** @var    int     Blog definition issue (before as 30) */
+    /**
+     * Blog definition issue (before as 30).
+     *
+     * @var     int     BLOG_ISSUE
+     */
     public const BLOG_ISSUE = 570;
 
-    /** @var    int     Template file creation issue (before as 40) */
+    /**
+     * Template file creation issue (before as 40).
+     *
+     * @var     int     TEMPLATE_CREATION_ISSUE
+     */
     public const TEMPLATE_CREATION_ISSUE = 575;
 
-    /** @var    int     Theme issue (before as 50) */
+    /**
+     * Theme issue (before as 50).
+     *
+     * @var     int     THEME_ISSUE
+     */
     public const THEME_ISSUE = 580;
 
-    /** @var    int     Template processing issue (before as 60) */
+    /**
+     * Template processing issue (before as 60).
+     *
+     * @var     int     TEMPLATE_PROCESSING_ISSUE
+     */
     public const TEMPLATE_PROCESSING_ISSUE = 585;
 
-    /** @var    int     Blog is offline (before as 70) */
+    /**
+     * Blog is offline (before as 70).
+     *
+     * @var     int     BLOG_OFFLINE
+     */
     public const BLOG_OFFLINE = 590;
 
     /**

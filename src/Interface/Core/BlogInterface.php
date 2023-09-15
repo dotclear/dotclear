@@ -17,6 +17,8 @@ use Exception;
 
 /**
  * Blog hanlder interface.
+ *
+ * @since 2.28, an instance of BLog can be set without a defined blog
  */
 interface BlogInterface
 {

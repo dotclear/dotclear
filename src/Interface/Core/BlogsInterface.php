@@ -16,6 +16,8 @@ use Exception;
 
 /**
  * Blogs handler interface.
+ *
+ * @since 2.28
  */
 interface BlogsInterface
 {

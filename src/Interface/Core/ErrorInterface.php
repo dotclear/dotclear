@@ -11,6 +11,8 @@ namespace Dotclear\Interface\Core;
 
 /**
  * Error hanlder interface.
+ *
+ * @since 2.28
  */
 interface ErrorInterface
 {

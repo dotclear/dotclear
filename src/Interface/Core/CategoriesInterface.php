@@ -1,7 +1,5 @@
 <?php
 /**
- * Categories handler interface.
- *
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
@@ -14,6 +12,11 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * Categories handler interface.
+ *
+ * @since 2.28
+ */
 interface CategoriesInterface
 {
     /**

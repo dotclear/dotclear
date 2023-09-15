@@ -1,10 +1,6 @@
 <?php
 /**
- * Dotclear fatories handler.
- *
  * @package Dotclear
- *
- * @since 2.28
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -14,21 +10,29 @@ declare(strict_types=1);
 namespace Dotclear;
 
 /**
- * Factories.
+ * Dotclear fatories handler.
  *
  * To add a third party Factory :
+ * @code{php}
  * require_once path_to_this_file/Factories.php;
  * Factories::addFactory('core', MyCoreFactory::class);
+ * @endcode
  *
  * * Third party factory must be accessible from Autoloaer.
  * * A container factory is set once.
  * * This MUST be done before any call to App.
  * * Once a container is instanciated, changes to factories stack have no effects.
  * * By default 'core' container is available.
+ *
+ * @since 2.28
  */
 class Factories
 {
-    /** @var    array<string,string> The containers factories stack */
+    /**
+     * The containers factories stack.
+     *
+     * @var     array<string,string>    $stack
+     */
     private static array $stack = [
         'core' => '', // for now only core has factory, see Dotclear\Interface\Core\FactoryInterface
     ];

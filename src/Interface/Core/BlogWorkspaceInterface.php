@@ -14,6 +14,8 @@ use Dotclear\Database\MetaRecord;
 
 /**
  * Blog namespace for settings handler.
+ *
+ * @since 2.28
  */
 interface BlogWorkspaceInterface
 {
