@@ -281,13 +281,19 @@ class Task implements TaskInterface
         }
     }
 
-    /**
-     * Processes the given process.
-     *
-     * A process MUST extends Dotclear\Core\Process class.
-     *
-     * @param   string  $process    The process
-     */
+    public static function getLang(): string
+    {
+        return self::$lang;
+    }
+
+    public static function setLang($id): void
+    {
+        self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
+
+        // deprecated since 2.28, use App::task()->setLang() instead
+        dcCore::app()->lang = self::$lang;
+    }
+
     public function loadProcess(string $process): void
     {
         try {
@@ -302,19 +308,6 @@ class Task implements TaskInterface
         } catch (Exception $e) {
             Fault::throw(__('Process failed'), $e);
         }
-    }
-
-    public static function getLang(): string
-    {
-        return self::$lang;
-    }
-
-    public static function setLang($id): void
-    {
-        self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
-
-        // deprecated since 2.28, use App::task()->setLang() instead
-        dcCore::app()->lang = self::$lang;
     }
 
     /**
