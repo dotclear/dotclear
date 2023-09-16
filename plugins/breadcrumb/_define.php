@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief breadcrumb, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin breadcrumb definition
+ * @ingroup     breadcrumb
+ * 
+ * @defgroup    breadcrumb Plugin breadcrumb.
+ * 
+ * breadcrumb, breadcrumb plugin for Dotclear.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

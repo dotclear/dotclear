@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief breadcrumb, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,10 +12,14 @@ namespace Dotclear\Plugin\breadcrumb;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use form;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup breadcrumb
+ */
 class BackendBehaviors
 {
     /**
-     * Display breadcrumb fieldset settings
+     * Display breadcrumb fieldset settings.
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */
@@ -36,7 +37,7 @@ class BackendBehaviors
     }
 
     /**
-     * Save breadcrumb settings
+     * Save breadcrumb settings.
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */

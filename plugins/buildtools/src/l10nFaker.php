@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief buildtools, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,14 +12,18 @@ namespace Dotclear\Plugin\buildtools;
 use Dotclear\App;
 use Dotclear\Helper\Date;
 
+/**
+ * @brief   The module l10n faker handler.
+ * @ingroup buildtools
+ */
 class l10nFaker
 {
     /**
-     * Get a fake l10n
+     * Get a fake l10n.
      *
-     * @param      string  $str    The string
+     * @param   string  $str    The string
      *
-     * @return     string
+     * @return  string
      */
     protected function fake_l10n(string $str)
     {
@@ -30,7 +31,7 @@ class l10nFaker
     }
 
     /**
-     * Generate files
+     * Generate files.
      *
      * - /_fake_l10n.php                        Main locales
      * - /plugins/_fake_plugin/_fake_l10n.php   Plugins and widgets locales

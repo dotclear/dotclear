@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief breadcrumb, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,18 +14,22 @@ use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 
+/**
+ * @brief   The module frontend template.
+ * @ingroup breadcrumb
+ */
 class FrontendTemplate
 {
     /**
-     * tpl:Breadcrumb [attributes] : Displays the blogroll (tpl value)
+     * tpl:Breadcrumb [attributes] : Displays the blogroll (tpl value).
      *
      * attributes:
      *
      *      - separator   string      Breadcrumb element separator
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function breadcrumb(ArrayObject $attr): string
     {
@@ -38,11 +39,11 @@ class FrontendTemplate
     }
 
     /**
-     * Return the breadcrumb
+     * Return the breadcrumb.
      *
-     * @param      string  $separator  The separator
+     * @param   string  $separator  The separator
      *
-     * @return     string
+     * @return  string
      */
     public static function displayBreadcrumb(string $separator = ''): string
     {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief buildtools, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,19 +12,23 @@ namespace Dotclear\Plugin\buildtools;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 use Dotclear\Plugin\widgets\Widgets;
 
+/**
+ * @brief   The module maintenance task.
+ * @ingroup buildtools
+ */
 class BuildtoolsMaintenanceTask extends MaintenanceTask
 {
     /**
-     * Maintenance Tab name
+     * Maintenance Tab name.
      *
-     * @var        string
+     * @var     string  $tab
      */
     protected $tab = 'dev';
 
     /**
-     * Maintenance group name
+     * Maintenance group name.
      *
-     * @var        string
+     * @var     string  $group
      */
     protected $group = 'l10n';
 
@@ -45,7 +46,7 @@ class BuildtoolsMaintenanceTask extends MaintenanceTask
     /**
      * Execute the task.
      *
-     * @return     bool
+     * @return  bool
      */
     public function execute(): bool
     {
