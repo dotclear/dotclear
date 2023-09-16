@@ -19,11 +19,21 @@ use Dotclear\Helper\File\Files;
 
 class Frontend extends Process
 {
+    /**
+     * Init the process.
+     *
+     * @return     bool
+     */
     public static function init(): bool
     {
         return self::status(My::checkContext(My::FRONTEND));
     }
 
+    /**
+     * Processes
+     *
+     * @return     bool
+     */
     public static function process(): bool
     {
         if (!self::status()) {
@@ -46,6 +56,13 @@ class Frontend extends Process
         return true;
     }
 
+    /**
+     * Tpl:ductileNbEntryPerPage template element
+     *
+     * @param      ArrayObject<string, string>  $attr   The attribute
+     *
+     * @return     string       the rendered element
+     */
     public static function ductileNbEntryPerPage(ArrayObject $attr): string
     {
         $nb = $attr['nb'] ?? null;
@@ -53,7 +70,12 @@ class Frontend extends Process
         return '<?php ' . self::class . '::ductileNbEntryPerPageHelper(' . strval((int) $nb) . '); ?>';
     }
 
-    public static function ductileNbEntryPerPageHelper(int $nb)
+    /**
+     * Nb of entries per page helper (set the according ctx entry)
+     *
+     * @param      int   $nb     The number of entries
+     */
+    public static function ductileNbEntryPerPageHelper(int $nb): void
     {
         $nb_other = $nb_first = 0;
 
@@ -96,6 +118,14 @@ class Frontend extends Process
         }
     }
 
+    /**
+     * Tpl:EntryIfContentIsCut template block
+     *
+     * @param      ArrayObject<string, string>  $attr   The attribute
+     * @param      string                       $content  The content
+     *
+     * @return     string       rendered element
+     */
     public static function EntryIfContentIsCut(ArrayObject $attr, string $content): string
     {
         if (empty($attr['cut_string']) || !empty($attr['full'])) {
@@ -119,6 +149,13 @@ class Frontend extends Process
             '<?php endif; ?>';
     }
 
+    /**
+     * Tpl:ductileEntriesList template element
+     *
+     * @param      ArrayObject<string, string>  $attr   The attribute
+     *
+     * @return     string       rendered element
+     */
     public static function ductileEntriesList(ArrayObject $attr): string
     {
         $tpl_path   = My::path() . '/tpl/';
@@ -151,6 +188,13 @@ class Frontend extends Process
         return $ret;
     }
 
+    /**
+     * Helper for Tpl:ductileEntriesList
+     *
+     * @param      string  $default  The default
+     *
+     * @return     string
+     */
     public static function ductileEntriesListHelper(string $default): string
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
@@ -164,11 +208,21 @@ class Frontend extends Process
         return $default;
     }
 
+    /**
+     * Tpl:ductileLogoSrc template element
+     *
+     * @return     string  rendered element
+     */
     public static function ductileLogoSrc(): string
     {
         return '<?php echo ' . self::class . '::ductileLogoSrcHelper(); ?>';
     }
 
+    /**
+     * Helper for Tpl:ductileLogoSrc
+     *
+     * @return     string
+     */
     public static function ductileLogoSrcHelper(): string
     {
         $img_url = My::fileURL('img/logo.png');
@@ -197,6 +251,14 @@ class Frontend extends Process
         return $img_url;
     }
 
+    /**
+     * Tpl:IfPreviewIsNotMandatory template block
+     *
+     * @param      ArrayObject<string, string>  $attr   The attribute
+     * @param      string                       $content  The content
+     *
+     * @return     string       rendered block
+     */
     public static function IfPreviewIsNotMandatory(ArrayObject $attr, string $content): string
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
@@ -210,7 +272,12 @@ class Frontend extends Process
         return '';
     }
 
-    public static function publicInsideFooter(dcCore $core = null)
+    /**
+     * Public inside footer behavior callback
+     *
+     * @param      dcCore  $core   The core
+     */
+    public static function publicInsideFooter(dcCore $core = null): void
     {
         $res     = '';
         $default = false;
@@ -249,6 +316,13 @@ class Frontend extends Process
         }
     }
 
+    /**
+     * Check if a sticker is fully defined
+     *
+     * @param      array<string, mixed>  $s      sticker properties
+     *
+     * @return     bool
+     */
     protected static function cleanStickers(array $s): bool
     {
         if (isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null) {
@@ -258,6 +332,17 @@ class Frontend extends Process
         return false;
     }
 
+    /**
+     * Sets the sticker.
+     *
+     * @param      int          $position  The position
+     * @param      bool         $last      The last
+     * @param      null|string  $label     The label
+     * @param      null|string  $url       The url
+     * @param      null|string  $image     The image
+     *
+     * @return     string       rendered sticker
+     */
     protected static function setSticker(int $position, bool $last, ?string $label = '', ?string $url = '', ?string $image = ''): string
     {
         return '<li id="sticker' . $position . '"' . ($last ? ' class="last"' : '') . '>' . "\n" .
@@ -268,7 +353,10 @@ class Frontend extends Process
             '</li>' . "\n";
     }
 
-    public static function publicHeadContent()
+    /**
+     * Public head content behavior callback
+     */
+    public static function publicHeadContent(): void
     {
         echo
         '<style type="text/css">' . "\n" .
@@ -279,13 +367,26 @@ class Frontend extends Process
         self::ductileWebfontHelper();
     }
 
-    public static function prop(array &$css, string $selector, string $prop, $value)
+    /**
+     * Set a selector property
+     *
+     * @param      array<string, array<string, mixed>>      $css       The css
+     * @param      string                                   $selector  The selector
+     * @param      string                                   $prop      The property
+     * @param      mixed                                    $value     The value
+     */
+    public static function prop(array &$css, string $selector, string $prop, $value): void
     {
         if ($value) {
             $css[$selector][$prop] = $value;
         }
     }
 
+    /**
+     * Font helper
+     *
+     * @return     string|void
+     */
     public static function ductileWebfontHelper()
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
@@ -354,6 +455,11 @@ class Frontend extends Process
         return $ret;
     }
 
+    /**
+     * Style helper
+     *
+     * @return     string|void
+     */
     public static function ductileStyleHelper()
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
@@ -530,6 +636,13 @@ class Frontend extends Process
         return $res;
     }
 
+    /**
+     * Return CSS font family depending on given setting
+     *
+     * @param      mixed   $c      Font family
+     *
+     * @return     string|null
+     */
     protected static function fontDef($c)
     {
         $fonts = [

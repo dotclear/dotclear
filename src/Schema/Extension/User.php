@@ -46,7 +46,7 @@ class User
      *
      * @param      MetaRecord   $rs       Invisible parameter
      *
-     * @return     array
+     * @return     array<string, mixed>
      */
     public static function options(MetaRecord $rs): array
     {
