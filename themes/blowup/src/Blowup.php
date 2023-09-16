@@ -18,9 +18,25 @@ use Exception;
 
 class Blowup
 {
+    /**
+     * CSS folder name
+     *
+     * @var        string
+     */
     protected static $css_folder = 'blowup-css';
+
+    /**
+     * Images folder name
+     *
+     * @var        string
+     */
     protected static $img_folder = 'blowup-images';
 
+    /**
+     * List of availables font families
+     *
+     * @var        array<string, array<string, string>>
+     */
     protected static $fonts = [
         'sans-serif' => [
             'ss1' => 'Arial, Helvetica, sans-serif',
@@ -42,9 +58,25 @@ class Blowup
         ],
     ];
 
+    /**
+     * Combo for font families selector
+     *
+     * @var        array<string, string|array<string, string>>
+     */
     protected static $fonts_combo = [];
-    protected static $fonts_list  = [];
 
+    /**
+     * Flat list of font families
+     *
+     * @var        array<string, string>
+     */
+    protected static $fonts_list = [];
+
+    /**
+     * Images list
+     *
+     * @var        array<string, string>
+     */
     public static $top_images = [
         'default'        => 'Default',
         'blank'          => 'Blank',
@@ -64,7 +96,12 @@ class Blowup
         'typo'           => 'Typo',
     ];
 
-    public static function fontsList()
+    /**
+     * Populate the combo selector
+     *
+     * @return     array<string, string|array<string, string>>
+     */
+    public static function fontsList(): array
     {
         if (empty(self::$fonts_combo)) {
             self::$fonts_combo[__('default')] = '';
@@ -80,6 +117,13 @@ class Blowup
         return self::$fonts_combo;
     }
 
+    /**
+     * Return the font family depending on given setting
+     *
+     * @param      mixed  $c    Font family setting
+     *
+     * @return     string|null
+     */
     public static function fontDef($c)
     {
         if (empty(self::$fonts_list)) {
@@ -93,72 +137,156 @@ class Blowup
         return self::$fonts_list[$c] ?? null;
     }
 
-    public static function themeURL()
+    /**
+     * Return theme folder URL
+     *
+     * @return     string
+     */
+    public static function themeURL(): string
     {
         return My::fileURL('');
     }
 
-    public static function cssPath()
+    /**
+     * Return css folder path
+     *
+     * @return     string
+     */
+    public static function cssPath(): string
     {
         return ThemeConfig::cssPath(self::$css_folder);
     }
 
-    public static function cssURL()
+    /**
+     * Return CSS url
+     *
+     * @return     string
+     */
+    public static function cssURL(): string
     {
         return ThemeConfig::cssURL(self::$css_folder);
     }
 
-    public static function canWriteCss($create = false)
+    /**
+     * Determines ability to write css.
+     *
+     * @param      bool  $create  Create CSS folder if necessary
+     *
+     * @return     bool  True if able to write css, False otherwise.
+     */
+    public static function canWriteCss(bool $create = false): bool
     {
         return ThemeConfig::canWriteCss(self::$css_folder, $create);
     }
 
-    protected static function backgroundImg(&$css, $selector, $value, $image)
+    /**
+     * Store background image property
+     *
+     * @param      array<string, array<string, string>>     $css       The css
+     * @param      string                                   $selector  The selector
+     * @param      bool                                     $value     The value
+     * @param      string                                   $image     The image
+     */
+    protected static function backgroundImg(array &$css, string $selector, bool $value, string $image): void
     {
         ThemeConfig::backgroundImg(self::$img_folder, $css, $selector, $value, $image);
     }
 
-    private static function writeCss($theme, $css)
+    /**
+     * Writes a css.
+     *
+     * @param      string  $theme  The theme
+     * @param      string  $css    The css
+     */
+    private static function writeCss(string $theme, string $css): void
     {
         ThemeConfig::writeCSS(self::$css_folder, $theme, $css);
     }
 
-    public static function dropCss($theme)
+    /**
+     * Drop the css file
+     *
+     * @param      string  $theme  The theme
+     */
+    public static function dropCss(string $theme): void
     {
         ThemeConfig::dropCss(self::$css_folder, $theme);
     }
 
+    /**
+     * Get public URL of CSS
+     *
+     * @return     string|void
+     */
     public static function publicCssUrlHelper()
     {
         return ThemeConfig::publicCssUrlHelper(self::$css_folder);
     }
 
+    /**
+     * Get images path
+     *
+     * @return     string|false
+     */
     public static function imagesPath()
     {
         return ThemeConfig::imagesPath(self::$img_folder);
     }
 
-    public static function imagesURL()
+    /**
+     * Get images URL
+     *
+     * @return     string
+     */
+    public static function imagesURL(): string
     {
         return ThemeConfig::imagesURL(self::$img_folder);
     }
 
-    public static function canWriteImages($create = false)
+    /**
+     * Determines ability to write images.
+     *
+     * @param      bool  $create  Create the image folder if necessary
+     *
+     * @return     bool  True if able to write images, False otherwise.
+     */
+    public static function canWriteImages(bool $create = false): bool
     {
         return ThemeConfig::canWriteImages(self::$img_folder, $create);
     }
 
-    public static function uploadImage($f)
+    /**
+     * Uploads an image.
+     *
+     * @param      array<string, string>   $f      file properties
+     *
+     * @return     string
+     */
+    public static function uploadImage(array $f): string
     {
         return ThemeConfig::uploadImage(self::$img_folder, $f, 800);
     }
 
-    public static function dropImage($img)
+    /**
+     * Drop an image
+     *
+     * @param      string  $img    The image
+     */
+    public static function dropImage(string $img): void
     {
         ThemeConfig::dropImage(self::$img_folder, $img);
     }
 
-    public static function createCss($s)
+    /**
+     * Creates a css.
+     *
+     * @param      array<string, mixed>|null     $s
+     *
+     * @throws     Exception  (description)
+     *
+     * @return     void|string
+     */
+    public static function createCss(?array $s)
     {
         if ($s === null) {
             return;
@@ -312,7 +440,15 @@ class Blowup
         return $res;
     }
 
-    public static function createImages(&$config, $uploaded)
+    /**
+     * Creates images.
+     *
+     * @param      array<string, mixed>     $config    The configuration
+     * @param      null|string              $uploaded  The uploaded file
+     *
+     * @throws     Exception
+     */
+    public static function createImages(array &$config, ?string $uploaded): void
     {
         $body_color       = $config['body_bg_c'];
         $prelude_color    = $config['prelude_c'];
@@ -477,7 +613,16 @@ class Blowup
         }
     }
 
-    protected static function commentImages($comment_color, $comment_t, $comment_b, $dest_t, $dest_b)
+    /**
+     * Create comment images
+     *
+     * @param      string  $comment_color  The comment color
+     * @param      string  $comment_t      The comment text
+     * @param      string  $comment_b      The comment background
+     * @param      string  $dest_t         The destination text
+     * @param      string  $dest_b         The destination background
+     */
+    protected static function commentImages(string $comment_color, string $comment_t, string $comment_b, string $dest_t, string $dest_b): void
     {
         $comment_color = sscanf($comment_color, '#%2X%2X%2X');
 
