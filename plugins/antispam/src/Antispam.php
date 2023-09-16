@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,16 +17,23 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Interface\Core\BlogInterface;
 use initAntispam;
 
+/**
+ * @brief   The module antispam handler.
+ * @ingroup antispam
+ */
 class Antispam extends initAntispam
 {
+    /**
+     * The spam filters stacks.
+     *
+     * @var     array<int,string>  $spamfilters
+     */ 
     private static array $spamfilters = [];
 
-    // Properties
-
     /**
-     * Antispam Filters
+     * Antispam Filters.
      *
-     * @var SpamFilters
+     * @var     SpamFilters     $filters
      */
     public static $filters;
 
@@ -70,7 +74,7 @@ class Antispam extends initAntispam
      *
      * The Cursor may be modified (or deleted) according to the result
      *
-     * @param      Cursor  $cur    The current
+     * @param   Cursor  $cur    The current
      */
     public static function isSpam(Cursor $cur)
     {
@@ -79,11 +83,11 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Train the filters with current record
+     * Train the filters with current record.
      *
-     * @param      BlogInterface   $blog   The blog
-     * @param      Cursor          $cur    The Cursor
-     * @param      MetaRecord      $rs     The comment record
+     * @param   BlogInterface   $blog   The blog
+     * @param   Cursor          $cur    The Cursor
+     * @param   MetaRecord      $rs     The comment record
      */
     public static function trainFilters(BlogInterface $blog, Cursor $cur, MetaRecord $rs): void
     {
@@ -108,11 +112,11 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Get filter status message
+     * Get filter status message.
      *
-     * @param      MetaRecord      $rs     The comment record
+     * @param   MetaRecord  $rs     The comment record
      *
-     * @return     string
+     * @return  string
      */
     public static function statusMessage(MetaRecord $rs): string
     {
@@ -130,9 +134,9 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Return additional information about existing spams
+     * Return additional information about existing spams.
      *
-     * @return     string
+     * @return  string  
      */
     public static function dashboardIconTitle(): string
     {
@@ -147,9 +151,9 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Load antispam dashboard script
+     * Load antispam dashboard script.
      *
-     * @return     string
+     * @return  string
      */
     public static function dashboardHeaders(): string
     {
@@ -159,7 +163,7 @@ class Antispam extends initAntispam
     /**
      * Counts the number of spam.
      *
-     * @return     int   Number of spam.
+     * @return  int     Number of spam.
      */
     public static function countSpam(): int
     {
@@ -169,7 +173,7 @@ class Antispam extends initAntispam
     /**
      * Counts the number of published comments.
      *
-     * @return     int   Number of published comments.
+     * @return  int     Number of published comments.
      */
     public static function countPublishedComments(): int
     {
@@ -177,9 +181,9 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Delete all spam older than a given date, else every
+     * Delete all spam older than a given date, else every.
      *
-     * @param      null|string  $beforeDate  The before date
+     * @param   null|string     $beforeDate     The before date
      */
     public static function delAllSpam(?string $beforeDate = null): void
     {
@@ -211,7 +215,7 @@ class Antispam extends initAntispam
     /**
      * Gets the user code (used for antispam feeds URL).
      *
-     * @return     string  The user code.
+     * @return  string  The user code.
      */
     public static function getUserCode(): string
     {
@@ -222,11 +226,11 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Check if a user code is valid and if so return the user ID
+     * Check if a user code is valid and if so return the user ID.
      *
-     * @param      string  $code   The code
+     * @param   string  $code   The code
      *
-     * @return     bool|string
+     * @return  bool|string
      */
     public static function checkUserCode(string $code)
     {
@@ -263,7 +267,7 @@ class Antispam extends initAntispam
     }
 
     /**
-     * Purge old spam
+     * Purge old spam.
      */
     public static function purgeOldSpam(): void
     {

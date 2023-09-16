@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,38 +17,44 @@ use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
 
+/**
+ * @brief   The module IP lookup spam filter.
+ * @ingroup antispam
+ */
 class IpLookup extends SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var        string
+     * @var     string  $id
      */
     public $id = 'dcFilterIpLookup';
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var        string
+     * @var     string  $name
      */
     public $name = 'IP Lookup';
 
     /**
-     * Filter has GUI
+     * Filter has settings GUI?
      *
-     * @var        bool
+     * @var     bool    $has_gui
      */
     public $has_gui = true;
 
     /**
-     * Filter help ID
+     * Filter help ID.
      *
-     * @var        string
+     * @var     null|string     $help
      */
     public $help = 'iplookup-filter';
 
     /**
-     * DNS blacklist lookup default domains
+     * DNS blacklist lookup default domains.
+     *
+     * @var     string  $default_bls
      */
     private string $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 
@@ -78,10 +81,10 @@ class IpLookup extends SpamFilter
     /**
      * Gets the status message.
      *
-     * @param      string  $status      The status
-     * @param      int     $comment_id  The comment identifier
+     * @param   string  $status         The status
+     * @param   int     $comment_id     The comment identifier
      *
-     * @return     string  The status message.
+     * @return  string  The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id): string
     {
@@ -89,18 +92,19 @@ class IpLookup extends SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
      *
-     * @param      string   $type     The comment type (comment / trackback)
-     * @param      string   $author   The comment author
-     * @param      string   $email    The comment author email
-     * @param      string   $site     The comment author site
-     * @param      string   $ip       The comment author IP
-     * @param      string   $content  The comment content
-     * @param      int      $post_id  The comment post_id
-     * @param      string   $status   The comment status
+     * If it returns true or false, execution of next filters will be stoped.
+     * If should return nothing to let next filters apply.
+     *
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      *
      * @return  mixed
      */
@@ -129,11 +133,11 @@ class IpLookup extends SpamFilter
     }
 
     /**
-     * Filter settings
+     * Filter settings.
      *
-     * @param      string  $url    The GUI URL
+     * @param   string  $url    The GUI URL
      *
-     * @return     string
+     * @return  string
      */
     public function gui(string $url): string
     {
@@ -164,7 +168,7 @@ class IpLookup extends SpamFilter
     /**
      * Gets the servers.
      *
-     * @return     string  The servers.
+     * @return  string  The servers.
      */
     private function getServers(): string
     {
@@ -179,12 +183,12 @@ class IpLookup extends SpamFilter
     }
 
     /**
-     * Check IP
+     * Check IP.
      *
-     * @param      string  $ip     The IP
-     * @param      string  $bl     The list of servers
+     * @param   string  $ip     The IP
+     * @param   string  $bl     The list of servers
      *
-     * @return     bool
+     * @return  bool
      */
     private function dnsblLookup(string $ip, string $bl): bool
     {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief akismet, an antispam filter plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,40 +18,44 @@ use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
 
+/**
+ * @brief   The module antispam filter.
+ * @ingroup akismet
+ */
 class AntispamFilterAkismet extends SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var        string
+     * @var     string  $id
      */
     public $id = 'dcFilterAkismet';
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var        string
+     * @var     string  $name
      */
     public $name = 'Akismet';
 
     /**
-     * Has GUI settings
+     * Has GUI settings.
      *
-     * @var        bool
+     * @var     bool    $has_gui
      */
     public $has_gui = true;
 
     /**
-     * Filter active?
+     * Is filter active.
      *
-     * @var        bool
+     * @var     bool    $active
      */
     public $active = false;
 
     /**
-     * Filter help resource ID
+     * Filter help resource ID.
      *
-     * @var        string
+     * @var     string  $help
      */
     public $help = 'akismet-filter';
 
@@ -81,10 +82,10 @@ class AntispamFilterAkismet extends SpamFilter
     /**
      * Gets the status message.
      *
-     * @param      string  $status      The status
-     * @param      int     $comment_id  The comment identifier
+     * @param   string  $status         The status
+     * @param   int     $comment_id     The comment identifier
      *
-     * @return     string  The status message.
+     * @return  string  The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id): string
     {
@@ -92,9 +93,9 @@ class AntispamFilterAkismet extends SpamFilter
     }
 
     /**
-     * Return a new akismet instance of false if API key not defined
+     * Return a new akismet instance of false if API key not defined.
      *
-     * @return     Akismet|bool
+     * @return  Akismet|bool
      */
     private function akInit()
     {
@@ -106,18 +107,20 @@ class AntispamFilterAkismet extends SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
      *
-     * @param      string   $type     The comment type (comment / trackback)
-     * @param      string   $author   The comment author
-     * @param      string   $email    The comment author email
-     * @param      string   $site     The comment author site
-     * @param      string   $ip       The comment author IP
-     * @param      string   $content  The comment content
-     * @param      int      $post_id  The comment post_id
-     * @param      string   $status   The comment status
+     * If it returns true or false, 
+     * execution of next filters will be stoped. 
+     * If should return nothing to let next filters apply.
+     *
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      *
      * @return  mixed
      */
@@ -152,17 +155,17 @@ class AntispamFilterAkismet extends SpamFilter
     }
 
     /**
-     * Train the antispam filter
+     * Train the antispam filter.
      *
-     * @param      string        $status   The comment status
-     * @param      string        $filter   The filter
-     * @param      string        $type     The comment type
-     * @param      string        $author   The comment author
-     * @param      string        $email    The comment author email
-     * @param      string        $site     The comment author site
-     * @param      string        $ip       The comment author IP
-     * @param      string        $content  The comment content
-     * @param      MetaRecord      $rs       The comment record
+     * @param   string      $status     The comment status
+     * @param   string      $filter     The filter
+     * @param   string      $type       The comment type
+     * @param   string      $author     The comment author
+     * @param   string      $email      The comment author email
+     * @param   string      $site       The comment author site
+     * @param   string      $ip         The comment author IP
+     * @param   string      $content    The comment content
+     * @param   MetaRecord  $rs         The comment record
      */
     public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs)
     {
@@ -187,11 +190,11 @@ class AntispamFilterAkismet extends SpamFilter
     }
 
     /**
-     * Filter settings
+     * Filter settings.
      *
-     * @param      string  $url    The GUI URL
+     * @param   string  $url    The GUI URL
      *
-     * @return     string
+     * @return  string
      */
     public function gui($url): string
     {

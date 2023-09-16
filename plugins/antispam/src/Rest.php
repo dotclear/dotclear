@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,12 +15,16 @@ if (!App::task()->checkContext('BACKEND')) {
     return;
 }
 
+/**
+ * @brief   The module REST service handler.
+ * @ingroup antispam
+ */
 class Rest
 {
     /**
      * Gets the spams count.
      *
-     * @return     array  The spams count message
+     * @return  array   The spams count message
      */
     public static function getSpamsCount(): array
     {

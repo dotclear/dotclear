@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,6 +14,10 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Process;
 
+/**
+ * @brief   The module backend process.
+ * @ingroup antispam
+ */
 class Backend extends Process
 {
     public static function init(): bool

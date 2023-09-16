@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief akismet, an antispam filter plugin for Dotclear 2
+ * @file
+ * @brief       The plugin akismet definition
+ * @ingroup     akismet
+ * 
+ * @defgroup    akismet Plugin akismet.
+ * 
+ * akismet, aksimet antispam filter plugin for Dotclear 2
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

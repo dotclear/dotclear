@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,7 +15,7 @@ use Dotclear\Module\StoreReader;
 use Dotclear\Interface\Core\CacheInterface;
 
 /**
- * @brief   Dotclear cache handler .
+ * @brief   Application cache handler.
  *
  * @since 2.28
  */
