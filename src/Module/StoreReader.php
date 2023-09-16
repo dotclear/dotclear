@@ -15,82 +15,100 @@ use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
 /**
- * Repository modules XML feed reader.
+ * @brief   Repository modules XML feed reader.
  *
  * Provides an object to parse XML feed of modules from repository.
  *
- * @since 2.6
+ * @subpackage  Module
+ * @since   2.6
  */
 class StoreReader extends HttpClient
 {
-    /** @var    int  Read nothing */
+    /**
+     * Read nothing .
+     *
+     * @var     int     READ_FROM_NONE
+     */
     public const READ_FROM_NONE = -1;
 
-    /** @var    int  Read from local cache file */
+    /**
+     * Read from local cache file.
+     *
+     * @var     int     READ_FROM_CACHE
+     */
     public const READ_FROM_CACHE = 0;
 
-    /** @var    int  Read from repository server */
+    /**
+     * Read from repository server.
+     *
+     * @var     int     READ_FROM_SOURCE
+     */
     public const READ_FROM_SOURCE = 1;
 
-    /** @var string     Default modules store cache sub folder */
+    /**
+     * Default modules store cache sub folder.
+     *
+     * @var     string  CACHE_FOLDER
+     */
     public const CACHE_FOLDER = 'dcrepo';
 
     /**
-     * User agent used to query repository
+     * User agent used to query repository.
      *
-     * @var    string
+     * @var     string  $user_agent
      */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
 
     /**
-     * HTTP Cache validators
+     * HTTP Cache validators.
      *
-     * @var    array|null
+     * @var     array|null  $validators
      */
     protected $validators = null;
 
     /**
-     * Cache temporary directory
+     * Cache temporary directory.
      *
-     * @var    string|null
+     * @var     string|null     $cache_dir
      */
     protected $cache_dir = null;
 
     /**
-     * Cache file prefix
+     * Cache file prefix.
      *
-     * @var    string
+     * @var     string  $cache_file_prefix
      */
     protected $cache_file_prefix = self::CACHE_FOLDER;
 
     /**
-     * Cache TTL
+     * Cache TTL.
      *
-     * @var    string
+     * @var     string  $cache_ttl
      */
     protected $cache_ttl = '-1440 minutes';
 
     /**
-     * 'Cache' TTL on server failed
+     * 'Cache' TTL on server failed.
      *
-     * @var    bool     */
+     * @var     bool    $cache_touch_on_fail
+     */
     protected $cache_touch_on_fail = true;
 
     /**
-     * Force query server
+     * Force query server.
      *
-     * True: query server even if cache is not expired
-     * False: query server if there's no cache or cache is expired
-     * Null: query server only if there's no cache (we don't look at ttl)
+     * * True: query server even if cache is not expired
+     * * False: query server if there's no cache or cache is expired
+     * * Null: query server only if there's no cache (we don't look at ttl)
      *
-     * @var    null|bool
+     * @var     null|bool   $force
      */
     protected $force = false;
 
     /**
      * Last response source (from cache or repository).
      *
-     * @var     int
+     * @var     int     $read_code
      */
     private static int $read_code = self::READ_FROM_NONE;
 
@@ -109,9 +127,9 @@ class StoreReader extends HttpClient
     /**
      * Parse modules feed.
      *
-     * @param    string    $url        XML feed URL
+     * @param   string  $url    XML feed URL
      *
-     * @return   false|StoreParser  Feed content, StoreParser instance or false
+     * @return  false|StoreParser   Feed content, StoreParser instance or false
      */
     public function parse(string $url): bool|StoreParser
     {
@@ -133,11 +151,11 @@ class StoreReader extends HttpClient
     /**
      * Quick parse modules feed.
      *
-     * @param    string     $url          XML feed URL
-     * @param    string     $cache_dir    Cache directoy or null for no cache
-     * @param    null|bool  $force        Force query repository. null to use cache without ttl
+     * @param   string      $url        XML feed URL
+     * @param   string      $cache_dir  Cache directoy or null for no cache
+     * @param   null|bool   $force      Force query repository. null to use cache without ttl
      *
-     * @return   mixed     Feed content, StoreParser instance or false
+     * @return  mixed   Feed content, StoreParser instance or false
      */
     public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false)
     {
@@ -164,9 +182,9 @@ class StoreReader extends HttpClient
     /**
      * Set cache directory.
      *
-     * @param    string    $dir        Cache directory
+     * @param   string  $dir    Cache directory
      *
-     * @return    bool    True if cache dierctory is useable
+     * @return  bool    True if cache dierctory is useable
      */
     public function setCacheDir(string $dir): bool
     {
@@ -184,7 +202,7 @@ class StoreReader extends HttpClient
     /**
      * Set cache TTL.
      *
-     * @param    string    $str        Cache TTL
+     * @param   string  $str    Cache TTL
      */
     public function setCacheTTL(string $str): void
     {
@@ -198,7 +216,7 @@ class StoreReader extends HttpClient
     /**
      * Set force query repository.
      *
-     * @param    null|bool    $force    True to force query
+     * @param   null|bool   $force  True to force query
      */
     public function setForce(?bool $force): void
     {
@@ -242,9 +260,9 @@ class StoreReader extends HttpClient
     /**
      * Get repository modules list using cache.
      *
-     * @param    string    $url        XML feed URL
+     * @param   string  $url    XML feed URL
      *
-     * @return   mixed     Feed content or False on fail
+     * @return  mixed   Feed content or False on fail
      */
     protected function withCache(string $url)
     {
@@ -324,7 +342,7 @@ class StoreReader extends HttpClient
     /**
      * Prepare query.
      *
-     * @return    array    Query headers
+     * @return  array<int,string>   Query headers
      */
     protected function buildRequest(): array
     {
@@ -346,8 +364,8 @@ class StoreReader extends HttpClient
     /**
      * Tweak query cache validator.
      *
-     * @param    string    $key        Validator key
-     * @param    mixed     $value      Validator value
+     * @param   string  $key    Validator key
+     * @param   mixed   $value  Validator value
      */
     private function setValidator(string $key, $value): void
     {

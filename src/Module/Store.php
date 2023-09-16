@@ -16,18 +16,27 @@ use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
 /**
- * Repository modules XML feed reader.
+ * @brief   Repository modules XML feed reader.
  *
  * Provides an object to parse XML feed of modules from repository.
  *
- * @since 2.6
+ * @subpackage  Module
+ * @since   2.6
  */
 class Store
 {
-    /** @var    ModulesInterface    Modules instance */
+    /**
+     * Modules instance.
+     *
+     * @var     ModulesInterface    $modules
+     */
     public $modules;
 
-    /** @var    array<string,int>   Modules fields to search on and their weight */
+    /**
+     * Modules fields to search on and their weight.
+     *
+     * @var     array<string,int>   $weighting
+     */
     public static $weighting = [
         'id'     => 10,
         'name'   => 8,
@@ -36,25 +45,45 @@ class Store
         'author' => 2,
     ];
 
-    /** @var   string   User agent used to query repository */
+    /**
+     * User agent used to query repository.
+     *
+     * @var     string  $user_agent
+     */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
 
-    /** @var    null|string     XML feed URL */
+    /**
+     * XML feed URL.
+     *
+     * @var     null|string     $xml_url
+     */
     protected $xml_url = null;
 
-    /** @var    array<string,array<string,array>>   Array of new/update modules from repository */
+    /**
+     * Array of new/update modules from repository.
+     *
+     * @var     array<string,array<string,array>>   $data
+     */
     protected $data = [
         'new'    => [],
         'update' => [],
     ];
 
-    /** @var    array<string,array<int,ModuleDefine>>     Array of new/update modules Define from repository */
+    /**
+     * Array of new/update modules Define from repository.
+     *
+     * @var     array<string,array<int,ModuleDefine>>   $defines
+     */
     protected $defines = [
         'new'    => [],
         'update' => [],
     ];
 
-    /** @var    bool    Repositories new updates status */
+    /**
+     * Repositories new updates status.
+     *
+     * @var     bool    $has_new_update
+     */
     private bool $has_new_update = false;
 
     /**

@@ -56,7 +56,7 @@ namespace Dotclear {
     Autoloader::me()->addNamespace('Dotclear', __DIR__);
 
     /**
-     * Application.
+     * @brief   Application.
      *
      * Note this class includes all core container methods.
      * Container search factory for requested methods.
@@ -69,9 +69,9 @@ namespace Dotclear {
      *
      * Dotclear default factory will be used at least.
      *
-     * @see Factories
+     * @see     Factories
      *
-     * @since 2.27
+     * @since   2.27
      */
     final class App implements ContainerInterface
     {

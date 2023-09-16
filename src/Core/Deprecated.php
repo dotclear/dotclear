@@ -16,9 +16,9 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\DeprecatedInterface;
 
 /**
- * Deprecated logger handler.
+ * @brief   Deprecated logger handler.
  *
- * @since 2.26
+ * @since   2.26
  */
 class Deprecated implements DeprecatedInterface
 {

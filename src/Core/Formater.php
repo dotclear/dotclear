@@ -13,7 +13,7 @@ use Dotclear\App;
 use Dotclear\Interface\Core\FormaterInterface;
 
 /**
- * Text formater handler.
+ * @brief   Text formater handler.
  */
 class Formater implements FormaterInterface
 {

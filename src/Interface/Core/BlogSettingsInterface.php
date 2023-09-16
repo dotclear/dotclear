@@ -10,13 +10,13 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Blog settings handler.
+ * @brief   Blog settings handler.
  *
  * This class provides blog settings management. This class instance exists as
  * Blog $settings property. You should create a new settings instance when
  * updating another blog settings.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface BlogSettingsInterface
 {

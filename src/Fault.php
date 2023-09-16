@@ -12,9 +12,9 @@ namespace Dotclear;
 use Exception;
 
 /**
- * Dotclear runtime error handler.
+ * @brief   Dotclear runtime error handler.
  *
- * @since 2.27, errors code returns on 3 digits
+ * @since   2.27, errors code returns on 3 digits
  * as some servers (ie Nginx) do not support HTTP1.0 code on 2 digits.
  */
 class Fault

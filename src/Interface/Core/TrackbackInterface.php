@@ -13,12 +13,12 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 /**
- * Trackbacks/Pingbacks sender and server.
+ * @brief   Trackbacks/Pingbacks sender and server.
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface TrackbackInterface
 {

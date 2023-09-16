@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Post type descriptor interface.
+ * @brief   Post type descriptor interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface PostTypeInterface
 {

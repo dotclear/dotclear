@@ -12,71 +12,153 @@ namespace Dotclear\Interface\Module;
 use Dotclear\Module\ModuleDefine;
 
 /**
- * Modules handler interface.
+ * @brief   Modules handler interface.
+ *
+ * @subpackage  Module
  */
 interface ModulesInterface
 {
-    /** @var    int     Return code for package installation */
+    /**
+     * Return code for package installation.
+     *
+     * @var     int     PACKAGE_INSTALLED
+     */
     public const PACKAGE_INSTALLED = 1;
 
-    /** @var    int     Return code for package update */
+    /**
+     * Return code for package update.
+     *
+     * @var     int     PACKAGE_UPDATED
+     */
     public const PACKAGE_UPDATED = 2;
 
-    /** @var    string  Name of module old style installation file */
+    /**
+     * Name of module old style installation file.
+     *
+     * @var     string  MODULE_FILE_INSTALL
+     */
     public const MODULE_FILE_INSTALL = '_install.php';
 
-    /** @var    string  Name of module old style initialization file */
+    /**
+     * Name of module old style initialization file.
+     *
+     * @var     string  MODULE_FILE_INIT
+     */
     public const MODULE_FILE_INIT = '_init.php';
 
     /** @var    string  Name of module define file */
     public const MODULE_FILE_DEFINE = '_define.php';
 
-    /** @var    string  Name of module old style prepend file */
+    /**
+     * Name of module old style prepend file.
+     *
+     * @var     string  MODULE_FILE_PREPEND
+     */
     public const MODULE_FILE_PREPEND = '_prepend.php';
 
-    /** @var    string  Name of module old style backend file */
+    /**
+     * Name of module old style backend file.
+     *
+     * @var     string  MODULE_FILE_ADMIN
+     */
     public const MODULE_FILE_ADMIN = '_admin.php';
 
-    /** @var    string  Name of module old style configuration file */
+    /**
+     * Name of module old style configuration file.
+     *
+     * @var     string  MODULE_FILE_CONFIG
+     */
     public const MODULE_FILE_CONFIG = '_config.php';
 
-    /** @var    string  Name of module old style manage file */
+    /**
+     * Name of module old style manage file.
+     *
+     * @var     string  MODULE_FILE_MANAGE
+     */
     public const MODULE_FILE_MANAGE = 'index.php';
 
-    /** @var    string  Name of module old style frontend file */
+    /**
+     * Name of module old style frontend file.
+     *
+     * @var     string  MODULE_FILE_PUBLIC
+     */
     public const MODULE_FILE_PUBLIC = '_public.php';
 
-    /** @var    string  Name of module old style xmlrpc file */
+    /**
+     * Name of module old style xmlrpc file.
+     *
+     * @var     string  MODULE_FILE_XMLRPC
+     */
     public const MODULE_FILE_XMLRPC = '_xmlrpc.php';
 
-    /** @var    string  Name of module hard deactivation file */
+    /**
+     * Name of module hard deactivation file.
+     *
+     * @var     string  MODULE_FILE_DISABLED
+     */
     public const MODULE_FILE_DISABLED = '_disabled';
 
-    /** @var    string  The update locked file name */
+    /**
+     * The update locked file name.
+     *
+     * @var     string   MODULE_FILE_LOCKED
+     */
     public const MODULE_FILE_LOCKED = '_locked';
 
-    /** @var    string  Directory for module namespace */
+    /**
+     * Directory for module namespace.
+     *
+     * @var     string  MODULE_CLASS_DIR
+     */
     public const MODULE_CLASS_DIR = 'src';
 
-    /** @var    string  Name of module prepend class (ex _prepend.php) */
+    /**
+     * Name of module prepend class (ex _prepend.php).
+     *
+     * @var     string  MODULE_CLASS_PREPEND
+     */
     public const MODULE_CLASS_PREPEND = 'Prepend';
 
-    /** @var    string  Name of module installation class (ex _install.php) */
+    /**
+     * Name of module installation class (ex _install.php).
+     *
+     * @var     string  MODULE_CLASS_INSTALL
+     */
     public const MODULE_CLASS_INSTALL = 'Install';
 
-    /** @var    string  Name of module backend class (ex _admin.php) */
+    /**
+     * Name of module backend class (ex _admin.php).
+     *
+     * @var     string  MODULE_CLASS_ADMIN
+     */
     public const MODULE_CLASS_ADMIN = 'Backend';
 
-    /** @var    string  Name of module configuration class (ex _config.php) */
+    /**
+     * Name of module configuration class (ex _config.php).
+     *
+     * @var     string  MODULE_CLASS_CONFIG
+     */
     public const MODULE_CLASS_CONFIG = 'Config';
 
-    /** @var    string  Name of module manage class (ex index.php) */
+    /**
+     * Name of module manage class (ex index.php).
+     *
+     * @var     string  MODULE_CLASS_MANAGE
+     */
     public const MODULE_CLASS_MANAGE = 'Manage';
 
-    /** @var    string  Name of module frontend class (ex _public.php) */
+    /**
+     * Name of module frontend class (ex _public.php).
+     *
+     * @var     string  MODULE_CLASS_PUPLIC
+     */
     public const MODULE_CLASS_PUPLIC = 'Frontend';
 
-    /** @var    string  Name of module XMLRPC services class (ex _xmlrpc.php) - obsolete since 2.24 */
+    /**
+     * Name of module XMLRPC services class (ex _xmlrpc.php) - obsolete since 2.24.
+     *
+     * @var     string  MODULE_CLASS_XMLRPC
+     */
     public const MODULE_CLASS_XMLRPC = 'Xmlrpc';
 
     /**
@@ -255,6 +337,8 @@ interface ModulesInterface
 
     /**
      * Clone a module.
+     *
+     * @throws \Exception
      *
      * @param   string  $id     The module identifier
      */

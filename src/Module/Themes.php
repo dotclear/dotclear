@@ -14,29 +14,18 @@ use Dotclear\Helper\File\Files;
 use Exception;
 
 /**
- * Themes specific handler
+ * @brief   Themes specific handler.
  *
  * An instance of this class is provided by App::themes()
  * and used for themes.
  *
- * @since 2.6
+ * @subpackage  Module
+ * @since   2.6
  */
 class Themes extends Modules
 {
-    /**
-     * Module type
-     *
-     * @var        string
-     */
     protected $type = 'theme';
 
-    /**
-     * Load module context.
-     *
-     * @param      array<int,string>    $ignored     The modules to ignore
-     * @param      string               $ns          The namespace (context as 'public', 'admin', ...)
-     * @param      null|string          $lang        The language
-     */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
         if ($ns == 'admin' && App::blog()->isDefined()) {
@@ -102,13 +91,6 @@ class Themes extends Modules
         parent::defineModule($define);
     }
 
-    /**
-     * Clone a theme module
-     *
-     * @param      string     $id     The identifier
-     *
-     * @throws     Exception
-     */
     public function cloneModule(string $id): void
     {
         $module = $this->getDefine($id);
@@ -201,7 +183,8 @@ class Themes extends Modules
     }
 
     /**
-     * Loads namespace <var>$ns</var> specific file for module with ID <var>$id</var>
+     * Loads namespace <var>$ns</var> specific file for module with ID <var>$id</var>.
+     *
      * Note: currently, only 'public' namespace is supported with themes.
      *
      * @param      string  $id     Module ID

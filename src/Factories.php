@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Dotclear;
 
 /**
- * Dotclear fatories handler.
+ * @brief   Dotclear fatories handler.
  *
  * To add a third party Factory :
  * @code{php}
@@ -24,7 +24,7 @@ namespace Dotclear;
  * * Once a container is instanciated, changes to factories stack have no effects.
  * * By default 'core' container is available.
  *
- * @since 2.28
+ * @since   2.28
  */
 class Factories
 {

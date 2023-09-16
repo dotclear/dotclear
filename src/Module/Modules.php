@@ -21,76 +21,110 @@ use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
 /**
- * Modules handler
+ * @brief   Modules handler.
  *
  * Provides an object to handle modules (themes or plugins).
+ *
+ * @subpackage  Module
  */
 class Modules implements ModulesInterface
 {
-    public const PACKAGE_INSTALLED = 1;
-    public const PACKAGE_UPDATED   = 2;
-
-    public const MODULE_FILE_INSTALL  = '_install.php';
-    public const MODULE_FILE_INIT     = '_init.php';
-    public const MODULE_FILE_DEFINE   = '_define.php';
-    public const MODULE_FILE_PREPEND  = '_prepend.php';
-    public const MODULE_FILE_ADMIN    = '_admin.php';
-    public const MODULE_FILE_CONFIG   = '_config.php';
-    public const MODULE_FILE_MANAGE   = 'index.php';
-    public const MODULE_FILE_PUBLIC   = '_public.php';
-    public const MODULE_FILE_XMLRPC   = '_xmlrpc.php';
-    public const MODULE_FILE_DISABLED = '_disabled';
-    public const MODULE_FILE_LOCKED   = '_locked';
-
-    public const MODULE_CLASS_DIR     = 'src';
-    public const MODULE_CLASS_PREPEND = 'Prepend';
-    public const MODULE_CLASS_INSTALL = 'Install';
-    public const MODULE_CLASS_ADMIN   = 'Backend';
-    public const MODULE_CLASS_CONFIG  = 'Config';
-    public const MODULE_CLASS_MANAGE  = 'Manage';
-    public const MODULE_CLASS_PUPLIC  = 'Frontend';
-    public const MODULE_CLASS_XMLRPC  = 'Xmlrpc';
-
-    /** @var    bool    Safe mode execution */
+    /**
+     * Safe mode execution.
+     *
+     * @var     bool    $safe_mode
+     */
     protected $safe_mode = false;
 
-    /** @var    array<int,string>   Stack of modules paths */
+    /**
+     * Stack of modules paths.
+     *
+     * @var     array<int,string>   $path
+     */
     protected $path = [];
 
-    /** @var    array<int,ModuleDefine>     Stack of modules */
+    /**
+     * Stack of modules.
+     *
+     * @var     array<int,ModuleDefine>     $defines
+     */
     protected $defines = [];
 
-    /** @var    array<int,string>   Stack of error messages */
+    /**
+     * Stack of error messages.
+     *
+     * @var     array<int,string>   $errors
+     */
     protected $errors = [];
 
-    /** @var    array<string,string>   Stack of modules id|version pairs */
+    /**
+     * Stack of modules id|version pairs.
+     *
+     * @var     array<string,string>    $modules_ids
+     */
     protected $modules_ids = [];
 
-    /** @var    array<string,array<int,string>> Stack of modules paths (used as internal cache) */
+    /**
+     * Stack of modules paths (used as internal cache).
+     *
+     * @var     array<string,array<int,string>>     $modules_paths
+     */
     protected $modules_paths = [];
 
-    /** @var    array<int,string>   Stack of loaded modules _init files (prevent twice load)*/
+    /**
+     * Stack of loaded modules _init files (prevent twice load).
+     *
+     * @var     array<int,string>   $modules_init
+     */
     protected static $modules_init = [];
 
-    /** @var    bool    Current deactivation mode */
+    /**
+     * Current deactivation mode.
+     *
+     * @var     bool    $disabled_mode
+     */
     protected $disabled_mode = false;
 
-    /** @var    string|null     Current dc namespace */
+    /**
+     * Current dc namespace.
+     *
+     * @var     string|null     $ns
+     */
     protected $ns = null;
 
-    /** @var    ModuleDefine    Current module Define */
+    /**
+     * Current module Define.
+     *
+     * @var     ModuleDefine    $define
+     */
     protected $define;
 
-    /** @var    string|null     Current module identifier */
+    /**
+     * Current module identifier
+     *
+     * @var     string|null     $id
+     */
     protected $id = null;
 
-    /** @var    string|null     Current module root path (where _define.php is located) */
+    /**
+     * Current module root path (where _define.php is located).
+     *
+     * @var     string|null     $mroot
+     */
     protected $mroot = null;
 
-    /** @var    string|null     Current module php namespace */
+    /**
+     * Current module php namespace.
+     *
+     * @var     string|null     $namespace
+     */
     protected $namespace = null;
 
-    /** @var    array<int,string>   Inclusion variables */
+    /**
+     * Inclusion variables.
+     *
+     * @var     array<int,string>   $superglobals
+     */
     protected static $superglobals = [
         'GLOBALS',
         '_SERVER',
@@ -103,13 +137,25 @@ class Modules implements ModulesInterface
         '_SESSION',
     ];
 
-    /** @var    array<int,string>   Superglobals array keys */
+    /**
+     * Superglobals array keys.
+     *
+     * @var     array<int,string>   $_k
+     */
     protected static $_k;
 
-    /** @var    string  Superglobals key name */
+    /**
+     * Superglobals key name.
+     *
+     * @var     string  $_n
+     */
     protected static $_n;
 
-    /** @var    string|null     Module type to work with */
+    /**
+     * Module type to work with.
+     *
+     * @var     string|null     $type
+     */
     protected $type = null;
 
     public function getDefine(string $id, array $search = []): ModuleDefine

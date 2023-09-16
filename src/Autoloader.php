@@ -8,7 +8,7 @@
 declare(strict_types=1);
 
 /**
- * Helper to autoload class using php namespace.
+ * @brief   Helper to autoload class using php namespace.
  *
  * Based on PSR-4 Autoloader
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * to work with non full standardized project.
  *
  * @ingroup  Helper Autoload Stack
- * @since 2.25
+ * @since   2.25
  */
 class Autoloader
 {

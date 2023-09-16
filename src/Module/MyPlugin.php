@@ -1,7 +1,6 @@
 <?php
 /**
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -16,11 +15,12 @@ use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Html\Form\Hidden;
 
 /**
- * @brief Plugin My module class.
+ * @brief   Plugin My module class.
  *
  * A plugin My class must extend this class.
  *
- * @since 2.27
+ * @subpackage  Module
+ * @since   2.27
  */
 abstract class MyPlugin extends MyModule
 {

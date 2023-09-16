@@ -14,30 +14,47 @@ use Exception;
 use SimpleXMLElement;
 
 /**
- * Repository modules XML feed parser.
+ * @brief   Repository modules XML feed parser.
  *
  * Provides an object to parse XML feed of modules from a repository.
  *
- * @since 2.6
+ * @subpackage  Module
+ * @since   2.6
  */
 class StoreParser
 {
-    /** @var    false|SimpleXMLElement  XML object of feed contents  */
+    /**
+     * XML object of feed contents.
+     *
+     * @var     false|SimpleXMLElement  $xml
+     */
     protected $xml;
 
-    /** @var    array   Array of feed contents */
+    /**
+     * Array of feed contents.
+     *
+     * @var     array   $items
+     */
     protected $items = [];
 
-    /** @var    array<int,ModuleDefine>   Array of Define instances of feed contents */
+    /**
+     * Array of Define instances of feed contents.
+     *
+     * @var     array<int,ModuleDefine>     $defines
+     */
     protected $defines = [];
 
-    /** @var    string  XML bloc tag */
+    /**
+     * XML bloc tag.
+     *
+     * @var     string  $bloc
+     */
     protected static $bloc = 'http://dotaddict.org/da/';
 
     /**
      * Constructor.
      *
-     * @param    string    $data        Feed content
+     * @param   string  $data   Feed content
      */
     public function __construct(string $data)
     {

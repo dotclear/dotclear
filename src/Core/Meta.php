@@ -22,7 +22,7 @@ use Dotclear\Interface\Core\MetaInterface;
 use Exception;
 
 /**
- * Meta handler.
+ * @brief   Meta handler.
  *
  * Dotclear metadata class instance is provided by App::meta() method.
  */

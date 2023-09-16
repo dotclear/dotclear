@@ -15,12 +15,12 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;
 
 /**
- * File server helper.
+ * @brief   File server helper.
  *
  * This class checks request URI to find pf and vf queries and serve related file.
  * It is limited as it is loaded before dcCore to speed up requests.
  *
- * @since 2.27
+ * @since   2.27
  */
 class FileServer
 {

@@ -15,7 +15,7 @@ use Dotclear\Interface\Core\LexicalInterface;
 use UnhandledMatchError;
 
 /**
- * Lexical helper.
+ * @brief   Lexical helper.
  */
 class Lexical implements LexicalInterface
 {

@@ -13,9 +13,9 @@ namespace Dotclear\Interface\Core;
 use Exception;
 
 /**
- * URL Handler for public urls.
+ * @brief   URL Handler for public urls.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface UrlInterface
 {

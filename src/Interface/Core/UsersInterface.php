@@ -15,9 +15,9 @@ use Dotclear\Database\MetaRecord;
 use Exception;
 
 /**
- * Users handler interface.
+ * @brief   Users handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface UsersInterface
 {

@@ -20,7 +20,7 @@ use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
- * User workspace for preferences handler.
+ * @brief   User workspace for preferences handler.
  */
 class UserWorkspace implements UserWorkspaceInterface
 {

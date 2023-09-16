@@ -19,7 +19,7 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 
 /**
- * @brief class for admin media page
+ * @brief   class for admin media page
  */
 #[\AllowDynamicProperties]
 class MediaPage extends FilterMedia

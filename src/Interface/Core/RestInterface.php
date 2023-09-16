@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Rest server hanlder interface.
+ * @brief   Rest server hanlder interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface RestInterface
 {

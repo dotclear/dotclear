@@ -14,7 +14,7 @@ use Dotclear\Core\Backend\Notices; // deprecated
 use Dotclear\Interface\Core\ErrorInterface;
 
 /**
- * Error handler.
+ * @brief   Error handler.
  */
 class Error implements ErrorInterface
 {

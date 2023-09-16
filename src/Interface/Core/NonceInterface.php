@@ -12,9 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Helper\Html\Form\Hidden;
 
 /**
- * Form nonce handler interface.
+ * @brief   Form nonce handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface NonceInterface
 {

@@ -13,9 +13,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 /**
- * Blog namespace for settings handler.
+ * @brief   Blog namespace for settings handler.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface BlogWorkspaceInterface
 {

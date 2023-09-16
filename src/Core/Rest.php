@@ -15,7 +15,7 @@ use Dotclear\Helper\RestServer;
 use Exception;
 
 /**
- * Rest server handler.
+ * @brief   Rest server handler.
  *
  * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
  * Instance of this class is provided by App::rest().

@@ -23,7 +23,7 @@ use Dotclear\Schema\Extension\User;
 use Exception;
 
 /**
- * Users handler.
+ * @brief   Users handler.
  */
 class Users implements UsersInterface
 {
