@@ -1,9 +1,12 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Themes
+ * @file
+ * @brief 		The module backend helper resource
+ * @ingroup 	ductile
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @package 	Dotclear
+ *
+ * @copyright 	Olivier Meunier & Association Dotclear
+ * @copyright 	GPL-2.0-only
  */
 \Dotclear\App::backend()->resources->set('help', 'ductile', __DIR__ . '/help/help.html');

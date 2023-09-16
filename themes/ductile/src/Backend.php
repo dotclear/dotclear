@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Ductile, a theme for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Theme\ductile;
@@ -15,6 +12,10 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
+/**
+ * @brief   The module backend process.
+ * @ingroup ductile
+ */
 class Backend extends Process
 {
     public static function init(): bool

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Ductile, a theme for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Theme\ductile;
@@ -22,6 +19,10 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
+/**
+ * @brief   The module configuration process.
+ * @ingroup ductile
+ */
 class Config extends Process
 {
     public static function init(): bool

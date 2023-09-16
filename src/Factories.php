@@ -1,16 +1,16 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear;
 
 /**
- * @brief   Dotclear fatories handler.
+ * @brief   The helper to serve factories.
  *
  * To add a third party Factory :
  * @code{php}

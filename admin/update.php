@@ -1,12 +1,11 @@
 <?php
 /**
- * @deprecated since 2.27 Use name "admin.update" on App::backend()->url methods
+ * @deprecated 	since 2.27, use name "admin.update" on App::backend()->url methods instead
  *
- * @package Dotclear
- * @subpackage Backend
+ * @package 	Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright 	Olivier Meunier & Association Dotclear
+ * @copyright 	GPL-2.0-only
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 

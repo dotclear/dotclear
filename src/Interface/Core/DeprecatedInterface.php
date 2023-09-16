@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -12,7 +12,7 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\MetaRecord;
 
 /**
- * @brief   Deprecated logger handler.
+ * @brief   Deprecated logger handler interface.
  *
  * @since   2.28
  */

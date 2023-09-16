@@ -1,12 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
  *
- * Dotclear upgrade procedure.
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +13,9 @@ use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\File\Files;
 
+/**
+ * @brief   Upgrade step.
+ */
 class GrowUp_2_10_lt
 {
     public static function init(bool $cleanup_sessions): bool

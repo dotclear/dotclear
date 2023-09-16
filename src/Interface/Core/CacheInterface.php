@@ -1,16 +1,16 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
 /**
- * @brief   Dotclear cache handler.
+ * @brief   Dotclear cache handler interface.
  *
  * @since   2.28
  */

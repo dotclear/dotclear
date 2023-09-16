@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief Ductile, a theme for Dotclear 2
+ * @file
+ * @brief       The theme ductile definition
+ * @ingroup     ductile
+ * 
+ * @defgroup    ductile Theme ductile.
+ * 
+ * ductile, a mediaqueries compliant elegant theme for Dotclear 2.
  *
- * @package Dotclear
- * @subpackage Themes
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 $this->registerModule(
     'Ductile',                              // Name

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -441,7 +441,9 @@ namespace {
     use Dotclear\Fault;
 
     /**
-     * @deprecated  since 2.27, use new Dotclear\Fault();
+     * @brief   Error handling function.
+     *
+     * @deprecated  since 2.27, use class Dotclear\Fault instead
      *
      * @param   string  $summary    The summary
      * @param   string  $message    The message

@@ -1,16 +1,16 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
 /**
- * @brief   Rest server hanlder interface.
+ * @brief   Rest server handler interface.
  *
  * @since   2.28
  */

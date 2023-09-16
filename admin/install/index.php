@@ -1,10 +1,15 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Install
+ * @file
+ * @brief       The install endpoint.
+ * @ingroup     Endpoint
+ * 
+ * This page serves installation process.
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @package 	Dotclear
+ *
+ * @copyright 	Olivier Meunier & Association Dotclear
+ * @copyright 	GPL-2.0-only
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'App.php']);
 

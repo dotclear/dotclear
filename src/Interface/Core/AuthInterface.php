@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -12,7 +12,7 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 
 /**
- * @brief   Authentication hanlder interface.
+ * @brief   Authentication handler interface.
  *
  * Tracks core or modules id,version pairs.
  *

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,7 +18,7 @@ namespace Dotclear\Interface;
  * All methods are typed and return
  * also default values in same type.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface ConfigInterface
 {

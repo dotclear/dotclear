@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief blueSilence, a theme for Dotclear 2
+ * @file
+ * @brief       The theme blueSilence definition
+ * @ingroup     blueSilence
+ * 
+ * @defgroup    blueSilence Theme blueSilence.
+ * 
+ * blueSilence, a no configuration theme for Dotclear 2.
  *
- * @package Dotclear
- * @subpackage Themes
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 $this->registerModule(
     'Blue Silence',         // Name

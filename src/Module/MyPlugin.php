@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,7 +19,6 @@ use Dotclear\Helper\Html\Form\Hidden;
  *
  * A plugin My class must extend this class.
  *
- * @subpackage  Module
  * @since   2.27
  */
 abstract class MyPlugin extends MyModule

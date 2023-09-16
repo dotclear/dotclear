@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,7 +17,7 @@ namespace Dotclear\Interface;
  *
  * As complex exceptions handling is not set in Dotclear, only \Exception is thrown.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface ContainerInterface
 {

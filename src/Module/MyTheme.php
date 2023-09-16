@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,7 +17,6 @@ use Dotclear\Helper\Network\Http;
  *
  * A theme My class must extend this class.
  *
- * @subpackage  Module
  * @since   2.27
  */
 abstract class MyTheme extends MyModule
