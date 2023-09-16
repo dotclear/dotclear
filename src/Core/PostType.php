@@ -14,7 +14,7 @@ use Dotclear\Interface\Core\PostTypeInterface;
 use Dotclear\Helper\Html\Html;
 
 /**
- * Posts type descriptor.
+ * @brief   Posts type descriptor.
  */
 class PostType implements PostTypeInterface
 {

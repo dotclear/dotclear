@@ -23,7 +23,7 @@ use Dotclear\Interface\Core\TrackbackInterface;
 use Exception;
 
 /**
- * Trackbacks/Pingbacks sender and server.
+ * @brief   Trackbacks/Pingbacks sender and server.
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.

@@ -12,7 +12,7 @@ namespace Dotclear\Core;
 use Dotclear\Interface\Core\BehaviorInterface;
 
 /**
- * Behavior handler.
+ * @brief   Behavior handler.
  */
 class Behavior implements BehaviorInterface
 {

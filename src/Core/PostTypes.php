@@ -13,7 +13,7 @@ use Dotclear\Interface\Core\PostTypeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 
 /**
- * Posts types handler.
+ * @brief   Posts types handler.
  */
 class PostTypes implements PostTypesInterface
 {

@@ -21,7 +21,7 @@ use Dotclear\Interface\Core\BlogsInterface;
 use Exception;
 
 /**
- * Blogs handler.
+ * @brief   Blogs handler.
  */
 class Blogs implements BlogsInterface
 {

@@ -15,9 +15,9 @@ use Dotclear\Database\MetaRecord;
 use Exception;
 
 /**
- * Blogs handler interface.
+ * @brief   Blogs handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface BlogsInterface
 {

@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Lexical helper.
+ * @brief   Lexical helper interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface LexicalInterface
 {

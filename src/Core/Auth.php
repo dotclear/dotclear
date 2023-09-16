@@ -23,7 +23,7 @@ use Dotclear\Schema\Extension\User;
 use Exception;
 
 /**
- * Authentication handler.
+ * @brief   Authentication handler.
  *
  * Auth is a class used to handle everything related to user authentication
  * and credentials. Object is provided by App::auth() method.

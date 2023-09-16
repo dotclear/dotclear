@@ -1,7 +1,6 @@
 <?php
 /**
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -18,46 +17,87 @@ use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
 /**
- * @brief Generic My module class.
+ * @brief   Generic My module class.
  *
  * This class is an helper to have short access to
  * module properties and common requiremets.
- *
  * A module My class must not extend this class
- * but must extend MyPlugin or MyTheme class.
+ * but MUST extend MyPlugin or MyTheme class.
  *
- * @since 2.27
+ * @subpackage  Module
+ * @since   2.27
  */
 abstract class MyModule
 {
-    /** @var    int     Install context */
+    /**
+     * Install context.
+     *
+     * @var     int     INSTALL
+     */
     public const INSTALL = 0;
 
-    /** @var    int     Prepend context */
+    /**
+     * Prepend context.
+     *
+     * @var     int     PREPEND
+     */
     public const PREPEND = 1;
 
-    /** @var    int     Frontend context */
+    /**
+     * Frontend context.
+     *
+     * @var     int     FRONTEND
+     */
     public const FRONTEND = 2;
 
-    /** @var    int     Backend context (usually when the connected user may access at least one functionnality of this module) */
+    /**
+     * Backend context (usually when the connected user may access at least one functionnality of this module).
+     *
+     * @var     int     BACKEND
+     */
     public const BACKEND = 3;
 
-    /** @var    int     Manage context (main page of module) */
+    /**
+     * Manage context (main page of module).
+     *
+     * @var     int     MANAGE
+     */
     public const MANAGE = 4;
 
-    /** @var    int     Config context (config page of module) */
+    /**
+     * Config context (config page of module).
+     *
+     * @var     int     CONFIG
+     */
     public const CONFIG = 5;
 
-    /** @var    int     Menu context (adding a admin menu item) */
+    /**
+     * Menu context (adding a admin menu item).
+     *
+     * @var     int     MENU
+     */
     public const MENU = 6;
 
-    /** @var    int     Widgets context (managing blog's widgets) */
+    /**
+     * Widgets context (managing blog's widgets).
+     *
+     * @var     int     WIDGETS
+     */
     public const WIDGETS = 7;
 
-    /** @var    int     Uninstall context */
+    /**
+     * Uninstall context.
+     *
+     * @since   2.28
+     * @var     int     UNINSTALL
+     */
     public const UNINSTALL = 8;
 
-    /** @var    array<string,ModuleDefine>    The know modules defines */
+    /**
+     * The know modules defines.
+     *
+     * @var     array<string,ModuleDefine>  $defines
+     */
     protected static $defines = [];
 
     /**

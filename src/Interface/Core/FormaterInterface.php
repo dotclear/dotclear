@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Text formater handler interface.
+ * @brief   Text formater handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface FormaterInterface
 {

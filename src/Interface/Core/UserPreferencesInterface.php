@@ -10,13 +10,13 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * User prefs handler.
+ * @brief   User prefs handler.
  *
  * UserPreferences provides user preferences management. This class instance exists as
  * Auth $prefs property. You should create a new prefs instance when
  * updating another user prefs.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface UserPreferencesInterface
 {

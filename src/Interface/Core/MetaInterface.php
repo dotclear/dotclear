@@ -14,9 +14,9 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
 /**
- * Meta hanlder interface.
+ * @brief   Meta hanlder interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface MetaInterface
 {

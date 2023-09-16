@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 /**
- * @brief Modules handler
+ * @brief   Process class structure.
  *
  * Provides an object to handle process in three steps:
  * init ? => process ? => render

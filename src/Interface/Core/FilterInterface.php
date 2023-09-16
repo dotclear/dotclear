@@ -12,9 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Helper\Html\WikiToHtml;
 
 /**
- * Wiki and HTML filter handler interface.
+ * @brief   Wiki and HTML filter handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface FilterInterface
 {

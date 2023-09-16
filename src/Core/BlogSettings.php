@@ -19,7 +19,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
- * Blog settings handler.
+ * @brief   Blog settings handler.
  *
  * This class provides blog settings management. This class instance exists as
  * Blog $settings property. You should create a new settings instance when

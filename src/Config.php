@@ -16,7 +16,7 @@ use Dotclear\Interface\ConfigInterface;
 use Exception;
 
 /**
- * Config handler.
+ * @brief   Config handler.
  *
  * Transitionnal class for DC_ constants.
  *
@@ -41,7 +41,7 @@ use Exception;
  * * HTTP_PROXY_HOST (Helper)
  * * HTTP_PROXY_PORT (Helper)
  *
- * @since 2.28
+ * @since   2.28
  */
 class Config implements ConfigInterface
 {

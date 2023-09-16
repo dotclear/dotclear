@@ -23,7 +23,7 @@ use Dotclear\Schema\Extension\Log as ExtLog;
 use Exception;
 
 /**
- * Core log handler.
+ * @brief   Core log handler.
  */
 class Log implements LogInterface
 {

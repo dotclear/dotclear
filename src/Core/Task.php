@@ -21,6 +21,13 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use Dotclear\Interface\Core\TaskInterface;
 
+/**
+ * @brief   Application task launcher.
+ *
+ * This class execute application according to an Utility and its Process.
+ *
+ * @since   2.28
+ */
 class Task implements TaskInterface
 {
     /**

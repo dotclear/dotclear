@@ -18,7 +18,7 @@ use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
- * @brief User prefs handler
+ * @brief   User prefs handler.
  *
  * UserPreferences provides user preferences management. This class instance exists as
  * Auth $prefs property. You should create a new prefs instance when

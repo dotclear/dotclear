@@ -51,7 +51,7 @@ use Dotclear\Interface\Core\VersionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**
- * Core default factory.
+ * @brief   Core default factory.
  *
  * Core factory instanciates main Core classes.
  * The factory should use Core container to get classes

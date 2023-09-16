@@ -18,7 +18,7 @@ use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\FilterInterface;
 
 /**
- * Wiki and HTML filter handler.
+ * @brief   Wiki and HTML filter handler.
  */
 class Filter implements FilterInterface
 {

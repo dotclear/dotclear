@@ -15,7 +15,7 @@ use Dotclear\Module\StoreReader;
 use Dotclear\Interface\Core\CacheInterface;
 
 /**
- * Dotclear cache handler .
+ * @brief   Dotclear cache handler .
  *
  * @since 2.28
  */

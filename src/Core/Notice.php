@@ -19,7 +19,7 @@ use Dotclear\Interface\Core\NoticeInterface;
 use Exception;
 
 /**
- * Core notice handler.
+ * @brief   Core notice handler.
  */
 class Notice implements NoticeInterface
 {
