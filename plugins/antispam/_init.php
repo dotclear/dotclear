@@ -1,11 +1,13 @@
 <?php
 /**
+ * @package     Dotclear
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
+
+/**
  * @ingroup antispam
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
  */
 class initAntispam
 {
