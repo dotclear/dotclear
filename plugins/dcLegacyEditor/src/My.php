@@ -22,7 +22,7 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return in_array($context, [self::MANAGE, self::MENU]) ?
-            App::context('BACKEND')
+            App::task()->checkContext('BACKEND')
             && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,

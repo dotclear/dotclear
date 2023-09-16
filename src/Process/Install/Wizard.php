@@ -37,7 +37,7 @@ class Wizard extends Process
 
     public static function init(): bool
     {
-        if (!self::status(App::context('INSTALL') && App::config()->configPath() != '')) {
+        if (!self::status(App::task()->checkContext('INSTALL') && App::config()->configPath() != '')) {
             throw new Exception('Not found', 404);
         }
 

@@ -36,7 +36,7 @@ abstract class MyTheme extends MyModule
     {
         // themes specific context permissions
         return match ($context) {
-            self::BACKEND, self::CONFIG => App::context('BACKEND')
+            self::BACKEND, self::CONFIG => App::task()->checkContext('BACKEND')
                     // Check specific permission, allowed to blog admin for themes
                     && App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([

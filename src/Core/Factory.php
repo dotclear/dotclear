@@ -9,10 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
+use Dotclear\Interface\ContainerInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -38,6 +41,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\TaskInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
 use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\UsersInterface;
@@ -61,16 +65,21 @@ class Factory implements FactoryInterface
     /**
      * Constructor takes Container instance.
      *
-     * @param   Container   $container The core container
+     * @param   ContainerInterface  $container The core container
      */
     public function __construct(
-        protected Container $container
+        protected ContainerInterface $container
     ) {
     }
 
     public function auth(): AuthInterface
     {
         return Auth::init();
+    }
+
+    public function backend(): Backend
+    {
+        return new Backend();
     }
 
     public function behavior(): BehaviorInterface
@@ -150,6 +159,11 @@ class Factory implements FactoryInterface
         return new Formater();
     }
 
+    public function frontend(): Frontend
+    {
+        return new Frontend();
+    }
+
     public function lexical(): LexicalInterface
     {
         return new Lexical();
@@ -209,6 +223,11 @@ class Factory implements FactoryInterface
             cookie_secure: $this->container->config()->adminSsl(),
             ttl: $this->container->config()->sessionTtl()
         );
+    }
+
+    public function task(): TaskInterface
+    {
+        return new Task();
     }
 
     public function themes(): ModulesInterface

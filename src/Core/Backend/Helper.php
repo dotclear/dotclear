@@ -59,18 +59,18 @@ class Helper
      */
     public static function loadLocales()
     {
-        App::setLang((string) App::auth()->getInfo('user_lang'));
+        App::task()->setLang((string) App::auth()->getInfo('user_lang'));
 
-        L10n::lang(App::lang());
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
+        L10n::lang(App::task()->getLang());
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/date') === false && App::task()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/main');
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/main');
+        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/plugins');
 
         // Set lexical lang
-        App::lexical()->setLexicalLang('admin', App::lang());
+        App::lexical()->setLexicalLang('admin', App::task()->getLang());
     }
 
     /**

@@ -10,7 +10,7 @@
  */
 use Dotclear\App;
 
-if (!App::context('BACKEND')) {
+if (!App::task()->checkContext('BACKEND')) {
     return;
 }
 

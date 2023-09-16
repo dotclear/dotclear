@@ -46,7 +46,7 @@ class Config extends Process
         App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'standalone_config');
 
         // Load contextual help
-        App::themes()->loadModuleL10Nresources(My::id(), App::lang());
+        App::themes()->loadModuleL10Nresources(My::id(), App::task()->getLang());
 
         $list_types = [
             __('Title') => 'title',

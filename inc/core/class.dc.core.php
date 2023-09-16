@@ -230,7 +230,7 @@ final class dcCore
     /**
      * Current language
      *
-     * @deprecated since 2.28, use App::lang() and App::setLang() instead
+     * @deprecated since 2.28, use App::task()->getLang() and App::task()->setLang() instead
      *
      * @var string
      */
@@ -372,7 +372,7 @@ final class dcCore
         $this->log     = App::log();
         $this->notices = App::notice();
 
-        if (App::context('BACKEND')) {
+        if (App::task()->checkContext('BACKEND')) {
             // deprecated since 2.23, use App::backend()->resources instance instead
             $GLOBALS['__resources'] = &$this->resources;
         }

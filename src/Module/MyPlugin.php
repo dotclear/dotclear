@@ -39,7 +39,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!App::context('BACKEND') || !(App::backend()->menus[$menu] instanceof Menu)) {
+        if (!App::task()->checkContext('BACKEND') || !(App::backend()->menus[$menu] instanceof Menu)) {
             return;
         }
 
@@ -71,7 +71,7 @@ abstract class MyPlugin extends MyModule
                 false));
 
         $icons = [];
-        if (App::context('BACKEND')) {
+        if (App::task()->checkContext('BACKEND')) {
             // Light mode version
             if ($icon = $check(static::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''))) {
                 $icons[] = $icon;
@@ -99,7 +99,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
-        return App::context('BACKEND') ? App::backend()->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
+        return App::task()->checkContext('BACKEND') ? App::backend()->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
     }
 
     /**
@@ -112,7 +112,7 @@ abstract class MyPlugin extends MyModule
     public static function hiddenFields(array $params = []): array
     {
         $fields = [];
-        if (App::context('BACKEND')) {
+        if (App::task()->checkContext('BACKEND')) {
             $params = array_merge(
                 App::backend()->url->getParams('admin.plugin.' . static::id()),
                 $params
@@ -153,7 +153,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function redirect(array $params = [], string $suffix = ''): void
     {
-        if (App::context('BACKEND')) {
+        if (App::task()->checkContext('BACKEND')) {
             App::backend()->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
         }
     }

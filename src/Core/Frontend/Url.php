@@ -697,9 +697,9 @@ class Url extends UrlHandler implements UrlInterface
                 App::themes()->loadNsFile(App::frontend()->theme, 'public');
                 // Loading translations for selected theme
                 if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
-                    App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang(), 'main');
+                    App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::task()->getLang(), 'main');
                 }
-                App::themes()->loadModuleL10N(App::frontend()->theme, App::lang(), 'main');
+                App::themes()->loadModuleL10N(App::frontend()->theme, App::task()->getLang(), 'main');
                 // --BEHAVIOR-- publicPrepend --
                 App::behavior()->callBehavior('publicPrependV2');
                 // Prepare the HTTP cache thing

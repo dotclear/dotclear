@@ -103,9 +103,12 @@ class Utility extends Process
      */
     public function __construct()
     {
-        if (!App::context('FRONTEND')) {
+        if (!App::task()->checkContext('FRONTEND')) {
             throw new Exception('Application is not in public context.', 500);
         }
+
+        // deprecated since 2.28, use App::frontend() instead
+        dcCore::app()->public = $this;
     }
 
     /**
@@ -213,24 +216,24 @@ class Utility extends Process
         }
 
         # Loading locales
-        App::setLang((string) App::blog()->settings()->system->lang);
+        App::task()->setLang((string) App::blog()->settings()->system->lang);
 
-        // deprecated since 2.23, use App::lang() instead
-        $GLOBALS['_lang'] = App::lang();
+        // deprecated since 2.23, use App::task()->getLang() instead
+        $GLOBALS['_lang'] = App::task()->getLang();
 
-        L10n::lang(App::lang());
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/date') === false && App::lang() != 'en') {
+        L10n::lang(App::task()->getLang());
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/date') === false && App::task()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/plugins');
 
         // Set lexical lang
-        App::lexical()->setLexicalLang('public', App::lang());
+        App::lexical()->setLexicalLang('public', App::task()->getLang());
 
         # Loading plugins
         try {
-            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang());
+            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::task()->getLang());
         } catch (Exception $e) {
             // Ignore
         }
@@ -268,9 +271,9 @@ class Utility extends Process
 
         # Loading translations for selected theme
         if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
-            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang(), 'main');
+            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::task()->getLang(), 'main');
         }
-        App::themes()->loadModuleL10N(App::frontend()->theme, App::lang(), 'main');
+        App::themes()->loadModuleL10N(App::frontend()->theme, App::task()->getLang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
         App::behavior()->callBehavior('publicPrependV2');

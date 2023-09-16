@@ -16,7 +16,7 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
-if (!App::context('BACKEND')) {
+if (!App::task()->checkContext('BACKEND')) {
     return;
 }
 
