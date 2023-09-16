@@ -13,9 +13,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 /**
- * Post media database handler interface.
+ * @brief   Post media database handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface PostMediaInterface
 {

@@ -32,7 +32,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Exception;
 
 /**
- * Media items handler.
+ * @brief   Media items handler.
  */
 class Media extends Manager implements MediaInterface
 {

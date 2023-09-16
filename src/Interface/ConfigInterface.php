@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Interface;
 
 /**
- * Config handler.
+ * @brief   Application Config handler interface.
  *
  * Simple write once container for
  * unmutable configuration values.

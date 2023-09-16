@@ -12,11 +12,11 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\Cursor;
 
 /**
- * Authentication hanlder interface.
+ * @brief   Authentication hanlder interface.
  *
  * Tracks core or modules id,version pairs.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface AuthInterface
 {

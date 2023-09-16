@@ -13,9 +13,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 /**
- * User workspace for preferences handler.
+ * @brief   User workspace for preferences handler.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface UserWorkspaceInterface
 {

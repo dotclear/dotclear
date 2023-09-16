@@ -18,7 +18,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 /**
- * Version handler.
+ * @brief   Version handler.
  *
  * Handle id,version pairs through database.
  */

@@ -10,12 +10,13 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 /**
- * Plugins specific handler
+ * @brief   Plugins specific handler.
  *
  * An instance of this class is provided by App::plugins()
  * and used for plugins.
  *
- * @since 2.6
+ * @subpackage  Module
+ * @since   2.6
  */
 class Plugins extends Modules
 {

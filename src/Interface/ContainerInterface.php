@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Interface;
 
 /**
- * Container interface.
+ * @brief   Application container interface.
  *
  * Based on PSR-11 ContainerInterface
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md

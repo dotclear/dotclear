@@ -9,6 +9,11 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+/**
+ * @brief   Application task interface.
+ *
+ * @since   2.28
+ */
 interface TaskInterface
 {
     /**

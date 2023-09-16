@@ -13,9 +13,9 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 /**
- * Categories handler interface.
+ * @brief   Categories handler interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface CategoriesInterface
 {

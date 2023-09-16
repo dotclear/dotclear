@@ -12,7 +12,7 @@ namespace Dotclear\Core;
 use Dotclear\Database\Session as databaseSession;
 
 /**
- * Session handler.
+ * @brief   Session handler.
  *
  * Transitionnal class to set Dotclear default session handler table.
  */

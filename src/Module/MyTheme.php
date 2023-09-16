@@ -1,7 +1,6 @@
 <?php
 /**
  * @package Dotclear
- * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
@@ -14,11 +13,12 @@ use Dotclear\App;
 use Dotclear\Helper\Network\Http;
 
 /**
- * @brief Theme My module class.
+ * @brief   Theme My module class.
  *
  * A theme My class must extend this class.
  *
- * @since 2.27
+ * @subpackage  Module
+ * @since   2.27
  */
 abstract class MyTheme extends MyModule
 {

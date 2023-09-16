@@ -16,9 +16,9 @@ use Dotclear\Database\Statement\SelectStatement;
 use Exception;
 
 /**
- * Blog hanlder interface.
+ * @brief   Blog hanlder interface.
  *
- * @since 2.28, an instance of BLog can be set without a defined blog
+ * @since   2.28, an instance of BLog can be set without a defined blog
  */
 interface BlogInterface
 {

@@ -12,9 +12,9 @@ namespace Dotclear\Interface\Core;
 use Dotclear\Database\MetaRecord;
 
 /**
- * Deprecated logger handler.
+ * @brief   Deprecated logger handler.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface DeprecatedInterface
 {

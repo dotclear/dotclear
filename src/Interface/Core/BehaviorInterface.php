@@ -10,11 +10,11 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Behavior handler interface.
+ * @brief   Behavior handler interface.
  *
  * Collect, stack, use callable callback.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface BehaviorInterface
 {

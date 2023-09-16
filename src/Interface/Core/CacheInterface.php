@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 /**
- * Dotclear cache handler .
+ * @brief   Dotclear cache handler.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface CacheInterface
 {

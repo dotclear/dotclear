@@ -14,9 +14,9 @@ use Dotclear\Helper\File\File;
 use Exception;
 
 /**
- * Media manager interface.
+ * @brief   Media manager interface.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface MediaInterface
 {

@@ -15,11 +15,11 @@ use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**
- * Core factory interface.
+ * @brief   Core factory interface.
  *
  * Core factory interface protect Core compatibility.
  *
- * @since 2.28
+ * @since   2.28
  */
 interface FactoryInterface
 {

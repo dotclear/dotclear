@@ -15,7 +15,7 @@ use Iterator;
 
 #[\AllowDynamicProperties]
 /**
- * @brief MetaRecord class
+ * @brief   MetaRecord class
  */
 class MetaRecord implements Iterator, Countable
 {

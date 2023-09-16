@@ -12,46 +12,103 @@ namespace Dotclear\Module;
 use Dotclear\App;
 
 /**
- * Module defined properties.
+ * @brief   Module defined properties.
  *
  * Provides an object to handle modules properties (themes or plugins).
  *
- * @since 2.25
+ * @subpackage  Module
+ * @since   2.25
  */
 class ModuleDefine
 {
-    /** @var    int     Module state : enabled */
+    /**
+     * Module state : enabled.
+     *
+     * @var     int     STATE_ENABLED */
     public const STATE_ENABLED = 0;
-    /** @var    int     Module state : disbaled */
+
+    /**
+     * Module state : disbaled.
+     *
+     * @var     int     STATE_INIT_DISABLED
+     */
     public const STATE_INIT_DISABLED = 1;
-    /** @var    int     Module state : soft disabled */
+
+    /**
+     * Module state : soft disabled.
+     *
+     * @var     int     STATE_SOFT_DISABLED
+     */
     public const STATE_SOFT_DISABLED = 2;
-    /** @var    int     Module state : hard disabled */
+
+    /**
+     * Module state : hard disabled.
+     *
+     * @var     int     STATE_HARD_DISABLED
+     */
     public const STATE_HARD_DISABLED = 4;
 
-    /** @var    string  Undefined module's name  */
+    /**
+     * Undefined module's name.
+     *
+     * @var     string  DEFAULT_NAME
+     */
     public const DEFAULT_NAME = 'undefined';
 
-    /** @var    string  Undefined module's type */
+    /**
+     * Undefined module's type.
+     *
+     * @var     string  DEFAULT_TYPE
+     */
     public const DEFAULT_TYPE = 'undefined';
 
-    /** @var    int     Default module's priority */
+    /**
+     * Default module's priority.
+     *
+     * @var     int     DEFAULT_PRIORITY
+     */
     public const DEFAULT_PRIORITY = 1000;
 
-    /** @var    string  Module id, must be module's root path */
+    /**
+     * Module id, must be module's root path.
+     *
+     * @var     string  $id
+     */
     private string $id;
 
-    /** @var array  Dependencies : implies */
+    /**
+     * Dependencies : implies.
+     *
+     * @var     array<int,string>   $implies
+     */
     private array $implies = [];
-    /** @var array  Dependencies : missing */
+
+    /**
+     * Dependencies : missing.
+     *
+     * @var     array<string,string>    $missing
+     */
     private array $missing = [];
-    /** @var array  Dependencies : using */
+
+    /**
+     * Dependencies : using.
+     *
+     * @var     array<int,string>   $using
+     */
     private array $using = [];
 
-    /** @var    array   Module properties */
+    /**
+     * Module properties.
+     *
+     * @var     array<string,mixed>     $properties
+     */
     private array $properties = [];
 
-    /** @var    array   Module default properties */
+    /**
+     * Module default properties.
+     *
+     * @var     array   $default
+     */
     private array $default = [
         // set by dc
         'state'         => self::STATE_INIT_DISABLED,
@@ -148,36 +205,72 @@ class ModuleDefine
         return is_string($this->get('root')) && file_exists($this->get('root') . DIRECTORY_SEPARATOR . Modules::MODULE_FILE_LOCKED);
     }
 
+    /**
+     * Add imply dependency.
+     *
+     * @param   string  $dep    The module ID
+     */
     public function addImplies(string $dep): void
     {
         $this->implies[] = $dep;
     }
 
+    /**
+     * Get implies dependencies.
+     *
+     * @return  array<int,string>   The dependencies
+     */
     public function getImplies(): array
     {
         return $this->implies;
     }
 
+    /**
+     * Add missing dependency.
+     *
+     * @param   string  $dep        The module ID
+     * @param   string  $reason     The reason
+     */
     public function addMissing(string $dep, string $reason): void
     {
         $this->missing[$dep] = $reason;
     }
 
+    /**
+     * Get missing dependencies.
+     *
+     * @return  array<string,string>   The dependencies and reasons
+     */
     public function getMissing(): array
     {
         return $this->missing;
     }
 
+    /**
+     * Add using dependency.
+     *
+     * @param   string  $dep        The module ID
+     */
     public function addUsing(string $dep): void
     {
         $this->using[] = $dep;
     }
 
+    /**
+     * Get using dependencies.
+     *
+     * @return  array<int,string>   The dependencies
+     */
     public function getUsing(): array
     {
         return $this->using;
     }
 
+    /**
+     * Get module ID.
+     *
+     * @return  string  The module ID
+     */
     public function getId(): string
     {
         return $this->id;

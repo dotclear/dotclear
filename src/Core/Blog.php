@@ -34,7 +34,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
- * This class describes a blog.
+ * @brief   Blog handler.
  */
 class Blog implements BlogInterface
 {

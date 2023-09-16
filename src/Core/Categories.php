@@ -17,7 +17,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
- * Categories handler.
+ * @brief   Categories handler.
  *
  * Categories nested tree is based on excellent work of Kuzma Feskov
  * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)

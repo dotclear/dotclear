@@ -26,7 +26,7 @@ use Exception;
 use formSelectOption;
 
 /**
- * @brief Handler for action page on selected entries
+ * @brief   Handler for action page on selected entries
  */
 abstract class Actions
 {

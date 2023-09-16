@@ -20,7 +20,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
- * Blog workspace for settings handler.
+ * @brief   Blog workspace for settings handler.
  *
  * Handle id,version pairs through database.
  */

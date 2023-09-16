@@ -19,7 +19,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 
 /**
- * Post media database handler.
+ * @brief   Post media database handler.
  */
 class PostMedia implements PostMediaInterface
 {

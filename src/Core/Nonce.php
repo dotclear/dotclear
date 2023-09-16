@@ -14,7 +14,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Interface\Core\NonceInterface;
 
 /**
- * Form nonce handler.
+ * @brief   Form nonce handler.
  */
 class Nonce implements NonceInterface
 {
