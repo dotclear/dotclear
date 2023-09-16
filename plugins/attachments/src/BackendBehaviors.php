@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief attachments, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,12 +19,16 @@ if (!App::task()->checkContext('BACKEND')) {
     return false;
 }
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup attachments
+ */
 class BackendBehaviors
 {
     /**
-     * Add an attachments help ID if necessary
+     * Add an attachments help ID if necessary.
      *
-     * @param      ArrayObject  $blocks  The blocks
+     * @param   ArrayObject     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
@@ -37,11 +38,11 @@ class BackendBehaviors
     }
 
     /**
-     * Add attachment fieldset in entry sidebar
+     * Add attachment fieldset in entry sidebar.
      *
-     * @param      ArrayObject  $main     The main part of the entry form
-     * @param      ArrayObject  $sidebar  The sidebar part of the entry form
-     * @param      MetaRecord     $post     The post
+     * @param   ArrayObject     $main       The main part of the entry form
+     * @param   ArrayObject     $sidebar    The sidebar part of the entry form
+     * @param   MetaRecord      $post       The post
      */
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
@@ -89,9 +90,9 @@ class BackendBehaviors
     }
 
     /**
-     * Add attchment remove form template
+     * Add attchment remove form template.
      *
-     * @param      MetaRecord  $post   The post
+     * @param   MetaRecord  $post   The post
      */
     public static function adminPostAfterForm(?MetaRecord $post): void
     {
