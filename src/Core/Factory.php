@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
-use Dotclear\Interface\ContainerInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -65,10 +65,10 @@ class Factory implements FactoryInterface
     /**
      * Constructor takes Container instance.
      *
-     * @param   ContainerInterface  $container The core container
+     * @param   App  $container The core container
      */
     public function __construct(
-        protected ContainerInterface $container
+        protected App $container
     ) {
     }
 
