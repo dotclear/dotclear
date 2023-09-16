@@ -26,13 +26,60 @@ use form;
 
 class Wizard extends Process
 {
-    private static $err           = '';
-    private static $DBDRIVER      = 'mysqli';
-    private static $DBHOST        = '';
-    private static $DBNAME        = '';
-    private static $DBUSER        = '';
-    private static $DBPASSWORD    = '';
-    private static $DBPREFIX      = 'dc_';
+    /**
+     * Error description
+     *
+     * @var        string
+     */
+    private static $err = '';
+
+    /**
+     * DB driver name
+     *
+     * @var        string
+     */
+    private static $DBDRIVER = 'mysqli';
+
+    /**
+     * DB host
+     *
+     * @var        string
+     */
+    private static $DBHOST = '';
+
+    /**
+     * DB name
+     *
+     * @var        string
+     */
+    private static $DBNAME = '';
+
+    /**
+     * DB credentials username
+     *
+     * @var        string
+     */
+    private static $DBUSER = '';
+
+    /**
+     * DB credentials password
+     *
+     * @var        string
+     */
+    private static $DBPASSWORD = '';
+
+    /**
+     * DB tables prefix
+     *
+     * @var        string
+     */
+    private static $DBPREFIX = 'dc_';
+
+    /**
+     * Admin email
+     *
+     * @var        string
+     */
     private static $ADMINMAILFROM = '';
 
     public static function init(): bool
@@ -255,7 +302,14 @@ class Wizard extends Process
 <?php
     }
 
-    private static function writeConfigValue($name, $val, &$str)
+    /**
+     * Writes a configuration value.
+     *
+     * @param      string  $name   The name
+     * @param      string  $val    The value
+     * @param      string  $str    The string
+     */
+    private static function writeConfigValue($name, $val, &$str): void
     {
         $val = str_replace("'", "\'", $val);
         $str = preg_replace('/(\'' . $name . '\')(.*?)$/ms', '$1,\'' . $val . '\');', $str);

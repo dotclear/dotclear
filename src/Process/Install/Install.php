@@ -27,23 +27,99 @@ use form;
 
 class Install extends Process
 {
-    private static $can_install     = true;
-    private static $err             = '';
-    private static $step            = 0;
-    private static $dlang           = 'en';
-    private static $root_url        = '';
-    private static $admin_url       = '';
+    /**
+     * Installation checking flag
+     *
+     * @var        bool
+     */
+    private static $can_install = true;
+
+    /**
+     * Error description
+     *
+     * @var        string
+     */
+    private static $err = '';
+
+    /**
+     * Installation step
+     *
+     * @var        int
+     */
+    private static $step = 0;
+
+    /**
+     * Current language
+     *
+     * @var        string
+     */
+    private static $dlang = 'en';
+
+    /**
+     * Dotclear root URL
+     *
+     * @var        string
+     */
+    private static $root_url = '';
+
+    /**
+     * Dotclear admin URL
+     *
+     * @var        string
+     */
+    private static $admin_url = '';
+
+    /**
+     * Plugin installation results
+     *
+     * @var        array<string, array<string, string>>
+     */
     private static $plugins_install = [
         'success' => [],
         'failure' => [],
     ];
 
-    private static $u_email     = '';
+    /**
+     * User email
+     *
+     * @var        string
+     */
+    private static $u_email = '';
+
+    /**
+     * User firstname
+     *
+     * @var        string
+     */
     private static $u_firstname = '';
-    private static $u_name      = '';
-    private static $u_login     = '';
-    private static $u_pwd       = '';
-    private static $u_pwd2      = '';
+
+    /**
+     * User lastname
+     *
+     * @var        string
+     */
+    private static $u_name = '';
+
+    /**
+     * User login
+     *
+     * @var        string
+     */
+    private static $u_login = '';
+
+    /**
+     * User password
+     *
+     * @var        string
+     */
+    private static $u_pwd = '';
+
+    /**
+     * User password verification
+     *
+     * @var        string
+     */
+    private static $u_pwd2 = '';
 
     public static function init(): bool
     {
