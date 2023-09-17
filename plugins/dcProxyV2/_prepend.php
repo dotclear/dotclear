@@ -1,17 +1,22 @@
 <?php
 /**
- * @brief dcProxyV2, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin dcProxyV2 methods aliases
+ * @ingroup     dcProxyV2
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 
+/**
+ * @brief   The module method alias handler.
+ * @ingroup dcProxyV2
+ */
 class dcProxyV2
 {
     public const SUFFIX = 'V2';

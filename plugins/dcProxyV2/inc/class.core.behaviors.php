@@ -1,17 +1,16 @@
 <?php
 /**
- * @brief dcProxyV2, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * Core behaviours
- *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 
+/**
+ * @brief   The module core behaviors aliases handler.
+ * @ingroup dcProxyV2
+ */
 class dcProxyV2CoreBehaviors
 {
     // Count: 3
