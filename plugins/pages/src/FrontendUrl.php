@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,12 +19,16 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Exception;
 
+/**
+ * @brief   The module frontend URL.
+ * @ingroup pages
+ */
 class FrontendUrl extends Url
 {
     /**
-     * Output the Page page
+     * Output the Page page.
      *
-     * @param      null|string  $args   The arguments
+     * @param   null|string     $args   The arguments
      */
     public static function pages(?string $args): void
     {
@@ -198,9 +199,9 @@ class FrontendUrl extends Url
     }
 
     /**
-     * Output the Page preview page
+     * Output the Page preview page.
      *
-     * @param      null|string  $args   The arguments
+     * @param   null|string     $args   The arguments
      */
     public static function pagespreview(?string $args): void
     {

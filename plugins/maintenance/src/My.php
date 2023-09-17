@@ -1,14 +1,9 @@
 <?php
 /**
- * @brief Plugin maintenance My module class.
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- *
- * @since 2.27
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +11,12 @@ namespace Dotclear\Plugin\maintenance;
 
 use Dotclear\Module\MyPlugin;
 
+/**
+ * @brief   The module helper.
+ * @ingroup maintenance
+ *
+ * @since 	2.27
+ */
 class My extends MyPlugin
 {
 }

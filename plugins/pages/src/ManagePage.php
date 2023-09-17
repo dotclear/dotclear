@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -25,6 +22,10 @@ use Exception;
 use form;
 use UnhandledMatchError;
 
+/**
+ * @brief   The module backend manage page process.
+ * @ingroup pages
+ */
 class ManagePage extends Process
 {
     public static function init(): bool
@@ -366,9 +367,6 @@ class ManagePage extends Process
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         if (!self::status()) {
@@ -863,11 +861,11 @@ class ManagePage extends Process
     /**
      * Determines if contribution is allowed.
      *
-     * @param      mixed   $id     The identifier
-     * @param      mixed   $dt     The date
-     * @param      bool    $com    It is comment?
+     * @param   mixed   $id     The identifier
+     * @param   mixed   $dt     The date
+     * @param   bool    $com    It is comment?
      *
-     * @return     bool    True if contribution allowed, False otherwise.
+     * @return  bool    True if contribution allowed, False otherwise.
      */
     protected static function isContributionAllowed($id, $dt, bool $com = true): bool
     {
@@ -890,8 +888,8 @@ class ManagePage extends Process
     /**
      * Shows the comments or trackbacks.
      *
-     * @param      mixed   $rs          Recordset
-     * @param      bool    $has_action  Indicates if action is available
+     * @param   mixed   $rs             Recordset
+     * @param   bool    $has_action     Indicates if action is available
      */
     protected static function showComments($rs, bool $has_action): void
     {

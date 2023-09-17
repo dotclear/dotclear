@@ -1,14 +1,9 @@
 <?php
 /**
- * @brief Maintenance plugin admin class.
+ * @package     Dotclear
  *
- * Group of methods used on behaviors.
- *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,12 +16,16 @@ use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Date;
 use form;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup maintenance
+ */
 class BackendBehaviors
 {
     /**
      * Register default tasks.
      *
-     * @param      Maintenance  $maintenance  Maintenance instance
+     * @param   Maintenance     $maintenance    Maintenance instance
      */
     public static function dcMaintenanceInit(Maintenance $maintenance): void
     {
@@ -58,9 +57,9 @@ class BackendBehaviors
     }
 
     /**
-     * Favorites
+     * Favorites.
      *
-     * @param      Favorites   $favs   favs
+     * @param   Favorites   $favs   favs
      */
     public static function adminDashboardFavorites(Favorites $favs): void
     {
@@ -78,12 +77,12 @@ class BackendBehaviors
     }
 
     /**
-     * Is maintenance plugin active
+     * Is maintenance plugin active.
      *
-     * @param      string  $request  The request
-     * @param      array   $params   The parameters
+     * @param   string  $request    The request
+     * @param   array   $params     The parameters
      *
-     * @return     bool    true if maintenance plugin is active else false
+     * @return  bool    True if maintenance plugin is active else false
      */
     public static function adminDashboardFavoritesActive($request, $params): bool
     {
@@ -96,7 +95,7 @@ class BackendBehaviors
      * This updates maintenance fav icon text
      * if there are tasks required maintenance.
      *
-     * @param      arrayObject  $icon    The icon
+     * @param   arrayObject     $icon   The icon
      */
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
@@ -130,7 +129,7 @@ class BackendBehaviors
     /**
      * Dashboard items stack.
      *
-     * @param      arrayObject  $items  The items
+     * @param   arrayObject     $items  items
      */
     public static function adminDashboardItems(ArrayObject $items): void
     {
@@ -200,7 +199,7 @@ class BackendBehaviors
     /**
      * User preferences update.
      *
-     * @param      string  $user_id  The user identifier
+     * @param   string  $user_id    The user identifier
      */
     public static function adminAfterDashboardOptionsUpdate(?string $user_id = null): void
     {
@@ -221,7 +220,7 @@ class BackendBehaviors
      * but keep it for exemple of how to use behavior adminPageHelpBlock.
      * Cheers, JC
      *
-     * @param      arrayObject  $blocks  The blocks
+     * @param   arrayObject     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {

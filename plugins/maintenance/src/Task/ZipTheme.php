@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,35 +14,44 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The theme zip maintenance task.
+ * @ingroup maintenance
+ */
 class ZipTheme extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceZiptheme';
 
     /**
-     * Task permissions
+     * Task permissions.
      *
-     * @var null|string
+     * @var     null|string     $perm
      */
     protected $perm = 'admin';
 
     /**
-     * Task limited to current blog
+     * Task limited to current blog.
      *
-     * @var bool
+     * @var     bool    $blog
      */
     protected $blog = true;
 
     /**
-     * Task tab container
+     * Task tab container.
      *
-     * @var string
+     * @var     string  $tab
      */
     protected $tab = 'backup';
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'zipblog';
 
@@ -59,14 +65,6 @@ class ZipTheme extends MaintenanceTask
         $this->description = __('It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file.');
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         // Get theme path

@@ -1,14 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * Main class to call everything related to maintenance.
- *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,25 +12,37 @@ namespace Dotclear\Plugin\maintenance;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * @brief   The maintenance handler.
+ * @ingroup maintenance
+ */
 class Maintenance
 {
     /**
-     * Stack of task
+     * Stack of task.
+     *
+     * @var     array   $tasks
      */
     private array $tasks = [];
 
     /**
-     * Stack of tabs
+     * Stack of tabs.
+     *
+     * @var     array   $tabs
      */
     private array $tabs = [];
 
     /**
-     * Stack of groups
+     * Stack of groups.
+     *
+     * @var     array   $groups
      */
     private array $groups = [];
 
     /**
-     * Logs
+     * Logs.
+     *
+     * @var     null|array  $logs
      */
     private ?array $logs = null;
 
@@ -66,11 +73,11 @@ class Maintenance
     /**
      * Adds a tab.
      *
-     * @param      string  $id       The identifier
-     * @param      string  $name     The name
-     * @param      array   $options  The options
+     * @param   string  $id         The identifier
+     * @param   string  $name       The name
+     * @param   array   $options    The options
      *
-     * @return     self
+     * @return  self
      */
     public function addTab(string $id, string $name, array $options = [])
     {
@@ -82,9 +89,9 @@ class Maintenance
     /**
      * Gets the tab.
      *
-     * @param      string  $id     The identifier
+     * @param   string  $id     The identifier
      *
-     * @return     MaintenanceDescriptor|null  The tab.
+     * @return  MaintenanceDescriptor|null  The tab.
      */
     public function getTab(string $id)
     {
@@ -94,7 +101,7 @@ class Maintenance
     /**
      * Gets the tabs.
      *
-     * @return     array  The tabs.
+     * @return  array   The tabs.
      */
     public function getTabs(): array
     {
@@ -107,11 +114,11 @@ class Maintenance
     /**
      * Adds a group.
      *
-     * @param      string  $id       The identifier
-     * @param      string  $name     The name
-     * @param      array   $options  The options
+     * @param   string  $id         The identifier
+     * @param   string  $name       The name
+     * @param   array   $options    The options
      *
-     * @return     self
+     * @return  self
      */
     public function addGroup(string $id, string $name, array $options = [])
     {
@@ -123,9 +130,9 @@ class Maintenance
     /**
      * Gets the group.
      *
-     * @param      string  $id     The identifier
+     * @param   string  $id     The identifier
      *
-     * @return     MaintenanceDescriptor|null  The group.
+     * @return  MaintenanceDescriptor|null  The group.
      */
     public function getGroup(string $id)
     {
@@ -135,7 +142,7 @@ class Maintenance
     /**
      * Gets the groups.
      *
-     * @return     array  The groups.
+     * @return  array   The groups.
      */
     public function getGroups(): array
     {
@@ -148,9 +155,9 @@ class Maintenance
     /**
      * Adds a task.
      *
-     * @param      mixed  $task   The task, Class name or object
+     * @param   mixed   $task   The task, Class name or object
      *
-     * @return     self
+     * @return  self
      */
     public function addTask($task)
     {
@@ -165,9 +172,9 @@ class Maintenance
     /**
      * Gets the task.
      *
-     * @param      string  $id     The identifier
+     * @param   string  $id     The identifier
      *
-     * @return     mixed  The task.
+     * @return  mixed   The task.
      */
     public function getTask(string $id)
     {
@@ -177,7 +184,7 @@ class Maintenance
     /**
      * Gets the tasks.
      *
-     * @return     array  The tasks.
+     * @return  array   The tasks.
      */
     public function getTasks(): array
     {
@@ -187,7 +194,7 @@ class Maintenance
     /**
      * Gets the headers for plugin maintenance admin page.
      *
-     * @return     string  The headers.
+     * @return  string  The headers.
      */
     public function getHeaders(): string
     {
@@ -205,7 +212,7 @@ class Maintenance
     /**
      * Sets the log for a task.
      *
-     * @param      string  $id     Task ID
+     * @param   string  $id     Task ID
      */
     public function setLog(string $id): void
     {
@@ -265,7 +272,7 @@ class Maintenance
     }
 
     /**
-     * Get logs
+     * Get logs.
      *
      * Return [
      *        task id => [
@@ -274,7 +281,7 @@ class Maintenance
      *        ]
      * ]
      *
-     * @return    array List of logged tasks
+     * @return  array   List of logged tasks
      */
     public function getLogs(): array
     {

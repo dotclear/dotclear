@@ -1,14 +1,9 @@
 <?php
 /**
- * @brief Plugin pages My module class.
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- *
- * @since 2.27
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,6 +12,12 @@ namespace Dotclear\Plugin\pages;
 use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
+/**
+ * @brief   The module helper.
+ * @ingroup pages
+ *
+ * @since   2.27
+ */
 class My extends MyPlugin
 {
     public const PERMISSION_PAGES = \initPages::PERMISSION_PAGES; // 'pages';

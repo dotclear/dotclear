@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,12 +15,16 @@ use Dotclear\Core\Backend\Action\ActionsPostsDefault;
 use Dotclear\Core\Backend\Notices;
 use Exception;
 
+/**
+ * @brief   The module backend default pages actions.
+ * @ingroup pages
+ */
 class BackendDefaultActions
 {
     /**
-     * Set pages actions
+     * Set pages actions.
      *
-     * @param      BackendActions  $ap     Admin actions instance
+     * @param   BackendActions  $ap     Admin actions instance
      */
     public static function adminPagesActionsPage(BackendActions $ap): void
     {
@@ -82,10 +83,10 @@ class BackendDefaultActions
     /**
      * Does reorder pages.
      *
-     * @param      BackendActions  $ap  Admin actions instance
-     * @param      ArrayObject     $post   The post
+     * @param   BackendActions  $ap     Admin actions instance
+     * @param   ArrayObject     $post   The post
      *
-     * @throws     Exception             If user permission not granted
+     * @throws  Exception   If user permission not granted
      */
     public static function doReorderPages(BackendActions $ap, ArrayObject $post): void
     {

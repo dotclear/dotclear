@@ -12,9 +12,9 @@
 class initAntispam
 {
     /**
-     * Links table name
+     * Links table name.
      *
-     * @var        string
+     * @var     string  SPAMRULE_TABLE_NAME
      */
     public const SPAMRULE_TABLE_NAME = 'spamrule';
 }

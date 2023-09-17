@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,16 +15,19 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * @brief   The module backend pages actions.
+ * @ingroup pages
+ */
 class BackendActions extends ActionsPosts
 {
+    /**
+     * Use render method.
+     *
+     * @var     bool    $use_render
+     */
     protected $use_render = true;
 
-    /**
-     * Constructs a new instance.
-     *
-     * @param      null|string  $uri            The uri
-     * @param      array        $redirect_args  The redirect arguments
-     */
     public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
@@ -36,11 +36,6 @@ class BackendActions extends ActionsPosts
         $this->caller_title    = __('Pages');
     }
 
-    /**
-     * Display error page
-     *
-     * @param      Exception  $e      { parameter_description }
-     */
     public function error(Exception $e)
     {
         App::error()->add($e->getMessage());
@@ -56,12 +51,6 @@ class BackendActions extends ActionsPosts
         $this->endPage();
     }
 
-    /**
-     * Begins a page.
-     *
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      string  $head        The head
-     */
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
         Page::openModule(
@@ -74,16 +63,13 @@ class BackendActions extends ActionsPosts
         '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
     }
 
-    /**
-     * Ends a page.
-     */
     public function endPage(): void
     {
         Page::closeModule();
     }
 
     /**
-     * Set pages actions
+     * Set pages actions.
      */
     public function loadDefaults(): void
     {
@@ -93,14 +79,6 @@ class BackendActions extends ActionsPosts
         App::behavior()->callBehavior('adminPagesActions', $this);
     }
 
-    /**
-     * Proceeds action handling, if any
-     *
-     * This method may issue an exit() if an action is being processed.
-     *  If it returns, no action has been performed
-     *
-     *  @return mixed
-     */
     public function process()
     {
         // fake action for pages reordering

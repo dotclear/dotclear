@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,14 +14,18 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
 
+/**
+ * @brief   The module frontend template.
+ * @ingroup pages
+ */
 class FrontendTemplate
 {
     /**
-     * Widget public rendering helper
+     * Widget public rendering helper.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function pagesWidget(WidgetsElement $widget)
     {

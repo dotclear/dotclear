@@ -1,21 +1,20 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
+
+/**
+ * @ingroup pages
  */
 class initPages
 {
-    // Constants
-
     /**
-     * Pages permission
+     * Pages permission.
      *
-     * @var        string
+     * @var     string  PERMISSION_PAGES
      */
     public const PERMISSION_PAGES = 'pages';
 }

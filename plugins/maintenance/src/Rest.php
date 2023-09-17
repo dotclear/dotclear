@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,23 +18,20 @@ if (!App::task()->checkContext('BACKEND')) {
 }
 
 /**
-@ingroup PLUGIN_MAINTENANCE
-@nosubgrouping
-@brief Maintenance plugin rest service class.
-
-Serve maintenance methods via Dotclear's rest API
+ * @brief   The module REST service handler.
+ * @ingroup maintenance
  */
 class Rest
 {
     /**
-     * Serve method to do step by step task for maintenance. (JSON)
+     * Serve method to do step by step task for maintenance (JSON).
      *
-     * @param      array      $get    cleaned $_GET
-     * @param      array      $post   cleaned $_POST
+     * @param   array   $get    cleaned $_GET
+     * @param   array   $post   cleaned $_POST
      *
-     * @throws     Exception  (description)
+     * @throws  Exception
      *
-     * @return     array
+     * @return  array
      */
     public static function step(array $get, array $post): array
     {
@@ -66,9 +60,9 @@ class Rest
     }
 
     /**
-     * Serve method to count of expired tasks for maintenance. (JSON)
+     * Serve method to count of expired tasks for maintenance (JSON).
      *
-     * @return     array
+     * @return  array
      */
     public static function countExpired(): array
     {
