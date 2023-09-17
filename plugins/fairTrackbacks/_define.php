@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief fairTrackbacks, an antispam filter plugin for Dotclear 2
+ * @file
+ * @brief       The plugin fairTrackbacks definition
+ * @ingroup     fairTrackbacks
+ * 
+ * @defgroup    fairTrackbacks Plugin fairTrackbacks.
+ * 
+ * fairTrackbacks, Trackback validity check.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 
