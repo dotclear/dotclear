@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief simpleMenu, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,6 +19,10 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
+/**
+ * @brief   The module manage process.
+ * @ingroup simpleMenu
+ */
 class Manage extends Process
 {
     // Local constants
@@ -452,9 +453,6 @@ class Manage extends Process
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         if (!self::status()) {

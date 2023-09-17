@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief simpleMenu, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,12 +11,16 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use Dotclear\Plugin\widgets\WidgetsStack;
 
+/**
+ * @brief   The module widgets.
+ * @ingroup simpleMenu
+ */
 class Widgets
 {
     /**
-     * Add simple menu widget
+     * Add simple menu widget.
      *
-     * @param      WidgetsStack  $widgets  The widgets
+     * @param   WidgetsStack    $widgets    The widgets
      */
     public static function initWidgets(WidgetsStack $widgets): void
     {

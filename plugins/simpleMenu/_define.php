@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief simpleMenu, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin simpleMenu definition
+ * @ingroup     simpleMenu
+ * 
+ * @defgroup    simpleMenu Plugin simpleMenu.
+ * 
+ * simpleMenu, simple menu for themes.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

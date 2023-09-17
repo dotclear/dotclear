@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief simpleMenu, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,10 +15,14 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
 
+/**
+ * @brief   The module frontend template.
+ * @ingroup simpleMenu
+ */
 class FrontendTemplate
 {
     /**
-     * tpl:SimpleMenu [attributes] : Display current loop index (tpl value)
+     * tpl:SimpleMenu [attributes] : Display current loop index (tpl value).
      *
      * attributes:
      *
@@ -33,9 +34,9 @@ class FrontendTemplate
      *
      *  1). The link description (used as menuitem label) may be put as title of the link element, inside a span or both
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
@@ -59,11 +60,11 @@ class FrontendTemplate
     }
 
     /**
-     * Widget rendering function
+     * Widget rendering function.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function simpleMenuWidget(WidgetsElement $widget): string
     {
@@ -99,13 +100,13 @@ class FrontendTemplate
     }
 
     /**
-     * Menu rendering helper (used by template and widget rendering callbacks)
+     * Menu rendering helper (used by template and widget rendering callbacks).
      *
-     * @param      string  $class        The class
-     * @param      string  $id           The identifier
-     * @param      string  $description  The description (see above)
+     * @param   string  $class          The class
+     * @param   string  $id             The identifier
+     * @param   string  $description    The description (see above)
      *
-     * @return     string
+     * @return  string
      */
     public static function displayMenu(string $class = '', string $id = '', string $description = ''): string
     {
