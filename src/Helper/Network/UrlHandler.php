@@ -19,21 +19,21 @@ class UrlHandler
     /**
      * Stack of URL types (name)
      *
-     * @var array
+     * @var array<string, array<string, mixed>>
      */
     protected $types = [];
 
     /**
      * Default handler, used if requested type handler not registered
      *
-     * @var callable|array|null
+     * @var callable|array<string, string>|null
      */
     protected $default_handler;
 
     /**
      * Stack of error handlers
      *
-     * @var        array    Array of callable
+     * @var        array<string, callable|array<string, string>>    Array of callable
      */
     protected $error_handlers = [];
 
@@ -66,10 +66,10 @@ class UrlHandler
     /**
      * Register an URL handler
      *
-     * @param      string           $type            The URI type
-     * @param      string           $url             The base URI
-     * @param      string           $representation  The URI representation (regex, string)
-     * @param      callable|array   $handler         The handler
+     * @param      string                           $type            The URI type
+     * @param      string                           $url             The base URI
+     * @param      string                           $representation  The URI representation (regex, string)
+     * @param      callable|array<string, string>   $handler         The handler
      */
     public function register(string $type, string $url, string $representation, $handler): void
     {
@@ -83,7 +83,7 @@ class UrlHandler
     /**
      * Register the default URL handler
      *
-     * @param      callable|array  $handler  The handler
+     * @param      callable|array<string, string>  $handler  The handler
      */
     public function registerDefault($handler): void
     {
@@ -93,7 +93,7 @@ class UrlHandler
     /**
      * Register an error handler (prepend at the begining of the error handler stack)
      *
-     * @param      callable|array  $handler  The handler
+     * @param      callable|array<string, string>  $handler  The handler
      */
     public function registerError($handler): void
     {
@@ -115,7 +115,7 @@ class UrlHandler
     /**
      * Gets the registered URL handlers.
      *
-     * @return     array  The types.
+     * @return     array<string, array<string, mixed>>  The types.
      */
     public function getTypes(): array
     {
@@ -127,7 +127,7 @@ class UrlHandler
      *
      * @param      string  $type   The type
      *
-     * @return     mixed
+     * @return     void|string
      */
     public function getBase(string $type)
     {

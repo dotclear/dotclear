@@ -271,21 +271,21 @@ interface UserWorkspaceInterface
     /**
      * Dumps preferences.
      *
-     * @return  array
+     * @return  array<string, array<string, mixed>>
      */
     public function dumpPrefs(): array;
 
     /**
      * Dumps local preferences.
      *
-     * @return  array
+     * @return  array<string, array<string, mixed>>
      */
     public function dumpLocalPrefs(): array;
 
     /**
      * Dumps global preferences.
      *
-     * @return  array
+     * @return  array<string, array<string, mixed>>
      */
     public function dumpGlobalPrefs(): array;
 }

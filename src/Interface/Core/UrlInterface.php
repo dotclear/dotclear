@@ -47,31 +47,31 @@ interface UrlInterface
     /**
      * Register an URL handler
      *
-     * @param      string           $type            The type
-     * @param      string           $url             The url
-     * @param      string           $representation  The representation
-     * @param      callable|array   $handler         The handler
+     * @param      string                           $type            The type
+     * @param      string                           $url             The url
+     * @param      string                           $representation  The representation
+     * @param      callable|array<string, string>   $handler         The handler
      */
     public function register(string $type, string $url, string $representation, $handler): void;
 
     /**
      * Register the default URL handler
      *
-     * @param      callable|array  $handler  The handler
+     * @param      callable|array<string, string>  $handler  The handler
      */
     public function registerDefault($handler): void;
 
     /**
      * Register an error handler (prepend at the begining of the error handler stack)
      *
-     * @param      callable|array  $handler  The handler
+     * @param      callable|array<string, string>  $handler  The handler
      */
     public function registerError($handler): void;
 
     /**
      * Gets the registered URL handlers.
      *
-     * @return     array  The types.
+     * @return     array<string, array<string, mixed>>  The types.
      */
     public function getTypes(): array;
 
@@ -88,7 +88,8 @@ interface UrlInterface
      * Throws a 404 (page not found) exception
      *
      * @throws     Exception
-     * @return never
+     *
+     * @return     never
      */
     public static function p404(): never;
 
@@ -227,7 +228,8 @@ interface UrlInterface
      * https://example.com/wp-admin and https://example.com/wp-login
      *
      * @param      null|string  $args   The arguments
-     * @return never
+     *
+     * @return     never
      */
     public static function wpfaker(?string $args): never;
 }
