@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,12 +12,16 @@ namespace Dotclear\Plugin\tags;
 use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 use Dotclear\Plugin\widgets\WidgetsStack;
 
+/**
+ * @brief   The module widgets.
+ * @ingroup tags
+ */
 class Widgets
 {
     /**
      * Add the tags widget to the list of available widgets.
      *
-     * @param      WidgetsStack  $widgets  The widgets
+     * @param   WidgetsStack    $widgets    The widgets
      */
     public static function initWidgets(WidgetsStack $widgets)
     {
@@ -58,10 +59,10 @@ class Widgets
     }
 
     /**
-     * Add the tags widget to the default list of widgets
+     * Add the tags widget to the default list of widgets.
      *
-     * @param      WidgetsStack  $widgets          The widgets
-     * @param      array         $default_widgets  The default widgets
+     * @param   WidgetsStack    $widgets            The widgets
+     * @param   array           $default_widgets    The default widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {

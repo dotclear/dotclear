@@ -1,16 +1,9 @@
 <?php
 /**
- * @brief Plugin tags My module class.
+ * @package     Dotclear
  *
- * A theme My class must extend this class.
- *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- *
- * @since 2.27
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,6 +12,10 @@ namespace Dotclear\Plugin\tags;
 use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
+/**
+ * @brief   The module helper.
+ * @ingroup tags
+ */
 class My extends MyPlugin
 {
     public static function checkCustomContext(int $context): ?bool

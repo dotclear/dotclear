@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,10 +14,14 @@ use Dotclear\App;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
 
+/**
+ * @brief   The module frontend behaviors.
+ * @ingroup tags
+ */
 class FrontendBehaviors
 {
     /**
-     * Public init
+     * Public init.
      */
     public static function publicPrepend(): void
     {
@@ -30,12 +31,12 @@ class FrontendBehaviors
     }
 
     /**
-     * Prepare tags metadata if necessary (Entries or Comments blocks)
+     * Prepare tags metadata if necessary (Entries or Comments blocks).
      *
-     * @param      string       $block  The block
-     * @param      ArrayObject  $attr   The attribute
+     * @param   string          $block  The block
+     * @param   ArrayObject     $attr   The attribute
      *
-     * @return     string
+     * @return  string
      */
     public static function templateBeforeBlock(string $block, ArrayObject $attr): string
     {

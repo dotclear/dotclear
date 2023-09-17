@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -25,15 +22,19 @@ use Dotclear\Helper\Html\WikiToHtml;
 use Exception;
 use form;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup tags
+ */
 class BackendBehaviors
 {
     /**
-     * Load tags specifics scripts
+     * Load tags specifics scripts.
      *
-     * @param      string  $editor   The editor
-     * @param      string  $context  The context
+     * @param   string  $editor     The editor
+     * @param   string  $context    The context
      *
-     * @return     string  ( description_of_the_return_value )
+     * @return  string
      */
     public static function adminPostEditor(string $editor = '', string $context = ''): string
     {
@@ -65,10 +66,10 @@ class BackendBehaviors
     }
 
     /**
-     * Add tags CKEditor plugin
+     * Add tags CKEditor plugin.
      *
-     * @param      ArrayObject  $extraPlugins  The extra plugins
-     * @param      string       $context       The context
+     * @param   ArrayObject     $extraPlugins   The extra plugins
+     * @param   string          $context        The context
      */
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, string $context)
     {
@@ -83,9 +84,9 @@ class BackendBehaviors
     }
 
     /**
-     * Add an tags help ID if necessary
+     * Add an tags help ID if necessary.
      *
-     * @param      ArrayObject  $blocks  The blocks
+     * @param   ArrayObject     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
@@ -95,9 +96,9 @@ class BackendBehaviors
     }
 
     /**
-     * Add tags as dashboard favorites
+     * Add tags as dashboard favorites.
      *
-     * @param      Favorites  $favs   The favs
+     * @param   Favorites   $favs   The favs
      */
     public static function dashboardFavorites(Favorites $favs): void
     {
@@ -114,9 +115,9 @@ class BackendBehaviors
     }
 
     /**
-     * Init wiki tag URL scheme (tag:)
+     * Init wiki tag URL scheme (tag:).
      *
-     * @param      WikiToHtml  $wiki  The wiki 2 HTML
+     * @param   WikiToHtml  $wiki   The wiki 2 HTML
      */
     public static function coreInitWikiPost(WikiToHtml $wiki): void
     {
@@ -124,12 +125,12 @@ class BackendBehaviors
     }
 
     /**
-     * Transform a tag wiki URL
+     * Transform a tag wiki URL.
      *
-     * @param      string  $url      The url
-     * @param      string  $content  The content
+     * @param   string  $url        The url
+     * @param   string  $content    The content
      *
-     * @return     array   ( description_of_the_return_value )
+     * @return  array
      */
     public static function wikiTag(string $url, string $content): array
     {
@@ -147,11 +148,11 @@ class BackendBehaviors
     }
 
     /**
-     * Add tags fieldset in entry sidebar
+     * Add tags fieldset in entry sidebar.
      *
-     * @param      ArrayObject  $main     The main part of the entry form
-     * @param      ArrayObject  $sidebar  The sidebar part of the entry form
-     * @param      MetaRecord     $post     The post
+     * @param   ArrayObject     $main       The main part of the entry form
+     * @param   ArrayObject     $sidebar    The sidebar part of the entry form
+     * @param   MetaRecord      $post       The post
      */
     public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
@@ -169,8 +170,8 @@ class BackendBehaviors
     /**
      * Store the tags of an entry.
      *
-     * @param      Cursor  $cur      The current
-     * @param      mixed   $post_id  The post identifier
+     * @param   Cursor  $cur        The current
+     * @param   mixed   $post_id    The post identifier
      */
     public static function setTags(Cursor $cur, $post_id): void
     {
@@ -188,9 +189,9 @@ class BackendBehaviors
     }
 
     /**
-     * Add tags actions
+     * Add tags actions.
      *
-     * @param      ActionsPosts       $ap     The current action instance
+     * @param   ActionsPosts    $ap     The current action instance
      */
     public static function adminPostsActions(ActionsPosts $ap): void
     {
@@ -211,10 +212,10 @@ class BackendBehaviors
     }
 
     /**
-     * Add tags to an entry
+     * Add tags to an entry.
      *
-     * @param      ActionsPosts       $ap     The current action instance
-     * @param      ArrayObject          $post   The post
+     * @param   ActionsPosts    $ap     The current action instance
+     * @param   ArrayObject     $post   The post
      */
     public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
@@ -296,10 +297,10 @@ class BackendBehaviors
     }
 
     /**
-     * Remove tags from an entry
+     * Remove tags from an entry.
      *
-     * @param      ActionsPosts       $ap     The current action instance
-     * @param      ArrayObject          $post   The post
+     * @param   ActionsPosts    $ap     The current action instance
+     * @param   ArrayObject     $post   The post
      */
     public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
@@ -413,7 +414,7 @@ class BackendBehaviors
     }
 
     /**
-     * Admin user preferences tags fieldset
+     * Admin user preferences tags fieldset.
      */
     public static function adminUserForm(): void
     {
@@ -436,8 +437,8 @@ class BackendBehaviors
     /**
      * Sets the tag list format.
      *
-     * @param      Cursor       $cur      The current
-     * @param      null|string  $user_id  The user identifier
+     * @param   Cursor          $cur        The current
+     * @param   null|string     $user_id    The user identifier
      */
     public static function setTagListFormat(Cursor $cur, ?string $user_id = null)
     {

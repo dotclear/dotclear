@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,6 +12,10 @@ namespace Dotclear\Plugin\tags;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
+/**
+ * @brief   The module frontend process.
+ * @ingroup tags
+ */
 class Frontend extends Process
 {
     public static function init(): bool
@@ -40,19 +41,6 @@ class Frontend extends Process
         App::frontend()->tpl->addValue('TagURL', FrontendTemplate::TagURL(...));
         App::frontend()->tpl->addValue('TagCloudURL', FrontendTemplate::TagCloudURL(...));
         App::frontend()->tpl->addValue('TagFeedURL', FrontendTemplate::TagFeedURL(...));
-
-        /*
-        # Kept for backward compatibility (for now)
-        App::frontend()->tpl->addBlock('MetaData', FrontendTemplate::Tags(...));
-        App::frontend()->tpl->addBlock('MetaDataHeader', FrontendTemplate::TagsHeader(...));
-        App::frontend()->tpl->addBlock('MetaDataFooter', FrontendTemplate::TagsFooter(...));
-        App::frontend()->tpl->addValue('MetaID', FrontendTemplate::TagID(...));
-        App::frontend()->tpl->addValue('MetaPercent', FrontendTemplate::TagPercent(...));
-        App::frontend()->tpl->addValue('MetaRoundPercent', FrontendTemplate::TagRoundPercent(...));
-        App::frontend()->tpl->addValue('MetaURL', FrontendTemplate::TagURL(...));
-        App::frontend()->tpl->addValue('MetaAllURL', FrontendTemplate::TagCloudURL(...));
-        App::frontend()->tpl->addBlock('EntryMetaData', FrontendTemplate::EntryTags(...));
-        */
 
         App::behavior()->addBehaviors([
             'publicPrependV2'        => FrontendBehaviors::publicPrepend(...),

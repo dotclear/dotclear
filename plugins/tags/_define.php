@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin tags definition
+ * @ingroup     tags
+ * 
+ * @defgroup    tags Plugin tags.
+ * 
+ * tags, tags for posts.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 
