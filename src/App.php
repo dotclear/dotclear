@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear
+ * @brief       Dotclear application root
+ */
 namespace Dotclear {
     use Autoloader;
     use Dotclear\Core\Backend\Utility as Backend;

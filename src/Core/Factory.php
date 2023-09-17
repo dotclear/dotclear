@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Core
+ * @brief       Dotclear application services
+ */
 namespace Dotclear\Core;
 
 use Dotclear\App;

@@ -8,6 +8,10 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Core.Backend
+ * @brief       Dotclear application backend utilities
+ */
 namespace Dotclear\Core\Backend;
 
 use dcCore;
