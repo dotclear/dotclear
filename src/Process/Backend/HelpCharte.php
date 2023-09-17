@@ -51,7 +51,7 @@ class HelpCharte extends Process
     /**
      * Gets the JS variables.
      *
-     * @return     array  The js.
+     * @return     array<string, string>  The js.
      */
     public static function getJS(): array
     {

@@ -61,7 +61,7 @@ class StoreReader extends HttpClient
     /**
      * HTTP Cache validators.
      *
-     * @var     array|null  $validators
+     * @var     array<string, string>|null  $validators
      */
     protected $validators = null;
 
