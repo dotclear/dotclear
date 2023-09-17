@@ -1,19 +1,22 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @file
+ * @brief       The plugin dcProxyV2 functions aliases
+ * @ingroup     dcProxyV2
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @package     Dotclear
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 use Dotclear\Core\Backend\Helper;
 use Dotclear\App;
 
 /**
- * Load locales
+ * Load locales.
  *
- * @deprecated     since 2.21  use \Dotclear\Core\Backend\Helper::loadLocales()
+ * @deprecated  since 2.21, use \Dotclear\Core\Backend\Helper::loadLocales() instead
  */
 function dc_load_locales()
 {
@@ -21,13 +24,13 @@ function dc_load_locales()
 }
 
 /**
- * Get icon URL
- *
- * @param      string  $img    The image
+ * Get icon URL.
  *
  * @deprecated  since 2.21
  *
- * @return     string
+ * @param   string  $img    The image
+ *
+ * @return  string
  */
 function dc_admin_icon_url(string $img): string
 {
@@ -35,16 +38,16 @@ function dc_admin_icon_url(string $img): string
 }
 
 /**
- * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)
+ * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark).
  *
- * @param mixed     $img        string (default) or array (0 : light, 1 : dark)
- * @param bool      $fallback   use fallback image if none given
- * @param string    $alt        alt attribute
- * @param string    $title      title attribute
+ * @deprecated  since 2.21, use \Dotclear\Core\Backend\Helper::adminIcon() instead
  *
- * @deprecated  since 2.21  use \Dotclear\Core\Backend\Helper::adminIcon()
+ * @param   mixed   $img        string (default) or array (0 : light, 1 : dark)
+ * @param   bool    $fallback   use fallback image if none given
+ * @param   string  $alt        alt attribute
+ * @param   string  $title      title attribute
  *
- * @return string
+ * @return  string
  */
 function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
 {
@@ -54,15 +57,15 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
 /**
  * Adds a menu item.
  *
- * @deprecated  since 2.21  use App::backend()->menus->addItem() instead
+ * @deprecated  since 2.21, use App::backend()->menus->addItem() instead
  *
- * @param      string  $section   The section
- * @param      string  $desc      The description
- * @param      string  $adminurl  The adminurl
- * @param      mixed   $icon      The icon(s)
- * @param      mixed   $perm      The permission
- * @param      bool    $pinned    The pinned
- * @param      bool    $strict    The strict
+ * @param   string  $section    The section
+ * @param   string  $desc       The description
+ * @param   string  $adminurl   The adminurl
+ * @param   mixed   $icon       The icon(s)
+ * @param   mixed   $perm       The permission
+ * @param   bool    $pinned     The pinned
+ * @param   bool    $strict     The strict
  */
 function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false): void
 {

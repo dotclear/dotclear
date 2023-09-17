@@ -1,10 +1,17 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @file
+ * @brief       The plugin dcProxyV2 plugin importExport aliases
+ * @ingroup     dcProxyV2
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @package     Dotclear
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
+
+/**
+ * @deprecated since 2.25
  */
 class flatImport extends flatImportV2
 {

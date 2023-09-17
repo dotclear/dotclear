@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,6 +11,10 @@ namespace Dotclear\Plugin\importExport;
 
 use Dotclear\App;
 
+/**
+ * @brief   The export flat maintenance task.
+ * @ingroup importExport
+ */
 class ExportFlatMaintenanceTask extends ModuleExportFlat
 {
     /**
@@ -21,7 +22,7 @@ class ExportFlatMaintenanceTask extends ModuleExportFlat
      *
      * Bad hack to change redirection of ModuleExportFlat::process()
      *
-     * @param      string  $id     Task ID
+     * @param   string  $id     Task ID
      */
     public function setURL(string $id): void
     {

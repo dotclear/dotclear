@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief dcLegacyEditor, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,15 +15,19 @@ if (!App::task()->checkContext('BACKEND')) {
     return;
 }
 
+/**
+ * @brief   The module backend REST service.
+ * @ingroup dcLegacyEditor
+ */
 class Rest
 {
     /**
-     * Convert wiki to HTML REST service (JSON)
+     * Convert wiki to HTML REST service (JSON).
      *
-     * @param      array   $get    The get
-     * @param      array   $post   The post
+     * @param   array   $get    The get
+     * @param   array   $post   The post
      *
-     * @return     array
+     * @return  array
      */
     public static function convert(array $get, array $post): array
     {

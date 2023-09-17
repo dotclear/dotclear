@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,34 +19,38 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use form;
 
+/**
+ * @brief   The feed import module handler.
+ * @ingroup importExport
+ */
 class ModuleImportFeed extends Module
 {
     /**
-     * Current status
+     * Current status.
      *
-     * @var        bool
+     * @var     bool    $status
      */
     protected $status = false;
 
     /**
-     * Feed URL
+     * Feed URL.
      *
-     * @var        string
+     * @var     string  $feed_url
      */
     protected $feed_url = '';
 
     /**
-     * get AAAA record for $host
+     * Get AAAA record for $host.
      *
      * If $try_a is true, if AAAA fails, it tries for A
      * The first match found is returned otherwise returns false
      *
      * IPv6 functions (from https://gist.github.com/tbaschak/7866688)
      *
-     * @param      string  $host   The host
-     * @param      bool    $try_a  The try a
+     * @param   string  $host   The host
+     * @param   bool    $try_a  The try a
      *
-     * @return     bool|string
+     * @return  bool|string
      */
     private function gethostbyname6(string $host, bool $try_a = false)
     {
@@ -62,15 +63,15 @@ class ModuleImportFeed extends Module
     }
 
     /**
-     * get AAAA records for $host
+     * Get AAAA records for $host.
      *
      * If $try_a is true, if AAAA fails, it tries for A
      * Results are returned in an array of ips found matching type otherwise returns false
      *
-     * @param      string      $host   The host
-     * @param      bool        $try_a  The try a
+     * @param   string  $host   The host
+     * @param   bool    $try_a  The try a
      *
-     * @return     array|bool
+     * @return  array|bool
      */
     private function gethostbynamel6(string $host, bool $try_a = false)
     {
@@ -106,9 +107,6 @@ class ModuleImportFeed extends Module
         return $ip6;
     }
 
-    /**
-     * Sets the module information.
-     */
     public function setInfo(): void
     {
         $this->type        = 'import';
@@ -116,11 +114,6 @@ class ModuleImportFeed extends Module
         $this->description = __('Add a feed content to the blog.');
     }
 
-    /**
-     * Processes the import/export.
-     *
-     * @param      string  $do     action
-     */
     public function process(string $do): void
     {
         if ($do === 'ok') {
@@ -207,9 +200,6 @@ class ModuleImportFeed extends Module
         Http::redirect($this->getURL() . '&do=ok');
     }
 
-    /**
-     * GUI for import/export module
-     */
     public function gui(): void
     {
         if ($this->status) {

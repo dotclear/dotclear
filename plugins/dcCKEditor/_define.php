@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief dcCKEditor, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin dcCKEditor definition
+ * @ingroup     dcCKEditor
+ * 
+ * @defgroup    dcCKEditor Plugin dcCKEditor.
+ * 
+ * dcCKEditor, dotclear CKEditor integration.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

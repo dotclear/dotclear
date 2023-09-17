@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief dcLegacyEditor, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,17 +14,21 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\L10n;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup dcLegacyEditor
+ */
 class BackendBehaviors
 {
     /**
-     * adminPostEditor add javascript to the DOM to load legacy editor depending on context
+     * adminPostEditor add javascript to the DOM to load legacy editor depending on context.
      *
-     * @param      string  $editor   The wanted editor
-     * @param      string  $context  The page context (post,page,comment,event,...)
-     * @param      array   $tags     The array of ids to inject editor
-     * @param      string  $syntax   The wanted syntax (wiki,markdown,...)
+     * @param   string  $editor     The wanted editor
+     * @param   string  $context    The page context (post,page,comment,event,...)
+     * @param   array   $tags       The array of ids to inject editor
+     * @param   string  $syntax     The wanted syntax (wiki,markdown,...)
      *
-     * @return     mixed
+     * @return  mixed
      */
     public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
     {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief fairTrackbacks, an antispam filter plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,40 +14,44 @@ use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 
+/**
+ * @brief   The module trackbacks antispam filter.
+ * @ingroup fairTrackbacks
+ */
 class AntispamFilterFairTrackbacks extends SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var        string
+     * @var     string  $id
      */
     public $id = 'dcFilterFairTrackbacks';
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var        string
+     * @var     string  $name
      */
     public $name = 'Fair Trackbacks';
 
     /**
-     * Has GUI settings
+     * Has GUI settings.
      *
-     * @var        bool
+     * @var     bool    $has_gui
      */
     public $has_gui = false;
 
     /**
      * Filter active?
      *
-     * @var        bool
+     * @var     bool    $active
      */
     public $active = true;
 
     /**
-     * Filter order
+     * Filter order.
      *
-     * @var        int
+     * @var     int     $order
      */
     public $order = -10;
 
@@ -63,18 +64,19 @@ class AntispamFilterFairTrackbacks extends SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
      *
-     * @param      string   $type     The comment type (comment / trackback)
-     * @param      string   $author   The comment author
-     * @param      string   $email    The comment author email
-     * @param      string   $site     The comment author site
-     * @param      string   $ip       The comment author IP
-     * @param      string   $content  The comment content
-     * @param      int      $post_id  The comment post_id
-     * @param      string   $status   The comment status
+     * If it returns true or false, execution of next filters will be stoped.
+     * If should return nothing to let next filters apply.
+     *
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      *
      * @return  mixed
      */

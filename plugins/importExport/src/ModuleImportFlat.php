@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -23,18 +20,19 @@ use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
+/**
+ * @brief   The import flat module handler.
+ * @ingroup importExport
+ */
 class ModuleImportFlat extends Module
 {
     /**
-     * Current import type (full|single)
+     * Current import type (full|single).
      *
-     * @var        string
+     * @var     string  $status
      */
     protected $status = '';
 
-    /**
-     * Sets the module information.
-     */
     public function setInfo(): void
     {
         $this->type        = 'import';
@@ -42,11 +40,6 @@ class ModuleImportFlat extends Module
         $this->description = __('Imports a blog or a full Dotclear installation from flat file.');
     }
 
-    /**
-     * Processes the import/export.
-     *
-     * @param      string  $do     action
-     */
     public function process(string $do): void
     {
         if ($do === 'single' || $do === 'full') {
@@ -173,9 +166,6 @@ class ModuleImportFlat extends Module
         exit;
     }
 
-    /**
-     * GUI for import/export module
-     */
     public function gui(): void
     {
         if ($this->status === 'single') {
@@ -267,7 +257,7 @@ class ModuleImportFlat extends Module
     /**
      * Gets the public files.
      *
-     * @return     array  The public files.
+     * @return  array   The public files.
      */
     protected function getPublicFiles(): array
     {
@@ -292,11 +282,11 @@ class ModuleImportFlat extends Module
     }
 
     /**
-     * Check if the file is in flat export format
+     * Check if the file is in flat export format.
      *
-     * @param      string  $entry_path  The entry path
+     * @param   string  $entry_path     The entry path
      *
-     * @return     bool    ( description_of_the_return_value )
+     * @return  bool
      */
     protected static function checkFileContent(string $entry_path): bool
     {
@@ -310,13 +300,13 @@ class ModuleImportFlat extends Module
     }
 
     /**
-     * Unzip a file
+     * Unzip a file.
      *
-     * @param      string     $file   The file
+     * @param   string  $file   The file
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool|string
+     * @return  bool|string
      */
     private function unzip(string $file)
     {

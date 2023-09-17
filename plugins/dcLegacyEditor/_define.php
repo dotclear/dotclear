@@ -1,12 +1,17 @@
-<?php
+<?php<?php
 /**
- * @brief dcLegacyEditor, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin dcLegacyEditor definition
+ * @ingroup     dcLegacyEditor
+ * 
+ * @defgroup    dcLegacyEditor Plugin dcLegacyEditor.
+ * 
+ * dcLegacyEditor, dotclear legacy editor.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief dcProxyV2, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin dcProxyV2 definition
+ * @ingroup     dcProxyV2
+ * 
+ * @defgroup    dcProxyV2 Plugin dcProxyV2.
+ * 
+ * dcProxyV2, Cope with function/method footprint V1 (< 2.24, 2.25).
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

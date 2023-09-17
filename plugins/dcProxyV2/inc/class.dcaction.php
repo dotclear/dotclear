@@ -1,13 +1,9 @@
 <?php
-
 /**
- * Actions
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Backend
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 use Dotclear\Core\Backend\Action\Actions;
@@ -15,6 +11,10 @@ use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 
+/**
+ * @brief   The module backend actions aliases handler.
+ * @ingroup dcProxyV2
+ */
 abstract class dcActionsPage extends Actions
 {
     public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,11 +17,12 @@ use Dotclear\Helper\Network\Http;
 use initBlogroll;
 use form;
 
+/**
+ * @brief   The default export flat module handler.
+ * @ingroup importExport
+ */
 class ModuleExportFlat extends Module
 {
-    /**
-     * Sets the module information.
-     */
     public function setInfo()
     {
         $this->type        = 'export';
@@ -32,11 +30,6 @@ class ModuleExportFlat extends Module
         $this->description = __('Exports a blog or a full Dotclear installation to flat file.');
     }
 
-    /**
-     * Processes the import/export.
-     *
-     * @param      string  $do     action
-     */
     public function process(string $do): void
     {
         // Export a blog
@@ -205,9 +198,6 @@ class ModuleExportFlat extends Module
         }
     }
 
-    /**
-     * GUI for import/export module
-     */
     public function gui(): void
     {
         echo

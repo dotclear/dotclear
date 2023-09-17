@@ -1,12 +1,13 @@
 <?php
 /**
- * @brief dcCKEditor, a plugin for Dotclear 2
+ * @file
+ * @brief     The module backend manage javascript
+ * @ingroup   dcCKEditor
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package   Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

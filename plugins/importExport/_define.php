@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin importExport definition
+ * @ingroup     importExport
+ * 
+ * @defgroup    importExport Plugin importExport.
+ * 
+ * importExport, Import and Export your blog.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

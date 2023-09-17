@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,6 +14,10 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 use form;
 
+/**
+ * @brief   The export blog maintenance task.
+ * @ingroup importExport
+ */
 class ExportBlogMaintenanceTask extends MaintenanceTask
 {
     protected $perm  = 'admin';
@@ -38,14 +39,6 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         $this->export_type = 'export_blog';
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    mixed
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         // Create zip file
@@ -67,13 +60,6 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         }
     }
 
-    /**
-     * Get step message.
-     *
-     * This message is displayed during task step execution.
-     *
-     * @return    mixed    Message or null
-     */
     public function step()
     {
         // Download zip file
