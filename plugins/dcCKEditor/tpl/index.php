@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * @file
+ * @brief     The module backend manage contents
+ * @ingroup   dcCKEditor
+ *
+ * @package   Dotclear
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief dcCKEditor, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,17 +13,21 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup dcCKEditor
+ */
 class BackendBehaviors
 {
     /**
-     * adminPostEditor add javascript to the DOM to load ckeditor depending on context
+     * adminPostEditor add javascript to the DOM to load ckeditor depending on context.
      *
-     * @param      string  $editor   The wanted editor
-     * @param      string  $context  The page context (post,page,comment,event,...)
-     * @param      array   $tags     The array of ids to inject editor
-     * @param      string  $syntax   The wanted syntax (wiki,markdown,...)
+     * @param   string  $editor     The wanted editor
+     * @param   string  $context    The page context (post,page,comment,event,...)
+     * @param   array   $tags       The array of ids to inject editor
+     * @param   string  $syntax     The wanted syntax (wiki,markdown,...)
      *
-     * @return     string
+     * @return  string
      */
     public static function adminPostEditor(string $editor = '', string $context = '', array $tags = [], string $syntax = 'xhtml'): string
     {
@@ -71,11 +72,11 @@ class BackendBehaviors
     }
 
     /**
-     * Load additional script for media insertion popup
+     * Load additional script for media insertion popup.
      *
-     * @param      string  $editor  The editor
+     * @param   string  $editor     The editor
      *
-     * @return     string
+     * @return  string
      */
     public static function adminPopupMedia(string $editor = ''): string
     {
@@ -93,11 +94,11 @@ class BackendBehaviors
     }
 
     /**
-     * Load additional script for link insertion popup
+     * Load additional script for link insertion popup.
      *
-     * @param      string  $editor  The editor
+     * @param   string  $editor     The editor
      *
-     * @return     string
+     * @return  string
      */
     public static function adminPopupLink(string $editor = ''): string
     {
@@ -109,11 +110,11 @@ class BackendBehaviors
     }
 
     /**
-     * Load additional script for entry link insertion popup
+     * Load additional script for entry link insertion popup.
      *
-     * @param      string  $editor  The editor
+     * @param   string  $editor     The editor
      *
-     * @return     string
+     * @return  string
      */
     public static function adminPopupPosts(string $editor = ''): string
     {
@@ -125,11 +126,11 @@ class BackendBehaviors
     }
 
     /**
-     * Add some CSP headers
+     * Add some CSP headers.
      *
      * CKEditor uses inline CSS styles, inline JS scripts and even uses eval() javascript function, so…
      *
-     * @param      ArrayObject  $csp    The csp
+     * @param   ArrayObject     $csp    The csp
      */
     public static function adminPageHTTPHeaderCSP(ArrayObject $csp): void
     {
