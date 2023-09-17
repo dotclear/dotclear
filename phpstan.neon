@@ -7,9 +7,16 @@
 
 includes:
 #  - phpstan.local.neon
+# Experimental analysis (uncomment next line to use it)
+#  - phar://phpstan.phar/conf/bleedingEdge.neon
 
 parameters:
   level: 5
+
+# Go over level 9 (uncomment one/many of next lines to activate them):
+#  checkUninitializedProperties: true
+#  checkImplicitMixed: true
+#  checkBenevolentUnionTypes: true
 
   editorUrl: 'file://%%file%%'
 
