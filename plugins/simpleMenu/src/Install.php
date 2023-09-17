@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief simpleMenu, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +13,10 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
+/**
+ * @brief   The module install process.
+ * @ingroup simpleMenu
+ */
 class Install extends Process
 {
     public static function init(): bool

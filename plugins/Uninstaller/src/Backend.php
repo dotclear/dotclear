@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,6 +16,10 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
+/**
+ * @brief   The module backend process.
+ * @ingroup Uninstaller
+ */
 class Backend extends Process
 {
     public static function init(): bool

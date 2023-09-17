@@ -90,10 +90,16 @@ abstract class Actions
      * @var boolean true if we enable to keep selection when redirecting
      */
     protected $enable_redir_selection = true;
+
     /**
-     * @var boolean true if class uses silent process method and uses render method instead
+     * Use render method.
+     *
+     * True if class uses silent process method and uses render method instead.
+     *
+     * @var     bool    $use_render
      */
     protected $use_render = false;
+
     /**
      * @var string Action process content
      */

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief widgets, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,55 +14,83 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @brief   The widgets element handler.
+ * @ingroup widgets
+ */
 class WidgetsElement
 {
     // Constants
 
-    public const ALL_PAGES   = 0; // Widget displayed on every page
-    public const HOME_ONLY   = 1; // Widget displayed on home page only
-    public const EXCEPT_HOME = 2; // Widget displayed on every page but home page
     /**
-     * Widget ID
+     * Widget displayed on every page.
+     *
+     * @var     string  ALL_PAGES
+     */
+    public const ALL_PAGES   = 0;
+
+    /**
+     * Widget displayed on home page only.
+     *
+     * @var     string  HOME_ONLY
+     */
+    public const HOME_ONLY   = 1;
+
+    /**
+     * Widget displayed on every page but home page.
+     *
+     * @var     string  EXCEPT_HOME
+     */
+    public const EXCEPT_HOME = 2;
+
+    /**
+     * Widget ID.
+     *
+     * @var     string  $id
      */
     private string $id;
 
     /**
-     * Widget name
+     * Widget name.
+     *
+     * @var     string  $name
      */
     private string $name;
 
     /**
-     * Widget description
+     * Widget description.
+     *
+     * @var     string  $desc
      */
     private string $desc;
 
     /**
-     * Widget callback
+     * Widget callback.
      *
-     * @var null|callable
+     * @var     null|callable   $public_callback
      */
     private $public_callback = null;
 
     /**
-     * Widget append callback
+     * Widget append callback.
      *
-     * @var null|callable
+     * @var     null|callable   $append_callback
      */
     public $append_callback = null;
 
     /**
-     * Widget settings
+     * Widget settings.
      *
-     * @var array
+     * @var     array   $settings
      */
     protected $settings = [];
 
     /**
      * Get array of widget settings
      *
-     * @param      int  $order  The order
+     * @param   int     $order  The order
      *
-     * @return     array
+     * @return  array
      */
     public function serialize(int $order): array
     {
@@ -83,10 +108,10 @@ class WidgetsElement
     /**
      * Constructs a new instance.
      *
-     * @param      string           $id        The identifier
-     * @param      string           $name      The name
-     * @param      callable|array   $callback  The callback
-     * @param      string           $desc      The description
+     * @param   string          $id         The identifier
+     * @param   string          $name       The name
+     * @param   callable|array  $callback   The callback
+     * @param   string          $desc       The description
      */
     public function __construct(string $id, string $name, $callback, string $desc = '')
     {
@@ -104,9 +129,9 @@ class WidgetsElement
     }
 
     /**
-     * Get widget ID
+     * Get widget ID.
      *
-     * @return     string
+     * @return  string
      */
     public function id(): string
     {
@@ -114,9 +139,9 @@ class WidgetsElement
     }
 
     /**
-     * Get widget name
+     * Get widget name.
      *
-     * @return     string
+     * @return  string
      */
     public function name(): string
     {
@@ -124,9 +149,9 @@ class WidgetsElement
     }
 
     /**
-     * Get widget description
+     * Get widget description.
      *
-     * @return     string
+     * @return  string
      */
     public function desc(): string
     {
@@ -136,7 +161,7 @@ class WidgetsElement
     /**
      * Gets the widget callback.
      *
-     * @return     null|callable  The callback.
+     * @return  null|callable   The callback.
      */
     public function getCallback(): ?callable
     {
@@ -144,11 +169,11 @@ class WidgetsElement
     }
 
     /**
-     * Call a widget callback
+     * Call a widget callback.
      *
-     * @param      mixed     $i
+     * @param   mixed   $i
      *
-     * @return     string
+     * @return  string
      */
     public function call($i = 0)
     {
@@ -160,14 +185,14 @@ class WidgetsElement
     }
 
     /**
-     * Widget rendering tool
+     * Widget rendering tool.
      *
-     * @param      bool    $content_only  The content only
-     * @param      string  $class         The class
-     * @param      string  $attr          The attribute
-     * @param      string  $content       The content
+     * @param   bool    $content_only   The content only
+     * @param   string  $class          The class
+     * @param   string  $attr           The attribute
+     * @param   string  $content        The content
      *
-     * @return     string
+     * @return  string
      */
     public function renderDiv(bool $content_only, string $class, string $attr, string $content): string
     {
@@ -196,11 +221,11 @@ class WidgetsElement
     }
 
     /**
-     * Render widget title
+     * Render widget title.
      *
-     * @param      null|string  $title  The title
+     * @param   null|string     $title  The title
      *
-     * @return     string
+     * @return  string
      */
     public function renderTitle(?string $title): string
     {
@@ -224,12 +249,12 @@ class WidgetsElement
     }
 
     /**
-     * Render widget subtitle
+     * Render widget subtitle.
      *
-     * @param      null|string  $title   The title
-     * @param      bool         $render  The render
+     * @param   null|string     $title      The title
+     * @param   bool            $render     The render
      *
-     * @return     string
+     * @return  string
      */
     public function renderSubtitle(?string $title, $render = true)
     {
@@ -260,9 +285,9 @@ class WidgetsElement
     /**
      * Gets the specified setting value.
      *
-     * @param      string  $n      The setting name
+     * @param   string  $n  The setting name
      *
-     * @return     mixed
+     * @return  mixed
      */
     public function __get(string $n)
     {
@@ -272,10 +297,10 @@ class WidgetsElement
     }
 
     /**
-     * Set the specified setting value
+     * Set the specified setting value.
      *
-     * @param      string  $n      The setting name
-     * @param      mixed   $v      The new value
+     * @param   string  $n  The setting name
+     * @param   mixed   $v  The new value
      */
     public function __set(string $n, $v)
     {
@@ -285,14 +310,14 @@ class WidgetsElement
     }
 
     /**
-     * Store a setting
+     * Store a setting.
      *
-     * @param      string     $name             The name
-     * @param      string     $title            The title
-     * @param      mixed      $value            The value
-     * @param      string     $type             The type
+     * @param   string  $name   The name
+     * @param   string  $title  The title
+     * @param   mixed   $value  The value
+     * @param   string  $type   The type
      *
-     * @return     self
+     * @return  self
      */
     public function setting(string $name, string $title, $value, string $type = 'text'): self
     {
@@ -344,9 +369,9 @@ class WidgetsElement
     }
 
     /**
-     * Get widget settings
+     * Get widget settings.
      *
-     * @return     array
+     * @return  array
      */
     public function settings(): array
     {
@@ -354,12 +379,12 @@ class WidgetsElement
     }
 
     /**
-     * Get widget settings form
+     * Get widget settings form.
      *
-     * @param      string  $pr     The prefix
-     * @param      int     $i      The index
+     * @param   string  $pr     The prefix
+     * @param   int     $i      The index
      *
-     * @return     string
+     * @return  string
      */
     public function formSettings(string $pr = '', int &$i = 0): string
     {
@@ -373,14 +398,14 @@ class WidgetsElement
     }
 
     /**
-     * Get a widget setting field
+     * Get a widget setting field.
      *
-     * @param      string       $id     The identifier
-     * @param      array        $s      The setting
-     * @param      string       $pr     The prefix
-     * @param      int          $i      The index
+     * @param   string  $id     The identifier
+     * @param   array   $s      The setting
+     * @param   string  $pr     The prefix
+     * @param   int     $i      The index
      *
-     * @return     string
+     * @return  string
      */
     public function formSetting(string $id, array $s, string $pr = '', int &$i = 0): string
     {
@@ -470,9 +495,9 @@ class WidgetsElement
     /**
      * Adds a title setting.
      *
-     * @param      string  $title  The title
+     * @param   string  $title  The title
      *
-     * @return     self
+     * @return  self
      */
     public function addTitle(string $title = ''): self
     {
@@ -482,7 +507,7 @@ class WidgetsElement
     /**
      * Adds a home only setting.
      *
-     * @return     self
+     * @return  self
      */
     public function addHomeOnly(?array $options = null): self
     {
@@ -505,13 +530,13 @@ class WidgetsElement
     }
 
     /**
-     * Check if the widget should be displayed, depending on its homeonly setting
+     * Check if the widget should be displayed, depending on its homeonly setting.
      *
-     * @param      string  $type          The type
-     * @param      int     $alt_not_home  Alternate not home test value
-     * @param      int     $alt_home      Alternate home test value
+     * @param   string  $type           The type
+     * @param   int     $alt_not_home   Alternate not home test value
+     * @param   int     $alt_home       Alternate home test value
      *
-     * @return     bool
+     * @return  bool
      */
     public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
     {
@@ -527,9 +552,9 @@ class WidgetsElement
     /**
      * Adds a content only setting.
      *
-     * @param      int     $content_only  The content only flag
+     * @param   int     $content_only   The content only flag
      *
-     * @return     self
+     * @return  self
      */
     public function addContentOnly(int $content_only = 0): self
     {
@@ -539,9 +564,9 @@ class WidgetsElement
     /**
      * Adds a class setting.
      *
-     * @param      string  $class  The class
+     * @param   string  $class  The class
      *
-     * @return     self
+     * @return  self
      */
     public function addClass(string $class = ''): self
     {
@@ -551,9 +576,9 @@ class WidgetsElement
     /**
      * Adds an offline setting.
      *
-     * @param      int     $offline  The offline flag
+     * @param   int     $offline    The offline flag
      *
-     * @return     self
+     * @return  self
      */
     public function addOffline(int $offline = 0): self
     {
@@ -563,7 +588,7 @@ class WidgetsElement
     /**
      * Determines if setting is offline.
      *
-     * @return     bool  True if offline, False otherwise.
+     * @return  bool    True if offline, False otherwise.
      */
     public function isOffline(): bool
     {

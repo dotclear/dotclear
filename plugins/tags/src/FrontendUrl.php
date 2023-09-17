@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,12 +12,16 @@ namespace Dotclear\Plugin\tags;
 use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 
+/**
+ * @brief   The module frontend URL.
+ * @ingroup tags
+ */
 class FrontendUrl extends Url
 {
     /**
-     * Output the Tag page
+     * Output the Tag page.
      *
-     * @param      null|string  $args   The arguments
+     * @param   null|string     $args   The arguments
      */
     public static function tag(?string $args): void
     {
@@ -69,7 +70,7 @@ class FrontendUrl extends Url
     }
 
     /**
-     * Output the Tags page
+     * Output the Tags page.
      */
     public static function tags(): void
     {
@@ -77,9 +78,9 @@ class FrontendUrl extends Url
     }
 
     /**
-     * Output the Tag feed page
+     * Output the Tag feed page.
      *
-     * @param      null|string  $args   The arguments
+     * @param   null|string     $args   The arguments
      */
     public static function tagFeed(?string $args): void
     {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,19 +15,24 @@ use Dotclear\App;
 use Exception;
 
 /**
- * The cleaners stack.
+ * @brief   The cleaners stack.
+ * @ingroup Uninstaller
  *
  * @implements Iterator<string,CleanerParent>
  */
 class CleanersStack implements Countable, Iterator
 {
-    /** @var    array<string,CleanerParent>   $stack   The cleaner stack */
+    /**
+     * The cleaner stack.
+     *
+     * @var     array<string,CleanerParent>     $stack
+     */
     private array $stack = [];
 
     /**
      * Contructor load cleaners.
      *
-     * @see This module src\Prepend.php file to know how to add custom cleaner.
+     * @see     This module src\Prepend.php file to know how to add custom cleaner.
      */
     public function __construct()
     {
@@ -44,7 +46,7 @@ class CleanersStack implements Countable, Iterator
     }
 
     /**
-     * @return null|CleanerParent
+     * @return  null|CleanerParent
      */
     public function get(string $offset): ?CleanerParent
     {
@@ -71,7 +73,7 @@ class CleanersStack implements Countable, Iterator
     }
 
     /**
-     * @return false|CleanerParent
+     * @return  false|CleanerParent
      */
     #[\ReturnTypeWillChange]
     public function current(): false|CleanerParent
@@ -80,7 +82,7 @@ class CleanersStack implements Countable, Iterator
     }
 
     /**
-     * @return null|string
+     * @return  null|string
      */
     #[\ReturnTypeWillChange]
     public function key(): ?string

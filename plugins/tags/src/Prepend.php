@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,6 +12,10 @@ namespace Dotclear\Plugin\tags;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
+/**
+ * @brief   The module prepend process.
+ * @ingroup tags
+ */
 class Prepend extends Process
 {
     public static function init(): bool

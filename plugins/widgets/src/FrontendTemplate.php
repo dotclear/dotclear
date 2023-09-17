@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief widgets, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,19 +12,23 @@ namespace Dotclear\Plugin\widgets;
 use ArrayObject;
 use SimpleXMLElement;
 
+/**
+ * @brief   The module frontend template.
+ * @ingroup widgets
+ */
 class FrontendTemplate
 {
     /**
-     * tpl:Widgets [attributes] : Displays trackback title (tpl value)
+     * tpl:Widgets [attributes] : Displays trackback title (tpl value).
      *
      * attributes:
      *
      *      - type                Type of widgets (nav, extra, custom), default to all
      *      - disable             Comma separated list of widget to disable, default to empty
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function tplWidgets($attr)
     {
@@ -80,17 +81,17 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:IfWidgets : Include content only if test succeed (tpl block)
+     * tpl:IfWidgets : Include content only if test succeed (tpl block).
      *
      * attributes:
      *
      *      - type                Type of widgets (nav, extra, custom), default to all
      *      - disable             Comma separated list of widget to disable, default to empty
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function tplIfWidgets(ArrayObject $attr, string $content): string
     {
@@ -114,11 +115,11 @@ class FrontendTemplate
     }
 
     /**
-     * tplIfWidgets helper
+     * tplIfWidgets helper.
      *
-     * @param      string  $type   The type
+     * @param   string  $type   The type
      *
-     * @return     bool
+     * @return  bool
      */
     public static function ifWidgetsHandler(string $type): bool
     {
@@ -137,11 +138,11 @@ class FrontendTemplate
     }
 
     /**
-     * Get default widgets list helper
+     * Get default widgets list helper.
      *
-     * @param      string     $type   The type
+     * @param   string  $type    The type
      *
-     * @return     WidgetsStack
+     * @return  WidgetsStack
      */
     private static function Widgets(string $type): WidgetsStack
     {
@@ -149,16 +150,16 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:Widget [attributes] : Includes a widget (tpl block)
+     * tpl:Widget [attributes] : Includes a widget (tpl block).
      *
      * attributes:
      *
      *      - id      widget ID
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content (widget optional settings)
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content (widget optional settings)
      *
-     * @return     string
+     * @return  string
      */
     public static function tplWidget(ArrayObject $attr, string $content): string
     {
@@ -177,10 +178,10 @@ class FrontendTemplate
     }
 
     /**
-     * Render widget
+     * Render widget.
      *
-     * @param      string  $id     The widget identifier
-     * @param      string  $xml    The xml (widget optional settings)
+     * @param   string  $id     The widget identifier
+     * @param   string  $xml    The xml (widget optional settings)
      */
     public static function widgetHandler(string $id, $xml): void
     {

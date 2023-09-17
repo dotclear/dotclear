@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief widgets, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,6 +12,10 @@ namespace Dotclear\Plugin\widgets;
 use Dotclear\Core\Process;
 use Exception;
 
+/**
+ * @brief   The module install process.
+ * @ingroup widgets
+ */
 class Install extends Process
 {
     public static function init(): bool

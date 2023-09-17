@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,7 +19,8 @@ use Dotclear\Plugin\Uninstaller\{
 };
 
 /**
- * Cleaner for Dotclear VAR directory used by modules.
+ * @brief   Cleaner for Dotclear VAR directory used by modules.
+ * @ingroup Uninstaller
  *
  * It allows modules to delete an entire sub folder
  * of DC_VAR directory path.

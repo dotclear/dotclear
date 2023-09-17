@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief widgets, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,18 +17,45 @@ use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
 use Exception;
 
+/**
+ * @brief   The widgets handler.
+ * @ingroup widgets
+ */
 class Widgets
 {
-    // Constants
-
+    /**
+     * Navigation widgets group.
+     *
+     * @var     string  WIDGETS_NAV
+     */
     public const WIDGETS_NAV    = 'nav';
+
+    /**
+     * extra widgets group.
+     *
+     * @var     string  WIDGETS_EXTRA
+     */
     public const WIDGETS_EXTRA  = 'extra';
+
+    /**
+     * custom widgets group.
+     *
+     * @var     string  WIDGETS_CUSTOM
+     */
     public const WIDGETS_CUSTOM = 'custom';
 
-    /** @var    WidgetsStack    The current widgets stack */
+    /**
+     * The current widgets stack.
+     *
+     * @var     WidgetsStack    $widgets
+     */
     public static WidgetsStack $widgets;
 
-    /** @var    array<string,WidgetsStack>  The default widgets stack */
+    /**
+     * The default widgets stack.
+     *
+     * @var     array<string,WidgetsStack>  $default_widgets
+     */
     public static array $default_widgets;
 
     /**
@@ -172,11 +196,11 @@ class Widgets
     }
 
     /**
-     * Render search form widget
+     * Render search form widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function search(WidgetsElement $widget): string
     {
@@ -209,11 +233,11 @@ class Widgets
     }
 
     /**
-     * Render navigation widget
+     * Render navigation widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function navigation(WidgetsElement $widget): string
     {
@@ -255,11 +279,11 @@ class Widgets
     }
 
     /**
-     * Render categories widget
+     * Render categories widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function categories(WidgetsElement $widget): string
     {
@@ -311,11 +335,11 @@ class Widgets
     }
 
     /**
-     * Render selected posts widget
+     * Render selected posts widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function bestof(WidgetsElement $widget): string
     {
@@ -356,11 +380,11 @@ class Widgets
     }
 
     /**
-     * Render langs widget
+     * Render langs widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function langs(WidgetsElement $widget): string
     {
@@ -403,11 +427,11 @@ class Widgets
     }
 
     /**
-     * Render feed subscription widget
+     * Render feed subscription widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function subscribe(WidgetsElement $widget): string
     {
@@ -449,11 +473,11 @@ class Widgets
     }
 
     /**
-     * Render feed widget
+     * Render feed widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function feed(WidgetsElement $widget): string
     {
@@ -510,11 +534,11 @@ class Widgets
     }
 
     /**
-     * Render text widget
+     * Render text widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function text(WidgetsElement $widget): string
     {
@@ -532,11 +556,11 @@ class Widgets
     }
 
     /**
-     * Render last posts widget
+     * Render last posts widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function lastposts(WidgetsElement $widget): string
     {
@@ -592,11 +616,11 @@ class Widgets
     }
 
     /**
-     * Render last comments widget
+     * Render last comments widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function lastcomments(WidgetsElement $widget): string
     {

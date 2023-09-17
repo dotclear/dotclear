@@ -1,35 +1,49 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
 /**
- * Cleaner abstract class.
+ * @brief   Cleaner abstract class.
+ * @ingroup Uninstaller
  *
  * Cleaner manages only one part of uninstall process.
  * For exemple Settings, Caches, db, etc...
  */
 abstract class CleanerParent
 {
-    /** @var    string  $id     The cleaner Id */
+    /**
+     * The cleaner Id.
+     *
+     * @var     string  $id
+     */
     public readonly string $id;
 
-    /** @var    string  $id     The cleaner name */
+    /**
+     * The cleaner name.
+     *
+     * @var     string  $name
+     */
     public readonly string $name;
 
-    /** @var    string  $id     The cleaner description */
+    /**
+     * The cleaner description.
+     *
+     * @var     string  $desc
+     */
     public readonly string $desc;
 
-    /** @var    array<string,ActionDescriptor>  $actions    The cleaner actions decriptions */
+    /**
+     * The cleaner actions decriptions.
+     *
+     * @var     array<string,ActionDescriptor>  $actions
+     */
     public readonly array $actions;
 
     /**

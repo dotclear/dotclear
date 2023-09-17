@@ -1,19 +1,17 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
 /**
- * Cleaner value descriptor.
+ * @brief   Cleaner value descriptor.
+ * @ingroup Uninstaller
  *
  * Description of a value from CleanerParent::value()
  * and CleanerParent::related()

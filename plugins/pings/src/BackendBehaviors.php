@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pings, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,13 +19,17 @@ if (!App::task()->checkContext('BACKEND')) {
     return false;
 }
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup pings
+ */
 class BackendBehaviors
 {
     /**
-     * Add attachment fieldset in entry sidebar
+     * Add attachment fieldset in entry sidebar.
      *
-     * @param      ArrayObject  $main     The main part of the entry form
-     * @param      ArrayObject  $sidebar  The sidebar part of the entry form
+     * @param   ArrayObject     $main       The main part of the entry form
+     * @param   ArrayObject     $sidebar    The sidebar part of the entry form
      */
     public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar)
     {
@@ -59,7 +60,7 @@ class BackendBehaviors
     }
 
     /**
-     * Does pings.
+     * Do pings.
      */
     public static function doPings()
     {

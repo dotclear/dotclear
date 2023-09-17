@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief tags, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,10 +16,14 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\widgets\WidgetsElement;
 
+/**
+ * @brief   The module frontend template.
+ * @ingroup tags
+ */
 class FrontendTemplate
 {
     /**
-     * tpl:Tags [attributes] : Tags loop (tpl block)
+     * tpl:Tags [attributes] : Tags loop (tpl block).
      *
      * attributes:
      *
@@ -31,10 +32,10 @@ class FrontendTemplate
      *      - order          (asc|desc)                             Sort asc or desc
      *      - sortby         (meta_id_lower|count|latest|oldest)    Sort on information
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function Tags(ArrayObject $attr, string $content): string
     {
@@ -66,12 +67,12 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagsHeader : Tags header (tpl block)
+     * tpl:TagsHeader : Tags header (tpl block).
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function TagsHeader(ArrayObject $attr, string $content): string
     {
@@ -82,12 +83,12 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagsFooter : Tags footer (tpl block)
+     * tpl:TagsFooter : Tags footer (tpl block).
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function TagsFooter(ArrayObject $attr, string $content): string
     {
@@ -98,7 +99,7 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:EntryTags [attributes] : Entry tags loop (tpl block)
+     * tpl:EntryTags [attributes] : Entry tags loop (tpl block).
      *
      * attributes:
      *
@@ -106,10 +107,10 @@ class FrontendTemplate
      *      - order          (asc|desc)                             Sort asc or desc
      *      - sortby         (meta_id_lower|count|latest|oldest)    Sort on information
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function EntryTags(ArrayObject $attr, string $content): string
     {
@@ -139,7 +140,7 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagIf [attributes] : Includes content depending on tag test (tpl block)
+     * tpl:TagIf [attributes] : Includes content depending on tag test (tpl block).
      *
      * attributes:
      *
@@ -150,10 +151,10 @@ class FrontendTemplate
      *
      *  1) Prefix with a ! to reverse test
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function TagIf($attr, $content)
     {
@@ -173,15 +174,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagID [attributes] : Tag ID (tpl value)
+     * tpl:TagID [attributes] : Tag ID (tpl value).
      *
      * attributes:
      *
      *      - any filters                 See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function TagID(ArrayObject $attr): string
     {
@@ -191,9 +192,9 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagCount : Tag count (tpl value)
+     * tpl:TagCount : Tag count (tpl value).
      *
-     * @return     string
+     * @return  string
      */
     public static function TagCount()
     {
@@ -201,9 +202,9 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagPercent : Tag percentage usage (tpl value)
+     * tpl:TagPercent : Tag percentage usage (tpl value).
      *
-     * @return     string
+     * @return  string
      */
     public static function TagPercent()
     {
@@ -211,9 +212,9 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagRoundPercent : Tag rounded percentage usage (tpl value)
+     * tpl:TagRoundPercent : Tag rounded percentage usage (tpl value).
      *
-     * @return     string
+     * @return  string
      */
     public static function TagRoundPercent()
     {
@@ -221,15 +222,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagURL [attributes] : Tag URL (tpl value)
+     * tpl:TagURL [attributes] : Tag URL (tpl value).
      *
      * attributes:
      *
      *      - any filters                 See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function TagURL($attr)
     {
@@ -240,15 +241,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagCloudURL [attributes] : All tags URL (tpl value)
+     * tpl:TagCloudURL [attributes] : All tags URL (tpl value).
      *
      * attributes:
      *
      *      - any filters                 See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function TagCloudURL($attr)
     {
@@ -258,16 +259,16 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:TagFeedURL [attributes] : Tag feed URL (tpl value)
+     * tpl:TagFeedURL [attributes] : Tag feed URL (tpl value).
      *
      * attributes:
      *
      *      - type       (atom|rss2)      Feed type, default to 'rss2'
      *      - any filters                 See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function TagFeedURL($attr)
     {
@@ -284,11 +285,11 @@ class FrontendTemplate
     }
 
     /**
-     * Widget public rendering helper
+     * Widget public rendering helper.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function tagsWidget(WidgetsElement $widget): string
     {

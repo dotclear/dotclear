@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief themeEditor, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,14 +14,18 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use form;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup themeEditor
+ */
 class BackendBehaviors
 {
     /**
-     * Add an editor button (if possible)
+     * Add an editor button (if possible).
      *
-     * @param      string  $id     The identifier
+     * @param   string  $id     The identifier
      *
-     * @return     string  ( description_of_the_return_value )
+     * @return  string
      */
     public static function adminCurrentThemeDetails(string $id): string
     {
@@ -41,7 +42,7 @@ class BackendBehaviors
     }
 
     /**
-     * Save user preferences, color syntax activation and its theme
+     * Save user preferences, color syntax activation and its theme.
      */
     public static function adminBeforeUserUpdate(): void
     {
@@ -58,7 +59,7 @@ class BackendBehaviors
     }
 
     /**
-     * Display suer preferences, color syntax activation and theme selection
+     * Display suer preferences, color syntax activation and theme selection.
      */
     public static function adminPreferencesForm(): void
     {
