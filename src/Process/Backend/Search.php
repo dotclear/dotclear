@@ -29,8 +29,25 @@ class Search extends Process
 {
     // Local properties (used by behavior callbacks)
 
-    protected static $count   = null;
-    protected static $list    = null;
+    /**
+     * Number of items found
+     *
+     * @var int
+     */
+    protected static ?int $count = null;
+
+    /**
+     * List of related entries
+     *
+     * @var null|ListingPosts|ListingComments
+     */
+    protected static $list = null;
+
+    /**
+     * Available actions on entries
+     *
+     * @var null|ActionsPosts|ActionsComments
+     */
     protected static $actions = null;
 
     public static function init(): bool
@@ -134,12 +151,25 @@ class Search extends Process
     /**
      * Behaviors callbacks
      */
-    public static function typeCombo(array $combo)
+
+    /**
+     * Populate combo with available search actions
+     *
+     * @param      array<int, array<string, string>>  $combo  The combo
+     */
+    public static function typeCombo(array $combo): void
     {
         $combo[0][__('Search in entries')]  = 'p';
         $combo[0][__('Search in comments')] = 'c';
     }
 
+    /**
+     * Add specific scripts
+     *
+     * @param      array<string,string>   $args   The arguments
+     *
+     * @return     string|void
+     */
     public static function pageHead(array $args)
     {
         if ($args['qtype'] == 'p') {
@@ -149,6 +179,13 @@ class Search extends Process
         }
     }
 
+    /**
+     * Process search in posts
+     *
+     * @param      array<string,string>   $args   The arguments
+     *
+     * @return     null|void
+     */
     public static function processPosts(array $args)
     {
         if ($args['qtype'] != 'p') {
@@ -157,7 +194,7 @@ class Search extends Process
 
         $params = [
             'search'     => $args['q'],
-            'limit'      => [(($args['page'] - 1) * $args['nb']), $args['nb']],
+            'limit'      => [(((int) $args['page'] - 1) * (int) $args['nb']), (int) $args['nb']],
             'no_content' => true,
             'order'      => 'post_dt DESC',
         ];
@@ -174,6 +211,13 @@ class Search extends Process
         }
     }
 
+    /**
+     * Display search in posts
+     *
+     * @param      array<string,string>   $args   The arguments
+     *
+     * @return     null|void
+     */
     public static function displayPosts(array $args)
     {
         if ($args['qtype'] != 'p' || self::$count === null) {
@@ -185,8 +229,8 @@ class Search extends Process
         }
 
         self::$list->display(
-            $args['page'],
-            $args['nb'],
+            (int) $args['page'],
+            (int) $args['nb'],
             '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
@@ -204,6 +248,13 @@ class Search extends Process
         );
     }
 
+    /**
+     * Process search in comments
+     *
+     * @param      array<string,string>   $args   The arguments
+     *
+     * @return     null|void
+     */
     public static function processComments(array $args)
     {
         if ($args['qtype'] != 'c') {
@@ -212,7 +263,7 @@ class Search extends Process
 
         $params = [
             'search'     => $args['q'],
-            'limit'      => [(($args['page'] - 1) * $args['nb']), $args['nb']],
+            'limit'      => [(((int) $args['page'] - 1) * (int) $args['nb']), (int) $args['nb']],
             'no_content' => true,
             'order'      => 'comment_dt DESC',
         ];
@@ -229,6 +280,13 @@ class Search extends Process
         }
     }
 
+    /**
+     * Display search in comments
+     *
+     * @param      array<string,string>   $args   The arguments
+     *
+     * @return     null|void
+     */
     public static function displayComments(array $args)
     {
         if ($args['qtype'] != 'c' || self::$count === null) {
@@ -248,8 +306,8 @@ class Search extends Process
         );
 
         self::$list->display(
-            $args['page'],
-            $args['nb'],
+            (int) $args['page'],
+            (int) $args['nb'],
             '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .

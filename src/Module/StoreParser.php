@@ -32,7 +32,7 @@ class StoreParser
     /**
      * Array of feed contents.
      *
-     * @var     array   $items
+     * @var     array<string, array<string, mixed>>   $items
      */
     protected $items = [];
 
@@ -129,7 +129,7 @@ class StoreParser
      *
      * @deprecated  since 2.26, use self::getDefines() instead
      *
-     * @return  array   Modules list
+     * @return  array<string, array<string, mixed>>   Modules list
      */
     public function getModules(): array
     {

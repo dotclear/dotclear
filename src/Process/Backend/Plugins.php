@@ -308,7 +308,7 @@ class Plugins extends Process
     /**
      * Renders plugin configuration page.
      */
-    public static function renderConfig()
+    public static function renderConfig(): void
     {
         // Get content before page headers
         $include = App::backend()->list->includeConfiguration();
