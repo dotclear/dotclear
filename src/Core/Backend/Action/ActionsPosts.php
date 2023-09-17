@@ -22,9 +22,16 @@ use Exception;
  */
 class ActionsPosts extends Actions
 {
-    public function __construct(?string $uri, array $redirect_args = [])
+    /**
+     * Constructs a new instance.
+     *
+     * @param   null|string     $uri            The form uri
+     * @param   array           $redir_args     The redirection $_GET arguments, 
+     *                                          if any (does not contain ids by default, ids may be merged to it)
+     */
+    public function __construct(?string $uri, array $redir_args = [])
     {
-        parent::__construct($uri, $redirect_args);
+        parent::__construct($uri, $redir_args);
 
         $this->redirect_fields = [
             'user_id', 'cat_id', 'status', 'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb',
