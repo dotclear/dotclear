@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief widgets, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin widgets definition
+ * @ingroup     widgets
+ * 
+ * @defgroup    widgets Plugin widgets.
+ * 
+ * widgets, widgets for your blog sidebars.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

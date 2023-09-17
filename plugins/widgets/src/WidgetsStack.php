@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief widgets, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,19 +11,25 @@ namespace Dotclear\Plugin\widgets;
 
 use Dotclear\Helper\Text;
 
+/**
+ * @brief   The widgets stack handler.
+ * @ingroup widgets
+ */
 class WidgetsStack
 {
     /**
-     * Stack of known widgets
+     * Stack of known widgets.
+     *
+     * @var     array   $widgets
      */
     private array $widgets = [];
 
     /**
-     * Load widgets from settings
+     * Load widgets from settings.
      *
-     * @param      mixed  $s      Settings
+     * @param   mixed   $s  Settings
      *
-     * @return     self
+     * @return  self
      */
     public static function load($s): self
     {
@@ -45,9 +48,9 @@ class WidgetsStack
     }
 
     /**
-     * Return encoded widgets
+     * Return encoded widgets.
      *
-     * @return     array
+     * @return  array
      */
     public function store(): array
     {
@@ -60,15 +63,15 @@ class WidgetsStack
     }
 
     /**
-     * Create a new widget
+     * Create a new widget.
      *
-     * @param      string         $id               The identifier
-     * @param      string         $name             The name
-     * @param      mixed          $callback         The callback
-     * @param      mixed          $append_callback  The append callback
-     * @param      string         $desc             The description
+     * @param   string  $id                 The identifier
+     * @param   string  $name               The name
+     * @param   mixed   $callback           The callback
+     * @param   mixed   $append_callback    The append callback
+     * @param   string  $desc               The description
      *
-     * @return     WidgetsElement
+     * @return  WidgetsElement
      */
     public function create(string $id, string $name, $callback, $append_callback = null, string $desc = ''): WidgetsElement
     {
@@ -79,9 +82,9 @@ class WidgetsStack
     }
 
     /**
-     * Append a widget
+     * Append a widget.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      */
     public function append(WidgetsElement $widget): void
     {
@@ -94,7 +97,7 @@ class WidgetsStack
     /**
      * Determines if widgets list is empty.
      *
-     * @return     bool  True if empty, False otherwise.
+     * @return  bool    True if empty, False otherwise.
      */
     public function isEmpty(): bool
     {
@@ -102,11 +105,11 @@ class WidgetsStack
     }
 
     /**
-     * Return list of widgets
+     * Return list of widgets.
      *
-     * @param      bool   $sorted  Sort the list
+     * @param   bool    $sorted     Sort the list
      *
-     * @return     array  ( description_of_the_return_value )
+     * @return  array
      */
     public function elements(bool $sorted = false): array
     {
@@ -123,11 +126,11 @@ class WidgetsStack
     }
 
     /**
-     * Get a widget
+     * Get a widget.
      *
-     * @param      string  $id     The widget identifier
+     * @param   string  $id     The widget identifier
      *
-     * @return     mixed
+     * @return  mixed
      */
     public function __get($id)
     {
@@ -139,7 +142,7 @@ class WidgetsStack
     }
 
     /**
-     * Unset all widgets
+     * Unset all widgets.
      */
     public function __wakeup()
     {
@@ -153,10 +156,10 @@ class WidgetsStack
     /**
      * Loads an array of widgets.
      *
-     * @param      array                $A
-     * @param      WidgetsStack         $widgets  The widgets
+     * @param   array           $A
+     * @param   WidgetsStack    $widgets    The widgets
      *
-     * @return     self
+     * @return  self
      */
     public static function loadArray(array $A, self $widgets): self
     {
