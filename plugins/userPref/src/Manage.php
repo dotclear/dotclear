@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief userPref, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,11 +18,12 @@ use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 use form;
 
+/**
+ * @brief   The module backend manage process.
+ * @ingroup userPref
+ */
 class Manage extends Process
 {
-    /**
-     * Initializes the page.
-     */
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
@@ -36,9 +34,6 @@ class Manage extends Process
         return self::status();
     }
 
-    /**
-     * Processes the request(s).
-     */
     public static function process(): bool
     {
         if (!self::status()) {
@@ -96,9 +91,6 @@ class Manage extends Process
         return true;
     }
 
-    /**
-     * Renders the page.
-     */
     public static function render(): void
     {
         Page::openModule(
@@ -138,9 +130,9 @@ class Manage extends Process
     }
 
     /**
-     * Display local or global settings
+     * Display local or global settings.
      *
-     * @param      bool  $global  The global
+     * @param   bool    $global     The global
      */
     protected static function prefsTable(bool $global = false): void
     {
@@ -223,15 +215,15 @@ class Manage extends Process
     }
 
     /**
-     * Return table line (td) to display a setting
+     * Return table line (td) to display a setting.
      *
-     * @param      string  $id            The identifier
-     * @param      array   $s             The setting
-     * @param      string  $ws            The workspace
-     * @param      string  $field_name    The field name
-     * @param      bool    $strong_label  The strong label
+     * @param   string  $id             The identifier
+     * @param   array   $s              The setting
+     * @param   string  $ws             The workspace
+     * @param   string  $field_name     The field name
+     * @param   bool    $strong_label   The strong label
      *
-     * @return     string
+     * @return  string
      */
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
     {

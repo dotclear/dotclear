@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief userPref, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin userPref definition
+ * @ingroup     userPref
+ * 
+ * @defgroup    userPref Plugin userPref.
+ * 
+ * userPref, manage every user preference directive.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 $this->registerModule(
     'user:preferences',                       // Name
