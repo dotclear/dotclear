@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,14 +14,19 @@ use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
+/**
+ * @brief   Posts mini list pager form helper.
+ *
+ * @since   2.20
+ */ 
 class ListingPostsMini extends Listing
 {
     /**
-     * Display a mini post list
+     * Display a mini post list.
      *
-     * @param      int     $page           The page
-     * @param      int     $nb_per_page    The number of posts per page
-     * @param      string  $enclose_block  The enclose block
+     * @param   int     $page           The page
+     * @param   int     $nb_per_page    The number of posts per page
+     * @param   string  $enclose_block  The enclose block
      */
     public function display(int $page, int $nb_per_page, string $enclose_block = '')
     {
@@ -72,7 +76,7 @@ class ListingPostsMini extends Listing
     /**
      * Get a line.
      *
-     * @return     string
+     * @return  string
      */
     private function postLine(): string
     {

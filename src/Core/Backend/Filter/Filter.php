@@ -1,13 +1,16 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Core.Backend.Filter
+ * @brief       Backend list filters helpers.
+ */
 namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\Helper\Html\Form\Input;
@@ -16,13 +19,17 @@ use Dotclear\Helper\Html\Form\Select;
 use Exception;
 
 /**
- * Generic class for admin list filters form
+ * @brief   Generic class for admin list filters form.
  *
- * @since 2.20
+ * @since   2.20
  */
 class Filter
 {
-    /** @var array The filter properties */
+    /**
+     * The filter properties.
+     *
+     * @var     array<string,mixed>     $properties
+     */
     protected $properties = [
         'id'      => '',
         'value'   => null,
@@ -37,8 +44,8 @@ class Filter
     /**
      * Constructs a new filter.
      *
-     * @param string    $id     The filter id
-     * @param mixed     $value  The filter value
+     * @param   string  $id     The filter id
+     * @param   mixed   $value  The filter value
      */
     public function __construct(string $id, $value = null)
     {
@@ -50,11 +57,11 @@ class Filter
     }
 
     /**
-     * Magic isset filter properties
+     * Magic isset filter properties.
      *
-     * @param  string  $property    The property
+     * @param   string  $property   The property
      *
-     * @return boolean              Is set
+     * @return  bool    True if it is set
      */
     public function __isset(string $property): bool
     {
@@ -62,11 +69,11 @@ class Filter
     }
 
     /**
-     * Magic get
+     * Magic get.
      *
-     * @param  string $property     The property
+     * @param   string  $property   The property
      *
-     * @return mixed  Property
+     * @return  mixed   Property
      */
     public function __get(string $property)
     {
@@ -74,11 +81,11 @@ class Filter
     }
 
     /**
-     * Get a filter property
+     * Get a filter property.
      *
-     * @param  string $property     The property
+     * @param   string  $property   The property
      *
-     * @return mixed                The value
+     * @return  mixed   The value
      */
     public function get(string $property)
     {
@@ -86,12 +93,12 @@ class Filter
     }
 
     /**
-     * Magic set
+     * Magic set.
      *
-     * @param string $property  The property
-     * @param mixed  $value     The value
+     * @param   string  $property   The property
+     * @param   mixed   $value      The value
      *
-     * @return Filter    The filter instance
+     * @return  Filter  The filter instance
      */
     public function __set(string $property, $value)
     {
@@ -99,12 +106,12 @@ class Filter
     }
 
     /**
-     * Set a property value
+     * Set a property value.
      *
-     * @param string $property  The property
-     * @param mixed  $value     The value
+     * @param   string  $property   The property
+     * @param   mixed   $value      The value
      *
-     * @return Filter    The filter instance
+     * @return  Filter  The filter instance
      */
     public function set(string $property, $value)
     {
@@ -116,11 +123,11 @@ class Filter
     }
 
     /**
-     * Set filter form type
+     * Set filter form type.
      *
-     * @param string $type      The type
+     * @param   string  $type   The type
      *
-     * @return Filter    The filter instance
+     * @return  Filter  The filter instance
      */
     public function form(string $type): Filter
     {
@@ -132,11 +139,11 @@ class Filter
     }
 
     /**
-     * Set filter form title
+     * Set filter form title.
      *
-     * @param string $title     The title
+     * @param   string  $title  The title
      *
-     * @return Filter    The filter instance
+     * @return  Filter  The filter instance
      */
     public function title(string $title): Filter
     {
@@ -146,14 +153,14 @@ class Filter
     }
 
     /**
-     * Set filter form options
+     * Set filter form options.
      *
      * If filter form is a select box, this is the select options
      *
-     * @param array     $options    The options
-     * @param boolean   $set_form   Auto set form type
+     * @param   array   $options    The options
+     * @param   bool    $set_form   Auto set form type
      *
-     * @return Filter        The filter instance
+     * @return  Filter  The filter instance
      */
     public function options(array $options, bool $set_form = true): Filter
     {
@@ -166,11 +173,11 @@ class Filter
     }
 
     /**
-     * Set filter value
+     * Set filter value.
      *
-     * @param mixed $value      The value
+     * @param   mixed   $value  The value
      *
-     * @return Filter    The filter instance
+     * @return  Filter  The filter instance
      */
     public function value($value): Filter
     {
@@ -180,11 +187,11 @@ class Filter
     }
 
     /**
-     * Set filter column in form
+     * Set filter column in form.
      *
-     * @param boolean $prime    First column
+     * @param   bool    $prime  First column
      *
-     * @return Filter    The filter instance
+     * @return  Filter  The filter instance
      */
     public function prime(bool $prime): Filter
     {
@@ -194,12 +201,12 @@ class Filter
     }
 
     /**
-     * Set filter html contents
+     * Set filter html contents.
      *
-     * @param string    $contents   The contents
-     * @param boolean   $set_form   Auto set form type
+     * @param   string  $contents   The contents
+     * @param   bool    $set_form   Auto set form type
      *
-     * @return Filter        The filter instance
+     * @return  Filter  The filter instance
      */
     public function html(string $contents, bool $set_form = true): Filter
     {
@@ -212,12 +219,12 @@ class Filter
     }
 
     /**
-     * Set filter param (list query param)
+     * Set filter param (list query param).
      *
-     * @param  string|null           $name  The param name
-     * @param  mixed                 $value The param value
+     * @param   string|null     $name  The param name
+     * @param   mixed           $value The param value
      *
-     * @return Filter         The filter instance
+     * @return  Filter  The filter instance
      */
     public function param(?string $name = null, $value = null): Filter
     {
@@ -235,7 +242,7 @@ class Filter
     }
 
     /**
-     * Parse the filter properties
+     * Parse the filter properties.
      *
      * Only input and select forms are parsed
      */

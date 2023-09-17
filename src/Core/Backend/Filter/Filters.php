@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,58 +19,50 @@ use Dotclear\Helper\Html\Form\Select;
 use form;
 
 /**
- * Generic class for admin list filters form
+ * @brief   Generic class for admin list filters form.
  *
- * @since 2.20
+ * @since   2.20
  */
 class Filters
 {
     /**
-     * Filter form type (main id)
+     * Filters objects.
      *
-     * @var string
-     */
-    protected $type;
-
-    /**
-     * Filters objects
-     *
-     * @var array
+     * @var     array<string,Filter>    $filters
      */
     protected $filters = [];
 
     /**
-     * Show filter indicator
+     * Show filter indicator.
      *
-     * @var boolean
+     * @var     bool    $show
      */
     protected $show = false;
 
     /**
-     * Has user preferences
+     * Has user preferences.
      *
-     * @var boolean
+     * @var     bool    $has_user_pref
      */
     protected $has_user_pref = false;
 
     /**
      * Constructs a new instance.
      *
-     * @param string $type  The filter form main id
+     * @param   string  $type   The filter form main id
      */
-    public function __construct(string $type)
-    {
-        $this->type = $type;
-
+    public function __construct(
+        protected string $type
+    ) {
         $this->parseOptions();
     }
 
     /**
-     * Get user defined filter options (sortby, order, nb)
+     * Get user defined filter options (sortby, order, nb).
      *
-     * @param   string   $option     The option
+     * @param   string  $option     The option
      *
-     * @return  mixed                User option
+     * @return  mixed   User option
      */
     public function userOptions(?string $option = null)
     {
@@ -79,7 +70,7 @@ class Filters
     }
 
     /**
-     * Parse _GET user pref options (sortby, order, nb)
+     * Parse _GET user pref options (sortby, order, nb).
      */
     protected function parseOptions()
     {
@@ -127,12 +118,12 @@ class Filters
     }
 
     /**
-     * Get filters key/value pairs
+     * Get filters key/value pairs.
      *
-     * @param  boolean $escape  Escape widlcard %
-     * @param  boolean $ui_only Limit to filters with ui
+     * @param   bool    $escape     Escape widlcard %
+     * @param   bool    $ui_only    Limit to filters with ui
      *
-     * @return array            The filters
+     * @return  array<string,mixed>     The filters
      */
     public function values(bool $escape = false, bool $ui_only = false): array
     {
@@ -151,12 +142,12 @@ class Filters
     }
 
     /**
-     * Get a filter value
+     * Get a filter value.
      *
-     * @param  string       $id The filter id
-     * @param  null|string  $undefined The filter value if not exists
+     * @param   string          $id         The filter id
+     * @param   null|string     $undefined  The filter value if not exists
      *
-     * @return mixed      The filter value
+     * @return  mixed   The filter value
      */
     public function value(string $id, ?string $undefined = null)
     {
@@ -164,11 +155,11 @@ class Filters
     }
 
     /**
-     * Magic get filter value
+     * Magic get filter value.
      *
-     * @param  string   $id     The filter id
+     * @param   string  $id     The filter id
      *
-     * @return mixed            The filter value
+     * @return  mixed   The filter value
      */
     public function __get(string $id)
     {
@@ -176,12 +167,12 @@ class Filters
     }
 
     /**
-     * Add filter(s)
+     * Add filter(s).
      *
-     * @param array|string|Filter|null   $filter     The filter(s) array or id or object
-     * @param mixed                             $value      The filter value if $filter is id
+     * @param   array|string|Filter|null    $filter     The filter(s) array or id or object
+     * @param   mixed                       $value      The filter value if $filter is id
      *
-     * @return mixed                                        The filter value
+     * @return  mixed   The filter value
      */
     public function add($filter = null, $value = null)
     {
@@ -225,11 +216,11 @@ class Filters
     }
 
     /**
-     * Remove a filter
+     * Remove a filter.
      *
-     * @param  string $id   The filter id
+     * @param   string  $id     The filter id
      *
-     * @return boolean      The success
+     * @return  bool    The success
      */
     public function remove(string $id): bool
     {
@@ -243,9 +234,9 @@ class Filters
     }
 
     /**
-     * Get list query params
+     * Get list query params.
      *
-     * @return array    The query params
+     * @return  array<string,mixed>     The query params
      */
     public function params(): array
     {
@@ -285,11 +276,11 @@ class Filters
     }
 
     /**
-     * Show foldable filters form
+     * Show foldable filters form.
      *
-     * @param  boolean  $set    Force to show filter form
+     * @param   bool    $set    Force to show filter form
      *
-     * @return boolean          Show filter form
+     * @return  bool    Show filter form
      */
     public function show(bool $set = false): bool
     {
@@ -301,9 +292,9 @@ class Filters
     }
 
     /**
-     * Get js filters foldable form control
+     * Get js filters foldable form control.
      *
-     * @param string $reset_url     The filter reset url
+     * @param   string  $reset_url  The filter reset url
      */
     public function js(string $reset_url = ''): string
     {
@@ -313,10 +304,10 @@ class Filters
     }
 
     /**
-     * Echo filter form
+     * Echo filter form.
      *
-     * @param  array|string     $adminurl   The registered adminurl
-     * @param  string           $extra      The extra contents
+     * @param   array|string    $adminurl   The registered adminurl
+     * @param   string          $extra      The extra contents
      */
     public function display($adminurl, string $extra = '')
     {

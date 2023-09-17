@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Core.Backend.Action
+ * @brief       Backend list actions helpers.
+ */
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;

@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,33 +13,38 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Pager as HelperPager;
 use form;
 
+/**
+ * @brief   List pager form helper.
+ *
+ * @since   2.20
+ */ 
 class Pager extends HelperPager
 {
     /**
-     * Form-handler
+     * Form-handler.
      *
-     * @var null|string
+     * @var     null|string     $form_action
      */
     protected $form_action;
 
     /**
-     * Form hidden fields
+     * Form hidden fields.
      *
-     * @var null|string
+     * @var     null|string     $form_hidden
      */
     protected $form_hidden;
 
     /**
      * Gets the link.
      *
-     * @param      string  $li_class        The li class
-     * @param      string  $href            The href
-     * @param      string  $img_src         The image source
-     * @param      string  $img_src_nolink  The image source nolink
-     * @param      string  $img_alt         The image alternate
-     * @param      bool    $enable_link     The enable link
+     * @param   string  $li_class           The li class
+     * @param   string  $href               The href
+     * @param   string  $img_src            The image source
+     * @param   string  $img_src_nolink     The image source nolink
+     * @param   string  $img_alt            The image alternate
+     * @param   bool    $enable_link        The enable link
      *
-     * @return     string  The link.
+     * @return  string  The link.
      */
     protected function getLink(string $li_class, string $href, string $img_src, string $img_src_nolink, string $img_alt, bool $enable_link): string
     {
@@ -96,11 +100,9 @@ class Pager extends HelperPager
     }
 
     /**
-     * Pager Links
+     * Pager Links.
      *
-     * Returns pager links
-     *
-     * @return string
+     * @return  string  The pager links
      */
     public function getLinks(): string
     {

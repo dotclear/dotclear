@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,9 +14,9 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 
 /**
- * Blogs list filters form helper.
+ * @brief   Blogs list filters form helper.
  *
- * @since 2.20
+ * @since   2.20
  */
 class FilterBlogs extends Filters
 {
@@ -40,7 +39,9 @@ class FilterBlogs extends Filters
     }
 
     /**
-     * Blog status select
+     * Blog status select.
+     *
+     * @return  Filter  The blog status Filter instance.
      */
     public function getBlogStatusFilter(): Filter
     {

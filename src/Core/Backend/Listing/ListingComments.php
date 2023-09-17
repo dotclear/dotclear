@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,17 +16,22 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\antispam\Antispam;
 use form;
 
+/**
+ * @brief   Comments list pager form helper.
+ *
+ * @since   2.20
+ */ 
 class ListingComments extends Listing
 {
     /**
-     * Display a comment list
+     * Display a comment list.
      *
-     * @param      int     $page           The page
-     * @param      int     $nb_per_page    The number of comments per page
-     * @param      string  $enclose_block  The enclose block
-     * @param      bool    $filter         The spam filter
-     * @param      bool    $spam           Show spam
-     * @param      bool    $show_ip        Show ip
+     * @param   int     $page           The page
+     * @param   int     $nb_per_page    The number of comments per page
+     * @param   string  $enclose_block  The enclose block
+     * @param   bool    $filter         The spam filter
+     * @param   bool    $spam           Show spam
+     * @param   bool    $show_ip        Show ip
      */
     public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false, bool $spam = false, bool $show_ip = true)
     {
@@ -157,13 +161,13 @@ class ListingComments extends Listing
     }
 
     /**
-     * Get a comment line
+     * Get a comment line.
      *
-     * @param      bool    $checked  The checked flag
-     * @param      bool    $spam     The spam flag
-     * @param      array   $filters  The filters
+     * @param   bool    $checked    The checked flag
+     * @param   bool    $spam       The spam flag
+     * @param   array   $filters    The filters
      *
-     * @return     string
+     * @return  string
      */
     private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): string
     {

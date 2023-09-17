@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -13,14 +12,20 @@ namespace Dotclear\Core\Backend\Filter;
 use Dotclear\App;
 
 /**
- * Admin list generic filters library.
+ * @brief   Admin list generic filters library.
  *
- * @since 2.20
+ * @since   2.20
  */
 class FiltersLibrary
 {
     /**
-     * Common default input field
+     * Common default input field.
+     *
+     * @param   string      $id     The filter ID
+     * @param   string      $title  The filter title
+     * @param   ?string     $param  The param ID
+     *
+     * @return  Filter  The Filter instance
      */
     public static function getInputFilter(string $id, string $title, ?string $param = null): Filter
     {
@@ -31,7 +36,14 @@ class FiltersLibrary
     }
 
     /**
-     * Common default select field
+     * Common default select field.
+     *
+     * @param   string      $id         The filter ID
+     * @param   string      $title      The filter title
+     * @param   array       $options    The filter title
+     * @param   ?string     $param      The param ID
+     *
+     * @return  ?Filter  The Filter instance if possible
      */
     public static function getSelectFilter(string $id, string $title, array $options, ?string $param = null): ?Filter
     {
@@ -46,7 +58,11 @@ class FiltersLibrary
     }
 
     /**
-     * Common page filter (no field)
+     * Common page filter (no field).
+     *
+     * @param   string  $id     The filter ID
+     *
+     * @return  Filter  The Filter instance
      */
     public static function getPageFilter(string $id = 'page'): Filter
     {
@@ -56,7 +72,9 @@ class FiltersLibrary
     }
 
     /**
-     * Common search field
+     * Common search field.
+     *
+     * @return  Filter  The Filter instance
      */
     public static function getSearchFilter(): Filter
     {
@@ -72,6 +90,10 @@ class FiltersLibrary
      *
      * This forces sql request to have where clause with current blog id.
      * Use your_filters->remove('current_blog')  to remove limitation.
+     *
+     * @param   string  $id     The filter ID
+     *
+     * @return  Filter  The Filter instance
      */
     public static function getCurrentBlogFilter(string $id = 'current_blog'): Filter
     {
