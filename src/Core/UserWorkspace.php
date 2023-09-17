@@ -440,16 +440,31 @@ class UserWorkspace implements UserWorkspaceInterface
         return $this->workspace;
     }
 
+    /**
+     * Dumps preferences.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpPrefs(): array
     {
         return $this->prefs;
     }
 
+    /**
+     * Dumps local preferences.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpLocalPrefs(): array
     {
         return $this->local_prefs;
     }
 
+    /**
+     * Dumps global preferences.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpGlobalPrefs(): array
     {
         return $this->global_prefs;

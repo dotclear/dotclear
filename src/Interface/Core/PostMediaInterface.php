@@ -36,7 +36,7 @@ interface PostMediaInterface
     /**
      * Returns media items attached to a blog post.
      *
-     * @param   array   $params     The parameters
+     * @param   array<string, mixed>   $params     The parameters
      *
      * @return  MetaRecord  The post media.
      */

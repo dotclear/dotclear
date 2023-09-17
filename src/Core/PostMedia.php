@@ -51,6 +51,13 @@ class PostMedia implements PostMediaInterface
         return $this->con->openCursor($this->table);
     }
 
+    /**
+     * Gets the post media.
+     *
+     * @param      array<string, mixed>       $params  The parameters
+     *
+     * @return     MetaRecord  The post media.
+     */
     public function getPostMedia(array $params = []): MetaRecord
     {
         $sql = new SelectStatement();

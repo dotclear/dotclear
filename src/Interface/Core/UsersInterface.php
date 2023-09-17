@@ -41,8 +41,8 @@ interface UsersInterface
      * - <var>order</var>: ORDER BY clause (default: user_id ASC)
      * - <var>limit</var>: LIMIT clause (should be an array ![limit,offset])
      *
-     * @param      array|ArrayObject    $params      The parameters
-     * @param      bool                 $count_only  Count only results
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $params      The parameters
+     * @param      bool                                             $count_only  Count only results
      *
      * @return     MetaRecord  The users.
      */

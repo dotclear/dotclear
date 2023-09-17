@@ -77,6 +77,14 @@ class Log implements LogInterface
         return $this->con->openCursor($this->log_table);
     }
 
+    /**
+     * Gets the logs.
+     *
+     * @param      array<string, mixed>    $params      The parameters
+     * @param      bool                    $count_only  The count only
+     *
+     * @return     MetaRecord  The logs.
+     */
     public function getLogs(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();

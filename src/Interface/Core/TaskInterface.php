@@ -22,7 +22,7 @@ interface TaskInterface
      * @param   string 	$utility 	The called app Utility
      * @param   string 	$process    The called app Process
      */
-    public function run(string $utility, string $process);
+    public function run(string $utility, string $process): void;
 
     /**
      * Check if a context is set.

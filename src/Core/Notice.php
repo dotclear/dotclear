@@ -51,6 +51,14 @@ class Notice implements NoticeInterface
         return $this->con->openCursor($this->table);
     }
 
+    /**
+     * Gets the notices.
+     *
+     * @param      array<string, mixed>     $params      The parameters
+     * @param      bool                     $count_only  The count only
+     *
+     * @return     MetaRecord  The notices.
+     */
     public function getNotices(array $params = [], bool $count_only = false): MetaRecord
     {
         $sql = new SelectStatement();
