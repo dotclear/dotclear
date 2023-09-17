@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,14 +13,23 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The cache maintenance task.
+ * @ingroup maintenance
+ */
 class Cache extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceCache';
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'purge';
 
@@ -39,14 +45,6 @@ class Cache extends MaintenanceTask
         $this->description = sprintf(__("It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."), DIRECTORY_SEPARATOR . Template::CACHE_FOLDER . DIRECTORY_SEPARATOR);
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         App::cache()->emptyTemplatesCache();

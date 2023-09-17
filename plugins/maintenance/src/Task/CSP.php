@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,14 +13,23 @@ use Dotclear\App;
 use Dotclear\Helper\File\Path;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The CSP maintenance task.
+ * @ingroup maintenance
+ */
 class CSP extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceCSP';
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'purge';
 
@@ -39,14 +45,6 @@ class CSP extends MaintenanceTask
         $this->description = __('Remove the Content-Security-Policy report file.');
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         $csp_file = Path::real(App::config()->varRoot()) . '/csp/csp_report.json';

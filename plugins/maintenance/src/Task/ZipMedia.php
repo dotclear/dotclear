@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,35 +13,44 @@ use Dotclear\App;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The media zip maintenance task.
+ * @ingroup maintenance
+ */
 class ZipMedia extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceZipmedia';
 
     /**
-     * Task permissions
+     * Task permissions.
      *
-     * @var null|string
+     * @var     null|string     $perm
      */
     protected $perm = 'admin';
 
     /**
-     * Task limited to current blog
+     * Task limited to current blog.
      *
-     * @var bool
+     * @var     bool    $blog
      */
     protected $blog = true;
 
     /**
-     * Task tab container
+     * Task tab container.
      *
-     * @var string
+     * @var     string  $tab
      */
     protected $tab = 'backup';
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'zipblog';
 
@@ -58,14 +64,6 @@ class ZipMedia extends MaintenanceTask
         $this->description = __('It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big.');
     }
 
-    /**
-     * Execute task.
-     *
-     * @return never
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         // Instance media

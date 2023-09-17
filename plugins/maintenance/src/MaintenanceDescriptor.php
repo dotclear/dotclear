@@ -1,60 +1,41 @@
 <?php
 /**
- * @brief Simple descriptor for tabs, groups and more
+ * @package     Dotclear
  *
- * At this time this class is used in same way an arrayObject but in futur it could be completed with advance methods.
- *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
+/**
+ * @brief   The maintenance descriptor.
+ * @ingroup maintenance
+ *
+ * Simple descriptor for tabs, groups and more.
+ * At this time this class is used in same way an arrayObject but in futur it could be completed with advance methods.
+ */
 class MaintenanceDescriptor
 {
     /**
-     * Descriptor ID
+     * Construct a new instance.
      *
-     * @var string
+     * @param   string  $id         The identifier
+     * @param   string  $name       The name
+     * @param   array   $options    The options
      */
-    protected $id;
-
-    /**
-     * Descriptor name
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * Descriptor options
-     *
-     * @var array
-     */
-    protected $options;
-
-    /**
-     * Constructs a new instance.
-     *
-     * @param      string  $id       The identifier
-     * @param      string  $name     The name
-     * @param      array   $options  The options
-     */
-    public function __construct(string $id, string $name, array $options = [])
-    {
-        $this->id      = $id;
-        $this->name    = $name;
-        $this->options = $options;
+    public function __construct(
+        protected string $id,
+        protected string $name,
+        protected array $options = []
+    ) {
     }
 
     /**
      * Get ID.
      *
-     * @return string    ID
+     * @return  string  ID
      */
     public function id(): string
     {
@@ -64,7 +45,7 @@ class MaintenanceDescriptor
     /**
      * Get name.
      *
-     * @return string    Name
+     * @return  string  Name
      */
     public function name(): string
     {
@@ -76,23 +57,21 @@ class MaintenanceDescriptor
      *
      * Option called "summary" and "description" are used.
      *
-     * @param      string  $key    Option key
+     * @param   string  $key    Option key
      *
-     * @return     null|string  Option value
+     * @return  null|string     Option value
      */
     public function option(string $key): ?string
     {
         return $this->options[$key] ?? null;
     }
 
-    /* @ignore */
-
     /**
-     * Gets the specified key.
+     * Get the specified key.
      *
-     * @param      string  $key    The key
+     * @param   string  $key    The key
      *
-     * @return     null|string  Option value
+     * @return  null|string  Option value
      */
     public function __get(string $key): ?string
     {
@@ -100,11 +79,11 @@ class MaintenanceDescriptor
     }
 
     /**
-     * Test if an option exists
+     * Test if an option exists.
      *
-     * @param      string  $key    The key
+     * @param   string  $key    The key
      *
-     * @return     bool
+     * @return  bool
      */
     public function __isset(string $key): bool
     {

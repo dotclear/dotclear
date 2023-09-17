@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,14 +13,23 @@ use Dotclear\App;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The table vacuum maintenance task.
+ * @ingroup maintenance
+ */
 class Vacuum extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceVacuum';
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'optimize';
 
@@ -40,14 +46,6 @@ class Vacuum extends MaintenanceTask
         $this->description = __("After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export.");
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         $schema = AbstractSchema::init(App::con());

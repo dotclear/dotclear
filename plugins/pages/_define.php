@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin pages definition
+ * @ingroup     pages
+ * 
+ * @defgroup    pages Plugin pages.
+ * 
+ * pages, Serve entries as simple web pages.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

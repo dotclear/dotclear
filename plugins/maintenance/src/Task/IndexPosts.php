@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,37 +14,44 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Text;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The posts index maintenance task.
+ * @ingroup maintenance
+ */
 class IndexPosts extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceIndexposts';
 
     /**
-     * Use ajax
+     * Task use AJAX.
      *
-     * Is task use maintenance ajax script for steps process.
-     *
-     * @return    boolean    Use ajax
+     * @var     bool    $ajax
      */
     protected $ajax = true;
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'index';
 
     /**
-     * Number of entries to process by step
+     * Number of comments to process by step.
      *
-     * @var int
+     * @var     int     $limit
      */
     protected $limit = 500;
 
     /**
-     * Next step label
+     * Next step label.
      *
-     * @var string
+     * @var     string  $step_task
      */
     protected $step_task;
 
@@ -66,14 +70,6 @@ class IndexPosts extends MaintenanceTask
         $this->description = __('Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         $this->code = $this->indexAllPosts((int) $this->code, $this->limit);
@@ -81,37 +77,16 @@ class IndexPosts extends MaintenanceTask
         return $this->code ?: true;
     }
 
-    /**
-     * Get task message.
-     *
-     * This message is used on form button.
-     *
-     * @return    string    Message
-     */
     public function task(): string
     {
         return $this->code ? $this->step_task : $this->task;
     }
 
-    /**
-     * Get step message.
-     *
-     * This message is displayed during task step execution.
-     *
-     * @return    mixed     Message or null
-     */
     public function step()
     {
         return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : null;
     }
 
-    /**
-     * Get success message.
-     *
-     * This message is displayed when task is accomplished.
-     *
-     * @return    string    Message or null
-     */
     public function success(): string
     {
         return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : $this->success;
@@ -120,10 +95,10 @@ class IndexPosts extends MaintenanceTask
     /**
      * Recreates entries search engine index.
      *
-     * @param      null|int   $start  The start entry index
-     * @param      null|int   $limit  The limit of entry to index
+     * @param   null|int    $start  The start entry index
+     * @param   null|int    $limit  The limit of entry to index
      *
-     * @return     null|int   sum of <var>$start</var> and <var>$limit</var>
+     * @return  null|int    Sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllPosts(?int $start = null, ?int $limit = null): ?int
     {

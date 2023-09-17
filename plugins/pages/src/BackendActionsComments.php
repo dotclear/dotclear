@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,7 +11,16 @@ namespace Dotclear\Plugin\pages;
 
 use Dotclear\Core\Backend\Action\ActionsComments;
 
+/**
+ * @brief   The module backend comments actions.
+ * @ingroup pages
+ */
 class BackendActionsComments extends ActionsComments
 {
+    /**
+     * Use render method.
+     *
+     * @var     bool    $use_render
+     */
     protected $use_render = true;
 }

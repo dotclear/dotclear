@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,35 +13,44 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The post meta synch maintenance task.
+ * @ingroup maintenance
+ */
 class SynchPostsMeta extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceSynchpostsmeta';
 
     /**
-     * Task use AJAX
+     * Task use AJAX.
      *
-     * @var bool
+     * @var     bool    $ajax
      */
     protected $ajax = true;
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'index';
 
     /**
-     * Number of entries to process by step
+     * Number of comments to process by step.
      *
-     * @var int
+     * @var     int     $limit
      */
     protected $limit = 100;
 
     /**
-     * Next step label
+     * Next step label.
      *
-     * @var string
+     * @var     string  $step_task
      */
     protected $step_task;
 
@@ -63,14 +69,6 @@ class SynchPostsMeta extends MaintenanceTask
         $this->description = __('Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables.');
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         $this->code = $this->synchronizeAllPostsmeta($this->code, $this->limit);
@@ -78,49 +76,28 @@ class SynchPostsMeta extends MaintenanceTask
         return $this->code ?: true;
     }
 
-    /**
-     * Get task message.
-     *
-     * This message is used on form button.
-     *
-     * @return    string    Message
-     */
     public function task(): string
     {
         return $this->code ? $this->step_task : $this->task;
     }
 
-    /**
-     * Get step message.
-     *
-     * This message is displayed during task step execution.
-     *
-     * @return    mixed     Message or null
-     */
     public function step()
     {
         return $this->code ? sprintf($this->step, $this->code - $this->limit, $this->code) : null;
     }
 
-    /**
-     * Get success message.
-     *
-     * This message is displayed when task is accomplished.
-     *
-     * @return    string    Message or null
-     */
     public function success(): string
     {
         return $this->code ? sprintf($this->step, $this->code - $this->limit, $this->code) : $this->success;
     }
 
     /**
-     * Synchronize posts meta
+     * Synchronize posts meta.
      *
-     * @param      int|null  $start  The start
-     * @param      int|null  $limit  The limit
+     * @param   int|null    $start  The start
+     * @param   int|null    $limit  The limit
      *
-     * @return     int|null     Next offset if any
+     * @return  int|null    Next offset if any
      */
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {

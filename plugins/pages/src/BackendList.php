@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pages, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,14 +17,18 @@ use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @brief   The module backend pages listing.
+ * @ingroup pages
+ */
 class BackendList extends Listing
 {
     /**
-     * Display a list of pages
+     * Display a list of pages.
      *
-     * @param      int     $page           The page
-     * @param      int     $nb_per_page    The number of per page
-     * @param      string  $enclose_block  The enclose block
+     * @param   int     $page           The page
+     * @param   int     $nb_per_page    The number of per page
+     * @param   string  $enclose_block  The enclose block
      */
     public function display(int $page, int $nb_per_page, string $enclose_block = ''): void
     {
@@ -103,10 +104,10 @@ class BackendList extends Listing
     /**
      * Return a page line.
      *
-     * @param      int     $count    The count
-     * @param      bool    $checked  The checked
+     * @param   int     $count      The count
+     * @param   bool    $checked    The checked
      *
-     * @return     string
+     * @return  string
      */
     private function postLine(int $count, bool $checked): string
     {

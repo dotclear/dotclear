@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief maintenance, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,21 +12,30 @@ namespace Dotclear\Plugin\maintenance\Task;
 use Dotclear\App;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
+/**
+ * @brief   The logs maintenance task.
+ * @ingroup maintenance
+ */
 class Logs extends MaintenanceTask
 {
+    /**
+     * Task ID (class name).
+     *
+     * @var     null|string     $id
+     */
     protected $id = 'dcMaintenanceLogs';
 
     /**
      * Keep maintenance logs?
      *
-     * @var        bool
+     * @var     bool    $keep_maintenance_logs
      */
     public static $keep_maintenance_logs = true;
 
     /**
-     * Task group container
+     * Task group container.
      *
-     * @var string
+     * @var     string  $group
      */
     protected $group = 'purge';
 
@@ -45,14 +51,6 @@ class Logs extends MaintenanceTask
         $this->description = __('Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time.');
     }
 
-    /**
-     * Execute task.
-     *
-     * @return    bool|int
-     *    - FALSE on error,
-     *    - TRUE if task is finished
-     *    - INT if task required a next step
-     */
     public function execute()
     {
         if (static::$keep_maintenance_logs) {
