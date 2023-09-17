@@ -183,7 +183,7 @@ interface ModulesInterface
      * @param   array<string,mixed>     $search     The search parameters
      * @param   bool                    $to_array   Return arrays of modules properties
      *
-     * @return  array   The modules defines or properties
+     * @return  array<int|string, mixed>   The modules defines or properties
      */
     public function getDefines(array $search = [], bool $to_array = false): array;
 
@@ -208,7 +208,7 @@ interface ModulesInterface
      *
      * If module has missing dep and is not yet in hard disbaled state (_disabled) goes in.
      *
-     * @return  array<int,string>   The reasons to disable modules
+     * @return  array<int, string>   The reasons to disable modules
      */
     public function disableDepModules(): array;
 
@@ -288,7 +288,7 @@ interface ModulesInterface
      *
      * @see     self::installModule
      *
-     * @return  array
+     * @return  array<string, array<string, bool|string>>
      */
     public function installModules(): array;
 
@@ -372,7 +372,7 @@ interface ModulesInterface
      *
      * @param   string  $id     The optionnal module identifier
      *
-     * @return  array   The module(s).
+     * @return  array<int|string, mixed>   The module(s).
      */
     public function getModules(?string $id = null): array;
 
@@ -383,7 +383,7 @@ interface ModulesInterface
      *
      * @param   string  $id     The optionnal module identifier
      *
-     * @return  array  The module(s).
+     * @return  array<int|string, mixed>  The module(s).
      */
     public function getAnyModules(?string $id = null): array;
 
@@ -401,7 +401,7 @@ interface ModulesInterface
      *
      * @deprecated  since 2.26, use self::getDefines() instead
      *
-     * @return  array   The disabled modules.
+     * @return  array<int|string, mixed>   The disabled modules.
      */
     public function getDisabledModules(): array;
 
@@ -410,7 +410,7 @@ interface ModulesInterface
      *
      * @deprecated  since 2.26, use self::getDefines() instead
      *
-     * @return  array  The hard disabled modules.
+     * @return  array<int|string, mixed>  The hard disabled modules.
      */
     public function getHardDisabledModules(): array;
 
@@ -421,7 +421,7 @@ interface ModulesInterface
      *
      * @deprecated  since 2.26, use self::getDefines() instead
      *
-     * @return  array  The soft disabled modules.
+     * @return  array<int|string, mixed>  The soft disabled modules.
      */
     public function getSoftDisabledModules(): array;
 
