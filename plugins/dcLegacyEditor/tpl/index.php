@@ -1,4 +1,16 @@
-<?php echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
+<?php
+/**
+ * @file
+ * @brief     The module backend manage contents
+ * @ingroup   dcLegacyEditor
+ *
+ * @package   Dotclear
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
+
+echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
 
 <?php if (\Dotclear\App::backend()->editor_is_admin): ?>
   <h3 class="hidden-if-js"><?php echo __('Settings'); ?></h3>

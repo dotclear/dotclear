@@ -2,7 +2,7 @@
 /**
  * @file
  * @brief 		The module backend helper resource
- * @ingroup 	dcCKEditor
+ * @ingroup 	dcLegacyEditor
  *
  * @package 	Dotclear
  *
