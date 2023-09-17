@@ -1,12 +1,18 @@
 <?php
 /**
- * @brief dcProxyV1, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin dcProxyV1 class aliases
+ * @ingroup     dcProxyV1
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
+
+/**
+ * @brief   The module class alias handler.
+ * @ingroup dcProxyV1
  */
 class dcProxyV1
 {
