@@ -83,6 +83,34 @@ class Fault
     public const BLOG_OFFLINE = 590;
 
     /**
+     * Output error, the static way.
+     *
+     * @param   string  $summary    The short description
+     * @param   string  $message    The details
+     * @param   int     $code       The code (HTTP code)
+     */
+    public static function render(string $summary, string $message, int $code): void
+    {
+        new self($summary, $message, $code);
+    }
+
+    /**
+     * Output error using Exception instance.
+     *
+     * This takes care of DC_DEBUG mode to show Exceptions stack.
+     *
+     * @return never
+     */
+    public static function throw(string $summary, Exception $e)
+    {
+        if (defined('DC_DEBUG') && DC_DEBUG === true) {
+            throw $e;
+        }
+        new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
+        exit;
+    }
+
+    /**
      * Constructor.
      *
      * In CLI mode, only summary is returned.
@@ -156,34 +184,6 @@ class Fault
 </html>
             <?php
         }
-        exit;
-    }
-
-    /**
-     * Output error, the static way.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
-     */
-    public static function render(string $summary, string $message, int $code): void
-    {
-        new self($summary, $message, $code);
-    }
-
-    /**
-     * Output error using Exception instance.
-     *
-     * This takes care of DC_DEBUG mode to show Exceptions stack.
-     *
-     * @return never
-     */
-    public static function throw(string $summary, Exception $e)
-    {
-        if (defined('DC_DEBUG') && DC_DEBUG === true) {
-            throw $e;
-        }
-        new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
         exit;
     }
 }
