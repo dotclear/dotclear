@@ -89,7 +89,7 @@ interface MetaInterface
      * - meta_id : get posts having meta id
      * - meta_type : get posts having meta type
      *
-     * @param   array                   $params         The parameters
+     * @param   array<string, mixed>    $params         The parameters
      * @param   bool                    $count_only     Only count results
      * @param   SelectStatement|null    $ext_sql        Optional SqlStatement instance
      *
@@ -103,7 +103,7 @@ interface MetaInterface
      * - meta_id : get posts having meta id
      * - meta_type : get posts having meta type
      *
-     * @param   array                   $params         The parameters
+     * @param   array<string, mixed>    $params         The parameters
      * @param   bool                    $count_only     Only count results
      * @param   SelectStatement|null    $ext_sql        Optional SqlStatement instance
      *
@@ -122,7 +122,7 @@ interface MetaInterface
      * - limit: number of max fetched metas
      * - order: results order (default : posts count DESC)
      *
-     * @param   array                   $params         The parameters
+     * @param   array<string, mixed>    $params         The parameters
      * @param   bool                    $count_only     Only counts results
      * @param   SelectStatement|null    $ext_sql        Optional SqlStatement instance
      *

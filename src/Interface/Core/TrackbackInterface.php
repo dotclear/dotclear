@@ -91,7 +91,7 @@ interface TrackbackInterface
      *
      * @throws  \Exception
      */
-    public function receiveWebmention();
+    public function receiveWebmention(): void;
 
     //@}
 
@@ -104,7 +104,7 @@ interface TrackbackInterface
      *
      * @param   string  $text   The text
      *
-     * @return  array
+     * @return  array<string>
      */
     public function discover(string $text): array;
 

@@ -45,8 +45,8 @@ interface LogInterface
      * - order: Order of results (default "ORDER BY log_dt DESC")
      * - limit: Limit parameter
      *
-     * @param   array   $params         The parameters
-     * @param   bool    $count_only     Count only resultats
+     * @param   array<string, mixed>    $params         The parameters
+     * @param   bool                    $count_only     Count only resultats
      *
      * @return  MetaRecord  The logs.
      */

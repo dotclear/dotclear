@@ -199,6 +199,15 @@ class Meta implements MetaInterface
         App::blog()->triggerBlog();
     }
 
+    /**
+     * Gets the posts by meta.
+     *
+     * @param      array<string, mixed>     $params      The parameters
+     * @param      bool                     $count_only  The count only
+     * @param      SelectStatement|null     $ext_sql     The extent sql
+     *
+     * @return     MetaRecord                                              The posts by meta.
+     */
     public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         if (!isset($params['meta_id'])) {
@@ -223,6 +232,15 @@ class Meta implements MetaInterface
         return App::blog()->getPosts($params, $count_only, $sql);
     }
 
+    /**
+     * Gets the comments by meta.
+     *
+     * @param      array<string, mixed>     $params      The parameters
+     * @param      bool                     $count_only  The count only
+     * @param      SelectStatement|null     $ext_sql     The extent sql
+     *
+     * @return     MetaRecord                                              The comments by meta.
+     */
     public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         if (!isset($params['meta_id'])) {
@@ -245,6 +263,15 @@ class Meta implements MetaInterface
         return App::blog()->getComments($params, $count_only, $sql);
     }
 
+    /**
+     * Gets the metadata.
+     *
+     * @param   array<string, mixed>    $params         The parameters
+     * @param   bool                    $count_only     Only counts results
+     * @param   SelectStatement|null    $ext_sql        Optional SqlStatement instance
+     *
+     * @return     MetaRecord                                              The metadata.
+     */
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();

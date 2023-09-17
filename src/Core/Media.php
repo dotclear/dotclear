@@ -270,7 +270,14 @@ class Media extends Manager implements MediaInterface
         $this->type = $type;
     }
 
-    public function addFileHandler(string $type, string $event, $function)
+    /**
+     * Adds a file handler.
+     *
+     * @param      string                           $type      The type
+     * @param      string                           $event     The event
+     * @param      callable|array<string, string>   $function  The function
+     */
+    public function addFileHandler(string $type, string $event, $function): void
     {
         if (is_callable($function)) {
             $this->file_handler[$type][$event][] = $function;
@@ -1243,13 +1250,21 @@ class Media extends Manager implements MediaInterface
         return dirname($f->relname) . '/' . $destination;
     }
 
+    /**
+     * Gets the zip content.
+     *
+     * @param      File  $f      The ZIP file
+     *
+     * @return     array<string>         The zip content.
+     */
     public function getZipContent(File $f): array
     {
         $zip  = new Unzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
         $zip->close();
 
-        return $list;
+        // Return empty array if error occurs
+        return $list ?: [];
     }
 
     public function mediaFireRecreateEvent(File $f): void

@@ -60,7 +60,15 @@ class Task implements TaskInterface
      */
     private static string $lang = 'en';
 
-    public function run(string $utility, string $process)
+    /**
+     * Process app
+     *
+     * @param      string     $utility  The utility
+     * @param      string     $process  The process
+     *
+     * @throws     Exception
+     */
+    public function run(string $utility, string $process): void
     {
         // watchdog
         if (self::$watchdog) {

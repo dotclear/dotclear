@@ -36,8 +36,8 @@ interface NoticeInterface
     /**
      * Gets the notices.
      *
-     * @param      array              $params      The parameters
-     * @param      bool               $count_only  The count only
+     * @param      array<string, mixed>     $params      The parameters
+     * @param      bool                     $count_only  The count only
      *
      * @return     MetaRecord  The notices.
      */

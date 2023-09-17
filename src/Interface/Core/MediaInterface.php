@@ -151,13 +151,13 @@ interface MediaInterface
      *
      * (returned type not set for backward compatibility with Helper\File\Manager)
      *
-     * @param   string          $type       The media type
-     * @param   string          $event      The event
-     * @param   callable|array  $function   The callback
+     * @param   string                          $type       The media type
+     * @param   string                          $event      The event
+     * @param   callable|array<string, string>  $function   The callback
      *
      * @return void
      */
-    public function addFileHandler(string $type, string $event, $function);
+    public function addFileHandler(string $type, string $event, $function): void;
 
     /**
      * Returns HTML breadCrumb for media manager navigation.
@@ -394,7 +394,7 @@ interface MediaInterface
      *
      * @param   File    $f  File object
      *
-     * @return  array  The zip content.
+     * @return  array<string>  The zip content.
      */
     public function getZipContent(File $f): array;
 
