@@ -29,14 +29,14 @@ class Store
      *
      * @var     ModulesInterface    $modules
      */
-    public $modules;
+    public ModulesInterface $modules;
 
     /**
      * Modules fields to search on and their weight.
      *
      * @var     array<string,int>   $weighting
      */
-    public static $weighting = [
+    public static array $weighting = [
         'id'     => 10,
         'name'   => 8,
         'tags'   => 6,
@@ -49,21 +49,21 @@ class Store
      *
      * @var     string  $user_agent
      */
-    protected $user_agent = 'DotClear.org RepoBrowser/0.1';
+    protected string $user_agent = 'DotClear.org RepoBrowser/0.1';
 
     /**
      * XML feed URL.
      *
      * @var     null|string     $xml_url
      */
-    protected $xml_url = null;
+    protected ?string $xml_url = null;
 
     /**
      * Array of new/update modules from repository.
      *
-     * @var     array<string,array<string,array>>   $data
+     * @var     array<string, array<string, array<string, mixed>>>   $data
      */
-    protected $data = [
+    protected array $data = [
         'new'    => [],
         'update' => [],
     ];
@@ -71,9 +71,9 @@ class Store
     /**
      * Array of new/update modules Define from repository.
      *
-     * @var     array<string,array<int,ModuleDefine>>   $defines
+     * @var     array<string, array<int, ModuleDefine>>   $defines
      */
-    protected $defines = [
+    protected array $defines = [
         'new'    => [],
         'update' => [],
     ];
@@ -242,7 +242,7 @@ class Store
      *
      * @param   bool    $update     True to get update modules, false for new ones
      *
-     * @return  array   List of update/new modules
+     * @return  array<string, array<string, mixed>>   List of update/new modules
      */
     public function get(bool $update = false): array
     {
@@ -314,7 +314,7 @@ class Store
      *
      * @param   string  $pattern    String to search
      *
-     * @return  array   Match modules
+     * @return  array<string, array<string, array<string, mixed>>>   Match modules
      */
     public function search(string $pattern): array
     {
@@ -402,7 +402,7 @@ class Store
      *
      * @param   string  $str    String to sanitize
      *
-     * @return  array|false     Array of cleaned pieces of string or false if none
+     * @return  array<int, string>|false     Array of cleaned pieces of string or false if none
      */
     private static function patternize(string $str): bool|array
     {

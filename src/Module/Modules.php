@@ -24,7 +24,6 @@ use Exception;
  * @brief   Modules handler.
  *
  * Provides an object to handle modules (themes or plugins).
- *
  */
 class Modules implements ModulesInterface
 {
@@ -33,98 +32,98 @@ class Modules implements ModulesInterface
      *
      * @var     bool    $safe_mode
      */
-    protected $safe_mode = false;
+    protected bool $safe_mode = false;
 
     /**
      * Stack of modules paths.
      *
-     * @var     array<int,string>   $path
+     * @var     array<int, string>   $path
      */
-    protected $path = [];
+    protected array $path = [];
 
     /**
      * Stack of modules.
      *
-     * @var     array<int,ModuleDefine>     $defines
+     * @var     array<int, ModuleDefine>     $defines
      */
-    protected $defines = [];
+    protected array $defines = [];
 
     /**
      * Stack of error messages.
      *
-     * @var     array<int,string>   $errors
+     * @var     array<int, string>   $errors
      */
-    protected $errors = [];
+    protected array $errors = [];
 
     /**
      * Stack of modules id|version pairs.
      *
-     * @var     array<string,string>    $modules_ids
+     * @var     array<string, string>    $modules_ids
      */
-    protected $modules_ids = [];
+    protected array $modules_ids = [];
 
     /**
      * Stack of modules paths (used as internal cache).
      *
-     * @var     array<string,array<int,string>>     $modules_paths
+     * @var     array<string, array<int, string>>     $modules_paths
      */
-    protected $modules_paths = [];
+    protected array $modules_paths = [];
 
     /**
      * Stack of loaded modules _init files (prevent twice load).
      *
-     * @var     array<int,string>   $modules_init
+     * @var     array<int, string>   $modules_init
      */
-    protected static $modules_init = [];
+    protected static array $modules_init = [];
 
     /**
      * Current deactivation mode.
      *
      * @var     bool    $disabled_mode
      */
-    protected $disabled_mode = false;
+    protected bool $disabled_mode = false;
 
     /**
      * Current dc namespace.
      *
      * @var     string|null     $ns
      */
-    protected $ns = null;
+    protected ?string $ns = null;
 
     /**
      * Current module Define.
      *
      * @var     ModuleDefine    $define
      */
-    protected $define;
+    protected ModuleDefine $define;
 
     /**
      * Current module identifier
      *
      * @var     string|null     $id
      */
-    protected $id = null;
+    protected ?string $id = null;
 
     /**
      * Current module root path (where _define.php is located).
      *
      * @var     string|null     $mroot
      */
-    protected $mroot = null;
+    protected ?string $mroot = null;
 
     /**
      * Current module php namespace.
      *
      * @var     string|null     $namespace
      */
-    protected $namespace = null;
+    protected ?string $namespace = null;
 
     /**
      * Inclusion variables.
      *
      * @var     array<int,string>   $superglobals
      */
-    protected static $superglobals = [
+    protected static array $superglobals = [
         'GLOBALS',
         '_SERVER',
         '_GET',
@@ -141,22 +140,30 @@ class Modules implements ModulesInterface
      *
      * @var     array<int,string>   $_k
      */
-    protected static $_k;
+    protected static array $_k;
 
     /**
      * Superglobals key name.
      *
      * @var     string  $_n
      */
-    protected static $_n;
+    protected static string $_n;
 
     /**
      * Module type to work with.
      *
      * @var     string|null     $type
      */
-    protected $type = null;
+    protected ?string $type = null;
 
+    /**
+     * Gets the module define.
+     *
+     * @param      string                   $id      The module identifier
+     * @param      array<int|string, mixed> $search  The searched parameters
+     *
+     * @return     ModuleDefine  The define.
+     */
     public function getDefine(string $id, array $search = []): ModuleDefine
     {
         $found = $this->getDefines(array_merge($search, ['id' => $id]));
@@ -164,6 +171,14 @@ class Modules implements ModulesInterface
         return empty($found) ? new ModuleDefine($id) : $found[0];
     }
 
+    /**
+     * Gets the modules' define.
+     *
+     * @param      array<int|string, mixed>     $search    The searched parameters
+     * @param      bool                         $to_array  Convert result to array
+     *
+     * @return     array<int|string, mixed>  The defines.
+     */
     public function getDefines(array $search = [], bool $to_array = false): array
     {
         // only compare some types of values
@@ -207,7 +222,13 @@ class Modules implements ModulesInterface
         return $list;
     }
 
-    public function checkDependencies(ModuleDefine $module, $to_error = false): void
+    /**
+     * Check module dependencies
+     *
+     * @param      ModuleDefine  $module    The module
+     * @param      bool          $to_error  True to keep errors for further management
+     */
+    public function checkDependencies(ModuleDefine $module, bool $to_error = false): void
     {
         // Grab current Dotclear and PHP version
         $special = [
@@ -289,6 +310,11 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Disables the dependant modules.
+     *
+     * @return     array<int, string>
+     */
     public function disableDepModules(): array
     {
         if (isset($_GET['dep']) || $this->safe_mode) {
@@ -313,6 +339,13 @@ class Modules implements ModulesInterface
         return $reason;
     }
 
+    /**
+     * Set and/or get safe mode state
+     *
+     * @param      bool|null  $mode   The mode
+     *
+     * @return     bool
+     */
     public function safeMode(?bool $mode = null): bool
     {
         if (is_bool($mode)) {
@@ -327,9 +360,9 @@ class Modules implements ModulesInterface
      *
      * This keep track of previously scanned directories and return all of them.
      *
-     * @param   array<int,string>   $paths  The modules directories to parse
+     * @param   array<int, string>   $paths  The modules directories to parse
      *
-     * @return  array<string,array<int,string>>     List of modules by paths, if any
+     * @return  array<string, array<int, string>>     List of modules by paths, if any
      */
     protected function parsePathModules(array $paths): array
     {
@@ -359,6 +392,13 @@ class Modules implements ModulesInterface
         return $this->modules_paths;
     }
 
+    /**
+     * Loads modules.
+     *
+     * @param      string       $path   The path
+     * @param      null|string  $ns     The context
+     * @param      null|string  $lang   The language
+     */
     public function loadModules(string $path, ?string $ns = null, ?string $lang = null): void
     {
         $this->path      = explode(PATH_SEPARATOR, $path);
@@ -498,6 +538,12 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Load module define (with init if exists)
+     *
+     * @param      string  $dir    The dir
+     * @param      string  $id     The identifier
+     */
     public function requireDefine(string $dir, string $id): void
     {
         $this->id = $id;
@@ -508,6 +554,15 @@ class Modules implements ModulesInterface
         $this->id = null;
     }
 
+    /**
+     * Register a module
+     *
+     * @param      string  $name        The name
+     * @param      string  $desc        The description
+     * @param      string  $author      The author
+     * @param      string  $version     The version
+     * @param      mixed   $properties  The properties
+     */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
         if (!$this->id) {
@@ -625,6 +680,9 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Reset modules list
+     */
     public function resetModulesList(): void
     {
         $this->defines     = [];
@@ -632,11 +690,26 @@ class Modules implements ModulesInterface
         $this->errors      = [];
     }
 
+    /**
+     * Determines if a module define is empty.
+     *
+     * @return     bool  True if empty, False otherwise.
+     */
     public function isEmpty(): bool
     {
         return empty($this->defines);
     }
 
+    /**
+     * Install a module's package
+     *
+     * @param      string                                       $zip_file  The zip file
+     * @param      \Dotclear\Interface\Module\ModulesInterface  $modules   The modules
+     *
+     * @throws     Exception
+     *
+     * @return     int
+     */
     public static function installPackage(string $zip_file, ModulesInterface &$modules): int
     {
         $zip = new Unzip($zip_file);
@@ -792,6 +865,11 @@ class Modules implements ModulesInterface
         return $ret_code;
     }
 
+    /**
+     * Install modules
+     *
+     * @return     array<string, array<string, bool|string>>
+     */
     public function installModules(): array
     {
         $res = [
@@ -814,6 +892,14 @@ class Modules implements ModulesInterface
         return $res;
     }
 
+    /**
+     * Install a module
+     *
+     * @param      string     $id     The identifier
+     * @param      string     $msg    The message
+     *
+     * @return     bool|null
+     */
     public function installModule(string $id, string &$msg): ?bool
     {
         $module = $this->getDefine($id);
@@ -852,6 +938,14 @@ class Modules implements ModulesInterface
         return null;
     }
 
+    /**
+     * Delete a module
+     *
+     * @param      string     $id        The identifier
+     * @param      bool       $disabled  The disabled flag
+     *
+     * @throws     Exception
+     */
     public function deleteModule(string $id, bool $disabled = false): void
     {
         $module = $this->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
@@ -865,6 +959,13 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Deactivate a module
+     *
+     * @param      string     $id     The identifier
+     *
+     * @throws     Exception
+     */
     public function deactivateModule(string $id): void
     {
         $module = $this->getDefine($id);
@@ -882,6 +983,13 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Activate a module
+     *
+     * @param      string     $id     The identifier
+     *
+     * @throws     Exception
+     */
     public function activateModule(string $id): void
     {
         $module = $this->getDefine($id, ['state' => '!' . ModuleDefine::STATE_ENABLED]);
@@ -899,10 +1007,24 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Clone a module
+     *
+     * Should be defined, if necessary, by classes which extends this one
+     *
+     * @param      string  $id     The identifier
+     */
     public function cloneModule(string $id): void
     {
     }
 
+    /**
+     * Loads a module locales.
+     *
+     * @param      string       $id     The identifier
+     * @param      null|string  $lang   The language
+     * @param      string       $file   The file
+     */
     public function loadModuleL10N(string $id, ?string $lang, string $file): void
     {
         if ($this->safe_mode) {
@@ -918,6 +1040,12 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Loads module locale resources (help).
+     *
+     * @param      string       $id     The identifier
+     * @param      null|string  $lang   The language
+     */
     public function loadModuleL10Nresources(string $id, ?string $lang): void
     {
         if ($this->safe_mode) {
@@ -932,6 +1060,15 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Gets the modules.
+     *
+     * @param      null|string  $id     The identifier
+     *
+     * @deprecated Since 2.26, use App::plugins()->getDefines(…) or App::themes()->getDefines(…) instead
+     *
+     * @return     array<int|string, mixed>        The modules.
+     */
     public function getModules(?string $id = null): array
     {
         App::deprecated()->set(self::class . '::getDefines()', '2.26');
@@ -941,6 +1078,15 @@ class Modules implements ModulesInterface
         return $id && isset($modules[$id]) ? $modules[$id] : $modules;
     }
 
+    /**
+     * Gets any modules.
+     *
+     * @param      null|string  $id     The identifier
+     *
+     * @deprecated Since 2.26, use App::plugins()->getDefines([], true) or App::themes()->getDefines([], true) instead
+     *
+     * @return     array<int|string, mixed>        Any modules.
+     */
     public function getAnyModules(?string $id = null): array
     {
         App::deprecated()->set(self::class . '::getDefines()', '2.26');
@@ -950,11 +1096,25 @@ class Modules implements ModulesInterface
         return $id && isset($modules[$id]) ? $modules[$id] : $modules;
     }
 
+    /**
+     * Determines if module exists.
+     *
+     * @param      string  $id     The identifier
+     *
+     * @return     bool    True if module exists, False otherwise.
+     */
     public function moduleExists(string $id): bool
     {
         return $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED])->isDefined();
     }
 
+    /**
+     * Gets the disabled modules.
+     *
+     * @deprecated Since 2.26, use App::plugins()->getDefines() or App::themes()->getDefines() instead
+     *
+     * @return     array<int|string, mixed>  The disabled modules.
+     */
     public function getDisabledModules(): array
     {
         App::deprecated()->set(self::class . '::getDefines()', '2.26');
@@ -962,6 +1122,13 @@ class Modules implements ModulesInterface
         return $this->getDefines(['state' => '!' . ModuleDefine::STATE_ENABLED], true);
     }
 
+    /**
+     * Gets the hard disabled modules.
+     *
+     * @deprecated Since 2.26, use App::plugins()->getDefines() or App::themes()->getDefines() instead
+     *
+     * @return     array<int|string, mixed>  The hard disabled modules.
+     */
     public function getHardDisabledModules(): array
     {
         App::deprecated()->set(self::class . '::getDefines()', '2.26');
@@ -969,6 +1136,13 @@ class Modules implements ModulesInterface
         return $this->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED], true);
     }
 
+    /**
+     * Gets the soft disabled modules.
+     *
+     * @deprecated Since 2.26, use App::plugins()->getDefines() or App::themes()->getDefines() instead
+     *
+     * @return     array<int|string, mixed>  The soft disabled modules.
+     */
     public function getSoftDisabledModules(): array
     {
         App::deprecated()->set(self::class . '::getDefines()', '2.26');
@@ -976,6 +1150,15 @@ class Modules implements ModulesInterface
         return $this->getDefines(['state' => ModuleDefine::STATE_SOFT_DISABLED], true);
     }
 
+    /**
+     * Get module root
+     *
+     * @param      string       $id     The identifier
+     *
+     * @deprecated Since 2.26, use App::plugins()->moduleInfo() or App::themes()->moduleInfo() instead
+     *
+     * @return     null|string
+     */
     public function moduleRoot(string $id): ?string
     {
         App::deprecated()->set(self::class . '::moduleInfo()', '2.26');
@@ -983,11 +1166,26 @@ class Modules implements ModulesInterface
         return $this->moduleInfo($id, 'root');
     }
 
+    /**
+     * Get module information
+     *
+     * @param      string  $id     The identifier
+     * @param      string  $info   The information
+     *
+     * @return     mixed
+     */
     public function moduleInfo(string $id, string $info): mixed
     {
         return $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED])->get($info);
     }
 
+    /**
+     * Loads context files/classes of a module.
+     *
+     * @deprecated Since 2.27
+     *
+     * @param      null|string  $ns     context
+     */
     public function loadNsFiles(?string $ns = null): void
     {
         App::deprecated()->set('nothing', '2.27');
@@ -997,6 +1195,12 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Loads a context class/file of a module.
+     *
+     * @param      string       $id     The identifier
+     * @param      null|string  $ns     { parameter_description }
+     */
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
@@ -1031,6 +1235,15 @@ class Modules implements ModulesInterface
         }
     }
 
+    /**
+     * Return a context module class.
+     *
+     * @param      string  $id       The identifier
+     * @param      string  $ns       The context
+     * @param      bool    $process  The process
+     *
+     * @return     string
+     */
     public function loadNsClass(string $id, string $ns, bool $process = true): string
     {
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
@@ -1060,6 +1273,11 @@ class Modules implements ModulesInterface
         return $class;
     }
 
+    /**
+     * Gets the errors.
+     *
+     * @return     array<int, string>  The errors.
+     */
     public function getErrors(): array
     {
         return $this->errors;
@@ -1120,6 +1338,16 @@ class Modules implements ModulesInterface
         return require $________;
     }
 
+    /**
+     * Compare two module versions
+     *
+     * @param      string  $current_version   The current version
+     * @param      string  $required_version  The required version
+     * @param      string  $operator          The operator
+     * @param      bool    $strict            The strict
+     *
+     * @return     bool
+     */
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
         if ($strict) {
@@ -1152,6 +1380,15 @@ class Modules implements ModulesInterface
             'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
+    /**
+     * Get the HTML to load a module CSS
+     *
+     * @param      string       $src      The source
+     * @param      string       $media    The media
+     * @param      null|string  $version  The version
+     *
+     * @return     string
+     */
     public function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
         $escaped_src = Html::escapeHTML($src);
@@ -1162,6 +1399,15 @@ class Modules implements ModulesInterface
         return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
     }
 
+    /**
+     * Get the HTML to load a module script
+     *
+     * @param      string       $src      The source
+     * @param      null|string  $version  The version
+     * @param      bool         $module   True if it is a JS module
+     *
+     * @return     string
+     */
     public function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {
         $escaped_src = Html::escapeHTML($src);

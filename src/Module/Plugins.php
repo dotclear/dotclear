@@ -19,7 +19,7 @@ namespace Dotclear\Module;
  */
 class Plugins extends Modules
 {
-    protected $type = 'plugin';
+    protected ?string $type = 'plugin';
 
     /**
      * This method registers a plugin in modules list.
