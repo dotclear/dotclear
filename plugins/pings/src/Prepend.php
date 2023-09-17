@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pings, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,6 +14,10 @@ use Dotclear\Core\Process;
 use Dotclear\Interface\Core\BlogInterface;
 use Exception;
 
+/**
+ * @brief   The module prepend process.
+ * @ingroup pings
+ */
 class Prepend extends Process
 {
     public static function init(): bool

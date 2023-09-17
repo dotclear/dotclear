@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pings, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,18 +12,22 @@ namespace Dotclear\Plugin\pings;
 use Dotclear\Helper\Network\XmlRpc\Client;
 use Exception;
 
+/**
+ * @brief   The module pings API handler.
+ * @ingroup pings
+ */
 class PingsAPI extends Client
 {
     /**
-     * Does pings.
+     * Do pings.
      *
-     * @param      string       $srv_uri    The server uri
-     * @param      null|string  $site_name  The site name
-     * @param      null|string  $site_url   The site url
+     * @param   string          $srv_uri    The server uri
+     * @param   null|string     $site_name  The site name
+     * @param   null|string     $site_url   The site url
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool
+     * @return  bool
      */
     public static function doPings(string $srv_uri, ?string $site_name, ?string $site_url): bool
     {

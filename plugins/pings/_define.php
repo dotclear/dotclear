@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief pings, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin pings definition
+ * @ingroup     pings
+ * 
+ * @defgroup    pings Plugin pings.
+ * 
+ * pings, ping services.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

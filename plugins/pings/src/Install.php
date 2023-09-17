@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief pings, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,8 +11,17 @@ namespace Dotclear\Plugin\pings;
 
 use Dotclear\Core\Process;
 
+/**
+ * @brief   The module install process.
+ * @ingroup pings
+ */
 class Install extends Process
 {
+    /**
+     * Default ping URIs.
+     *
+     * @var     array<string,string>    $default_pings_uris
+     */
     private static array $default_pings_uris = [
         'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
     ];
