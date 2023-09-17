@@ -58,6 +58,8 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         else {
             return 1;
         }
+
+        return true;
     }
 
     public function step()

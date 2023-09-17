@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief themeEditor, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin themeEditor definition
+ * @ingroup     themeEditor
+ * 
+ * @defgroup    themeEditor Plugin themeEditor.
+ * 
+ * themeEditor, Internal build tools for dotclear team.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 $this->registerModule(
     'themeEditor',     // Name

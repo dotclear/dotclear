@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief themeEditor, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,82 +18,86 @@ use Dotclear\Helper\L10n;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
+/**
+ * @brief   The theme editor handler.
+ * @ingroup themeEditor
+ */
 class ThemeEditor
 {
     /**
-     * Current theme
+     * Current theme.
      *
-     * @var string
+     * @var     string  $user_theme
      */
     protected $user_theme;
 
     /**
-     * Parent theme if any
+     * Parent theme if any.
      *
-     * @var string
+     * @var     string  $parent_theme
      */
     protected $parent_theme;
 
     /**
-     * Theme template set
+     * Theme template set.
      *
-     * @var string
+     * @var     string  $tplset_theme
      */
     protected $tplset_theme;
 
     /**
-     * Parent theme name if any
+     * Parent theme name if any.
      *
-     * @var string
+     * @var     string  $parent_name
      */
     protected $parent_name;
 
     /**
-     * Theme template set name
+     * Theme template set name.
      *
-     * @var string
+     * @var     string  $tplset_name
      */
     protected $tplset_name;
 
     /**
-     * List of file from parent theme if any and from theme template set
+     * List of file from parent theme if any and from theme template set.
      *
-     * @var        array
+     * @var     array<string,string>    $tpl_model
      */
     protected $tpl_model = [];
 
     /**
-     * List of theme template files
+     * List of theme template files.
      *
-     * @var        array
+     * @var     array<string,string>    $tpl
      */
     public $tpl = [];
 
     /**
-     * List of theme CSS files
+     * List of theme CSS files.
      *
-     * @var        array
+     * @var     array<string,string>    $css
      */
     public $css = [];
 
     /**
-     * List of theme JS files
+     * List of theme JS files.
      *
-     * @var        array
+     * @var     array<string,string>    $js
      */
     public $js = [];
 
     /**
-     * List of theme translation files
+     * List of theme translation files.
      *
-     * @var        array
+     * @var     array<string,string>    $po
      */
     public $po = [];
 
     /**
-     * List of theme PHP files
+     * List of theme PHP files.
      *
-     * @var        array
+     * @var     array<string,string>    $php
      */
     public $php = [];
 
@@ -128,13 +129,13 @@ class ThemeEditor
     }
 
     /**
-     * Display a file list
+     * Display a file list.
      *
-     * @param      string  $type   The type of file
-     * @param      string  $item   The item pattern
-     * @param      bool    $split  Split from source?
+     * @param   string  $type   The type of file
+     * @param   string  $item   The item pattern
+     * @param   bool    $split  Split from source?
      *
-     * @return     string
+     * @return  string
      */
     public function filesList(string $type, string  $item = '%1$s', bool $split = true): string
     {
@@ -191,12 +192,12 @@ class ThemeEditor
     /**
      * Gets the file content.
      *
-     * @param      string     $type   The type
-     * @param      string     $f      The file ID
+     * @param   string  $type   The type
+     * @param   string  $f      The file ID
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     array      The file content.
+     * @return  array   The file content.
      */
     public function getFileContent(string $type, string $f): array
     {
@@ -222,11 +223,11 @@ class ThemeEditor
     /**
      * Writes a file.
      *
-     * @param      string     $type     The type
-     * @param      string     $f        The file ID
-     * @param      string     $content  The content
+     * @param   string  $type       The type
+     * @param   string  $f          The file ID
+     * @param   string  $content    The content
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function writeFile(string $type, string $f, string $content): void
     {
@@ -275,12 +276,12 @@ class ThemeEditor
     }
 
     /**
-     * Check if a file is deletable
+     * Check if a file is deletable.
      *
-     * @param      string  $type   The type
-     * @param      string  $f      The file ID
+     * @param   string  $type   The type
+     * @param   string  $f      The file ID
      *
-     * @return     bool
+     * @return  bool
      */
     public function deletableFile(string $type, string $f): bool
     {
@@ -306,12 +307,12 @@ class ThemeEditor
     }
 
     /**
-     * Delete a file
+     * Delete a file.
      *
-     * @param      string     $type   The type
-     * @param      string     $f      The file ID
+     * @param   string  $type   The type
+     * @param   string  $f      The file ID
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function deleteFile(string $type, string $f)
     {
@@ -342,10 +343,10 @@ class ThemeEditor
     /**
      * Gets the destination file.
      *
-     * @param      string  $type   The type
-     * @param      string  $f      The file ID
+     * @param   string  $type   The type
+     * @param   string  $f      The file ID
      *
-     * @return     bool|string    The destination file.
+     * @return  bool|string     The destination file.
      */
     protected function getDestinationFile(string $type, string $f)
     {
@@ -383,9 +384,9 @@ class ThemeEditor
     /**
      * Gets the files list from type.
      *
-     * @param      string  $type   The type
+     * @param   string  $type   The type
      *
-     * @return     array   The list.
+     * @return  array<string,string>    The list.
      */
     protected function getFilesFromType(string $type): array
     {
@@ -400,11 +401,11 @@ class ThemeEditor
     }
 
     /**
-     * Update a file in a list
+     * Update a file in a list.
      *
-     * @param      string  $type   The type
-     * @param      string  $f      The file ID
-     * @param      string  $file   The file
+     * @param   string  $type   The type
+     * @param   string  $f      The file ID
+     * @param   string  $file   The file
      */
     protected function updateFileInList(string $type, string $f, string $file): void
     {
@@ -512,14 +513,14 @@ class ThemeEditor
     }
 
     /**
-     * Stack files sorting helper
+     * Stack files sorting helper.
      *
-     *  Sort by file extension first, then by file name
+     * Sort by file extension first, then by file name
      *
-     * @param      string  $a      1st file
-     * @param      string  $b      2nd file
+     * @param   string  $a  1st file
+     * @param   string  $b  2nd file
      *
-     * @return     int
+     * @return  int
      */
     protected function sortFilesHelper(string $a, string $b): int
     {
@@ -533,12 +534,12 @@ class ThemeEditor
     /**
      * Gets the files in dir.
      *
-     * @param      string       $dir     The dir
-     * @param      null|string  $ext     The search extension
-     * @param      string       $prefix  The key prefix
-     * @param      null|string  $model   The model
+     * @param   string          $dir        The dir
+     * @param   null|string     $ext        The search extension
+     * @param   string          $prefix     The key prefix
+     * @param   null|string     $model      The model
      *
-     * @return     array        The files in dir.
+     * @return  array<string,string>    The files in dir.
      */
     protected function getFilesInDir(string $dir, ?string $ext = null, string $prefix = '', ?string $model = null): array
     {
