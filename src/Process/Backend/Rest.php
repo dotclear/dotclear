@@ -67,7 +67,7 @@ class Rest extends Process
     /**
      * REST method to get the posts count (JSON).
      *
-     * @return     array  The posts count.
+     * @return     array<string, string>  The posts count.
      */
     public static function getPostsCount(): array
     {
@@ -81,7 +81,7 @@ class Rest extends Process
     /**
      * REST method to get the comments count (JSON).
      *
-     * @return     array  The comments count.
+     * @return     array<string, string>  The comments count.
      */
     public static function getCommentsCount(): array
     {
@@ -97,7 +97,7 @@ class Rest extends Process
      *
      * @throws     Exception
      *
-     * @return     array    returned data
+     * @return     array<string, string>    returned data
      */
     public static function checkNewsUpdate(): array
     {
@@ -151,7 +151,7 @@ class Rest extends Process
     /**
      * REST method to check Dotclear update (JSON).
      *
-     * @return     array    returned data
+     * @return     array<string, string>    returned data
      */
     public static function checkCoreUpdate(): array
     {
@@ -215,12 +215,12 @@ class Rest extends Process
     /**
      * REST method to check store (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
      * @throws     Exception
      *
-     * @return     array    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function checkStoreUpdate(array $get, array $post): array
     {
@@ -275,11 +275,11 @@ class Rest extends Process
     /**
      * REST method to get post by ID (JSON)
      *
-     * @param      array     $get    The get
+     * @param      array<string, string>     $get    The get
      *
      * @throws     Exception
      *
-     * @return     array    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function getPostById(array $get)
     {
@@ -354,11 +354,11 @@ class Rest extends Process
     /**
      * REST method to get comment by ID (JSON)
      *
-     * @param      array     $get    The get
+     * @param      array<string, string>     $get    The get
      *
      * @throws     Exception
      *
-     * @return     array    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function getCommentById(array $get)
     {
@@ -401,10 +401,10 @@ class Rest extends Process
     /**
      * REST method to create a quick post (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
-     * @return     array    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function quickPost(array $get, array $post): array
     {
@@ -459,11 +459,11 @@ class Rest extends Process
     /**
      * REST method to get Zip content list (JSON)
      *
-     * @param      array     $get    The get
+     * @param      array<string, string>     $get    The get
      *
      * @throws     Exception
      *
-     * @return     array    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function getZipMediaContent(array $get): array
     {
@@ -505,9 +505,9 @@ class Rest extends Process
     /**
      * REST method to get metadata (JSON)
      *
-     * @param      array     $get    The get
+     * @param      array<string, string>     $get    The get
      *
-     * @return     array    returned data
+     * @return     array<int, array<string, mixed>>    returned data
      */
     public static function getMeta(array $get): array
     {
@@ -556,8 +556,8 @@ class Rest extends Process
     /**
      * REST method to set post metadata (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
      * @return     true
      */
@@ -596,8 +596,8 @@ class Rest extends Process
     /**
      * REST method to get metadata (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
      * @return     true
      */
@@ -625,8 +625,8 @@ class Rest extends Process
      *
      * Used with jquery.autocomplete()
      *
-     * @param      dcCore    $core   dcCore instance
-     * @param      array     $get    The get
+     * @param      dcCore                   $core   dcCore instance
+     * @param      array<string, string>    $get    The get
      *
      * @return     XmlTag
      */
@@ -677,9 +677,9 @@ class Rest extends Process
      *
      * Used with jquery.autocomplete()
      *
-     * @param      array     $get    The get
+     * @param      array<string, string>     $get    The get
      *
-     * @return     array
+     * @return     array<int, array<string, mixed>>
      */
     public static function searchMetadata(array $get): array
     {
@@ -725,8 +725,8 @@ class Rest extends Process
     /**
      * REST method to store section folding position (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
      * @return     true
      */
@@ -762,8 +762,8 @@ class Rest extends Process
     /**
      * REST method to store dashboard module's positions (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
      * @throws     Exception
      *
@@ -789,12 +789,12 @@ class Rest extends Process
     /**
      * REST method to store dashboard module's positions (JSON)
      *
-     * @param      array     $get    The get
-     * @param      array     $post   The post
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
      *
      * @throws     Exception
      *
-     * @return     array
+     * @return     array<string, string>
      */
     public static function setListsOptions(array $get, array $post): array
     {
