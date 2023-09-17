@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -26,68 +25,112 @@ use Exception;
 use formSelectOption;
 
 /**
- * @brief   Handler for action page on selected entries
+ * @brief   Handler for action page on selected entries.
  */
 abstract class Actions
 {
     /**
-     * @var string form submit uri
+     * Form submit uri.
+     *
+     * @var     string  $url
      */
     protected $uri;
+
     /**
-     * @var array action combo box
+     * Action combo box.
+     *
+     * @var     array   $combo
      */
     protected $combo = [];
+
     /**
-     * @var ArrayObject list of defined actions (callbacks)
+     * List of defined actions (callbacks).
+     *
+     * @var     ArrayObject     $actions
      */
     protected $actions;
+
     /**
-     * @var array selected entries (each key is the entry id, value contains the entry description)
+     * Selected entries (each key is the entry id, value contains the entry description).
+     *
+     * @var     array   $entries
      */
     protected $entries = [];
+
     /**
-     * @var MetaRecord record that challenges ids against permissions
+     * Record that challenges ids against permissions.
+     *
+     * @var     MetaRecord  $rs
      */
     protected $rs;
+
     /**
-     * @var array redirection $_GET arguments, if any (does not contain ids by default, ids may be merged to it)
+     * Redirection $_GET arguments, if any (does not contain ids by default, ids may be merged to it).
+     *
+     * @var     array   $redir_args
      */
     protected $redir_args;
+
     /**
-     * @var array list of $_POST fields used to build the redirection
+     * List of $_POST fields used to build the redirection.
+     *
+     * @var     array   $redirect_fields
      */
     protected $redirect_fields = [];
+
     /**
-     * @var string redirection anchor if any
+     * Redirection anchor if any.
+     *
+     * @var     string  $redir_anchor
      */
     protected $redir_anchor = '';
+
     /**
-     * @var string current action, if any
+     * Current action, if any.
+     *
+     * @var     string  $action
      */
     protected $action = '';
+
     /**
-     * @var ArrayObject list of url parameters (usually $_POST)
+     * List of url parameters (usually $_POST).
+     *
+     * @var     ArrayObject     $from
      */
     protected $from;
+
     /**
-     * @var string form field name for "entries" (usually "entries")
+     * Form field name for "entries" (usually "entries").
+     *
+     * @var     string  $field_entries 
      */
     protected $field_entries;
+
     /**
-     * @var string title for checkboxes list, if displayed
+     * Title for checkboxes list, if displayed.
+     *
+     * @var     string  $cb_title
      */
     protected $cb_title;
+
     /**
-     * @var string title for caller page title
+     * Title for caller page title.
+     *
+     * @var     string  $caller_title
      */
     protected string $caller_title;
+
     /**
-     * @var boolean true if we are acting inside a plugin (different handling of begin/endpage)
+     * True if we are acting inside a plugin (different handling of begin/endpage).
+     *
+     * @var     bool    $in_plugin
      */
     protected $in_plugin = false;
+
     /**
-     * @var boolean true if we enable to keep selection when redirecting
+     * True if we enable to keep selection when redirecting.
+     *
+     * @var     bool    $enable_redir_selection
      */
     protected $enable_redir_selection = true;
 
@@ -101,15 +144,17 @@ abstract class Actions
     protected $use_render = false;
 
     /**
-     * @var string Action process content
+     * Action process content.
+     *
+     * @var     string  Action process content
      */
     protected $render = '';
 
     /**
      * Constructs a new instance.
      *
-     * @param      null|string  $uri            The form uri
-     * @param      array        $redirect_args  The redirect arguments
+     * @param   null|string     $uri            The form uri
+     * @param   array           $redirect_args  The redirect arguments
      */
     public function __construct(?string $uri, array $redirect_args = [])
     {
@@ -133,10 +178,11 @@ abstract class Actions
     }
 
     /**
-     * Define whether to keep selection when redirecting
+     * Define whether to keep selection when redirecting.
+     *
      * Can be usefull to be disabled to preserve some compatibility.
      *
-     * @param boolean $enable true to enable, false otherwise
+     * @param   bool    $enable     True to enable, false otherwise
      */
     public function setEnableRedirSelection(bool $enable)
     {
@@ -144,14 +190,14 @@ abstract class Actions
     }
 
     /**
-     * Adds an action
+     * Adds an action.
      *
-     * @param array             $actions  the actions names as if it was a standalone combo array.
-     *                                    It will be merged with other actions.
-     *                                    Can be bound to multiple values, if the same callback is to be called
-     * @param callable|array    $callback the callback for the action.
+     * @param   array           $actions    The actions names as if it was a standalone combo array.
+     *                                      It will be merged with other actions.
+     *                                      Can be bound to multiple values, if the same callback is to be called
+     * @param   callable|array  $callback   The callback for the action.
      *
-     * @return Actions the actions page itself, enabling to chain addAction().
+     * @return  Actions     The actions page itself, enabling to chain addAction().
      */
     public function addAction(array $actions, $callback): Actions
     {
@@ -181,10 +227,11 @@ abstract class Actions
     }
 
     /**
-     * Returns the actions combo
+     * Returns the actions combo.
+     *
      * Useable through form::combo/formOption (see addAction() method)
      *
-     * @return array the actions combo
+     * @return  array   The actions combo
      */
     public function getCombo(): ?array
     {
@@ -192,9 +239,9 @@ abstract class Actions
     }
 
     /**
-     * Returns the list of selected entries
+     * Returns the list of selected entries.
      *
-     * @return array the list
+     * @return  array   The list
      */
     public function getIDs(): array
     {
@@ -202,9 +249,9 @@ abstract class Actions
     }
 
     /**
-     * Returns the list of selected entries as HTML hidden fields string
+     * Returns the list of selected entries as HTML hidden fields string.
      *
-     * @return string the HTML code for hidden fields
+     * @return  string  The HTML code for hidden fields
      */
     public function getIDsHidden(): string
     {
@@ -219,7 +266,7 @@ abstract class Actions
     /**
      * Returns the list of selected entries as an array of formHidden object.
      *
-     * @return array The hidden form fields.
+     * @return  array   The hidden form fields.
      */
     public function IDsHidden(): array
     {
@@ -232,11 +279,11 @@ abstract class Actions
     }
 
     /**
-     * Returns all redirection parameters as HTML hidden fields
+     * Returns all redirection parameters as HTML hidden fields.
      *
-     * @param boolean $with_ids if true, also include ids in HTML code
+     * @param   bool    $with_ids   If true, also include ids in HTML code
      *
-     * @return string the HTML code for hidden fields
+     * @return  string  The HTML code for hidden fields
      */
     public function getHiddenFields(bool $with_ids = false): string
     {
@@ -254,9 +301,9 @@ abstract class Actions
     /**
      * Returns all redirection parameters as an array of formHidden object.
      *
-     * @param boolean $with_ids if true, also include ids in array
+     * @param   bool    $with_ids   If true, also include ids in array
      *
-     * @return array The hidden form fields.
+     * @return  array   The hidden form fields.
      */
     public function hiddenFields(bool $with_ids = false): array
     {
@@ -272,9 +319,9 @@ abstract class Actions
     }
 
     /**
-     * Get record from DB Query containing requested IDs
+     * Get record from DB Query containing requested IDs.
      *
-     * @return MetaRecord
+     * @return  MetaRecord
      */
     public function getRS(): MetaRecord
     {
@@ -287,7 +334,7 @@ abstract class Actions
      *  by default, $_POST fields as defined in redirect_fields attributes
      *  are set into redirect_args.
      *
-     * @param array|ArrayObject     $from   input to parse fields from (usually $_POST)
+     * @param   array|ArrayObject   $from   input to parse fields from (usually $_POST)
      */
     protected function setupRedir($from)
     {
@@ -299,13 +346,14 @@ abstract class Actions
     }
 
     /**
-     * Returns redirection URL
+     * Returns redirection URL.
      *
-     * @param boolean $with_selected_entries if true, add selected entries in url
-     * @param array $params extra parameters to append to redirection
-     *  must be an array : each key is the name, each value is the wanted value
+     * @param   bool    $with_selected_entries  If true, add selected entries in url
+     * @param   array   $params                 Extra parameters to append to redirection
+     *                                          must be an array : each key is the name, 
+     *                                          each value is the wanted value
      *
-     * @return string the redirection url
+     * @return  string  The redirection url
      */
     public function getRedirection(bool $with_selected_entries = false, array $params = []): string
     {
@@ -322,14 +370,15 @@ abstract class Actions
     }
 
     /**
-     * Redirects to redirection page
+     * Redirects to redirection page.
      *
-     * @param boolean $with_selected_entries if true, add selected entries in url
-     * @param array $params extra parameters to append to redirection
-     *  must be an array : each key is the name, each value is the wanted value
+     * @see     getRedirection  for arguments details
      *
-     * @see getRedirection for arguments details
-     * @return never
+     * @param   bool    $with_selected_entries  If true, add selected entries in url
+     * @param   array   $params                 Extra parameters to append to redirection
+     *                                          must be an array : each key is the name, 
+     *                                          each value is the wanted value
+     * @return  never
      */
     public function redirect(bool $with_selected_entries = false, array $params = [])
     {
@@ -338,9 +387,9 @@ abstract class Actions
     }
 
     /**
-     * Returns current form URI, if any
+     * Returns current form URI, if any.
      *
-     * @return string the form URI
+     * @return  string  The form URI
      */
     public function getURI(): ?string
     {
@@ -348,9 +397,9 @@ abstract class Actions
     }
 
     /**
-     * Returns current form URI, if any
+     * Returns current form URI, if any.
      *
-     * @return string the form URI
+     * @return  string  The form URI
      */
     public function getCallerTitle(): string
     {
@@ -358,9 +407,9 @@ abstract class Actions
     }
 
     /**
-     * Returns current action, if any
+     * Returns current action, if any.
      *
-     * @return string the action
+     * @return  string  The action
      */
     public function getAction(): ?string
     {
@@ -368,7 +417,7 @@ abstract class Actions
     }
 
     /**
-     * Proceeds action handling, if any
+     * Proceeds action handling, if any.
      *
      * This method may issue an exit() if an action is being processed.
      *  If it returns, no action has been performed
@@ -417,9 +466,9 @@ abstract class Actions
     }
 
     /**
-     * Returns HTML code for selected entries as a table containing entries checkboxes
+     * Returns HTML code for selected entries as a table containing entries checkboxes.
      *
-     * @return string the HTML code for checkboxes
+     * @return  string  The HTML code for checkboxes
      */
     public function getCheckboxes(): string
     {
@@ -427,9 +476,9 @@ abstract class Actions
     }
 
     /**
-     * Returns Form code for selected entries as a table containing entries checkboxes
+     * Returns Form code for selected entries as a table containing entries checkboxes.
      *
-     * @return Table    The Table elements code for checkboxes
+     * @return  Table   The Table elements code for checkboxes
      */
     public function checkboxes(): Table
     {
@@ -467,7 +516,7 @@ abstract class Actions
      * This method is called on Exception from self::process();
      * Default method does not stop script execution.
      *
-     * @param      Exception  $e
+     * @param   Exception   $e  The exception
      */
     public function error(Exception $e)
     {
@@ -475,30 +524,31 @@ abstract class Actions
     }
 
     /**
-     * Displays the beginning of a page, if action does not redirects dirtectly
+     * Displays the beginning of a page, if action does not redirects dirtectly.
      *
      * This method is called from the actions themselves.
      *
-     * @param string $breadcrumb breadcrumb to display
-     * @param string $head    page header to include
+     * @param   string  $breadcrumb     Breadcrumb to display
+     * @param   string  $head           Page header to include
      */
     abstract public function beginPage(string $breadcrumb = '', string $head = '');
 
     /**
-     * Displays the ending of a page, if action does not redirects dirtectly
+     * Displays the ending of a page, if action does not redirects dirtectly.
      *
      * This method is called from the actions themselves.
      */
     abstract public function endPage();
 
     /**
-     * Fills-in information by requesting into db
+     * Fills-in information by requesting into db.
+     *
      * This method may setup the following attributes
      * - entries : list of entries (checked against permissions)
      *   entries ids are array keys, values contain entry description (if relevant)
      * - rs : MetaRecord given by db request
      *
-     * @param ArrayObject $from
+     * @param   ArrayObject     $from
      */
     abstract protected function fetchEntries(ArrayObject $from);
 }

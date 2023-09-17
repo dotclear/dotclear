@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,12 +15,15 @@ use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
 use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
 use Exception;
 
+/**
+ * @brief   Handler for default actions on comments.
+ */
 class ActionsCommentsDefault
 {
     /**
-     * Set comments actions
+     * Set comments actions.
      *
-     * @param      ActionsComments  $ap
+     * @param   ActionsComments     $ap     The ActionsComments instance
      */
     public static function adminCommentsActionsPage(ActionsComments $ap)
     {
@@ -76,9 +78,9 @@ class ActionsCommentsDefault
     /**
      * Does a change comment status.
      *
-     * @param      ActionsComments  $ap
+     * @param   ActionsComments     $ap     The ActionsComments instance
      *
-     * @throws     Exception                If no comment selected
+     * @throws  Exception   If no comment selected
      */
     public static function doChangeCommentStatus(ActionsComments $ap)
     {
@@ -103,9 +105,9 @@ class ActionsCommentsDefault
     /**
      * Does a delete comment.
      *
-     * @param      ActionsComments  $ap
+     * @param   ActionsComments     $ap     The ActionsComments instance
      *
-     * @throws     Exception                If no comment selected
+     * @throws  Exception   If no comment selected
      */
     public static function doDeleteComment(ActionsComments $ap)
     {
@@ -131,9 +133,9 @@ class ActionsCommentsDefault
     /**
      * Add comments IP in an antispam blacklist.
      *
-     * @param      ActionsComments  $ap
+     * @param   ActionsComments     $ap     The ActionsComments instance
      *
-     * @throws     Exception                If no comment selected
+     * @throws  Exception   If no comment selected
      */
     public static function doBlocklistIP(ActionsComments $ap)
     {
