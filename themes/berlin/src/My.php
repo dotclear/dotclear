@@ -1,14 +1,9 @@
 <?php
 /**
- * @brief Theme berlin My module class.
+ * @package 	Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- *
- * @since 2.27
+ * @copyright 	Olivier Meunier & Association Dotclear
+ * @copyright 	GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +11,12 @@ namespace Dotclear\Theme\berlin;
 
 use Dotclear\Module\MyTheme;
 
+/**
+ * @brief 	The module helper.
+ * @ingroup berlin
+ *
+ * @since 2.27
+ */
 class My extends MyTheme
 {
 }

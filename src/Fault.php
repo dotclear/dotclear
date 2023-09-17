@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -12,7 +12,7 @@ namespace Dotclear;
 use Exception;
 
 /**
- * @brief   Dotclear runtime error handler.
+ * @brief   The helper to parse runtime error.
  *
  * @since   2.27, errors code returns on 3 digits
  * as some servers (ie Nginx) do not support HTTP1.0 code on 2 digits.

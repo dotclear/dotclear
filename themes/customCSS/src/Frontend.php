@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Custom, a theme for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Theme\customCSS;
@@ -14,6 +11,10 @@ namespace Dotclear\Theme\customCSS;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
+/**
+ * @brief   The module frontend process.
+ * @ingroup customCSS
+ */
 class Frontend extends Process
 {
     public static function init(): bool

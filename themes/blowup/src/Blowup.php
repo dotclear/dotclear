@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Blowup, a theme for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Theme\blowup;
@@ -16,6 +13,10 @@ use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
 use Exception;
 
+/**
+ * @brief   The module configurator helper.
+ * @ingroup blowup
+ */
 class Blowup
 {
     /**

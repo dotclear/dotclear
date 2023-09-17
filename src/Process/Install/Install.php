@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Install
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Process\Install;
@@ -25,6 +24,9 @@ use Dotclear\Helper\Text;
 use Exception;
 use form;
 
+/**
+ * @brief   Intallation process.
+ */
 class Install extends Process
 {
     /**

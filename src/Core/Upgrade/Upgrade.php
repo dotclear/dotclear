@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,16 +17,19 @@ use Dotclear\Core\Install\Utils;
 use Exception;
 
 /**
- * Dotclear upgrade procedure.
+ * @brief   Dotclear upgrade procedure.
+ *
+ * This class is called from backend authentication page 
+ * or CLI command.
  */
 class Upgrade
 {
     /**
-     * Do Dotclear upgrade if necessary
+     * Do Dotclear upgrade if necessary.
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool|int
+     * @return  bool|int
      */
     public static function dotclearUpgrade()
     {
@@ -80,11 +82,13 @@ class Upgrade
     }
 
     /**
-     * Make necessary updates in DB and in filesystem
+     * Make necessary updates in DB and in filesystem.
      *
-     * @param      null|string  $version  The version
+     * This method reads files from subfolder "GrowUp".
      *
-     * @return     bool     true if a session cleanup is requested
+     * @param   null|string     $version    The version
+     *
+     * @return  bool    True if a session cleanup is requested
      */
     public static function growUp(?string $version): bool
     {
@@ -95,7 +99,7 @@ class Upgrade
         /**
          * Update it in a step that needed sessions to be removed
          *
-         * @var        bool
+         * @var     bool
          */
         $cleanup_sessions = false;
 
@@ -150,7 +154,7 @@ class Upgrade
             }
         }
 
-        // set dc version
+        // Set dc version
         App::version()->setVersion('core', App::config()->dotclearVersion());
         Utils::blogDefaults();
 
@@ -158,10 +162,10 @@ class Upgrade
     }
 
     /**
-     * Convert old-fashion serialized array setting to new-fashion json encoded array
+     * Convert old-fashion serialized array setting to new-fashion json encoded array.
      *
-     * @param      string  $ns        namespace name
-     * @param      string  $setting   The setting ID
+     * @param   string  $ns         Settings workspace name
+     * @param   string  $setting    The setting ID
      */
     public static function settings2array(string $ns, string $setting)
     {
@@ -191,10 +195,10 @@ class Upgrade
     }
 
     /**
-     * Convert old-fashion serialized array pref to new-fashion json encoded array
+     * Convert old-fashion serialized array pref to new-fashion json encoded array.
      *
-     * @param      string  $ws     workspace name
-     * @param      string  $pref   The preference ID
+     * @param   string  $ws     Preferences workspace name
+     * @param   string  $pref   The preference ID
      */
     public static function prefs2array(string $ws, string $pref)
     {
@@ -224,10 +228,10 @@ class Upgrade
     }
 
     /**
-     * Remove files and/or folders
+     * Remove files and/or folders.
      *
-     * @param      array|null  $files    The files
-     * @param      array|null  $folders  The folders
+     * @param   array|null  $files      The files
+     * @param   array|null  $folders    The folders
      */
     public static function houseCleaning(?array $files = null, ?array $folders = null)
     {

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,7 +19,6 @@ use Exception;
  *
  * Provides an object to parse XML feed of modules from repository.
  *
- * @subpackage  Module
  * @since   2.6
  */
 class StoreReader extends HttpClient

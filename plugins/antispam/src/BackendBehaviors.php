@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,12 +14,16 @@ use Dotclear\App;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use form;
 
+/**
+ * @brief   The module backend behaviors.
+ * @ingroup antispam
+ */
 class BackendBehaviors
 {
     /**
-     * Add an antispam help ID if necessary
+     * Add an antispam help ID if necessary.
      *
-     * @param      ArrayObject  $blocks  The blocks
+     * @param   ArrayObject     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
@@ -32,7 +33,7 @@ class BackendBehaviors
     }
 
     /**
-     * Display information about spam deletion
+     * Display information about spam deletion.
      */
     public static function adminCommentsSpamForm(): void
     {
@@ -46,7 +47,7 @@ class BackendBehaviors
     }
 
     /**
-     * Display fieldset for spam deletion setting
+     * Display fieldset for spam deletion setting.
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */
@@ -68,7 +69,7 @@ class BackendBehaviors
     }
 
     /**
-     * Save the spam deletion setting
+     * Save the spam deletion setting.
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */

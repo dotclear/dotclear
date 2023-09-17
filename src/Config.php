@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +16,7 @@ use Dotclear\Interface\ConfigInterface;
 use Exception;
 
 /**
- * @brief   Config handler.
+ * @brief   The helper to parse configuration values.
  *
  * Transitionnal class for DC_ constants.
  *

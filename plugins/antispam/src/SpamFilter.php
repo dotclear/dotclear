@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,68 +13,72 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 
+/**
+ * @brief   The module spam filter handler.
+ * @ingroup antispam
+ */
 class SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var string
+     * @var     string  $id
      */
     public $id;
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var string
+     * @var     string  $name
      */
     public $name;
 
     /**
-     * Filter description
+     * Filter description.
      *
-     * @var string
+     * @var     string  $description
      */
     public $description;
 
     /**
-     * Is filter active?
+     * Is filter active.
      *
-     * @var bool
+     * @var     bool    $active
      */
     public $active = true;
 
     /**
-     * Filter order
+     * Filter order.
      *
-     * @var int
+     * @var     int     $order
      */
     public $order = 100;
 
     /**
      * Filter auto-delete spam?
      *
-     * @var bool
+     * @var     bool    $auto_delete
      */
     public $auto_delete = false;
 
     /**
-     * Filter help ID
+     * Filter help ID.
      *
-     * @var        null|string
+     * @var     null|string     $help
      */
     public $help = null;
 
     /**
      * Filter has settings GUI?
      *
-     * @var bool
+     * @var     bool    $has_gui
      */
     protected $has_gui = false;
 
     /**
-     * Filter settings GUI URL
+     * Filter settings GUI URL.
      *
-     * @var null|string
+     * @var     null|string     $gui_url
      */
     protected $gui_url = null;
 
@@ -111,52 +112,54 @@ class SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
+     *
+     * If it returns true or false, execution of next filters will be stoped.
+     * If should return nothing to let next filters apply.
      *
      * Your filter should also fill $status variable with its own information if
      * comment is a spam.
      *
-     * @param      string  $type     The comment type (comment / trackback)
-     * @param      string  $author   The comment author
-     * @param      string  $email    The comment author email
-     * @param      string  $site     The comment author site
-     * @param      string  $ip       The comment author IP
-     * @param      string  $content  The comment content
-     * @param      int     $post_id  The comment post_id
-     * @param      string  $status   The comment status
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
     {
     }
 
     /**
-     * Train the antispam filter
+     * Train the antispam filter.
      *
-     * @param      string        $status   The comment status
-     * @param      string        $filter   The filter
-     * @param      string        $type     The comment type
-     * @param      string        $author   The comment author
-     * @param      string        $email    The comment author email
-     * @param      string        $site     The comment author site
-     * @param      string        $ip       The comment author IP
-     * @param      string        $content  The comment content
-     * @param      MetaRecord      $rs       The comment record
+     * @param   string      $status     The comment status
+     * @param   string      $filter     The filter
+     * @param   string      $type       The comment type
+     * @param   string      $author     The comment author
+     * @param   string      $email      The comment author email
+     * @param   string      $site       The comment author site
+     * @param   string      $ip         The comment author IP
+     * @param   string      $content    The comment content
+     * @param   MetaRecord  $rs         The comment record
      */
     public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs)
     {
     }
 
     /**
-     * This method returns filter status message. You can overload this method to
-     * return a custom message. Message is shown in comment details and in
-     * comments list.
+     * This method returns filter status message.
      *
-     * @param      string  $status      The status
-     * @param      int     $comment_id  The comment identifier
+     * You can overload this method to return a custom message.
+     * Message is shown in comment details and in comments list.
      *
-     * @return     string  The status message.
+     * @param   string  $status         The status
+     * @param   int     $comment_id     The comment identifier
+     *
+     * @return  string  The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id)
     {
@@ -164,12 +167,13 @@ class SpamFilter
     }
 
     /**
-     * This method is called when you enter filter configuration. Your class should
-     * have $has_gui property set to "true" to enable GUI.
+     * This method is called when you enter filter configuration.
      *
-     * @param      string  $url    The GUI url
+     * Your class should have $has_gui property set to "true" to enable GUI.
      *
-     * @return     string  The GUI HTML content
+     * @param   string  $url    The GUI url
+     *
+     * @return  string  The GUI HTML content
      */
     public function gui(string $url): string
     {
@@ -179,7 +183,7 @@ class SpamFilter
     /**
      * Determines if filter has a settings GUI.
      *
-     * @return     bool  True if gui, False otherwise.
+     * @return  bool    True if gui, False otherwise.
      */
     public function hasGUI(): bool
     {
@@ -197,9 +201,9 @@ class SpamFilter
     }
 
     /**
-     * Get the filter settings GUI URL
+     * Get the filter settings GUI URL.
      *
-     * @return     false|string
+     * @return  false|string
      */
     public function guiURL()
     {
@@ -211,10 +215,10 @@ class SpamFilter
     }
 
     /**
-     * Returns a link to filter GUI if exists or only filter name if has_gui
-     * property is false.
+     * Returns a link to filter GUI if exists 
+     * or only filter name if has_gui property is false.
      *
-     * @return     string
+     * @return  string
      */
     public function guiLink(): string
     {

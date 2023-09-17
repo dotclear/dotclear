@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +16,7 @@ use Dotclear\Database\Statement\SelectStatement;
 use Exception;
 
 /**
- * @brief   Blog hanlder interface.
+ * @brief   Blog handler interface.
  *
  * @since   2.28, an instance of BLog can be set without a defined blog
  */

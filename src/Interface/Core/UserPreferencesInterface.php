@@ -1,16 +1,16 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
 /**
- * @brief   User prefs handler.
+ * @brief   User prefs handler interface.
  *
  * UserPreferences provides user preferences management. This class instance exists as
  * Auth $prefs property. You should create a new prefs instance when

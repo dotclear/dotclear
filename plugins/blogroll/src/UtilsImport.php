@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,14 +12,18 @@ namespace Dotclear\Plugin\blogroll;
 use Exception;
 use stdClass;
 
+/**
+ * @brief   The module import utils.
+ * @ingroup blogroll
+ */
 class UtilsImport
 {
     /**
      * Loads a file.
      *
-     * @param      string  $file   The file
+     * @param   string  $file   The file
      *
-     * @return     array|bool
+     * @return  array<int,stdClass>|bool
      */
     public static function loadFile(string $file)
     {
@@ -41,6 +42,13 @@ class UtilsImport
         return false;
     }
 
+    /**
+     * Parse OPML format.
+     *
+     * @param   string  $data   The data to parse
+     *
+     * @return  array<int,stdClass>
+     */
     protected static function parseOPML(string $data): array
     {
         $xml = @simplexml_load_string($data);
@@ -76,6 +84,13 @@ class UtilsImport
         return $list;
     }
 
+    /**
+     * Parse XBEL format.
+     *
+     * @param   string  $data   The data to parse
+     *
+     * @return  array<int,stdClass>
+     */
     protected static function parseXBEL($data): array
     {
         $xml = @simplexml_load_string($data);

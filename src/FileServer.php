@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,7 +15,7 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;
 
 /**
- * @brief   File server helper.
+ * @brief   The helper to serve file.
  *
  * This class checks request URI to find pf and vf queries and serve related file.
  * It is limited as it is loaded before dcCore to speed up requests.

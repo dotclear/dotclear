@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -25,7 +25,6 @@ use Exception;
  *
  * Provides an object to handle modules (themes or plugins).
  *
- * @subpackage  Module
  */
 class Modules implements ModulesInterface
 {

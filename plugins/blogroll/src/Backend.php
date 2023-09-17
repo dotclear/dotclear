@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,6 +15,10 @@ use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
 use initBlogroll;
 
+/**
+ * @brief   The module backend process.
+ * @ingroup blogroll
+ */
 class Backend extends Process
 {
     public static function init(): bool

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,10 +16,14 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
 
+/**
+ * @brief   The module frontend tempalte.
+ * @ingroup blogroll
+ */
 class FrontendTemplate
 {
     /**
-     * tpl:Blogroll [attributes] : Displays the blogroll (tpl value)
+     * tpl:Blogroll [attributes] : Displays the blogroll (tpl value).
      *
      * attributes:
      *
@@ -30,9 +31,9 @@ class FrontendTemplate
      *      - block       string      Block pattern (default to \<ul>%s\</ul>)
      *      - item        string      Item pattern (default to \<li%2$s>%1$s\</li>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function blogroll(ArrayObject $attr)
     {
@@ -64,15 +65,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:BlogrollXbelLink [attributes] : Displays XBEL URL (tpl value)
+     * tpl:BlogrollXbelLink [attributes] : Displays XBEL URL (tpl value).
      *
      * attributes:
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function blogrollXbelLink(ArrayObject $attr)
     {
@@ -82,12 +83,12 @@ class FrontendTemplate
     /**
      * Gets the full list (HTML).
      *
-     * @param      string       $cat_title  The cat title pattern
-     * @param      string       $block      The block pattern
-     * @param      string       $item       The item pattern
-     * @param      string       $category   The link category if given
+     * @param   string  $cat_title  The cat title pattern
+     * @param   string  $block      The block pattern
+     * @param   string  $item       The item pattern
+     * @param   string  $category   The link category if given
      *
-     * @return     string       The list.
+     * @return  string  The list.
      */
     public static function getList(string $cat_title = '<h3>%s</h3>', string $block = '<ul>%s</ul>', string $item = '<li>%s</li>', ?string $category = null): string
     {
@@ -124,11 +125,11 @@ class FrontendTemplate
     /**
      * Gets the links list (HTML).
      *
-     * @param      array   $links  The links
-     * @param      string  $block  The block pattern
-     * @param      string  $item   The item pattern
+     * @param   array   $links  The links
+     * @param   string  $block  The block pattern
+     * @param   string  $item   The item pattern
      *
-     * @return     string  The links list.
+     * @return  string  The links list.
      */
     private static function getLinksList(array $links, string $block = '<ul>%s</ul>', string $item = '<li%2$s>%1$s</li>'): string
     {
@@ -173,11 +174,11 @@ class FrontendTemplate
     }
 
     /**
-     * Widget public rendering helper
+     * Widget public rendering helper.
      *
-     * @param      WidgetsElement  $widget  The widget
+     * @param   WidgetsElement  $widget     The widget
      *
-     * @return     string
+     * @return  string
      */
     public static function linksWidget(WidgetsElement $widget): string
     {

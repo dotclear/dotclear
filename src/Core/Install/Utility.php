@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage install
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +15,9 @@ use Dotclear\Process\Install\Wizard;
 use Dotclear\Core\Process;
 
 /**
- * Utility class for install context.
+ * @brief   Utility class for install context.
+ *
+ * This utility calls itself Wizard or Intall process.
  */
 class Utility extends Process
 {

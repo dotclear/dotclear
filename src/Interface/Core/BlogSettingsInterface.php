@@ -1,16 +1,16 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
 /**
- * @brief   Blog settings handler.
+ * @brief   Blog settings handler interface.
  *
  * This class provides blog settings management. This class instance exists as
  * Blog $settings property. You should create a new settings instance when

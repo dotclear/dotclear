@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,38 +19,44 @@ use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
 
+/**
+ * @brief   The module words spam filter.
+ * @ingroup antispam
+ */
 class Words extends SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var        string
+     * @var     string  $id
      */
     public $id = 'dcFilterWords';
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var        string
+     * @var     string  $name
      */
     public $name = 'Bad Words';
 
     /**
-     * Filter has GUI
+     * Filter has settings GUI?
      *
-     * @var        bool
+     * @var     bool    $has_gui
      */
     public $has_gui = true;
 
     /**
-     * Filter help ID
+     * Filter help ID.
      *
-     * @var        string
+     * @var     null|string     $help
      */
     public $help = 'words-filter';
 
     /**
-     * Table name
+     * Table name.
+     *
+     * @var     string  $table
      */
     private string $table;
 
@@ -77,10 +80,10 @@ class Words extends SpamFilter
     /**
      * Gets the status message.
      *
-     * @param      string  $status      The status
-     * @param      int     $comment_id  The comment identifier
+     * @param   string  $status         The status
+     * @param   int     $comment_id     The comment identifier
      *
-     * @return     string  The status message.
+     * @return  string  The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id): string
     {
@@ -88,18 +91,19 @@ class Words extends SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
      *
-     * @param      string   $type     The comment type (comment / trackback)
-     * @param      string   $author   The comment author
-     * @param      string   $email    The comment author email
-     * @param      string   $site     The comment author site
-     * @param      string   $ip       The comment author IP
-     * @param      string   $content  The comment content
-     * @param      int      $post_id  The comment post_id
-     * @param      string   $status   The comment status
+     * If it returns true or false, execution of next filters will be stoped.
+     * If should return nothing to let next filters apply.
+     *
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      *
      * @return  mixed
      */
@@ -128,11 +132,11 @@ class Words extends SpamFilter
     }
 
     /**
-     * Filter settings
+     * Filter settings.
      *
-     * @param      string  $url    The GUI URL
+     * @param   string  $url    The GUI URL
      *
-     * @return     string
+     * @return  string
      */
     public function gui(string $url): string
     {
@@ -256,7 +260,7 @@ class Words extends SpamFilter
     /**
      * Gets the rules.
      *
-     * @return     MetaRecord  The rules.
+     * @return  MetaRecord  The rules.
      */
     private function getRules(): MetaRecord
     {
@@ -273,10 +277,10 @@ class Words extends SpamFilter
     /**
      * Adds a rule.
      *
-     * @param      string     $content  The content
-     * @param      bool       $general  The general
+     * @param   string  $content    The content
+     * @param   bool    $general    The general
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     private function addRule(string $content, bool $general = false)
     {
@@ -314,7 +318,7 @@ class Words extends SpamFilter
     /**
      * Removes a rule.
      *
-     * @param      mixed  $ids    The rules identifiers
+     * @param   mixed   $ids    The rules identifiers
      */
     private function removeRule($ids)
     {
@@ -338,7 +342,7 @@ class Words extends SpamFilter
     }
 
     /**
-     * Set the default word list
+     * Set the default word list.
      */
     public function defaultWordsList()
     {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,24 +15,32 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Interface\Core\BlogInterface;
 use initBlogroll;
 
+/**
+ * @brief   The module blogroll handler.
+ * @ingroup blogroll
+ *
+ * @todo    Use sqlStatement in plugin blogroll handler
+ */
 class Blogroll extends initBlogroll
 {
     /**
-     * Current blog
+     * Current blog.
      *
-     * @var        BlogInterface
+     * @var     BlogInterface   $blog
      */
     private $blog;
 
     /**
-     * Table name
+     * Table name.
+     *
+     * @var     string  $table
      */
     private string $table;
 
     /**
      * Constructs a new instance.
      *
-     * @param      BlogInterface    $blog   The blog
+     * @param   BlogInterface   $blog   The blog
      */
     public function __construct(BlogInterface $blog)
     {
@@ -46,9 +51,9 @@ class Blogroll extends initBlogroll
     /**
      * Gets the links.
      *
-     * @param      array   $params  The parameters
+     * @param   array   $params     The parameters
      *
-     * @return     MetaRecord  The links.
+     * @return  MetaRecord  The links.
      */
     public function getLinks(array $params = []): MetaRecord
     {
@@ -74,9 +79,9 @@ class Blogroll extends initBlogroll
     /**
      * Gets the links.
      *
-     * @param      array   $params  The parameters
+     * @param   array   $params     The parameters
      *
-     * @return     MetaRecord  The links.
+     * @return  MetaRecord  The links.
      */
     public function getLangs(array $params = []): MetaRecord
     {
@@ -105,9 +110,9 @@ class Blogroll extends initBlogroll
     /**
      * Gets a link.
      *
-     * @param      string  $id     The identifier
+     * @param   string  $id     The identifier
      *
-     * @return     MetaRecord  The link.
+     * @return  MetaRecord  The link.
      */
     public function getLink(string $id): MetaRecord
     {
@@ -117,13 +122,13 @@ class Blogroll extends initBlogroll
     /**
      * Adds a link.
      *
-     * @param      string     $title  The title
-     * @param      string     $href   The href
-     * @param      string     $desc   The description
-     * @param      string     $lang   The language
-     * @param      string     $xfn    The xfn
+     * @param   string  $title  The title
+     * @param   string  $href   The href
+     * @param   string  $desc   The description
+     * @param   string  $lang   The language
+     * @param   string  $xfn    The xfn
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function addLink(string $title, string $href, string $desc = '', string $lang = '', string $xfn = ''): void
     {
@@ -153,16 +158,16 @@ class Blogroll extends initBlogroll
     }
 
     /**
-     * Update a link
+     * Update a link.
      *
-     * @param      string     $id     The identifier
-     * @param      string     $title  The title
-     * @param      string     $href   The href
-     * @param      string     $desc   The description
-     * @param      string     $lang   The language
-     * @param      string     $xfn    The xfn
+     * @param   string  $id     The identifier
+     * @param   string  $title  The title
+     * @param   string  $href   The href
+     * @param   string  $desc   The description
+     * @param   string  $lang   The language
+     * @param   string  $xfn    The xfn
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function updateLink(string $id, string $title, string $href, string $desc = '', string $lang = '', string $xfn = ''): void
     {
@@ -188,12 +193,12 @@ class Blogroll extends initBlogroll
     }
 
     /**
-     * Update a category
+     * Update a category.
      *
-     * @param      string     $id     The identifier
-     * @param      string     $desc   The description
+     * @param   string  $id     The identifier
+     * @param   string  $desc   The description
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function updateCategory(string $id, string $desc): void
     {
@@ -213,11 +218,11 @@ class Blogroll extends initBlogroll
     /**
      * Adds a category.
      *
-     * @param      string     $title  The title
+     * @param   string  $title  The title
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     int     The category ID
+     * @return  int     The category ID
      */
     public function addCategory(string $title): int
     {
@@ -243,9 +248,9 @@ class Blogroll extends initBlogroll
     }
 
     /**
-     * Delete a link
+     * Delete a link.
      *
-     * @param      string  $id     The identifier
+     * @param   string  $id     The identifier
      */
     public function delItem(string $id): void
     {
@@ -260,10 +265,10 @@ class Blogroll extends initBlogroll
     }
 
     /**
-     * Update a link order
+     * Update a link order.
      *
-     * @param      string  $id        The identifier
-     * @param      string  $position  The position
+     * @param   string  $id         The identifier
+     * @param   string  $position   The position
      */
     public function updateOrder(string $id, string $position): void
     {
@@ -278,7 +283,7 @@ class Blogroll extends initBlogroll
     /**
      * Sets the links data.
      *
-     * @param      MetaRecord  $rs     The links
+     * @param   MetaRecord  $rs     The links
      */
     private function setLinksData(MetaRecord $rs): void
     {
@@ -299,9 +304,9 @@ class Blogroll extends initBlogroll
     /**
      * Gets the links hierarchy.
      *
-     * @param      MetaRecord  $rs     The links
+     * @param   MetaRecord  $rs     The links
      *
-     * @return     array   The links hierarchy.
+     * @return  array   The links hierarchy.
      */
     public function getLinksHierarchy(MetaRecord $rs): array
     {

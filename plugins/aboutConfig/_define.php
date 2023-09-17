@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief aboutConfig, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin aboutConfig definition
+ * @ingroup     aboutConfig
+ * 
+ * @defgroup    aboutConfig Plugin aboutConfig.
+ * 
+ * aboutConfig, Manage every blog configuration directive.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 $this->registerModule(
     'about:config',                              // Name

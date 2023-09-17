@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Ductile, a theme for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Theme\ductile;
@@ -17,6 +14,10 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 
+/**
+ * @brief   The module frontend process.
+ * @ingroup ductile
+ */
 class Frontend extends Process
 {
     /**

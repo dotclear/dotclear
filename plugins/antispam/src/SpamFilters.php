@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,17 +14,23 @@ use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * @brief   The module spam filters handler.
+ * @ingroup antispam
+ */
 class SpamFilters
 {
     /**
-     * Stack of antispam filters
+     * Stack of antispam filters.
+     *
+     * @var     array<string,SpamFilter>   $filters
      */
     private array $filters = [];
 
     /**
-     * Stack of antispam filters settings
+     * Stack of antispam filters settings.
      *
-     * @var        array
+     * @var     array   $filters_opt
      */
     private $filters_opt = [];
 
@@ -64,7 +67,7 @@ class SpamFilters
     /**
      * Gets the filters.
      *
-     * @return     array  The filters.
+     * @return  array   The filters.
      */
     public function getFilters(): array
     {
@@ -74,9 +77,9 @@ class SpamFilters
     /**
      * Determines whether the specified Cursor is a spam.
      *
-     * @param      Cursor  $cur    The Cursor
+     * @param   Cursor  $cur    The Cursor
      *
-     * @return     bool    True if the specified current is spam, False otherwise.
+     * @return  bool    True if the specified current is spam, False otherwise.
      */
     public function isSpam(Cursor $cur): bool
     {
@@ -115,11 +118,11 @@ class SpamFilters
     }
 
     /**
-     * Train antispam filters with current comment in record
+     * Train antispam filters with current comment in record.
      *
-     * @param      MetaRecord      $rs             The comment record
-     * @param      string        $status         The status
-     * @param      string        $filter_name    The filter name
+     * @param   MetaRecord  $rs             The comment record
+     * @param   string      $status         The status
+     * @param   string      $filter_name    The filter name
      */
     public function trainFilters(MetaRecord $rs, string $status, string $filter_name): void
     {
@@ -140,12 +143,12 @@ class SpamFilters
     }
 
     /**
-     * Get filter status message
+     * Get filter status message.
      *
-     * @param      MetaRecord      $rs             The comment record
-     * @param      string        $filter_name    The filter name
+     * @param   MetaRecord  $rs             The comment record
+     * @param   string      $filter_name    The filter name
      *
-     * @return     string
+     * @return  string
      */
     public function statusMessage(MetaRecord $rs, string $filter_name): string
     {
@@ -162,8 +165,8 @@ class SpamFilters
     /**
      * Saves filter settings.
      *
-     * @param      array  $opts    The settings
-     * @param      bool   $global  True if global settings
+     * @param   array   $opts       The settings
+     * @param   bool    $global     True if global settings
      */
     public function saveFilterOpts(array $opts, bool $global = false): void
     {

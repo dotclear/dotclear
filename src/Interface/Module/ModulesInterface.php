@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,7 +14,7 @@ use Dotclear\Module\ModuleDefine;
 /**
  * @brief   Modules handler interface.
  *
- * @subpackage  Module
+ * @since   2.28
  */
 interface ModulesInterface
 {

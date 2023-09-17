@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,7 +14,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
 /**
- * @brief   Meta hanlder interface.
+ * @brief   Meta handler interface.
  *
  * @since   2.28
  */

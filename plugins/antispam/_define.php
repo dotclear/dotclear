@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin antispam definition
+ * @ingroup     antispam
+ * 
+ * @defgroup    antispam Plugin antispam.
+ * 
+ * antispam, generic antispam plugin for Dotclear.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -13,7 +13,7 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 
 /**
- * @brief   Trackbacks/Pingbacks sender and server.
+ * @brief   Trackbacks/Pingbacks sender and server interface.
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.

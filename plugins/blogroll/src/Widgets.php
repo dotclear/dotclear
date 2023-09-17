@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,12 +13,16 @@ use Dotclear\App;
 use Dotclear\Plugin\widgets\WidgetsStack;
 use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 
+/**
+ * @brief   The module widgets.
+ * @ingroup blogroll
+ */
 class Widgets
 {
     /**
      * Initializes the blogroll widget.
      *
-     * @param      WidgetsStack  $widgets  The widgets
+     * @param   WidgetsStack    $widgets    The widgets
      */
     public static function initWidgets(WidgetsStack $widgets): void
     {
@@ -47,10 +48,10 @@ class Widgets
     }
 
     /**
-     * Add blogroll widget to default set
+     * Add blogroll widget to default set.
      *
-     * @param      WidgetsStack  $widgets          The widgets
-     * @param      array      $default_widgets  The default widgets
+     * @param   WidgetsStack    $widgets            The widgets
+     * @param   array           $default_widgets    The default widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets)
     {

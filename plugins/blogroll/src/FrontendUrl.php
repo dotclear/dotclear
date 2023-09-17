@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,12 +15,16 @@ use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 
+/**
+ * @brief   The module frontent URL.
+ * @ingroup blogroll
+ */
 class FrontendUrl extends Url
 {
     /**
-     * Get blogroll XBEL
+     * Get blogroll XBEL.
      *
-     * @param      array  $args   The arguments
+     * @param   array   $args   The arguments
      */
     public static function xbel(?array $args)
     {

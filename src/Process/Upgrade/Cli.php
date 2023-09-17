@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +15,9 @@ use Dotclear\Core\Upgrade\Upgrade;
 use Exception;
 
 /**
- * @since 2.27 Before as inc/dbschema/upgrade-cli.php
+ * @brief   CLI upgrade process.
+ *
+ * @since   2.27 Before as inc/dbschema/upgrade-cli.php
  */
 class Cli extends Process
 {

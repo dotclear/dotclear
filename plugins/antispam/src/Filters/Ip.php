@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,38 +19,44 @@ use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
 use form;
 
+/**
+ * @brief   The module Ip spam filter.
+ * @ingroup antispam
+ */
 class Ip extends SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var        string
+     * @var     string  $id
      */
     public $id = 'dcFilterIP';
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var        string
+     * @var     string  $name
      */
     public $name = 'IP Filter';
 
     /**
-     * Filter has GUI
+     * Filter has settings GUI?
      *
-     * @var        bool
+     * @var     bool    $has_gui
      */
     public $has_gui = true;
 
     /**
-     * Filter help ID
+     * Filter help ID.
      *
-     * @var        string
+     * @var     null|string     $help
      */
     public $help = 'ip-filter';
 
     /**
-     * Table name
+     * Table name.
+     *
+     * @var     string  $table
      */
     private string $table;
 
@@ -77,10 +80,10 @@ class Ip extends SpamFilter
     /**
      * Gets the status message.
      *
-     * @param      string    $status      The status
-     * @param      int       $comment_id  The comment identifier
+     * @param   string  $status         The status
+     * @param   int     $comment_id     The comment identifier
      *
-     * @return     string    The status message.
+     * @return  string  The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id): string
     {
@@ -88,18 +91,19 @@ class Ip extends SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
      *
-     * @param      string   $type     The comment type (comment / trackback)
-     * @param      string   $author   The comment author
-     * @param      string   $email    The comment author email
-     * @param      string   $site     The comment author site
-     * @param      string   $ip       The comment author IP
-     * @param      string   $content  The comment content
-     * @param      int      $post_id  The comment post_id
-     * @param      string   $status   The comment status
+     * If it returns true or false, execution of next filters will be stoped.
+     * If should return nothing to let next filters apply.
+     *
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      *
      * @return  mixed
      */
@@ -123,11 +127,11 @@ class Ip extends SpamFilter
     }
 
     /**
-     * Filter settings
+     * Filter settings.
      *
-     * @param      string  $url    The GUI URL
+     * @param   string  $url    The GUI URL
      *
-     * @return     string
+     * @return  string
      */
     public function gui(string $url): string
     {
@@ -170,13 +174,13 @@ class Ip extends SpamFilter
     }
 
     /**
-     * Return black/white list form
+     * Return black/white list form.
      *
-     * @param      string  $url    The url
-     * @param      string  $type   The type
-     * @param      string  $title  The title
+     * @param   string  $url    The url
+     * @param   string  $type   The type
+     * @param   string  $title  The title
      *
-     * @return     string
+     * @return  string
      */
     private function displayForms(string $url, string $type, string $title): string
     {
@@ -261,13 +265,13 @@ class Ip extends SpamFilter
     }
 
     /**
-     * Extract IP and mask from rule pattern
+     * Extract IP and mask from rule pattern.
      *
-     * @param      string     $pattern  The pattern
-     * @param      mixed      $ip       The IP
-     * @param      mixed      $mask     The mask
+     * @param   string  $pattern    The pattern
+     * @param   mixed   $ip         The IP
+     * @param   mixed   $mask       The mask
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     private function ipmask(string $pattern, &$ip, &$mask)
     {
@@ -302,9 +306,9 @@ class Ip extends SpamFilter
     /**
      * Adds an IP rule.
      *
-     * @param      string  $type     The type
-     * @param      string  $pattern  The pattern
-     * @param      bool    $global   The global
+     * @param   string  $type       The type
+     * @param   string  $pattern    The pattern
+     * @param   bool    $global     The global
      */
     public function addIP(string $type, string $pattern, bool $global): void
     {
@@ -339,9 +343,9 @@ class Ip extends SpamFilter
     /**
      * Gets the rules.
      *
-     * @param      string  $type   The type
+     * @param   string  $type   The type
      *
-     * @return     MetaRecord  The rules.
+     * @return  MetaRecord  The rules.
      */
     private function getRules(string $type = 'all'): MetaRecord
     {
@@ -357,12 +361,12 @@ class Ip extends SpamFilter
     /**
      * Gets the rule CIDR.
      *
-     * @param      string  $type    The type
-     * @param      bool    $global  The global
-     * @param      mixed   $ip      The IP
-     * @param      mixed   $mask    The mask
+     * @param   string  $type       The type
+     * @param   bool    $global     The global
+     * @param   mixed   $ip         The IP
+     * @param   mixed   $mask       The mask
      *
-     * @return     MetaRecord  The rules.
+     * @return  MetaRecord  The rules.
      */
     private function getRuleCIDR(string $type, bool $global, $ip, $mask): MetaRecord
     {
@@ -375,12 +379,12 @@ class Ip extends SpamFilter
     }
 
     /**
-     * Check an IP
+     * Check an IP.
      *
-     * @param      string  $cip    The IP
-     * @param      string  $type   The type
+     * @param   string  $cip    The IP
+     * @param   string  $type   The type
      *
-     * @return     bool|string
+     * @return  bool|string
      */
     private function checkIP(string $cip, string $type)
     {
@@ -404,7 +408,7 @@ class Ip extends SpamFilter
     /**
      * Removes a rule.
      *
-     * @param      mixed  $ids    The rules identifiers
+     * @param   mixed   $ids    The rules identifiers
      */
     private function removeRule($ids): void
     {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Custom, a theme for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Themes
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Theme\customCSS;
@@ -19,6 +16,10 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
+/**
+ * @brief   The module configuration.
+ * @ingroup customCSS
+ */
 class Config extends Process
 {
     public static function init(): bool

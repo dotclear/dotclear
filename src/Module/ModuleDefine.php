@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +16,6 @@ use Dotclear\App;
  *
  * Provides an object to handle modules properties (themes or plugins).
  *
- * @subpackage  Module
  * @since   2.25
  */
 class ModuleDefine

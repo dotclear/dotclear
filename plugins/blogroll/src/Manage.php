@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief blogroll, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,6 +18,10 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @brief   The module manage blogrolls process.
+ * @ingroup blogroll
+ */
 class Manage extends Process
 {
     private static bool $edit = false;

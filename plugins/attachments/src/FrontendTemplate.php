@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief attachments, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,15 +14,19 @@ use Dotclear\App;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Helper\File\Files;
 
+/**
+ * @brief   The module frontend tempalte.
+ * @ingroup attachments
+ */
 class FrontendTemplate
 {
     /**
-     * tpl:Attachments [attributes] : Post Attachments loop (tpl block)
+     * tpl:Attachments [attributes] : Post Attachments loop (tpl block).
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function Attachments(ArrayObject $attr, string $content): string
     {
@@ -46,12 +47,12 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentsHeader : First attachments result container (tpl block)
+     * tpl:AttachmentsHeader : First attachments result container (tpl block).
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentsHeader(ArrayObject $attr, string $content): string
     {
@@ -62,12 +63,12 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentsFooter : Last attachments result container (tpl block)
+     * tpl:AttachmentsFooter : Last attachments result container (tpl block).
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentsFooter(ArrayObject $attr, string $content): string
     {
@@ -78,7 +79,7 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentIf [attributes] : Include content if attachment tests is true (tpl block)
+     * tpl:AttachmentIf [attributes] : Include content if attachment tests is true (tpl block).
      *
      * attributes:
      *
@@ -89,10 +90,10 @@ class FrontendTemplate
      *      - is_audio        (0|1)   Attachment is an audio file (if 1), or not (if 0)
      *      - is_video        (0|1)   Attachment is a video file (if 1), or not (if 0)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param   ArrayObject     $attr       The attributes
+     * @param   string          $content    The content
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentIf(ArrayObject $attr, string $content): string
     {
@@ -145,15 +146,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentMimeType [attributes] : Attachment MIME type (tpl value)
+     * tpl:AttachmentMimeType [attributes] : Attachment MIME type (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
@@ -161,15 +162,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentType [attributes] : Attachment type (tpl value)
+     * tpl:AttachmentType [attributes] : Attachment type (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
@@ -177,15 +178,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentFileName [attributes] : Attachment file name (tpl value)
+     * tpl:AttachmentFileName [attributes] : Attachment file name (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
@@ -193,16 +194,16 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentSize [attributes] : Attachment size (tpl value)
+     * tpl:AttachmentSize [attributes] : Attachment size (tpl value).
      *
      * attributes:
      *
      *      - full            (0|1)   Display size rounded to a human-readable value (in KB, MB, GB, TB)
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentSize(ArrayObject $attr): string
     {
@@ -215,15 +216,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentTitle [attributes] : Attachment title (tpl value)
+     * tpl:AttachmentTitle [attributes] : Attachment title (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
@@ -231,15 +232,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentThumbnailURL [attributes] : Attachment square thumbnail URL (tpl value)
+     * tpl:AttachmentThumbnailURL [attributes] : Attachment square thumbnail URL (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentThumbnailURL(ArrayObject $attr): string
     {
@@ -256,15 +257,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:AttachmentURL [attributes] : Attachment URL (tpl value)
+     * tpl:AttachmentURL [attributes] : Attachment URL (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function AttachmentURL(ArrayObject $attr): string
     {
@@ -279,15 +280,15 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:MediaURL [attributes] : Context file URL (tpl value)
+     * tpl:MediaURL [attributes] : Context file URL (tpl value).
      *
      * attributes:
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function MediaURL(ArrayObject $attr): string
     {
@@ -302,7 +303,7 @@ class FrontendTemplate
     }
 
     /**
-     * tpl:EntryAttachmentCount [attributes] : Number of attachments for entry (tpl value)
+     * tpl:EntryAttachmentCount [attributes] : Number of attachments for entry (tpl value).
      *
      * attributes:
      *
@@ -314,9 +315,9 @@ class FrontendTemplate
      *
      *      1) %s will be replaced by the number of attachments
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param   ArrayObject     $attr   The attributes
      *
-     * @return     string
+     * @return  string
      */
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {

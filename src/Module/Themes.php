@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,7 +19,6 @@ use Exception;
  * An instance of this class is provided by App::themes()
  * and used for themes.
  *
- * @subpackage  Module
  * @since   2.6
  */
 class Themes extends Modules

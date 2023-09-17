@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Install
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 
 namespace Dotclear\Core\Install;
@@ -13,6 +12,9 @@ use Dotclear\App;
 use Dotclear\Database\Structure;
 use Dotclear\Interface\Core\ConnectionInterface;
 
+/**
+ * @brief   Installation helpers
+ */
 class Utils
 {
     /**

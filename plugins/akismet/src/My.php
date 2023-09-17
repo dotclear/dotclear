@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief akismet, an antispam filter plugin for Dotclear 2
+ * @package 	Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright 	Olivier Meunier & Association Dotclear
+ * @copyright 	GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,6 +11,10 @@ namespace Dotclear\Plugin\akismet;
 
 use Dotclear\Module\MyPlugin;
 
+/**
+ * @brief   The module helper.
+ * @ingroup akismet
+ */
 class My extends MyPlugin
 {
 }

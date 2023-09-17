@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief akismet, an antispam filter plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,55 +14,59 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
+/**
+ * @brief   The module HTTP client helper.
+ * @ingroup akismet
+ */
 class Akismet extends HttpClient
 {
     /**
-     * Akismet domain
+     * Akismet domain.
      *
-     * @var        string
+     * @var     string  $base_host
      */
     protected $base_host = 'rest.akismet.com';
 
     /**
-     * Akismet URL host, composed with API key
+     * Akismet URL host, composed with API key.
      *
-     * @var        string
+     * @var     string  $ak_host
      */
     protected $ak_host = '';
 
     /**
-     * Akismet API version
+     * Akismet API version.
      *
-     * @var        string
+     * @var     string  $ak_version
      */
     protected $ak_version = '1.1';
 
     /**
-     * Akismet path pattern
+     * Akismet path pattern.
      *
-     * @var        string
+     * @var     string  $ak_path
      */
     protected $ak_path = '/%s/%s';
 
     /**
-     * Akismet API key
+     * Akismet API key.
      *
-     * @var        null|string
+     * @var     null|string     $ak_key
      */
     protected $ak_key = null;
 
     /**
-     * Blog URL
+     * Blog URL.
      *
-     * $var        string
+     * @var     string  $blog_url
      */
     protected $blog_url;
 
     /**
      * Constructs a new instance.
      *
-     * @param      string       $blog_url  The blog URL
-     * @param      null|string  $api_key   The API key
+     * @param   string          $blog_url   The blog URL
+     * @param   null|string     $api_key    The API key
      */
     public function __construct(string $blog_url, ?string $api_key)
     {
@@ -79,9 +80,9 @@ class Akismet extends HttpClient
     }
 
     /**
-     * Verify API key
+     * Verify API key.
      *
-     * @return     bool
+     * @return  bool    True if verified
      */
     public function verify(): bool
     {
@@ -101,16 +102,16 @@ class Akismet extends HttpClient
     }
 
     /**
-     * Check if a comment is valid or not
+     * Check if a comment is valid or not.
      *
-     * @param      string       $permalink  The permalink
-     * @param      string       $type       The type
-     * @param      null|string  $author     The author
-     * @param      null|string  $email      The email
-     * @param      null|string  $url        The url
-     * @param      null|string  $content    The content
+     * @param   string          $permalink  The permalink
+     * @param   string          $type       The type
+     * @param   null|string     $author     The author
+     * @param   null|string     $email      The email
+     * @param   null|string     $url        The url
+     * @param   null|string     $content    The content
      *
-     * @return     bool
+     * @return  bool    True if valid
      */
     public function comment_check(string $permalink, string $type, ?string $author, ?string $email, ?string $url, ?string $content): bool
     {
@@ -127,16 +128,16 @@ class Akismet extends HttpClient
     }
 
     /**
-     * Submit positive (spam) comment to Akismet API
+     * Submit positive (spam) comment to Akismet API.
      *
-     * @param      string       $permalink  The permalink
-     * @param      string       $type       The type
-     * @param      null|string  $author     The author
-     * @param      null|string  $email      The email
-     * @param      null|string  $url        The url
-     * @param      null|string  $content    The content
+     * @param   string          $permalink  The permalink
+     * @param   string          $type       The type
+     * @param   null|string     $author     The author
+     * @param   null|string     $email      The email
+     * @param   null|string     $url        The url
+     * @param   null|string     $content    The content
      *
-     * @return     bool
+     * @return  bool    True
      */
     public function submit_spam(string $permalink, string $type, ?string $author, ?string $email, ?string $url, ?string $content): bool
     {
@@ -146,16 +147,16 @@ class Akismet extends HttpClient
     }
 
     /**
-     * Submit negative (not spam) comment to Akismet API
+     * Submit negative (not spam) comment to Akismet API.
      *
-     * @param      string       $permalink  The permalink
-     * @param      string       $type       The type
-     * @param      null|string  $author     The author
-     * @param      null|string  $email      The email
-     * @param      null|string  $url        The url
-     * @param      null|string  $content    The content
+     * @param   string          $permalink  The permalink
+     * @param   string          $type       The type
+     * @param   null|string     $author     The author
+     * @param   null|string     $email      The email
+     * @param   null|string     $url        The url
+     * @param   null|string     $content    The content
      *
-     * @return     bool
+     * @return  bool    True
      */
     public function submit_ham(string $permalink, string $type, ?string $author, ?string $email, ?string $url, ?string $content): bool
     {
@@ -165,20 +166,20 @@ class Akismet extends HttpClient
     }
 
     /**
-     * Call an Akismet API method
+     * Call an Akismet API method.
      *
-     * @param      string     $function   The function
-     * @param      string     $permalink  The permalink
-     * @param      string     $type       The type
-     * @param      string     $author     The author
-     * @param      string     $email      The email
-     * @param      string     $url        The url
-     * @param      string     $content    The content
-     * @param      array      $info       The information
+     * @param   string                  $function   The function
+     * @param   string                  $permalink  The permalink
+     * @param   string                  $type       The type
+     * @param   string                  $author     The author
+     * @param   string                  $email      The email
+     * @param   string                  $url        The url
+     * @param   string                  $content    The content
+     * @param   array<string,string>    $info       The information
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     bool
+     * @return  bool    True if API respond a contents
      */
     protected function callFunc(string $function, string $permalink, string $type, ?string $author, ?string $email, ?string $url, ?string $content, array $info = []): bool
     {

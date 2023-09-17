@@ -1,13 +1,14 @@
 #!/usr/bin/env php
 <?php
 /**
- * @brief Dotclear upgrade procedure (CLI)
+ * @file
+ * @brief 		The upgrade procedure (CLI).
+ * @ingroup     Endpoint
  *
- * @package Dotclear
- * @subpackage Core
+ * @package 	Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright 	Olivier Meunier & Association Dotclear
+ * @copyright 	GPL-2.0-only
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'App.php']);
 

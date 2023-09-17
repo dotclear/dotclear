@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief buildtools, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin buildtools definition
+ * @ingroup     buildtools
+ * 
+ * @defgroup    buildtools Plugin buildtools.
+ * 
+ * buildtools, Internal build tools for dotclear team.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 use Dotclear\App;
 

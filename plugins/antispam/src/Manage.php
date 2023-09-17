@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -21,6 +18,10 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
+/**
+ * @brief   The module manage process.
+ * @ingroup antispam
+ */
 class Manage extends Process
 {
     public static function init(): bool

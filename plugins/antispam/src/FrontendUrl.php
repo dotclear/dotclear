@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,12 +13,16 @@ use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
 
+/**
+ * @brief   The module frontend URL handler.
+ * @ingroup antispam
+ */
 class FrontendUrl extends Url
 {
     /**
-     * Generate a ham feed
+     * Generate a ham feed.
      *
-     * @param      mixed  $args   The arguments
+     * @param   mixed   $args   The arguments
      */
     public static function hamFeed($args): void
     {
@@ -29,9 +30,9 @@ class FrontendUrl extends Url
     }
 
     /**
-     * Generate a spam feed
+     * Generate a spam feed.
      *
-     * @param      mixed  $args   The arguments
+     * @param   mixed   $args   The arguments
      */
     public static function spamFeed($args): void
     {
@@ -39,10 +40,10 @@ class FrontendUrl extends Url
     }
 
     /**
-     * Generate an antispam feed (ham/spam)
+     * Generate an antispam feed (ham/spam).
      *
-     * @param      string  $type   The type
-     * @param      string  $args   The arguments
+     * @param   string  $type   The type
+     * @param   string  $args   The arguments
      */
     private static function genFeed(string $type, string $args)
     {

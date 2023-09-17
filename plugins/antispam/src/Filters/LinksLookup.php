@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief antispam, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,38 +11,44 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use Dotclear\Plugin\antispam\SpamFilter;
 
+/**
+ * @brief   The module links lookup filter.
+ * @ingroup antispam
+ */
 class LinksLookup extends SpamFilter
 {
     /**
-     * Filter id
+     * Filter id.
      *
-     * @var        string
+     * @var     string  $id
      */
     public $id = 'dcFilterLinksLookup';
 
     /**
-     * Filter name
+     * Filter name.
      *
-     * @var        string
+     * @var     string  $name
      */
     public $name = 'Links Lookup';
 
     /**
-     * Filter has GUI
+     * Filter has settings GUI?
      *
-     * @var        bool
+     * @var     bool    $has_gui
      */
     public $has_gui = false;
 
     /**
-     * Filter help ID
+     * Filter help ID.
      *
-     * @var        string
+     * @var     null|string     $help
      */
     public $help = '';
 
     /**
-     * subrl.org URL
+     * subrl org URL.
+     *
+     * @var     string  $server
      */
     private string $server = 'multi.surbl.org';
 
@@ -60,10 +63,10 @@ class LinksLookup extends SpamFilter
     /**
      * Gets the status message.
      *
-     * @param      string  $status      The status
-     * @param      int     $comment_id  The comment identifier
+     * @param   string  $status         The status
+     * @param   int     $comment_id     The comment identifier
      *
-     * @return     string  The status message.
+     * @return  string  The status message.
      */
     public function getStatusMessage(string $status, ?int $comment_id): string
     {
@@ -71,18 +74,19 @@ class LinksLookup extends SpamFilter
     }
 
     /**
-     * This method should return if a comment is a spam or not. If it returns true
-     * or false, execution of next filters will be stoped. If should return nothing
-     * to let next filters apply.
+     * This method should return if a comment is a spam or not.
      *
-     * @param      string   $type     The comment type (comment / trackback)
-     * @param      string   $author   The comment author
-     * @param      string   $email    The comment author email
-     * @param      string   $site     The comment author site
-     * @param      string   $ip       The comment author IP
-     * @param      string   $content  The comment content
-     * @param      int      $post_id  The comment post_id
-     * @param      string   $status   The comment status
+     * If it returns true or false, execution of next filters will be stoped.
+     * If should return nothing to let next filters apply.
+     *
+     * @param   string  $type       The comment type (comment / trackback)
+     * @param   string  $author     The comment author
+     * @param   string  $email      The comment author email
+     * @param   string  $site       The comment author site
+     * @param   string  $ip         The comment author IP
+     * @param   string  $content    The comment content
+     * @param   int     $post_id    The comment post_id
+     * @param   string  $status     The comment status
      *
      * @return  mixed
      */
@@ -129,9 +133,9 @@ class LinksLookup extends SpamFilter
     /**
      * Return the links URL in content.
      *
-     * @param      string  $text   The text
+     * @param   string  $text   The text
      *
-     * @return     array   The links.
+     * @return  array   The links.
      */
     private function getLinks(string $text): array
     {
