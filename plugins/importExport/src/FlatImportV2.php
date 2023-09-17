@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -20,6 +17,10 @@ use initAntispam;
 use initBlogroll;
 use UnhandledMatchError;
 
+/**
+ * @brief   The module flat import handler.
+ * @ingroup importExport
+ */
 class FlatImportV2 extends FlatBackup
 {
     private $con;

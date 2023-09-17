@@ -1,17 +1,18 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
+/**
+ * @brief   The module flat backup item handler.
+ * @ingroup importExport
+ */
 class FlatBackupItem
 {
     public $__name;

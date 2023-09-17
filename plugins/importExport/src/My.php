@@ -1,14 +1,9 @@
 <?php
 /**
- * @brief Plugin importExport My module class.
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- *
- * @since 2.27
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,6 +12,12 @@ namespace Dotclear\Plugin\importExport;
 use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
+/**
+ * @brief   The module helper.
+ * @ingroup importExport
+ *
+ * @since   2.27
+ */
 class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool

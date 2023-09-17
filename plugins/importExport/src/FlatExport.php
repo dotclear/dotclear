@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +13,10 @@ use Exception;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\MetaRecord;
 
+/**
+ * @brief   The module flat export handler.
+ * @ingroup importExport
+ */
 class FlatExport
 {
     private $con;

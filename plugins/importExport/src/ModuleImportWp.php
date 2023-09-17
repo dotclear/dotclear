@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -25,6 +22,10 @@ use initBlogroll;
 use Exception;
 use form;
 
+/**
+ * @brief   The WP import module handler.
+ * @ingroup importExport
+ */
 class ModuleImportWp extends Module
 {
     protected $con;
@@ -82,9 +83,6 @@ class ModuleImportWp extends Module
         $this->description = __('Import a WordPress installation into your current blog.');
     }
 
-    /**
-     * Initializes the module.
-     */
     public function init(): void
     {
         $this->con     = App::con();
@@ -109,11 +107,6 @@ class ModuleImportWp extends Module
         unset($_SESSION['wp_import_vars']);
     }
 
-    /**
-     * Processes the import/export.
-     *
-     * @param      string  $do     action
-     */
     public function process(string $do): void
     {
         $this->action = $do;
@@ -124,7 +117,7 @@ class ModuleImportWp extends Module
      *
      * We handle process in another way to always display something to user
      *
-     * @param      string  $do     action
+     * @param   string  $do     action
      */
     protected function guiprocess(string $do): void
     {
@@ -195,9 +188,6 @@ class ModuleImportWp extends Module
         }
     }
 
-    /**
-     * GUI for import/export module
-     */
     public function gui(): void
     {
         try {
@@ -317,13 +307,13 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Return a simple form for step by step process
+     * Return a simple form for step by step process.
      *
-     * @param      int          $step          The step
-     * @param      string       $legend        The legend
-     * @param      string       $submit_value  The submit value
+     * @param   int     $step           The step
+     * @param   string  $legend         The legend
+     * @param   string  $submit_value   The submit value
      *
-     * @return     string
+     * @return  string
      */
     protected function imForm(int $step, string $legend, ?string $submit_value = null)
     {
@@ -343,9 +333,9 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Error display
+     * Error display.
      *
-     * @param      Exception  $e      The error
+     * @param   Exception   $e  The error
      */
     protected function error(Exception $e): void
     {
@@ -355,11 +345,11 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * DB init
+     * DB init.
      *
-     * @throws     Exception
+     * @throws  Exception
      *
-     * @return     mixed
+     * @return  mixed
      */
     protected function db()
     {
@@ -395,7 +385,7 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Users import
+     * Users import.
      */
     protected function importUsers(): void
     {
@@ -501,7 +491,7 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Categories import
+     * Categories import.
      */
     protected function importCategories(): void
     {
@@ -547,7 +537,7 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Blogroll import
+     * Blogroll import.
      */
     protected function importLinks(): void
     {
@@ -584,11 +574,11 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Entries import
+     * Entries import.
      *
-     * @param      int     $percent  The percent
+     * @param   int     $percent    The percent
      *
-     * @return     mixed
+     * @return  mixed
      */
     protected function importPosts(&$percent)
     {
@@ -642,10 +632,10 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Entry import
+     * Entry import.
      *
-     * @param      mixed    $rs     The record
-     * @param      mixed    $db     The database
+     * @param   mixed   $rs     The record
+     * @param   mixed   $db     The database
      */
     protected function importPost($rs, $db): void
     {
@@ -770,11 +760,11 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Comments import
+     * Comments import.
      *
-     * @param      string  $post_id      The post identifier
-     * @param      int     $new_post_id  The new post identifier
-     * @param      mixed   $db           The database
+     * @param   string  $post_id        The post identifier
+     * @param   int     $new_post_id    The new post identifier
+     * @param   mixed   $db             The database
      */
     protected function importComments(string $post_id, int $new_post_id, $db): void
     {
@@ -832,11 +822,11 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Pings import
+     * Pings import.
      *
-     * @param      string  $post_id      The post identifier
-     * @param      int     $new_post_id  The new post identifier
-     * @param      mixed   $db           The database
+     * @param   string  $post_id        The post identifier
+     * @param   int     $new_post_id    The new post identifier
+     * @param   mixed   $db             The database
      */
     protected function importPings(string $post_id, int $new_post_id, $db): void
     {
@@ -866,11 +856,11 @@ class ModuleImportWp extends Module
     }
 
     /**
-     * Meta import
+     * Meta import.
      *
-     * @param      string  $post_id      The post identifier
-     * @param      int     $new_post_id  The new post identifier
-     * @param      mixed   $db           The database
+     * @param   string  $post_id        The post identifier
+     * @param   int     $new_post_id    The new post identifier
+     * @param   mixed   $db             The database
      */
     protected function importTags(string $post_id, int $new_post_id, $db): void
     {

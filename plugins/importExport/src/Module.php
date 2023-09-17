@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief importExport, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,61 +14,65 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @brief   The abstract import export module handler.
+ * @ingroup importExport
+ */
 abstract class Module
 {
     /**
-     * Module type
+     * Module type.
      *
-     * @var string
+     * @var     string  $type
      */
     public $type;
 
     /**
-     * Module ID (class name)
+     * Module ID (class name).
      *
-     * @var string
+     * @var     string  $id
      */
     public $id;
 
     /**
-     * Module name
+     * Module name.
      *
-     * @var string
+     * @var     string  $name
      */
     public $name;
 
     /**
-     * Module description
+     * Module description.
      *
-     * @var string
+     * @var     string  $description
      */
     public $description;
 
     /**
-     * Import URL
+     * Import URL.
      *
-     * @var string
+     * @var     string  $import_url
      */
     protected $import_url;
 
     /**
-     * Export URL
+     * Export URL.
      *
-     * @var string
+     * @var     string  $export_url
      */
     protected $export_url;
 
     /**
-     * Module URL
+     * Module URL.
      *
-     * @var string
+     * @var     string  $url
      */
     protected $url;
 
     /**
      * Constructs a new instance.
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public function __construct()
     {
@@ -104,9 +105,9 @@ abstract class Module
     /**
      * Gets the module URL.
      *
-     * @param      bool         $escape  The escape
+     * @param   bool    $escape     The escape
      *
-     * @return     string  The url.
+     * @return  string  The url.
      */
     final public function getURL(bool $escape = false): string
     {
@@ -116,21 +117,21 @@ abstract class Module
     /**
      * Processes the import/export.
      *
-     * @param      string  $do     action
+     * @param   string  $do     action
      */
     abstract public function process(string $do);
 
     /**
-     * GUI for import/export module
+     * GUI for import/export module.
      */
     abstract public function gui();
 
     /**
-     * Return a progress bar
+     * Return a progress bar.
      *
-     * @param      float     $percent  The percent
+     * @param   float   $percent    The percent
      *
-     * @return     string
+     * @return  string
      */
     protected function progressBar(float $percent): string
     {
@@ -140,9 +141,9 @@ abstract class Module
     }
 
     /**
-     * Return a hidden autosubmit input field
+     * Return a hidden autosubmit input field.
      *
-     * @return     string
+     * @return  string
      */
     protected function autoSubmit(): string
     {
@@ -150,9 +151,9 @@ abstract class Module
     }
 
     /**
-     * Return a congratulation message
+     * Return a congratulation message.
      *
-     * @return     string
+     * @return  string
      */
     protected function congratMessage()
     {
