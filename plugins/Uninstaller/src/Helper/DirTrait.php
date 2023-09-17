@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +13,8 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 
 /**
- * Cleaner helper for files structure.
+ * @brief Cleaner helper for files structure.
+ * @ingroup Uninstaller
  */
 trait DirTrait
 {

@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,34 +15,67 @@ use Dotclear\Module\ModuleDefine;
 use Exception;
 
 /**
- * @brief Modules uninstall features handler
+ * @brief Modules uninstall features handler.
+ * @ingroup Uninstaller
  *
  * Provides an object to handle modules uninstall features.
  */
 class Uninstaller
 {
-    /** @var    string  The module Uninstall class name */
+    /**
+     * The module Uninstall class name.
+     *
+     * @var     string  UNINSTALL_CLASS_NAME
+     */
     public const UNINSTALL_CLASS_NAME = 'Uninstall';
 
-    /** @var    CleanersStack    $cleaners The cleaners stack */
+    /**
+     * The cleaners stack.
+     *
+     * @var     CleanersStack   $cleaners
+     */
     public readonly CleanersStack $cleaners;
 
-    /** @var    null|ModuleDefine   $module Current module */
+    /**
+     * Current module.
+     *
+     * @var     null|ModuleDefine   $module
+     */
     private ?ModuleDefine $module = null;
 
-    /** @var    array<string,ModuleDefine>  $modules Loaded modules stack */
+    /**
+     * Loaded modules stack.
+     *
+     * @var     array<string,ModuleDefine>  $modules
+     */
     private array $modules = [];
 
-    /** @var    array<int,string>   List of modules with custom actions render */
+    /**
+     * List of modules with custom actions render.
+     *
+     * @var     array<int,string>   $renders
+     */
     private array $renders = [];
 
-    /** @var    array<string,ActionsStack>     List of registered user actions */
+    /**
+     * List of registered user actions
+     *
+     * @var     array<string,ActionsStack>  $user_actions
+     */
     private array $user_actions = [];
 
-    /** @var    array<string,ActionsStack>     List of registered direct actions */
+    /**
+     * List of registered direct actions.
+     *
+     * @var     array<string,ActionsStack>  $direct_actions
+     */
     private array $direct_actions = [];
 
-    /** @var    Uninstaller     $uninstaller   Uninstaller instance */
+    /**
+     * Uninstaller instance.
+     *
+     * @var     Uninstaller     $uninstaller
+     */
     private static $uninstaller;
 
     /**

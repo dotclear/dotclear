@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -25,7 +22,8 @@ use Dotclear\Plugin\Uninstaller\{
 };
 
 /**
- * Cleaner for Dotclear blog settings.
+ * @brief   Cleaner for Dotclear blog settings.
+ * @ingroup Uninstaller
  *
  * It allows modules to delete for blogs or global a settings namespace.
  * It also allows to pick-up specific setting id by using delete_related action.

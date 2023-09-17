@@ -1,12 +1,17 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin Uninstaller definition
+ * @ingroup     Uninstaller
+ * 
+ * @defgroup    Uninstaller Plugin Uninstaller.
+ * 
+ * Uninstaller, uninstall cleanly plugins and themes.
  *
- * @package Dotclear
- * @subpackage Plugins
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 $this->registerModule(
     'Uninstaller',

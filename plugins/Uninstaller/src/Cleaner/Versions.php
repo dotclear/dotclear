@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,7 +19,8 @@ use Dotclear\Plugin\Uninstaller\{
 };
 
 /**
- * Cleaner for Dotclear modules versions.
+ * @brief   Cleaner for Dotclear modules versions.
+ * @ingroup Uninstaller
  *
  * It allows modules to delete their versions
  * from Dotclear App::version()::VERSION_TABLE_NAME database table.

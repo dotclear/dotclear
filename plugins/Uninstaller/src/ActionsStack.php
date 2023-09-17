@@ -1,12 +1,9 @@
 <?php
 /**
- * @brief Uninstaller, a plugin for Dotclear 2
+ * @package     Dotclear
  *
- * @package Dotclear
- * @subpackage Plugins
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,13 +13,18 @@ use Countable;
 use Iterator;
 
 /**
- * Cleaner actions stack.
+ * @brief   Cleaner actions stack.
+ * @ingroup Uninstaller
  *
  * @implements Iterator<string,ActionsCleanersStack>
  */
 class ActionsStack implements Countable, Iterator
 {
-    /** @var    array<string,ActionsCleanersStack>  $stack  The stack */
+    /**
+     * The actions stack.
+     *
+     * @var     array<string,ActionsCleanersStack>  $stack
+     */
     private array $stack = [];
 
     public function exists(string $offset): bool
@@ -55,7 +57,7 @@ class ActionsStack implements Countable, Iterator
     }
 
     /**
-     * @return false|ActionsCleanersStack
+     * @return  false|ActionsCleanersStack
      */
     #[\ReturnTypeWillChange]
     public function current(): false|ActionsCleanersStack
@@ -64,7 +66,7 @@ class ActionsStack implements Countable, Iterator
     }
 
     /**
-     * return null|string
+     * @return  null|string
      */
     #[\ReturnTypeWillChange]
     public function key(): null|string
