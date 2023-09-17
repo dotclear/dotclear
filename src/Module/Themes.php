@@ -23,7 +23,7 @@ use Exception;
  */
 class Themes extends Modules
 {
-    protected $type = 'theme';
+    protected ?string $type = 'theme';
 
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {

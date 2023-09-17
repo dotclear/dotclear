@@ -106,7 +106,7 @@ class ModuleDefine
     /**
      * Module default properties.
      *
-     * @var     array   $default
+     * @var     array<string, mixed>   $default
      */
     private array $default = [
         // set by dc

@@ -201,7 +201,7 @@ interface ModulesInterface
      * @param   ModuleDefine    $module     The module to check
      * @param   bool            $to_error   Add dependencies fails to errors
      */
-    public function checkDependencies(ModuleDefine $module, $to_error = false): void;
+    public function checkDependencies(ModuleDefine $module, bool $to_error = false): void;
 
     /**
      * Disables the dep modules.
