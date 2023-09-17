@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -29,12 +28,15 @@ use Dotclear\Helper\L10n;
 use Dotclear\Schema\Extension\User;
 use Exception;
 
+/**
+ * @brief   Handler for default actions on posts.
+ */
 class ActionsPostsDefault
 {
     /**
-     * Set posts actions
+     * Set posts actions.
      *
-     * @param      ActionsPosts  $ap
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
      */
     public static function adminPostsActionsPage(ActionsPosts $ap)
     {
@@ -107,9 +109,9 @@ class ActionsPostsDefault
     /**
      * Does a change post status.
      *
-     * @param      ActionsPosts  $ap
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
      *
-     * @throws     Exception             (description)
+     * @throws  Exception
      */
     public static function doChangePostStatus(ActionsPosts $ap)
     {
@@ -164,9 +166,9 @@ class ActionsPostsDefault
     /**
      * Does a change post status.
      *
-     * @param      ActionsPosts  $ap
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
      *
-     * @throws     Exception             (description)
+     * @throws  Exception
      */
     public static function doChangePostFirstPub(ActionsPosts $ap)
     {
@@ -203,9 +205,9 @@ class ActionsPostsDefault
     /**
      * Does an update selected post.
      *
-     * @param      ActionsPosts  $ap
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public static function doUpdateSelectedPost(ActionsPosts $ap)
     {
@@ -245,9 +247,9 @@ class ActionsPostsDefault
     /**
      * Does a delete post.
      *
-     * @param      ActionsPosts  $ap
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
      *
-     * @throws     Exception
+     * @throws  Exception
      */
     public static function doDeletePost(ActionsPosts $ap)
     {
@@ -282,10 +284,10 @@ class ActionsPostsDefault
     /**
      * Does a change post category.
      *
-     * @param      ActionsPosts       $ap
-     * @param      ArrayObject          $post   The parameters ($_POST)
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
+     * @param   ArrayObject     $post   The parameters ($_POST)
      *
-     * @throws     Exception             If no entry selected
+     * @throws  Exception   If no entry selected
      */
     public static function doChangePostCategory(ActionsPosts $ap, ArrayObject $post)
     {
@@ -409,10 +411,10 @@ class ActionsPostsDefault
     /**
      * Does a change post author.
      *
-     * @param      ActionsPosts  $ap
-     * @param      ArrayObject           $post   The parameters ($_POST)
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
+     * @param   ArrayObject     $post   The parameters ($_POST)
      *
-     * @throws     Exception             If no entry selected
+     * @throws  Exception   If no entry selected
      */
     public static function doChangePostAuthor(ActionsPosts $ap, ArrayObject $post)
     {
@@ -506,10 +508,10 @@ class ActionsPostsDefault
     /**
      * Does a change post language.
      *
-     * @param      ActionsPosts  $ap
-     * @param      ArrayObject           $post   The parameters ($_POST)
+     * @param   ActionsPosts    $ap     The ActionsPosts instance
+     * @param   ArrayObject     $post   The parameters ($_POST)
      *
-     * @throws     Exception             If no entry selected
+     * @throws  Exception   If no entry selected
      */
     public static function doChangePostLang(ActionsPosts $ap, ArrayObject $post)
     {

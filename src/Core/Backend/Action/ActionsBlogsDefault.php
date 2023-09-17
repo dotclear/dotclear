@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,12 +13,15 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Exception;
 
+/**
+ * @brief   Handler for default actions on blogs.
+ */
 class ActionsBlogsDefault
 {
     /**
-     * Set blog actions
+     * Set blog actions.
      *
-     * @param      ActionsBlogs  $ap     { parameter_description }
+     * @param   ActionsBlogs    $ap     The ActionsBlogs instance
      */
     public static function adminBlogsActionsPage(ActionsBlogs $ap)
     {
@@ -45,9 +47,9 @@ class ActionsBlogsDefault
     /**
      * Does a change blog status.
      *
-     * @param      ActionsBlogs  $ap
+     * @param   ActionsBlogs    $ap     The ActionsBlogs instance
      *
-     * @throws     Exception             If no blog selected
+     * @throws  Exception   If no blog selected
      */
     public static function doChangeBlogStatus(ActionsBlogs $ap)
     {
@@ -82,9 +84,9 @@ class ActionsBlogsDefault
     /**
      * Does a delete blog.
      *
-     * @param      ActionsBlogs  $ap
+     * @param   ActionsBlogs    $ap     The ActionsBlogs instance
      *
-     * @throws     Exception             If no blog selected
+     * @throws  Exception   If no blog selected
      */
     public static function doDeleteBlog(ActionsBlogs $ap)
     {

@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -18,6 +17,9 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * @brief   Handler for action page on selected posts.
+ */
 class ActionsPosts extends Actions
 {
     public function __construct(?string $uri, array $redirect_args = [])
@@ -42,12 +44,6 @@ class ActionsPosts extends Actions
         App::behavior()->callBehavior('adminPostsActions', $this);
     }
 
-    /**
-     * Begins a page.
-     *
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      string  $head        The head
-     */
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
@@ -75,9 +71,6 @@ class ActionsPosts extends Actions
             ->render();
     }
 
-    /**
-     * Ends a page.
-     */
     public function endPage()
     {
         if ($this->in_plugin) {
@@ -87,11 +80,6 @@ class ActionsPosts extends Actions
         }
     }
 
-    /**
-     * Display error page
-     *
-     * @param      Exception  $e
-     */
     public function error(Exception $e)
     {
         App::error()->add($e->getMessage());
@@ -107,11 +95,6 @@ class ActionsPosts extends Actions
         $this->endPage();
     }
 
-    /**
-     * Fetches entries.
-     *
-     * @param      ArrayObject  $from   The parameters ($_POST)
-     */
     protected function fetchEntries(ArrayObject $from)
     {
         $params = [];

@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Core.Upgrade
+ * @brief       Dotclear application upgrade utilities
+ */
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;

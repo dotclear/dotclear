@@ -25,21 +25,21 @@ class WidgetsElement
     /**
      * Widget displayed on every page.
      *
-     * @var     string  ALL_PAGES
+     * @var     int     ALL_PAGES
      */
     public const ALL_PAGES   = 0;
 
     /**
      * Widget displayed on home page only.
      *
-     * @var     string  HOME_ONLY
+     * @var     int     HOME_ONLY
      */
     public const HOME_ONLY   = 1;
 
     /**
      * Widget displayed on every page but home page.
      *
-     * @var     string  EXCEPT_HOME
+     * @var     int     EXCEPT_HOME
      */
     public const EXCEPT_HOME = 2;
 

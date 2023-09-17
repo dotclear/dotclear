@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -23,14 +22,11 @@ use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
+/**
+ * @brief   Handler for action page on selected blogs.
+ */
 class ActionsBlogs extends Actions
 {
-    /**
-     * Constructs a new instance.
-     *
-     * @param      null|string  $uri            The uri
-     * @param      array        $redirect_args  The redirect arguments
-     */
     public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
@@ -55,12 +51,6 @@ class ActionsBlogs extends Actions
         ActionsBlogsDefault::adminBlogsActionsPage($this);
     }
 
-    /**
-     * Begins a page.
-     *
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      string  $head        The head
-     */
     public function beginPage(string $breadcrumb = '', string $head = '')
     {
         if ($this->in_plugin) {
@@ -88,9 +78,6 @@ class ActionsBlogs extends Actions
             ->render();
     }
 
-    /**
-     * Ends a page.
-     */
     public function endPage()
     {
         if ($this->in_plugin) {
@@ -100,11 +87,6 @@ class ActionsBlogs extends Actions
         }
     }
 
-    /**
-     * Display error page
-     *
-     * @param      Exception  $e
-     */
     public function error(Exception $e)
     {
         App::error()->add($e->getMessage());
@@ -121,9 +103,9 @@ class ActionsBlogs extends Actions
     }
 
     /**
-     * Returns Table elments code for selected blogs as a table containing blogs checkboxes
+     * Returns Table elments code for selected blogs as a table containing blogs checkboxes.
      *
-     * @return Table The Table elements code for checkboxes
+     * @return  Table   The Table elements code for checkboxes
      */
     public function checkboxes(): Table
     {
@@ -159,11 +141,6 @@ class ActionsBlogs extends Actions
             ]);
     }
 
-    /**
-     * Fetches entries.
-     *
-     * @param      ArrayObject  $from   The parameters ($_POST)
-     */
     protected function fetchEntries(ArrayObject $from)
     {
         $params = [];
