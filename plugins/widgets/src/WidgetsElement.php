@@ -27,14 +27,14 @@ class WidgetsElement
      *
      * @var     int     ALL_PAGES
      */
-    public const ALL_PAGES   = 0;
+    public const ALL_PAGES = 0;
 
     /**
      * Widget displayed on home page only.
      *
      * @var     int     HOME_ONLY
      */
-    public const HOME_ONLY   = 1;
+    public const HOME_ONLY = 1;
 
     /**
      * Widget displayed on every page but home page.
@@ -110,7 +110,7 @@ class WidgetsElement
      *
      * @param   string          $id         The identifier
      * @param   string          $name       The name
-     * @param   callable|array  $callback   The callback
+     * @param   callable        $callback   The callback
      * @param   string          $desc       The description
      */
     public function __construct(string $id, string $name, $callback, string $desc = '')

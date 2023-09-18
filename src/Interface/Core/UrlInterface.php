@@ -47,24 +47,24 @@ interface UrlInterface
     /**
      * Register an URL handler
      *
-     * @param      string                           $type            The type
-     * @param      string                           $url             The url
-     * @param      string                           $representation  The representation
-     * @param      callable|array<string, string>   $handler         The handler
+     * @param      string       $type            The type
+     * @param      string       $url             The url
+     * @param      string       $representation  The representation
+     * @param      callable     $handler         The handler
      */
     public function register(string $type, string $url, string $representation, $handler): void;
 
     /**
      * Register the default URL handler
      *
-     * @param      callable|array<string, string>  $handler  The handler
+     * @param      callable  $handler  The handler
      */
     public function registerDefault($handler): void;
 
     /**
      * Register an error handler (prepend at the begining of the error handler stack)
      *
-     * @param      callable|array<string, string>  $handler  The handler
+     * @param      callable  $handler  The handler
      */
     public function registerError($handler): void;
 

@@ -80,7 +80,7 @@ class Url extends UrlHandler implements UrlInterface
      * @param      string           $type            The type
      * @param      string           $url             The url
      * @param      string           $representation  The representation
-     * @param      callable|array   $handler         The handler
+     * @param      callable         $handler         The handler
      */
     public function register(string $type, string $url, string $representation, $handler): void
     {

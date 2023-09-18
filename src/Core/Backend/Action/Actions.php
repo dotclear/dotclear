@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Backend.Action
  * @brief       Backend list actions helpers.
  */
+
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
@@ -92,7 +93,7 @@ abstract class Actions
     /**
      * Form field name for "entries" (usually "entries").
      *
-     * @var     string  $field_entries 
+     * @var     string  $field_entries
      */
     protected $field_entries;
 
@@ -144,7 +145,7 @@ abstract class Actions
      * Constructs a new instance.
      *
      * @param   null|string     $uri            The form uri
-     * @param   array           $redir_args     The redirection $_GET arguments, 
+     * @param   array           $redir_args     The redirection $_GET arguments,
      *                                          if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(
@@ -186,7 +187,7 @@ abstract class Actions
      * @param   array           $actions    The actions names as if it was a standalone combo array.
      *                                      It will be merged with other actions.
      *                                      Can be bound to multiple values, if the same callback is to be called
-     * @param   callable|array  $callback   The callback for the action.
+     * @param   callable        $callback   The callback for the action.
      *
      * @return  Actions     The actions page itself, enabling to chain addAction().
      */
@@ -341,7 +342,7 @@ abstract class Actions
      *
      * @param   bool    $with_selected_entries  If true, add selected entries in url
      * @param   array   $params                 Extra parameters to append to redirection
-     *                                          must be an array : each key is the name, 
+     *                                          must be an array : each key is the name,
      *                                          each value is the wanted value
      *
      * @return  string  The redirection url
@@ -367,7 +368,7 @@ abstract class Actions
      *
      * @param   bool    $with_selected_entries  If true, add selected entries in url
      * @param   array   $params                 Extra parameters to append to redirection
-     *                                          must be an array : each key is the name, 
+     *                                          must be an array : each key is the name,
      *                                          each value is the wanted value
      * @return  never
      */

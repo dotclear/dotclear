@@ -62,14 +62,14 @@ class Template
     /**
      * Unknown node value callback
      *
-     * @var        callable|array|null
+     * @var        callable|null
      */
     protected $unknown_value_handler = null;
 
     /**
      * Unknown node block callback
      *
-     * @var        callable|array|null
+     * @var        callable|null
      */
     protected $unknown_block_handler = null;
 
@@ -264,7 +264,7 @@ class Template
      * The callback signature must be: callback(array $attr, string &$content)
      *
      * @param      string               $name      The name
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null        $callback  The callback
      *
      * @throws     Exception
      */
@@ -283,7 +283,7 @@ class Template
      * The callback signature must be: callback(array $attr [, string $str_attr])
      *
      * @param      string               $name      The name
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null  $callback  The callback
      *
      * @throws     Exception
      */
@@ -337,7 +337,7 @@ class Template
      *
      * @param      string  $name   The value name
      *
-     * @return     callable|array|false    The block callback.
+     * @return     callable|false    The block callback.
      */
     public function getValueCallback(string $name)
     {
@@ -353,7 +353,7 @@ class Template
      *
      * @param      string  $name   The block name
      *
-     * @return     callable|array|false    The block callback.
+     * @return     callable|false    The block callback.
      */
     public function getBlockCallback(string $name)
     {
@@ -750,7 +750,7 @@ class Template
     /**
      * Sets the unknown value handler.
      *
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null  $callback  The callback
      */
     public function setUnknownValueHandler($callback): void
     {
@@ -760,7 +760,7 @@ class Template
     /**
      * Sets the unknown block handler.
      *
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null  $callback  The callback
      */
     public function setUnknownBlockHandler($callback): void
     {

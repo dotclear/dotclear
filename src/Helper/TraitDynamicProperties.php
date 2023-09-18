@@ -22,7 +22,7 @@ trait TraitDynamicProperties
     /**
      * User-defined properties
      *
-     * @var        array(<string>, <mixed>)
+     * @var        array<string, mixed>
      */
     protected array $properties = [];
 

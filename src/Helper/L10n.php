@@ -101,7 +101,7 @@ namespace Dotclear\Helper {
         /**
          * Find plural msgstr index from gettext expression
          *
-         * @var        callable|array
+         * @var        callable
          */
         protected static $language_pluralfunction;
         //@}

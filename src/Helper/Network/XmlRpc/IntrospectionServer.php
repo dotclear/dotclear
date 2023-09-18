@@ -101,7 +101,7 @@ class IntrospectionServer extends BasicServer
      * callback. <var>$callback</var> should be a valid PHP callback.
      *
      * @param string            $method         Method name
-     * @param callable|array    $callback       Method callback
+     * @param callable          $callback       Method callback
      * @param array             $args           Array of arguments type. The first is the returned one.
      * @param string            $help           Method help string
      */

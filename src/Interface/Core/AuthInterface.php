@@ -209,8 +209,8 @@ interface AuthInterface
     /**
      * Calls <var>$fn</var> function with super admin rights.
      *
-     * @param   callable|array<string, string>  $fn     Callback function
-     * @param   mixed                           $args   Callback arguments
+     * @param   callable    $fn     Callback function
+     * @param   mixed       $args   Callback arguments
      *
      * @return  mixed   The function result
      */

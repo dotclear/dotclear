@@ -393,8 +393,8 @@ class WikiToHtml
     /**
      * Register a function
      *
-     * @param      string           $type   The type
-     * @param      callable|array   $name   The name
+     * @param      string     $type   The type
+     * @param      callable   $name   The name
      */
     public function registerFunction(string $type, $name): void
     {

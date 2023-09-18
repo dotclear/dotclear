@@ -273,9 +273,9 @@ class Media extends Manager implements MediaInterface
     /**
      * Adds a file handler.
      *
-     * @param      string                           $type      The type
-     * @param      string                           $event     The event
-     * @param      callable|array<string, string>   $function  The function
+     * @param      string       $type      The type
+     * @param      string       $event     The event
+     * @param      callable     $function  The function
      */
     public function addFileHandler(string $type, string $event, $function): void
     {
