@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,15 +18,20 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @brief   Media list pager form helper.
+ *
+ * @since   2.20
+ */ 
 class ListingMedia extends Listing
 {
     /**
-     * Display a media list
+     * Display a media list.
      *
-     * @param      FilterMedia       $filters        The filters
-     * @param      string            $enclose_block  The enclose block
-     * @param      bool              $query          The query
-     * @param      string            $page_adminurl  The page adminurl
+     * @param   FilterMedia     $filters        The filters
+     * @param   string          $enclose_block  The enclose block
+     * @param   bool            $query          The query
+     * @param   string          $page_adminurl  The page adminurl
      */
     public function display(FilterMedia $filters, string $enclose_block = '', $query = false, $page_adminurl = 'admin.media')
     {
@@ -104,15 +108,15 @@ class ListingMedia extends Listing
     }
 
     /**
-     * Display a media item
+     * Display a media item.
      *
-     * @param      FilterMedia       $filters        The filters
-     * @param      File|array        $file           The media file
-     * @param      int               $index          Current index in page
-     * @param      bool              $query          The query
-     * @param      string            $page_adminurl  The page adminurl
+     * @param   FilterMedia     $filters        The filters
+     * @param   File|array      $file           The media file
+     * @param   int             $index          Current index in page
+     * @param   bool            $query          The query
+     * @param   string          $page_adminurl  The page adminurl
      *
-     * @return     string            ( description_of_the_return_value )
+     * @return  string
      */
     public static function mediaLine(FilterMedia $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {

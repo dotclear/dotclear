@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,9 +13,9 @@ use ArrayObject;
 use Dotclear\App;
 
 /**
- * Users list filters form helper.
+ * @brief   Users list filters form helper.
  *
- * @since 2.20
+ * @since   2.20
  */
 class FilterUsers extends Filters
 {

@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Core.Backend.Action
+ * @brief       Backend list actions helpers.
+ */
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
@@ -29,13 +33,6 @@ use formSelectOption;
  */
 abstract class Actions
 {
-    /**
-     * Form submit uri.
-     *
-     * @var     string  $url
-     */
-    protected $uri;
-
     /**
      * Action combo box.
      *
@@ -63,13 +60,6 @@ abstract class Actions
      * @var     MetaRecord  $rs
      */
     protected $rs;
-
-    /**
-     * Redirection $_GET arguments, if any (does not contain ids by default, ids may be merged to it).
-     *
-     * @var     array   $redir_args
-     */
-    protected $redir_args;
 
     /**
      * List of $_POST fields used to build the redirection.
@@ -154,13 +144,14 @@ abstract class Actions
      * Constructs a new instance.
      *
      * @param   null|string     $uri            The form uri
-     * @param   array           $redirect_args  The redirect arguments
+     * @param   array           $redir_args     The redirection $_GET arguments, 
+     *                                          if any (does not contain ids by default, ids may be merged to it)
      */
-    public function __construct(?string $uri, array $redirect_args = [])
-    {
-        $this->uri           = $uri;
+    public function __construct(
+        protected ?string $uri,
+        protected array $redir_args = []
+    ) {
         $this->actions       = new ArrayObject();
-        $this->redir_args    = $redirect_args;
         $this->from          = new ArrayObject($_POST);
         $this->field_entries = 'entries';
         $this->cb_title      = __('Title');

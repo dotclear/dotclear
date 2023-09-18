@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -17,12 +16,17 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 
 /**
- * Posts list filters form helper.
+ * @brief   Posts list filters form helper.
  *
- * @since 2.20
+ * @since   2.20
  */
 class FilterPosts extends Filters
 {
+    /**
+     * The post type.
+     *
+     * @var     string  $post_type
+     */
     protected $post_type = 'post';
 
     public function __construct(string $type = 'posts', string $post_type = '')
@@ -59,7 +63,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts users select
+     * Posts users select.
+     *
+     * @return  ?Filter     The post user Filter instance if possible.
      */
     public function getPostUserFilter(): ?Filter
     {
@@ -90,7 +96,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts categories select
+     * Posts categories select.
+     *
+     * @return  ?Filter     The post category Filter instance if possible.
      */
     public function getPostCategoriesFilter(): ?Filter
     {
@@ -126,7 +134,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts status select
+     * Posts status select.
+     *
+     * @return  Filter  The post status Filter instance.
      */
     public function getPostStatusFilter(): Filter
     {
@@ -141,7 +151,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts format select
+     * Posts format select.
+     *
+     * @return  Filter  The post format Filter instance.
      */
     public function getPostFormatFilter(): Filter
     {
@@ -164,7 +176,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts password state select
+     * Posts password state select.
+     *
+     * @return  Filter  The post password Filter instance.
      */
     public function getPostPasswordFilter(): Filter
     {
@@ -180,7 +194,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts selected state select
+     * Posts selected state select.
+     *
+     * @return  Filter  The post selected Filter instance.
      */
     public function getPostSelectedFilter(): Filter
     {
@@ -195,7 +211,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts attachment state select
+     * Posts attachment state select.
+     *
+     * @return  Filter  The post attachment Filter instance.
      */
     public function getPostAttachmentFilter(): Filter
     {
@@ -211,7 +229,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts by month select
+     * Posts by month select.
+     *
+     * @return  ?Filter  The post month Filter instance if possible.
      */
     public function getPostMonthFilter(): ?Filter
     {
@@ -242,7 +262,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts lang select
+     * Posts lang select.
+     *
+     * @return  ?Filter  The post lang Filter instance if possible.
      */
     public function getPostLangFilter(): ?Filter
     {
@@ -269,7 +291,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts comments state select
+     * Posts comments state select.
+     *
+     * @return  Filter  The post comment status Filter.
      */
     public function getPostCommentFilter(): Filter
     {
@@ -284,7 +308,9 @@ class FilterPosts extends Filters
     }
 
     /**
-     * Posts trackbacks state select
+     * Posts trackbacks state select.
+     *
+     * @return  Filter  The post trackback status Filter.
      */
     public function getPostTrackbackFilter(): Filter
     {

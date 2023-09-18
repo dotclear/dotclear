@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,9 +14,9 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 
 /**
- * Comments list filters form helper
+ * @brief   Comments list filters form helper
  *
- * @since 2.20
+ * @since   2.20
  */
 class FilterComments extends Filters
 {
@@ -45,7 +44,9 @@ class FilterComments extends Filters
     }
 
     /**
-     * Comment author select
+     * Comment author select.
+     *
+     * @return  Filter  The comment author Filter instance.
      */
     public function getCommentAuthorFilter(): Filter
     {
@@ -56,7 +57,9 @@ class FilterComments extends Filters
     }
 
     /**
-     * Comment type select
+     * Comment type select.
+     *
+     * @return  Filter  The comment type Filter instance.
      */
     public function getCommentTypeFilter(): Filter
     {
@@ -72,7 +75,9 @@ class FilterComments extends Filters
     }
 
     /**
-     * Comment status select
+     * Comment status select.
+     *
+     * @return  Filter  The comment status Filter instance.
      */
     public function getCommentStatusFilter(): Filter
     {
@@ -87,7 +92,9 @@ class FilterComments extends Filters
     }
 
     /**
-     * Common IP field
+     * Common IP field.
+     *
+     * @return  Filter  The commnet IP Filter instance.
      */
     public function getCommentIpFilter(): ?Filter
     {

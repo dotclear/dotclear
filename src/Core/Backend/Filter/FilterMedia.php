@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,13 +14,24 @@ use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 
 /**
- * Media list filters form helper.
+ * @brief   Media list filters form helper.
  *
- * @since 2.20
+ * @since   2.20
  */
 class FilterMedia extends Filters
 {
+    /**
+     * The post type.
+     *
+     * @var     string  $post_type
+     */
     protected $post_type  = '';
+
+    /**
+     * The post_title.
+     *
+     * @var     string  $post_title
+     */
     protected $post_title = '';
 
     public function __construct(string $type = 'media')
@@ -53,7 +63,7 @@ class FilterMedia extends Filters
     }
 
     /**
-     * Cope with old behavior
+     * Cope with old behavior.
      */
     protected function legacyBehavior()
     {

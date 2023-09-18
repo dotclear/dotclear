@@ -1,10 +1,9 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,15 +15,20 @@ use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use form;
 
+/**
+ * @brief   Posts list pager form helper.
+ *
+ * @since   2.20
+ */ 
 class ListingPosts extends Listing
 {
     /**
-     * Display admin post list
+     * Display admin post list.
      *
-     * @param      int     $page           The page
-     * @param      int     $nb_per_page    The number of posts per page
-     * @param      string  $enclose_block  The enclose block
-     * @param      bool    $filter         The filter
+     * @param   int     $page           The page
+     * @param   int     $nb_per_page    The number of posts per page
+     * @param   string  $enclose_block  The enclose block
+     * @param   bool    $filter         The filter
      */
     public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false)
     {
@@ -136,9 +140,9 @@ class ListingPosts extends Listing
     /**
      * Get a line.
      *
-     * @param      bool  $checked  The checked flag
+     * @param   bool    $checked    The checked flag
      *
-     * @return     string
+     * @return  string
      */
     private function postLine(bool $checked): string
     {
