@@ -40,9 +40,9 @@ interface LexicalInterface
     /**
      * Locale specific array sorting function.
      *
-     * @param   array   $arr        single array of strings
-     * @param   string  $namespace  admin/public/lang
-     * @param   string  $lang       language to be used if $ns = 'lang'
+     * @param   array<string>   $arr        single array of strings
+     * @param   string          $namespace  admin/public/lang
+     * @param   string          $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
      */
@@ -51,9 +51,9 @@ interface LexicalInterface
     /**
      * Locale specific array sorting function (preserving keys).
      *
-     * @param   array   $arr        single array of strings
-     * @param   string  $namespace  admin/public/lang
-     * @param   string  $lang   language to be used if $ns = 'lang'
+     * @param   array<string, string>   $arr        single associative array of strings
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
      */
@@ -62,9 +62,9 @@ interface LexicalInterface
     /**
      * Locale specific array sorting function (sorting keys).
      *
-     * @param   array   $arr        single array of strings
-     * @param   string  $namespace  admin/public/lang
-     * @param   string  $lang       language to be used if $ns = 'lang'
+     * @param   array<string, string>   $arr        single associative array of strings
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
      */

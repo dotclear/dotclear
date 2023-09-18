@@ -49,7 +49,7 @@ interface FormaterInterface
     /**
      * Gets the editors list.
      *
-     * @return  array   The editors.
+     * @return  array<string, string>   The editors.
      */
     public function getEditors(): array;
 
@@ -62,14 +62,14 @@ interface FormaterInterface
      *
      * @param   string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
-     * @return  array   The formaters.
+     * @return  array<string>   The formaters.
      */
     public function getFormater(string $editor_id): array;
 
     /**
      * Gets the formaters.
      *
-     * @return  array   The formaters.
+     * @return     array<string, array<string>>  The formaters.
      */
     public function getFormaters(): array;
 

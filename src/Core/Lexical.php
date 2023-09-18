@@ -19,6 +19,15 @@ use UnhandledMatchError;
  */
 class Lexical implements LexicalInterface
 {
+    /**
+     * Locale specific array sorting function.
+     *
+     * @param   array<string>   $arr        single array of strings
+     * @param   string          $namespace  admin/public/lang
+     * @param   string          $lang       language to be used if $ns = 'lang'
+     *
+     * @return  bool
+     */
     public function lexicalSort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
         $this->setLexicalLang($namespace, $lang);
@@ -26,6 +35,15 @@ class Lexical implements LexicalInterface
         return usort($arr, $this->lexicalSortHelper(...));
     }
 
+    /**
+     * Locale specific array sorting function (preserving keys).
+     *
+     * @param   array<string, string>   $arr        single associative array of strings
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
+     *
+     * @return  bool
+     */
     public function lexicalArraySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
         $this->setLexicalLang($namespace, $lang);
@@ -33,6 +51,15 @@ class Lexical implements LexicalInterface
         return uasort($arr, $this->lexicalSortHelper(...));
     }
 
+    /**
+     * Locale specific array sorting function (sorting keys).
+     *
+     * @param   array<string, string>   $arr        single associative array of strings
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
+     *
+     * @return  bool
+     */
     public function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
         $this->setLexicalLang($namespace, $lang);
@@ -40,6 +67,12 @@ class Lexical implements LexicalInterface
         return uksort($arr, $this->lexicalSortHelper(...));
     }
 
+    /**
+     * Sets the lexical language.
+     *
+     * @param   string  $namespace  The namespace (admin/public/lang)
+     * @param   string  $lang       The language
+     */
     public function setLexicalLang(string $namespace = '', string $lang = 'en_US'): void
     {
         try {

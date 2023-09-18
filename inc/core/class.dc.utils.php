@@ -239,9 +239,9 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App:lexical()->lexicalSort() instead
      *
-     * @param   array   $arr        single array of strings
-     * @param   string  $namespace  admin/public/lang
-     * @param   string  $lang       language to be used if $ns = 'lang'
+     * @param   array<string>   $arr        single array of strings
+     * @param   string          $namespace  admin/public/lang
+     * @param   string          $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
      */
@@ -257,9 +257,9 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App:lexical()->lexicalArraySort() instead
      *
-     * @param   array   $arr        single array of strings
-     * @param   string  $namespace  admin/public/lang
-     * @param   string  $lang   language to be used if $ns = 'lang'
+     * @param   array<string, string>   $arr        single array of strings
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
      */
