@@ -171,7 +171,7 @@ class Text
      *
      * @param string    $str        Words to split
      *
-     * @return array
+     * @return array<string>
      */
     public static function splitWords(string $str): array
     {
@@ -317,7 +317,7 @@ class Text
     }
 
     /**
-     * @var        array
+     * @var        array<array<string, string>>
      */
     protected static $defaultDiacriticsRemovalMap = [
         [

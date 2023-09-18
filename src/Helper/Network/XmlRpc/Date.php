@@ -21,47 +21,49 @@ class Date
      *
      * @var string
      */
-    protected $year;
+    protected string $year;
 
     /**
      * Date month part
      *
      * @var string
      */
-    protected $month;
+    protected string $month;
 
     /**
      * Date day part
      *
      * @var string
      */
-    protected $day;
+    protected string $day;
 
     /**
      * Date hour part
      *
      * @var string
      */
-    protected $hour;
+    protected string $hour;
 
     /**
      * Date minute part
      *
      * @var string
      */
-    protected $minute;
+    protected string $minute;
 
     /**
      * Date second part
+     *
+     * @var string
      */
-    protected $second;
+    protected string $second;
 
     /**
      * Date timestamp
      *
      * @var int
      */
-    protected $ts;
+    protected int $ts;
 
     /**
      * Constructor
@@ -82,7 +84,7 @@ class Date
      *
      * @param int        $timestamp    Timestamp (Unix)
      */
-    protected function parseTimestamp(int $timestamp)
+    protected function parseTimestamp(int $timestamp): void
     {
         $this->year   = date('Y', $timestamp);
         $this->month  = date('m', $timestamp);

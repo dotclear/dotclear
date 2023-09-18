@@ -28,14 +28,14 @@ class IntrospectionServer extends BasicServer
     /**
      * Methods signature
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $signatures;
 
     /**
      * Methods help
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $help;
 
@@ -100,12 +100,12 @@ class IntrospectionServer extends BasicServer
      * This method creates a new XML-RPC method which references a class
      * callback. <var>$callback</var> should be a valid PHP callback.
      *
-     * @param string            $method         Method name
-     * @param callable          $callback       Method callback
-     * @param array             $args           Array of arguments type. The first is the returned one.
-     * @param string            $help           Method help string
+     * @param string                $method         Method name
+     * @param callable              $callback       Method callback
+     * @param array<int, mixed>     $args           Array of arguments type. The first is the returned one.
+     * @param string                $help           Method help string
      */
-    protected function addCallback(string $method, $callback, array $args, string $help = '')
+    protected function addCallback(string $method, $callback, array $args, string $help = ''): void
     {
         $this->callbacks[$method]  = $callback;
         $this->signatures[$method] = $args;
@@ -162,8 +162,8 @@ class IntrospectionServer extends BasicServer
      *
      * This method checks the validity of method arguments.
      *
-     * @param array        $args             Method given arguments
-     * @param array        $signature        Method defined arguments
+     * @param array<int, mixed>     $args             Method given arguments
+     * @param array<string, mixed>  $signature        Method defined arguments
      *
      * @return bool
      */
@@ -221,7 +221,7 @@ class IntrospectionServer extends BasicServer
      *
      * @param string    $method        Method name
      *
-     * @return array
+     * @return array<mixed>
      */
     protected function methodSignature(string $method): array
     {

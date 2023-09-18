@@ -80,8 +80,8 @@ class Client extends HttpClient
      * $r = $o->query('method1','hello','world');
      * </code>
      *
-     * @param string    $method
-     * @param mixed     $args
+     * @param string                    $method
+     * @param array<string, mixed>      $args
      *
      * @return mixed
      */
@@ -112,7 +112,7 @@ class Client extends HttpClient
      *
      * Overloading HttpClient::buildRequest method, we don't need all the stuff of HTTP client.
      *
-     * @return     array  The request.
+     * @return     array<string>  The request.
      */
     protected function buildRequest(): array
     {

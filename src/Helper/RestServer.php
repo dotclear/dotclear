@@ -23,21 +23,21 @@ class RestServer implements RestInterface
     /**
      * Response: XML.
      *
-     * @var     null|XmlTag     $rsp
+     * @var     XmlTag     $rsp
      */
-    public $rsp;
+    public XmlTag $rsp;
 
     /**
      * Response: JSON.
      *
-     * @var     null|array  $json
+     * @var     array<string, mixed>  $json
      */
-    public $json;
+    public array $json;
 
     /**
      * Server's functions.
      *
-     * @var     array   $functions
+     * @var     array<string, callable>   $functions
      */
     public array $functions = [];
 
@@ -74,16 +74,16 @@ class RestServer implements RestInterface
      *
      * This method calls callback named <var>$name</var>.
      *
-     * @param   string  $name   Function name
-     * @param   array   $get    GET values
-     * @param   array   $post   POST values
-     * @param   mixed   $param  Supplemental parameter
+     * @param   string                  $name   Function name
+     * @param   array<string, string>   $get    GET values
+     * @param   array<string, string>   $post   POST values
+     * @param   mixed                   $param  Supplemental parameter
      *
      * @return  mixed
      */
     protected function callFunction(string $name, array $get, array $post, $param = null)
     {
-        if (isset($this->functions[$name]) && is_callable($this->functions[$name])) {
+        if (isset($this->functions[$name])) {
             if ($param !== null) {
                 return call_user_func($this->functions[$name], $param, $get, $post);
             }
@@ -196,7 +196,7 @@ class RestServer implements RestInterface
      *
      * @param   string   $encoding  The encoding
      */
-    private function getXML(string $encoding = 'UTF-8')
+    private function getXML(string $encoding = 'UTF-8'): void
     {
         header('Content-Type: text/xml; charset=' . $encoding);
         echo $this->rsp->toXML(true, $encoding);
@@ -207,7 +207,7 @@ class RestServer implements RestInterface
      *
      * @param   string  $encoding   The encoding
      */
-    private function getJSON(string $encoding = 'UTF-8')
+    private function getJSON(string $encoding = 'UTF-8'): void
     {
         header('Content-Type: application/json; charset=' . $encoding);
         echo json_encode($this->json, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES);

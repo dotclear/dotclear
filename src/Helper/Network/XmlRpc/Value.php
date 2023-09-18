@@ -153,7 +153,7 @@ class Value
      *
      * Returns true if <var>$array</var> is a Struct and not only an Array.
      *
-     * @param array        $array        Array
+     * @param array<mixed>|array<string, mixed>        $array        Array
      *
      * @return bool
      */

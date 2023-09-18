@@ -29,7 +29,7 @@ class BasicServer
     /**
      * Server methods
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $callbacks = [];
 
@@ -57,7 +57,7 @@ class BasicServer
     /**
      * Server capabilities
      *
-     * @var array
+     * @var array<string, array<string, mixed>>
      */
     protected $capabilities;
 
@@ -201,8 +201,8 @@ class BasicServer
      *
      * This method calls the given XML-RPC method with arguments.
      *
-     * @param string       $methodname      Method name
-     * @param array        $args            Method arguments
+     * @param string                        $methodname      Method name
+     * @param array<int|string, mixed>      $args            Method arguments
      *
      * @return mixed
      */
@@ -341,7 +341,7 @@ class BasicServer
      *
      * Returns server capabilities
      *
-     * @return array
+     * @return array<string, array<string, mixed>>
      */
     protected function getCapabilities(): array
     {
@@ -353,7 +353,7 @@ class BasicServer
      *
      * Returns all server methods
      *
-     * @return array
+     * @return array<string>
      */
     protected function listMethods(): array
     {
@@ -369,9 +369,9 @@ class BasicServer
      *
      *  @see http://www.xmlrpc.com/discuss/msgReader$1208
      *
-     * @param array        $methodcalls        Array of methods
+     * @param array<array<string, mixed>>        $methodcalls        Array of methods
      *
-     * @return array
+     * @return array<int|string, mixed>
      */
     protected function multiCall(array $methodcalls): array
     {

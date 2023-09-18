@@ -23,7 +23,7 @@ class ClientMulticall extends Client
     /**
      * Stack of methods to be called
      *
-     * @var        array
+     * @var        array<int, array<string, mixed>>
      */
     protected $calls = [];
 
@@ -46,7 +46,7 @@ class ClientMulticall extends Client
      * @param string    $method
      * @param mixed     $args
      */
-    public function addCall(string $method, ...$args)
+    public function addCall(string $method, ...$args): void
     {
         $this->calls[] = [
             'methodName' => $method,
