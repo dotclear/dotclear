@@ -128,7 +128,7 @@ class Auth implements AuthInterface
     /**
      * Permission types.
      *
-     * @var     array   $perm_types
+     * @var     array<string, string>   $perm_types
      */
     protected $perm_types;
 
@@ -626,17 +626,29 @@ class Auth implements AuthInterface
         return $res;
     }
 
-    public function makePermissions($list): string
+    /**
+     * Makes permissions.
+     *
+     * @param      array<string>  $list   The list
+     *
+     * @return     string
+     */
+    public function makePermissions(array $list): string
     {
         return implode(',', $list);
     }
 
+    /**
+     * Gets the permissions types.
+     *
+     * @return     array<string, string>  The permissions types.
+     */
     public function getPermissionsTypes(): array
     {
         return $this->perm_types;
     }
 
-    public function setPermissionType(string $name, string $title)
+    public function setPermissionType(string $name, string $title): void
     {
         $this->perm_types[$name] = $title;
     }
@@ -674,6 +686,15 @@ class Auth implements AuthInterface
         return $key;
     }
 
+    /**
+     * Recover user password
+     *
+     * @param      string     $recover_key  The recover key
+     *
+     * @throws     Exception
+     *
+     * @return     array<string, string>
+     */
     public function recoverUserPassword(string $recover_key): array
     {
         $sql = new SelectStatement();

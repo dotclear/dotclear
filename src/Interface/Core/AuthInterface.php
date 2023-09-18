@@ -310,7 +310,7 @@ interface AuthInterface
     /**
      * Makes permissions string from an array.
      *
-     * @param   array<string, mixed>   $list   The list
+     * @param   array<string>   $list   The list
      *
      * @return  string
      */
@@ -319,7 +319,7 @@ interface AuthInterface
     /**
      * Returns <var>perm_types</var> property content.
      *
-     * @return  array
+     * @return  array<string, string>
      */
     public function getPermissionsTypes(): array;
 
@@ -329,7 +329,7 @@ interface AuthInterface
      * @param   string  $name   Permission name
      * @param   string  $title  Permission title
      */
-    public function setPermissionType(string $name, string $title);
+    public function setPermissionType(string $name, string $title): void;
 
     //@}
 
@@ -358,7 +358,7 @@ interface AuthInterface
      *
      * @param   string  $recover_key    Recovery key
      *
-     * @return  array
+     * @return  array<string, string>
      */
     public function recoverUserPassword(string $recover_key): array;
 
