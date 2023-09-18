@@ -36,10 +36,10 @@ interface CategoriesInterface
     /**
      * Gets the category children.
      *
-     * @param   int     $start      The start
-     * @param   int     $id         The identifier
-     * @param   string  $sort       The sort
-     * @param   array   $fields     The fields
+     * @param   int             $start      The start
+     * @param   int             $id         The identifier
+     * @param   string          $sort       The sort
+     * @param   array<string>   $fields     The fields
      *
      * @return  MetaRecord  The children.
      */
@@ -48,8 +48,8 @@ interface CategoriesInterface
     /**
      * Gets the parents.
      *
-     * @param   int     $id         The category identifier
-     * @param   array   $fields     The fields
+     * @param   int             $id         The category identifier
+     * @param   array<string>   $fields     The fields
      *
      * @return  MetaRecord  The parents.
      */
@@ -58,8 +58,8 @@ interface CategoriesInterface
     /**
      * Gets the parent.
      *
-     * @param   int     $id         The category identifier
-     * @param   array   $fields     The fields
+     * @param   int             $id         The category identifier
+     * @param   array<string>   $fields     The fields
      *
      * @return  MetaRecord  The parent.
      */

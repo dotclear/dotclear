@@ -451,7 +451,7 @@ class Handler extends AbstractHandler
     /**
      * Get a CONCAT fragment
      *
-     * @param      mixed  ...$args  The arguments
+     * @param   array<mixed>     $args
      *
      * @return     string
      */
