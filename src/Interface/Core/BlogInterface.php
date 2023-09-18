@@ -300,14 +300,14 @@ interface BlogInterface
     /**
      * Returns an array of available entry status codes and names.
      *
-     * @return  array   Simple array with codes in keys and names in value.
+     * @return  array<int, string>   Simple array with int codes in keys and string names in value.
      */
     public function getAllPostStatus(): array;
 
     /**
      * Returns an array of available comment status codes and names.
      *
-     * @return  array   Simple array with codes in keys and names in value
+     * @return  array<int, string>   Simple array with int codes in keys and string names in value
      */
     public function getAllCommentStatus(): array;
 
@@ -381,7 +381,7 @@ interface BlogInterface
      * - start: start with a given category
      * - level: categories level to retrieve
      *
-     * @param   array|ArrayObject   $params     The parameters
+     * @param   array<string, mixed>|ArrayObject<string, mixed>   $params     The parameters
      *
      * @return  MetaRecord  The categories.
      */
@@ -533,9 +533,9 @@ interface BlogInterface
      * Please note that on every cat_id or cat_url, you can add ?not to exclude
      * the category and ?sub to get subcategories.
      *
-     * @param   array|ArrayObject   $params     Parameters
-     * @param   bool               $count_only  Only counts results
-     * @param   SelectStatement     $ext_sql    Optional SelectStatement instance
+     * @param   array<string, mixed>|ArrayObject<string, mixed>     $params     Parameters
+     * @param   bool                                                $count_only Only counts results
+     * @param   SelectStatement                                     $ext_sql    Optional SelectStatement instance
      *
      * @return  MetaRecord  A record with some more capabilities
      */
@@ -567,7 +567,7 @@ interface BlogInterface
      * - lang: retrieve post count for selected lang
      * - order: order statement (default post_lang DESC)
      *
-     * @param   array|ArrayObject   $params     The parameters
+     * @param   array<string, mixed>|ArrayObject<string, mixed>   $params     The parameters
      *
      * @return  MetaRecord  The langs.
      */
@@ -589,7 +589,7 @@ interface BlogInterface
      * - previous: Get date before match
      * - order: Sort by date "ASC" or "DESC"
      *
-     * @param   array|ArrayObject   $params     The parameters
+     * @param   array<string, mixed>|ArrayObject<string, mixed>   $params     The parameters
      *
      * @return  MetaRecord  The dates.
      */
@@ -784,9 +784,9 @@ interface BlogInterface
      * - order: Order of results (default "ORDER BY comment_dt DES")
      * - limit: Limit parameter
      *
-     * @param   array|ArrayObject   $params         Parameters
-     * @param   bool                $count_only     Only counts results
-     * @param   SelectStatement     $ext_sql        Optional SelectStatement instance
+     * @param   array<string, mixed>|ArrayObject<string, mixed>     $params         Parameters
+     * @param   bool                                                $count_only     Only counts results
+     * @param   SelectStatement                                     $ext_sql        Optional SelectStatement instance
      *
      * @return  MetaRecord  A record with some more capabilities
      */

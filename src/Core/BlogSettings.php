@@ -44,7 +44,7 @@ class BlogSettings implements BlogSettingsInterface
     /**
      * Associative namespaces array.
      *
-     * @var     array   $workspaces
+     * @var     array<string, BlogWorkspaceInterface>   $workspaces
      */
     protected $workspaces = [];
 
@@ -85,7 +85,7 @@ class BlogSettings implements BlogSettingsInterface
 
         try {
             $rs = $sql->select();
-        } catch (Exception $e) {
+        } catch (Exception) {
             trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
         }
 
@@ -176,6 +176,11 @@ class BlogSettings implements BlogSettingsInterface
         return array_key_exists($workspace, $this->workspaces);
     }
 
+    /**
+     * Dumps workspaces.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpWorkspaces(): array
     {
         return $this->workspaces;
@@ -202,6 +207,11 @@ class BlogSettings implements BlogSettingsInterface
         return $this->delWorkspace($namespace);
     }
 
+    /**
+     * Dumps namespaces.
+     *
+     * @return  array<string, array<string, mixed>>
+     */
     public function dumpNamespaces(): array
     {
         App::deprecated()->set(self::class . '->dumpWorkspaces()', '2.28');

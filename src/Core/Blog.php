@@ -170,14 +170,14 @@ class Blog implements BlogInterface
     /**
      * Stack of entries statuses.
      *
-     * @var     array   $post_status
+     * @var     array<int, string>   $post_status
      */
     private array $post_status = [];
 
     /**
      * Stack of comment statuses.
      *
-     * @var     array   $comment_status
+     * @var     array<int, string>   $comment_status
      */
     private array $comment_status = [];
 
@@ -235,15 +235,15 @@ class Blog implements BlogInterface
             $themes_path = Path::fullFromRoot($settings->system->themes_path, App::config()->dotclearRoot());
             $public_path = Path::fullFromRoot($settings->system->public_path, App::config()->dotclearRoot());
 
-            $this->post_status[(string) self::POST_PENDING]     = __('Pending');
-            $this->post_status[(string) self::POST_SCHEDULED]   = __('Scheduled');
-            $this->post_status[(string) self::POST_UNPUBLISHED] = __('Unpublished');
-            $this->post_status[(string) self::POST_PUBLISHED]   = __('Published');
+            $this->post_status[self::POST_PENDING]     = __('Pending');
+            $this->post_status[self::POST_SCHEDULED]   = __('Scheduled');
+            $this->post_status[self::POST_UNPUBLISHED] = __('Unpublished');
+            $this->post_status[self::POST_PUBLISHED]   = __('Published');
 
-            $this->comment_status[(string) self::COMMENT_JUNK]        = __('Junk');
-            $this->comment_status[(string) self::COMMENT_PENDING]     = __('Pending');
-            $this->comment_status[(string) self::COMMENT_UNPUBLISHED] = __('Unpublished');
-            $this->comment_status[(string) self::COMMENT_PUBLISHED]   = __('Published');
+            $this->comment_status[self::COMMENT_JUNK]        = __('Junk');
+            $this->comment_status[self::COMMENT_PENDING]     = __('Pending');
+            $this->comment_status[self::COMMENT_UNPUBLISHED] = __('Unpublished');
+            $this->comment_status[self::COMMENT_PUBLISHED]   = __('Published');
         }
 
         // Initialize deprecated public readonly properties
@@ -440,7 +440,7 @@ class Blog implements BlogInterface
      */
     public function getPostStatus(int $status): string
     {
-        return $this->post_status[$status] ?? $this->post_status[(string) self::POST_UNPUBLISHED];
+        return $this->post_status[$status] ?? $this->post_status[self::POST_UNPUBLISHED];
     }
 
     /**
@@ -615,7 +615,7 @@ class Blog implements BlogInterface
      * - start: start with a given category
      * - level: categories level to retrieve
      *
-     * @param      array|ArrayObject   $params  The parameters
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $params  The parameters
      *
      * @return     MetaRecord  The categories.
      */
@@ -1162,9 +1162,9 @@ class Blog implements BlogInterface
      * Please note that on every cat_id or cat_url, you can add ?not to exclude
      * the category and ?sub to get subcategories.
      *
-     * @param    array|ArrayObject  $params        Parameters
-     * @param    bool               $count_only    Only counts results
-     * @param    SelectStatement  $ext_sql       Optional SelectStatement instance
+     * @param    array<string, mixed>|ArrayObject<string, mixed>    $params        Parameters
+     * @param    bool                                               $count_only    Only counts results
+     * @param    SelectStatement                                    $ext_sql       Optional SelectStatement instance
      *
      * @return   MetaRecord    A record with some more capabilities
      */
@@ -1500,7 +1500,7 @@ class Blog implements BlogInterface
      * - lang: retrieve post count for selected lang
      * - order: order statement (default post_lang DESC)
      *
-     * @param      array|ArrayObject   $params  The parameters
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $params  The parameters
      *
      * @return     MetaRecord  The langs.
      */
@@ -1569,7 +1569,7 @@ class Blog implements BlogInterface
      * - previous: Get date before match
      * - order: Sort by date "ASC" or "DESC"
      *
-     * @param      array|ArrayObject   $params  The parameters
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $params  The parameters
      *
      * @return     MetaRecord  The dates.
      */
@@ -2560,9 +2560,9 @@ class Blog implements BlogInterface
      * - order: Order of results (default "ORDER BY comment_dt DES")
      * - limit: Limit parameter
      *
-     * @param    array|ArrayObject  $params        Parameters
-     * @param    bool               $count_only    Only counts results
-     * @param    SelectStatement    $ext_sql       Optional SelectStatement instance
+     * @param    array<string, mixed>|ArrayObject<string, mixed>    $params        Parameters
+     * @param    bool                                               $count_only    Only counts results
+     * @param    SelectStatement                                    $ext_sql       Optional SelectStatement instance
      *
      * @return   MetaRecord    A record with some more capabilities
      */

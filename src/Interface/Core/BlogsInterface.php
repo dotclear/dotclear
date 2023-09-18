@@ -46,20 +46,20 @@ interface BlogsInterface
     /**
      * Returns all blog permissions (users).
      *
-     * Retrun permissions as an array which looks like:
+     * Return permissions as an array which looks like:
      * - [user_id]
-     * - [name] => User name
-     * - [firstname] => User firstname
-     * - [displayname] => User displayname
-     * - [super] => (true|false) super admin
-     * - [p]
-     * - [permission] => true
-     * - ...
+     *   - [name] => User name
+     *   - [firstname] => User firstname
+     *   - [displayname] => User displayname
+     *   - [super] => (true|false) super admin
+     *   - [p]
+     *   - [permission] => true
+     *   - ...
      *
      * @param 	string  $id 			The blog identifier
      * @param 	bool 	$with_super 	Includes super admins in result
      *
-     * @return 	array 	The blog permissions.
+     * @return 	array<string, array<string, mixed>> 	The blog permissions.
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array;
 
@@ -82,8 +82,8 @@ interface BlogsInterface
      * - <var>q</var>: Search string on blog_id, blog_name and blog_url
      * - <var>limit</var>: limit results
      *
-     * @param 	array|ArrayObject 	$params 		The parameters
-     * @param 	bool 				$count_only 	Count only results
+     * @param 	array<string, mixed>|ArrayObject<string, mixed> 	$params 		The parameters
+     * @param 	bool 				                                $count_only 	Count only results
      *
      * @return 	MetaRecord 	The blogs.
      */

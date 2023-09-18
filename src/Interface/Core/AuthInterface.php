@@ -209,7 +209,8 @@ interface AuthInterface
     /**
      * Calls <var>$fn</var> function with super admin rights.
      *
-     * @param   callable|array  $fn     Callback function
+     * @param   callable|array<string, string>  $fn     Callback function
+     * @param   mixed                           $args   Callback arguments
      *
      * @return  mixed   The function result
      */
@@ -240,7 +241,7 @@ interface AuthInterface
      *
      * @param   string  $blog_id    Blog ID
      *
-     * @return  false|array
+     * @return  false|array<string, bool>
      */
     public function getPermissions(?string $blog_id);
 
@@ -275,7 +276,7 @@ interface AuthInterface
      *
      * @return  mixed
      */
-    public function getInfo($information);
+    public function getInfo(string $information);
 
     /**
      * Returns a specific user option
@@ -284,12 +285,12 @@ interface AuthInterface
      *
      * @return  mixed
      */
-    public function getOption($option);
+    public function getOption(string $option);
 
     /**
      * Returns all user options in an associative array.
      *
-     * @return  array
+     * @return  array<string, mixed>
      */
     public function getOptions(): array;
     //@}
@@ -302,18 +303,18 @@ interface AuthInterface
      *
      * @param   string  $level  Permissions string
      *
-     * @return  array
+     * @return  array<string, mixed>
      */
     public function parsePermissions($level): array;
 
     /**
      * Makes permissions string from an array.
      *
-     * @param   array   $list   The list
+     * @param   array<string, mixed>   $list   The list
      *
      * @return  string
      */
-    public function makePermissions($list): string;
+    public function makePermissions(array $list): string;
 
     /**
      * Returns <var>perm_types</var> property content.
