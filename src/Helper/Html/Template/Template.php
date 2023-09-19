@@ -548,10 +548,50 @@ class Template
         // Remove template comments <!-- #... -->
         $fc = preg_replace('/(^\s*)?<!-- #(.*?)-->/ms', '', $fc);
 
+        # = tpl: blocks whitespace control syntax =
+        # <tpl:...> or {{tpl:...}}
+        #   No whitespace processing (original lexer behaviour)
+        #
+        # <~tpl:...> or {{~tpl:...}}
+        #   Remove whitespaces before tag, only on the current line
+        #   (stop processing at the beginning of line if reached)
+        #
+        # <tpl:...~> or {{tpl:...~}}
+        #   Remove whitespaces after tag, up to and including one newline
+        #   (stop processing at the end of line if reached)
+        #
+
+        # whitespace range definition - \s is not used on purpose here,
+        # because the matching is done using the multiline option. Using 
+        # \s would consider newlines as valid whitespace.
+        $ws = '[ \t]*';
+
+        # wsnl adds an optional newline at the end of the previous
+        # whitespace definition.
+        $wsnl = $ws . "\n?";
+
+        $blocks_re = '#'
+                   # opening <tpl> blocks
+                   . '(<tpl:\w+[^~>]*>)|'                    # no processing, plain block
+                   . "(<tpl:\w+[^~>]*~>)$wsnl|"              # <tpl:...~>
+                   . "$ws(<~tpl:\w+[^~>]*>)|"                # <~tpl:...>
+                   . "$ws(<~tpl:\w+[^~>]*~>)$wsnl|"          # <~tpl:...~>
+                   # closing </tpl> blocks 
+                   . '(</tpl:\w+[^~]>)|'                     # no processing, plain block
+                   . "(</tpl:\w+~>)$wsnl|"                   # </tpl:...~>
+                   . "$ws(</~tpl:\w+[^~]>)|"                 # </~tpl:...>
+                   . "$ws(</~tpl:\w+~>)$wsnl|"               # </~tpl:...~>
+                   # brace {{tpl}} blocks
+                   . '({{tpl:\w+[^~}]*}})|'                  # no processing, plain block
+                   . "({{tpl:\w+[^~}]*~}})$wsnl|"            # {{tpl:...~}}
+                   . "$ws({{~tpl:\w+[^~}]*}})|"              # {{~tpl:...}}
+                   . "$ws({{~tpl:\w+[^~}]*~}})$wsnl"         # {{~tpl:...~}}
+                   . '#msu';
+
         // Lexer part : split file into small pieces
         // each array entry will be either a tag or plain text
         $blocks = preg_split(
-            '#(<tpl:\w+[^>]*>)|(</tpl:\w+>)|({{tpl:\w+[^}]*}})#msu',
+            $blocks_re,
             $fc,
             -1,
             PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY
@@ -563,7 +603,7 @@ class Template
         $errors            = [];
         $this->parent_file = '';
         foreach ($blocks as $block) {
-            $isblock = preg_match('#<tpl:(\w+)(?:(\s+.*?)>|>)|</tpl:(\w+)>|{{tpl:(\w+)(\s(.*?))?}}#ms', $block, $match);
+            $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
             if ($isblock == 1) {
                 if (substr($match[0], 1, 1) == '/') {
                     // Closing tag, check if it matches current opened node
