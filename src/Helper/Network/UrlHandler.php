@@ -284,7 +284,7 @@ class UrlHandler
     /**
      * Parse query string part of server URI
      *
-     * @return     array
+     * @return     array<string, string|null>
      */
     protected function parseQueryString(): array
     {
@@ -312,7 +312,7 @@ class UrlHandler
     /**
      * Sort registered URL on their representations descending order
      */
-    protected function sortTypes()
+    protected function sortTypes(): void
     {
         $representations = [];
         foreach ($this->types as $k => $v) {

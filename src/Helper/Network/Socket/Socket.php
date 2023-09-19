@@ -211,7 +211,7 @@ class Socket
      * $s->close();
      * </code>
      *
-     * @param   string|array    $data        Data to send
+     * @param   string|array<string>    $data        Data to send
      *
      * @return    Iterator|false
      */
@@ -234,6 +234,8 @@ class Socket
      * Flush buffer
      *
      * Flushes socket write buffer.
+     *
+     * @return  void|false
      */
     public function flush()
     {
@@ -265,7 +267,7 @@ class Socket
      *
      * @return    bool
      */
-    public function isOpen()
+    public function isOpen(): bool
     {
         return is_resource($this->_handle);
     }

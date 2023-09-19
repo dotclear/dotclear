@@ -92,7 +92,7 @@ class HttpClient extends Socket
     /**
      * Stack of cookies sent
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $cookies = [];
 
@@ -106,7 +106,7 @@ class HttpClient extends Socket
     /**
      * HTTP accept mime-types
      *
-     * @var array
+     * @var array<string>
      */
     protected $mime_types = [
         'text/xml',
@@ -155,7 +155,7 @@ class HttpClient extends Socket
     /**
      * HTTP optional headers
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $more_headers = [];
 
@@ -269,7 +269,7 @@ class HttpClient extends Socket
     /**
      * Response headers
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $headers = [];
 
@@ -345,8 +345,8 @@ class HttpClient extends Socket
      * <var>$data</var> can be an array of key value pairs, in which case a
      * matching query string will be constructed. Returns true on success.
      *
-     * @param string            $path            Request path
-     * @param bool|array        $data            Request parameters
+     * @param string                        $path            Request path
+     * @param bool|array<string, mixed>     $data            Request parameters
      *
      * @return bool
      */
@@ -370,9 +370,9 @@ class HttpClient extends Socket
      * <var>$data</var> can be an array of key value pairs, in which case a
      * matching query string will be constructed. Returns true on success.
      *
-     * @param string        $path            Request path
-     * @param array|string  $data            Request parameters
-     * @param string        $charset         Request charset
+     * @param string                        $path            Request path
+     * @param array<string, mixed>|string   $data            Request parameters
+     * @param string                        $charset         Request charset
      *
      * @return bool
      */
@@ -394,7 +394,7 @@ class HttpClient extends Socket
      * Prepares Query String for HTTP request. <var>$data</var> is an associative
      * array of arguments.
      *
-     * @param array|string        $data            Query data
+     * @param array<string, mixed>|string        $data            Query data
      *
      * @return string
      */
@@ -576,7 +576,7 @@ class HttpClient extends Socket
      *
      * Prepares HTTP request and returns an array of HTTP headers.
      *
-     * @return array
+     * @return array<string>
      */
     protected function buildRequest(): array
     {
@@ -733,7 +733,7 @@ class HttpClient extends Socket
      *
      * Returns the HTTP headers returned by the server as an associative array.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function getHeaders(): array
     {
@@ -764,7 +764,7 @@ class HttpClient extends Socket
      *
      * Returns an array of cookies set by the server.
      *
-     * @return array
+     * @return array<string, string>
      */
     public function getCookies(): array
     {
@@ -826,7 +826,7 @@ class HttpClient extends Socket
      *
      * @param int    $timeout                Connection timeout (in seconds)
      */
-    public function setTimeout(int $timeout)
+    public function setTimeout(int $timeout): void
     {
         $this->timeout = abs($timeout);
     }
@@ -885,7 +885,7 @@ class HttpClient extends Socket
      * Sets the cookies to be sent in the request. Takes an array of name value
      * pairs.
      *
-     * @param array        $cookies            Cookies array
+     * @param array<string, string>        $cookies            Cookies array
      */
     public function setCookies(array $cookies): void
     {
@@ -1044,9 +1044,9 @@ class HttpClient extends Socket
      * Static method designed for running simple POST requests. Returns content or
      * false on failure.
      *
-     * @param string    $url               Request URL
-     * @param array     $data              Array of parameters
-     * @param string    $output            Optionnal output stream
+     * @param string                $url               Request URL
+     * @param array<string, mixed>  $data              Array of parameters
+     * @param string                $output            Optionnal output stream
      *
      * @return string|false
      */
@@ -1154,7 +1154,7 @@ class HttpClient extends Socket
      * @param string        $msg               Debug message
      * @param mixed         $object            Variable to print_r
      */
-    protected function debug(string $msg, $object = false)
+    protected function debug(string $msg, $object = false): void
     {
         if ($this->debug) {
             echo "-----------------------------------------------------------\n";
