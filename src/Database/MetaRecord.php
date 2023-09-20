@@ -258,7 +258,7 @@ class MetaRecord implements Iterator, Countable
      * while ($rs->fetch()) {
      *     echo $rs->field1;
      * }
-     * ``
+     * ```
      *
      * @return bool
      */

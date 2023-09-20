@@ -49,7 +49,7 @@ class Cursor
      *    $cur->insert(); // Insert field ...
      *
      *    $cur->update('WHERE field3 = 4'); // ... or update field
-     * ``
+     * ```
      *
      * @see AbstractHandler::openCursor()
      *
