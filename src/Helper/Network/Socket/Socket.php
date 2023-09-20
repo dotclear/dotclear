@@ -199,7 +199,7 @@ class Socket
      *
      * Example:
      *
-     * <code>
+     * ```php
      * $s = new Socket('www.google.com',80,2);
      * $s->open();
      * $data = [
@@ -209,7 +209,7 @@ class Socket
      *     echo $v."\n";
      * }
      * $s->close();
-     * </code>
+     * ```
      *
      * @param   string|array<string>    $data        Data to send
      *
