@@ -20,140 +20,140 @@ class Pager
      *
      * @var int
      */
-    protected $env;
+    protected int $env;
 
     /**
      * Total number of elements
      *
      * @var int
      */
-    protected $nb_elements;
+    protected int $nb_elements;
 
     /**
      * Number of elements per page
      *
      * @var int
      */
-    protected $nb_per_page;
+    protected int $nb_per_page;
 
     /**
      * Number of pages per group
      *
      * @var int
      */
-    protected $nb_pages_per_group;
+    protected int $nb_pages_per_group;
 
     /**
      * Total number of pages
      *
      * @var int
      */
-    protected $nb_pages;
+    protected int $nb_pages;
 
     /**
-     * Total number of grourps
+     * Total number of groups
      *
      * @var int
      */
-    protected $nb_groups;
+    protected int $nb_groups;
 
     /**
      * Current group index
      *
      * @var int
      */
-    protected $env_group;
+    protected int $env_group;
 
     /**
      * First page index of current group
      *
      * @var int
      */
-    protected $index_group_start;
+    protected int $index_group_start;
 
     /**
      * Last page index of current group
      *
      * @var int
      */
-    protected $index_group_end;
+    protected int $index_group_end;
 
     /**
      * Page URI
      *
      * @var string|null
      */
-    protected $page_url = null;
+    protected ?string $page_url = null;
 
     /**
      * First element index of current page
      *
      * @var int
      */
-    public $index_start;
+    public int $index_start;
 
     /**
      * Last element index of current page
      *
      * @var int
      */
-    public $index_end;
+    public int $index_end;
 
     /**
      * Base URI
      *
      * @var string|null
      */
-    public $base_url = null;
+    public ?string $base_url = null;
 
     /**
      * GET param name for current page
      *
      * @var string
      */
-    public $var_page = 'page';
+    public string $var_page = 'page';
 
     /**
      * Current page format (HTML)
      *
      * @var string
      */
-    public $html_cur_page = '<strong>%s</strong>';
+    public string $html_cur_page = '<strong>%s</strong>';
 
     /**
      * Link separator
      *
      * @var string
      */
-    public $html_link_sep = '-';
+    public string $html_link_sep = '-';
 
     /**
      * Previous HTML code
      *
      * @var string
      */
-    public $html_prev = '&#171;prev.';
+    public string $html_prev = '&#171;prev.';
 
     /**
      * Next HTML code
      *
      * @var string
      */
-    public $html_next = 'next&#187;';
+    public string $html_next = 'next&#187;';
 
     /**
      * Next group HTML code
      *
      * @var string
      */
-    public $html_prev_grp = '...';
+    public string $html_prev_grp = '...';
 
     /**
      * Previous group HTML code
      *
      * @var string
      */
-    public $html_next_grp = '...';
+    public string $html_next_grp = '...';
 
     /**
      * Constructor
@@ -264,7 +264,7 @@ class Pager
     /**
      * Sets the page URI
      */
-    protected function setURL()
+    protected function setURL(): void
     {
         if ($this->base_url !== null) {
             $this->page_url = $this->base_url;
@@ -295,7 +295,12 @@ class Pager
         $this->page_url = $url;
     }
 
-    public function debug()
+    /**
+     * Return current properties values (for debug purpose)
+     *
+     * @return     array<mixed>
+     */
+    public function debug(): array
     {
         return [
             $this->nb_per_page,

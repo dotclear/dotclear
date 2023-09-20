@@ -21,7 +21,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
     /**
      * Stack of blocks
      *
-     * @var        array
+     * @var        array<string, mixed>
      */
     protected static $stack = [];
 
@@ -54,7 +54,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
     /**
      * resets blocks stack
      */
-    public static function reset()
+    public static function reset(): void
     {
         self::$stack         = [];
         self::$current_block = null;
@@ -103,8 +103,8 @@ class TplNodeBlockDefinition extends TplNodeBlock
     /**
      * Block definition specific constructor : keep block name in mind
      *
-     * @param string    $tag  Current tag (might be "Block")
-     * @param array     $attr Tag attributes (must contain "name" attribute)
+     * @param string                $tag  Current tag (might be "Block")
+     * @param array<string, mixed>  $attr Tag attributes (must contain "name" attribute)
      */
     public function __construct(string $tag, array $attr)
     {

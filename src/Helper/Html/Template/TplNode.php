@@ -29,7 +29,7 @@ class TplNode
     /**
      * Node children
      *
-     * @var ArrayObject
+     * @var ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>
      */
     protected $children;
 
@@ -72,7 +72,7 @@ class TplNode
      *
      * @param      TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent  $child  The child
      */
-    public function addChild($child)
+    public function addChild($child): void
     {
         $this->children[] = $child;
         $child->setParent($this);
@@ -81,9 +81,9 @@ class TplNode
     /**
      * Set current node children.
      *
-     * @param      ArrayObject  $children  The children
+     * @param      ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>  $children  The children
      */
-    public function setChildren($children)
+    public function setChildren($children): void
     {
         $this->children = $children;
         foreach ($this->children as $child) {
@@ -98,7 +98,7 @@ class TplNode
      *
      * @param      null|TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeValue|TplNodeValueParent  $parent  The parent
      */
-    protected function setParent($parent)
+    protected function setParent($parent): void
     {
         $this->parentNode = $parent;
     }

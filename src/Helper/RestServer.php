@@ -32,7 +32,7 @@ class RestServer implements RestInterface
      *
      * @var     array<string, mixed>  $json
      */
-    public array $json;
+    public ?array $json = null;
 
     /**
      * Server's functions.

@@ -36,7 +36,7 @@ class Table extends Component
      *
      * @param      Caption|null  $caption  The legend
      */
-    public function attachCaption(?Caption $caption)
+    public function attachCaption(?Caption $caption): void
     {
         if ($caption) {
             $this->caption($caption);
@@ -48,7 +48,7 @@ class Table extends Component
     /**
      * Detaches the caption.
      */
-    public function detachCaption()
+    public function detachCaption(): void
     {
         if (isset($this->caption)) {
             unset($this->caption);

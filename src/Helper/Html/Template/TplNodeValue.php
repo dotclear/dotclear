@@ -26,7 +26,7 @@ class TplNodeValue extends TplNode
     /**
      * Node attributes
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $attr;
 
@@ -47,9 +47,9 @@ class TplNodeValue extends TplNode
     /**
      * Constructs a new instance.
      *
-     * @param      string  $tag       The tag
-     * @param      array   $attr      The attribute
-     * @param      string  $str_attr  The string attribute
+     * @param      string                   $tag       The tag
+     * @param      array<string, mixed>     $attr      The attribute
+     * @param      string                   $str_attr  The string attribute
      */
     public function __construct(string $tag, array $attr, string $str_attr)
     {
