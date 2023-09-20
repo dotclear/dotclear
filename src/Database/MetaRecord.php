@@ -254,11 +254,11 @@ class MetaRecord implements Iterator, Countable
      *
      * This method moves index forward and return true until index is not
      * the last one. You can use it to loop over record. Example:
-     * <code>
+     * ```php
      * while ($rs->fetch()) {
      *     echo $rs->field1;
      * }
-     * </code>
+     * ```
      *
      * @return bool
      */

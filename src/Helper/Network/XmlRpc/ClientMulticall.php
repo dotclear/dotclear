@@ -23,7 +23,7 @@ class ClientMulticall extends Client
     /**
      * Stack of methods to be called
      *
-     * @var        array
+     * @var        array<int, array<string, mixed>>
      */
     protected $calls = [];
 
@@ -35,18 +35,18 @@ class ClientMulticall extends Client
      * All other arguments of this method are XML-RPC method arguments.
      *
      * Example:
-     * <code>
+     * ```php
      * use Dotclear\Helper\Network\XmlRpc\ClientMulticall;
      * $o = new Client('http://example.com/xmlrpc');
      * $o->addCall('method1','hello','world');
      * $o->addCall('method2','foo','bar');
      * $r = $o->query();
-     * </code>
+     * ```
      *
      * @param string    $method
      * @param mixed     $args
      */
-    public function addCall(string $method, ...$args)
+    public function addCall(string $method, ...$args): void
     {
         $this->calls[] = [
             'methodName' => $method,

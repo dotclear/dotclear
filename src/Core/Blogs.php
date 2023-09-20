@@ -59,6 +59,14 @@ class Blogs implements BlogsInterface
         return $r[0];
     }
 
+    /**
+     * Gets the blog permissions.
+     *
+     * @param      string  $id          The identifier
+     * @param      bool    $with_super  The with super
+     *
+     * @return     array<string, array<string, mixed>>   The blog permissions.
+     */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
         $sql = new SelectStatement();
@@ -122,6 +130,14 @@ class Blogs implements BlogsInterface
         return $this->getBlogs(['blog_id' => $id]);
     }
 
+    /**
+     * Gets the blogs.
+     *
+     * @param   array<string, mixed>|ArrayObject<string, mixed>     $params         The parameters
+     * @param   bool                                                $count_only     Count only results
+     *
+     * @return     MetaRecord         The blogs.
+     */
     public function getBlogs(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
     {
         $join  = ''; // %1$s

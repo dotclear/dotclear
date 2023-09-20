@@ -619,7 +619,7 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->addBehavior() instead
      *
      * @param      string           $behavior  The behavior
-     * @param      callable|array   $func      The function
+     * @param      callable         $func      The function
      */
     public function addBehavior(string $behavior, $func): void
     {
@@ -632,7 +632,7 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->addBehavior() instead
      *
      * @param      string           $behaviour  The behaviour
-     * @param      callable|array   $func       The function
+     * @param      callable         $func       The function
      */
     public function addBehaviour(string $behaviour, $func): void
     {

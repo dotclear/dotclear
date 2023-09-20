@@ -26,14 +26,14 @@ class UrlHandler
     /**
      * Default handler, used if requested type handler not registered
      *
-     * @var callable|array<string, string>|null
+     * @var callable|null
      */
     protected $default_handler;
 
     /**
      * Stack of error handlers
      *
-     * @var        array<string, callable|array<string, string>>    Array of callable
+     * @var        array<string, callable>    Array of callable
      */
     protected $error_handlers = [];
 
@@ -66,10 +66,10 @@ class UrlHandler
     /**
      * Register an URL handler
      *
-     * @param      string                           $type            The URI type
-     * @param      string                           $url             The base URI
-     * @param      string                           $representation  The URI representation (regex, string)
-     * @param      callable|array<string, string>   $handler         The handler
+     * @param      string       $type            The URI type
+     * @param      string       $url             The base URI
+     * @param      string       $representation  The URI representation (regex, string)
+     * @param      callable     $handler         The handler
      */
     public function register(string $type, string $url, string $representation, $handler): void
     {
@@ -83,7 +83,7 @@ class UrlHandler
     /**
      * Register the default URL handler
      *
-     * @param      callable|array<string, string>  $handler  The handler
+     * @param      callable  $handler  The handler
      */
     public function registerDefault($handler): void
     {
@@ -93,7 +93,7 @@ class UrlHandler
     /**
      * Register an error handler (prepend at the begining of the error handler stack)
      *
-     * @param      callable|array<string, string>  $handler  The handler
+     * @param      callable  $handler  The handler
      */
     public function registerError($handler): void
     {
@@ -224,7 +224,7 @@ class UrlHandler
     /**
      * Call an URL handler callback
      *
-     * @param      callable|array   $handler  The handler
+     * @param      callable         $handler  The handler
      * @param      string           $args     The arguments
      * @param      string           $type     The URL handler type
      */
@@ -284,7 +284,7 @@ class UrlHandler
     /**
      * Parse query string part of server URI
      *
-     * @return     array
+     * @return     array<string, string|null>
      */
     protected function parseQueryString(): array
     {
@@ -312,7 +312,7 @@ class UrlHandler
     /**
      * Sort registered URL on their representations descending order
      */
-    protected function sortTypes()
+    protected function sortTypes(): void
     {
         $representations = [];
         foreach ($this->types as $k => $v) {

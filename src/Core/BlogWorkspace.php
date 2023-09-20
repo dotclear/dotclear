@@ -43,21 +43,21 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Global settings.
      *
-     * @var     array   $global_settings
+     * @var     array<string, array<string, mixed>>   $global_settings
      */
     protected array $global_settings = [];
 
     /**
      * Local settings.
      *
-     * @var     array   $local_settings
+     * @var     array<string, array<string, mixed>>   $local_settings
      */
     protected $local_settings = [];
 
     /**
      * Blog settings.
      *
-     * @var     array   $setting
+     * @var     array<string, array<string, mixed>>   $setting
      */
     protected $settings = [];
 
@@ -422,16 +422,31 @@ class BlogWorkspace implements BlogWorkspaceInterface
         return $this->workspace;
     }
 
+    /**
+     * Dumps settings.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpSettings(): array
     {
         return $this->settings;
     }
 
+    /**
+     * Dumps local settings.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpLocalSettings(): array
     {
         return $this->local_settings;
     }
 
+    /**
+     * Dumps global settings.
+     *
+     * @return     array<string, array<string, mixed>>
+     */
     public function dumpGlobalSettings(): array
     {
         return $this->global_settings;

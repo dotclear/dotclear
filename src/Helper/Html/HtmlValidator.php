@@ -147,7 +147,7 @@ class HtmlValidator extends HttpClient
      * @param string    $fragment           HTML content
      * @param string    $charset            Document charset
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public static function validate(string $fragment, string $charset = 'UTF-8'): array
     {

@@ -17,7 +17,7 @@ use form;
  * @brief   List pager form helper.
  *
  * @since   2.20
- */ 
+ */
 class Pager extends HelperPager
 {
     /**
@@ -61,7 +61,7 @@ class Pager extends HelperPager
     /**
      * Sets the url.
      */
-    public function setURL()
+    public function setURL(): void
     {
         parent::setURL();
         $url = parse_url($_SERVER['REQUEST_URI']);

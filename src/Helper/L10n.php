@@ -18,16 +18,16 @@ namespace Dotclear\Helper {
         /**
          * Translations files loaded
          *
-         * @var        array
+         * @var        array<string>
          */
-        public static $files = [];
+        public static array $files = [];
 
         /**
          * Locales loaded
          *
-         * @var        array
+         * @var        array<string, string|array<string>>
          */
-        public static $locales = [];
+        public static array $locales = [];
 
         /// @name Languages properties
         //@{
@@ -35,29 +35,29 @@ namespace Dotclear\Helper {
         /**
          * { var_description }
          *
-         * @var        array
+         * @var        array<array<mixed>>
          */
-        protected static $languages_definitions = [];
+        protected static array $languages_definitions = [];
 
         /**
-         * @var        array
+         * @var        array<string, string>
          */
-        protected static $languages_name;
+        protected static array $languages_name;
 
         /**
-         * @var        array
+         * @var        array<string, string>
          */
-        protected static $languages_textdirection;
+        protected static array $languages_textdirection;
 
         /**
-         * @var        array
+         * @var        array<string, null|int>
          */
-        protected static $languages_pluralsnumber;
+        protected static array $languages_pluralsnumber;
 
         /**
-         * @var        array
+         * @var        array<string, null|string>
          */
-        protected static $languages_pluralexpression;
+        protected static array $languages_pluralexpression;
         //@}
 
         /// @name Current language properties
@@ -66,42 +66,42 @@ namespace Dotclear\Helper {
         /**
          * Language code
          *
-         * @var        string
+         * @var        string|null
          */
-        protected static $language_code;
+        protected static ?string $language_code = null;
 
         /**
          * Language name
          *
          * @var        string
          */
-        protected static $language_name;
+        protected static string $language_name;
 
         /**
          * Text direction according to a language code
          *
          * @var        string
          */
-        protected static $language_textdirection;
+        protected static string $language_textdirection;
 
         /**
          * Number of plurals according to a language code
          *
          * @var        int
          */
-        protected static $language_pluralsnumber;
+        protected static int $language_pluralsnumber;
 
         /**
          * Plural expression according to a language code
          *
          * @var        string
          */
-        protected static $language_pluralexpression;
+        protected static string $language_pluralexpression;
 
         /**
          * Find plural msgstr index from gettext expression
          *
-         * @var        callable|array
+         * @var        callable
          */
         protected static $language_pluralfunction;
         //@}
@@ -293,7 +293,7 @@ namespace Dotclear\Helper {
          *
          * @param string    $file        Filename
 
-         * @return array|false
+         * @return array<mixed>|false
          */
         public static function getPoFile(string $file)
         {
@@ -375,7 +375,7 @@ namespace Dotclear\Helper {
          *
          * @param string $file File path
          *
-         * @return array|false Parsed file
+         * @return array<mixed>|false Parsed file
          */
         public static function parsePoFile(string $file)
         {
@@ -606,7 +606,14 @@ namespace Dotclear\Helper {
             return [$headers, $entries];
         }
 
-        /* @ignore */
+        /**
+         * Clean line from .po
+         *
+         * @param      string  $type   The type
+         * @param      mixed   $_      the line
+         *
+         * @return     bool|array<string>
+         */
         protected static function cleanPoLine(string $type, $_)
         {
             $patterns = [
@@ -624,7 +631,13 @@ namespace Dotclear\Helper {
             return false;
         }
 
-        /* @ignore */
+        /**
+         * Clean string from .po
+         *
+         * @param      mixed   $_      The string
+         *
+         * @return     string
+         */
         protected static function cleanPoString($_): string
         {
             return stripslashes(str_replace(['\n', '\r\n'], "\n", $_));
@@ -635,7 +648,7 @@ namespace Dotclear\Helper {
          *
          * @param string $expression Plural form as of gettext Plural-form param
          *
-         * @return array Number of plurals and cleaned plural expression
+         * @return array<int, string> Number of plurals and cleaned plural expression
          */
         public static function parsePluralExpression(string $expression): array
         {
@@ -730,7 +743,7 @@ namespace Dotclear\Helper {
          * @param bool    $flip              Flip resulting array
          * @param bool    $name_with_code    Prefix (code) to names
          *
-         * @return array
+         * @return array<string, string>
          */
         public static function getISOcodes(bool $flip = false, bool $name_with_code = false): array
         {
@@ -765,7 +778,7 @@ namespace Dotclear\Helper {
         /**
          * Get languages names
          *
-         * @return array List of languages names by languages codes
+         * @return array<string, string> List of languages names by languages codes
          */
         public static function getLanguagesName(): array
         {
@@ -793,7 +806,7 @@ namespace Dotclear\Helper {
         /**
          * Get languages text directions
          *
-         * @return array List of text directions by languages codes
+         * @return array<string, string> List of text directions by languages codes
          */
         public static function getLanguagesTextDirection(): array
         {
@@ -821,7 +834,7 @@ namespace Dotclear\Helper {
         /**
          * Get languages numbers of plurals
          *
-         * @return array List of numbers of plurals by languages codes
+         * @return array<string, int|null> List of numbers of plurals by languages codes
          */
         public static function getLanguagesPluralsNumber(): array
         {
@@ -849,7 +862,7 @@ namespace Dotclear\Helper {
         /**
          * Get languages plural expressions
          *
-         * @return array List of plural expressions by languages codes
+         * @return array<string, string|null> List of plural expressions by languages codes
          */
         public static function getLanguagesPluralExpression(): array
         {
@@ -891,7 +904,7 @@ namespace Dotclear\Helper {
          * @param integer   $type Type of definition
          * @param string    $default Default value if definition is empty
          *
-         * @return array    List of requested definition by languages codes
+         * @return array<string, mixed>    List of requested definition by languages codes
          */
         protected static function getLanguagesDefinitions(int $type, string $default = ''): array
         {

@@ -41,14 +41,14 @@ class Template
     /**
      * Stack of node blocks callbacks
      *
-     * @var        array
+     * @var        array<string, callable|null>
      */
     protected $blocks = [];
 
     /**
      * Stack of node values callbacks
      *
-     * @var        array
+     * @var        array<string, callable|null>
      */
     protected $values = [];
 
@@ -62,21 +62,21 @@ class Template
     /**
      * Unknown node value callback
      *
-     * @var        callable|array|null
+     * @var        callable|null
      */
     protected $unknown_value_handler = null;
 
     /**
      * Unknown node block callback
      *
-     * @var        callable|array|null
+     * @var        callable|null
      */
     protected $unknown_block_handler = null;
 
     /**
      * Stack of template file paths
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $tpl_path = [];
 
@@ -99,14 +99,14 @@ class Template
     /**
      * Stack of compiled template files
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $compile_stack = [];
 
     /**
      * Stack of parent template files
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $parent_stack = [];
 
@@ -115,14 +115,14 @@ class Template
     /**
      * Super globals
      *
-     * @var        array
+     * @var        array<string>
      */
     protected static $superglobals = ['GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES', '_ENV', '_REQUEST', '_SESSION'];
 
     /**
      * Stacks of globals keys
      *
-     * @var        array
+     * @var        array<string>
      */
     protected static $_k;
 
@@ -160,7 +160,7 @@ class Template
      *
      * Syntax: {tpl:include src="filename"}
      *
-     * @param      array|ArrayObject  $attr   The attribute
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr   The attribute
      *
      * @return     string
      */
@@ -191,8 +191,8 @@ class Template
      *
      * Syntax: <tpl:Block name="name-of-block">[content]</tpl:Block>
      *
-     * @param      array|ArrayObject    $attr     The attribute
-     * @param      string               $content  The content
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr     The attribute
+     * @param      string                                           $content  The content
      *
      * @return     string
      */
@@ -207,7 +207,7 @@ class Template
      *
      * Arguments may be a string or an array of string
      */
-    public function setPath()
+    public function setPath(): void
     {
         $path = [];
 
@@ -231,7 +231,7 @@ class Template
     /**
      * Gets the template paths.
      *
-     * @return     array
+     * @return     array<string>
      */
     public function getPath(): array
     {
@@ -264,7 +264,7 @@ class Template
      * The callback signature must be: callback(array $attr, string &$content)
      *
      * @param      string               $name      The name
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null        $callback  The callback
      *
      * @throws     Exception
      */
@@ -283,7 +283,7 @@ class Template
      * The callback signature must be: callback(array $attr [, string $str_attr])
      *
      * @param      string               $name      The name
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null        $callback  The callback
      *
      * @throws     Exception
      */
@@ -337,7 +337,7 @@ class Template
      *
      * @param      string  $name   The value name
      *
-     * @return     callable|array|false    The block callback.
+     * @return     callable|false    The block callback.
      */
     public function getValueCallback(string $name)
     {
@@ -353,7 +353,7 @@ class Template
      *
      * @param      string  $name   The block name
      *
-     * @return     callable|array|false    The block callback.
+     * @return     callable|false    The block callback.
      */
     public function getBlockCallback(string $name)
     {
@@ -367,7 +367,7 @@ class Template
     /**
      * Gets the node blocks list.
      *
-     * @return     array  The blocks list.
+     * @return     array<string>  The blocks list.
      */
     public function getBlocksList(): array
     {
@@ -377,7 +377,7 @@ class Template
     /**
      * Gets the node values list.
      *
-     * @return     array  The values list.
+     * @return     array<string>  The values list.
      */
     public function getValuesList(): array
     {
@@ -548,10 +548,50 @@ class Template
         // Remove template comments <!-- #... -->
         $fc = preg_replace('/(^\s*)?<!-- #(.*?)-->/ms', '', $fc);
 
+        # = tpl: blocks whitespace control syntax =
+        # <tpl:...> or {{tpl:...}}
+        #   No whitespace processing (original lexer behaviour)
+        #
+        # <~tpl:...> or {{~tpl:...}}
+        #   Remove whitespaces before tag, only on the current line
+        #   (stop processing at the beginning of line if reached)
+        #
+        # <tpl:...~> or {{tpl:...~}}
+        #   Remove whitespaces after tag, up to and including one newline
+        #   (stop processing at the end of line if reached)
+        #
+
+        # whitespace range definition - \s is not used on purpose here,
+        # because the matching is done using the multiline option. Using
+        # \s would consider newlines as valid whitespace.
+        $ws = '[ \t]*';
+
+        # wsnl adds an optional newline at the end of the previous
+        # whitespace definition.
+        $wsnl = $ws . "\n?";
+
+        $blocks_re = '#'
+                   # opening <tpl> blocks
+                   . '(<tpl:\w+[^~>]*>)|'                    # no processing, plain block
+                   . "(<tpl:\w+[^~>]*~>)$wsnl|"              # <tpl:...~>
+                   . "$ws(<~tpl:\w+[^~>]*>)|"                # <~tpl:...>
+                   . "$ws(<~tpl:\w+[^~>]*~>)$wsnl|"          # <~tpl:...~>
+                   # closing </tpl> blocks
+                   . '(</tpl:\w+[^~]>)|'                     # no processing, plain block
+                   . "(</tpl:\w+~>)$wsnl|"                   # </tpl:...~>
+                   . "$ws(</~tpl:\w+[^~]>)|"                 # </~tpl:...>
+                   . "$ws(</~tpl:\w+~>)$wsnl|"               # </~tpl:...~>
+                   # brace {{tpl}} blocks
+                   . '({{tpl:\w+[^~}]*}})|'                  # no processing, plain block
+                   . "({{tpl:\w+[^~}]*~}})$wsnl|"            # {{tpl:...~}}
+                   . "$ws({{~tpl:\w+[^~}]*}})|"              # {{~tpl:...}}
+                   . "$ws({{~tpl:\w+[^~}]*~}})$wsnl"         # {{~tpl:...~}}
+                   . '#msu';
+
         // Lexer part : split file into small pieces
         // each array entry will be either a tag or plain text
         $blocks = preg_split(
-            '#(<tpl:\w+[^>]*>)|(</tpl:\w+>)|({{tpl:\w+[^}]*}})#msu',
+            $blocks_re,
             $fc,
             -1,
             PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY
@@ -563,7 +603,7 @@ class Template
         $errors            = [];
         $this->parent_file = '';
         foreach ($blocks as $block) {
-            $isblock = preg_match('#<tpl:(\w+)(?:(\s+.*?)>|>)|</tpl:(\w+)>|{{tpl:(\w+)(\s(.*?))?}}#ms', $block, $match);
+            $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
             if ($isblock == 1) {
                 if (substr($match[0], 1, 1) == '/') {
                     // Closing tag, check if it matches current opened node
@@ -692,9 +732,9 @@ class Template
     /**
      * Compile block node
      *
-     * @param      string               $tag      The tag
-     * @param      array|ArrayObject    $attr     The attribute
-     * @param      string               $content  The content
+     * @param      string                                           $tag      The tag
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr     The attribute
+     * @param      string                                           $content  The content
      *
      * @return     string
      */
@@ -713,9 +753,9 @@ class Template
     /**
      * Compile value node
      *
-     * @param      string               $tag       The tag
-     * @param      array|ArrayObject    $attr      The attribute
-     * @param      string               $str_attr  The string attribute
+     * @param      string                                           $tag       The tag
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr      The attribute
+     * @param      string                                           $str_attr  The string attribute
      *
      * @return     string
      */
@@ -734,7 +774,7 @@ class Template
     /**
      * Compile value
      *
-     * @param      array   $match  The match
+     * @param      array<mixed>   $match  The match
      *
      * @return     string
      */
@@ -750,7 +790,7 @@ class Template
     /**
      * Sets the unknown value handler.
      *
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null  $callback  The callback
      */
     public function setUnknownValueHandler($callback): void
     {
@@ -760,7 +800,7 @@ class Template
     /**
      * Sets the unknown block handler.
      *
-     * @param      callable|array|null  $callback  The callback
+     * @param      callable|null  $callback  The callback
      */
     public function setUnknownBlockHandler($callback): void
     {
@@ -772,7 +812,7 @@ class Template
      *
      * @param      string  $str    The string
      *
-     * @return     array   The attributes.
+     * @return     array<string, mixed>   The attributes.
      */
     protected function getAttrs(string $str): array
     {

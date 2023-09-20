@@ -273,21 +273,21 @@ interface BlogWorkspaceInterface
     /**
      * Dumps settings.
      *
-     * @return  array
+     * @return  array<string, array<string, mixed>>
      */
     public function dumpSettings(): array;
 
     /**
      * Dumps local settings.
      *
-     * @return  array
+     * @return  array<string, array<string, mixed>>
      */
     public function dumpLocalSettings(): array;
 
     /**
      * Dumps global settings.
      *
-     * @return  array
+     * @return  array<string, array<string, mixed>>
      */
     public function dumpGlobalSettings(): array;
 

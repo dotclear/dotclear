@@ -95,7 +95,7 @@ interface BlogSettingsInterface
     /**
      * Dumps workspaces.
      *
-     * @return  array
+     * @return  array<string, BlogWorkspaceInterface>
      */
     public function dumpWorkspaces(): array;
 
@@ -124,6 +124,8 @@ interface BlogSettingsInterface
      * Alias of dumpWorkspaces.
      *
      * @deprecated  since 2.28, use self::dumpWorkspaces()  instead
+     *
+     * @return  array<string, BlogWorkspaceInterface>
      */
     public function dumpNamespaces(): array;
 }

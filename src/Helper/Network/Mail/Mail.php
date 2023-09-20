@@ -25,11 +25,11 @@ class Mail
      * be used instead of PHP mail() function. _mail() function should have the
      * same signature. Headers could be provided as a string or an array.
      *
-     * @param string            $to           Email destination
-     * @param string            $subject      Email subject
-     * @param string            $message      Email message
-     * @param string|array      $headers      Email headers
-     * @param string            $params       UNIX mail additionnal parameters
+     * @param string                $to           Email destination
+     * @param string                $subject      Email subject
+     * @param string                $message      Email message
+     * @param string|array<string>  $headers      Email headers
+     * @param string                $params       UNIX mail additionnal parameters
      *
      * @return boolean                        true on success
      */
@@ -68,7 +68,7 @@ class Mail
      *
      * @param string    $host        Hostname
      *
-     * @return array|false
+     * @return array<string, mixed>|false
      */
     public static function getMX(string $host)
     {

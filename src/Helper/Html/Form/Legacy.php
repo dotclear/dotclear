@@ -37,7 +37,7 @@ class form
      * @param  string  $class   class name
      * @param  string  $method  method name
      *
-     * @return array
+     * @return array<string, mixed>
      */
     private static function getDefaults(string $class, string $method): array
     {
@@ -67,13 +67,13 @@ class form
      * form::combo(['name', 'id'], $data, ['class' => 'maximal', 'extra_html' => 'data-language="php"']);
      * ```
      *
-     * @param string|array  $nid         Element ID and name
-     * @param mixed         $data        Select box data
-     * @param mixed         $default     Default value in select box | associative array of optional parameters
-     * @param string        $class       Element class name
-     * @param string        $tabindex    Element tabindex
-     * @param boolean       $disabled    True if disabled
-     * @param string        $extra_html  Extra HTML attributes
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $data        Select box data
+     * @param mixed                 $default     Default value in select box | associative array of optional parameters
+     * @param string                $class       Element class name
+     * @param string                $tabindex    Element tabindex
+     * @param boolean               $disabled    True if disabled
+     * @param string                $extra_html  Extra HTML attributes
      *
      * @return string
      *
@@ -120,13 +120,13 @@ class form
      * $nid could be a string or an array of name and ID.
      * $checked could be a boolean or an associative array of any of optional parameters
      *
-     * @param string|array   $nid         Element ID and name
-     * @param mixed          $value       Element value
-     * @param mixed          $checked     True if checked | associative array of optional parameters
-     * @param string         $class       Element class name
-     * @param string         $tabindex    Element tabindex
-     * @param boolean        $disabled    True if disabled
-     * @param string         $extra_html  Extra HTML attributes
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $value       Element value
+     * @param mixed                 $checked     True if checked | associative array of optional parameters
+     * @param string                $class       Element class name
+     * @param string                $tabindex    Element tabindex
+     * @param boolean               $disabled    True if disabled
+     * @param string                $extra_html  Extra HTML attributes
      *
      * @return string
      *
@@ -173,13 +173,13 @@ class form
      * $nid could be a string or an array of name and ID.
      * $checked could be a boolean or an associative array of any of optional parameters
      *
-     * @param string|array   $nid         Element ID and name
-     * @param mixed          $value       Element value
-     * @param mixed          $checked     True if checked | associative array of optional parameters
-     * @param string         $class       Element class name
-     * @param string         $tabindex    Element tabindex
-     * @param boolean        $disabled    True if disabled
-     * @param string         $extra_html  Extra HTML attributes
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $value       Element value
+     * @param mixed                 $checked     True if checked | associative array of optional parameters
+     * @param string                $class       Element class name
+     * @param string                $tabindex    Element tabindex
+     * @param boolean               $disabled    True if disabled
+     * @param string                $extra_html  Extra HTML attributes
      *
      * @return string
      *
@@ -226,17 +226,17 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array  $nid          Element ID and name
-     * @param integer       $size         Element size
-     * @param integer       $max          Element maxlength
-     * @param mixed         $default      Element value | associative array of optional parameters
-     * @param string        $class        Element class name
-     * @param string        $tabindex     Element tabindex
-     * @param boolean       $disabled     True if disabled
-     * @param string        $extra_html   Extra HTML attributes
-     * @param boolean       $required     Element is required
-     * @param string        $type         Input type
-     * @param string        $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param integer               $size         Element size
+     * @param integer               $max          Element maxlength
+     * @param mixed                 $default      Element value | associative array of optional parameters
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $type         Input type
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -301,16 +301,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array  $nid         Element ID and name
-     * @param integer       $size        Element size
-     * @param integer       $max         Element maxlength
-     * @param mixed         $default     Element value | associative array of optional parameters
-     * @param string        $class       Element class name
-     * @param string        $tabindex    Element tabindex
-     * @param boolean       $disabled    True if disabled
-     * @param string        $extra_html  Extra HTML attributes
-     * @param boolean       $required    Element is required
-     * @param string        $autocomplete Autocomplete attributes if relevant (new-password/current-password)
+     * @param string|array<string>  $nid         Element ID and name
+     * @param integer               $size        Element size
+     * @param integer               $max         Element maxlength
+     * @param mixed                 $default     Element value | associative array of optional parameters
+     * @param string                $class       Element class name
+     * @param string                $tabindex    Element tabindex
+     * @param boolean               $disabled    True if disabled
+     * @param string                $extra_html  Extra HTML attributes
+     * @param boolean               $required    Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant (new-password/current-password)
      *
      * @return string
      *
@@ -374,16 +374,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid         Element ID and name
-     * @param mixed          $size        Element size | associative array of optional parameters
-     * @param integer        $max         Element maxlength
-     * @param string         $default     Element value
-     * @param string         $class       Element class name
-     * @param string         $tabindex    Element tabindex
-     * @param boolean        $disabled    True if disabled
-     * @param string         $extra_html  Extra HTML attributes
-     * @param boolean        $required    Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $size        Element size | associative array of optional parameters
+     * @param integer               $max         Element maxlength
+     * @param string                $default     Element value
+     * @param string                $class       Element class name
+     * @param string                $tabindex    Element tabindex
+     * @param boolean               $disabled    True if disabled
+     * @param string                $extra_html  Extra HTML attributes
+     * @param boolean               $required    Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -447,16 +447,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid          Element ID and name
-     * @param mixed          $size         Element size | associative array of optional parameters
-     * @param integer        $max          Element maxlength
-     * @param string         $default      Element value
-     * @param string         $class        Element class name
-     * @param string         $tabindex     Element tabindex
-     * @param boolean        $disabled     True if disabled
-     * @param string         $extra_html   Extra HTML attributes
-     * @param boolean        $required     Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $size         Element size | associative array of optional parameters
+     * @param integer               $max          Element maxlength
+     * @param string                $default      Element value
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -520,16 +520,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid          Element ID and name
-     * @param mixed          $size         Element size | associative array of optional parameters
-     * @param integer        $max          Element maxlength
-     * @param string         $default      Element value
-     * @param string         $class        Element class name
-     * @param string         $tabindex     Element tabindex
-     * @param boolean        $disabled     True if disabled
-     * @param string         $extra_html   Extra HTML attributes
-     * @param boolean        $required     Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $size         Element size | associative array of optional parameters
+     * @param integer               $max          Element maxlength
+     * @param string                $default      Element value
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -593,16 +593,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid          Element ID and name
-     * @param mixed          $size         Element size | associative array of optional parameters
-     * @param integer        $max          Element maxlength
-     * @param string         $default      Element value (in YYYY-MM-DDThh:mm format)
-     * @param string         $class        Element class name
-     * @param string         $tabindex     Element tabindex
-     * @param boolean        $disabled     True if disabled
-     * @param string         $extra_html   Extra HTML attributes
-     * @param boolean        $required     Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $size         Element size | associative array of optional parameters
+     * @param integer               $max          Element maxlength
+     * @param string                $default      Element value (in YYYY-MM-DDThh:mm format)
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -666,16 +666,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid          Element ID and name
-     * @param mixed          $size         Element size | associative array of optional parameters
-     * @param integer        $max          Element maxlength
-     * @param string         $default      Element value (in YYYY-MM-DD format)
-     * @param string         $class        Element class name
-     * @param string         $tabindex     Element tabindex
-     * @param boolean        $disabled     True if disabled
-     * @param string         $extra_html   Extra HTML attributes
-     * @param boolean        $required     Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $size         Element size | associative array of optional parameters
+     * @param integer               $max          Element maxlength
+     * @param string                $default      Element value (in YYYY-MM-DD format)
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -739,16 +739,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid          Element ID and name
-     * @param mixed          $size         Element size | associative array of optional parameters
-     * @param integer        $max          Element maxlength
-     * @param string         $default      Element value (in hh:mm format)
-     * @param string         $class        Element class name
-     * @param string         $tabindex     Element tabindex
-     * @param boolean        $disabled     True if disabled
-     * @param string         $extra_html   Extra HTML attributes
-     * @param boolean        $required     Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $size         Element size | associative array of optional parameters
+     * @param integer               $max          Element maxlength
+     * @param string                $default      Element value (in hh:mm format)
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -812,13 +812,13 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array   $nid         Element ID and name
-     * @param mixed          $default     Element value | associative array of optional parameters
-     * @param string         $class       Element class name
-     * @param string         $tabindex    Element tabindex
-     * @param boolean        $disabled    True if disabled
-     * @param string         $extra_html  Extra HTML attributes
-     * @param boolean        $required    Element is required
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $default     Element value | associative array of optional parameters
+     * @param string                $class       Element class name
+     * @param string                $tabindex    Element tabindex
+     * @param boolean               $disabled    True if disabled
+     * @param string                $extra_html  Extra HTML attributes
+     * @param boolean               $required    Element is required
      *
      * @return string
      *
@@ -870,16 +870,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $min could be a string or an associative array of any of optional parameters
      *
-     * @param string|array   $nid          Element ID and name
-     * @param mixed          $min          Element min value (may be negative) | associative array of optional parameters
-     * @param integer        $max          Element max value (may be negative)
-     * @param string         $default      Element value
-     * @param string         $class        Element class name
-     * @param string         $tabindex     Element tabindex
-     * @param boolean        $disabled     True if disabled
-     * @param string         $extra_html   Extra HTML attributes
-     * @param boolean        $required     Element is required
-     * @param string         $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $min          Element min value (may be negative) | associative array of optional parameters
+     * @param integer               $max          Element max value (may be negative)
+     * @param string                $default      Element value
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -937,16 +937,16 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array  $nid          Element ID and name
-     * @param integer       $cols         Number of columns
-     * @param integer       $rows         Number of rows
-     * @param mixed         $default      Element value | associative array of optional parameters
-     * @param string        $class        Element class name
-     * @param string        $tabindex     Element tabindex
-     * @param boolean       $disabled     True if disabled
-     * @param string        $extra_html   Extra HTML attributes
-     * @param boolean       $required     Element is required
-     * @param string        $autocomplete Autocomplete attributes if relevant
+     * @param string|array<string>  $nid         Element ID and name
+     * @param integer               $cols         Number of columns
+     * @param integer               $rows         Number of rows
+     * @param mixed                 $default      Element value | associative array of optional parameters
+     * @param string                $class        Element class name
+     * @param string                $tabindex     Element tabindex
+     * @param boolean               $disabled     True if disabled
+     * @param string                $extra_html   Extra HTML attributes
+     * @param boolean               $required     Element is required
+     * @param string                $autocomplete Autocomplete attributes if relevant
      *
      * @return string
      *
@@ -1003,8 +1003,8 @@ class form
      * Returns HTML code for an hidden field. $nid could be a string or an array of
      * name and ID.
      *
-     * @param string|array  $nid    Element ID and name
-     * @param mixed         $value  Element value
+     * @param string|array<string>  $nid         Element ID and name
+     * @param mixed                 $value  Element value
      *
      * @return string
      *

@@ -22,13 +22,15 @@ class XmlTag
 
     /**
      * XML tag attributes
+     *
+     * @var   array<string, mixed>
      */
     private array $_attr = [];
 
     /**
      * XML tag nodes (childs)
      *
-     * @var        array
+     * @var        array<string|XmlTag>
      */
     private $_nodes = [];
 
@@ -70,8 +72,10 @@ class XmlTag
      *
      * This magic __call method appends a tag to XML tree.
      *
-     * @param string    $name        Tag name
-     * @param array     $args        Function arguments, the first one would be tag content
+     * @param string            $name        Tag name
+     * @param array<mixed>      $args        Function arguments, the first one would be tag content
+     *
+     * @return false|void
      */
     public function __call(string $name, array $args)
     {
@@ -119,7 +123,7 @@ class XmlTag
      * This method adds a new XML node. Node could be a instance of XmlTag, an
      * array of valid values, a boolean or a string.
      *
-     * @param XmlTag|array|bool|string    $node    Node value
+     * @param XmlTag|array<string, mixed>|bool|string|null    $node    Node value
      */
     public function insertNode($node = null): void
     {

@@ -42,14 +42,14 @@ class Cursor
      * {@link AbstractHandler::openCursor() openCursor()} method of your connection object.
      *
      * Example:
-     * <code>
+     * ```php
      *    $cur = $con->openCursor('table');
      *    $cur->field1 = 1;
      *    $cur->field2 = 'foo';
      *    $cur->insert(); // Insert field ...
      *
      *    $cur->update('WHERE field3 = 4'); // ... or update field
-     * </code>
+     * ```
      *
      * @see AbstractHandler::openCursor()
      *

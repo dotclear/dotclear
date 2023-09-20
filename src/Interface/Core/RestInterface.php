@@ -47,8 +47,8 @@ interface RestInterface
      *  - GET values
      *  - POST values
      *
-     * @param string                            $name        Function name
-     * @param callable|array<string, string>    $callback    Callback function
+     * @param string    $name        Function name
+     * @param callable  $callback    Callback function
      */
     public function addFunction(string $name, $callback): void;
 

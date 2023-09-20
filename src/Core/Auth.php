@@ -75,7 +75,7 @@ class Auth implements AuthInterface
     /**
      * Array with user options.
      *
-     * @var     array   $user_options
+     * @var     array<string, mixed>   $user_options
      */
     protected $user_options = [];
 
@@ -128,7 +128,7 @@ class Auth implements AuthInterface
     /**
      * Permission types.
      *
-     * @var     array   $perm_types
+     * @var     array<string, string>   $perm_types
      */
     protected $perm_types;
 
@@ -428,6 +428,14 @@ class Auth implements AuthInterface
     /// @name Sudo
     //@{
 
+    /**
+     * Calls <var>$fn</var> function with super admin rights.
+     *
+     * @param   callable    $fn     Callback function
+     * @param   mixed       $args   Callback arguments
+     *
+     * @return  mixed   The function result
+     */
     public function sudo($fn, ...$args)
     {
         if (!is_callable($fn)) {
@@ -462,6 +470,13 @@ class Auth implements AuthInterface
         return $this->user_prefs;
     }
 
+    /**
+     * Gets the permissions.
+     *
+     * @param      null|string  $blog_id  The blog identifier
+     *
+     * @return  false|array<string, bool>
+     */
     public function getPermissions(?string $blog_id)
     {
         if (isset($this->blogs[$blog_id])) {
@@ -563,20 +578,25 @@ class Auth implements AuthInterface
         return $this->user_id;
     }
 
-    public function getInfo($information)
+    public function getInfo(string $information)
     {
         if (isset($this->user_info[$information])) {
             return $this->user_info[$information];
         }
     }
 
-    public function getOption($option)
+    public function getOption(string $option)
     {
         if (isset($this->user_options[$option])) {
             return $this->user_options[$option];
         }
     }
 
+    /**
+     * Gets the options.
+     *
+     * @return     array<string, mixed>  The options.
+     */
     public function getOptions(): array
     {
         return $this->user_options;
@@ -586,6 +606,13 @@ class Auth implements AuthInterface
     /// @name Permissions
     //@{
 
+    /**
+     * Parse user permissions
+     *
+     * @param      mixed  $level  The level
+     *
+     * @return     array<string, mixed>
+     */
     public function parsePermissions($level): array
     {
         $level = preg_replace('/^\|/', '', (string) $level);
@@ -599,17 +626,29 @@ class Auth implements AuthInterface
         return $res;
     }
 
-    public function makePermissions($list): string
+    /**
+     * Makes permissions.
+     *
+     * @param      array<string>  $list   The list
+     *
+     * @return     string
+     */
+    public function makePermissions(array $list): string
     {
         return implode(',', $list);
     }
 
+    /**
+     * Gets the permissions types.
+     *
+     * @return     array<string, string>  The permissions types.
+     */
     public function getPermissionsTypes(): array
     {
         return $this->perm_types;
     }
 
-    public function setPermissionType(string $name, string $title)
+    public function setPermissionType(string $name, string $title): void
     {
         $this->perm_types[$name] = $title;
     }
@@ -647,6 +686,15 @@ class Auth implements AuthInterface
         return $key;
     }
 
+    /**
+     * Recover user password
+     *
+     * @param      string     $recover_key  The recover key
+     *
+     * @throws     Exception
+     *
+     * @return     array<string, string>
+     */
     public function recoverUserPassword(string $recover_key): array
     {
         $sql = new SelectStatement();

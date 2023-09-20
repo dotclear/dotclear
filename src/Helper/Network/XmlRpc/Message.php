@@ -64,7 +64,7 @@ class Message
     /**
      * Method parameters
      *
-     * @var array
+     * @var array<int, mixed>
      */
     public $params = [];
 
@@ -73,21 +73,21 @@ class Message
     /**
      * The stack used to keep track of the current array/struct
      *
-     * @var array
+     * @var array<int, mixed>
      */
     protected $_arraystructs = [];
 
     /**
      * Stack keeping track of if things are structs or array
      *
-     * @var array
+     * @var array<int, mixed>
      */
     protected $_arraystructstypes = [];
 
     /**
      * A stack as well
      *
-     * @var array
+     * @var array<int, mixed>
      */
     protected $_currentStructName = [];
 
@@ -204,9 +204,9 @@ class Message
     /**
      * xml_set_element_handler() start handler
      *
-     * @param      mixed                $parser  The parser (resource|XMLParser)
-     * @param      string               $tag     The tag
-     * @param      array                $attr    The attribute
+     * @param      mixed                    $parser  The parser (resource|XMLParser)
+     * @param      string                   $tag     The tag
+     * @param      array<string, mixed>     $attr    The attribute
      */
     protected function tag_open($parser, string $tag, array $attr): void
     {

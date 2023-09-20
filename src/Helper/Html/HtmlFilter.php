@@ -105,10 +105,10 @@ class HtmlFilter
      *
      * Appends hosts to remove from URI. Each method argument is a host. Example:
      *
-     * <code>
+     * ```php
      * $filter = new HtmlFilter();
      * $filter->removeHosts('javascript');
-     * </code>
+     * ```
      *
      * @param      mixed  ...$args  The arguments
      */
@@ -124,10 +124,10 @@ class HtmlFilter
      *
      * Appends tags to remove. Each method argument is a tag. Example:
      *
-     * <code>
+     * ```php
      * $filter = new HtmlFilter();
      * $filter->removeTags('frame','script');
-     * </code>
+     * ```
      *
      * @param      mixed  ...$args  The arguments
      */
@@ -143,10 +143,10 @@ class HtmlFilter
      *
      * Appends attributes to remove. Each method argument is an attribute. Example:
      *
-     * <code>
+     * ```php
      * $filter = new HtmlFilter();
      * $filter->removeAttributes('onclick','onunload');
-     * </code>
+     * ```
      *
      * @param      mixed  ...$args  The arguments
      */
@@ -162,12 +162,12 @@ class HtmlFilter
      *
      * Appends attributes to remove. Example:
      *
-     * <code>
+     * ```php
      * $filter = new HtmlFilter();
      * $filter->removeAttributes(['onload','onerror']);
-     * </code>
+     * ```
      *
-     * @param      array  $attrs  The attributes
+     * @param      array<string>  $attrs  The attributes
      */
     public function removeArrayAttributes(array $attrs): void
     {
@@ -181,10 +181,10 @@ class HtmlFilter
      *
      * Appends attribute patterns to remove. Each method argument is an attribute pattern. Example:
      *
-     * <code>
+     * ```php
      * $filter = new HtmlFilter();
      * $filter->removeAttributes('data-.*');
-     * </code>
+     * ```
      *
      * @param      mixed  ...$args  The arguments
      */
@@ -201,10 +201,10 @@ class HtmlFilter
      * Appends attributes to remove from specific tags. Each method argument is
      * an array of tags with attributes. Example:
      *
-     * <code>
+     * ```php
      * $filter = new HtmlFilter();
      * $filter->removeTagAttributes(['a' => ['src','title']]);
-     * </code>
+     * ```
      *
      * @param      string  $tag         The tag
      * @param      mixed   ...$args     The arguments
@@ -221,7 +221,7 @@ class HtmlFilter
      *
      * Creates a list of known tags.
      *
-     * @param array        $tags        Tags array
+     * @param array<string, array<string>>        $tags        Tags array
      */
     public function setTags(array $tags): void
     {
@@ -302,7 +302,7 @@ class HtmlFilter
     /**
      * Tag (with its attributes) helper for miniTidy(), see above
      *
-     * @param      array   $match  The match
+     * @param      array<string>   $match  The match
      *
      * @return     mixed
      */
@@ -316,7 +316,7 @@ class HtmlFilter
      *
      * Escape entities in attributes value
      *
-     * @param      array   $match  The match
+     * @param      array<string>   $match  The match
      *
      * @return     string
      */
@@ -328,9 +328,9 @@ class HtmlFilter
     /**
      * Return a (almost) flatten and cleaned array
      *
-     * @param      array  $args   The arguments
+     * @param      array<mixed>  $args   The arguments
      *
-     * @return     array
+     * @return     array<mixed>
      */
     private function argsArray(array $args): array
     {
@@ -349,9 +349,9 @@ class HtmlFilter
     /**
      * xml_set_element_handler() open tag handler
      *
-     * @param      mixed                $parser  The parser (resource|XMLParser)
-     * @param      string               $tag     The tag
-     * @param      array                $attrs   The attributes
+     * @param      mixed                    $parser  The parser (resource|XMLParser)
+     * @param      string                   $tag     The tag
+     * @param      array<string, mixed>     $attrs   The attributes
      */
     private function tag_open($parser, string $tag, array $attrs): void
     {
@@ -399,8 +399,8 @@ class HtmlFilter
     /**
      * Gets the allowed attributes.
      *
-     * @param      string  $tag    The tag
-     * @param      array   $attrs  The attributes
+     * @param      string                   $tag    The tag
+     * @param      array<string, mixed>     $attrs  The attributes
      *
      * @return     string  The attributes.
      */
@@ -530,31 +530,43 @@ class HtmlFilter
        ------------------------------------------------------- */
     /**
      * Stack of removed tags
+     *
+     * @var array<string>
      */
     private array $removed_tags = [];
 
     /**
      * Stack of removed attributes
+     *
+     * @var array<string>
      */
     private array $removed_attrs = [];
 
     /**
      * Stack of removed attibutes (via pattern)
+     *
+     * @var array<string>
      */
     private array $removed_pattern_attrs = [];
 
     /**
      * Stack of removed tags' attributes
+     *
+     * @var array<string, array<string>>
      */
     private array $removed_tag_attrs = [];
 
     /**
      * Stack of removed hosts
+     *
+     * @var array<string>
      */
     private array $removed_hosts = [];
 
     /**
      * List of allowed schemes (URI)
+     *
+     * @var array<string>
      */
     private array $allowed_schemes = [
         'data',
@@ -567,6 +579,8 @@ class HtmlFilter
 
     /**
      * List of attributes which allow URI value
+     *
+     * @var array<string>
      */
     private array $uri_attrs = [
         'action',
@@ -587,6 +601,8 @@ class HtmlFilter
 
     /**
      * List of generic attributes
+     *
+     * @var array<string>
      */
     private array $gen_attrs = [
         'accesskey',
@@ -616,6 +632,8 @@ class HtmlFilter
 
     /**
      * List of events attributes
+     *
+     * @var array<string>
      */
     private array $event_attrs = [
         'onabort',
@@ -698,6 +716,8 @@ class HtmlFilter
 
     /**
      * List of pattern'ed attributes
+     *
+     * @var array<string>
      */
     private array $grep_attrs = [
         '^aria-[\-\w]+$',
@@ -706,6 +726,8 @@ class HtmlFilter
 
     /**
      * List of single tags
+     *
+     * @var array<string>
      */
     private array $single_tags = [
         'area',
@@ -730,6 +752,8 @@ class HtmlFilter
 
     /**
      * List of tags and their attributes
+     *
+     * @var array<string, array<string>>
      */
     private array $tags = [
         // A

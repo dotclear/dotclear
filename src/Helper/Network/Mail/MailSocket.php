@@ -47,10 +47,10 @@ class MailSocket
      * If {@link $smtp_relay} is set, it will be used as a relay to send the
      * email. Instead, email is sent directly to MX host of domain.
      *
-     * @param string            $to             Email destination
-     * @param string            $subject        Email subject
-     * @param string            $message        Email message
-     * @param string|array      $headers        Email headers
+     * @param string                $to             Email destination
+     * @param string                $subject        Email subject
+     * @param string                $message        Email message
+     * @param string|array<string>  $headers        Email headers
      *
      * @throws Exception
      */
@@ -135,7 +135,7 @@ class MailSocket
     /**
      * Gets the from.
      *
-     * @param      array      $headers  The headers
+     * @param      array<string>      $headers  The headers
      *
      * @throws     Exception
      *

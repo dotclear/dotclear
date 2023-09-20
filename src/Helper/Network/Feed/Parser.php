@@ -65,7 +65,7 @@ class Parser
     /**
      * Feed items
      *
-     * @var array
+     * @var array<stdClass>
      */
     public $items = [];
 
@@ -319,7 +319,7 @@ class Parser
      *
      * @param SimpleXMLElement    $node    SimpleXML Node
      *
-     * @return array
+     * @return array<string>
      */
     protected function nodes2array(SimpleXMLElement &$node): array
     {

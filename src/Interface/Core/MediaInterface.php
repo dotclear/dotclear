@@ -151,9 +151,9 @@ interface MediaInterface
      *
      * (returned type not set for backward compatibility with Helper\File\Manager)
      *
-     * @param   string                          $type       The media type
-     * @param   string                          $event      The event
-     * @param   callable|array<string, string>  $function   The callback
+     * @param   string      $type       The media type
+     * @param   string      $event      The event
+     * @param   callable    $function   The callback
      *
      * @return void
      */

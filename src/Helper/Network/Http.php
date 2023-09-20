@@ -258,7 +258,7 @@ class Http
      * Returns an array of accepted langages ordered by priority.
      * can be a two letters language code or a xx-xx variant.
      *
-     * @return array
+     * @return array<string>
      */
     public static function getAcceptLanguages(): array
     {
@@ -298,8 +298,8 @@ class Http
      * Sends HTTP cache headers (304) according to a list of files and an optionnal.
      * list of timestamps.
      *
-     * @param array        $mod_files           Files on which check mtime
-     * @param array        $mod_timestamps      List of timestamps
+     * @param array<string>        $mod_files           Files on which check mtime
+     * @param array<int>           $mod_timestamps      List of timestamps
      */
     public static function cache(array $mod_files, array $mod_timestamps = []): void
     {
@@ -351,6 +351,8 @@ class Http
      * HTTP Etag
      *
      * Sends HTTP cache headers (304) according to a list of etags in client request.
+     *
+     * @param   array<string, mixed>   $args
      */
     public static function etag(...$args): void
     {

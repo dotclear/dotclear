@@ -41,7 +41,7 @@ class Reader extends HttpClient
     /**
      * HTTP Cache validators
      *
-     * @var        array|null
+     * @var        array<string, string>|null
      */
     protected $validators = null;
 

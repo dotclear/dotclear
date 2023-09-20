@@ -191,8 +191,8 @@ interface ConnectionInterface
      * offset and limit or an integer which is only limit. If <var>$arg2</var>
      * is given and <var>$arg1</var> is an integer, it would become limit.
      *
-     * @param array|int      $arg1        array or integer with limit intervals
-     * @param int|null       $arg2        integer or null
+     * @param array<mixed>|int      $arg1        array or integer with limit intervals
+     * @param int|null              $arg2        integer or null
      *
      * @return string
      */
@@ -204,7 +204,7 @@ interface ConnectionInterface
      * Returns a IN query fragment where $in could be an array, a string,
      * an integer or null
      *
-     * @param array|string|int|null        $in        "IN" values
+     * @param array<mixed>|string|int|null        $in        "IN" values
      *
      * @return string
      */
@@ -223,6 +223,8 @@ interface ConnectionInterface
      *
      * string param field name (Binary ascending order)
      *
+     * @param   array<string, mixed>|string     $args
+     *
      * @return string
      */
     public function orderBy(...$args): string;
@@ -235,6 +237,8 @@ interface ConnectionInterface
      * array param: list of field names
      * string param: field name
      *
+     * @param   array<string>|string     $args
+     *
      * @return string
      */
     public function lexFields(...$args): string;
@@ -245,6 +249,8 @@ interface ConnectionInterface
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
      *
+     * @param   array<mixed>     $args
+     *
      * @return string
      */
     public function concat(...$args): string;
@@ -254,9 +260,9 @@ interface ConnectionInterface
      *
      * Returns SQL protected string or array values.
      *
-     * @param string|array    $i        String or array to protect
+     * @param string|array<string, mixed>    $i        String or array to protect
      *
-     * @return string|array
+     * @return string|array<string, string>
      */
     public function escape($i);
 

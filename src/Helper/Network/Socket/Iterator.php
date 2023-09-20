@@ -15,6 +15,8 @@ use Exception;
  * @class Iterator
  *
  * This class offers an iterator for network operations made with Socket
+ *
+ * @implements \Iterator<string|false>
  */
 class Iterator implements \Iterator
 {
@@ -87,7 +89,7 @@ class Iterator implements \Iterator
     /**
      * Current value
      *
-     * @return string    Current socket response line
+     * @return string|false    Current socket response line
      */
     #[\ReturnTypeWillChange]
     public function current()

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html;
 
-/**
- * @class WikiToHtml
+/* History
+ * -------
  *
  * Contributor(s):
  * Stephanie Booth
@@ -148,6 +148,10 @@ namespace Dotclear\Helper\Html;
  * => intégration de l'aide dans le code, avec les options
  * => début de quelque chose pour la reconnaissance auto d'url (avec Mat)
  */
+
+/**
+ * @class WikiToHtml
+ */
 class WikiToHtml
 {
     // Constants
@@ -164,92 +168,92 @@ class WikiToHtml
     /**
      * Stack of options
      *
-     * @var array
+     * @var array<string, mixed>
      */
-    public $opt;
+    public array $opt;
 
     /**
      * Stack of accronyms
      *
-     * @var array
+     * @var array<string, string>
      */
-    public $acro_table;
+    public array $acro_table;
 
     /**
      * Stack of footnotes
      *
-     * @var array
+     * @var array<string, string>
      */
-    public $foot_notes;
+    public array $foot_notes;
 
     /**
      * Stack of macros
      *
-     * @var array
+     * @var array<int, string>
      */
-    public $macros;
+    public array $macros;
 
     /**
      * Stack of registered functions
      *
-     * @var array of name => callable
+     * @var array<string, callable>
      */
-    public $functions;
+    public array $functions;
 
     /**
      * Stack of Wiki content lines
      *
-     * @var array of string
+     * @var array<string>
      */
-    public $wiki_lines;
+    public array $wiki_lines;
 
     /**
      * Inline tags
      *
-     * @var array of name => [ opening string, closing string ]
+     * @var array<string, array<string>> of name => [ opening string, closing string ]
      */
-    public $tags;
+    public array $tags;
 
     /**
      * User-defined inline tags
      *
      * Will be merged with self::$tags
      *
-     * @var        array
+     * @var        array<string, array<string>>
      */
-    public $custom_tags = [];
+    public array $custom_tags = [];
 
     /**
      * Inline tags, opening strings
      *
-     * @var array of name => opening string
+     * @var array<string, string> of name => opening string
      */
-    public $open_tags;
+    public array $open_tags;
 
     /**
      * Inline tags, closing strings
      *
      * Populate from self::$tags
      *
-     * @var array of name => closing string
+     * @var array<string, string> of name => closing string
      */
-    public $close_tags;
+    public array $close_tags;
 
     /**
      * All opening and closing strings known
      *
      * Populate from self::$tags
      *
-     * @var array of string
+     * @var array<string>
      */
-    public $all_tags;
+    public array $all_tags;
 
     /**
      * Copy of self::$all_tags with escaped strings (\\string)
      *
-     * @var array of string
+     * @var array<string>
      */
-    public $escape_table;
+    public array $escape_table;
 
     /**
      * PCRE pattern with all opening and closing strings known
@@ -258,16 +262,16 @@ class WikiToHtml
      *
      * @var string
      */
-    public $tag_pattern;
+    public string $tag_pattern;
 
     /**
      * Full line tags
      *
      * Populate from self::$tags
      *
-     * @var array of name => opening string (at begining of line)
+     * @var array<string, string> of name => opening string (at begining of line)
      */
-    public $linetags;
+    public array $linetags;
 
     /**
      * Constructs a new instance.
@@ -369,7 +373,7 @@ class WikiToHtml
     /**
      * Sets the options.
      *
-     * @param      array  $options  The options
+     * @param      array<string, mixed>  $options  The options
      */
     public function setOpts(array $options): void
     {
@@ -393,8 +397,8 @@ class WikiToHtml
     /**
      * Register a function
      *
-     * @param      string           $type   The type
-     * @param      callable|array   $name   The name
+     * @param      string     $type   The type
+     * @param      callable   $name   The name
      */
     public function registerFunction(string $type, $name): void
     {
@@ -546,7 +550,10 @@ class WikiToHtml
     /* PRIVATE
     --------------------------------------------------- */
 
-    private function __initTags()
+    /**
+     * Initializes the tags.
+     */
+    private function __initTags(): void
     {
         $this->tags = array_merge(
             [
@@ -684,7 +691,7 @@ class WikiToHtml
      *
      * @param      bool   $open   The opening strings if true, else closing strings of inline tags
      *
-     * @return     array  The tags.
+     * @return     array<string, string>  The tags.
      */
     private function __getTags(bool $open = true): array
     {
@@ -699,7 +706,7 @@ class WikiToHtml
     /**
      * Gets all opening and closing strings of inline tags.
      *
-     * @return     array  All tags.
+     * @return     array<string>  All tags.
      */
     private function __getAllTags(): array
     {
@@ -799,6 +806,7 @@ class WikiToHtml
         $mode = null;
         $attr = null;
 
+        // Ligne vide
         if (empty($this->wiki_lines[$i])) {
             return false;
         }
@@ -806,9 +814,7 @@ class WikiToHtml
         $line = htmlspecialchars($this->wiki_lines[$i], ENT_NOQUOTES);
 
         // Ligne vide
-        if (empty($line)) {
-            $type = null;
-        } elseif ($this->getOpt('active_empty') && preg_match('/^øøø(.*)$/', $line, $cap)) {
+        if ($this->getOpt('active_empty') && preg_match('/^øøø(.*)$/', $line, $cap)) {
             // Peut contenir un numéro de macro
             $type = null;
             $line = trim((string) $cap[1]);
@@ -1081,8 +1087,8 @@ class WikiToHtml
     /**
      * Parse inline tags in a line
      *
-     * @param      string  $str         The string
-     * @param      array   $allow_only  The allow only
+     * @param      string           $str         The string
+     * @param      array<string>    $allow_only  The allow only
      *
      * @return     string
      */
@@ -1121,12 +1127,12 @@ class WikiToHtml
     /**
      * Parse an inline tag.
      *
-     * @param      array        $tree               The tree
-     * @param      string       $tag                The tag
-     * @param      int          $position           The position
-     * @param      int          $next_position      The next position
-     * @param      string       $attr               The attribute
-     * @param      string       $type               The type
+     * @param      array<string>        $tree               The tree
+     * @param      string               $tag                The tag
+     * @param      int                  $position           The position
+     * @param      int                  $next_position      The next position
+     * @param      string               $attr               The attribute
+     * @param      string               $type               The type
      *
      * @return     bool|string|null
      */
@@ -1229,7 +1235,7 @@ class WikiToHtml
      *
      * @param      string  $str    The string
      *
-     * @return     array   of tags attributes
+     * @return     array<string>   of tags attributes
      */
     private function __splitTagsAttr(string $str): array
     {
@@ -1265,6 +1271,8 @@ class WikiToHtml
      * @param      string  $tag    The tag
      * @param      string  $attr   The attribute
      * @param      string  $type   The type
+     *
+     * @return      void|string
      */
     private function __parseLink(string $str, string &$tag, string &$attr, string &$type)
     {
@@ -1458,8 +1466,10 @@ class WikiToHtml
      *
      * @param      string  $str    The string
      * @param      string  $attr   The attribute
+     *
+     * @return     string
      */
-    private function __parseAnchor(string $str, string &$attr)
+    private function __parseAnchor(string $str, string &$attr): string
     {
         $name = $this->protectAttr($str, true);
 
@@ -1531,7 +1541,7 @@ class WikiToHtml
     /**
      * Gets the acronyms.
      *
-     * @return     array  The acronyms.
+     * @return     array<string, string>  The acronyms.
      */
     private function __getAcronyms(): array
     {
@@ -1611,7 +1621,7 @@ class WikiToHtml
     /**
      * Parse auto BR
      *
-     * @param      array         $matches      The matches
+     * @param      array<string>         $matches      The matches
      *
      * @return     string
      */
@@ -1626,7 +1636,7 @@ class WikiToHtml
     /**
      * Prepare future macro treatment
      *
-     * @param      array   $matches  The matches
+     * @param      array<string>   $matches  The matches
      *
      * @return     string  The macro.
      */
@@ -1641,7 +1651,7 @@ class WikiToHtml
     /**
      * Execute a macro.
      *
-     * @param      array  $matches     The matches
+     * @param      array<string>  $matches     The matches
      *
      * @return     string
      */
