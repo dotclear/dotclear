@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+use Dotclear\Interface\Core\PluginsInterface;
+
 /**
  * @brief   Plugins specific handler.
  *
@@ -17,7 +19,7 @@ namespace Dotclear\Module;
  *
  * @since   2.6
  */
-class Plugins extends Modules
+class Plugins extends Modules implements PluginsInterface
 {
     protected ?string $type = 'plugin';
 

@@ -11,6 +11,7 @@ namespace Dotclear\Module;
 
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
+use Dotclear\Interface\Core\ThemesInterface;
 use Exception;
 
 /**
@@ -21,7 +22,7 @@ use Exception;
  *
  * @since   2.6
  */
-class Themes extends Modules
+class Themes extends Modules implements ThemesInterface
 {
     protected ?string $type = 'theme';
 
