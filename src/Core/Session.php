@@ -11,6 +11,9 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Session as databaseSession;
 
+use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
+
 /**
  * @brief   Session handler.
  *
@@ -18,4 +21,14 @@ use Dotclear\Database\Session as databaseSession;
  */
 class Session extends databaseSession
 {
+    public function __construct(ConfigInterface $config, ConnectionInterface $con)
+    {
+        parent::__construct(
+            con: $con,
+            table : $con->prefix() . Session::SESSION_TABLE_NAME,
+            cookie_name: $config->sessionName(),
+            cookie_secure: $config->adminSsl(),
+            ttl: $config->sessionTtl()
+        );
+    }
 }

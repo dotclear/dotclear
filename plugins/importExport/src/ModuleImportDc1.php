@@ -10,14 +10,13 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
-use Exception;
 use Dotclear\App;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Exception;
 use initBlogroll;
 use form;
 
@@ -303,7 +302,7 @@ class ModuleImportDc1 extends Module
      */
     protected function db()
     {
-        $db = AbstractHandler::init($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = App::newConnectionFromValues($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {

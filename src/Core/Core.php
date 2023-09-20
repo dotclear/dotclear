@@ -13,8 +13,6 @@ namespace Dotclear\Core;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
-use Dotclear\Database\AbstractHandler;
-use Dotclear\Database\Session;
 use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
 
@@ -49,6 +47,7 @@ use Dotclear\Interface\Core\PluginsInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
+use Dotclear\Interface\Core\SchemaInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\TaskInterface;
 use Dotclear\Interface\Core\ThemesInterface;
@@ -132,6 +131,7 @@ class Core extends Container
     protected function getDefaultServices(): array
     {
         return [
+            ConfigInterface::class        => fn ($container) => $container->getConfig(),
             AuthInterface::class          => fn ($container) => Auth::init(),
             Backend::class                => Backend::class,
             BehaviorInterface::class      => Behavior::class,
@@ -140,47 +140,38 @@ class Core extends Container
             BlogSettingsInterface::class  => BlogSettings::class,
             BlogsInterface::class         => Blogs::class,
             BlogWorkspaceInterface::class => BlogWorkspace::class,
-            CacheInterface::class         => function ($container) {
-                return new Cache(
-                    $container->config()->cacheRoot()
-                );
+            CacheInterface::class         => Cache::class,
+            CategoriesInterface::class    => Categories::class,
+            ConnectionInterface::class    => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
+                if (empty($driver)) {
+                    $driver     = $container->config()->dbDriver();
+                    $host       = $container->config()->dbHost();
+                    $database   = $container->config()->dbName();
+                    $user       = $container->config()->dbUser();
+                    $password   = $container->config()->dbPassword();
+                    $persistent = $container->config()->dbPersist();
+                    $prefix     = $container->config()->dbPrefix();
+                }
+
+                return Connection::init($driver, $host, $database, $user, $password, $persistent, $prefix);
             },
-            CategoriesInterface::class => Categories::class,
-            ConnectionInterface::class => function ($container) {
-                return AbstractHandler::init(
-                    driver: $container->config()->dbDriver(),
-                    host: $container->config()->dbHost(),
-                    database: $container->config()->dbName(),
-                    user: $container->config()->dbUser(),
-                    password: $container->config()->dbPassword(),
-                    persistent: $container->config()->dbPersist(),
-                    prefix: $container->config()->dbPrefix()
-                );
-            },
-            ErrorInterface::class      => Error::class,
-            DeprecatedInterface::class => Deprecated::class,
-            FilterInterface::class     => Filter::class,
-            FormaterInterface::class   => Formater::class,
-            Frontend::class            => Frontend::class,
-            LexicalInterface::class    => Lexical::class,
-            LogInterface::class        => Log::class,
-            MediaInterface::class      => Media::class,
-            MetaInterface::class       => Meta::class,
-            NonceInterface::class      => Nonce::class,
-            NoticeInterface::class     => Notice::class,
-            PluginsInterface::class    => Plugins::class,
-            PostMediaInterface::class  => PostMedia::class,
-            PostTypesInterface::class  => PostTypes::class,
-            RestInterface::class       => Rest::class,
-            SessionInterface::class    => function ($container) {
-                return new Session(
-                    con: $container->con(),
-                    table : $container->con()->prefix() . Session::SESSION_TABLE_NAME,
-                    cookie_name: $container->config()->sessionName(),
-                    cookie_secure: $container->config()->adminSsl(),
-                    ttl: $container->config()->sessionTtl()
-                );
-            },
+            ErrorInterface::class           => Error::class,
+            DeprecatedInterface::class      => Deprecated::class,
+            FilterInterface::class          => Filter::class,
+            FormaterInterface::class        => Formater::class,
+            Frontend::class                 => Frontend::class,
+            LexicalInterface::class         => Lexical::class,
+            LogInterface::class             => Log::class,
+            MediaInterface::class           => Media::class,
+            MetaInterface::class            => Meta::class,
+            NonceInterface::class           => Nonce::class,
+            NoticeInterface::class          => Notice::class,
+            PluginsInterface::class         => Plugins::class,
+            PostMediaInterface::class       => PostMedia::class,
+            PostTypesInterface::class       => PostTypes::class,
+            RestInterface::class            => Rest::class,
+            SchemaInterface::class          => fn ($container, ConnectionInterface $con) => Schema::init($con),
+            SessionInterface::class         => Session::class,
             TaskInterface::class            => Task::class,
             ThemesInterface::class          => Themes::class,
             TrackbackInterface::class       => Trackback::class,
@@ -240,6 +231,11 @@ class Core extends Container
     public static function categories(): CategoriesInterface
     {
         return self::$instance->get(CategoriesInterface::class);
+    }
+
+    public static function newConnectionFromValues(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
+    {
+        return self::$instance->get(ConnectionInterface::class, true, $driver, $host, $database, $user, $password, $persistent, $prefix);
     }
 
     public static function con(): ConnectionInterface
@@ -325,6 +321,11 @@ class Core extends Container
     public static function rest(): RestInterface
     {
         return self::$instance->get(RestInterface::class);
+    }
+
+    public static function schema(ConnectionInterface $con): SchemaInterface
+    {
+        return self::$instance->get(SchemaInterface::class, true, $con);
     }
 
     public static function session(): SessionInterface

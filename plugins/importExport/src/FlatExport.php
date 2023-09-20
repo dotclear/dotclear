@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Exception;
-use Dotclear\Database\AbstractSchema;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Exception;
 
 /**
  * @brief   The module flat export handler.
@@ -76,7 +76,7 @@ class FlatExport
 
     public function getTables()
     {
-        $schema    = AbstractSchema::init($this->con);
+        $schema    = App::Schema($this->con);
         $db_tables = $schema->getTables();
 
         $tables = [];
