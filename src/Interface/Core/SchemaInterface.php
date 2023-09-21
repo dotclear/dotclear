@@ -61,13 +61,13 @@ interface SchemaInterface
     public function getColumns(string $table): array;
 
     /**
-     * Returns an array of index of a given table.
+     * Returns an array of keys of a given table.
      *
      * @see     InterfaceSchema::db_get_keys
      *
      * @param   string  $table  Table name
      *
-     * @return  array<array{name: string, primary: bool, unique: bool, cols: array}>
+     * @return  array<array{name: string, primary: bool, unique: bool, cols: array<string>}>
      */
     public function getKeys(string $table): array;
 
@@ -78,7 +78,7 @@ interface SchemaInterface
      *
      * @param   string  $table  Table name
      *
-     * @return  array<array{name: string, type: string, cols: array}>
+     * @return  array<array{name: string, type: string, cols: array<string>}>
      */
     public function getIndexes(string $table): array;
 
@@ -89,15 +89,15 @@ interface SchemaInterface
      *
      * @param   string  $table  Table name
      *
-     * @return  array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>
+     * @return  array<array{name: string, c_cols: array<string>, p_table: string, p_cols: array<string>, update: string, delete: string}>
      */
     public function getReferences(string $table): array;
 
     /**
      * Creates a table.
      *
-     * @param   string  $name    The name
-     * @param   array   $fields  The fields
+     * @param   string          $name    The name
+     * @param   array<string>   $fields  The fields
      */
     public function createTable(string $name, array $fields): void;
 
@@ -116,28 +116,28 @@ interface SchemaInterface
     /**
      * Creates a primary key.
      *
-     * @param   string  $table      The table
-     * @param   string  $name       The name
-     * @param   array   $fields     The fields
+     * @param   string          $table      The table
+     * @param   string          $name       The name
+     * @param   array<string>   $fields     The fields
      */
     public function createPrimary(string $table, string $name, array $fields): void;
 
     /**
      * Creates an unique key.
      *
-     * @param   string  $table      The table
-     * @param   string  $name       The name
-     * @param   array   $fields     The fields
+     * @param   string          $table      The table
+     * @param   string          $name       The name
+     * @param   array<string>   $fields     The fields
      */
     public function createUnique(string $table, string $name, array $fields): void;
 
     /**
      * Creates an index.
      *
-     * @param   string  $table  The table
-     * @param   string  $name   The name
-     * @param   string  $type   The type
-     * @param   array   $fields The fields
+     * @param   string          $table  The table
+     * @param   string          $name   The name
+     * @param   string          $type   The type
+     * @param   array<string>   $fields The fields
      */
     public function createIndex(string $table, string $name, string $type, array $fields): void;
 
@@ -146,9 +146,9 @@ interface SchemaInterface
      *
      * @param   string          $name               The name
      * @param   string          $table              The table
-     * @param   array           $fields             The fields
+     * @param   array<string>   $fields             The fields
      * @param   string          $foreign_table      The foreign table
-     * @param   array           $foreign_fields     The foreign fields
+     * @param   array<string>   $foreign_fields     The foreign fields
      * @param   string|bool     $update             The update
      * @param   string|bool     $delete             The delete
      */
@@ -169,31 +169,31 @@ interface SchemaInterface
     /**
      * Modify a primary key.
      *
-     * @param   string  $table      The table
-     * @param   string  $name       The name
-     * @param   string  $newname    The newname
-     * @param   array   $fields     The fields
+     * @param   string          $table      The table
+     * @param   string          $name       The name
+     * @param   string          $newname    The newname
+     * @param   array<string>   $fields     The fields
      */
     public function alterPrimary(string $table, string $name, string $newname, array $fields): void;
 
     /**
      * Modify a unique key.
      *
-     * @param   string  $table      The table
-     * @param   string  $name       The name
-     * @param   string  $newname    The newname
-     * @param   array   $fields     The fields
+     * @param   string          $table      The table
+     * @param   string          $name       The name
+     * @param   string          $newname    The newname
+     * @param   array<string>   $fields     The fields
      */
     public function alterUnique(string $table, string $name, string $newname, array $fields): void;
 
     /**
      * Modify an index.
      *
-     * @param   string  $table      The table
-     * @param   string  $name       The name
-     * @param   string  $newname    The newname
-     * @param   string  $type       The type
-     * @param   array   $fields     The fields
+     * @param   string          $table      The table
+     * @param   string          $name       The name
+     * @param   string          $newname    The newname
+     * @param   string          $type       The type
+     * @param   array<string>   $fields     The fields
      */
     public function alterIndex(string $table, string $name, string $newname, string $type, array $fields): void;
 
@@ -203,9 +203,9 @@ interface SchemaInterface
      * @param   string          $name               The name
      * @param   string          $newname            The newname
      * @param   string          $table              The table
-     * @param   array           $fields             The fields
+     * @param   array<string>   $fields             The fields
      * @param   string          $foreign_table      The foreign table
-     * @param   array           $foreign_fields     The foreign fields
+     * @param   array<string>   $foreign_fields     The foreign fields
      * @param   string|bool     $update             The update
      * @param   string|bool     $delete             The delete
      */
