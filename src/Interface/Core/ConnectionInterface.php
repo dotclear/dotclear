@@ -7,6 +7,13 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Interface.Core
+ * @brief       Dotclear core services interfaces
+ *
+ * Third party core services MUST implement these interfaces.
+ */
+
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;

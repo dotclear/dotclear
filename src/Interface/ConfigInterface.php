@@ -7,6 +7,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Interface
+ * @brief       Dotclear application interfaces
+ */
+
 namespace Dotclear\Interface;
 
 /**

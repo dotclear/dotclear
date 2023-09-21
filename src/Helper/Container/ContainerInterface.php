@@ -20,7 +20,7 @@ namespace Dotclear\Helper\Container;
 interface ContainerInterface
 {
     /**
-     * Get instance of an object.
+     * Get instance of a service.
      *
      * By default, an object is instanciated once.
      *
@@ -34,7 +34,7 @@ interface ContainerInterface
     public function get(string $id);
 
     /**
-     * Check if core object exists.
+     * Check if service exists.
      *
      * @param   string  $id The object ID.
      *

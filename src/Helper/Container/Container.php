@@ -7,6 +7,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Helper.Container
+ * @brief       Helpers for container handling
+ */
+
 namespace Dotclear\Helper\Container;
 
 /**
@@ -24,14 +29,14 @@ class Container implements ContainerInterface
     public const CONTAINER_ID = 'undefined';
 
     /**
-     * Stack of loaded factory services.
+     * Stack of loaded services.
      *
      * @var    array<string,mixed>  $services
      */
     protected array $services = [];
 
     /**
-     * Constructor gets factory services.
+     * Constructor gets container services.
      *
      * @throws  ContainerExceptionInterface
      *
@@ -54,7 +59,7 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Get instance of an object.
+     * Get instance of a service.
      *
      * By default, an object is instanciated once.
      *
@@ -93,14 +98,16 @@ class Container implements ContainerInterface
     }
 
     /**
-     * { function_description }
+     * Resolve class arguments.
      *
-     * @param      string              $alias  The alias
-     * @param      mixed               $args   The arguments
+     * Retrieves and adds container services from class constructor arguments.
      *
-     * @throws     ContainerException
+     * @param   string  $alias  The alias
+     * @param   mixed   $args   The arguments
      *
-     * @return     mixed
+     * @throws  ContainerException
+     *
+     * @return  mixed
      */
     private function resolve(string $alias, $args)
     {
@@ -142,11 +149,11 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Get default Dotclear services definitions.
+     * Get default services definitions.
      *
-     * This adds default Core class to the App.
+     * Return array of service ID / service callback pairs.
      *
-     * @return  array<string,callable>  The default core services
+     * @return  array<string,callable>  The default services
      */
     protected function getDefaultServices(): array
     {

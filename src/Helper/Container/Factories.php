@@ -19,7 +19,7 @@ namespace Dotclear\Helper\Container;
  * Factories::addService('core', AuthInterface::class, fn ($container) => new \My\Core\Auth($plop = ''));
  * @endcode
  *
- * * Third party service must be accessible from Autoloaer.
+ * * Third party service MUST be accessible from an Autoloaer.
  * * This MUST be done before any call to App.
  * * Once a container is instanciated, changes to factories stack have no effects.
  * * Service class arguments are automagically added if they exist in container.
