@@ -76,10 +76,10 @@ class Categories implements CategoriesInterface
     /**
      * Gets the children.
      *
-     * @param      int|string               $start   The start
+     * @param      int                      $start   The start
      * @param      int                      $id      The identifier
      * @param      string                   $sort    The sort
-     * @param      array<string>|string     $fields  The fields
+     * @param      array<string>            $fields  The fields
      *
      * @return     MetaRecord    The children.
      */

@@ -525,7 +525,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
      *
-     * @param   array<mixed>     $args
+     * @param   mixed     $args
      *
      * @return string
      */

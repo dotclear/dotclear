@@ -179,7 +179,7 @@ class BlogSettings implements BlogSettingsInterface
     /**
      * Dumps workspaces.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, BlogWorkspaceInterface>
      */
     public function dumpWorkspaces(): array
     {
@@ -210,7 +210,7 @@ class BlogSettings implements BlogSettingsInterface
     /**
      * Dumps namespaces.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, BlogWorkspaceInterface>
      */
     public function dumpNamespaces(): array
     {

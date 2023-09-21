@@ -446,7 +446,7 @@ class Blog implements BlogInterface
     /**
      * Returns an array of available entry status codes and names.
      *
-     * @return  array<string,string>    Simple array with codes in keys and names in value.
+     * @return  array<int, string>    Simple array with codes in keys and names in value.
      */
     public function getAllPostStatus(): array
     {
@@ -456,7 +456,7 @@ class Blog implements BlogInterface
     /**
      * Returns an array of available comment status codes and names.
      *
-     * @return  array<string,string>    Simple array with codes in keys and names in value
+     * @return  array<int, string>    Simple array with codes in keys and names in value
      */
     public function getAllCommentStatus(): array
     {
