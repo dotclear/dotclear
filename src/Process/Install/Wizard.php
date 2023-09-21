@@ -12,7 +12,6 @@ use Dotclear\App;
 use Dotclear\Fault;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\AbstractSchema;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -138,7 +137,7 @@ class Wizard extends Process
 
                 # Tries to connect to database
                 try {
-                    $con = AbstractHandler::init(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
+                    $con = App::newConnectionFromValues(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
                 } catch (Exception $e) {
                     throw new Exception('<p>' . __($e->getMessage()) . '</p>');
                 }

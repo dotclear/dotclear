@@ -12,14 +12,13 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
-use initBlogroll;
 use Exception;
+use initBlogroll;
 use form;
 
 /**
@@ -353,7 +352,7 @@ class ModuleImportWp extends Module
      */
     protected function db()
     {
-        $db = AbstractHandler::init('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = App::newConnectionFromValues('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {

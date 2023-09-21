@@ -9,26 +9,24 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\SchemaInterface;
+
 /**
  * @class AbstractSchema
  *
  * Database schema abstraction
  */
-abstract class AbstractSchema implements InterfaceSchema
+abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
 {
-    /**
-     * @var mixed DB handle
-     */
-    protected $con;
-
     /**
      * Constructs a new instance.
      *
-     * @param      mixed  $con    The DB handle
+     * @param   ConnectionInterface     $con    The DB handler
      */
-    public function __construct($con)
-    {
-        $this->con = &$con;
+    public function __construct(
+        protected ConnectionInterface $con
+    ) {
     }
 
     /**
