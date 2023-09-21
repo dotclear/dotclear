@@ -17,20 +17,63 @@ use Exception;
  */
 class Unzip
 {
-    protected $file_name;
-    protected $compressed_list = [];
-    protected $eo_central      = [];
+    /**
+     * @var  string
+     */
+    protected string $file_name;
 
-    protected $zip_sig   = "\x50\x4b\x03\x04"; # local file header signature
-    protected $dir_sig   = "\x50\x4b\x01\x02"; # central dir header signature
-    protected $dir_sig_e = "\x50\x4b\x05\x06"; # end of central dir signature
-    protected $fp        = null;
+    /**
+     * @var        array<string, array<string, mixed>>
+     */
+    protected array $compressed_list = [];
 
+    /**
+     * @var        array<string, mixed>
+     */
+    protected array $eo_central = [];
+
+    /**
+     * Local file header signature
+     *
+     * @var        string
+     */
+    protected string $zip_sig = "\x50\x4b\x03\x04"; #
+
+    /**
+     * Central dir header signature
+     *
+     * @var        string
+     */
+    protected string $dir_sig = "\x50\x4b\x01\x02";
+
+    /**
+     * End of central dir signature
+     *
+     * @var        string
+     */
+    protected string $dir_sig_e = "\x50\x4b\x05\x06";
+
+    /**
+     * @var        mixed
+     */
+    protected $fp = null;
+
+    /**
+     * @var        mixed
+     */
     protected $memory_limit = null;
 
-    protected $exclude_pattern = '';
+    /**
+     * @var        string
+     */
+    protected string $exclude_pattern = '';
 
-    public function __construct($file_name)
+    /**
+     * Constructs a new instance.
+     *
+     * @param      string  $file_name  The file name
+     */
+    public function __construct(string $file_name)
     {
         $this->file_name = $file_name;
     }
@@ -40,7 +83,10 @@ class Unzip
         $this->close();
     }
 
-    public function close()
+    /**
+     * Close instance
+     */
+    public function close(): void
     {
         if ($this->fp) {
             fclose($this->fp);
@@ -52,7 +98,15 @@ class Unzip
         }
     }
 
-    public function getList($stop_on_file = false, $exclude = false)
+    /**
+     * Gets the list.
+     *
+     * @param      bool|string  $stop_on_file  The stop on file
+     * @param      bool|string  $exclude       The exclude
+     *
+     * @return     array<string, array<string, mixed>>|bool   The list.
+     */
+    public function getList(bool|string $stop_on_file = false, bool|string $exclude = false): array|bool
     {
         if (!empty($this->compressed_list)) {
             return $this->compressed_list;
@@ -65,7 +119,12 @@ class Unzip
         return $this->compressed_list;
     }
 
-    public function unzipAll($target)
+    /**
+     * Unzip all
+     *
+     * @param      bool|string  $target  The target
+     */
+    public function unzipAll(bool|string $target): void
     {
         if (empty($this->compressed_list)) {
             $this->getList();
@@ -80,7 +139,17 @@ class Unzip
         }
     }
 
-    public function unzip($file_name, $target = false)
+    /**
+     * Unzip a file
+     *
+     * @param      string       $file_name  The file name
+     * @param      bool|string  $target     The target
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
+    public function unzip(string $file_name, bool|string $target = false)
     {
         if (empty($this->compressed_list)) {
             $this->getList($file_name);
@@ -118,7 +187,12 @@ class Unzip
         );
     }
 
-    public function getFilesList()
+    /**
+     * Gets the files list.
+     *
+     * @return     array<string>  The files list.
+     */
+    public function getFilesList(): array
     {
         if (empty($this->compressed_list)) {
             $this->getList();
@@ -134,7 +208,12 @@ class Unzip
         return $res;
     }
 
-    public function getDirsList()
+    /**
+     * Gets the dirs list.
+     *
+     * @return     array<string>  The dirs list.
+     */
+    public function getDirsList(): array
     {
         if (empty($this->compressed_list)) {
             $this->getList();
@@ -150,7 +229,12 @@ class Unzip
         return $res;
     }
 
-    public function getRootDir()
+    /**
+     * Gets the root dir.
+     *
+     * @return     bool|string  The root dir (false if none)
+     */
+    public function getRootDir(): string|bool
     {
         if (empty($this->compressed_list)) {
             $this->getList();
@@ -179,7 +263,12 @@ class Unzip
         return false;
     }
 
-    public function isEmpty()
+    /**
+     * Determines if list is empty.
+     *
+     * @return     bool  True if empty, False otherwise.
+     */
+    public function isEmpty(): bool
     {
         if (empty($this->compressed_list)) {
             $this->getList();
@@ -188,7 +277,14 @@ class Unzip
         return count($this->compressed_list) == 0;
     }
 
-    public function hasFile($f)
+    /**
+     * Determines if file exist in zip.
+     *
+     * @param      string  $f      Filename
+     *
+     * @return     bool
+     */
+    public function hasFile(string $f): bool
     {
         if (empty($this->compressed_list)) {
             $this->getList();
@@ -197,11 +293,23 @@ class Unzip
         return isset($this->compressed_list[$f]);
     }
 
-    public function setExcludePattern($pattern)
+    /**
+     * Sets the exclude pattern.
+     *
+     * @param      string  $pattern  The pattern
+     */
+    public function setExcludePattern(string $pattern): void
     {
         $this->exclude_pattern = $pattern;
     }
 
+    /**
+     * Open Zip file
+     *
+     * @throws     Exception
+     *
+     * @return     mixed   Zip handler
+     */
     protected function fp()
     {
         if ($this->fp === null) {
@@ -215,7 +323,14 @@ class Unzip
         return $this->fp;
     }
 
-    protected function isFileExcluded($f)
+    /**
+     * Determines whether the specified f is file excluded.
+     *
+     * @param      string    $f      Filename
+     *
+     * @return     bool|int  True if the specified f is file excluded, False otherwise.
+     */
+    protected function isFileExcluded(string $f): int|bool
     {
         if (!$this->exclude_pattern) {
             return false;
@@ -224,7 +339,17 @@ class Unzip
         return preg_match($this->exclude_pattern, (string) $f);
     }
 
-    protected function putContent($content, $target = false)
+    /**
+     * Puts a content.
+     *
+     * @param      mixed        $content  The content
+     * @param      bool|string  $target   The target
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
+    protected function putContent($content, bool|string $target = false)
     {
         if ($target) {
             $r = @file_put_contents($target, $content);
@@ -239,7 +364,14 @@ class Unzip
         return $content;
     }
 
-    protected function testTargetDir($dir)
+    /**
+     * Test a target directory
+     *
+     * @param      string     $dir    The dir
+     *
+     * @throws     Exception
+     */
+    protected function testTargetDir(string $dir): void
     {
         if (is_dir($dir) && !is_writable($dir)) {
             throw new Exception(__('Unable to write in target directory, permission denied.'));
@@ -250,7 +382,19 @@ class Unzip
         }
     }
 
-    protected function uncompress($content, $mode, $size, $target = false)
+    /**
+     * Uncompress
+     *
+     * @param      mixed            $content  The content
+     * @param      int              $mode     The mode
+     * @param      int              $size     The size
+     * @param      bool|string      $target   The target
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
+    protected function uncompress($content, int $mode, int $size, bool|string $target = false)
     {
         switch ($mode) {
             case 0:
@@ -296,7 +440,15 @@ class Unzip
         }
     }
 
-    protected function loadFileListByEOF($stop_on_file = false, $exclude = false)
+    /**
+     * Loads a file list by eof.
+     *
+     * @param      bool|string  $stop_on_file  The stop on file
+     * @param      bool|string  $exclude       The exclude
+     *
+     * @return     bool
+     */
+    protected function loadFileListByEOF(bool|string $stop_on_file = false, bool|string $exclude = false): bool
     {
         $fp = $this->fp();
 
@@ -412,7 +564,15 @@ class Unzip
         return false;
     }
 
-    protected function loadFileListBySignatures($stop_on_file = false, $exclude = false)
+    /**
+     * Loads file list by signatures.
+     *
+     * @param      bool|string  $stop_on_file  The stop on file
+     * @param      bool|string  $exclude       The exclude
+     *
+     * @return     bool
+     */
+    protected function loadFileListBySignatures(bool|string $stop_on_file = false, bool|string $exclude = false): bool
     {
         $fp = $this->fp();
         fseek($fp, 0);
@@ -444,7 +604,14 @@ class Unzip
         return $return;
     }
 
-    protected function getFileHeaderInformation($start_offset = false)
+    /**
+     * Gets the file header information.
+     *
+     * @param      bool|int    $start_offset  The start offset
+     *
+     * @return     array<string, mixed>|bool  The file header information.
+     */
+    protected function getFileHeaderInformation(bool|int $start_offset = false): bool|array
     {
         $fp = $this->fp();
 
@@ -497,7 +664,15 @@ class Unzip
         return false;
     }
 
-    protected function getTimeStamp($date, $time)
+    /**
+     * Gets the time stamp.
+     *
+     * @param      int       $date   The date
+     * @param      int       $time   The time
+     *
+     * @return     bool|int  The time stamp.
+     */
+    protected function getTimeStamp(int $date, int $time): int|bool
     {
         $BINlastmod_date = str_pad(decbin($date), 16, '0', STR_PAD_LEFT);
         $BINlastmod_time = str_pad(decbin($time), 16, '0', STR_PAD_LEFT);
@@ -511,7 +686,14 @@ class Unzip
         return mktime($lastmod_timeH, $lastmod_timeM, $lastmod_timeS, $lastmod_dateM, $lastmod_dateD, $lastmod_dateY);
     }
 
-    protected function cleanFileName($n)
+    /**
+     * Clean a filename
+     *
+     * @param      mixed  $n      The name
+     *
+     * @return     string
+     */
+    protected function cleanFileName($n): string
     {
         $n = str_replace('../', '', (string) $n);
         $n = preg_replace('#^/+#', '', (string) $n);
@@ -519,7 +701,14 @@ class Unzip
         return $n;
     }
 
-    protected function memoryAllocate($size)
+    /**
+     * Allocate memory
+     *
+     * @param      float|int  $size   The size
+     *
+     * @throws     Exception
+     */
+    protected function memoryAllocate(int|float $size): void
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');

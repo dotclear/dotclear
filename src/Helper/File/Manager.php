@@ -46,7 +46,7 @@ class Manager
     /**
      * Array of regexps defining excluded items
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $exclude_list = [];
 
@@ -62,7 +62,7 @@ class Manager
      *
      * @deprecated since 2.28, use self::getDirs() or self::getFiles();
      *
-     * @var        array
+     * @var        array<string, array<File>>
      */
     public $dir = [
         'dirs'  => [],
@@ -168,7 +168,7 @@ class Manager
      *
      * @see $exclude_list
      *
-     * @param array|string    $list            Exclusion regexp
+     * @param array<string>|string    $list            Exclusion regexp
      */
     public function addExclusion($list): void
     {
@@ -211,7 +211,7 @@ class Manager
      *
      * @param      string  $pattern  The regexp pattern
      */
-    public function setExcludePattern(string $pattern)
+    public function setExcludePattern(string $pattern): void
     {
         $this->exclude_pattern = $pattern;
     }
@@ -350,7 +350,7 @@ class Manager
      *
      * @uses File
      *
-     * @return array
+     * @return array<File>
      */
     public function getRootDirs(): array
     {

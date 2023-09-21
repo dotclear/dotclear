@@ -27,7 +27,7 @@ class TidyDiff
     /**
      * Chunks array
      *
-     * @var        array
+     * @var        array<TidyDiffChunk>
      */
     protected $__data = [];
 
@@ -91,7 +91,7 @@ class TidyDiff
      *
      * Returns all chunks defined.
      *
-     * @return array
+     * @return array<TidyDiffChunk>
      */
     public function getChunks(): array
     {

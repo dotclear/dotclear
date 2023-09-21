@@ -24,6 +24,9 @@ use InvalidArgumentException;
  */
 class Date
 {
+    /**
+     * @var null|array<string, string>
+     */
     private static ?array $timezones = null;
 
     /**
@@ -380,7 +383,7 @@ class Date
      *
      * @param    string    $timezone        Timezone
      */
-    public static function setTZ(string $timezone)
+    public static function setTZ(string $timezone): void
     {
         if (function_exists('date_default_timezone_set')) {
             date_default_timezone_set($timezone);
@@ -475,7 +478,7 @@ class Date
      * @param boolean    $flip      Names are keys and codes are values
      * @param boolean    $groups    Return timezones in arrays of continents
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function getZones(bool $flip = false, bool $groups = false): array
     {

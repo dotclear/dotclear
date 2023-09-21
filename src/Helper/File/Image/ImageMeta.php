@@ -25,21 +25,21 @@ class ImageMeta
     /**
      * Internal XMP array
      *
-     * @var     array
+     * @var     array<string, mixed>
      */
     protected $xmp = [];
 
     /**
      * Internal IPTC array
      *
-     * @var     array
+     * @var     array<string, mixed>
      */
     protected $iptc = [];
 
     /**
      * Internal EXIF array
      *
-     * @var     array
+     * @var     array<string, mixed>
      */
     protected $exif = [];
 
@@ -79,9 +79,9 @@ class ImageMeta
      *
      * @param string    $filename        Image file path
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public static function readMeta($filename)
+    public static function readMeta(string $filename): array
     {
         $instance = new self();
         $instance->loadFile($filename);
@@ -95,7 +95,7 @@ class ImageMeta
      * Returns all image metadata in an array as defined in {@link $properties}.
      * Should call {@link loadFile()} before.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function getMeta(): array
     {
@@ -128,7 +128,7 @@ class ImageMeta
      *
      * @param string    $filename        Image file path
      */
-    public function loadFile($filename): void
+    public function loadFile(string $filename): void
     {
         if (!is_file($filename) || !is_readable($filename)) {
             throw new Exception('Unable to read file');
@@ -146,7 +146,7 @@ class ImageMeta
      *
      * @param string    $filename        Image file path
      */
-    protected function readXMP($filename)
+    protected function readXMP(string $filename): void
     {
         if (($fp = @fopen($filename, 'rb')) === false) {
             throw new Exception('Unable to open image file');
@@ -214,7 +214,7 @@ class ImageMeta
      *
      * @param string    $filename        Image file path
      */
-    protected function readIPTC($filename)
+    protected function readIPTC(string $filename): void
     {
         if (!function_exists('iptcparse')) {
             return;
@@ -247,7 +247,7 @@ class ImageMeta
      *
      * @param string    $filename        Image file path
      */
-    protected function readEXIF($filename)
+    protected function readEXIF(string $filename): void
     {
         if (!function_exists('exif_read_data')) {
             return;
@@ -272,7 +272,11 @@ class ImageMeta
         }
     }
 
-    # XMP
+    /**
+     * XMP properties
+     *
+     * @var        array<string, array<string>>
+     */
     protected $xmp_reg = [
         'Title' => [
             '%<dc:title>\s*<rdf:Alt>\s*<rdf:li.*?>(.+?)</rdf:li>%msu',
@@ -351,7 +355,11 @@ class ImageMeta
         ],
     ];
 
-    # IPTC
+    /**
+     * IPTC references
+     *
+     * @var        array<string, string>
+     */
     protected $iptc_ref = [
         '1#090' => 'Iptc.Envelope.CharacterSet', // Character Set used (32 chars max)
         '2#005' => 'Iptc.ObjectName',            // Title (64 chars max)
@@ -379,6 +387,11 @@ class ImageMeta
         '2#122' => 'Iptc.CaptionWriter',         // Caption Writer/Editor (32 chars max)
     ];
 
+    /**
+     * IPTC references to properties
+     *
+     * @var        array<string, string>
+     */
     protected $iptc_to_property = [
         'Iptc.ObjectName'    => 'Title',
         'Iptc.Caption'       => 'Description',
@@ -391,7 +404,11 @@ class ImageMeta
         'Iptc.Keywords'      => 'Keywords',
     ];
 
-    # EXIF
+    /**
+     * EXIF properties
+     *
+     * @var        array<string, string>
+     */
     protected $exif_to_property = [
         //'' => 'Title',
         'ImageDescription'  => 'Description',

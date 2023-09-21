@@ -159,7 +159,7 @@ class ImageTools
      *
      * @throws     Exception
      */
-    protected function memoryAllocate(int $width, int $height, int $bpp = 4)
+    protected function memoryAllocate(int $width, int $height, int $bpp = 4): void
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');

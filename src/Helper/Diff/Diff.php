@@ -36,10 +36,10 @@ class Diff
      * "An O(ND) Difference Algorithm and Its Variations" by Eugene W.Myers,
      * 1986.
      *
-     * @param array        $src            Original data
-     * @param array        $dst            New data
+     * @param array<mixed>        $src            Original data
+     * @param array<mixed>        $dst            New data
      *
-     * @return array
+     * @return array<array<mixed>>
      */
     public static function SES(array $src, array $dst): array
     {

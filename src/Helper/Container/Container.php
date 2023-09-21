@@ -92,7 +92,17 @@ class Container implements ContainerInterface
         return $this->factory->has($id);
     }
 
-    private function resolve($alias, $args)
+    /**
+     * { function_description }
+     *
+     * @param      string              $alias  The alias
+     * @param      mixed               $args   The arguments
+     *
+     * @throws     ContainerException
+     *
+     * @return     mixed
+     */
+    private function resolve(string $alias, $args)
     {
         try {
             $reflector = new \ReflectionClass($alias);

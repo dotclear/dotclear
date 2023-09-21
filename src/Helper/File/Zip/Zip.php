@@ -17,18 +17,48 @@ use Exception;
  */
 class Zip
 {
-    protected $entries  = [];
-    protected $root_dir = null;
+    /**
+     * @var        array<string, mixed>
+     */
+    protected array $entries = [];
 
-    protected $ctrl_dir     = [];
-    protected $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
-    protected $old_offset   = 0;
+    /**
+     * @var        array<string>
+     */
+    protected array $ctrl_dir = [];
 
+    /**
+     * @var        string
+     */
+    protected string $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
+
+    /**
+     * @var        int
+     */
+    protected $old_offset = 0;
+
+    /**
+     * @var        mixed
+     */
     protected $fp;
+
+    /**
+     * @var        mixed
+     */
     protected $memory_limit = null;
 
+    /**
+     * @var        array<string>
+     */
     protected $exclusions = [];
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      mixed      $out_fp  The out fp
+     *
+     * @throws     Exception
+     */
     public function __construct($out_fp)
     {
         if (!is_resource($out_fp)) {
@@ -47,19 +77,35 @@ class Zip
         $this->close();
     }
 
-    public function close()
+    /**
+     * Close
+     */
+    public function close(): void
     {
         if ($this->memory_limit) {
             ini_set('memory_limit', $this->memory_limit);
         }
     }
 
-    public function addExclusion($reg)
+    /**
+     * Adds an exclusion.
+     *
+     * @param      string  $reg    The exclusion (regexp)
+     */
+    public function addExclusion(string $reg): void
     {
         $this->exclusions[] = $reg;
     }
 
-    public function addFile($file, $name = null)
+    /**
+     * Adds a file.
+     *
+     * @param      mixed           $file   The file
+     * @param      string|null     $name   The name
+     *
+     * @throws     Exception
+     */
+    public function addFile($file, ?string $name = null): void
     {
         $file = preg_replace('#[\\\/]+#', '/', (string) $file);
 
@@ -89,7 +135,16 @@ class Zip
         ];
     }
 
-    public function addDirectory($dir, $name = null, $recursive = false)
+    /**
+     * Adds a directory.
+     *
+     * @param      string       $dir        The dir
+     * @param      null|string  $name       The name
+     * @param      bool         $recursive  The recursive
+     *
+     * @throws     Exception
+     */
+    public function addDirectory($dir, ?string $name = null, bool $recursive = false): void
     {
         $dir = preg_replace('#[\\\/]+#', '/', (string) $dir);
         if (substr($dir, -1 - 1) != '/') {
@@ -144,7 +199,10 @@ class Zip
         }
     }
 
-    public function write()
+    /**
+     * Write zip file
+     */
+    public function write(): void
     {
         foreach ($this->entries as $name => $v) {
             if ($v['is_dir']) {
@@ -168,7 +226,12 @@ class Zip
         );
     }
 
-    protected function writeDirectory($name)
+    /**
+     * Writes a directory.
+     *
+     * @param      string  $name   The name
+     */
+    protected function writeDirectory(string $name): void
     {
         if (!isset($this->entries[$name])) {
             return;
@@ -221,7 +284,15 @@ class Zip
         $this->ctrl_dir[] = $cdrec;
     }
 
-    protected function writeFile($name, $file, $size, $mtime)
+    /**
+     * Writes a file.
+     *
+     * @param      string     $name   The name
+     * @param      string     $file   The file
+     * @param      float|int  $size   The size
+     * @param      float|int  $mtime  The mtime
+     */
+    protected function writeFile(string $name, string $file, int|float $size, int|float $mtime): void
     {
         if (!isset($this->entries[$name])) {
             return;
@@ -289,8 +360,18 @@ class Zip
         $this->ctrl_dir[] = $cdrec;
     }
 
-    protected function formatName($name)
+    /**
+     * Format a name
+     *
+     * @param      null|string  $name   The name
+     *
+     * @return     string
+     */
+    protected function formatName(?string $name): string
     {
+        if ($name === null) {
+            return '';
+        }
         if (substr($name, 0, 1) == '/') {
             $name = substr($name, 1);
         }
@@ -298,8 +379,18 @@ class Zip
         return $name;
     }
 
-    protected function isExcluded($name)
+    /**
+     * Determines whether the specified name is excluded.
+     *
+     * @param      string|null   $name   The name
+     *
+     * @return     bool    True if the specified name is excluded, False otherwise.
+     */
+    protected function isExcluded(?string $name): bool
     {
+        if ($name === null) {
+            return false;
+        }
         foreach ($this->exclusions as $reg) {
             if (preg_match((string) $reg, (string) $name)) {
                 return true;
@@ -309,7 +400,14 @@ class Zip
         return false;
     }
 
-    protected function makeDate($ts)
+    /**
+     * Makes a date.
+     *
+     * @param      int        $ts     Timestamp
+     *
+     * @return     float|int
+     */
+    protected function makeDate(int $ts): int|float
     {
         $year = date('Y', $ts) - 1980;
         if ($year < 0) {
@@ -323,7 +421,14 @@ class Zip
         return bindec($year . $month . $day);
     }
 
-    protected function makeTime($ts)
+    /**
+     * Makes a time.
+     *
+     * @param      int        $ts     Timestamp
+     *
+     * @return     float|int
+     */
+    protected function makeTime(int $ts): int|float
     {
         $hour   = sprintf('%05b', date('G', $ts));
         $minute = sprintf('%06b', date('i', $ts));
@@ -332,7 +437,14 @@ class Zip
         return bindec($hour . $minute . $second);
     }
 
-    protected function memoryAllocate($size)
+    /**
+     * Allocate memory
+     *
+     * @param      mixed     $size   The size
+     *
+     * @throws     Exception
+     */
+    protected function memoryAllocate($size): void
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');

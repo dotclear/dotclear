@@ -31,7 +31,7 @@ class Factories
     /**
      * The containers services stack.
      *
-     * @var     array<string,Factory>   $stack
+     * @var     array<string, Factory>   $stack
      */
     private static array $stack = [];
 
@@ -55,7 +55,7 @@ class Factories
      * @param   string  $container  The container ID
      * @param   bool    $overwrite  Orverwrite a service already set
      */
-    public static function addContainer(string $container, bool $overwrite = false)
+    public static function addContainer(string $container, bool $overwrite = false): void
     {
         if (!self::hasContainer($container)) {
             self::$stack[$container] = new Factory($container, $overwrite);
