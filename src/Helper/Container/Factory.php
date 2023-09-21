@@ -41,7 +41,7 @@ class Factory
     /**
      * Set a service definiton.
      *
-     * @param   string  $service    The service name (commonly the interface name)
+     * @param   string              $service    The service name (commonly the interface name)
      * @param   string|callable     $callback   The service calss name or callback
      */
     public function set(string $service, string|callable $callback): void

@@ -7,6 +7,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Module
+ * @brief       Modules handling
+ */
+
 namespace Dotclear\Module;
 
 use Autoloader;

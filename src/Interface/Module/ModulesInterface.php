@@ -7,6 +7,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Interface.Module
+ * @brief       Modules interfaces
+ */
+
 namespace Dotclear\Interface\Module;
 
 use Dotclear\Module\ModuleDefine;
