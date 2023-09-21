@@ -25,9 +25,10 @@ use PgSql\Result;
  */
 class Handler extends AbstractHandler
 {
-    protected $__driver        = 'pgsql';
-    protected $__syntax        = 'postgresql';
-    protected $utf8_unicode_ci = null;
+    protected string $__driver = 'pgsql';
+    protected string $__syntax = 'postgresql';
+
+    protected ?string $utf8_unicode_ci = null;
 
     /**
      * Gets the PostgreSQL connection string.
@@ -304,7 +305,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed  $res    The resource
      *
-     * @return     array|false
+     * @return     array<mixed>|false
      */
     public function db_fetch_assoc($res)
     {
@@ -499,6 +500,7 @@ class Handler extends AbstractHandler
      * arguments.
      *
      * @param string    $name    Function name
+     * @param mixed     ...$data
      *
      * @return    Record
      */

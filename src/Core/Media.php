@@ -1255,7 +1255,7 @@ class Media extends Manager implements MediaInterface
      *
      * @param      File  $f      The ZIP file
      *
-     * @return     array<string>         The zip content.
+     * @return     array<string, array<string, mixed>>         The zip content.
      */
     public function getZipContent(File $f): array
     {
@@ -1264,7 +1264,7 @@ class Media extends Manager implements MediaInterface
         $zip->close();
 
         // Return empty array if error occurs
-        return $list ?: [];
+        return $list !== false ? $list : [];
     }
 
     public function mediaFireRecreateEvent(File $f): void

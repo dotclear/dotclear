@@ -26,7 +26,7 @@ class Cursor
     private $__con;
 
     /**
-     * @var        array
+     * @var        array<string, mixed>
      */
     private $__data = [];
 
@@ -134,6 +134,9 @@ class Cursor
      * Set Field
      *
      * Magic alias for {@link setField()}
+     *
+     * @param string    $name        Field name
+     * @param mixed     $value       Field value
      */
     public function __set(string $name, $value): void
     {

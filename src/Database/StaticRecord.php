@@ -23,7 +23,7 @@ class StaticRecord extends Record
     /**
      * Data arrat
      *
-     * @var        array
+     * @var        array<array<mixed>>
      */
     public $__data = [];
 
@@ -44,8 +44,8 @@ class StaticRecord extends Record
     /**
      * Constructs a new instance.
      *
-     * @param      mixed   $result  The result
-     * @param      array   $info    The information
+     * @param      mixed                        $result  The result
+     * @param      null|array<string, mixed>    $info    The information
      */
     public function __construct($result, ?array $info)
     {
@@ -65,7 +65,7 @@ class StaticRecord extends Record
      *
      * Returns a new instance of object from an associative array.
      *
-     * @param array        $data        Data array
+     * @param array<mixed>        $data        Data array
      *
      * @return StaticRecord
      */
@@ -140,7 +140,7 @@ class StaticRecord extends Record
     }
 
     /**
-     * @return array    current rows.
+     * @return array<mixed>    current rows.
      */
     public function row(): array
     {
@@ -150,7 +150,7 @@ class StaticRecord extends Record
     /**
      * Get record rows
      *
-     * @return     array
+     * @return     array<array<mixed>>
      */
     public function rows(): array
     {
@@ -227,7 +227,7 @@ class StaticRecord extends Record
      * @param      string  $field  The field
      * @param      string  $order  The order
      */
-    public function lexicalSort(string $field, string $order = 'asc')
+    public function lexicalSort(string $field, string $order = 'asc'): void
     {
         $this->__sortfield = $field;
         $this->__sortsign  = strtolower($order) == 'asc' ? 1 : -1;

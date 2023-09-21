@@ -394,7 +394,7 @@ interface MediaInterface
      *
      * @param   File    $f  File object
      *
-     * @return  array<string>  The zip content.
+     * @return  array<string, array<string, mixed>>  The zip content.
      */
     public function getZipContent(File $f): array;
 

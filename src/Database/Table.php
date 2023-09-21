@@ -29,42 +29,44 @@ class Table
     protected $has_primary = false;
 
     /**
-     * @var        array
+     * @var        array<string, array<string, mixed>>
      */
     protected $fields = [];
 
     /**
-     * @var        array
+     * @var        array<string, array<string, mixed>>
      */
     protected $keys = [];
 
     /**
-     * @var        array
+     * @var        array<string, array<string, mixed>>
      */
     protected $indexes = [];
 
     /**
-     * @var        array
+     * @var        array<string, array<string, mixed>>
      */
     protected $references = [];
 
     /**
-    Universal data types supported by AbstractSchema
-
-    SMALLINT    : signed 2 bytes integer
-    INTEGER    : signed 4 bytes integer
-    BIGINT    : signed 8 bytes integer
-    REAL        : signed 4 bytes floating point number
-    FLOAT    : signed 8 bytes floating point number
-    NUMERIC    : exact numeric type
-
-    DATE        : Calendar date (day, month and year)
-    TIME        : Time of day
-    TIMESTAMP    : Date and time
-
-    CHAR        : A fixed n-length character string
-    VARCHAR    : A variable length character string
-    TEXT        : A variable length of text
+     * Universal data types supported by AbstractSchema
+     *
+     * SMALLINT  : signed 2 bytes integer
+     * INTEGER   : signed 4 bytes integer
+     * BIGINT    : signed 8 bytes integer
+     * REAL      : signed 4 bytes floating point number
+     * FLOAT     : signed 8 bytes floating point number
+     * NUMERIC   : exact numeric type
+     *
+     * DATE      : Calendar date (day, month and year)
+     * TIME      : Time of day
+     * TIMESTAMP : Date and time
+     *
+     * CHAR      : fixed n-length character string
+     * VARCHAR   : variable length character string
+     * TEXT      : variable length of text
+     *
+     * @var        array<string>
      */
     protected $allowed_types = [
         'smallint', 'integer', 'bigint', 'real', 'float', 'numeric',
@@ -72,6 +74,11 @@ class Table
         'char', 'varchar', 'text',
     ];
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      string  $name   The table name
+     */
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -80,7 +87,7 @@ class Table
     /**
      * Gets the fields.
      *
-     * @return     array  The fields.
+     * @return     array<string, array<string, mixed>>  The fields.
      */
     public function getFields(): array
     {
@@ -90,7 +97,7 @@ class Table
     /**
      * Gets the keys.
      *
-     * @return     array  The keys.
+     * @return     array<string, array<string, mixed>>  The keys.
      */
     public function getKeys(): array
     {
@@ -100,7 +107,7 @@ class Table
     /**
      * Gets the indexes.
      *
-     * @return     array  The indexes.
+     * @return     array<string, array<string, mixed>>  The indexes.
      */
     public function getIndexes(): array
     {
@@ -110,7 +117,7 @@ class Table
     /**
      * Gets the references.
      *
-     * @return     array  The references.
+     * @return     array<string, array<string, mixed>>  The references.
      */
     public function getReferences(): array
     {
@@ -132,13 +139,13 @@ class Table
     /**
      * Determines if key exists.
      *
-     * @param      string            $name      The name
-     * @param      string            $type      The type
-     * @param      array             $fields    The fields
+     * @param      string           $name      The name
+     * @param      string           $type      The type
+     * @param      array<string>    $fields    The fields
      *
      * @return     bool|string
      */
-    public function keyExists(string $name, string $type, array $fields)
+    public function keyExists(string $name, string $type, array $fields): bool|string
     {
         # Look for key with the same name
         if (isset($this->keys[$name])) {
@@ -159,13 +166,13 @@ class Table
     /**
      * Determines if index exists.
      *
-     * @param      string            $name      The name
-     * @param      string            $type      The type
-     * @param      array             $fields    The fields
+     * @param      string           $name      The name
+     * @param      string           $type      The type
+     * @param      array<string>    $fields    The fields
      *
      * @return     bool|string
      */
-    public function indexExists(string $name, string $type, array $fields)
+    public function indexExists(string $name, string $type, array $fields): bool|string
     {
         # Look for key with the same name
         if (isset($this->indexes[$name])) {
@@ -187,13 +194,13 @@ class Table
      * Determines if reference exists.
      *
      * @param      string            $name              The reference name
-     * @param      array             $local_fields      The local fields
+     * @param      array<string>     $local_fields      The local fields
      * @param      string            $foreign_table     The foreign table
-     * @param      array             $foreign_fields    The foreign fields
+     * @param      array<string>     $foreign_fields    The foreign fields
      *
      * @return     bool|string
      */
-    public function referenceExists(string $name, array $local_fields, string $foreign_table, array $foreign_fields)
+    public function referenceExists(string $name, array $local_fields, string $foreign_table, array $foreign_fields): bool|string
     {
         if (isset($this->references[$name])) {
             return $name;
@@ -224,7 +231,7 @@ class Table
      *
      * @return     Table|self
      */
-    public function field(string $name, string $type, ?int $len, bool $null = true, $default = false, bool $to_null = false)
+    public function field(string $name, string $type, ?int $len, bool $null = true, $default = false, bool $to_null = false): Table
     {
         $type = strtolower($type);
 
@@ -315,12 +322,12 @@ class Table
     /**
      * Set a reference
      *
-     * @param      string           $name            The reference name
-     * @param      array|string     $local_fields    The local fields
-     * @param      string           $foreign_table   The foreign table
-     * @param      array|string     $foreign_fields  The foreign fields
-     * @param      bool|string      $update          The update
-     * @param      bool|string      $delete          The delete
+     * @param      string                   $name            The reference name
+     * @param      array<string>|string     $local_fields    The local fields
+     * @param      string                   $foreign_table   The foreign table
+     * @param      array<string>|string     $foreign_fields  The foreign fields
+     * @param      bool|string              $update          The update
+     * @param      bool|string              $delete          The delete
      */
     public function reference(string $name, $local_fields, string $foreign_table, $foreign_fields, $update = false, $delete = false): void
     {
@@ -345,9 +352,9 @@ class Table
     /**
      * Set a new key (index)
      *
-     * @param      string              $type    The type
-     * @param      string              $name    The name
-     * @param      array               $fields  The fields
+     * @param      string           $type    The type
+     * @param      string           $name    The name
+     * @param      array<string>    $fields  The fields
      *
      * @return     Table|self
      */
@@ -368,9 +375,9 @@ class Table
     }
 
     /**
-     * Ccheck if field(s) exists
+     * Check if field(s) exists
      *
-     * @param      array      $fields   The fields
+     * @param      array<string>      $fields   The fields
      *
      * @throws     Exception
      */

@@ -50,7 +50,7 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: array}>
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: array<string>}>
      */
     public function db_get_keys(string $table): array;
 
@@ -64,7 +64,7 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, type: string, cols: array}>
+     * @return     array<array{name: string, type: string, cols: array<string>}>
      */
     public function db_get_indexes(string $table): array;
 
@@ -81,15 +81,15 @@ interface InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>
+     * @return     array<array{name: string, c_cols: array<string>, p_table: string, p_cols: array<string>, update: string, delete: string}>
      */
     public function db_get_references(string $table): array;
 
     /**
      * Create table
      *
-     * @param      string  $name    The name
-     * @param      array   $fields  The fields
+     * @param      string                   $name    The name
+     * @param      array<string, mixed>     $fields  The fields
      */
     public function db_create_table(string $name, array $fields): void;
 
@@ -108,41 +108,41 @@ interface InterfaceSchema
     /**
      * Create primary index
      *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      array   $fields The fields
+     * @param      string           $table  The table
+     * @param      string           $name   The name
+     * @param      array<string>    $fields The fields
      */
     public function db_create_primary(string $table, string $name, array $fields): void;
 
     /**
      * Create unique field
      *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      array   $fields The fields
+     * @param      string           $table  The table
+     * @param      string           $name   The name
+     * @param      array<string>    $fields The fields
      */
     public function db_create_unique(string $table, string $name, array $fields): void;
 
     /**
      * Create index
      *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      string  $type   The type
-     * @param      array   $fields The fields
+     * @param      string           $table  The table
+     * @param      string           $name   The name
+     * @param      string           $type   The type
+     * @param      array<string>    $fields The fields
      */
     public function db_create_index(string $table, string $name, string $type, array $fields): void;
 
     /**
      * Create reference
      *
-     * @param      string       $name               The name
-     * @param      string       $table              The table
-     * @param      array        $fields             The fields
-     * @param      string       $foreign_table      The foreign table
-     * @param      array        $foreign_fields     The foreign fields
-     * @param      bool|string  $update             The update
-     * @param      bool|string  $delete             The delete
+     * @param      string           $name               The name
+     * @param      string           $table              The table
+     * @param      array<string>    $fields             The fields
+     * @param      string           $foreign_table      The foreign table
+     * @param      array<string>    $foreign_fields     The foreign fields
+     * @param      bool|string      $update             The update
+     * @param      bool|string      $delete             The delete
      */
     public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
 
@@ -161,45 +161,45 @@ interface InterfaceSchema
     /**
      * Modify primary index
      *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The new name
-     * @param      array   $fields   The fields
+     * @param      string           $table    The table
+     * @param      string           $name     The name
+     * @param      string           $newname  The new name
+     * @param      array<string>    $fields   The fields
      */
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void;
 
     /**
      * Modify unique field
      *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The new name
-     * @param      array   $fields   The fields
+     * @param      string           $table    The table
+     * @param      string           $name     The name
+     * @param      string           $newname  The new name
+     * @param      array<string>    $fields   The fields
      */
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void;
 
     /**
      * Modify index
      *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The new name
-     * @param      string  $type     The type
-     * @param      array   $fields   The fields
+     * @param      string           $table    The table
+     * @param      string           $name     The name
+     * @param      string           $newname  The new name
+     * @param      string           $type     The type
+     * @param      array<string>    $fields   The fields
      */
     public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void;
 
     /**
      * Modify reference
      *
-     * @param      string       $name               The name
-     * @param      string       $newname            The new name
-     * @param      string       $table              The table
-     * @param      array        $fields             The fields
-     * @param      string       $foreign_table      The foreign table
-     * @param      array        $foreign_fields     The foreign fields
-     * @param      bool|string  $update             The update
-     * @param      bool|string  $delete             The delete
+     * @param      string           $name               The name
+     * @param      string           $newname            The new name
+     * @param      string           $table              The table
+     * @param      array<string>    $fields             The fields
+     * @param      string           $foreign_table      The foreign table
+     * @param      array<string>    $foreign_fields     The foreign fields
+     * @param      bool|string      $update             The update
+     * @param      bool|string      $delete             The delete
      */
     public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
 

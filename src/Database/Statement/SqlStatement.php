@@ -33,6 +33,8 @@ class SqlStatement
 
     /**
      * DB handle
+     *
+     * @var     null|\Dotclear\Interface\Core\ConnectionInterface
      */
     protected $con;
 
@@ -55,35 +57,35 @@ class SqlStatement
     /**
      * Stack of fields
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $columns = [];
 
     /**
      * Stack of from clauses
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $from = [];
 
     /**
      * Stack of where clauses
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $where = [];
 
     /**
      * Additionnal stack of where clauses
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $cond = [];
 
     /**
      * Stack of generic SQL clauses
      *
-     * @var        array
+     * @var        array<string>
      */
     protected $sql = [];
 

@@ -96,8 +96,8 @@ interface SchemaInterface
     /**
      * Creates a table.
      *
-     * @param   string          $name    The name
-     * @param   array<string>   $fields  The fields
+     * @param   string                                  $name    The name
+     * @param   array<string, array<string, mixed>>     $fields  The fields
      */
     public function createTable(string $name, array $fields): void;
 

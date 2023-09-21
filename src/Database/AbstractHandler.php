@@ -23,21 +23,21 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      *
      * @var        string
      */
-    protected $__driver;
+    protected string $__driver;
 
     /**
      * Syntax name
      *
      * @var        string
      */
-    protected $__syntax;
+    protected string $__syntax;
 
     /**
      * Database driver version
      *
      * @var        string
      */
-    protected $__version; ///< string: Database version
+    protected string $__version; ///< string: Database version
 
     /**
      * Database driver handle (resource)
@@ -51,7 +51,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      *
      * @var string
      */
-    protected $__prefix = '';
+    protected string $__prefix = '';
 
     /**
      * Last result resource link
@@ -65,7 +65,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      *
      * @var string;
      */
-    protected $__database;
+    protected string $__database;
 
     /**
      * Start connection

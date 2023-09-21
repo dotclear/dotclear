@@ -18,7 +18,10 @@ use Dotclear\App;
  */
 class JoinStatement extends SqlStatement
 {
-    protected $type;
+    /**
+     * @var ?string
+     */
+    protected $type = null;
 
     /**
      * Constructs a new instance.
@@ -28,8 +31,6 @@ class JoinStatement extends SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->type = null;
-
         parent::__construct($con, $syntax);
     }
 

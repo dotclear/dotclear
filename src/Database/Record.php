@@ -21,6 +21,8 @@ use ReflectionClass;
  * This class acts as an iterator over database query result. It does not fetch
  * all results on instantiation and thus, depending on database engine, should not
  * fill PHP process memory.
+ *
+ * @implements Iterator<int, array<mixed>>
  */
 class Record implements Iterator, Countable
 {
@@ -41,14 +43,14 @@ class Record implements Iterator, Countable
     /**
      * Result information array
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $__info;
 
     /**
      * List of static functions that extend Record
      *
-     * @var        array
+     * @var        array<string, callable>
      */
     protected $__extend = [];
 
@@ -62,7 +64,7 @@ class Record implements Iterator, Countable
     /**
      * Current result row content
      *
-     * @var        array
+     * @var        array<mixed>
      */
     protected $__row = [];
 
@@ -85,8 +87,8 @@ class Record implements Iterator, Countable
      * - info[name] => an array with columns names
      * - info[type] => an array with columns types
      *
-     * @param mixed        $result      Resource result
-     * @param array        $info        Information array
+     * @param mixed                     $result      Resource result
+     * @param array<string, mixed>      $info        Information array
      */
     public function __construct($result, array $info)
     {
@@ -230,7 +232,7 @@ class Record implements Iterator, Countable
     /**
      * Returns Record extensions.
      *
-     * @return  array
+     * @return  array<string, callable>
      */
     public function extensions(): array
     {
@@ -393,7 +395,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array    array of columns names
+     * @return array<string>   array of columns names
      */
     public function columns(): array
     {
@@ -401,7 +403,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array    all rows in record.
+     * @return array<array<mixed>>    all rows in record.
      */
     public function rows(): array
     {
@@ -413,7 +415,7 @@ class Record implements Iterator, Countable
      *
      * Returns an array of all rows in record. This method is called by rows().
      *
-     * @return array
+     * @return array<array<mixed>>
      */
     protected function getData(): array
     {
@@ -436,7 +438,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array    current rows.
+     * @return array<mixed>    current rows.
      */
     public function row()
     {
@@ -451,7 +453,7 @@ class Record implements Iterator, Countable
     #[\ReturnTypeWillChange]
     public function current()
     {
-        return $this;
+        return $this;   // @phpstan-ignore-line
     }
 
     /**

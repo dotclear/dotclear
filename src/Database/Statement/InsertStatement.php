@@ -18,7 +18,10 @@ use Dotclear\App;
  */
 class InsertStatement extends SqlStatement
 {
-    protected $lines;
+    /**
+     * @var array<mixed>
+     */
+    protected array $lines = [];
 
     /**
      * Constructs a new instance.
@@ -84,10 +87,10 @@ class InsertStatement extends SqlStatement
     }
 
     /**
-     * Adds update value(s), given as array of array of values
+     * Adds update value(s), usually given as array of array of values
      *
-     * @param array     $c      the insert values(s)
-     * @param boolean   $reset  reset previous insert value(s) first
+     * @param array<mixed>      $c      the insert values(s)
+     * @param boolean           $reset  reset previous insert value(s) first
      *
      * @return self instance, enabling to chain calls
      */
@@ -145,7 +148,7 @@ class InsertStatement extends SqlStatement
 
         // Value(s)
         $query .= 'VALUES ';
-        if (is_countable($this->lines) ? count($this->lines) : 0) {
+        if (count($this->lines)) {
             $raws = [];
             foreach ($this->lines as $line) {
                 $raws[] = '(' . (is_array($line) ? join(', ', $line) : $line) . ')';
