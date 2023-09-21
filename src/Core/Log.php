@@ -200,7 +200,7 @@ class Log implements LogInterface
      *
      * @throws     Exception
      */
-    private function fillLogCursor(Cursor $cur)
+    private function fillLogCursor(Cursor $cur): void
     {
         if ($cur->log_msg === '') {
             throw new Exception(__('No log message'));

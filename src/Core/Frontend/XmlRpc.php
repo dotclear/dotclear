@@ -123,7 +123,7 @@ class XmlRpc extends IntrospectionServer
      * @param   mixed   $args           The arguments
      * @param   mixed   $rsp            The response
      */
-    private function debugTrace(string $methodname, $args, $rsp)
+    private function debugTrace(string $methodname, $args, $rsp): void
     {
         if (!$this->debug) {
             return;
