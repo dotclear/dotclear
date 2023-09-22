@@ -18,7 +18,7 @@ use Dotclear\Module\StoreReader;
 /**
  * @brief   Application cache handler.
  *
- * @since 2.28
+ * @since   2.28
  */
 class Cache implements CacheInterface
 {

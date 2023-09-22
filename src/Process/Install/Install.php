@@ -14,7 +14,6 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
-use Dotclear\Database\AbstractSchema;
 use Dotclear\Database\Structure;
 use Dotclear\Fault;
 use Dotclear\Helper\Html\Html;
@@ -144,7 +143,7 @@ class Install extends Process
         }
 
         # Check if dotclear is already installed
-        $schema = AbstractSchema::init(App::con());
+        $schema = App::con()->schema();
         if (in_array(App::con()->prefix() . App::blog()::POST_TABLE_NAME, $schema->getTables())) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';

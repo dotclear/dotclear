@@ -14,6 +14,8 @@ use Dotclear\Interface\Core\PostTypesInterface;
 
 /**
  * @brief   Posts types handler.
+ *
+ * @since   2.28
  */
 class PostTypes implements PostTypesInterface
 {

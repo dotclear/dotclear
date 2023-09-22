@@ -12,7 +12,6 @@ use Dotclear\App;
 use Dotclear\Fault;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
-use Dotclear\Database\AbstractSchema;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -149,7 +148,7 @@ class Wizard extends Process
                 }
 
                 # Check if dotclear is already installed
-                $schema = AbstractSchema::init($con);
+                $schema = $con->schema();
                 if (in_array(self::$DBPREFIX . 'version', $schema->getTables())) {
                     throw new Exception(__('Dotclear is already installed.'));
                 }

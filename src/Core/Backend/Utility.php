@@ -33,19 +33,39 @@ class Utility extends Process
     /** Allow dynamic properties */
     use TraitDynamicProperties;
 
-    /** @var    string  Current admin page URL */
+    /**
+     * Current admin page URL.
+     *
+     * @var     string  $p_url
+     */
     private string $p_url = '';
 
-    /** @var    Url     Backend (admin) Url handler instance */
+    /**
+     * Backend (admin) Url handler instance.
+     *
+     * @var     Url     $url
+     */
     public Url $url;
 
-    /** @var    Favorites   Backend (admin) Favorites handler instance */
+    /**
+     * Backend (admin) Favorites handler instance.
+     *
+     *  @var    Favorites   $favs
+     */
     public Favorites $favs;
 
-    /** @var    Menus   Backend (admin) Menus handler instance */
+    /**
+     * Backend (admin) Menus handler instance.
+     *
+     * @var     Menus   $menus
+     */
     public Menus $menus;
 
-    /** @var    Resources   Backend help resources instance */
+    /**
+     * Backend help resources instance.
+     *
+     * @var     Resources   $resources
+     */
     public Resources $resources;
 
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
@@ -176,8 +196,8 @@ class Utility extends Process
             // Load locales
             Helper::loadLocales();
 
-            // deprecated since 2.27, use App::task()->getLang() instead
-            $GLOBALS['_lang'] = App::task()->getLang();
+            // deprecated since 2.27, use App::lang()->getLang() instead
+            $GLOBALS['_lang'] = App::lang()->getLang();
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
@@ -203,15 +223,15 @@ class Utility extends Process
         App::backend()->resources = new Resources();
 
         require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::task()->getLang())) {
+        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::task()->getLang(), 'help']))) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::task()->getLang(), 'help', $hfile]));
+                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
                 }
             }
         }
@@ -244,7 +264,7 @@ class Utility extends Process
         dcCore::app()->media = App::media();
 
         // Load plugins
-        App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::task()->getLang());
+        App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::lang()->getLang());
         App::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {
@@ -260,7 +280,7 @@ class Utility extends Process
 
         // Load themes
         if (App::themes()->isEmpty()) {
-            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
 
             // deprecated Since 2.28, use App::themes()->menus instead
             dcCore::app()->themes = App::themes();

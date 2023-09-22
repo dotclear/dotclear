@@ -85,7 +85,7 @@ class Tables extends CleanerParent
 
     public function values(): array
     {
-        $schema = App::Schema(App::con());
+        $schema = App::con()->schema();
         $tables = $schema->getTables();
 
         $stack = [];

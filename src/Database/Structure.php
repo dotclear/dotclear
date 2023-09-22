@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\App;
 use Exception;
 
 /**
@@ -93,7 +92,7 @@ class Structure
      */
     public function reverse(): void
     {
-        $schema = App::Schema($this->con);
+        $schema = $this->con->schema();
 
         # Get tables
         $tables = $schema->getTables();
@@ -171,7 +170,7 @@ class Structure
 
         $got_work = false;
 
-        $schema = App::Schema($this->con);
+        $schema = $this->con->schema();
 
         foreach ($tables as $tname => $t) {
             if (!$this->tableExists($tname)) {

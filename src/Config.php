@@ -206,7 +206,6 @@ class Config implements ConfigInterface
 
         // Load config file
         if (is_file($this->configPath())) {
-
             // path::real() may be used in inc/config.php
             if (!class_exists('path')) {
                 class_alias('Dotclear\Helper\File\Path', 'path');

@@ -30,36 +30,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
     }
 
     /**
-     * Initializes the driver.
-     *
-     * @param      mixed  $con    The DB handle
-     *
-     * @return     AbstractSchema
-     */
-    public static function init($con)
-    {
-        $driver = $con->driver();
-        $class  = $driver . 'Schema';
-
-        // Set full namespace of distributed database driver
-        if (in_array($driver, ['mysqli', 'mysqlimb4', 'pgsql', 'sqlite'])) {
-            $class = __NAMESPACE__ . '\\Driver\\' . ucfirst($driver) . '\\Schema';
-        }
-
-        // You can set DC_DBSCHEMA_CLASS to whatever you want.
-        // Your new class *should* inherits Dotclear\Database\Schema\AbstractSchema class.
-        $class = defined('DC_DBSCHEMA_CLASS') ? \DC_DBSCHEMA_CLASS : $class;
-
-        if (!is_subclass_of($class, __CLASS__)) {
-            trigger_error('Database schema class ' . $class . ' does not exist or does not inherit ' . __CLASS__);
-
-            exit(1);
-        }
-
-        return new $class($con);
-    }
-
-    /**
      * Database data type to universal data type conversion.
      *
      * @param      string   $type       Type name

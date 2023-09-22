@@ -59,18 +59,4 @@ interface TaskInterface
      * @param   string  $process    The process
      */
     public function loadProcess(string $process): void;
-
-    /**
-     * Get current lang.
-     *
-     * @return  string
-     */
-    public static function getLang(): string;
-
-    /**
-     * Set the lang to use.
-     *
-     * @param   string  $id     The lang ID
-     */
-    public static function setLang($id): void;
 }
