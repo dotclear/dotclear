@@ -1136,23 +1136,10 @@ class Page
     /**
      * Get HTML to load Upload JS utility
      *
-     * @param      array        $params    The parameters
-     * @param      null|string  $base_url  The base url
-     *
      * @return     string
      */
-    public static function jsUpload(array $params = [], ?string $base_url = null): string
+    public static function jsUpload(): string
     {
-        if (!$base_url) {
-            $base_url = Path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/';
-        }
-
-        $params = array_merge($params, [
-            'sess_id=' . session_id(),
-            'sess_uid=' . $_SESSION['sess_browser_uid'],
-            'xd_check=' . App::nonce()->getNonce(),
-        ]);
-
         $js_msg = [
             'enhanced_uploader_activate' => __('Temporarily activate enhanced uploader'),
             'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader'),
@@ -1176,7 +1163,7 @@ class Page
                 'files_in_queue'             => __('%d files in queue.'),
                 'queue_error'                => __('Queue error:'),
             ],
-            'base_url' => $base_url,
+            'base_url' => Path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/',
         ];
 
         return

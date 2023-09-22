@@ -316,7 +316,7 @@ class Media extends Process
             App::backend()->page->js(App::backend()->url->get('admin.media', array_diff_key(App::backend()->page->values(), App::backend()->page->values(false, true)), '&')) .
             Page::jsLoad('js/_media.js') .
             $starting_scripts .
-            (App::backend()->page->mediaWritable() ? Page::jsUpload(['d=' . App::backend()->page->d]) : '')
+            (App::backend()->page->mediaWritable() ? Page::jsUpload() : '')
         );
 
         if (App::backend()->page->popup) {
