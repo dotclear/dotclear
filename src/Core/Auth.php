@@ -35,84 +35,77 @@ class Auth implements AuthInterface
      *
      * @var  ConnectionInterface $con
      */
-    protected $con;
+    protected ConnectionInterface $con;
 
     /**
      * User table name.
      *
      * @var     string  $user_table
      */
-    protected $user_table;
+    protected string $user_table;
 
     /**
      * Perm table name.
      *
      * @var  string     $perm_table
      */
-    protected $perm_table;
+    protected string $perm_table;
 
     /**
      * Blog table name.
      *
      * @var     string  $blog_table
      */
-    protected $blog_table;
+    protected string $blog_table;
 
     /**
      * Current user ID.
      *
      * @var     string|null     $user_id
      */
-    protected $user_id;
+    protected ?string $user_id;
 
     /**
      * Array with user information.
      *
-     * @var     array   $user_info
+     * @var     array<string, mixed>   $user_info
      */
-    protected $user_info = [];
+    protected array $user_info = [];
 
     /**
      * Array with user options.
      *
      * @var     array<string, mixed>   $user_options
      */
-    protected $user_options = [];
+    protected array $user_options = [];
 
     /**
      * User must change his password after login.
      *
      * @var     bool    $user_change_pwd
      */
-    protected $user_change_pwd;
+    protected bool $user_change_pwd;
 
     /**
      * User is super admin.
      *
      * @var     bool    $user_admin
      */
-    protected $user_admin;
-
-    /**
-     * Permissions for each blog.
-     *
-     * @var     array   $permissions
-     */
-    protected $permissions = [];
+    protected bool $user_admin;
 
     /**
      * User can change its password.
      *
      * @var     bool    $allow_pass_change
      */
-    protected $allow_pass_change = true;
+    protected bool $allow_pass_change = true;
 
     /**
      * List of blogs on which the user has permissions.
      *
-     * @var     array   $blogs
+     * @var     array<string, mixed>   $blogs
      */
-    protected $blogs = [];
+    protected array $blogs = [];
 
     /**
      * Count of user blogs.
@@ -121,16 +114,16 @@ class Auth implements AuthInterface
      *
      * @deprecated  since 2.??, use App::auth()->getBlogCount() instead
      *
-     * @var     ?int     $blog_count
+     * @var     int|null     $blog_count
      */
-    public $blog_count;
+    public ?int $blog_count;
 
     /**
      * Permission types.
      *
      * @var     array<string, string>   $perm_types
      */
-    protected $perm_types;
+    protected array $perm_types;
 
     /**
      * UserPreferences (user preferences) object.
@@ -139,7 +132,7 @@ class Auth implements AuthInterface
      *
      * @var     UserPreferencesInterface    $user_prefs
      */
-    public $user_prefs;
+    public UserPreferencesInterface $user_prefs;
 
     /**
      * Create a new instance of authentication class (user-defined or default).

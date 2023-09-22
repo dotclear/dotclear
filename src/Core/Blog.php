@@ -792,9 +792,9 @@ class Blog implements BlogInterface
     /**
      * Gets the categories posts counter.
      *
-     * @param      array|ArrayObject  $params  The parameters
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $params  The parameters
      *
-     * @return     array  The categories counter.
+     * @return     array<int, int>  The categories counter.
      */
     private function getCategoriesCounter($params = []): array
     {
@@ -2235,7 +2235,15 @@ class Blog implements BlogInterface
         return $sql->select();
     }
 
-    private function getPostsCategoryFilter($arr, $field = 'cat_id'): string
+    /**
+     * Get a category filter SQL clause
+     *
+     * @param  array<string>    $arr        filters
+     * @param  string           $field
+     *
+     * @return string
+     */
+    private function getPostsCategoryFilter($arr, string $field = 'cat_id'): string
     {
         $field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
 
