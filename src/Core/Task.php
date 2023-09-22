@@ -120,11 +120,6 @@ class Task implements TaskInterface
 
         L10n::init();
 
-        // path::real() may be used in inc/config.php
-        if (!class_exists('path')) {
-            class_alias('Dotclear\Helper\File\Path', 'path');
-        }
-
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
             'dcCore'  => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
