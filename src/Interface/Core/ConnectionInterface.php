@@ -36,7 +36,7 @@ interface ConnectionInterface
     /**
      * Returns database schema handler
      *
-     * @return string
+     * @return SchemaInterface
      */
     public function schema(): SchemaInterface;
 

@@ -153,7 +153,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
         $class = defined('DC_DBSCHEMA_CLASS') ? \DC_DBSCHEMA_CLASS : $class;
 
         if (!is_subclass_of($class, SchemaInterface::class)) {
-            throw new Exception('Database schema class ' . $class . ' does not exist or does not inherit ' . SchemaInterface::class);
+            trigger_error(sprintf('Database schema class %s does not exist or does not inherit %s', $class, SchemaInterface::class));
         }
 
         return new $class($this);
