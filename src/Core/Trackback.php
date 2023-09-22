@@ -708,7 +708,7 @@ class Trackback implements TrackbackInterface
      *
      * @param   string  $text   The text
      *
-     * @return  array   The text links.
+     * @return  array<string>   The text links.
      */
     private function getTextLinks(string $text): array
     {

@@ -75,7 +75,7 @@ class Helper
     /**
      * Adds a menu item.
      *
-     * @deprecated sicne 2.27, use App::backend()->menus->addItem() instead
+     * @deprecated since 2.27, use App::backend()->menus->addItem() instead
      *
      * @param      string  $section   The section
      * @param      string  $desc      The item description

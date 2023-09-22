@@ -48,21 +48,21 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Global preferences.
      *
-     * @var     array   Global preferences
+     * @var     array<string, mixed>   Global preferences
      */
     protected array $global_prefs = [];
 
     /**
      * Local preferences.
      *
-     * @var     array   $local_prefs
+     * @var     array<string, mixed>   $local_prefs
      */
     protected array $local_prefs = [];
 
     /**
      * User preferences.
      *
-     * @var     array   $prefs
+     * @var     array<string, mixed>   $prefs
      */
     protected array $prefs = [];
 

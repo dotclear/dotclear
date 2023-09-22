@@ -19,21 +19,21 @@ use Dotclear\Helper\Text;
 class dcUtils
 {
     /**
-     * @deprecated  sicne 2.28, use App::lexical()::ADMIN_LOCALE instaed
+     * @deprecated  since 2.28, use App::lexical()::ADMIN_LOCALE instaed
      *
      * @var     string  ADMIN_LOCALE
      */
     public const ADMIN_LOCALE = 'admin';
 
     /**
-     * @deprecated  sicne 2.28, use App::lexical()::PUBLIC_LOCALE instaed
+     * @deprecated  since 2.28, use App::lexical()::PUBLIC_LOCALE instaed
      *
      * @var     string  PUBLIC_LOCALE
      */
     public const PUBLIC_LOCALE = 'public';
 
     /**
-     * @deprecated  sicne 2.28, use App::lexical()::CUSTOM_LOCALE instaed
+     * @deprecated  since 2.28, use App::lexical()::CUSTOM_LOCALE instaed
      *
      * @var     string  CUSTOM_LOCALE
      */

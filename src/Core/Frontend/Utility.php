@@ -12,6 +12,7 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Frontend
  * @brief       Dotclear application frontend utilities.
  */
+
 namespace Dotclear\Core\Frontend;
 
 use dcCore;
@@ -89,7 +90,7 @@ class Utility extends Process
     /**
      * Smilies definitions
      *
-     * @var array|null
+     * @var array<string, string>|null
      */
     public $smilies;
 

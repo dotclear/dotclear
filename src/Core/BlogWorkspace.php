@@ -52,14 +52,14 @@ class BlogWorkspace implements BlogWorkspaceInterface
      *
      * @var     array<string, array<string, mixed>>   $local_settings
      */
-    protected $local_settings = [];
+    protected array $local_settings = [];
 
     /**
      * Blog settings.
      *
-     * @var     array<string, array<string, mixed>>   $setting
+     * @var     array<string, array<string, mixed>>   $settings
      */
-    protected $settings = [];
+    protected array $settings = [];
 
     /**
      * Settings table name.

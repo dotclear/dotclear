@@ -380,7 +380,7 @@ class Utils
      *
      * Optionnal parameter <var>defaults</var> replaces default params while needed.
      *
-     * @param   null|array  $defaults   The defaults settings
+     * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
      */
     public static function blogDefaults(?array $defaults = null): void
     {

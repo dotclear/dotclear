@@ -19,7 +19,7 @@ use Exception;
 /**
  * @brief   Dotclear upgrade procedure.
  *
- * This class is called from backend authentication page 
+ * This class is called from backend authentication page
  * or CLI command.
  */
 class Upgrade
@@ -167,7 +167,7 @@ class Upgrade
      * @param   string  $ns         Settings workspace name
      * @param   string  $setting    The setting ID
      */
-    public static function settings2array(string $ns, string $setting)
+    public static function settings2array(string $ns, string $setting): void
     {
         $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
             "WHERE setting_id = '%s' " .
@@ -200,7 +200,7 @@ class Upgrade
      * @param   string  $ws     Preferences workspace name
      * @param   string  $pref   The preference ID
      */
-    public static function prefs2array(string $ws, string $pref)
+    public static function prefs2array(string $ws, string $pref): void
     {
         $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' ' .
             "WHERE pref_id = '%s' " .
@@ -230,10 +230,10 @@ class Upgrade
     /**
      * Remove files and/or folders.
      *
-     * @param   array|null  $files      The files
-     * @param   array|null  $folders    The folders
+     * @param   array<string>|null  $files      The files
+     * @param   array<string>|null  $folders    The folders
      */
-    public static function houseCleaning(?array $files = null, ?array $folders = null)
+    public static function houseCleaning(?array $files = null, ?array $folders = null): void
     {
         if (App::config()->dotclearRoot() === '') {
             return;

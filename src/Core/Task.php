@@ -294,7 +294,12 @@ class Task implements TaskInterface
         return self::$lang;
     }
 
-    public static function setLang($id): void
+    /**
+     * Sets the language.
+     *
+     * @param      string  $id     The new value
+     */
+    public static function setLang(string $id): void
     {
         self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
 

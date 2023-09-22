@@ -97,7 +97,7 @@ interface UserPreferencesInterface
     /**
      * Dumps workspaces.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, UserWorkspaceInterface>
      */
     public function dumpWorkspaces(): array;
 }

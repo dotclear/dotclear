@@ -43,7 +43,7 @@ class UserPreferences implements UserPreferencesInterface
     /**
      * Associative workspaces array.
      *
-     * @var     array   $workspaces
+     * @var     array<string, UserWorkspaceInterface>   $workspaces
      */
     protected $workspaces = [];
 
@@ -187,7 +187,7 @@ class UserPreferences implements UserPreferencesInterface
     /**
      * Dumps workspaces.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, UserWorkspaceInterface>
      */
     public function dumpWorkspaces(): array
     {

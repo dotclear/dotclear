@@ -48,42 +48,42 @@ class Media extends Manager implements MediaInterface
      *
      * @var string
      */
-    protected $table;
+    protected string $table;
 
     /**
      * Media type filter
      *
      * @var string
      */
-    protected $type = '';
+    protected string $type = '';
 
     /**
      * Sort criteria
      *
      * @var string
      */
-    protected $file_sort = 'name-asc';
+    protected string $file_sort = 'name-asc';
 
     /**
      * Current path
      *
      * @var string
      */
-    protected $path;
+    protected string $path;
 
     /**
      * Ccurrent relative path
      *
      * @var string
      */
-    protected $relpwd;
+    protected string $relpwd;
 
     /**
      * Stack of callbacks
      *
-     * @var array
+     * @var array<string, array<string, array<callable>>>
      */
-    protected $file_handler = [];
+    protected array $file_handler = [];
 
     /**
      * Post media instance
@@ -92,7 +92,7 @@ class Media extends Manager implements MediaInterface
      *
      * @var PostMediaInterface
      */
-    protected $postmedia;
+    protected PostMediaInterface $postmedia;
 
     /**
      * Thumbnail file pattern
@@ -101,7 +101,7 @@ class Media extends Manager implements MediaInterface
      *
      * @var string
      */
-    public $thumb_tp = '%s/.%s_%s.jpg';
+    public string $thumb_tp = '%s/.%s_%s.jpg';
 
     /**
      * Thumbnail file pattern (PNG with alpha layer)
@@ -110,7 +110,7 @@ class Media extends Manager implements MediaInterface
      *
      * @var string
      */
-    public $thumb_tp_alpha = '%s/.%s_%s.png';
+    public string $thumb_tp_alpha = '%s/.%s_%s.png';
 
     /**
      * Thumbnail file pattern (WebP)
@@ -119,7 +119,7 @@ class Media extends Manager implements MediaInterface
      *
      * @var string
      */
-    public $thumb_tp_webp = '%s/.%s_%s.webp';
+    public string $thumb_tp_webp = '%s/.%s_%s.webp';
 
     /**
      * Get available thumb sizes.
@@ -132,9 +132,9 @@ class Media extends Manager implements MediaInterface
      *
      * @deprecated since 2.28, use self::getThumbnailCombo()
      *
-     * @var array(<string>, <array>(<int>, <string>, <string>))
+     * @var array<string, array{0:int, 1:string, 2:string}>
      */
-    public $thumb_sizes = [
+    public array $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],
         's'  => [240, 'ratio', 'small'],
         't'  => [100, 'ratio', 'thumbnail'],
@@ -146,7 +146,7 @@ class Media extends Manager implements MediaInterface
      *
      * @var string
      */
-    public $icon_img = 'images/media/%s.svg';
+    public string $icon_img = 'images/media/%s.svg';
 
     /**
      * Constructs a new instance.
@@ -291,7 +291,7 @@ class Media extends Manager implements MediaInterface
      * @param      string  $event    The event
      * @param      mixed   ...$args  The arguments
      */
-    protected function callFileHandler(string $type, string $event, ...$args)
+    protected function callFileHandler(string $type, string $event, ...$args): void
     {
         if (!empty($this->file_handler[$type][$event])) {
             foreach ($this->file_handler[$type][$event] as $f) {
@@ -902,7 +902,7 @@ class Media extends Manager implements MediaInterface
      *
      * @throws     Exception
      */
-    protected function rebuildDB(?string $pwd)
+    protected function rebuildDB(?string $pwd): void
     {
         $media_dir = $pwd ?: '.';
 

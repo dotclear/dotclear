@@ -15,7 +15,7 @@ use Dotclear\Module\MyPlugin;
  * @brief   The module helper.
  * @ingroup antispam
  *
- * @sicne 	2.27
+ * @since 	2.27
  */
 class My extends MyPlugin
 {
