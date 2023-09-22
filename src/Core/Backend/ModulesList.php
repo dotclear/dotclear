@@ -38,7 +38,7 @@ class ModulesList
      *
      * @var ModulesInterface
      */
-    public $modules;
+    public ModulesInterface $modules;
 
     /**
      * Store instance
@@ -52,126 +52,126 @@ class ModulesList
      *
      * @var        bool
      */
-    public static $allow_multi_install = false;
+    public static bool $allow_multi_install = false;
 
     /**
      * List of modules distributed with Dotclear
      *
      * @deprecated  since 2.26, use Modules::getDefine($id)->distributed instead
      *
-     * @var        array
+     * @var        array<string>
      */
-    public static $distributed_modules = [];
+    public static array $distributed_modules = [];
 
     /**
      * Current list ID
      *
      * @var        string
      */
-    protected $list_id = 'unknown';
+    protected string $list_id = 'unknown';
 
     /**
      * Current modules defines
      *
-     * @var        array
+     * @var        array<ModuleDefine>
      */
-    protected $defines = [];
+    protected array $defines = [];
 
     /**
      * Module define to configure
      *
      * @var        ModuleDefine
      */
-    protected $config_define;
+    protected ModuleDefine $config_define;
     /**
      * Module class to configure
      *
      * @var        string
      */
-    protected $config_class = '';
+    protected string $config_class = '';
     /**
      * Module path to configure
      *
      * @var        string
      */
-    protected $config_file = '';
+    protected string $config_file = '';
     /**
      * Module configuration page content
      *
      * @var        string
      */
-    protected $config_content = '';
+    protected string $config_content = '';
 
     /**
      * Modules root directories
      *
      * @var        string|null
      */
-    protected $path;
+    protected ?string $path;
     /**
      * Indicate if modules root directory is writable
      *
      * @var        bool
      */
-    protected $path_writable = false;
+    protected bool $path_writable = false;
     /**
      * Directory pattern to work on
      *
      * @var        string
      */
-    protected $path_pattern = '';
+    protected string $path_pattern = '';
 
     /**
      * Page URL
      *
      * @var        string
      */
-    protected $page_url = '';
+    protected string $page_url = '';
     /**
      * Page tab
      *
      * @var        string
      */
-    protected $page_tab = '';
+    protected string $page_tab = '';
     /**
      * Page redirection
      *
      * @var        string
      */
-    protected $page_redir = '';
+    protected string $page_redir = '';
 
     /**
      * Index list
      *
      * @var        string
      */
-    public static $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    public static string $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
     /**
      * Index list with special index
      *
-     * @var        array
+     * @var        array<string>
      */
-    protected $nav_list = [];
+    protected array $nav_list = [];
     /**
      * Text for other special index
      *
      * @var        string
      */
-    protected $nav_special = 'other';
+    protected string $nav_special = 'other';
 
     /**
      * Field used to sort modules
      *
      * @var        string
      */
-    protected $sort_field = 'sname';
+    protected string $sort_field = 'sname';
     /**
      * Ascendant sort order?
      *
      * @var        bool
      */
-    protected $sort_asc = true;
+    protected bool $sort_asc = true;
 
     /**
      * Constructor.
@@ -301,8 +301,8 @@ class ModulesList
     /**
      * Get page URL.
      *
-     * @param    string|array   $queries    Additionnal query string
-     * @param    bool           $with_tab   Add current tab to URL end
+     * @param    string|array<mixed>    $queries    Additionnal query string
+     * @param    bool                   $with_tab   Add current tab to URL end
      *
      * @return   string Clean page URL
      */
@@ -555,7 +555,7 @@ class ModulesList
     /**
      * Set modules defines and sanitize them.
      *
-     * @param   array   $defines
+     * @param   array<ModuleDefine>   $defines
      *
      * @return    ModulesList self instance
      */
@@ -577,7 +577,7 @@ class ModulesList
     /**
      * Get modules defines currently set.
      *
-     * @return    array        Array of modules
+     * @return    array<ModuleDefine>        Array of modules
      */
     public function getDefines(): array
     {
@@ -589,7 +589,7 @@ class ModulesList
      *
      * @deprecated  since 2.26, use self::setDefines() instead
      *
-     * @param   array   $modules
+     * @param   array<string, mixed>   $modules
      *
      * @return    ModulesList self instance
      */
@@ -614,7 +614,7 @@ class ModulesList
      *
      * @deprecated  since 2.26, use self::getDefines() instead
      *
-     * @return    array        Array of modules
+     * @return    array<string, array<string,mixed>>        Array of modules
      */
     public function getModules(): array
     {
@@ -635,8 +635,8 @@ class ModulesList
      * and clean some of them, sanitize module can safely
      * be used in lists.
      *
-     * @param      ModuleDefine     $define The module definition
-     * @param      array            $module  The module
+     * @param      ModuleDefine         $define The module definition
+     * @param      array<string,mixed>  $module  The module
      */
     public static function fillSanitizeModule(ModuleDefine $define, array $module = []): void
     {
@@ -662,10 +662,10 @@ class ModulesList
      *
      * @deprecated  since 2.26, use self::fillSanitizeModule() instead
      *
-     * @param      string  $id      The identifier
-     * @param      array   $module  The module
+     * @param      string               $id      The identifier
+     * @param      array<string,mixed>  $module  The module
      *
-     * @return   array  Array of the module informations
+     * @return   array<string,mixed>  Array of the module informations
      */
     public static function sanitizeModule(string $id, array $module): array
     {
@@ -686,10 +686,10 @@ class ModulesList
      *
      * @deprecated  since 2.26, use self::fillSanitizeModule() instead
      *
-     * @param      string  $id      The identifier
-     * @param      array   $module  The module
+     * @param      string                   $id      The identifier
+     * @param      array<string,mixed>      $module  The module
      *
-     * @return   array  Array of the module informations
+     * @return   array<string,mixed>  Array of the module informations
      */
     public function doSanitizeModule(string $id, array $module): array
     {
@@ -722,11 +722,11 @@ class ModulesList
      *
      * @deprecated  since 2.26, use something like uasort($defines, fn ($a, $b) => $a->get($field) <=> $b->get($field)); instead
      *
-     * @param    array     $modules      Array of modules
-     * @param    string    $field        Field to sort from
-     * @param    bool      $asc          Sort asc if true, else decs
+     * @param    array<string, array<string, mixed>>    $modules      Array of modules
+     * @param    string                                 $field        Field to sort from
+     * @param    bool                                   $asc          Sort asc if true, else decs
      *
-     * @return   array  Array of sorted modules
+     * @return   array<string, array<string, mixed>>  Array of sorted modules
      */
     public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
@@ -751,9 +751,9 @@ class ModulesList
     /**
      * Display list of modules.
      *
-     * @param    array    $cols         List of colones (module field) to display
-     * @param    array    $actions      List of predefined actions to show on form
-     * @param    bool     $nav_limit    Limit list to previously selected index
+     * @param    array<string>      $cols         List of columns (module field) to display
+     * @param    array<string>      $actions      List of predefined actions to show on form
+     * @param    bool               $nav_limit    Limit list to previously selected index
      *
      * @return    ModulesList self instance
      */
@@ -1087,7 +1087,7 @@ class ModulesList
      * @param   boolean $check  Check permission
      * @param   boolean $self   Include self URL (→ plugin index.php URL)
      *
-     * @return array    Array of settings URLs
+     * @return array<string>    Array of settings URLs
      */
     public static function getSettingsUrls(string $id, bool $check = false, bool $self = true): array
     {
@@ -1177,9 +1177,9 @@ class ModulesList
      * Get action buttons to add to modules list.
      *
      * @param    ModuleDefine     $define     Module info
-     * @param    array              $actions    Actions keys
+     * @param    array<string>    $actions    Actions keys
      *
-     * @return   array    Array of actions buttons
+     * @return   array<string>    Array of actions buttons
      */
     protected function getActions(ModuleDefine $define, array $actions): array
     {
@@ -1265,10 +1265,10 @@ class ModulesList
     /**
      * Get global action buttons to add to modules list.
      *
-     * @param   array   $actions            Actions keys
-     * @param   bool    $with_selection     Limit action to selected modules
+     * @param   array<string>   $actions            Actions keys
+     * @param   bool            $with_selection     Limit action to selected modules
      *
-     * @return  array  Array of actions buttons
+     * @return  array<string>   Array of actions buttons
      */
     protected function getGlobalActions(array $actions, bool $with_selection = false): array
     {
@@ -1337,7 +1337,7 @@ class ModulesList
      *
      * @throws    Exception    Module not find or command failed
      */
-    public function doActions()
+    public function doActions(): void
     {
         if (empty($_POST) || !empty($_REQUEST['conf'])
                           || !$this->isWritablePath()) {

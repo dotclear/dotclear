@@ -38,10 +38,10 @@ class FiltersLibrary
     /**
      * Common default select field.
      *
-     * @param   string      $id         The filter ID
-     * @param   string      $title      The filter title
-     * @param   array       $options    The filter title
-     * @param   ?string     $param      The param ID
+     * @param   string          $id         The filter ID
+     * @param   string          $title      The filter title
+     * @param   array<mixed>    $options    The filter title
+     * @param   ?string         $param      The param ID
      *
      * @return  ?Filter  The Filter instance if possible
      */

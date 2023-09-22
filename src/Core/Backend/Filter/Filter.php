@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Backend.Filter
  * @brief       Backend list filters helpers.
  */
+
 namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\Helper\Html\Form\Input;
@@ -28,7 +29,7 @@ class Filter
     /**
      * The filter properties.
      *
-     * @var     array<string,mixed>     $properties
+     * @var     array<string, mixed>     $properties
      */
     protected $properties = [
         'id'      => '',
@@ -157,8 +158,8 @@ class Filter
      *
      * If filter form is a select box, this is the select options
      *
-     * @param   array   $options    The options
-     * @param   bool    $set_form   Auto set form type
+     * @param   array<mixed>    $options    The options
+     * @param   bool            $set_form   Auto set form type
      *
      * @return  Filter  The filter instance
      */
@@ -246,7 +247,7 @@ class Filter
      *
      * Only input and select forms are parsed
      */
-    public function parse()
+    public function parse(): void
     {
         # form select
         if ($this->form == 'select') {

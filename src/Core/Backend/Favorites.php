@@ -22,35 +22,35 @@ class Favorites
     /**
      * List of favorite definitions
      *
-     * @var ArrayObject
+     * @var ArrayObject<string, mixed>
      */
-    protected $favorites;
+    protected ArrayObject $favorites;
 
     /**
      * Current favorite landing workspace
      *
      * @var UserWorkspaceInterface
      */
-    protected $workspace;
+    protected UserWorkspaceInterface $workspace;
 
     /**
      * List of user-defined favorite ids
      *
-     * @var array
+     * @var array<string>
      */
-    protected $local_favorites_ids;
+    protected array $local_favorites_ids;
 
     /**
      * List of globally-defined favorite ids
      *
-     * @var array
+     * @var array<string>
      */
-    protected $global_favorites_ids;
+    protected array $global_favorites_ids;
 
     /**
      * List of user preferences (made from either one of the 2 above, or not!)
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $user_favorites;
 
@@ -95,9 +95,9 @@ class Favorites
     /**
      * Retrieves a favorite (complete description) from its id.
      *
-     * @param string|array  $id   the favorite id, or an array having 1 key 'name' set to id, their keys are merged to favorite.
+     * @param string|array<string, mixed>  $id   the favorite id, or an array having 1 key 'name' set to id, their keys are merged to favorite.
      *
-     * @return array|bool   array the favorite, false if not found (or not permitted)
+     * @return array<string, mixed>|bool   array the favorite, false if not found (or not permitted)
      */
     public function getFavorite($id)
     {
@@ -134,9 +134,9 @@ class Favorites
     /**
      * getFavorites - retrieves a list of favorites.
      *
-     * @param array  $ids   an array of ids, as defined in getFavorite.
+     * @param  array<string>  $ids   an array of ids, as defined in getFavorite.
      *
-     * @return array array of favorites, can be empty if ids are not found (or not permitted)
+     * @return array<string, array<string, mixed>> array of favorites, can be empty if ids are not found (or not permitted)
      */
     public function getFavorites(array $ids): array
     {
@@ -161,7 +161,7 @@ class Favorites
      *
      * This method is called by ::setup()
      */
-    protected function setUserPrefs()
+    protected function setUserPrefs(): void
     {
         $this->user_favorites = $this->getFavorites($this->local_favorites_ids);
         if (!count($this->user_favorites)) {
@@ -205,7 +205,7 @@ class Favorites
     /**
      * migrateFavorites - migrate dc < 2.6 favorites to new format
      */
-    protected function migrateFavorites()
+    protected function migrateFavorites(): void
     {
         $favorites_workspace        = App::auth()->prefs()->favorites;
         $this->local_favorites_ids  = [];
@@ -228,7 +228,7 @@ class Favorites
     /**
      * legacyFavorites - handle legacy favorites using adminDashboardFavs behavior
      */
-    protected function legacyFavorites()
+    protected function legacyFavorites(): void
     {
         $favorites = new ArrayObject();
         # --BEHAVIOR-- adminDashboardFavsV2 -- ArrayObject
@@ -251,7 +251,7 @@ class Favorites
      * Returns favorites that correspond to current user
      * (may be local, global, or failback favorites)
      *
-     * @return array array of favorites (enriched)
+     * @return array<string, mixed> array of favorites (enriched)
      */
     public function getUserFavorites(): array
     {
@@ -264,7 +264,7 @@ class Favorites
      *
      * @param boolean  $global   if true, retrieve global favs, user favs otherwise
      *
-     * @return array array of favorites ids (only ids, not enriched)
+     * @return array<string> array of favorites ids (only ids, not enriched)
      */
     public function getFavoriteIDs(bool $global = false): array
     {
@@ -275,10 +275,10 @@ class Favorites
      * Stores user-defined or global favorites ids list
      * shall not be called outside preferences.php...
      *
-     * @param array    $ids     list of fav ids
-     * @param boolean  $global  if true, retrieve global favs, user favs otherwise
+     * @param array<string>     $ids     list of fav ids
+     * @param boolean           $global  if true, retrieve global favs, user favs otherwise
      */
-    public function setFavoriteIDs(array $ids, bool $global = false)
+    public function setFavoriteIDs(array $ids, bool $global = false): void
     {
         $this->workspace->put('favorites', $ids, 'array', null, true, $global);
     }
@@ -286,7 +286,7 @@ class Favorites
     /**
      * Returns all available fav ids
      *
-     * @return array array of favorites ids (only ids, not enriched)
+     * @return array<string> array of favorites ids (only ids, not enriched)
      */
     public function getAvailableFavoritesIDs(): array
     {
@@ -330,7 +330,7 @@ class Favorites
      * Adds favorites icons to index page
      * shall not be called outside admin/index.php...
      *
-     * @param array|ArrayObject  $icons   dashboard icon list to enrich
+     * @param array<string, mixed>|ArrayObject<string, mixed>  $icons   dashboard icon list to enrich
      */
     public function appendDashboardIcons($icons): void
     {
@@ -348,8 +348,8 @@ class Favorites
     /**
      * Registers a new favorite definition
      *
-     * @param string  $favorite_id   favorite id
-     * @param array  $favorite_data favorite information. Array keys are :
+     * @param string                $favorite_id   favorite id
+     * @param array<string, mixed>  $favorite_data favorite information. Array keys are :
      *    'title' => favorite title (localized)
      *    'url' => favorite URL,
      *    'small-icon' => favorite small icon(s) (for menu)
@@ -370,7 +370,7 @@ class Favorites
     /**
      * Registers a list of favorites definition
      *
-     * @param array $data an array defining all favorites key is the id, value is the data.
+     * @param array<string, mixed> $data an array defining all favorites key is the id, value is the data.
      *  see register method for data format
      *
      * @return Favorites instance
