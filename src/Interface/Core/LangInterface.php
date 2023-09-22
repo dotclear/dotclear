@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Database\Cursor;
-
 /**
  * @brief   Lang handler interface.
  *
@@ -38,5 +36,4 @@ interface LangInterface
      * @param   string  $lang     The lang code
      */
     public function setLang(string $lang): void;
-
 }

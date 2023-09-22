@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Database;
 
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\SchemaInterface;
 
 /**
  * @class AbstractHandler
@@ -131,6 +132,31 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
         if ($prefix != '') {
             $this->__prefix = $this->db_search_path($this->__link, $prefix);
         }
+    }
+
+    /**
+     * Get dabatase shcema handler.
+     *
+     * @return  SchemaInterface     The database shcema handler
+     */
+    public function schema(): SchemaInterface
+    {
+        $class = $this->driver() . 'Schema';
+
+        // Set full namespace of distributed database driver
+        if (in_array($this->driver(), ['mysqli', 'mysqlimb4', 'pgsql', 'sqlite'])) {
+            $class = 'Dotclear\\Database\\Driver\\' . ucfirst($this->driver()) . '\\Schema';
+        }
+
+        // You can set DC_DBSCHEMA_CLASS to whatever you want.
+        // Your new class *should* inherits Dotclear\Database\Schema\AbstractSchema class.
+        $class = defined('DC_DBSCHEMA_CLASS') ? \DC_DBSCHEMA_CLASS : $class;
+
+        if (!is_subclass_of($class, SchemaInterface::class)) {
+            throw new Exception('Database schema class ' . $class . ' does not exist or does not inherit ' . SchemaInterface::class);
+        }
+
+        return new $class($this);
     }
 
     /**

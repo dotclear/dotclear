@@ -76,7 +76,7 @@ class FlatExport
 
     public function getTables()
     {
-        $schema    = App::Schema($this->con);
+        $schema    = App::con()->schema();
         $db_tables = $schema->getTables();
 
         $tables = [];

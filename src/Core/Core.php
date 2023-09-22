@@ -53,7 +53,6 @@ use Dotclear\Interface\Core\PluginsInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
-use Dotclear\Interface\Core\SchemaInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\TaskInterface;
 use Dotclear\Interface\Core\ThemesInterface;
@@ -132,6 +131,8 @@ class Core extends Container
      *
      * This adds default Core class to the App.
      *
+     * @throws  Exception
+     *
      * @return  array<string,callable>  The default core services
      */
     protected function getDefaultServices(): array
@@ -177,7 +178,6 @@ class Core extends Container
             PostMediaInterface::class       => PostMedia::class,
             PostTypesInterface::class       => PostTypes::class,
             RestInterface::class            => Rest::class,
-            SchemaInterface::class          => fn ($container, ConnectionInterface $con) => Schema::init($con),
             SessionInterface::class         => Session::class,
             TaskInterface::class            => Task::class,
             ThemesInterface::class          => Themes::class,
@@ -516,18 +516,6 @@ class Core extends Container
     public static function rest(): RestInterface
     {
         return self::$instance->get(RestInterface::class);
-    }
-
-    /**
-     * Database schema handler.
-     *
-     * @see     Calls core container service Dotclear.Interface.Core.SchemaInterface
-     * @see     Uses default core service Dotclear.Core.Schema
-     * @see     Dotclear.Database.AbstractSchema    Dotclear.Database.InterfaceSchema
-     */
-    public static function schema(ConnectionInterface $con): SchemaInterface
-    {
-        return self::$instance->get(SchemaInterface::class, true, $con);
     }
 
     /**

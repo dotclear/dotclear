@@ -34,6 +34,13 @@ interface ConnectionInterface
     public function close(): void;
 
     /**
+     * Returns database schema handler
+     *
+     * @return string
+     */
+    public function schema(): SchemaInterface;
+
+    /**
      * Returns database driver name
      *
      * @return string

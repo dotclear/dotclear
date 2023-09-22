@@ -18,7 +18,7 @@ class GrowUp_2_1_alpha2_r2383_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
-        $schema = App::Schema(App::con());
+        $schema = App::con()->schema();
         $schema->dropUnique(App::con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME, App::con()->prefix() . 'uk_cat_title');
 
         # Reindex categories
