@@ -57,7 +57,7 @@ class Helper
     /**
      * Loads user locales (English if not defined).
      */
-    public static function loadLocales()
+    public static function loadLocales(): void
     {
         App::lang()->setLang((string) App::auth()->getInfo('user_lang'));
 

@@ -49,9 +49,9 @@ class ThemesList extends ModulesList
     /**
      * Display themes list
      *
-     * @param      array  $cols       The cols
-     * @param      array  $actions    The actions
-     * @param      bool   $nav_limit  The navigation limit
+     * @param      array<string>    $cols       The cols
+     * @param      array<string>    $actions    The actions
+     * @param      bool             $nav_limit  The navigation limit
      */
     public function displayModules(array $cols = ['name', 'config', 'version', 'desc'], array $actions = [], bool $nav_limit = false): ThemesList
     {
@@ -277,9 +277,9 @@ class ThemesList extends ModulesList
      * Gets the actions.
      *
      * @param      ModuleDefine     $define   The module define
-     * @param      array            $actions  The actions
+     * @param      array<string>    $actions  The actions
      *
-     * @return     array  The actions.
+     * @return     array<string>  The actions.
      */
     protected function getActions(ModuleDefine $define, array $actions): array
     {
@@ -335,10 +335,10 @@ class ThemesList extends ModulesList
     /**
      * Gets the global actions.
      *
-     * @param      array   $actions         The actions
-     * @param      bool    $with_selection  The with selection
+     * @param      array<string>    $actions         The actions
+     * @param      bool             $with_selection  The with selection
      *
-     * @return     array   The global actions.
+     * @return     array<string>   The global actions.
      */
     protected function getGlobalActions(array $actions, bool $with_selection = false): array
     {
@@ -381,7 +381,7 @@ class ThemesList extends ModulesList
      *
      * @throws     Exception
      */
-    public function doActions()
+    public function doActions(): void
     {
         if (empty($_POST) || !empty($_REQUEST['conf'])) {
             return;

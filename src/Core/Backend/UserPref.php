@@ -22,23 +22,16 @@ use Dotclear\App;
 class UserPref
 {
     /**
-     * Columns preferences
-     *
-     * @var ArrayObject
-     */
-    protected static $cols = null;
-
-    /**
      * Sorts filters preferences
      *
-     * @var ArrayObject
+     * @var ArrayObject<string, mixed>
      */
-    protected static $sorts = null;
+    protected static ?ArrayObject $sorts = null;
 
     /**
      * Gets the default columns.
      *
-     * @return     ArrayObject  The default columns.
+     * @return     ArrayObject<string, mixed>  The default columns.
      */
     public static function getDefaultColumns(): ArrayObject
     {
@@ -99,10 +92,10 @@ class UserPref
     /**
      * Gets the user columns.
      *
-     * @param      null|string                          $type     The type
-     * @param      array|ArrayObject<string|string>     $columns  The columns
+     * @param      null|string                                              $type     The type
+     * @param      null|array<string, string>|ArrayObject<string, string>   $columns  The columns
      *
-     * @return     ArrayObject  The user columns.
+     * @return     ArrayObject<string, mixed>  The user columns.
      */
     public static function getUserColumns(?string $type = null, $columns = null): ArrayObject
     {
@@ -158,7 +151,7 @@ class UserPref
     /**
      * Gets the default filters.
      *
-     * @return     array  The default filters.
+     * @return     array<string, mixed>  The default filters.
      */
     public static function getDefaultFilters(): array
     {

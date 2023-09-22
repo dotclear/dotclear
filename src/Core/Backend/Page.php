@@ -24,21 +24,29 @@ class Page
 {
     /**
      * Stack of loaded JS
+     *
+     * @var array<string>
      */
     private static array $loaded_js = [];
 
     /**
      * Stack of loaded CSS
+     *
+     * @var array<string>
      */
     private static array $loaded_css = [];
 
     /**
      * Stack of preloaded resources (Js, CSS)
+     *
+     * @var array<string>
      */
     private static array $preloaded = [];
 
     /**
      * Flag to avoid loading more than once the x-frame-options header
+     *
+     * @var bool
      */
     private static bool $xframe_loaded = false;
 
@@ -48,7 +56,7 @@ class Page
      * @param      string  $permissions  The permissions
      * @param      bool    $home         Currently on dashboard
      */
-    public static function check(string $permissions, bool $home = false)
+    public static function check(string $permissions, bool $home = false): void
     {
         if (App::blog()->isDefined() && App::auth()->check($permissions, App::blog()->id())) {
             return;
@@ -74,7 +82,7 @@ class Page
      *
      * @param      bool  $home   The home
      */
-    public static function checkSuper(bool $home = false)
+    public static function checkSuper(bool $home = false): void
     {
         if (!App::auth()->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
@@ -96,12 +104,12 @@ class Page
     /**
      * Top of admin page
      *
-     * @param      string  $title       The title
-     * @param      string  $head        The head
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      array   $options     The options
+     * @param      string                   $title       The title
+     * @param      string                   $head        The head
+     * @param      string                   $breadcrumb  The breadcrumb
+     * @param      array<string, string>    $options     The options
      */
-    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = [])
+    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = []): void
     {
         $js = [];
 
@@ -309,6 +317,200 @@ class Page
     }
 
     /**
+     * End of admin page
+     */
+    public static function close(): void
+    {
+        if (!App::backend()->resources->context()) {
+            if (!App::auth()->prefs()->interface->hidehelpbutton) {
+                echo
+                '<p id="help-button"><a href="' . App::backend()->url->get('admin.help') . '" class="outgoing" title="' .
+                __('Global help') . '">' . __('Global help') . '</a></p>';
+            }
+        }
+
+        echo
+        "</div>\n" .  // End of #content
+        "</main>\n" . // End of #main
+
+        '<nav id="main-menu" role="navigation">' . "\n" .
+
+        '<form id="search-menu" action="' . App::backend()->url->get('admin.search') . '" method="get" role="search">' .
+        '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
+        '<input type="hidden" name="process" value="Search" />' .
+        '<input type="submit" value="' . __('OK') . '" /></p>' .
+            '</form>';
+
+        foreach (array_keys((array) App::backend()->menus) as $k) {
+            echo App::backend()->menus[$k]->draw();
+        }
+
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br />(Codename: ' . App::config()->dotclearName() . ')');
+
+        # --BEHAVIOR-- adminPageFooter --
+        $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
+        if ($textAlt != '') {
+            $text = $textAlt;
+        }
+        $text = Html::escapeHTML($text);
+
+        echo
+        '</nav>' . "\n" . // End of #main-menu
+        "</div>\n";       // End of #wrapper
+
+        echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
+
+        $figure = "\n" .
+
+        '           |            ' . "\n" .
+        '           |.===.       ' . "\n" .
+        '           {}o o{}      ' . "\n" .
+        '     ---ooO--(_)--Ooo---' . "\n";
+
+        echo
+            '<footer id="footer" role="contentinfo">' .
+            '<a href="https://dotclear.org/" title="' . $text . '">' .
+            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '" />' .
+            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '" />' .
+            '</a></footer>' . "\n" .
+            '<!-- ' . "\n" .
+            $figure .
+            ' -->' . "\n";
+
+        if (App::config()->devMode() === true) {
+            echo self::debugInfo();
+        }
+
+        echo
+            '</body></html>';
+    }
+
+    /**
+     * The top of a popup.
+     *
+     * @param      string  $title       The title
+     * @param      string  $head        The head
+     * @param      string  $breadcrumb  The breadcrumb
+     */
+    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = ''): void
+    {
+        $js = [];
+
+        $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
+
+        # Display
+        header('Content-Type: text/html; charset=UTF-8');
+
+        # Referrer Policy for admin pages
+        header('Referrer-Policy: strict-origin');
+
+        # Prevents Clickjacking as far as possible
+        header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+
+        $data_theme = App::auth()->prefs()->interface->theme;
+
+        echo
+        '<!DOCTYPE html>' .
+        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        "<head>\n" .
+        '  <meta charset="UTF-8" />' . "\n" .
+        '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
+        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
+            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
+            '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
+
+        echo self::cssLoad('style/default.css');
+
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
+            echo self::cssLoad('style/default-rtl.css');
+        }
+
+        if (App::auth()->prefs()->interface->htmlfontsize) {
+            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
+        }
+        if (App::auth()->prefs()->interface->systemfont) {
+            $js['systemFont'] = true;
+        }
+        $js['hideMoreInfo']   = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) App::auth()->prefs()->interface->showajaxloader;
+        $js['servicesUri']    = App::backend()->url->get('admin.rest');
+        $js['servicesOff']    = !App::rest()->serveRestRequests();
+
+        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
+
+        $js['debug'] = !!App::config()->debugMode();
+
+        // Set JSON data
+        echo Html::jsJson('dotclear_init', $js);
+
+        echo
+        self::jsCommon() .
+        self::jsToggles() .
+            $head;
+
+        # --BEHAVIOR-- adminPageHTMLHead --
+        App::behavior()->callBehavior('adminPageHTMLHead');
+
+        echo
+            "</head>\n" .
+            '<body id="dotclear-admin" class="popup' .
+            ($rtl ? 'rtl' : '') .
+            ($safe_mode ? ' safe-mode' : '') .
+            (App::config()->debugMode() ? ' debug-mode' : '') .
+            '">' . "\n" .
+            '<h1>' . App::config()->vendorName() . '</h1>' . "\n";
+
+        echo
+            '<div id="wrapper">' . "\n" .
+            '<main id="main" role="main">' . "\n" .
+            '<div id="content">' . "\n";
+
+        // display breadcrumb if given
+        echo $breadcrumb;
+
+        // Display notices and errors
+        echo Notices::getNotices();
+    }
+
+    /**
+     * The end of a popup.
+     */
+    public static function closePopup(): void
+    {
+        echo
+        "</div>\n" .  // End of #content
+        "</main>\n" . // End of #main
+        "</div>\n" .  // End of #wrapper
+
+        '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n" .
+
+            '<footer id="footer" role="contentinfo"><p>&nbsp;</p></footer>' . "\n" .
+            '</body></html>';
+    }
+
+    /**
+     * Opens a module.
+     *
+     * @param      string       $title  The title
+     * @param      null|string  $head   The head
+     */
+    public static function openModule(string $title = '', ?string $head = ''): void
+    {
+        if (!$title) {
+            $title = App::config()->vendorName();
+        }
+        echo '<html><head><title>' . $title . '</title>' . $head . '</head><body>';
+    }
+
+    /**
+     * Closes a module.
+     */
+    public static function closeModule(): void
+    {
+        echo '</body></html>';
+    }
+
+    /**
      * Get current notices
      *
      * @deprecated since 2.27, use Notices::getNotices() instead
@@ -327,10 +529,10 @@ class Page
      *
      * @deprecated since 2.27, use Notices::addMessageNotice() instead
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addMessageNotice(string $message, array $options = [])
+    public static function addMessageNotice(string $message, array $options = []): void
     {
         App::deprecated()->set('Notices::addNotices()', '2.27');
 
@@ -342,10 +544,10 @@ class Page
      *
      * @deprecated since 2.27, use Notices::addSuccessNotice() instead
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addSuccessNotice(string $message, array $options = [])
+    public static function addSuccessNotice(string $message, array $options = []): void
     {
         App::deprecated()->set('Notices::addNotices()', '2.27');
 
@@ -357,10 +559,10 @@ class Page
      *
      * @deprecated since 2.27, use Notices::addWarningNotice() instead
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addWarningNotice(string $message, array $options = [])
+    public static function addWarningNotice(string $message, array $options = []): void
     {
         App::deprecated()->set('Notices::addNotices()', '2.27');
 
@@ -372,10 +574,10 @@ class Page
      *
      * @deprecated since 2.27, use Notices::addErrorNotice() instead
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addErrorNotice(string $message, array $options = [])
+    public static function addErrorNotice(string $message, array $options = []): void
     {
         App::deprecated()->set('Notices::addNotices()', '2.27');
 
@@ -460,204 +662,10 @@ class Page
     }
 
     /**
-     * End of admin page
-     */
-    public static function close()
-    {
-        if (!App::backend()->resources->context()) {
-            if (!App::auth()->prefs()->interface->hidehelpbutton) {
-                echo
-                '<p id="help-button"><a href="' . App::backend()->url->get('admin.help') . '" class="outgoing" title="' .
-                __('Global help') . '">' . __('Global help') . '</a></p>';
-            }
-        }
-
-        echo
-        "</div>\n" .  // End of #content
-        "</main>\n" . // End of #main
-
-        '<nav id="main-menu" role="navigation">' . "\n" .
-
-        '<form id="search-menu" action="' . App::backend()->url->get('admin.search') . '" method="get" role="search">' .
-        '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
-        '<input type="hidden" name="process" value="Search" />' .
-        '<input type="submit" value="' . __('OK') . '" /></p>' .
-            '</form>';
-
-        foreach (array_keys((array) App::backend()->menus) as $k) {
-            echo App::backend()->menus[$k]->draw();
-        }
-
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br />(Codename: ' . App::config()->dotclearName() . ')');
-
-        # --BEHAVIOR-- adminPageFooter --
-        $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
-        if ($textAlt != '') {
-            $text = $textAlt;
-        }
-        $text = Html::escapeHTML($text);
-
-        echo
-        '</nav>' . "\n" . // End of #main-menu
-        "</div>\n";       // End of #wrapper
-
-        echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
-
-        $figure = "\n" .
-
-        '           |            ' . "\n" .
-        '           |.===.       ' . "\n" .
-        '           {}o o{}      ' . "\n" .
-        '     ---ooO--(_)--Ooo---' . "\n";
-
-        echo
-            '<footer id="footer" role="contentinfo">' .
-            '<a href="https://dotclear.org/" title="' . $text . '">' .
-            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '" />' .
-            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '" />' .
-            '</a></footer>' . "\n" .
-            '<!-- ' . "\n" .
-            $figure .
-            ' -->' . "\n";
-
-        if (App::config()->devMode() === true) {
-            echo self::debugInfo();
-        }
-
-        echo
-            '</body></html>';
-    }
-
-    /**
-     * The top of a popup.
-     *
-     * @param      string  $title       The title
-     * @param      string  $head        The head
-     * @param      string  $breadcrumb  The breadcrumb
-     */
-    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = '')
-    {
-        $js = [];
-
-        $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-
-        # Display
-        header('Content-Type: text/html; charset=UTF-8');
-
-        # Referrer Policy for admin pages
-        header('Referrer-Policy: strict-origin');
-
-        # Prevents Clickjacking as far as possible
-        header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
-
-        $data_theme = App::auth()->prefs()->interface->theme;
-
-        echo
-        '<!DOCTYPE html>' .
-        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
-        "<head>\n" .
-        '  <meta charset="UTF-8" />' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
-            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-            '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
-
-        echo self::cssLoad('style/default.css');
-
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
-            echo self::cssLoad('style/default-rtl.css');
-        }
-
-        if (App::auth()->prefs()->interface->htmlfontsize) {
-            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
-        }
-        if (App::auth()->prefs()->interface->systemfont) {
-            $js['systemFont'] = true;
-        }
-        $js['hideMoreInfo']   = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (bool) App::auth()->prefs()->interface->showajaxloader;
-        $js['servicesUri']    = App::backend()->url->get('admin.rest');
-        $js['servicesOff']    = !App::rest()->serveRestRequests();
-
-        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
-
-        $js['debug'] = !!App::config()->debugMode();
-
-        // Set JSON data
-        echo Html::jsJson('dotclear_init', $js);
-
-        echo
-        self::jsCommon() .
-        self::jsToggles() .
-            $head;
-
-        # --BEHAVIOR-- adminPageHTMLHead --
-        App::behavior()->callBehavior('adminPageHTMLHead');
-
-        echo
-            "</head>\n" .
-            '<body id="dotclear-admin" class="popup' .
-            ($rtl ? 'rtl' : '') .
-            ($safe_mode ? ' safe-mode' : '') .
-            (App::config()->debugMode() ? ' debug-mode' : '') .
-            '">' . "\n" .
-            '<h1>' . App::config()->vendorName() . '</h1>' . "\n";
-
-        echo
-            '<div id="wrapper">' . "\n" .
-            '<main id="main" role="main">' . "\n" .
-            '<div id="content">' . "\n";
-
-        // display breadcrumb if given
-        echo $breadcrumb;
-
-        // Display notices and errors
-        echo Notices::getNotices();
-    }
-
-    /**
-     * The end of a popup.
-     */
-    public static function closePopup()
-    {
-        echo
-        "</div>\n" .  // End of #content
-        "</main>\n" . // End of #main
-        "</div>\n" .  // End of #wrapper
-
-        '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n" .
-
-            '<footer id="footer" role="contentinfo"><p>&nbsp;</p></footer>' . "\n" .
-            '</body></html>';
-    }
-
-    /**
-     * Opens a module.
-     *
-     * @param      string       $title  The title
-     * @param      null|string  $head   The head
-     */
-    public static function openModule(string $title = '', ?string $head = '')
-    {
-        if (!$title) {
-            $title = App::config()->vendorName();
-        }
-        echo '<html><head><title>' . $title . '</title>' . $head . '</head><body>';
-    }
-
-    /**
-     * Closes a module.
-     */
-    public static function closeModule()
-    {
-        echo '</body></html>';
-    }
-
-    /**
      * Get breadcrumb
      *
-     * @param      array|null   $elements  The elements
-     * @param      array        $options   The options
+     * @param      array<string, mixed>|null   $elements  The elements
+     * @param      array<string, mixed>        $options   The options
      *
      * @return     string
      */
@@ -715,7 +723,7 @@ class Page
      *
      * @return      bool
      */
-    private static function isXdebugStackAvailable()
+    private static function isXdebugStackAvailable(): bool
     {
         if (!function_exists('xdebug_get_function_stack')) {
             return false;
@@ -780,7 +788,7 @@ class Page
      *
      * @param      mixed  ...$params  The parameters
      */
-    public static function helpBlock(...$params)
+    public static function helpBlock(...$params): void
     {
         if (App::auth()->prefs()->interface->hidehelpbutton) {
             return;
@@ -1216,9 +1224,9 @@ class Page
     /**
      * Get HTML code to load Codemirror
      *
-     * @param      string  $theme  The theme
-     * @param      bool    $multi  Is multiplex?
-     * @param      array   $modes  The modes
+     * @param      string           $theme  The theme
+     * @param      bool             $multi  Is multiplex?
+     * @param      array<string>    $modes  The modes
      *
      * @return     string
      */
@@ -1318,7 +1326,7 @@ class Page
     /**
      * Gets the codemirror themes list.
      *
-     * @return     array  The code mirror themes.
+     * @return     array<string>  The code mirror themes.
      */
     public static function getCodeMirrorThemes(): array
     {
@@ -1365,10 +1373,10 @@ class Page
     /**
      * Sets the x frame options.
      *
-     * @param      array|ArrayObject    $headers  The headers
-     * @param      mixed                $origin   The origin
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $headers  The headers
+     * @param      mixed                                            $origin   The origin
      */
-    public static function setXFrameOptions($headers, $origin = null)
+    public static function setXFrameOptions($headers, $origin = null): void
     {
         if (self::$xframe_loaded) {
             return;
@@ -1391,7 +1399,7 @@ class Page
     /**
      * @deprecated  since 2.24, permanetly removed
      */
-    public static function help()
+    public static function help(): void
     {
         App::deprecated()->set('', '2.24');
 
@@ -1462,7 +1470,7 @@ class Page
      *
      * @deprecated since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript intead
      *
-     * @param      array  $vars   The variables
+     * @param      array<string, mixed>  $vars   The variables
      *
      * @return     string  javascript code (inside <script></script>)
      */

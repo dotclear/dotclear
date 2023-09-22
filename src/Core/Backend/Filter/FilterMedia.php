@@ -25,7 +25,7 @@ class FilterMedia extends Filters
      *
      * @var     string  $post_type
      */
-    protected $post_type  = '';
+    protected $post_type = '';
 
     /**
      * The post_title.
@@ -65,7 +65,7 @@ class FilterMedia extends Filters
     /**
      * Cope with old behavior.
      */
-    protected function legacyBehavior()
+    protected function legacyBehavior(): void
     {
         $values = new ArrayObject($this->values());
 

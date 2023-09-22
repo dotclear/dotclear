@@ -28,6 +28,8 @@ class Notices
 
     /**
      * List of supported types
+     *
+     * @var array<string, string>
      */
     private static array $notice_types = [
         // id → CSS class
@@ -125,11 +127,11 @@ class Notices
     /**
      * Adds a notice.
      *
-     * @param      string  $type     The type
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $type     The type
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addNotice(string $type, string $message, array $options = [])
+    public static function addNotice(string $type, string $message, array $options = []): void
     {
         $cur = App::notice()->openNoticeCursor();
 
@@ -159,10 +161,10 @@ class Notices
     /**
      * Adds a message (informational) notice.
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addMessageNotice(string $message, array $options = [])
+    public static function addMessageNotice(string $message, array $options = []): void
     {
         self::addNotice(self::NOTICE_MESSAGE, $message, $options);
     }
@@ -170,10 +172,10 @@ class Notices
     /**
      * Adds a success notice.
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addSuccessNotice(string $message, array $options = [])
+    public static function addSuccessNotice(string $message, array $options = []): void
     {
         self::addNotice(self::NOTICE_SUCCESS, $message, $options);
     }
@@ -181,10 +183,10 @@ class Notices
     /**
      * Adds a warning notice.
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addWarningNotice(string $message, array $options = [])
+    public static function addWarningNotice(string $message, array $options = []): void
     {
         self::addNotice(self::NOTICE_WARNING, $message, $options);
     }
@@ -192,10 +194,10 @@ class Notices
     /**
      * Adds an error notice.
      *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
      */
-    public static function addErrorNotice(string $message, array $options = [])
+    public static function addErrorNotice(string $message, array $options = []): void
     {
         self::addNotice(self::NOTICE_ERROR, $message, $options);
     }
@@ -203,7 +205,7 @@ class Notices
     /**
      * Gets the notification.
      *
-     * @param      array  $notice      The notification
+     * @param      array<string, mixed>  $notice      The notification
      *
      * @return     string  The notification.
      */

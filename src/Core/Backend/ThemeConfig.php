@@ -276,12 +276,12 @@ class ThemeConfig
     /**
      * Store CSS property value in associated array
      *
-     * @param  array  $css       CSS associated array
-     * @param  string $selector selector
-     * @param  string $prop     property
-     * @param  mixed  $value    value
+     * @param  array<string, array<string, string>>     $css      CSS associated array
+     * @param  string                                   $selector selector
+     * @param  string                                   $prop     property
+     * @param  mixed                                    $value    value
      */
-    public static function prop(array &$css, string $selector, string $prop, $value)
+    public static function prop(array &$css, string $selector, string $prop, $value): void
     {
         if ($value) {
             $css[$selector][$prop] = $value;
@@ -291,13 +291,13 @@ class ThemeConfig
     /**
      * Store background image property in CSS associated array
      *
-     * @param  string $folder   image folder
-     * @param  array $css       CSS associated array
-     * @param  string $selector selector
-     * @param  boolean $value   false for default, true if image should be set
-     * @param  string $image    image filename
+     * @param  string                                   $folder image folder
+     * @param  array<string, array<string, string>>     $css    CSS associated array
+     * @param  string                                   $selector   selector
+     * @param  boolean                                  $value  false for default, true if image should be set
+     * @param  string                                   $image  image filename
      */
-    public static function backgroundImg(string $folder, array &$css, string $selector, bool $value, string $image)
+    public static function backgroundImg(string $folder, array &$css, string $selector, bool $value, string $image): void
     {
         $file = self::imagesPath($folder) . '/' . $image;
         if ($value && file_exists($file)) {
@@ -312,7 +312,7 @@ class ThemeConfig
      * @param  string $theme  CSS filename
      * @param  string $css    CSS file content
      */
-    public static function writeCss(string $folder, string $theme, string $css)
+    public static function writeCss(string $folder, string $theme, string $css): void
     {
         file_put_contents(self::cssPath($folder) . '/' . $theme . '.css', $css);
     }
@@ -323,7 +323,7 @@ class ThemeConfig
      * @param  string $folder CSS folder
      * @param  string $theme  CSS filename to be removed
      */
-    public static function dropCss(string $folder, string $theme)
+    public static function dropCss(string $folder, string $theme): void
     {
         $file = Path::real(self::cssPath($folder) . '/' . $theme . '.css');
         if ($file && is_writable(dirname($file))) {
@@ -356,7 +356,7 @@ class ThemeConfig
      *
      * @return string|false         real path of folder
      */
-    public static function imagesPath(string $folder)
+    public static function imagesPath(string $folder): string|bool
     {
         return Path::real(App::blog()->publicPath()) . '/' . $folder;
     }
@@ -377,9 +377,9 @@ class ThemeConfig
      * Check if images folder exists and may be written
      *
      * @param  string  $folder images folder
-     * @param  boolean $create create the folder if not exists
+     * @param  bool    $create create the folder if not exists
      *
-     * @return boolean          true if folder exists and may be written
+     * @return bool             true if folder exists and may be written
      */
     public static function canWriteImages(string $folder, bool $create = false): bool
     {
@@ -424,9 +424,9 @@ class ThemeConfig
     /**
      * Upload an image in images folder
      *
-     * @param  string $folder images folder
-     * @param  array  $file   selected image file (as $_FILES[<file input fieldname>])
-     * @param  int    $width  check accurate width of uploaded image if <> 0
+     * @param  string                $folder images folder
+     * @param  array<string, mixed>  $file   selected image file
+     * @param  int                   $width  check accurate width of uploaded image if <> 0
      *
      * @return string         full pathname of uploaded image
      */
@@ -465,7 +465,7 @@ class ThemeConfig
      * @param  string $folder images folder
      * @param  string $img    image filename
      */
-    public static function dropImage(string $folder, string $img)
+    public static function dropImage(string $folder, string $img): void
     {
         $img = Path::real(self::imagesPath($folder) . '/' . $img);
         if (is_writable(dirname($img))) {

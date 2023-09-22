@@ -15,6 +15,8 @@ use Dotclear\App;
 
 /**
  * Utility class for admin menu stack.
+ *
+ * @extends ArrayObject<string, Menu>
  */
 class Menus extends ArrayObject
 {
