@@ -216,7 +216,7 @@ class Page
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::task()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -564,7 +564,7 @@ class Page
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::task()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 

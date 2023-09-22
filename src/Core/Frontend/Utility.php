@@ -220,24 +220,23 @@ class Utility extends Process
         }
 
         # Loading locales
-        App::task()->setLang((string) App::blog()->settings()->system->lang);
+        App::lang()->setLang((string) App::blog()->settings()->system->lang);
 
-        // deprecated since 2.23, use App::task()->getLang() instead
-        $GLOBALS['_lang'] = App::task()->getLang();
+        // deprecated since 2.23, use App::lang()->getLang() instead
+        $GLOBALS['_lang'] = App::lang()->getLang();
 
-        L10n::lang(App::task()->getLang());
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/date') === false && App::task()->getLang() != 'en') {
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
 
         // Set lexical lang
-        App::lexical()->setLexicalLang('public', App::task()->getLang());
+        App::lexical()->setLexicalLang('public', App::lang()->getLang());
 
         # Loading plugins
         try {
-            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::task()->getLang());
+            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang()->getLang());
         } catch (Exception $e) {
             // Ignore
         }
@@ -275,9 +274,9 @@ class Utility extends Process
 
         # Loading translations for selected theme
         if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
-            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::task()->getLang(), 'main');
+            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang()->getLang(), 'main');
         }
-        App::themes()->loadModuleL10N(App::frontend()->theme, App::task()->getLang(), 'main');
+        App::themes()->loadModuleL10N(App::frontend()->theme, App::lang()->getLang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
         App::behavior()->callBehavior('publicPrependV2');

@@ -40,7 +40,7 @@ class Config extends Process
         My::l10n('admin');
 
         // Load contextual help
-        App::themes()->loadModuleL10Nresources(My::id(), App::task()->getLang());
+        App::themes()->loadModuleL10Nresources(My::id(), App::lang()->getLang());
 
         App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'standalone_config');
 

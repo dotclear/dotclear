@@ -230,7 +230,7 @@ final class dcCore
     /**
      * Current language
      *
-     * @deprecated since 2.28, use App::task()->getLang() and App::task()->setLang() instead
+     * @deprecated since 2.28, use App::lang()->getLang() and App::lang()->setLang() instead
      *
      * @var string
      */

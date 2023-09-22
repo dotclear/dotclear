@@ -42,6 +42,7 @@ use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\LangInterface;
 use Dotclear\Interface\Core\LexicalInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MediaInterface;
@@ -165,6 +166,7 @@ class Core extends Container
             FilterInterface::class          => Filter::class,
             FormaterInterface::class        => Formater::class,
             Frontend::class                 => Frontend::class,
+            LangInterface::class            => Lang::class,
             LexicalInterface::class         => Lexical::class,
             LogInterface::class             => Log::class,
             MediaInterface::class           => Media::class,
@@ -393,6 +395,17 @@ class Core extends Container
     public static function frontend(): Frontend
     {
         return self::$instance->get(Frontend::class);
+    }
+
+    /**
+     * Lang setter.
+     *
+     * @see     Calls core container service Dotclear.Interface.Core.LangInterface
+     * @see     Uses default core service Dotclear.Core.Lang
+     */
+    public static function lang(): LangInterface
+    {
+        return self::$instance->get(LangInterface::class);
     }
 
     /**
