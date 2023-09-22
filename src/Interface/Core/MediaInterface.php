@@ -412,11 +412,12 @@ interface MediaInterface
      *
      * @param   Cursor  $cur    The Cursor
      * @param   string  $f      Image filename
+     * @param   int     $id     Media ID
      * @param   bool    $force  Force creation
      *
      * @return  bool
      */
-    public function imageThumbCreate(?Cursor $cur, string $f, bool $force = true): bool;
+    public function imageThumbCreate(?Cursor $cur, string $f, int $id, bool $force = true): bool;
 
     /**
      * Remove image thumbnails.

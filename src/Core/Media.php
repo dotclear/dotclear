@@ -1276,7 +1276,7 @@ class Media extends Manager implements MediaInterface
     /* Image handlers
     ------------------------------------------------------- */
 
-    public function imageThumbCreate(?Cursor $cur, string $f, bool $force = true): bool
+    public function imageThumbCreate(?Cursor $cur, string $f, int $id, bool $force = true): bool
     {
         $file = $this->pwd . '/' . $f;
 
