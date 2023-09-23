@@ -216,7 +216,7 @@ class Blog implements BlogInterface
         $creadt      = 0;
         $upddt       = 0;
         $status      = self::BLOG_UNDEFINED;
-        $settings    = App::blogSettings(null);
+        $settings    = App::blogSettings();
         $themes_path = '';
         $public_path = '';
 
@@ -230,7 +230,7 @@ class Blog implements BlogInterface
             $upddt  = (int) strtotime($blog->blog_upddt);
             $status = (int) $blog->blog_status;
 
-            $settings = App::blogSettings($id);
+            $settings = App::blogSettings()->load($id);
 
             $themes_path = Path::fullFromRoot($settings->system->themes_path, App::config()->dotclearRoot());
             $public_path = Path::fullFromRoot($settings->system->public_path, App::config()->dotclearRoot());

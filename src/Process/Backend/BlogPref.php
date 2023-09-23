@@ -83,7 +83,7 @@ class BlogPref extends Process
                 $da->blog_status   = $rs->blog_status;
                 $da->blog_name     = $rs->blog_name;
                 $da->blog_desc     = $rs->blog_desc;
-                $da->blog_settings = App::blogSettings($da->blog_id);
+                $da->blog_settings = App::blogSettings()->load($da->blog_id);
                 $da->blog_url      = $rs->blog_url;
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -318,7 +318,7 @@ class BlogPref extends Process
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
                         $da->blog_settings        = App::blog()->settings();
                     } else {
-                        $da->blog_settings = App::blogSettings($cur->blog_id);
+                        $da->blog_settings = App::blogSettings()->load($cur->blog_id);
                     }
 
                     $da->blog_id = $cur->blog_id;

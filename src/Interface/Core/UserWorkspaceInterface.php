@@ -104,20 +104,6 @@ interface UserWorkspaceInterface
     public const WS_INTEGER = self::WS_INT;
 
     /**
-     * Constructor.
-     *
-     * Retrieves user prefs and puts them in $prefs array.
-     * Local (user) prefs have a highest priority than global prefs.
-     *
-     * @param   null|string     $user_id    The user identifier
-     * @param   null|string     $workspace  The workspace name
-     * @param   MetaRecord      $rs         The recordset
-     *
-     * @throws  \Exception
-     */
-    public function __construct(?string $user_id = null, ?string $workspace = null, ?MetaRecord $rs = null);
-
-    /**
      * Create a new instance a UserWorkspace.
      *
      * @param   null|string     $user_id    The user identifier
@@ -126,7 +112,7 @@ interface UserWorkspaceInterface
      *
      * @return  UserWorkspaceInterface
      */
-    public function init(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface;
+    public function load(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface;
 
     /**
      * Open a database table cursor.

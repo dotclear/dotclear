@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -17,22 +16,18 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Exception;
 
 /**
  * @brief   Blog workspace for settings handler.
  *
  * Handle id,version pairs through database.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class BlogWorkspace implements BlogWorkspaceInterface
 {
-    /**
-     * The connetion handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Settings table name.
      *
@@ -62,7 +57,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     protected array $settings = [];
 
     /**
-     * Settings table name.
+     * Blog ID.
      *
      * @var     string  $blog_id
      */
@@ -75,9 +70,22 @@ class BlogWorkspace implements BlogWorkspaceInterface
      */
     protected ?string $workspace;
 
-    public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null)
-    {
-        $this->con   = App::con();
+    /**
+     * Constructor.
+     *
+     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   DeprecatedInterface     $deprecated     The deprecated handler
+     * @param   null|string             $blog_id    The blog ID
+     * @param   null|string             $workspace  The blog workspace
+     * @param   null|MetaRecord         $rs         The record
+     */
+    public function __construct(
+        protected ConnectionInterface $con,
+        protected DeprecatedInterface $deprecated,
+        ?string $blog_id = null,
+        ?string $workspace = null,
+        ?MetaRecord $rs = null
+    ) {
         $this->table = $this->con->prefix() . self::NS_TABLE_NAME;
 
         if ($workspace !== null) {
@@ -85,7 +93,6 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
             }
 
-            $this->settings  = $this->local_settings = $this->global_settings = [];
             $this->blog_id   = $blog_id;
             $this->workspace = $workspace;
 
@@ -98,9 +105,9 @@ class BlogWorkspace implements BlogWorkspaceInterface
         return $this->con->openCursor($this->table);
     }
 
-    public function init(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
+    public function load(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
     {
-        return new self($blog_id, $workspace, $rs);
+        return new self($this->con, $this->deprecated, $blog_id, $workspace, $rs);
     }
 
     /**
@@ -454,7 +461,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function dumpNamespace(): string
     {
-        App::deprecated()->set(self::class . '::dumpWorkspace()', '2.28');
+        $this->deprecated->set(self::class . '::dumpWorkspace()', '2.28');
 
         return $this->workspace;
     }

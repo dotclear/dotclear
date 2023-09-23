@@ -9,8 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Database\Session as databaseSession;
-
+use Dotclear\Database\Session as DatabaseSession;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 
@@ -18,8 +17,10 @@ use Dotclear\Interface\Core\ConnectionInterface;
  * @brief   Session handler.
  *
  * Transitionnal class to set Dotclear default session handler table.
+ *
+ * @since   2.28, container services have been added to constructor
  */
-class Session extends databaseSession
+class Session extends DatabaseSession
 {
     public function __construct(ConfigInterface $config, ConnectionInterface $con)
     {

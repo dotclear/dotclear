@@ -15,7 +15,7 @@ use Dotclear\Interface\Core\PostTypesInterface;
 /**
  * @brief   Posts types handler.
  *
- * @since   2.28
+ * @since   2.28, post types features have been grouped in this class
  */
 class PostTypes implements PostTypesInterface
 {

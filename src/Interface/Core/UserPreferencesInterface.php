@@ -21,17 +21,15 @@ namespace Dotclear\Interface\Core;
 interface UserPreferencesInterface
 {
     /**
-     * Constructor.
+     * Create a new instance a UserPreferences.
      *
-     * Retrieves user prefs and puts them in $workspaces
-     * array. Local (user) prefs have a highest priority than global prefs.
+     * Retrieves user prefs and puts them in $workspaces array.
+     * Local (user) prefs have a highest priority than global prefs.
      *
-     * @param   string          $user_id   The user identifier
-     * @param   null|string     $workspace The workspace to load
-     *
-     * @throws  \Exception
+     * @param   string          $user_id        The user identifier
+     * @param   null|string     $user_workspace The workspace to load
      */
-    public function __construct(string $user_id, ?string $workspace = null);
+    public function load(string $user_id, ?string $user_workspace = null): UserPreferencesInterface;
 
     /**
      * Create a new workspace.

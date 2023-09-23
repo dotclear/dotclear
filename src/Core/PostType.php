@@ -15,6 +15,8 @@ use Dotclear\Helper\Html\Html;
 
 /**
  * @brief   Posts type descriptor.
+ *
+ * @since   2.28, a post type is now an object rather than an array
  */
 class PostType implements PostTypeInterface
 {

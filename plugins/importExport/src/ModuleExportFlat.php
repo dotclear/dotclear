@@ -72,7 +72,7 @@ class ModuleExportFlat extends Module
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . App::con()->prefix() . App::media()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
+                    'SELECT * FROM ' . App::con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
                     App::con()->escape(App::blog()->settings()->system->public_path) . "'"
                 );
                 $exp->export(

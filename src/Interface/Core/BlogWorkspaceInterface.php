@@ -105,21 +105,7 @@ interface BlogWorkspaceInterface
     public const NS_INTEGER = self::NS_INT;
 
     /**
-     * Constructor.
-     *
-     * Retrieves blog settings and puts them in $settings array.
-     * Local (blog) settings have a highest priority than global settings.
-     *
-     * @param   null|string         $blog_id    The blog identifier
-     * @param   null|string         $workspace  The namespace ID
-     * @param   MetaRecord          $rs         The recordset
-     *
-     * @throws  \Exception
-     */
-    public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null);
-
-    /**
-     * Creat e a new instance a BLogWorkspace.
+     * Create a new instance a BLogWorkspace.
      *
      * @param   null|string         $blog_id    The blog identifier
      * @param   string              $workspace  The namespace ID
@@ -127,7 +113,7 @@ interface BlogWorkspaceInterface
      *
      * @return  BlogWorkspaceInterface
      */
-    public function init(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
+    public function load(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
 
     /**
      * Open a database table cursor.

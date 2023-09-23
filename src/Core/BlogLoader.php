@@ -15,6 +15,8 @@ use Dotclear\Interface\Core\BlogLoaderInterface;
 
 /**
  * @brief   Blog loader.
+ *
+ * @since   2.28, (un)set blog features have been grouped in this class
  */
 class BlogLoader implements BlogLoaderInterface
 {

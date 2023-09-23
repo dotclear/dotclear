@@ -18,15 +18,19 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
-use Exception;
+use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\PostTypesInterface;
+use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\TaskInterface;
+use Exception;
 
 /**
  * @brief   Application task launcher.
  *
  * This class execute application according to an Utility and its Process.
  *
- * @since   2.28
+ * @since   2.28, preload events has been grouped in this class
  */
 class Task implements TaskInterface
 {
@@ -54,11 +58,20 @@ class Task implements TaskInterface
     ];
 
     /**
-     * The current lang.
+     * Constructor.
      *
-     * @var     string     $lang
+     * @param   BehaviorInterface   $behavior       The behavior handler
+     * @param   ConfigInterface     $config         The config handler
+     * @param   PostTypesInterface  $post_types     The post types handler
+     * @param   UrlInterface        $url            The URL handler
      */
-    private static string $lang = 'en';
+    public function __construct(
+        protected BehaviorInterface $behavior,
+        protected ConfigInterface $config,
+        protected PostTypesInterface $post_types,
+        protected UrlInterface $url,
+    ) {
+    }
 
     /**
      * Process app
@@ -122,20 +135,20 @@ class Task implements TaskInterface
 
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
-            'dcCore'  => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-            'dcUtils' => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
         ]);
 
         // Check and serve plugins and var files. (from ?pf= and ?vf= URI)
-        FileServer::check(App::config());
+        FileServer::check($this->config);
 
         // Config file exists
-        if (is_file(App::config()->configPath())) {
+        if (is_file($this->config->configPath())) {
             // Http setup
-            if (App::config()->httpScheme443()) {
+            if ($this->config->httpScheme443()) {
                 Http::$https_scheme_on_443 = true;
             }
-            if (App::config()->httpReverseProxy()) {
+            if ($this->config->httpReverseProxy()) {
                 Http::$reverse_proxy = true;
             }
             Http::trimRequest();
@@ -150,7 +163,7 @@ class Task implements TaskInterface
                 // Loading locales for detected language
                 $detected_languages = Http::getAcceptLanguages();
                 foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
+                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->config->l10nRoot(), $language, 'main'])) !== false) {
                         L10n::lang($language);
 
                         // We stop at first accepted language
@@ -181,10 +194,10 @@ class Task implements TaskInterface
                             '<p>If you\'re unsure what these terms mean you should probably contact ' .
                             'your host. If you still need help you can always visit the ' .
                             '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            (App::config()->debugMode() ?
+                            ($this->config->debugMode() ?
                                 '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
                                 ''),
-                            (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
+                            ($this->config->dbHost() !== '' ? $this->config->dbHost() : 'localhost')
                         ) :
                         '',
                         Fault::DATABASE_ISSUE
@@ -195,34 +208,34 @@ class Task implements TaskInterface
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    App::behavior()->addBehavior($b[0], $b[1]);
+                    $this->behavior->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
 
             // Register default URLs
-            App::url()->registerDefault(Url::home(...));
+            $this->url->registerDefault(Url::home(...));
 
-            App::url()->registerError(Url::default404(...));
+            $this->url->registerError(Url::default404(...));
 
-            App::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
-            App::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
-            App::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
-            App::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
-            App::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
-            App::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
-            App::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
+            $this->url->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            $this->url->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            $this->url->register('post', 'post', '^post/(.+)$', Url::post(...));
+            $this->url->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            $this->url->register('category', 'category', '^category/(.+)$', Url::category(...));
+            $this->url->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            $this->url->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            App::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
-            App::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
-            App::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
-            App::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+            $this->url->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            $this->url->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            $this->url->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            $this->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            App::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
-            App::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+            $this->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            $this->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            App::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', App::url()->getURLFor('post', '%s'), 'Posts'));
+            $this->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', $this->url->getURLFor('post', '%s'), 'Posts'));
 
             // Register local shutdown handler
             register_shutdown_function(function () {
@@ -287,24 +300,6 @@ class Task implements TaskInterface
                 define($constant, true);
             }
         }
-    }
-
-    public static function getLang(): string
-    {
-        return self::$lang;
-    }
-
-    /**
-     * Sets the language.
-     *
-     * @param      string  $id     The new value
-     */
-    public static function setLang(string $id): void
-    {
-        self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
-
-        // deprecated since 2.28, use App::task()->setLang() instead
-        dcCore::app()->lang = self::$lang;
     }
 
     public function loadProcess(string $process): void

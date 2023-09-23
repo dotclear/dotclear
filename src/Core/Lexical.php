@@ -9,16 +9,31 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\LexicalInterface;
 use UnhandledMatchError;
 
 /**
  * @brief   Lexical helper.
+ *
+ * @since   2.28, lexical features have been grouped in this class
  */
 class Lexical implements LexicalInterface
 {
+    /**
+     * Constructor.
+     *
+     * @param   AuthInterface   $auth   The authentication instance
+     * @param   BlogInterface   $blog   The blog instance
+     */
+    public function __construct(
+        protected AuthInterface $auth,
+        protected BlogInterface $blog,
+    ) {
+    }
+
     /**
      * Locale specific array sorting function.
      *
@@ -79,9 +94,9 @@ class Lexical implements LexicalInterface
             // Switch to appropriate locale depending on $ns
             match ($namespace) {
                 // Set locale with user prefs
-                self::ADMIN_LOCALE => setlocale(LC_COLLATE, App::auth()->getInfo('user_lang')),
+                self::ADMIN_LOCALE => setlocale(LC_COLLATE, $this->auth->getInfo('user_lang')),
                 // Set locale with blog params
-                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, App::blog()->settings()->get('system')->get('lang') ?? $lang),
+                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, $this->blog->settings()->get('system')->get('lang') ?? $lang),
                 // Set locale with arg
                 self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
             };

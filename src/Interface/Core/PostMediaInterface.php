@@ -27,6 +27,13 @@ interface PostMediaInterface
     public const POST_MEDIA_TABLE_NAME = 'post_media';
 
     /**
+     * The Media database table name.
+     *
+     * @var     string  MEDIA_TABLE_NAME
+     */
+    public const MEDIA_TABLE_NAME = 'media';
+
+    /**
      * Open a database table cursor.
      *
      * @return  Cursor  The post media database table cursor

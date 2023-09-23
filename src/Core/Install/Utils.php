@@ -487,7 +487,7 @@ class Utils
             ];
         }
 
-        $settings = App::blogSettings(null);
+        $settings = App::blogSettings();
 
         foreach ($defaults as $v) {
             $settings->system->put($v[0], $v[2], $v[1], $v[3], false, true);

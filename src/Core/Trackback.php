@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
@@ -18,7 +17,11 @@ use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Network\XmlRpc\Client;
 use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
 use Exception;
 
@@ -27,16 +30,13 @@ use Exception;
  *
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.
+ *
+ * @todo    Use SqlStatement in Trackaback class
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class Trackback implements TrackbackInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Pings table name.
      *
@@ -45,12 +45,24 @@ class Trackback implements TrackbackInterface
     public $table;
 
     /**
+     * The query timeout.
+     *
+     * @var     int     $query_timeout
+     */
+    protected static int $query_timeout = 4;
+
+    /**
      * Constructor.
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
-        $this->table = $this->con->prefix() . self::PING_TABLE_NAME;
+    public function __construct(
+        protected BehaviorInterface $behavior,
+        protected BlogInterface $blog,
+        protected ConfigInterface $config,
+        protected ConnectionInterface $con,
+        protected PostTypesInterface $post_types,
+    ) {
+        $this->table         = $this->con->prefix() . self::PING_TABLE_NAME;
+        self::$query_timeout = $config->queryTimeout();
     }
 
     public function openTrackbackCursor(): Cursor
@@ -71,7 +83,7 @@ class Trackback implements TrackbackInterface
 
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
     {
-        if (!App::blog()->isDefined()) {
+        if (!$this->blog->isDefined()) {
             return false;
         }
 
@@ -120,7 +132,7 @@ class Trackback implements TrackbackInterface
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
-                'blog_name' => trim(Html::escapeHTML(Html::clean(App::blog()->name()))),
+                'blog_name' => trim(Html::escapeHTML(Html::clean($this->blog->name()))),
                 //,'__debug' => false
             ];
 
@@ -203,7 +215,7 @@ class Trackback implements TrackbackInterface
         $err = false;
         $msg = '';
 
-        if (!App::blog()->isDefined()) {
+        if (!$this->blog->isDefined()) {
             $err = true;
             $msg = 'No blog.';
         } elseif ($url == '') {
@@ -215,7 +227,7 @@ class Trackback implements TrackbackInterface
         }
 
         if (!$err) {
-            $post = App::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
+            $post = $this->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
 
             if ($post->isEmpty()) {
                 $err = true;
@@ -411,7 +423,7 @@ class Trackback implements TrackbackInterface
             $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
-            $code = App::blog()->settings()->system->trackbacks_pub ? 200 : 202;
+            $code = $this->blog->settings()->system->trackbacks_pub ? 200 : 202;
             Http::head($code);
 
             return;
@@ -439,7 +451,7 @@ class Trackback implements TrackbackInterface
             'comment_trackback' => 1,
         ];
 
-        $rs = App::blog()->getComments($params, true);
+        $rs = $this->blog->getComments($params, true);
         if (!$rs->isEmpty()) {
             return ($rs->f(0));
         }
@@ -468,22 +480,22 @@ class Trackback implements TrackbackInterface
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
-        $cur                    = App::blog()->openCommentCursor();
+        $cur                    = $this->blog->openCommentCursor();
         $cur->comment_author    = (string) $blog_name;
         $cur->comment_site      = (string) $url;
         $cur->comment_content   = (string) $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = App::blog()->settings()->system->trackbacks_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
+        $cur->comment_status    = $this->blog->settings()->system->trackbacks_pub ? $this->blog::COMMENT_PUBLISHED : $this->blog::COMMENT_PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
-        App::behavior()->callBehavior('publicBeforeTrackbackCreate', $cur);
+        $this->behavior->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id) {
-            $comment_id = App::blog()->addComment($cur);
+            $comment_id = $this->blog->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
-            App::behavior()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
+            $this->behavior->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
         }
     }
 
@@ -496,7 +508,7 @@ class Trackback implements TrackbackInterface
     private function delBacklink(int $post_id, string $url): void
     {
         $this->con->execute(
-            'DELETE FROM ' . $this->con->prefix() . App::blog()::COMMENT_TABLE_NAME . ' ' .
+            'DELETE FROM ' . $this->con->prefix() . $this->blog::COMMENT_TABLE_NAME . ' ' .
             'WHERE post_id = ' . ((int) $post_id) . ' ' .
             "AND comment_site = '" . $this->con->escape((string) $url) . "' " .
             'AND comment_trackback = 1 '
@@ -551,7 +563,7 @@ class Trackback implements TrackbackInterface
      */
     private function getTargetPost(string $to_url): MetaRecord
     {
-        $reg = '!^' . preg_quote(App::blog()->url()) . '(.*)!';
+        $reg = '!^' . preg_quote($this->blog->url()) . '(.*)!';
 
         # Are you dumb?
         if (!preg_match($reg, $to_url, $m)) {
@@ -561,7 +573,7 @@ class Trackback implements TrackbackInterface
         # Does the targeted URL look like a registered post type?
         $url_part   = $m[1];
         $p_type     = '';
-        $post_types = App::postTypes()->dump();
+        $post_types = $this->post_types->dump();
         $post_url   = '';
         foreach ($post_types as $v) {
             $reg = '!^' . preg_quote(str_replace('%s', '', $v->get('public_url'))) . '(.*)!';
@@ -582,7 +594,7 @@ class Trackback implements TrackbackInterface
             'post_type' => $p_type,
             'post_url'  => $post_url,
         ];
-        $posts = App::blog()->getPosts($params);
+        $posts = $this->blog->getPosts($params);
 
         # Missed!
         if ($posts->isEmpty()) {
@@ -840,7 +852,7 @@ class Trackback implements TrackbackInterface
     private static function initHttp(string $url, string &$path)
     {
         $client = HttpClient::initClient($url, $path);
-        $client->setTimeout(App::config()->queryTimeout());
+        $client->setTimeout(self::$query_timeout);
         $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);
         $client->setPersistReferers(false);
