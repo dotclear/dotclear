@@ -25,9 +25,9 @@ class ActionsPosts extends Actions
     /**
      * Constructs a new instance.
      *
-     * @param   null|string     $uri            The form uri
-     * @param   array           $redir_args     The redirection $_GET arguments, 
-     *                                          if any (does not contain ids by default, ids may be merged to it)
+     * @param   null|string             $uri            The form uri
+     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     *                                                  if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(?string $uri, array $redir_args = [])
     {
@@ -43,7 +43,7 @@ class ActionsPosts extends Actions
     /**
      * Set posts actions.
      */
-    protected function loadDefaults()
+    protected function loadDefaults(): void
     {
         // We could have added a behavior here, but we want default action to be setup first
         ActionsPostsDefault::adminPostsActionsPage($this);
@@ -51,7 +51,13 @@ class ActionsPosts extends Actions
         App::behavior()->callBehavior('adminPostsActions', $this);
     }
 
-    public function beginPage(string $breadcrumb = '', string $head = '')
+    /**
+     * Begins a page.
+     *
+     * @param      string  $breadcrumb  The breadcrumb
+     * @param      string  $head        The head
+     */
+    public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
         if ($this->in_plugin) {
             Page::openModule(
@@ -78,7 +84,10 @@ class ActionsPosts extends Actions
             ->render();
     }
 
-    public function endPage()
+    /**
+     * Ends a page.
+     */
+    public function endPage(): void
     {
         if ($this->in_plugin) {
             Page::closeModule();
@@ -87,7 +96,12 @@ class ActionsPosts extends Actions
         }
     }
 
-    public function error(Exception $e)
+    /**
+     * Cope with error
+     *
+     * @param      Exception  $e
+     */
+    public function error(Exception $e): void
     {
         App::error()->add($e->getMessage());
         $this->beginPage(
@@ -102,7 +116,12 @@ class ActionsPosts extends Actions
         $this->endPage();
     }
 
-    protected function fetchEntries(ArrayObject $from)
+    /**
+     * Fetches entries.
+     *
+     * @param      ArrayObject<string, mixed>  $from   The from
+     */
+    protected function fetchEntries(ArrayObject $from): void
     {
         $params = [];
         if (!empty($from['entries'])) {
