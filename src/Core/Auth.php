@@ -61,9 +61,9 @@ class Auth implements AuthInterface
     /**
      * Current user ID.
      *
-     * @var     string|null     $user_id
+     * @var     string     $user_id
      */
-    protected ?string $user_id;
+    protected string $user_id;
 
     /**
      * Array with user information.
@@ -311,7 +311,7 @@ class Auth implements AuthInterface
 
         $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
-        $this->user_prefs = App::userPreferences($this->user_id);
+        $this->user_prefs = App::userPreferences($this->userID());
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -495,7 +495,7 @@ class Auth implements AuthInterface
         $sql
             ->column('permissions')
             ->from($this->perm_table)
-            ->where('user_id = ' . $sql->quote($this->user_id ?? ''))
+            ->where('user_id = ' . $sql->quote($this->userID()))
             ->and('blog_id = ' . $sql->quote($blog_id))
             ->and($sql->orGroup([
                 $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
@@ -546,7 +546,7 @@ class Auth implements AuthInterface
                     $this->perm_table . ' P',
                     $this->blog_table . ' B',
                 ])
-                ->where('user_id = ' . $sql->quote($this->user_id))
+                ->where('user_id = ' . $sql->quote($this->userID()))
                 ->and('P.blog_id = B.blog_id')
                 ->and($sql->orGroup([
                     $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
@@ -566,9 +566,9 @@ class Auth implements AuthInterface
         return false;
     }
 
-    public function userID()
+    public function userID(): string
     {
-        return $this->user_id ?? null;
+        return $this->user_id ?? '';
     }
 
     public function getInfo(string $information)
