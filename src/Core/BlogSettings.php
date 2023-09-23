@@ -44,13 +44,6 @@ class BlogSettings implements BlogSettingsInterface
     protected $workspaces = [];
 
     /**
-     * Blog ID.
-     *
-     * @var     string  $blog_id
-     */
-    protected ?string $blog_id;
-
-    /**
      * Constructor.
      *
      * @param   BlogWorkspaceInterface  $workspace      The blog workspace handler
@@ -62,12 +55,11 @@ class BlogSettings implements BlogSettingsInterface
         protected BlogWorkspaceInterface $workspace,
         protected ConnectionInterface $con,
         protected DeprecatedInterface $deprecated,
-        ?string $blog_id = null
+        protected ?string $blog_id = null
     ) {
         $this->table = $this->con->prefix() . $this->workspace::NS_TABLE_NAME;
 
         if ($blog_id) {
-            $this->blog_id = $blog_id;
             $this->loadSettings();
         }
     }
