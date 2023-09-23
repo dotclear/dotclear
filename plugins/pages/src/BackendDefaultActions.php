@@ -83,8 +83,8 @@ class BackendDefaultActions
     /**
      * Does reorder pages.
      *
-     * @param   BackendActions  $ap     Admin actions instance
-     * @param   ArrayObject     $post   The post
+     * @param   BackendActions                  $ap     Admin actions instance
+     * @param   ArrayObject<string, mixed>      $post   The post
      *
      * @throws  Exception   If user permission not granted
      */
