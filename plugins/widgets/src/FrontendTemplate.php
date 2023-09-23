@@ -19,14 +19,14 @@ use SimpleXMLElement;
 class FrontendTemplate
 {
     /**
-     * tpl:Widgets [attributes] : Displays trackback title (tpl value).
+     * tpl:Widgets [attributes] : Displays widgets (tpl value).
      *
      * attributes:
      *
      *      - type                Type of widgets (nav, extra, custom), default to all
      *      - disable             Comma separated list of widget to disable, default to empty
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>     $attr   The attributes
      *
      * @return  string
      */
@@ -51,7 +51,7 @@ class FrontendTemplate
         return '<?php ' . $res . ' ?>';
     }
 
-    public static function widgetsHandler(string $type, string $disable = '')
+    public static function widgetsHandler(string $type, string $disable = ''): void
     {
         $wtype   = 'widgets_' . $type;
         $widgets = My::settings()->get($wtype);
@@ -88,8 +88,8 @@ class FrontendTemplate
      *      - type                Type of widgets (nav, extra, custom), default to all
      *      - disable             Comma separated list of widget to disable, default to empty
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>      $attr       The attributes
+     * @param   string                          $content    The content
      *
      * @return  string
      */
@@ -156,8 +156,8 @@ class FrontendTemplate
      *
      *      - id      widget ID
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content (widget optional settings)
+     * @param   ArrayObject<string, mixed>      $attr       The attributes
+     * @param   string                          $content    The content (widget optional settings)
      *
      * @return  string
      */

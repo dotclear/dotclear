@@ -367,7 +367,19 @@ class Manage extends Process
         Page::closeModule();
     }
 
-    protected static function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)
+    /**
+     * Return HTML code for a list of widgets
+     *
+     * @param      string           $id               The identifier
+     * @param      string           $title            The title
+     * @param      WidgetsStack     $widgets          The widgets
+     * @param      string           $pr               The widget group id
+     * @param      WidgetsStack     $default_widgets  The default widgets
+     * @param      int              $j                Current widget counter
+     *
+     * @return     string
+     */
+    protected static function sidebarWidgets(string $id, string $title, ?WidgetsStack $widgets, string $pr, WidgetsStack $default_widgets, &$j)
     {
         $res = '<h3>' . $title . '</h3>';
 
@@ -383,9 +395,9 @@ class Manage extends Process
         $i = 0;
         foreach ($widgets->elements() as $w) {
             $upDisabled   = $i == 0 ? ' disabled" src="images/disabled_' : '" src="images/';
-            $downDisabled = $i == (is_countable($widgets->elements()) ? count($widgets->elements()) : 0) - 1 ? ' disabled" src="images/disabled_' : '" src="images/';
+            $downDisabled = $i == count($widgets->elements()) - 1 ? ' disabled" src="images/disabled_' : '" src="images/';
             $altUp        = $i == 0 ? ' alt=""' : ' alt="' . __('Up the widget') . '"';
-            $altDown      = $i == (is_countable($widgets->elements()) ? count($widgets->elements()) : 0) - 1 ? ' alt=""' : ' alt="' . __('Down the widget') . '"';
+            $altDown      = $i == count($widgets->elements()) - 1 ? ' alt=""' : ' alt="' . __('Down the widget') . '"';
 
             $iname   = 'w[' . $pr . '][' . $i . ']';
             $offline = $w->isOffline() ? ' offline' : '';

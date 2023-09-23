@@ -33,8 +33,8 @@ class FrontendBehaviors
     /**
      * Prepare tags metadata if necessary (Entries or Comments blocks).
      *
-     * @param   string          $block  The block
-     * @param   ArrayObject     $attr   The attribute
+     * @param   string                      $block  The block
+     * @param   ArrayObject<string, mixed>  $attr   The attribute
      *
      * @return  string
      */

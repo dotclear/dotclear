@@ -23,7 +23,7 @@ class Widgets
      *
      * @param   WidgetsStack    $widgets    The widgets
      */
-    public static function initWidgets(WidgetsStack $widgets)
+    public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
             ->create('tags', My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud')
@@ -61,8 +61,8 @@ class Widgets
     /**
      * Add the tags widget to the default list of widgets.
      *
-     * @param   WidgetsStack    $widgets            The widgets
-     * @param   array           $default_widgets    The default widgets
+     * @param   WidgetsStack                    $widgets            The widgets
+     * @param   array<string, WidgetsStack>     $default_widgets    The default widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {

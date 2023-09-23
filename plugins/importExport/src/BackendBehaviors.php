@@ -21,7 +21,7 @@ class BackendBehaviors
     /**
      * Register import/export modules.
      *
-     * @param   ArrayObject     $modules    The modules
+     * @param   ArrayObject<string, array<mixed>>     $modules    The modules
      */
     public static function registerIeModules(ArrayObject $modules): void
     {

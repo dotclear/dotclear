@@ -51,7 +51,7 @@ class Blogroll extends initBlogroll
     /**
      * Gets the links.
      *
-     * @param   array   $params     The parameters
+     * @param   array<string, mixed>   $params     The parameters
      *
      * @return  MetaRecord  The links.
      */
@@ -79,7 +79,7 @@ class Blogroll extends initBlogroll
     /**
      * Gets the links.
      *
-     * @param   array   $params     The parameters
+     * @param   array<string, mixed>   $params     The parameters
      *
      * @return  MetaRecord  The links.
      */
@@ -306,7 +306,7 @@ class Blogroll extends initBlogroll
      *
      * @param   MetaRecord  $rs     The links
      *
-     * @return  array   The links hierarchy.
+     * @return  array<string, mixed>   The links hierarchy.
      */
     public function getLinksHierarchy(MetaRecord $rs): array
     {

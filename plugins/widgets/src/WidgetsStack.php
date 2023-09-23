@@ -20,7 +20,7 @@ class WidgetsStack
     /**
      * Stack of known widgets.
      *
-     * @var     array   $widgets
+     * @var     array<mixed, WidgetsElement>   $widgets
      */
     private array $widgets = [];
 
@@ -50,7 +50,7 @@ class WidgetsStack
     /**
      * Return encoded widgets.
      *
-     * @return  array
+     * @return  array<array<string, mixed>>
      */
     public function store(): array
     {
@@ -109,7 +109,7 @@ class WidgetsStack
      *
      * @param   bool    $sorted     Sort the list
      *
-     * @return  array
+     * @return  array<mixed, WidgetsElement>
      */
     public function elements(bool $sorted = false): array
     {
@@ -156,8 +156,8 @@ class WidgetsStack
     /**
      * Loads an array of widgets.
      *
-     * @param   array           $A
-     * @param   WidgetsStack    $widgets    The widgets
+     * @param   array<array<string, mixed>>     $A
+     * @param   WidgetsStack                    $widgets    The widgets
      *
      * @return  self
      */

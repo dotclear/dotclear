@@ -17,5 +17,8 @@ namespace Dotclear\Plugin\maintenance;
  */
 class AdminPageHelpBlockContent
 {
+    /**
+     * @var mixed
+     */
     public $content;
 }

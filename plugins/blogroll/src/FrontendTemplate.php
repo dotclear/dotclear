@@ -31,7 +31,7 @@ class FrontendTemplate
      *      - block       string      Block pattern (default to \<ul>%s\</ul>)
      *      - item        string      Item pattern (default to \<li%2$s>%1$s\</li>)
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>     $attr   The attributes
      *
      * @return  string
      */
@@ -71,7 +71,7 @@ class FrontendTemplate
      *
      *      - any filters     See self::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>     $attr   The attributes
      *
      * @return  string
      */
@@ -125,9 +125,9 @@ class FrontendTemplate
     /**
      * Gets the links list (HTML).
      *
-     * @param   array   $links  The links
-     * @param   string  $block  The block pattern
-     * @param   string  $item   The item pattern
+     * @param   array<string, mixed>    $links  The links
+     * @param   string                  $block  The block pattern
+     * @param   string                  $item   The item pattern
      *
      * @return  string  The links list.
      */

@@ -26,12 +26,12 @@ class Rest
     /**
      * Serve method to do step by step task for maintenance (JSON).
      *
-     * @param   array   $get    cleaned $_GET
-     * @param   array   $post   cleaned $_POST
+     * @param   array<string, mixed>   $get    cleaned $_GET
+     * @param   array<string, mixed>   $post   cleaned $_POST
      *
      * @throws  Exception
      *
-     * @return  array
+     * @return  array<string, mixed>
      */
     public static function step(array $get, array $post): array
     {
@@ -62,7 +62,7 @@ class Rest
     /**
      * Serve method to count of expired tasks for maintenance (JSON).
      *
-     * @return  array
+     * @return  array<string, mixed>
      */
     public static function countExpired(): array
     {

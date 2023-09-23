@@ -34,7 +34,7 @@ class FrontendTemplate
      *
      *  1). The link description (used as menuitem label) may be put as title of the link element, inside a span or both
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>     $attr   The attributes
      *
      * @return  string
      */

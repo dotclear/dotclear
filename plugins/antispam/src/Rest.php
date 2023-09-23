@@ -24,7 +24,7 @@ class Rest
     /**
      * Gets the spams count.
      *
-     * @return  array   The spams count message
+     * @return  array<string, mixed>   The spams count message
      */
     public static function getSpamsCount(): array
     {

@@ -28,6 +28,12 @@ class BackendActions extends ActionsPosts
      */
     protected bool $use_render = true;
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      null|string              $uri            The uri
+     * @param      array<string, mixed>     $redirect_args  The redirect arguments
+     */
     public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);

@@ -27,7 +27,7 @@ class FrontendTemplate
      *
      *      - separator   string      Breadcrumb element separator
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>     $attr   The attributes
      *
      * @return  string
      */
