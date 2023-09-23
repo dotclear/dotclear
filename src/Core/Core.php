@@ -249,12 +249,10 @@ class Core extends Container
      *
      * @see     Calls core container service Dotclear.Interface.Core.BlogSettingsInterface
      * @see     Uses default core service Dotclear.Core.BlogSettings
-     *
-     * @param   string  $blog_id    The blog ID
      */
-    public static function blogSettings(?string $blog_id): BlogSettingsInterface
+    public static function blogSettings(): BlogSettingsInterface
     {
-        return self::$instance->get(BlogSettingsInterface::class, true, blog_id: $blog_id);
+        return self::$instance->get(BlogSettingsInterface::class);
     }
 
     /**
@@ -303,6 +301,8 @@ class Core extends Container
 
     /**
      * Create a new database connection from given values.
+     *
+     * Note this overwrite current application connection.
      *
      * @see     Calls core container service Dotclear.Interface.Core.ConnectionInterface
      * @see     Uses default core service Dotclear.Core.Connection
@@ -591,9 +591,9 @@ class Core extends Container
      * @see     Calls core container service Dotclear.Interface.Core.PreferencesInterface
      * @see     Uses default core service Dotclear.Core.Preferences
      */
-    public static function userPreferences(string $user_id, ?string $workspace = null): UserPreferencesInterface
+    public static function userPreferences(): UserPreferencesInterface
     {
-        return self::$instance->get(UserPreferencesInterface::class, reload: true, user_id: $user_id, workspace: $workspace);
+        return self::$instance->get(UserPreferencesInterface::class);
     }
 
     /**

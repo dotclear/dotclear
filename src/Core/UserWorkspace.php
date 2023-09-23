@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -21,16 +20,11 @@ use Exception;
 
 /**
  * @brief   User workspace for preferences handler.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class UserWorkspace implements UserWorkspaceInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Preferences table name.
      *
@@ -73,9 +67,20 @@ class UserWorkspace implements UserWorkspaceInterface
      */
     protected ?string $workspace;
 
-    public function __construct(?string $user_id = null, ?string $workspace = null, ?MetaRecord $rs = null)
-    {
-        $this->con   = App::con();
+    /**
+     * Constructor.
+     *
+     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   null|string             $user_id    The user identifier
+     * @param   string                  $workspace  The workspace name
+     * @param   MetaRecord              $rs         The recordset
+     */
+    public function __construct(
+        protected ConnectionInterface $con,
+        ?string $user_id = null,
+        ?string $workspace = null,
+        ?MetaRecord $rs = null
+    ) {
         $this->table = $this->con->prefix() . self::WS_TABLE_NAME;
 
         if ($workspace !== null) {
@@ -100,9 +105,9 @@ class UserWorkspace implements UserWorkspaceInterface
         return $this->con->openCursor($this->table);
     }
 
-    public function init(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
+    public function load(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
     {
-        return new self($user_id, $workspace, $rs);
+        return new self($this->con, $user_id, $workspace, $rs);
     }
 
     /**

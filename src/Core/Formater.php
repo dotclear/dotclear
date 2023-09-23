@@ -9,11 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Interface\Core\FormaterInterface;
+use Dotclear\Interface\Core\PluginsInterface;
 
 /**
  * @brief   Text formater handler.
+ *
+ * @since   2.28, Text formater features have been grouped in this class
  */
 class Formater implements FormaterInterface
 {
@@ -30,6 +32,16 @@ class Formater implements FormaterInterface
      * @var     array<string,string>    $names
      */
     private $names = [];
+
+    /**
+     * Constructor.
+     *
+     * @param   PluginsInterface   $plugins   The plugins instance
+     */
+    public function __construct(
+        protected PluginsInterface $plugins
+    ) {
+    }
 
     public function addEditorFormater(string $editor_id, string $name, $func): void
     {
@@ -58,7 +70,7 @@ class Formater implements FormaterInterface
         $res = [];
 
         foreach (array_keys($this->stack) as $editor_id) {
-            $res[$editor_id] = App::plugins()->getDefine($editor_id)->get('name');
+            $res[$editor_id] = $this->plugins->getDefine($editor_id)->get('name');
         }
 
         return $res;

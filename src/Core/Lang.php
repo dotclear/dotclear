@@ -16,7 +16,7 @@ use Dotclear\Interface\Core\LangInterface;
 /**
  * @brief   Simple lang setter.
  *
- * @since   2.28
+ * @since   2.28, lang features have been grouped in this class
  */
 class Lang implements LangInterface
 {

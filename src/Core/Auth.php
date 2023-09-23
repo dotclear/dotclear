@@ -311,7 +311,7 @@ class Auth implements AuthInterface
 
         $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
-        $this->user_prefs = App::userPreferences($this->user_id);
+        $this->user_prefs = App::userPreferences()->load($this->user_id);
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {

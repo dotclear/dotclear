@@ -179,7 +179,7 @@ class Fault
 <div id="content">
 <h1><?php echo $vendor; ?></h1>
 <h2><?php echo $code . ' : ' . $summary; ?></h2>
-<?php echo $message; ?></div>
+<?php echo nl2br($message); ?></div>
 </body>
 </html>
             <?php

@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
@@ -18,19 +17,14 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 /**
- * @brief   Version handler.
+ * @brief   Modules (and core) version handler.
  *
  * Handle id,version pairs through database.
+ *
+ * @since   2.28, modules version features have been grouped in this class
  */
 class Version implements VersionInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * The version stack.
      *
@@ -47,10 +41,12 @@ class Version implements VersionInterface
 
     /**
      * Constructor.
+     *
+     * @param   ConnectionInterface     $con    Database connection handler
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected ConnectionInterface $con
+    ) {
         $this->table = $this->con->prefix() . self::VERSION_TABLE_NAME;
     }
 

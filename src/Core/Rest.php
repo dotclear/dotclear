@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use Dotclear\App;
 use Dotclear\Helper\RestServer;
+use Dotclear\Interface\ConfigInterface;
 use Exception;
 
 /**
@@ -21,9 +21,22 @@ use Exception;
  * Instance of this class is provided by App::rest().
  *
  * Rest class uses RestServer (class that RestInterface interface) constants.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class Rest extends RestServer
 {
+    /**
+     * Constructor.
+     *
+     * @param   ConfigInterface     $config    The application configuration
+     */
+    public function __construct(
+        protected ConfigInterface $config
+    ) {
+        parent::__construct();
+    }
+
     /**
      * @todo    Remove old dcCore from RestServer::serve returned parent parameters
      */
@@ -40,14 +53,14 @@ class Rest extends RestServer
 
     public function enableRestServer(bool $serve = true): void
     {
-        if (App::config()->coreUpgrade() != '') {
+        if ($this->config->coreUpgrade() != '') {
             try {
-                if ($serve && file_exists(App::config()->coreUpgrade())) {
+                if ($serve && file_exists($this->config->coreUpgrade())) {
                     // Remove watchdog file
-                    unlink(App::config()->coreUpgrade());
-                } elseif (!$serve && !file_exists(App::config()->coreUpgrade())) {
+                    unlink($this->config->coreUpgrade());
+                } elseif (!$serve && !file_exists($this->config->coreUpgrade())) {
                     // Create watchdog file
-                    touch(App::config()->coreUpgrade());
+                    touch($this->config->coreUpgrade());
                 }
             } catch (Exception) {
             }
@@ -56,6 +69,6 @@ class Rest extends RestServer
 
     public function serveRestRequests(): bool
     {
-        return !file_exists(App::config()->coreUpgrade()) && App::config()->allowRestServices();
+        return !file_exists($this->config->coreUpgrade()) && $this->config->allowRestServices();
     }
 }

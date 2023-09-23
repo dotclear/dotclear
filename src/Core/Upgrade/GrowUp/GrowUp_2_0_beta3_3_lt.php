@@ -19,7 +19,7 @@ class GrowUp_2_0_beta3_3_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Populate media_dir field (since 2.0-beta3.3)
-        $strReq = 'SELECT media_id, media_file FROM ' . App::con()->prefix() . App::media()::MEDIA_TABLE_NAME . ' ';
+        $strReq = 'SELECT media_id, media_file FROM ' . App::con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . ' ';
         $rs_m   = App::con()->select($strReq);
         while ($rs_m->fetch()) {
             $cur            = App::media()->openMediaCursor();

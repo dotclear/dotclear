@@ -21,7 +21,7 @@ namespace Dotclear\Interface\Core;
 interface BlogSettingsInterface
 {
     /**
-     * Constructor.
+     * Create a new instance a BLogSettings.
      *
      * Retrieves blog settings and puts them in $workspaces array.
      * Local (blog) settings have a highest priority than global settings.
@@ -29,9 +29,9 @@ interface BlogSettingsInterface
      * If instance is created without blog ID, only globals settings are
      * manageabled.
      *
-     * @param   null|string             $blog_id    The blog identifier
+     * @param   null|string     $blog_id    The blog ID
      */
-    public function __construct(?string $blog_id);
+    public function load(?string $blog_id): BlogSettingsInterface;
 
     /**
      * Create a new workspace.

@@ -17,6 +17,8 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MetaInterface;
 use Exception;
@@ -25,16 +27,11 @@ use Exception;
  * @brief   Meta handler.
  *
  * Dotclear metadata class instance is provided by App::meta() method.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class Meta implements MetaInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * The mate table name with prefix.
      *
@@ -44,10 +41,16 @@ class Meta implements MetaInterface
 
     /**
      * Constructor.
+     *
+     * @param   AuthInterface           $auth       The authentication instance
+     * @param   BlogInterface           $blog       The blog instance
+     * @param   ConnectionInterface     $con        The database connection instance
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected AuthInterface $auth,
+        protected BlogInterface $blog,
+        protected ConnectionInterface $con
+    ) {
         $this->table = $this->con->prefix() . self::META_TABLE_NAME;
     }
 

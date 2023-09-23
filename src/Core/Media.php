@@ -26,6 +26,10 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
@@ -33,16 +37,11 @@ use Exception;
 
 /**
  * @brief   Media items handler.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class Media extends Manager implements MediaInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Media table name
      *
@@ -84,15 +83,6 @@ class Media extends Manager implements MediaInterface
      * @var array<string, array<string, array<callable>>>
      */
     protected array $file_handler = [];
-
-    /**
-     * Post media instance
-     *
-     * @deprecated since 2.28, use App::media() instead
-     *
-     * @var PostMediaInterface
-     */
-    protected PostMediaInterface $postmedia;
 
     /**
      * Thumbnail file pattern
@@ -151,34 +141,39 @@ class Media extends Manager implements MediaInterface
     /**
      * Constructs a new instance.
      *
-     * Keep argument for backward compatibility.
-     *
-     * @param   string  $type  deprecated since 2.28, use self::setFilterMimeType() instead
-     *
      * @throws     Exception
+     *
+     * @param   AuthInterface           $auth       The authentication instance
+     * @param   BehaviorInterface       $behavior   The behavior instance
+     * @param   BlogInterface           $blog       The blog instance
+     * @param   ConfigInterface         $config     The application configuration
+     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   PostmediaInterface      $postmedia  The post media instance
      */
-    public function __construct(string $type = '')
-    {
-        $this->con       = App::con();
-        $this->postmedia = App::postMedia();
-        $this->type      = $type;
-
-        if (!App::blog()->isDefined()) {
+    public function __construct(
+        protected AuthInterface $auth,
+        protected BehaviorInterface $behavior,
+        protected BlogInterface $blog,
+        protected ConfigInterface $config,
+        protected ConnectionInterface $con,
+        protected PostMediaInterface $postmedia
+    ) {
+        if (!$this->blog->isDefined()) {
             throw new Exception(__('No blog defined.'));
         }
 
-        $this->table = $this->con->prefix() . self::MEDIA_TABLE_NAME;
-        $root        = App::blog()->publicPath();
+        $this->table = $this->con->prefix() . $this->postmedia::MEDIA_TABLE_NAME;
+        $root        = $this->blog->publicPath();
 
-        if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->public_url)) {
-            $root_url = rawurldecode(App::blog()->settings()->system->public_url);
+        if (preg_match('#^http(s)?://#', (string) $this->blog->settings()->system->public_url)) {
+            $root_url = rawurldecode($this->blog->settings()->system->public_url);
         } else {
-            $root_url = rawurldecode(App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url));
+            $root_url = rawurldecode($this->blog->host() . Path::clean($this->blog->settings()->system->public_url));
         }
 
         if (!is_dir($root)) {
             # Check public directory
-            if (App::auth()->isSuperAdmin()) {
+            if ($this->auth->isSuperAdmin()) {
                 throw new Exception(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
             }
 
@@ -188,12 +183,12 @@ class Media extends Manager implements MediaInterface
         parent::__construct($root, $root_url);
         $this->chdir('');
 
-        $this->path = App::blog()->settings()->system->public_path;
+        $this->path = $this->blog->settings()->system->public_path;
 
-        $this->addExclusion(App::config()->configPath());
+        $this->addExclusion($this->config->configPath());
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->exclude_pattern = App::blog()->settings()->system->media_exclusion;
+        $this->exclude_pattern = $this->blog->settings()->system->media_exclusion;
 
         # Event handlers
         $this->addFileHandler('image/jpeg', 'create', $this->imageThumbCreate(...));
@@ -220,12 +215,12 @@ class Media extends Manager implements MediaInterface
         $this->addFileHandler('image/webp', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs((int) App::blog()->settings()->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs((int) App::blog()->settings()->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs((int) App::blog()->settings()->system->media_img_t_size);
+        $this->thumb_sizes['m'][0] = abs((int) $this->blog->settings()->system->media_img_m_size);
+        $this->thumb_sizes['s'][0] = abs((int) $this->blog->settings()->system->media_img_s_size);
+        $this->thumb_sizes['t'][0] = abs((int) $this->blog->settings()->system->media_img_t_size);
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager
-        App::behavior()->callBehavior('coreMediaConstruct', $this);
+        $this->behavior->callBehavior('coreMediaConstruct', $this);
 
         // Sort thumb_sizes DESC on largest sizes
         $sizes = [];
@@ -361,10 +356,10 @@ class Media extends Manager implements MediaInterface
             $fi->media_image   = false;
             $fi->media_preview = false;
 
-            if (!App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_MEDIA_ADMIN,
-            ]), App::blog()->id())
-                && App::auth()->userID() != $fi->media_user) {
+            if (!$this->auth->check($this->auth->makePermissions([
+                $this->auth::PERMISSION_MEDIA_ADMIN,
+            ]), $this->blog->id())
+                && $this->auth->userID() != $fi->media_user) {
                 $fi->del      = false;
                 $fi->editable = false;
             }
@@ -595,11 +590,11 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_dir = ' . $sql->quote($media_dir));
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             $list = ['media_private <> 1'];
-            if ($user_id = App::auth()->userID()) {
+            if ($user_id = $this->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -699,10 +694,10 @@ class Media extends Manager implements MediaInterface
         }
 
         # Check files that don't exist in database and create them
-        if (App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA,
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if ($this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA,
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             foreach ($p_dir['files'] as $f) {
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
                 if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates)) {
@@ -740,11 +735,11 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_id = ' . (int) $id);
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             $list = ['media_private <> 1'];
-            if ($user_id = App::auth()->userID()) {
+            if ($user_id = $this->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -783,11 +778,11 @@ class Media extends Manager implements MediaInterface
                 $sql->like('media_meta', '%<Description>%' . $sql->escape($query) . '%</Description>%'),
             ]));
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             $list = ['media_private <> 1'];
-            if ($user_id = App::auth()->userID()) {
+            if ($user_id = $this->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -840,7 +835,7 @@ class Media extends Manager implements MediaInterface
 
     public function rebuild(string $pwd = '', bool $recursive = false): void
     {
-        if (!App::auth()->isSuperAdmin()) {
+        if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
         }
 
@@ -867,7 +862,7 @@ class Media extends Manager implements MediaInterface
 
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void
     {
-        if (!App::auth()->isSuperAdmin()) {
+        if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
         }
 
@@ -940,7 +935,7 @@ class Media extends Manager implements MediaInterface
         parent::makeDir($name);
 
         # --BEHAVIOR-- coreAfterMediaDirCreate -- string|null
-        App::behavior()->callBehavior('coreAfterMediaDirCreate', $name);
+        $this->behavior->callBehavior('coreAfterMediaDirCreate', $name);
     }
 
     public function removeDir(?string $directory): void
@@ -948,15 +943,15 @@ class Media extends Manager implements MediaInterface
         parent::removeDir($directory);
 
         # --BEHAVIOR-- coreAfterMediaDirDelete - string|null
-        App::behavior()->callBehavior('coreAfterMediaDirDelete', $directory);
+        $this->behavior->callBehavior('coreAfterMediaDirDelete', $directory);
     }
 
     public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true)
     {
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA,
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA,
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -992,7 +987,7 @@ class Media extends Manager implements MediaInterface
                 $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
-                $cur->user_id      = (string) App::auth()->userID();
+                $cur->user_id      = (string) $this->auth->userID();
                 $cur->media_path   = (string) $this->path;
                 $cur->media_file   = (string) $media_file;
                 $cur->media_dir    = (string) dirname($media_file);
@@ -1039,10 +1034,10 @@ class Media extends Manager implements MediaInterface
 
     public function updateFile(File $file, File $newFile)
     {
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA,
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA,
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1052,10 +1047,10 @@ class Media extends Manager implements MediaInterface
             throw new Exception('No file ID');
         }
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())
-            && App::auth()->userID() != $file->media_user) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())
+            && $this->auth->userID() != $file->media_user) {
             throw new Exception(__('You are not the file owner.'));
         }
 
@@ -1116,10 +1111,10 @@ class Media extends Manager implements MediaInterface
      */
     public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA,
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA,
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1132,10 +1127,10 @@ class Media extends Manager implements MediaInterface
 
     public function uploadBits(string $name, string $bits): string
     {
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA,
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA,
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1150,10 +1145,10 @@ class Media extends Manager implements MediaInterface
 
     public function removeFile(?string $file): void
     {
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA,
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA,
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1165,10 +1160,10 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_file = ' . $sql->quote($media_file));
 
-        if (!App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
-            $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_MEDIA_ADMIN,
+        ]), $this->blog->id())) {
+            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
         }
 
         $sql->delete();
@@ -1433,13 +1428,13 @@ class Media extends Manager implements MediaInterface
             # We set picture time to user timezone
             $media_ts = strtotime($meta['DateTimeOriginal']);
             if ($media_ts !== false) {
-                $o           = Date::getTimeOffset(App::auth()->getInfo('user_tz'), $media_ts);
+                $o           = Date::getTimeOffset($this->auth->getInfo('user_tz'), $media_ts);
                 $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
             }
         }
 
         # --BEHAVIOR-- coreBeforeImageMetaCreate -- Cursor
-        App::behavior()->callBehavior('coreBeforeImageMetaCreate', $c);
+        $this->behavior->callBehavior('coreBeforeImageMetaCreate', $c);
 
         $sql = new UpdateStatement();
         $sql->where('media_id = ' . $id);

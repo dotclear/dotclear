@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -17,23 +16,23 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogInterface;
+use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Schema\Extension\Log as ExtLog;
 use Exception;
 
 /**
  * @brief   Core log handler.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class Log implements LogInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Full log table name (including db prefix).
      *
@@ -50,12 +49,23 @@ class Log implements LogInterface
 
     /**
      * Constructor.
+     *
+     * Used blogLoader to have blog ID just in time.
+     *
+     * @param   AuthInterface           $auth           The auth instance
+     * @param   BehaviorInterface       $behavior       The behavior instance
+     * @param   BlogLoaderInterface     $blog_loader    The blog loader instance
+     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DeprecatedInterface     $deprecated     The deprecated handler
      */
-    public function __construct()
-    {
-        $this->con        = App::con();
+    public function __construct(
+        protected AuthInterface $auth,
+        protected BehaviorInterface $behavior,
+        protected BlogLoaderInterface $blog_loader,
+        protected ConnectionInterface $con
+    ) {
         $this->log_table  = $this->con->prefix() . self::LOG_TABLE_NAME;
-        $this->user_table = $this->con->prefix() . App::auth()::USER_TABLE_NAME;
+        $this->user_table = $this->con->prefix() . $this->auth::USER_TABLE_NAME;
     }
 
     /**
@@ -67,7 +77,7 @@ class Log implements LogInterface
      */
     public function getTable(): string
     {
-        App::deprecated()->set('App::log()::LOG_TABLE_NAME', '2.28');
+        $this->deprecated->set('App::log()::LOG_TABLE_NAME', '2.28');
 
         return self::LOG_TABLE_NAME;
     }
@@ -126,7 +136,7 @@ class Log implements LogInterface
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote((string) App::blog()->id()));
+            $sql->where('L.blog_id = ' . $sql->quote((string) $this->blog_loader->getBlog()->id()));
         }
 
         if (!empty($params['user_id'])) {
@@ -171,13 +181,33 @@ class Log implements LogInterface
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) App::blog()->id();
-            $cur->log_dt  = date('Y-m-d H:i:s');
 
-            $this->fillLogCursor($cur);
+            if ($cur->log_msg === '') {
+                throw new Exception(__('No log message'));
+            }
+
+            if ($cur->log_table === null) {
+                $cur->log_table = 'none';
+            }
+
+            if ($cur->user_id === null) {
+                $cur->user_id = 'unknown';
+            }
+
+            if ($cur->blog_id === null) {
+                $cur->blog_id = $this->blog_loader->getBlog()->id();
+            }
+
+            if ($cur->log_dt === '' || $cur->log_dt === null) {
+                $cur->log_dt = date('Y-m-d H:i:s');
+            }
+
+            if ($cur->log_ip === null) {
+                $cur->log_ip = Http::realIP();
+            }
 
             # --BEHAVIOR-- coreBeforeLogCreate -- Log, Cursor
-            App::behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
+            $this->behavior->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
             $this->con->unlock();
@@ -188,39 +218,9 @@ class Log implements LogInterface
         }
 
         # --BEHAVIOR-- coreAfterLogCreate -- Log, Cursor
-        App::behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
+        $this->behavior->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
-    }
-
-    /**
-     * Fills the log Cursor.
-     *
-     * @param      Cursor   $cur     The current
-     *
-     * @throws     Exception
-     */
-    private function fillLogCursor(Cursor $cur): void
-    {
-        if ($cur->log_msg === '') {
-            throw new Exception(__('No log message'));
-        }
-
-        if ($cur->log_table === null) {
-            $cur->log_table = 'none';
-        }
-
-        if ($cur->user_id === null) {
-            $cur->user_id = 'unknown';
-        }
-
-        if ($cur->log_dt === '' || $cur->log_dt === null) {
-            $cur->log_dt = date('Y-m-d H:i:s');
-        }
-
-        if ($cur->log_ip === null) {
-            $cur->log_ip = Http::realIP();
-        }
     }
 
     public function delLog(int $id): void

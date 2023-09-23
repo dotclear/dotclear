@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
@@ -21,16 +21,12 @@ use Exception;
  *
  * Categories nested tree is based on excellent work of Kuzma Feskov
  * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
+ *
+ * @since   2.28, categories features have been grouped in this class
+ * @since   2.28, container services have been added to constructor
  */
 class Categories implements CategoriesInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Table name.
      *
@@ -61,10 +57,14 @@ class Categories implements CategoriesInterface
 
     /**
      * Constructor.
+     *
+     * @param   BlogInterface           $blog   The blog instance
+     * @param   ConnectionInterface     $con    The database connection instance
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected BlogInterface $blog,
+        protected ConnectionInterface $con
+    ) {
         $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
     }
 
@@ -359,7 +359,7 @@ class Categories implements CategoriesInterface
      */
     protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
-        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape(App::blog()->id()) . "' ";
+        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape($this->blog->id()) . "' ";
     }
 
     /**

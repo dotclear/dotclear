@@ -21,13 +21,6 @@ use Exception;
 interface MediaInterface
 {
     /**
-     * The Media database table name.
-     *
-     * @var     string  MEDIA_TABLE_NAME
-     */
-    public const MEDIA_TABLE_NAME = 'media';
-
-    /**
      * Open a database table cursor.
      *
      * @return  Cursor  The media database table cursor
@@ -37,7 +30,7 @@ interface MediaInterface
     /**
      * Get post media instance
      *
-     * @return  PostMediaInterface  The psot media handler
+     * @return  PostMediaInterface  The post media handler
      */
     public function postMedia(): PostMediaInterface;
 

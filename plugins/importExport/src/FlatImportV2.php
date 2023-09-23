@@ -152,7 +152,7 @@ class FlatImportV2 extends FlatBackup
         $rs                     = new MetaRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME));
         $this->stack['post_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                      = new MetaRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME));
+        $rs                      = new MetaRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME));
         $this->stack['media_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                        = new MetaRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME));
@@ -258,7 +258,7 @@ class FlatImportV2 extends FlatBackup
 
         $this->con->begin();
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blog()::BLOG_TABLE_NAME);
-        $this->con->execute('DELETE FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blogWorkspace()::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME);
@@ -790,7 +790,7 @@ class FlatImportV2 extends FlatBackup
     private function mediaExists()
     {
         $strReq = 'SELECT media_id ' .
-        'FROM ' . $this->prefix . App::media()::MEDIA_TABLE_NAME . ' ' .
+        'FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME . ' ' .
         "WHERE media_path = '" . $this->con->escape($this->cur_media->media_path) . "' " .
         "AND media_file = '" . $this->con->escape($this->cur_media->media_file) . "' ";
 

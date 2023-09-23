@@ -14,22 +14,18 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Exception;
 
 /**
  * @brief   Core notice handler.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class Notice implements NoticeInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Full table name (including db prefix).
      *
@@ -39,10 +35,14 @@ class Notice implements NoticeInterface
 
     /**
      * Constructor.
+     *
+     * @param   BehaviorInterface       $behavior   The behavior instance
+     * @param   ConnectionInterface     $con    The database connection instance
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected BehaviorInterface $behavior,
+        protected ConnectionInterface $con,
+    ) {
         $this->table = $this->con->prefix() . self::NOTICE_TABLE_NAME;
     }
 
@@ -138,7 +138,7 @@ class Notice implements NoticeInterface
             $this->fillNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
-            App::behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
             $this->con->unlock();
@@ -149,7 +149,7 @@ class Notice implements NoticeInterface
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
-        App::behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        $this->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }

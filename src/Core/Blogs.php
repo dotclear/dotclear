@@ -10,42 +10,44 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
  * @brief   Blogs handler.
+ *
+ * @since   2.28, blogs features have been grouped in this class
  */
 class Blogs implements BlogsInterface
 {
     /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
-    /**
      * Constructor.
+     *
+     * @param   AuthInterface           $auth   The authentication instance
+     * @param   BlogInterface           $blog   The blog instance
+     * @param   ConnectionInterface     $con    The db connection instance
      */
-    public function __construct()
-    {
-        $this->con = App::con();
+    public function __construct(
+        protected AuthInterface $auth,
+        protected BlogInterface $blog,
+        protected ConnectionInterface $con
+    ) {
     }
 
     public function getAllBlogStatus(): array
     {
         return [
-            App::blog()::BLOG_ONLINE  => __('online'),
-            App::blog()::BLOG_OFFLINE => __('offline'),
-            App::blog()::BLOG_REMOVED => __('removed'),
+            $this->blog::BLOG_ONLINE  => __('online'),
+            $this->blog::BLOG_OFFLINE => __('offline'),
+            $this->blog::BLOG_REMOVED => __('removed'),
         ];
     }
 
@@ -80,9 +82,9 @@ class Blogs implements BlogsInterface
                 'user_email',
                 'permissions',
             ])
-            ->from($sql->as($this->con->prefix() . App::auth()::USER_TABLE_NAME, 'U'))
+            ->from($sql->as($this->con->prefix() . $this->auth::USER_TABLE_NAME, 'U'))
             ->join((new JoinStatement())
-                ->from($sql->as($this->con->prefix() . App::auth()::PERMISSIONS_TABLE_NAME, 'P'))
+                ->from($sql->as($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME, 'P'))
                 ->on('U.user_id = P.user_id')
                 ->statement())
             ->where('blog_id = ' . $sql->quote($id));
@@ -99,7 +101,7 @@ class Blogs implements BlogsInterface
                     'user_email',
                     'NULL AS permissions',
                 ])
-                ->from($sql->as($this->con->prefix() . App::auth()::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->con->prefix() . $this->auth::USER_TABLE_NAME, 'U'))
                 ->where('user_super = 1')
                 ->statement()
             );
@@ -117,7 +119,7 @@ class Blogs implements BlogsInterface
                     'displayname' => $rs->user_displayname,
                     'email'       => $rs->user_email,
                     'super'       => (bool) $rs->user_super,
-                    'p'           => App::auth()->parsePermissions($rs->permissions),
+                    'p'           => $this->auth->parsePermissions($rs->permissions),
                 ];
             }
         }
@@ -130,14 +132,6 @@ class Blogs implements BlogsInterface
         return $this->getBlogs(['blog_id' => $id]);
     }
 
-    /**
-     * Gets the blogs.
-     *
-     * @param   array<string, mixed>|ArrayObject<string, mixed>     $params         The parameters
-     * @param   bool                                                $count_only     Count only results
-     *
-     * @return     MetaRecord         The blogs.
-     */
     public function getBlogs(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
     {
         $join  = ''; // %1$s
@@ -145,7 +139,7 @@ class Blogs implements BlogsInterface
 
         if ($count_only) {
             $strReq = 'SELECT count(B.blog_id) ' .
-            'FROM ' . $this->con->prefix() . App::blog()::BLOG_TABLE_NAME . ' B ' .
+            'FROM ' . $this->con->prefix() . $this->blog::BLOG_TABLE_NAME . ' B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -161,7 +155,7 @@ class Blogs implements BlogsInterface
                 }
                 $strReq .= ' ';
             }
-            $strReq .= 'FROM ' . $this->con->prefix() . App::blog()::BLOG_TABLE_NAME . ' B ' .
+            $strReq .= 'FROM ' . $this->con->prefix() . $this->blog::BLOG_TABLE_NAME . ' B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -177,16 +171,16 @@ class Blogs implements BlogsInterface
             }
         }
 
-        if (App::auth()->userID() && !App::auth()->isSuperAdmin()) {
-            $join  = 'INNER JOIN ' . $this->con->prefix() . App::auth()::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
-            $where = "AND PE.user_id = '" . $this->con->escape(App::auth()->userID()) . "' " .
+        if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
+            $join  = 'INNER JOIN ' . $this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
+            $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                'AND blog_status IN (' . (string) App::blog()::BLOG_ONLINE . ',' . (string) App::blog()::BLOG_OFFLINE . ') ';
-        } elseif (!App::auth()->userID()) {
-            $where = 'AND blog_status IN (' . (string) App::blog()::BLOG_ONLINE . ',' . (string) App::blog()::BLOG_OFFLINE . ') ';
+                'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
+        } elseif (!$this->auth->userID()) {
+            $where = 'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
         }
 
-        if (isset($params['blog_status']) && $params['blog_status'] !== '' && App::auth()->isSuperAdmin()) {
+        if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->auth->isSuperAdmin()) {
             $where .= 'AND blog_status = ' . (int) $params['blog_status'] . ' ';
         }
 
@@ -213,7 +207,7 @@ class Blogs implements BlogsInterface
 
     public function addBlog(Cursor $cur): void
     {
-        if (!App::auth()->isSuperAdmin()) {
+        if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
@@ -253,13 +247,13 @@ class Blogs implements BlogsInterface
 
     public function delBlog(string $id): void
     {
-        if (!App::auth()->isSuperAdmin()) {
+        if (!$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . App::blog()::BLOG_TABLE_NAME)
+            ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->delete();
     }
@@ -269,7 +263,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $rs  = $sql
             ->column('blog_id')
-            ->from($this->con->prefix() . App::blog()::BLOG_TABLE_NAME)
+            ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->select();
 
@@ -281,7 +275,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('post_id'))
-            ->from($this->con->prefix() . App::blog()::POST_TABLE_NAME)
+            ->from($this->con->prefix() . $this->blog::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id));
 
         if ($type) {
