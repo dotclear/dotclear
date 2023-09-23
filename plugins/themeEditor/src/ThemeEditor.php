@@ -197,7 +197,7 @@ class ThemeEditor
      *
      * @throws  Exception
      *
-     * @return  array   The file content.
+     * @return  array<string, mixed>   The file content.
      */
     public function getFileContent(string $type, string $f): array
     {
@@ -314,7 +314,7 @@ class ThemeEditor
      *
      * @throws  Exception
      */
-    public function deleteFile(string $type, string $f)
+    public function deleteFile(string $type, string $f): void
     {
         if ($type !== 'tpl') {
             // Only tpl files may be deleted

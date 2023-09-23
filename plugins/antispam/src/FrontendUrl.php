@@ -45,7 +45,7 @@ class FrontendUrl extends Url
      * @param   string  $type   The type
      * @param   string  $args   The arguments
      */
-    private static function genFeed(string $type, string $args)
+    private static function genFeed(string $type, string $args): void
     {
         $user_id = Antispam::checkUserCode($args);
 

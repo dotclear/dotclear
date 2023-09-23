@@ -24,9 +24,9 @@ class FrontendUrl extends Url
     /**
      * Get blogroll XBEL.
      *
-     * @param   array   $args   The arguments
+     * @param   array<string, mixed>   $args   The arguments
      */
-    public static function xbel(?array $args)
+    public static function xbel(?array $args): void
     {
         $blogroll = new Blogroll(App::blog());
 

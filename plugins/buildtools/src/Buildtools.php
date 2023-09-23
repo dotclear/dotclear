@@ -22,7 +22,7 @@ class Buildtools
      *
      * @param   Maintenance     $maintenance    The maintenance object
      */
-    public static function maintenanceAdmin(Maintenance $maintenance)
+    public static function maintenanceAdmin(Maintenance $maintenance): void
     {
         $maintenance->addTask(BuildtoolsMaintenanceTask::class);
     }
