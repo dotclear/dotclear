@@ -23,7 +23,7 @@ class ActionsBlogsDefault
      *
      * @param   ActionsBlogs    $ap     The ActionsBlogs instance
      */
-    public static function adminBlogsActionsPage(ActionsBlogs $ap)
+    public static function adminBlogsActionsPage(ActionsBlogs $ap): void
     {
         if (!App::auth()->isSuperAdmin()) {
             return;
@@ -51,7 +51,7 @@ class ActionsBlogsDefault
      *
      * @throws  Exception   If no blog selected
      */
-    public static function doChangeBlogStatus(ActionsBlogs $ap)
+    public static function doChangeBlogStatus(ActionsBlogs $ap): void
     {
         if (!App::auth()->isSuperAdmin()) {
             return;
@@ -88,7 +88,7 @@ class ActionsBlogsDefault
      *
      * @throws  Exception   If no blog selected
      */
-    public static function doDeleteBlog(ActionsBlogs $ap)
+    public static function doDeleteBlog(ActionsBlogs $ap): void
     {
         if (!App::auth()->isSuperAdmin()) {
             return;

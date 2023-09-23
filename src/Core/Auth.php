@@ -61,9 +61,9 @@ class Auth implements AuthInterface
     /**
      * Current user ID.
      *
-     * @var     string|null     $user_id
+     * @var     string     $user_id
      */
-    protected ?string $user_id;
+    protected string $user_id;
 
     /**
      * Array with user information.
@@ -311,7 +311,7 @@ class Auth implements AuthInterface
 
         $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
 
-        $this->user_prefs = App::userPreferences()->load($this->user_id);
+        $this->user_prefs = App::userPreferences($this->userID());
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -358,7 +358,7 @@ class Auth implements AuthInterface
             $this->checkUser($_SESSION['sess_user_id']);
             $uid = $uid ?: Http::browserUID(App::config()->masterKey());
 
-            if (($this->userID() === null) || ($uid !== $_SESSION['sess_browser_uid'])) {
+            if (!$this->userID() || ($uid !== $_SESSION['sess_browser_uid'])) {
                 $welcome = false;
             }
         }
@@ -377,12 +377,12 @@ class Auth implements AuthInterface
 
     public function isSuperAdmin(): bool
     {
-        return (bool) $this->user_admin;
+        return $this->user_admin ?? false;
     }
 
     public function check(?string $permissions, ?string $blog_id): bool
     {
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             // Super admin, everything is allowed
             return true;
         }
@@ -435,7 +435,7 @@ class Auth implements AuthInterface
             throw new Exception(print_r($fn, true) . ' function doest not exist');
         }
 
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             $res = $fn(...$args);
         } else {
             $this->user_admin = true;
@@ -476,7 +476,7 @@ class Auth implements AuthInterface
             return $this->blogs[$blog_id];
         }
 
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             // Super admin
             $sql = new SelectStatement();
             $sql
@@ -495,7 +495,7 @@ class Auth implements AuthInterface
         $sql
             ->column('permissions')
             ->from($this->perm_table)
-            ->where('user_id = ' . $sql->quote($this->user_id ?? ''))
+            ->where('user_id = ' . $sql->quote($this->userID()))
             ->and('blog_id = ' . $sql->quote($blog_id))
             ->and($sql->orGroup([
                 $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
@@ -522,7 +522,7 @@ class Auth implements AuthInterface
     public function findUserBlog(?string $blog_id = null, bool $all_status = true)
     {
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
-            if ($all_status || $this->user_admin) {
+            if ($all_status || $this->isSuperAdmin()) {
                 return $blog_id;
             }
             $rs = App::blogs()->getBlog($blog_id);
@@ -533,7 +533,7 @@ class Auth implements AuthInterface
 
         $sql = new SelectStatement();
 
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             $sql
                 ->column('blog_id')
                 ->from($this->blog_table)
@@ -546,7 +546,7 @@ class Auth implements AuthInterface
                     $this->perm_table . ' P',
                     $this->blog_table . ' B',
                 ])
-                ->where('user_id = ' . $sql->quote($this->user_id))
+                ->where('user_id = ' . $sql->quote($this->userID()))
                 ->and('P.blog_id = B.blog_id')
                 ->and($sql->orGroup([
                     $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
@@ -566,9 +566,9 @@ class Auth implements AuthInterface
         return false;
     }
 
-    public function userID()
+    public function userID(): string
     {
-        return $this->user_id;
+        return $this->user_id ?? '';
     }
 
     public function getInfo(string $information)

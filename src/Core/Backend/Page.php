@@ -1081,7 +1081,7 @@ class Page
         $adblockcheck = App::config()->checkAddBlocker();
         if ($adblockcheck) {
             // May not be set (auth page for example)
-            if (!is_null(App::auth()->userID())) {
+            if (!App::auth()->userID()) {
                 $adblockcheck = App::auth()->prefs()->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;

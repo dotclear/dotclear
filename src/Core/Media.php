@@ -987,7 +987,7 @@ class Media extends Manager implements MediaInterface
                 $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
-                $cur->user_id      = (string) $this->auth->userID();
+                $cur->user_id      = $this->auth->userID();
                 $cur->media_path   = (string) $this->path;
                 $cur->media_file   = (string) $media_file;
                 $cur->media_dir    = (string) dirname($media_file);

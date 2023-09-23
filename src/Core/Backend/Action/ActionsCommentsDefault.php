@@ -25,7 +25,7 @@ class ActionsCommentsDefault
      *
      * @param   ActionsComments     $ap     The ActionsComments instance
      */
-    public static function adminCommentsActionsPage(ActionsComments $ap)
+    public static function adminCommentsActionsPage(ActionsComments $ap): void
     {
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
@@ -82,7 +82,7 @@ class ActionsCommentsDefault
      *
      * @throws  Exception   If no comment selected
      */
-    public static function doChangeCommentStatus(ActionsComments $ap)
+    public static function doChangeCommentStatus(ActionsComments $ap): void
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -109,7 +109,7 @@ class ActionsCommentsDefault
      *
      * @throws  Exception   If no comment selected
      */
-    public static function doDeleteComment(ActionsComments $ap)
+    public static function doDeleteComment(ActionsComments $ap): void
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -137,7 +137,7 @@ class ActionsCommentsDefault
      *
      * @throws  Exception   If no comment selected
      */
-    public static function doBlocklistIP(ActionsComments $ap)
+    public static function doBlocklistIP(ActionsComments $ap): void
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
