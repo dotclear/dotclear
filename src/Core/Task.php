@@ -60,20 +60,17 @@ class Task implements TaskInterface
     /**
      * Constructor.
      *
-     * @var     string     $lang
-     * @param   BehaviorInterface       $behavior       The behavior handler
-     * @param   ConfigInterface         $config         The config handler
-     * @param   PostTypesInterface      $post_types     The post types handler
-     * @param   UrlInterface            $url            The URL handler
+     * @param   BehaviorInterface   $behavior       The behavior handler
+     * @param   ConfigInterface     $config         The config handler
+     * @param   PostTypesInterface  $post_types     The post types handler
+     * @param   UrlInterface        $url            The URL handler
      */
-    private static string $lang = 'en';
     public function __construct(
         protected BehaviorInterface $behavior,
         protected ConfigInterface $config,
         protected PostTypesInterface $post_types,
         protected UrlInterface $url,
     ) {
-
     }
 
     /**

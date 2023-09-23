@@ -11,6 +11,7 @@
  */
 
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 
 /**
  * @deprecated 	since 2.28

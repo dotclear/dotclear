@@ -67,8 +67,7 @@ class BlogSettings implements BlogSettingsInterface
         $this->table = $this->con->prefix() . $this->workspace::NS_TABLE_NAME;
 
         if ($blog_id) {
-            $this->workspaces = [];
-            $this->blog_id    = $blog_id;
+            $this->blog_id = $blog_id;
             $this->loadSettings();
         }
     }

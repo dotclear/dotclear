@@ -93,7 +93,6 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
             }
 
-            $this->settings  = $this->local_settings = $this->global_settings = [];
             $this->blog_id   = $blog_id;
             $this->workspace = $workspace;
 

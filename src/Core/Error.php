@@ -76,7 +76,7 @@ class Error implements ErrorInterface
      */
     public function toHTML(bool $reset = true): string
     {
-        $this->deprecated?->set('', '2.28');
+        $this->deprecated->set('', '2.28');
 
         $res = '';
 

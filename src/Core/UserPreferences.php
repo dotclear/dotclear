@@ -36,13 +36,6 @@ class UserPreferences implements UserPreferencesInterface
     protected $table;
 
     /**
-     * User ID.
-     *
-     * @var     string  $user_id
-     */
-    protected $user_id;
-
-    /**
      * Associative workspaces array.
      *
      * @var     array<string, UserWorkspaceInterface>   $workspaces
@@ -54,21 +47,18 @@ class UserPreferences implements UserPreferencesInterface
      *
      * @param   ConnectionInterface     $con                The database connection instance
      * @param   UserWorkspaceInterface  $workspace          The user workspace handler
-     * @param   null|string             $user_id            The user ID
+     * @param   string                  $user_id            The user ID
      * @param   null|string             $user_workspace     The workspace ID
      */
     public function __construct(
         protected ConnectionInterface $con,
         protected UserWorkspaceInterface $workspace,
-        ?string $user_id = null,
+        protected string $user_id = '',
         ?string $user_workspace = null
     ) {
         $this->table = $this->con->prefix() . $this->workspace::WS_TABLE_NAME;
 
-        if ($user_id) {
-            $this->workspaces = [];
-            $this->user_id    = $user_id;
-
+        if (!empty($user_id)) {
             try {
                 $this->loadPrefs($user_workspace);
             } catch (Exception $e) {

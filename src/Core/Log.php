@@ -18,7 +18,6 @@ use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
@@ -62,7 +61,8 @@ class Log implements LogInterface
         protected AuthInterface $auth,
         protected BehaviorInterface $behavior,
         protected BlogLoaderInterface $blog_loader,
-        protected ConnectionInterface $con
+        protected ConnectionInterface $con,
+        protected DeprecatedInterface $deprecated
     ) {
         $this->log_table  = $this->con->prefix() . self::LOG_TABLE_NAME;
         $this->user_table = $this->con->prefix() . $this->auth::USER_TABLE_NAME;
@@ -180,7 +180,7 @@ class Log implements LogInterface
 
             $rs = $sql->select();
 
-            $cur->log_id  = (int) $rs->f(0) + 1;
+            $cur->log_id = (int) $rs->f(0) + 1;
 
             if ($cur->log_msg === '') {
                 throw new Exception(__('No log message'));

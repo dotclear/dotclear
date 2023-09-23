@@ -88,7 +88,6 @@ class UserWorkspace implements UserWorkspaceInterface
                 throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
             }
 
-            $this->prefs     = $this->local_prefs = $this->global_prefs = [];
             $this->user_id   = $user_id;
             $this->workspace = $workspace;
 

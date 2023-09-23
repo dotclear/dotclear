@@ -35,11 +35,11 @@ class Users implements UsersInterface
     /**
      * Constructor.
      *
-     * @param   ConnectionInterface     $con            Database connection instance
      * @param   AuthInterface           $auth           Auth instance
+     * @param   BehaviorInterface       $behavior       Behavior instance
      * @param   BlogInterface           $blog           Blog instance
      * @param   BlogLoaderInterface     $blog_loader    Blog loader instance
-     * @param   BehaviorInterface       $blog_loader    Behvaior instance
+     * @param   ConnectionInterface     $con            Database connection instance
      */
     public function __construct(
         protected AuthInterface $auth,

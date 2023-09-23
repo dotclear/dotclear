@@ -32,7 +32,7 @@ use Exception;
  * Also handles trackbacks/pingbacks auto discovery.
  *
  * @todo    Use SqlStatement in Trackaback class
- * 
+ *
  * @since   2.28, container services have been added to constructor
  */
 class Trackback implements TrackbackInterface
@@ -61,7 +61,7 @@ class Trackback implements TrackbackInterface
         protected ConnectionInterface $con,
         protected PostTypesInterface $post_types,
     ) {
-        $this->table = $this->con->prefix() . self::PING_TABLE_NAME;
+        $this->table         = $this->con->prefix() . self::PING_TABLE_NAME;
         self::$query_timeout = $config->queryTimeout();
     }
 
