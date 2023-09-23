@@ -377,12 +377,12 @@ class Auth implements AuthInterface
 
     public function isSuperAdmin(): bool
     {
-        return (bool) $this->user_admin;
+        return $this->user_admin ?? false;
     }
 
     public function check(?string $permissions, ?string $blog_id): bool
     {
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             // Super admin, everything is allowed
             return true;
         }
@@ -435,7 +435,7 @@ class Auth implements AuthInterface
             throw new Exception(print_r($fn, true) . ' function doest not exist');
         }
 
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             $res = $fn(...$args);
         } else {
             $this->user_admin = true;
@@ -476,7 +476,7 @@ class Auth implements AuthInterface
             return $this->blogs[$blog_id];
         }
 
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             // Super admin
             $sql = new SelectStatement();
             $sql
@@ -522,7 +522,7 @@ class Auth implements AuthInterface
     public function findUserBlog(?string $blog_id = null, bool $all_status = true)
     {
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
-            if ($all_status || $this->user_admin) {
+            if ($all_status || $this->isSuperAdmin()) {
                 return $blog_id;
             }
             $rs = App::blogs()->getBlog($blog_id);
@@ -533,7 +533,7 @@ class Auth implements AuthInterface
 
         $sql = new SelectStatement();
 
-        if ($this->user_admin) {
+        if ($this->isSuperAdmin()) {
             $sql
                 ->column('blog_id')
                 ->from($this->blog_table)
