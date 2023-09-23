@@ -568,7 +568,7 @@ class Auth implements AuthInterface
 
     public function userID()
     {
-        return $this->user_id;
+        return $this->user_id ?? null;
     }
 
     public function getInfo(string $information)
