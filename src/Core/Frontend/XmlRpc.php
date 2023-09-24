@@ -21,13 +21,6 @@ use Exception;
 class XmlRpc extends IntrospectionServer
 {
     /**
-     * Blog ID
-     *
-     * @var string
-     */
-    private string $blog_id;
-
-    /**
      * Set to true as soon as Blog is set (using Blog ID)
      *
      * @var     bool
@@ -67,13 +60,12 @@ class XmlRpc extends IntrospectionServer
      *
      * @param   string  $blog_id  The blog ID
      */
-    public function __construct(string $blog_id)
-    {
+    public function __construct(
+        private string $blog_id
+    ) {
         $this->debug_file = App::config()->cacheRoot() . '/dotclear-xmlrpc.log';
 
         parent::__construct();
-
-        $this->blog_id = $blog_id;
 
         # Pingback support
         $this->addCallback(

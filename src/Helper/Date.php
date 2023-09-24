@@ -25,9 +25,9 @@ use InvalidArgumentException;
 class Date
 {
     /**
-     * @var null|array<string, string>
+     * @var array<string, string>
      */
-    private static ?array $timezones = null;
+    private static array $timezones;
 
     /**
      * strftime() replacement when PHP version ≥ PHP 8.1
@@ -482,7 +482,7 @@ class Date
      */
     public static function getZones(bool $flip = false, bool $groups = false): array
     {
-        if (is_null(self::$timezones)) {
+        if (!isset(self::$timezones)) {
             // Read timezones from file
             if (!is_readable($file = __DIR__ . DIRECTORY_SEPARATOR . 'tz.dat')) {
                 return [];

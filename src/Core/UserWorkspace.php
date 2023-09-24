@@ -33,13 +33,6 @@ class UserWorkspace implements UserWorkspaceInterface
     protected string $table;
 
     /**
-     * User ID.
-     *
-     * @var     string  $user_id
-     */
-    protected ?string $user_id;
-
-    /**
      * Global preferences.
      *
      * @var     array<string, mixed>   Global preferences
@@ -61,13 +54,6 @@ class UserWorkspace implements UserWorkspaceInterface
     protected array $prefs = [];
 
     /**
-     * Current workspace name.
-     *
-     * @var     string  $workspace
-     */
-    protected ?string $workspace;
-
-    /**
      * Constructor.
      *
      * @param   ConnectionInterface     $con        The database connection instance
@@ -77,8 +63,8 @@ class UserWorkspace implements UserWorkspaceInterface
      */
     public function __construct(
         protected ConnectionInterface $con,
-        ?string $user_id = null,
-        ?string $workspace = null,
+        protected ?string $user_id = null,
+        protected ?string $workspace = null,
         ?MetaRecord $rs = null
     ) {
         $this->table = $this->con->prefix() . self::WS_TABLE_NAME;
@@ -87,9 +73,6 @@ class UserWorkspace implements UserWorkspaceInterface
             if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
                 throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
             }
-
-            $this->user_id   = $user_id;
-            $this->workspace = $workspace;
 
             try {
                 $this->getPrefs($rs);

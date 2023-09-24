@@ -30,7 +30,7 @@ abstract class Component
     /**
      * @var array<array-key, mixed> Custom component properties (see __get() and __set())
      */
-    protected $properties = [];
+    protected array $properties = [];
 
     /**
      * Constructs a new instance.

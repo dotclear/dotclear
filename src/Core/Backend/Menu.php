@@ -15,11 +15,6 @@ use Dotclear\App;
 class Menu
 {
     /**
-     * Menu id
-     */
-    private string $id;
-
-    /**
      * List of items pinned at top of menu
      *
      * @var array<int,string>
@@ -34,20 +29,15 @@ class Menu
     protected $items = [];
 
     /**
-     * Menu title
-     *
-     * @var string
-     */
-    public $title;
-
-    /**
      * Constructs a new instance.
      *
-     * @param      string  $id         The identifier
-     * @param      string  $title      The title
+     * @param      string  $id         The menu identifier
+     * @param      string  $title      The menu title
      */
-    public function __construct(string $id, string $title)
-    {
+    public function __construct(
+        private string $id,
+        public string $title
+    ) {
         $this->id    = $id;
         $this->title = $title;
     }

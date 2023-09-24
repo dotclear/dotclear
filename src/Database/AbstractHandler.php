@@ -38,7 +38,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      *
      * @var        string
      */
-    protected string $__version; ///< string: Database version
+    protected string $__version;
 
     /**
      * Database driver handle (resource)

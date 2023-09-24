@@ -57,20 +57,6 @@ class BlogWorkspace implements BlogWorkspaceInterface
     protected array $settings = [];
 
     /**
-     * Blog ID.
-     *
-     * @var     string  $blog_id
-     */
-    protected ?string $blog_id;
-
-    /**
-     * Settings table name.
-     *
-     * @var     string  $workspace
-     */
-    protected ?string $workspace;
-
-    /**
      * Constructor.
      *
      * @param   ConnectionInterface     $con        The database connection instance
@@ -82,8 +68,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function __construct(
         protected ConnectionInterface $con,
         protected DeprecatedInterface $deprecated,
-        ?string $blog_id = null,
-        ?string $workspace = null,
+        protected ?string $blog_id = null,
+        protected ?string $workspace = null,
         ?MetaRecord $rs = null
     ) {
         $this->table = $this->con->prefix() . self::NS_TABLE_NAME;
@@ -92,9 +78,6 @@ class BlogWorkspace implements BlogWorkspaceInterface
             if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
                 throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
             }
-
-            $this->blog_id   = $blog_id;
-            $this->workspace = $workspace;
 
             $this->getSettings($rs);
         }

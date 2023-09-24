@@ -45,14 +45,14 @@ class SelectStatement extends SqlStatement
     protected array $group = [];
 
     /**
-     * @var null|int
+     * @var null|int|string
      */
-    protected ?int $limit = null;
+    protected $limit = null;
 
     /**
-     * @var null|int
+     * @var null|int|string
      */
-    protected ?int $offset = null;
+    protected $offset = null;
 
     /**
      * @var bool
