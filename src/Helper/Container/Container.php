@@ -140,6 +140,8 @@ class Container implements ContainerInterface
                 $args[$parameter->name] = $this->get(
                     $class->getName()
                 );
+            } elseif (isset($args[$parameter->name])) {
+                // keep given arguments as is
             } elseif ($parameter->isDefaultValueAvailable()) {
                 $args[$parameter->name] = $parameter->getDefaultValue();
             }
