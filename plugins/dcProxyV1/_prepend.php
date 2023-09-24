@@ -10,6 +10,8 @@
  * @copyright   GPL-2.0-only
  */
 
+use Dotclear\Helper\Clearbricks;
+
 /**
  * @brief   The module class alias handler.
  * @ingroup dcProxyV1
@@ -184,10 +186,10 @@ dcProxyV1::classAliases([
 
     // Core -----------------------
 
-    'dcAuth'         => 'Dotclear\Core\Auth',
-    'dcBlog'         => 'Dotclear\Core\Blog',
+    'dcAuth' => 'Dotclear\Core\Auth',
+    'dcBlog' => 'Dotclear\Core\Blog',
     //'dcCategories'   => 'Dotclear\Core\Categories',
-    'dcDeprecated'   => 'Dotclear\Core\Deprecated',
+    'dcDeprecated' => 'Dotclear\Core\Deprecated',
     //'dcError'        => 'Dotclear\Core\Error',
     //'dcLog'          => 'Dotclear\Core\Log',
     //'dcMedia'        => 'Dotclear\Core\Media',
@@ -196,21 +198,21 @@ dcProxyV1::classAliases([
     'dcModules'      => 'Dotclear\Module\Modules',
     //'dcNamespace'    => 'Dotclear\Core\BlogWorkspace',
     //'dcNotices'      => 'Dotclear\Core\Notice',
-    'dcNsProcess'    => 'Dotclear\Core\Process',
-    'dcPlugins'      => 'Dotclear\Module\Plugins',
+    'dcNsProcess' => 'Dotclear\Core\Process',
+    'dcPlugins'   => 'Dotclear\Module\Plugins',
     //'dcPostMedia'    => 'Dotclear\Core\PostMedia',
     //'dcPrefs'        => 'Dotclear\Core\UserPreferences',
-    'dcRecord'       => 'Dotclear\Database\MetaRecord',
+    'dcRecord' => 'Dotclear\Database\MetaRecord',
     //'dcRestServer'   => 'Dotclear\Core\Rest',
     //'dcSettings'     => 'Dotclear\Core\BlogSettings',
-    'dcStore'        => 'Dotclear\Module\Store',
-    'dcStoreParser'  => 'Dotclear\Module\StoreParser',
-    'dcStoreReader'  => 'Dotclear\Module\StoreReader',
-    'dcThemes'       => 'Dotclear\Module\Themes',
+    'dcStore'       => 'Dotclear\Module\Store',
+    'dcStoreParser' => 'Dotclear\Module\StoreParser',
+    'dcStoreReader' => 'Dotclear\Module\StoreReader',
+    'dcThemes'      => 'Dotclear\Module\Themes',
     //'dcTrackback'    => 'Dotclear\Core\Trackback',
-    'dcUpdate'       => 'Dotclear\Core\Backend\Update',
+    'dcUpdate' => 'Dotclear\Core\Backend\Update',
     //'dcWorkspace'    => 'Dotclear\Core\UserWorkspace',
-    'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
+    'dcXmlRpc' => 'Dotclear\Core\Frontend\XmlRpc',
 
     'rsExtPost'    => 'Dotclear\Schema\Extension\Post',
     'rsExtComment' => 'Dotclear\Schema\Extension\Comment',
@@ -270,4 +272,21 @@ dcProxyV1::classAliases([
     // Upgrade --------------------
 
     'dcUpgrade' => 'Dotclear\Core\Upgrade\Upgrade',
+]);
+
+// Core class constructor < 2.28
+Clearbricks::lib()->autoload([
+    'dcCategories' => __DIR__ . '/inc/class.dc.categories.php',
+    'dcError'      => __DIR__ . '/inc/class.dc.error.php',
+    'dcLog'        => __DIR__ . '/inc/class.dc.log.php',
+    'dcMedia'      => __DIR__ . '/inc/class.dc.media.php',
+    'dcMeta'       => __DIR__ . '/inc/class.dc.meta.php',
+    'dcNamespace'  => __DIR__ . '/inc/class.dc.namespace.php',
+    'dcNotices'    => __DIR__ . '/inc/class.dc.notices.php',
+    'dcPostMedia'  => __DIR__ . '/inc/class.dc.postmedia.php',
+    'dcPrefs'      => __DIR__ . '/inc/class.dc.prefs.php',
+    'dcRestServer' => __DIR__ . '/inc/class.dc.rest.php',
+    'dcSettings'   => __DIR__ . '/inc/class.dc.settings.php',
+    'dcTrackback'  => __DIR__ . '/inc/class.dc.trackback.php',
+    'dcWorkspace'  => __DIR__ . '/inc/class.dc.workspace.php',
 ]);

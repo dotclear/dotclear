@@ -60,23 +60,6 @@ Clearbricks::lib()->autoload([
     'dcSpamFilter' => __DIR__ . '/inc/antispam.php',
 ]);
 
-// Core class constructor < 2.28
-Clearbricks::lib()->autoload([
-    'dcCategories' => __DIR__ . '/inc/class.dc.categories.php', 
-    'dcError'      => __DIR__ . '/inc/class.dc.error.php',
-    'dcLog'        => __DIR__ . '/inc/class.dc.log.php',
-    'dcMedia'      => __DIR__ . '/inc/class.dc.media.php',
-    'dcMeta'       => __DIR__ . '/inc/class.dc.meta.php',
-    'dcNamespace'  => __DIR__ . '/inc/class.dc.namespace.php',
-    'dcNotices'    => __DIR__ . '/inc/class.dc.notices.php',
-    'dcPostMedia'  => __DIR__ . '/inc/class.dc.postmedia.php',
-    'dcPrefs'      => __DIR__ . '/inc/class.dc.prefs.php',
-    'dcRestServer' => __DIR__ . '/inc/class.dc.rest.php',
-    'dcSettings'   => __DIR__ . '/inc/class.dc.settings.php',
-    'dcTrackback'  => __DIR__ . '/inc/class.dc.trackback.php',
-    'dcWorkspace'  => __DIR__ . '/inc/class.dc.workspace.php',
-]);
-
 if (!App::task()->checkContext('BACKEND')) {
     return false;
 }
