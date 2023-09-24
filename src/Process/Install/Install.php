@@ -328,7 +328,7 @@ class Install extends Process
                 $cur->insert();
 
                 # Create first post
-                App::blogLoader()->setBlog('default');
+                App::blog()->load('default');
 
                 $cur               = App::blog()->openPostCursor();
                 $cur->user_id      = self::$u_login;

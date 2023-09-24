@@ -130,6 +130,18 @@ interface BlogInterface
     //@{
 
     /**
+     * Load a blog definition.
+     *
+     * This load a blog in current instance.
+     * Use empty blog ID to unload blog.
+     *
+     * @param   string  $blog_id    The blog ID
+     *
+     * @return  BlogInterface   The blog instance
+     */
+    public function load(string $blog_id): BlogInterface;
+
+    /**
      * Open a database table cursor.
      *
      * @return  Cursor  The blog database table cursor

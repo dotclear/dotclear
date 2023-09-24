@@ -314,7 +314,7 @@ class BlogPref extends Process
 
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
                     if ($da->blog_id == App::blog()->id()) {
-                        App::blogLoader()->setBlog($cur->blog_id);
+                        App::blog()->load($cur->blog_id);
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
                         $da->blog_settings        = App::blog()->settings();
                     } else {
@@ -947,7 +947,7 @@ class BlogPref extends Process
                 $post_types      = App::postTypes()->dump();
                 $current_blog_id = App::blog()->id();
                 if ($da->blog_id != App::blog()->id()) {
-                    App::blogLoader()->setBlog($da->blog_id);
+                    App::blog()->load($da->blog_id);
                 }
 
                 echo '<div>';
@@ -1022,7 +1022,7 @@ class BlogPref extends Process
                 }
                 echo '</div>';
                 if ($current_blog_id != App::blog()->id()) {
-                    App::blogLoader()->setBlog($current_blog_id);
+                    App::blog()->load($current_blog_id);
                 }
             }
 

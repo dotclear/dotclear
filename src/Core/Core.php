@@ -31,7 +31,6 @@ use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
@@ -142,8 +141,7 @@ class Core extends Container
             AuthInterface::class          => fn ($container) => Auth::init(),
             Backend::class                => Backend::class,
             BehaviorInterface::class      => Behavior::class,
-            BlogInterface::class          => fn ($container) => $container->blogLoader()->getBlog(),
-            BlogLoaderInterface::class    => BlogLoader::class,
+            BlogInterface::class          => Blog::class,
             BlogSettingsInterface::class  => BlogSettings::class,
             BlogsInterface::class         => Blogs::class,
             BlogWorkspaceInterface::class => BlogWorkspace::class,
@@ -230,18 +228,7 @@ class Core extends Container
      */
     public static function blog(): BlogInterface
     {
-        return self::$instance->get(BlogInterface::class, true);
-    }
-
-    /**
-     * Blog loader.
-     *
-     * @see     Calls core container service Dotclear.Interface.Core.BlogLoaderInterface
-     * @see     Uses default core service Dotclear.Core.BlogLoader
-     */
-    public static function blogLoader(): BlogLoaderInterface
-    {
-        return self::$instance->get(BlogLoaderInterface::class);
+        return self::$instance->get(BlogInterface::class);
     }
 
     /**

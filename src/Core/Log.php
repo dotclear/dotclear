@@ -18,7 +18,7 @@ use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogLoaderInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\LogInterface;
@@ -53,14 +53,14 @@ class Log implements LogInterface
      *
      * @param   AuthInterface           $auth           The auth instance
      * @param   BehaviorInterface       $behavior       The behavior instance
-     * @param   BlogLoaderInterface     $blog_loader    The blog loader instance
+     * @param   BlogInterface           $blog           The blog instance
      * @param   ConnectionInterface     $con            The database connection instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
      */
     public function __construct(
         protected AuthInterface $auth,
         protected BehaviorInterface $behavior,
-        protected BlogLoaderInterface $blog_loader,
+        protected BlogInterface $blog,
         protected ConnectionInterface $con,
         protected DeprecatedInterface $deprecated
     ) {
@@ -136,7 +136,7 @@ class Log implements LogInterface
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote((string) $this->blog_loader->getBlog()->id()));
+            $sql->where('L.blog_id = ' . $sql->quote((string) $this->blog->id()));
         }
 
         if (!empty($params['user_id'])) {
@@ -195,7 +195,7 @@ class Log implements LogInterface
             }
 
             if ($cur->blog_id === null) {
-                $cur->blog_id = $this->blog_loader->getBlog()->id();
+                $cur->blog_id = $this->blog->id();
             }
 
             if ($cur->log_dt === '' || $cur->log_dt === null) {
