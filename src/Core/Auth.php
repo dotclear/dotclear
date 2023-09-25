@@ -52,13 +52,6 @@ class Auth implements AuthInterface
     protected string $perm_table;
 
     /**
-     * Blog table name.
-     *
-     * @var     string  $blog_table
-     */
-    protected string $blog_table;
-
-    /**
      * Current user ID.
      *
      * @var     string     $user_id
@@ -168,7 +161,6 @@ class Auth implements AuthInterface
     public function __construct()
     {
         $this->con        = App::con();
-        $this->blog_table = $this->con->prefix() . App::blog()::BLOG_TABLE_NAME;
         $this->user_table = $this->con->prefix() . self::USER_TABLE_NAME;
         $this->perm_table = $this->con->prefix() . self::PERMISSIONS_TABLE_NAME;
 
@@ -481,7 +473,7 @@ class Auth implements AuthInterface
             $sql = new SelectStatement();
             $sql
                 ->column('blog_id')
-                ->from($this->blog_table)
+                ->from($this->con->prefix() . App::blog()::BLOG_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id));
 
             $rs = $sql->select();
@@ -536,7 +528,7 @@ class Auth implements AuthInterface
         if ($this->isSuperAdmin()) {
             $sql
                 ->column('blog_id')
-                ->from($this->blog_table)
+                ->from($this->con->prefix() . App::blog()::BLOG_TABLE_NAME)
                 ->order('blog_id ASC')
                 ->limit(1);
         } else {
@@ -544,7 +536,7 @@ class Auth implements AuthInterface
                 ->column('P.blog_id')
                 ->from([
                     $this->perm_table . ' P',
-                    $this->blog_table . ' B',
+                    $this->con->prefix() . App::blog()::BLOG_TABLE_NAME . ' B',
                 ])
                 ->where('user_id = ' . $sql->quote($this->userID()))
                 ->and('P.blog_id = B.blog_id')

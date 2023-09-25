@@ -26,6 +26,13 @@ use Dotclear\Interface\Core\FilterInterface;
 class Filter implements FilterInterface
 {
     /**
+     * The working blog instance
+     *
+     * @var     null|BlogInterface   $blog
+     */
+    private ?BlogInterface $blog = null;
+
+    /**
      * The wiki instance.
      *
      * @var     WikiToHtml  $wiki
@@ -46,12 +53,17 @@ class Filter implements FilterInterface
      * Constructor.
      *
      * @param   BehaviorInterface   $behavior   The behavior instance
-     * @param   BlogInterface       $blog       The blog instance
      */
     public function __construct(
         protected BehaviorInterface $behavior,
-        protected BlogInterface $blog,
     ) {
+    }
+
+    public function load(BlogInterface $blog): FilterInterface
+    {
+        $this->blog = $blog;
+
+        return $this;
     }
 
     /**
@@ -223,7 +235,7 @@ class Filter implements FilterInterface
 
     public function wikiPostLink(string $url, string $content): array
     {
-        if (!$this->blog->isDefined()) {
+        if (!$this->blog?->isDefined()) {
             return [];
         }
 
@@ -256,7 +268,7 @@ class Filter implements FilterInterface
 
     public function HTMLfilter(string $str): string
     {
-        if (!$this->blog->isDefined() || !$this->blog->settings()->system->enable_html_filter) {
+        if (!$this->blog?->isDefined() || !$this->blog->settings()->system->enable_html_filter) {
             return $str;
         }
 

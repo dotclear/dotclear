@@ -26,6 +26,13 @@ use Dotclear\Interface\Core\PostMediaInterface;
 class PostMedia implements PostMediaInterface
 {
     /**
+     * The working blog instance
+     *
+     * @var     null|BlogInterface   $blog
+     */
+    private ?BlogInterface $blog = null;
+
+    /**
      * Full table name (including db prefix).
      *
      * @var     string  $table
@@ -35,14 +42,19 @@ class PostMedia implements PostMediaInterface
     /**
      * Constructor.
      *
-     * @param   BlogInterface           $blog       The blog instance
      * @param   ConnectionInterface     $con        The database connection instance
      */
     public function __construct(
-        protected BlogInterface $blog,
         protected ConnectionInterface $con
     ) {
         $this->table = $this->con->prefix() . self::POST_MEDIA_TABLE_NAME;
+    }
+
+    public function load(BlogInterface $blog): PostMediaInterface
+    {
+        $this->blog = $blog;
+
+        return $this;
     }
 
     public function openPostMediaCursor(): Cursor

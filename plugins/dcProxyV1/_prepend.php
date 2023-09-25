@@ -187,7 +187,7 @@ dcProxyV1::classAliases([
     // Core -----------------------
 
     'dcAuth' => 'Dotclear\Core\Auth',
-    'dcBlog' => 'Dotclear\Core\Blog',
+    //'dcBlog' => 'Dotclear\Core\Blog',
     //'dcCategories'   => 'Dotclear\Core\Categories',
     'dcDeprecated' => 'Dotclear\Core\Deprecated',
     //'dcError'        => 'Dotclear\Core\Error',
@@ -276,6 +276,7 @@ dcProxyV1::classAliases([
 
 // Core class constructor < 2.28
 Clearbricks::lib()->autoload([
+    'dcBlog'       => __DIR__ . '/inc/class.dc.blog.php',
     'dcCategories' => __DIR__ . '/inc/class.dc.categories.php',
     'dcError'      => __DIR__ . '/inc/class.dc.error.php',
     'dcLog'        => __DIR__ . '/inc/class.dc.log.php',

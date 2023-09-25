@@ -18,6 +18,13 @@ use Dotclear\Helper\Html\WikiToHtml;
  */
 interface FilterInterface
 {
+    /**
+     * Load working blog on filter instance
+     *
+     * @param   BlogInterface       $blog       The blog instance
+     */
+    public function load(BlogInterface $blog): FilterInterface;
+
     /// @name WikiToHtml methods
     //@{
     /**
