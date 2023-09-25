@@ -20,6 +20,6 @@ class dcPostMedia extends Dotclear\Core\PostMedia
 	public function __construct()
 	{
 		parent::__construct(App::con());
-		$this->load(App::blog());
+		$this->loadFromBlog(App::blog());
 	}
 }

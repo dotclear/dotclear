@@ -31,7 +31,7 @@ interface BlogSettingsInterface
      *
      * @param   null|string     $blog_id    The blog ID
      */
-    public function load(?string $blog_id): BlogSettingsInterface;
+    public function createFromBlog(?string $blog_id): BlogSettingsInterface;
 
     /**
      * Create a new workspace.

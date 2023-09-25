@@ -66,7 +66,7 @@ class Categories implements CategoriesInterface
         $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
     }
 
-    public function load(string $blog_id): CategoriesInterface
+    public function createFromBlog(string $blog_id): CategoriesInterface
     {
         return new self($this->con, $blog_id);
     }

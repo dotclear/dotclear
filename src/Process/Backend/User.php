@@ -76,7 +76,7 @@ class User extends Process
 
                 App::backend()->user_options = array_merge(App::backend()->user_options, App::backend()->rs->options());
 
-                $user_prefs = App::userPreferences()->load(App::backend()->user_id, 'profile');
+                $user_prefs = App::userPreferences()->createFromUser(App::backend()->user_id, 'profile');
 
                 App::backend()->user_profile_mails = $user_prefs->profile->mails;
                 App::backend()->user_profile_urls  = $user_prefs->profile->urls;
@@ -158,7 +158,7 @@ class User extends Process
                     if (!empty($_POST['user_profile_urls'])) {
                         $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
-                    $user_prefs = App::userPreferences()->load(App::backend()->user_id, 'profile');
+                    $user_prefs = App::userPreferences()->createFromUser(App::backend()->user_id, 'profile');
                     $user_prefs->profile->put('mails', $mails, 'string');
                     $user_prefs->profile->put('urls', $urls, 'string');
 
@@ -192,7 +192,7 @@ class User extends Process
                     if (!empty($_POST['user_profile_urls'])) {
                         $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
-                    $user_prefs = App::userPreferences()->load($new_id, 'profile');
+                    $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
                     $user_prefs->profile->put('mails', $mails, 'string');
                     $user_prefs->profile->put('urls', $urls, 'string');
 

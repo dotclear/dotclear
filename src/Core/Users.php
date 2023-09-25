@@ -218,14 +218,10 @@ class Users implements UsersInterface
         if ($rs) {
             $old_blog = $this->blog->id();
             while ($rs->fetch()) {
-                $this->blog->load($rs->blog_id);
+                $this->blog->loadFromBlog($rs->blog_id);
                 $this->blog->triggerBlog();
             }
-            if (empty($old_blog)) {
-                $this->blog->load('');
-            } else {
-                $this->blog->load($old_blog);
-            }
+            $this->blog->loadFromBlog(empty($old_blog) ? '' : $old_blog);
         }
 
         return $id;

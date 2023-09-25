@@ -156,11 +156,11 @@ class XmlRpc extends IntrospectionServer
             return true;
         }
 
-        App::blog()->load($this->blog_id);
+        App::blog()->loadFromBlog($this->blog_id);
         $this->blog_loaded = true;
 
         if (!App::blog()->id()) {
-            App::blog()->load('');
+            App::blog()->loadFromBlog('');
 
             throw new Exception('Blog does not exist.');
         }

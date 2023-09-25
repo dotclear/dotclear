@@ -67,7 +67,7 @@ class UserPreferences implements UserPreferencesInterface
         }
     }
 
-    public function load(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
+    public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
     {
         return new self($this->con, $this->workspace, $user_id, $user_workspace);
     }
@@ -122,14 +122,14 @@ class UserPreferences implements UserPreferencesInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$user_workspace] = $this->workspace->load($this->user_id, $user_workspace, $rs);
+            $this->workspaces[$user_workspace] = $this->workspace->createFromUser($this->user_id, $user_workspace, $rs);
         } while (!$rs->isStart());
     }
 
     public function addWorkspace(string $user_workspace): UserWorkspaceInterface
     {
         if (!$this->exists($user_workspace)) {
-            $this->workspaces[$user_workspace] = $this->workspace->load($this->user_id, $user_workspace);
+            $this->workspaces[$user_workspace] = $this->workspace->createFromUser($this->user_id, $user_workspace);
         }
 
         return $this->workspaces[$user_workspace];
@@ -154,7 +154,7 @@ class UserPreferences implements UserPreferencesInterface
         $sql->update();
 
         // Reload the renamed workspace in the workspace array
-        $this->workspaces[$new_workspace] = $this->workspace->load($this->user_id, $new_workspace);
+        $this->workspaces[$new_workspace] = $this->workspace->createFromUser($this->user_id, $new_workspace);
 
         // Remove the old workspace from the workspace array
         unset($this->workspaces[$old_workspace]);

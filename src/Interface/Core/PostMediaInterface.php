@@ -24,7 +24,7 @@ interface PostMediaInterface
      *
      * @param   BlogInterface       $blog       The blog instance
      */
-    public function load(BlogInterface $blog): PostMediaInterface;
+    public function loadFromBlog(BlogInterface $blog): PostMediaInterface;
 
     /**
      * The post media database table name.

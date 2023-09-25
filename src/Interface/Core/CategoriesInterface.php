@@ -26,7 +26,7 @@ interface CategoriesInterface
      *
      * @return  CategoriesInterface     The blog categories instance
      */
-    public function load(string $blog_id): CategoriesInterface;
+    public function createFromBlog(string $blog_id): CategoriesInterface;
 
     /**
      * Categories table name.

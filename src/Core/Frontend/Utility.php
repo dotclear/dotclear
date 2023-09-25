@@ -137,7 +137,7 @@ class Utility extends Process
         // Loading blog
         if (App::config()->blogId() != '') {
             try {
-                App::blog()->load(App::config()->blogId());
+                App::blog()->loadFromBlog(App::config()->blogId());
             } catch (Exception $e) {
                 // Loading locales for detected language
                 (function () {
@@ -162,7 +162,7 @@ class Utility extends Process
         }
 
         if ((int) App::blog()->status() !== App::blog()::BLOG_ONLINE) {
-            App::blog()->load('');
+            App::blog()->loadFromBlog('');
             new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
         }
 

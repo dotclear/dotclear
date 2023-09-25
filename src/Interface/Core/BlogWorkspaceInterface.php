@@ -113,7 +113,7 @@ interface BlogWorkspaceInterface
      *
      * @return  BlogWorkspaceInterface
      */
-    public function load(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
+    public function createFromBlog(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
 
     /**
      * Open a database table cursor.

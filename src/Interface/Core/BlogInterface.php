@@ -139,7 +139,7 @@ interface BlogInterface
      *
      * @return  BlogInterface   The blog instance
      */
-    public function load(string $blog_id): BlogInterface;
+    public function loadFromBlog(string $blog_id): BlogInterface;
 
     /**
      * Open a database table cursor.

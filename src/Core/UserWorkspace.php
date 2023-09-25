@@ -87,7 +87,7 @@ class UserWorkspace implements UserWorkspaceInterface
         return $this->con->openCursor($this->table);
     }
 
-    public function load(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
+    public function createFromUser(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
     {
         return new self($this->con, $user_id, $workspace, $rs);
     }

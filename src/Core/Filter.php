@@ -59,7 +59,7 @@ class Filter implements FilterInterface
     ) {
     }
 
-    public function load(BlogInterface $blog): FilterInterface
+    public function loadFromBlog(BlogInterface $blog): FilterInterface
     {
         $this->blog = $blog;
 

@@ -210,10 +210,10 @@ class Blog implements BlogInterface
     ) {
         $this->prefix = $this->con->prefix();
 
-        $this->load($blog_id);
+        $this->loadFromBlog($blog_id);
     }
 
-    public function load(string $blog_id): BlogInterface
+    public function loadFromBlog(string $blog_id): BlogInterface
     {
         // deprecated public readonly properties
         $id          = $blog_id;
@@ -238,8 +238,8 @@ class Blog implements BlogInterface
             $upddt  = (int) strtotime($blog->blog_upddt);
             $status = (int) $blog->blog_status;
 
-            $this->settings   = $this->settings->load($id);
-            $this->categories = $this->categories->load($id);
+            $this->settings   = $this->settings->createFromBlog($id);
+            $this->categories = $this->categories->createFromBlog($id);
 
             $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
             $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
@@ -268,8 +268,8 @@ class Blog implements BlogInterface
         $this->themes_path = $themes_path;
         $this->public_path = $public_path;
 
-        $this->filter->load($this);
-        $this->postmedia->load($this);
+        $this->filter->loadFromBlog($this);
+        $this->postmedia->loadFromBlog($this);
 
         if (!empty($id)) {
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface

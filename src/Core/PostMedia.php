@@ -50,7 +50,7 @@ class PostMedia implements PostMediaInterface
         $this->table = $this->con->prefix() . self::POST_MEDIA_TABLE_NAME;
     }
 
-    public function load(BlogInterface $blog): PostMediaInterface
+    public function loadFromBlog(BlogInterface $blog): PostMediaInterface
     {
         $this->blog = $blog;
 

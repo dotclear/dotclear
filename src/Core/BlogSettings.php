@@ -64,7 +64,7 @@ class BlogSettings implements BlogSettingsInterface
         }
     }
 
-    public function load(?string $blog_id): BlogSettingsInterface
+    public function createFromBlog(?string $blog_id): BlogSettingsInterface
     {
         return new self($this->workspace, $this->con, $this->deprecated, $blog_id);
     }
@@ -112,14 +112,14 @@ class BlogSettings implements BlogSettingsInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ns] = $this->workspace->load($this->blog_id, $ns, $rs);
+            $this->workspaces[$ns] = $this->workspace->createFromBlog($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
     public function addWorkspace(string $workspace): BlogWorkspaceInterface
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = $this->workspace->load($this->blog_id, $workspace);
+            $this->workspaces[$workspace] = $this->workspace->createFromBlog($this->blog_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -144,7 +144,7 @@ class BlogSettings implements BlogSettingsInterface
         $sql->update();
 
         // Reload the renamed namespace in the namespace array
-        $this->workspaces[$new_workspace] = $this->workspace->load($this->blog_id, $new_workspace);
+        $this->workspaces[$new_workspace] = $this->workspace->createFromBlog($this->blog_id, $new_workspace);
 
         // Remove the old namespace from the namespace array
         unset($this->workspaces[$old_workspace]);

@@ -112,7 +112,7 @@ interface UserWorkspaceInterface
      *
      * @return  UserWorkspaceInterface
      */
-    public function load(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface;
+    public function createFromUser(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface;
 
     /**
      * Open a database table cursor.

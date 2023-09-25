@@ -23,7 +23,7 @@ interface FilterInterface
      *
      * @param   BlogInterface       $blog       The blog instance
      */
-    public function load(BlogInterface $blog): FilterInterface;
+    public function loadFromBlog(BlogInterface $blog): FilterInterface;
 
     /// @name WikiToHtml methods
     //@{

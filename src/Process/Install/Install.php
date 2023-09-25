@@ -251,7 +251,7 @@ class Install extends Process
                 # Create global blog settings
                 Utils::blogDefaults();
 
-                $blog_settings = App::blogSettings()->load('default');
+                $blog_settings = App::blogSettings()->createFromBlog('default');
                 $blog_settings->system->put('blog_timezone', $default_tz);
                 $blog_settings->system->put('lang', self::$dlang);
                 $blog_settings->system->put('public_url', self::$root_url . '/public');
@@ -328,7 +328,7 @@ class Install extends Process
                 $cur->insert();
 
                 # Create first post
-                App::blog()->load('default');
+                App::blog()->loadFromBlog('default');
 
                 $cur               = App::blog()->openPostCursor();
                 $cur->user_id      = self::$u_login;

@@ -29,7 +29,7 @@ interface UserPreferencesInterface
      * @param   string          $user_id        The user identifier
      * @param   null|string     $user_workspace The workspace to load
      */
-    public function load(string $user_id, ?string $user_workspace = null): UserPreferencesInterface;
+    public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface;
 
     /**
      * Create a new workspace.

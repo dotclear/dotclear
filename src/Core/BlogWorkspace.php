@@ -83,14 +83,14 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
     }
 
+    public function createFromBlog(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
+    {
+        return new self($this->con, $this->deprecated, $blog_id, $workspace, $rs);
+    }
+
     public function openBlogWorkspaceCursor(): Cursor
     {
         return $this->con->openCursor($this->table);
-    }
-
-    public function load(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
-    {
-        return new self($this->con, $this->deprecated, $blog_id, $workspace, $rs);
     }
 
     /**
