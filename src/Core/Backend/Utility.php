@@ -201,7 +201,7 @@ class Utility extends Process
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
-                App::blogLoader()->setBlog($_SESSION['sess_blog_id']);
+                App::blog()->load($_SESSION['sess_blog_id']);
             } else {
                 App::session()->destroy();
                 App::backend()->url->redirect('admin.auth');

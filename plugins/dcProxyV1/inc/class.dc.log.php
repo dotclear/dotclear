@@ -19,6 +19,6 @@ class dcLog extends Dotclear\Core\Log
 {
 	public function __construct()
 	{
-		parent::__construct(App::auth(), App::behavior(), App::blogLoader(), App::con(), App::deprecated());
+		parent::__construct(App::auth(), App::behavior(), App::blog(), App::con(), App::deprecated());
 	}
 }

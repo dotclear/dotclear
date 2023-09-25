@@ -18,7 +18,6 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogLoaderInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UsersInterface;
@@ -38,14 +37,12 @@ class Users implements UsersInterface
      * @param   AuthInterface           $auth           Auth instance
      * @param   BehaviorInterface       $behavior       Behavior instance
      * @param   BlogInterface           $blog           Blog instance
-     * @param   BlogLoaderInterface     $blog_loader    Blog loader instance
      * @param   ConnectionInterface     $con            Database connection instance
      */
     public function __construct(
         protected AuthInterface $auth,
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
-        protected BlogLoaderInterface $blog_loader,
         protected ConnectionInterface $con,
     ) {
     }
@@ -221,13 +218,13 @@ class Users implements UsersInterface
         if ($rs) {
             $old_blog = $this->blog->id();
             while ($rs->fetch()) {
-                $this->blog_loader->setBlog($rs->blog_id);
+                $this->blog->load($rs->blog_id);
                 $this->blog->triggerBlog();
             }
             if (empty($old_blog)) {
-                $this->blog_loader->unsetBlog();
+                $this->blog->load('');
             } else {
-                $this->blog_loader->setBlog($old_blog);
+                $this->blog->load($old_blog);
             }
         }
 

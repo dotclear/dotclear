@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
+use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -35,6 +36,9 @@ use Exception;
 
 /**
  * @brief   Blog handler.
+ *
+ * @since   2.28, public properties become deprecated and will be protected soon
+ * @since   2.28, blog could be (un)load in same instance
  */
 class Blog implements BlogInterface
 {
@@ -66,7 +70,7 @@ class Blog implements BlogInterface
      *
      * @var     string  $id
      */
-    public readonly string $id;
+    public string $id;
 
     /**
      * Blog unique ID.
@@ -75,7 +79,7 @@ class Blog implements BlogInterface
      *
      * @var     string  $uid
      */
-    public readonly string $uid;
+    public string $uid;
 
     /**
      * Blog name.
@@ -84,7 +88,7 @@ class Blog implements BlogInterface
      *
      * @var     string  $name
      */
-    public readonly string $name;
+    public string $name;
 
     /**
      * Blog description.
@@ -93,7 +97,7 @@ class Blog implements BlogInterface
      *
      * @var     string  $desc
      */
-    public readonly string $desc;
+    public string $desc;
 
     /**
      * Blog URL.
@@ -102,7 +106,7 @@ class Blog implements BlogInterface
      *
      * @var string
      */
-    public readonly string $url;
+    public string $url;
 
     /**
      * Blog host.
@@ -111,7 +115,7 @@ class Blog implements BlogInterface
      *
      * @var string
      */
-    public readonly string $host;
+    public string $host;
 
     /**
      * Blog creation date.
@@ -120,7 +124,7 @@ class Blog implements BlogInterface
      *
      * @var int
      */
-    public readonly int $creadt;
+    public int $creadt;
 
     /**
      * Blog last update date.
@@ -129,7 +133,7 @@ class Blog implements BlogInterface
      *
      * @var     int     $upddt
      */
-    public readonly int $upddt;
+    public int $upddt;
 
     /**
      * Blog status.
@@ -138,7 +142,7 @@ class Blog implements BlogInterface
      *
      * @var     int     $status
      */
-    public readonly int $status;
+    public int $status;
 
     /**
      * Blog parameters.
@@ -147,7 +151,7 @@ class Blog implements BlogInterface
      *
      * @var BlogSettingsInterface
      */
-    public readonly BlogSettingsInterface $settings;
+    public BlogSettingsInterface $settings;
 
     /**
      * Blog theme path.
@@ -156,7 +160,7 @@ class Blog implements BlogInterface
      *
      * @var     string  $themes_path
      */
-    public readonly string $themes_path;
+    public string $themes_path;
 
     /**
      * Blog public path.
@@ -165,7 +169,7 @@ class Blog implements BlogInterface
      *
      * @var     string  $public_path
      */
-    public readonly string $public_path;
+    public string $public_path;
 
     /**
      * Stack of entries statuses.
@@ -200,14 +204,20 @@ class Blog implements BlogInterface
     /**
      * Constructs a new instance.
      *
-     * @param   string  $id     The blog identifier
+     * @param   string  $blog_id    The blog identifier
      */
-    public function __construct(string $id = '')
+    public function __construct(string $blog_id = '')
     {
         $this->con    = App::con();
         $this->prefix = $this->con->prefix();
 
+        $this->load($blog_id);
+    }
+
+    public function load(string $blog_id): BlogInterface
+    {
         // deprecated public readonly properties
+        $id          = $blog_id;
         $uid         = '';
         $name        = '';
         $desc        = '';
@@ -264,6 +274,10 @@ class Blog implements BlogInterface
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface
             App::behavior()->callBehavior('coreBlogConstruct', $this);
         }
+
+        dcCore::app()->blog = empty($uid) ? null : $this;
+
+        return $this;
     }
 
     /// @name Class public methods
