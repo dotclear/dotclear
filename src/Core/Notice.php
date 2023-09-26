@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Exception;
 
@@ -36,12 +36,14 @@ class Notice implements NoticeInterface
     /**
      * Constructor.
      *
-     * @param   BehaviorInterface       $behavior   The behavior instance
-     * @param   ConnectionInterface     $con    The database connection instance
+     * @param   BehaviorInterface       $behavior       The behavior instance
+     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DeprecatedInterface     $deprecated     The deprecated handler
      */
     public function __construct(
         protected BehaviorInterface $behavior,
         protected ConnectionInterface $con,
+        protected DeprecatedInterface $deprecated,
     ) {
         $this->table = $this->con->prefix() . self::NOTICE_TABLE_NAME;
     }
@@ -202,7 +204,7 @@ class Notice implements NoticeInterface
      */
     public function delNotices(?int $id, bool $all = false): void
     {
-        App::deprecated()->set('App::notice()->delNotice() or App::notice()->delSessionNotices()', '2.28');
+        $this->deprecated->set('App::notice()->delNotice() or App::notice()->delSessionNotices()', '2.28');
 
         $sql = new DeleteStatement();
         $sql

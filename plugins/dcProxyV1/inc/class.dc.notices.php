@@ -19,6 +19,6 @@ class dcNotices extends Dotclear\Core\Notice
 {
 	public function __construct()
 	{
-		parent::__construct(App::behavior(), App::con());
+		parent::__construct(App::behavior(), App::con(), App::deprecated());
 	}
 }
