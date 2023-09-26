@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use Dotclear\App;
 use Dotclear\FileServer;
 use Dotclear\Fault;
 use Dotclear\Core\Frontend\Url;
@@ -155,7 +154,6 @@ class Task implements TaskInterface
 
             // Test database connection
             try {
-                App::con();
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
@@ -181,25 +179,8 @@ class Task implements TaskInterface
                     );
                 } else {
                     new Fault(
-                        __('Unable to connect to database'),
-                        $e->getCode() == 0 ?
-                        sprintf(
-                            __('<p>This either means that the username and password information in ' .
-                            'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
-                            'the database server at "<em>%s</em>". This could mean your ' .
-                            'host\'s database server is down.</p> ' .
-                            '<ul><li>Are you sure you have the correct username and password?</li>' .
-                            '<li>Are you sure that you have typed the correct hostname?</li>' .
-                            '<li>Are you sure that the database server is running?</li></ul>' .
-                            '<p>If you\'re unsure what these terms mean you should probably contact ' .
-                            'your host. If you still need help you can always visit the ' .
-                            '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            ($this->config->debugMode() ?
-                                '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-                                ''),
-                            ($this->config->dbHost() !== '' ? $this->config->dbHost() : 'localhost')
-                        ) :
-                        '',
+                        __('Unable to load deprecated core'),
+                        $e->getMessage(),
                         Fault::DATABASE_ISSUE
                     );
                 }
