@@ -246,16 +246,6 @@ class Task implements TaskInterface
                         }
                     }
                 }
-
-                try {
-                    if (session_id()) {
-                        // Explicitly close session before DB connection
-                        session_write_close();
-                    }
-                    App::con()->close();
-                } catch (Exception $e) {    // @phpstan-ignore-line
-                    // Ignore exceptions
-                }
             });
         } else {
             // Config file does not exist, go to install page
