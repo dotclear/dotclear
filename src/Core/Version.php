@@ -42,7 +42,7 @@ class Version implements VersionInterface
     /**
      * Constructor.
      *
-     * @param   ConnectionInterface     $con    Database connection handler
+     * @param   ConnectionInterface     $con    The database connection instance
      */
     public function __construct(
         protected ConnectionInterface $con

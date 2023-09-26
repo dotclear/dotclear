@@ -137,17 +137,8 @@ class Core extends Container
     protected function getDefaultServices(): array
     {
         return [
-            ConfigInterface::class        => fn ($container) => $container->getConfig(),
-            AuthInterface::class          => fn ($container) => Auth::init(),
-            Backend::class                => Backend::class,
-            BehaviorInterface::class      => Behavior::class,
-            BlogInterface::class          => Blog::class,
-            BlogSettingsInterface::class  => BlogSettings::class,
-            BlogsInterface::class         => Blogs::class,
-            BlogWorkspaceInterface::class => BlogWorkspace::class,
-            CacheInterface::class         => Cache::class,
-            CategoriesInterface::class    => Categories::class,
-            ConnectionInterface::class    => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
+            ConfigInterface::class     => fn ($container) => $container->getConfig(),
+            ConnectionInterface::class => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
                 if (empty($driver)) {
                     $driver     = $container->config()->dbDriver();
                     $host       = $container->config()->dbHost();
@@ -160,6 +151,15 @@ class Core extends Container
 
                 return Connection::init($driver, $host, $database, $user, $password, $persistent, $prefix);
             },
+            AuthInterface::class            => Auth::class,
+            Backend::class                  => Backend::class,
+            BehaviorInterface::class        => Behavior::class,
+            BlogInterface::class            => Blog::class,
+            BlogSettingsInterface::class    => BlogSettings::class,
+            BlogsInterface::class           => Blogs::class,
+            BlogWorkspaceInterface::class   => BlogWorkspace::class,
+            CacheInterface::class           => Cache::class,
+            CategoriesInterface::class      => Categories::class,
             ErrorInterface::class           => Error::class,
             DeprecatedInterface::class      => Deprecated::class,
             FilterInterface::class          => Filter::class,

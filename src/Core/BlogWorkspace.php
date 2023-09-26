@@ -59,11 +59,11 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Constructor.
      *
-     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   ConnectionInterface     $con            The database connection instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
-     * @param   null|string             $blog_id    The blog ID
-     * @param   null|string             $workspace  The blog workspace
-     * @param   null|MetaRecord         $rs         The record
+     * @param   null|string             $blog_id        The blog ID
+     * @param   null|string             $workspace      The blog workspace
+     * @param   null|MetaRecord         $rs             The record
      */
     public function __construct(
         protected ConnectionInterface $con,

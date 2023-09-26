@@ -14,14 +14,10 @@ use Dotclear\Database\Cursor;
 /**
  * @brief   Authentication handler interface.
  *
- * Tracks core or modules id,version pairs.
- *
  * @since   2.28
  */
 interface AuthInterface
 {
-    // Constants
-
     /**
      * User table name.
      *

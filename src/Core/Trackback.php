@@ -53,6 +53,12 @@ class Trackback implements TrackbackInterface
 
     /**
      * Constructor.
+     *
+     * @param   BehaviorInterface       $behavior       The behavior instance
+     * @param   BlogInterface           $blog           The blog instance
+     * @param   ConfigInterface         $config         The application configuration
+     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   PostTypesInterface      $post_types     The post types handler
      */
     public function __construct(
         protected BehaviorInterface $behavior,

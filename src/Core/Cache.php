@@ -32,7 +32,7 @@ class Cache implements CacheInterface
     /**
      * Constructor.
      *
-     * @param   ConfigInterface     $config     The config handler
+     * @param   ConfigInterface     $config     The application configuration
      */
     public function __construct(ConfigInterface $config)
     {

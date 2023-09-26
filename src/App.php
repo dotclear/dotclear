@@ -20,6 +20,10 @@ namespace Dotclear {
     use Dotclear\Helper\Network\Http;
     use Exception;
 
+    //backward compatibility
+    use dcCore;
+    use Dotclear\Interface\Core\AuthInterface;
+
     // Load Autoloader file
     require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
 
@@ -63,10 +67,18 @@ namespace Dotclear {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
+            // Load application configuration instance (may content Factory service)
+            $config = new Config(dirname(__DIR__));
+
+            // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
+            if (defined('DC_AUTH_CLASS') && is_subclass_of(DC_AUTH_CLASS, AuthInterface::class)) {
+                Factories::addService('core', AuthInterface::class, fn ($container) => new (DC_AUTH_CLASS)(dcCore::app()));
+            }
+
             try {
                 // Instanciate container
                 new App(
-                    new Config(dirname(__DIR__)),
+                    $config,
                     Factories::getFactory(Core::CONTAINER_ID)
                 );
             } catch (Exception $e) {

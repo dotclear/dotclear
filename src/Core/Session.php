@@ -23,6 +23,12 @@ use Exception;
  */
 class Session extends DatabaseSession
 {
+    /**
+     * Constructor.
+     *
+     * @param   ConfigInterface         $config     The application configuration
+     * @param   ConnectionInterface     $con        The database connection instance
+     */
     public function __construct(
         protected ConfigInterface $config,
         protected ConnectionInterface $con

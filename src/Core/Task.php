@@ -59,8 +59,8 @@ class Task implements TaskInterface
     /**
      * Constructor.
      *
-     * @param   BehaviorInterface   $behavior       The behavior handler
-     * @param   ConfigInterface     $config         The config handler
+     * @param   BehaviorInterface   $behavior       The behavior instance
+     * @param   ConfigInterface     $config         The application configuration
      * @param   PostTypesInterface  $post_types     The post types handler
      * @param   UrlInterface        $url            The URL handler
      */

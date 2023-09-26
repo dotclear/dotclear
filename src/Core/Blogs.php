@@ -15,7 +15,6 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
@@ -31,12 +30,10 @@ class Blogs implements BlogsInterface
     /**
      * Constructor.
      *
-     * @param   AuthInterface           $auth   The authentication instance
      * @param   BlogInterface           $blog   The blog instance
-     * @param   ConnectionInterface     $con    The db connection instance
+     * @param   ConnectionInterface     $con    The database connection instance
      */
     public function __construct(
-        protected AuthInterface $auth,
         protected BlogInterface $blog,
         protected ConnectionInterface $con
     ) {
@@ -82,9 +79,9 @@ class Blogs implements BlogsInterface
                 'user_email',
                 'permissions',
             ])
-            ->from($sql->as($this->con->prefix() . $this->auth::USER_TABLE_NAME, 'U'))
+            ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
             ->join((new JoinStatement())
-                ->from($sql->as($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME, 'P'))
+                ->from($sql->as($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
                 ->on('U.user_id = P.user_id')
                 ->statement())
             ->where('blog_id = ' . $sql->quote($id));
@@ -101,7 +98,7 @@ class Blogs implements BlogsInterface
                     'user_email',
                     'NULL AS permissions',
                 ])
-                ->from($sql->as($this->con->prefix() . $this->auth::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
                 ->where('user_super = 1')
                 ->statement()
             );
@@ -119,7 +116,7 @@ class Blogs implements BlogsInterface
                     'displayname' => $rs->user_displayname,
                     'email'       => $rs->user_email,
                     'super'       => (bool) $rs->user_super,
-                    'p'           => $this->auth->parsePermissions($rs->permissions),
+                    'p'           => $this->blog->auth()->parsePermissions($rs->permissions),
                 ];
             }
         }
@@ -171,16 +168,16 @@ class Blogs implements BlogsInterface
             }
         }
 
-        if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
-            $join  = 'INNER JOIN ' . $this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
-            $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
+        if ($this->blog->auth()->userID() && !$this->blog->auth()->isSuperAdmin()) {
+            $join  = 'INNER JOIN ' . $this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
+            $where = "AND PE.user_id = '" . $this->con->escape($this->blog->auth()->userID()) . "' " .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
                 'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
-        } elseif (!$this->auth->userID()) {
+        } elseif (!$this->blog->auth()->userID()) {
             $where = 'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
         }
 
-        if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->auth->isSuperAdmin()) {
+        if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->blog->auth()->isSuperAdmin()) {
             $where .= 'AND blog_status = ' . (int) $params['blog_status'] . ' ';
         }
 
@@ -207,7 +204,7 @@ class Blogs implements BlogsInterface
 
     public function addBlog(Cursor $cur): void
     {
-        if (!$this->auth->isSuperAdmin()) {
+        if (!$this->blog->auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
@@ -247,7 +244,7 @@ class Blogs implements BlogsInterface
 
     public function delBlog(string $id): void
     {
-        if (!$this->auth->isSuperAdmin()) {
+        if (!$this->blog->auth()->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 

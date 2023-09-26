@@ -42,7 +42,7 @@ class PostMedia implements PostMediaInterface
     /**
      * Constructor.
      *
-     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   ConnectionInterface     $con    The database connection instance
      */
     public function __construct(
         protected ConnectionInterface $con

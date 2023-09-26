@@ -52,6 +52,13 @@ class Blog implements BlogInterface
     use TraitDynamicProperties;
 
     /**
+     * THe authentication instance
+     *
+     * @var     AuthInterface     $auth
+     */
+    protected AuthInterface $auth;
+
+    /**
      * Database table prefix.
      *
      * @deprecated  since 2.28, use App::con()->prefix() instead
@@ -185,19 +192,17 @@ class Blog implements BlogInterface
     /**
      * Constructs a new instance.
      *
-     * @param   AuthInterface           $auth           The authentication instance
-     * @param   BehaviorInterface       $behavior       The behavior handler
+     * @param   BehaviorInterface       $behavior       The behavior instance
      * @param   BlogSettingsInterface   $settings       The blog settings handler
      * @param   CategoriesInterface     $categories     The blog categories handler
      * @param   ConfigInterface         $config         The application configuration
      * @param   ConnectionInterface     $con            The database connection instance
      * @param   FilterInterface         $filter         The wiki filter handler
-     * @param   FormaterInterface       $formater       The text formater hendler
+     * @param   FormaterInterface       $formater       The text formater handler
      * @param   PostMediaInterface      $postmedia      The psot media handler
      * @param   string                  $blog_id        The blog identifier
      */
     public function __construct(
-        protected AuthInterface $auth,
         protected BehaviorInterface $behavior,
         public BlogSettingsInterface $settings, // public for backward compatibility
         protected CategoriesInterface $categories,
@@ -211,6 +216,16 @@ class Blog implements BlogInterface
         $this->prefix = $this->con->prefix();
 
         $this->loadFromBlog($blog_id);
+    }
+
+    public function setAuth(AuthInterface $auth): void
+    {
+        $this->auth = $auth;
+    }
+
+    public function auth(): AuthInterface
+    {
+        return $this->auth;
     }
 
     public function loadFromBlog(string $blog_id): BlogInterface

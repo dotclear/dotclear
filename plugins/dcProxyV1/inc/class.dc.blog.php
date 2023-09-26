@@ -19,6 +19,7 @@ class dcBlog extends Dotclear\Core\Blog
 {
 	public function __construct(string $blog_id = '')
 	{
-		parent::__construct(App::auth(), App::behavior(), App::blogSettings(), App::categories(), App::config(), App::con(), App::filter(), App::formater(), App::postMedia(), $blog_id);
+		parent::__construct(App::behavior(), App::blogSettings(), App::categories(), App::config(), App::con(), App::filter(), App::formater(), App::postMedia(), $blog_id);
+		$this->setAuth(App::auth());
 	}
 }

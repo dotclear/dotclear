@@ -51,7 +51,7 @@ class Log implements LogInterface
      *
      * Used blogLoader to have blog ID just in time.
      *
-     * @param   AuthInterface           $auth           The auth instance
+     * @param   AuthInterface           $auth           The authentication instance
      * @param   BehaviorInterface       $behavior       The behavior instance
      * @param   BlogInterface           $blog           The blog instance
      * @param   ConnectionInterface     $con            The database connection instance
