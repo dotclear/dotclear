@@ -124,6 +124,13 @@ interface ConfigInterface
     public function dotclearName(): string;
 
     /**
+     * Check if an appalication config file exists
+     *
+     * @return  bool    True if exists
+     */
+    public function hasConfig(): bool;
+
+    /**
      * Configuration file path.
      *
      * From server vars or construct in place.

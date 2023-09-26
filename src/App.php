@@ -79,7 +79,7 @@ namespace Dotclear {
             }
 
             // Test database connection
-            if (is_file(App::config()->configPath())) {
+            if (App::config()->hasConfig()) {
                 try {
                     App::con();
                 } catch (Exception $e) {

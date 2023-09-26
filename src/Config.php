@@ -127,6 +127,7 @@ class Config implements ConfigInterface
     private readonly bool $http_revers_proxy;
     private readonly bool $check_add_blocker;
     private readonly string $csp_report_file;
+    private readonly bool $has_config;
 
     /**
      * Constructor.
@@ -179,6 +180,8 @@ class Config implements ConfigInterface
             default                                => implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]),
         };
 
+        $this->has_config = is_file($this->configPath());
+
         // Store upload_max_filesize in bytes
         $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
         $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
@@ -205,7 +208,7 @@ class Config implements ConfigInterface
         define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
 
         // Load config file
-        if (is_file($this->configPath())) {
+        if ($this->hasConfig()) {
             // path::real() may be used in inc/config.php
             if (!class_exists('path')) {
                 class_alias('Dotclear\Helper\File\Path', 'path');
@@ -424,7 +427,7 @@ class Config implements ConfigInterface
         }
 
         // No config file and not in install process
-        if (!is_file($this->configPath())) {
+        if (!$this->hasConfig()) {
             // Do not process install on CLI mode
             if ($this->cliMode()) {
                 throw new Exception('Dotclear is not installed or failed to load config file.');
@@ -507,6 +510,11 @@ class Config implements ConfigInterface
     public function dotclearName(): string
     {
         return $this->dotclear_name;
+    }
+
+    public function hasConfig(): bool
+    {
+        return $this->has_config;
     }
 
     public function configPath(): string
