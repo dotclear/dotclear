@@ -20,10 +20,6 @@ namespace Dotclear {
     use Dotclear\Helper\Network\Http;
     use Exception;
 
-    //backward compatibility
-    use dcCore;
-    use Dotclear\Interface\Core\AuthInterface;
-
     // Load Autoloader file
     require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
 
@@ -67,18 +63,10 @@ namespace Dotclear {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
-            // Load application configuration instance (may content Factory service)
-            $config = new Config(dirname(__DIR__));
-
-            // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
-            if (defined('DC_AUTH_CLASS') && is_subclass_of(DC_AUTH_CLASS, AuthInterface::class)) {
-                Factories::addService('core', AuthInterface::class, fn ($container) => new (DC_AUTH_CLASS)(dcCore::app()));
-            }
-
             try {
-                // Instanciate container
+                // Run application (load core)
                 new App(
-                    $config,
+                    new Config(dirname(__DIR__)),
                     Factories::getFactory(Core::CONTAINER_ID)
                 );
             } catch (Exception $e) {
@@ -90,9 +78,9 @@ namespace Dotclear {
                 exit;
             }
 
-            // Test database connection
             if (App::config()->hasConfig()) {
                 try {
+                    // Run database connection (test)
                     App::con();
                 } catch (Exception $e) {
                     // Loading locales for detected language
@@ -133,7 +121,7 @@ namespace Dotclear {
             }
 
             try {
-                // Run task
+                // Run task (process)
                 App::task()->run($utility, $process);
             } catch (Exception $e) {
                 new Fault(

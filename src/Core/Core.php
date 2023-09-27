@@ -65,15 +65,11 @@ use Dotclear\Interface\Core\VersionInterface;
 /**
  * @brief   The core container.
  *
- * This container contents all methods related to
- * core class and callable from App::
+ * This container contents all services related to dotclear core,
+ * all services are explicitly represented by methods on this class 
+ * to keep track of returned types, and are accessible from App::service_alias().
  *
- * Core container services takes
- * dotclear core interface name as key and
- * a fully qualified class name or a callback as value.
- *
- * Available container methods are explicitly set
- * in this class to keep track of returned types.
+ * @see     Dotclear.Helper.Container.Factories to override core class
  *
  * @since   2.28
  */
@@ -116,9 +112,12 @@ class Core extends Container
     }
 
     /**
-     * Get config instance.
+     * Get application configuration instance.
      *
-     * @return  ConfigInterface     The config interface.
+     * This is a special method as Config does not come from Factory.
+     * Use App::config() to get it.
+     *
+     * @return  ConfigInterface     The application configuration interface.
      */
     public function getConfig(): ConfigInterface
     {

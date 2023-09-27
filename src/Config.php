@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
+use dcCore;
+use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
@@ -425,6 +429,21 @@ class Config implements ConfigInterface
         if ($this->dotclearVersion() == '') {
             throw new Exception(__('Dotclear release file is not readable'));
         }
+
+        // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
+        if (defined('DC_AUTH_CLASS') && is_subclass_of(DC_AUTH_CLASS, AuthInterface::class)) {
+            Factories::addService('core', AuthInterface::class, fn ($container) => new (DC_AUTH_CLASS)(dcCore::app()));
+        }
+
+        // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
+        if (defined('DC_DBHANDLER_CLASS') && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
+            Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);
+        }
+
+        // Deprecated since 2.28, DC_DBSCHEMA_CLASS is no more used, database Schema class MUST be provided by Connection class method schema()
+        //if (defined('DC_DBHANDLER_CLASS')) {
+        //    throw new Exception('Database Schema class MUST be provided by Connection class method schema().');
+        //}
 
         // No config file and not in install process
         if (!$this->hasConfig()) {
