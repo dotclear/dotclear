@@ -66,7 +66,7 @@ use Dotclear\Interface\Core\VersionInterface;
  * @brief   The core container.
  *
  * This container contents all services related to dotclear core,
- * all services are explicitly represented by methods on this class 
+ * all services are explicitly represented by methods on this class
  * to keep track of returned types, and are accessible from App::service_alias().
  *
  * @see     Dotclear.Helper.Container.Factories to override core class

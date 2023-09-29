@@ -61,7 +61,7 @@ class Categories implements CategoriesInterface
      */
     public function __construct(
         protected ConnectionInterface $con,
-        protected $blog_id = ''
+        protected string $blog_id = ''
     ) {
         $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
     }

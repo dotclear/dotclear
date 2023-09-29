@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Install
  * @brief       Dotclear application install utilities.
  */
+
 namespace Dotclear\Core\Install;
 
 use Dotclear\App;
