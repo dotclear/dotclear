@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
-use Dotclear\Interface\ExceptionInterface;
+use Dotclear\Interface\Exception\AppExceptionInterface;
 use Exception;
 use Throwable;
 
@@ -18,10 +18,11 @@ use Throwable;
  *
  * @since   2.28
  */
-class AppException extends Exception implements ExceptionInterface
+class AppException extends Exception implements AppExceptionInterface
 {
-    public function __construct(string $message = 'Site temporarily unavailable', int $code = 550, ?Throwable $previous = null)
+    public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
-        parent::__construct($message, $code, $previous);
+        // Fallback to interface default label and code
+        parent::__construct($message ?: self::LABEL, $code ?: self::CODE, $previous);
     }
 }

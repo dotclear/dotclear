@@ -7,28 +7,28 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Interface;
+namespace Dotclear\Interface\Exception;
 
 /**
  * @brief   Exception interface.
  *
  * @since   2.28
  */
-interface ExceptionInterface
+interface AppExceptionInterface
 {
     /**
      * The exception code.
      *
-     * A 3 digits code starting from 5xx
+     * A 3 digits code starting from 4xx or 5xx
      *
      * @var 	int 	CODE
      */
-    public const CODE = 500;
+    public const CODE = 503;
 
     /**
      * The exception label.
      *
      * @var 	string 	LABEL
      */
-    public const LABEL = 'Internal Server Error';
+    public const LABEL = 'Site temporarily unavailable';
 }
