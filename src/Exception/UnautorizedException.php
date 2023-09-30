@@ -10,12 +10,12 @@ declare(strict_types=1);
 namespace Dotclear\Exception;
 
 /**
- * @brief   Post form precondition Exception.
+ * @brief   Permissions and rights Exception.
  *
  * @since   2.28
  */
-class PreconditionException extends GenericClientException
+class UnauthorizedException extends GenericClientException
 {
-    public const CODE  = 412;
-    public const LABEL = 'Precondition Failed';
+    public const CODE  = 401;
+    public const LABEL = 'Unauthorized';
 }

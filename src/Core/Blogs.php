@@ -15,10 +15,11 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
 
 /**
  * @brief   Blogs handler.
@@ -205,7 +206,7 @@ class Blogs implements BlogsInterface
     public function addBlog(Cursor $cur): void
     {
         if (!$this->blog->auth()->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         $this->fillBlogCursor($cur);
@@ -226,26 +227,33 @@ class Blogs implements BlogsInterface
         $cur->update("WHERE blog_id = '" . $this->con->escape($id) . "'");
     }
 
+    /**
+     * Clean up blog cursor.
+     *
+     * @throws  BadRequestException
+     *
+     * @param   Cursor  $cur    The blog cursor
+     */
     private function fillBlogCursor(Cursor $cur): void
     {
         if (($cur->blog_id !== null
             && !preg_match('/^[A-Za-z0-9._-]{2,}$/', (string) $cur->blog_id)) || (!$cur->blog_id)) {
-            throw new Exception(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
+            throw new BadRequestException(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
         if (($cur->blog_name !== null && $cur->blog_name == '') || (!$cur->blog_name)) {
-            throw new Exception(__('No blog name'));
+            throw new BadRequestException(__('No blog name'));
         }
 
         if (($cur->blog_url !== null && $cur->blog_url == '') || (!$cur->blog_url)) {
-            throw new Exception(__('No blog URL'));
+            throw new BadRequestException(__('No blog URL'));
         }
     }
 
     public function delBlog(string $id): void
     {
         if (!$this->blog->auth()->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         $sql = new DeleteStatement();

@@ -14,10 +14,12 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Blog workspace for settings handler.
@@ -59,6 +61,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Constructor.
      *
+     * @throws  BadRequestException
+     *
      * @param   ConnectionInterface     $con            The database connection instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
      * @param   null|string             $blog_id        The blog ID
@@ -76,7 +80,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
         if ($workspace !== null) {
             if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
-                throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
+                throw new BadRequestException(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
             }
 
             $this->getSettings($rs);
@@ -121,8 +125,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
             try {
                 $rs = $sql->select();
-            } catch (Exception $e) {
-                trigger_error(__('Unable to retrieve settings:') . ' ' . $this->con->error(), E_USER_ERROR);
+            } catch (Throwable) {
+                throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->con->error());
             }
         }
         while ($rs->fetch()) {
@@ -208,7 +212,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::NS_ID_SCHEMA, $name)) {
-            throw new Exception(sprintf(__('%s is not a valid setting id'), $name));
+            throw new BadRequestException(sprintf(__('%s is not a valid setting id'), $name));
         }
 
         # We don't want to change setting value
@@ -298,7 +302,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         if (!array_key_exists($old_name, $this->settings) || array_key_exists($new_name, $this->settings)) {
@@ -306,7 +310,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
 
         if (!preg_match(self::NS_ID_SCHEMA, $new_name)) {
-            throw new Exception(sprintf(__('%s is not a valid setting id'), $new_name));
+            throw new BadRequestException(sprintf(__('%s is not a valid setting id'), $new_name));
         }
 
         // Rename the setting in the settings array
@@ -338,7 +342,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function drop(string $name): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -361,7 +365,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -381,7 +385,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         $sql = new DeleteStatement();

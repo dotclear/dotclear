@@ -24,6 +24,9 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Dotclear\Helper\TraitDynamicProperties;
+use Dotclear\Exception\ConflictException;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -37,7 +40,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Blog handler.
@@ -52,7 +55,7 @@ class Blog implements BlogInterface
     use TraitDynamicProperties;
 
     /**
-     * THe authentication instance
+     * The authentication instance
      *
      * @var     AuthInterface     $auth
      */
@@ -415,21 +418,11 @@ class Blog implements BlogInterface
     /// @name Common public methods
     //@{
 
-    /**
-     * Returns blog URL ending with a question mark.
-     *
-     * @return     string  The qmark url.
-     */
     public function getQmarkURL(): string
     {
         return substr($this->url, -1) !== '?' ? $this->url . '?' : $this->url;
     }
 
-    /**
-     * Gets the jQuery version.
-     *
-     * @return     string
-     */
     public function getJsJQuery(): string
     {
         $version = $this->settings->system->jquery_version;
@@ -446,14 +439,6 @@ class Blog implements BlogInterface
         return 'jquery/' . $version;
     }
 
-    /**
-     * Returns public URL of specified plugin file.
-     *
-     * @param      string  $pf          plugin file
-     * @param      bool    $strip_host  Strip host in URL
-     *
-     * @return     string
-     */
     public function getPF(string $pf, bool $strip_host = true): string
     {
         $ret = $this->getQmarkURL() . 'pf=' . $pf;
@@ -464,14 +449,6 @@ class Blog implements BlogInterface
         return $ret;
     }
 
-    /**
-     * Returns public URL of specified var file.
-     *
-     * @param      string  $vf          var file
-     * @param      bool    $strip_host  Strip host in URL
-     *
-     * @return     string
-     */
     public function getVF(string $vf, bool $strip_host = true): string
     {
         $ret = $this->getQmarkURL() . 'vf=' . $vf;
@@ -482,46 +459,21 @@ class Blog implements BlogInterface
         return $ret;
     }
 
-    /**
-     * Returns an entry status name given to a code. Status are translated, never
-     * use it for tests. If status code does not exist, returns <i>unpublished</i>.
-     *
-     * @param      int     $status      The status code
-     *
-     * @return     string  The post status.
-     */
     public function getPostStatus(int $status): string
     {
         return $this->post_status[$status] ?? $this->post_status[self::POST_UNPUBLISHED];
     }
 
-    /**
-     * Returns an array of available entry status codes and names.
-     *
-     * @return  array<int, string>    Simple array with codes in keys and names in value.
-     */
     public function getAllPostStatus(): array
     {
         return $this->post_status;
     }
 
-    /**
-     * Returns an array of available comment status codes and names.
-     *
-     * @return  array<int, string>    Simple array with codes in keys and names in value
-     */
     public function getAllCommentStatus(): array
     {
         return $this->comment_status;
     }
 
-    /**
-     * Disallows entries password protection.
-     *
-     * You need to set it to <var>false</var> while serving a public blog.
-     *
-     * @param   null|bool   $value Null to only read value
-     */
     public function withoutPassword(?bool $value = null): bool
     {
         return is_bool($value) ? $this->without_password = $value : $this->without_password;
@@ -532,10 +484,6 @@ class Blog implements BlogInterface
     /// @name Triggers methods
     //@{
 
-    /**
-     * Updates blog last update date. Should be called every time you change
-     * an element related to the blog.
-     */
     public function triggerBlog(): void
     {
         $cur = $this->openBlogCursor();
@@ -551,26 +499,11 @@ class Blog implements BlogInterface
         $this->behavior->callBehavior('coreBlogAfterTriggerBlog', $cur);
     }
 
-    /**
-     * Updates comment and trackback counters in post table. Should be called
-     * every time a comment or trackback is added, removed or changed its status.
-     *
-     * @param      int      $id     The comment identifier
-     * @param      bool     $del    If comment is deleted, set this to true
-     */
     public function triggerComment(int $id, bool $del = false): void
     {
         $this->triggerComments($id, $del);
     }
 
-    /**
-     * Updates comments and trackbacks counters in post table. Should be called
-     * every time comments or trackbacks are added, removed or changed their status.
-     *
-     * @param      mixed   $ids             The identifiers
-     * @param      bool    $del             If comment is delete, set this to true
-     * @param      mixed   $affected_posts  The affected posts IDs
-     */
     public function triggerComments($ids, bool $del = false, $affected_posts = null): void
     {
         $comments_ids = $this->cleanIds($ids);
@@ -647,30 +580,11 @@ class Blog implements BlogInterface
     /// @name Categories management methods
     //@{
 
-    /**
-     * Get Categories instance
-     *
-     * @return     CategoriesInterface
-     */
     public function categories(): CategoriesInterface
     {
         return $this->categories;
     }
 
-    /**
-     * Retrieves categories. <var>$params</var> is an associative array which can
-     * take the following parameters:
-     *
-     * - post_type: Get only entries with given type (default "post")
-     * - cat_url: filter on cat_url field
-     * - cat_id: filter on cat_id field
-     * - start: start with a given category
-     * - level: categories level to retrieve
-     *
-     * @param      array<string, mixed>|ArrayObject<string, mixed>   $params  The parameters
-     *
-     * @return     MetaRecord  The categories.
-     */
     public function getCategories($params = []): MetaRecord
     {
         $c_params = [];
@@ -767,62 +681,26 @@ class Blog implements BlogInterface
         return MetaRecord::newFromArray($data);
     }
 
-    /**
-     * Gets the category by its ID.
-     *
-     * @param      int      $id     The category identifier
-     *
-     * @return     MetaRecord  The category.
-     */
     public function getCategory(?int $id): MetaRecord
     {
         return $this->getCategories(['cat_id' => $id]);
     }
 
-    /**
-     * Gets the category parents.
-     *
-     * @param      int      $id     The category identifier
-     *
-     * @return     MetaRecord  The category parents.
-     */
     public function getCategoryParents(?int $id): MetaRecord
     {
         return $this->categories()->getParents((int) $id);
     }
 
-    /**
-     * Gets the category first parent.
-     *
-     * @param      int      $id     The category identifier
-     *
-     * @return     MetaRecord  The category parent.
-     */
     public function getCategoryParent(?int $id): MetaRecord
     {
         return $this->categories()->getParent((int) $id);
     }
 
-    /**
-     * Gets all category's first children.
-     *
-     * @param      int     $id     The category identifier
-     *
-     * @return     MetaRecord  The category first children.
-     */
     public function getCategoryFirstChildren(int $id): MetaRecord
     {
         return $this->getCategories(['start' => $id, 'level' => $id === 0 ? 1 : 2]);
     }
 
-    /**
-     * Returns true if a given category if in a given category's subtree
-     *
-     * @param      string   $cat_url    The cat url
-     * @param      string   $start_url  The top cat url
-     *
-     * @return     bool     true if cat_url is in given start_url cat subtree
-     */
     public function IsInCatSubtree(string $cat_url, string $start_url): bool
     {
         // Get cat_id from start_url
@@ -885,22 +763,12 @@ class Blog implements BlogInterface
         return $counters;
     }
 
-    /**
-     * Adds a new category. Takes a Cursor as input and returns the new category ID.
-     *
-     * @param      Cursor        $cur     The category Cursor
-     * @param      int           $parent  The parent category ID
-     *
-     * @throws     Exception
-     *
-     * @return     int  New category ID
-     */
     public function addCategory(Cursor $cur, int $parent = 0): int
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to add categories'));
+            throw new UnauthorizedException(__('You are not allowed to add categories'));
         }
 
         $url = [];
@@ -943,20 +811,12 @@ class Blog implements BlogInterface
         return $cur->cat_id;
     }
 
-    /**
-     * Updates an existing category.
-     *
-     * @param      int         $id     The category ID
-     * @param      Cursor      $cur    The category Cursor
-     *
-     * @throws     Exception
-     */
     public function updCategory(int $id, Cursor $cur): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to update categories'));
+            throw new UnauthorizedException(__('You are not allowed to update categories'));
         }
 
         if ($cur->cat_url == '') {
@@ -990,57 +850,30 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Set category position.
-     *
-     * @param      int   $id     The category ID
-     * @param      int   $left   The category ID before
-     * @param      int   $right  The category ID after
-     */
     public function updCategoryPosition(int $id, int $left, int $right): void
     {
         $this->categories()->updatePosition($id, $left, $right);
         $this->triggerBlog();
     }
 
-    /**
-     * Sets the category parent.
-     *
-     * @param      int   $id      The category ID
-     * @param      int   $parent  The parent category ID
-     */
     public function setCategoryParent(int $id, int $parent): void
     {
         $this->categories()->setNodeParent($id, $parent);
         $this->triggerBlog();
     }
 
-    /**
-     * Sets the category position.
-     *
-     * @param      int      $id       The category ID
-     * @param      int      $sibling  The sibling category ID
-     * @param      string   $move     The move (before|after)
-     */
     public function setCategoryPosition(int $id, int $sibling, string $move): void
     {
         $this->categories()->setNodePosition($id, $sibling, $move);
         $this->triggerBlog();
     }
 
-    /**
-     * Delete a category.
-     *
-     * @param      int     $id     The category ID
-     *
-     * @throws     Exception
-     */
     public function delCategory(int $id): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to delete categories'));
+            throw new UnauthorizedException(__('You are not allowed to delete categories'));
         }
 
         $sql = new SelectStatement();
@@ -1053,22 +886,19 @@ class Blog implements BlogInterface
         $rs = $sql->select();
 
         if ($rs->nb_post > 0) {
-            throw new Exception(__('This category is not empty.'));
+            throw new ConflictException(__('This category is not empty.'));
         }
 
         $this->categories()->deleteNode($id, true);
         $this->triggerBlog();
     }
 
-    /**
-     * Reset categories order and relocate them to first level
-     */
     public function resetCategoriesOrder(): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to reset categories order'));
+            throw new UnauthorizedException(__('You are not allowed to reset categories order'));
         }
 
         $this->categories()->resetOrder();
@@ -1078,10 +908,12 @@ class Blog implements BlogInterface
     /**
      * Check if the category url is unique.
      *
-     * @param      string  $url    The url
-     * @param      int     $id     The identifier
+     * @throws  BadRequestException
      *
-     * @return     string
+     * @param   string  $url    The url
+     * @param   int     $id     The identifier
+     *
+     * @return  string
      */
     private function checkCategory(string $url, ?int $id = null): string
     {
@@ -1139,7 +971,7 @@ class Blog implements BlogInterface
 
         // URL empty?
         if ($url === '') {
-            throw new Exception(__('Empty category URL'));
+            throw new BadRequestException(__('Empty category URL'));
         }
 
         return $url;
@@ -1148,15 +980,15 @@ class Blog implements BlogInterface
     /**
      * Fills the category Cursor.
      *
+     * @throws  BadRequestException
+     *
      * @param      Cursor     $cur    The category Cursor
      * @param      int        $id     The category ID
-     *
-     * @throws     Exception
      */
     private function fillCategoryCursor(Cursor $cur, ?int $id = null): void
     {
         if ($cur->cat_title == '') {
-            throw new Exception(__('You must provide a category title'));
+            throw new BadRequestException(__('You must provide a category title'));
         }
 
         # If we don't have any cat_url, let's do one
@@ -1166,7 +998,7 @@ class Blog implements BlogInterface
 
         # Still empty ?
         if ($cur->cat_url == '') {
-            throw new Exception(__('You must provide a category URL'));
+            throw new BadRequestException(__('You must provide a category URL'));
         }
         $cur->cat_url = Text::tidyURL($cur->cat_url, true);
 
@@ -1183,43 +1015,6 @@ class Blog implements BlogInterface
     /// @name Entries management methods
     //@{
 
-    /**
-     * Retrieves entries. <b>$params</b> is an array taking the following
-     * optionnal parameters:
-     *
-     * - no_content: Don't retrieve entry content (excerpt and content)
-     * - post_type: Get only entries with given type (default "post", array for many types and '' for no type)
-     * - post_id: (integer or array) Get entry with given post_id
-     * - post_url: Get entry with given post_url field
-     * - user_id: (integer) Get entries belonging to given user ID
-     * - cat_id: (string or array) Get entries belonging to given category ID
-     * - cat_id_not: deprecated (use cat_id with "id ?not" instead)
-     * - cat_url: (string or array) Get entries belonging to given category URL
-     * - cat_url_not: deprecated (use cat_url with "url ?not" instead)
-     * - post_status: (integer) Get entries with given post_status
-     * - post_selected: (boolean) Get select flaged entries
-     * - post_year: (integer) Get entries with given year
-     * - post_month: (integer) Get entries with given month
-     * - post_day: (integer) Get entries with given day
-     * - post_lang: Get entries with given language code
-     * - search: Get entries corresponding of the following search string
-     * - columns: (array) More columns to retrieve
-     * - join: Append a JOIN clause for the FROM statement in query
-     * - sql: Append SQL string at the end of the query
-     * - from: Append another FROM source in query
-     * - order: Order of results (default "ORDER BY post_dt DES")
-     * - limit: Limit parameter
-     * - exclude_post_id : (integer or array) Exclude entries with given post_id
-     *
-     * Please note that on every cat_id or cat_url, you can add ?not to exclude
-     * the category and ?sub to get subcategories.
-     *
-     * @param    array<string, mixed>|ArrayObject<string, mixed>    $params        Parameters
-     * @param    bool                                               $count_only    Only counts results
-     * @param    SelectStatement                                    $ext_sql       Optional SelectStatement instance
-     *
-     * @return   MetaRecord    A record with some more capabilities
-     */
     public function getPosts($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
@@ -1493,18 +1288,6 @@ class Blog implements BlogInterface
         return $rs;
     }
 
-    /**
-     * Returns a MetaRecord with post id, title and date for next or previous post
-     * according to the post ID.
-     * $dir could be 1 (next post) or -1 (previous post).
-     *
-     * @param      MetaRecord  $post                  The post ID
-     * @param      int       $dir                   The search direction
-     * @param      bool      $restrict_to_category  Restrict to same category
-     * @param      bool      $restrict_to_lang      Restrict to same language
-     *
-     * @return     MetaRecord|null   The next post.
-     */
     public function getNextPost(MetaRecord $post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false): ?MetaRecord
     {
         $dt      = $post->post_dt;
@@ -1543,19 +1326,6 @@ class Blog implements BlogInterface
         return $rs;
     }
 
-    /**
-     * Retrieves different languages and post count on blog, based on post_lang
-     * field. <var>$params</var> is an array taking the following optionnal
-     * parameters:
-     *
-     * - post_type: Get only entries with given type (default "post", '' for no type)
-     * - lang: retrieve post count for selected lang
-     * - order: order statement (default post_lang DESC)
-     *
-     * @param      array<string, mixed>|ArrayObject<string, mixed>   $params  The parameters
-     *
-     * @return     MetaRecord  The langs.
-     */
     public function getLangs($params = []): MetaRecord
     {
         $sql = new SelectStatement();
@@ -1606,25 +1376,6 @@ class Blog implements BlogInterface
         return $sql->select();
     }
 
-    /**
-     * Returns a MetaRecord with all distinct blog dates and post count.
-     * <var>$params</var> is an array taking the following optionnal parameters:
-     *
-     * - type: (day|month|year) Get days, months or years
-     * - year: (integer) Get dates for given year
-     * - month: (integer) Get dates for given month
-     * - day: (integer) Get dates for given day
-     * - cat_id: (integer) Category ID filter
-     * - cat_url: Category URL filter
-     * - post_lang: lang of the posts
-     * - next: Get date following match
-     * - previous: Get date before match
-     * - order: Sort by date "ASC" or "DESC"
-     *
-     * @param      array<string, mixed>|ArrayObject<string, mixed>   $params  The parameters
-     *
-     * @return     MetaRecord  The dates.
-     */
     public function getDates($params = []): MetaRecord
     {
         $dt_f  = '%Y-%m-%d';
@@ -1734,22 +1485,13 @@ class Blog implements BlogInterface
         return $rs;
     }
 
-    /**
-     * Creates a new entry. Takes a Cursor as input and returns the new entry ID.
-     *
-     * @param      Cursor     $cur    The post Cursor
-     *
-     * @throws     Exception
-     *
-     * @return     int
-     */
     public function addPost(Cursor $cur): int
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_USAGE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to create an entry'));
+            throw new UnauthorizedException(__('You are not allowed to create an entry'));
         }
 
         $this->con->writeLock($this->prefix . self::POST_TABLE_NAME);
@@ -1787,7 +1529,7 @@ class Blog implements BlogInterface
 
             $cur->insert();
             $this->con->unlock();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->con->unlock();
 
             throw $e;
@@ -1803,27 +1545,19 @@ class Blog implements BlogInterface
         return $cur->post_id;
     }
 
-    /**
-     * Updates an existing post.
-     *
-     * @param      int         $id     The post identifier
-     * @param      Cursor      $cur    The post Cursor
-     *
-     * @throws     Exception
-     */
     public function updPost($id, Cursor $cur): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_USAGE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to update entries'));
+            throw new UnauthorizedException(__('You are not allowed to update entries'));
         }
 
         $id = (int) $id;
 
         if (empty($id)) {
-            throw new Exception(__('No such entry ID'));
+            throw new BadRequestException(__('No such entry ID'));
         }
 
         # Post excerpt and content
@@ -1856,7 +1590,7 @@ class Blog implements BlogInterface
                 ->and('user_id = ' . $sql->quote($this->auth->userID()));
 
             if ($sql->select()->isEmpty()) {
-                throw new Exception(__('You are not allowed to edit this entry'));
+                throw new UnauthorizedException(__('You are not allowed to edit this entry'));
             }
         }
 
@@ -1873,32 +1607,18 @@ class Blog implements BlogInterface
         $this->firstPublicationEntries($id);
     }
 
-    /**
-     * Update post status.
-     *
-     * @param      int      $id      The identifier
-     * @param      int      $status  The status
-     */
     public function updPostStatus($id, $status): void
     {
         $this->updPostsStatus($id, $status);
     }
 
-    /**
-     * Updates posts status.
-     *
-     * @param      mixed       $ids     The identifiers
-     * @param      int         $status  The status
-     *
-     * @throws     Exception
-     */
     public function updPostsStatus($ids, $status): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_PUBLISH,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to change this entry status'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry status'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -1927,21 +1647,13 @@ class Blog implements BlogInterface
         $this->firstPublicationEntries($posts_ids);
     }
 
-    /**
-     * Updates posts first publication flag.
-     *
-     * @param      mixed       $ids     The identifiers
-     * @param      int         $status  The flag
-     *
-     * @throws     Exception
-     */
     public function updPostsFirstPub($ids, int $status): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_PUBLISH,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to change this entry status'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry status'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -1981,21 +1693,13 @@ class Blog implements BlogInterface
         $this->updPostsSelected($id, $selected);
     }
 
-    /**
-     * Updates posts selection.
-     *
-     * @param      mixed      $ids       The identifiers
-     * @param      mixed      $selected  The selected flag
-     *
-     * @throws     Exception
-     */
     public function updPostsSelected($ids, $selected): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_USAGE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to change this entry category'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry category'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -2022,32 +1726,18 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Updates post category. <var>$cat_id</var> can be null.
-     *
-     * @param      int      $id      The identifier
-     * @param      mixed    $cat_id  The cat identifier
-     */
     public function updPostCategory($id, $cat_id): void
     {
         $this->updPostsCategory($id, $cat_id);
     }
 
-    /**
-     * Updates posts category. <var>$cat_id</var> can be null.
-     *
-     * @param      mixed      $ids     The identifiers
-     * @param      mixed      $cat_id  The cat identifier
-     *
-     * @throws     Exception
-     */
     public function updPostsCategory($ids, $cat_id): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_USAGE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to change this entry category'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry category'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -2074,21 +1764,13 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Updates posts category. <var>$new_cat_id</var> can be null.
-     *
-     * @param      mixed    $old_cat_id  The old cat identifier
-     * @param      mixed    $new_cat_id  The new cat identifier
-     *
-     * @throws     Exception
-     */
     public function changePostsCategory($old_cat_id, $new_cat_id): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CATEGORIES,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to change entries category'));
+            throw new UnauthorizedException(__('You are not allowed to change entries category'));
         }
 
         $old_cat_id = (int) $old_cat_id;
@@ -2118,26 +1800,19 @@ class Blog implements BlogInterface
         $this->delPosts($id);
     }
 
-    /**
-     * Deletes multiple posts.
-     *
-     * @param      mixed     $ids    The posts identifiers
-     *
-     * @throws     Exception
-     */
     public function delPosts($ids): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_DELETE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to delete entries'));
+            throw new UnauthorizedException(__('You are not allowed to delete entries'));
         }
 
         $posts_ids = $this->cleanIds($ids);
 
         if (empty($posts_ids)) {
-            throw new Exception(__('No such entry ID'));
+            throw new BadRequestException(__('No such entry ID'));
         }
 
         $sql = new DeleteStatement();
@@ -2157,9 +1832,6 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Publishes all entries flaged as "scheduled".
-     */
     public function publishScheduledEntries(): void
     {
         $sql = new SelectStatement();
@@ -2215,11 +1887,6 @@ class Blog implements BlogInterface
         }
     }
 
-    /**
-     * First publication mecanism (on post create, update, publish, status)
-     *
-     * @param      mixed  $ids    The posts identifiers
-     */
     public function firstPublicationEntries($ids): void
     {
         $posts = $this->getPosts([
@@ -2248,13 +1915,6 @@ class Blog implements BlogInterface
         }
     }
 
-    /**
-     * Retrieves all users having posts on current blog.
-     *
-     * @param    string     $post_type post_type filter (post)
-     *
-     * @return    MetaRecord
-     */
     public function getPostsUsers(string $post_type = 'post'): MetaRecord
     {
         $sql = new SelectStatement();
@@ -2377,19 +2037,19 @@ class Blog implements BlogInterface
     /**
      * Gets the post Cursor.
      *
+     * @throws     BadRequestException
+     *
      * @param      Cursor      $cur      The post Cursor
      * @param      int         $post_id  The post identifier
-     *
-     * @throws     Exception
      */
     private function getPostCursor(Cursor $cur, $post_id = null): void
     {
         if ($cur->post_title == '') {
-            throw new Exception(__('No entry title'));
+            throw new BadRequestException(__('No entry title'));
         }
 
         if ($cur->post_content == '') {
-            throw new Exception(__('No entry content'));
+            throw new BadRequestException(__('No entry content'));
         }
 
         if ($cur->post_password === '') {
@@ -2405,7 +2065,7 @@ class Blog implements BlogInterface
         $post_id = is_int($post_id) ? $post_id : $cur->post_id;
 
         if ($cur->post_content_xhtml == '') {
-            throw new Exception(__('No entry content'));
+            throw new BadRequestException(__('No entry content'));
         }
 
         # Words list
@@ -2459,17 +2119,6 @@ class Blog implements BlogInterface
         ];
     }
 
-    /**
-     * Creates post HTML content, taking format and lang into account.
-     *
-     * @param      int      $post_id        The post identifier
-     * @param      string   $format         The format
-     * @param      string   $lang           The language
-     * @param      string   $excerpt        The excerpt
-     * @param      string   $excerpt_xhtml  The excerpt HTML
-     * @param      string   $content        The content
-     * @param      string   $content_xhtml  The content HTML
-     */
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {
         if ($format == 'wiki') {
@@ -2512,17 +2161,6 @@ class Blog implements BlogInterface
         ]);
     }
 
-    /**
-     * Returns URL for a post according to blog setting <var>post_url_format</var>.
-     * It will try to guess URL and append some figures if needed.
-     *
-     * @param      string   $url         The url
-     * @param      string   $post_dt     The post dt
-     * @param      string   $post_title  The post title
-     * @param      int      $post_id     The post identifier
-     *
-     * @return     string  The post url.
-     */
     public function getPostURL($url, $post_dt, $post_title, $post_id): string
     {
         $url = trim((string) $url);
@@ -2590,7 +2228,7 @@ class Blog implements BlogInterface
 
         # URL is empty?
         if ($url == '') {
-            throw new Exception(__('Empty entry URL'));
+            throw new BadRequestException(__('Empty entry URL'));
         }
 
         return $url;
@@ -2599,33 +2237,7 @@ class Blog implements BlogInterface
 
     /// @name Comments management methods
     //@{
-    /**
-     * Retrieves comments. <b>$params</b> is an array taking the following
-     * optionnal parameters:
-     *
-     * - no_content: Don't retrieve comment content
-     * - post_type: Get only entries with given type (default no type, array for many types)
-     * - post_id: (integer) Get comments belonging to given post_id
-     * - cat_id: (integer or array) Get comments belonging to entries of given category ID
-     * - comment_id: (integer or array) Get comment with given ID (or IDs)
-     * - comment_site: (string) Get comments with given comment_site
-     * - comment_status: (integer) Get comments with given comment_status
-     * - comment_trackback: (integer) Get only comments (0) or trackbacks (1)
-     * - comment_ip: (string) Get comments with given IP address
-     * - post_url: Get entry with given post_url field
-     * - user_id: (integer) Get entries belonging to given user ID
-     * - q_author: Search comments by author
-     * - sql: Append SQL string at the end of the query
-     * - from: Append SQL string after "FROM" statement in query
-     * - order: Order of results (default "ORDER BY comment_dt DES")
-     * - limit: Limit parameter
-     *
-     * @param    array<string, mixed>|ArrayObject<string, mixed>    $params        Parameters
-     * @param    bool                                               $count_only    Only counts results
-     * @param    SelectStatement                                    $ext_sql       Optional SelectStatement instance
-     *
-     * @return   MetaRecord    A record with some more capabilities
-     */
+
     public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
@@ -2852,7 +2464,7 @@ class Blog implements BlogInterface
 
             $cur->insert();
             $this->con->unlock();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->con->unlock();
 
             throw $e;
@@ -2869,33 +2481,25 @@ class Blog implements BlogInterface
         return $cur->comment_id;
     }
 
-    /**
-     * Updates an existing comment.
-     *
-     * @param      int         $id     The comment identifier
-     * @param      Cursor      $cur    The comment Cursor
-     *
-     * @throws     Exception
-     */
     public function updComment($id, Cursor $cur): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_USAGE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to update comments'));
+            throw new UnauthorizedException(__('You are not allowed to update comments'));
         }
 
         $id = (int) $id;
 
         if (empty($id)) {
-            throw new Exception(__('No such comment ID'));
+            throw new BadRequestException(__('No such comment ID'));
         }
 
         $rs = $this->getComments(['comment_id' => $id]);
 
         if ($rs->isEmpty()) {
-            throw new Exception(__('No such comment ID'));
+            throw new BadRequestException(__('No such comment ID'));
         }
 
         #If user is only usage, we need to check the post's owner
@@ -2903,7 +2507,7 @@ class Blog implements BlogInterface
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             if ($rs->user_id != $this->auth->userID()) {
-                throw new Exception(__('You are not allowed to update this comment'));
+                throw new UnauthorizedException(__('You are not allowed to update this comment'));
             }
         }
 
@@ -2933,32 +2537,18 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Updates comment status.
-     *
-     * @param      int      $id      The comment identifier
-     * @param      mixed    $status  The comment status
-     */
     public function updCommentStatus($id, $status): void
     {
         $this->updCommentsStatus($id, $status);
     }
 
-    /**
-     * Updates comments status.
-     *
-     * @param      mixed      $ids     The identifiers
-     * @param      mixed      $status  The status
-     *
-     * @throws     Exception
-     */
     public function updCommentsStatus($ids, $status): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_PUBLISH,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__("You are not allowed to change this comment's status"));
+            throw new UnauthorizedException(__("You are not allowed to change this comment's status"));
         }
 
         $co_ids = $this->cleanIds($ids);
@@ -2988,36 +2578,24 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Delete a comment.
-     *
-     * @param      int      $id     The comment identifier
-     */
     public function delComment($id): void
     {
         $this->delComments($id);
     }
 
-    /**
-     * Delete comments.
-     *
-     * @param      mixed     $ids    The comments identifiers
-     *
-     * @throws     Exception
-     */
     public function delComments($ids): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_DELETE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to delete comments'));
+            throw new UnauthorizedException(__('You are not allowed to delete comments'));
         }
 
         $co_ids = $this->cleanIds($ids);
 
         if (empty($co_ids)) {
-            throw new Exception(__('No such comment ID'));
+            throw new BadRequestException(__('No such comment ID'));
         }
 
         # Retrieve posts affected by comments edition
@@ -3057,18 +2635,13 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Delete Junk comments
-     *
-     * @throws     Exception  (description)
-     */
     public function delJunkComments(): void
     {
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_DELETE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new Exception(__('You are not allowed to delete comments'));
+            throw new UnauthorizedException(__('You are not allowed to delete comments'));
         }
 
         $sql = new DeleteStatement();
@@ -3098,20 +2671,20 @@ class Blog implements BlogInterface
      *
      * @param      Cursor     $cur    The comment Cursor
      *
-     * @throws     Exception
+     * @throws     BadRequestException
      */
     private function getCommentCursor(Cursor $cur): void
     {
         if ($cur->comment_content !== null && $cur->comment_content == '') {
-            throw new Exception(__('You must provide a comment'));
+            throw new BadRequestException(__('You must provide a comment'));
         }
 
         if ($cur->comment_author !== null && $cur->comment_author == '') {
-            throw new Exception(__('You must provide an author name'));
+            throw new BadRequestException(__('You must provide an author name'));
         }
 
         if ($cur->comment_email != '' && !Text::isEmail($cur->comment_email)) {
-            throw new Exception(__('Email address is not valid.'));
+            throw new BadRequestException(__('Email address is not valid.'));
         }
 
         if ($cur->comment_site !== null && $cur->comment_site != '') {
@@ -3132,13 +2705,6 @@ class Blog implements BlogInterface
         }
     }
 
-    /**
-     * Check if a blog should switch in sleep mode (close comments/trackbacks)
-     *
-     * @param      bool  $apply  False = test only, True = close comments/trackbacks if necessary
-     *
-     * @return     bool  True = period elapsed, False = no need to switch into sleep mode
-     */
     public function checkSleepmodeTimeout(bool $apply = true): bool
     {
         $sql  = new SelectStatement();

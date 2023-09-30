@@ -10,12 +10,12 @@ declare(strict_types=1);
 namespace Dotclear\Exception;
 
 /**
- * @brief   Post form precondition Exception.
+ * @brief   Generic client Exception.
  *
  * @since   2.28
  */
-class PreconditionException extends GenericClientException
+class GenericClientException extends AbstractException
 {
-    public const CODE  = 412;
-    public const LABEL = 'Precondition Failed';
+    public const CODE  = 400;
+    public const LABEL = 'Bad Request';
 }

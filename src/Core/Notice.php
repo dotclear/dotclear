@@ -13,11 +13,12 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\NoticeInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Core notice handler.
@@ -144,7 +145,7 @@ class Notice implements NoticeInterface
 
             $cur->insert();
             $this->con->unlock();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->con->unlock();
 
             throw $e;
@@ -162,12 +163,12 @@ class Notice implements NoticeInterface
      * @param      Cursor     $cur        The current
      * @param      int        $notice_id  The notice identifier
      *
-     * @throws     Exception
+     * @throws     BadRequestException
      */
     private function fillNoticeCursor(Cursor $cur, ?int $notice_id = null): void
     {
         if ($cur->notice_msg === '') {
-            throw new Exception(__('No notice message'));
+            throw new BadRequestException(__('No notice message'));
         }
 
         if ($cur->notice_ts === '' || $cur->notice_ts === null) {

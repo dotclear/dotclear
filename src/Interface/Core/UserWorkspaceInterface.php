@@ -11,6 +11,7 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   User workspace for preferences handler interface.
@@ -204,7 +205,7 @@ interface UserWorkspaceInterface
      * @param   bool    $ignore_value   Change pref value or not
      * @param   bool    $global         Pref is global
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void;
 
@@ -214,7 +215,7 @@ interface UserWorkspaceInterface
      * @param   string  $old_name   The old identifier
      * @param   string  $new_name   The new identifier
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool    false is error, true if renamed
      */
@@ -226,7 +227,7 @@ interface UserWorkspaceInterface
      * @param   string  $name           The pref identifier
      * @param   bool    $force_global   Force global pref drop
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function drop(string $name, bool $force_global = false): void;
 
@@ -235,6 +236,8 @@ interface UserWorkspaceInterface
      *
      * @param   string  $name       Pref ID
      * @param   bool    $global     Remove global pref too
+     *
+     * @throws  BadRequestException
      */
     public function dropEvery(string $name, bool $global = false): void;
 
@@ -243,7 +246,7 @@ interface UserWorkspaceInterface
      *
      * @param   bool    $force_global   Remove global prefs too
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function dropAll(bool $force_global = false): void;
 

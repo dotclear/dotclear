@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Exception\BadRequestException;
+
 /**
  * @brief   User prefs handler interface.
  *
@@ -48,7 +50,7 @@ interface UserPreferencesInterface
      * @param   string  $old_workspace  The old workspace name
      * @param   string  $new_workspace  The new workspace name
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool
      */

@@ -15,12 +15,12 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MetaInterface;
-use Exception;
 
 /**
  * @brief   Meta handler.
@@ -130,7 +130,7 @@ class Meta implements MetaInterface
      *
      * @param   int|string  $post_id    The post identifier
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     private function checkPermissionsOnPost(int|string $post_id): void
     {
@@ -140,7 +140,7 @@ class Meta implements MetaInterface
             $this->auth::PERMISSION_USAGE,
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->blog->id())) {
-            throw new Exception(__('You are not allowed to change this entry status'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry status'));
         }
 
         # If user can only publish, we need to check the post's owner
@@ -157,7 +157,7 @@ class Meta implements MetaInterface
             $rs = $sql->select();
 
             if ($rs->isEmpty()) {
-                throw new Exception(__('You are not allowed to change this entry status'));
+                throw new UnauthorizedException(__('You are not allowed to change this entry status'));
             }
         }
     }

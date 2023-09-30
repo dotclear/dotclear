@@ -14,9 +14,11 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   User workspace for preferences handler.
@@ -56,6 +58,8 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Constructor.
      *
+     * @throws  BadRequestException|ProcessException
+     *
      * @param   ConnectionInterface     $con        The database connection instance
      * @param   null|string             $user_id    The user identifier
      * @param   string                  $workspace  The workspace name
@@ -71,13 +75,13 @@ class UserWorkspace implements UserWorkspaceInterface
 
         if ($workspace !== null) {
             if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
-                throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
+                throw new BadRequestException(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
             }
 
             try {
                 $this->getPrefs($rs);
-            } catch (Exception $e) {
-                trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
+            } catch (Throwable) {
+                throw new ProcessException(__('Unable to retrieve prefs:') . ' ' . $this->con->error());
             }
         }
     }
@@ -120,7 +124,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
             try {
                 $rs = $sql->select();
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 throw $e;
             }
         }
@@ -207,7 +211,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::WS_ID_SCHEMA, $name)) {
-            throw new Exception(sprintf(__('%s is not a valid pref id'), $name));
+            throw new BadRequestException(sprintf(__('%s is not a valid pref id'), $name));
         }
 
         // We don't want to change pref value
@@ -297,7 +301,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         if (!array_key_exists($old_name, $this->prefs) || array_key_exists($new_name, $this->prefs)) {
@@ -305,7 +309,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         if (!preg_match(self::WS_ID_SCHEMA, $new_name)) {
-            throw new Exception(sprintf(__('%s is not a valid pref id'), $new_name));
+            throw new BadRequestException(sprintf(__('%s is not a valid pref id'), $new_name));
         }
 
         // Rename the pref in the prefs array
@@ -332,7 +336,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function drop(string $name, bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -365,7 +369,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -395,7 +399,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         $sql = new DeleteStatement();

@@ -21,6 +21,11 @@ use Throwable;
  */
 class Fault
 {
+    /**
+     * Parse throwable exception.
+     *
+     * @return  never
+     */
     public static function exit(Throwable $exception): never
     {
         $code    = $exception->getCode() ?: 500;

@@ -10,14 +10,14 @@ declare(strict_types=1);
 namespace Dotclear\Exception;
 
 /**
- * @brief   Session handling Exception.
+ * @brief   Bad request Exception.
  *
- * Used on session handling exception.
+ * Used on request/action processing fails.
  *
  * @since   2.28
  */
-class SessionException extends GenericServerException
+class BadRequestException extends GenericClientException
 {
-    public const CODE  = 561;
-    public const LABEL = 'Session handling error';
+    public const CODE  = 400;
+    public const LABEL = 'Bad Request';
 }

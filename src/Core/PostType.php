@@ -9,9 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Interface\Core\PostTypeInterface;
-
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\PostTypeInterface;
 
 /**
  * @brief   Posts type descriptor.

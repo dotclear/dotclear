@@ -10,12 +10,12 @@ declare(strict_types=1);
 namespace Dotclear\Exception;
 
 /**
- * @brief   Post form precondition Exception.
+ * @brief   Generic server Exception.
  *
  * @since   2.28
  */
-class PreconditionException extends GenericClientException
+class GenericServerException extends AbstractException
 {
-    public const CODE  = 412;
-    public const LABEL = 'Precondition Failed';
+    public const CODE  = 500;
+    public const LABEL = 'Internal Server Error';
 }

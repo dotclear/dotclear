@@ -16,6 +16,7 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -23,7 +24,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Schema\Extension\Log as ExtLog;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Core log handler.
@@ -183,7 +184,7 @@ class Log implements LogInterface
             $cur->log_id = (int) $rs->f(0) + 1;
 
             if ($cur->log_msg === '') {
-                throw new Exception(__('No log message'));
+                throw new BadRequestException(__('No log message'));
             }
 
             if ($cur->log_table === null) {
@@ -211,7 +212,7 @@ class Log implements LogInterface
 
             $cur->insert();
             $this->con->unlock();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->con->unlock();
 
             throw $e;

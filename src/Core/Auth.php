@@ -15,6 +15,8 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\ProcessException;
+use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
@@ -24,7 +26,7 @@ use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Schema\Extension\User;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Authentication handler.
@@ -196,7 +198,7 @@ class Auth implements AuthInterface
 
         try {
             $rs = $sql->select();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return false;
         }
 
@@ -392,18 +394,10 @@ class Auth implements AuthInterface
     /// @name Sudo
     //@{
 
-    /**
-     * Calls <var>$fn</var> function with super admin rights.
-     *
-     * @param   callable    $fn     Callback function
-     * @param   mixed       $args   Callback arguments
-     *
-     * @return  mixed   The function result
-     */
     public function sudo($fn, ...$args)
     {
         if (!is_callable($fn)) {
-            throw new Exception(print_r($fn, true) . ' function doest not exist');
+            throw new ProcessException(print_r($fn, true) . ' function doest not exist');
         }
 
         if ($this->isSuperAdmin()) {
@@ -414,7 +408,7 @@ class Auth implements AuthInterface
             try {
                 $res              = $fn(...$args);
                 $this->user_admin = false;
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->user_admin = false;
 
                 throw $e;
@@ -556,11 +550,6 @@ class Auth implements AuthInterface
         }
     }
 
-    /**
-     * Gets the options.
-     *
-     * @return     array<string, mixed>  The options.
-     */
     public function getOptions(): array
     {
         return $this->user_options;
@@ -570,13 +559,6 @@ class Auth implements AuthInterface
     /// @name Permissions
     //@{
 
-    /**
-     * Parse user permissions
-     *
-     * @param      mixed  $level  The level
-     *
-     * @return     array<string, mixed>
-     */
     public function parsePermissions($level): array
     {
         $level = preg_replace('/^\|/', '', (string) $level);
@@ -590,23 +572,11 @@ class Auth implements AuthInterface
         return $res;
     }
 
-    /**
-     * Makes permissions.
-     *
-     * @param      array<string>  $list   The list
-     *
-     * @return     string
-     */
     public function makePermissions(array $list): string
     {
         return implode(',', $list);
     }
 
-    /**
-     * Gets the permissions types.
-     *
-     * @return     array<string, string>  The permissions types.
-     */
     public function getPermissionsTypes(): array
     {
         return $this->perm_types;
@@ -634,7 +604,7 @@ class Auth implements AuthInterface
         $rs = $sql->select();
 
         if ($rs->isEmpty()) {
-            throw new Exception(__('That user does not exist in the database.'));
+            throw new BadRequestException(__('That user does not exist in the database.'));
         }
 
         $key = md5(uniqid('', true));
@@ -650,15 +620,6 @@ class Auth implements AuthInterface
         return $key;
     }
 
-    /**
-     * Recover user password
-     *
-     * @param      string     $recover_key  The recover key
-     *
-     * @throws     Exception
-     *
-     * @return     array<string, string>
-     */
     public function recoverUserPassword(string $recover_key): array
     {
         $sql = new SelectStatement();
@@ -670,7 +631,7 @@ class Auth implements AuthInterface
         $rs = $sql->select();
 
         if ($rs->isEmpty()) {
-            throw new Exception(__('That key does not exist in the database.'));
+            throw new BadRequestException(__('That key does not exist in the database.'));
         }
 
         $new_pass = Crypt::createPassword();

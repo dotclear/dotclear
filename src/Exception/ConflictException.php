@@ -10,14 +10,14 @@ declare(strict_types=1);
 namespace Dotclear\Exception;
 
 /**
- * @brief   Session handling Exception.
+ * @brief   Conflict Exception.
  *
- * Used on session handling exception.
+ * Used on conflict actions.
  *
  * @since   2.28
  */
-class SessionException extends GenericServerException
+class ConflictException extends GenericClientException
 {
-    public const CODE  = 561;
-    public const LABEL = 'Session handling error';
+    public const CODE  = 409;
+    public const LABEL = 'Confilct';
 }

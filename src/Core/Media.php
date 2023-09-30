@@ -26,6 +26,10 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ConfigException;
+use Dotclear\Exception\ProcessException;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -33,7 +37,7 @@ use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Media items handler.
@@ -141,7 +145,7 @@ class Media extends Manager implements MediaInterface
     /**
      * Constructs a new instance.
      *
-     * @throws     Exception
+     * @throws     ProcessException|ConfigException
      *
      * @param   AuthInterface           $auth       The authentication instance
      * @param   BehaviorInterface       $behavior   The behavior instance
@@ -159,7 +163,7 @@ class Media extends Manager implements MediaInterface
         protected PostMediaInterface $postmedia
     ) {
         if (!$this->blog->isDefined()) {
-            throw new Exception(__('No blog defined.'));
+            throw new ProcessException(__('No blog defined.'));
         }
 
         $this->table = $this->con->prefix() . $this->postmedia::MEDIA_TABLE_NAME;
@@ -174,10 +178,10 @@ class Media extends Manager implements MediaInterface
         if (!is_dir($root)) {
             # Check public directory
             if ($this->auth->isSuperAdmin()) {
-                throw new Exception(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
+                throw new ConfigException(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
             }
 
-            throw new Exception(__('There is no writable root directory for the media manager. You should contact your administrator.'));
+            throw new ConfigException(__('There is no writable root directory for the media manager. You should contact your administrator.'));
         }
 
         parent::__construct($root, $root_url);
@@ -710,7 +714,7 @@ class Media extends Manager implements MediaInterface
 
         try {
             usort($this->dir['files'], $this->sortFileHandler(...));
-        } catch (Exception $e) {
+        } catch (Throwable) {
             // Ignore exceptions
         }
     }
@@ -801,7 +805,7 @@ class Media extends Manager implements MediaInterface
 
         try {
             usort($this->dir['files'], $this->sortFileHandler(...));
-        } catch (Exception $e) {
+        } catch (Throwable) {
             // Ignore exceptions
         }
 
@@ -836,7 +840,7 @@ class Media extends Manager implements MediaInterface
     public function rebuild(string $pwd = '', bool $recursive = false): void
     {
         if (!$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not a super administrator.'));
+            throw new UnauthorizedException(__('You are not a super administrator.'));
         }
 
         $this->chdir($pwd);
@@ -863,7 +867,7 @@ class Media extends Manager implements MediaInterface
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void
     {
         if (!$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not a super administrator.'));
+            throw new UnauthorizedException(__('You are not a super administrator.'));
         }
 
         $this->chdir($pwd);
@@ -883,7 +887,7 @@ class Media extends Manager implements MediaInterface
             try {
                 $this->chdir(dirname($f->relname));
                 $this->callFileHandler(Files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
-            } catch (Exception $e) {
+            } catch (Throwable) {
                 // Ignore errors on trying to rebuild thumbnails
             }
         }
@@ -894,8 +898,6 @@ class Media extends Manager implements MediaInterface
      * the path where to start rebuild else its the current directory
      *
      * @param      string     $pwd    The directory to rebuild
-     *
-     * @throws     Exception
      */
     protected function rebuildDB(?string $pwd): void
     {
@@ -952,7 +954,7 @@ class Media extends Manager implements MediaInterface
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())) {
-            throw new Exception(__('Permission denied.'));
+            throw new UnauthorizedException(__('Permission denied.'));
         }
 
         $file = $this->pwd . '/' . $name;
@@ -1005,13 +1007,13 @@ class Media extends Manager implements MediaInterface
 
                 try {
                     $cur->insert();
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     @unlink($name);
 
                     throw $e;
                 }
                 $this->con->unlock();
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->con->unlock();
 
                 throw $e;
@@ -1038,20 +1040,20 @@ class Media extends Manager implements MediaInterface
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())) {
-            throw new Exception(__('Permission denied.'));
+            throw new UnauthorizedException(__('Permission denied.'));
         }
 
         $id = (int) $file->media_id;
 
         if (!$id) {
-            throw new Exception('No file ID');
+            throw new BadRequestException('No file ID');
         }
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())
             && $this->auth->userID() != $file->media_user) {
-            throw new Exception(__('You are not the file owner.'));
+            throw new UnauthorizedException(__('You are not the file owner.'));
         }
 
         $cur = $this->openMediaCursor();
@@ -1066,11 +1068,11 @@ class Media extends Manager implements MediaInterface
             $newFile->file = $this->root . '/' . $newFile->relname;
 
             if ($this->isFileExclude($newFile->relname)) {
-                throw new Exception(__('This file is not allowed.'));
+                throw new UnauthorizedException(__('This file is not allowed.'));
             }
 
             if (file_exists($newFile->file)) {
-                throw new Exception(__('New file already exists.'));
+                throw new UnauthorizedException(__('New file already exists.'));
             }
 
             $this->moveFile($file->relname, $newFile->relname);
@@ -1099,15 +1101,17 @@ class Media extends Manager implements MediaInterface
     /**
      * Uploads a file.
      *
-     * @param      string     $tmp        The full path of temporary uploaded file
-     * @param      string     $dest       The file name (relative to working directory)me
-     * @param      bool       $overwrite  File should be overwrite
-     * @param      string     $title      The file title (should be string|null)
-     * @param      bool       $private    File is private
+     * Helper\Manager returns string but Core\Media returns int|false.
      *
-     * @throws     Exception
+     * @param   string      $tmp        The full path of temporary uploaded file
+     * @param   string      $dest       The file name (relative to working directory)me
+     * @param   bool        $overwrite  File should be overwrite
+     * @param   string      $title      The file title (should be string|null)
+     * @param   bool        $private    File is private
      *
-     * @return     mixed      New media ID or false (should be int|false)
+     * @throws  UnauthorizedException
+     *
+     * @return  mixed   New media ID or false (should be int|false)
      */
     public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
@@ -1115,7 +1119,7 @@ class Media extends Manager implements MediaInterface
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())) {
-            throw new Exception(__('Permission denied.'));
+            throw new UnauthorizedException(__('Permission denied.'));
         }
 
         $dest = Files::tidyFileName($dest);
@@ -1131,7 +1135,7 @@ class Media extends Manager implements MediaInterface
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())) {
-            throw new Exception(__('Permission denied.'));
+            throw new UnauthorizedException(__('Permission denied.'));
         }
 
         $name = Files::tidyFileName($name);
@@ -1149,7 +1153,7 @@ class Media extends Manager implements MediaInterface
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())) {
-            throw new Exception(__('Permission denied.'));
+            throw new UnauthorizedException(__('Permission denied.'));
         }
 
         $media_file = $this->relpwd ? Path::clean($this->relpwd . '/' . $file) : Path::clean($file);
@@ -1169,7 +1173,7 @@ class Media extends Manager implements MediaInterface
         $sql->delete();
 
         if ($this->con->changes() == 0) {
-            throw new Exception(__('File does not exist in the database.'));
+            throw new BadRequestException(__('File does not exist in the database.'));
         }
 
         parent::removeFile($file);
@@ -1214,7 +1218,7 @@ class Media extends Manager implements MediaInterface
             }
 
             if (is_dir($f->dir . '/' . $destination)) {
-                throw new Exception(sprintf(__('Extract destination directory %s already exists.'), dirname($f->relname) . '/' . $destination));
+                throw new UnauthorizedException(sprintf(__('Extract destination directory %s already exists.'), dirname($f->relname) . '/' . $destination));
             }
         } else {
             $target      = $f->dir;
@@ -1312,7 +1316,7 @@ class Media extends Manager implements MediaInterface
                 }
             }
             $img->close();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             if ($cur === null) {
                 # Called only if Cursor is null (public call)
                 throw $e;
@@ -1360,7 +1364,7 @@ class Media extends Manager implements MediaInterface
             foreach ($this->thumb_sizes as $suffix => $s) {
                 try {
                     parent::moveFile(sprintf($thumb_old, $suffix), sprintf($thumb_new, $suffix));
-                } catch (Exception $e) {
+                } catch (Throwable) {
                 }
             }
 
@@ -1387,7 +1391,7 @@ class Media extends Manager implements MediaInterface
         foreach (array_keys($this->thumb_sizes) as $suffix) {
             try {
                 parent::removeFile(sprintf($thumb, $suffix));
-            } catch (Exception $e) {
+            } catch (Throwable) {
             }
         }
 

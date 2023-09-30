@@ -22,9 +22,9 @@ use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
 
 // Container helpers
+use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
-use Exception;
 
 // Container interfaces
 use Dotclear\Interface\ConfigInterface;
@@ -92,7 +92,7 @@ class Core extends Container
     /**
      * Constructor gets container services.
      *
-     * @throws  Exception
+     * @throws  ContextException
      *
      * @param   ConfigInterface     $config     The config
      * @param   Factory             $factory    The factory (third party services)
@@ -103,7 +103,7 @@ class Core extends Container
     ) {
         // Singleton mode
         if (isset(self::$instance)) {
-            throw new Exception('Application can not be started twice.', 500);
+            throw new ContextException('Application can not be started twice.');
         }
 
         parent::__construct($factory);
@@ -128,8 +128,6 @@ class Core extends Container
      * Get default Dotclear services definitions.
      *
      * This adds default Core class to the App.
-     *
-     * @throws  Exception
      *
      * @return  array<string,callable>  The default core services
      */

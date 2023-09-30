@@ -11,6 +11,7 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Blog namespace for settings handler interface.
@@ -205,7 +206,7 @@ interface BlogWorkspaceInterface
      * @param   bool    $ignore_value   Change setting value or not
      * @param   bool    $global         Setting is global
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void;
 
@@ -215,7 +216,7 @@ interface BlogWorkspaceInterface
      * @param   string  $old_name   The old setting identifier
      * @param   string  $new_name   The new setting identifier
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool
      */
@@ -226,7 +227,7 @@ interface BlogWorkspaceInterface
      *
      * @param   string  $name   The setting identifier
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function drop(string $name): void;
 
@@ -236,7 +237,7 @@ interface BlogWorkspaceInterface
      * @param   string      $name       Setting ID
      * @param   boolean     $global     Remove global setting too
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function dropEvery(string $name, bool $global = false): void;
 
@@ -245,7 +246,7 @@ interface BlogWorkspaceInterface
      *
      * @param   bool    $force_global   Force global pref drop
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function dropAll(bool $force_global = false): void;
 

@@ -16,7 +16,7 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class BlogException extends AbstractException
+class BlogException extends GenericServerException
 {
     public const CODE  = 570;
     public const LABEL = 'Blog handling error';

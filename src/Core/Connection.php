@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Exception\DatabaseException;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\SchemaInterface;
 
@@ -66,6 +67,8 @@ abstract class Connection implements ConnectionInterface
     /**
      * Get the fully qualified database handler class name.
      *
+     * @throws  DatabaseException
+     *
      * @param   string  $interface  The interface class name
      * @param   string  $class      The handler class name (Handler or Schema)
      * @param   string  $driver     The driver name
@@ -77,9 +80,7 @@ abstract class Connection implements ConnectionInterface
         $ns = in_array($driver, ['mysqli', 'mysqlimb4', 'pgsql', 'sqlite']) ? 'Dotclear\\Database\\Driver\\' . ucfirst($driver) . '\\' . $class : '';
 
         if (!is_subclass_of($ns, $interface)) {
-            trigger_error(sprintf('Database %s class %s does not exist or does not inherit %s', $class, $ns, $interface));
-
-            exit(1);
+            throw new DatabaseException(sprintf('Database %s class %s does not exist or does not inherit %s', $class, $ns, $interface));
         }
 
         return $ns;

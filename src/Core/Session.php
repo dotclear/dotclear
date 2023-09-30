@@ -12,7 +12,7 @@ namespace Dotclear\Core;
 use Dotclear\Database\Session as DatabaseSession;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Session handler.
@@ -48,7 +48,7 @@ class Session extends DatabaseSession
                     session_write_close();
                 }
                 $this->con->close();
-            } catch (Exception $e) {    // @phpstan-ignore-line
+            } catch (Throwable) {
                 // Ignore exceptions
             }
         });

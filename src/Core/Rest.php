@@ -12,7 +12,7 @@ namespace Dotclear\Core;
 use dcCore;
 use Dotclear\Helper\RestServer;
 use Dotclear\Interface\ConfigInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Rest server handler.
@@ -62,7 +62,7 @@ class Rest extends RestServer
                     // Create watchdog file
                     touch($this->config->coreUpgrade());
                 }
-            } catch (Exception) {
+            } catch (Throwable) {
             }
         }
     }

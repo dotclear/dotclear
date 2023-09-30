@@ -16,7 +16,7 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class ConfigException extends AbstractException
+class ConfigException extends GenericServerException
 {
     public const CODE  = 551;
     public const LABEL = 'Application configuration error';
