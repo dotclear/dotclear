@@ -18,7 +18,6 @@ namespace Dotclear {
     use Dotclear\Exception\AppException;
     use Dotclear\Exception\DatabaseException;
     use Dotclear\Helper\Container\Factories;
-    use Exception;
     use Throwable;
 
     // Load Autoloader file
@@ -140,6 +139,7 @@ namespace Dotclear {
 
 namespace {
     use Dotclear\Fault;
+    use Dotclear\Exception\AppException;
 
     /**
      * @brief   Error handling function.
@@ -152,6 +152,6 @@ namespace {
      */
     function __error(string $summary, string $message, int $code = 0): void
     {
-        Fault::exit(new Exception($message, $code));
+        Fault::exit(new AppException($summary, $code, new AppException($message, $code)));
     }
 }
