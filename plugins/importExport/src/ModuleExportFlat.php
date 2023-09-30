@@ -188,7 +188,7 @@ class ModuleExportFlat extends Module
 
                 unlink($_SESSION['export_file']);
                 exit;
-            } catch (Exception $e) {
+            } catch (Exception) {
                 @unlink($_SESSION['export_file']);
 
                 throw new Exception(__('Failed to compress export file.'));

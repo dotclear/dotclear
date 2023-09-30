@@ -250,7 +250,7 @@ class Reader extends HttpClient
 
                 try {
                     Files::makeDir(dirname($cached_file), true);
-                } catch (Exception $e) {
+                } catch (Exception) {
                     return $feed;
                 }
 

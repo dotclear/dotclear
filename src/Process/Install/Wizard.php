@@ -193,7 +193,7 @@ class Wizard extends Process
                 if (function_exists('chmod')) {
                     try {
                         @chmod(App::config()->configPath(), 0o666);
-                    } catch (Exception $e) {
+                    } catch (Exception) {
                     }
                 }
 

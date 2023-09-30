@@ -198,7 +198,7 @@ class Auth implements AuthInterface
 
         try {
             $rs = $sql->select();
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             return false;
         }
 

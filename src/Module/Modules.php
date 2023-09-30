@@ -336,7 +336,7 @@ class Modules implements ModulesInterface
             try {
                 $this->deactivateModule($module->getId());
                 $reason[] = sprintf('%s : %s', $module->get('name'), join(',', $module->getMissing()));
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
         }

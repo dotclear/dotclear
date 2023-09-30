@@ -67,7 +67,7 @@ class Upgrade
                 try {
                     App::cache()->emptyTemplatesCache();
                     App::cache()->emptyModulesStoreCache();
-                } catch (Exception $e) {
+                } catch (Exception) {
                 }
 
                 return $changes;

@@ -157,7 +157,7 @@ class Task implements TaskInterface
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 throw new ProcessException(
                     $this->checkContext('BACKEND') ?
                     __('Unable to load deprecated core') :

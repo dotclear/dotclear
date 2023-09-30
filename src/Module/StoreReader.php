@@ -251,7 +251,7 @@ class StoreReader extends HttpClient
 
         try {
             return $this->get($path);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return false;
         }
     }
@@ -322,7 +322,7 @@ class StoreReader extends HttpClient
 
                 try {
                     Files::makeDir(dirname($cached_file), true);
-                } catch (Exception $e) {
+                } catch (Exception) {
                     return $modules;
                 }
 

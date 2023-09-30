@@ -402,7 +402,7 @@ class MediaItem extends Process
                         $defaults['mediadef'] = true;
                     }
                 }
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
 

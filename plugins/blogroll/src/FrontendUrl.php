@@ -32,7 +32,7 @@ class FrontendUrl extends Url
 
         try {
             $links = $blogroll->getLinks();
-        } catch (Exception $e) {
+        } catch (Exception) {
             self::p404();
         }
 

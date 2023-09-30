@@ -218,7 +218,7 @@ class Path
                     }
                 }
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
     }
 

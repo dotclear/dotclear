@@ -179,7 +179,7 @@ class Categories implements CategoriesInterface
                 $this->setNodeParent($id + 1, $target);
 
                 return $data->{$this->f_id};
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // We don't mind error in this case
             }
         } catch (Exception $e) {

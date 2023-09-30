@@ -142,7 +142,7 @@ class Utility extends Process
         if (App::config()->blogId() != '') {
             try {
                 App::blog()->loadFromBlog(App::config()->blogId());
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 throw new BlogException(__('Something went wrong while trying to read the database.'));
             }
         }
@@ -207,7 +207,7 @@ class Utility extends Process
 
             // deprecated since 2.28, use App::frontend()->tpl instead
             dcCore::app()->tpl = App::frontend()->tpl;
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             throw new TemplateException(__('Can\'t create template files.'));
         }
 
@@ -229,7 +229,7 @@ class Utility extends Process
         # Loading plugins
         try {
             App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang()->getLang());
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             // Ignore
         }
 
@@ -315,7 +315,7 @@ class Utility extends Process
 
             # --BEHAVIOR-- publicAfterDocument --
             App::behavior()->callBehavior('publicAfterDocumentV2');
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             throw new TemplateException(__('Something went wrong while loading template file for your blog.'));
         }
 

@@ -138,7 +138,7 @@ class Utility extends Process
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
                     App::backend()->url->redirect('admin.auth', $params);
                 }
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
             }
 

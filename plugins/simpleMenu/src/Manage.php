@@ -92,7 +92,7 @@ class Manage extends Process
                 $pages_combo[$rs->post_title] = $rs->getURL();
             }
             unset($rs);
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
         App::backend()->pages_combo = $pages_combo;
 
@@ -106,7 +106,7 @@ class Manage extends Process
                 $tags_combo[$rs->meta_id] = $rs->meta_id;
             }
             unset($rs);
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
         App::backend()->tags_combo = $tags_combo;
 

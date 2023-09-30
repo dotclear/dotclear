@@ -450,7 +450,7 @@ class Words extends SpamFilter
         foreach ($words as $w) {
             try {
                 $this->addRule($w, true);
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
         }

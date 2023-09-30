@@ -316,7 +316,7 @@ class ModuleImportDc1 extends Module
         // Set this to read data as they were written in Dotclear 1
         try {
             $db->execute('SET NAMES DEFAULT');
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
 
         $db->execute('SET CHARACTER SET DEFAULT');
