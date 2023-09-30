@@ -14,10 +14,12 @@ use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\L10n;
+use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\ConfigException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
 
 /**
  * @brief   The helper to parse configuration values.
@@ -140,7 +142,7 @@ class Config implements ConfigInterface
      * from differents places like:
      * index files, config file, release file, PHP config, etc...
      *
-     * @throws  Exception
+     * @throws  ConfigException
      *
      * @param   string  $dotclear_root  Dotclear root directory path
      */
@@ -210,6 +212,18 @@ class Config implements ConfigInterface
         define('DC_DEFAULT_TPLSET', $this->defaultTplset());
         define('DC_DEFAULT_JQUERY', $this->defaultJQuery());
         define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
+
+        // Set a default lang and load locales for detected language (for error translation)
+        l10n::bootstrap();
+        $detected_languages = Http::getAcceptLanguages();
+        foreach ($detected_languages as $language) {
+            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'main'])) !== false) {
+                L10n::lang($language);
+
+                break;
+            }
+        }
+        unset($detected_languages);
 
         // Load config file
         if ($this->hasConfig()) {
@@ -427,7 +441,7 @@ class Config implements ConfigInterface
 
         // No release file
         if ($this->dotclearVersion() == '') {
-            throw new Exception(__('Dotclear release file is not readable'));
+            throw new ConfigException(__('Dotclear release file is not readable'));
         }
 
         // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
@@ -442,14 +456,14 @@ class Config implements ConfigInterface
 
         // Deprecated since 2.28, DC_DBSCHEMA_CLASS is no more used, database Schema class MUST be provided by Connection class method schema()
         //if (defined('DC_DBHANDLER_CLASS')) {
-        //    throw new Exception('Database Schema class MUST be provided by Connection class method schema().');
+        //    throw new ConfigException('Database Schema class MUST be provided by Connection class method schema().');
         //}
 
         // No config file and not in install process
         if (!$this->hasConfig()) {
             // Do not process install on CLI mode
             if ($this->cliMode()) {
-                throw new Exception('Dotclear is not installed or failed to load config file.');
+                throw new ConfigException('Dotclear is not installed or failed to load config file.');
             }
 
             // Stop configuration here on install wizard (App class takes the rest)
@@ -458,7 +472,7 @@ class Config implements ConfigInterface
 
         // Check length of cryptographic algorithm result and exit if less than 40 characters long
         if (strlen(Crypt::hmac($this->masterKey(), $this->vendorName(), $this->cryptAlgo())) < 40) {
-            throw new Exception($this->cryptAlgo() . ' cryptographic algorithm configured is not strong enough, please change it.');
+            throw new ConfigException($this->cryptAlgo() . ' cryptographic algorithm configured is not strong enough, please change it.');
         }
 
         // Check existence of cache directory
@@ -466,7 +480,7 @@ class Config implements ConfigInterface
             // Try to create it
             @Files::makeDir($this->cacheRoot());
             if (!is_dir($this->cacheRoot())) {
-                throw new Exception($this->cacheRoot() . ' directory does not exist. Please create it.');
+                throw new ConfigException($this->cacheRoot() . ' directory does not exist. Please create it.');
             }
         }
 
@@ -475,7 +489,7 @@ class Config implements ConfigInterface
             // Try to create it
             @Files::makeDir($this->varRoot());
             if (!is_dir($this->varRoot())) {
-                throw new Exception($this->varRoot() . ' directory does not exist. Please create it.');
+                throw new ConfigException($this->varRoot() . ' directory does not exist. Please create it.');
             }
         }
     }
@@ -484,7 +498,7 @@ class Config implements ConfigInterface
     {
         // Release key not found
         if (!array_key_exists($key, $this->release)) {
-            throw new Exception(sprintf(__('Dotclear release key %s was not found'), $key));
+            throw new ConfigException(sprintf(__('Dotclear release key %s was not found'), $key));
         }
 
         // Return casted release key value

@@ -15,7 +15,6 @@ use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
-use Dotclear\Fault;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -162,7 +161,7 @@ class Install extends Process
     public static function process(): bool
     {
         if (!self::status()) {
-            new Fault('Not found', '', 404);
+            throw new Exception('Not found', 404);
         }
 
         if (self::$can_install && !empty($_POST)) {
@@ -388,7 +387,7 @@ class Install extends Process
     public static function render(): void
     {
         if (!self::status()) {
-            new Fault('Not found', '', 404);
+            throw new Exception('Not found', 404);
         }
 
         header('Content-Type: text/html; charset=UTF-8');

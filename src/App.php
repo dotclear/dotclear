@@ -15,10 +15,11 @@ declare(strict_types=1);
 namespace Dotclear {
     use Autoloader;
     use Dotclear\Core\Core;
+    use Dotclear\Exception\AppException;
+    use Dotclear\Exception\DatabaseException;
     use Dotclear\Helper\Container\Factories;
-    use Dotclear\Helper\L10n;
-    use Dotclear\Helper\Network\Http;
     use Exception;
+    use Throwable;
 
     // Load Autoloader file
     require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
@@ -63,73 +64,46 @@ namespace Dotclear {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
+            // Set exception handler (for a nice rendering)
+            set_exception_handler(fn (\Throwable $exception) => Fault::exit($exception));
+
             try {
-                // Run application (load core)
-                new App(
-                    new Config(dirname(__DIR__)),
-                    Factories::getFactory(Core::CONTAINER_ID)
-                );
-            } catch (Exception $e) {
-                new Fault(
-                    'Server error',
-                    'Site temporarily unavailable',
-                    Fault::SETUP_ISSUE
-                );
-                exit;
-            }
+                // Run application
+                new App(new Config(dirname(__DIR__)), Factories::getFactory(Core::CONTAINER_ID));
 
-            if (App::config()->hasConfig()) {
-                try {
-                    // Run database connection (test)
-                    App::con();
-                } catch (Exception $e) {
-                    // Loading locales for detected language
-                    $detected_languages = Http::getAcceptLanguages();
-                    foreach ($detected_languages as $language) {
-                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
-                            L10n::lang($language);
-
-                            // We stop at first accepted language
-                            break;
-                        }
+                if (App::config()->hasConfig()) {
+                    try {
+                        // Run database connection
+                        App::con();
+                    } catch (Throwable $e) {
+                        throw new DatabaseException(
+                            sprintf(
+                                __('<p>This either means that the username and password information in ' .
+                                'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
+                                'the database server at "<em>%s</em>". This could mean your ' .
+                                'host\'s database server is down.</p> ' .
+                                '<ul><li>Are you sure you have the correct username and password?</li>' .
+                                '<li>Are you sure that you have typed the correct hostname?</li>' .
+                                '<li>Are you sure that the database server is running?</li></ul>' .
+                                '<p>If you\'re unsure what these terms mean you should probably contact ' .
+                                'your host. If you still need help you can always visit the ' .
+                                '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>'),
+                                (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
+                            ),
+                            DatabaseException::CODE,
+                            $e
+                        );
                     }
-                    unset($detected_languages);
-
-                    new Fault(
-                        __('Unable to connect to database'),
-                        $e->getCode() == 0 ?
-                        sprintf(
-                            __('<p>This either means that the username and password information in ' .
-                            'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
-                            'the database server at "<em>%s</em>". This could mean your ' .
-                            'host\'s database server is down.</p> ' .
-                            '<ul><li>Are you sure you have the correct username and password?</li>' .
-                            '<li>Are you sure that you have typed the correct hostname?</li>' .
-                            '<li>Are you sure that the database server is running?</li></ul>' .
-                            '<p>If you\'re unsure what these terms mean you should probably contact ' .
-                            'your host. If you still need help you can always visit the ' .
-                            '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            (App::config()->debugMode() ?
-                                '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-                                ''),
-                            (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
-                        ) :
-                        '',
-                        Fault::DATABASE_ISSUE
-                    );
                 }
-            }
 
-            try {
-                // Run task (process)
+                // Run task
                 App::task()->run($utility, $process);
-            } catch (Exception $e) {
-                new Fault(
-                    'Server error',
-                    App::task()->checkContext('BACKEND') ? $e->getMessage() : 'Site temporarily unavailable',
-                    Fault::SETUP_ISSUE
-                );
-                exit;
+            } catch(AppException $e) {
+                // Throw application exception as is. See Dotclear.Fault handler.
+                throw $e;
+            } catch (Throwable $e) {
+                // Throw uncaught exception as application exception. See Dotclear.Fault handler.
+                throw new AppException('Site temporarily unavailable', $e->getCode(), $e);
             }
         }
 
@@ -178,6 +152,6 @@ namespace {
      */
     function __error(string $summary, string $message, int $code = 0): void
     {
-        new Fault($summary, $message, $code);
+        Fault::exit(new Exception($message, $code));
     }
 }

@@ -11,18 +11,19 @@ namespace Dotclear\Core;
 
 use dcCore;
 use Dotclear\FileServer;
-use Dotclear\Fault;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\ContextException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\TaskInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Application task launcher.
@@ -78,13 +79,13 @@ class Task implements TaskInterface
      * @param      string     $utility  The utility
      * @param      string     $process  The process
      *
-     * @throws     Exception
+     * @throws     ContextException|ProcessException
      */
     public function run(string $utility, string $process): void
     {
         // watchdog
         if (self::$watchdog) {
-            throw new Exception('Application can not be started twice.', 500);
+            throw new ContextException('Application can not be started twice.');
         }
         self::$watchdog = true;
 
@@ -152,38 +153,16 @@ class Task implements TaskInterface
             }
             Http::trimRequest();
 
-            // Test database connection
             try {
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
-            } catch (Exception $e) {
-                // Loading locales for detected language
-                $detected_languages = Http::getAcceptLanguages();
-                foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->config->l10nRoot(), $language, 'main'])) !== false) {
-                        L10n::lang($language);
-
-                        // We stop at first accepted language
-                        break;
-                    }
-                }
-                unset($detected_languages);
-
-                if (!$this->checkContext('BACKEND')) {
-                    new Fault(
-                        __('Site temporarily unavailable'),
-                        __('<p>We apologize for this temporary unavailability.<br />' .
-                            'Thank you for your understanding.</p>'),
-                        Fault::DATABASE_ISSUE
-                    );
-                } else {
-                    new Fault(
-                        __('Unable to load deprecated core'),
-                        $e->getMessage(),
-                        Fault::DATABASE_ISSUE
-                    );
-                }
+            } catch (Throwable $e) {
+                throw new ProcessException(
+                    $this->checkContext('BACKEND') ?
+                    __('Unable to load deprecated core') :
+                    __('<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>')
+                );
             }
 
             # If we have some __top_behaviors, we load them
@@ -275,17 +254,13 @@ class Task implements TaskInterface
 
     public function loadProcess(string $process): void
     {
-        try {
-            if (!is_subclass_of($process, Process::class, true)) {
-                throw new Exception(sprintf(__('Unable to find class %s'), $process));
-            }
+        if (!is_subclass_of($process, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to find class %s'), $process));
+        }
 
-            // Call process in 3 steps: init, process, render.
-            if ($process::init() !== false && $process::process() !== false) {
-                $process::render();
-            }
-        } catch (Exception $e) {
-            Fault::throw(__('Process failed'), $e);
+        // Call process in 3 steps: init, process, render.
+        if ($process::init() !== false && $process::process() !== false) {
+            $process::render();
         }
     }
 
@@ -301,14 +276,10 @@ class Task implements TaskInterface
      */
     private function loadUtility(string $utility, bool $next = false): bool
     {
-        try {
-            if (!is_subclass_of($utility, Process::class, true)) {
-                throw new Exception(sprintf(__('Unable to find or initialize class %s'), $utility));
-            }
-
-            return $next ? $utility::process() : $utility::init();
-        } catch(Exception $e) {
-            Fault::throw(__('Process failed'), $e);
+        if (!is_subclass_of($utility, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to find or initialize class %s'), $utility));
         }
+
+        return $next ? $utility::process() : $utility::init();
     }
 }

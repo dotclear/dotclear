@@ -9,7 +9,6 @@
 namespace Dotclear\Process\Install;
 
 use Dotclear\App;
-use Dotclear\Fault;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -110,7 +109,7 @@ class Wizard extends Process
     public static function process(): bool
     {
         if (!self::status()) {
-            new Fault('Not found', '', 404);
+            throw new Exception('Not found', 404);
         }
 
         self::$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
@@ -211,7 +210,7 @@ class Wizard extends Process
     public static function render(): void
     {
         if (App::config()->configPath() == '') {
-            new Fault('Not found', '', 404);
+            throw new Exception('Not found', 404);
         }
 
         header('Content-Type: text/html; charset=UTF-8');

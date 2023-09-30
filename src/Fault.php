@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
-use Exception;
+use Dotclear\Helper\L10n;
+use Dotclear\Exception\AbstractException;
+use Throwable;
 
 /**
  * @brief   The helper to parse runtime error.
@@ -19,121 +21,44 @@ use Exception;
  */
 class Fault
 {
-    /**
-     * Uncoded or undefined error (before as 0).
-     *
-     * @var     int     UNDEFINED_ISSUE
-     */
-    public const UNDEFINED_ISSUE = 550;
-
-    /**
-     * Server configuration issue (before as 0).
-     *
-     * @var     int     SETUP_ISSUE
-     */
-    public const SETUP_ISSUE = 555;
-
-    /**
-     * Dotclear configuration file issue (before as 10).
-     *
-     * @var     int     CONFIG_ISSUE
-     */
-    public const CONFIG_ISSUE = 560;
-
-    /**
-     * Database connexion issue (before as 20).
-     *
-     * @var     int     DATABASE_ISSUE
-     */
-    public const DATABASE_ISSUE = 565;
-
-    /**
-     * Blog definition issue (before as 30).
-     *
-     * @var     int     BLOG_ISSUE
-     */
-    public const BLOG_ISSUE = 570;
-
-    /**
-     * Template file creation issue (before as 40).
-     *
-     * @var     int     TEMPLATE_CREATION_ISSUE
-     */
-    public const TEMPLATE_CREATION_ISSUE = 575;
-
-    /**
-     * Theme issue (before as 50).
-     *
-     * @var     int     THEME_ISSUE
-     */
-    public const THEME_ISSUE = 580;
-
-    /**
-     * Template processing issue (before as 60).
-     *
-     * @var     int     TEMPLATE_PROCESSING_ISSUE
-     */
-    public const TEMPLATE_PROCESSING_ISSUE = 585;
-
-    /**
-     * Blog is offline (before as 70).
-     *
-     * @var     int     BLOG_OFFLINE
-     */
-    public const BLOG_OFFLINE = 590;
-
-    /**
-     * Output error, the static way.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
-     */
-    public static function render(string $summary, string $message, int $code): void
+    public static function exit(Throwable $exception): never
     {
-        new self($summary, $message, $code);
-    }
+        $code    = $exception->getCode() ?: 500;
+        $label   = $exception->getMessage();
+        $message = $exception->getMessage();
+        $trace   = 'in ' . $exception->getFile() . '(' . $exception->getLine() . ')' . "\n" . $exception->getTraceAsString();
 
-    /**
-     * Output error using Exception instance.
-     *
-     * This takes care of DC_DEBUG mode to show Exceptions stack.
-     *
-     * @return never
-     */
-    public static function throw(string $summary, Exception $e)
-    {
-        if (defined('DC_DEBUG') && DC_DEBUG === true) {
-            throw $e;
-        }
-        new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
-        exit;
-    }
-
-    /**
-     * Constructor.
-     *
-     * In CLI mode, only summary is returned.
-     * A custom file path COULD be set in DC_ERRORFILE to serve error.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
-     */
-    public function __construct(string $summary, string $message, int $code = 550)
-    {
         if (PHP_SAPI == 'cli') {
-            echo $summary . "\n";
+            echo $label . ' (' . $code . ")\n";
             exit;
         }
+
+        // Check if previous error is known
+        if (($previous = $exception->getPrevious()) !== null) {
+            $code    = $previous->getCode() ?: 500;
+            $message = $previous->getMessage();
+
+            // Application exceptions create new Exception instance
+            if (is_a($exception, AbstractException::class) && ($from = $previous->getPrevious()) !== null) {
+                $previous = $from;
+            }
+
+            $trace = 'in ' . $previous->getFile() . '(' . $previous->getLine() . ')' . "\n" . $previous->getTraceAsString();
+        }
+
+        // Be sure to have __() function
+        L10n::bootstrap();
+
+        $trace  = htmlspecialchars((!defined('DC_DEBUG') || DC_DEBUG === true) && $exception !== null ? $trace : '');
+        $vendor = htmlspecialchars(defined('DC_VENDOR_NAME') ? DC_VENDOR_NAME : 'Dotclear');
+
         if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
             include DC_ERRORFILE;
-        } else {
-            $vendor = defined('DC_VENDOR_NAME') ? htmlspecialchars(DC_VENDOR_NAME) : 'Dotclear';
+        }
 
-            header('Content-Type: text/html; charset=utf-8');
-            header('HTTP/1.0 ' . $code . ' ' . $summary);
-            ?>
+        header('Content-Type: text/html; charset=utf-8');
+        header('HTTP/1.0 ' . $code . ' ' . $label);
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,12 +103,13 @@ class Fault
 <body>
 <div id="content">
 <h1><?php echo $vendor; ?></h1>
-<h2><?php echo $code . ' : ' . $summary; ?></h2>
-<?php echo nl2br($message); ?></div>
+<h2><?php echo $code . ' : ' . __($label); ?></h2>
+<?php echo nl2br($message); ?>
+<pre><?php echo $trace; ?></pre>
+</div>
 </body>
 </html>
-            <?php
-        }
+        <?php
         exit;
     }
 }
