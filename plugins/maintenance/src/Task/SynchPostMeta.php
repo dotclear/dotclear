@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\maintenance\Task;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
 /**
@@ -139,7 +140,11 @@ class SynchPostsMeta extends MaintenanceTask
 
             $cur            = App::blog()->openPostCursor();
             $cur->post_meta = serialize($meta);
-            $cur->update('WHERE post_id = ' . $rs->post_id);
+
+            $sql_upd = new UpdateStatement();
+            $sql_upd
+                ->where('post_id = ' . (string) $rs->post_id)
+                ->update($cur);
         }
         App::blog()->triggerBlog();
 

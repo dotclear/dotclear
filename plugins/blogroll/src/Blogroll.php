@@ -11,9 +11,11 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BlogInterface;
 use initBlogroll;
 
@@ -198,9 +200,7 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a link URL'));
         }
 
-        $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
-        $this->blog->triggerBlog();
+        $this->updateCursor($cur, $id);
     }
 
     /**
@@ -221,9 +221,7 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a category title'));
         }
 
-        $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
-        $this->blog->triggerBlog();
+        $this->updateCursor($cur, $id);
     }
 
     /**
@@ -291,8 +289,23 @@ class Blogroll extends initBlogroll
         $cur                = App::con()->openCursor($this->table);
         $cur->link_position = (int) $position;
 
-        $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
+        $this->updateCursor($cur, $id);
+    }
+
+    /**
+     * Update cursor.
+     *
+     * @param   Cursor  $cur    The cursor
+     * @param   string  $id     The link ID
+     */
+    private function updateCursor(Cursor $cur, string $id): void
+    {
+        $sql = new UpdateStatement();
+        $sql
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->and('link_id = ' . (string) (int) $id)
+            ->update($cur);
+
         $this->blog->triggerBlog();
     }
 

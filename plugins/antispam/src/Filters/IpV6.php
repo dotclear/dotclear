@@ -14,6 +14,7 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
@@ -300,7 +301,11 @@ class IpV6 extends SpamFilter
         } else {
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $pattern;
-            $cur->update('WHERE rule_id = ' . (int) $old->rule_id);
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('rule_id = ' . (string) $old->rule_id)
+                ->update($cur);
         }
     }
 
@@ -416,7 +421,7 @@ class IpV6 extends SpamFilter
         $sql
             ->from($this->table)
             ->where('rule_id = ' . $sql->in($ids))
-            ->delete();        $strReq = 'DELETE FROM ' . $this->table . ' ';
+            ->delete();
     }
 
     /**

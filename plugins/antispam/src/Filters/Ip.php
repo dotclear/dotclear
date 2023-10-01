@@ -14,6 +14,7 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
@@ -343,7 +344,11 @@ class Ip extends SpamFilter
         } else {
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $content;
-            $cur->update('WHERE rule_id = ' . (int) $old->rule_id);
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('rule_id = ' . (string) $old->rule_id)
+                ->update($cur);
         }
     }
 
