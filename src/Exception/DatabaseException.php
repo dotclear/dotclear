@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class DatabaseException extends GenericServerException
+class DatabaseException extends InternalServerException
 {
-    public const CODE  = 560;
-    public const LABEL = 'Database connection error';
 }

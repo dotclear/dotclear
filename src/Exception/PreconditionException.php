@@ -14,8 +14,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class PreconditionException extends GenericClientException
+class PreconditionException extends BadRequestException
 {
-    public const CODE  = 412;
-    public const LABEL = 'Precondition Failed';
 }

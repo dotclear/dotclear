@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class NotFoundException extends GenericClientException
+class NotFoundException extends BadRequestException
 {
-    public const CODE  = 404;
-    public const LABEL = 'Not Found';
 }

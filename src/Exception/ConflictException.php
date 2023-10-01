@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class ConflictException extends GenericClientException
+class ConflictException extends BadRequestException
 {
-    public const CODE  = 409;
-    public const LABEL = 'Confilct';
 }

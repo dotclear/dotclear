@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class SessionException extends GenericServerException
+class SessionException extends InternalServerException
 {
-    public const CODE  = 561;
-    public const LABEL = 'Session handling error';
 }

@@ -32,6 +32,6 @@ abstract class AbstractException extends AppException
 {
     public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
-        parent::__construct(static::LABEL, static::CODE, new Exception($message ?: static::LABEL, $code ?: static::CODE, $previous));
+        parent::__construct(static::label(), static::code(), new Exception($message ?: static::label(), $code ?: static::code(), $previous));
     }
 }

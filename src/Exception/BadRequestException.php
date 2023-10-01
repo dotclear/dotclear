@@ -12,12 +12,12 @@ namespace Dotclear\Exception;
 /**
  * @brief   Bad request Exception.
  *
+ * This is the fallback for 4xx errors.
+ *
  * Used on request/action processing fails.
  *
  * @since   2.28
  */
-class BadRequestException extends GenericClientException
+class BadRequestException extends AbstractException
 {
-    public const CODE  = 400;
-    public const LABEL = 'Bad Request';
 }

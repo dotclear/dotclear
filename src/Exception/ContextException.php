@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class ContextException extends GenericServerException
+class ContextException extends InternalServerException
 {
-    public const CODE  = 553;
-    public const LABEL = 'Application context error';
 }

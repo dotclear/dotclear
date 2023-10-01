@@ -17,18 +17,16 @@ namespace Dotclear\Interface\Exception;
 interface AppExceptionInterface
 {
     /**
-     * The exception code.
+     * Get exception code.
      *
-     * A 3 digits code starting from 4xx or 5xx
-     *
-     * @var 	int 	CODE
+     * @return  int   The exception code
      */
-    public const CODE = 503;
+    public static function code(): int;
 
     /**
-     * The exception label.
+     * Get exception label.
      *
-     * @var 	string 	LABEL
+     * @return  string  The exception label
      */
-    public const LABEL = 'Site temporarily unavailable';
+    public static function label(): string;
 }

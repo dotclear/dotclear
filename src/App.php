@@ -89,7 +89,7 @@ namespace Dotclear {
                                 '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>'),
                                 (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
                             ),
-                            DatabaseException::CODE,
+                            DatabaseException::code(),
                             $e
                         );
                     }

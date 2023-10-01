@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear;
 
 use Dotclear\Helper\L10n;
-use Dotclear\Exception\AbstractException;
 use Throwable;
 
 /**
@@ -22,6 +21,54 @@ use Throwable;
 class Fault
 {
     /**
+     * jTraceEx() - provide a Java style exception trace.
+     *
+     * @param   $e      The exception
+     * @param   $seen   Internal loop
+     *
+     * @return  string  The formated trace
+     */
+    private static function jTraceEx($e, $seen = null)
+    {
+        $starter = $seen ? 'Caused by: ' : '';
+        $result  = [];
+        if (!$seen) {
+            $seen = [];
+        }
+        $trace    = $e->getTrace();
+        $prev     = $e->getPrevious();
+        $result[] = sprintf('%s%s: %s', $starter, get_class($e), $e->getMessage());
+        $file     = $e->getFile();
+        $line     = $e->getLine();
+        while (true) {
+            $result[] = sprintf(
+                ' at %s%s%s (%s%s%s)',
+                count($trace) && array_key_exists('class', $trace[0]) ? str_replace('\\', '.', $trace[0]['class']) : '',
+                count($trace) && array_key_exists('class', $trace[0]) && array_key_exists('function', $trace[0]) ? '.' : '',
+                count($trace) && array_key_exists('function', $trace[0]) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
+                $line === null ? $file : basename($file),
+                $line === null ? '' : ':',
+                $line === null ? '' : $line
+            );
+            if (is_array($seen)) {
+                $seen[] = "$file:$line";
+            }
+            if (!count($trace)) {
+                break;
+            }
+            $file = array_key_exists('file', $trace[0]) ? $trace[0]['file'] : 'Unknown Source';
+            $line = array_key_exists('file', $trace[0]) && array_key_exists('line', $trace[0]) && $trace[0]['line'] ? $trace[0]['line'] : null;
+            array_shift($trace);
+        }
+        $result = implode("\n", $result);
+        if ($prev) {
+            $result .= "\n" . self::jTraceEx($prev, $seen);
+        }
+
+        return $result;
+    }
+
+    /**
      * Parse throwable exception.
      *
      * @return  never
@@ -31,7 +78,6 @@ class Fault
         $code    = $exception->getCode() ?: 500;
         $label   = $exception->getMessage();
         $message = $exception->getMessage();
-        $trace   = 'in ' . $exception->getFile() . '(' . $exception->getLine() . ')' . "\n" . $exception->getTraceAsString();
 
         if (PHP_SAPI == 'cli') {
             echo $label . ' (' . $code . ")\n";
@@ -40,21 +86,13 @@ class Fault
 
         // Check if previous error is known
         if (($previous = $exception->getPrevious()) !== null) {
-            $code    = $previous->getCode() ?: 500;
             $message = $previous->getMessage();
-
-            // Application exceptions create new Exception instance
-            if (is_a($exception, AbstractException::class) && ($from = $previous->getPrevious()) !== null) {
-                $previous = $from;
-            }
-
-            $trace = 'in ' . $previous->getFile() . '(' . $previous->getLine() . ')' . "\n" . $previous->getTraceAsString();
         }
 
         // Be sure to have __() function
         L10n::bootstrap();
 
-        $trace  = htmlspecialchars((!defined('DC_DEBUG') || DC_DEBUG === true) && $exception !== null ? $trace : '');
+        $trace  = htmlspecialchars((!defined('DC_DEBUG') || DC_DEBUG === true) && $exception !== null ? self::jTraceEx($exception) : '');
         $vendor = htmlspecialchars(defined('DC_VENDOR_NAME') ? DC_VENDOR_NAME : 'Dotclear');
 
         if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {

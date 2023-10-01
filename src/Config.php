@@ -36,9 +36,6 @@ use Dotclear\Interface\Core\ConnectionInterface;
  * modification from config file.
  *
  * Not yet in config:
- * * DC_DBHANDLER_CLASS
- * * DC_DBSCHEMA_CLASS
- * * DC_AUTH_CLASS
  * * DC_ERRORFILE
  * * DC_FAIRTRACKBACKS_FORCE (plugin)
  * * DC_ANTISPAM_CONF_SUPER (plugin)

@@ -530,7 +530,6 @@ class ActionsPostsDefault
             $cur            = App::blog()->openPostCursor();
             $cur->post_lang = $new_lang;
 
-
             $sql = new UpdateStatement();
             $sql
                 ->where('post_id ' . $sql->in($post_ids))

@@ -10,12 +10,12 @@ declare(strict_types=1);
 namespace Dotclear\Exception;
 
 /**
- * @brief   Generic server Exception.
+ * @brief   Internal server Exception.
+ *
+ * This is the fallback for 5xx errors.
  *
  * @since   2.28
  */
-class GenericServerException extends AbstractException
+class InternalServerException extends AbstractException
 {
-    public const CODE  = 500;
-    public const LABEL = 'Internal Server Error';
 }

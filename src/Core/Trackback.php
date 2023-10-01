@@ -84,6 +84,7 @@ class Trackback implements TrackbackInterface
     public function getPostPings(int $post_id): MetaRecord
     {
         $sql = new SelectStatement();
+
         return $sql
             ->columns([
                 'ping_url',
@@ -102,7 +103,7 @@ class Trackback implements TrackbackInterface
 
         # Check for previously done trackback
         $sql = new SelectStatement();
-        $rs = $sql
+        $rs  = $sql
             ->columns([
                 'post_id',
                 'ping_url',

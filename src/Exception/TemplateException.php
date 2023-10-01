@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class TemplateException extends GenericServerException
+class TemplateException extends InternalServerException
 {
-    public const CODE  = 571;
-    public const LABEL = 'Template handling error';
 }

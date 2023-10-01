@@ -16,8 +16,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class ProcessException extends GenericServerException
+class ProcessException extends InternalServerException
 {
-    public const CODE  = 552;
-    public const LABEL = 'Application process error';
 }

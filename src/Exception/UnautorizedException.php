@@ -14,8 +14,6 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class UnauthorizedException extends GenericClientException
+class UnauthorizedException extends BadRequestException
 {
-    public const CODE  = 401;
-    public const LABEL = 'Unauthorized';
 }
