@@ -14,6 +14,9 @@ use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BlogInterface;
 use initAntispam;
 
@@ -187,16 +190,24 @@ class Antispam extends initAntispam
      */
     public static function delAllSpam(?string $beforeDate = null): void
     {
-        $strReq = 'SELECT comment_id ' .
-        'FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' C ' .
-        'JOIN ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ON P.post_id = C.post_id ' .
-        "WHERE blog_id = '" . App::con()->escape(App::blog()->id()) . "' " .
-            'AND comment_status = ' . (string) App::blog()::COMMENT_JUNK . ' ';
+        $sql = new SelectStatement();
+        $sql
+            ->column('comment_id')
+            ->from($sql->as(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
+            ->join(
+                (new JoinStatement())
+                    ->from($sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
+                    ->on('P.post_id = C.post_id')
+                    ->statement()
+            )
+            ->where('blog_id = ' . $sql->quote(App::blog()->id()))
+            ->and('comment_status = ' . (string) App::blog()::COMMENT_JUNK);
+
         if ($beforeDate) {
-            $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
+            $sql->and('comment_dt < \'' . $beforeDate . '\' ');
         }
 
-        $rs = new MetaRecord(App::con()->select($strReq));
+        $rs = $sql->select();
         $r  = [];
         while ($rs->fetch()) {
             $r[] = (int) $rs->comment_id;
@@ -206,10 +217,11 @@ class Antispam extends initAntispam
             return;
         }
 
-        $strReq = 'DELETE FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' ' .
-        'WHERE comment_id ' . App::con()->in($r) . ' ';
-
-        App::con()->execute($strReq);
+        $sql = new DeleteStatement();
+        $sql
+            ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
+            ->where('comment_id ' . $sql->in($r))
+            ->delete();
     }
 
     /**
@@ -243,11 +255,15 @@ class Antispam extends initAntispam
             return false;
         }
 
-        $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . App::con()->prefix() . App::auth()::USER_TABLE_NAME . ' ' .
-        "WHERE user_id = '" . App::con()->escape($user_id) . "' ";
-
-        $rs = new MetaRecord(App::con()->select($strReq));
+        $sql = new SelectStatement();
+        $rs = $sql
+            ->columns([
+                'user_id',
+                'user_pwd',
+            ])
+            ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
+            ->where('user_id = ' . $sql->quote($user_id))
+            ->select();
 
         if ($rs->isEmpty()) {
             return false;

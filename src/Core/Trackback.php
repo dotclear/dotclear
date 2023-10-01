@@ -11,6 +11,7 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -524,12 +525,13 @@ class Trackback implements TrackbackInterface
      */
     private function delBacklink(int $post_id, string $url): void
     {
-        $this->con->execute(
-            'DELETE FROM ' . $this->con->prefix() . $this->blog::COMMENT_TABLE_NAME . ' ' .
-            'WHERE post_id = ' . ((int) $post_id) . ' ' .
-            "AND comment_site = '" . $this->con->escape((string) $url) . "' " .
-            'AND comment_trackback = 1 '
-        );
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
+            ->where('post_id = ' . (string) $post_id)
+            ->and('comment_site = ' . $sql->quote($this->con->escape((string) $url)))
+            ->and('comment_trackback = 1')
+            ->delete();
     }
 
     /**

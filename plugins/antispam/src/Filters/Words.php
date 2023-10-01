@@ -12,6 +12,8 @@ namespace Dotclear\Plugin\antispam\Filters;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
@@ -264,14 +266,24 @@ class Words extends SpamFilter
      */
     private function getRules(): MetaRecord
     {
-        $strReq = 'SELECT rule_id, blog_id, rule_content ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = 'word' " .
-        "AND ( blog_id = '" . App::con()->escape(App::blog()->id()) . "' " .
-            'OR blog_id IS NULL ) ' .
-            'ORDER BY blog_id ASC, rule_content ASC ';
-
-        return new MetaRecord(App::con()->select($strReq));
+        $sql = new SelectStatement();
+        return $sql
+            ->columns([
+                'rule_id',
+                'blog_id',
+                'rule_content',
+            ])
+            ->from($this->table)
+            ->where('rule_type = ' . $sql->quote('word'))
+            ->and($sql->orGroup([
+                'blog_id = ' . $sql->quote(App::blog()->id()),
+                'blog_id IS NULL',
+            ]))
+            ->order([
+                'blog_id ASC',
+                'rule_content ASC',
+            ])
+            ->select();
     }
 
     /**
@@ -284,13 +296,18 @@ class Words extends SpamFilter
      */
     private function addRule(string $content, bool $general = false)
     {
-        $strReq = 'SELECT rule_id FROM ' . $this->table . ' ' .
-        "WHERE rule_type = 'word' " .
-        "AND rule_content = '" . App::con()->escape($content) . "' ";
+        $sql = new SelectStatement();
+
         if (!$general) {
-            $strReq .= ' AND blog_id = \'' . App::blog()->id() . '\'';
+            $sql->and('blog_id = ' . $sql->quote(App::blog()->id()));
         }
-        $rs = new MetaRecord(App::con()->select($strReq));
+
+        $rs = $sql
+            ->column('rule_id')
+            ->from($this->table)
+            ->where('rule_type = ' . $sql->quote('word'))
+            ->and('rule_content = ' . $sql->quote($content))
+            ->select();
 
         if (!$rs->isEmpty() && !$general) {
             throw new Exception(__('This word exists'));
@@ -309,8 +326,13 @@ class Words extends SpamFilter
         if (!$rs->isEmpty() && $general) {
             $cur->update('WHERE rule_id = ' . $rs->rule_id);
         } else {
-            $rs_max       = new MetaRecord(App::con()->select('SELECT MAX(rule_id) FROM ' . $this->table));
-            $cur->rule_id = (int) $rs_max->f(0) + 1;
+            $sql = new SelectStatement();
+            $cur->rule_id = (int) $sql
+                ->column($sql->max('rule_id'))
+                ->from($this->table)
+                ->select()
+                ->f(0) + 1;
+
             $cur->insert();
         }
     }
@@ -322,23 +344,24 @@ class Words extends SpamFilter
      */
     private function removeRule($ids)
     {
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new DeleteStatement();
 
         if (is_array($ids)) {
-            foreach ($ids as &$v) {
-                $v = (int) $v;
+            foreach ($ids as $i => $v) {
+                $ids[$i] = (int) $v;
             }
-            $strReq .= 'WHERE rule_id IN (' . implode(',', $ids) . ') ';
         } else {
-            $ids = (int) $ids;
-            $strReq .= 'WHERE rule_id = ' . $ids . ' ';
+            $ids = [(int) $ids];
         }
 
         if (!App::auth()->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . App::con()->escape(App::blog()->id()) . "' ";
+            $sql->and('blog_id = ' . $sql->quote(App::blog()->id()));
         }
 
-        App::con()->execute($strReq);
+        $sql
+            ->from($this->table)
+            ->where('rule_id = ' . $sql->in($ids))
+            ->delete();
     }
 
     /**
