@@ -81,6 +81,7 @@ class Blogroll extends initBlogroll
         }
 
         $rs = $sql->select();
+        $rs = $rs->toStatic();
 
         $this->setLinksData($rs);
 
