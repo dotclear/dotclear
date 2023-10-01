@@ -12,6 +12,7 @@ namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 
@@ -493,14 +494,17 @@ class Post
         if (isset($rs->_nb_media[$rs->index()])) {
             return (int) $rs->_nb_media[$rs->index()];
         }
-        $strReq = 'SELECT count(media_id) ' .
-            'FROM ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' ' .
-            'WHERE post_id = ' . (int) $rs->post_id . ' ';
+        $sql = new SelectStatement();
+        $sql
+            ->column($sql->count('media_id'))
+            ->from(App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME)
+            ->where('post_id = ' . (string) $rs->post_id);
+
         if ($link_type) {
-            $strReq .= "AND link_type = '" . App::con()->escape($link_type) . "'";
+            $sql->and('link_type = ' . $sql->quote($link_type));
         }
 
-        $res = (int) (new MetaRecord(App::con()->select($strReq)))->f(0);
+        $res = (int) $sql->select()->f(0);
 
         $rs->_nb_media[$rs->index()] = $res;
 

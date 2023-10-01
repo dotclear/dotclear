@@ -11,6 +11,7 @@ namespace Dotclear\Plugin\maintenance\Task;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
 /**
@@ -102,16 +103,34 @@ class SynchPostsMeta extends MaintenanceTask
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {
         // Get number of posts
-        $rs    = new MetaRecord(App::con()->select('SELECT COUNT(post_id) FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME));
-        $count = $rs->f(0);
+        $sql = new SelectStatement();
+        $count = $sql
+            ->column($sql->count('post_id'))
+            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
+            ->select()
+            ->f(0);
 
         // Get posts ids to update
-        $req_limit = $start !== null && $limit !== null ? App::con()->limit($start, $limit) : '';
-        $rs        = new MetaRecord(App::con()->select('SELECT post_id FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' . $req_limit));
+        $sql = new SelectStatement();
+        $sql
+            ->column('post_id')
+            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME);
+        if ($start !== null && $limit !== null) {
+            $sql->limit([$start, $limit]);
+        }
+        $rs = $sql->select();
 
         // Update posts meta
         while ($rs->fetch()) {
-            $rs_meta = new MetaRecord(App::con()->select('SELECT meta_id, meta_type FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' WHERE post_id = ' . $rs->post_id . ' '));
+            $sql_meta = new SelectStatement();
+            $rs_meta = $sql_meta
+                ->columns([
+                    'meta_id',
+                    'meta_type',
+                ])
+                ->from(App::con()->prefix() . App::meta()::META_TABLE_NAME)
+                ->where('post_id = ' . $rs->post_id)
+                ->select();
 
             $meta = [];
             while ($rs_meta->fetch()) {

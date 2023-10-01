@@ -54,6 +54,8 @@ abstract class Process
      * Initialise class.
      *
      * This method SHOULD set self::status().
+     * This method SHOULD stay as small as possible for modules
+     * as it can be called multiple times to check only class status.
      *
      * @return bool  true if class can be used
      */

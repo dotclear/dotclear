@@ -11,6 +11,7 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
@@ -81,11 +82,15 @@ class Trackback implements TrackbackInterface
     //@{
     public function getPostPings(int $post_id): MetaRecord
     {
-        $strReq = 'SELECT ping_url, ping_dt ' .
-        'FROM ' . $this->table . ' ' .
-        'WHERE post_id = ' . (int) $post_id;
-
-        return new MetaRecord($this->con->select($strReq));
+        $sql = new SelectStatement();
+        return $sql
+            ->columns([
+                'ping_url',
+                'ping_dt',
+            ])
+            ->from($this->table)
+            ->where('post_id = ' . (string) $post_id)
+            ->select();
     }
 
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
@@ -95,11 +100,16 @@ class Trackback implements TrackbackInterface
         }
 
         # Check for previously done trackback
-        $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
-        'WHERE post_id = ' . $post_id . ' ' .
-        "AND ping_url = '" . $this->con->escape($url) . "' ";
-
-        $rs = new MetaRecord($this->con->select($strReq));
+        $sql = new SelectStatement();
+        $rs = $sql
+            ->columns([
+                'post_id',
+                'ping_url',
+            ])
+            ->from($this->table)
+            ->where('post_id = ' . (string) $post_id)
+            ->and('ping_url = ' . $sql->quote($url))
+            ->select();
 
         if (!$rs->isEmpty()) {
             throw new BadRequestException(sprintf(__('%s has still been pinged'), $url));

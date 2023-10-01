@@ -214,7 +214,7 @@ class Config implements ConfigInterface
         define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
 
         // Set a default lang and load locales for detected language (for error translation)
-        l10n::bootstrap();
+        L10n::bootstrap();
         $detected_languages = Http::getAcceptLanguages();
         foreach ($detected_languages as $language) {
             if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'main'])) !== false) {
