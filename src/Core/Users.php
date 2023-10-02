@@ -16,13 +16,13 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Schema\Extension\User;
-use Exception;
 
 /**
  * @brief   Users handler.
@@ -34,13 +34,11 @@ class Users implements UsersInterface
     /**
      * Constructor.
      *
-     * @param   AuthInterface           $auth           Auth instance
-     * @param   BehaviorInterface       $behavior       Behavior instance
-     * @param   BlogInterface           $blog           Blog instance
-     * @param   ConnectionInterface     $con            Database connection instance
+     * @param   BehaviorInterface       $behavior   The behavior instance
+     * @param   BlogInterface           $blog       The blog instance
+     * @param   ConnectionInterface     $con        The database connection instance
      */
     public function __construct(
-        protected AuthInterface $auth,
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
         protected ConnectionInterface $con,
@@ -61,7 +59,7 @@ class Users implements UsersInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('U.user_id'))
-                ->from($sql->as($this->con->prefix() . $this->auth::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
                 ->where('NULL IS NULL');
         } else {
             $sql
@@ -83,7 +81,7 @@ class Users implements UsersInterface
                     'user_options',
                     $sql->count('P.post_id', 'nb_post'),
                 ])
-                ->from($sql->as($this->con->prefix() . $this->auth::USER_TABLE_NAME, 'U'));
+                ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'));
 
             if (!empty($params['columns'])) {
                 $sql->columns($params['columns']);
@@ -159,16 +157,16 @@ class Users implements UsersInterface
 
     public function addUser(Cursor $cur): string
     {
-        if (!$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+        if (!$this->blog->auth()->isSuperAdmin()) {
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         if ($cur->user_id == '') {
-            throw new Exception(__('No user ID given'));
+            throw new BadRequestException(__('No user ID given'));
         }
 
         if ($cur->user_pwd == '') {
-            throw new Exception(__('No password given'));
+            throw new BadRequestException(__('No password given'));
         }
 
         $this->fillUserCursor($cur);
@@ -189,8 +187,8 @@ class Users implements UsersInterface
     {
         $this->fillUserCursor($cur);
 
-        if (($cur->user_id !== null || $id != $this->auth->userID()) && !$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+        if (($cur->user_id !== null || $id != $this->blog->auth()->userID()) && !$this->blog->auth()->isSuperAdmin()) {
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         $sql = new UpdateStatement();
@@ -218,14 +216,10 @@ class Users implements UsersInterface
         if ($rs) {
             $old_blog = $this->blog->id();
             while ($rs->fetch()) {
-                $this->blog->load($rs->blog_id);
+                $this->blog->loadFromBlog($rs->blog_id);
                 $this->blog->triggerBlog();
             }
-            if (empty($old_blog)) {
-                $this->blog->load('');
-            } else {
-                $this->blog->load($old_blog);
-            }
+            $this->blog->loadFromBlog(empty($old_blog) ? '' : $old_blog);
         }
 
         return $id;
@@ -233,11 +227,11 @@ class Users implements UsersInterface
 
     public function delUser(string $id): void
     {
-        if (!$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+        if (!$this->blog->auth()->isSuperAdmin()) {
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
-        if ($id == $this->auth->userID()) {
+        if ($id == $this->blog->auth()->userID()) {
             return;
         }
 
@@ -249,7 +243,7 @@ class Users implements UsersInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . $this->auth::USER_TABLE_NAME)
+            ->from($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -263,7 +257,7 @@ class Users implements UsersInterface
         $sql = new SelectStatement();
         $sql
             ->column('user_id')
-            ->from($this->con->prefix() . $this->auth::USER_TABLE_NAME)
+            ->from($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -281,7 +275,7 @@ class Users implements UsersInterface
                 'blog_url',
                 'permissions',
             ])
-            ->from($sql->as($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME, 'P'))
+            ->from($sql->as($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
             ->join(
                 (new JoinStatement())
                 ->inner()
@@ -300,7 +294,7 @@ class Users implements UsersInterface
                 $res[(string) $rs->blog_id] = [
                     'name' => $rs->blog_name,
                     'url'  => $rs->blog_url,
-                    'p'    => $this->auth->parsePermissions($rs->permissions),
+                    'p'    => $this->blog->auth()->parsePermissions($rs->permissions),
                 ];
             }
         }
@@ -310,13 +304,13 @@ class Users implements UsersInterface
 
     public function setUserPermissions(string $id, array $perms): void
     {
-        if (!$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+        if (!$this->blog->auth()->isSuperAdmin()) {
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME)
+            ->from($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -328,15 +322,15 @@ class Users implements UsersInterface
 
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
-        if (!$this->auth->isSuperAdmin()) {
-            throw new Exception(__('You are not an administrator'));
+        if (!$this->blog->auth()->isSuperAdmin()) {
+            throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         $no_perm = empty($perms);
 
         $perms = '|' . implode('|', array_keys($perms)) . '|';
 
-        $cur = $this->auth->openPermCursor();
+        $cur = $this->blog->auth()->openPermCursor();
 
         $cur->user_id     = (string) $id;
         $cur->blog_id     = (string) $blog_id;
@@ -345,7 +339,7 @@ class Users implements UsersInterface
         if ($delete_first || $no_perm) {
             $sql = new DeleteStatement();
             $sql
-                ->from($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME)
+                ->from($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id))
                 ->and('user_id = ' . $sql->quote($id));
 
@@ -359,7 +353,7 @@ class Users implements UsersInterface
 
     public function setUserDefaultBlog(string $id, string $blog_id): void
     {
-        $cur = $this->auth->openUserCursor();
+        $cur = $this->blog->auth()->openUserCursor();
 
         $cur->user_default_blog = (string) $blog_id;
 
@@ -371,7 +365,7 @@ class Users implements UsersInterface
 
     public function removeUsersDefaultBlogs(array $ids): void
     {
-        $cur = $this->auth->openUserCursor();
+        $cur = $this->blog->auth()->openUserCursor();
 
         $cur->user_default_blog = null;
 
@@ -386,13 +380,13 @@ class Users implements UsersInterface
      *
      * @param      Cursor     $cur    The user Cursor
      *
-     * @throws     Exception
+     * @throws     BadRequestException
      */
     private function fillUserCursor(Cursor $cur): void
     {
         if ($cur->isField('user_id')
             && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', (string) $cur->user_id)) {
-            throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
+            throw new BadRequestException(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
         if ($cur->user_url !== null && $cur->user_url != '') {
@@ -403,13 +397,13 @@ class Users implements UsersInterface
 
         if ($cur->isField('user_pwd')) {
             if (strlen($cur->user_pwd) < 6) {
-                throw new Exception(__('Password must contain at least 6 characters.'));
+                throw new BadRequestException(__('Password must contain at least 6 characters.'));
             }
-            $cur->user_pwd = $this->auth->crypt($cur->user_pwd);
+            $cur->user_pwd = $this->blog->auth()->crypt($cur->user_pwd);
         }
 
         if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $cur->user_lang)) {
-            throw new Exception(__('Invalid user language code'));
+            throw new BadRequestException(__('Invalid user language code'));
         }
 
         if ($cur->user_upddt === null) {

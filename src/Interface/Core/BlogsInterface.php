@@ -12,7 +12,7 @@ namespace Dotclear\Interface\Core;
 use ArrayObject;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Exception;
+use Dotclear\Exception\UnauthorizedException;
 
 /**
  * @brief   Blogs handler interface.
@@ -94,7 +94,7 @@ interface BlogsInterface
      *
      * @param 	Cursor 	$cur 	The blog Cursor
      *
-     * @throws 	Exception
+     * @throws 	UnauthorizedException
      */
     public function addBlog(Cursor $cur): void;
 
@@ -114,7 +114,7 @@ interface BlogsInterface
      *
      * @param 	string 	$id 	The blog identifier
      *
-     * @throws 	Exception
+     * @throws 	UnauthorizedException
      */
     public function delBlog(string $id): void;
 

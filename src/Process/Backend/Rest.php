@@ -140,7 +140,7 @@ class Rest extends Process
                         'ret'   => $ret,
                     ];
                 }
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
         }
@@ -484,7 +484,7 @@ class Rest extends Process
 
         try {
             $file = App::media()->getFile((int) $id);
-        } catch (Exception $e) {
+        } catch (Exception) {
             // Ignore exceptions
         }
 

@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use Dotclear\App;
+use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
 /**
@@ -54,10 +55,11 @@ class Logs extends MaintenanceTask
     public function execute()
     {
         if (static::$keep_maintenance_logs) {
-            App::con()->execute(
-                'DELETE FROM ' . App::con()->prefix() . App::log()::LOG_TABLE_NAME . ' ' .
-                "WHERE log_table <> 'maintenance' "
-            );
+            $sql = new DeleteStatement();
+            $sql
+                ->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
+                ->where('log_table <> ' . $sql->quote('maintenance'))
+                ->delete();
         } else {
             App::log()->delAllLogs();
         }

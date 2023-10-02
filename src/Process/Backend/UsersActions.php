@@ -205,7 +205,7 @@ class UsersActions extends Process
             try {
                 $rs      = App::blogs()->getBlogs();
                 $nb_blog = $rs->count();
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
 

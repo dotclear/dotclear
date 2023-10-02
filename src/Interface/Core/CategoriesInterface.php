@@ -20,6 +20,15 @@ use Dotclear\Database\MetaRecord;
 interface CategoriesInterface
 {
     /**
+     * Create new categorires instance for given blog ID.
+     *
+     * @param   string  $blog_id    The blog_id
+     *
+     * @return  CategoriesInterface     The blog categories instance
+     */
+    public function createFromBlog(string $blog_id): CategoriesInterface;
+
+    /**
      * Categories table name.
      *
      * @var   string  CATEGORY_TABLE_NAME

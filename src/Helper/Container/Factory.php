@@ -29,12 +29,12 @@ class Factory
     /**
      * Constructor.
      *
-     * @param   string  $id         The container ID.
-     * @param   bool    $overwrite  Service can be overridden.
+     * @param   string  $id             The container ID.
+     * @param   bool    $rewritable     Service can be overridden.
      */
     public function __construct(
         public readonly string $id,
-        public readonly bool $overwrite = false
+        public readonly bool $rewritable = true
     ) {
     }
 
@@ -46,7 +46,7 @@ class Factory
      */
     public function set(string $service, string|callable $callback): void
     {
-        if ($this->overwrite || !array_key_exists($service, $this->stack)) {
+        if ($this->rewritable || !array_key_exists($service, $this->stack)) {
             $this->stack[$service] = $callback;
         }
     }

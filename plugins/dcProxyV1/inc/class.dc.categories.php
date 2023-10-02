@@ -19,6 +19,6 @@ class dcCategories extends Dotclear\Core\Categories
 {
 	public function __construct()
 	{
-		parent::__construct(App::blog(), App::con());
+		parent::__construct(App::con(), App::blog()->id());
 	}
 }

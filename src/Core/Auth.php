@@ -10,17 +10,23 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\ProcessException;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\BlogInterface;
+use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Schema\Extension\User;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Authentication handler.
@@ -30,13 +36,6 @@ use Exception;
  */
 class Auth implements AuthInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var  ConnectionInterface $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * User table name.
      *
@@ -50,13 +49,6 @@ class Auth implements AuthInterface
      * @var  string     $perm_table
      */
     protected string $perm_table;
-
-    /**
-     * Blog table name.
-     *
-     * @var     string  $blog_table
-     */
-    protected string $blog_table;
 
     /**
      * Current user ID.
@@ -103,9 +95,11 @@ class Auth implements AuthInterface
     /**
      * List of blogs on which the user has permissions.
      *
-     * @var     array<string, mixed>   $blogs
+     * @since   2.28, as $user_blogs, before as $blogs
+     *
+     * @var     array<string, mixed>   $user_blogs
      */
-    protected array $blogs = [];
+    protected array $user_blogs = [];
 
     /**
      * Count of user blogs.
@@ -126,49 +120,26 @@ class Auth implements AuthInterface
     protected array $perm_types;
 
     /**
-     * UserPreferences (user preferences) object.
-     *
-     * @deprecated  since 2.28, use App::auth()->prefs() instead
-     *
-     * @var     UserPreferencesInterface    $user_prefs
-     */
-    public UserPreferencesInterface $user_prefs;
-
-    /**
-     * Create a new instance of authentication class (user-defined or default).
-     *
-     * @todo    Remove old dcCore from Auth::init returned new instance parameters
-     *
-     * @throws  Exception
-     *
-     * @return  AuthInterface
-     */
-    public static function init(): AuthInterface
-    {
-        // You can set DC_AUTH_CLASS to whatever you want.
-        // Your new class *should* inherits dcAuth.
-        $class = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : self::class;
-
-        if (!class_exists($class)) {
-            throw new Exception('Authentication class ' . $class . ' does not exist.');
-        }
-
-        if ($class !== self::class && !is_subclass_of($class, self::class)) {
-            throw new Exception('Authentication class ' . $class . ' does not inherit AuthInterface.');
-        }
-
-        return new $class(dcCore::app());
-    }
-
-    /**
      * Class constructor.
      *
      * Takes dcCore object as single argument in DC_AUTH_CLASS.
+     *
+     * @param   BlogInterface               $blog           The blog instance
+     * @param   BlogsInterface              $blogs          The blogs handler
+     * @param   ConnectionInterface         $con            The database connection instance
+     * @param   SessionInterface            $session        The session handler
+     * @param   UserPreferencesInterface    $user_prefs     The user preferences instance
+     * @param   UsersInterface              $users          The users handler
      */
-    public function __construct()
-    {
-        $this->con        = App::con();
-        $this->blog_table = $this->con->prefix() . App::blog()::BLOG_TABLE_NAME;
+    public function __construct(
+        protected BlogInterface $blog,
+        protected BlogsInterface $blogs,
+        protected ConfigInterface $config,
+        protected ConnectionInterface $con,
+        protected SessionInterface $session,
+        public UserpreferencesInterface $user_prefs,
+        protected UsersInterface $users
+    ) {
         $this->user_table = $this->con->prefix() . self::USER_TABLE_NAME;
         $this->perm_table = $this->con->prefix() . self::PERMISSIONS_TABLE_NAME;
 
@@ -182,6 +153,8 @@ class Auth implements AuthInterface
             self::PERMISSION_MEDIA_ADMIN   => __('manage all media items'),
             self::PERMISSION_MEDIA         => __('manage their own media items'),
         ];
+
+        $this->blog->setAuth($this);
     }
 
     public function openUserCursor(): Cursor
@@ -225,7 +198,7 @@ class Auth implements AuthInterface
 
         try {
             $rs = $sql->select();
-        } catch (Exception $e) {
+        } catch (Throwable) {
             return false;
         }
 
@@ -251,7 +224,7 @@ class Auth implements AuthInterface
                 $ret = password_get_info($rs->user_pwd);
                 if (is_array($ret) && isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
-                    if (Crypt::hmac(App::config()->masterKey(), $pwd, App::config()->cryptAlgo()) == $rs->user_pwd) {
+                    if (Crypt::hmac($this->config->masterKey(), $pwd, $this->config->cryptAlgo()) == $rs->user_pwd) {
                         // Password Ok, need to store it in new fashion way
                         $rs->user_pwd = $this->crypt($pwd);
                         $rehash       = true;
@@ -280,7 +253,7 @@ class Auth implements AuthInterface
             }
         } elseif (is_string($user_key) && $user_key !== '') {
             // Avoid time attacks by measuring server response time during comparison
-            if (!hash_equals(Http::browserUID(App::config()->masterKey() . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
+            if (!hash_equals(Http::browserUID($this->config->masterKey() . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
                 return false;
             }
         }
@@ -302,16 +275,16 @@ class Auth implements AuthInterface
         $this->user_info['user_creadt']       = $rs->user_creadt;
         $this->user_info['user_upddt']        = $rs->user_upddt;
 
-        $this->user_info['user_cn'] = App::users()->getUserCN(
+        $this->user_info['user_cn'] = $this->users->getUserCN(
             $rs->user_id,
             $rs->user_name,
             $rs->user_firstname,
             $rs->user_displayname
         );
 
-        $this->user_options = array_merge(App::users()->userDefaults(), $rs->options());
+        $this->user_options = array_merge($this->users->userDefaults(), $rs->options());
 
-        $this->user_prefs = App::userPreferences()->load($this->userID());
+        $this->user_prefs = $this->user_prefs->createFromUser($this->userID());
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -328,7 +301,7 @@ class Auth implements AuthInterface
 
     public function cryptLegacy(string $pwd): string
     {
-        return Crypt::hmac(App::config()->masterKey(), $pwd, App::config()->cryptAlgo());
+        return Crypt::hmac($this->config->masterKey(), $pwd, $this->config->cryptAlgo());
     }
 
     public function checkPassword(string $pwd): bool
@@ -342,13 +315,13 @@ class Auth implements AuthInterface
 
     public function sessionExists(): bool
     {
-        return isset($_COOKIE[App::config()->sessionName()]);
+        return isset($_COOKIE[$this->config->sessionName()]);
     }
 
     public function checkSession(?string $uid = null): bool
     {
         $welcome = true;
-        App::session()->start();
+        $this->session->start();
 
         if (!isset($_SESSION['sess_user_id'])) {
             // If session does not exist, logout.
@@ -356,7 +329,7 @@ class Auth implements AuthInterface
         } else {
             // Check here for user and IP address
             $this->checkUser($_SESSION['sess_user_id']);
-            $uid = $uid ?: Http::browserUID(App::config()->masterKey());
+            $uid = $uid ?: Http::browserUID($this->config->masterKey());
 
             if (!$this->userID() || ($uid !== $_SESSION['sess_browser_uid'])) {
                 $welcome = false;
@@ -364,7 +337,7 @@ class Auth implements AuthInterface
         }
 
         if (!$welcome) {
-            App::session()->destroy();
+            $this->session->destroy();
         }
 
         return $welcome;
@@ -421,18 +394,10 @@ class Auth implements AuthInterface
     /// @name Sudo
     //@{
 
-    /**
-     * Calls <var>$fn</var> function with super admin rights.
-     *
-     * @param   callable    $fn     Callback function
-     * @param   mixed       $args   Callback arguments
-     *
-     * @return  mixed   The function result
-     */
     public function sudo($fn, ...$args)
     {
         if (!is_callable($fn)) {
-            throw new Exception(print_r($fn, true) . ' function doest not exist');
+            throw new ProcessException(print_r($fn, true) . ' function doest not exist');
         }
 
         if ($this->isSuperAdmin()) {
@@ -443,7 +408,7 @@ class Auth implements AuthInterface
             try {
                 $res              = $fn(...$args);
                 $this->user_admin = false;
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->user_admin = false;
 
                 throw $e;
@@ -472,8 +437,8 @@ class Auth implements AuthInterface
      */
     public function getPermissions(?string $blog_id)
     {
-        if (isset($this->blogs[$blog_id])) {
-            return $this->blogs[$blog_id];
+        if (isset($this->user_blogs[$blog_id])) {
+            return $this->user_blogs[$blog_id];
         }
 
         if ($this->isSuperAdmin()) {
@@ -481,14 +446,14 @@ class Auth implements AuthInterface
             $sql = new SelectStatement();
             $sql
                 ->column('blog_id')
-                ->from($this->blog_table)
+                ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id));
 
             $rs = $sql->select();
 
-            $this->blogs[$blog_id] = $rs->isEmpty() ? false : [self::PERMISSION_ADMIN => true];
+            $this->user_blogs[$blog_id] = $rs->isEmpty() ? false : [self::PERMISSION_ADMIN => true];
 
-            return $this->blogs[$blog_id];
+            return $this->user_blogs[$blog_id];
         }
 
         $sql = new SelectStatement();
@@ -505,15 +470,15 @@ class Auth implements AuthInterface
 
         $rs = $sql->select();
 
-        $this->blogs[$blog_id] = $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
+        $this->user_blogs[$blog_id] = $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
 
-        return $this->blogs[$blog_id];
+        return $this->user_blogs[$blog_id];
     }
 
     public function getBlogCount(): int
     {
         if (!isset($this->blog_count)) {
-            $this->blog_count = (int) App::blogs()->getBlogs([], true)->f(0);
+            $this->blog_count = (int) $this->blogs->getBlogs([], true)->f(0);
         }
 
         return $this->blog_count;
@@ -525,8 +490,8 @@ class Auth implements AuthInterface
             if ($all_status || $this->isSuperAdmin()) {
                 return $blog_id;
             }
-            $rs = App::blogs()->getBlog($blog_id);
-            if ($rs !== false && $rs->blog_status !== App::blog()::BLOG_REMOVED) {
+            $rs = $this->blogs->getBlog($blog_id);
+            if ($rs !== false && $rs->blog_status !== $this->blog::BLOG_REMOVED) {
                 return $blog_id;
             }
         }
@@ -536,7 +501,7 @@ class Auth implements AuthInterface
         if ($this->isSuperAdmin()) {
             $sql
                 ->column('blog_id')
-                ->from($this->blog_table)
+                ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
                 ->order('blog_id ASC')
                 ->limit(1);
         } else {
@@ -544,7 +509,7 @@ class Auth implements AuthInterface
                 ->column('P.blog_id')
                 ->from([
                     $this->perm_table . ' P',
-                    $this->blog_table . ' B',
+                    $this->con->prefix() . $this->blog::BLOG_TABLE_NAME . ' B',
                 ])
                 ->where('user_id = ' . $sql->quote($this->userID()))
                 ->and('P.blog_id = B.blog_id')
@@ -553,7 +518,7 @@ class Auth implements AuthInterface
                     $sql->like('permissions', '%|' . self::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . self::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status >= ' . (string) App::blog()::BLOG_OFFLINE)
+                ->and('blog_status >= ' . (string) $this->blog::BLOG_OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }
@@ -585,11 +550,6 @@ class Auth implements AuthInterface
         }
     }
 
-    /**
-     * Gets the options.
-     *
-     * @return     array<string, mixed>  The options.
-     */
     public function getOptions(): array
     {
         return $this->user_options;
@@ -599,13 +559,6 @@ class Auth implements AuthInterface
     /// @name Permissions
     //@{
 
-    /**
-     * Parse user permissions
-     *
-     * @param      mixed  $level  The level
-     *
-     * @return     array<string, mixed>
-     */
     public function parsePermissions($level): array
     {
         $level = preg_replace('/^\|/', '', (string) $level);
@@ -619,23 +572,11 @@ class Auth implements AuthInterface
         return $res;
     }
 
-    /**
-     * Makes permissions.
-     *
-     * @param      array<string>  $list   The list
-     *
-     * @return     string
-     */
     public function makePermissions(array $list): string
     {
         return implode(',', $list);
     }
 
-    /**
-     * Gets the permissions types.
-     *
-     * @return     array<string, string>  The permissions types.
-     */
     public function getPermissionsTypes(): array
     {
         return $this->perm_types;
@@ -663,7 +604,7 @@ class Auth implements AuthInterface
         $rs = $sql->select();
 
         if ($rs->isEmpty()) {
-            throw new Exception(__('That user does not exist in the database.'));
+            throw new BadRequestException(__('That user does not exist in the database.'));
         }
 
         $key = md5(uniqid('', true));
@@ -679,15 +620,6 @@ class Auth implements AuthInterface
         return $key;
     }
 
-    /**
-     * Recover user password
-     *
-     * @param      string     $recover_key  The recover key
-     *
-     * @throws     Exception
-     *
-     * @return     array<string, string>
-     */
     public function recoverUserPassword(string $recover_key): array
     {
         $sql = new SelectStatement();
@@ -699,7 +631,7 @@ class Auth implements AuthInterface
         $rs = $sql->select();
 
         if ($rs->isEmpty()) {
-            throw new Exception(__('That key does not exist in the database.'));
+            throw new BadRequestException(__('That key does not exist in the database.'));
         }
 
         $new_pass = Crypt::createPassword();

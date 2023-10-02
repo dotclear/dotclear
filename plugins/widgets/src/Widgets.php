@@ -500,7 +500,7 @@ class Widgets
             if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
                 return '';
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             return '';
         }
 

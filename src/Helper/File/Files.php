@@ -376,7 +376,7 @@ class Files
                 }
 
                 return (bool) @chmod($file, self::$dir_mode);
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // chmod and maybe fileperms functions may be disabled so catch exception and return false
             }
         }

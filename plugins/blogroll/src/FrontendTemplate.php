@@ -96,7 +96,7 @@ class FrontendTemplate
 
         try {
             $links = $blogroll->getLinks();
-        } catch (Exception $e) {
+        } catch (Exception) {
             return '';
         }
 

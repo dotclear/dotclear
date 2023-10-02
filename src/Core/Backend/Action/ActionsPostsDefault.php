@@ -10,10 +10,11 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -432,7 +433,12 @@ class ActionsPostsDefault
 
             $cur          = App::blog()->openPostCursor();
             $cur->user_id = $new_user_id;
-            $cur->update('WHERE post_id ' . App::con()->in($ids));
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('post_id ' . $sql->in($ids))
+                ->update($cur);
+
             Notices::addSuccessNotice(
                 sprintf(
                     __(
@@ -523,7 +529,12 @@ class ActionsPostsDefault
             $new_lang       = $post['new_lang'];
             $cur            = App::blog()->openPostCursor();
             $cur->post_lang = $new_lang;
-            $cur->update('WHERE post_id ' . App::con()->in($post_ids));
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('post_id ' . $sql->in($post_ids))
+                ->update($cur);
+
             Notices::addSuccessNotice(
                 sprintf(
                     __(

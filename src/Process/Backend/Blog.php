@@ -61,7 +61,7 @@ class Blog extends Process
                 App::blogs()->addBlog($cur);
 
                 # Default settings and override some
-                $blog_settings = App::blogSettings()->load($cur->blog_id);
+                $blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
                 $blog_settings->system->put('lang', App::auth()->getInfo('user_lang'));
                 $blog_settings->system->put('blog_timezone', App::auth()->getInfo('user_tz'));
 

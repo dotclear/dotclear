@@ -19,11 +19,13 @@ use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
-use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\TraitDynamicProperties;
-use Exception;
+use Dotclear\Exception\ContextException;
+use Dotclear\Exception\PreconditionException;
+use Dotclear\Exception\SessionException;
+use Throwable;
 
 /**
  * Utility class for admin context.
@@ -83,12 +85,12 @@ class Utility extends Process
     /**
      * Constructs a new instance.
      *
-     * @throws     Exception  (if not admin context)
+     * @throws     ContextException  (if not admin context)
      */
     public function __construct()
     {
         if (!App::task()->checkContext('BACKEND')) {
-            throw new Exception('Application is not in administrative context.', 500);
+            throw new ContextException('Application is not in administrative context.');
         }
 
         // deprecated since 2.28, use App::backend() instead
@@ -109,6 +111,8 @@ class Utility extends Process
 
     /**
      * Process application utility and set up a singleton instance.
+     *
+     * @throws     SessionException|PreconditionException
      */
     public static function process(): bool
     {
@@ -134,8 +138,8 @@ class Utility extends Process
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
                     App::backend()->url->redirect('admin.auth', $params);
                 }
-            } catch (Exception $e) {
-                new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
+            } catch (Throwable) {
+                throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
             }
 
             // Fake process to logout (kill session) and return to auth page.
@@ -153,7 +157,7 @@ class Utility extends Process
 
             // Check nonce from POST requests
             if (!empty($_POST) && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
-                new Fault('Precondition Failed', __('Precondition Failed'), 412);
+                throw new PreconditionException();
             }
 
             // Switch blog
@@ -201,7 +205,7 @@ class Utility extends Process
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
-                App::blog()->load($_SESSION['sess_blog_id']);
+                App::blog()->loadFromBlog($_SESSION['sess_blog_id']);
             } else {
                 App::session()->destroy();
                 App::backend()->url->redirect('admin.auth');

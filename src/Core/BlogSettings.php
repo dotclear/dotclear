@@ -12,11 +12,13 @@ namespace Dotclear\Core;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Blog settings handler.
@@ -64,7 +66,7 @@ class BlogSettings implements BlogSettingsInterface
         }
     }
 
-    public function load(?string $blog_id): BlogSettingsInterface
+    public function createFromBlog(?string $blog_id): BlogSettingsInterface
     {
         return new self($this->workspace, $this->con, $this->deprecated, $blog_id);
     }
@@ -96,8 +98,8 @@ class BlogSettings implements BlogSettingsInterface
 
         try {
             $rs = $sql->select();
-        } catch (Exception) {
-            trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
+        } catch (Throwable) {
+            throw new ProcessException(__('Unable to retrieve namespaces:') . ' ' . $this->con->error());
         }
 
         /* Prevent empty tables (install phase, for instance) */
@@ -112,14 +114,14 @@ class BlogSettings implements BlogSettingsInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ns] = $this->workspace->load($this->blog_id, $ns, $rs);
+            $this->workspaces[$ns] = $this->workspace->createFromBlog($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
     public function addWorkspace(string $workspace): BlogWorkspaceInterface
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = $this->workspace->load($this->blog_id, $workspace);
+            $this->workspaces[$workspace] = $this->workspace->createFromBlog($this->blog_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -132,7 +134,7 @@ class BlogSettings implements BlogSettingsInterface
         }
 
         if (!preg_match($this->workspace::NS_NAME_SCHEMA, $new_workspace)) {
-            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $new_workspace));
+            throw new BadRequestException(sprintf(__('Invalid setting namespace: %s'), $new_workspace));
         }
 
         // Rename the namespace in the database
@@ -144,7 +146,7 @@ class BlogSettings implements BlogSettingsInterface
         $sql->update();
 
         // Reload the renamed namespace in the namespace array
-        $this->workspaces[$new_workspace] = $this->workspace->load($this->blog_id, $new_workspace);
+        $this->workspaces[$new_workspace] = $this->workspace->createFromBlog($this->blog_id, $new_workspace);
 
         // Remove the old namespace from the namespace array
         unset($this->workspaces[$old_workspace]);

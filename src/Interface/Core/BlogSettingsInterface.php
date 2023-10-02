@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Exception\BadRequestException;
+
 /**
  * @brief   Blog settings handler interface.
  *
@@ -31,7 +33,7 @@ interface BlogSettingsInterface
      *
      * @param   null|string     $blog_id    The blog ID
      */
-    public function load(?string $blog_id): BlogSettingsInterface;
+    public function createFromBlog(?string $blog_id): BlogSettingsInterface;
 
     /**
      * Create a new workspace.
@@ -50,7 +52,7 @@ interface BlogSettingsInterface
      * @param   string  $old_workspace  The old ns
      * @param   string  $new_workspace  The new ns
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool    return true if no error, else false
      */

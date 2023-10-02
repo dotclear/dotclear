@@ -9,11 +9,17 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
+use dcCore;
+use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\L10n;
+use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\ConfigException;
 use Dotclear\Interface\ConfigInterface;
-use Exception;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\ConnectionInterface;
 
 /**
  * @brief   The helper to parse configuration values.
@@ -30,9 +36,6 @@ use Exception;
  * modification from config file.
  *
  * Not yet in config:
- * * DC_DBHANDLER_CLASS
- * * DC_DBSCHEMA_CLASS
- * * DC_AUTH_CLASS
  * * DC_ERRORFILE
  * * DC_FAIRTRACKBACKS_FORCE (plugin)
  * * DC_ANTISPAM_CONF_SUPER (plugin)
@@ -127,6 +130,7 @@ class Config implements ConfigInterface
     private readonly bool $http_revers_proxy;
     private readonly bool $check_add_blocker;
     private readonly string $csp_report_file;
+    private readonly bool $has_config;
 
     /**
      * Constructor.
@@ -135,7 +139,7 @@ class Config implements ConfigInterface
      * from differents places like:
      * index files, config file, release file, PHP config, etc...
      *
-     * @throws  Exception
+     * @throws  ConfigException
      *
      * @param   string  $dotclear_root  Dotclear root directory path
      */
@@ -179,6 +183,8 @@ class Config implements ConfigInterface
             default                                => implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]),
         };
 
+        $this->has_config = is_file($this->configPath());
+
         // Store upload_max_filesize in bytes
         $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
         $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
@@ -204,8 +210,20 @@ class Config implements ConfigInterface
         define('DC_DEFAULT_JQUERY', $this->defaultJQuery());
         define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
 
+        // Set a default lang and load locales for detected language (for error translation)
+        L10n::bootstrap();
+        $detected_languages = Http::getAcceptLanguages();
+        foreach ($detected_languages as $language) {
+            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'main'])) !== false) {
+                L10n::lang($language);
+
+                break;
+            }
+        }
+        unset($detected_languages);
+
         // Load config file
-        if (is_file($this->configPath())) {
+        if ($this->hasConfig()) {
             // path::real() may be used in inc/config.php
             if (!class_exists('path')) {
                 class_alias('Dotclear\Helper\File\Path', 'path');
@@ -420,14 +438,29 @@ class Config implements ConfigInterface
 
         // No release file
         if ($this->dotclearVersion() == '') {
-            throw new Exception(__('Dotclear release file is not readable'));
+            throw new ConfigException(__('Dotclear release file is not readable'));
         }
 
+        // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
+        if (defined('DC_AUTH_CLASS') && is_subclass_of(DC_AUTH_CLASS, AuthInterface::class)) {
+            Factories::addService('core', AuthInterface::class, fn ($container) => new (DC_AUTH_CLASS)(dcCore::app()));
+        }
+
+        // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
+        if (defined('DC_DBHANDLER_CLASS') && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
+            Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);
+        }
+
+        // Deprecated since 2.28, DC_DBSCHEMA_CLASS is no more used, database Schema class MUST be provided by Connection class method schema()
+        //if (defined('DC_DBHANDLER_CLASS')) {
+        //    throw new ConfigException('Database Schema class MUST be provided by Connection class method schema().');
+        //}
+
         // No config file and not in install process
-        if (!is_file($this->configPath())) {
+        if (!$this->hasConfig()) {
             // Do not process install on CLI mode
             if ($this->cliMode()) {
-                throw new Exception('Dotclear is not installed or failed to load config file.');
+                throw new ConfigException('Dotclear is not installed or failed to load config file.');
             }
 
             // Stop configuration here on install wizard (App class takes the rest)
@@ -436,7 +469,7 @@ class Config implements ConfigInterface
 
         // Check length of cryptographic algorithm result and exit if less than 40 characters long
         if (strlen(Crypt::hmac($this->masterKey(), $this->vendorName(), $this->cryptAlgo())) < 40) {
-            throw new Exception($this->cryptAlgo() . ' cryptographic algorithm configured is not strong enough, please change it.');
+            throw new ConfigException($this->cryptAlgo() . ' cryptographic algorithm configured is not strong enough, please change it.');
         }
 
         // Check existence of cache directory
@@ -444,7 +477,7 @@ class Config implements ConfigInterface
             // Try to create it
             @Files::makeDir($this->cacheRoot());
             if (!is_dir($this->cacheRoot())) {
-                throw new Exception($this->cacheRoot() . ' directory does not exist. Please create it.');
+                throw new ConfigException($this->cacheRoot() . ' directory does not exist. Please create it.');
             }
         }
 
@@ -453,7 +486,7 @@ class Config implements ConfigInterface
             // Try to create it
             @Files::makeDir($this->varRoot());
             if (!is_dir($this->varRoot())) {
-                throw new Exception($this->varRoot() . ' directory does not exist. Please create it.');
+                throw new ConfigException($this->varRoot() . ' directory does not exist. Please create it.');
             }
         }
     }
@@ -462,7 +495,7 @@ class Config implements ConfigInterface
     {
         // Release key not found
         if (!array_key_exists($key, $this->release)) {
-            throw new Exception(sprintf(__('Dotclear release key %s was not found'), $key));
+            throw new ConfigException(sprintf(__('Dotclear release key %s was not found'), $key));
         }
 
         // Return casted release key value
@@ -507,6 +540,11 @@ class Config implements ConfigInterface
     public function dotclearName(): string
     {
         return $this->dotclear_name;
+    }
+
+    public function hasConfig(): bool
+    {
+        return $this->has_config;
     }
 
     public function configPath(): string

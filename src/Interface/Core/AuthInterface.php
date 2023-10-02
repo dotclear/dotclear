@@ -10,18 +10,16 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
+use Dotclear\Exception\ProcessException;
+use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Authentication handler interface.
- *
- * Tracks core or modules id,version pairs.
  *
  * @since   2.28
  */
 interface AuthInterface
 {
-    // Constants
-
     /**
      * User table name.
      *
@@ -209,6 +207,8 @@ interface AuthInterface
     /**
      * Calls <var>$fn</var> function with super admin rights.
      *
+     * @throws  ProcessException
+     *
      * @param   callable    $fn     Callback function
      * @param   mixed       $args   Callback arguments
      *
@@ -319,7 +319,7 @@ interface AuthInterface
     /**
      * Returns <var>perm_types</var> property content.
      *
-     * @return  array<string, string>
+     * @return  array<string, string>  The permissions types.
      */
     public function getPermissionsTypes(): array;
 
@@ -341,6 +341,8 @@ interface AuthInterface
      *
      * User is identified by its email and password.
      *
+     * @throws  BadRequestException
+     *
      * @param   string  $user_id        User ID
      * @param   string  $user_email     User Email
      *
@@ -355,6 +357,8 @@ interface AuthInterface
      * - user_email
      * - user_id
      * - new_pass
+     *
+     * @throws  BadRequestException
      *
      * @param   string  $recover_key    Recovery key
      *

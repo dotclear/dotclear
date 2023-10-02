@@ -22,7 +22,7 @@ namespace Dotclear\Helper\Container;
 class Container implements ContainerInterface
 {
     /**
-     * Dotclear core container ID.
+     * Container ID.
      *
      * @var     string  CONTAINER_ID
      */

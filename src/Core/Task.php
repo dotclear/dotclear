@@ -10,20 +10,20 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use Dotclear\App;
 use Dotclear\FileServer;
-use Dotclear\Fault;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Exception\ContextException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\TaskInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Application task launcher.
@@ -60,8 +60,8 @@ class Task implements TaskInterface
     /**
      * Constructor.
      *
-     * @param   BehaviorInterface   $behavior       The behavior handler
-     * @param   ConfigInterface     $config         The config handler
+     * @param   BehaviorInterface   $behavior       The behavior instance
+     * @param   ConfigInterface     $config         The application configuration
      * @param   PostTypesInterface  $post_types     The post types handler
      * @param   UrlInterface        $url            The URL handler
      */
@@ -79,13 +79,13 @@ class Task implements TaskInterface
      * @param      string     $utility  The utility
      * @param      string     $process  The process
      *
-     * @throws     Exception
+     * @throws     ContextException|ProcessException
      */
     public function run(string $utility, string $process): void
     {
         // watchdog
         if (self::$watchdog) {
-            throw new Exception('Application can not be started twice.', 500);
+            throw new ContextException('Application can not be started twice.');
         }
         self::$watchdog = true;
 
@@ -153,56 +153,16 @@ class Task implements TaskInterface
             }
             Http::trimRequest();
 
-            // Test database connection
             try {
-                App::con();
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
-            } catch (Exception $e) {
-                // Loading locales for detected language
-                $detected_languages = Http::getAcceptLanguages();
-                foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->config->l10nRoot(), $language, 'main'])) !== false) {
-                        L10n::lang($language);
-
-                        // We stop at first accepted language
-                        break;
-                    }
-                }
-                unset($detected_languages);
-
-                if (!$this->checkContext('BACKEND')) {
-                    new Fault(
-                        __('Site temporarily unavailable'),
-                        __('<p>We apologize for this temporary unavailability.<br />' .
-                            'Thank you for your understanding.</p>'),
-                        Fault::DATABASE_ISSUE
-                    );
-                } else {
-                    new Fault(
-                        __('Unable to connect to database'),
-                        $e->getCode() == 0 ?
-                        sprintf(
-                            __('<p>This either means that the username and password information in ' .
-                            'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
-                            'the database server at "<em>%s</em>". This could mean your ' .
-                            'host\'s database server is down.</p> ' .
-                            '<ul><li>Are you sure you have the correct username and password?</li>' .
-                            '<li>Are you sure that you have typed the correct hostname?</li>' .
-                            '<li>Are you sure that the database server is running?</li></ul>' .
-                            '<p>If you\'re unsure what these terms mean you should probably contact ' .
-                            'your host. If you still need help you can always visit the ' .
-                            '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            ($this->config->debugMode() ?
-                                '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-                                ''),
-                            ($this->config->dbHost() !== '' ? $this->config->dbHost() : 'localhost')
-                        ) :
-                        '',
-                        Fault::DATABASE_ISSUE
-                    );
-                }
+            } catch (Throwable) {
+                throw new ProcessException(
+                    $this->checkContext('BACKEND') ?
+                    __('Unable to load deprecated core') :
+                    __('<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>')
+                );
             }
 
             # If we have some __top_behaviors, we load them
@@ -245,16 +205,6 @@ class Task implements TaskInterface
                             call_user_func($f);
                         }
                     }
-                }
-
-                try {
-                    if (session_id()) {
-                        // Explicitly close session before DB connection
-                        session_write_close();
-                    }
-                    App::con()->close();
-                } catch (Exception $e) {    // @phpstan-ignore-line
-                    // Ignore exceptions
                 }
             });
         } else {
@@ -304,17 +254,13 @@ class Task implements TaskInterface
 
     public function loadProcess(string $process): void
     {
-        try {
-            if (!is_subclass_of($process, Process::class, true)) {
-                throw new Exception(sprintf(__('Unable to find class %s'), $process));
-            }
+        if (!is_subclass_of($process, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to find class %s'), $process));
+        }
 
-            // Call process in 3 steps: init, process, render.
-            if ($process::init() !== false && $process::process() !== false) {
-                $process::render();
-            }
-        } catch (Exception $e) {
-            Fault::throw(__('Process failed'), $e);
+        // Call process in 3 steps: init, process, render.
+        if ($process::init() !== false && $process::process() !== false) {
+            $process::render();
         }
     }
 
@@ -330,14 +276,10 @@ class Task implements TaskInterface
      */
     private function loadUtility(string $utility, bool $next = false): bool
     {
-        try {
-            if (!is_subclass_of($utility, Process::class, true)) {
-                throw new Exception(sprintf(__('Unable to find or initialize class %s'), $utility));
-            }
-
-            return $next ? $utility::process() : $utility::init();
-        } catch(Exception $e) {
-            Fault::throw(__('Process failed'), $e);
+        if (!is_subclass_of($utility, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to find or initialize class %s'), $utility));
         }
+
+        return $next ? $utility::process() : $utility::init();
     }
 }

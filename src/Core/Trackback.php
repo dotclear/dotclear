@@ -11,19 +11,22 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Network\XmlRpc\Client;
 use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
+use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Trackbacks/Pingbacks sender and server.
@@ -53,6 +56,12 @@ class Trackback implements TrackbackInterface
 
     /**
      * Constructor.
+     *
+     * @param   BehaviorInterface       $behavior       The behavior instance
+     * @param   BlogInterface           $blog           The blog instance
+     * @param   ConfigInterface         $config         The application configuration
+     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   PostTypesInterface      $post_types     The post types handler
      */
     public function __construct(
         protected BehaviorInterface $behavior,
@@ -74,11 +83,16 @@ class Trackback implements TrackbackInterface
     //@{
     public function getPostPings(int $post_id): MetaRecord
     {
-        $strReq = 'SELECT ping_url, ping_dt ' .
-        'FROM ' . $this->table . ' ' .
-        'WHERE post_id = ' . (int) $post_id;
+        $sql = new SelectStatement();
 
-        return new MetaRecord($this->con->select($strReq));
+        return $sql
+            ->columns([
+                'ping_url',
+                'ping_dt',
+            ])
+            ->from($this->table)
+            ->where('post_id = ' . (string) $post_id)
+            ->select();
     }
 
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
@@ -88,14 +102,19 @@ class Trackback implements TrackbackInterface
         }
 
         # Check for previously done trackback
-        $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
-        'WHERE post_id = ' . $post_id . ' ' .
-        "AND ping_url = '" . $this->con->escape($url) . "' ";
-
-        $rs = new MetaRecord($this->con->select($strReq));
+        $sql = new SelectStatement();
+        $rs  = $sql
+            ->columns([
+                'post_id',
+                'ping_url',
+            ])
+            ->from($this->table)
+            ->where('post_id = ' . (string) $post_id)
+            ->and('ping_url = ' . $sql->quote($url))
+            ->select();
 
         if (!$rs->isEmpty()) {
-            throw new Exception(sprintf(__('%s has still been pinged'), $url));
+            throw new BadRequestException(sprintf(__('%s has still been pinged'), $url));
         }
 
         $ping_parts = explode('|', $url);
@@ -117,8 +136,8 @@ class Trackback implements TrackbackInterface
                 # Read response status
                 $status     = $http->getStatus();
                 $ping_error = '0';
-            } catch (Exception $e) {
-                throw new Exception(__('Unable to ping URL'));
+            } catch (Throwable) {
+                throw new BadRequestException(__('Unable to ping URL'));
             }
 
             if (!in_array($status, ['200', '201', '202'])) {
@@ -142,8 +161,8 @@ class Trackback implements TrackbackInterface
                 $http = self::initHttp($url, $path);
                 $http->post($path, $data, 'UTF-8');
                 $res = $http->getContent();
-            } catch (Exception $e) {
-                throw new Exception(__('Unable to ping URL'));
+            } catch (Throwable) {
+                throw new BadRequestException(__('Unable to ping URL'));
             }
 
             $pattern = '|<response>.*<error>(.*)</error>(.*)' .
@@ -151,7 +170,7 @@ class Trackback implements TrackbackInterface
                 '</response>|msU';
 
             if (!preg_match($pattern, $res, $match)) {
-                throw new Exception(sprintf(__('%s is not a ping URL'), $url));
+                throw new BadRequestException(sprintf(__('%s is not a ping URL'), $url));
             }
 
             $ping_error = trim((string) $match[1]);
@@ -166,13 +185,13 @@ class Trackback implements TrackbackInterface
             } catch (XmlRpcException $e) {
                 $ping_error = $e->getCode();
                 $ping_msg   = $e->getMessage();
-            } catch (Exception $e) {
-                throw new Exception(__('Unable to ping URL'));
+            } catch (Throwable) {
+                throw new BadRequestException(__('Unable to ping URL'));
             }
         }
 
         if ($ping_error != '0') {
-            throw new Exception(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
+            throw new BadRequestException(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
         }
         # Notify ping result in database
         $cur           = $this->openTrackbackCursor();
@@ -275,7 +294,7 @@ class Trackback implements TrackbackInterface
 
             try {
                 $this->addBacklink($post_id, $url, $blog_name, $title, $excerpt, $comment);
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $err = 1;
                 $msg = 'Something went wrong : ' . $e->getMessage();
             }
@@ -309,14 +328,14 @@ class Trackback implements TrackbackInterface
             $posts = $this->getTargetPost($to_url);
 
             if ($this->pingAlreadyDone($posts->post_id, $from_url)) {
-                throw new Exception(__('Don\'t repeat yourself, please.'), 48);
+                throw new BadRequestException(__('Don\'t repeat yourself, please.'));
             }
 
             $remote_content = $this->getRemoteContent($from_url);
 
             # We want a title...
             if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
-                throw new Exception(__('Where\'s your title?'), 0);
+                throw new BadRequestException(__('Where\'s your title?'));
             }
             $title = trim(Html::clean($m[1]));
             $title = Html::decodeEntities($title);
@@ -350,8 +369,8 @@ class Trackback implements TrackbackInterface
 
             $comment = '';
             $this->addBacklink($posts->post_id, $from_url, $blog_name, $title, $excerpt, $comment);
-        } catch (Exception $e) {
-            throw new Exception(__('Sorry, an internal problem has occured.'), 0);
+        } catch (Throwable) {
+            throw new BadRequestException(__('Sorry, an internal problem has occured.'));
         }
 
         return __('Thanks, mate. It was a pleasure.');
@@ -365,7 +384,7 @@ class Trackback implements TrackbackInterface
         try {
             # Check if post and target are valid URL
             if (empty($_POST['source']) || empty($_POST['target'])) {
-                throw new Exception('Source or target is not valid', 0);
+                throw new BadRequestException('Source or target is not valid');
             }
 
             $from_url = urldecode($_POST['source']);
@@ -387,7 +406,7 @@ class Trackback implements TrackbackInterface
 
             # We want a title...
             if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
-                throw new Exception(__('Where\'s your title?'), 0);
+                throw new BadRequestException(__('Where\'s your title?'));
             }
             $title = trim(Html::clean($m[1]));
             $title = Html::decodeEntities($title);
@@ -427,7 +446,7 @@ class Trackback implements TrackbackInterface
             Http::head($code);
 
             return;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $err = $e->getMessage();
         }
 
@@ -507,12 +526,13 @@ class Trackback implements TrackbackInterface
      */
     private function delBacklink(int $post_id, string $url): void
     {
-        $this->con->execute(
-            'DELETE FROM ' . $this->con->prefix() . $this->blog::COMMENT_TABLE_NAME . ' ' .
-            'WHERE post_id = ' . ((int) $post_id) . ' ' .
-            "AND comment_site = '" . $this->con->escape((string) $url) . "' " .
-            'AND comment_trackback = 1 '
-        );
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
+            ->where('post_id = ' . (string) $post_id)
+            ->and('comment_site = ' . $sql->quote($this->con->escape((string) $url)))
+            ->and('comment_trackback = 1')
+            ->delete();
     }
 
     /**
@@ -557,7 +577,7 @@ class Trackback implements TrackbackInterface
      *
      * @param   string  $to_url  To url
      *
-     * @throws  Exception
+     * @throws  BadRequestException
      *
      * @return  MetaRecord  The target post.
      */
@@ -567,7 +587,7 @@ class Trackback implements TrackbackInterface
 
         # Are you dumb?
         if (!preg_match($reg, $to_url, $m)) {
-            throw new Exception(__('Any chance you ping one of my contents? No? Really?'), 0);
+            throw new BadRequestException(__('Any chance you ping one of my contents? No? Really?'));
         }
 
         # Does the targeted URL look like a registered post type?
@@ -586,7 +606,7 @@ class Trackback implements TrackbackInterface
         }
 
         if (empty($p_type)) {
-            throw new Exception(__('Sorry but you can not ping this type of content.'), 33);
+            throw new BadRequestException(__('Sorry but you can not ping this type of content.'));
         }
 
         # Time to see if we've got a winner...
@@ -598,12 +618,12 @@ class Trackback implements TrackbackInterface
 
         # Missed!
         if ($posts->isEmpty()) {
-            throw new Exception(__('Oops. Kinda "not found" stuff. Please check the target URL twice.'), 33);
+            throw new BadRequestException(__('Oops. Kinda "not found" stuff. Please check the target URL twice.'));
         }
 
         # Nice try. But, sorry, no.
         if (!$posts->trackbacksActive()) {
-            throw new Exception(__('Sorry, dude. This entry does not accept pingback at the moment.'), 33);
+            throw new BadRequestException(__('Sorry, dude. This entry does not accept pingback at the moment.'));
         }
 
         return $posts;
@@ -614,7 +634,7 @@ class Trackback implements TrackbackInterface
      *
      * @param   string  $from_url  Target URL
      *
-     * @throws  Exception
+     * @throws  BadRequestException
      *
      * @return  string
      */
@@ -630,7 +650,7 @@ class Trackback implements TrackbackInterface
 
         # Bad luck. Bye, bye...
         if (!in_array($c_type[0], ['text/html', 'application/xhtml+xml'])) {
-            throw new Exception(__('Your source URL does not look like a supported content type. Sorry. Bye, bye!'), 0);
+            throw new BadRequestException(__('Your source URL does not look like a supported content type. Sorry. Bye, bye!'));
         }
 
         # Second round : let's go fetch and parse the remote content
@@ -768,7 +788,7 @@ class Trackback implements TrackbackInterface
             $page_content = $http->getContent();
             $pb_url       = $http->getHeader('x-pingback');
             $wm_url       = $http->getHeader('link');
-        } catch (Exception $e) {
+        } catch (Throwable) {
             return false;
         }
 
@@ -863,15 +883,15 @@ class Trackback implements TrackbackInterface
     public static function checkURLs(string $from_url, string $to_url): void
     {
         if (!(filter_var($from_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!', $from_url))) {
-            throw new Exception(__('No valid source URL provided? Try again!'), 0);
+            throw new BadRequestException(__('No valid source URL provided? Try again!'), 0);
         }
 
         if (!(filter_var($to_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!', $to_url))) {
-            throw new Exception(__('No valid target URL provided? Try again!'), 0);
+            throw new BadRequestException(__('No valid target URL provided? Try again!'), 0);
         }
 
         if (Html::sanitizeURL(urldecode($from_url)) == Html::sanitizeURL(urldecode($to_url))) {
-            throw new Exception(__('LOL!'), 0);
+            throw new BadRequestException(__('LOL!'), 0);
         }
     }
 }

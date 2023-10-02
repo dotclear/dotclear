@@ -22,9 +22,9 @@ use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
 
 // Container helpers
+use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
-use Exception;
 
 // Container interfaces
 use Dotclear\Interface\ConfigInterface;
@@ -65,15 +65,11 @@ use Dotclear\Interface\Core\VersionInterface;
 /**
  * @brief   The core container.
  *
- * This container contents all methods related to
- * core class and callable from App::
+ * This container contents all services related to dotclear core,
+ * all services are explicitly represented by methods on this class
+ * to keep track of returned types, and are accessible from App::service_alias().
  *
- * Core container services takes
- * dotclear core interface name as key and
- * a fully qualified class name or a callback as value.
- *
- * Available container methods are explicitly set
- * in this class to keep track of returned types.
+ * @see     Dotclear.Helper.Container.Factories to override core class
  *
  * @since   2.28
  */
@@ -96,7 +92,7 @@ class Core extends Container
     /**
      * Constructor gets container services.
      *
-     * @throws  Exception
+     * @throws  ContextException
      *
      * @param   ConfigInterface     $config     The config
      * @param   Factory             $factory    The factory (third party services)
@@ -107,7 +103,7 @@ class Core extends Container
     ) {
         // Singleton mode
         if (isset(self::$instance)) {
-            throw new Exception('Application can not be started twice.', 500);
+            throw new ContextException('Application can not be started twice.');
         }
 
         parent::__construct($factory);
@@ -116,9 +112,12 @@ class Core extends Container
     }
 
     /**
-     * Get config instance.
+     * Get application configuration instance.
      *
-     * @return  ConfigInterface     The config interface.
+     * This is a special method as Config does not come from Factory.
+     * Use App::config() to get it.
+     *
+     * @return  ConfigInterface     The application configuration interface.
      */
     public function getConfig(): ConfigInterface
     {
@@ -130,24 +129,13 @@ class Core extends Container
      *
      * This adds default Core class to the App.
      *
-     * @throws  Exception
-     *
      * @return  array<string,callable>  The default core services
      */
     protected function getDefaultServices(): array
     {
         return [
-            ConfigInterface::class        => fn ($container) => $container->getConfig(),
-            AuthInterface::class          => fn ($container) => Auth::init(),
-            Backend::class                => Backend::class,
-            BehaviorInterface::class      => Behavior::class,
-            BlogInterface::class          => Blog::class,
-            BlogSettingsInterface::class  => BlogSettings::class,
-            BlogsInterface::class         => Blogs::class,
-            BlogWorkspaceInterface::class => BlogWorkspace::class,
-            CacheInterface::class         => Cache::class,
-            CategoriesInterface::class    => Categories::class,
-            ConnectionInterface::class    => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
+            ConfigInterface::class     => fn ($container) => $container->getConfig(),
+            ConnectionInterface::class => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
                 if (empty($driver)) {
                     $driver     = $container->config()->dbDriver();
                     $host       = $container->config()->dbHost();
@@ -160,6 +148,15 @@ class Core extends Container
 
                 return Connection::init($driver, $host, $database, $user, $password, $persistent, $prefix);
             },
+            AuthInterface::class            => Auth::class,
+            Backend::class                  => Backend::class,
+            BehaviorInterface::class        => Behavior::class,
+            BlogInterface::class            => Blog::class,
+            BlogSettingsInterface::class    => BlogSettings::class,
+            BlogsInterface::class           => Blogs::class,
+            BlogWorkspaceInterface::class   => BlogWorkspace::class,
+            CacheInterface::class           => Cache::class,
+            CategoriesInterface::class      => Categories::class,
             ErrorInterface::class           => Error::class,
             DeprecatedInterface::class      => Deprecated::class,
             FilterInterface::class          => Filter::class,

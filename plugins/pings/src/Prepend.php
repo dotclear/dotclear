@@ -47,7 +47,7 @@ class Prepend extends Process
             foreach ($pings_uris as $uri) {
                 try {
                     PingsAPI::doPings($uri, $blog->name(), $blog->url());
-                } catch (Exception $e) {
+                } catch (Exception) {
                 }
             }
         });

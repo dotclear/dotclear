@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use Dotclear\App;
+use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Plugin\Uninstaller\{
     CleanerParent,
@@ -84,10 +85,11 @@ class Versions extends CleanerParent
     public function execute(string $action, string $ns): bool
     {
         if ($action == 'delete') {
-            App::con()->execute(
-                'DELETE FROM  ' . App::con()->prefix() . App::version()::VERSION_TABLE_NAME . ' ' .
-                "WHERE module = '" . App::con()->escapeStr((string) $ns) . "' "
-            );
+            $sql = new DeleteStatement();
+            $sql
+                ->from(App::con()->prefix() . App::version()::VERSION_TABLE_NAME)
+                ->where('module = ' . $sql->quote($ns))
+                ->delete();
 
             return true;
         }

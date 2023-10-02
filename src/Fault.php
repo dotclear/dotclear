@@ -9,7 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
-use Exception;
+use Dotclear\Helper\L10n;
+use Throwable;
 
 /**
  * @brief   The helper to parse runtime error.
@@ -20,120 +21,87 @@ use Exception;
 class Fault
 {
     /**
-     * Uncoded or undefined error (before as 0).
+     * jTraceEx() - provide a Java style exception trace.
      *
-     * @var     int     UNDEFINED_ISSUE
-     */
-    public const UNDEFINED_ISSUE = 550;
-
-    /**
-     * Server configuration issue (before as 0).
+     * @param   $e      The exception
+     * @param   $seen   Internal loop
      *
-     * @var     int     SETUP_ISSUE
+     * @return  string  The formated trace
      */
-    public const SETUP_ISSUE = 555;
-
-    /**
-     * Dotclear configuration file issue (before as 10).
-     *
-     * @var     int     CONFIG_ISSUE
-     */
-    public const CONFIG_ISSUE = 560;
-
-    /**
-     * Database connexion issue (before as 20).
-     *
-     * @var     int     DATABASE_ISSUE
-     */
-    public const DATABASE_ISSUE = 565;
-
-    /**
-     * Blog definition issue (before as 30).
-     *
-     * @var     int     BLOG_ISSUE
-     */
-    public const BLOG_ISSUE = 570;
-
-    /**
-     * Template file creation issue (before as 40).
-     *
-     * @var     int     TEMPLATE_CREATION_ISSUE
-     */
-    public const TEMPLATE_CREATION_ISSUE = 575;
-
-    /**
-     * Theme issue (before as 50).
-     *
-     * @var     int     THEME_ISSUE
-     */
-    public const THEME_ISSUE = 580;
-
-    /**
-     * Template processing issue (before as 60).
-     *
-     * @var     int     TEMPLATE_PROCESSING_ISSUE
-     */
-    public const TEMPLATE_PROCESSING_ISSUE = 585;
-
-    /**
-     * Blog is offline (before as 70).
-     *
-     * @var     int     BLOG_OFFLINE
-     */
-    public const BLOG_OFFLINE = 590;
-
-    /**
-     * Output error, the static way.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
-     */
-    public static function render(string $summary, string $message, int $code): void
+    private static function jTraceEx($e, $seen = null)
     {
-        new self($summary, $message, $code);
-    }
-
-    /**
-     * Output error using Exception instance.
-     *
-     * This takes care of DC_DEBUG mode to show Exceptions stack.
-     *
-     * @return never
-     */
-    public static function throw(string $summary, Exception $e)
-    {
-        if (defined('DC_DEBUG') && DC_DEBUG === true) {
-            throw $e;
+        $starter = $seen ? 'Caused by: ' : '';
+        $result  = [];
+        if (!$seen) {
+            $seen = [];
         }
-        new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
-        exit;
+        $trace    = $e->getTrace();
+        $prev     = $e->getPrevious();
+        $result[] = sprintf('%s%s: %s', $starter, get_class($e), $e->getMessage());
+        $file     = $e->getFile();
+        $line     = $e->getLine();
+        while (true) {
+            $result[] = sprintf(
+                ' at %s%s%s (%s%s%s)',
+                count($trace) && array_key_exists('class', $trace[0]) ? str_replace('\\', '.', $trace[0]['class']) : '',
+                count($trace) && array_key_exists('class', $trace[0]) && array_key_exists('function', $trace[0]) ? '.' : '',
+                count($trace) && array_key_exists('function', $trace[0]) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
+                $line === null ? $file : basename($file),
+                $line === null ? '' : ':',
+                $line === null ? '' : $line
+            );
+            if (is_array($seen)) {
+                $seen[] = "$file:$line";
+            }
+            if (!count($trace)) {
+                break;
+            }
+            $file = array_key_exists('file', $trace[0]) ? $trace[0]['file'] : 'Unknown Source';
+            $line = array_key_exists('file', $trace[0]) && array_key_exists('line', $trace[0]) && $trace[0]['line'] ? $trace[0]['line'] : null;
+            array_shift($trace);
+        }
+        $result = implode("\n", $result);
+        if ($prev) {
+            $result .= "\n" . self::jTraceEx($prev, $seen);
+        }
+
+        return $result;
     }
 
     /**
-     * Constructor.
+     * Parse throwable exception.
      *
-     * In CLI mode, only summary is returned.
-     * A custom file path COULD be set in DC_ERRORFILE to serve error.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
+     * @return  never
      */
-    public function __construct(string $summary, string $message, int $code = 550)
+    public static function exit(Throwable $exception): never
     {
+        $code    = $exception->getCode() ?: 500;
+        $label   = $exception->getMessage();
+        $message = $exception->getMessage();
+
         if (PHP_SAPI == 'cli') {
-            echo $summary . "\n";
+            echo $label . ' (' . $code . ")\n";
             exit;
         }
+
+        // Check if previous error is known
+        if (($previous = $exception->getPrevious()) !== null) {
+            $message = $previous->getMessage();
+        }
+
+        // Be sure to have __() function
+        L10n::bootstrap();
+
+        $trace  = htmlspecialchars((!defined('DC_DEBUG') || DC_DEBUG === true) && $exception !== null ? self::jTraceEx($exception) : '');
+        $vendor = htmlspecialchars(defined('DC_VENDOR_NAME') ? DC_VENDOR_NAME : 'Dotclear');
+
         if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
             include DC_ERRORFILE;
-        } else {
-            $vendor = defined('DC_VENDOR_NAME') ? htmlspecialchars(DC_VENDOR_NAME) : 'Dotclear';
+        }
 
-            header('Content-Type: text/html; charset=utf-8');
-            header('HTTP/1.0 ' . $code . ' ' . $summary);
-            ?>
+        header('Content-Type: text/html; charset=utf-8');
+        header('HTTP/1.0 ' . $code . ' ' . $label);
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,12 +146,13 @@ class Fault
 <body>
 <div id="content">
 <h1><?php echo $vendor; ?></h1>
-<h2><?php echo $code . ' : ' . $summary; ?></h2>
-<?php echo nl2br($message); ?></div>
+<h2><?php echo $code . ' : ' . __($label); ?></h2>
+<?php echo nl2br($message); ?>
+<pre><?php echo $trace; ?></pre>
+</div>
 </body>
 </html>
-            <?php
-        }
+        <?php
         exit;
     }
 }

@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Exception\BadRequestException;
+
 /**
  * @brief   User prefs handler interface.
  *
@@ -29,7 +31,7 @@ interface UserPreferencesInterface
      * @param   string          $user_id        The user identifier
      * @param   null|string     $user_workspace The workspace to load
      */
-    public function load(string $user_id, ?string $user_workspace = null): UserPreferencesInterface;
+    public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface;
 
     /**
      * Create a new workspace.
@@ -48,7 +50,7 @@ interface UserPreferencesInterface
      * @param   string  $old_workspace  The old workspace name
      * @param   string  $new_workspace  The new workspace name
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool
      */

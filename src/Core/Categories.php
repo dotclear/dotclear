@@ -11,7 +11,6 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
@@ -58,14 +57,18 @@ class Categories implements CategoriesInterface
     /**
      * Constructor.
      *
-     * @param   BlogInterface           $blog   The blog instance
      * @param   ConnectionInterface     $con    The database connection instance
      */
     public function __construct(
-        protected BlogInterface $blog,
-        protected ConnectionInterface $con
+        protected ConnectionInterface $con,
+        protected string $blog_id = ''
     ) {
         $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
+    }
+
+    public function createFromBlog(string $blog_id): CategoriesInterface
+    {
+        return new self($this->con, $blog_id);
     }
 
     public function openCategoryCursor(): Cursor
@@ -176,7 +179,7 @@ class Categories implements CategoriesInterface
                 $this->setNodeParent($id + 1, $target);
 
                 return $data->{$this->f_id};
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // We don't mind error in this case
             }
         } catch (Exception $e) {
@@ -359,7 +362,7 @@ class Categories implements CategoriesInterface
      */
     protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
-        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape($this->blog->id()) . "' ";
+        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape($this->blog_id) . "' ";
     }
 
     /**

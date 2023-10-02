@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
+use Dotclear\Database\InterfaceHandler;
 use Dotclear\Database\Record;
 
 /**
@@ -26,7 +27,7 @@ use Dotclear\Database\Record;
  *
  * @since   2.28
  */
-interface ConnectionInterface
+interface ConnectionInterface extends InterfaceHandler
 {
     /**
      * Closes database connection.

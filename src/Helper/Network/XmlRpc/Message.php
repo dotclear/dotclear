@@ -165,7 +165,7 @@ class Message
             } else {
                 throw new Exception('XML Parser Error.');
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             throw new Exception('XML Parser Error.');
         }
         $this->_parser = xml_parser_create();

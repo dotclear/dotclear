@@ -11,6 +11,7 @@ namespace Dotclear\Core\Backend\Action;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
+use Dotclear\Database\Statement\UpdateStatement;
 use Exception;
 
 /**
@@ -70,7 +71,11 @@ class ActionsBlogsDefault
 
         $cur              = App::blog()->openBlogCursor();
         $cur->blog_status = $status;
-        $cur->update('WHERE blog_id ' . App::con()->in($ids));
+
+        $sql = new UpdateStatement();
+        $sql
+            ->where('blog_id ' . $sql->in($ids))
+            ->update($cur);
 
         if ($status === App::blog()::BLOG_REMOVED) {
             // Remove these blogs from user default blog

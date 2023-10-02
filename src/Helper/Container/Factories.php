@@ -16,7 +16,7 @@ namespace Dotclear\Helper\Container;
  * @code{php}
  * require_once path_to_this_file/Factories.php;
  * Factories::addService('core', VersionInterface::class, MyCoreVersionService::class);
- * Factories::addService('core', AuthInterface::class, fn ($container) => new \My\Core\Auth($plop = ''));
+ * Factories::addService('core', AuthInterface::class, fn ($container) => new \My\Core\Auth(ConnectionInterface $con));
  * @endcode
  *
  * * Third party service MUST be accessible from an Autoloaer.

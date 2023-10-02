@@ -11,7 +11,11 @@ namespace Dotclear\Plugin\blogroll;
 
 use Exception;
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BlogInterface;
 use initBlogroll;
 
@@ -57,18 +61,26 @@ class Blogroll extends initBlogroll
      */
     public function getLinks(array $params = []): MetaRecord
     {
-        $strReq = 'SELECT link_id, link_title, link_desc, link_href, ' .
-        'link_lang, link_xfn, link_position ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . App::con()->escape($this->blog->id()) . "' ";
+        $sql = new SelectStatement();
+        $sql
+            ->columns([
+                'link_id',
+                'link_title',
+                'link_desc',
+                'link_href',
+                'link_lang',
+                'link_xfn',
+                'link_position',
+            ])
+            ->from($this->table)
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->order('link_position');
 
         if (isset($params['link_id'])) {
-            $strReq .= 'AND link_id = ' . (int) $params['link_id'] . ' ';
+            $sql->and('link_id = ' . (int) $params['link_id'] . ' ');
         }
 
-        $strReq .= 'ORDER BY link_position ';
-
-        $rs = new MetaRecord(App::con()->select($strReq));
+        $rs = $sql->select();
         $rs = $rs->toStatic();
 
         $this->setLinksData($rs);
@@ -86,25 +98,24 @@ class Blogroll extends initBlogroll
     public function getLangs(array $params = []): MetaRecord
     {
         // Use post_lang as an alias of link_lang to be able to use the backend Combos::getLangsCombo() function
-        $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . App::con()->escape($this->blog->id()) . "' " .
-            "AND link_lang <> '' " .
-            'AND link_lang IS NOT NULL ';
+        $sql = new SelectStatement();
+        $sql
+            ->columns([
+                $sql->as($sql->count('link_id'), 'nb_link'),
+                $sql->as('link_lang', 'post_lang')
+            ])
+            ->from($this->table)
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->and("link_lang <> '' ")
+            ->and("link_lang IS NOT NULL ")
+            ->group('link_lang')
+            ->order('link_lang ' . (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order']) ? (string) $params['order'] : 'desc'));
 
         if (isset($params['lang'])) {
-            $strReq .= "AND link_lang = '" . App::con()->escape($params['lang']) . "' ";
+            $sql->and('link_lang = ' . $sql->quote($params['lang']));
         }
 
-        $strReq .= 'GROUP BY link_lang ';
-
-        $order = 'desc';
-        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
-            $order = (string) $params['order'];
-        }
-        $strReq .= 'ORDER BY link_lang ' . $order . ' ';
-
-        return new MetaRecord(App::con()->select($strReq));
+        return $sql->select();
     }
 
     /**
@@ -149,9 +160,12 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a link URL'));
         }
 
-        $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = new MetaRecord(App::con()->select($strReq));
-        $cur->link_id = (int) $rs->f(0) + 1;
+        $sql = new SelectStatement();
+        $cur->link_id = (int) $sql
+            ->column($sql->max('link_id'))
+            ->from($this->table)
+            ->select()
+            ->f(0) + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();
@@ -187,9 +201,7 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a link URL'));
         }
 
-        $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
-        $this->blog->triggerBlog();
+        $this->updateCursor($cur, $id);
     }
 
     /**
@@ -210,9 +222,7 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a category title'));
         }
 
-        $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
-        $this->blog->triggerBlog();
+        $this->updateCursor($cur, $id);
     }
 
     /**
@@ -237,9 +247,12 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a category title'));
         }
 
-        $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
-        $rs           = new MetaRecord(App::con()->select($strReq));
-        $cur->link_id = (int) $rs->f(0) + 1;
+        $sql = new SelectStatement();
+        $cur->link_id = (int) $sql
+            ->column($sql->max('link_id'))
+            ->from($this->table)
+            ->select()
+            ->f(0) + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();
@@ -256,11 +269,13 @@ class Blogroll extends initBlogroll
     {
         $id = (int) $id;
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . App::con()->escape($this->blog->id()) . "' " .
-            'AND link_id = ' . $id . ' ';
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->table)
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->and('link_id = ' . (string) $id)
+            ->delete();
 
-        App::con()->execute($strReq);
         $this->blog->triggerBlog();
     }
 
@@ -275,8 +290,23 @@ class Blogroll extends initBlogroll
         $cur                = App::con()->openCursor($this->table);
         $cur->link_position = (int) $position;
 
-        $cur->update('WHERE link_id = ' . (int) $id .
-            " AND blog_id = '" . App::con()->escape($this->blog->id()) . "'");
+        $this->updateCursor($cur, $id);
+    }
+
+    /**
+     * Update cursor.
+     *
+     * @param   Cursor  $cur    The cursor
+     * @param   string  $id     The link ID
+     */
+    private function updateCursor(Cursor $cur, string $id): void
+    {
+        $sql = new UpdateStatement();
+        $sql
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->and('link_id = ' . (string) (int) $id)
+            ->update($cur);
+
         $this->blog->triggerBlog();
     }
 

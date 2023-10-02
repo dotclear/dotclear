@@ -12,10 +12,12 @@ namespace Dotclear\Core;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   User prefs handler.
@@ -45,6 +47,8 @@ class UserPreferences implements UserPreferencesInterface
     /**
      * Constructor.
      *
+     * @throws  ProcessException
+     *
      * @param   ConnectionInterface     $con                The database connection instance
      * @param   UserWorkspaceInterface  $workspace          The user workspace handler
      * @param   string                  $user_id            The user ID
@@ -61,13 +65,13 @@ class UserPreferences implements UserPreferencesInterface
         if (!empty($user_id)) {
             try {
                 $this->loadPrefs($user_workspace);
-            } catch (Exception $e) {
-                trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
+            } catch (Throwable) {
+                throw new ProcessException(__('Unable to retrieve workspaces:') . ' ' . $this->con->error());
             }
         }
     }
 
-    public function load(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
+    public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
     {
         return new self($this->con, $this->workspace, $user_id, $user_workspace);
     }
@@ -76,8 +80,6 @@ class UserPreferences implements UserPreferencesInterface
      * Loads preferences.
      *
      * @param   null|string     $user_workspace  The workspace
-     *
-     * @throws  Exception
      */
     private function loadPrefs(?string $user_workspace = null): void
     {
@@ -106,7 +108,7 @@ class UserPreferences implements UserPreferencesInterface
 
         try {
             $rs = $sql->select();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             throw $e;
         }
 
@@ -122,14 +124,14 @@ class UserPreferences implements UserPreferencesInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$user_workspace] = $this->workspace->load($this->user_id, $user_workspace, $rs);
+            $this->workspaces[$user_workspace] = $this->workspace->createFromUser($this->user_id, $user_workspace, $rs);
         } while (!$rs->isStart());
     }
 
     public function addWorkspace(string $user_workspace): UserWorkspaceInterface
     {
         if (!$this->exists($user_workspace)) {
-            $this->workspaces[$user_workspace] = $this->workspace->load($this->user_id, $user_workspace);
+            $this->workspaces[$user_workspace] = $this->workspace->createFromUser($this->user_id, $user_workspace);
         }
 
         return $this->workspaces[$user_workspace];
@@ -142,7 +144,7 @@ class UserPreferences implements UserPreferencesInterface
         }
 
         if (!preg_match($this->workspace::WS_NAME_SCHEMA, $new_workspace)) {
-            throw new Exception(sprintf(__('Invalid UserWorkspace: %s'), $new_workspace));
+            throw new BadRequestException(sprintf(__('Invalid UserWorkspace: %s'), $new_workspace));
         }
 
         // Rename the workspace in the database
@@ -154,7 +156,7 @@ class UserPreferences implements UserPreferencesInterface
         $sql->update();
 
         // Reload the renamed workspace in the workspace array
-        $this->workspaces[$new_workspace] = $this->workspace->load($this->user_id, $new_workspace);
+        $this->workspaces[$new_workspace] = $this->workspace->createFromUser($this->user_id, $new_workspace);
 
         // Remove the old workspace from the workspace array
         unset($this->workspaces[$old_workspace]);

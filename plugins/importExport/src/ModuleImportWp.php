@@ -366,7 +366,7 @@ class ModuleImportWp extends Module
         # Set this to read data as they were written
         try {
             $db->execute('SET NAMES DEFAULT');
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
 
         $db->execute('SET CHARACTER SET DEFAULT');
