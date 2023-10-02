@@ -21,25 +21,66 @@ use Throwable;
 class Fault
 {
     /**
-     * jTraceEx() - provide a Java style exception trace.
+     * The application configuration (if loaded).
      *
-     * @param   $e      The exception
-     * @param   $seen   Internal loop
+     * @var     Config  $config
+     */
+    public static ?Config $config = null;
+
+    /**
+     * Constructor parse throwable exception or error.
+     *
+     * @param   Throwable   $exception  The exception
+     */
+    public function __construct(Throwable $exception)
+    {
+        // We may need l10n __() function (should be already loaded but hey)
+        L10n::bootstrap();
+
+        // Parse some Exception values. And try to translate them even if they are already translated.
+        $code    = $exception->getCode() ?: 500;
+        $label   = htmlspecialchars(__($exception->getMessage()));
+        $message = nl2br(__($exception->getPrevious() === null ? $exception->getMessage() : $exception->getPrevious()->getMessage()));
+        $trace   = htmlspecialchars(self::$config?->debugMode() !== false && $exception !== null ? self::trace($exception) : '');
+
+        // Stop in CLI mode
+        if (PHP_SAPI == 'cli') {
+            echo $label . ' (' . $code . ")\n";
+            exit;
+        }
+
+        // Load custom error file if any
+        if (is_file((string) self::$config?->errorFile())) {
+            include self::$config->errorFile();
+        }
+
+        // Render HTTP page
+        self::render($code, $label, $message, $trace);
+    }
+
+    /**
+     * Provide a Java style exception trace.
+     *
+     * Inspired from PHP online manuel comment at
+     * https://www.php.net/manual/fr/exception.gettraceasstring.php#114980
+     *
+     * @param   Throwable           $exception  The exception
+     * @param   array<int,string>   $seen       Internal loop
      *
      * @return  string  The formated trace
      */
-    private static function jTraceEx($e, $seen = null)
+    public static function trace(Throwable $exception, ?array $seen = null)
     {
         $starter = $seen ? 'Caused by: ' : '';
         $result  = [];
         if (!$seen) {
             $seen = [];
         }
-        $trace    = $e->getTrace();
-        $prev     = $e->getPrevious();
-        $result[] = sprintf('%s%s: %s', $starter, get_class($e), $e->getMessage());
-        $file     = $e->getFile();
-        $line     = $e->getLine();
+        $trace    = $exception->getTrace();
+        $prev     = $exception->getPrevious();
+        $result[] = sprintf('%s%s: %s', $starter, get_class($exception), $exception->getMessage());
+        $file     = $exception->getFile();
+        $line     = $exception->getLine();
         while (true) {
             $result[] = sprintf(
                 ' at %s%s%s (%s%s%s)',
@@ -62,45 +103,28 @@ class Fault
         }
         $result = implode("\n", $result);
         if ($prev) {
-            $result .= "\n" . self::jTraceEx($prev, $seen);
+            $result .= "\n" . self::trace($prev, $seen);
         }
 
         return $result;
     }
 
     /**
-     * Parse throwable exception.
+     * Render HTML error page.
      *
-     * @return  never
+     * @param   int     $code       The exception code
+     * @param   string  $label      The exception label (page title)
+     * @param   string  $message    The exception message
+     * @param   string  $trace      THe xecption trace
      */
-    public static function exit(Throwable $exception): never
+    public static function render(int $code, string $label, string $message, string $trace = ''): never
     {
-        $code    = $exception->getCode() ?: 500;
-        $label   = $exception->getMessage();
-        $message = $exception->getMessage();
+        $vendor = htmlspecialchars(self::$config?->vendorName() ?: 'Dotclear');
 
-        if (PHP_SAPI == 'cli') {
-            echo $label . ' (' . $code . ")\n";
-            exit;
-        }
-
-        // Check if previous error is known
-        if (($previous = $exception->getPrevious()) !== null) {
-            $message = $previous->getMessage();
-        }
-
-        // Be sure to have __() function
-        L10n::bootstrap();
-
-        $trace  = htmlspecialchars((!defined('DC_DEBUG') || DC_DEBUG === true) && $exception !== null ? self::jTraceEx($exception) : '');
-        $vendor = htmlspecialchars(defined('DC_VENDOR_NAME') ? DC_VENDOR_NAME : 'Dotclear');
-
-        if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
-            include DC_ERRORFILE;
-        }
-
+        // HTTP header
         header('Content-Type: text/html; charset=utf-8');
         header('HTTP/1.0 ' . $code . ' ' . $label);
+
         ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,8 +170,8 @@ class Fault
 <body>
 <div id="content">
 <h1><?php echo $vendor; ?></h1>
-<h2><?php echo $code . ' : ' . __($label); ?></h2>
-<?php echo nl2br($message); ?>
+<h2><?php echo $code; ?> : <?php echo $label; ?></h2>
+<?php echo $message; ?>
 <pre><?php echo $trace; ?></pre>
 </div>
 </body>

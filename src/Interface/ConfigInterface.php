@@ -84,6 +84,16 @@ interface ConfigInterface
     public function devMode(): bool;
 
     /**
+     * Custom error file.
+     *
+     * This file is loaded before appllication
+     * exception handler render the HTTP error page.
+     *
+     * @return  string  The custom error file path
+     */
+    public function errorFile(): string;
+
+    /**
      * Blog ID requested from file.
      *
      * From index file.
