@@ -68,7 +68,7 @@ namespace Dotclear {
             // Process app utility. If any.
             if ($ret && true === self::utility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
                 // Try to load utility process, the _REQUEST process as priority on method process.
-                if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
+                if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', $_REQUEST['process'])) {
                     $process = $_REQUEST['process'];
                 }
                 if (!empty($process)) {
