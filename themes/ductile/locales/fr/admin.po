@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-02 15:12+0200\n"
-"PO-Revision-Date: 2023-09-02 15:21\n"
+"PO-Revision-Date: 2023-10-03 08:00\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -120,7 +120,7 @@ msgstr "URL du logo :"
 #: themes/ductile/src/Config.php:388
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr "Pour configurer le menu principal, rendez-vous sur <a href=\"%s\">la page d'administration du menu simple</a>."
+msgstr "Pour configurer le menu principal, rendez-vous sur </a>la page d'administration du menu simple <a href=\"%s\">."
 
 #: themes/ductile/src/Config.php:395
 msgid "Stickers"
