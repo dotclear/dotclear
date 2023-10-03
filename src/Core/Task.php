@@ -85,15 +85,15 @@ class Task implements TaskInterface
     {
         // watchdog
         if (self::$watchdog) {
-            throw new ContextException('Application can not be started twice.');
+            throw new ContextException(__('Application can not be started twice.'));
         }
         self::$watchdog = true;
 
         // Set encoding
         mb_internal_encoding('UTF-8');
 
-        // We may need l10n __() function
-        L10n::bootstrap();
+        // Initialize lang definition
+        L10n::init();
 
         // We set default timezone to avoid warning
         Date::setTZ('UTC');
@@ -130,8 +130,6 @@ class Task implements TaskInterface
 
         // Initialize Utility
         $utility_response = empty($utility) ? false : $this->LoadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
-
-        L10n::init();
 
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
@@ -277,7 +275,7 @@ class Task implements TaskInterface
     private function loadUtility(string $utility, bool $next = false): bool
     {
         if (!is_subclass_of($utility, Process::class, true)) {
-            throw new ProcessException(sprintf(__('Unable to find or initialize class %s'), $utility));
+            throw new ProcessException(sprintf(__('Unable to initialize class %s'), $utility));
         }
 
         return $next ? $utility::process() : $utility::init();

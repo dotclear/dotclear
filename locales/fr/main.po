@@ -49,58 +49,6 @@ msgstr "Billets"
 msgid "Pages"
 msgstr "Pages"
 
-#: src/App.php:142
-#, php-format
-msgid "Unable to find class %s"
-msgstr "Impossible de trouver la classe %s"
-
-#: src/App.php:150 src/App.php:590
-msgid "Process failed"
-msgstr "Échec du processus"
-
-#: src/App.php:174
-msgid "Dotclear release file was not found"
-msgstr "Le fichier de version de Dotclear n'a pas été trouvé"
-
-#: src/App.php:179
-msgid "Dotclear release file is not readable"
-msgstr "Le fichier de version de Dotclear n'a pas pu être lu"
-
-#: src/App.php:187
-#, php-format
-msgid "Dotclear release key %s was not found"
-msgstr "La clé de version %s n'a pas été trouvée"
-
-#: src/App.php:193
-msgid "Not found"
-msgstr "Non trouvé"
-
-#: src/App.php:474
-msgid "Site temporarily unavailable"
-msgstr "Site temporairement indisponible"
-
-#: src/App.php:475
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Veuillez nous excuser pour cette indisponibilité momentanée.<br />Merci de votre compréhension.</p>"
-
-#: src/App.php:481
-msgid "Unable to connect to database"
-msgstr "Connexion à la base de données impossible"
-
-#: src/App.php:484
-#, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de passe de votre fichier <strong>config.php</strong> sont incorrects, soit que nous ne pouvons pas contacter le serveur de base de données à l'adresse \"<em>%s</em>\". Cela peut vouloir dire que le serveur en question est éteint.</p> <ul><li>Êtes-vous sûr·e que l'identifiant et le mot de passe sont corrects ?</li><li>Êtes-vous sûr·e d'avoir entré le bon nom de serveur ?</li><li> Êtes-vous sûr·e que le serveur fonctionne ?</li></ul><p>Si vous n'êtes pas sûr·e de la signification de ces termes, vous devriez probablement contacter votre hébergeur·euse. Si vous avez besoin d'une aide supplémentaire, vous pouvez vous rendre sur <a href=\"https://forum.dotclear.net/\">le forum d'entraide Dotclear</a>.</p>"
-
-#: src/App.php:495 src/Core/Frontend/Utility.php:150
-msgid "The following error was encountered while trying to read the database:"
-msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
-
-#: src/App.php:585
-#, php-format
-msgid "Unable to find or initialize class %s"
-msgstr "Impossible de trouver ou d'initialiser la classe %s"
-
 #: src/Core/Auth.php:183
 msgid "administrator"
 msgstr "administrateur·rice"

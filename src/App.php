@@ -64,7 +64,7 @@ namespace Dotclear {
             define('DC_START_TIME', microtime(true));
 
             // Set exception handler (for a nice rendering)
-            set_exception_handler(fn (\Throwable $exception) => Fault::exit($exception));
+            set_exception_handler(function (Throwable $exception) { new Fault($exception); });
 
             try {
                 // Run application
@@ -152,6 +152,6 @@ namespace {
      */
     function __error(string $summary, string $message, int $code = 0): void
     {
-        Fault::exit(new AppException($summary, $code, new AppException($message, $code)));
+        new Fault(new AppException($summary, $code, new AppException($message, $code)));
     }
 }

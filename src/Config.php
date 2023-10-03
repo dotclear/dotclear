@@ -36,7 +36,6 @@ use Dotclear\Interface\Core\ConnectionInterface;
  * modification from config file.
  *
  * Not yet in config:
- * * DC_ERRORFILE
  * * DC_FAIRTRACKBACKS_FORCE (plugin)
  * * DC_ANTISPAM_CONF_SUPER (plugin)
  * * DC_DNSBL_SUPER (plugin)
@@ -79,6 +78,7 @@ class Config implements ConfigInterface
     private readonly bool $cli_mode;
     private readonly bool $debug_mode;
     private readonly bool $dev_mode;
+    private readonly string $error_file;
     private readonly string $blog_id;
     private readonly string $dotclear_version;
     private readonly string $dotclear_name;
@@ -194,6 +194,18 @@ class Config implements ConfigInterface
         $this->max_upload_size = (int) $u_max_size;
         unset($u_max_size, $p_max_size);
 
+        // We need l10n __() function and a default language if possible (for pre Utility exceptions)
+        L10n::bootstrap();
+        $detected_languages = Http::getAcceptLanguages();
+        foreach ($detected_languages as $language) {
+            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'exception'])) !== false) {
+                L10n::lang($language);
+
+                break;
+            }
+        }
+        unset($detected_languages, $language);
+
         // Constants that can be used in config.php file
         define('DC_ROOT', $this->dotclearRoot());
         define('CLI_MODE', $this->cliMode());
@@ -209,18 +221,6 @@ class Config implements ConfigInterface
         define('DC_DEFAULT_TPLSET', $this->defaultTplset());
         define('DC_DEFAULT_JQUERY', $this->defaultJQuery());
         define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
-
-        // Set a default lang and load locales for detected language (for error translation)
-        L10n::bootstrap();
-        $detected_languages = Http::getAcceptLanguages();
-        foreach ($detected_languages as $language) {
-            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'main'])) !== false) {
-                L10n::lang($language);
-
-                break;
-            }
-        }
-        unset($detected_languages);
 
         // Load config file
         if ($this->hasConfig()) {
@@ -250,6 +250,10 @@ class Config implements ConfigInterface
 
         if (!defined('DC_DEV')) {
             define('DC_DEV', false);
+        }
+
+        if (!defined('DC_ERRORFILE')) {
+            define('DC_ERRORFILE', '');
         }
 
         if (!defined('DC_MASTER_KEY')) {
@@ -394,6 +398,7 @@ class Config implements ConfigInterface
 
         $this->debug_mode          = DC_DEBUG;
         $this->dev_mode            = DC_DEV;
+        $this->error_file          = DC_ERRORFILE;
         $this->master_key          = DC_MASTER_KEY;
         $this->next_required_php   = DC_NEXT_REQUIRED_PHP;
         $this->vendor_name         = DC_VENDOR_NAME;
@@ -436,6 +441,9 @@ class Config implements ConfigInterface
         }
         $this->csp_report_file = DC_CSP_LOGFILE;
 
+        // Set config for Exception handler
+        Fault::$config = $this;
+
         // No release file
         if ($this->dotclearVersion() == '') {
             throw new ConfigException(__('Dotclear release file is not readable'));
@@ -460,7 +468,7 @@ class Config implements ConfigInterface
         if (!$this->hasConfig()) {
             // Do not process install on CLI mode
             if ($this->cliMode()) {
-                throw new ConfigException('Dotclear is not installed or failed to load config file.');
+                throw new ConfigException(__('Dotclear is not installed or failed to load config file.'));
             }
 
             // Stop configuration here on install wizard (App class takes the rest)
@@ -469,7 +477,7 @@ class Config implements ConfigInterface
 
         // Check length of cryptographic algorithm result and exit if less than 40 characters long
         if (strlen(Crypt::hmac($this->masterKey(), $this->vendorName(), $this->cryptAlgo())) < 40) {
-            throw new ConfigException($this->cryptAlgo() . ' cryptographic algorithm configured is not strong enough, please change it.');
+            throw new ConfigException(sprintf(__('%s cryptographic algorithm configured is not strong enough, please change it.'), $this->cryptAlgo()));
         }
 
         // Check existence of cache directory
@@ -477,7 +485,7 @@ class Config implements ConfigInterface
             // Try to create it
             @Files::makeDir($this->cacheRoot());
             if (!is_dir($this->cacheRoot())) {
-                throw new ConfigException($this->cacheRoot() . ' directory does not exist. Please create it.');
+                throw new ConfigException(sprintf(__('%s directory does not exist. Please create it.'), $this->cacheRoot()));
             }
         }
 
@@ -486,7 +494,7 @@ class Config implements ConfigInterface
             // Try to create it
             @Files::makeDir($this->varRoot());
             if (!is_dir($this->varRoot())) {
-                throw new ConfigException($this->varRoot() . ' directory does not exist. Please create it.');
+                throw new ConfigException(sprintf(__('%s directory does not exist. Please create it.'), $this->varRoot()));
             }
         }
     }
@@ -520,6 +528,11 @@ class Config implements ConfigInterface
     public function devMode(): bool
     {
         return $this->dev_mode;
+    }
+
+    public function errorFile(): string
+    {
+        return $this->error_file;
     }
 
     public function blogId(): string
