@@ -95,7 +95,8 @@ if [ -z "$PO_MODULE" ]; then
     extract_strings \
     --package-name="Dotclear 2" \
     -o locales/_pot/main.pot \
-    -x locales/_pot/date.pot
+    -x locales/_pot/date.pot \
+    -x locales/_pot/exception.pot
 
   echo "- done"
 
@@ -110,6 +111,7 @@ if [ -z "$PO_MODULE" ]; then
     --package-name="Dotclear 2" \
     -o locales/_pot/plugins.pot \
     -x locales/_pot/date.pot \
+    -x locales/_pot/exception.pot \
     -x locales/_pot/main.pot
 
   # - public.pot
@@ -126,6 +128,7 @@ if [ -z "$PO_MODULE" ]; then
     --package-name="Dotclear 2" \
     -o locales/_pot/templates.pot \
     -x locales/_pot/date.pot \
+    -x locales/_pot/exception.pot \
     -x locales/_pot/main.pot \
     -x locales/_pot/plugins.pot
   rm -f ./__html_tpl_dummy.php
@@ -166,6 +169,7 @@ if [ -z "$PO_MODULE" ]; then
   update_po ./locales/$PO_LANG/plugins.po ./locales/_pot/plugins.pot
   update_po ./locales/$PO_LANG/public.po ./locales/_pot/public.pot
   update_po ./locales/$PO_LANG/date.po ./locales/_pot/date.pot
+  update_po ./locales/$PO_LANG/exception.po ./locales/_pot/exception.pot
   echo "- done"
 
 else
@@ -228,6 +232,7 @@ else
     -o $PO_MODULE/locales/_pot/main.pot \
     -x $PO_MODULE/locales/_pot/admin.pot \
     -x locales/_pot/date.pot \
+    -x locales/_pot/exception.pot \
     -x locales/_pot/public.pot \
     -x locales/_pot/plugins.pot
 
