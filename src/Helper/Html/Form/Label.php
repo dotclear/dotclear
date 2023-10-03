@@ -63,11 +63,15 @@ class Label extends Component
      *   INSIDE_TEXT_AFTER    = inside label, label text after component
      *   OUTSIDE_LABEL_BEFORE = after label (for=field_id will be set automatically)
      *   OUTSIDE_LABEL_AFTER  = before label (for=field_id will be set automatically)
+     *
+     *   @var int
      */
     private int $_position = self::INSIDE_TEXT_BEFORE;
 
     /**
      * List of available positions
+     *
+     * @var array<int>
      */
     private array $_positions = [
         self::INSIDE_TEXT_BEFORE,
@@ -114,7 +118,7 @@ class Label extends Component
          * %3$s = linked component
          * %4$s = label closing block
          *
-         * @var        array
+         * @var        array<string>
          */
         $formats = [
             '<%1$s>%2$s %3$s</%4$s>', // Component inside label with label text before it
@@ -139,6 +143,8 @@ class Label extends Component
      * Sets the position.
      *
      * @param      int   $position  The position
+     *
+     * @return  self
      */
     public function setPosition(int $position = self::INSIDE_TEXT_BEFORE)
     {
@@ -154,7 +160,7 @@ class Label extends Component
      *
      * @return      int  The position
      */
-    public function getPosition()
+    public function getPosition(): int
     {
         return $this->_position;
     }

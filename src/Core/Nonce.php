@@ -9,18 +9,30 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\NonceInterface;
 
 /**
  * @brief   Form nonce handler.
+ *
+ * @since   2.28, form nonce features have been grouped in this class
  */
 class Nonce implements NonceInterface
 {
+    /**
+     * Constructor.
+     *
+     * @param   AuthInterface   $auth   The authentication instance
+     */
+    public function __construct(
+        protected AuthInterface $auth
+    ) {
+    }
+
     public function getNonce(): string
     {
-        return App::auth()->cryptLegacy((string) session_id());
+        return $this->auth->cryptLegacy((string) session_id());
     }
 
     public function checkNonce(string $secret): bool
@@ -30,7 +42,7 @@ class Nonce implements NonceInterface
             return false;
         }
 
-        return $secret == App::auth()->cryptLegacy((string) session_id());
+        return $secret == $this->auth->cryptLegacy((string) session_id());
     }
 
     public function getFormNonce(): string

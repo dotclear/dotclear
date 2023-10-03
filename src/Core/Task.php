@@ -10,23 +10,27 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
-use Dotclear\App;
 use Dotclear\FileServer;
-use Dotclear\Fault;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
-use Exception;
+use Dotclear\Exception\ContextException;
+use Dotclear\Exception\ProcessException;
+use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\PostTypesInterface;
+use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\TaskInterface;
+use Throwable;
 
 /**
  * @brief   Application task launcher.
  *
  * This class execute application according to an Utility and its Process.
  *
- * @since   2.28
+ * @since   2.28, preload events has been grouped in this class
  */
 class Task implements TaskInterface
 {
@@ -54,11 +58,20 @@ class Task implements TaskInterface
     ];
 
     /**
-     * The current lang.
+     * Constructor.
      *
-     * @var     string     $lang
+     * @param   BehaviorInterface   $behavior       The behavior instance
+     * @param   ConfigInterface     $config         The application configuration
+     * @param   PostTypesInterface  $post_types     The post types handler
+     * @param   UrlInterface        $url            The URL handler
      */
-    private static string $lang = 'en';
+    public function __construct(
+        protected BehaviorInterface $behavior,
+        protected ConfigInterface $config,
+        protected PostTypesInterface $post_types,
+        protected UrlInterface $url,
+    ) {
+    }
 
     /**
      * Process app
@@ -66,21 +79,21 @@ class Task implements TaskInterface
      * @param      string     $utility  The utility
      * @param      string     $process  The process
      *
-     * @throws     Exception
+     * @throws     ContextException|ProcessException
      */
     public function run(string $utility, string $process): void
     {
         // watchdog
         if (self::$watchdog) {
-            throw new Exception('Application can not be started twice.', 500);
+            throw new ContextException(__('Application can not be started twice.'));
         }
         self::$watchdog = true;
 
         // Set encoding
         mb_internal_encoding('UTF-8');
 
-        // We may need l10n __() function
-        L10n::bootstrap();
+        // Initialize lang definition
+        L10n::init();
 
         // We set default timezone to avoid warning
         Date::setTZ('UTC');
@@ -118,116 +131,69 @@ class Task implements TaskInterface
         // Initialize Utility
         $utility_response = empty($utility) ? false : $this->LoadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
-        L10n::init();
-
-        // path::real() may be used in inc/config.php
-        if (!class_exists('path')) {
-            class_alias('Dotclear\Helper\File\Path', 'path');
-        }
-
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
-            'dcCore'  => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-            'dcUtils' => implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
         ]);
 
         // Check and serve plugins and var files. (from ?pf= and ?vf= URI)
-        FileServer::check(App::config());
+        FileServer::check($this->config);
 
         // Config file exists
-        if (is_file(App::config()->configPath())) {
+        if (is_file($this->config->configPath())) {
             // Http setup
-            if (App::config()->httpScheme443()) {
+            if ($this->config->httpScheme443()) {
                 Http::$https_scheme_on_443 = true;
             }
-            if (App::config()->httpReverseProxy()) {
+            if ($this->config->httpReverseProxy()) {
                 Http::$reverse_proxy = true;
             }
             Http::trimRequest();
 
-            // Test database connection
             try {
-                App::con();
                 // deprecated since 2.23, use App:: instead
                 $core            = new dcCore();
                 $GLOBALS['core'] = $core;
-            } catch (Exception $e) {
-                // Loading locales for detected language
-                $detected_languages = Http::getAcceptLanguages();
-                foreach ($detected_languages as $language) {
-                    if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
-                        L10n::lang($language);
-
-                        // We stop at first accepted language
-                        break;
-                    }
-                }
-                unset($detected_languages);
-
-                if (!$this->checkContext('BACKEND')) {
-                    new Fault(
-                        __('Site temporarily unavailable'),
-                        __('<p>We apologize for this temporary unavailability.<br />' .
-                            'Thank you for your understanding.</p>'),
-                        Fault::DATABASE_ISSUE
-                    );
-                } else {
-                    new Fault(
-                        __('Unable to connect to database'),
-                        $e->getCode() == 0 ?
-                        sprintf(
-                            __('<p>This either means that the username and password information in ' .
-                            'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
-                            'the database server at "<em>%s</em>". This could mean your ' .
-                            'host\'s database server is down.</p> ' .
-                            '<ul><li>Are you sure you have the correct username and password?</li>' .
-                            '<li>Are you sure that you have typed the correct hostname?</li>' .
-                            '<li>Are you sure that the database server is running?</li></ul>' .
-                            '<p>If you\'re unsure what these terms mean you should probably contact ' .
-                            'your host. If you still need help you can always visit the ' .
-                            '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                            (App::config()->debugMode() ?
-                                '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-                                ''),
-                            (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
-                        ) :
-                        '',
-                        Fault::DATABASE_ISSUE
-                    );
-                }
+            } catch (Throwable) {
+                throw new ProcessException(
+                    $this->checkContext('BACKEND') ?
+                    __('Unable to load deprecated core') :
+                    __('<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>')
+                );
             }
 
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    App::behavior()->addBehavior($b[0], $b[1]);
+                    $this->behavior->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
 
             // Register default URLs
-            App::url()->registerDefault(Url::home(...));
+            $this->url->registerDefault(Url::home(...));
 
-            App::url()->registerError(Url::default404(...));
+            $this->url->registerError(Url::default404(...));
 
-            App::url()->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
-            App::url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
-            App::url()->register('post', 'post', '^post/(.+)$', Url::post(...));
-            App::url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
-            App::url()->register('category', 'category', '^category/(.+)$', Url::category(...));
-            App::url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
-            App::url()->register('try', 'try', '^try/(.+)$', Url::try(...));
+            $this->url->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            $this->url->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            $this->url->register('post', 'post', '^post/(.+)$', Url::post(...));
+            $this->url->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            $this->url->register('category', 'category', '^category/(.+)$', Url::category(...));
+            $this->url->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            $this->url->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            App::url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
-            App::url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
-            App::url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
-            App::url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+            $this->url->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            $this->url->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            $this->url->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            $this->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            App::url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
-            App::url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+            $this->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            $this->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            App::postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', App::url()->getURLFor('post', '%s'), 'Posts'));
+            $this->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', $this->url->getURLFor('post', '%s'), 'Posts'));
 
             // Register local shutdown handler
             register_shutdown_function(function () {
@@ -237,16 +203,6 @@ class Task implements TaskInterface
                             call_user_func($f);
                         }
                     }
-                }
-
-                try {
-                    if (session_id()) {
-                        // Explicitly close session before DB connection
-                        session_write_close();
-                    }
-                    App::con()->close();
-                } catch (Exception $e) {    // @phpstan-ignore-line
-                    // Ignore exceptions
                 }
             });
         } else {
@@ -261,7 +217,7 @@ class Task implements TaskInterface
         // Process app utility. If any.
         if ($utility_response && true === $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
             // Try to load utility process, the _REQUEST process as priority on method process.
-            if (!empty($_REQUEST['process']) && is_string($_REQUEST['process'])) {
+            if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', $_REQUEST['process'])) {
                 $process = $_REQUEST['process'];
             }
             if (!empty($process)) {
@@ -294,32 +250,15 @@ class Task implements TaskInterface
         }
     }
 
-    public static function getLang(): string
-    {
-        return self::$lang;
-    }
-
-    public static function setLang($id): void
-    {
-        self::$lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $id) ? $id : 'en';
-
-        // deprecated since 2.28, use App::task()->setLang() instead
-        dcCore::app()->lang = self::$lang;
-    }
-
     public function loadProcess(string $process): void
     {
-        try {
-            if (!is_subclass_of($process, Process::class, true)) {
-                throw new Exception(sprintf(__('Unable to find class %s'), $process));
-            }
+        if (!is_subclass_of($process, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to find class %s'), $process));
+        }
 
-            // Call process in 3 steps: init, process, render.
-            if ($process::init() !== false && $process::process() !== false) {
-                $process::render();
-            }
-        } catch (Exception $e) {
-            Fault::throw(__('Process failed'), $e);
+        // Call process in 3 steps: init, process, render.
+        if ($process::init() !== false && $process::process() !== false) {
+            $process::render();
         }
     }
 
@@ -335,14 +274,10 @@ class Task implements TaskInterface
      */
     private function loadUtility(string $utility, bool $next = false): bool
     {
-        try {
-            if (!is_subclass_of($utility, Process::class, true)) {
-                throw new Exception(sprintf(__('Unable to find or initialize class %s'), $utility));
-            }
-
-            return $next ? $utility::process() : $utility::init();
-        } catch(Exception $e) {
-            Fault::throw(__('Process failed'), $e);
+        if (!is_subclass_of($utility, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to initialize class %s'), $utility));
         }
+
+        return $next ? $utility::process() : $utility::init();
     }
 }

@@ -409,7 +409,7 @@ class MaintenanceTask
     /**
      * Help function.
      */
-    public function help()
+    public function help(): void
     {
     }
 }

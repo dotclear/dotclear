@@ -9,35 +9,35 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Core\Connection;
 
 /**
  * @class AbstractHandler
  *
  * Database handler abstraction
  */
-abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
+abstract class AbstractHandler extends Connection
 {
     /**
      * Driver name
      *
      * @var        string
      */
-    protected $__driver;
+    protected string $__driver;
 
     /**
      * Syntax name
      *
      * @var        string
      */
-    protected $__syntax;
+    protected string $__syntax;
 
     /**
      * Database driver version
      *
      * @var        string
      */
-    protected $__version; ///< string: Database version
+    protected string $__version;
 
     /**
      * Database driver handle (resource)
@@ -51,7 +51,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      *
      * @var string
      */
-    protected $__prefix = '';
+    protected string $__prefix = '';
 
     /**
      * Last result resource link
@@ -65,46 +65,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      *
      * @var string;
      */
-    protected $__database;
-
-    /**
-     * Start connection
-     *
-     * Static function to use to init database layer. Returns a object extending
-     * AbstractHandler.
-     *
-     * @param string    $driver         Driver name
-     * @param string    $host           Database hostname
-     * @param string    $database       Database name
-     * @param string    $user           User ID
-     * @param string    $password       Password
-     * @param bool      $persistent     Persistent connection
-     * @param string    $prefix         Database tables prefix
-     *
-     * @return AbstractHandler
-     */
-    public static function init(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
-    {
-        // PHP 7.0 mysql driver is obsolete, map to mysqli
-        if ($driver === 'mysql') {
-            $driver = 'mysqli';
-        }
-
-        // Set full namespace of distributed database driver
-        $class = in_array($driver, ['mysqli', 'mysqlimb4', 'pgsql', 'sqlite']) ? __NAMESPACE__ . '\\Driver\\' . ucfirst($driver) . '\\Handler' : '';
-
-        // You can set DC_DBHANDLER_CLASS to whatever you want.
-        // Your new class *should* inherits Dotclear\Database\AbstractHandler class.
-        $class = defined('DC_DBHANDLER_CLASS') ? \DC_DBHANDLER_CLASS : $class;
-
-        if (!is_subclass_of($class, __CLASS__)) {
-            trigger_error(sprintf('Database connection class %s does not exist or does not inherit %s', $class, __CLASS__));
-
-            exit(1);
-        }
-
-        return new $class($host, $database, $user, $password, $persistent, $prefix);
-    }
+    protected string $__database;
 
     /**
      * @param string    $host        Database hostname
@@ -525,7 +486,7 @@ abstract class AbstractHandler implements ConnectionInterface, InterfaceHandler
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
      *
-     * @param   array<mixed>     $args
+     * @param   mixed     $args
      *
      * @return string
      */

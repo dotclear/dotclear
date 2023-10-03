@@ -50,10 +50,10 @@ class Widgets
     /**
      * Add blogroll widget to default set.
      *
-     * @param   WidgetsStack    $widgets            The widgets
-     * @param   array           $default_widgets    The default widgets
+     * @param   WidgetsStack                   $widgets            The widgets
+     * @param   array<string, WidgetsStack>    $default_widgets    The default widgets
      */
-    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets)
+    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
         $default_widgets[dcWidgets::WIDGETS_EXTRA]->append($widgets->links);
     }

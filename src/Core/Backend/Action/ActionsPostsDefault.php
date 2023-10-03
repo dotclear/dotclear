@@ -10,10 +10,11 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -38,7 +39,7 @@ class ActionsPostsDefault
      *
      * @param   ActionsPosts    $ap     The ActionsPosts instance
      */
-    public static function adminPostsActionsPage(ActionsPosts $ap)
+    public static function adminPostsActionsPage(ActionsPosts $ap): void
     {
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
@@ -113,7 +114,7 @@ class ActionsPostsDefault
      *
      * @throws  Exception
      */
-    public static function doChangePostStatus(ActionsPosts $ap)
+    public static function doChangePostStatus(ActionsPosts $ap): void
     {
         $status = match ($ap->getAction()) {
             'unpublish' => App::blog()::POST_UNPUBLISHED,
@@ -170,7 +171,7 @@ class ActionsPostsDefault
      *
      * @throws  Exception
      */
-    public static function doChangePostFirstPub(ActionsPosts $ap)
+    public static function doChangePostFirstPub(ActionsPosts $ap): void
     {
         $status = match ($ap->getAction()) {
             'never'   => 0,
@@ -209,7 +210,7 @@ class ActionsPostsDefault
      *
      * @throws  Exception
      */
-    public static function doUpdateSelectedPost(ActionsPosts $ap)
+    public static function doUpdateSelectedPost(ActionsPosts $ap): void
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -251,7 +252,7 @@ class ActionsPostsDefault
      *
      * @throws  Exception
      */
-    public static function doDeletePost(ActionsPosts $ap)
+    public static function doDeletePost(ActionsPosts $ap): void
     {
         $ids = $ap->getIDs();
         if (empty($ids)) {
@@ -284,12 +285,12 @@ class ActionsPostsDefault
     /**
      * Does a change post category.
      *
-     * @param   ActionsPosts    $ap     The ActionsPosts instance
-     * @param   ArrayObject     $post   The parameters ($_POST)
+     * @param   ActionsPosts                $ap     The ActionsPosts instance
+     * @param   ArrayObject<string, mixed>  $post   The parameters ($_POST)
      *
      * @throws  Exception   If no entry selected
      */
-    public static function doChangePostCategory(ActionsPosts $ap, ArrayObject $post)
+    public static function doChangePostCategory(ActionsPosts $ap, ArrayObject $post): void
     {
         if (isset($post['new_cat_id'])) {
             $ids = $ap->getIDs();
@@ -411,12 +412,12 @@ class ActionsPostsDefault
     /**
      * Does a change post author.
      *
-     * @param   ActionsPosts    $ap     The ActionsPosts instance
-     * @param   ArrayObject     $post   The parameters ($_POST)
+     * @param   ActionsPosts                    $ap     The ActionsPosts instance
+     * @param   ArrayObject<string, mixed>      $post   The parameters ($_POST)
      *
      * @throws  Exception   If no entry selected
      */
-    public static function doChangePostAuthor(ActionsPosts $ap, ArrayObject $post)
+    public static function doChangePostAuthor(ActionsPosts $ap, ArrayObject $post): void
     {
         if (isset($post['new_auth_id']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
@@ -432,7 +433,12 @@ class ActionsPostsDefault
 
             $cur          = App::blog()->openPostCursor();
             $cur->user_id = $new_user_id;
-            $cur->update('WHERE post_id ' . App::con()->in($ids));
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('post_id ' . $sql->in($ids))
+                ->update($cur);
+
             Notices::addSuccessNotice(
                 sprintf(
                     __(
@@ -508,12 +514,12 @@ class ActionsPostsDefault
     /**
      * Does a change post language.
      *
-     * @param   ActionsPosts    $ap     The ActionsPosts instance
-     * @param   ArrayObject     $post   The parameters ($_POST)
+     * @param   ActionsPosts                    $ap     The ActionsPosts instance
+     * @param   ArrayObject<string, mixed>      $post   The parameters ($_POST)
      *
      * @throws  Exception   If no entry selected
      */
-    public static function doChangePostLang(ActionsPosts $ap, ArrayObject $post)
+    public static function doChangePostLang(ActionsPosts $ap, ArrayObject $post): void
     {
         $post_ids = $ap->getIDs();
         if (empty($post_ids)) {
@@ -523,7 +529,12 @@ class ActionsPostsDefault
             $new_lang       = $post['new_lang'];
             $cur            = App::blog()->openPostCursor();
             $cur->post_lang = $new_lang;
-            $cur->update('WHERE post_id ' . App::con()->in($post_ids));
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('post_id ' . $sql->in($post_ids))
+                ->update($cur);
+
             Notices::addSuccessNotice(
                 sprintf(
                     __(

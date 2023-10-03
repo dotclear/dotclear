@@ -37,7 +37,7 @@ class Category extends Process
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
-        $blog_settings = App::blogSettings(App::blog()->id());
+        $blog_settings = App::blogSettings()->createFromBlog(App::blog()->id());
 
         App::backend()->cat_id    = '';
         App::backend()->cat_title = '';

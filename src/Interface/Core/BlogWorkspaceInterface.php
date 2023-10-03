@@ -11,6 +11,7 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Blog namespace for settings handler interface.
@@ -105,21 +106,7 @@ interface BlogWorkspaceInterface
     public const NS_INTEGER = self::NS_INT;
 
     /**
-     * Constructor.
-     *
-     * Retrieves blog settings and puts them in $settings array.
-     * Local (blog) settings have a highest priority than global settings.
-     *
-     * @param   null|string         $blog_id    The blog identifier
-     * @param   null|string         $workspace  The namespace ID
-     * @param   MetaRecord          $rs         The recordset
-     *
-     * @throws  \Exception
-     */
-    public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null);
-
-    /**
-     * Creat e a new instance a BLogWorkspace.
+     * Create a new instance a BLogWorkspace.
      *
      * @param   null|string         $blog_id    The blog identifier
      * @param   string              $workspace  The namespace ID
@@ -127,7 +114,7 @@ interface BlogWorkspaceInterface
      *
      * @return  BlogWorkspaceInterface
      */
-    public function init(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
+    public function createFromBlog(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
 
     /**
      * Open a database table cursor.
@@ -219,7 +206,7 @@ interface BlogWorkspaceInterface
      * @param   bool    $ignore_value   Change setting value or not
      * @param   bool    $global         Setting is global
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void;
 
@@ -229,7 +216,7 @@ interface BlogWorkspaceInterface
      * @param   string  $old_name   The old setting identifier
      * @param   string  $new_name   The new setting identifier
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool
      */
@@ -240,7 +227,7 @@ interface BlogWorkspaceInterface
      *
      * @param   string  $name   The setting identifier
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function drop(string $name): void;
 
@@ -250,7 +237,7 @@ interface BlogWorkspaceInterface
      * @param   string      $name       Setting ID
      * @param   boolean     $global     Remove global setting too
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function dropEvery(string $name, bool $global = false): void;
 
@@ -259,7 +246,7 @@ interface BlogWorkspaceInterface
      *
      * @param   bool    $force_global   Force global pref drop
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function dropAll(bool $force_global = false): void;
 

@@ -22,30 +22,30 @@ class TidyDiffLine
      *
      * @var string
      */
-    protected $type;
+    public $type;
 
     /**
      * Line number for old and new context
      *
-     * @var array
+     * @var array<int>
      */
-    protected $lines;
+    public $lines;
 
     /**
      * Line content
      *
      * @var string
      */
-    protected $content;
+    public $content;
 
     /**
      * Constructor
      *
      * Creates a line representation for a tidy chunk.
      *
-     * @param string    $type        Tine type
-     * @param array     $lines       Line number for old and new context
-     * @param string    $content     Line content
+     * @param string        $type        Tine type
+     * @param array<int>    $lines       Line number for old and new context
+     * @param string        $content     Line content
      */
     public function __construct(string $type, ?array $lines, ?string $content)
     {

@@ -20,11 +20,25 @@ use Dotclear\Database\MetaRecord;
 interface PostMediaInterface
 {
     /**
+     * Load working blog on post media instance
+     *
+     * @param   BlogInterface       $blog       The blog instance
+     */
+    public function loadFromBlog(BlogInterface $blog): PostMediaInterface;
+
+    /**
      * The post media database table name.
      *
      * @var    string  POST_MEDIA_TABLE_NAME
      */
     public const POST_MEDIA_TABLE_NAME = 'post_media';
+
+    /**
+     * The Media database table name.
+     *
+     * @var     string  MEDIA_TABLE_NAME
+     */
+    public const MEDIA_TABLE_NAME = 'media';
 
     /**
      * Open a database table cursor.

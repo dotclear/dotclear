@@ -20,14 +20,14 @@ class TidyDiffChunk
     /**
      * Chunk information array
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $__info;
 
     /**
      * Chunk data array
      *
-     * @var array
+     * @var array<TidyDiffLine>
      */
     protected $__data;
 
@@ -71,9 +71,9 @@ class TidyDiffChunk
      *
      * Adds TIDY line object for TIDY chunk object.
      *
-     * @param string    $type        Tine type
-     * @param array     $lines       Line number for old and new context
-     * @param string    $content     Line content
+     * @param string        $type        Tine type
+     * @param array<int>    $lines       Line number for old and new context
+     * @param string        $content     Line content
      */
     public function addLine(string $type, array $lines, string $content): void
     {
@@ -88,7 +88,7 @@ class TidyDiffChunk
      *
      * Returns all lines defined.
      *
-     * @return array
+     * @return array<TidyDiffLine>
      */
     public function getLines(): array
     {
@@ -120,7 +120,7 @@ class TidyDiffChunk
         $groups = $this->getGroups();
 
         foreach ($groups as $group) {
-            $middle = (is_countable($group) ? count($group) : 0) / 2;
+            $middle = count($group) / 2;
             for ($i = 0; $i < $middle; $i++) {
                 $from      = $group[$i];
                 $to        = $group[$i + $middle];
@@ -147,11 +147,37 @@ class TidyDiffChunk
         }
     }
 
+    /**
+     * Gets the groups.
+     *
+     * @return     array<array<TidyDiffLine>>  The groups.
+     */
     private function getGroups(): array
     {
-        $res           = $group = [];
+        /**
+         * @var        array<array<TidyDiffLine>>
+         */
+        $res = [];
+
+        /**
+         * @var        array<TidyDiffLine>
+         */
+        $group = [];
+
+        /**
+         * @var        array<string>
+         */
         $allowed_types = ['delete', 'insert'];
-        $delete        = $insert = 0;
+
+        /**
+         * @var        int
+         */
+        $delete = 0;
+
+        /**
+         * @var        int
+         */
+        $insert = 0;
 
         foreach ($this->__data as $line) {
             if (in_array($line->type, $allowed_types)) {
@@ -172,6 +198,14 @@ class TidyDiffChunk
         return $res;
     }
 
+    /**
+     * Gets the change extent.
+     *
+     * @param      string  $str1   The string 1
+     * @param      string  $str2   The string 2
+     *
+     * @return     array<string, int>   The change extent.
+     */
     private function getChangeExtent(string $str1, string $str2): array
     {
         $start = 0;

@@ -26,8 +26,14 @@ class BackendActions extends ActionsPosts
      *
      * @var     bool    $use_render
      */
-    protected $use_render = true;
+    protected bool $use_render = true;
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      null|string              $uri            The uri
+     * @param      array<string, mixed>     $redirect_args  The redirect arguments
+     */
     public function __construct(?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
@@ -36,7 +42,7 @@ class BackendActions extends ActionsPosts
         $this->caller_title    = __('Pages');
     }
 
-    public function error(Exception $e)
+    public function error(Exception $e): void
     {
         App::error()->add($e->getMessage());
         $this->beginPage(

@@ -54,7 +54,7 @@ class Langs extends Process
             if ($parse !== false) {
                 App::backend()->dc_langs = $parse->items;
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             // Ignore exceptions
         }
 

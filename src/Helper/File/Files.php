@@ -29,14 +29,14 @@ class Files
     /**
      * Locked files resource stack.
      *
-     * @var    array<string,resource>
+     * @var    array<string, resource>
      */
     protected static $lock_stack = [];
 
     /**
      * Locked files status stack.
      *
-     * @var    array<string,bool>
+     * @var    array<string, bool>
      */
     protected static $lock_disposable = [];
 
@@ -50,7 +50,7 @@ class Files
     /**
      * MIME types
      *
-     * @var        array
+     * @var        array<string, string>
      */
     public static $mime_types = [
 
@@ -170,7 +170,7 @@ class Files
      * @param string     $directory     Path to scan
      * @param boolean    $order         Order results
      *
-     * @return array
+     * @return array<string>
      */
     public static function scandir(string $directory, bool $order = true): array
     {
@@ -233,7 +233,7 @@ class Files
      *
      * Returns all defined MIME types.
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function mimeTypes(): array
     {
@@ -245,7 +245,7 @@ class Files
      *
      * Append new MIME types to defined MIME types.
      *
-     * @param array        $types        New MIME types.
+     * @param array<string, string>        $types        New MIME types.
      */
     public static function registerMimeTypes(array $types): void
     {
@@ -376,7 +376,7 @@ class Files
                 }
 
                 return (bool) @chmod($file, self::$dir_mode);
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // chmod and maybe fileperms functions may be disabled so catch exception and return false
             }
         }
@@ -468,7 +468,7 @@ class Files
      *
      * Returns true if upload status is ok, throws an exception instead.
      *
-     * @param array        $file        File array as found in $_FILES
+     * @param array<string, array<string, mixed>>        $file        File array as found in $_FILES
      *
      * @return boolean
      */
@@ -508,10 +508,10 @@ class Files
      * Returns an array of a given directory's content. The array contains two arrays: dirs and files.
      * Directory's content is fetched recursively.
      *
-     * @param string        $directory    Directory name
-     * @param array         $list         Contents array (leave it empty)
+     * @param string                                $directory    Directory name
+     * @param array<string, array<string>>|null     $list         Contents array (leave it empty)
      *
-     * @return array<array-key, mixed>|null
+     * @return array<string, array<string>>|null
      */
     public static function getDirList(string $directory, array &$list = null): ?array
     {

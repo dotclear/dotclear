@@ -10,8 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\File\File;
-use Exception;
 
 /**
  * @brief   Media manager interface.
@@ -20,13 +21,6 @@ use Exception;
  */
 interface MediaInterface
 {
-    /**
-     * The Media database table name.
-     *
-     * @var     string  MEDIA_TABLE_NAME
-     */
-    public const MEDIA_TABLE_NAME = 'media';
-
     /**
      * Open a database table cursor.
      *
@@ -37,7 +31,7 @@ interface MediaInterface
     /**
      * Get post media instance
      *
-     * @return  PostMediaInterface  The psot media handler
+     * @return  PostMediaInterface  The post media handler
      */
     public function postMedia(): PostMediaInterface;
 
@@ -207,8 +201,6 @@ interface MediaInterface
      * Gets current working directory content.
      *
      * @param   null|string     $type   The media type filter
-     *
-     * @throws  Exception
      */
     public function getDir(?string $type = null): void;
 
@@ -252,7 +244,7 @@ interface MediaInterface
      * @param   string  $pwd        The directory to rebuild
      * @param   bool    $recursive  If true rebuild also sub-directories
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function rebuild(string $pwd = '', bool $recursive = false): void;
 
@@ -266,7 +258,7 @@ interface MediaInterface
      * @param   bool    $force      Recreate existing thumbnails if True
      * @param   bool    $recursive  If true rebuild also sub-directories
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void;
 
@@ -299,7 +291,7 @@ interface MediaInterface
      * @param   mixed   $dt         File date
      * @param   bool    $force      The force flag
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      *
      * @return  int|false    New media ID or false
      */
@@ -313,7 +305,7 @@ interface MediaInterface
      * @param   File    $file       The file
      * @param   File    $newFile    The new file
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|BadRequestException
      *
      * @return void
      */
@@ -330,7 +322,7 @@ interface MediaInterface
      * @param   string      $title      The file title (should be string|null)
      * @param   bool        $private    File is private
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      *
      * @return  mixed   New media ID or false (should be int|false)
      */
@@ -342,7 +334,7 @@ interface MediaInterface
      * @param   string  $name   The file name (relative to working directory)
      * @param   string  $bits   The binary file contentits
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      *
      * @return  string  New media ID or false
      */
@@ -362,7 +354,7 @@ interface MediaInterface
      *
      * @param   string  $file   filename
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|BadRequestException
      */
     public function removeFile(?string $file): void;
 
@@ -383,7 +375,7 @@ interface MediaInterface
      * @param   File    $f              File object
      * @param   bool    $create_dir     Create dir
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      *
      * @return  string  The destination
      */
@@ -394,7 +386,7 @@ interface MediaInterface
      *
      * @param   File    $f  File object
      *
-     * @return  array<string>  The zip content.
+     * @return  array<string, array<string, mixed>>  The zip content.
      */
     public function getZipContent(File $f): array;
 
@@ -412,11 +404,12 @@ interface MediaInterface
      *
      * @param   Cursor  $cur    The Cursor
      * @param   string  $f      Image filename
+     * @param   int     $id     Media ID
      * @param   bool    $force  Force creation
      *
      * @return  bool
      */
-    public function imageThumbCreate(?Cursor $cur, string $f, bool $force = true): bool;
+    public function imageThumbCreate(?Cursor $cur, string $f, int $id, bool $force = true): bool;
 
     /**
      * Remove image thumbnails.

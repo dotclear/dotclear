@@ -18,7 +18,7 @@ use Dotclear\App;
  *
  * @deprecated  since 2.21, use \Dotclear\Core\Backend\Helper::loadLocales() instead
  */
-function dc_load_locales()
+function dc_load_locales(): void
 {
     Helper::loadLocales();
 }

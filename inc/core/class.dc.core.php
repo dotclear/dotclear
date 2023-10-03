@@ -230,7 +230,7 @@ final class dcCore
     /**
      * Current language
      *
-     * @deprecated since 2.28, use App::task()->getLang() and App::task()->setLang() instead
+     * @deprecated since 2.28, use App::lang()->getLang() and App::lang()->setLang() instead
      *
      * @var string
      */
@@ -405,23 +405,23 @@ final class dcCore
     /**
      * Sets the blog to use.
      *
-     * @deprecated since 2.28, use App::blogLoader()->setBlog() instead
+     * @deprecated since 2.28, use App::blog()->loadFromBlog() instead
      *
      * @param      string  $id     The blog ID
      */
     public function setBlog($id): void
     {
-        App::blogLoader()->setBlog($id);
+        App::blog()->loadFromBlog($id);
     }
 
     /**
      * Unsets blog property.
      *
-     * @deprecated since 2.28, use App::blogLoader()->unsetBlog() instead
+     * @deprecated since 2.28, use App::blog()->loadFromBlog('') instead
      */
     public function unsetBlog(): void
     {
-        App::blogLoader()->unsetBlog();
+        App::blog()->loadFromBlog('');
     }
     //@}
 

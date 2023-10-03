@@ -13,10 +13,12 @@ namespace Dotclear\Database;
 use Countable;
 use Iterator;
 
-#[\AllowDynamicProperties]
 /**
  * @brief   MetaRecord class
+ *
+ * @implements Iterator<int, array<mixed>>
  */
+#[\AllowDynamicProperties]
 class MetaRecord implements Iterator, Countable
 {
     /**
@@ -216,7 +218,7 @@ class MetaRecord implements Iterator, Countable
     /**
      * Returns record extensions.
      *
-     * @return  array
+     * @return  array<string, callable>
      */
     public function extensions(): array
     {
@@ -254,11 +256,11 @@ class MetaRecord implements Iterator, Countable
      *
      * This method moves index forward and return true until index is not
      * the last one. You can use it to loop over record. Example:
-     * <code>
+     * ```php
      * while ($rs->fetch()) {
      *     echo $rs->field1;
      * }
-     * </code>
+     * ```
      *
      * @return bool
      */
@@ -388,7 +390,7 @@ class MetaRecord implements Iterator, Countable
     /**
      * Get columns
      *
-     * @return array    array of columns, with name as key and type as value.
+     * @return array<string>    array of columns.
      */
     public function columns(): array
     {
@@ -404,7 +406,7 @@ class MetaRecord implements Iterator, Countable
     /**
      * Get record rows
      *
-     * @return     array
+     * @return     array<array<mixed>>
      */
     public function rows(): array
     {
@@ -418,7 +420,7 @@ class MetaRecord implements Iterator, Countable
     }
 
     /**
-     * @return array    current rows.
+     * @return array<mixed>    current rows.
      */
     public function row(): array
     {
@@ -455,7 +457,7 @@ class MetaRecord implements Iterator, Countable
     #[\ReturnTypeWillChange]
     public function current()
     {
-        return $this;
+        return $this;   // @phpstan-ignore-line
     }
 
     /**
@@ -510,7 +512,7 @@ class MetaRecord implements Iterator, Countable
      *
      * Returns a new instance of object from an associative array.
      *
-     * @param array        $data        Data array
+     * @param array<mixed>        $data        Data array
      *
      * @return MetaRecord
      */
@@ -543,7 +545,7 @@ class MetaRecord implements Iterator, Countable
      * @param string|int    $field        Field name|position
      * @param string        $order        Sort type (asc or desc)
      */
-    public function sort($field, string $order = 'asc')
+    public function sort($field, string $order = 'asc'): void
     {
         if ($this->static instanceof StaticRecord) {
             $this->static->sort($field, $order);
@@ -556,7 +558,7 @@ class MetaRecord implements Iterator, Countable
      * @param      string  $field  The field
      * @param      string  $order  The order
      */
-    public function lexicalSort(string $field, string $order = 'asc')
+    public function lexicalSort(string $field, string $order = 'asc'): void
     {
         if ($this->static instanceof StaticRecord) {
             $this->static->lexicalSort($field, $order);

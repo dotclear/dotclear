@@ -9,12 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Interface\Core\PostTypeInterface;
-
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\PostTypeInterface;
 
 /**
  * @brief   Posts type descriptor.
+ *
+ * @since   2.28, a post type is now an object rather than an array
  */
 class PostType implements PostTypeInterface
 {

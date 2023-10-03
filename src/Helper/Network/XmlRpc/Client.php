@@ -74,11 +74,11 @@ class Client extends HttpClient
      * returns the server's response.
      *
      * Example:
-     * <code>
+     * ```php
      * use Dotclear\Helper\Network\XmlRpc\Client;
      * $o = new Client('http://example.com/xmlrpc');
      * $r = $o->query('method1','hello','world');
-     * </code>
+     * ```
      *
      * @param string                    $method
      * @param array<string, mixed>      $args

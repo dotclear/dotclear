@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Exception\BadRequestException;
+
 /**
  * @brief   Blog settings handler interface.
  *
@@ -21,7 +23,7 @@ namespace Dotclear\Interface\Core;
 interface BlogSettingsInterface
 {
     /**
-     * Constructor.
+     * Create a new instance a BLogSettings.
      *
      * Retrieves blog settings and puts them in $workspaces array.
      * Local (blog) settings have a highest priority than global settings.
@@ -29,9 +31,9 @@ interface BlogSettingsInterface
      * If instance is created without blog ID, only globals settings are
      * manageabled.
      *
-     * @param   null|string             $blog_id    The blog identifier
+     * @param   null|string     $blog_id    The blog ID
      */
-    public function __construct(?string $blog_id);
+    public function createFromBlog(?string $blog_id): BlogSettingsInterface;
 
     /**
      * Create a new workspace.
@@ -50,7 +52,7 @@ interface BlogSettingsInterface
      * @param   string  $old_workspace  The old ns
      * @param   string  $new_workspace  The new ns
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool    return true if no error, else false
      */

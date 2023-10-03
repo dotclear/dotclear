@@ -24,26 +24,40 @@ use Exception;
 #[\AllowDynamicProperties]
 class MediaPage extends FilterMedia
 {
-    /** @var boolean Page has a valid query */
-    protected $media_has_query = false;
+    /**
+     * @var bool Page has a valid query
+     */
+    protected bool $media_has_query = false;
 
-    /** @var boolean Media dir is writable */
-    protected $media_writable = false;
+    /**
+     * @var bool Media dir is writable
+     */
+    protected bool $media_writable = false;
 
-    /** @var boolean Media dir is archivable */
-    protected $media_archivable = null;
+    /**
+     * @var bool Media dir is archivable
+     */
+    protected ?bool $media_archivable = null;
 
-    /** @var array Dirs and files File objects */
-    protected $media_dir = null;
+    /**
+     * @var array<string, mixed> Dirs and files File objects
+     */
+    protected ?array $media_dir = null;
 
-    /** @var array User media recents */
-    protected $media_last = null;
+    /**
+     * @var array<string> User media recents
+     */
+    protected ?array $media_last = null;
 
-    /** @var array User media favorites */
-    protected $media_fav = null;
+    /**
+     * @var array<string> User media favorites
+     */
+    protected ?array $media_fav = null;
 
-    /** @var boolean Uses enhance uploader */
-    protected $media_uploader = null;
+    /**
+     * @var bool Uses enhance uploader
+     */
+    protected ?bool $media_uploader = null;
 
     /**
      * Constructs a new instance.
@@ -80,7 +94,7 @@ class MediaPage extends FilterMedia
 
             if (App::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --
-                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -131,7 +145,7 @@ class MediaPage extends FilterMedia
      *
      * @param string $type  dir, file, all type
      *
-     * @return null|array Dirs and/or files File objects
+     * @return null|array<string, mixed> Dirs and/or files File objects
      */
     public function getDirs(string $type = ''): ?array
     {
@@ -201,7 +215,7 @@ class MediaPage extends FilterMedia
     /**
      * Return list of last dirs
      *
-     * @return array Last dirs
+     * @return array<string> Last dirs
      */
     public function getLast(): array
     {
@@ -271,7 +285,7 @@ class MediaPage extends FilterMedia
     /**
      * Return list of fav dirs
      *
-     * @return array Fav dirs
+     * @return array<string> Fav dirs
      */
     public function getFav(): array
     {
@@ -354,7 +368,7 @@ class MediaPage extends FilterMedia
     /**
      * The breadcrumb of media page or popup
      *
-     * @param array $element  The additionnal element
+     * @param array<string, string> $element  The additionnal element
      *
      * @return string The HTML code of breadcrumb
      */

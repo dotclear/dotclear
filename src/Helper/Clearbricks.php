@@ -16,7 +16,7 @@ class Clearbricks
     /**
      * Old way autoload classes stack
      *
-     * @var        array
+     * @var        array<string, string>
      */
     public $stack = [];
 
@@ -65,7 +65,12 @@ class Clearbricks
         return self::$instance;
     }
 
-    public function loadClass(string $name)
+    /**
+     * Loads a class.
+     *
+     * @param      string  $name   The name
+     */
+    public function loadClass(string $name): void
     {
         if (isset($this->stack[$name]) && is_file($this->stack[$name])) {
             require_once $this->stack[$name];
@@ -75,11 +80,11 @@ class Clearbricks
     /**
      * Add class(es) to autoloader stack
      *
-     * @param      array  $stack  Array of class => file (strings)
+     * @param      array<string, string>  $stack  Array of class => file (strings)
      *
      * @deprecated Since 2.26, use namespaces instead
      */
-    public function add(array $stack)
+    public function add(array $stack): void
     {
         $this->stack = array_merge($this->stack, $stack);
     }
@@ -88,11 +93,11 @@ class Clearbricks
      * Autoload: register class(es)
      * Exemaple: Clearbricks::lib()->autoload(['class' => 'classfullpath'])
      *
-     * @param      array  $stack  Array of class => file (strings)
+     * @param      array<string, string>  $stack  Array of class => file (strings)
      *
      * @deprecated Since 2.26, use namespaces instead
      */
-    public function autoload(array $stack)
+    public function autoload(array $stack): void
     {
         $this->add($stack);
     }

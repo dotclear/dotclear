@@ -277,9 +277,9 @@ class Tpl extends Template
     /**
      * Compile block node
      *
-     * @param      string               $tag      The tag
-     * @param      array|ArrayObject    $attr     The attributes
-     * @param      string               $content  The content
+     * @param      string                                           $tag      The tag
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr     The attributes
+     * @param      string                                           $content  The content
      *
      * @return     string
      */
@@ -305,9 +305,9 @@ class Tpl extends Template
     /**
      * Compile value node
      *
-     * @param      string               $tag       The tag
-     * @param      array|ArrayObject    $attr      The attributes
-     * @param      string               $str_attr  The attributes (one string form)
+     * @param      string                                           $tag       The tag
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr      The attributes
+     * @param      string                                           $str_attr  The attributes (one string form)
      *
      * @return     string
      */
@@ -330,8 +330,8 @@ class Tpl extends Template
     /**
      * Return the PHP code to filter a given value.
      *
-     * @param      array|ArrayObject   $attr     The attributes
-     * @param      array|ArrayObject   $default  The default filters
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $attr     The attributes
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $default  The default filters
      *
      * @return     string  The filters.
      */
@@ -387,8 +387,8 @@ class Tpl extends Template
     /**
      * Gets the sort by field depending on given table.
      *
-     * @param      ArrayObject     $attr      The attributes
-     * @param      string          $table     The table
+     * @param      ArrayObject<string, mixed>   $attr      The attributes
+     * @param      string                       $table     The table
      *
      * @return     string
      */
@@ -465,7 +465,7 @@ class Tpl extends Template
     /**
      * Gets the maximum date corresponding to a given age.
      *
-     * @param      ArrayObject  $attr   The attributes
+     * @param      ArrayObject<string, mixed>  $attr   The attributes
      *
      * @return     string  The age.
      */
@@ -483,10 +483,10 @@ class Tpl extends Template
     /**
      * Return PHP code to display a counter
      *
-     * @param      string         $variable               The variable
-     * @param      array          $values                 The values
-     * @param      ArrayObject    $attr                   The attributes
-     * @param      bool           $count_only_by_default  Display only counter value by default
+     * @param      string                       $variable               The variable
+     * @param      array<string, mixed>         $values                 The values
+     * @param      ArrayObject<string, mixed>   $attr                   The attributes
+     * @param      bool                         $count_only_by_default  Display only counter value by default
      *
      * @return     string
      */
@@ -497,17 +497,6 @@ class Tpl extends Template
         }
 
         $patterns = $values;
-        /*
-                if (isset($attr['none'])) {
-                    $patterns['none'] = addslashes($attr['none']);
-                }
-                if (isset($attr['one'])) {
-                    $patterns['one'] = addslashes($attr['one']);
-                }
-                if (isset($attr['more'])) {
-                    $patterns['more'] = addslashes($attr['more']);
-                }
-        */
         array_walk($patterns, function (&$v, $k) use ($attr) {
             if (isset($attr[$k])) {
                 $v = addslashes($attr[$k]);
@@ -534,8 +523,8 @@ class Tpl extends Template
      *
      *      - string      string to localized without quotes
      *
-     * @param      ArrayObject    $attr      The attributes
-     * @param      string         $str_attr  The attributes (one string form)
+     * @param      ArrayObject<string, mixed>   $attr      The attributes
+     * @param      string                       $str_attr  The attributes (one string form)
      *
      * @return     string
      */
@@ -557,8 +546,8 @@ class Tpl extends Template
      *      - even        (1|0)     Even / Odd
      *      - modulo      int       Modulo
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -591,7 +580,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -615,8 +604,8 @@ class Tpl extends Template
      *      - post_type      type                    Get dates of given type of entries, default to "post"
      *      - post_lang      lang                    Filter on the given language
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -667,8 +656,8 @@ class Tpl extends Template
     /**
      * tpl:ArchivesHeader : Display content on first archive element (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -683,8 +672,8 @@ class Tpl extends Template
     /**
      * tpl:ArchivesFooter : Display content on last archive element (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -699,8 +688,8 @@ class Tpl extends Template
     /**
      * tpl:ArchivesYearHeader : Display content on first archive element of year (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -715,8 +704,8 @@ class Tpl extends Template
     /**
      * tpl:ArchivesYearFooter : Display content on last archive element of year (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -736,7 +725,7 @@ class Tpl extends Template
      *      - format          Date format (default %B %Y)
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -757,7 +746,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -784,8 +773,8 @@ class Tpl extends Template
      *      - post_type      type                    Get dates of given type of entries, default to "post"
      *      - post_lang      lang                    Filter on the given language
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -833,8 +822,8 @@ class Tpl extends Template
      *      - post_type      type                    Get dates of given type of entries, default to "post"
      *      - post_lang      lang                    Filter on the given language
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -880,7 +869,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -899,7 +888,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -915,7 +904,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -931,7 +920,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -947,7 +936,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -963,7 +952,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -980,7 +969,7 @@ class Tpl extends Template
      *      - type            (rss2|atom)     Feed type, default to "atom"
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1001,7 +990,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1017,7 +1006,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1033,7 +1022,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1054,7 +1043,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1070,7 +1059,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1088,7 +1077,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1107,7 +1096,7 @@ class Tpl extends Template
      *      - rfc822          (1|0)   Use Date::rfc822()
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1141,7 +1130,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1157,7 +1146,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      *
@@ -1177,7 +1166,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1194,7 +1183,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1210,7 +1199,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1226,7 +1215,7 @@ class Tpl extends Template
      *
      *      - robots          (INDEX|NOINDEX|FOLLOW|NOFOLLOW|ARCHIVE|NOARCHIVE)   will surcharge the blog's parameters
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1244,7 +1233,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1265,7 +1254,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1277,8 +1266,8 @@ class Tpl extends Template
     /**
      * tpl:IfBlogStaticEntryURL : Test if the blog has a static home entry (URL) (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1299,7 +1288,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1318,7 +1307,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1335,7 +1324,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1358,8 +1347,8 @@ class Tpl extends Template
      *      - level       int             Restrict to categories of this level (>= 1)
      *      - with_empty  (0|1)           Include empty categories
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1403,8 +1392,8 @@ class Tpl extends Template
     /**
      * tpl:CategoriesHeader : Display content on first category element (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1419,8 +1408,8 @@ class Tpl extends Template
     /**
      * tpl:CategoriesFooter : Display content on last category element (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1446,8 +1435,8 @@ class Tpl extends Template
      *
      *      1) Use ! as prefix to inverse test, use ' sub' as suffix to includes category's sub-categories
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1525,8 +1514,8 @@ class Tpl extends Template
     /**
      * tpl:CategoryFirstChildren : Current category first children loop (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1541,8 +1530,8 @@ class Tpl extends Template
     /**
      * tpl:CategoryParents : Current category parents loop (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1562,7 +1551,7 @@ class Tpl extends Template
      *      - type            (rss2|atom)     Feed type, default to "atom"
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1586,7 +1575,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1602,7 +1591,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1620,7 +1609,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1636,7 +1625,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1652,7 +1641,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1669,7 +1658,7 @@ class Tpl extends Template
      *      - count_only      (1|0)   Display only counter value
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -1717,8 +1706,8 @@ class Tpl extends Template
      *      3) Examples: -2 days, last month, last week
      *      4) Useful when using multiple tpl:Entries on the same page
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1853,8 +1842,8 @@ class Tpl extends Template
     /**
      * tpl:DateHeader : Displays content, if post is the first post of the given day (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1869,8 +1858,8 @@ class Tpl extends Template
     /**
      * tpl:DateFooter : Displays content, if post is the last post of the given day (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -1912,8 +1901,8 @@ class Tpl extends Template
      *
      *      1) Use ! as prefix to inverse test, use ' sub' as suffix to includes category's sub-categories
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2083,7 +2072,7 @@ class Tpl extends Template
      *
      *      - return      string      Value to display if it is the case (default: first)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2105,7 +2094,7 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: odd)
      *      - even        string      Value to display if not (default: <empty>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2130,7 +2119,7 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: even)
      *      - odd         string      Value to display if not (default: <empty>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2154,7 +2143,7 @@ class Tpl extends Template
      *
      *      - return      string      Value to display if it is the case (default: selected)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2177,7 +2166,7 @@ class Tpl extends Template
      *      - full            (1|0)   Returns full content with excerpt
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2214,8 +2203,8 @@ class Tpl extends Template
      *      - absolute_urls   (1|0)   Transforms local URLs to absolute one
      *      - full            (1|0)   Returns full content with excerpt
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2273,7 +2262,7 @@ class Tpl extends Template
      *      - absolute_urls   (1|0)   Transforms local URLs to absolute one
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2295,7 +2284,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2311,7 +2300,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2327,7 +2316,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2344,7 +2333,7 @@ class Tpl extends Template
      *      - spam_protected  (1|0)   Protect email from spam (default: 1)
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2366,7 +2355,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2383,7 +2372,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2399,7 +2388,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2415,7 +2404,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2431,7 +2420,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2447,7 +2436,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2459,8 +2448,8 @@ class Tpl extends Template
     /**
      * tpl:EntryCategoriesBreadcrumb : Current entry category's parents loop (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2479,7 +2468,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2495,7 +2484,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2511,7 +2500,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2527,7 +2516,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2548,7 +2537,7 @@ class Tpl extends Template
      *      - content_only    (1|0)           Search in content entry only, not in excerpt (default 0)
      *      - cat_only        (1|0)           Search in category description only (default 0)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2572,7 +2561,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2588,7 +2577,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2612,8 +2601,8 @@ class Tpl extends Template
      *      - restrict_to_category    (0|1)    Find next post in the same category (default 0)
      *      - restrict_to_lang        (0|1)    Find next post in the same language (default 0)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2641,8 +2630,8 @@ class Tpl extends Template
      *      - restrict_to_category    (0|1)    Find next post in the same category (default 0)
      *      - restrict_to_lang        (0|1)    Find next post in the same language (default 0)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2669,7 +2658,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2685,7 +2674,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2706,7 +2695,7 @@ class Tpl extends Template
      *      - creadt      (1|0)       If set, uses the post creation time
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2746,7 +2735,7 @@ class Tpl extends Template
      *      - creadt      (1|0)       If set, uses the post creation time
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2767,8 +2756,8 @@ class Tpl extends Template
     /**
      * tpl:EntriesHeader : First entries result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2783,8 +2772,8 @@ class Tpl extends Template
     /**
      * tpl:EntriesFooter : Last entries result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2810,7 +2799,7 @@ class Tpl extends Template
      *
      *      1) %s will be replaced by the number of comments
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2848,7 +2837,7 @@ class Tpl extends Template
      *      1) A ping may be a trackback, a pingback or a webmention
      *      2) %s will be replaced by the number of pings
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2873,7 +2862,7 @@ class Tpl extends Template
      *
      *      - format      (xml|html)  Format (default: html)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2887,7 +2876,7 @@ class Tpl extends Template
     /**
      * tpl:EntryPingLink : Display trackback link (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2907,8 +2896,8 @@ class Tpl extends Template
      *      - lang        string      Restrict loop on given lang
      *      - order       (desc|asc)  Languages ordering (default: desc)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2946,8 +2935,8 @@ class Tpl extends Template
     /**
      * tpl:LanguagesHeader : First languages result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2962,8 +2951,8 @@ class Tpl extends Template
     /**
      * tpl:LanguagesFooter : Last languages result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -2982,7 +2971,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -2994,8 +2983,8 @@ class Tpl extends Template
     /**
      * tpl:LanguageIfCurrent : Includes content if post language is current language (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3014,7 +3003,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3032,7 +3021,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3059,8 +3048,8 @@ class Tpl extends Template
      *
      *      - no_context  (0|1)       Override test on posts count vs number of posts per page
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3099,7 +3088,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3116,7 +3105,7 @@ class Tpl extends Template
      *      - offset      int     Current offset
      *      - any filters         See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3135,8 +3124,8 @@ class Tpl extends Template
      *      - start   (0|1)       First page (if 1) or not (if 0)
      *      - end     (0|1)       Last page (if 1) or not (if 0)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3172,7 +3161,7 @@ class Tpl extends Template
      *      - offset      int     Page offset (negative for previous pages), default: 0
      *      - any filters         See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3206,8 +3195,8 @@ class Tpl extends Template
      *
      *  1) Multiple comma-separated sortby can be specified. Use "?asc" or "?desc" as suffix to provide an order for each sorby
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3289,7 +3278,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3301,7 +3290,7 @@ class Tpl extends Template
     /**
      * tpl:CommentAuthorDomain : Comment author website domain (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3317,7 +3306,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3329,7 +3318,7 @@ class Tpl extends Template
     /**
      * tpl:CommentAuthorMailMD5 : Comment author mail MD5 sum (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3345,7 +3334,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3362,7 +3351,7 @@ class Tpl extends Template
      *      - absolute_urls   (10)        Convert URLs to absolutes URLs
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3388,7 +3377,7 @@ class Tpl extends Template
      *      - upddt       (1|0)       If set, uses the comment update time
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3423,7 +3412,7 @@ class Tpl extends Template
      *      - upddt       (1|0)       If set, uses the comment update time
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3448,7 +3437,7 @@ class Tpl extends Template
      *      - spam_protected       (1|0)      Protect email from spam (default: 1)
      *      - any filters                     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3470,7 +3459,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3486,7 +3475,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3498,7 +3487,7 @@ class Tpl extends Template
     /**
      * tpl:CommentID : Displays comment ID (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3514,8 +3503,8 @@ class Tpl extends Template
      *
      *      - is_ping     (0|1)       Tracckback (if 1) or not (if 0)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3545,7 +3534,7 @@ class Tpl extends Template
      *
      *      - return      string      Value to display if it is the case (default: first)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3566,7 +3555,7 @@ class Tpl extends Template
      *
      *      - return      string      Value to display if it is the case (default: me)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3588,7 +3577,7 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: odd)
      *      - even        string      Value to display if it is not the case (default: <empty>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3613,7 +3602,7 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: even)
      *      - odd         string      Value to display if it is not the case (default: <empty>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3633,7 +3622,7 @@ class Tpl extends Template
     /**
      * tpl:CommentIP : Displays comment IP (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3645,7 +3634,7 @@ class Tpl extends Template
     /**
      * tpl:CommentOrderNumber : Displays comment order in page (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3657,8 +3646,8 @@ class Tpl extends Template
     /**
      * tpl:CommentsHeader : First comments result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3673,8 +3662,8 @@ class Tpl extends Template
     /**
      * tpl:CommentsFooter : Last comments result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3693,7 +3682,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3705,8 +3694,8 @@ class Tpl extends Template
     /**
      * tpl:IfCommentAuthorEmail : Includes content if comment author email is set (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3721,8 +3710,8 @@ class Tpl extends Template
     /**
      * tpl:CommentHelp : Includes syntax localized mini help (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3739,8 +3728,8 @@ class Tpl extends Template
     /**
      * tpl:IfCommentPreviewOptional : Includes content if comment preview is optional or currently previewed (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3755,8 +3744,8 @@ class Tpl extends Template
     /**
      * tpl:IfCommentPreview : Includes content if comment is being previewed (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -3775,7 +3764,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3791,7 +3780,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3807,7 +3796,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3824,7 +3813,7 @@ class Tpl extends Template
      *      - raw         (1|0)   Display comment in raw content
      *      - any filters         See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3842,7 +3831,7 @@ class Tpl extends Template
     /**
      * tpl:CommentPreviewCheckRemember : checkbox attribute for "remember me" (same value as before preview) (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3862,7 +3851,7 @@ class Tpl extends Template
      *
      *      - any filters         See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3878,7 +3867,7 @@ class Tpl extends Template
      *
      *      - any filters         See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3898,7 +3887,7 @@ class Tpl extends Template
      *      - upddt       (1|0)       If set, uses the ping update time
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3933,7 +3922,7 @@ class Tpl extends Template
      *      - upddt       (1|0)       If set, uses the ping update time
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3956,7 +3945,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3972,7 +3961,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -3984,7 +3973,7 @@ class Tpl extends Template
     /**
      * tpl:PingID : Displays ping ID (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4000,7 +3989,7 @@ class Tpl extends Template
      *
      *      - return      string      Value to display if it is the case (default: first)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4022,7 +4011,7 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: odd)
      *      - even        string      Value to display if it is not the case (default: <empty>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4047,7 +4036,7 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: even)
      *      - odd         string      Value to display if it is not the case (default: <empty>)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4067,7 +4056,7 @@ class Tpl extends Template
     /**
      * tpl:PingIP : Displays ping author IP (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4079,7 +4068,7 @@ class Tpl extends Template
     /**
      * tpl:PingNoFollow : Displays 'rel="nofollow"' if set in blog (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4094,7 +4083,7 @@ class Tpl extends Template
     /**
      * tpl:PingOrderNumber : Displays trackback order in page, 1 based (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4110,7 +4099,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4129,8 +4118,8 @@ class Tpl extends Template
      *      - order       (desc|asc)  Result ordering (default: asc)
      *      - no_content  (0|1)       Do not include pings' content
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4196,8 +4185,8 @@ class Tpl extends Template
     /**
      * tpl:PingsHeader : First pings result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4212,8 +4201,8 @@ class Tpl extends Template
     /**
      * tpl:PingsFooter : Last pings result container (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4232,7 +4221,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4248,7 +4237,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4268,7 +4257,7 @@ class Tpl extends Template
      *
      * @todo    Remove old dcCore from tpl::SysBehavior returned call parameters
      *
-     * @param   ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return  string
      */
@@ -4310,8 +4299,8 @@ class Tpl extends Template
      *
      *  1) Prefix with a ! to reverse test
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4422,8 +4411,8 @@ class Tpl extends Template
     /**
      * tpl:SysIfCommentPublished : Includes content if comment has been published (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4438,8 +4427,8 @@ class Tpl extends Template
     /**
      * tpl:SysIfCommentPending : Includes content if comment is pending after submission (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4458,7 +4447,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4471,8 +4460,8 @@ class Tpl extends Template
     /**
      * tpl:SysIfFormError : Includes content if an error has been detected after form submission (tpl block)
      *
-     * @param      ArrayObject    $attr     The attributes
-     * @param      string         $content  The content
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     * @param      string                        $content  The content
      *
      * @return     string
      */
@@ -4487,7 +4476,7 @@ class Tpl extends Template
     /**
      * tpl:SysFormError : Displays form error (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4500,7 +4489,7 @@ class Tpl extends Template
     /**
      * tpl:SysPoweredBy : Displays localized powered by (tpl value)
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4517,7 +4506,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4536,7 +4525,7 @@ class Tpl extends Template
      *
      *      - any filters     See self::getFilters()
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */
@@ -4550,7 +4539,7 @@ class Tpl extends Template
      *
      * May be used inside a tpl:If… block
      *
-     * @param      ArrayObject    $attr     The attributes
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
      *
      * @return     string
      */

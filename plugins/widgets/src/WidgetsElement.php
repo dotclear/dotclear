@@ -81,7 +81,7 @@ class WidgetsElement
     /**
      * Widget settings.
      *
-     * @var     array   $settings
+     * @var     array<string, mixed>   $settings
      */
     protected $settings = [];
 
@@ -90,7 +90,7 @@ class WidgetsElement
      *
      * @param   int     $order  The order
      *
-     * @return  array
+     * @return  array<string, mixed>
      */
     public function serialize(int $order): array
     {
@@ -371,7 +371,7 @@ class WidgetsElement
     /**
      * Get widget settings.
      *
-     * @return  array
+     * @return  array<string, mixed>
      */
     public function settings(): array
     {
@@ -400,10 +400,10 @@ class WidgetsElement
     /**
      * Get a widget setting field.
      *
-     * @param   string  $id     The identifier
-     * @param   array   $s      The setting
-     * @param   string  $pr     The prefix
-     * @param   int     $i      The index
+     * @param   string                  $id     The identifier
+     * @param   array<string, mixed>    $s      The setting
+     * @param   string                  $pr     The prefix
+     * @param   int                     $i      The index
      *
      * @return  string
      */
@@ -506,6 +506,8 @@ class WidgetsElement
 
     /**
      * Adds a home only setting.
+     *
+     * @param   null|array<string, mixed>     $options
      *
      * @return  self
      */

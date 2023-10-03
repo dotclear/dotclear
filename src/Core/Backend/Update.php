@@ -34,35 +34,35 @@ class Update
      *
      * @var string
      */
-    protected $url;
+    protected string $url;
 
     /**
      * Subject to check (usually 'dotclear')
      *
      * @var string
      */
-    protected $subject;
+    protected string $subject;
 
     /**
      * Version channel (stable, testing, unstable, …)
      *
      * @var string
      */
-    protected $version;
+    protected string $version;
 
     /**
      * Cache file
      *
      * @var string
      */
-    protected $cache_file;
+    protected string $cache_file;
 
     /**
      * Version information
      *
-     * @var        array
+     * @var        array<string, mixed>
      */
-    protected $version_info = [
+    protected array $version_info = [
         'version'  => null,
         'href'     => null,
         'checksum' => null,
@@ -77,21 +77,21 @@ class Update
      *
      * @var        string
      */
-    protected $cache_ttl = '-6 hours';
+    protected string $cache_ttl = '-6 hours';
 
     /**
      * Stack of files to check (digest)
      *
-     * @var        array
+     * @var        array<string>
      */
-    protected $forced_files = [];
+    protected array $forced_files = [];
 
     /**
      * Stack of bad files checked (digest)
      *
-     * @var        array
+     * @var        array<string>
      */
-    protected $bad_files = [];
+    protected array $bad_files = [];
 
     /**
      * Constructor.
@@ -165,7 +165,7 @@ class Update
         if (!is_dir($cache_dir)) {
             try {
                 Files::makeDir($cache_dir);
-            } catch (Exception $e) {
+            } catch (Exception) {
                 return null;
             }
         }
@@ -201,7 +201,7 @@ class Update
                 throw new Exception();
             }
             $this->readVersion($client->getContent());
-        } catch (Exception $e) {
+        } catch (Exception) {
             return null;
         }
 
@@ -284,7 +284,7 @@ class Update
     /**
      * Gets the forced files.
      *
-     * @return     array  The forced files.
+     * @return     array<string>  The forced files.
      */
     public function getForcedFiles(): array
     {
@@ -347,7 +347,7 @@ class Update
     /**
      * Gets the bad files.
      *
-     * @return  array   The bad files.
+     * @return  array<string>   The bad files.
      */
     public function getBadFiles(): array
     {
@@ -407,7 +407,7 @@ class Update
 
                 throw new Exception();
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             throw new Exception(__('An error occurred while downloading archive.'));
         }
     }
@@ -494,7 +494,7 @@ class Update
 
             try {
                 $b_zip->addFile($root . '/' . $file, $file);
-            } catch (Exception $e) {
+            } catch (Exception) {
                 $not_readable[] = $file;
             }
         }
@@ -610,10 +610,10 @@ class Update
     /**
      * Gets the new files.
      *
-     * @param   array   $cur_digests    The current digests
-     * @param   array   $new_digests    The new digests
+     * @param   array<string>   $cur_digests    The current digests
+     * @param   array<string>   $new_digests    The new digests
      *
-     * @return  array   The new files.
+     * @return  array<string>   The new files.
      */
     protected function getNewFiles(array $cur_digests, array $new_digests): array
     {

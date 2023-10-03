@@ -11,6 +11,7 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Trackbacks/Pingbacks sender and server interface.
@@ -56,7 +57,7 @@ interface TrackbackInterface
      * @param   string  $post_excerpt   The post excerpt
      * @param   string  $post_url       The post url
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool    false if error
      */
@@ -78,7 +79,7 @@ interface TrackbackInterface
      * @param   string  $from_url   Source URL
      * @param   string  $to_url     Target URL
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  string
      */
@@ -89,7 +90,7 @@ interface TrackbackInterface
      *
      * NB: plugin Fair Trackback check source content to find url.
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public function receiveWebmention(): void;
 
@@ -116,7 +117,7 @@ interface TrackbackInterface
      * @param   string  $from_url   The from url
      * @param   string  $to_url     To url
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      */
     public static function checkURLs(string $from_url, string $to_url): void;
 }

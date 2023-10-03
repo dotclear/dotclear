@@ -24,10 +24,17 @@ use PDOStatement;
  */
 class Handler extends AbstractHandler
 {
-    protected $__driver        = 'sqlite';
-    protected $__syntax        = 'sqlite';
+    protected string $__driver = 'sqlite';
+    protected string $__syntax = 'sqlite';
+
+    /**
+     * UTF-8 Collator
+     *
+     * @var        mixed (Collator if class exists)
+     */
     protected $utf8_unicode_ci = null;
-    protected $vacuum          = false;
+
+    protected bool $vacuum = false;
 
     /**
      * Open a DB connection
@@ -291,7 +298,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed  $res    The resource
      *
-     * @return     array|false
+     * @return     false
      */
     public function db_fetch_assoc($res)
     {
@@ -478,7 +485,7 @@ class Handler extends AbstractHandler
     }
 
     # Internal SQLite function that adds NOW() SQL function.
-    public function now()
+    public function now(): string|false
     {
         return date('Y-m-d H:i:s');
     }

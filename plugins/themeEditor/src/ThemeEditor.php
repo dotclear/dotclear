@@ -197,7 +197,7 @@ class ThemeEditor
      *
      * @throws  Exception
      *
-     * @return  array   The file content.
+     * @return  array<string, mixed>   The file content.
      */
     public function getFileContent(string $type, string $f): array
     {
@@ -270,7 +270,7 @@ class ThemeEditor
 
             // Updating inner files list
             $this->updateFileInList($type, $f, $dest);
-        } catch (Exception $e) {
+        } catch (Exception) {
             throw new Exception(sprintf(__('Unable to write file %s. Please check your theme files and folders permissions.'), $f));
         }
     }
@@ -314,7 +314,7 @@ class ThemeEditor
      *
      * @throws  Exception
      */
-    public function deleteFile(string $type, string $f)
+    public function deleteFile(string $type, string $f): void
     {
         if ($type !== 'tpl') {
             // Only tpl files may be deleted
@@ -335,7 +335,7 @@ class ThemeEditor
                 // Updating template files list
                 $this->findTemplates();
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             throw new Exception(sprintf(__('Unable to delete file %s. Please check your theme files and folders permissions.'), $f));
         }
     }

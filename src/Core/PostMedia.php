@@ -9,26 +9,28 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 
 /**
  * @brief   Post media database handler.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class PostMedia implements PostMediaInterface
 {
     /**
-     * Database connection handler.
+     * The working blog instance
      *
-     * @var     ConnectionInterface     $con
+     * @var     null|BlogInterface   $blog
      */
-    protected ConnectionInterface $con;
+    private ?BlogInterface $blog = null;
 
     /**
      * Full table name (including db prefix).
@@ -39,11 +41,20 @@ class PostMedia implements PostMediaInterface
 
     /**
      * Constructor.
+     *
+     * @param   ConnectionInterface     $con    The database connection instance
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected ConnectionInterface $con
+    ) {
         $this->table = $this->con->prefix() . self::POST_MEDIA_TABLE_NAME;
+    }
+
+    public function loadFromBlog(BlogInterface $blog): PostMediaInterface
+    {
+        $this->blog = $blog;
+
+        return $this;
     }
 
     public function openPostMediaCursor(): Cursor
@@ -81,7 +92,7 @@ class PostMedia implements PostMediaInterface
         }
 
         $sql
-            ->from($sql->as($this->con->prefix() . App::media()::MEDIA_TABLE_NAME, 'M'))
+            ->from($sql->as($this->con->prefix() . self::MEDIA_TABLE_NAME, 'M'))
             ->join(
                 (new JoinStatement())
                 ->inner()
@@ -135,7 +146,7 @@ class PostMedia implements PostMediaInterface
         $cur->link_type = $link_type;
 
         $cur->insert();
-        App::blog()->triggerBlog();
+        $this->blog->triggerBlog();
     }
 
     public function removePostMedia(int $post_id, int $media_id, ?string $link_type = null): void
@@ -154,6 +165,6 @@ class PostMedia implements PostMediaInterface
         }
         $sql->delete();
 
-        App::blog()->triggerBlog();
+        $this->blog->triggerBlog();
     }
 }

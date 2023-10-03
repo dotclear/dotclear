@@ -32,7 +32,7 @@ class Combos
      * @param      bool         $include_empty  Includes empty categories
      * @param      bool         $use_url        Use url or ID
      *
-     * @return     array   The categories combo.
+     * @return     array<Option>   The categories combo.
      */
     public static function getCategoriesCombo(MetaRecord $categories, bool $include_empty = true, bool $use_url = false): array
     {
@@ -58,7 +58,7 @@ class Combos
     /**
      * Returns available post status combo.
      *
-     * @return     array  The post statuses combo.
+     * @return     array<string, string>  The post statuses combo.
      */
     public static function getPostStatusesCombo(): array
     {
@@ -75,7 +75,7 @@ class Combos
      *
      * @param      MetaRecord  $users  The users
      *
-     * @return     array   The users combo.
+     * @return     array<string, string>   The users combo.
      */
     public static function getUsersCombo(MetaRecord $users): array
     {
@@ -103,7 +103,7 @@ class Combos
      *
      * @param      MetaRecord  $dates  The dates
      *
-     * @return     array   The dates combo.
+     * @return     array<string, string>   The dates combo.
      */
     public static function getDatesCombo(MetaRecord $dates): array
     {
@@ -119,9 +119,9 @@ class Combos
      * Gets the langs combo.
      *
      * @param      MetaRecord  $langs           The langs
-     * @param      bool      $with_available  If false, only list items from record if true, also list available languages
+     * @param      bool        $with_available  If false, only list items from record if true, also list available languages
      *
-     * @return     array   The langs combo.
+     * @return     array<string, mixed>   The langs combo.
      */
     public static function getLangsCombo(MetaRecord $langs, bool $with_available = false): array
     {
@@ -151,7 +151,7 @@ class Combos
     /**
      * Returns a combo containing all available and installed languages for administration pages.
      *
-     * @return     array  The admin langs combo.
+     * @return     array<Option>  The admin langs combo.
      */
     public static function getAdminLangsCombo(): array
     {
@@ -173,7 +173,7 @@ class Combos
     /**
      * Returns a combo containing all available editors in admin.
      *
-     * @return     array  The editors combo.
+     * @return     array<string, string>  The editors combo.
      */
     public static function getEditorsCombo(): array
     {
@@ -191,7 +191,7 @@ class Combos
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
-     * @return     array   The formaters combo.
+     * @return     array<string, mixed>   The formaters combo.
      */
     public static function getFormatersCombo(string $editor_id = ''): array
     {
@@ -215,7 +215,7 @@ class Combos
     /**
      * Gets the blog statuses combo.
      *
-     * @return     array  The blog statuses combo.
+     * @return     array<string, string>  The blog statuses combo.
      */
     public static function getBlogStatusesCombo(): array
     {
@@ -230,7 +230,7 @@ class Combos
     /**
      * Gets the comment statuses combo.
      *
-     * @return     array  The comment statuses combo.
+     * @return     array<string, string>  The comment statuses combo.
      */
     public static function getCommentStatusesCombo(): array
     {
@@ -242,6 +242,11 @@ class Combos
         return $status_combo;
     }
 
+    /**
+     * Gets the order combo.
+     *
+     * @return     array<string, string>  The order combo.
+     */
     public static function getOrderCombo(): array
     {
         return [
@@ -250,6 +255,11 @@ class Combos
         ];
     }
 
+    /**
+     * Gets the posts sortby combo.
+     *
+     * @return     array<string, string>  The posts sortby combo.
+     */
     public static function getPostsSortbyCombo(): array
     {
         $sortby_combo = [
@@ -268,6 +278,11 @@ class Combos
         return $sortby_combo;
     }
 
+    /**
+     * Gets the comments sortby combo.
+     *
+     * @return     array<string, string>  The comments sortby combo.
+     */
     public static function getCommentsSortbyCombo(): array
     {
         $sortby_combo = [
@@ -296,6 +311,11 @@ class Combos
         return $sortby_combo;
     }
 
+    /**
+     * Gets the blogs sortby combo.
+     *
+     * @return     array<string, string>  The blogs sortby combo.
+     */
     public static function getBlogsSortbyCombo(): array
     {
         $sortby_combo = [
@@ -310,6 +330,11 @@ class Combos
         return $sortby_combo;
     }
 
+    /**
+     * Gets the users sortby combo.
+     *
+     * @return     array<string, string>  The users sortby combo.
+     */
     public static function getUsersSortbyCombo(): array
     {
         $sortby_combo = [];

@@ -7,6 +7,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Module
+ * @brief       Modules handling
+ */
+
 namespace Dotclear\Module;
 
 use Autoloader;
@@ -331,7 +336,7 @@ class Modules implements ModulesInterface
             try {
                 $this->deactivateModule($module->getId());
                 $reason[] = sprintf('%s : %s', $module->get('name'), join(',', $module->getMissing()));
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
         }

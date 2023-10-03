@@ -11,24 +11,32 @@ namespace Dotclear\Core;
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Template\Template;
-use Dotclear\Module\StoreReader;
+use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\CacheInterface;
+use Dotclear\Module\StoreReader;
 
 /**
  * @brief   Application cache handler.
  *
- * @since 2.28
+ * @since   2.28, cache features have been grouped in this class
  */
 class Cache implements CacheInterface
 {
     /**
+     * The full cache directory path.
+     *
+     * @var   string  $cache_dir
+     */
+    protected string $cache_dir;
+
+    /**
      * Constructor.
      *
-     * @param   string  $cache_dir  The full cache directory path
+     * @param   ConfigInterface     $config     The application configuration
      */
-    public function __construct(
-        protected string $cache_dir
-    ) {
+    public function __construct(ConfigInterface $config)
+    {
+        $this->cache_dir = $config->cacheRoot();
     }
 
     /**

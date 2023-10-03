@@ -20,7 +20,7 @@ use form;
  * @brief   Comments list pager form helper.
  *
  * @since   2.20
- */ 
+ */
 class ListingComments extends Listing
 {
     /**
@@ -33,7 +33,7 @@ class ListingComments extends Listing
      * @param   bool    $spam           Show spam
      * @param   bool    $show_ip        Show ip
      */
-    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false, bool $spam = false, bool $show_ip = true)
+    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false, bool $spam = false, bool $show_ip = true): void
     {
         if ($this->rs->isEmpty()) {
             if ($filter) {
@@ -163,9 +163,9 @@ class ListingComments extends Listing
     /**
      * Get a comment line.
      *
-     * @param   bool    $checked    The checked flag
-     * @param   bool    $spam       The spam flag
-     * @param   array   $filters    The filters
+     * @param   bool                    $checked    The checked flag
+     * @param   bool                    $spam       The spam flag
+     * @param   array<string, string>   $filters    The filters
      *
      * @return  string
      */

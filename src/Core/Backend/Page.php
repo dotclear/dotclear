@@ -24,21 +24,29 @@ class Page
 {
     /**
      * Stack of loaded JS
+     *
+     * @var array<string>
      */
     private static array $loaded_js = [];
 
     /**
      * Stack of loaded CSS
+     *
+     * @var array<string>
      */
     private static array $loaded_css = [];
 
     /**
      * Stack of preloaded resources (Js, CSS)
+     *
+     * @var array<string>
      */
     private static array $preloaded = [];
 
     /**
      * Flag to avoid loading more than once the x-frame-options header
+     *
+     * @var bool
      */
     private static bool $xframe_loaded = false;
 
@@ -48,7 +56,7 @@ class Page
      * @param      string  $permissions  The permissions
      * @param      bool    $home         Currently on dashboard
      */
-    public static function check(string $permissions, bool $home = false)
+    public static function check(string $permissions, bool $home = false): void
     {
         if (App::blog()->isDefined() && App::auth()->check($permissions, App::blog()->id())) {
             return;
@@ -74,7 +82,7 @@ class Page
      *
      * @param      bool  $home   The home
      */
-    public static function checkSuper(bool $home = false)
+    public static function checkSuper(bool $home = false): void
     {
         if (!App::auth()->isSuperAdmin()) {
             // Check if dashboard is not the current page et if it is granted for the user
@@ -96,12 +104,12 @@ class Page
     /**
      * Top of admin page
      *
-     * @param      string  $title       The title
-     * @param      string  $head        The head
-     * @param      string  $breadcrumb  The breadcrumb
-     * @param      array   $options     The options
+     * @param      string                   $title       The title
+     * @param      string                   $head        The head
+     * @param      string                   $breadcrumb  The breadcrumb
+     * @param      array<string, string>    $options     The options
      */
-    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = [])
+    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = []): void
     {
         $js = [];
 
@@ -216,7 +224,7 @@ class Page
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::task()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -309,160 +317,9 @@ class Page
     }
 
     /**
-     * Get current notices
-     *
-     * @deprecated sicne 2.27, use Notices::getNotices() instead
-     *
-     * @return     string
-     */
-    public static function notices(): string
-    {
-        App::deprecated()->set('Notices::getNotices()', '2.27');
-
-        return Notices::getNotices();
-    }
-
-    /**
-     * Adds a message notice.
-     *
-     * @deprecated sicne 2.27, use Notices::addMessageNotice() instead
-     *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
-     */
-    public static function addMessageNotice(string $message, array $options = [])
-    {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
-
-        Notices::addNotice(Notices::NOTICE_MESSAGE, $message, $options);
-    }
-
-    /**
-     * Adds a success notice.
-     *
-     * @deprecated sicne 2.27, use Notices::addSuccessNotice() instead
-     *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
-     */
-    public static function addSuccessNotice(string $message, array $options = [])
-    {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
-
-        Notices::addNotice(Notices::NOTICE_SUCCESS, $message, $options);
-    }
-
-    /**
-     * Adds a warning notice.
-     *
-     * @deprecated sicne 2.27, use Notices::addWarningNotice() instead
-     *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
-     */
-    public static function addWarningNotice(string $message, array $options = [])
-    {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
-
-        Notices::addNotice(Notices::NOTICE_WARNING, $message, $options);
-    }
-
-    /**
-     * Adds an error notice.
-     *
-     * @deprecated sicne 2.27, use Notices::addErrorNotice() instead
-     *
-     * @param      string  $message  The message
-     * @param      array   $options  The options
-     */
-    public static function addErrorNotice(string $message, array $options = [])
-    {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
-
-        Notices::addNotice(Notices::NOTICE_ERROR, $message, $options);
-    }
-
-    /**
-     * Return/display a notice.
-     *
-     * @deprecated sicne 2.27, use Notices::message() instead
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  Include the timestamp
-     * @param      bool    $div        The message container, true for <div>, false for <p>
-     * @param      bool    $echo       Immediatly displayed
-     * @param      string  $class      The class to use
-     *
-     * @return     string  The notice
-     */
-    public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
-    {
-        App::deprecated()->set('Notices::message()', '2.27');
-
-        return Notices::message($msg, $timestamp, $div, $echo, $class);
-    }
-
-    /**
-     * Return/display a success notice.
-     *
-     * @deprecated sicne 2.27, use Notices::success() instead
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  Include the timestamp
-     * @param      bool    $div        The message container, true for <div>, false for <p>
-     * @param      bool    $echo       Immediatly displayed
-     *
-     * @return     string  The notice
-     */
-    public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
-    {
-        App::deprecated()->set('Notices::success()', '2.27');
-
-        return Notices::success($msg, $timestamp, $div, $echo);
-    }
-
-    /**
-     * Return/display a warning notice.
-     *
-     * @deprecated sicne 2.27, use Notices::warning() instead
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  Include the timestamp
-     * @param      bool    $div        The message container, true for <div>, false for <p>
-     * @param      bool    $echo       Immediatly displayed
-     *
-     * @return     string  The notice
-     */
-    public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
-    {
-        App::deprecated()->set('Notices::warning()', '2.27');
-
-        return Notices::warning($msg, $timestamp, $div, $echo);
-    }
-
-    /**
-     * Return/display a error notice.
-     *
-     * @deprecated sicne 2.27, use Notices::error() instead
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  Include the timestamp
-     * @param      bool    $div        The message container, true for <div>, false for <p>
-     * @param      bool    $echo       Immediatly displayed
-     *
-     * @return     string  The notice
-     */
-    public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
-    {
-        App::deprecated()->set('Notices::error()', '2.27');
-
-        return Notices::error($msg, $timestamp, $div, $echo);
-    }
-
-    /**
      * End of admin page
      */
-    public static function close()
+    public static function close(): void
     {
         if (!App::backend()->resources->context()) {
             if (!App::auth()->prefs()->interface->hidehelpbutton) {
@@ -535,7 +392,7 @@ class Page
      * @param      string  $head        The head
      * @param      string  $breadcrumb  The breadcrumb
      */
-    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = '')
+    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = ''): void
     {
         $js = [];
 
@@ -564,7 +421,7 @@ class Page
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::task()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -618,7 +475,7 @@ class Page
     /**
      * The end of a popup.
      */
-    public static function closePopup()
+    public static function closePopup(): void
     {
         echo
         "</div>\n" .  // End of #content
@@ -637,7 +494,7 @@ class Page
      * @param      string       $title  The title
      * @param      null|string  $head   The head
      */
-    public static function openModule(string $title = '', ?string $head = '')
+    public static function openModule(string $title = '', ?string $head = ''): void
     {
         if (!$title) {
             $title = App::config()->vendorName();
@@ -648,16 +505,167 @@ class Page
     /**
      * Closes a module.
      */
-    public static function closeModule()
+    public static function closeModule(): void
     {
         echo '</body></html>';
     }
 
     /**
+     * Get current notices
+     *
+     * @deprecated since 2.27, use Notices::getNotices() instead
+     *
+     * @return     string
+     */
+    public static function notices(): string
+    {
+        App::deprecated()->set('Notices::getNotices()', '2.27');
+
+        return Notices::getNotices();
+    }
+
+    /**
+     * Adds a message notice.
+     *
+     * @deprecated since 2.27, use Notices::addMessageNotice() instead
+     *
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
+     */
+    public static function addMessageNotice(string $message, array $options = []): void
+    {
+        App::deprecated()->set('Notices::addNotices()', '2.27');
+
+        Notices::addNotice(Notices::NOTICE_MESSAGE, $message, $options);
+    }
+
+    /**
+     * Adds a success notice.
+     *
+     * @deprecated since 2.27, use Notices::addSuccessNotice() instead
+     *
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
+     */
+    public static function addSuccessNotice(string $message, array $options = []): void
+    {
+        App::deprecated()->set('Notices::addNotices()', '2.27');
+
+        Notices::addNotice(Notices::NOTICE_SUCCESS, $message, $options);
+    }
+
+    /**
+     * Adds a warning notice.
+     *
+     * @deprecated since 2.27, use Notices::addWarningNotice() instead
+     *
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
+     */
+    public static function addWarningNotice(string $message, array $options = []): void
+    {
+        App::deprecated()->set('Notices::addNotices()', '2.27');
+
+        Notices::addNotice(Notices::NOTICE_WARNING, $message, $options);
+    }
+
+    /**
+     * Adds an error notice.
+     *
+     * @deprecated since 2.27, use Notices::addErrorNotice() instead
+     *
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
+     */
+    public static function addErrorNotice(string $message, array $options = []): void
+    {
+        App::deprecated()->set('Notices::addNotices()', '2.27');
+
+        Notices::addNotice(Notices::NOTICE_ERROR, $message, $options);
+    }
+
+    /**
+     * Return/display a notice.
+     *
+     * @deprecated since 2.27, use Notices::message() instead
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     * @param      string  $class      The class to use
+     *
+     * @return     string  The notice
+     */
+    public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
+    {
+        App::deprecated()->set('Notices::message()', '2.27');
+
+        return Notices::message($msg, $timestamp, $div, $echo, $class);
+    }
+
+    /**
+     * Return/display a success notice.
+     *
+     * @deprecated since 2.27, use Notices::success() instead
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     *
+     * @return     string  The notice
+     */
+    public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        App::deprecated()->set('Notices::success()', '2.27');
+
+        return Notices::success($msg, $timestamp, $div, $echo);
+    }
+
+    /**
+     * Return/display a warning notice.
+     *
+     * @deprecated since 2.27, use Notices::warning() instead
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     *
+     * @return     string  The notice
+     */
+    public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        App::deprecated()->set('Notices::warning()', '2.27');
+
+        return Notices::warning($msg, $timestamp, $div, $echo);
+    }
+
+    /**
+     * Return/display a error notice.
+     *
+     * @deprecated since 2.27, use Notices::error() instead
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  Include the timestamp
+     * @param      bool    $div        The message container, true for <div>, false for <p>
+     * @param      bool    $echo       Immediatly displayed
+     *
+     * @return     string  The notice
+     */
+    public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
+    {
+        App::deprecated()->set('Notices::error()', '2.27');
+
+        return Notices::error($msg, $timestamp, $div, $echo);
+    }
+
+    /**
      * Get breadcrumb
      *
-     * @param      array|null   $elements  The elements
-     * @param      array        $options   The options
+     * @param      array<string, mixed>|null   $elements  The elements
+     * @param      array<string, mixed>        $options   The options
      *
      * @return     string
      */
@@ -715,7 +723,7 @@ class Page
      *
      * @return      bool
      */
-    private static function isXdebugStackAvailable()
+    private static function isXdebugStackAvailable(): bool
     {
         if (!function_exists('xdebug_get_function_stack')) {
             return false;
@@ -780,7 +788,7 @@ class Page
      *
      * @param      mixed  ...$params  The parameters
      */
-    public static function helpBlock(...$params)
+    public static function helpBlock(...$params): void
     {
         if (App::auth()->prefs()->interface->hidehelpbutton) {
             return;
@@ -1073,7 +1081,7 @@ class Page
         $adblockcheck = App::config()->checkAddBlocker();
         if ($adblockcheck) {
             // May not be set (auth page for example)
-            if (!is_null(App::auth()->userID())) {
+            if (!App::auth()->userID()) {
                 $adblockcheck = App::auth()->prefs()->interface->nocheckadblocker !== true;
             } else {
                 $adblockcheck = false;
@@ -1136,23 +1144,10 @@ class Page
     /**
      * Get HTML to load Upload JS utility
      *
-     * @param      array        $params    The parameters
-     * @param      null|string  $base_url  The base url
-     *
      * @return     string
      */
-    public static function jsUpload(array $params = [], ?string $base_url = null): string
+    public static function jsUpload(): string
     {
-        if (!$base_url) {
-            $base_url = Path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/';
-        }
-
-        $params = array_merge($params, [
-            'sess_id=' . session_id(),
-            'sess_uid=' . $_SESSION['sess_browser_uid'],
-            'xd_check=' . App::nonce()->getNonce(),
-        ]);
-
         $js_msg = [
             'enhanced_uploader_activate' => __('Temporarily activate enhanced uploader'),
             'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader'),
@@ -1176,7 +1171,7 @@ class Page
                 'files_in_queue'             => __('%d files in queue.'),
                 'queue_error'                => __('Queue error:'),
             ],
-            'base_url' => $base_url,
+            'base_url' => Path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/',
         ];
 
         return
@@ -1229,9 +1224,9 @@ class Page
     /**
      * Get HTML code to load Codemirror
      *
-     * @param      string  $theme  The theme
-     * @param      bool    $multi  Is multiplex?
-     * @param      array   $modes  The modes
+     * @param      string           $theme  The theme
+     * @param      bool             $multi  Is multiplex?
+     * @param      array<string>    $modes  The modes
      *
      * @return     string
      */
@@ -1331,7 +1326,7 @@ class Page
     /**
      * Gets the codemirror themes list.
      *
-     * @return     array  The code mirror themes.
+     * @return     array<string>  The code mirror themes.
      */
     public static function getCodeMirrorThemes(): array
     {
@@ -1378,10 +1373,10 @@ class Page
     /**
      * Sets the x frame options.
      *
-     * @param      array|ArrayObject    $headers  The headers
-     * @param      mixed                $origin   The origin
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $headers  The headers
+     * @param      mixed                                            $origin   The origin
      */
-    public static function setXFrameOptions($headers, $origin = null)
+    public static function setXFrameOptions($headers, $origin = null): void
     {
         if (self::$xframe_loaded) {
             return;
@@ -1404,7 +1399,7 @@ class Page
     /**
      * @deprecated  since 2.24, permanetly removed
      */
-    public static function help()
+    public static function help(): void
     {
         App::deprecated()->set('', '2.24');
 
@@ -1475,7 +1470,7 @@ class Page
      *
      * @deprecated since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript intead
      *
-     * @param      array  $vars   The variables
+     * @param      array<string, mixed>  $vars   The variables
      *
      * @return     string  javascript code (inside <script></script>)
      */

@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Backend.Listing
  * @brief       Backend list pager helpers.
  */
+
 namespace Dotclear\Core\Backend\Listing;
 
 use Dotclear\Core\Backend\UserPref;
@@ -28,21 +29,21 @@ class Listing
      *
      * @var     int|null    $rs_count
      */
-    protected $rs_count;
+    protected ?int $rs_count;
 
     /**
      * Previous page label.
      *
      * @var     string  $html_prev
      */
-    protected $html_prev;
+    protected string $html_prev;
 
     /**
      * Next page label.
      *
      * @var     string  $html_next
      */
-    protected $html_next;
+    protected string $html_next;
 
     /**
      * Constructs a new instance.
@@ -62,10 +63,10 @@ class Listing
     /**
      * Get user defined columns
      *
-     * @param      string                               $type   The type
-     * @param      array|\ArrayObject<string|string>    $cols   The columns
+     * @param      string                                               $type   The type
+     * @param      array<string, string>|\ArrayObject<string, string>   $cols   The columns
      */
-    public function userColumns(string $type, $cols)
+    public function userColumns(string $type, $cols): void
     {
         $cols = UserPref::getUserColumns($type, $cols);
     }

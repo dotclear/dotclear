@@ -37,72 +37,72 @@ abstract class Actions
     /**
      * Action combo box.
      *
-     * @var     array   $combo
+     * @var     array<string, mixed>   $combo
      */
-    protected $combo = [];
+    protected array $combo = [];
 
     /**
      * List of defined actions (callbacks).
      *
-     * @var     ArrayObject     $actions
+     * @var     ArrayObject<string, callable>     $actions
      */
-    protected $actions;
+    protected ArrayObject $actions;
 
     /**
      * Selected entries (each key is the entry id, value contains the entry description).
      *
-     * @var     array   $entries
+     * @var     array<string, mixed>   $entries
      */
-    protected $entries = [];
+    protected array $entries = [];
 
     /**
      * Record that challenges ids against permissions.
      *
      * @var     MetaRecord  $rs
      */
-    protected $rs;
+    protected MetaRecord $rs;
 
     /**
      * List of $_POST fields used to build the redirection.
      *
-     * @var     array   $redirect_fields
+     * @var     array<string>   $redirect_fields
      */
-    protected $redirect_fields = [];
+    protected array $redirect_fields = [];
 
     /**
      * Redirection anchor if any.
      *
      * @var     string  $redir_anchor
      */
-    protected $redir_anchor = '';
+    protected string $redir_anchor = '';
 
     /**
      * Current action, if any.
      *
      * @var     string  $action
      */
-    protected $action = '';
+    protected string $action = '';
 
     /**
      * List of url parameters (usually $_POST).
      *
-     * @var     ArrayObject     $from
+     * @var     ArrayObject<string, mixed>     $from
      */
-    protected $from;
+    protected ArrayObject $from;
 
     /**
      * Form field name for "entries" (usually "entries").
      *
      * @var     string  $field_entries
      */
-    protected $field_entries;
+    protected string $field_entries;
 
     /**
      * Title for checkboxes list, if displayed.
      *
      * @var     string  $cb_title
      */
-    protected $cb_title;
+    protected string $cb_title;
 
     /**
      * Title for caller page title.
@@ -116,14 +116,14 @@ abstract class Actions
      *
      * @var     bool    $in_plugin
      */
-    protected $in_plugin = false;
+    protected bool $in_plugin = false;
 
     /**
      * True if we enable to keep selection when redirecting.
      *
      * @var     bool    $enable_redir_selection
      */
-    protected $enable_redir_selection = true;
+    protected bool $enable_redir_selection = true;
 
     /**
      * Use render method.
@@ -132,21 +132,21 @@ abstract class Actions
      *
      * @var     bool    $use_render
      */
-    protected $use_render = false;
+    protected bool $use_render = false;
 
     /**
      * Action process content.
      *
      * @var     string  Action process content
      */
-    protected $render = '';
+    protected string $render = '';
 
     /**
      * Constructs a new instance.
      *
-     * @param   null|string     $uri            The form uri
-     * @param   array           $redir_args     The redirection $_GET arguments,
-     *                                          if any (does not contain ids by default, ids may be merged to it)
+     * @param   null|string             $uri            The form uri
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
+     *                                                  if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(
         protected ?string $uri,
@@ -176,7 +176,7 @@ abstract class Actions
      *
      * @param   bool    $enable     True to enable, false otherwise
      */
-    public function setEnableRedirSelection(bool $enable)
+    public function setEnableRedirSelection(bool $enable): void
     {
         $this->enable_redir_selection = $enable;
     }
@@ -184,10 +184,10 @@ abstract class Actions
     /**
      * Adds an action.
      *
-     * @param   array           $actions    The actions names as if it was a standalone combo array.
-     *                                      It will be merged with other actions.
-     *                                      Can be bound to multiple values, if the same callback is to be called
-     * @param   callable        $callback   The callback for the action.
+     * @param   array<string, mixed>    $actions    The actions names as if it was a standalone combo array.
+     *                                              It will be merged with other actions.
+     *                                              Can be bound to multiple values, if the same callback is to be called
+     * @param   callable                $callback   The callback for the action.
      *
      * @return  Actions     The actions page itself, enabling to chain addAction().
      */
@@ -223,7 +223,7 @@ abstract class Actions
      *
      * Useable through form::combo/formOption (see addAction() method)
      *
-     * @return  array   The actions combo
+     * @return  array<string, mixed>   The actions combo
      */
     public function getCombo(): ?array
     {
@@ -233,7 +233,7 @@ abstract class Actions
     /**
      * Returns the list of selected entries.
      *
-     * @return  array   The list
+     * @return  array<string>   The list
      */
     public function getIDs(): array
     {
@@ -256,9 +256,9 @@ abstract class Actions
     }
 
     /**
-     * Returns the list of selected entries as an array of formHidden object.
+     * Returns the list of selected entries as an array of Hidden object.
      *
-     * @return  array   The hidden form fields.
+     * @return  array<Hidden>   The hidden form fields.
      */
     public function IDsHidden(): array
     {
@@ -295,7 +295,7 @@ abstract class Actions
      *
      * @param   bool    $with_ids   If true, also include ids in array
      *
-     * @return  array   The hidden form fields.
+     * @return  array<Hidden>   The hidden form fields.
      */
     public function hiddenFields(bool $with_ids = false): array
     {
@@ -326,9 +326,9 @@ abstract class Actions
      *  by default, $_POST fields as defined in redirect_fields attributes
      *  are set into redirect_args.
      *
-     * @param   array|ArrayObject   $from   input to parse fields from (usually $_POST)
+     * @param   array<string, mixed>|ArrayObject<string, mixed>   $from   input to parse fields from (usually $_POST)
      */
-    protected function setupRedir($from)
+    protected function setupRedir($from): void
     {
         foreach ($this->redirect_fields as $field) {
             if (isset($from[$field])) {
@@ -340,10 +340,10 @@ abstract class Actions
     /**
      * Returns redirection URL.
      *
-     * @param   bool    $with_selected_entries  If true, add selected entries in url
-     * @param   array   $params                 Extra parameters to append to redirection
-     *                                          must be an array : each key is the name,
-     *                                          each value is the wanted value
+     * @param   bool                    $with_selected_entries  If true, add selected entries in url
+     * @param   array<string, mixed>    $params                 Extra parameters to append to redirection
+     *                                                          must be an array : each key is the name,
+     *                                                          each value is the wanted value
      *
      * @return  string  The redirection url
      */
@@ -366,10 +366,10 @@ abstract class Actions
      *
      * @see     getRedirection  for arguments details
      *
-     * @param   bool    $with_selected_entries  If true, add selected entries in url
-     * @param   array   $params                 Extra parameters to append to redirection
-     *                                          must be an array : each key is the name,
-     *                                          each value is the wanted value
+     * @param   bool                    $with_selected_entries  If true, add selected entries in url
+     * @param   array<string, mixed>    $params                 Extra parameters to append to redirection
+     *                                                          must be an array : each key is the name,
+     *                                                          each value is the wanted value
      * @return  never
      */
     public function redirect(bool $with_selected_entries = false, array $params = [])
@@ -412,7 +412,9 @@ abstract class Actions
      * Proceeds action handling, if any.
      *
      * This method may issue an exit() if an action is being processed.
-     *  If it returns, no action has been performed
+     * If it returns, no action has been performed
+     *
+     * @return mixed
      */
     public function process()
     {
@@ -510,7 +512,7 @@ abstract class Actions
      *
      * @param   Exception   $e  The exception
      */
-    public function error(Exception $e)
+    public function error(Exception $e): void
     {
         App::error()->add($e->getMessage());
     }
@@ -523,14 +525,14 @@ abstract class Actions
      * @param   string  $breadcrumb     Breadcrumb to display
      * @param   string  $head           Page header to include
      */
-    abstract public function beginPage(string $breadcrumb = '', string $head = '');
+    abstract public function beginPage(string $breadcrumb = '', string $head = ''): void;
 
     /**
      * Displays the ending of a page, if action does not redirects dirtectly.
      *
      * This method is called from the actions themselves.
      */
-    abstract public function endPage();
+    abstract public function endPage(): void;
 
     /**
      * Fills-in information by requesting into db.
@@ -540,7 +542,7 @@ abstract class Actions
      *   entries ids are array keys, values contain entry description (if relevant)
      * - rs : MetaRecord given by db request
      *
-     * @param   ArrayObject     $from
+     * @param   ArrayObject<string, mixed>     $from
      */
-    abstract protected function fetchEntries(ArrayObject $from);
+    abstract protected function fetchEntries(ArrayObject $from): void;
 }

@@ -9,56 +9,24 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\SchemaInterface;
+
 /**
  * @class AbstractSchema
  *
  * Database schema abstraction
  */
-abstract class AbstractSchema implements InterfaceSchema
+abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
 {
-    /**
-     * @var mixed DB handle
-     */
-    protected $con;
-
     /**
      * Constructs a new instance.
      *
-     * @param      mixed  $con    The DB handle
+     * @param   ConnectionInterface     $con    The DB handler
      */
-    public function __construct($con)
-    {
-        $this->con = &$con;
-    }
-
-    /**
-     * Initializes the driver.
-     *
-     * @param      mixed  $con    The DB handle
-     *
-     * @return     AbstractSchema
-     */
-    public static function init($con)
-    {
-        $driver = $con->driver();
-        $class  = $driver . 'Schema';
-
-        // Set full namespace of distributed database driver
-        if (in_array($driver, ['mysqli', 'mysqlimb4', 'pgsql', 'sqlite'])) {
-            $class = __NAMESPACE__ . '\\Driver\\' . ucfirst($driver) . '\\Schema';
-        }
-
-        // You can set DC_DBSCHEMA_CLASS to whatever you want.
-        // Your new class *should* inherits Dotclear\Database\Schema\AbstractSchema class.
-        $class = defined('DC_DBSCHEMA_CLASS') ? \DC_DBSCHEMA_CLASS : $class;
-
-        if (!is_subclass_of($class, __CLASS__)) {
-            trigger_error('Database schema class ' . $class . ' does not exist or does not inherit ' . __CLASS__);
-
-            exit(1);
-        }
-
-        return new $class($con);
+    public function __construct(
+        protected ConnectionInterface $con
+    ) {
     }
 
     /**
@@ -138,7 +106,7 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: array}>
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: array<string>}>
      */
     public function getKeys(string $table): array
     {
@@ -153,7 +121,7 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, type: string, cols: array}>
+     * @return     array<array{name: string, type: string, cols: array<string>}>
      */
     public function getIndexes(string $table): array
     {
@@ -168,7 +136,7 @@ abstract class AbstractSchema implements InterfaceSchema
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>
+     * @return     array<array{name: string, c_cols: array<string>, p_table: string, p_cols: array<string>, update: string, delete: string}>
      */
     public function getReferences(string $table): array
     {
@@ -179,8 +147,8 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Creates a table.
      *
-     * @param      string  $name    The name
-     * @param      array   $fields  The fields
+     * @param      string                               $name    The name
+     * @param      array<string, array<string, mixed>>  $fields  The fields
      */
     public function createTable(string $name, array $fields): void
     {
@@ -207,9 +175,9 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Creates a primary key.
      *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      array   $fields The fields
+     * @param      string           $table  The table
+     * @param      string           $name   The name
+     * @param      array<string>    $fields The fields
      */
     public function createPrimary(string $table, string $name, array $fields): void
     {
@@ -220,9 +188,9 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Creates an unique key.
      *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      array   $fields The fields
+     * @param      string           $table  The table
+     * @param      string           $name   The name
+     * @param      array<string>    $fields The fields
      */
     public function createUnique(string $table, string $name, array $fields): void
     {
@@ -233,10 +201,10 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Creates an index.
      *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     * @param      string  $type   The type
-     * @param      array   $fields The fields
+     * @param      string           $table  The table
+     * @param      string           $name   The name
+     * @param      string           $type   The type
+     * @param      array<string>    $fields The fields
      */
     public function createIndex(string $table, string $name, string $type, array $fields): void
     {
@@ -247,13 +215,13 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Creates a reference.
      *
-     * @param      string       $name            The name
-     * @param      string       $table           The table
-     * @param      array        $fields          The fields
-     * @param      string       $foreign_table   The foreign table
-     * @param      array        $foreign_fields  The foreign fields
-     * @param      string|bool  $update          The update
-     * @param      string|bool  $delete          The delete
+     * @param      string           $name            The name
+     * @param      string           $table           The table
+     * @param      array<string>    $fields          The fields
+     * @param      string           $foreign_table   The foreign table
+     * @param      array<string>    $foreign_fields  The foreign fields
+     * @param      string|bool      $update          The update
+     * @param      string|bool      $delete          The delete
      */
     public function createReference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
@@ -280,10 +248,10 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Modify a primary key
      *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The newname
-     * @param      array   $fields   The fields
+     * @param      string           $table    The table
+     * @param      string           $name     The name
+     * @param      string           $newname  The newname
+     * @param      array<string>    $fields   The fields
      */
     public function alterPrimary(string $table, string $name, string $newname, array $fields): void
     {
@@ -294,10 +262,10 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Modify a unique key
      *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The newname
-     * @param      array   $fields   The fields
+     * @param      string           $table    The table
+     * @param      string           $name     The name
+     * @param      string           $newname  The newname
+     * @param      array<string>    $fields   The fields
      */
     public function alterUnique(string $table, string $name, string $newname, array $fields): void
     {
@@ -308,11 +276,11 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Modify an index
      *
-     * @param      string  $table    The table
-     * @param      string  $name     The name
-     * @param      string  $newname  The newname
-     * @param      string  $type     The type
-     * @param      array   $fields   The fields
+     * @param      string           $table    The table
+     * @param      string           $name     The name
+     * @param      string           $newname  The newname
+     * @param      string           $type     The type
+     * @param      array<string>    $fields   The fields
      */
     public function alterIndex(string $table, string $name, string $newname, string $type, array $fields): void
     {
@@ -323,14 +291,14 @@ abstract class AbstractSchema implements InterfaceSchema
     /**
      * Modify a reference (foreign key)
      *
-     * @param      string       $name            The name
-     * @param      string       $newname         The newname
-     * @param      string       $table           The table
-     * @param      array        $fields          The fields
-     * @param      string       $foreign_table   The foreign table
-     * @param      array        $foreign_fields  The foreign fields
-     * @param      string|bool  $update          The update
-     * @param      string|bool  $delete          The delete
+     * @param      string           $name            The name
+     * @param      string           $newname         The newname
+     * @param      string           $table           The table
+     * @param      array<string>    $fields          The fields
+     * @param      string           $foreign_table   The foreign table
+     * @param      array<string>    $foreign_fields  The foreign fields
+     * @param      string|bool      $update          The update
+     * @param      string|bool      $delete          The delete
      */
     public function alterReference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {

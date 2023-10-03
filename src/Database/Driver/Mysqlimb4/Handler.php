@@ -24,7 +24,7 @@ class Handler extends MysqliHandler
      *
      * @var        string
      */
-    protected $__driver = 'mysqlimb4';
+    protected string $__driver = 'mysqlimb4';
 
     /**
      * Open a DB connection

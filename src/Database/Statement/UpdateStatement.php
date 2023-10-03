@@ -19,8 +19,19 @@ use Dotclear\App;
  */
 class UpdateStatement extends SqlStatement
 {
-    protected $sets;
-    protected $values;
+    /**
+     * List of fields
+     *
+     * @var        array<string>
+     */
+    protected $sets = [];
+
+    /**
+     * List of values
+     *
+     * @var        array<mixed>
+     */
+    protected $values = [];
 
     /**
      * Constructs a new instance.
@@ -30,9 +41,6 @@ class UpdateStatement extends SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->sets   = [];
-        $this->values = [];
-
         parent::__construct($con, $syntax);
     }
 
@@ -67,8 +75,8 @@ class UpdateStatement extends SqlStatement
     /**
      * Adds update set(s) (column = value)
      *
-     * @param mixed     $c      the udpate values(s)
-     * @param boolean   $reset  reset previous update value(s) first
+     * @param string|array<string>     $c      the udpate values(s)
+     * @param boolean                  $reset  reset previous update value(s) first
      *
      * @return self instance, enabling to chain calls
      */
@@ -89,8 +97,8 @@ class UpdateStatement extends SqlStatement
     /**
      * set() alias
      *
-     * @param      mixed    $c      the update value(s)
-     * @param      boolean  $reset  reset previous update value(s) first
+     * @param      string|array<string>     $c      the update value(s)
+     * @param      boolean                  $reset  reset previous update value(s) first
      *
      * @return self instance, enabling to chain calls
      */
@@ -102,8 +110,8 @@ class UpdateStatement extends SqlStatement
     /**
      * Adds update value(s) (needs fields/columns)
      *
-     * @param mixed     $c      the udpate values(s)
-     * @param boolean   $reset  reset previous update value(s) first
+     * @param mixed|array<mixed>    $c      the udpate values(s)
+     * @param boolean               $reset  reset previous update value(s) first
      *
      * @return self instance, enabling to chain calls
      */
@@ -124,8 +132,8 @@ class UpdateStatement extends SqlStatement
     /**
      * value() alias
      *
-     * @param      mixed    $c      the update value(s)
-     * @param      boolean  $reset  reset previous update value(s) first
+     * @param      mixed|array<mixed>   $c      the update value(s)
+     * @param      boolean              $reset  reset previous update value(s) first
      *
      * @return self instance, enabling to chain calls
      */
@@ -206,7 +214,7 @@ class UpdateStatement extends SqlStatement
 
         $sets = [];
         // Value(s)
-        if (is_countable($this->values) ? count($this->values) : 0) {
+        if (count($this->values)) {
             if (count($this->columns)) {
                 $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : (is_null($v) ? 'NULL' : $v);
                 for ($i = 0; $i < min(count($this->values), count($this->columns)) ; $i++) {
@@ -215,7 +223,7 @@ class UpdateStatement extends SqlStatement
             }
         }
         // Set(s)
-        if (is_countable($this->sets) ? count($this->sets) : 0) {
+        if (count($this->sets)) {
             $sets = array_merge($sets, $this->sets);
         }
         if (count($sets)) {

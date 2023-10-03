@@ -26,7 +26,7 @@ class Cursor
     private $__con;
 
     /**
-     * @var        array
+     * @var        array<string, mixed>
      */
     private $__data = [];
 
@@ -42,14 +42,14 @@ class Cursor
      * {@link AbstractHandler::openCursor() openCursor()} method of your connection object.
      *
      * Example:
-     * <code>
+     * ```php
      *    $cur = $con->openCursor('table');
      *    $cur->field1 = 1;
      *    $cur->field2 = 'foo';
      *    $cur->insert(); // Insert field ...
      *
      *    $cur->update('WHERE field3 = 4'); // ... or update field
-     * </code>
+     * ```
      *
      * @see AbstractHandler::openCursor()
      *
@@ -134,6 +134,9 @@ class Cursor
      * Set Field
      *
      * Magic alias for {@link setField()}
+     *
+     * @param string    $name        Field name
+     * @param mixed     $value       Field value
      */
     public function __set(string $name, $value): void
     {

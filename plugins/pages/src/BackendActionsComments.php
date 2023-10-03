@@ -22,5 +22,5 @@ class BackendActionsComments extends ActionsComments
      *
      * @var     bool    $use_render
      */
-    protected $use_render = true;
+    protected bool $use_render = true;
 }

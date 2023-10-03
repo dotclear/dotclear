@@ -51,7 +51,7 @@ interface InterfaceHandler
      *
      * @param mixed    $handle        Resource link
      */
-    public function db_close($handle);
+    public function db_close($handle): void;
 
     /**
      * Database version
@@ -156,7 +156,7 @@ interface InterfaceHandler
      *
      * @param mixed     $res            Resource result
      *
-     * @return array|false
+     * @return array<mixed>|false
      */
     public function db_fetch_assoc($res);
 

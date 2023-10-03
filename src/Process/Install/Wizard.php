@@ -9,11 +9,8 @@
 namespace Dotclear\Process\Install;
 
 use Dotclear\App;
-use Dotclear\Fault;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
-use Dotclear\Database\AbstractHandler;
-use Dotclear\Database\AbstractSchema;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -112,7 +109,7 @@ class Wizard extends Process
     public static function process(): bool
     {
         if (!self::status()) {
-            new Fault('Not found', '', 404);
+            throw new Exception('Not found', 404);
         }
 
         self::$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
@@ -138,7 +135,7 @@ class Wizard extends Process
 
                 # Tries to connect to database
                 try {
-                    $con = AbstractHandler::init(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
+                    $con = App::newConnectionFromValues(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
                 } catch (Exception $e) {
                     throw new Exception('<p>' . __($e->getMessage()) . '</p>');
                 }
@@ -150,7 +147,7 @@ class Wizard extends Process
                 }
 
                 # Check if dotclear is already installed
-                $schema = AbstractSchema::init($con);
+                $schema = $con->schema();
                 if (in_array(self::$DBPREFIX . 'version', $schema->getTables())) {
                     throw new Exception(__('Dotclear is already installed.'));
                 }
@@ -196,7 +193,7 @@ class Wizard extends Process
                 if (function_exists('chmod')) {
                     try {
                         @chmod(App::config()->configPath(), 0o666);
-                    } catch (Exception $e) {
+                    } catch (Exception) {
                     }
                 }
 
@@ -213,7 +210,7 @@ class Wizard extends Process
     public static function render(): void
     {
         if (App::config()->configPath() == '') {
-            new Fault('Not found', '', 404);
+            throw new Exception('Not found', 404);
         }
 
         header('Content-Type: text/html; charset=UTF-8');

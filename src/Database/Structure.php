@@ -31,16 +31,9 @@ class Structure
     /**
      * Stack of DB tables
      *
-     * @var        array
+     * @var        array<string, Table>
      */
     protected $tables = [];
-
-    /**
-     * Stack of References (foreign keys)
-     *
-     * @var        array
-     */
-    protected $references = [];
 
     /**
      * Constructs a new instance.
@@ -99,7 +92,7 @@ class Structure
      */
     public function reverse(): void
     {
-        $schema = AbstractSchema::init($this->con);
+        $schema = $this->con->schema();
 
         # Get tables
         $tables = $schema->getTables();
@@ -177,7 +170,7 @@ class Structure
 
         $got_work = false;
 
-        $schema = AbstractSchema::init($this->con);
+        $schema = $this->con->schema();
 
         foreach ($tables as $tname => $t) {
             if (!$this->tableExists($tname)) {
@@ -371,7 +364,7 @@ class Structure
     /**
      * Gets the tables.
      *
-     * @return     array  The tables.
+     * @return     array<string, Table>  The tables.
      */
     public function getTables(): array
     {
@@ -398,8 +391,8 @@ class Structure
     /**
      * Check if two fields are the same
      *
-     * @param      array  $dst_field  The destination field
-     * @param      array  $src_field  The source field
+     * @param      array<string, mixed>  $dst_field  The destination field
+     * @param      array<string, mixed>  $src_field  The source field
      *
      * @return     bool
      */
@@ -421,10 +414,10 @@ class Structure
     /**
      * Check if two keys are the same
      *
-     * @param      string  $dst_name    The destination name
-     * @param      array   $dst_fields  The destination fields
-     * @param      string  $src_name    The source name
-     * @param      array   $src_fields  The source fields
+     * @param      string           $dst_name    The destination name
+     * @param      array<string>    $dst_fields  The destination fields
+     * @param      string           $src_name    The source name
+     * @param      array<string>    $src_fields  The source fields
      *
      * @return     bool
      */
@@ -436,10 +429,10 @@ class Structure
     /**
      * Check if two indexes are the same
      *
-     * @param      string  $dst_name  The destination name
-     * @param      array   $dst_idx   The destination index
-     * @param      string  $src_name  The source name
-     * @param      array   $src_idc   The source idc
+     * @param      string                   $dst_name  The destination name
+     * @param      array<string, mixed>     $dst_idx   The destination index
+     * @param      string                   $src_name  The source name
+     * @param      array<string, mixed>     $src_idc   The source idc
      *
      * @return     bool
      */
@@ -451,10 +444,10 @@ class Structure
     /**
      * Check if two references are the same
      *
-     * @param      string  $dst_name  The destination name
-     * @param      array   $dst_ref   The destination reference
-     * @param      string  $src_name  The source name
-     * @param      array   $src_ref   The source reference
+     * @param      string                   $dst_name  The destination name
+     * @param      array<string, mixed>     $dst_ref   The destination reference
+     * @param      string                   $src_name  The source name
+     * @param      array<string, mixed>     $src_ref   The source reference
      *
      * @return     bool
      */

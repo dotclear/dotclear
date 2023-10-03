@@ -30,7 +30,7 @@ abstract class Component
     /**
      * @var array<array-key, mixed> Custom component properties (see __get() and __set())
      */
-    protected $properties = [];
+    protected array $properties = [];
 
     /**
      * Constructs a new instance.
@@ -48,6 +48,8 @@ abstract class Component
      * Call statically new instance
      *
      * Use formXxx::init(...$args) to statically create a new instance
+     *
+     * @param     mixed   ...$args The arguments
      *
      * @return object New formXxx instance
      */
@@ -115,8 +117,8 @@ abstract class Component
      * If not, if there is no argument ($argument empty array), assume that it's a get
      * If not, assume that's is a set (value = $argument[0])
      *
-     * @param      string  $method     The property
-     * @param      array   $arguments  The arguments
+     * @param      string           $method     The property
+     * @param      array<mixed>     $arguments  The arguments
      *
      * @return     mixed   method called, property value (or null), self
      */
@@ -246,7 +248,7 @@ abstract class Component
      * If it is an array of only one element, name = [first element]
      * Else name = [first element], id = [second element]
      *
-     * @param      string|array|null $identifier (string or array)
+     * @param      string|array<mixed>|null $identifier (string or array)
      *
      * @return     self
      */

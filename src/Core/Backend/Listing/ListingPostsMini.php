@@ -18,7 +18,7 @@ use Dotclear\Helper\Html\Html;
  * @brief   Posts mini list pager form helper.
  *
  * @since   2.20
- */ 
+ */
 class ListingPostsMini extends Listing
 {
     /**
@@ -28,7 +28,7 @@ class ListingPostsMini extends Listing
      * @param   int     $nb_per_page    The number of posts per page
      * @param   string  $enclose_block  The enclose block
      */
-    public function display(int $page, int $nb_per_page, string $enclose_block = '')
+    public function display(int $page, int $nb_per_page, string $enclose_block = ''): void
     {
         if ($this->rs->isEmpty()) {
             echo '<p><strong>' . __('No entry') . '</strong></p>';

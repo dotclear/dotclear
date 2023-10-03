@@ -81,7 +81,7 @@ class BackendBehaviors
             if (in_array($uri, $pings_uris)) {
                 try {
                     PingsAPI::doPings($uri, App::blog()->name(), App::blog()->url());
-                } catch (Exception $e) {
+                } catch (Exception) {
                 }
             }
         }

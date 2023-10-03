@@ -83,7 +83,7 @@ class BlogPref extends Process
                 $da->blog_status   = $rs->blog_status;
                 $da->blog_name     = $rs->blog_name;
                 $da->blog_desc     = $rs->blog_desc;
-                $da->blog_settings = App::blogSettings($da->blog_id);
+                $da->blog_settings = App::blogSettings()->createFromBlog($da->blog_id);
                 $da->blog_url      = $rs->blog_url;
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -314,11 +314,11 @@ class BlogPref extends Process
 
                 if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
                     if ($da->blog_id == App::blog()->id()) {
-                        App::blogLoader()->setBlog($cur->blog_id);
+                        App::blog()->loadFromBlog($cur->blog_id);
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
                         $da->blog_settings        = App::blog()->settings();
                     } else {
-                        $da->blog_settings = App::blogSettings($cur->blog_id);
+                        $da->blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
                     }
 
                     $da->blog_id = $cur->blog_id;
@@ -947,7 +947,7 @@ class BlogPref extends Process
                 $post_types      = App::postTypes()->dump();
                 $current_blog_id = App::blog()->id();
                 if ($da->blog_id != App::blog()->id()) {
-                    App::blogLoader()->setBlog($da->blog_id);
+                    App::blog()->loadFromBlog($da->blog_id);
                 }
 
                 echo '<div>';
@@ -1022,7 +1022,7 @@ class BlogPref extends Process
                 }
                 echo '</div>';
                 if ($current_blog_id != App::blog()->id()) {
-                    App::blogLoader()->setBlog($current_blog_id);
+                    App::blog()->loadFromBlog($current_blog_id);
                 }
             }
 

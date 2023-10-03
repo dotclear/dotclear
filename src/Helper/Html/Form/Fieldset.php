@@ -36,7 +36,7 @@ class Fieldset extends Component
      *
      * @param      Legend|null  $legend  The legend
      */
-    public function attachLegend(?Legend $legend)
+    public function attachLegend(?Legend $legend): void
     {
         if ($legend) {
             $this->legend($legend);
@@ -48,7 +48,7 @@ class Fieldset extends Component
     /**
      * Detaches the legend.
      */
-    public function detachLegend()
+    public function detachLegend(): void
     {
         if (isset($this->legend)) {
             unset($this->legend);

@@ -257,7 +257,7 @@ class ModuleImportFlat extends Module
     /**
      * Gets the public files.
      *
-     * @return  array   The public files.
+     * @return  array<string, mixed>   The public files.
      */
     protected function getPublicFiles(): array
     {

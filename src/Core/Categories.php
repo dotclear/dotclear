@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Interface\Core\CategoriesInterface;
@@ -21,16 +20,12 @@ use Exception;
  *
  * Categories nested tree is based on excellent work of Kuzma Feskov
  * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
+ *
+ * @since   2.28, categories features have been grouped in this class
+ * @since   2.28, container services have been added to constructor
  */
 class Categories implements CategoriesInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Table name.
      *
@@ -61,11 +56,19 @@ class Categories implements CategoriesInterface
 
     /**
      * Constructor.
+     *
+     * @param   ConnectionInterface     $con    The database connection instance
      */
-    public function __construct()
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected ConnectionInterface $con,
+        protected string $blog_id = ''
+    ) {
         $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
+    }
+
+    public function createFromBlog(string $blog_id): CategoriesInterface
+    {
+        return new self($this->con, $blog_id);
     }
 
     public function openCategoryCursor(): Cursor
@@ -76,10 +79,10 @@ class Categories implements CategoriesInterface
     /**
      * Gets the children.
      *
-     * @param      int|string               $start   The start
+     * @param      int                      $start   The start
      * @param      int                      $id      The identifier
      * @param      string                   $sort    The sort
-     * @param      array<string>|string     $fields  The fields
+     * @param      array<string>            $fields  The fields
      *
      * @return     MetaRecord    The children.
      */
@@ -176,7 +179,7 @@ class Categories implements CategoriesInterface
                 $this->setNodeParent($id + 1, $target);
 
                 return $data->{$this->f_id};
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // We don't mind error in this case
             }
         } catch (Exception $e) {
@@ -359,7 +362,7 @@ class Categories implements CategoriesInterface
      */
     protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
-        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape(App::blog()->id()) . "' ";
+        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape($this->blog_id) . "' ";
     }
 
     /**

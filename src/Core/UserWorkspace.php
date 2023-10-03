@@ -9,28 +9,24 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   User workspace for preferences handler.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class UserWorkspace implements UserWorkspaceInterface
 {
-    /**
-     * Database connection handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Preferences table name.
      *
@@ -39,58 +35,53 @@ class UserWorkspace implements UserWorkspaceInterface
     protected string $table;
 
     /**
-     * User ID.
-     *
-     * @var     string  $user_id
-     */
-    protected ?string $user_id;
-
-    /**
      * Global preferences.
      *
-     * @var     array   Global preferences
+     * @var     array<string, mixed>   Global preferences
      */
     protected array $global_prefs = [];
 
     /**
      * Local preferences.
      *
-     * @var     array   $local_prefs
+     * @var     array<string, mixed>   $local_prefs
      */
     protected array $local_prefs = [];
 
     /**
      * User preferences.
      *
-     * @var     array   $prefs
+     * @var     array<string, mixed>   $prefs
      */
     protected array $prefs = [];
 
     /**
-     * Current workspace name.
+     * Constructor.
      *
-     * @var     string  $workspace
+     * @throws  BadRequestException|ProcessException
+     *
+     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   null|string             $user_id    The user identifier
+     * @param   string                  $workspace  The workspace name
+     * @param   MetaRecord              $rs         The recordset
      */
-    protected ?string $workspace;
-
-    public function __construct(?string $user_id = null, ?string $workspace = null, ?MetaRecord $rs = null)
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected ConnectionInterface $con,
+        protected ?string $user_id = null,
+        protected ?string $workspace = null,
+        ?MetaRecord $rs = null
+    ) {
         $this->table = $this->con->prefix() . self::WS_TABLE_NAME;
 
         if ($workspace !== null) {
             if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
-                throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
+                throw new BadRequestException(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
             }
-
-            $this->prefs     = $this->local_prefs = $this->global_prefs = [];
-            $this->user_id   = $user_id;
-            $this->workspace = $workspace;
 
             try {
                 $this->getPrefs($rs);
-            } catch (Exception $e) {
-                trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
+            } catch (Throwable) {
+                throw new ProcessException(__('Unable to retrieve prefs:') . ' ' . $this->con->error());
             }
         }
     }
@@ -100,9 +91,9 @@ class UserWorkspace implements UserWorkspaceInterface
         return $this->con->openCursor($this->table);
     }
 
-    public function init(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
+    public function createFromUser(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
     {
-        return new self($user_id, $workspace, $rs);
+        return new self($this->con, $user_id, $workspace, $rs);
     }
 
     /**
@@ -133,7 +124,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
             try {
                 $rs = $sql->select();
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 throw $e;
             }
         }
@@ -220,7 +211,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::WS_ID_SCHEMA, $name)) {
-            throw new Exception(sprintf(__('%s is not a valid pref id'), $name));
+            throw new BadRequestException(sprintf(__('%s is not a valid pref id'), $name));
         }
 
         // We don't want to change pref value
@@ -310,7 +301,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         if (!array_key_exists($old_name, $this->prefs) || array_key_exists($new_name, $this->prefs)) {
@@ -318,7 +309,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         if (!preg_match(self::WS_ID_SCHEMA, $new_name)) {
-            throw new Exception(sprintf(__('%s is not a valid pref id'), $new_name));
+            throw new BadRequestException(sprintf(__('%s is not a valid pref id'), $new_name));
         }
 
         // Rename the pref in the prefs array
@@ -345,7 +336,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function drop(string $name, bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -378,7 +369,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -408,7 +399,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified'));
         }
 
         $sql = new DeleteStatement();

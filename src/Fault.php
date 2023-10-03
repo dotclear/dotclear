@@ -9,7 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
-use Exception;
+use Dotclear\Helper\L10n;
+use Throwable;
 
 /**
  * @brief   The helper to parse runtime error.
@@ -20,120 +21,111 @@ use Exception;
 class Fault
 {
     /**
-     * Uncoded or undefined error (before as 0).
+     * The application configuration (if loaded).
      *
-     * @var     int     UNDEFINED_ISSUE
+     * @var     Config  $config
      */
-    public const UNDEFINED_ISSUE = 550;
+    public static ?Config $config = null;
 
     /**
-     * Server configuration issue (before as 0).
+     * Constructor parse throwable exception or error.
      *
-     * @var     int     SETUP_ISSUE
+     * @param   Throwable   $exception  The exception
      */
-    public const SETUP_ISSUE = 555;
-
-    /**
-     * Dotclear configuration file issue (before as 10).
-     *
-     * @var     int     CONFIG_ISSUE
-     */
-    public const CONFIG_ISSUE = 560;
-
-    /**
-     * Database connexion issue (before as 20).
-     *
-     * @var     int     DATABASE_ISSUE
-     */
-    public const DATABASE_ISSUE = 565;
-
-    /**
-     * Blog definition issue (before as 30).
-     *
-     * @var     int     BLOG_ISSUE
-     */
-    public const BLOG_ISSUE = 570;
-
-    /**
-     * Template file creation issue (before as 40).
-     *
-     * @var     int     TEMPLATE_CREATION_ISSUE
-     */
-    public const TEMPLATE_CREATION_ISSUE = 575;
-
-    /**
-     * Theme issue (before as 50).
-     *
-     * @var     int     THEME_ISSUE
-     */
-    public const THEME_ISSUE = 580;
-
-    /**
-     * Template processing issue (before as 60).
-     *
-     * @var     int     TEMPLATE_PROCESSING_ISSUE
-     */
-    public const TEMPLATE_PROCESSING_ISSUE = 585;
-
-    /**
-     * Blog is offline (before as 70).
-     *
-     * @var     int     BLOG_OFFLINE
-     */
-    public const BLOG_OFFLINE = 590;
-
-    /**
-     * Output error, the static way.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
-     */
-    public static function render(string $summary, string $message, int $code): void
+    public function __construct(Throwable $exception)
     {
-        new self($summary, $message, $code);
-    }
+        // We may need l10n __() function (should be already loaded but hey)
+        L10n::bootstrap();
 
-    /**
-     * Output error using Exception instance.
-     *
-     * This takes care of DC_DEBUG mode to show Exceptions stack.
-     *
-     * @return never
-     */
-    public static function throw(string $summary, Exception $e)
-    {
-        if (defined('DC_DEBUG') && DC_DEBUG === true) {
-            throw $e;
-        }
-        new self($summary, $e->getMessage(), $e->getCode() ?: self::UNDEFINED_ISSUE);
-        exit;
-    }
+        // Parse some Exception values. And try to translate them even if they are already translated.
+        $code    = $exception->getCode() ?: 500;
+        $label   = htmlspecialchars(__($exception->getMessage()));
+        $message = nl2br(__($exception->getPrevious() === null ? $exception->getMessage() : $exception->getPrevious()->getMessage()));
+        $trace   = htmlspecialchars(self::$config?->debugMode() !== false && $exception !== null ? self::trace($exception) : '');
 
-    /**
-     * Constructor.
-     *
-     * In CLI mode, only summary is returned.
-     * A custom file path COULD be set in DC_ERRORFILE to serve error.
-     *
-     * @param   string  $summary    The short description
-     * @param   string  $message    The details
-     * @param   int     $code       The code (HTTP code)
-     */
-    public function __construct(string $summary, string $message, int $code = 550)
-    {
+        // Stop in CLI mode
         if (PHP_SAPI == 'cli') {
-            echo $summary . "\n";
+            echo $label . ' (' . $code . ")\n";
             exit;
         }
-        if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
-            include DC_ERRORFILE;
-        } else {
-            $vendor = defined('DC_VENDOR_NAME') ? htmlspecialchars(DC_VENDOR_NAME) : 'Dotclear';
 
-            header('Content-Type: text/html; charset=utf-8');
-            header('HTTP/1.0 ' . $code . ' ' . $summary);
-            ?>
+        // Load custom error file if any
+        if (is_file((string) self::$config?->errorFile())) {
+            include self::$config->errorFile();
+        }
+
+        // Render HTTP page
+        self::render($code, $label, $message, $trace);
+    }
+
+    /**
+     * Provide a Java style exception trace.
+     *
+     * Inspired from PHP online manuel comment at
+     * https://www.php.net/manual/fr/exception.gettraceasstring.php#114980
+     *
+     * @param   Throwable           $exception  The exception
+     * @param   array<int,string>   $seen       Internal loop
+     *
+     * @return  string  The formated trace
+     */
+    public static function trace(Throwable $exception, ?array $seen = null)
+    {
+        $starter = $seen ? 'Caused by: ' : '';
+        $result  = [];
+        if (!$seen) {
+            $seen = [];
+        }
+        $trace    = $exception->getTrace();
+        $prev     = $exception->getPrevious();
+        $result[] = sprintf('%s%s: %s', $starter, get_class($exception), $exception->getMessage());
+        $file     = $exception->getFile();
+        $line     = $exception->getLine();
+        while (true) {
+            $result[] = sprintf(
+                ' at %s%s%s (%s%s%s)',
+                count($trace) && array_key_exists('class', $trace[0]) ? str_replace('\\', '.', $trace[0]['class']) : '',
+                count($trace) && array_key_exists('class', $trace[0]) && array_key_exists('function', $trace[0]) ? '.' : '',
+                count($trace) && array_key_exists('function', $trace[0]) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
+                $line === null ? $file : basename($file),
+                $line === null ? '' : ':',
+                $line === null ? '' : $line
+            );
+            if (is_array($seen)) {
+                $seen[] = "$file:$line";
+            }
+            if (!count($trace)) {
+                break;
+            }
+            $file = array_key_exists('file', $trace[0]) ? $trace[0]['file'] : 'Unknown Source';
+            $line = array_key_exists('file', $trace[0]) && array_key_exists('line', $trace[0]) && $trace[0]['line'] ? $trace[0]['line'] : null;
+            array_shift($trace);
+        }
+        $result = implode("\n", $result);
+        if ($prev) {
+            $result .= "\n" . self::trace($prev, $seen);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Render HTML error page.
+     *
+     * @param   int     $code       The exception code
+     * @param   string  $label      The exception label (page title)
+     * @param   string  $message    The exception message
+     * @param   string  $trace      THe xecption trace
+     */
+    public static function render(int $code, string $label, string $message, string $trace = ''): never
+    {
+        $vendor = htmlspecialchars(self::$config?->vendorName() ?: 'Dotclear');
+
+        // HTTP header
+        header('Content-Type: text/html; charset=utf-8');
+        header('HTTP/1.0 ' . $code . ' ' . $label);
+
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,12 +170,13 @@ class Fault
 <body>
 <div id="content">
 <h1><?php echo $vendor; ?></h1>
-<h2><?php echo $code . ' : ' . $summary; ?></h2>
-<?php echo $message; ?></div>
+<h2><?php echo $code; ?> : <?php echo $label; ?></h2>
+<?php echo $message; ?>
+<pre><?php echo $trace; ?></pre>
+</div>
 </body>
 </html>
-            <?php
-        }
+        <?php
         exit;
     }
 }

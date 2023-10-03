@@ -71,7 +71,7 @@ class ModuleImportFeed extends Module
      * @param   string  $host   The host
      * @param   bool    $try_a  The try a
      *
-     * @return  array|bool
+     * @return  array<mixed>|bool
      */
     private function gethostbynamel6(string $host, bool $try_a = false)
     {

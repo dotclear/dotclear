@@ -295,7 +295,7 @@ class Comment
      */
     public static function isMe(MetaRecord $rs): bool
     {
-        $user_prefs         = App::userPreferences((string) $rs->user_id, 'profile');
+        $user_prefs         = App::userPreferences()->createFromUser((string) $rs->user_id, 'profile');
         $user_profile_mails = $user_prefs->profile->mails ?
             array_map('trim', explode(',', $user_prefs->profile->mails)) :
             [];

@@ -140,7 +140,7 @@ class Rest extends Process
                         'ret'   => $ret,
                     ];
                 }
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
         }
@@ -242,7 +242,7 @@ class Rest extends Process
         if ($post['store'] == 'themes') {
             // load once themes
             if (App::themes()->isEmpty() && App::blog()->isDefined()) {
-                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
             $mod = App::themes();
             $url = App::blog()->settings()->system->store_theme_url;
@@ -484,7 +484,7 @@ class Rest extends Process
 
         try {
             $file = App::media()->getFile((int) $id);
-        } catch (Exception $e) {
+        } catch (Exception) {
             // Ignore exceptions
         }
 

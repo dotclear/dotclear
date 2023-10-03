@@ -12,6 +12,9 @@ namespace Dotclear\Plugin\antispam\Filters;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
@@ -277,7 +280,12 @@ class IpV6 extends SpamFilter
         $cur = App::con()->openCursor($this->table);
 
         if ($old->isEmpty()) {
-            $id = (new MetaRecord(App::con()->select('SELECT MAX(rule_id) FROM ' . $this->table)))->f(0) + 1;
+            $sql = new SelectStatement();
+            $id = (int) $sql
+                ->column($sql->max('rule_id'))
+                ->from($this->table)
+                ->select()
+                ->f(0) + 1;
 
             $cur->rule_id      = $id;
             $cur->rule_type    = (string) $type;
@@ -293,7 +301,11 @@ class IpV6 extends SpamFilter
         } else {
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $pattern;
-            $cur->update('WHERE rule_id = ' . (int) $old->rule_id);
+
+            $sql = new UpdateStatement();
+            $sql
+                ->where('rule_id = ' . (string) $old->rule_id)
+                ->update($cur);
         }
     }
 
@@ -306,13 +318,25 @@ class IpV6 extends SpamFilter
      */
     private function getRules(string $type = 'all'): MetaRecord
     {
-        $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . App::con()->escape($type) . "' " .
-        "AND (blog_id = '" . App::blog()->id() . "' OR blog_id IS NULL) " .
-            'ORDER BY blog_id ASC, rule_content ASC ';
-
-        return new MetaRecord(App::con()->select($strReq));
+        $sql = new SelectStatement();
+        return $sql
+            ->columns([
+                'rule_id',
+                'rule_type',
+                'blog_id',
+                'rule_content',
+            ])
+            ->from($this->table)
+            ->where('rule_type = ' . $sql->quote($type))
+            ->and($sql->orGroup([
+                'blog_id = ' . $sql->quote(App::blog()->id()),
+                'blog_id IS NULL',
+            ]))
+            ->order([
+                'blog_id ASC',
+                'rule_content ASC',
+            ])
+            ->select();
     }
 
     /**
@@ -330,12 +354,14 @@ class IpV6 extends SpamFilter
         $this->ipmask($pattern, $ip, $mask);
         $ip = $this->long2ip_v6($ip);
 
-        $strReq = 'SELECT * FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . App::con()->escape($type) . "' " .
-        "AND rule_content LIKE '" . $ip . "%' " .
-        'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . App::blog()->id() . "' ");
-
-        return new MetaRecord(App::con()->select($strReq));
+        $sql = new SelectStatement();
+        return $sql
+            ->column('*')
+            ->from($this->table)
+            ->where('rule_type = ' . $sql->quote($type))
+            ->and($sql->like('rule_content', $ip . '%'))
+            ->and($global ? 'blog_id IS NULL' : 'blog_id = '. $sql->quote(App::blog()->id()))
+            ->select();
     }
 
     /**
@@ -348,13 +374,19 @@ class IpV6 extends SpamFilter
      */
     private function checkIP(string $cip, string $type)
     {
-        $strReq = 'SELECT DISTINCT(rule_content) ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE rule_type = '" . App::con()->escape($type) . "' " .
-        "AND (blog_id = '" . App::blog()->id() . "' OR blog_id IS NULL) " .
-            'ORDER BY rule_content ASC ';
+        $sql = new SelectStatement();
+        $rs = $sql
+            ->distinct()
+            ->column('rule_content')
+            ->from($this->table)
+            ->where('rule_type = ' . $sql->quote($type))
+            ->and($sql->orGroup([
+                'blog_id = ' . $sql->quote(App::blog()->id()),
+                'blog_id IS NULL',
+            ]))
+            ->order('rule_content ASC')
+            ->select();
 
-        $rs = new MetaRecord(App::con()->select($strReq));
         while ($rs->fetch()) {
             $pattern = $rs->rule_content;
             if ($this->inrange($cip, $pattern)) {
@@ -372,23 +404,24 @@ class IpV6 extends SpamFilter
      */
     private function removeRule($ids): void
     {
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new DeleteStatement();
 
         if (is_array($ids)) {
             foreach ($ids as $i => $v) {
                 $ids[$i] = (int) $v;
             }
-            $strReq .= 'WHERE rule_id IN (' . implode(',', $ids) . ') ';
         } else {
-            $ids = (int) $ids;
-            $strReq .= 'WHERE rule_id = ' . $ids . ' ';
+            $ids = [(int) $ids];
         }
 
         if (!App::auth()->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . App::blog()->id() . "' ";
+            $sql->and('blog_id = ' . $sql->quote(App::blog()->id()));
         }
 
-        App::con()->execute($strReq);
+        $sql
+            ->from($this->table)
+            ->where('rule_id = ' . $sql->in($ids))
+            ->delete();
     }
 
     /**

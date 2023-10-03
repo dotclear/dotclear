@@ -169,7 +169,7 @@ class Path
      *
      * @param string    $filename        File path
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function info(string $filename): array
     {
@@ -218,7 +218,7 @@ class Path
                     }
                 }
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
         }
     }
 

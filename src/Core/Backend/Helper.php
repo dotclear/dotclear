@@ -57,26 +57,25 @@ class Helper
     /**
      * Loads user locales (English if not defined).
      */
-    public static function loadLocales()
+    public static function loadLocales(): void
     {
-        App::task()->setLang((string) App::auth()->getInfo('user_lang'));
+        App::lang()->setLang((string) App::auth()->getInfo('user_lang'));
 
-        L10n::lang(App::task()->getLang());
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/date') === false && App::task()->getLang() != 'en') {
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/main');
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
 
         // Set lexical lang
-        App::lexical()->setLexicalLang('admin', App::task()->getLang());
+        App::lexical()->setLexicalLang('admin', App::lang()->getLang());
     }
 
     /**
      * Adds a menu item.
      *
-     * @deprecated sicne 2.27, use App::backend()->menus->addItem() instead
+     * @deprecated since 2.27, use App::backend()->menus->addItem() instead
      *
      * @param      string  $section   The section
      * @param      string  $desc      The item description

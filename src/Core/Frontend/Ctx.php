@@ -24,7 +24,7 @@ class Ctx
     /**
      * Stack of context variables
      *
-     * @var        array
+     * @var        array<string, array<int, mixed>>
      */
     public $stack = [];
 
@@ -62,7 +62,7 @@ class Ctx
         }
 
         // Return last saved value
-        $count = is_countable($this->stack[$name]) ? count($this->stack[$name]) : 0;
+        $count = count($this->stack[$name]);
         if ($count > 0) {
             return $this->stack[$name][$count - 1];
         }
@@ -85,7 +85,7 @@ class Ctx
      *
      * @param      string  $name   The name
      */
-    public function pop(string $name)
+    public function pop(string $name): void
     {
         if (isset($this->stack[$name])) {
             $v = array_pop($this->stack[$name]);
@@ -151,8 +151,19 @@ class Ctx
 
     /**
      * @deprecated since version 2.11 , use Ctx::global_filters instead
+     *
+     * @param      string  $str         The string
+     * @param      mixed   $enc_xml     The encode xml
+     * @param      mixed   $rem_html    The rem html
+     * @param      mixed   $cut_string  The cut string
+     * @param      mixed   $lower_case  The lower case
+     * @param      mixed   $upper_case  The upper case
+     * @param      mixed   $enc_url     The encode url
+     * @param      string  $tag         The tag
+     *
+     * @return     string
      */
-    public static function global_filter($str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
+    public static function global_filter(string $str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
     {
         App::deprecated()->set('Ctx::global_filters()', '2.11');
 
@@ -215,9 +226,9 @@ class Ctx
     /**
      * Apply all required filters on a string
      *
-     * @param string    $str    The string
-     * @param array     $args   The arguments containing required filter(s) to apply
-     * @param string    $tag    The tag
+     * @param string                        $str    The string
+     * @param array<int|string, mixed>      $args   The arguments containing required filter(s) to apply
+     * @param string                        $tag    The tag
      *
      * @return string
      */
@@ -399,7 +410,7 @@ class Ctx
     /**
      * Cope with cat_url argument
      *
-     * @param array     $args
+     * @param array<string, mixed>     $args
      */
     public static function categoryPostParam(array &$args): void
     {
@@ -577,7 +588,7 @@ class Ctx
      *
      * @param BlogInterface    $blog   The blog
      *
-     * @return array|false
+     * @return array<string, string>|false
      */
     public static function getSmilies(BlogInterface $blog)
     {
@@ -620,7 +631,7 @@ class Ctx
      * @param      string  $f      The file
      * @param      string  $url    The image base url
      *
-     * @return     array
+     * @return     array<string, string>
      */
     public static function smiliesDefinition(string $f, string $url): array
     {
@@ -701,7 +712,7 @@ class Ctx
      *
      * @param      string  $str    The HTML string
      *
-     * @return     array
+     * @return     array<int, array{0:string, 1:string}>
      */
     private static function tokenizeHTML(string $str): array
     {

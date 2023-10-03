@@ -217,11 +217,11 @@ class Manage extends Process
     /**
      * Return table line (td) to display a setting.
      *
-     * @param   string  $id             The identifier
-     * @param   array   $s              The setting
-     * @param   string  $ws             The workspace
-     * @param   string  $field_name     The field name
-     * @param   bool    $strong_label   The strong label
+     * @param   string                  $id             The identifier
+     * @param   array<string, mixed>    $s              The setting
+     * @param   string                  $ws             The workspace
+     * @param   string                  $field_name     The field name
+     * @param   bool                    $strong_label   The strong label
      *
      * @return  string
      */

@@ -116,7 +116,7 @@ class Store
 
         try {
             $str_parser = App::config()->storeNotUpdate() ? false : StoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return false;
         }
 
@@ -184,7 +184,7 @@ class Store
                             }
                         }
                     }
-                } catch (Exception $e) {
+                } catch (Exception) {
                     // Ignore exceptions
                 }
             }
@@ -365,7 +365,7 @@ class Store
                 $client->setOutput($dest);
                 $client->get($path);
                 unset($client);
-            } catch (Exception $e) {
+            } catch (Exception) {
                 unset($client);
 
                 throw new Exception(__('An error occurred while downloading the file.'));

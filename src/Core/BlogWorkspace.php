@@ -9,30 +9,27 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
+use Dotclear\Interface\Core\DeprecatedInterface;
+use Throwable;
 
 /**
  * @brief   Blog workspace for settings handler.
  *
  * Handle id,version pairs through database.
+ *
+ * @since   2.28, container services have been added to constructor
  */
 class BlogWorkspace implements BlogWorkspaceInterface
 {
-    /**
-     * The connetion handler.
-     *
-     * @var     ConnectionInterface     $con
-     */
-    protected ConnectionInterface $con;
-
     /**
      * Settings table name.
      *
@@ -52,55 +49,52 @@ class BlogWorkspace implements BlogWorkspaceInterface
      *
      * @var     array<string, array<string, mixed>>   $local_settings
      */
-    protected $local_settings = [];
+    protected array $local_settings = [];
 
     /**
      * Blog settings.
      *
-     * @var     array<string, array<string, mixed>>   $setting
+     * @var     array<string, array<string, mixed>>   $settings
      */
-    protected $settings = [];
+    protected array $settings = [];
 
     /**
-     * Settings table name.
+     * Constructor.
      *
-     * @var     string  $blog_id
-     */
-    protected ?string $blog_id;
-
-    /**
-     * Settings table name.
+     * @throws  BadRequestException
      *
-     * @var     string  $workspace
+     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DeprecatedInterface     $deprecated     The deprecated handler
+     * @param   null|string             $blog_id        The blog ID
+     * @param   null|string             $workspace      The blog workspace
+     * @param   null|MetaRecord         $rs             The record
      */
-    protected ?string $workspace;
-
-    public function __construct(?string $blog_id = null, ?string $workspace = null, ?MetaRecord $rs = null)
-    {
-        $this->con   = App::con();
+    public function __construct(
+        protected ConnectionInterface $con,
+        protected DeprecatedInterface $deprecated,
+        protected ?string $blog_id = null,
+        protected ?string $workspace = null,
+        ?MetaRecord $rs = null
+    ) {
         $this->table = $this->con->prefix() . self::NS_TABLE_NAME;
 
         if ($workspace !== null) {
             if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
-                throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
+                throw new BadRequestException(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
             }
-
-            $this->settings  = $this->local_settings = $this->global_settings = [];
-            $this->blog_id   = $blog_id;
-            $this->workspace = $workspace;
 
             $this->getSettings($rs);
         }
     }
 
+    public function createFromBlog(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
+    {
+        return new self($this->con, $this->deprecated, $blog_id, $workspace, $rs);
+    }
+
     public function openBlogWorkspaceCursor(): Cursor
     {
         return $this->con->openCursor($this->table);
-    }
-
-    public function init(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
-    {
-        return new self($blog_id, $workspace, $rs);
     }
 
     /**
@@ -131,8 +125,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
             try {
                 $rs = $sql->select();
-            } catch (Exception $e) {
-                trigger_error(__('Unable to retrieve settings:') . ' ' . $this->con->error(), E_USER_ERROR);
+            } catch (Throwable) {
+                throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->con->error());
             }
         }
         while ($rs->fetch()) {
@@ -218,7 +212,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::NS_ID_SCHEMA, $name)) {
-            throw new Exception(sprintf(__('%s is not a valid setting id'), $name));
+            throw new BadRequestException(sprintf(__('%s is not a valid setting id'), $name));
         }
 
         # We don't want to change setting value
@@ -308,7 +302,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         if (!array_key_exists($old_name, $this->settings) || array_key_exists($new_name, $this->settings)) {
@@ -316,7 +310,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
 
         if (!preg_match(self::NS_ID_SCHEMA, $new_name)) {
-            throw new Exception(sprintf(__('%s is not a valid setting id'), $new_name));
+            throw new BadRequestException(sprintf(__('%s is not a valid setting id'), $new_name));
         }
 
         // Rename the setting in the settings array
@@ -348,7 +342,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function drop(string $name): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -371,7 +365,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -391,7 +385,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new Exception(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified'));
         }
 
         $sql = new DeleteStatement();
@@ -454,7 +448,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function dumpNamespace(): string
     {
-        App::deprecated()->set(self::class . '::dumpWorkspace()', '2.28');
+        $this->deprecated->set(self::class . '::dumpWorkspace()', '2.28');
 
         return $this->workspace;
     }

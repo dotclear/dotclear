@@ -72,7 +72,7 @@ class Filters
     /**
      * Parse _GET user pref options (sortby, order, nb).
      */
-    protected function parseOptions()
+    protected function parseOptions(): void
     {
         $options = UserPref::getUserFilters($this->type);
         if (!empty($options)) {
@@ -169,8 +169,8 @@ class Filters
     /**
      * Add filter(s).
      *
-     * @param   array|string|Filter|null    $filter     The filter(s) array or id or object
-     * @param   mixed                       $value      The filter value if $filter is id
+     * @param   array<string|Filter>|string|Filter|null     $filter     The filter(s) array or id or object
+     * @param   mixed                                       $value      The filter value if $filter is id
      *
      * @return  mixed   The filter value
      */
@@ -306,10 +306,10 @@ class Filters
     /**
      * Echo filter form.
      *
-     * @param   array|string    $adminurl   The registered adminurl
-     * @param   string          $extra      The extra contents
+     * @param   array{0:string, 1:string}|string    $adminurl   The registered adminurl
+     * @param   string                              $extra      The extra contents
      */
-    public function display($adminurl, string $extra = '')
+    public function display($adminurl, string $extra = ''): void
     {
         $tab = '';
         if (is_array($adminurl)) {

@@ -13,6 +13,8 @@ use Dotclear\Interface\Core\BehaviorInterface;
 
 /**
  * @brief   Behavior handler.
+ *
+ * @since   2.28, behavior features have been grouped in this class
  */
 class Behavior implements BehaviorInterface
 {

@@ -380,7 +380,7 @@ class Utils
      *
      * Optionnal parameter <var>defaults</var> replaces default params while needed.
      *
-     * @param   null|array  $defaults   The defaults settings
+     * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
      */
     public static function blogDefaults(?array $defaults = null): void
     {
@@ -487,7 +487,7 @@ class Utils
             ];
         }
 
-        $settings = App::blogSettings(null);
+        $settings = App::blogSettings();
 
         foreach ($defaults as $v) {
             $settings->system->put($v[0], $v[2], $v[1], $v[3], false, true);

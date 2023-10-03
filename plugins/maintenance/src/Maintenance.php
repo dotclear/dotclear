@@ -11,6 +11,7 @@ namespace Dotclear\Plugin\maintenance;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
 
 /**
  * @brief   The maintenance handler.
@@ -222,12 +223,13 @@ class Maintenance
         }
 
         // Get logs from this task
-        $rs = new MetaRecord(App::con()->select(
-            'SELECT log_id ' .
-            'FROM ' . App::con()->prefix() . App::log()::LOG_TABLE_NAME . ' ' .
-            "WHERE log_msg = '" . App::con()->escape($id) . "' " .
-            "AND log_table = 'maintenance' "
-        ));
+        $sql = new SelectStatement();
+        $rs = $sql
+            ->column('log_id')
+            ->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
+            ->where('log_msg = ' . $sql->quote($id))
+            ->and('log_table = ' . $sql->quote('maintenance'))
+            ->select();
 
         $logs = [];
         while ($rs->fetch()) {

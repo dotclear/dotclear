@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Interface;
+namespace Dotclear\Helper\Container;
 
 /**
  * @brief   Application container interface.
@@ -15,18 +15,17 @@ namespace Dotclear\Interface;
  * Based on PSR-11 ContainerInterface
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md
  *
- * As complex exceptions handling is not set in Dotclear, only \Exception is thrown.
- *
  * @since   2.28
  */
 interface ContainerInterface
 {
     /**
-     * Get instance of an object.
+     * Get instance of a service.
      *
      * By default, an object is instanciated once.
      *
-     * @throws  \Exception
+     * @throws NotFoundExceptionInterface
+     * @throws ContainerExceptionInterface
      *
      * @param   string  $id     The object ID
      *
@@ -35,7 +34,7 @@ interface ContainerInterface
     public function get(string $id);
 
     /**
-     * Check if core object exists.
+     * Check if service exists.
      *
      * @param   string  $id The object ID.
      *

@@ -27,21 +27,21 @@ class Handler extends AbstractHandler
      *
      * @var        bool
      */
-    public static $weak_locks = true;
+    public static bool $weak_locks = true;
 
     /**
      * Driver name
      *
      * @var        string
      */
-    protected $__driver = 'mysqli';
+    protected string $__driver = 'mysqli';
 
     /**
      * SQL Syntax supported
      *
      * @var        string
      */
-    protected $__syntax = 'mysql';
+    protected string $__syntax = 'mysql';
 
     /**
      * Open a DB connection
@@ -107,7 +107,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed  $handle   The DB handle
      */
-    private function db_post_connect($handle)
+    private function db_post_connect($handle): void
     {
         if (version_compare($this->db_version($handle), '4.1', '>=')) {
             $this->db_query($handle, 'SET NAMES utf8');
@@ -128,7 +128,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed  $handle  The DB handle
      */
-    public function db_close($handle)
+    public function db_close($handle): void
     {
         if ($handle instanceof mysqli) {
             $handle->close();
@@ -277,7 +277,7 @@ class Handler extends AbstractHandler
      *
      * @param      mixed  $res    The resource
      *
-     * @return     array|false
+     * @return     array<mixed>|false
      */
     public function db_fetch_assoc($res)
     {
@@ -451,7 +451,7 @@ class Handler extends AbstractHandler
     /**
      * Get a CONCAT fragment
      *
-     * @param   array<mixed>     $args
+     * @param   mixed     $args
      *
      * @return     string
      */

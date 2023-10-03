@@ -12,17 +12,20 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Backend
  * @brief       Dotclear application backend utilities.
  */
+
 namespace Dotclear\Core\Backend;
 
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
-use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\TraitDynamicProperties;
-use Exception;
+use Dotclear\Exception\ContextException;
+use Dotclear\Exception\PreconditionException;
+use Dotclear\Exception\SessionException;
+use Throwable;
 
 /**
  * Utility class for admin context.
@@ -32,19 +35,39 @@ class Utility extends Process
     /** Allow dynamic properties */
     use TraitDynamicProperties;
 
-    /** @var    string  Current admin page URL */
+    /**
+     * Current admin page URL.
+     *
+     * @var     string  $p_url
+     */
     private string $p_url = '';
 
-    /** @var    Url     Backend (admin) Url handler instance */
+    /**
+     * Backend (admin) Url handler instance.
+     *
+     * @var     Url     $url
+     */
     public Url $url;
 
-    /** @var    Favorites   Backend (admin) Favorites handler instance */
+    /**
+     * Backend (admin) Favorites handler instance.
+     *
+     *  @var    Favorites   $favs
+     */
     public Favorites $favs;
 
-    /** @var    Menus   Backend (admin) Menus handler instance */
+    /**
+     * Backend (admin) Menus handler instance.
+     *
+     * @var     Menus   $menus
+     */
     public Menus $menus;
 
-    /** @var    Resources   Backend help resources instance */
+    /**
+     * Backend help resources instance.
+     *
+     * @var     Resources   $resources
+     */
     public Resources $resources;
 
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
@@ -62,12 +85,12 @@ class Utility extends Process
     /**
      * Constructs a new instance.
      *
-     * @throws     Exception  (if not admin context)
+     * @throws     ContextException  (if not admin context)
      */
     public function __construct()
     {
         if (!App::task()->checkContext('BACKEND')) {
-            throw new Exception('Application is not in administrative context.', 500);
+            throw new ContextException('Application is not in administrative context.');
         }
 
         // deprecated since 2.28, use App::backend() instead
@@ -88,6 +111,8 @@ class Utility extends Process
 
     /**
      * Process application utility and set up a singleton instance.
+     *
+     * @throws     SessionException|PreconditionException
      */
     public static function process(): bool
     {
@@ -113,8 +138,8 @@ class Utility extends Process
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
                     App::backend()->url->redirect('admin.auth', $params);
                 }
-            } catch (Exception $e) {
-                new Fault(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), Fault::DATABASE_ISSUE);
+            } catch (Throwable) {
+                throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
             }
 
             // Fake process to logout (kill session) and return to auth page.
@@ -132,7 +157,7 @@ class Utility extends Process
 
             // Check nonce from POST requests
             if (!empty($_POST) && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
-                new Fault('Precondition Failed', __('Precondition Failed'), 412);
+                throw new PreconditionException();
             }
 
             // Switch blog
@@ -175,12 +200,12 @@ class Utility extends Process
             // Load locales
             Helper::loadLocales();
 
-            // deprecated since 2.27, use App::task()->getLang() instead
-            $GLOBALS['_lang'] = App::task()->getLang();
+            // deprecated since 2.27, use App::lang()->getLang() instead
+            $GLOBALS['_lang'] = App::lang()->getLang();
 
             // Load blog
             if (isset($_SESSION['sess_blog_id'])) {
-                App::blogLoader()->setBlog($_SESSION['sess_blog_id']);
+                App::blog()->loadFromBlog($_SESSION['sess_blog_id']);
             } else {
                 App::session()->destroy();
                 App::backend()->url->redirect('admin.auth');
@@ -202,15 +227,15 @@ class Utility extends Process
         App::backend()->resources = new Resources();
 
         require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::task()->getLang())) {
+        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
             require $f;
         }
         unset($f);
 
-        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::task()->getLang(), 'help']))) !== false) {
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::task()->getLang(), 'help', $hfile]));
+                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
                 }
             }
         }
@@ -243,7 +268,7 @@ class Utility extends Process
         dcCore::app()->media = App::media();
 
         // Load plugins
-        App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::task()->getLang());
+        App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::lang()->getLang());
         App::backend()->favs->setup();
 
         if (!$user_ui_nofavmenu) {
@@ -259,7 +284,7 @@ class Utility extends Process
 
         // Load themes
         if (App::themes()->isEmpty()) {
-            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
 
             // deprecated Since 2.28, use App::themes()->menus instead
             dcCore::app()->themes = App::themes();

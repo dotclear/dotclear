@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Upgrade
  * @brief       Dotclear application upgrade utilities.
  */
+
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
@@ -20,7 +21,7 @@ use Dotclear\Process\Upgrade\Cli;
 /**
  * @brief   Utility class for upgrade context.
  *
- * This utility is only used in CLI mode 
+ * This utility is only used in CLI mode
  * and has only one process.
  *
  * @since   2.27

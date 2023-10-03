@@ -23,7 +23,7 @@ class BackendBehaviors
     /**
      * Add an antispam help ID if necessary.
      *
-     * @param   ArrayObject     $blocks     The blocks
+     * @param   ArrayObject<string, mixed>     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {

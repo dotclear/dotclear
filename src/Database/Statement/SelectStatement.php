@@ -19,14 +19,45 @@ use Dotclear\Database\MetaRecord;
  */
 class SelectStatement extends SqlStatement
 {
-    protected $join;
-    protected $union;
-    protected $having;
-    protected $order;
-    protected $group;
-    protected $limit;
-    protected $offset;
-    protected $distinct;
+    /**
+     * @var array<string>
+     */
+    protected array $join = [];
+
+    /**
+     * @var array<string>
+     */
+    protected array $union = [];
+
+    /**
+     * @var array<string>
+     */
+    protected array $having = [];
+
+    /**
+     * @var array<string>
+     */
+    protected array $order = [];
+
+    /**
+     * @var array<string>
+     */
+    protected array $group = [];
+
+    /**
+     * @var null|int|string
+     */
+    protected $limit = null;
+
+    /**
+     * @var null|int|string
+     */
+    protected $offset = null;
+
+    /**
+     * @var bool
+     */
+    protected bool $distinct = false;
 
     /**
      * Constructs a new instance.
@@ -36,12 +67,6 @@ class SelectStatement extends SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->join = $this->union = $this->having = $this->order = $this->group = [];
-
-        $this->limit    = null;
-        $this->offset   = null;
-        $this->distinct = false;
-
         parent::__construct($con, $syntax);
     }
 
@@ -257,7 +282,7 @@ class SelectStatement extends SqlStatement
 
         // Table(s) and Join(s)
         $query .= 'FROM ' . $this->from[0] . ' ';
-        if (is_countable($this->join) ? count($this->join) : 0) {
+        if (count($this->join)) {
             $query .= join(' ', $this->join) . ' ';
         }
         if (count($this->from) > 1) {
@@ -284,17 +309,17 @@ class SelectStatement extends SqlStatement
         }
 
         // Group by clause (columns or aliases)
-        if (is_countable($this->group) ? count($this->group) : 0) {
+        if (count($this->group)) {
             $query .= 'GROUP BY ' . join(', ', $this->group) . ' ';
         }
 
         // Having clause(s)
-        if (is_countable($this->having) ? count($this->having) : 0) {
+        if (count($this->having)) {
             $query .= 'HAVING ' . join(' AND ', $this->having) . ' ';
         }
 
         // Union clause(s)
-        if (is_countable($this->union) ? count($this->union) : 0) {
+        if (count($this->union)) {
             $query .= 'UNION ' . join(' UNION ', $this->union) . ' ';
         }
 
@@ -302,7 +327,7 @@ class SelectStatement extends SqlStatement
         // -------------------------
 
         // Order by clause (columns or aliases and optionnaly order ASC/DESC)
-        if (is_countable($this->order) ? count($this->order) : 0) {
+        if (count($this->order)) {
             $query .= 'ORDER BY ' . join(', ', $this->order) . ' ';
         }
 

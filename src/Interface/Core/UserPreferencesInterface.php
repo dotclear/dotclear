@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Exception\BadRequestException;
+
 /**
  * @brief   User prefs handler interface.
  *
@@ -21,17 +23,15 @@ namespace Dotclear\Interface\Core;
 interface UserPreferencesInterface
 {
     /**
-     * Constructor.
+     * Create a new instance a UserPreferences.
      *
-     * Retrieves user prefs and puts them in $workspaces
-     * array. Local (user) prefs have a highest priority than global prefs.
+     * Retrieves user prefs and puts them in $workspaces array.
+     * Local (user) prefs have a highest priority than global prefs.
      *
-     * @param   string          $user_id   The user identifier
-     * @param   null|string     $workspace The workspace to load
-     *
-     * @throws  \Exception
+     * @param   string          $user_id        The user identifier
+     * @param   null|string     $user_workspace The workspace to load
      */
-    public function __construct(string $user_id, ?string $workspace = null);
+    public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface;
 
     /**
      * Create a new workspace.
@@ -50,7 +50,7 @@ interface UserPreferencesInterface
      * @param   string  $old_workspace  The old workspace name
      * @param   string  $new_workspace  The new workspace name
      *
-     * @throws  \Exception
+     * @throws  BadRequestException
      *
      * @return  bool
      */
@@ -97,7 +97,7 @@ interface UserPreferencesInterface
     /**
      * Dumps workspaces.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, UserWorkspaceInterface>
      */
     public function dumpWorkspaces(): array;
 }

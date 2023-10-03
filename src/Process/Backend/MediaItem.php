@@ -128,7 +128,7 @@ class MediaItem extends Process
 
             if (App::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --
-                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::task()->getLang());
+                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -402,7 +402,7 @@ class MediaItem extends Process
                         $defaults['mediadef'] = true;
                     }
                 }
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Ignore exceptions
             }
 

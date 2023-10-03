@@ -12,7 +12,8 @@ namespace Dotclear\Interface\Core;
 use ArrayObject;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Exception;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 
 /**
  * @brief   Users handler interface.
@@ -55,7 +56,7 @@ interface UsersInterface
      *
      * @param      Cursor     $cur    The user Cursor
      *
-     * @throws     Exception
+     * @throws     BadRequestException|UnauthorizedException
      *
      * @return     string
      */
@@ -67,7 +68,7 @@ interface UsersInterface
      * @param      string     $id     The user identifier
      * @param      Cursor     $cur    The Cursor
      *
-     * @throws     Exception
+     * @throws     UnauthorizedException
      *
      * @return     string
      */
@@ -78,7 +79,7 @@ interface UsersInterface
      *
      * @param      string     $id     The user identifier
      *
-     * @throws     Exception
+     * @throws     UnauthorizedException
      */
     public function delUser(string $id): void;
 
@@ -118,7 +119,7 @@ interface UsersInterface
      * @param      string     $id     The user identifier
      * @param      array<string,array<string,bool>>      $perms  The permissions
      *
-     * @throws     Exception
+     * @throws     UnauthorizedException
      */
     public function setUserPermissions(string $id, array $perms): void;
 
@@ -130,7 +131,7 @@ interface UsersInterface
      * @param      array<string,bool>      $perms         The permissions
      * @param      bool       $delete_first  Delete permissions first
      *
-     * @throws     Exception  (description)
+     * @throws     UnauthorizedException
      */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void;
 

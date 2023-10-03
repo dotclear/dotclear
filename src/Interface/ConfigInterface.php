@@ -7,6 +7,11 @@
  */
 declare(strict_types=1);
 
+/**
+ * @namespace   Dotclear.Interface
+ * @brief       Dotclear application interfaces
+ */
+
 namespace Dotclear\Interface;
 
 /**
@@ -79,6 +84,16 @@ interface ConfigInterface
     public function devMode(): bool;
 
     /**
+     * Custom error file.
+     *
+     * This file is loaded before appllication
+     * exception handler render the HTTP error page.
+     *
+     * @return  string  The custom error file path
+     */
+    public function errorFile(): string;
+
+    /**
      * Blog ID requested from file.
      *
      * From index file.
@@ -117,6 +132,13 @@ interface ConfigInterface
      * @return  string  Dotclear name
      */
     public function dotclearName(): string;
+
+    /**
+     * Check if an appalication config file exists
+     *
+     * @return  bool    True if exists
+     */
+    public function hasConfig(): bool;
 
     /**
      * Configuration file path.

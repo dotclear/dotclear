@@ -11,17 +11,27 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\BehaviorInterface;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\FilterInterface;
 
 /**
  * @brief   Wiki and HTML filter handler.
+ *
+ * @since   2.28, wiki and HTML filters features have been grouped in this class
  */
 class Filter implements FilterInterface
 {
+    /**
+     * The working blog instance
+     *
+     * @var     null|BlogInterface   $blog
+     */
+    private ?BlogInterface $blog = null;
+
     /**
      * The wiki instance.
      *
@@ -37,6 +47,23 @@ class Filter implements FilterInterface
     public function wiki(): ?WikiToHtml
     {
         return $this->wiki;
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param   BehaviorInterface   $behavior   The behavior instance
+     */
+    public function __construct(
+        protected BehaviorInterface $behavior,
+    ) {
+    }
+
+    public function loadFromBlog(BlogInterface $blog): FilterInterface
+    {
+        $this->blog = $blog;
+
+        return $this;
     }
 
     /**
@@ -112,7 +139,7 @@ class Filter implements FilterInterface
         $this->wiki->registerFunction('url:post', $this->wikiPostLink(...));
 
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
-        App::behavior()->callBehavior('coreInitWikiPost', $this->wiki);
+        $this->behavior->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
     public function initWikiSimpleComment(): void
@@ -158,7 +185,7 @@ class Filter implements FilterInterface
         ]);
 
         # --BEHAVIOR-- coreInitWikiSimpleComment -- WikiToHtml
-        App::behavior()->callBehavior('coreInitWikiSimpleComment', $this->wiki);
+        $this->behavior->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
     public function initWikiComment(): void
@@ -203,12 +230,12 @@ class Filter implements FilterInterface
         ]);
 
         # --BEHAVIOR-- coreInitWikiComment -- WikiToHtml
-        App::behavior()->callBehavior('coreInitWikiComment', $this->wiki);
+        $this->behavior->callBehavior('coreInitWikiComment', $this->wiki);
     }
 
     public function wikiPostLink(string $url, string $content): array
     {
-        if (!App::blog()->isDefined()) {
+        if (!$this->blog?->isDefined()) {
             return [];
         }
 
@@ -217,7 +244,7 @@ class Filter implements FilterInterface
             return [];
         }
 
-        $post = App::blog()->getPosts(['post_id' => $post_id]);
+        $post = $this->blog->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
             return [];
         }
@@ -241,7 +268,7 @@ class Filter implements FilterInterface
 
     public function HTMLfilter(string $str): string
     {
-        if (!App::blog()->isDefined() || !App::blog()->settings()->system->enable_html_filter) {
+        if (!$this->blog?->isDefined() || !$this->blog->settings()->system->enable_html_filter) {
             return $str;
         }
 
@@ -251,7 +278,7 @@ class Filter implements FilterInterface
             'keep_js'   => false,
         ]);
         # --BEHAVIOR-- HTMLfilter -- ArrayObject
-        App::behavior()->callBehavior('HTMLfilter', $options);
+        $this->behavior->callBehavior('HTMLfilter', $options);
 
         $filter = new HtmlFilter((bool) $options['keep_aria'], (bool) $options['keep_data'], (bool) $options['keep_js']);
         $str    = trim($filter->apply($str));

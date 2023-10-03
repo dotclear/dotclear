@@ -10,10 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use Dotclear\App;
-use Dotclear\Database\{
-    AbstractSchema,
-    Structure
-};
+use Dotclear\Database\Structure;
 use Dotclear\Database\Statement\{
     DeleteStatement,
     DropStatement,
@@ -88,7 +85,7 @@ class Tables extends CleanerParent
 
     public function values(): array
     {
-        $schema = AbstractSchema::init(App::con());
+        $schema = App::con()->schema();
         $tables = $schema->getTables();
 
         $stack = [];

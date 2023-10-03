@@ -28,14 +28,14 @@ class Widgets
      *
      * @var     string  WIDGETS_NAV
      */
-    public const WIDGETS_NAV    = 'nav';
+    public const WIDGETS_NAV = 'nav';
 
     /**
      * extra widgets group.
      *
      * @var     string  WIDGETS_EXTRA
      */
-    public const WIDGETS_EXTRA  = 'extra';
+    public const WIDGETS_EXTRA = 'extra';
 
     /**
      * custom widgets group.
@@ -54,7 +54,7 @@ class Widgets
     /**
      * The default widgets stack.
      *
-     * @var     array<string,WidgetsStack>  $default_widgets
+     * @var     array<string, WidgetsStack>  $default_widgets
      */
     public static array $default_widgets;
 
@@ -500,7 +500,7 @@ class Widgets
             if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
                 return '';
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             return '';
         }
 

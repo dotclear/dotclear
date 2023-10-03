@@ -12,20 +12,23 @@ declare(strict_types=1);
  * @namespace   Dotclear.Core.Frontend
  * @brief       Dotclear application frontend utilities.
  */
+
 namespace Dotclear\Core\Frontend;
 
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Fault;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpCacheStack;
 use Dotclear\Helper\TraitDynamicProperties;
+use Dotclear\Exception\BlogException;
+use Dotclear\Exception\ContextException;
+use Dotclear\Exception\TemplateException;
 use Dotclear\Schema\Extension\CommentPublic;
 use Dotclear\Schema\Extension\PostPublic;
-use Exception;
+use Throwable;
 
 /**
  * Utility class for public context.
@@ -89,7 +92,7 @@ class Utility extends Process
     /**
      * Smilies definitions
      *
-     * @var array|null
+     * @var array<string, string>|null
      */
     public $smilies;
 
@@ -103,12 +106,12 @@ class Utility extends Process
     /**
      * Constructs a new instance.
      *
-     * @throws     Exception  (if not public context)
+     * @throws     ContextException  (if not public context)
      */
     public function __construct()
     {
         if (!App::task()->checkContext('FRONTEND')) {
-            throw new Exception('Application is not in public context.', 500);
+            throw new ContextException('Application is not in public context.');
         }
 
         // deprecated since 2.28, use App::frontend() instead
@@ -127,6 +130,8 @@ class Utility extends Process
 
     /**
      * Instanciate this as a singleton and initializes the context.
+     *
+     * @throws     BlogException|TemplateException
      */
     public static function process(): bool
     {
@@ -136,33 +141,20 @@ class Utility extends Process
         // Loading blog
         if (App::config()->blogId() != '') {
             try {
-                App::blogLoader()->setBlog(App::config()->blogId());
-            } catch (Exception $e) {
-                // Loading locales for detected language
-                (function () {
-                    $detected_languages = Http::getAcceptLanguages();
-                    foreach ($detected_languages as $language) {
-                        if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), $language, 'main'])) !== false) {
-                            L10n::lang($language);
-
-                            // We stop at first accepted language
-                            break;
-                        }
-                    }
-                })();
-                new Fault(__('Database problem'), App::config()->debugMode() ?
-            __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-            __('Something went wrong while trying to read the database.'), Fault::DATABASE_ISSUE);
+                App::blog()->loadFromBlog(App::config()->blogId());
+            } catch (Throwable) {
+                throw new BlogException(__('Something went wrong while trying to read the database.'));
             }
         }
 
         if (!App::blog()->isDefined()) {
-            new Fault(__('Blog is not defined.'), __('Did you change your Blog ID?'), Fault::BLOG_ISSUE);
+            throw new BlogException(__('Blog is not defined.'), 404);
         }
 
         if ((int) App::blog()->status() !== App::blog()::BLOG_ONLINE) {
-            App::blogLoader()->unsetBlog();
-            new Fault(__('Blog is offline.'), __('This blog is offline. Please try again later.'), Fault::BLOG_OFFLINE);
+            App::blog()->loadFromBlog('');
+
+            throw new BlogException(__('This blog is offline. Please try again later.'), 404);
         }
 
         // Load some class extents and set some public behaviors (was in public prepend before)
@@ -215,30 +207,29 @@ class Utility extends Process
 
             // deprecated since 2.28, use App::frontend()->tpl instead
             dcCore::app()->tpl = App::frontend()->tpl;
-        } catch (Exception $e) {
-            new Fault(__('Can\'t create template files.'), $e->getMessage(), Fault::TEMPLATE_CREATION_ISSUE);
+        } catch (Throwable) {
+            throw new TemplateException(__('Can\'t create template files.'));
         }
 
         # Loading locales
-        App::task()->setLang((string) App::blog()->settings()->system->lang);
+        App::lang()->setLang((string) App::blog()->settings()->system->lang);
 
-        // deprecated since 2.23, use App::task()->getLang() instead
-        $GLOBALS['_lang'] = App::task()->getLang();
+        // deprecated since 2.23, use App::lang()->getLang() instead
+        $GLOBALS['_lang'] = App::lang()->getLang();
 
-        L10n::lang(App::task()->getLang());
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/date') === false && App::task()->getLang() != 'en') {
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::task()->getLang() . '/plugins');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
+        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
 
         // Set lexical lang
-        App::lexical()->setLexicalLang('public', App::task()->getLang());
+        App::lexical()->setLexicalLang('public', App::lang()->getLang());
 
         # Loading plugins
         try {
-            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::task()->getLang());
-        } catch (Exception $e) {
+            App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang()->getLang());
+        } catch (Throwable) {
             // Ignore
         }
 
@@ -265,9 +256,11 @@ class Utility extends Process
 
         # If theme doesn't exist, stop everything
         if (!App::themes()->moduleExists(App::frontend()->theme)) {
-            new Fault(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
-            'path in your blog configuration. Please check theme_path value in ' .
-            'about:config module or reinstall default theme. (' . App::frontend()->theme . ')'), Fault::THEME_ISSUE);
+            throw new TemplateException(App::config()->debugMode() ?
+                __('This either means you removed your default theme or set a wrong theme ' .
+                'path in your blog configuration. Please check theme_path value in ' .
+                'about:config module or reinstall default theme. (' . App::frontend()->theme . ')') :
+                __('Default theme not found.'));
         }
 
         # Loading _public.php file for selected theme
@@ -275,9 +268,9 @@ class Utility extends Process
 
         # Loading translations for selected theme
         if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
-            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::task()->getLang(), 'main');
+            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang()->getLang(), 'main');
         }
-        App::themes()->loadModuleL10N(App::frontend()->theme, App::task()->getLang(), 'main');
+        App::themes()->loadModuleL10N(App::frontend()->theme, App::lang()->getLang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
         App::behavior()->callBehavior('publicPrependV2');
@@ -322,8 +315,8 @@ class Utility extends Process
 
             # --BEHAVIOR-- publicAfterDocument --
             App::behavior()->callBehavior('publicAfterDocumentV2');
-        } catch (Exception $e) {
-            new Fault($e->getMessage(), __('Something went wrong while loading template file for your blog.'), Fault::TEMPLATE_PROCESSING_ISSUE);
+        } catch (Throwable) {
+            throw new TemplateException(__('Something went wrong while loading template file for your blog.'));
         }
 
         // Do not try to execute a process added to the URL.

@@ -13,7 +13,9 @@ use ArrayObject;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
-use Exception;
+use Dotclear\Exception\ConflictException;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 
 /**
  * @brief   Blog handler interface.
@@ -128,6 +130,36 @@ interface BlogInterface
 
     /// @name Class public methods
     //@{
+
+    /**
+     * Load a blog definition.
+     *
+     * This load a blog in current instance.
+     * Use empty blog ID to unload blog.
+     *
+     * @param   string  $blog_id    The blog ID
+     *
+     * @return  BlogInterface   The blog instance
+     */
+    public function loadFromBlog(string $blog_id): BlogInterface;
+
+    /**
+     * Set authentication handler.
+     *
+     * This is a bad way to avoid circular reference for Auth class in constructor.
+     *
+     * @param   AuthInterface     $auth
+     */
+    public function setAuth(AuthInterface $auth): void;
+
+    /**
+     * Get authentication instance.
+     *
+     * Used by Users class and Blogs class to avoir circular reference in constructor.
+     *
+     * @return  AuthInterface   The authentication instance
+     */
+    public function auth(): AuthInterface;
 
     /**
      * Open a database table cursor.
@@ -439,7 +471,7 @@ interface BlogInterface
      * @param   Cursor  $cur        The category Cursor
      * @param   int     $parent     The parent category ID
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      *
      * @return  int     New category ID
      */
@@ -451,7 +483,7 @@ interface BlogInterface
      * @param   int     $id     The category ID
      * @param   Cursor  $cur    The category Cursor
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function updCategory(int $id, Cursor $cur): void;
 
@@ -486,12 +518,14 @@ interface BlogInterface
      *
      * @param   int     $id     The category ID
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|ConflictException
      */
     public function delCategory(int $id): void;
 
     /**
-     * Reset categories order and relocate them to first level
+     * Reset categories order and relocate them to first level.
+     *
+     * @throws  UnauthorizedException
      */
     public function resetCategoriesOrder(): void;
 
@@ -600,7 +634,7 @@ interface BlogInterface
      *
      * @param   Cursor  $cur    The post Cursor
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      *
      * @return  int
      */
@@ -612,7 +646,7 @@ interface BlogInterface
      * @param   int     $id     The post identifier
      * @param   Cursor  $cur    The post Cursor
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|BadRequestException
      */
     public function updPost($id, Cursor $cur): void;
 
@@ -630,7 +664,7 @@ interface BlogInterface
      * @param   mixed   $ids        The identifiers
      * @param   int     $status     The status
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function updPostsStatus($ids, $status): void;
 
@@ -640,7 +674,7 @@ interface BlogInterface
      * @param   mixed   $ids        The identifiers
      * @param   int     $status     The flag
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function updPostsFirstPub($ids, int $status): void;
 
@@ -658,7 +692,7 @@ interface BlogInterface
      * @param   mixed   $ids        The identifiers
      * @param   mixed   $selected    The selected flag
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function updPostsSelected($ids, $selected): void;
 
@@ -680,7 +714,7 @@ interface BlogInterface
      * @param   mixed   $ids        The identifiers
      * @param   mixed   $cat_id     The cat identifier
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function updPostsCategory($ids, $cat_id): void;
 
@@ -692,7 +726,7 @@ interface BlogInterface
      * @param   mixed   $old_cat_id     The old cat identifier
      * @param   mixed   $new_cat_id     The new cat identifier
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function changePostsCategory($old_cat_id, $new_cat_id): void;
 
@@ -708,7 +742,7 @@ interface BlogInterface
      *
      * @param   mixed   $ids    The posts identifiers
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|BadRequestException
      */
     public function delPosts($ids): void;
 
@@ -750,6 +784,8 @@ interface BlogInterface
      * Returns URL for a post according to blog setting <var>post_url_format</var>.
      *
      * It will try to guess URL and append some figures if needed.
+     *
+     * @thrhow  BadRequestException
      *
      * @param   string  $url            The url
      * @param   string  $post_dt        The post dt
@@ -807,7 +843,7 @@ interface BlogInterface
      * @param   int     $id     The comment identifier
      * @param   Cursor  $cur    The comment Cursor
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|BadRequestException
      */
     public function updComment($id, Cursor $cur): void;
 
@@ -825,7 +861,7 @@ interface BlogInterface
      * @param   mixed   $ids        The identifiers
      * @param   mixed   $status     The status
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function updCommentsStatus($ids, $status): void;
 
@@ -841,14 +877,14 @@ interface BlogInterface
      *
      * @param   mixed   $ids    The comments identifiers
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException|BadRequestException
      */
     public function delComments($ids): void;
 
     /**
      * Delete Junk comments.
      *
-     * @throws  Exception
+     * @throws  UnauthorizedException
      */
     public function delJunkComments(): void;
 
