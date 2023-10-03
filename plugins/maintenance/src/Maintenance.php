@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use Dotclear\App;
-use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
 /**
@@ -22,28 +21,28 @@ class Maintenance
     /**
      * Stack of task.
      *
-     * @var     array   $tasks
+     * @var     array<string, MaintenanceTask>   $tasks
      */
     private array $tasks = [];
 
     /**
      * Stack of tabs.
      *
-     * @var     array   $tabs
+     * @var     array<string, MaintenanceDescriptor>   $tabs
      */
     private array $tabs = [];
 
     /**
      * Stack of groups.
      *
-     * @var     array   $groups
+     * @var     array<string, MaintenanceDescriptor>   $groups
      */
     private array $groups = [];
 
     /**
      * Logs.
      *
-     * @var     null|array  $logs
+     * @var     null|array<string, array<string, mixed>>  $logs
      */
     private ?array $logs = null;
 
@@ -74,9 +73,9 @@ class Maintenance
     /**
      * Adds a tab.
      *
-     * @param   string  $id         The identifier
-     * @param   string  $name       The name
-     * @param   array   $options    The options
+     * @param   string                  $id         The identifier
+     * @param   string                  $name       The name
+     * @param   array<string, string>   $options    The options
      *
      * @return  self
      */
@@ -102,7 +101,7 @@ class Maintenance
     /**
      * Gets the tabs.
      *
-     * @return  array   The tabs.
+     * @return  array<string, MaintenanceDescriptor>   The tabs.
      */
     public function getTabs(): array
     {
@@ -115,9 +114,9 @@ class Maintenance
     /**
      * Adds a group.
      *
-     * @param   string  $id         The identifier
-     * @param   string  $name       The name
-     * @param   array   $options    The options
+     * @param   string                  $id         The identifier
+     * @param   string                  $name       The name
+     * @param   array<string, string>   $options    The options
      *
      * @return  self
      */
@@ -135,7 +134,7 @@ class Maintenance
      *
      * @return  MaintenanceDescriptor|null  The group.
      */
-    public function getGroup(string $id)
+    public function getGroup(string $id): ?MaintenanceDescriptor
     {
         return array_key_exists($id, $this->groups) ? $this->groups[$id] : null;
     }
@@ -143,7 +142,7 @@ class Maintenance
     /**
      * Gets the groups.
      *
-     * @return  array   The groups.
+     * @return  array<string, MaintenanceDescriptor>   The groups.
      */
     public function getGroups(): array
     {
@@ -175,9 +174,9 @@ class Maintenance
      *
      * @param   string  $id     The identifier
      *
-     * @return  mixed   The task.
+     * @return  null|MaintenanceTask   The task.
      */
-    public function getTask(string $id)
+    public function getTask(string $id): ?MaintenanceTask
     {
         return array_key_exists($id, $this->tasks) ? $this->tasks[$id] : null;
     }
@@ -185,7 +184,7 @@ class Maintenance
     /**
      * Gets the tasks.
      *
-     * @return  array   The tasks.
+     * @return  array<string, MaintenanceTask>   The tasks.
      */
     public function getTasks(): array
     {
@@ -224,7 +223,7 @@ class Maintenance
 
         // Get logs from this task
         $sql = new SelectStatement();
-        $rs = $sql
+        $rs  = $sql
             ->column('log_id')
             ->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
             ->where('log_msg = ' . $sql->quote($id))
@@ -283,7 +282,7 @@ class Maintenance
      *        ]
      * ]
      *
-     * @return  array   List of logged tasks
+     * @return  array<string, array<string, mixed>>   List of logged tasks
      */
     public function getLogs(): array
     {

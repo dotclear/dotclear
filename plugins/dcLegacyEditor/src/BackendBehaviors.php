@@ -23,10 +23,10 @@ class BackendBehaviors
     /**
      * adminPostEditor add javascript to the DOM to load legacy editor depending on context.
      *
-     * @param   string  $editor     The wanted editor
-     * @param   string  $context    The page context (post,page,comment,event,...)
-     * @param   array   $tags       The array of ids to inject editor
-     * @param   string  $syntax     The wanted syntax (wiki,markdown,...)
+     * @param   string          $editor     The wanted editor
+     * @param   string          $context    The page context (post,page,comment,event,...)
+     * @param   array<string>   $tags       The array of ids to inject editor
+     * @param   string          $syntax     The wanted syntax (wiki,markdown,...)
      *
      * @return  mixed
      */
@@ -52,6 +52,13 @@ class BackendBehaviors
         My::jsLoad('_post_editor');
     }
 
+    /**
+     * Add media popup JS if necessary
+     *
+     * @param      string  $editor  The editor
+     *
+     * @return     mixed
+     */
     public static function adminPopupMedia($editor = '')
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
@@ -61,6 +68,13 @@ class BackendBehaviors
         return My::jsLoad('jsToolBar/popup_media');
     }
 
+    /**
+     * Add link popup JS if necessary
+     *
+     * @param      string  $editor  The editor
+     *
+     * @return     mixed
+     */
     public static function adminPopupLink($editor = '')
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
@@ -70,6 +84,13 @@ class BackendBehaviors
         return My::jsLoad('jsToolBar/popup_link');
     }
 
+    /**
+     * Add posts popup JS if necessary
+     *
+     * @param      string  $editor  The editor
+     *
+     * @return     mixed
+     */
     public static function adminPopupPosts($editor = '')
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
@@ -79,7 +100,12 @@ class BackendBehaviors
         return My::jsLoad('jsToolBar/popup_posts');
     }
 
-    protected static function jsToolBar()
+    /**
+     * Add JS toolbar
+     *
+     * @return     string
+     */
+    protected static function jsToolBar(): string
     {
         $js = [
             'dialog_url'            => 'popup.php',

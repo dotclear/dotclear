@@ -21,9 +21,9 @@ class MaintenanceDescriptor
     /**
      * Construct a new instance.
      *
-     * @param   string  $id         The identifier
-     * @param   string  $name       The name
-     * @param   array   $options    The options
+     * @param   string                  $id         The identifier
+     * @param   string                  $name       The name
+     * @param   array<string, string>   $options    The options
      */
     public function __construct(
         protected string $id,

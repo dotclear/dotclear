@@ -18,7 +18,12 @@ use Dotclear\Helper\Clearbricks;
  */
 class dcProxyV1
 {
-    public static function classAliases(array $aliases)
+    /**
+     * Declare class alisases
+     *
+     * @param      array<string, string>  $aliases  The aliases
+     */
+    public static function classAliases(array $aliases): void
     {
         foreach ($aliases as $aliasName => $realName) {
             if (!class_exists($aliasName)) {

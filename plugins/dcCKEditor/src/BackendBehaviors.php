@@ -22,10 +22,10 @@ class BackendBehaviors
     /**
      * adminPostEditor add javascript to the DOM to load ckeditor depending on context.
      *
-     * @param   string  $editor     The wanted editor
-     * @param   string  $context    The page context (post,page,comment,event,...)
-     * @param   array   $tags       The array of ids to inject editor
-     * @param   string  $syntax     The wanted syntax (wiki,markdown,...)
+     * @param   string          $editor     The wanted editor
+     * @param   string          $context    The page context (post,page,comment,event,...)
+     * @param   array<string>   $tags       The array of ids to inject editor
+     * @param   string          $syntax     The wanted syntax (wiki,markdown,...)
      *
      * @return  string
      */
@@ -130,7 +130,7 @@ class BackendBehaviors
      *
      * CKEditor uses inline CSS styles, inline JS scripts and even uses eval() javascript function, so…
      *
-     * @param   ArrayObject     $csp    The csp
+     * @param   ArrayObject<string, string>     $csp    The csp
      */
     public static function adminPageHTTPHeaderCSP(ArrayObject $csp): void
     {

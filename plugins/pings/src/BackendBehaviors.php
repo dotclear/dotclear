@@ -28,10 +28,10 @@ class BackendBehaviors
     /**
      * Add attachment fieldset in entry sidebar.
      *
-     * @param   ArrayObject     $main       The main part of the entry form
-     * @param   ArrayObject     $sidebar    The sidebar part of the entry form
+     * @param   ArrayObject<string, mixed>     $main       The main part of the entry form
+     * @param   ArrayObject<string, mixed>     $sidebar    The sidebar part of the entry form
      */
-    public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar)
+    public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar): void
     {
         if (!My::settings()->pings_active) {
             return;
@@ -62,7 +62,7 @@ class BackendBehaviors
     /**
      * Do pings.
      */
-    public static function doPings()
+    public static function doPings(): void
     {
         if (empty($_POST['pings_do']) || !is_array($_POST['pings_do'])) {
             return;

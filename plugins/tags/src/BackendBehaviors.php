@@ -68,10 +68,10 @@ class BackendBehaviors
     /**
      * Add tags CKEditor plugin.
      *
-     * @param   ArrayObject     $extraPlugins   The extra plugins
-     * @param   string          $context        The context
+     * @param   ArrayObject<int, array<string, mixed>>      $extraPlugins   The extra plugins
+     * @param   string                                      $context        The context
      */
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, string $context)
+    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, string $context): void
     {
         if ($context !== 'post') {
             return;
@@ -86,7 +86,7 @@ class BackendBehaviors
     /**
      * Add an tags help ID if necessary.
      *
-     * @param   ArrayObject     $blocks     The blocks
+     * @param   ArrayObject<int, string>     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
@@ -130,7 +130,7 @@ class BackendBehaviors
      * @param   string  $url        The url
      * @param   string  $content    The content
      *
-     * @return  array
+     * @return  array<string, string>
      */
     public static function wikiTag(string $url, string $content): array
     {
@@ -150,9 +150,9 @@ class BackendBehaviors
     /**
      * Add tags fieldset in entry sidebar.
      *
-     * @param   ArrayObject     $main       The main part of the entry form
-     * @param   ArrayObject     $sidebar    The sidebar part of the entry form
-     * @param   MetaRecord      $post       The post
+     * @param   ArrayObject<string, mixed>      $main       The main part of the entry form
+     * @param   ArrayObject<string, mixed>      $sidebar    The sidebar part of the entry form
+     * @param   MetaRecord                      $post       The post
      */
     public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
@@ -214,8 +214,8 @@ class BackendBehaviors
     /**
      * Add tags to an entry.
      *
-     * @param   ActionsPosts    $ap     The current action instance
-     * @param   ArrayObject     $post   The post
+     * @param   ActionsPosts                    $ap     The current action instance
+     * @param   ArrayObject<string, mixed>      $post   The post
      */
     public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
@@ -299,8 +299,8 @@ class BackendBehaviors
     /**
      * Remove tags from an entry.
      *
-     * @param   ActionsPosts    $ap     The current action instance
-     * @param   ArrayObject     $post   The post
+     * @param   ActionsPosts                    $ap     The current action instance
+     * @param   ArrayObject<string, mixed>      $post   The post
      */
     public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
@@ -440,7 +440,7 @@ class BackendBehaviors
      * @param   Cursor          $cur        The current
      * @param   null|string     $user_id    The user identifier
      */
-    public static function setTagListFormat(Cursor $cur, ?string $user_id = null)
+    public static function setTagListFormat(Cursor $cur, ?string $user_id = null): void
     {
         if (!is_null($user_id)) {
             $cur->user_options['tag_list_format'] = $_POST['user_tag_list_format'];

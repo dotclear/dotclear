@@ -23,8 +23,8 @@ class FrontendTemplate
     /**
      * tpl:Attachments [attributes] : Post Attachments loop (tpl block).
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -49,8 +49,8 @@ class FrontendTemplate
     /**
      * tpl:AttachmentsHeader : First attachments result container (tpl block).
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -65,8 +65,8 @@ class FrontendTemplate
     /**
      * tpl:AttachmentsFooter : Last attachments result container (tpl block).
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -90,8 +90,8 @@ class FrontendTemplate
      *      - is_audio        (0|1)   Attachment is an audio file (if 1), or not (if 0)
      *      - is_video        (0|1)   Attachment is a video file (if 1), or not (if 0)
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -152,7 +152,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -168,7 +168,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -184,7 +184,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -201,7 +201,7 @@ class FrontendTemplate
      *      - full            (0|1)   Display size rounded to a human-readable value (in KB, MB, GB, TB)
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -222,7 +222,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -238,7 +238,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -263,7 +263,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -286,7 +286,7 @@ class FrontendTemplate
      *
      *      - any filters     See Tpl::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -315,7 +315,7 @@ class FrontendTemplate
      *
      *      1) %s will be replaced by the number of attachments
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */

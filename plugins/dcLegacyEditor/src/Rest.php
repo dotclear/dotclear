@@ -24,10 +24,10 @@ class Rest
     /**
      * Convert wiki to HTML REST service (JSON).
      *
-     * @param   array   $get    The get
-     * @param   array   $post   The post
+     * @param   array<string, mixed>   $get    The get
+     * @param   array<string, mixed>   $post   The post
      *
-     * @return  array
+     * @return  array<string, string>
      */
     public static function convert(array $get, array $post): array
     {
@@ -48,6 +48,7 @@ class Rest
                         // Relative URL, convert to absolute
                         return 'src="' . $media_root . $matches[1] . '"';
                     }
+
                     // Absolute URL, do nothing
                     return $matches[0];
                 }, $html);

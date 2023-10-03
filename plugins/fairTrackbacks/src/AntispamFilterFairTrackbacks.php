@@ -58,7 +58,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('Checks trackback source for a link to the post');
     }

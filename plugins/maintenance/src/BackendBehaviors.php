@@ -79,12 +79,12 @@ class BackendBehaviors
     /**
      * Is maintenance plugin active.
      *
-     * @param   string  $request    The request
-     * @param   array   $params     The parameters
+     * @param   string                  $request    The request
+     * @param   array<string, mixed>    $params     The parameters
      *
      * @return  bool    True if maintenance plugin is active else false
      */
-    public static function adminDashboardFavoritesActive($request, $params): bool
+    public static function adminDashboardFavoritesActive(string $request, array $params): bool
     {
         return isset($params['p']) && $params['p'] == My::id();
     }
@@ -95,7 +95,7 @@ class BackendBehaviors
      * This updates maintenance fav icon text
      * if there are tasks required maintenance.
      *
-     * @param   arrayObject     $icon   The icon
+     * @param   arrayObject<string, mixed>     $icon   The icon
      */
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
@@ -121,7 +121,12 @@ class BackendBehaviors
         $icon['large-icon'] = My::icons('update');
     }
 
-    public static function adminDashboardHeaders()
+    /**
+     * Dashboard header behavior
+     *
+     * @return     string
+     */
+    public static function adminDashboardHeaders(): string
     {
         return My::jsLoad('dashboard');
     }
@@ -129,7 +134,7 @@ class BackendBehaviors
     /**
      * Dashboard items stack.
      *
-     * @param   arrayObject     $items  items
+     * @param   ArrayObject<int, mixed>     $items  items
      */
     public static function adminDashboardItems(ArrayObject $items): void
     {
@@ -220,7 +225,7 @@ class BackendBehaviors
      * but keep it for exemple of how to use behavior adminPageHelpBlock.
      * Cheers, JC
      *
-     * @param   arrayObject     $blocks     The blocks
+     * @param   ArrayObject<int, mixed>     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
@@ -243,7 +248,7 @@ class BackendBehaviors
                         }
                     }
                     if (!empty($res_task)) {
-                        $desc = $group_obj->description ?: $group_obj->summary;
+                        $desc = $group_obj->description ?: $group_obj->summary; // @phpstan-ignore-line
 
                         $res_group .= '<h5>' . $group_obj->name() . '</h5>' .
                             ($desc ? '<p>' . $desc . '</p>' : '') .
@@ -251,7 +256,7 @@ class BackendBehaviors
                     }
                 }
                 if (!empty($res_group)) {
-                    $desc = $tab_obj->description ?: $tab_obj->summary;
+                    $desc = $tab_obj->description ?: $tab_obj->summary; // @phpstan-ignore-line
 
                     $res_tab .= '<h4>' . $tab_obj->name() . '</h4>' .
                         ($desc ? '<p>' . $desc . '</p>' : '') .

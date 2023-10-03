@@ -32,8 +32,8 @@ class FrontendTemplate
      *      - order          (asc|desc)                             Sort asc or desc
      *      - sortby         (meta_id_lower|count|latest|oldest)    Sort on information
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -69,8 +69,8 @@ class FrontendTemplate
     /**
      * tpl:TagsHeader : Tags header (tpl block).
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -85,8 +85,8 @@ class FrontendTemplate
     /**
      * tpl:TagsFooter : Tags footer (tpl block).
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -107,8 +107,8 @@ class FrontendTemplate
      *      - order          (asc|desc)                             Sort asc or desc
      *      - sortby         (meta_id_lower|count|latest|oldest)    Sort on information
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
@@ -151,12 +151,12 @@ class FrontendTemplate
      *
      *  1) Prefix with a ! to reverse test
      *
-     * @param   ArrayObject     $attr       The attributes
-     * @param   string          $content    The content
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
      *
      * @return  string
      */
-    public static function TagIf($attr, $content)
+    public static function TagIf(ArrayObject $attr, string $content): string
     {
         $if        = [];
         $operateur = isset($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
@@ -180,7 +180,7 @@ class FrontendTemplate
      *
      *      - any filters                 See self::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
@@ -196,7 +196,7 @@ class FrontendTemplate
      *
      * @return  string
      */
-    public static function TagCount()
+    public static function TagCount(): string
     {
         return '<?php echo App::frontend()->ctx->meta->count; ?>';
     }
@@ -206,7 +206,7 @@ class FrontendTemplate
      *
      * @return  string
      */
-    public static function TagPercent()
+    public static function TagPercent(): string
     {
         return '<?php echo App::frontend()->ctx->meta->percent; ?>';
     }
@@ -216,7 +216,7 @@ class FrontendTemplate
      *
      * @return  string
      */
-    public static function TagRoundPercent()
+    public static function TagRoundPercent(): string
     {
         return '<?php echo App::frontend()->ctx->meta->roundpercent; ?>';
     }
@@ -228,11 +228,11 @@ class FrontendTemplate
      *
      *      - any filters                 See self::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
-    public static function TagURL($attr)
+    public static function TagURL(ArrayObject $attr): string
     {
         $f = App::frontend()->tpl->getFilters($attr);
 
@@ -247,11 +247,11 @@ class FrontendTemplate
      *
      *      - any filters                 See self::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
-    public static function TagCloudURL($attr)
+    public static function TagCloudURL(ArrayObject $attr): string
     {
         $f = App::frontend()->tpl->getFilters($attr);
 
@@ -266,11 +266,11 @@ class FrontendTemplate
      *      - type       (atom|rss2)      Feed type, default to 'rss2'
      *      - any filters                 See self::getFilters()
      *
-     * @param   ArrayObject     $attr   The attributes
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
      *
      * @return  string
      */
-    public static function TagFeedURL($attr)
+    public static function TagFeedURL(ArrayObject $attr): string
     {
         $type = !empty($attr['type']) ? (string) $attr['type'] : 'rss2';
 

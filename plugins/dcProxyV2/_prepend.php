@@ -21,7 +21,13 @@ class dcProxyV2
 {
     public const SUFFIX = 'V2';
 
-    public static function loadBehaviors(string $class, string $file)
+    /**
+     * Loads behaviors.
+     *
+     * @param      string  $class  The class
+     * @param      string  $file   The file
+     */
+    public static function loadBehaviors(string $class, string $file): void
     {
         Clearbricks::lib()->autoload([$class => $file]);
 
@@ -31,7 +37,12 @@ class dcProxyV2
         }
     }
 
-    public static function classAliases(array $aliases)
+    /**
+     * Declare class aliases
+     *
+     * @param      array<string, string>  $aliases  The aliases
+     */
+    public static function classAliases(array $aliases): void
     {
         foreach ($aliases as $aliasName => $realName) {
             class_alias($realName, $aliasName);
