@@ -44,8 +44,8 @@ class dcUtils
      *
      * @deprecated  since 2.28, use Path::reduce() instead
      *
-     * @param   array   $elements   The elements
-     * @param   string  $separator  The separator
+     * @param   array<string>   $elements   The elements
+     * @param   string          $separator  The separator
      *
      * @return  string
      */
@@ -183,7 +183,7 @@ class dcUtils
      *
      * @deprecated  since 2.15, use Html::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
      *
-     * @param   array   $vars   The variables
+     * @param   array<string, mixed>   $vars   The variables
      *
      * @return  string  javascript code (inside <script… ></script>)
      */
@@ -275,9 +275,9 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App:lexical()->lexicalKeySort() instead
      *
-     * @param   array   $arr        single array of strings
-     * @param   string  $namespace  admin/public/lang
-     * @param   string  $lang       language to be used if $ns = 'lang'
+     * @param   array<string>   $arr        single array of strings
+     * @param   string          $namespace  admin/public/lang
+     * @param   string          $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
      */

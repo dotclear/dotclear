@@ -288,7 +288,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::backend()->resources instance
      *
-     * @var array
+     * @var array<string, mixed>
      */
     public $resources = [];
 
@@ -326,7 +326,7 @@ final class dcCore
      *
      * @deprecated since 2.28, permanently moved to App::frontend()->cache()
      *
-     * @var array
+     * @var array<string, mixed>
      */
     public $cache = [
         'mod_files' => [],
@@ -338,7 +338,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use AntispamInitFilters behavior instead
      *
-     * @var array|null
+     * @var array<string, mixed>|null
      */
     public $spamfilters = [];
 
@@ -432,7 +432,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::blogs()->getAllBlogStatus() instead
      *
-     * @return     array
+     * @return     array<int, string>
      */
     public function getAllBlogStatus(): array
     {
@@ -558,7 +558,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::formater()->getEditors() instead
      *
-     * @return     array
+     * @return     array<string, string>
      */
     public function getEditors(): array
     {
@@ -572,7 +572,7 @@ final class dcCore
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
-     * @return     array
+     * @return     array<string, array<string>>|array<string>
      */
     public function getFormaters(string $editor_id = ''): array
     {
@@ -644,7 +644,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
-     * @param      array    $behaviors  The behaviors
+     * @param      array<string|string,callable>    $behaviors  The behaviors
      */
     public function addBehaviors(array $behaviors): void
     {
@@ -656,7 +656,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
-     * @param      array    $behaviours  The behaviours
+     * @param      array<string|string,callable>    $behaviours  The behaviours
      */
     public function addBehaviours(array $behaviours): void
     {
@@ -807,7 +807,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::postTypes()->dump() instead
      *
-     * @return     array  The post types.
+     * @return     array<string, array<string, string>>  The post types.
      */
     public function getPostTypes(): array
     {
@@ -839,7 +839,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::version()->getVersions() instead
      *
-     * @return     array
+     * @return     array<string, string>
      */
     public function getVersions(): array
     {
@@ -923,8 +923,8 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::users()->getUsers() instead
      *
-     * @param      array|ArrayObject    $params      The parameters
-     * @param      bool                 $count_only  Count only results
+     * @param      array<string, mixed>|ArrayObject<string, mixed>      $params      The parameters
+     * @param      bool                                                 $count_only  Count only results
      *
      * @return     MetaRecord
      */
@@ -1002,7 +1002,7 @@ final class dcCore
      *
      * @param      string  $id     The user identifier
      *
-     * @return     array
+     * @return     array<string,array<string,string|array<string,bool>>>
      */
     public function getUserPermissions(string $id): array
     {
@@ -1014,8 +1014,8 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::users()->setUserPermissions() instead
      *
-     * @param      string     $id     The user identifier
-     * @param      array      $perms  The permissions
+     * @param      string                               $id     The user identifier
+     * @param      array<string,array<string,bool>>     $perms  The permissions
      *
      * @throws     Exception
      */
@@ -1029,12 +1029,12 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::users()->setUserBlogPermissions() instead
      *
-     * @param      string     $id            The user identifier
-     * @param      string     $blog_id       The blog identifier
-     * @param      array      $perms         The permissions
-     * @param      bool       $delete_first  Delete permissions first
+     * @param      string                   $id            The user identifier
+     * @param      string                   $blog_id       The blog identifier
+     * @param      array<string, bool>      $perms         The permissions
+     * @param      bool                     $delete_first  Delete permissions first
      *
-     * @throws     Exception  (description)
+     * @throws     Exception
      */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
@@ -1059,7 +1059,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::users()->removeUsersDefaultBlogs() instead
      *
-     * @param      array  $ids    The blogs to remove
+     * @param      array<int,int|string>  $ids    The blogs to remove
      */
     public function removeUsersDefaultBlogs(array $ids): void
     {
@@ -1071,7 +1071,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::users()->userDefaults() instead
      *
-     * @return     array
+     * @return     array<string,int|bool|array<string,string>|string>
      */
     public function userDefaults(): array
     {
@@ -1089,7 +1089,7 @@ final class dcCore
      * @param      string  $id          The blog identifier
      * @param      bool    $with_super  Includes super admins in result
      *
-     * @return     array
+     * @return     array<string, array<string, mixed>>
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
@@ -1115,8 +1115,8 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::blogs()->getBlogs() instead
      *
-     * @param      array|ArrayObject    $params      The parameters
-     * @param      bool                 $count_only  Count only results
+     * @param      array<string, mixed>|ArrayObject<string, mixed>      $params      The parameters
+     * @param      bool                                                 $count_only  Count only results
      *
      * @return     MetaRecord.
      */
@@ -1267,7 +1267,7 @@ final class dcCore
      * @param      string  $url      The post url
      * @param      string  $content  The content
      *
-     * @return     array
+     * @return     array<string, string>
      */
     public function wikiPostLink(string $url, string $content): array
     {
@@ -1282,7 +1282,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use Dotclear\Core\Install\Utils::blogDefault() instead
      *
-     * @param      array  $defaults  The defaults settings
+     * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
      */
     public function blogDefaults(?array $defaults = null): void
     {
@@ -1297,7 +1297,7 @@ final class dcCore
      * @param      mixed   $start  The start entry index
      * @param      mixed   $limit  The limit of entry to index
      */
-    public function indexAllPosts($start = null, $limit = null)
+    public function indexAllPosts($start = null, $limit = null): void
     {
     }
 
@@ -1309,7 +1309,7 @@ final class dcCore
      * @param      int   $start  The start comment index
      * @param      int   $limit  The limit of comment to index
      */
-    public function indexAllComments(?int $start = null, ?int $limit = null)
+    public function indexAllComments(?int $start = null, ?int $limit = null): void
     {
     }
 
@@ -1341,7 +1341,7 @@ final class dcCore
      *
      * @param      bool  $serve  The flag
      */
-    public function enableRestServer(bool $serve = true)
+    public function enableRestServer(bool $serve = true): void
     {
         App::rest()->enableRestServer($serve);
     }
