@@ -33,28 +33,28 @@ class Ip extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterIP';
+    public string $id = 'dcFilterIP';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'IP Filter';
+    public string $name = 'IP Filter';
 
     /**
      * Filter has settings GUI?
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = true;
+    public bool $has_gui = true;
 
     /**
      * Filter help ID.
      *
      * @var     null|string     $help
      */
-    public $help = 'ip-filter';
+    public ?string $help = 'ip-filter';
 
     /**
      * Table name.
@@ -75,7 +75,7 @@ class Ip extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('IP Blocklist / Allowlist Filter');
     }
@@ -276,7 +276,7 @@ class Ip extends SpamFilter
      *
      * @throws  Exception
      */
-    private function ipmask(string $pattern, &$ip, &$mask)
+    private function ipmask(string $pattern, &$ip, &$mask): void
     {
         $bits = explode('/', $pattern);
 
@@ -324,7 +324,7 @@ class Ip extends SpamFilter
 
         if ($old->isEmpty()) {
             $sql = new SelectStatement();
-            $id = (int) $sql
+            $id  = (int) $sql
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select()
@@ -362,6 +362,7 @@ class Ip extends SpamFilter
     private function getRules(string $type = 'all'): MetaRecord
     {
         $sql = new SelectStatement();
+
         return $sql
             ->columns([
                 'rule_id',
@@ -395,12 +396,13 @@ class Ip extends SpamFilter
     private function getRuleCIDR(string $type, bool $global, $ip, $mask): MetaRecord
     {
         $sql = new SelectStatement();
+
         return $sql
             ->column('*')
             ->from($this->table)
             ->where('rule_type = ' . $sql->quote($type))
             ->and($sql->like('rule_content', '%:' . (int) $ip . ':' . (int) $mask))
-            ->and($global ? 'blog_id IS NULL' : 'blog_id = '. $sql->quote(App::blog()->id()))
+            ->and($global ? 'blog_id IS NULL' : 'blog_id = ' . $sql->quote(App::blog()->id()))
             ->select();
     }
 
@@ -415,7 +417,7 @@ class Ip extends SpamFilter
     private function checkIP(string $cip, string $type)
     {
         $sql = new SelectStatement();
-        $rs = $sql
+        $rs  = $sql
             ->distinct()
             ->column('rule_content')
             ->from($this->table)

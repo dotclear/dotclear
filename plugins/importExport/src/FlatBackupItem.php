@@ -15,38 +15,54 @@ namespace Dotclear\Plugin\importExport;
  */
 class FlatBackupItem
 {
-    public $__name;
-    public $__line;
-    private $__data = [];
+    public string $__name;
+    public int $__line;
 
-    public function __construct($name, $data, $line)
+    /**
+     * @var array<string, mixed>
+     */
+    private array $__data = [];
+
+    /**
+     * Constructs a new instance.
+     *
+     * @param      string                   $name   The name
+     * @param      array<string, mixed>     $data   The data
+     * @param      int                      $line   The line
+     */
+    public function __construct(string $name, array $data, int $line)
     {
         $this->__name = $name;
         $this->__data = $data;
         $this->__line = $line;
     }
 
-    public function f($name)
+    public function f(string $name): string
     {
         return iconv('UTF-8', 'UTF-8//IGNORE', (string) $this->__data[$name]);
     }
 
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         return $this->f($name);
     }
 
-    public function __set($n, $v)
+    public function __set(string $n, mixed $v): void
     {
         $this->__data[$n] = $v;
     }
 
-    public function exists($n)
+    public function exists(string $n): bool
     {
         return isset($this->__data[$n]);
     }
 
-    public function drop(...$args)
+    /**
+     * Drop data
+     *
+     * @param      string  ...$args  The arguments
+     */
+    public function drop(...$args): void
     {
         foreach ($args as $n) {
             if (isset($this->__data[$n])) {
@@ -55,7 +71,7 @@ class FlatBackupItem
         }
     }
 
-    public function substitute($old, $new)
+    public function substitute(string $old, string $new): void
     {
         if (isset($this->__data[$old])) {
             $this->__data[$new] = $this->__data[$old];

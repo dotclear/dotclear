@@ -23,14 +23,14 @@ class Vacuum extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceVacuum';
+    protected ?string $id = 'dcMaintenanceVacuum';
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'optimize';
+    protected string $group = 'optimize';
 
     /**
      * Initialize task object.

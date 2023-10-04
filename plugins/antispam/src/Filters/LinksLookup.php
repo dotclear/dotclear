@@ -22,28 +22,28 @@ class LinksLookup extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterLinksLookup';
+    public string $id = 'dcFilterLinksLookup';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'Links Lookup';
+    public string $name = 'Links Lookup';
 
     /**
      * Filter has settings GUI?
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = false;
+    public bool $has_gui = false;
 
     /**
      * Filter help ID.
      *
      * @var     null|string     $help
      */
-    public $help = '';
+    public ?string $help = '';
 
     /**
      * subrl org URL.
@@ -55,7 +55,7 @@ class LinksLookup extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('Checks links in comments against surbl.org');
     }
@@ -135,7 +135,7 @@ class LinksLookup extends SpamFilter
      *
      * @param   string  $text   The text
      *
-     * @return  array   The links.
+     * @return  array<string>   The links.
      */
     private function getLinks(string $text): array
     {

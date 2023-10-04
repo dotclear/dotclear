@@ -25,14 +25,14 @@ class CountComments extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceCountcomments';
+    protected ?string $id = 'dcMaintenanceCountcomments';
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'index';
+    protected string $group = 'index';
 
     /**
      * Initialize task object.

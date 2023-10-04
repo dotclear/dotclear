@@ -28,7 +28,7 @@ class BackendBehaviors
     /**
      * Add an attachments help ID if necessary.
      *
-     * @param   ArrayObject     $blocks     The blocks
+     * @param   ArrayObject<string, mixed>     $blocks     The blocks
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
@@ -40,9 +40,9 @@ class BackendBehaviors
     /**
      * Add attachment fieldset in entry sidebar.
      *
-     * @param   ArrayObject     $main       The main part of the entry form
-     * @param   ArrayObject     $sidebar    The sidebar part of the entry form
-     * @param   MetaRecord      $post       The post
+     * @param   ArrayObject<string, mixed>      $main       The main part of the entry form
+     * @param   ArrayObject<string, mixed>      $sidebar    The sidebar part of the entry form
+     * @param   MetaRecord                      $post       The post
      */
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {

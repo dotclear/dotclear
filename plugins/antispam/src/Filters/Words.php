@@ -33,28 +33,28 @@ class Words extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterWords';
+    public string $id = 'dcFilterWords';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'Bad Words';
+    public string $name = 'Bad Words';
 
     /**
      * Filter has settings GUI?
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = true;
+    public bool $has_gui = true;
 
     /**
      * Filter help ID.
      *
      * @var     null|string     $help
      */
-    public $help = 'words-filter';
+    public ?string $help = 'words-filter';
 
     /**
      * Table name.
@@ -75,7 +75,7 @@ class Words extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('Words Blocklist');
     }
@@ -268,6 +268,7 @@ class Words extends SpamFilter
     private function getRules(): MetaRecord
     {
         $sql = new SelectStatement();
+
         return $sql
             ->columns([
                 'rule_id',
@@ -295,7 +296,7 @@ class Words extends SpamFilter
      *
      * @throws  Exception
      */
-    private function addRule(string $content, bool $general = false)
+    private function addRule(string $content, bool $general = false): void
     {
         $sql = new SelectStatement();
 
@@ -330,7 +331,7 @@ class Words extends SpamFilter
                 ->where('rule_id = ' . (string) $rs->rule_id)
                 ->update($cur);
         } else {
-            $sql = new SelectStatement();
+            $sql          = new SelectStatement();
             $cur->rule_id = (int) $sql
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
@@ -346,7 +347,7 @@ class Words extends SpamFilter
      *
      * @param   mixed   $ids    The rules identifiers
      */
-    private function removeRule($ids)
+    private function removeRule($ids): void
     {
         $sql = new DeleteStatement();
 
@@ -371,7 +372,7 @@ class Words extends SpamFilter
     /**
      * Set the default word list.
      */
-    public function defaultWordsList()
+    public function defaultWordsList(): void
     {
         $words = [
             '/-credit(\s+|$)/',

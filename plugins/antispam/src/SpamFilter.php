@@ -24,63 +24,63 @@ class SpamFilter
      *
      * @var     string  $id
      */
-    public $id;
+    public string $id;
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name;
+    public string $name;
 
     /**
      * Filter description.
      *
      * @var     string  $description
      */
-    public $description;
+    public string $description;
 
     /**
      * Is filter active.
      *
      * @var     bool    $active
      */
-    public $active = true;
+    public bool $active = true;
 
     /**
      * Filter order.
      *
      * @var     int     $order
      */
-    public $order = 100;
+    public int $order = 100;
 
     /**
      * Filter auto-delete spam?
      *
      * @var     bool    $auto_delete
      */
-    public $auto_delete = false;
+    public bool $auto_delete = false;
 
     /**
      * Filter help ID.
      *
      * @var     null|string     $help
      */
-    public $help = null;
+    public ?string $help = null;
 
     /**
      * Filter has settings GUI?
      *
      * @var     bool    $has_gui
      */
-    protected $has_gui = false;
+    protected bool $has_gui = false;
 
     /**
      * Filter settings GUI URL.
      *
      * @var     null|string     $gui_url
      */
-    protected $gui_url = null;
+    protected ?string $gui_url = null;
 
     /**
      * Constructs a new instance.
@@ -106,7 +106,7 @@ class SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('No description');
     }
@@ -128,6 +128,8 @@ class SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
+     *
+     * @return  mixed
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
     {
@@ -145,6 +147,8 @@ class SpamFilter
      * @param   string      $ip         The comment author IP
      * @param   string      $content    The comment content
      * @param   MetaRecord  $rs         The comment record
+     *
+     * @return  mixed
      */
     public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs)
     {
@@ -161,7 +165,7 @@ class SpamFilter
      *
      * @return  string  The status message.
      */
-    public function getStatusMessage(string $status, ?int $comment_id)
+    public function getStatusMessage(string $status, ?int $comment_id): string
     {
         return sprintf(__('Filtered by %1$s (%2$s)'), $this->guiLink(), $status);
     }
@@ -215,7 +219,7 @@ class SpamFilter
     }
 
     /**
-     * Returns a link to filter GUI if exists 
+     * Returns a link to filter GUI if exists
      * or only filter name if has_gui property is false.
      *
      * @return  string

@@ -17,11 +17,19 @@ use Exception;
  */
 class FlatBackup
 {
-    protected $fp;
-    private $line_cols         = [];
+    protected mixed $fp;
+
+    /**
+     * @var array<string>
+     */
+    private array $line_cols = [];
+
     private ?string $line_name = null;
     private ?int $line_num     = null;
 
+    /**
+     * @var array<string>
+     */
     private array $replacement = [
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\r)/u' => "\$1\r",
@@ -29,7 +37,7 @@ class FlatBackup
         '/(\\\\\\\\)/'                        => '\\',
     ];
 
-    public function __construct($file)
+    public function __construct(string $file)
     {
         if (file_exists($file) && is_readable($file)) {
             $this->fp       = fopen($file, 'rb');
@@ -46,6 +54,13 @@ class FlatBackup
         }
     }
 
+    /**
+     * Gets the line.
+     *
+     * @throws     Exception
+     *
+     * @return     FlatBackupItem|bool  The line.
+     */
     public function getLine()
     {
         if (($line = $this->nextLine()) === false) {
@@ -79,7 +94,12 @@ class FlatBackup
         return $this->getLine();
     }
 
-    private function nextLine()
+    /**
+     * Get next line
+     *
+     * @return     bool|mixed
+     */
+    private function nextLine(): mixed
     {
         if (feof($this->fp)) {
             return false;

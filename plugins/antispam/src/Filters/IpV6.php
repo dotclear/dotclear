@@ -33,28 +33,28 @@ class IpV6 extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterIPv6';
+    public string $id = 'dcFilterIPv6';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'IP Filter v6';
+    public string $name = 'IP Filter v6';
 
     /**
      * Filter has settings GUI?
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = true;
+    public bool $has_gui = true;
 
     /**
      * Filter help ID.
      *
      * @var     null|string     $help
      */
-    public $help = 'ip-filter-v6';
+    public ?string $help = 'ip-filter-v6';
 
     /**
      * Table name.
@@ -75,7 +75,7 @@ class IpV6 extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('IP v6 Blocklist / Allowlist Filter');
     }
@@ -281,7 +281,7 @@ class IpV6 extends SpamFilter
 
         if ($old->isEmpty()) {
             $sql = new SelectStatement();
-            $id = (int) $sql
+            $id  = (int) $sql
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select()
@@ -319,6 +319,7 @@ class IpV6 extends SpamFilter
     private function getRules(string $type = 'all'): MetaRecord
     {
         $sql = new SelectStatement();
+
         return $sql
             ->columns([
                 'rule_id',
@@ -355,12 +356,13 @@ class IpV6 extends SpamFilter
         $ip = $this->long2ip_v6($ip);
 
         $sql = new SelectStatement();
+
         return $sql
             ->column('*')
             ->from($this->table)
             ->where('rule_type = ' . $sql->quote($type))
             ->and($sql->like('rule_content', $ip . '%'))
-            ->and($global ? 'blog_id IS NULL' : 'blog_id = '. $sql->quote(App::blog()->id()))
+            ->and($global ? 'blog_id IS NULL' : 'blog_id = ' . $sql->quote(App::blog()->id()))
             ->select();
     }
 
@@ -375,7 +377,7 @@ class IpV6 extends SpamFilter
     private function checkIP(string $cip, string $type)
     {
         $sql = new SelectStatement();
-        $rs = $sql
+        $rs  = $sql
             ->distinct()
             ->column('rule_content')
             ->from($this->table)
@@ -448,6 +450,7 @@ class IpV6 extends SpamFilter
             // Ignore mask
             return $ip;
         }
+
         // IP and mask
         return $ip . '/' . $bits[1];
     }
@@ -506,7 +509,7 @@ class IpV6 extends SpamFilter
      *
      * @throws  Exception
      */
-    private function ipmask(string $pattern, &$ip, &$mask)
+    private function ipmask(string $pattern, &$ip, &$mask): void
     {
         // Analyse pattern returning IP and mask if any
         // returned mask = IP address or number of addresses in range

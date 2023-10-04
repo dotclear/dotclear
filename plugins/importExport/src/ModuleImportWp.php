@@ -17,6 +17,7 @@ use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 use initBlogroll;
 use form;
@@ -27,21 +28,31 @@ use form;
  */
 class ModuleImportWp extends Module
 {
-    protected $con;
-    protected $prefix;
-    protected $blog_id;
+    protected ConnectionInterface $con;
+    protected string $prefix;
+    protected string $blog_id;
 
-    protected $action = null;
-    protected $step   = 1;
+    protected ?string $action = null;
+    protected int $step       = 1;
 
-    protected $post_offset = 0;
-    protected $post_limit  = 20;
-    protected $post_count  = 0;
+    protected int $post_offset = 0;
+    protected int $post_limit  = 20;
+    protected int $post_count  = 0;
 
-    protected $has_table = [];
+    /**
+     * @var array<string, bool>
+     */
+    protected array $has_table = [];
 
-    protected $vars;
-    protected $base_vars = [
+    /**
+     * @var array<string, mixed>
+     */
+    protected array $vars;
+
+    /**
+     * @var array<string, mixed>
+     */
+    protected array $base_vars = [
         'db_host'            => '',
         'db_name'            => '',
         'db_user'            => '',
@@ -70,7 +81,11 @@ class ModuleImportWp extends Module
             '%author%',
         ],
     ];
-    protected $formaters;
+
+    /**
+     * @var array<string, mixed>
+     */
+    protected array $formaters;
 
     /**
      * Sets the module information.

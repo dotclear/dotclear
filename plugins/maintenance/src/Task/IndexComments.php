@@ -25,35 +25,35 @@ class IndexComments extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceIndexcomments';
+    protected ?string $id = 'dcMaintenanceIndexcomments';
 
     /**
      * Task use AJAX.
      *
      * @var     bool    $ajax
      */
-    protected $ajax = true;
+    protected bool $ajax = true;
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'index';
+    protected string $group = 'index';
 
     /**
      * Number of comments to process by step.
      *
      * @var     int     $limit
      */
-    protected $limit = 500;
+    protected int $limit = 500;
 
     /**
      * Next step label.
      *
      * @var     string  $step_task
      */
-    protected $step_task;
+    protected string $step_task;
 
     /**
      * Initialize task object.

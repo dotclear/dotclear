@@ -20,12 +20,12 @@ use form;
  */
 class ExportBlogMaintenanceTask extends MaintenanceTask
 {
-    protected $perm  = 'admin';
-    protected $tab   = 'backup';
-    protected $group = 'zipblog';
+    protected ?string $perm = 'admin';
+    protected string $tab   = 'backup';
+    protected string $group = 'zipblog';
 
-    protected $export_name;
-    protected $export_type;
+    protected string $export_name;
+    protected string $export_type;
 
     /**
      * Initialize task object.

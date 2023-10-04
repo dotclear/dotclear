@@ -127,8 +127,12 @@ class Manage extends Process
 
     /**
      * @todo    Remove old dcCore from ImportExport Manage::listImportExportModules new module parameters
+     *
+     * @param      array<int, mixed>  $modules  The modules
+     *
+     * @return     string
      */
-    protected static function listImportExportModules($modules)
+    protected static function listImportExportModules($modules): string
     {
         $res = '';
         foreach ($modules as $id) {

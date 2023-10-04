@@ -16,6 +16,7 @@ use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 use initBlogroll;
 use form;
@@ -26,20 +27,30 @@ use form;
  */
 class ModuleImportDc1 extends Module
 {
-    protected $con;
-    protected $prefix;
-    protected $blog_id;
+    protected ConnectionInterface $con;
+    protected string $prefix;
+    protected string $blog_id;
 
-    protected $action = null;
-    protected $step   = 1;
+    protected ?string $action = null;
+    protected int $step       = 1;
 
-    protected $post_offset = 0;
-    protected $post_limit  = 20;
-    protected $post_count  = 0;
+    protected int $post_offset = 0;
+    protected int $post_limit  = 20;
+    protected int $post_count  = 0;
 
-    protected $has_table = [];
+    /**
+     * @var array<string, bool>
+     */
+    protected array $has_table = [];
 
+    /**
+     * @var array<string, mixed>
+     */
     protected $vars;
+
+    /**
+     * @var array<string, mixed>
+     */
     protected $base_vars = [
         'db_driver'  => 'mysqli',
         'db_host'    => '',
@@ -74,7 +85,7 @@ class ModuleImportDc1 extends Module
         }
     }
 
-    public function resetVars()
+    public function resetVars(): void
     {
         $this->vars = $this->base_vars;
         unset($_SESSION['dc1_import_vars']);
@@ -287,7 +298,7 @@ class ModuleImportDc1 extends Module
      *
      * @param   Exception   $e  The error
      */
-    protected function error(Exception $e)
+    protected function error(Exception $e): void
     {
         echo
         '<div class="error"><strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p></div>';

@@ -19,11 +19,11 @@ use form;
  */
 class ExportFullMaintenanceTask extends MaintenanceTask
 {
-    protected $tab   = 'backup';
-    protected $group = 'zipfull';
+    protected string $tab   = 'backup';
+    protected string $group = 'zipfull';
 
-    protected $export_name;
-    protected $export_type;
+    protected string $export_name;
+    protected string $export_type;
 
     /**
      * Initialize task object.

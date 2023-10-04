@@ -24,14 +24,14 @@ class Cache extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceCache';
+    protected ?string $id = 'dcMaintenanceCache';
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'purge';
+    protected string $group = 'purge';
 
     /**
      * Initialize task object.

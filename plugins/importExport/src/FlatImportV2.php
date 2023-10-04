@@ -11,8 +11,10 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use Dotclear\App;
+use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\ConnectionInterface;
 use initAntispam;
 use initBlogroll;
 use UnhandledMatchError;
@@ -23,37 +25,43 @@ use UnhandledMatchError;
  */
 class FlatImportV2 extends FlatBackup
 {
-    private $con;
-    private $prefix;
+    private ConnectionInterface $con;
+    private string $prefix;
 
     private ?string $dc_version       = null;
     private ?string $dc_major_version = null;
     private string $mode;
 
-    private $blog_id;
+    private string $blog_id;
 
-    private $cur_blog;
-    private $cur_category;
-    private $cur_link;
-    private $cur_setting;
-    private $cur_user;
-    private $cur_pref;
-    private $cur_permissions;
-    private $cur_post;
-    private $cur_meta;
-    private $cur_media;
-    private $cur_post_media;
-    private $cur_log;
-    private $cur_ping;
-    private $cur_comment;
-    private $cur_spamrule;
+    private Cursor $cur_blog;
+    private Cursor $cur_category;
+    private Cursor $cur_link;
+    private Cursor $cur_setting;
+    private Cursor $cur_user;
+    private Cursor $cur_pref;
+    private Cursor $cur_permissions;
+    private Cursor $cur_post;
+    private Cursor $cur_meta;
+    private Cursor $cur_media;
+    private Cursor $cur_post_media;
+    private Cursor $cur_log;
+    private Cursor $cur_ping;
+    private Cursor $cur_comment;
+    private Cursor $cur_spamrule;
 
+    /**
+     * @var        array<string, mixed>
+     */
     public $old_ids = [
         'category' => [],
         'post'     => [],
         'media'    => [],
     ];
 
+    /**
+     * @var        array<string, mixed>
+     */
     public $stack = [
         'categories' => null,
         'cat_id'     => 1,
@@ -65,8 +73,15 @@ class FlatImportV2 extends FlatBackup
         'log_id'     => 1,
     ];
 
-    public $has_categories = false;
+    public bool $has_categories = false;
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      mixed     $file   The file
+     *
+     * @throws     Exception
+     */
     public function __construct($file)
     {
         parent::__construct($file);
@@ -118,12 +133,12 @@ class FlatImportV2 extends FlatBackup
         App::behavior()->callBehavior('importInitV2', $this);
     }
 
-    public function getMode()
+    public function getMode(): string
     {
         return $this->mode;
     }
 
-    public function importSingle()
+    public function importSingle(): void
     {
         if ($this->mode != 'single') {
             throw new Exception(__('File is not a single blog export.'));
@@ -240,13 +255,13 @@ class FlatImportV2 extends FlatBackup
             @fclose($this->fp);
             $this->con->rollback();
 
-            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line->__line));
+            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line)); // @phpstan-ignore-line
         }
         @fclose($this->fp);
         $this->con->commit();
     }
 
-    public function importFull()
+    public function importFull(): void
     {
         if ($this->mode != 'full') {
             throw new Exception(__('File is not a full export.'));
@@ -294,13 +309,13 @@ class FlatImportV2 extends FlatBackup
             @fclose($this->fp);
             $this->con->rollback();
 
-            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line->__line));
+            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line)); // @phpstan-ignore-line
         }
         @fclose($this->fp);
         $this->con->commit();
     }
 
-    private function insertBlog($blog)
+    private function insertBlog(mixed $blog): void
     {
         $this->cur_blog->clean();
 
@@ -317,7 +332,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_blog->insert();
     }
 
-    private function insertCategory($category)
+    private function insertCategory(mixed $category): void
     {
         $this->cur_category->clean();
 
@@ -341,7 +356,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_category->insert();
     }
 
-    private function insertLink($link)
+    private function insertLink(mixed $link): void
     {
         $this->cur_link->clean();
 
@@ -357,7 +372,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_link->insert();
     }
 
-    private function insertSetting($setting)
+    private function insertSetting(mixed $setting): void
     {
         $this->cur_setting->clean();
 
@@ -371,7 +386,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_setting->insert();
     }
 
-    private function insertPref($pref)
+    private function insertPref(mixed $pref): void
     {
         if ($this->prefExists($pref->pref_ws, $pref->pref_id, $pref->user_id)) {
             return;
@@ -389,7 +404,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_pref->insert();
     }
 
-    private function insertUser($user)
+    private function insertUser(mixed $user): void
     {
         if ($this->userExists($user->user_id)) {
             return;
@@ -422,7 +437,7 @@ class FlatImportV2 extends FlatBackup
         $this->stack['users'][$user->user_id] = true;
     }
 
-    private function insertPermissions($permissions)
+    private function insertPermissions(mixed $permissions): void
     {
         $this->cur_permissions->clean();
 
@@ -433,7 +448,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_permissions->insert();
     }
 
-    private function insertPost($post)
+    private function insertPost(mixed $post): void
     {
         $this->cur_post->clean();
 
@@ -478,7 +493,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_post->insert();
     }
 
-    private function insertMeta($meta)
+    private function insertMeta(mixed $meta): void
     {
         $this->cur_meta->clean();
 
@@ -489,7 +504,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_meta->insert();
     }
 
-    private function insertMedia($media)
+    private function insertMedia(mixed $media): void
     {
         $this->cur_media->clean();
 
@@ -511,7 +526,7 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    private function insertPostMedia($post_media)
+    private function insertPostMedia(mixed $post_media): void
     {
         $this->cur_post_media->clean();
 
@@ -521,7 +536,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_post_media->insert();
     }
 
-    private function insertLog($log)
+    private function insertLog(mixed $log): void
     {
         $this->cur_log->clean();
 
@@ -535,7 +550,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_log->insert();
     }
 
-    private function insertPing($ping)
+    private function insertPing(mixed $ping): void
     {
         $this->cur_ping->clean();
 
@@ -546,7 +561,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_ping->insert();
     }
 
-    private function insertComment($comment)
+    private function insertComment(mixed $comment): void
     {
         $this->cur_comment->clean();
 
@@ -570,7 +585,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_comment->insert();
     }
 
-    private function insertSpamRule($spamrule)
+    private function insertSpamRule(mixed $spamrule): void
     {
         $this->cur_spamrule->clean();
 
@@ -582,7 +597,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_spamrule->insert();
     }
 
-    private function insertCategorySingle($category)
+    private function insertCategorySingle(mixed $category): void
     {
         $this->cur_category->clean();
 
@@ -603,7 +618,7 @@ class FlatImportV2 extends FlatBackup
         $this->old_ids['category'][(int) $old_id] = $cat_id;
     }
 
-    private function insertLinkSingle($link)
+    private function insertLinkSingle(mixed $link): void
     {
         $link->blog_id = $this->blog_id;
         $link->link_id = $this->stack['link_id'];
@@ -612,7 +627,7 @@ class FlatImportV2 extends FlatBackup
         $this->stack['link_id']++;
     }
 
-    private function insertPostSingle($post)
+    private function insertPostSingle(mixed $post): void
     {
         if (!$post->cat_id || isset($this->old_ids['category'][(int) $post->cat_id])) {
             $post_id                                     = $this->stack['post_id'];
@@ -638,7 +653,7 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    private function insertMetaSingle($meta)
+    private function insertMetaSingle(mixed $meta): void
     {
         if (isset($this->old_ids['post'][(int) $meta->post_id])) {
             $meta->post_id = $this->old_ids['post'][(int) $meta->post_id];
@@ -648,7 +663,7 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    private function insertMediaSingle($media)
+    private function insertMediaSingle(mixed $media): void
     {
         $media_id = $this->stack['media_id'];
         $old_id   = $media->media_id;
@@ -662,7 +677,7 @@ class FlatImportV2 extends FlatBackup
         $this->old_ids['media'][(int) $old_id] = $media_id;
     }
 
-    private function insertPostMediaSingle($post_media)
+    private function insertPostMediaSingle(mixed $post_media): void
     {
         if (isset($this->old_ids['media'][(int) $post_media->media_id]) && isset($this->old_ids['post'][(int) $post_media->post_id])) {
             $post_media->media_id = $this->old_ids['media'][(int) $post_media->media_id];
@@ -676,7 +691,7 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    private function insertPingSingle($ping)
+    private function insertPingSingle(mixed $ping): void
     {
         if (isset($this->old_ids['post'][(int) $ping->post_id])) {
             $ping->post_id = $this->old_ids['post'][(int) $ping->post_id];
@@ -687,7 +702,7 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    private function insertCommentSingle($comment)
+    private function insertCommentSingle(mixed $comment): void
     {
         if (isset($this->old_ids['post'][(int) $comment->post_id])) {
             $comment_id = $this->stack['comment_id'];
@@ -702,10 +717,7 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    /**
-     * @return never
-     */
-    private static function throwIdError($name, $line, $related)
+    private static function throwIdError(string $name, string $line, string $related): mixed
     {
         throw new Exception(sprintf(
             __('ID of "%3$s" does not match on record "%1$s" at line %2$s of backup file.'),
@@ -715,7 +727,7 @@ class FlatImportV2 extends FlatBackup
         ));
     }
 
-    public function searchCategory($rs, $url)
+    public function searchCategory(mixed $rs, mixed $url): mixed
     {
         while ($rs->fetch()) {
             if ($rs->cat_url == $url) {
@@ -726,7 +738,7 @@ class FlatImportV2 extends FlatBackup
         return false;
     }
 
-    public function getUserId($user_id)
+    public function getUserId(mixed $user_id): ?string
     {
         if (!$this->userExists($user_id)) {
             if (App::auth()->isSuperAdmin()) {
@@ -753,7 +765,7 @@ class FlatImportV2 extends FlatBackup
         return $user_id;
     }
 
-    private function userExists($user_id)
+    private function userExists(mixed $user_id): bool
     {
         if (isset($this->stack['users'][$user_id])) {
             return $this->stack['users'][$user_id];
@@ -770,7 +782,7 @@ class FlatImportV2 extends FlatBackup
         return $this->stack['users'][$user_id];
     }
 
-    private function prefExists($pref_ws, $pref_id, $user_id)
+    private function prefExists(string $pref_ws, string $pref_id, ?string $user_id): bool
     {
         $strReq = 'SELECT pref_id,pref_ws,user_id ' .
         'FROM ' . $this->prefix . App::userWorkspace()::WS_TABLE_NAME . ' ' .
@@ -787,7 +799,7 @@ class FlatImportV2 extends FlatBackup
         return !$rs->isEmpty();
     }
 
-    private function mediaExists()
+    private function mediaExists(): bool
     {
         $strReq = 'SELECT media_id ' .
         'FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME . ' ' .
@@ -799,7 +811,7 @@ class FlatImportV2 extends FlatBackup
         return !$rs->isEmpty();
     }
 
-    private function prepareDC12line(&$line)
+    private function prepareDC12line(mixed &$line): void
     {
         switch ($line->__name) {
             case 'categorie':

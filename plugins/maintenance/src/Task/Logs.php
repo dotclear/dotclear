@@ -24,21 +24,21 @@ class Logs extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceLogs';
+    protected ?string $id = 'dcMaintenanceLogs';
 
     /**
      * Keep maintenance logs?
      *
      * @var     bool    $keep_maintenance_logs
      */
-    public static $keep_maintenance_logs = true;
+    public static bool $keep_maintenance_logs = true;
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'purge';
+    protected string $group = 'purge';
 
     /**
      * Initialize task object.

@@ -27,7 +27,7 @@ class FrontendBehaviors
      * @param   string                      $tag        The current tag
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     * @param   ArrayObject<string>         $if         The conditions stack
+     * @param   ArrayObject<int, string>    $if         The conditions stack
      */
     public static function tplIfConditions(string $tag, ArrayObject $attr, string $content, ArrayObject $if): void
     {

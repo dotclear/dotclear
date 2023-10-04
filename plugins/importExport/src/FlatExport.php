@@ -11,6 +11,7 @@ namespace Dotclear\Plugin\importExport;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
@@ -19,15 +20,22 @@ use Exception;
  */
 class FlatExport
 {
-    private $con;
-    private $prefix;
+    private ConnectionInterface $con;
+    private string $prefix;
 
+    /**
+     * @var array<string>
+     */
     private array $line_reg = ['/\\\\/u', '/\n/u', '/\r/u', '/"/u'];
+
+    /**
+     * @var array<string>
+     */
     private array $line_rep = ['\\\\\\\\', '\n', '\r', '\"'];
 
-    public $fp;
+    public mixed $fp;
 
-    public function __construct($con, $out = 'php://output', $prefix = null)
+    public function __construct(ConnectionInterface $con, string $out = 'php://output', ?string $prefix = null)
     {
         $this->con    = &$con;
         $this->prefix = $prefix;
@@ -45,7 +53,7 @@ class FlatExport
         }
     }
 
-    public function export($name, $sql)
+    public function export(string $name, string $sql): void
     {
         $rs = new MetaRecord($this->con->select($sql));
 
@@ -58,7 +66,7 @@ class FlatExport
         }
     }
 
-    public function exportAll()
+    public function exportAll(): void
     {
         $tables = $this->getTables();
 
@@ -67,14 +75,19 @@ class FlatExport
         }
     }
 
-    public function exportTable($table)
+    public function exportTable(string $table): void
     {
         $req = 'SELECT * FROM ' . $this->con->escapeSystem($this->prefix . $table);
 
         $this->export($table, $req);
     }
 
-    public function getTables()
+    /**
+     * Gets the tables.
+     *
+     * @return     array<string>  The tables.
+     */
+    public function getTables(): array
     {
         $schema    = App::con()->schema();
         $db_tables = $schema->getTables();
@@ -93,7 +106,7 @@ class FlatExport
         return $tables;
     }
 
-    public function getLine($rs)
+    public function getLine(MetaRecord $rs): string
     {
         $l    = [];
         $cols = $rs->columns();

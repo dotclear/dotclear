@@ -23,14 +23,14 @@ class SpamFilters
     /**
      * Stack of antispam filters.
      *
-     * @var     array<string,SpamFilter>   $filters
+     * @var     array<string, SpamFilter>   $filters
      */
     private array $filters = [];
 
     /**
      * Stack of antispam filters settings.
      *
-     * @var     array   $filters_opt
+     * @var     array<string, mixed>        $filters_opt
      */
     private $filters_opt = [];
 
@@ -39,7 +39,7 @@ class SpamFilters
      *
      * @todo    Remove old dcCore from SpamFilters::init new filter parameters
      *
-     * @param   array   $filters    The filters
+     * @param   array<mixed>   $filters    The filters
      */
     public function init(array $filters): void
     {
@@ -67,7 +67,7 @@ class SpamFilters
     /**
      * Gets the filters.
      *
-     * @return  array   The filters.
+     * @return  array<string, SpamFilter>   The filters.
      */
     public function getFilters(): array
     {
@@ -165,8 +165,8 @@ class SpamFilters
     /**
      * Saves filter settings.
      *
-     * @param   array   $opts       The settings
-     * @param   bool    $global     True if global settings
+     * @param   array<string, mixed>    $opts       The settings
+     * @param   bool                    $global     True if global settings
      */
     public function saveFilterOpts(array $opts, bool $global = false): void
     {

@@ -23,14 +23,14 @@ class BuildtoolsMaintenanceTask extends MaintenanceTask
      *
      * @var     string  $tab
      */
-    protected $tab = 'dev';
+    protected string $tab = 'dev';
 
     /**
      * Maintenance group name.
      *
      * @var     string  $group
      */
-    protected $group = 'l10n';
+    protected string $group = 'l10n';
 
     /**
      * Initializes the task.

@@ -29,35 +29,35 @@ class AntispamFilterAkismet extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterAkismet';
+    public string $id = 'dcFilterAkismet';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'Akismet';
+    public string $name = 'Akismet';
 
     /**
      * Has GUI settings.
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = true;
+    public bool $has_gui = true;
 
     /**
      * Is filter active.
      *
      * @var     bool    $active
      */
-    public $active = false;
+    public bool $active = false;
 
     /**
      * Filter help resource ID.
      *
      * @var     string  $help
      */
-    public $help = 'akismet-filter';
+    public ?string $help = 'akismet-filter';
 
     /**
      * Constructs a new instance.
@@ -74,7 +74,7 @@ class AntispamFilterAkismet extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('Akismet spam filter');
     }
@@ -109,8 +109,8 @@ class AntispamFilterAkismet extends SpamFilter
     /**
      * This method should return if a comment is a spam or not.
      *
-     * If it returns true or false, 
-     * execution of next filters will be stoped. 
+     * If it returns true or false,
+     * execution of next filters will be stoped.
      * If should return nothing to let next filters apply.
      *
      * @param   string  $type       The comment type (comment / trackback)

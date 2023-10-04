@@ -28,28 +28,28 @@ class IpLookup extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterIpLookup';
+    public string $id = 'dcFilterIpLookup';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'IP Lookup';
+    public string $name = 'IP Lookup';
 
     /**
      * Filter has settings GUI?
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = true;
+    public bool $has_gui = true;
 
     /**
      * Filter help ID.
      *
      * @var     null|string     $help
      */
-    public $help = 'iplookup-filter';
+    public ?string $help = 'iplookup-filter';
 
     /**
      * DNS blacklist lookup default domains.
@@ -73,7 +73,7 @@ class IpLookup extends SpamFilter
     /**
      * Sets the filter description.
      */
-    protected function setInfo()
+    protected function setInfo(): void
     {
         $this->description = __('Checks sender IP address against DNSBL servers');
     }

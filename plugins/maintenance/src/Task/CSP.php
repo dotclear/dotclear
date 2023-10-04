@@ -24,14 +24,14 @@ class CSP extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceCSP';
+    protected ?string $id = 'dcMaintenanceCSP';
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'purge';
+    protected string $group = 'purge';
 
     /**
      * Initialize task object.

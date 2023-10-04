@@ -25,35 +25,35 @@ class AntispamFilterFairTrackbacks extends SpamFilter
      *
      * @var     string  $id
      */
-    public $id = 'dcFilterFairTrackbacks';
+    public string $id = 'dcFilterFairTrackbacks';
 
     /**
      * Filter name.
      *
      * @var     string  $name
      */
-    public $name = 'Fair Trackbacks';
+    public string $name = 'Fair Trackbacks';
 
     /**
      * Has GUI settings.
      *
      * @var     bool    $has_gui
      */
-    public $has_gui = false;
+    public bool $has_gui = false;
 
     /**
      * Filter active?
      *
      * @var     bool    $active
      */
-    public $active = true;
+    public bool $active = true;
 
     /**
      * Filter order.
      *
      * @var     int     $order
      */
-    public $order = -10;
+    public int $order = -10;
 
     /**
      * Sets the filter description.

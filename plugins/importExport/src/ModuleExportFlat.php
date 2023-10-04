@@ -23,7 +23,7 @@ use form;
  */
 class ModuleExportFlat extends Module
 {
-    public function setInfo()
+    public function setInfo(): void
     {
         $this->type        = 'export';
         $this->name        = __('Flat file export');

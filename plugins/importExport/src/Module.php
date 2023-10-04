@@ -25,49 +25,49 @@ abstract class Module
      *
      * @var     string  $type
      */
-    public $type;
+    public string $type;
 
     /**
      * Module ID (class name).
      *
      * @var     string  $id
      */
-    public $id;
+    public string $id;
 
     /**
      * Module name.
      *
      * @var     string  $name
      */
-    public $name;
+    public string $name;
 
     /**
      * Module description.
      *
      * @var     string  $description
      */
-    public $description;
+    public string $description;
 
     /**
      * Import URL.
      *
      * @var     string  $import_url
      */
-    protected $import_url;
+    protected string $import_url;
 
     /**
      * Export URL.
      *
      * @var     string  $export_url
      */
-    protected $export_url;
+    protected string $export_url;
 
     /**
      * Module URL.
      *
      * @var     string  $url
      */
-    protected $url;
+    protected string $url;
 
     /**
      * Constructs a new instance.
@@ -93,14 +93,14 @@ abstract class Module
     /**
      * Initializes the module.
      */
-    public function init()
+    public function init(): void
     {
     }
 
     /**
      * Sets the module information.
      */
-    abstract protected function setInfo();
+    abstract protected function setInfo(): void;
 
     /**
      * Gets the module URL.
@@ -119,12 +119,12 @@ abstract class Module
      *
      * @param   string  $do     action
      */
-    abstract public function process(string $do);
+    abstract public function process(string $do): void;
 
     /**
      * GUI for import/export module.
      */
-    abstract public function gui();
+    abstract public function gui(): void;
 
     /**
      * Return a progress bar.

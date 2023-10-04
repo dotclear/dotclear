@@ -25,35 +25,35 @@ class ZipTheme extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceZiptheme';
+    protected ?string $id = 'dcMaintenanceZiptheme';
 
     /**
      * Task permissions.
      *
      * @var     null|string     $perm
      */
-    protected $perm = 'admin';
+    protected ?string $perm = 'admin';
 
     /**
      * Task limited to current blog.
      *
      * @var     bool    $blog
      */
-    protected $blog = true;
+    protected bool $blog = true;
 
     /**
      * Task tab container.
      *
      * @var     string  $tab
      */
-    protected $tab = 'backup';
+    protected string $tab = 'backup';
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'zipblog';
+    protected string $group = 'zipblog';
 
     /**
      * Initialize task object.

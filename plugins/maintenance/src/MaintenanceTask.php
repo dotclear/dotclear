@@ -24,105 +24,105 @@ class MaintenanceTask
      *
      * @var     int|null|bool   $code
      */
-    protected $code;
+    protected mixed $code;
 
     /**
      * Task timestamp.
      *
      * @var     bool|int    $ts
      */
-    protected $ts = 0;
+    protected mixed $ts = 0;
 
     /**
      * Expired flag.
      *
      * @var     null|int|bool   $expired
      */
-    protected $expired = 0;
+    protected mixed $expired = 0;
 
     /**
      * Task use AJAX.
      *
      * @var     bool    $ajax
      */
-    protected $ajax = false;
+    protected bool $ajax = false;
 
     /**
      * Task limited to current blog.
      *
      * @var     bool    $blog
      */
-    protected $blog = false;
+    protected bool $blog = false;
 
     /**
      * Task permissions.
      *
      * @var     null|string     $perm
      */
-    protected $perm = null;
+    protected ?string $perm = null;
 
     /**
      * Task ID (class name).
      *
      * @var     null|string     $id
      */
-    protected $id = null;
+    protected ?string $id = null;
 
     /**
      * Task name.
      *
      * @var     string  $name
      */
-    protected $name;
+    protected string $name;
 
     /**
      * Task description.
      *
      * @var     string  $description
      */
-    protected $description;
+    protected string $description;
 
     /**
      * Task tab container.
      *
      * @var     string  $tab
      */
-    protected $tab = 'maintenance';
+    protected string $tab = 'maintenance';
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'other';
+    protected string $group = 'other';
 
     /**
      * Task message.
      *
      * @var     string  $task
      */
-    protected $task;
+    protected string $task;
 
     /**
      * Task step.
      *
      * @var     null|string     $step
      */
-    protected $step;
+    protected ?string $step;
 
     /**
      * Task error message.
      *
      * @var     string  $error
      */
-    protected $error;
+    protected string $error;
 
     /**
      * Task success message.
      *
      * @var     string  $success
      */
-    protected $success;
+    protected string $success;
 
     /**
      * Constructor.

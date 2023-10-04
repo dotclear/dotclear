@@ -30,7 +30,7 @@ class Antispam extends initAntispam
      * The spam filters stacks.
      *
      * @var     array<int,string>  $spamfilters
-     */ 
+     */
     private static array $spamfilters = [];
 
     /**
@@ -43,7 +43,7 @@ class Antispam extends initAntispam
     /**
      * Initializes the filters.
      */
-    public static function initFilters()
+    public static function initFilters(): void
     {
         if (!empty(self::$spamfilters)) {
             return;
@@ -78,6 +78,8 @@ class Antispam extends initAntispam
      * The Cursor may be modified (or deleted) according to the result
      *
      * @param   Cursor  $cur    The current
+     *
+     * @return  mixed
      */
     public static function isSpam(Cursor $cur)
     {
@@ -139,7 +141,7 @@ class Antispam extends initAntispam
     /**
      * Return additional information about existing spams.
      *
-     * @return  string  
+     * @return  string
      */
     public static function dashboardIconTitle(): string
     {
@@ -256,7 +258,7 @@ class Antispam extends initAntispam
         }
 
         $sql = new SelectStatement();
-        $rs = $sql
+        $rs  = $sql
             ->columns([
                 'user_id',
                 'user_pwd',

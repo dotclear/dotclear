@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use Dotclear\App;
-use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -26,35 +25,35 @@ class SynchPostsMeta extends MaintenanceTask
      *
      * @var     null|string     $id
      */
-    protected $id = 'dcMaintenanceSynchpostsmeta';
+    protected ?string $id = 'dcMaintenanceSynchpostsmeta';
 
     /**
      * Task use AJAX.
      *
      * @var     bool    $ajax
      */
-    protected $ajax = true;
+    protected bool $ajax = true;
 
     /**
      * Task group container.
      *
      * @var     string  $group
      */
-    protected $group = 'index';
+    protected string $group = 'index';
 
     /**
      * Number of comments to process by step.
      *
      * @var     int     $limit
      */
-    protected $limit = 100;
+    protected int $limit = 100;
 
     /**
      * Next step label.
      *
      * @var     string  $step_task
      */
-    protected $step_task;
+    protected string $step_task;
 
     /**
      * Initialize task object.
@@ -104,7 +103,7 @@ class SynchPostsMeta extends MaintenanceTask
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {
         // Get number of posts
-        $sql = new SelectStatement();
+        $sql   = new SelectStatement();
         $count = $sql
             ->column($sql->count('post_id'))
             ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
@@ -124,7 +123,7 @@ class SynchPostsMeta extends MaintenanceTask
         // Update posts meta
         while ($rs->fetch()) {
             $sql_meta = new SelectStatement();
-            $rs_meta = $sql_meta
+            $rs_meta  = $sql_meta
                 ->columns([
                     'meta_id',
                     'meta_type',
