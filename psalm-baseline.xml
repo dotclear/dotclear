@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.x-dev@8bfcf473b9c9baa564f32e60d20a6bf93833e5ad">
+<files psalm-version="5.x-dev@13ea0c241dd01a951a977336e3d3afb6366b29d1">
   <file src="plugins/akismet/src/AntispamFilterAkismet.php">
     <RedundantCondition>
       <code>DC_AKISMET_SUPER</code>
@@ -36,19 +36,10 @@
       <code>(string) $content</code>
     </RedundantCast>
   </file>
-  <file src="plugins/antispam/src/FrontendUrl.php">
-    <TypeDoesNotContainType>
-      <code>DC_ADMIN_URL</code>
-      <code>DC_ADMIN_URL</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="plugins/antispam/src/Manage.php">
     <InvalidArgument>
       <code>$filters_opt</code>
     </InvalidArgument>
-    <TypeDoesNotContainType>
-      <code>DC_ADMIN_URL</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="plugins/antispam/src/SpamFilter.php">
     <InvalidNullableReturnType>
@@ -108,21 +99,8 @@
       <code>!DC_FAIRTRACKBACKS_FORCE</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="plugins/importExport/src/ExportBlogMaintenanceTask.php">
-    <LessSpecificImplementedReturnType>
-      <code>mixed</code>
-    </LessSpecificImplementedReturnType>
-  </file>
-  <file src="plugins/importExport/src/ExportFullMaintenanceTask.php">
-    <LessSpecificImplementedReturnType>
-      <code>mixed</code>
-    </LessSpecificImplementedReturnType>
-  </file>
   <file src="plugins/importExport/src/FlatImportV2.php">
-    <InvalidPropertyFetch>
-      <code><![CDATA[$line->__line]]></code>
-      <code><![CDATA[$line->__line]]></code>
-    </InvalidPropertyFetch>
+    <InvalidPropertyFetch/>
     <RedundantCast>
       <code>(string) $user_id</code>
     </RedundantCast>
@@ -142,11 +120,6 @@
     <ForbiddenCode>
       <code>var_dump($_POST)</code>
     </ForbiddenCode>
-    <RedundantCast>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
-    </RedundantCast>
   </file>
   <file src="plugins/importExport/src/ModuleImportWp.php">
     <RedundantCast>
@@ -200,16 +173,6 @@
       <code><![CDATA[!isset($_POST['w']) || !is_array($_POST['w'])]]></code>
     </RedundantCondition>
   </file>
-  <file src="src/App.php">
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG</code>
-      <code>DC_FORCE_SCHEME_443</code>
-      <code>DC_REVERSE_PROXY</code>
-    </TypeDoesNotContainType>
-    <UndefinedConstant>
-      <code>CLI_MODE</code>
-    </UndefinedConstant>
-  </file>
   <file src="src/Autoloader.php">
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
@@ -223,11 +186,6 @@
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
   </file>
-  <file src="src/Core/Backend/Listing/Listing.php">
-    <MissingTemplateParam>
-      <code><![CDATA[array|\ArrayObject<string|string>]]></code>
-    </MissingTemplateParam>
-  </file>
   <file src="src/Core/Backend/MediaPage.php">
     <RedundantCondition>
       <code>is_countable($rs)</code>
@@ -240,30 +198,12 @@
     </UndefinedThisPropertyAssignment>
   </file>
   <file src="src/Core/Backend/Menus.php">
-    <MissingTemplateParam>
-      <code>Menus</code>
-    </MissingTemplateParam>
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
   </file>
   <file src="src/Core/Backend/ModulesList.php">
-    <RedundantCondition>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_DEV</code>
-      <code>DC_DEV</code>
-      <code>DC_DEV</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-    </TypeDoesNotContainType>
+    <RedundantCondition/>
   </file>
   <file src="src/Core/Backend/Page.php">
     <InvalidArgument>
@@ -276,15 +216,6 @@
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
     <RedundantCondition/>
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-    </TypeDoesNotContainType>
-    <UndefinedConstant>
-      <code>DC_NAME</code>
-      <code>DC_START_TIME</code>
-    </UndefinedConstant>
   </file>
   <file src="src/Core/Backend/ThemeConfig.php">
     <RedundantCondition>
@@ -293,41 +224,19 @@
       <code><![CDATA[$size !== '']]></code>
     </RedundantCondition>
   </file>
-  <file src="src/Core/Backend/ThemesList.php">
-    <RedundantCondition>
-      <code>DC_ALLOW_REPOSITORIES</code>
-      <code>DC_DEV</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG</code>
-      <code>DC_DEBUG</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/Core/Backend/Url.php">
     <RedundantCondition>
       <code>strval($value) !== false</code>
       <code>strval($value) !== false</code>
     </RedundantCondition>
   </file>
-  <file src="src/Core/Backend/UserPref.php">
-    <MissingTemplateParam>
-      <code><![CDATA[array|ArrayObject<string|string>]]></code>
-    </MissingTemplateParam>
-  </file>
   <file src="src/Core/Backend/Utility.php">
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
   </file>
-  <file src="src/Core/Upgrade/Upgrade.php">
-    <TypeDoesNotContainType>
-      <code><![CDATA[DC_ROOT === '']]></code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/Database/AbstractHandler.php">
-    <InvalidDocblock>
-      <code>protected $__database;</code>
-    </InvalidDocblock>
+    <InvalidDocblock/>
     <RedundantCondition>
       <code><![CDATA[$v['field']]]></code>
     </RedundantCondition>
@@ -339,7 +248,6 @@
   <file src="src/Database/Driver/Mysqli/Handler.php">
     <RedundantCondition>
       <code><![CDATA['']]></code>
-      <code>DC_DEV</code>
     </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
@@ -350,9 +258,7 @@
     <InvalidReturnStatement>
       <code>$res</code>
     </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array<array{name: string, c_cols: array, p_table: string, p_cols: array, update: string, delete: string}>]]></code>
-    </InvalidReturnType>
+    <InvalidReturnType/>
     <RedundantCast>
       <code>(string) $m[1]</code>
       <code>(string) $m[1]</code>
@@ -372,9 +278,6 @@
     <RedundantCast>
       <code>(int) $row</code>
     </RedundantCast>
-    <RedundantCondition>
-      <code>DC_DEV</code>
-    </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
@@ -384,27 +287,16 @@
     <ImplementedReturnTypeMismatch>
       <code>bool|string</code>
     </ImplementedReturnTypeMismatch>
-    <RedundantCondition>
-      <code>DC_DEV</code>
-    </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="src/Database/MetaRecord.php">
-    <MissingTemplateParam>
-      <code>Iterator</code>
-    </MissingTemplateParam>
   </file>
   <file src="src/Database/Record.php">
     <InvalidArrayOffset>
       <code>$r[$k]</code>
       <code><![CDATA[$this->__row[$k]]]></code>
     </InvalidArrayOffset>
-    <MissingTemplateParam>
-      <code>Iterator</code>
-    </MissingTemplateParam>
     <RedundantCast>
       <code>(int) $row</code>
       <code>(int) $row</code>
@@ -436,19 +328,6 @@
       <code>(bool) $null</code>
     </RedundantCast>
   </file>
-  <file src="src/Fault.php">
-    <MissingFile>
-      <code>include DC_ERRORFILE</code>
-    </MissingFile>
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG === true</code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="src/FileServer.php">
-    <TypeDoesNotContainType>
-      <code>DC_DEBUG === true</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/Helper/Clearbricks.php">
     <InvalidNullableReturnType>
       <code>self</code>
@@ -471,12 +350,6 @@
       <code>$m[1]</code>
       <code>$m[3]</code>
     </InvalidOperand>
-  </file>
-  <file src="src/Helper/Diff/TidyDiffChunk.php">
-    <RedundantCondition>
-      <code>$delete === $insert</code>
-      <code>$delete === $insert</code>
-    </RedundantCondition>
   </file>
   <file src="src/Helper/File/File.php">
     <RedundantCast>
@@ -551,7 +424,6 @@
       <code>(string) $cap[2]</code>
       <code>(string) $cap[2]</code>
       <code>(string) $cap[3]</code>
-      <code>(string) $line</code>
       <code>(string) $v</code>
     </RedundantCast>
   </file>
@@ -602,11 +474,6 @@
       <code>(string) $m[1]</code>
     </RedundantCast>
   </file>
-  <file src="src/Helper/Network/Socket/Iterator.php">
-    <MissingTemplateParam>
-      <code>\Iterator</code>
-    </MissingTemplateParam>
-  </file>
   <file src="src/Helper/Network/Socket/Socket.php">
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->_handle]]></code>
@@ -622,11 +489,6 @@
       <code><![CDATA[(string) $this->_currentTagContents]]></code>
     </RedundantCast>
   </file>
-  <file src="src/Module/MyModule.php">
-    <RedundantCondition>
-      <code>DC_DEV</code>
-    </RedundantCondition>
-  </file>
   <file src="src/Module/MyPlugin.php">
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
@@ -637,20 +499,7 @@
       <code><![CDATA[$status != '200']]></code>
     </RedundantCondition>
   </file>
-  <file src="src/Process/Backend/Home.php">
-    <RedundantCondition>
-      <code>!DC_ADMIN_URL</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Process/Backend/Langs.php">
-    <UndefinedConstant>
-      <code>DC_L10N_UPDATE_URL</code>
-    </UndefinedConstant>
-  </file>
   <file src="src/Process/Backend/Media.php">
-    <RedundantCast>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
-    </RedundantCast>
     <RedundantCondition>
       <code>0</code>
       <code>0</code>
@@ -662,7 +511,6 @@
   </file>
   <file src="src/Process/Backend/MediaItem.php">
     <RedundantCast>
-      <code>(int) DC_MAX_UPLOAD_SIZE</code>
       <code>(string) $default</code>
       <code>(string) $default</code>
     </RedundantCast>
@@ -678,29 +526,13 @@
       <code><![CDATA[$file->media_meta]]></code>
     </UndefinedPropertyFetch>
   </file>
-  <file src="src/Process/Backend/Plugins.php">
-    <UndefinedConstant>
-      <code>DC_ALLOW_MULTI_MODULES</code>
-    </UndefinedConstant>
-  </file>
   <file src="src/Process/Backend/Rest.php">
     <RedundantCast>
       <code>(int) $id</code>
     </RedundantCast>
-    <UndefinedConstant>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-      <code>DC_NOT_UPDATE</code>
-    </UndefinedConstant>
     <UndefinedPropertyFetch>
       <code><![CDATA[$file->editable]]></code>
     </UndefinedPropertyFetch>
-  </file>
-  <file src="src/Process/Backend/Update.php">
-    <UndefinedConstant>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-      <code>DC_NEXT_REQUIRED_PHP</code>
-    </UndefinedConstant>
   </file>
   <file src="src/Process/Backend/User.php">
     <RedundantCondition>
@@ -726,11 +558,7 @@
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
-      <code>(string) DC_VERSION</code>
     </RedundantCast>
-    <TypeDoesNotContainType>
-      <code><![CDATA[DC_MASTER_KEY === '']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Process/Install/Wizard.php">
     <RedundantCast>
