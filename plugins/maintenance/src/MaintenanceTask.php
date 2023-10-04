@@ -148,13 +148,13 @@ class MaintenanceTask
             return;
         }
 
-        if (!$this->name) {
+        if (!isset($this->name)) {
             $this->name = $this->id;
         }
-        if (!$this->error) {
+        if (!isset($this->error)) {
             $this->error = __('Failed to execute task.');
         }
-        if (!$this->success) {
+        if (!isset($this->success)) {
             $this->success = __('Task successfully executed.');
         }
 

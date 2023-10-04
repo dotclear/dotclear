@@ -10,8 +10,6 @@
  * @copyright   GPL-2.0-only
  */
 
-use Dotclear\Helper\Clearbricks;
-
 /**
  * @brief   The module class alias handler.
  * @ingroup dcProxyV1
@@ -191,10 +189,10 @@ dcProxyV1::classAliases([
 
     // Core -----------------------
 
-    'dcAuth' => 'Dotclear\Core\Auth',
-    'dcBlog' => 'Dotclear\Core\Blog',
+    'dcAuth'         => 'Dotclear\Core\Auth',
+    'dcBlog'         => 'Dotclear\Core\Blog',
     'dcCategories'   => 'Dotclear\Core\Categories',
-    'dcDeprecated' => 'Dotclear\Core\Deprecated',
+    'dcDeprecated'   => 'Dotclear\Core\Deprecated',
     'dcError'        => 'Dotclear\Core\Error',
     'dcLog'          => 'Dotclear\Core\Log',
     'dcMedia'        => 'Dotclear\Core\Media',
@@ -203,21 +201,21 @@ dcProxyV1::classAliases([
     'dcModules'      => 'Dotclear\Module\Modules',
     'dcNamespace'    => 'Dotclear\Core\BlogWorkspace',
     'dcNotices'      => 'Dotclear\Core\Notice',
-    'dcNsProcess' => 'Dotclear\Core\Process',
-    'dcPlugins'   => 'Dotclear\Module\Plugins',
+    'dcNsProcess'    => 'Dotclear\Core\Process',
+    'dcPlugins'      => 'Dotclear\Module\Plugins',
     'dcPostMedia'    => 'Dotclear\Core\PostMedia',
     'dcPrefs'        => 'Dotclear\Core\UserPreferences',
-    'dcRecord' => 'Dotclear\Database\MetaRecord',
+    'dcRecord'       => 'Dotclear\Database\MetaRecord',
     'dcRestServer'   => 'Dotclear\Core\Rest',
     'dcSettings'     => 'Dotclear\Core\BlogSettings',
-    'dcStore'       => 'Dotclear\Module\Store',
-    'dcStoreParser' => 'Dotclear\Module\StoreParser',
-    'dcStoreReader' => 'Dotclear\Module\StoreReader',
-    'dcThemes'      => 'Dotclear\Module\Themes',
+    'dcStore'        => 'Dotclear\Module\Store',
+    'dcStoreParser'  => 'Dotclear\Module\StoreParser',
+    'dcStoreReader'  => 'Dotclear\Module\StoreReader',
+    'dcThemes'       => 'Dotclear\Module\Themes',
     'dcTrackback'    => 'Dotclear\Core\Trackback',
-    'dcUpdate' => 'Dotclear\Core\Backend\Update',
+    'dcUpdate'       => 'Dotclear\Core\Backend\Update',
     'dcWorkspace'    => 'Dotclear\Core\UserWorkspace',
-    'dcXmlRpc' => 'Dotclear\Core\Frontend\XmlRpc',
+    'dcXmlRpc'       => 'Dotclear\Core\Frontend\XmlRpc',
 
     'rsExtPost'    => 'Dotclear\Schema\Extension\Post',
     'rsExtComment' => 'Dotclear\Schema\Extension\Comment',
