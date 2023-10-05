@@ -176,7 +176,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: array<string>}>
+     * @return     array<array{name: int|string, primary: bool, unique: bool, cols: array<string>}>
      */
     public function db_get_keys(string $table): array
     {
@@ -216,7 +216,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<array{name: string, type: string, cols: array<string>}>
+     * @return     array<array{name: int|string, type: string, cols: array<string>}>
      */
     public function db_get_indexes(string $table): array
     {
@@ -256,7 +256,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<array{name: string, c_cols: array<string>, p_table: string, p_cols: array<string>, update: string, delete: string}>
+     * @return     array<array{name: string, c_cols: array<string>, p_table: string, p_cols: array<string>, update: string|null, delete: string|null}>
      */
     public function db_get_references(string $table): array
     {

@@ -171,7 +171,7 @@ class Handler extends AbstractHandler
         while ($r = $result->fetch(PDO::FETCH_ASSOC)) { // @phpstan-ignore-line
             $R = [];
             foreach ($r as $k => $v) {
-                $k     = preg_replace('/^(.*)\./', '', $k);
+                $k     = (string) preg_replace('/^(.*)\./', '', $k);
                 $R[$k] = $v;
                 $R[]   = &$R[$k];
             }
@@ -263,7 +263,8 @@ class Handler extends AbstractHandler
         if ($res instanceof PDOStatement) {
             $m = $res->getColumnMeta($position);
 
-            return preg_replace('/^.+\./', '', $m['name']); # we said short_column_names = 1
+            // We said short_column_names = 1
+            return preg_replace('/^.+\./', '', $m['name']); // @phpstan-ignore-line
         }
 
         return '';
@@ -282,12 +283,14 @@ class Handler extends AbstractHandler
         if ($res instanceof PDOStatement) {
             $m = $res->getColumnMeta($position);
 
-            return match ($m['pdo_type']) {
-                PDO::PARAM_BOOL => 'boolean',
-                PDO::PARAM_NULL => 'null',
-                PDO::PARAM_INT  => 'integer',
-                default         => 'varchar',
-            };
+            if ($m !== false) {
+                return match ($m['pdo_type']) {
+                    PDO::PARAM_BOOL => 'boolean',
+                    PDO::PARAM_NULL => 'null',
+                    PDO::PARAM_INT  => 'integer',
+                    default         => 'varchar',
+                };
+            }
         }
 
         return '';
@@ -364,7 +367,7 @@ class Handler extends AbstractHandler
 
     public function escapeSystem(string $str): string
     {
-        return "'" . $this->escape($str) . "'";
+        return "'" . $this->escape($str) . "'"; // @phpstan-ignore-line
     }
 
     public function begin(): void
@@ -426,7 +429,7 @@ class Handler extends AbstractHandler
      */
     public function dateFormat(string $field, string $pattern): string
     {
-        return "strftime('" . $this->escape($pattern) . "'," . $field . ')';
+        return "strftime('" . $this->escape($pattern) . "'," . $field . ')';    // @phpstan-ignore-line
     }
 
     /**

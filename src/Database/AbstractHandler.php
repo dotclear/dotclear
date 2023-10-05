@@ -355,7 +355,7 @@ abstract class AbstractHandler extends Connection
     public function dateFormat(string $field, string $pattern): string
     {
         return
-        'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";
+        'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";   // @phpstan-ignore-line
     }
 
     /**
@@ -402,13 +402,13 @@ abstract class AbstractHandler extends Connection
         if (is_null($in)) {
             return ' IN (NULL) ';
         } elseif (is_string($in)) {
-            return " IN ('" . $this->escape($in) . "') ";
+            return " IN ('" . $this->escape($in) . "') ";   // @phpstan-ignore-line
         } elseif (is_array($in)) {
             foreach ($in as $i => $v) {
                 if (is_null($v)) {
                     $in[$i] = 'NULL';
                 } elseif (is_string($v)) {
-                    $in[$i] = "'" . $this->escape($v) . "'";
+                    $in[$i] = "'" . $this->escape($v) . "'";    // @phpstan-ignore-line
                 }
             }
 

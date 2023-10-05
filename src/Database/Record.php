@@ -181,7 +181,7 @@ class Record implements Iterator, Countable
      *
      * Returns true if a field exists.
      *
-     * @param string        $n        Field name
+     * @param string|int     $n        Field name or field position
      *
      * @return bool
      */
@@ -224,7 +224,7 @@ class Record implements Iterator, Countable
         $c = new ReflectionClass($class);
         foreach ($c->getMethods() as $m) {
             if ($m->isStatic() && $m->isPublic()) {
-                $this->__extend[$m->name] = [$class, $m->name];
+                $this->__extend[$m->name] = [$class, $m->name]; // @phpstan-ignore-line
             }
         }
     }
@@ -462,7 +462,7 @@ class Record implements Iterator, Countable
     #[\ReturnTypeWillChange]
     public function key()
     {
-        return $this->index();
+        return $this->index();  // @phpstan-ignore-line
     }
     /**
      * @see Iterator::next

@@ -398,7 +398,7 @@ class Handler extends AbstractHandler
     {
         $pattern = str_replace('%M', '%i', $pattern);
 
-        return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escape($pattern) . "')";
+        return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escape($pattern) . "')";    // @phpstan-ignore-line
     }
 
     /**

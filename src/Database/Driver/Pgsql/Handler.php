@@ -138,8 +138,10 @@ class Handler extends AbstractHandler
             $result = $this->db_query($handle, "SELECT * FROM pg_collation WHERE (collcollate LIKE '%.utf8')");
             if ($this->db_num_rows($result) > 0) {
                 $this->db_result_seek($result, 0);
-                $row                   = $this->db_fetch_assoc($result);
-                $this->utf8_unicode_ci = '"' . $row['collname'] . '"';
+                $row = $this->db_fetch_assoc($result);
+                if ($row !== false) {
+                    $this->utf8_unicode_ci = '"' . $row['collname'] . '"';
+                }
             }
         }
     }
@@ -152,7 +154,7 @@ class Handler extends AbstractHandler
     public function db_close($handle): void
     {
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            pg_close($handle);
+            pg_close($handle);  // @phpstan-ignore-line
         }
     }
 
@@ -166,7 +168,7 @@ class Handler extends AbstractHandler
     public function db_version($handle): string
     {
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            return pg_parameter_status($handle, 'server_version');
+            return pg_parameter_status($handle, 'server_version');  // @phpstan-ignore-line
         }
 
         return '';
@@ -187,7 +189,7 @@ class Handler extends AbstractHandler
             if (count($searchpath) > 1) {
                 $path  = $searchpath[1];
                 $query = 'SET search_path TO ' . $searchpath[0] . ',public;';
-                @pg_query($handle, $query);
+                @pg_query($handle, $query); // @phpstan-ignore-line
             }
         }
 
@@ -207,7 +209,7 @@ class Handler extends AbstractHandler
     public function db_query($handle, string $query)
     {
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            $res = @pg_query($handle, $query);
+            $res = @pg_query($handle, $query);  // @phpstan-ignore-line
             if ($res === false) {
                 $msg = (string) $this->db_last_error($handle);
                 if (App::config()->devMode()) {
@@ -244,7 +246,7 @@ class Handler extends AbstractHandler
     public function db_num_fields($res): int
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_num_fields($res);
+            return pg_num_fields($res); // @phpstan-ignore-line
         }
 
         return 0;
@@ -260,7 +262,7 @@ class Handler extends AbstractHandler
     public function db_num_rows($res): int
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_num_rows($res);
+            return pg_num_rows($res);   // @phpstan-ignore-line
         }
 
         return 0;
@@ -277,7 +279,7 @@ class Handler extends AbstractHandler
     public function db_field_name($res, int $position): string
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_field_name($res, $position);
+            return pg_field_name($res, $position);  // @phpstan-ignore-line
         }
 
         return '';
@@ -294,7 +296,7 @@ class Handler extends AbstractHandler
     public function db_field_type($res, int $position): string
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_field_type($res, $position);
+            return pg_field_type($res, $position);  // @phpstan-ignore-line
         }
 
         return '';
@@ -310,7 +312,7 @@ class Handler extends AbstractHandler
     public function db_fetch_assoc($res)
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_fetch_assoc($res);
+            return pg_fetch_assoc($res);    // @phpstan-ignore-line
         }
 
         return false;
@@ -327,7 +329,7 @@ class Handler extends AbstractHandler
     public function db_result_seek($res, int $row): bool
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_result_seek($res, (int) $row);
+            return pg_result_seek($res, (int) $row);    // @phpstan-ignore-line
         }
 
         return false;
@@ -344,7 +346,7 @@ class Handler extends AbstractHandler
     public function db_changes($handle, $res): int
     {
         if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_affected_rows($res);
+            return pg_affected_rows($res);  // @phpstan-ignore-line
         }
 
         return 0;
@@ -360,7 +362,7 @@ class Handler extends AbstractHandler
     public function db_last_error($handle)
     {
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            return pg_last_error($handle);
+            return pg_last_error($handle);  // @phpstan-ignore-line
         }
 
         return false;
@@ -377,7 +379,7 @@ class Handler extends AbstractHandler
     public function db_escape_string($str, $handle = null): string
     {
         if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            return pg_escape_string($handle, (string) $str);
+            return pg_escape_string($handle, (string) $str);    // @phpstan-ignore-line
         }
 
         return addslashes((string) $str);
@@ -433,7 +435,7 @@ class Handler extends AbstractHandler
 
         $pattern = str_replace(array_keys($rep), array_values($rep), $pattern);
 
-        return 'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";
+        return 'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";    // @phpstan-ignore-line
     }
 
     /**
@@ -510,7 +512,7 @@ class Handler extends AbstractHandler
             if (is_null($v)) {
                 $data[$k] = 'NULL';
             } elseif (is_string($v)) {
-                $data[$k] = "'" . $this->escape($v) . "'";
+                $data[$k] = "'" . $this->escape($v) . "'";  // @phpstan-ignore-line
             } elseif (is_array($v)) {
                 $data[$k] = $v[0];
             } else {

@@ -143,7 +143,7 @@ class Table
      * @param      string           $type      The type
      * @param      array<string>    $fields    The fields
      *
-     * @return     bool|string
+     * @return     false|string
      */
     public function keyExists(string $name, string $type, array $fields): bool|string
     {
@@ -170,7 +170,7 @@ class Table
      * @param      string           $type      The type
      * @param      array<string>    $fields    The fields
      *
-     * @return     bool|string
+     * @return     false|string
      */
     public function indexExists(string $name, string $type, array $fields): bool|string
     {
@@ -198,7 +198,7 @@ class Table
      * @param      string            $foreign_table     The foreign table
      * @param      array<string>     $foreign_fields    The foreign fields
      *
-     * @return     bool|string
+     * @return     false|string
      */
     public function referenceExists(string $name, array $local_fields, string $foreign_table, array $foreign_fields): bool|string
     {

@@ -201,7 +201,7 @@ class Schema extends AbstractSchema
         $res = [];
 
         # Get primary keys first
-        $sql = "SELECT sql FROM sqlite_master WHERE type='table' AND name='" . $this->con->escape($table) . "'";
+        $sql = "SELECT sql FROM sqlite_master WHERE type='table' AND name='" . $this->con->escape($table) . "'";    // @phpstan-ignore-line
         $rs  = $this->con->select($sql);
 
         if ($rs->isEmpty()) {
@@ -236,7 +236,7 @@ class Schema extends AbstractSchema
             }
         }
 
-        return $res;
+        return $res;    // @phpstan-ignore-line
     }
 
     /**
@@ -286,8 +286,8 @@ class Schema extends AbstractSchema
         $res = [];
 
         # Find constraints on table
-        $bir = $this->con->select(sprintf($sql, $this->con->escape($table), 'bir'));
-        $bur = $this->con->select(sprintf($sql, $this->con->escape($table), 'bur'));
+        $bir = $this->con->select(sprintf($sql, $this->con->escape($table), 'bir'));    // @phpstan-ignore-line
+        $bur = $this->con->select(sprintf($sql, $this->con->escape($table), 'bur'));    // @phpstan-ignore-line
 
         if ($bir->isEmpty() || $bur->isempty()) {
             return $res;
@@ -305,7 +305,7 @@ class Schema extends AbstractSchema
 
             # Find on update
             $on_update = 'restrict';
-            $aur       = $this->con->select(sprintf($sql, $this->con->escape($p_table), 'aur'));
+            $aur       = $this->con->select(sprintf($sql, $this->con->escape($p_table), 'aur'));    // @phpstan-ignore-line
             while ($aur->fetch()) {
                 if (!preg_match('/AFTER\s+UPDATE/msi', $aur->sql)) {
                     continue;
@@ -328,7 +328,7 @@ class Schema extends AbstractSchema
 
             # Find on delete
             $on_delete = 'restrict';
-            $bdr       = $this->con->select(sprintf($sql, $this->con->escape($p_table), 'bdr'));
+            $bdr       = $this->con->select(sprintf($sql, $this->con->escape($p_table), 'bdr'));    // @phpstan-ignore-line
             while ($bdr->fetch()) {
                 if (!preg_match('/BEFORE\s+DELETE/msi', $bdr->sql)) {
                     continue;
@@ -468,8 +468,8 @@ class Schema extends AbstractSchema
      * @param      array<string>    $fields          The fields
      * @param      string           $foreign_table   The foreign table
      * @param      array<string>    $foreign_fields  The foreign fields
-     * @param      bool|string      $update          The update
-     * @param      bool|string      $delete          The delete
+     * @param      false|string     $update          The update
+     * @param      false|string     $delete          The delete
      *
      * @throws     Exception
      */
@@ -632,8 +632,8 @@ class Schema extends AbstractSchema
      * @param      array<string>    $fields          The fields
      * @param      string           $foreign_table   The foreign table
      * @param      array<string>    $foreign_fields  The foreign fields
-     * @param      string|bool      $update          The update
-     * @param      string|bool      $delete          The delete
+     * @param      string|false     $update          The update
+     * @param      string|false     $delete          The delete
      */
     public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {

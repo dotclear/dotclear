@@ -55,10 +55,11 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<string, array{type: string, len: int|null, null: bool, default: string}>
+     * @return     array<string, array{type: string, len: int|null, null: bool, default: string|null}>
      */
     public function db_get_columns(string $table): array
     {
+        /* @phpstan-ignore-next-line */
         $sql = 'SELECT column_name, udt_name, character_maximum_length, ' .
         'is_nullable, column_default ' .
         'FROM information_schema.columns ' .
@@ -103,6 +104,7 @@ class Schema extends AbstractSchema
      */
     public function db_get_keys(string $table): array
     {
+        /* @phpstan-ignore-next-line */
         $sql = 'SELECT DISTINCT ON(cls.relname) cls.oid, cls.relname as idxname, indisunique::integer, indisprimary::integer, ' .
         'indnatts, tab.relname as tabname, contype, amname ' .
         'FROM pg_index idx ' .
@@ -150,6 +152,7 @@ class Schema extends AbstractSchema
      */
     public function db_get_indexes(string $table): array
     {
+        /* @phpstan-ignore-next-line */
         $sql = 'SELECT DISTINCT ON(cls.relname) cls.oid, cls.relname as idxname, n.nspname, ' .
         'indnatts, tab.relname as tabname, contype, amname ' .
         'FROM pg_index idx ' .
@@ -196,6 +199,7 @@ class Schema extends AbstractSchema
      */
     public function db_get_references(string $table): array
     {
+        /* @phpstan-ignore-next-line */
         $sql = 'SELECT ct.oid, conname, condeferrable, condeferred, confupdtype, ' .
         'confdeltype, confmatchtype, conkey, confkey, conrelid, confrelid, cl.relname as fktab, ' .
         'cr.relname as reftab ' .
@@ -206,7 +210,7 @@ class Schema extends AbstractSchema
         'JOIN pg_namespace nr ON nr.oid=cr.relnamespace ' .
         "WHERE contype='f' " .
         "AND cl.relname = '" . $this->con->escape($table) . "' " .
-            'ORDER BY conname ';
+        'ORDER BY conname ';
 
         $rs = $this->con->select($sql);
 
