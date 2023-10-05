@@ -14,6 +14,12 @@ use Dotclear\Helper\L10n;
 /**
  * @brief 	Exception enumeration.
  *
+ * Rules for ExceptionEnum:
+ * * Exception code MUST be uniq for each exceptions
+ * * Exception COULD extends another exception but MUST have its own code
+ * * All 4xx exception MUST extends BadRequestException,
+ * * All 5xx exception MUST extends InternalServerException
+ *
  * Usage:
  * @code{php}
  * // Retreive an exception information
