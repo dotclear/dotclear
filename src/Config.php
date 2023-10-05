@@ -460,7 +460,7 @@ class Config implements ConfigInterface
         }
 
         // Deprecated since 2.28, DC_DBSCHEMA_CLASS is no more used, database Schema class MUST be provided by Connection class method schema()
-        //if (defined('DC_DBHANDLER_CLASS')) {
+        //if (defined('DC_DBSCHEMA_CLASS')) {
         //    throw new ConfigException('Database Schema class MUST be provided by Connection class method schema().');
         //}
 
