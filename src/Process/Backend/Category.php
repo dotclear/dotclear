@@ -69,8 +69,8 @@ class Category extends Process
             unset($rs);
 
             // Getting hierarchy information
-            App::backend()->cat_parents = App::blog()->getCategoryParents(App::backend()->cat_id);
-            $rs                         = App::blog()->getCategoryParent(App::backend()->cat_id);
+            App::backend()->cat_parents = App::blog()->getCategoryParents((int) App::backend()->cat_id);
+            $rs                         = App::blog()->getCategoryParent((int) App::backend()->cat_id);
             App::backend()->cat_parent  = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
 
             // Allowed parents list

@@ -463,11 +463,13 @@ class WikiToHtml
 
             # Transforms urls while preserving tags.
             $tree = preg_split($this->tag_pattern, $html, -1, PREG_SPLIT_DELIM_CAPTURE);
-            foreach ($tree as &$leaf) {
-                $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
+            if ($tree) {
+                foreach ($tree as &$leaf) {
+                    $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
+                }
+                unset($leaf);
+                $html = implode($tree);
             }
-            unset($leaf);
-            $html = implode($tree);
         }
 
         $this->wiki_lines   = explode("\n", $html);
@@ -759,7 +761,7 @@ class WikiToHtml
 
             if ($type != 'pre' || $this->getOpt('parse_pre')) {
                 // Parse current line
-                $line = $line ? $this->__inlineWalk($line) : '';
+                $line = is_string($line) ? $this->__inlineWalk($line) : '';
             }
 
             // Close previously opened block if necessary
@@ -777,8 +779,8 @@ class WikiToHtml
             # Sur idée de Christophe Bonijol
             # Changement de regex (Nicolas Chachereau)
             if ($this->getOpt('active_fr_syntax') && $type != null && $type != 'pre' && $type != 'hr') {
-                $line = preg_replace('%[ ]+([:?!;\x{00BB}](\s|$))%u', '&nbsp;$1', $line);
-                $line = preg_replace('%(\x{00AB})[ ]+%u', '$1&nbsp;', $line);
+                $line = preg_replace('%[ ]+([:?!;\x{00BB}](\s|$))%u', '&nbsp;$1', (string) $line);
+                $line = preg_replace('%(\x{00AB})[ ]+%u', '$1&nbsp;', (string) $line);
             }
 
             $html .= $line;
@@ -1241,8 +1243,12 @@ class WikiToHtml
     {
         $res = preg_split('/(?<!\\\)\|/', $str);
 
-        foreach ($res as $k => $v) {
-            $res[$k] = str_replace("\|", '|', $v);
+        if ($res) {
+            foreach ($res as $k => $v) {
+                $res[$k] = str_replace("\|", '|', $v);
+            }
+        } else {
+            $res = [];
         }
 
         return $res;
@@ -1553,11 +1559,13 @@ class WikiToHtml
                 $v = trim((string) $v);
                 if ($v != '') {
                     $p = strpos($v, ':');
-                    $K = (string) trim(substr($v, 0, $p));
-                    $V = (string) trim(substr($v, ($p + 1)));
+                    if ($p !== false) {
+                        $K = (string) trim(substr($v, 0, $p));
+                        $V = (string) trim(substr($v, ($p + 1)));
 
-                    if ($K) {
-                        $res[$K] = $V;
+                        if ($K) {
+                            $res[$K] = $V;
+                        }
                     }
                 }
             }
@@ -1669,7 +1677,7 @@ class WikiToHtml
 
             if ($first_line) {
                 if (str_contains($first_line, ' ')) {
-                    $first_word = substr($first_line, 0, strpos($first_line, ' '));
+                    $first_word = substr($first_line, 0, (int) strpos($first_line, ' '));
                 }
                 $content = implode("\n", array_slice($lines, 1));
             }

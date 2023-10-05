@@ -48,7 +48,7 @@ class Media extends Process
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id())) {
             try {
-                if (str_starts_with(realpath(App::media()->getRoot() . '/' . App::backend()->page->d), (string) realpath(App::media()->getRoot()))) {
+                if (str_starts_with((string) realpath(App::media()->getRoot() . '/' . App::backend()->page->d), (string) realpath(App::media()->getRoot()))) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
@@ -181,7 +181,7 @@ class Media extends Process
             $forget          = false;
 
             try {
-                if (is_dir(Path::real(App::media()->getPwd() . '/' . Path::clean($_POST['remove'])))) {
+                if (is_dir((string) Path::real(App::media()->getPwd() . '/' . Path::clean($_POST['remove'])))) {
                     $msg = __('Directory has been successfully removed.');
                     # Remove dir from recents/favs if necessary
                     $forget = true;

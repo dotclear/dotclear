@@ -50,9 +50,10 @@ class Config extends Process
         }
 
         if (isset($_POST['css'])) {
-            @$fp = fopen(App::backend()->css_file, 'wb');
-            fwrite($fp, $_POST['css']);
-            fclose($fp);
+            if ($fp = fopen(App::backend()->css_file, 'wb')) {
+                fwrite($fp, $_POST['css']);
+                fclose($fp);
+            }
 
             Notices::message(__('Style sheet upgraded.'), true, true);
         }
@@ -73,6 +74,6 @@ class Config extends Process
 
         echo
         '<p class="area"><label>' . __('Style sheet:') . '</label> ' .
-        form::textarea('css', 60, 20, Html::escapeHTML($css_content)) . '</p>';
+        form::textarea('css', 60, 20, Html::escapeHTML((string) $css_content)) . '</p>';
     }
 }

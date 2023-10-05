@@ -222,10 +222,10 @@ class Reader extends HttpClient
 
         if (@file_exists($cached_file)) {
             $may_use_cached = true;
-            $timestamp      = @filemtime($cached_file);
+            $timestamp      = (int) @filemtime($cached_file);
             if ($timestamp > strtotime($this->cache_ttl)) {
                 # Direct cache
-                return unserialize(file_get_contents($cached_file));
+                return unserialize((string) file_get_contents($cached_file));
             }
 
             $this->validators['IfModifiedSince'] = gmdate('D, d M Y H:i:s', $timestamp) . ' GMT';
@@ -234,7 +234,7 @@ class Reader extends HttpClient
         if (!$this->getFeed($url)) {
             if ($may_use_cached) {
                 # connection failed - fetched from cache
-                return unserialize(file_get_contents($cached_file));
+                return unserialize((string) file_get_contents($cached_file));
             }
 
             return false;
@@ -244,7 +244,7 @@ class Reader extends HttpClient
             case '304':
                 @Files::touch($cached_file);
 
-                return unserialize(file_get_contents($cached_file));
+                return unserialize((string) file_get_contents($cached_file));
             case '200':
                 $feed = new Parser($this->getContent());
 

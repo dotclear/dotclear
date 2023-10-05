@@ -201,12 +201,12 @@ class Store
 
         // old style data
         foreach ($this->defines['new'] as $define) {
-            $this->data['new'][$define->getId()] = $define->dump();
+            $this->data['new'][$define->getId()] = $define->dump(); // @phpstan-ignore-line
         }
         foreach ($this->defines['update'] as $define) {
             // keep only higher vesion
             if (!isset($this->data['update'][$define->getId()]) || $this->modules->versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')) {
-                $this->data['update'][$define->getId()] = $define->dump();
+                $this->data['update'][$define->getId()] = $define->dump();  // @phpstan-ignore-line
             }
         }
 

@@ -73,11 +73,13 @@ class MailSocket
             $mx = Mail::getMX($to_host);
         }
 
-        foreach (array_keys($mx) as $mx_host) {
-            self::$fp = @fsockopen($mx_host, 25, $errno, $errstr, self::$timeout);
+        if ($mx !== false) {
+            foreach (array_keys($mx) as $mx_host) {
+                self::$fp = @fsockopen($mx_host, 25, $errno, $errstr, self::$timeout);
 
-            if (self::$fp !== false) {
-                break;
+                if (self::$fp !== false) {
+                    break;
+                }
             }
         }
 
@@ -185,7 +187,9 @@ class MailSocket
      */
     private static function cmd(string $out, string &$data = ''): bool
     {
-        fwrite(self::$fp, $out . "\r\n");
+        if (self::$fp) {
+            fwrite(self::$fp, $out . "\r\n");
+        }
         $data = self::data();
 
         if (substr($data, 0, 3) != '250') {
@@ -203,10 +207,12 @@ class MailSocket
     private static function data(): string
     {
         $buffer = '';
-        stream_set_timeout(self::$fp, 2);
+        if (self::$fp) {
+            stream_set_timeout(self::$fp, 2);
 
-        for ($i = 0; $i < 2; $i++) {
-            $buffer .= fgets(self::$fp, 1024);
+            for ($i = 0; $i < 2; $i++) {
+                $buffer .= fgets(self::$fp, 1024);
+            }
         }
 
         return $buffer;
@@ -239,7 +245,9 @@ class MailSocket
     private static function quit(): void
     {
         self::cmd('QUIT');
-        fclose(self::$fp);
+        if (self::$fp) {
+            fclose(self::$fp);
+        }
         self::$fp = null;
     }
 }

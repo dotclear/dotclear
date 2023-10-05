@@ -104,9 +104,9 @@ class Post
             return true;
         }
 
-        $cdate = date('Ymd', strtotime((string) $rs->post_dt));
+        $cdate = date('Ymd', (int) strtotime((string) $rs->post_dt));
         $rs->movePrev();
-        $ndate = date('Ymd', strtotime((string) $rs->post_dt));
+        $ndate = date('Ymd', (int) strtotime((string) $rs->post_dt));
         $rs->moveNext();
 
         return $ndate !== $cdate;
@@ -125,9 +125,9 @@ class Post
             return true;
         }
 
-        $cdate = date('Ymd', strtotime((string) $rs->post_dt));
+        $cdate = date('Ymd', (int) strtotime((string) $rs->post_dt));
         $rs->moveNext();
-        $ndate = date('Ymd', strtotime((string) $rs->post_dt));
+        $ndate = date('Ymd', (int) strtotime((string) $rs->post_dt));
         $rs->movePrev();
 
         return $ndate !== $cdate;
@@ -249,12 +249,12 @@ class Post
     public static function getTS(MetaRecord $rs, string $type = ''): int
     {
         if ($type === 'upddt') {
-            return strtotime((string) $rs->post_upddt);
+            return (int) strtotime((string) $rs->post_upddt);
         } elseif ($type === 'creadt') {
-            return strtotime((string) $rs->post_creadt);
+            return (int) strtotime((string) $rs->post_creadt);
         }
 
-        return strtotime($rs->post_dt);
+        return (int) strtotime($rs->post_dt);
     }
 
     /**

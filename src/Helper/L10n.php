@@ -341,20 +341,22 @@ namespace Dotclear\Helper {
                 'use ' . self::class . ";\n" .
                 "\n";
 
-            foreach ($strings as $vo => $tr) {
-                $vo = str_replace("'", "\\'", $vo);
-                if (is_array($tr)) {
-                    $items = [];
-                    foreach ($tr as $i => $t) {
-                        $t       = str_replace("'", "\\'", $t);
-                        $items[] = '\'' . $t . '\'';
+            if ($strings !== false) {
+                foreach ($strings as $vo => $tr) {
+                    $vo = str_replace("'", "\\'", $vo);
+                    if (is_array($tr)) {
+                        $items = [];
+                        foreach ($tr as $i => $t) {
+                            $t       = str_replace("'", "\\'", $t);
+                            $items[] = '\'' . $t . '\'';
+                        }
+                        if (count($items)) {
+                            $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . join(',' . "\n\t", $items) . ",\n" . '];' . "\n";
+                        }
+                    } else {
+                        $tr = str_replace("'", "\\'", $tr);
+                        $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";
                     }
-                    if (count($items)) {
-                        $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . join(',' . "\n\t", $items) . ",\n" . '];' . "\n";
-                    }
-                } else {
-                    $tr = str_replace("'", "\\'", $tr);
-                    $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";
                 }
             }
 
@@ -402,10 +404,16 @@ namespace Dotclear\Helper {
                 'Plural-Forms'              => '',
                 // there are more headers but these ones are default
             ];
+
             $headers_searched = $headers_found = false;
             $h_line           = $h_val = $h_key = '';
-            $entries          = $entry = $desc = [];
+            $entries          = $entry = [];
             $i                = 0;
+
+            /**
+             * @var array<string, mixed>
+             */
+            $desc = [];
 
             // read through lines
             for ($i = 0; $i < count($lines); $i++) {
@@ -425,7 +433,7 @@ namespace Dotclear\Helper {
                         $headers_searched = true;
                     } else {
                         $l = $i + 2;
-                        while (false !== ($def = self::cleanPoLine('multi', $lines[$l++]))) {
+                        while (($def = self::cleanPoLine('multi', $lines[$l++])) !== false) {
                             $h_line = self::cleanPoString($def[1]);
 
                             // an header has key:val
@@ -612,7 +620,7 @@ namespace Dotclear\Helper {
          * @param      string  $type   The type
          * @param      mixed   $_      the line
          *
-         * @return     bool|array<string>
+         * @return     false|array<string>
          */
         protected static function cleanPoLine(string $type, $_)
         {
@@ -648,7 +656,7 @@ namespace Dotclear\Helper {
          *
          * @param string $expression Plural form as of gettext Plural-form param
          *
-         * @return array<int, string> Number of plurals and cleaned plural expression
+         * @return array<int, int|string> Number of plurals and cleaned plural expression
          */
         public static function parsePluralExpression(string $expression): array
         {
@@ -1133,12 +1141,15 @@ namespace Dotclear\Helper {
                 ];
             }
 
+            /**
+             * @var        array<string, mixed>
+             */
             $r = [];
             foreach (self::$languages_definitions as $_) {
                 $r[$_[0]] = empty($_[$type]) ? $default : $_[$type];
             }
 
-            return $r;
+            return $r;  // @phpstan-ignore-line
         }
         //@}
     }

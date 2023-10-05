@@ -118,17 +118,17 @@ class BlogTheme extends Process
     {
         if (!empty($_GET['shot'])) {
             // Get a theme screenshot
-            $filename = Path::real(
+            $filename = (string) Path::real(
                 empty($_GET['src']) ?
                 App::blog()->themesPath() . '/' . $_GET['shot'] . '/screenshot.jpg' :
                 App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
-            if (!file_exists($filename)) {
+            if (!file_exists((string) $filename)) {
                 $filename = __DIR__ . '/images/noscreenshot.png';
             }
 
-            Http::cache([...[$filename], ...get_included_files()]);
+            Http::cache([$filename, ...get_included_files()]);
 
             header('Content-Type: ' . Files::getMimeType($filename));
             header('Content-Length: ' . filesize($filename));

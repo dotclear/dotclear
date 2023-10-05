@@ -126,8 +126,11 @@ class IntrospectionServer extends BasicServer
     protected function call(string $methodname, $args)
     {
         // Make sure it's in an array
+        $params = [];
         if ($args && !is_array($args)) {
-            $args = [$args];
+            $params = [$args];
+        } elseif (is_array($args)) {
+            $params = $args;
         }
 
         // Over-rides default call method, adds signature check
@@ -144,17 +147,17 @@ class IntrospectionServer extends BasicServer
         array_shift($signature);
 
         // Check the number of arguments
-        if (($args === null ? 0 : count($args)) > count($signature)) {
+        if (count($params) > count($signature)) {
             throw new XmlRpcException('Server error. Wrong number of method parameters', -32602);
         }
 
         // Check the argument types
-        if (!$this->checkArgs($args, $signature)) {
+        if (!$this->checkArgs($params, $signature)) {
             throw new XmlRpcException('Server error. Invalid method parameters', -32602);
         }
 
         // It passed the test - run the "real" method call
-        return parent::call($methodname, $args);
+        return parent::call($methodname, $params);
     }
 
     /**

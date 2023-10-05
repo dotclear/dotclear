@@ -97,7 +97,7 @@ class Rest extends Process
      *
      * @throws     Exception
      *
-     * @return     array<string, string>    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function checkNewsUpdate(): array
     {
@@ -151,7 +151,7 @@ class Rest extends Process
     /**
      * REST method to check Dotclear update (JSON).
      *
-     * @return     array<string, string>    returned data
+     * @return     array<string, mixed>    returned data
      */
     public static function checkCoreUpdate(): array
     {

@@ -78,15 +78,15 @@ class Comment
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $type    The type, (dt|upddt) defaults to comment_dt
      *
-     * @return     integer The timestamp.
+     * @return     int  The timestamp.
      */
     public static function getTS(MetaRecord $rs, string $type = ''): int
     {
         if ($type === 'upddt') {
-            return strtotime((string) $rs->comment_upddt);
+            return (int) strtotime((string) $rs->comment_upddt);
         }
 
-        return strtotime((string) $rs->comment_dt);
+        return (int) strtotime((string) $rs->comment_dt);
     }
 
     /**

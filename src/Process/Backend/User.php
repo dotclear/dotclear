@@ -450,16 +450,17 @@ class User extends Process
                     '<p>' . __('No permissions so far.') . '</p>';
                 } else {
                     foreach ($permissions as $k => $v) {
+                        $name = $v['name'] ?? $k;
                         if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                             echo
                             '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post" class="perm-block">' .
                             '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
                             App::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
-                            Html::escapeHTML($v['name']) . '</a> (' . Html::escapeHTML($k) . ')</p>';
+                            Html::escapeHTML($v['name']) . '</a> (' . Html::escapeHTML($k) . ')</p>';   // @phpstan-ignore-line
 
                             echo
                             '<ul class="ul-perm">';
-                            foreach ($v['p'] as $p => $V) {
+                            foreach ($v['p'] as $p => $V) { // @phpstan-ignore-line
                                 if (isset($perm_types[$p])) {
                                     echo
                                     '<li>' . __($perm_types[$p]) . '</li>';

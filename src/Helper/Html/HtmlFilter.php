@@ -264,15 +264,15 @@ class HtmlFilter
             /* @phpstan-ignore-next-line */
             $str = (string) $tidy;
 
-            $str = preg_replace('#^<p>tt</p>\s?#', '', $str);
+            $str = (string) preg_replace('#^<p>tt</p>\s?#', '', $str);
         } else {
             $str = $this->miniTidy($str);
         }
 
         # Removing open comments, open CDATA and processing instructions
-        $str = preg_replace('%<!--.*?-->%msu', '', $str);
+        $str = (string) preg_replace('%<!--.*?-->%msu', '', $str);
         $str = str_replace('<!--', '', $str);
-        $str = preg_replace('%<!\[CDATA\[.*?\]\]>%msu', '', $str);
+        $str = (string) preg_replace('%<!\[CDATA\[.*?\]\]>%msu', '', $str);
         $str = str_replace('<![CDATA[', '', $str);
 
         # Transform processing instructions
@@ -450,11 +450,12 @@ class HtmlFilter
         $uri = preg_replace('/\\\u[a-fA-F0-9]{4}/', '', $uri);
         // Sanitize and parse URL
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
-        $u   = @parse_url($uri);
-
-        if (is_array($u) && (empty($u['scheme']) || in_array($u['scheme'], $this->allowed_schemes))) {
-            if (empty($u['host']) || (!in_array($u['host'], $this->removed_hosts))) {
-                return $uri;
+        if ($uri !== false) {
+            $u = @parse_url($uri);
+            if (is_array($u) && (empty($u['scheme']) || in_array($u['scheme'], $this->allowed_schemes))) {
+                if (empty($u['host']) || (!in_array($u['host'], $this->removed_hosts))) {
+                    return $uri;
+                }
             }
         }
 

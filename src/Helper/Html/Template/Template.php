@@ -433,7 +433,7 @@ class Template
         # - we don't want cache
         # - dest_file size == 0
         # - tpl_file is more recent thant dest_file
-        if (!$stat_d || !$this->use_cache || $stat_d['size'] == 0 || $stat_f['mtime'] > $stat_d['mtime']) {
+        if (!$stat_d || !$this->use_cache || $stat_d['size'] == 0 || ($stat_f !== false && $stat_f['mtime'] > $stat_d['mtime'])) {
             Files::makeDir(dirname($dest_file), true);
 
             if (($fp = @fopen($dest_file, 'wb')) === false) {
@@ -454,7 +454,7 @@ class Template
      *
      * @param      string       $file   The file
      *
-     * @return     bool|string  The file path.
+     * @return     false|string  The file path.
      */
     public function getFilePath(string $file)
     {
@@ -513,7 +513,7 @@ class Template
         } else {
             @include $dest_file;
         }
-        self::$_r = ob_get_contents();
+        self::$_r = (string) ob_get_contents();
         ob_end_clean();
 
         return self::$_r;
@@ -602,68 +602,70 @@ class Template
         $node              = $rootNode;
         $errors            = [];
         $this->parent_file = '';
-        foreach ($blocks as $block) {
-            $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
-            if ($isblock == 1) {
-                if (substr($match[0], 1, 1) == '/') {
-                    // Closing tag, check if it matches current opened node
-                    $tag = $match[3];
-                    if (($node instanceof TplNodeBlock) && $node->getTag() == $tag) {
-                        $node->setClosing();
-                        $node = $node->getParent();
-                    } else {
-                        // Closing tag does not match opening tag
-                        // Search if it closes a parent tag
-                        $search = $node;
-                        while ($search->getTag() != 'ROOT' && $search->getTag() != $tag) {
-                            $search = $search->getParent();
-                        }
-                        if ($search->getTag() == $tag) {
-                            $errors[] = sprintf(
-                                __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
-                                Html::escapeHTML($node->getTag())
-                            );
-                            $search->setClosing();
-                            $node = $search->getParent();
+        if ($blocks !== false) {
+            foreach ($blocks as $block) {
+                $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
+                if ($isblock == 1) {
+                    if (substr($match[0], 1, 1) == '/') {
+                        // Closing tag, check if it matches current opened node
+                        $tag = $match[3];
+                        if (($node instanceof TplNodeBlock) && $node->getTag() == $tag) {
+                            $node->setClosing();
+                            $node = $node->getParent();
                         } else {
-                            $errors[] = sprintf(
-                                __('Unexpected closing tag </tpl:%s> found.'),
-                                $tag
-                            );
+                            // Closing tag does not match opening tag
+                            // Search if it closes a parent tag
+                            $search = $node;
+                            while ($search->getTag() != 'ROOT' && $search->getTag() != $tag) {
+                                $search = $search->getParent();
+                            }
+                            if ($search->getTag() == $tag) {
+                                $errors[] = sprintf(
+                                    __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
+                                    Html::escapeHTML($node->getTag())
+                                );
+                                $search->setClosing();
+                                $node = $search->getParent();
+                            } else {
+                                $errors[] = sprintf(
+                                    __('Unexpected closing tag </tpl:%s> found.'),
+                                    $tag
+                                );
+                            }
                         }
-                    }
-                } elseif (substr($match[0], 0, 1) == '{') {
-                    // Value tag
-                    $tag      = $match[4];
-                    $str_attr = '';
-                    $attr     = [];
-                    if (isset($match[6])) {
-                        $str_attr = $match[6];
-                        $attr     = $this->getAttrs($match[6]);
-                    }
-                    if (strtolower($tag) == 'extends') {
-                        if (isset($attr['parent']) && $this->parent_file == '') {
-                            $this->parent_file = $attr['parent'];
+                    } elseif (substr($match[0], 0, 1) == '{') {
+                        // Value tag
+                        $tag      = $match[4];
+                        $str_attr = '';
+                        $attr     = [];
+                        if (isset($match[6])) {
+                            $str_attr = $match[6];
+                            $attr     = $this->getAttrs($match[6]);
                         }
-                    } elseif (strtolower($tag) == 'parent') {
-                        $node->addChild(new TplNodeValueParent($tag, $attr, $str_attr));
+                        if (strtolower($tag) == 'extends') {
+                            if (isset($attr['parent']) && $this->parent_file == '') {
+                                $this->parent_file = $attr['parent'];
+                            }
+                        } elseif (strtolower($tag) == 'parent') {
+                            $node->addChild(new TplNodeValueParent($tag, $attr, $str_attr));
+                        } else {
+                            $node->addChild(new TplNodeValue($tag, $attr, $str_attr));
+                        }
                     } else {
-                        $node->addChild(new TplNodeValue($tag, $attr, $str_attr));
+                        // Opening tag, create new node and dive into it
+                        $tag = $match[1];
+                        if ($tag == 'Block') {
+                            $newnode = new TplNodeBlockDefinition($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
+                        } else {
+                            $newnode = new TplNodeBlock($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
+                        }
+                        $node->addChild($newnode);
+                        $node = $newnode;
                     }
                 } else {
-                    // Opening tag, create new node and dive into it
-                    $tag = $match[1];
-                    if ($tag == 'Block') {
-                        $newnode = new TplNodeBlockDefinition($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
-                    } else {
-                        $newnode = new TplNodeBlock($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
-                    }
-                    $node->addChild($newnode);
-                    $node = $newnode;
+                    // Simple text
+                    $node->addChild(new TplNodeText($block));
                 }
-            } else {
-                // Simple text
-                $node->addChild(new TplNodeText($block));
             }
         }
 
@@ -701,6 +703,7 @@ class Template
         $err  = '';
         while (true) {
             if ($file && !in_array($file, $this->parent_stack)) {
+                $file = (string) $file;
                 $tree = $this->getCompiledTree($file, $err);
 
                 if ($this->parent_file == '__parent__') {
@@ -713,7 +716,7 @@ class Template
                 } elseif ($this->parent_file != '') {   // @phpstan-ignore-line
                     $this->parent_stack[] = $file;
                     $file                 = $this->getFilePath($this->parent_file);
-                    if (!$file) {
+                    if ($file === false) {
                         throw new Exception('No template found for ' . $this->parent_file);
                     }
                 } else {
@@ -823,6 +826,6 @@ class Template
             }
         }
 
-        return $res;
+        return $res;    // @phpstan-ignore-line
     }
 }

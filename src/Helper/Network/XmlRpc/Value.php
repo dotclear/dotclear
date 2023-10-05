@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Network\XmlRpc;
 
+use Exception;
+
 /**
  * @class Value
  *
@@ -62,6 +64,9 @@ class Value
      */
     public function getXml(): string
     {
+        // Helper
+        $is_xml_object = fn ($object) => is_object($object);
+
         # Return XML for this value
         switch ($this->type) {
             case 'boolean':
@@ -78,7 +83,7 @@ class Value
             case 'array':
                 $return = '<array><data>' . "\n";
                 foreach ((array) $this->data as $item) {
-                    $return .= '  <value>' . (is_object($item) ? $item->getXml() : (new self($item))->getXml()) . "</value>\n";
+                    $return .= '  <value>' . ($is_xml_object($item) ? $item->getXml() : (new self($item))->getXml()) . "</value>\n";
                 }
                 $return .= '</data></array>';
 
@@ -87,7 +92,7 @@ class Value
                 $return = '<struct>' . "\n";
                 foreach ((array) $this->data as $name => $value) {
                     $return .= "  <member><name>$name</name><value>";
-                    $return .= (is_object($value) ? $value->getXml() : (new self($value))->getXml()) . "</value></member>\n";
+                    $return .= ($is_xml_object($value) ? $value->getXml() : (new self($value))->getXml()) . "</value></member>\n";
                 }
                 $return .= '</struct>';
 
@@ -133,7 +138,10 @@ class Value
         }
         # If it is a normal PHP object convert it in to a struct
         if (is_object($this->data)) {
-            $this->data = get_object_vars($this->data);
+            try {
+                $this->data = @get_object_vars($this->data);
+            } catch (Exception) {
+            }
 
             return 'struct';
         }

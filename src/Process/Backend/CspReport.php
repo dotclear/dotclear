@@ -40,7 +40,7 @@ class CspReport extends Process
 
         // Only continue if it’s valid JSON that is not just `null`, `0`, `false` or an
         // empty string, i.e. if it could be a CSP violation report.
-        if ($data = json_decode($data, true, 512, JSON_THROW_ON_ERROR)) {
+        if ($data = json_decode((string) $data, true, 512, JSON_THROW_ON_ERROR)) {
             // get source-file and blocked-URI to perform some tests
             $source_file        = $data['csp-report']['source-file']        ?? '';
             $line_number        = $data['csp-report']['line-number']        ?? '';

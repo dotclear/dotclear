@@ -362,10 +362,10 @@ class Frontend extends Process
         echo
         '<style type="text/css">' . "\n" .
         '/* ' . __('Additionnal style directives') . ' */' . "\n" .
-        self::ductileStyleHelper() .
+        (string) self::ductileStyleHelper() .
             "</style>\n" .
         My::jsLoad('/ductile') . // root file
-        self::ductileWebfontHelper();
+        (string) self::ductileWebfontHelper();
     }
 
     /**
@@ -386,19 +386,19 @@ class Frontend extends Process
     /**
      * Font helper
      *
-     * @return     string|void
+     * @return     string
      */
-    public static function ductileWebfontHelper()
+    public static function ductileWebfontHelper(): string
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
 
         if ($s === null) {
-            return;
+            return '';
         }
 
         $s = @unserialize($s);
         if (!is_array($s)) {
-            return;
+            return '';
         }
 
         $ret = '';
@@ -459,19 +459,19 @@ class Frontend extends Process
     /**
      * Style helper
      *
-     * @return     string|void
+     * @return     string
      */
-    public static function ductileStyleHelper()
+    public static function ductileStyleHelper(): string
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
 
         if ($s === null) {
-            return;
+            return '';
         }
 
         $s = @unserialize($s);
         if (!is_array($s)) {
-            return;
+            return '';
         }
 
         $css = [];

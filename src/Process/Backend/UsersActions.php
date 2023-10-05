@@ -271,10 +271,18 @@ class UsersActions extends Process
         } elseif (!empty(App::backend()->blogs) && !empty(App::backend()->users) && App::backend()->action == 'perms') {
             // Permissions list for each selected blogs
 
+            /**
+             * @var        array<string,mixed>
+             */
             $user_perm = [];
             if ((is_countable(App::backend()->users) ? count(App::backend()->users) : 0) == 1) {
                 $user_perm = App::users()->getUserPermissions(App::backend()->users[0]);
             }
+
+            /**
+             * @var        array<string,mixed>
+             */
+            $unknown_perms = [];
 
             $user_list = [];
             foreach (App::backend()->users as $u) {
@@ -292,6 +300,7 @@ class UsersActions extends Process
                 echo
                 '<h3>' . ('Blog:') . ' <a href="' . App::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
+
                 $unknown_perms = $user_perm;
                 foreach (App::auth()->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;

@@ -445,11 +445,11 @@ class UserPreferences extends Process
             // Order favs
 
             foreach ($order as $k => $v) {
-                if (!App::backend()->favs->exists($v)) {
+                if (!App::backend()->favs->exists((string) $v)) {
                     unset($order[$k]);
                 }
             }
-            App::backend()->favs->setFavoriteIDs($order, false);
+            App::backend()->favs->setFavoriteIDs($order, false);    // @phpstan-ignore-line : $order is array<string>
             if (!App::error()->flag()) {
                 Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
                 App::backend()->url->redirect('admin.user.preferences', [], '#user-favorites');
@@ -821,11 +821,12 @@ class UserPreferences extends Process
 
                 $count++;
 
-                $icon = Helper::adminIcon($fav['small-icon']);
-                $zoom = Helper::adminIcon($fav['large-icon'], false);
+                $icon = isset($fav['small-icon']) ? Helper::adminIcon($fav['small-icon']) : $id;
+                $zoom = isset($fav['large-icon']) ? Helper::adminIcon($fav['large-icon'], false) : '';
                 if ($zoom !== '') {
                     $icon .= ' <span class="zoom">' . $zoom . '</span>';
                 }
+                $title = $fav['title'] ?? $id;
                 echo
                 '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' . $icon .
                 form::number(['order[' . $id . ']'], [
@@ -833,10 +834,10 @@ class UserPreferences extends Process
                     'max'        => is_countable($user_fav) ? count($user_fav) : 0, // @phpstan-ignore-line
                     'default'    => $count,
                     'class'      => 'position',
-                    'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"',
+                    'extra_html' => 'title="' . sprintf(__('position of %s'), $title) . '"',
                 ]) .
                 form::hidden(['dynorder[]', 'dynorder-' . $id . ''], $id) .
-                form::checkbox(['remove[]', 'fuk-' . $id], $id) . __($fav['title']) . '</label>' .
+                form::checkbox(['remove[]', 'fuk-' . $id], $id) . __($title) . '</label>' .
                 '</li>';
             }
         }

@@ -139,11 +139,15 @@ class Langs extends Process
 
                 $path   = '';
                 $client = HttpClient::initClient($url, $path);
-                $client->setUserAgent('Dotclear - https://dotclear.org/');
-                $client->useGzip(false);
-                $client->setPersistReferers(false);
-                $client->setOutput($dest);
-                $client->get($path);
+                if ($client) {
+                    $client->setUserAgent('Dotclear - https://dotclear.org/');
+                    $client->useGzip(false);
+                    $client->setPersistReferers(false);
+                    $client->setOutput($dest);
+                    $client->get($path);
+                } else {
+                    throw new Exception(__('Unable to make a HTTP request.'));
+                }
 
                 try {
                     $ret_code = $lang_install($dest);
@@ -235,11 +239,13 @@ class Langs extends Process
 
         $langs      = scandir(App::config()->l10nRoot());
         $langs_list = [];
-        foreach ($langs as $lang) {
-            $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(App::config()->l10nRoot() . '/' . $lang) || !isset(App::backend()->iso_codes[$lang]));
+        if ($langs) {
+            foreach ($langs as $lang) {
+                $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(App::config()->l10nRoot() . '/' . $lang) || !isset(App::backend()->iso_codes[$lang]));
 
-            if (!$check) {
-                $langs_list[$lang] = App::config()->l10nRoot() . '/' . $lang;
+                if (!$check) {
+                    $langs_list[$lang] = App::config()->l10nRoot() . '/' . $lang;
+                }
             }
         }
 

@@ -217,11 +217,11 @@ class Blowup
     /**
      * Get public URL of CSS
      *
-     * @return     string|void
+     * @return     string
      */
-    public static function publicCssUrlHelper()
+    public static function publicCssUrlHelper(): string
     {
-        return ThemeConfig::publicCssUrlHelper(self::$css_folder);
+        return (string) ThemeConfig::publicCssUrlHelper(self::$css_folder);
     }
 
     /**
@@ -451,6 +451,9 @@ class Blowup
      */
     public static function createImages(array &$config, ?string $uploaded): void
     {
+        // Helper
+        $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
+
         $body_color       = $config['body_bg_c'];
         $prelude_color    = $config['prelude_c'];
         $gradient         = $config['body_bg_g'];
@@ -513,97 +516,118 @@ class Blowup
 
             # Create body gradient with color
             $d_body_bg = imagecreatetruecolor(50, 180);
-            $fill      = imagecolorallocate($d_body_bg, $body_color[0], $body_color[1], $body_color[2]);
-            imagefill($d_body_bg, 0, 0, $fill);
+            if ($d_body_bg !== false) {
+                $fill = imagecolorallocate($d_body_bg, $body_color[0], $body_color[1], $body_color[2]);
+                imagefill($d_body_bg, 0, 0, (int) $fill);
 
-            # User choosed a gradient
-            if ($body_g) {
-                $s_body_bg = imagecreatefrompng($body_g);
-                imagealphablending($s_body_bg, true);
-                imagecopy($d_body_bg, $s_body_bg, 0, 0, 0, 0, 50, 180);
-                imagedestroy($s_body_bg);
+                # User choosed a gradient
+                if ($body_g) {
+                    $s_body_bg = imagecreatefrompng($body_g);
+                    if ($s_body_bg !== false) {
+                        imagealphablending($s_body_bg, true);
+                        imagecopy($d_body_bg, $s_body_bg, 0, 0, 0, 0, 50, 180);
+                        $destroy_img($s_body_bg);
+                    }
+                }
+
+                if (!$prelude_color) {
+                    $prelude_color = $default_prelude;
+                }
+                $prelude_color = sscanf($prelude_color, '#%2X%2X%2X');
+
+                $s_prelude = imagecreatetruecolor(50, 30);
+                if ($s_prelude !== false) {
+                    $fill = imagecolorallocate($s_prelude, $prelude_color[0], $prelude_color[1], $prelude_color[2]);
+                    imagefill($s_prelude, 0, 0, (int) $fill);
+                    imagecopy($d_body_bg, $s_prelude, 0, 0, 0, 0, 50, 30);
+                }
+
+                imagepng($d_body_bg, self::imagesPath() . '/' . basename($body_bg));
             }
-
-            if (!$prelude_color) {
-                $prelude_color = $default_prelude;
-            }
-            $prelude_color = sscanf($prelude_color, '#%2X%2X%2X');
-
-            $s_prelude = imagecreatetruecolor(50, 30);
-            $fill      = imagecolorallocate($s_prelude, $prelude_color[0], $prelude_color[1], $prelude_color[2]);
-            imagefill($s_prelude, 0, 0, $fill);
-            imagecopy($d_body_bg, $s_prelude, 0, 0, 0, 0, 50, 30);
-
-            imagepng($d_body_bg, self::imagesPath() . '/' . basename($body_bg));
         }
 
         if ($top_image || $body_color || $gradient != 'light') {
+            if (!is_array($body_color)) {
+                $body_color = sscanf($default_bg, '#%2X%2X%2X');
+            }
+
             # Create top image from uploaded image
             $size = getimagesize($page_t);
-            $size = $size[1];
-            $type = Files::getMimeType($page_t);
+            if ($size !== false) {
+                $size = $size[1];
+                $type = Files::getMimeType($page_t);
 
-            $d_page_t = imagecreatetruecolor(800, $size);
+                $d_page_t = imagecreatetruecolor(800, $size);
 
-            if ($type == 'image/png') {
-                $s_page_t = @imagecreatefrompng($page_t);
-            } else {
-                $s_page_t = @imagecreatefromjpeg($page_t);
+                if ($type == 'image/png') {
+                    $s_page_t = @imagecreatefrompng($page_t);
+                } else {
+                    $s_page_t = @imagecreatefromjpeg($page_t);
+                }
+
+                if ($s_page_t === false) {
+                    throw new Exception(__('Unable to open image.'));
+                }
+
+                if ($d_page_t) {
+                    $fill = imagecolorallocate($d_page_t, $body_color[0], $body_color[1], $body_color[2]);
+                    imagefill($d_page_t, 0, 0, (int) $fill);
+
+                    if ($d_body_bg !== false) {
+                        if ($type == 'image/png') {
+                            # PNG, we only add body gradient and image
+                            imagealphablending($s_page_t, true);
+                            imagecopyresized($d_page_t, $d_body_bg, 0, 0, 0, 50, 800, 130, 50, 130);
+                            imagecopy($d_page_t, $s_page_t, 0, 0, 0, 0, 800, $size);
+                        } else {
+                            # JPEG, we add image and a frame with rounded corners
+                            imagecopy($d_page_t, $s_page_t, 0, 0, 0, 0, 800, $size);
+
+                            imagecopy($d_page_t, $d_body_bg, 0, 0, 0, 50, 8, 4);
+                            imagecopy($d_page_t, $d_body_bg, 0, 4, 0, 54, 4, 4);
+                            imagecopy($d_page_t, $d_body_bg, 792, 0, 0, 50, 8, 4);
+                            imagecopy($d_page_t, $d_body_bg, 796, 4, 0, 54, 4, 4);
+
+                            $mask = imagecreatefrompng($page_t_mask);
+                            if ($mask !== false) {
+                                imagealphablending($mask, true);
+                                imagecopy($d_page_t, $mask, 0, 0, 0, 0, 800, 11);
+                                $destroy_img($mask);
+                            }
+
+                            $fill = imagecolorallocate($d_page_t, 255, 255, 255);
+                            imagefilledrectangle($d_page_t, 0, 11, 3, $size - 1, (int) $fill);
+                            imagefilledrectangle($d_page_t, 796, 11, 799, $size - 1, (int) $fill);
+                            imagefilledrectangle($d_page_t, 0, $size - 9, 799, $size - 1, (int) $fill);
+                        }
+                    }
+
+                    $config['top_height'] = ($size) . 'px';
+
+                    imagepng($d_page_t, self::imagesPath() . '/page-t.png');
+                }
+
+                $destroy_img($d_page_t);
+                $destroy_img($d_body_bg);
+                $destroy_img($s_page_t);
+
+                # Create bottom image with color
+                $d_page_b = imagecreatetruecolor(800, 8);
+                if ($d_page_b !== false) {
+                    $fill = imagecolorallocate($d_page_b, $body_color[0], $body_color[1], $body_color[2]);
+                    imagefill($d_page_b, 0, 0, (int) $fill);
+
+                    $s_page_b = imagecreatefrompng($page_b);
+                    if ($s_page_b !== false) {
+                        imagealphablending($s_page_b, true);
+                        imagecopy($d_page_b, $s_page_b, 0, 0, 0, 0, 800, 160);
+                        $destroy_img($s_page_b);
+                    }
+
+                    imagepng($d_page_b, self::imagesPath() . '/' . basename($page_b));
+                    $destroy_img($d_page_b);
+                }
             }
-
-            if (!$s_page_t) {
-                throw new Exception(__('Unable to open image.'));
-            }
-
-            $fill = imagecolorallocate($d_page_t, $body_color[0], $body_color[1], $body_color[2]);
-            imagefill($d_page_t, 0, 0, $fill);
-
-            if ($type == 'image/png') {
-                # PNG, we only add body gradient and image
-                imagealphablending($s_page_t, true);
-                imagecopyresized($d_page_t, $d_body_bg, 0, 0, 0, 50, 800, 130, 50, 130);
-                imagecopy($d_page_t, $s_page_t, 0, 0, 0, 0, 800, $size);
-            } else {
-                # JPEG, we add image and a frame with rounded corners
-                imagecopy($d_page_t, $s_page_t, 0, 0, 0, 0, 800, $size);
-
-                imagecopy($d_page_t, $d_body_bg, 0, 0, 0, 50, 8, 4);
-                imagecopy($d_page_t, $d_body_bg, 0, 4, 0, 54, 4, 4);
-                imagecopy($d_page_t, $d_body_bg, 792, 0, 0, 50, 8, 4);
-                imagecopy($d_page_t, $d_body_bg, 796, 4, 0, 54, 4, 4);
-
-                $mask = imagecreatefrompng($page_t_mask);
-                imagealphablending($mask, true);
-                imagecopy($d_page_t, $mask, 0, 0, 0, 0, 800, 11);
-                imagedestroy($mask);
-
-                $fill = imagecolorallocate($d_page_t, 255, 255, 255);
-                imagefilledrectangle($d_page_t, 0, 11, 3, $size - 1, $fill);
-                imagefilledrectangle($d_page_t, 796, 11, 799, $size - 1, $fill);
-                imagefilledrectangle($d_page_t, 0, $size - 9, 799, $size - 1, $fill);
-            }
-
-            $config['top_height'] = ($size) . 'px';
-
-            imagepng($d_page_t, self::imagesPath() . '/page-t.png');
-
-            imagedestroy($d_body_bg);
-            imagedestroy($d_page_t);
-            imagedestroy($s_page_t);
-
-            # Create bottom image with color
-            $d_page_b = imagecreatetruecolor(800, 8);
-            $fill     = imagecolorallocate($d_page_b, $body_color[0], $body_color[1], $body_color[2]);
-            imagefill($d_page_b, 0, 0, $fill);
-
-            $s_page_b = imagecreatefrompng($page_b);
-            imagealphablending($s_page_b, true);
-            imagecopy($d_page_b, $s_page_b, 0, 0, 0, 0, 800, 160);
-
-            imagepng($d_page_b, self::imagesPath() . '/' . basename($page_b));
-
-            imagedestroy($d_page_b);
-            imagedestroy($s_page_b);
         }
 
         if ($comment_color) {
@@ -625,30 +649,40 @@ class Blowup
      */
     protected static function commentImages(string $comment_color, string $comment_t, string $comment_b, string $dest_t, string $dest_b): void
     {
+        // Helper
+        $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
+
         $comment_color = sscanf($comment_color, '#%2X%2X%2X');
 
         $d_comment_t = imagecreatetruecolor(500, 25);
-        $fill        = imagecolorallocate($d_comment_t, $comment_color[0], $comment_color[1], $comment_color[2]);
-        imagefill($d_comment_t, 0, 0, $fill);
+        if ($d_comment_t !== false) {
+            $fill = imagecolorallocate($d_comment_t, $comment_color[0], $comment_color[1], $comment_color[2]);
+            imagefill($d_comment_t, 0, 0, (int) $fill);
 
-        $s_comment_t = imagecreatefrompng($comment_t);
-        imagealphablending($s_comment_t, true);
-        imagecopy($d_comment_t, $s_comment_t, 0, 0, 0, 0, 500, 25);
-
-        imagepng($d_comment_t, self::imagesPath() . '/' . $dest_t);
-        imagedestroy($d_comment_t);
-        imagedestroy($s_comment_t);
+            $s_comment_t = imagecreatefrompng($comment_t);
+            if ($s_comment_t !== false) {
+                imagealphablending($s_comment_t, true);
+                imagecopy($d_comment_t, $s_comment_t, 0, 0, 0, 0, 500, 25);
+                $destroy_img($s_comment_t);
+            }
+            imagepng($d_comment_t, self::imagesPath() . '/' . $dest_t);
+            $destroy_img($d_comment_t);
+        }
 
         $d_comment_b = imagecreatetruecolor(500, 7);
-        $fill        = imagecolorallocate($d_comment_b, $comment_color[0], $comment_color[1], $comment_color[2]);
-        imagefill($d_comment_b, 0, 0, $fill);
+        if ($d_comment_b !== false) {
+            $fill = imagecolorallocate($d_comment_b, $comment_color[0], $comment_color[1], $comment_color[2]);
+            imagefill($d_comment_b, 0, 0, (int) $fill);
 
-        $s_comment_b = imagecreatefrompng($comment_b);
-        imagealphablending($s_comment_b, true);
-        imagecopy($d_comment_b, $s_comment_b, 0, 0, 0, 0, 500, 7);
+            $s_comment_b = imagecreatefrompng($comment_b);
+            if ($s_comment_b !== false) {
+                imagealphablending($s_comment_b, true);
+                imagecopy($d_comment_b, $s_comment_b, 0, 0, 0, 0, 500, 7);
+                $destroy_img($s_comment_b);
+            }
 
-        imagepng($d_comment_b, self::imagesPath() . '/' . $dest_b);
-        imagedestroy($d_comment_b);
-        imagedestroy($s_comment_b);
+            imagepng($d_comment_b, self::imagesPath() . '/' . $dest_b);
+            $destroy_img($d_comment_b);
+        }
     }
 }

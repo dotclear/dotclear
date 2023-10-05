@@ -195,7 +195,9 @@ class MediaItem extends Process
                 if ($desc) {
                     // Create meta and add value
                     App::backend()->file->media_meta = simplexml_load_string('<meta></meta>');
-                    App::backend()->file->media_meta->addChild('Description', $desc);
+                    if (App::backend()->file->media_meta) {
+                        App::backend()->file->media_meta->addChild('Description', $desc);
+                    }
                 }
             }
 
@@ -327,31 +329,33 @@ class MediaItem extends Process
             $dates   = 0;
             $items   = 0;
 
-            foreach ($pattern as $v) {
-                if ($v == 'Title') {
-                    if ($file->media_title != '') {
-                        $res[] = $file->media_title;
-                    }
-                    $items++;
-                } elseif ($file->media_meta->{$v}) {
-                    if ((string) $file->media_meta->{$v} != '') {
-                        $res[] = (string) $file->media_meta->{$v};
-                    }
-                    $items++;
-                } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
-                    if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
+            if ($pattern) {
+                foreach ($pattern as $v) {
+                    if ($v == 'Title') {
+                        if ($file->media_title != '') {
+                            $res[] = $file->media_title;
+                        }
+                        $items++;
+                    } elseif ($file->media_meta->{$v}) {
+                        if ((string) $file->media_meta->{$v} != '') {
+                            $res[] = (string) $file->media_meta->{$v};
+                        }
+                        $items++;
+                    } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
+                        if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
+                            $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
+                        } else {
+                            $res[] = Date::str($m[1], $file->media_dt);
+                        }
+                        $items++;
+                        $dates++;
+                    } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m) && $file->media_meta->DateTimeOriginal) {
                         $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
-                    } else {
-                        $res[] = Date::str($m[1], $file->media_dt);
+                        $items++;
+                        $dates++;
+                    } elseif (preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
+                        $sep = $m[1];
                     }
-                    $items++;
-                    $dates++;
-                } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m) && $file->media_meta->DateTimeOriginal) {
-                    $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
-                    $items++;
-                    $dates++;
-                } elseif (preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
-                    $sep = $m[1];
                 }
             }
             if ($no_date_alone && $dates == count($res) && $dates < $items) {
@@ -828,18 +832,21 @@ class MediaItem extends Process
                         App::media()->getThumbnailFilePattern()));
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
-                $image_size = getimagesize($thumb_file);
                 $stats      = stat($thumb_file);
                 echo
                 '<h3>' . __('Thumbnail details') . '</h3>' .
                 '<ul>';
-                if (is_array($image_size)) {
+                $image_size = getimagesize($thumb_file);
+                if ($image_size !== false) {
                     echo
                     '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . ' px</li>' .
                     '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . ' px</li>';
                 }
+                if ($stats) {
+                    echo
+                    '<li><strong>' . __('File size:') . '</strong> ' . Files::size($stats[7]) . '</li>';
+                }
                 echo
-                '<li><strong>' . __('File size:') . '</strong> ' . Files::size($stats[7]) . '</li>' .
                 '<li><strong>' . __('File URL:') . '</strong> <a href="' . App::backend()->file->media_thumb[$thumb_size] . '">' .
                 App::backend()->file->media_thumb[$thumb_size] . '</a></li>' .
                 '</ul>';
@@ -879,13 +886,17 @@ class MediaItem extends Process
         } else {
             echo
             '<h3>' . __('Entries containing this media') . '</h3>';
-            $params = [
+            /**
+             * @var        string
+             */
+            $relname = App::con()->escape(App::backend()->file->relname);
+            $params  = [
                 'post_type' => '',
                 'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
                 'sql'       => 'AND (' .
                 'PM.media_id = ' . (int) App::backend()->id . ' ' .
-                "OR post_content_xhtml LIKE '%" . App::con()->escape(App::backend()->file->relname) . "%' " .
-                "OR post_excerpt_xhtml LIKE '%" . App::con()->escape(App::backend()->file->relname) . "%' ",
+                "OR post_content_xhtml LIKE '%" . $relname . "%' " .
+                "OR post_excerpt_xhtml LIKE '%" . $relname . "%' ",
             ];
 
             if (App::backend()->file->media_image) {
@@ -896,9 +907,12 @@ class MediaItem extends Process
                     $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
                 }
                 foreach (App::backend()->file->media_thumb as $v) {
-                    $v = preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v);
-                    $params['sql'] .= "OR post_content_xhtml LIKE '%" . App::con()->escape($v) . "%' ";
-                    $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . App::con()->escape($v) . "%' ";
+                    /**
+                     * @var        string
+                     */
+                    $v = App::con()->escape(preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v));
+                    $params['sql'] .= "OR post_content_xhtml LIKE '%" . $v . "%' ";
+                    $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $v . "%' ";
                 }
             }
 

@@ -95,7 +95,7 @@ class Themes extends Modules implements ThemesInterface
     {
         $module = $this->getDefine($id);
 
-        $root = end($this->path); // Use last folder set in folders list (should be only one for theme)
+        $root = (string) end($this->path); // Use last folder set in folders list (should be only one for theme)
         if (!is_dir($root) || !is_readable($root)) {
             throw new Exception(__('Themes folder unreachable'));
         }
@@ -137,7 +137,7 @@ class Themes extends Modules implements ThemesInterface
                     if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
                         $buf = (string) file_get_contents($new_dir . $rel);
                         // Find offset of registerModule function call
-                        $pos = strpos($buf, '$this->registerModule');
+                        $pos = (int) strpos($buf, '$this->registerModule');
                         // Change theme name to $new_name in _define.php
                         if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                             // Change only first occurence in registerModule parameters (should be the theme name)
@@ -159,7 +159,7 @@ class Themes extends Modules implements ThemesInterface
                         ];
                         foreach ($prefixes as $prefix) {
                             if (preg_match('/^namespace\s*' . preg_quote($prefix) . '([^;].*);$/m', $buf, $matches)) {
-                                $pos     = strpos($buf, $matches[0]);
+                                $pos     = (int) strpos($buf, $matches[0]);
                                 $rel_dir = substr($new_dir, strlen($root));
                                 $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', $rel_dir));
                                 $buf     = substr($buf, 0, $pos) .

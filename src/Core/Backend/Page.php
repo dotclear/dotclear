@@ -664,8 +664,8 @@ class Page
     /**
      * Get breadcrumb
      *
-     * @param      array<string, mixed>|null   $elements  The elements
-     * @param      array<string, mixed>        $options   The options
+     * @param      array<int|string, mixed>|null    $elements  The elements
+     * @param      array<string, mixed>             $options   The options
      *
      * @return     string
      */

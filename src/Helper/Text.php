@@ -143,22 +143,23 @@ class Text
      */
     public static function cutString(string $str, int $length): string
     {
-        $s = preg_split('/([\s]+)/u', $str, -1, PREG_SPLIT_DELIM_CAPTURE);
-
         $res = '';
         $L   = 0;
 
-        if (mb_strlen($s[0]) >= $length) {
-            return mb_substr($s[0], 0, $length);
-        }
-
-        foreach ($s as $v) {
-            $L = $L + mb_strlen($v);
-
-            if ($L > $length) {
-                break;
+        $s = preg_split('/([\s]+)/u', $str, -1, PREG_SPLIT_DELIM_CAPTURE);
+        if ($s !== false) {
+            if (mb_strlen($s[0]) >= $length) {
+                return mb_substr($s[0], 0, $length);
             }
-            $res .= $v;
+
+            foreach ($s as $v) {
+                $L = $L + mb_strlen($v);
+
+                if ($L > $length) {
+                    break;
+                }
+                $res .= $v;
+            }
         }
 
         return trim($res);
@@ -237,7 +238,7 @@ class Text
         }
 
         if ($encoding !== 'utf-8') {
-            $str = iconv($encoding, 'UTF-8', $str);
+            $str = (string) iconv($encoding, 'UTF-8', $str);
         }
 
         return $str;

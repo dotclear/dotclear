@@ -92,7 +92,7 @@ class Utility extends Process
     /**
      * Smilies definitions
      *
-     * @var array<string, string>|null
+     * @var array<string, string>|null|false
      */
     public $smilies;
 

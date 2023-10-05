@@ -33,7 +33,7 @@ class Dates
      */
     public static function ts(MetaRecord $rs): int
     {
-        return strtotime((string) $rs->dt);
+        return (int) strtotime((string) $rs->dt);
     }
 
     /**
@@ -45,7 +45,7 @@ class Dates
      */
     public static function year(MetaRecord $rs): string
     {
-        return date('Y', strtotime((string) $rs->dt));
+        return date('Y', (int) strtotime((string) $rs->dt));
     }
 
     /**
@@ -57,7 +57,7 @@ class Dates
      */
     public static function month(MetaRecord $rs): string
     {
-        return date('m', strtotime((string) $rs->dt));
+        return date('m', (int) strtotime((string) $rs->dt));
     }
 
     /**
@@ -69,7 +69,7 @@ class Dates
      */
     public static function day(MetaRecord $rs): string
     {
-        return date('d', strtotime((string) $rs->dt));
+        return date('d', (int) strtotime((string) $rs->dt));
     }
 
     /**
@@ -81,7 +81,7 @@ class Dates
      */
     public static function url(MetaRecord $rs): string
     {
-        $url = date('Y/m', strtotime((string) $rs->dt));
+        $url = date('Y/m', (int) strtotime((string) $rs->dt));
 
         return App::blog()->url() . App::url()->getURLFor('archive', $url);
     }

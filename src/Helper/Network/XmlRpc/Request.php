@@ -26,7 +26,7 @@ class Request
     /**
      * Request method arguments
      *
-     * @var array<string, mixed>
+     * @var array<int|string, array<int|string, mixed>>
      */
     public $args;
 
@@ -40,8 +40,8 @@ class Request
     /**
      * Constructor
      *
-     * @param string                $method     Method name
-     * @param array<string, mixed>  $args       Method arguments
+     * @param string                                        $method     Method name
+     * @param array<int|string, array<int|string, mixed>>   $args       Method arguments
      */
     public function __construct(string $method, array $args)
     {

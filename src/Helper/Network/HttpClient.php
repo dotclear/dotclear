@@ -155,7 +155,7 @@ class HttpClient extends Socket
     /**
      * HTTP optional headers
      *
-     * @var array<string, mixed>
+     * @var array<string>
      */
     protected $more_headers = [];
 
@@ -308,7 +308,7 @@ class HttpClient extends Socket
     /**
      * Output resource
      *
-     * @var resource|null
+     * @var resource|null|false
      */
     protected $output_h = null;
 
@@ -346,7 +346,7 @@ class HttpClient extends Socket
      * matching query string will be constructed. Returns true on success.
      *
      * @param string                        $path            Request path
-     * @param bool|array<string, mixed>     $data            Request parameters
+     * @param false|array<string, mixed>    $data            Request parameters
      *
      * @return bool
      */
@@ -355,7 +355,7 @@ class HttpClient extends Socket
         $this->path   = $path;
         $this->method = 'GET';
 
-        if ($data) {
+        if ($data !== false) {
             $this->path .= '?' . $this->buildQueryString($data);
         }
 
@@ -449,7 +449,7 @@ class HttpClient extends Socket
 
         $this->open();
         $this->debug('Connecting to ' . $this->_transport . $this->_host . ':' . $this->_port);
-        foreach ($this->write($request) as $index => $line) {
+        foreach ($this->write($request) as $index => $line) {   // @phpstan-ignore-line
             if ($line !== false) {
                 // Deal with first line of returned data
                 if ($index == 0) {
@@ -509,7 +509,7 @@ class HttpClient extends Socket
         if ($this->getHeader('content-encoding') && $this->use_gzip) {
             $this->debug('Content is gzip encoded, unzipping it');
             # See http://www.php.net/manual/en/function.gzencode.php
-            $this->content = gzinflate(substr($this->content, 10));
+            $this->content = (string) gzinflate(substr($this->content, 10));
         }
 
         // If $persist_cookies, deal with any cookies

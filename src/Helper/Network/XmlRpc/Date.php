@@ -76,7 +76,7 @@ class Date
     public function __construct($time)
     {
         # $time can be a PHP timestamp or an ISO one
-        $this->parseTimestamp(is_numeric($time) ? $time : strtotime($time));
+        $this->parseTimestamp(is_numeric($time) ? (int) $time : (int) strtotime($time));
     }
 
     /**
