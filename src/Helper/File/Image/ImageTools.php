@@ -231,7 +231,7 @@ class ImageTools
                         // PHP 8.1+
                         $qual = $qual === null ? -1 : abs($qual / 10);
                         header('Content-type: image/avif');
-                        imageavif($this->res, null, $qual, -1);
+                        imageavif($this->res, null, (int) $qual, -1);
 
                         return true;
                     }
@@ -390,21 +390,22 @@ class ImageTools
         $this->memoryAllocate($computed_width, $computed_height, 3);
 
         $dest = imagecreatetruecolor($computed_width, $computed_height);
+        if ($dest !== false) {
+            // Fill image with neutral gray (#808080)
+            imagefill($dest, 0, 0, (int) imagecolorallocate($dest, 128, 128, 128));
 
-        // Fill image with neutral gray (#808080)
-        imagefill($dest, 0, 0, imagecolorallocate($dest, 128, 128, 128));
+            // Disable blending mode
+            @imagealphablending($dest, false);
 
-        // Disable blending mode
-        @imagealphablending($dest, false);
+            // Preserve alpha channel of image
+            @imagesavealpha($dest, true);
 
-        // Preserve alpha channel of image
-        @imagesavealpha($dest, true);
+            // Copy and resize (with resampling) from source to destination
+            imagecopyresampled($dest, $this->res, 0, 0, $offset_width, (int) $offset_height, $computed_width, $computed_height, $crop_width, (int) $crop_height);
 
-        // Copy and resize (with resampling) from source to destination
-        imagecopyresampled($dest, $this->res, 0, 0, $offset_width, $offset_height, $computed_width, $computed_height, $crop_width, $crop_height);
-
-        imagedestroy($this->res);
-        $this->res = $dest;
+            imagedestroy($this->res);
+            $this->res = $dest;
+        }
 
         return true;
     }

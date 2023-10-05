@@ -130,8 +130,8 @@ class Zip
         $this->entries[$name] = [
             'file'   => $file,
             'is_dir' => false,
-            'mtime'  => $info['mtime'],
-            'size'   => $info['size'],
+            'mtime'  => $info ? $info['mtime'] : 0,
+            'size'   => $info ? $info['size'] : 0,
         ];
     }
 
@@ -185,15 +185,17 @@ class Zip
             }
 
             $D = dir($dir);
-            while (($e = $D->read()) !== false) {
-                if ($e == '.' || $e == '..') {
-                    continue;
-                }
+            if ($D !== false) {
+                while (($e = $D->read()) !== false) {
+                    if ($e == '.' || $e == '..') {
+                        continue;
+                    }
 
-                if (is_dir($dir . '/' . $e)) {
-                    $this->addDirectory($dir . $e, $name . $e, true);
-                } elseif (is_file($dir . '/' . $e)) {
-                    $this->addFile($dir . $e, $name . $e);
+                    if (is_dir($dir . '/' . $e)) {
+                        $this->addDirectory($dir . $e, $name . $e, true);
+                    } elseif (is_file($dir . '/' . $e)) {
+                        $this->addFile($dir . $e, $name . $e);
+                    }
                 }
             }
         }
@@ -291,6 +293,8 @@ class Zip
      * @param      string     $file   The file
      * @param      float|int  $size   The size
      * @param      float|int  $mtime  The mtime
+     *
+     * @throws     Exception
      */
     protected function writeFile(string $name, string $file, int|float $size, int|float $mtime): void
     {
@@ -303,15 +307,19 @@ class Zip
 
         $content = file_get_contents($file);
 
-        $unc_len = strlen($content);
-        $crc     = crc32($content);
-        $zdata   = gzdeflate($content);
-        $c_len   = strlen($zdata);
+        if ($content !== false) {
+            $unc_len = strlen($content);
+            $crc     = crc32($content);
+            $zdata   = gzdeflate($content);
+            $c_len   = $zdata !== false ? strlen($zdata) : 0;
 
-        unset($content);
+            unset($content);
+        } else {
+            throw new Exception(__('Unable to write ZIP archive'));
+        }
 
-        $mdate = $this->makeDate($mtime);
-        $mtime = $this->makeTime($mtime);
+        $mdate = $this->makeDate((int) $mtime);
+        $mtime = $this->makeTime((int) $mtime);
 
         # Data descriptor
         $data_desc = "\x50\x4b\x03\x04" .

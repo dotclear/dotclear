@@ -158,26 +158,29 @@ class ImageMeta
 
         while (!feof($fp)) {
             $buffer = fgets($fp, 4096);
+            if ($buffer !== false) {
+                $xmp_start = strpos($buffer, '<x:xmpmeta');
 
-            $xmp_start = strpos($buffer, '<x:xmpmeta');
-
-            if ($xmp_start !== false) {
-                $buffer = substr($buffer, $xmp_start);
-                $inside = true;
-            }
-
-            if ($inside) {
-                $xmp_end = strpos($buffer, '</x:xmpmeta>');
-                if ($xmp_end !== false) {
-                    $buffer = substr($buffer, $xmp_end, 12);
-                    $inside = false;
-                    $done   = true;
+                if ($xmp_start !== false) {
+                    $buffer = substr($buffer, $xmp_start);
+                    $inside = true;
                 }
 
-                $xmp .= $buffer;
-            }
+                if ($inside) {
+                    $xmp_end = strpos($buffer, '</x:xmpmeta>');
+                    if ($xmp_end !== false) {
+                        $buffer = substr($buffer, $xmp_end, 12);
+                        $inside = false;
+                        $done   = true;
+                    }
 
-            if ($done) {
+                    $xmp .= $buffer;
+                }
+
+                if ($done) {
+                    break;
+                }
+            } else {
                 break;
             }
         }

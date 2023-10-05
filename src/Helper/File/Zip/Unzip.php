@@ -101,10 +101,10 @@ class Unzip
     /**
      * Gets the list.
      *
-     * @param      bool|string  $stop_on_file  The stop on file
-     * @param      bool|string  $exclude       The exclude
+     * @param      false|string  $stop_on_file  The stop on file
+     * @param      false|string  $exclude       The exclude
      *
-     * @return     array<string, array<string, mixed>>|bool   The list.
+     * @return     array<string, array<string, mixed>>|false   The list.
      */
     public function getList(bool|string $stop_on_file = false, bool|string $exclude = false): array|bool
     {
@@ -122,7 +122,7 @@ class Unzip
     /**
      * Unzip all
      *
-     * @param      bool|string  $target  The target
+     * @param      false|string  $target  The target
      */
     public function unzipAll(bool|string $target): void
     {
@@ -135,15 +135,15 @@ class Unzip
                 continue;
             }
 
-            $this->unzip($k, $target . '/' . $k);
+            $this->unzip($k, $target !== false ? $target . '/' . $k : false);
         }
     }
 
     /**
      * Unzip a file
      *
-     * @param      string       $file_name  The file name
-     * @param      bool|string  $target     The target
+     * @param      string        $file_name  The file name
+     * @param      false|string  $target     The target
      *
      * @throws     Exception
      *
@@ -167,7 +167,7 @@ class Unzip
             throw new Exception(sprintf(__('Trying to unzip a folder name %s'), $file_name));
         }
 
-        if ($target) {
+        if ($target !== false) {
             $this->testTargetDir(dirname($target));
         }
 
@@ -342,8 +342,8 @@ class Unzip
     /**
      * Puts a content.
      *
-     * @param      mixed        $content  The content
-     * @param      bool|string  $target   The target
+     * @param      mixed            $content  The content
+     * @param      false|string     $target   The target
      *
      * @throws     Exception
      *
@@ -351,7 +351,7 @@ class Unzip
      */
     protected function putContent($content, bool|string $target = false)
     {
-        if ($target) {
+        if ($target !== false) {
             $r = @file_put_contents($target, $content);
             if ($r === false) {
                 throw new Exception(__('Unable to write destination file.'));
@@ -388,7 +388,7 @@ class Unzip
      * @param      mixed            $content  The content
      * @param      int              $mode     The mode
      * @param      int              $size     The size
-     * @param      bool|string      $target   The target
+     * @param      false|string     $target   The target
      *
      * @throws     Exception
      *
@@ -443,8 +443,8 @@ class Unzip
     /**
      * Loads a file list by eof.
      *
-     * @param      bool|string  $stop_on_file  The stop on file
-     * @param      bool|string  $exclude       The exclude
+     * @param      false|string  $stop_on_file  The stop on file
+     * @param      false|string  $exclude       The exclude
      *
      * @return     bool
      */
@@ -454,21 +454,21 @@ class Unzip
 
         for ($x = 0; $x < 1024; $x++) {
             fseek($fp, -22 - $x, SEEK_END);
-            $signature = fread($fp, 4);
+            $signature = $this->zipRead(4);
 
             if ($signature == $this->dir_sig_e) {
                 $dir_list = [];
 
                 $eodir = [
-                    'disk_number_this'   => unpack('v', fread($fp, 2)),
-                    'disk_number'        => unpack('v', fread($fp, 2)),
-                    'total_entries_this' => unpack('v', fread($fp, 2)),
-                    'total_entries'      => unpack('v', fread($fp, 2)),
-                    'size_of_cd'         => unpack('V', fread($fp, 4)),
-                    'offset_start_cd'    => unpack('V', fread($fp, 4)),
+                    'disk_number_this'   => $this->zipUnpack(2, 'v'),
+                    'disk_number'        => $this->zipUnpack(2, 'v'),
+                    'total_entries_this' => $this->zipUnpack(2, 'v'),
+                    'total_entries'      => $this->zipUnpack(2, 'v'),
+                    'size_of_cd'         => $this->zipUnpack(4, 'V'),
+                    'offset_start_cd'    => $this->zipUnpack(4, 'V'),
                 ];
 
-                $zip_comment_len          = unpack('v', fread($fp, 2));
+                $zip_comment_len          = $this->zipUnpack(2, 'v');
                 $eodir['zipfile_comment'] = $zip_comment_len[1] ? fread($fp, (int) $zip_comment_len) : '';
 
                 $this->eo_central = [
@@ -482,29 +482,29 @@ class Unzip
                 ];
 
                 fseek($fp, $this->eo_central['offset_start_cd']);
-                $signature = fread($fp, 4);
+                $signature = $this->zipRead(4);
 
                 while ($signature == $this->dir_sig) {
                     $dir                       = [];
-                    $dir['version_madeby']     = unpack('v', fread($fp, 2)); # version made by
-                    $dir['version_needed']     = unpack('v', fread($fp, 2)); # version needed to extract
-                    $dir['general_bit_flag']   = unpack('v', fread($fp, 2)); # general purpose bit flag
-                    $dir['compression_method'] = unpack('v', fread($fp, 2)); # compression method
-                    $dir['lastmod_time']       = unpack('v', fread($fp, 2)); # last mod file time
-                    $dir['lastmod_date']       = unpack('v', fread($fp, 2)); # last mod file date
-                    $dir['crc-32']             = fread($fp, 4); # crc-32
-                    $dir['compressed_size']    = unpack('V', fread($fp, 4)); # compressed size
-                    $dir['uncompressed_size']  = unpack('V', fread($fp, 4)); # uncompressed size
+                    $dir['version_madeby']     = $this->zipUnpack(2, 'v'); # version made by
+                    $dir['version_needed']     = $this->zipUnpack(2, 'v'); # version needed to extract
+                    $dir['general_bit_flag']   = $this->zipUnpack(2, 'v'); # general purpose bit flag
+                    $dir['compression_method'] = $this->zipUnpack(2, 'v'); # compression method
+                    $dir['lastmod_time']       = $this->zipUnpack(2, 'v'); # last mod file time
+                    $dir['lastmod_date']       = $this->zipUnpack(2, 'v'); # last mod file date
+                    $dir['crc-32']             = $this->zipRead(4); # crc-32
+                    $dir['compressed_size']    = $this->zipUnpack(4, 'V'); # compressed size
+                    $dir['uncompressed_size']  = $this->zipUnpack(4, 'V'); # uncompressed size
 
-                    $file_name_len    = unpack('v', fread($fp, 2)); # filename length
-                    $extra_field_len  = unpack('v', fread($fp, 2)); # extra field length
-                    $file_comment_len = unpack('v', fread($fp, 2)); # file comment length
+                    $file_name_len    = $this->zipUnpack(2, 'v'); # filename length
+                    $extra_field_len  = $this->zipUnpack(2, 'v'); # extra field length
+                    $file_comment_len = $this->zipUnpack(2, 'v'); # file comment length
 
-                    $dir['disk_number_start']    = unpack('v', fread($fp, 2)); # disk number start
-                    $dir['internal_attributes']  = unpack('v', fread($fp, 2)); # internal file attributes-byte1
-                    $dir['external_attributes1'] = unpack('v', fread($fp, 2)); # external file attributes-byte2
-                    $dir['external_attributes2'] = unpack('v', fread($fp, 2)); # external file attributes
-                    $dir['relative_offset']      = unpack('V', fread($fp, 4)); # relative offset of local header
+                    $dir['disk_number_start']    = $this->zipUnpack(2, 'v'); # disk number start
+                    $dir['internal_attributes']  = $this->zipUnpack(2, 'v'); # internal file attributes-byte1
+                    $dir['external_attributes1'] = $this->zipUnpack(2, 'v'); # external file attributes-byte2
+                    $dir['external_attributes2'] = $this->zipUnpack(2, 'v'); # external file attributes
+                    $dir['relative_offset']      = $this->zipUnpack(4, 'V'); # relative offset of local header
                     $dir['file_name']            = $this->cleanFileName(fread($fp, $file_name_len[1])); # filename
                     $dir['extra_field']          = $extra_field_len[1] ? fread($fp, $extra_field_len[1]) : ''; # extra field
                     $dir['file_comment']         = $file_comment_len[1] ? fread($fp, $file_comment_len[1]) : ''; # file comment
@@ -530,29 +530,32 @@ class Unzip
                         'extra_field'          => $dir['extra_field'],
                         'file_comment'         => $dir['file_comment'],
                     ];
-                    $signature = fread($fp, 4);
+                    $signature = $this->zipRead(4);
                 }
 
                 foreach ($dir_list as $k => $v) {
-                    if ($exclude && preg_match($exclude, (string) $k)) {
+                    if (($exclude !== false) && preg_match($exclude, (string) $k)) {
                         continue;
                     }
 
                     $i = $this->getFileHeaderInformation($v['relative_offset']);
 
-                    $this->compressed_list[$k]['file_name']             = $k;
-                    $this->compressed_list[$k]['is_dir']                = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
-                    $this->compressed_list[$k]['compression_method']    = $v['compression_method'];
-                    $this->compressed_list[$k]['version_needed']        = $v['version_needed'];
-                    $this->compressed_list[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
-                    $this->compressed_list[$k]['crc-32']                = $v['crc-32'];
-                    $this->compressed_list[$k]['compressed_size']       = $v['compressed_size'];
-                    $this->compressed_list[$k]['uncompressed_size']     = $v['uncompressed_size'];
-                    $this->compressed_list[$k]['lastmod_datetime']      = $v['lastmod_datetime'];
-                    $this->compressed_list[$k]['extra_field']           = $i['extra_field'];
-                    $this->compressed_list[$k]['contents_start_offset'] = $i['contents_start_offset'];
+                    $this->compressed_list[$k]['file_name']          = $k;
+                    $this->compressed_list[$k]['is_dir']             = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
+                    $this->compressed_list[$k]['compression_method'] = $v['compression_method'];
+                    $this->compressed_list[$k]['version_needed']     = $v['version_needed'];
+                    $this->compressed_list[$k]['lastmod_datetime']   = $v['lastmod_datetime'];
+                    $this->compressed_list[$k]['crc-32']             = $v['crc-32'];
+                    $this->compressed_list[$k]['compressed_size']    = $v['compressed_size'];
+                    $this->compressed_list[$k]['uncompressed_size']  = $v['uncompressed_size'];
+                    $this->compressed_list[$k]['lastmod_datetime']   = $v['lastmod_datetime'];
 
-                    if (strtolower($stop_on_file) == strtolower($k)) {
+                    if ($i !== false) {
+                        $this->compressed_list[$k]['extra_field']           = $i['extra_field'];
+                        $this->compressed_list[$k]['contents_start_offset'] = $i['contents_start_offset'];
+                    }
+
+                    if (($stop_on_file !== false) && (strtolower($stop_on_file) == strtolower($k))) {
                         break;
                     }
                 }
@@ -567,8 +570,8 @@ class Unzip
     /**
      * Loads file list by signatures.
      *
-     * @param      bool|string  $stop_on_file  The stop on file
-     * @param      bool|string  $exclude       The exclude
+     * @param      false|string  $stop_on_file  The stop on file
+     * @param      false|string  $exclude       The exclude
      *
      * @return     bool
      */
@@ -589,14 +592,14 @@ class Unzip
             }
             $filename = $details['file_name'];
 
-            if ($exclude && preg_match($exclude, (string) $filename)) {
+            if (($exclude !== false) && preg_match($exclude, (string) $filename)) {
                 continue;
             }
 
-            $this->compressed_list[$filename] = $details;
+            $this->compressed_list[$filename] = $details;   // @phpstan-ignore-line
             $return                           = true;
 
-            if (strtolower($stop_on_file) == strtolower($filename)) {
+            if (($stop_on_file !== false) && (strtolower($stop_on_file) == strtolower($filename))) {
                 break;
             }
         }
@@ -607,9 +610,9 @@ class Unzip
     /**
      * Gets the file header information.
      *
-     * @param      bool|int    $start_offset  The start offset
+     * @param      false|int    $start_offset  The start offset
      *
-     * @return     array<string, mixed>|bool  The file header information.
+     * @return     array<string, mixed>|false  The file header information.
      */
     protected function getFileHeaderInformation(bool|int $start_offset = false): bool|array
     {
@@ -619,21 +622,21 @@ class Unzip
             fseek($fp, $start_offset);
         }
 
-        $signature = fread($fp, 4);
+        $signature = $this->zipRead(4);
         if ($signature == $this->zip_sig) {
             # Get information about the zipped file
             $file                       = [];
-            $file['version_needed']     = unpack('v', fread($fp, 2)); # version needed to extract
-            $file['general_bit_flag']   = unpack('v', fread($fp, 2)); # general purpose bit flag
-            $file['compression_method'] = unpack('v', fread($fp, 2)); # compression method
-            $file['lastmod_time']       = unpack('v', fread($fp, 2)); # last mod file time
-            $file['lastmod_date']       = unpack('v', fread($fp, 2)); # last mod file date
-            $file['crc-32']             = fread($fp, 4); # crc-32
-            $file['compressed_size']    = unpack('V', fread($fp, 4)); # compressed size
-            $file['uncompressed_size']  = unpack('V', fread($fp, 4)); # uncompressed size
+            $file['version_needed']     = $this->zipUnpack(2, 'v'); # version needed to extract
+            $file['general_bit_flag']   = $this->zipUnpack(2, 'v'); # general purpose bit flag
+            $file['compression_method'] = $this->zipUnpack(2, 'v'); # compression method
+            $file['lastmod_time']       = $this->zipUnpack(2, 'v'); # last mod file time
+            $file['lastmod_date']       = $this->zipUnpack(2, 'v'); # last mod file date
+            $file['crc-32']             = $this->zipRead(4); # crc-32
+            $file['compressed_size']    = $this->zipUnpack(4, 'V'); # compressed size
+            $file['uncompressed_size']  = $this->zipUnpack(4, 'V'); # uncompressed size
 
-            $file_name_len   = unpack('v', fread($fp, 2)); # filename length
-            $extra_field_len = unpack('v', fread($fp, 2)); # extra field length
+            $file_name_len   = $this->zipUnpack(2, 'v'); # filename length
+            $extra_field_len = $this->zipUnpack(2, 'v'); # extra field length
 
             $file['file_name']             = $this->cleanFileName(fread($fp, $file_name_len[1])); # filename
             $file['extra_field']           = $extra_field_len[1] ? fread($fp, $extra_field_len[1]) : ''; # extra field
@@ -665,6 +668,36 @@ class Unzip
     }
 
     /**
+     * Read from ZIP archive
+     *
+     * @param      int     $len     The length
+     *
+     * @return     string
+     */
+    protected function zipRead(int $len)
+    {
+        $fp     = $this->fp();
+        $buffer = fread($fp, abs($len));
+
+        return $buffer === false ? '' : $buffer;
+    }
+
+    /**
+     * Unpack a buffer read from ZIP archive
+     *
+     * @param      int          $len     The length
+     * @param      string       $format  The format
+     *
+     * @return     array<mixed>
+     */
+    protected function zipUnpack(int $len, string $format): array
+    {
+        $ret = unpack($format, $this->zipRead($len));
+
+        return $ret === false ? [] : $ret;
+    }
+
+    /**
      * Gets the time stamp.
      *
      * @param      int       $date   The date
@@ -683,7 +716,7 @@ class Unzip
         $lastmod_timeM   = bindec(substr($BINlastmod_time, 5, 6));
         $lastmod_timeS   = bindec(substr($BINlastmod_time, 11, 5)) * 2;
 
-        return mktime($lastmod_timeH, $lastmod_timeM, $lastmod_timeS, $lastmod_dateM, $lastmod_dateD, $lastmod_dateY);
+        return mktime((int) $lastmod_timeH, (int) $lastmod_timeM, (int) $lastmod_timeS, (int) $lastmod_dateM, (int) $lastmod_dateD, (int) $lastmod_dateY);
     }
 
     /**
