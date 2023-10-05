@@ -22,9 +22,9 @@ class MaintenanceTask
     /**
      * Task code.
      *
-     * @var     int|null|bool   $code
+     * @var     int|null   $code
      */
-    protected mixed $code;
+    protected ?int $code = null;
 
     /**
      * Task timestamp.
@@ -73,14 +73,14 @@ class MaintenanceTask
      *
      * @var     string  $name
      */
-    protected string $name;
+    protected string $name = '';
 
     /**
      * Task description.
      *
      * @var     string  $description
      */
-    protected string $description;
+    protected string $description = '';
 
     /**
      * Task tab container.
@@ -199,9 +199,9 @@ class MaintenanceTask
     /**
      * Set $code for task having multiple steps.
      *
-     * @param   int     $code   Code used for task execution
+     * @param   int|null     $code   Code used for task execution
      */
-    public function code($code): void
+    public function code(?int $code): void
     {
         $this->code = $code;
     }
