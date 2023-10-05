@@ -284,18 +284,20 @@ class Files
     public static function deltree(string $directory): bool
     {
         $current_dir = opendir($directory);
-        while ($filename = readdir($current_dir)) {
-            if (is_dir($directory . '/' . $filename) && ($filename != '.' && $filename != '..')) {
-                if (!static::deltree($directory . '/' . $filename)) {
-                    return false;
-                }
-            } elseif ($filename != '.' && $filename != '..') {
-                if (!@unlink($directory . '/' . $filename)) {
-                    return false;
+        if ($current_dir !== false) {
+            while ($filename = readdir($current_dir)) {
+                if (is_dir($directory . '/' . $filename) && ($filename != '.' && $filename != '..')) {
+                    if (!static::deltree($directory . '/' . $filename)) {
+                        return false;
+                    }
+                } elseif ($filename != '.' && $filename != '..') {
+                    if (!@unlink($directory . '/' . $filename)) {
+                        return false;
+                    }
                 }
             }
+            closedir($current_dir);
         }
-        closedir($current_dir);
 
         return @rmdir($directory);
     }
@@ -338,7 +340,7 @@ class Files
         }
 
         if ($recursive) {
-            $path        = Path::real($name, false);
+            $path        = (string) Path::real($name, false);
             $directories = [];
 
             while (!is_dir($path)) {
@@ -372,7 +374,9 @@ class Files
         if (function_exists('chmod')) {
             try {
                 if (self::$dir_mode === null) {
-                    return (bool) @chmod($file, fileperms(dirname($file)));
+                    $perms = fileperms(dirname($file));
+
+                    return $perms !== false ? (bool) @chmod($file, $perms) : false;
                 }
 
                 return (bool) @chmod($file, self::$dir_mode);

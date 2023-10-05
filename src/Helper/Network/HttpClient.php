@@ -417,7 +417,7 @@ class HttpClient extends Socket
             $query_string = $data;
         }
 
-        return $query_string;
+        return (string) $query_string;
     }
 
     /**

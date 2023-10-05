@@ -176,7 +176,7 @@ class Path
         $pathinfo = pathinfo($filename);
         $res      = [];
 
-        $res['dirname']   = (string) $pathinfo['dirname'];
+        $res['dirname']   = $pathinfo['dirname'] ?? '.';
         $res['basename']  = (string) $pathinfo['basename'];
         $res['extension'] = $pathinfo['extension'] ?? '';
         $res['base']      = preg_replace('/\.' . preg_quote($res['extension'], '/') . '$/', '', $res['basename']);
@@ -239,8 +239,8 @@ class Path
             return '';
         }
 
-        $info = pathinfo(self::real($dir, false));
-        $dir  = $info['dirname'] . DIRECTORY_SEPARATOR . $info['basename'];
+        $info = pathinfo((string) self::real($dir, false));
+        $dir  = ($info['dirname'] ?? '.') . DIRECTORY_SEPARATOR . $info['basename'];
 
         if (!is_link($dir)) {
             return $dir;
@@ -251,6 +251,6 @@ class Path
             return $dir;
         }
 
-        return readlink($dir);
+        return (string) readlink($dir);
     }
 }

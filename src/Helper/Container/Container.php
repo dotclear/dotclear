@@ -112,7 +112,7 @@ class Container implements ContainerInterface
     private function resolve(string $alias, $args)
     {
         try {
-            $reflector = new \ReflectionClass($alias);
+            $reflector = new \ReflectionClass($alias);  // @phpstan-ignore-line
         } catch (\ReflectionException $e) {
             throw new ContainerException(
                 $e->getMessage(),

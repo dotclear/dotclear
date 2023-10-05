@@ -71,6 +71,9 @@ class Date
             // get current locale
             $locale = setlocale(LC_TIME, '0');
         }
+        if ($locale === false) {
+            $locale = 'en';
+        }
         // remove trailing part not supported by ext-intl locale
         $locale = preg_replace('/[^\w-].*$/', '', $locale);
 
@@ -195,6 +198,7 @@ class Date
             '%x' => $intl_formatter,
         ];
 
+        /* @phpstan-ignore-next-line */
         $out = preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function ($match) use ($translation_table, $timestamp) {
             $prefix  = $match[1];
             $char    = $match[2];
@@ -219,9 +223,9 @@ class Date
 
             return match ($prefix) {
                 // replace leading zeros with spaces but keep last char if also zero
-                '_' => preg_replace('/\G0(?=.)/', ' ', $result),
+                '_' => preg_replace('/\G0(?=.)/', ' ', $result),        // @phpstan-ignore-line
                 // remove leading zeros but keep last char if also zero
-                '#', '-' => preg_replace('/^0+(?=.)/', '', $result),
+                '#', '-' => preg_replace('/^0+(?=.)/', '', $result),    // @phpstan-ignore-line
                 default => $result,
             };
         }, $format);
@@ -239,7 +243,7 @@ class Date
      * Special cases %a, %A, %b and %B are handled by {@link l10n} library.
      *
      * @param   string      $pattern        Format pattern
-     * @param   int|bool    $timestamp      Timestamp
+     * @param   int|false   $timestamp      Timestamp
      * @param   string      $timezone       Timezone
      *
      * @return  string
@@ -259,7 +263,7 @@ class Date
             self::setTZ($timezone);
         }
 
-        $res = self::strftime($pattern, $timestamp);
+        $res = self::strftime($pattern, (int) $timestamp);
 
         if ($timezone) {
             self::setTZ($current_timezone);
@@ -373,7 +377,7 @@ class Date
         $printed_offset = sprintf('%02u%02u', abs($offset) / 3600, (abs($offset) % 3600) / 60);
 
         // Avoid deprecated notice until PHP 9 should be supported or a correct strftime() replacement
-        return @strftime('%a, %d %b %Y %H:%M:%S ' . ($offset < 0 ? '-' : '+') . $printed_offset, $timestamp);
+        return (string) @strftime('%a, %d %b %Y %H:%M:%S ' . ($offset < 0 ? '-' : '+') . $printed_offset, $timestamp);
     }
 
     /**
@@ -416,7 +420,7 @@ class Date
      * Get time offset for a timezone and an optionnal $ts timestamp.
      *
      * @param string            $timezone        Timezone
-     * @param int|bool          $timestamp       Timestamp
+     * @param int|false         $timestamp       Timestamp
      *
      * @return int
      */
@@ -427,10 +431,10 @@ class Date
         }
 
         $server_timezone = self::getTZ();
-        $server_offset   = (int) date('Z', $timestamp);
+        $server_offset   = (int) date('Z', (int) $timestamp);
 
         self::setTZ($timezone);
-        $current_offset = (int) date('Z', $timestamp);
+        $current_offset = (int) date('Z', (int) $timestamp);
 
         self::setTZ($server_timezone);
 
@@ -467,7 +471,7 @@ class Date
             $timestamp = time();
         }
 
-        return $timestamp + self::getTimeOffset($timezone, $timestamp);
+        return $timestamp + self::getTimeOffset($timezone, (int) $timestamp);
     }
 
     /**
@@ -489,10 +493,12 @@ class Date
             }
             $timezones = file($file);
             $res       = [];
-            foreach ($timezones as $timezone) {
-                $timezone = trim($timezone);
-                if ($timezone) {
-                    $res[$timezone] = str_replace('_', ' ', $timezone);
+            if ($timezones) {
+                foreach ($timezones as $timezone) {
+                    $timezone = trim($timezone);
+                    if ($timezone) {
+                        $res[$timezone] = str_replace('_', ' ', $timezone);
+                    }
                 }
             }
             // Store timezones for further accesses
@@ -514,6 +520,6 @@ class Date
             }
         }
 
-        return $res;
+        return $res;    // @phpstan-ignore-line
     }
 }

@@ -88,7 +88,7 @@ class Crypt
         // Then generate a random password from the resulting charset
         $password = '';
         for ($s = 1; $s <= $length; $s++) {
-            $password .= substr($charset, random_int(0, strlen($charset) - 1), 1);
+            $password .= substr($charset, random_int(0, strlen($charset) - 1), 1);  // @phpstan-ignore-line
         }
 
         return $password;

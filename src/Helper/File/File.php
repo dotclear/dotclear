@@ -198,11 +198,11 @@ class File
         $this->type_prefix = preg_replace('/^(.+?)\/.+$/', '$1', (string) $this->type);
 
         // Filesystem infos
-        $this->mtime = $stat[9];
-        $this->size  = $stat[7];
-        $this->mode  = $stat[2];
-        $this->uid   = $stat[4];
-        $this->gid   = $stat[5];
+        $this->mtime = $stat ? $stat[9] : 0;
+        $this->size  = $stat ? $stat[7] : 0;
+        $this->mode  = $stat ? $stat[2] : 0;
+        $this->uid   = $stat ? $stat[4] : 0;
+        $this->gid   = $stat ? $stat[5] : 0;
 
         // Flags
         $this->w   = is_writable($file);
