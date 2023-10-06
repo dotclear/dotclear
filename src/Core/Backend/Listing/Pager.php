@@ -86,7 +86,7 @@ class Pager extends HelperPager
         $this->form_hidden = '';
         foreach ($args as $k => $v) {
             // Check parameter key (will prevent some forms of XSS)
-            if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', $k)) {
+            if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', $k)) {  // @phpstan-ignore-line
                 if (is_array($v)) {
                     foreach ($v as $v2) {
                         $this->form_hidden .= form::hidden([$k . '[]'], Html::escapeHTML($v2));
@@ -96,7 +96,7 @@ class Pager extends HelperPager
                 }
             }
         }
-        $this->form_action = $url['path'];
+        $this->form_action = $url['path'] ?? '';
     }
 
     /**

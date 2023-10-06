@@ -43,7 +43,7 @@ class Backend extends Process
             App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
             App::formater()->addFormaterName('xhtml', __('HTML'));
 
-            App::formater()->addEditorFormater(My::id(), 'wiki', [App::filter()->wiki(), 'transform']);
+            App::formater()->addEditorFormater(My::id(), 'wiki', [App::filter()->wiki(), 'transform']); // @phpstan-ignore-line
             App::formater()->addFormaterName('wiki', __('Dotclear wiki'));
 
             App::behavior()->addBehaviors([

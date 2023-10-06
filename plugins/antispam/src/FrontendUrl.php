@@ -53,7 +53,7 @@ class FrontendUrl extends Url
             self::p404();
         }
 
-        App::auth()->checkUser($user_id, null, null);
+        App::auth()->checkUser((string) $user_id, null, null);
 
         header('Content-Type: application/xml; charset=UTF-8');
 

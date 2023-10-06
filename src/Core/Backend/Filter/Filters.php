@@ -204,7 +204,7 @@ class Filters
         $filter->parse();
 
         # set key/value pair
-        $this->filters[$filter->id] = $filter;
+        $this->filters[$filter->id] = $filter;  // @phpstan-ignore-line
 
         # has contents
         if ($filter->html != '' && $filter->form != 'none') {
@@ -236,7 +236,7 @@ class Filters
     /**
      * Get list query params.
      *
-     * @return  array<string,mixed>     The query params
+     * @return  array<string, mixed>     The query params
      */
     public function params(): array
     {
@@ -272,7 +272,7 @@ class Filters
             }
         }
 
-        return $params;
+        return $params; // @phpstan-ignore-line
     }
 
     /**

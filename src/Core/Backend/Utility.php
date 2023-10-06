@@ -132,7 +132,7 @@ class Utility extends Process
                     // Avoid loop caused by old cookie
                     $p    = App::session()->getCookieParameters(false, -600);
                     $p[3] = '/';
-                    setcookie(...$p);
+                    setcookie(...$p);   // @phpstan-ignore-line
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];

@@ -56,7 +56,7 @@ class WidgetsStack
     {
         $serialized = [];
         foreach ($this->widgets as $pos => $w) {
-            $serialized[] = ($w->serialize($pos));
+            $serialized[] = ($w->serialize((int) $pos));
         }
 
         return $serialized;

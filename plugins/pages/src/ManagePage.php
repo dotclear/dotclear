@@ -265,7 +265,7 @@ class ManagePage extends Process
             ];
 
             App::blog()->setPostContent(
-                App::backend()->post_id,
+                (int) App::backend()->post_id,
                 App::backend()->post_format,
                 App::backend()->post_lang,
                 $post_excerpt,
@@ -290,7 +290,7 @@ class ManagePage extends Process
             try {
                 # --BEHAVIOR-- adminBeforePageDelete -- int
                 App::behavior()->callBehavior('adminBeforePageDelete', App::backend()->post_id);
-                App::blog()->delPost(App::backend()->post_id);
+                App::blog()->delPost((int) App::backend()->post_id);
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -306,7 +306,7 @@ class ManagePage extends Process
             App::blog()->settings()->system->post_url_format = '{t}';
 
             $cur->post_type          = 'page';
-            $cur->post_dt            = App::backend()->post_dt ? date('Y-m-d H:i:00', strtotime(App::backend()->post_dt)) : '';
+            $cur->post_dt            = App::backend()->post_dt ? date('Y-m-d H:i:00', (int) strtotime((string) App::backend()->post_dt)) : '';
             $cur->post_format        = App::backend()->post_format;
             $cur->post_password      = App::backend()->post_password;
             $cur->post_lang          = App::backend()->post_lang;

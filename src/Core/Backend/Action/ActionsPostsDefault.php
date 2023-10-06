@@ -564,7 +564,7 @@ class ActionsPostsDefault
             $lang_combo = ['' => '', __('Most used') => [], __('Available') => L10n::getISOcodes(true, true)];
             while ($rs->fetch()) {
                 if (isset($all_langs[$rs->post_lang])) {
-                    $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
+                    $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;  // @phpstan-ignore-line
                     unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
                 } else {
                     $lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;

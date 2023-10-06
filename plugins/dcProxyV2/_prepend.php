@@ -31,9 +31,9 @@ class dcProxyV2
     {
         Clearbricks::lib()->autoload([$class => $file]);
 
-        $reflectionCore = new ReflectionClass($class);
+        $reflectionCore = new ReflectionClass($class);  // @phpstan-ignore-line
         foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-            App::behavior()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);
+            App::behavior()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);    // @phpstan-ignore-line
         }
     }
 

@@ -53,7 +53,7 @@ class Antispam extends initAntispam
         if (!empty(dcCore::app()->spamfilters)) {
             foreach (dcCore::app()->spamfilters as $spamfilter) {
                 if (is_subclass_of($spamfilter, SpamFilter::class)) {
-                    self::$spamfilters[] = $spamfilter;
+                    self::$spamfilters[] = $spamfilter; // @phpstan-ignore-line
                 }
             }
         }

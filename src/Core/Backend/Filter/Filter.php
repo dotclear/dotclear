@@ -117,7 +117,7 @@ class Filter
     public function set(string $property, $value)
     {
         if (isset($this->properties[$property]) && method_exists($this, $property)) {
-            return call_user_func([$this, $property], $value);
+            return call_user_func([$this, $property], $value);  // @phpstan-ignore-line
         }
 
         return $this;

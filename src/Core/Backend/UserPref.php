@@ -119,6 +119,8 @@ class UserPref
                     uksort($cols[$ct][1], fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
                 }
                 if (!empty($type) && !empty($columns) && $ct == $type) {
+                    // Use ArrayObject in all cases
+                    $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
                     // Sort also corresponding $columns columns
                     $columns->uksort(fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
                 }

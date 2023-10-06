@@ -59,7 +59,7 @@ class FlatBackup
      *
      * @throws     Exception
      *
-     * @return     FlatBackupItem|bool  The line.
+     * @return     FlatBackupItem|false  The line.
      */
     public function getLine()
     {
@@ -77,14 +77,17 @@ class FlatBackup
         } elseif (substr($line, 0, 1) == '"') {
             $line = preg_replace('/^"|"$/', '', $line);
             $line = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
+            if ($line === false) {
+                return false;
+            }
 
-            if (count($this->line_cols) != (is_countable($line) ? count($line) : 0)) {
+            if (count($this->line_cols) != count($line)) {
                 throw new Exception(sprintf('Invalid row count at line %s', $this->line_num));
             }
 
             $res = [];
 
-            for ($i = 0; $i < (is_countable($line) ? count($line) : 0); $i++) {
+            for ($i = 0; $i < count($line); $i++) {
                 $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]);
             }
 

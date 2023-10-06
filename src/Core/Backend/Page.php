@@ -25,21 +25,21 @@ class Page
     /**
      * Stack of loaded JS
      *
-     * @var array<string>
+     * @var array<string, bool>
      */
     private static array $loaded_js = [];
 
     /**
      * Stack of loaded CSS
      *
-     * @var array<string>
+     * @var array<string, bool>
      */
     private static array $loaded_css = [];
 
     /**
      * Stack of preloaded resources (Js, CSS)
      *
-     * @var array<string>
+     * @var array<string, bool>
      */
     private static array $preloaded = [];
 
@@ -741,7 +741,9 @@ class Page
         }
 
         // Xdebug 3 and later, proper mode is required
-        return str_contains(ini_get('xdebug.mode'), 'develop');
+        $xdebug = ini_get('xdebug.mode');
+
+        return $xdebug === false ? false : str_contains($xdebug, 'develop');
     }
 
     /**

@@ -162,7 +162,7 @@ class Manage extends Process
                 '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        /** @var array<string|\Dotclear\Interface\Core\BlogWorkspaceInterface> */
+        /** @var array<string, \Dotclear\Interface\Core\BlogWorkspaceInterface> */
         $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {

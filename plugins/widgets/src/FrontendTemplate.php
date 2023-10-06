@@ -70,13 +70,15 @@ class FrontendTemplate
         }
 
         $disable = preg_split('/\s*,\s*/', $disable, -1, PREG_SPLIT_NO_EMPTY);
-        $disable = array_flip($disable);
+        if ($disable !== false) {
+            $disable = array_flip($disable);
 
-        foreach ($widgets->elements() as $k => $w) {
-            if (isset($disable[$w->id()])) {
-                continue;
+            foreach ($widgets->elements() as $k => $w) {
+                if (isset($disable[$w->id()])) {
+                    continue;
+                }
+                echo $w->call($k);
             }
-            echo $w->call($k);
         }
     }
 

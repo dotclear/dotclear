@@ -726,7 +726,7 @@ class ModulesList
      * @param    string                                 $field        Field to sort from
      * @param    bool                                   $asc          Sort asc if true, else decs
      *
-     * @return   array<string, array<string, mixed>>  Array of sorted modules
+     * @return   array<int|string, array<string, mixed>>  Array of sorted modules
      */
     public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
@@ -1749,7 +1749,8 @@ class ModulesList
     public function getConfiguration(): bool
     {
         if (!empty($this->config_class) || !empty($this->config_file)) {
-            $this->config_content = ob_get_contents();
+            $content              = ob_get_contents();
+            $this->config_content = $content === false ? '' : $content;
         }
 
         ob_end_clean();

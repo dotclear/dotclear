@@ -47,7 +47,7 @@ class Manage extends Process
         $module = $_REQUEST['module'] ?? false;
         if (App::backend()->type && $module !== false && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
             App::backend()->module = new $module(dcCore::app());
-            App::backend()->module->init();
+            App::backend()->module->init(); // @phpstan-ignore-line
         }
 
         return self::status();

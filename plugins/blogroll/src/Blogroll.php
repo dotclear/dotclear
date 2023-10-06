@@ -102,12 +102,12 @@ class Blogroll extends initBlogroll
         $sql
             ->columns([
                 $sql->as($sql->count('link_id'), 'nb_link'),
-                $sql->as('link_lang', 'post_lang')
+                $sql->as('link_lang', 'post_lang'),
             ])
             ->from($this->table)
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
             ->and("link_lang <> '' ")
-            ->and("link_lang IS NOT NULL ")
+            ->and('link_lang IS NOT NULL ')
             ->group('link_lang')
             ->order('link_lang ' . (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order']) ? (string) $params['order'] : 'desc'));
 
@@ -160,7 +160,7 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a link URL'));
         }
 
-        $sql = new SelectStatement();
+        $sql          = new SelectStatement();
         $cur->link_id = (int) $sql
             ->column($sql->max('link_id'))
             ->from($this->table)
@@ -247,7 +247,7 @@ class Blogroll extends initBlogroll
             throw new Exception(__('You must provide a category title'));
         }
 
-        $sql = new SelectStatement();
+        $sql          = new SelectStatement();
         $cur->link_id = (int) $sql
             ->column($sql->max('link_id'))
             ->from($this->table)
@@ -348,6 +348,6 @@ class Blogroll extends initBlogroll
             }
         }
 
-        return $res;
+        return $res;    // @phpstan-ignore-line
     }
 }

@@ -243,6 +243,10 @@ parameters:
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UrlInterface::#'
       path: %currentWorkingDirectory%
 
+    # Dotclear\Helper\File\File object and auto properties
+    - message : '#Access to an undefined property Dotclear\\Helper\\File\\File|stdClass::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

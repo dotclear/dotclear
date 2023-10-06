@@ -18,12 +18,12 @@ class adminGenericList extends Listing
     /**
      * Constructs a new instance.
      *
-     * @param   mixed   $rs         The record
-     * @param   mixed   $rs_count   The rs count
+     * @param   Dotclear\Database\Record|Dotclear\Database\StaticRecord|Dotclear\Database\MetaRecord    $rs         The record
+     * @param   mixed                                                                                   $rs_count   The rs count
      */
     public function __construct(dcCore $core, $rs, $rs_count)   // @phpstan-ignore-line
     {
-        if ($rs && !($rs instanceof MetaRecord)) {
+        if (!($rs instanceof MetaRecord)) {
             $rs = new MetaRecord($rs);
         }
         parent::__construct($rs, $rs_count);

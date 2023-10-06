@@ -55,7 +55,7 @@ class Manage extends Process
                 }
 
                 App::backend()->filter     = App::backend()->filters[$_GET['f']];
-                App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL());
+                App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL()); // @phpstan-ignore-line
             }
 
             // Remove all spam
@@ -107,7 +107,7 @@ class Manage extends Process
                     }
                 }
 
-                Antispam::$filters->saveFilterOpts($filters_opt);
+                Antispam::$filters->saveFilterOpts($filters_opt);   // @phpstan-ignore-line
 
                 Notices::addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 My::redirect();

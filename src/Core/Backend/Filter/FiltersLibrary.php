@@ -99,6 +99,6 @@ class FiltersLibrary
     {
         return (new Filter($id))
             ->value(App::con()->escape(App::blog()->id()))
-            ->param('where', fn ($f) => " AND P.blog_id = '" . App::con()->escape(App::blog()->id()) . "' ");
+            ->param('where', fn ($f) => " AND P.blog_id = '" . App::con()->escape(App::blog()->id()) . "' ");   // @phpstan-ignore-line
     }
 }

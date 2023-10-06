@@ -375,7 +375,7 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            $this->has_table[$rs->f(0)] = true;
+            $this->has_table[(string) $rs->f(0)] = true;
         }
 
         # Set this to read data as they were written
@@ -521,7 +521,7 @@ class ModuleImportWp extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
+                'DELETE FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' . // @phpstan-ignore-line
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
@@ -561,7 +561,7 @@ class ModuleImportWp extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME . ' ' .
+                'DELETE FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME . ' ' .  // @phpstan-ignore-line
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
@@ -617,7 +617,7 @@ class ModuleImportWp extends Module
         try {
             if ($this->post_offset == 0) {
                 $this->con->execute(
-                    'DELETE FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' ' .
+                    'DELETE FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' ' .   // @phpstan-ignore-line
                     "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
                 );
             }

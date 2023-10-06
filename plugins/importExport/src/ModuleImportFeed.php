@@ -50,7 +50,7 @@ class ModuleImportFeed extends Module
      * @param   string  $host   The host
      * @param   bool    $try_a  The try a
      *
-     * @return  bool|string
+     * @return  false|string
      */
     private function gethostbyname6(string $host, bool $try_a = false)
     {
@@ -71,16 +71,24 @@ class ModuleImportFeed extends Module
      * @param   string  $host   The host
      * @param   bool    $try_a  The try a
      *
-     * @return  array<mixed>|bool
+     * @return  array<mixed>|false
      */
     private function gethostbynamel6(string $host, bool $try_a = false)
     {
+        $dns  = [];
         $dns6 = dns_get_record($host, DNS_AAAA);
         if ($try_a) {
             $dns4 = dns_get_record($host, DNS_A);
-            $dns  = array_merge($dns4, $dns6);
+            if ($dns4 !== false) {
+                $dns = $dns4;
+                if ($dns6 !== false) {
+                    $dns = array_merge($dns4, $dns6);
+                }
+            }
         } else {
-            $dns = $dns6;
+            if ($dns6 !== false) {
+                $dns = $dns6;
+            }
         }
         $ip6 = [];
         $ip4 = [];

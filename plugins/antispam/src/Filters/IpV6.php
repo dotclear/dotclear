@@ -492,7 +492,7 @@ class IpV6 extends SpamFilter
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);
         } elseif (function_exists('bcadd')) {
             $min = bccomp($value, $ipmin);
-            $max = bccomp($value, $ipmax);
+            $max = bccomp($value, $ipmax);  // @phpstan-ignore-line
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
         }
@@ -555,10 +555,10 @@ class IpV6 extends SpamFilter
      */
     private function ip2long_v6(string $ip): string
     {
-        $ip_n = inet_pton($ip);
+        $ip_n = (string) inet_pton($ip);
         $bin  = '';
         for ($bit = strlen($ip_n) - 1; $bit >= 0; $bit--) {
-            $bin = sprintf('%08b', ord($ip_n[$bit])) . $bin;
+            $bin = sprintf('%08b', ord($ip_n[$bit])) . $bin;    // @phpstan-ignore-line
         }
 
         if (function_exists('gmp_init')) {
@@ -602,10 +602,10 @@ class IpV6 extends SpamFilter
         $ip  = [];
         for ($bit = 0; $bit <= 7; $bit++) {
             $bin_part = substr($bin, $bit * 16, 16);
-            $ip[]     = dechex(bindec($bin_part));
+            $ip[]     = dechex((int) bindec($bin_part));
         }
-        $ip = implode(':', $ip);
+        $ip = (string) implode(':', $ip);
 
-        return inet_ntop(inet_pton($ip));
+        return (string) inet_ntop((string) inet_pton($ip));
     }
 }

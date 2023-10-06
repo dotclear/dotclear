@@ -87,6 +87,10 @@ class FlatImportV2 extends FlatBackup
         parent::__construct($file);
 
         $first_line = fgets($this->fp);
+        if ($first_line === false) {
+            throw new Exception(__('Unable to read the DotClear backup file.'));
+        }
+
         if (!str_starts_with($first_line, '///DOTCLEAR|')) {
             throw new Exception(__('File is not a DotClear backup.'));
         }
@@ -153,7 +157,7 @@ class FlatImportV2 extends FlatBackup
         $this->blog_id = App::blog()->id();
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
-            'SELECT cat_id, cat_title, cat_url ' .
+            'SELECT cat_id, cat_title, cat_url ' .  // @phpstan-ignore-line
             'FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
         ));
@@ -177,7 +181,7 @@ class FlatImportV2 extends FlatBackup
         $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
         $rs = new MetaRecord($this->con->select(
-            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
+            'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' . // @phpstan-ignore-line
             "WHERE blog_id = '" . $this->con->escape(App::blog()->id()) . "'"
         ));
 
@@ -771,7 +775,7 @@ class FlatImportV2 extends FlatBackup
             return $this->stack['users'][$user_id];
         }
 
-        $strReq = 'SELECT user_id ' .
+        $strReq = 'SELECT user_id ' .   // @phpstan-ignore-line
         'FROM ' . $this->prefix . App::auth()::USER_TABLE_NAME . ' ' .
         "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
 
@@ -784,14 +788,14 @@ class FlatImportV2 extends FlatBackup
 
     private function prefExists(string $pref_ws, string $pref_id, ?string $user_id): bool
     {
-        $strReq = 'SELECT pref_id,pref_ws,user_id ' .
+        $strReq = 'SELECT pref_id,pref_ws,user_id ' .   // @phpstan-ignore-line
         'FROM ' . $this->prefix . App::userWorkspace()::WS_TABLE_NAME . ' ' .
         "WHERE pref_id = '" . $this->con->escape($pref_id) . "' " .
         "AND pref_ws = '" . $this->con->escape($pref_ws) . "' ";
         if (!$user_id) {
             $strReq .= 'AND user_id IS NULL ';
         } else {
-            $strReq .= "AND user_id = '" . $this->con->escape($user_id) . "' ";
+            $strReq .= "AND user_id = '" . $this->con->escape($user_id) . "' "; // @phpstan-ignore-line
         }
 
         $rs = new MetaRecord($this->con->select($strReq));
@@ -801,7 +805,7 @@ class FlatImportV2 extends FlatBackup
 
     private function mediaExists(): bool
     {
-        $strReq = 'SELECT media_id ' .
+        $strReq = 'SELECT media_id ' .  // @phpstan-ignore-line
         'FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME . ' ' .
         "WHERE media_path = '" . $this->con->escape($this->cur_media->media_path) . "' " .
         "AND media_file = '" . $this->con->escape($this->cur_media->media_file) . "' ";

@@ -144,6 +144,9 @@ class Update
         # Check cached file
         if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl) && !$nocache) {
             $c = @file_get_contents($this->cache_file);
+            if ($c === false) {
+                return null;
+            }
             $c = @unserialize($c);
             if (is_array($c)) {
                 $this->version_info = $c;
@@ -188,7 +191,7 @@ class Update
             };
 
             $client = $http_get($this->url);
-            if ($status >= 400) {
+            if ($client !== false && $status >= 400) {
                 // If original URL uses HTTPS, try with HTTP
                 $url_parts = parse_url($client->getRequestURL());
                 if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
@@ -197,7 +200,7 @@ class Update
                     $client    = $http_get($this->url);
                 }
             }
-            if (!$status || $status >= 400) {
+            if ($client === false || !$status || $status >= 400) {
                 throw new Exception();
             }
             $this->readVersion($client->getContent());
@@ -393,7 +396,7 @@ class Update
             };
 
             $client = $http_get($url);
-            if ($status >= 400) {
+            if ($client !== false && $status >= 400) {
                 // If original URL uses HTTPS, try with HTTP
                 $url_parts = parse_url($client->getRequestURL());
                 if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
@@ -474,10 +477,13 @@ class Update
             throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
         }
 
+        $new_files   = [];
         $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $cur_digests = file($root_digests, $opts);
         $new_digests = explode("\n", $zip->unzip($zip_digests));
-        $new_files   = $this->getNewFiles($cur_digests, $new_digests);
+        if ($cur_digests !== false && $new_digests !== false) {
+            $new_files = $this->getNewFiles($cur_digests, $new_digests);
+        }
         $zip->close();
         unset($opts, $cur_digests, $new_digests, $zip);
 
@@ -545,10 +551,13 @@ class Update
             throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
         }
 
+        $new_files   = [];
         $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $cur_digests = file($root_digests, $opts);
         $new_digests = explode("\n", $zip->unzip($zip_digests));
-        $new_files   = self::getNewFiles($cur_digests, $new_digests);
+        if ($cur_digests !== false && $new_digests !== false) {
+            $new_files = self::getNewFiles($cur_digests, $new_digests);
+        }
 
         if (!empty($this->forced_files)) {
             $new_files = array_merge($new_files, $this->forced_files);
@@ -677,17 +686,19 @@ class Update
 
         $changes = [];
 
-        foreach ($contents as $digest) {
-            if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
-                continue;
-            }
+        if ($contents !== false) {
+            foreach ($contents as $digest) {
+                if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
+                    continue;
+                }
 
-            $md5      = $m[1];
-            $filename = $root . '/' . $m[2];
+                $md5      = $m[1];
+                $filename = $root . '/' . $m[2];
 
-            // Invalid checksum
-            if (!is_readable($filename) || !self::md5_check($filename, $md5)) {
-                $changes[] = substr($m[2], 2);
+                // Invalid checksum
+                if (!is_readable($filename) || !self::md5_check($filename, $md5)) {
+                    $changes[] = substr($m[2], 2);
+                }
             }
         }
 
@@ -729,10 +740,12 @@ class Update
             return true;
         }
         $filecontent = file_get_contents($filename);
-        $filecontent = str_replace("\r\n", "\n", $filecontent);
-        $filecontent = str_replace("\r", "\n", $filecontent);
-        if (md5($filecontent) == $md5) {
-            return true;
+        if ($filecontent !== false) {
+            $filecontent = str_replace("\r\n", "\n", $filecontent);
+            $filecontent = str_replace("\r", "\n", $filecontent);
+            if (md5($filecontent) == $md5) {
+                return true;
+            }
         }
 
         return false;

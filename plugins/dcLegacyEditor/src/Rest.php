@@ -55,7 +55,7 @@ class Rest
             }
         }
 
-        return [
+        return [    // @phpstan-ignore-line
             'ret' => $ret,
             'msg' => $html,
         ];

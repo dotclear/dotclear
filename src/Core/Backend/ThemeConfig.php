@@ -245,7 +245,7 @@ class ThemeConfig
         $public = Path::real(App::blog()->publicPath());
         $css    = self::cssPath($folder);
 
-        if (!is_dir($public)) {
+        if ($public === false || !is_dir($public)) {
             App::error()->add(__('The \'public\' directory does not exist.'));
 
             return false;
@@ -386,6 +386,12 @@ class ThemeConfig
         $public = Path::real(App::blog()->publicPath());
         $imgs   = self::imagesPath($folder);
 
+        if ($imgs === false) {
+            App::error()->add(sprintf(__('The \'%s\' directory cannot be created.'), $folder));
+
+            return false;
+        }
+
         if (!function_exists('imagecreatetruecolor') || !function_exists('imagepng') || !function_exists('imagecreatefrompng')) {
             App::error()->add(__('At least one of the following functions is not available: ' .
                 'imagecreatetruecolor, imagepng & imagecreatefrompng.'));
@@ -393,7 +399,7 @@ class ThemeConfig
             return false;
         }
 
-        if (!is_dir($public)) {
+        if ($public === false || !is_dir($public)) {
             App::error()->add(__('The \'public\' directory does not exist.'));
 
             return false;
@@ -451,7 +457,7 @@ class ThemeConfig
 
         if ($width) {
             $size = getimagesize($dest);
-            if ($size[0] != $width) {
+            if ($size !== false && $size[0] != $width) {
                 throw new Exception(sprintf(__('Uploaded image is not %s pixels wide.'), $width));
             }
         }
@@ -468,7 +474,7 @@ class ThemeConfig
     public static function dropImage(string $folder, string $img): void
     {
         $img = Path::real(self::imagesPath($folder) . '/' . $img);
-        if (is_writable(dirname($img))) {
+        if ($img !== false && is_writable(dirname($img))) {
             // Delete thumbnails if any
             try {
                 App::media()->imageThumbRemove($img);

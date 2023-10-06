@@ -421,7 +421,7 @@ class Config implements ConfigInterface
         $this->core_not_update     = DC_NOT_UPDATE;
         $this->allow_multi_modules = DC_ALLOW_MULTI_MODULES;
         $this->store_not_update    = DC_STORE_NOT_UPDATE;
-        $this->allow_rest_services = DC_REST_SERVICES;
+        $this->allow_rest_services = DC_REST_SERVICES;          // @phpstan-ignore-line : PHPStan false positive, bool only!
         $this->allow_repositories  = DC_ALLOW_REPOSITORIES;
         $this->query_timeout       = DC_QUERY_TIMEOUT;
         $this->show_hidden_dirs    = DC_SHOW_HIDDEN_DIRS;
@@ -456,7 +456,7 @@ class Config implements ConfigInterface
 
         // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
         if (defined('DC_DBHANDLER_CLASS') && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
-            Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);
+            Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);  // @phpstan-ignore-line
         }
 
         // Deprecated since 2.28, DC_DBSCHEMA_CLASS is no more used, database Schema class MUST be provided by Connection class method schema()

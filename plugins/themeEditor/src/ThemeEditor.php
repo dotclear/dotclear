@@ -106,13 +106,15 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->user_theme   = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
+        $user_theme_path    = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
+        $this->user_theme   = $user_theme_path !== false ? $user_theme_path : '';
         $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . App::config()->defaultTplset();
         $this->tplset_name  = App::config()->defaultTplset();
         if (null !== App::themes()) {
             $parent_theme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'parent');
             if ($parent_theme) {
-                $this->parent_theme = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
+                $parent_theme_path  = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
+                $this->parent_theme = $parent_theme_path !== false ? $parent_theme_path : '';
                 $this->parent_name  = $parent_theme;
             }
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
@@ -328,7 +330,7 @@ class ThemeEditor
 
         try {
             $dest = $this->getDestinationFile($type, $f);
-            if ($dest) {
+            if ($dest !== false) {
                 // File exists and may be deleted
                 unlink($dest);
 
@@ -346,7 +348,7 @@ class ThemeEditor
      * @param   string  $type   The type
      * @param   string  $f      The file ID
      *
-     * @return  bool|string     The destination file.
+     * @return  false|string     The destination file.
      */
     protected function getDestinationFile(string $type, string $f)
     {
@@ -548,12 +550,15 @@ class ThemeEditor
             return [];
         }
 
-        $d   = dir($dir);
         $res = [];
-        while (($f = $d->read()) !== false) {
-            if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f))) {
-                if (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f)) {
-                    $res[$prefix . $f] = $dir . '/' . $f;
+
+        $d = dir($dir);
+        if ($d !== false) {
+            while (($f = $d->read()) !== false) {
+                if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f))) {
+                    if (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f)) {
+                        $res[$prefix . $f] = $dir . '/' . $f;
+                    }
                 }
             }
         }

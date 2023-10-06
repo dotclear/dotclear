@@ -363,10 +363,11 @@ class BackendBehaviors
                 if ($posts_count == $n) {
                     $label = sprintf($label, '%s', '<strong>%s</strong>');
                 }
+                $key = (string) $k;
                 echo '<p>' . sprintf(
                     $label,
-                    form::checkbox(['meta_id[]'], Html::escapeHTML($k)),
-                    Html::escapeHTML($k)
+                    form::checkbox(['meta_id[]'], Html::escapeHTML($key)),
+                    Html::escapeHTML($key)
                 ) .
                     '</p>';
             }

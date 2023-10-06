@@ -127,7 +127,14 @@ class Combos
     {
         $all_langs = L10n::getISOcodes(false, true);
         if ($with_available) {
-            $langs_combo = ['' => '', __('Most used') => [], __('Available') => L10n::getISOcodes(true, true)];
+            /**
+             * @var        array<string, mixed>
+             */
+            $langs_combo = [
+                ''              => '',
+                __('Most used') => [],
+                __('Available') => L10n::getISOcodes(true, true),
+            ];
             while ($langs->fetch()) {
                 if (isset($all_langs[$langs->post_lang])) {
                     $langs_combo[__('Most used')][$all_langs[$langs->post_lang]] = $langs->post_lang;
@@ -137,6 +144,9 @@ class Combos
                 }
             }
         } else {
+            /**
+             * @var        array<string, mixed>
+             */
             $langs_combo = [];
             while ($langs->fetch()) {
                 $lang_name               = $all_langs[$langs->post_lang] ?? $langs->post_lang;
@@ -145,7 +155,7 @@ class Combos
         }
         unset($all_langs);
 
-        return $langs_combo;
+        return $langs_combo;    // @phpstan-ignore-line
     }
 
     /**

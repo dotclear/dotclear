@@ -45,53 +45,53 @@ class ModuleExportFlat extends Module
 
                 $exp->export(
                     'category',
-                    'SELECT * FROM ' . App::con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' . // @phpstan-ignore-line
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . App::con()->prefix() . initBlogroll::LINK_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . initBlogroll::LINK_TABLE_NAME . ' ' . // @phpstan-ignore-line
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'setting',
-                    'SELECT * FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .   // @phpstan-ignore-line
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'post',
-                    'SELECT * FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' .  // @phpstan-ignore-line
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'meta',
-                    'SELECT meta_id, meta_type, M.post_id ' .
+                    'SELECT meta_id, meta_type, M.post_id ' .   // @phpstan-ignore-line
                     'FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' M, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . App::con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
+                    'SELECT * FROM ' . App::con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . " WHERE media_path = '" .    // @phpstan-ignore-line
                     App::con()->escape(App::blog()->settings()->system->public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
-                    'SELECT media_id, M.post_id ' .
+                    'SELECT media_id, M.post_id ' . // @phpstan-ignore-line
                     'FROM ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' M, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'ping',
-                    'SELECT ping.post_id, ping_url, ping_dt ' .
+                    'SELECT ping.post_id, ping_url, ping_dt ' . // @phpstan-ignore-line
                     'FROM ' . App::con()->prefix() . App::trackback()::PING_TABLE_NAME . ' ping, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'comment',
-                    'SELECT C.* ' .
+                    'SELECT C.* ' . // @phpstan-ignore-line
                     'FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' C, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"

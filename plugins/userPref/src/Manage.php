@@ -148,7 +148,7 @@ class Manage extends Process
             '<tbody>';
         $table_footer = '</tbody></table></div>';
 
-        /** @var array<string|UserWorkspaceInterface> */
+        /** @var array<string, UserWorkspaceInterface> */
         $workspaces = App::auth()->prefs()->dumpWorkspaces();
         $prefs      = [];
         if ($global) {

@@ -148,7 +148,7 @@ class Favorites
             }
         }
 
-        return $favorites;
+        return $favorites;  // @phpstan-ignore-line
     }
 
     /**

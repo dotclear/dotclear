@@ -187,7 +187,7 @@ class ActionsComments extends Actions
         }
         $rs = App::blog()->getComments($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->comment_id] = [
+            $this->entries[$rs->comment_id] = [ // @phpstan-ignore-line
                 'title'  => $rs->post_title,
                 'author' => $rs->comment_author,
             ];

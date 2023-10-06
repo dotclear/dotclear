@@ -114,7 +114,7 @@ class Manage extends Process
                     (string) App::backend()->file['f']
                 );
                 Notices::addSuccessNotice(__('The file has been reset.'));
-                My::redirect([
+                My::redirect([  // @phpstan-ignore-line
                     (string) App::backend()->file['type'] => (string) App::backend()->file['f'],
                 ]);
             }

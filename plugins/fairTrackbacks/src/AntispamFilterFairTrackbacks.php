@@ -89,7 +89,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
         try {
             // Check source site URL
             $default_parse = ['scheme' => '', 'host' => '', 'path' => '', 'query' => ''];
-            $site_parts    = array_merge($default_parse, parse_url($site));
+            $site_parts    = array_merge($default_parse, parse_url($site)); // @phpstan-ignore-line
 
             if (($site_parts['scheme'] !== 'http' && $site_parts['scheme'] !== 'https') || !$site_parts['host'] || !$site_parts['path']) {
                 throw new Exception('Invalid URL');
@@ -98,7 +98,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             // Check incomink link page
             $post       = App::blog()->getPosts(['post_id' => $post_id]);
             $post_url   = $post->getURL();
-            $post_parts = array_merge($default_parse, parse_url($post_url));
+            $post_parts = array_merge($default_parse, parse_url($post_url));    // @phpstan-ignore-line
 
             if ($post_url === $site) {
                 throw new Exception('Same source and destination');
@@ -106,6 +106,9 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 
             $path       = '';
             $http_query = HttpClient::initClient($site, $path);
+            if ($http_query === false) {
+                throw new Exception('Unable to make an HTTP request');
+            }
             $http_query->setTimeout(App::config()->queryTimeout());
             $http_query->get($path);
 

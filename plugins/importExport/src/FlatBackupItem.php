@@ -39,7 +39,9 @@ class FlatBackupItem
 
     public function f(string $name): string
     {
-        return iconv('UTF-8', 'UTF-8//IGNORE', (string) $this->__data[$name]);
+        $ret = iconv('UTF-8', 'UTF-8//IGNORE', (string) $this->__data[$name]);
+
+        return $ret === false ? (string) $this->__data[$name] : $ret;
     }
 
     public function __get(string $name): mixed

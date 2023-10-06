@@ -42,7 +42,7 @@ class FrontendBehaviors
     {
         if (($block == 'Entries' || $block == 'Comments') && isset($attr['tag'])) {
             return
-            "<?php\n" .
+            "<?php\n" . // @phpstan-ignore-line
             "if (!isset(\$params)) { \$params = []; }\n" .
             "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
             "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .

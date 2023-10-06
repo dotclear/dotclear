@@ -292,9 +292,11 @@ class ModuleImportFlat extends Module
     {
         $ret = false;
 
-        $fp  = fopen($entry_path, 'rb');
-        $ret = str_starts_with((string) fgets($fp), '///DOTCLEAR|');
-        fclose($fp);
+        $fp = fopen($entry_path, 'rb');
+        if ($fp !== false) {
+            $ret = str_starts_with((string) fgets($fp), '///DOTCLEAR|');
+            fclose($fp);
+        }
 
         return $ret;
     }
@@ -306,7 +308,7 @@ class ModuleImportFlat extends Module
      *
      * @throws  Exception
      *
-     * @return  bool|string
+     * @return  false|string
      */
     private function unzip(string $file)
     {
