@@ -23,6 +23,8 @@ class Fault
     /**
      * The application configuration (if loaded).
      *
+     * Class can work without Config for early exception.
+     *
      * @var     Config  $config
      */
     public static ?Config $config = null;
@@ -56,6 +58,20 @@ class Fault
 
         // Render HTTP page
         self::render($code, $label, $message, $trace);
+    }
+
+    /**
+     * Set exception handler.
+     *
+     * Set Fault as exception handler if another one is not set.
+     */
+    public static function setExceptionHandler(): void
+    {
+        // Set exception handler
+        if (set_exception_handler(function (Throwable $exception) { new self($exception); }) !== null) {
+            // Keep previously defined exception handler if any
+            restore_exception_handler();
+        }
     }
 
     /**
