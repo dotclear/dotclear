@@ -65,7 +65,7 @@ class Blogs implements BlogsInterface
      * @param      string  $id          The identifier
      * @param      bool    $with_super  The with super
      *
-     * @return     array<string, array<string, mixed>>   The blog permissions.
+     * @return     array<int|string, array<string, mixed>>   The blog permissions.
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
@@ -159,7 +159,7 @@ class Blogs implements BlogsInterface
                 '%2$s ';
 
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';    // @phpstan-ignore-line
             } else {
                 $strReq .= 'ORDER BY B.blog_id ASC ';
             }
@@ -171,7 +171,7 @@ class Blogs implements BlogsInterface
 
         if ($this->blog->auth()->userID() && !$this->blog->auth()->isSuperAdmin()) {
             $join  = 'INNER JOIN ' . $this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
-            $where = "AND PE.user_id = '" . $this->con->escape($this->blog->auth()->userID()) . "' " .
+            $where = "AND PE.user_id = '" . $this->con->escape($this->blog->auth()->userID()) . "' " .  // @phpstan-ignore-line
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
                 'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
         } elseif (!$this->blog->auth()->userID()) {
@@ -191,7 +191,7 @@ class Blogs implements BlogsInterface
 
         if (!empty($params['q'])) {
             $params['q'] = strtolower(str_replace('*', '%', $params['q']));
-            $where .= 'AND (' .
+            $where .= 'AND (' . // @phpstan-ignore-line
             "LOWER(B.blog_id) LIKE '" . $this->con->escape($params['q']) . "' " .
             "OR LOWER(B.blog_name) LIKE '" . $this->con->escape($params['q']) . "' " .
             "OR LOWER(B.blog_url) LIKE '" . $this->con->escape($params['q']) . "' " .
@@ -224,7 +224,7 @@ class Blogs implements BlogsInterface
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->con->escape($id) . "'");
+        $cur->update("WHERE blog_id = '" . $this->con->escape($id) . "'");  // @phpstan-ignore-line
     }
 
     /**

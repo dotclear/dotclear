@@ -421,15 +421,17 @@ class Ctx
 
         $args['cat_url'] = preg_split('/\s*,\s*/', $args['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
 
-        $pattern = '/#self/';
-        foreach ($args['cat_url'] as &$cat_url) {
-            if ($not) {
-                $cat_url .= ' ?not';
-            }
-            if (App::frontend()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
-                $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->categories->cat_url, $cat_url);
-            } elseif (App::frontend()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
-                $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->posts->cat_url, $cat_url);
+        if ($args['cat_url'] !== false) {
+            $pattern = '/#self/';
+            foreach ($args['cat_url'] as &$cat_url) {
+                if ($not) {
+                    $cat_url .= ' ?not';
+                }
+                if (App::frontend()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
+                    $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->categories->cat_url, $cat_url);
+                } elseif (App::frontend()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
+                    $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->posts->cat_url, $cat_url);
+                }
             }
         }
     }
@@ -561,8 +563,12 @@ class Ctx
             'FOLLOW'  => 'FOLLOW',
             'ARCHIVE' => 'ARCHIVE',
         ];
-        $bases = array_flip(preg_split('/\s*,\s*/', $base));
-        $overs = array_flip(preg_split('/\s*,\s*/', $over));
+
+        $bases = preg_split('/\s*,\s*/', $base);
+        $overs = preg_split('/\s*,\s*/', $over);
+
+        $bases = $bases !== false ? array_flip($bases) : [];
+        $overs = $overs !== false ? array_flip($overs) : [];
 
         foreach ($policies as $key => &$value) {
             if (isset($bases[$key]) || isset($bases['NO' . $key])) {
@@ -726,11 +732,13 @@ class Ctx
 
         $parts = preg_split("{($match)}", $str, -1, PREG_SPLIT_DELIM_CAPTURE);
 
-        foreach ($parts as $part) {
-            if (++$index % 2 && $part != '') {
-                $tokens[] = ['text', $part];
-            } else {
-                $tokens[] = ['tag', $part];
+        if ($parts !== false) {
+            foreach ($parts as $part) {
+                if (++$index % 2 && $part != '') {
+                    $tokens[] = ['text', $part];
+                } else {
+                    $tokens[] = ['tag', $part];
+                }
             }
         }
 

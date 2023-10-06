@@ -362,7 +362,7 @@ class Categories implements CategoriesInterface
      */
     protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
-        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape($this->blog_id) . "' ";
+        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escape($this->blog_id) . "' ";    // @phpstan-ignore-line
     }
 
     /**

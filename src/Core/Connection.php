@@ -51,7 +51,7 @@ abstract class Connection implements ConnectionInterface
             $driver = 'mysqli';
         }
 
-        return new (self::getDriverNamespace(ConnectionInterface::class, 'Handler', $driver))($host, $database, $user, $password, $persistent, $prefix);
+        return new (self::getDriverNamespace(ConnectionInterface::class, 'Handler', $driver))($host, $database, $user, $password, $persistent, $prefix);    // @phpstan-ignore-line
     }
 
     /**
@@ -61,7 +61,7 @@ abstract class Connection implements ConnectionInterface
      */
     public function schema(): SchemaInterface
     {
-        return new (self::getDriverNamespace(SchemaInterface::class, 'Schema', $this->driver()))($this);
+        return new (self::getDriverNamespace(SchemaInterface::class, 'Schema', $this->driver()))($this);    // @phpstan-ignore-line
     }
 
     /**

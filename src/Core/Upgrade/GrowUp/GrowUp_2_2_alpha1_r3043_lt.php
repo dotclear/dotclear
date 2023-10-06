@@ -37,7 +37,7 @@ class GrowUp_2_2_alpha1_r3043_lt
             $cur->setting_value = base64_encode($widgetsettings);
             $sqlstr             = 'WHERE setting_id = \'' . $rs->setting_id . '\' AND setting_ns = \'widgets\' ' .
                 'AND blog_id ' .
-                ($rs->blog_id == null ? 'is NULL' : '= \'' . App::con()->escape($rs->blog_id) . '\'');
+                ($rs->blog_id == null ? 'is NULL' : '= \'' . App::con()->escape($rs->blog_id) . '\'');  // @phpstan-ignore-line
             $cur->update($sqlstr);
         }
 

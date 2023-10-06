@@ -38,10 +38,12 @@ class GrowUp_2_17_lt
             'help/blowupConfig.html',
             'help/themeEditor.html',
         ];
-        foreach ($remtree as $dir) {
-            if (is_dir(App::config()->dotclearRoot() . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
-                foreach ($remfiles as $f) {
-                    @unlink(App::config()->dotclearRoot() . '/' . 'locales' . '/' . $dir . '/' . $f);
+        if ($remtree !== false) {
+            foreach ($remtree as $dir) {
+                if (is_dir(App::config()->dotclearRoot() . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
+                    foreach ($remfiles as $f) {
+                        @unlink(App::config()->dotclearRoot() . '/' . 'locales' . '/' . $dir . '/' . $f);
+                    }
                 }
             }
         }

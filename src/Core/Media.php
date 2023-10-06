@@ -259,6 +259,11 @@ class Media extends Manager implements MediaInterface
         };
     }
 
+    /**
+     * Gets the thumb sizes.
+     *
+     * @return     array<string, mixed>  The thumb sizes.
+     */
     public function getThumbSizes(): array
     {
         return $this->thumb_sizes;
@@ -1002,7 +1007,11 @@ class Media extends Manager implements MediaInterface
                 if ($dt) {
                     $cur->media_dt = (string) $dt;
                 } else {
-                    $cur->media_dt = Date::strftime('%Y-%m-%d %H:%M:%S', filemtime($file));
+                    $ft = filemtime($file);
+                    if ($ft === false) {
+                        $ft = 0;
+                    }
+                    $cur->media_dt = Date::strftime('%Y-%m-%d %H:%M:%S', $ft);
                 }
 
                 try {
@@ -1235,13 +1244,15 @@ class Media extends Manager implements MediaInterface
 
             return preg_replace('/[^A-Za-z0-9._\-\/]/u', '_', $n);
         };
-        foreach ($list as $zk => $zv) {
-            // Check if extracted file exists
-            $zf = $target . '/' . $zk;
-            if (!$zv['is_dir'] && file_exists($zf)) {
-                $zt = $clean($zf);
-                if ($zt != $zf) {
-                    rename($zf, $zt);
+        if ($list !== false) {
+            foreach ($list as $zk => $zv) {
+                // Check if extracted file exists
+                $zf = $target . '/' . $zk;
+                if (!$zv['is_dir'] && file_exists($zf)) {
+                    $zt = $clean($zf);
+                    if ($zt != $zf) {
+                        rename($zf, $zt);
+                    }
                 }
             }
         }

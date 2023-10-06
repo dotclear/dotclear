@@ -306,7 +306,7 @@ class Blog implements BlogInterface
 
         if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
             $join  = 'INNER JOIN ' . $this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
-            $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
+            $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .  // @phpstan-ignore-line
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
                 'AND blog_status IN (' . (string) self::BLOG_ONLINE . ',' . (string) self::BLOG_OFFLINE . ') ';
         } elseif (!$this->auth->userID()) {
@@ -724,7 +724,7 @@ class Blog implements BlogInterface
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $params  The parameters
      *
-     * @return     array<int, int>  The categories counter.
+     * @return     array<int|string, mixed>  The categories counter.
      */
     private function getCategoriesCounter($params = []): array
     {
@@ -1304,7 +1304,7 @@ class Blog implements BlogInterface
         $params['post_type'] = $post->post_type;
         $params['limit']     = 1;
         $params['order']     = 'post_dt ' . $order . ', P.post_id ' . $order;
-        $params['sql']       = 'AND ( ' .
+        $params['sql']       = 'AND ( ' .   // @phpstan-ignore-line
             "   (post_dt = '" . $this->con->escape($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
             '   OR post_dt ' . $sign . " '" . $this->con->escape($dt) . "' " .
             ') ';
@@ -1314,7 +1314,7 @@ class Blog implements BlogInterface
         }
 
         if ($restrict_to_lang) {
-            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->con->escape($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
+            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->con->escape($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';    // @phpstan-ignore-line
         }
 
         $rs = $this->getPosts($params);
@@ -1966,23 +1966,25 @@ class Blog implements BlogInterface
         foreach ($arr as $v) {
             $v    = trim((string) $v);
             $args = preg_split('/\s*[?]\s*/', $v, -1, PREG_SPLIT_NO_EMPTY);
-            $id   = array_shift($args);
-            $args = array_flip($args);
+            if ($args !== false) {
+                $id   = array_shift($args);
+                $args = array_flip($args);
 
-            if (isset($args['not'])) {
-                $not[$id] = 1;
-            }
-            if (isset($args['sub'])) {
-                $sub[$id] = 1;
-            }
-            if ($field == 'cat_id') {
-                if (preg_match('/^null$/i', (string) $id)) {
-                    $queries[$id] = 'P.cat_id IS NULL';
-                } else {
-                    $queries[$id] = 'P.cat_id = ' . (int) $id;
+                if (isset($args['not'])) {
+                    $not[$id] = 1;
                 }
-            } else {
-                $queries[$id] = "C.cat_url = '" . $this->con->escape($id) . "' ";
+                if (isset($args['sub'])) {
+                    $sub[$id] = 1;
+                }
+                if ($field == 'cat_id') {
+                    if (preg_match('/^null$/i', (string) $id)) {
+                        $queries[$id] = 'P.cat_id IS NULL';
+                    } else {
+                        $queries[$id] = 'P.cat_id = ' . (int) $id;
+                    }
+                } else {
+                    $queries[$id] = "C.cat_url = '" . $this->con->escape($id) . "' ";   // @phpstan-ignore-line
+                }
             }
         }
 
@@ -2165,10 +2167,11 @@ class Blog implements BlogInterface
     {
         $url = trim((string) $url);
 
+        $dt           = (int) strtotime($post_dt);
         $url_patterns = [
-            '{y}'  => date('Y', strtotime($post_dt)),
-            '{m}'  => date('m', strtotime($post_dt)),
-            '{d}'  => date('d', strtotime($post_dt)),
+            '{y}'  => date('Y', $dt),
+            '{m}'  => date('m', $dt),
+            '{d}'  => date('d', $dt),
             '{t}'  => Text::tidyURL($post_title),
             '{id}' => (int) $post_id,
         ];

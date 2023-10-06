@@ -271,7 +271,7 @@ class Tpl extends Template
             App::behavior()->callBehavior('tplAfterDataV2', self::$_r);
         }
 
-        return self::$_r;
+        return (string) self::$_r;
     }
 
     /**
@@ -337,6 +337,7 @@ class Tpl extends Template
      */
     public function getFilters($attr, $default = []): string
     {
+        $def    = $default instanceof ArrayObject ? $default->getArrayCopy() : $default;
         $params = array_merge(
             [
                 0             => null,  // Will receive the string to filter
@@ -350,7 +351,7 @@ class Tpl extends Template
                 'capitalize'  => 0,
                 'strip_tags'  => 0,
             ],
-            $default
+            $def
         );
 
         foreach ($attr as $filter => $value) {
@@ -1448,20 +1449,22 @@ class Tpl extends Template
         if (isset($attr['url'])) {
             $url  = addslashes(trim((string) $attr['url']));
             $args = preg_split('/\s*[?]\s*/', $url, -1, PREG_SPLIT_NO_EMPTY);
-            $url  = array_shift($args);
-            $args = array_flip($args);
-            if (substr($url, 0, 1) == '!') {
-                $url = substr($url, 1);
-                if (isset($args['sub'])) {
-                    $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+            if ($args !== false) {
+                $url  = array_shift($args);
+                $args = array_flip($args);
+                if (substr($url, 0, 1) == '!') {
+                    $url = substr($url, 1);
+                    if (isset($args['sub'])) {
+                        $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                    } else {
+                        $if[] = '(App::frontend()->ctx->categories->cat_url != "' . $url . '")';
+                    }
                 } else {
-                    $if[] = '(App::frontend()->ctx->categories->cat_url != "' . $url . '")';
-                }
-            } else {
-                if (isset($args['sub'])) {
-                    $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
-                } else {
-                    $if[] = '(App::frontend()->ctx->categories->cat_url == "' . $url . '")';
+                    if (isset($args['sub'])) {
+                        $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                    } else {
+                        $if[] = '(App::frontend()->ctx->categories->cat_url == "' . $url . '")';
+                    }
                 }
             }
         }
@@ -1471,20 +1474,22 @@ class Tpl extends Template
             if (is_array($urls)) {
                 foreach ($urls as $url) {
                     $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
-                    $url  = array_shift($args);
-                    $args = array_flip($args);
-                    if (substr($url, 0, 1) == '!') {
-                        $url = substr($url, 1);
-                        if (isset($args['sub'])) {
-                            $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                    if ($args !== false) {
+                        $url  = array_shift($args);
+                        $args = array_flip($args);
+                        if (substr($url, 0, 1) == '!') {
+                            $url = substr($url, 1);
+                            if (isset($args['sub'])) {
+                                $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                            } else {
+                                $if[] = '(App::frontend()->ctx->categories->cat_url != "' . $url . '")';
+                            }
                         } else {
-                            $if[] = '(App::frontend()->ctx->categories->cat_url != "' . $url . '")';
-                        }
-                    } else {
-                        if (isset($args['sub'])) {
-                            $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
-                        } else {
-                            $if[] = '(App::frontend()->ctx->categories->cat_url == "' . $url . '")';
+                            if (isset($args['sub'])) {
+                                $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                            } else {
+                                $if[] = '(App::frontend()->ctx->categories->cat_url == "' . $url . '")';
+                            }
                         }
                     }
                 }
@@ -1931,20 +1936,22 @@ class Tpl extends Template
         if (isset($attr['category'])) {
             $category = addslashes(trim((string) $attr['category']));
             $args     = preg_split('/\s*[?]\s*/', $category, -1, PREG_SPLIT_NO_EMPTY);
-            $category = array_shift($args);
-            $args     = array_flip($args);
-            if (substr($category, 0, 1) == '!') {
-                $category = substr($category, 1);
-                if (isset($args['sub'])) {
-                    $if[] = '(!App::frontend()->ctx->posts->underCat("' . $category . '"))';
+            if ($args !== false) {
+                $category = array_shift($args);
+                $args     = array_flip($args);
+                if (substr($category, 0, 1) == '!') {
+                    $category = substr($category, 1);
+                    if (isset($args['sub'])) {
+                        $if[] = '(!App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                    } else {
+                        $if[] = '(App::frontend()->ctx->posts->cat_url != "' . $category . '")';
+                    }
                 } else {
-                    $if[] = '(App::frontend()->ctx->posts->cat_url != "' . $category . '")';
-                }
-            } else {
-                if (isset($args['sub'])) {
-                    $if[] = '(App::frontend()->ctx->posts->underCat("' . $category . '"))';
-                } else {
-                    $if[] = '(App::frontend()->ctx->posts->cat_url == "' . $category . '")';
+                    if (isset($args['sub'])) {
+                        $if[] = '(App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                    } else {
+                        $if[] = '(App::frontend()->ctx->posts->cat_url == "' . $category . '")';
+                    }
                 }
             }
         }
@@ -1953,21 +1960,23 @@ class Tpl extends Template
             $categories = explode(',', addslashes(trim((string) $attr['categories'])));
             if (is_array($categories)) {
                 foreach ($categories as $category) {
-                    $args     = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
-                    $category = array_shift($args);
-                    $args     = array_flip($args);
-                    if (substr($category, 0, 1) == '!') {
-                        $category = substr($category, 1);
-                        if (isset($args['sub'])) {
-                            $if[] = '(!App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                    $args = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
+                    if ($args !== false) {
+                        $category = array_shift($args);
+                        $args     = array_flip($args);
+                        if (substr($category, 0, 1) == '!') {
+                            $category = substr($category, 1);
+                            if (isset($args['sub'])) {
+                                $if[] = '(!App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                            } else {
+                                $if[] = '(App::frontend()->ctx->posts->cat_url != "' . $category . '")';
+                            }
                         } else {
-                            $if[] = '(App::frontend()->ctx->posts->cat_url != "' . $category . '")';
-                        }
-                    } else {
-                        if (isset($args['sub'])) {
-                            $if[] = '(App::frontend()->ctx->posts->underCat("' . $category . '"))';
-                        } else {
-                            $if[] = '(App::frontend()->ctx->posts->cat_url == "' . $category . '")';
+                            if (isset($args['sub'])) {
+                                $if[] = '(App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                            } else {
+                                $if[] = '(App::frontend()->ctx->posts->cat_url == "' . $category . '")';
+                            }
                         }
                     }
                 }

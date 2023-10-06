@@ -130,6 +130,9 @@ class Trackback implements TrackbackInterface
             try {
                 $path = '';
                 $http = self::initHttp($ping_parts[0], $path);
+                if ($http === false) {
+                    throw new BadRequestException(__('Unable to ping URL'));
+                }
                 $http->setMoreHeader('Content-Type: application/x-www-form-urlencoded');
                 $http->post($path, $payload, 'UTF-8');
 
@@ -156,9 +159,14 @@ class Trackback implements TrackbackInterface
             ];
 
             # Ping
+            $res = '';
+
             try {
                 $path = '';
                 $http = self::initHttp($url, $path);
+                if ($http === false) {
+                    throw new BadRequestException(__('Unable to ping URL'));
+                }
                 $http->post($path, $data, 'UTF-8');
                 $res = $http->getContent();
             } catch (Throwable) {
@@ -530,7 +538,7 @@ class Trackback implements TrackbackInterface
         $sql
             ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
             ->where('post_id = ' . (string) $post_id)
-            ->and('comment_site = ' . $sql->quote($this->con->escape((string) $url)))
+            ->and('comment_site = ' . $sql->quote($this->con->escape((string) $url)))   // @phpstan-ignore-line
             ->and('comment_trackback = 1')
             ->delete();
     }
@@ -640,17 +648,25 @@ class Trackback implements TrackbackInterface
      */
     private function getRemoteContent(string $from_url): string
     {
+        $remote_content = '';
+
         $from_path = '';
         $http      = self::initHttp($from_url, $from_path);
+        if ($http === false) {
+            return '';
+        }
 
         # First round : just to be sure the ping comes from an acceptable resource type.
         $http->setHeadersOnly(true);
         $http->get($from_path);
-        $c_type = explode(';', $http->getHeader('content-type'));
+        $header_ct = $http->getHeader('content-type');
+        if ($header_ct !== false) {
+            $c_type = explode(';', $header_ct);
 
-        # Bad luck. Bye, bye...
-        if (!in_array($c_type[0], ['text/html', 'application/xhtml+xml'])) {
-            throw new BadRequestException(__('Your source URL does not look like a supported content type. Sorry. Bye, bye!'));
+            # Bad luck. Bye, bye...
+            if (!in_array($c_type[0], ['text/html', 'application/xhtml+xml'])) {
+                throw new BadRequestException(__('Your source URL does not look like a supported content type. Sorry. Bye, bye!'));
+            }
         }
 
         # Second round : let's go fetch and parse the remote content
@@ -659,12 +675,18 @@ class Trackback implements TrackbackInterface
         $remote_content = $http->getContent();
 
         # Convert content charset
-        $charset = self::getCharsetFromRequest($http->getHeader('content-type'));
-        if (!$charset) {
-            $charset = self::detectCharset($remote_content);
-        }
-        if (strtolower($charset) != 'utf-8') {
-            $remote_content = iconv($charset, 'UTF-8', $remote_content);
+        $header_ct = $http->getHeader('content-type');
+        if ($header_ct !== false) {
+            $charset = self::getCharsetFromRequest($header_ct);
+            if (!$charset) {
+                $charset = self::detectCharset($remote_content);
+            }
+            if (strtolower($charset) != 'utf-8') {
+                $remote_content = iconv($charset, 'UTF-8', $remote_content);
+                if ($remote_content === false) {
+                    $remote_content = '';
+                }
+            }
         }
 
         return $remote_content;
@@ -784,6 +806,10 @@ class Trackback implements TrackbackInterface
         try {
             $path = '';
             $http = self::initHttp($url, $path);
+            if ($http === false) {
+                return false;
+            }
+
             $http->get($path);
             $page_content = $http->getContent();
             $pb_url       = $http->getHeader('x-pingback');
@@ -800,7 +826,10 @@ class Trackback implements TrackbackInterface
 
         preg_match_all($pattern_rdf, $page_content, $rdf_all, PREG_SET_ORDER);
 
-        $url_path      = parse_url($url, PHP_URL_PATH);
+        $url_path = parse_url($url, PHP_URL_PATH);
+        if ($url_path === false) {
+            $url_path = '';
+        }
         $sanitized_url = str_replace($url_path, Html::sanitizeURL($url_path), $url);
 
         for ($i = 0; $i < count($rdf_all); $i++) {
@@ -829,9 +858,12 @@ class Trackback implements TrackbackInterface
 
         # Nothing, let's try webmention. Only support x/html content
         if ($wm_url) {
-            $type = explode(';', $http->getHeader('content-type'));
-            if (!in_array($type[0], ['text/html', 'application/xhtml+xml'])) {
-                $wm_url = false;
+            $header_ct = $http->getHeader('content-type');
+            if ($header_ct !== false) {
+                $type = explode(';', $header_ct);
+                if (!in_array($type[0], ['text/html', 'application/xhtml+xml'])) {
+                    $wm_url = false;
+                }
             }
         }
 
@@ -872,10 +904,12 @@ class Trackback implements TrackbackInterface
     private static function initHttp(string $url, string &$path)
     {
         $client = HttpClient::initClient($url, $path);
-        $client->setTimeout(self::$query_timeout);
-        $client->setUserAgent('Dotclear - https://dotclear.org/');
-        $client->useGzip(false);
-        $client->setPersistReferers(false);
+        if ($client !== false) {
+            $client->setTimeout(self::$query_timeout);
+            $client->setUserAgent('Dotclear - https://dotclear.org/');
+            $client->useGzip(false);
+            $client->setPersistReferers(false);
+        }
 
         return $client;
     }

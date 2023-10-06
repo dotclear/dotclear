@@ -64,7 +64,7 @@ class Url extends UrlHandler implements UrlInterface
         if (!$url) {
             $url = $this->getBase($type);
             if ($value !== '') {
-                if ($url) {
+                if ($url !== '') {
                     $url .= '/';
                 }
                 $url .= $value;
@@ -87,7 +87,7 @@ class Url extends UrlHandler implements UrlInterface
         $url_handler = new ArrayObject([$type, $url, $representation, $handler]);
         # --BEHAVIOR-- publicRegisterURL -- ArrayObject
         App::behavior()->callBehavior('publicRegisterURL', $url_handler);
-        parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);
+        parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);   // @phpstan-ignore-line
     }
 
     /**
@@ -172,7 +172,7 @@ class Url extends UrlHandler implements UrlInterface
                 if (is_array($url)) {
                     $header = sprintf(
                         'Content-Security-Policy: frame-ancestors \'self\' %s',
-                        $url['scheme'] . '://' . $url['host']
+                        $url['scheme'] . '://' . $url['host']   // @phpstan-ignore-line
                     );
                 }
             }
@@ -188,6 +188,9 @@ class Url extends UrlHandler implements UrlInterface
             header($header);
         }
 
+        /**
+         * @var        ArrayObject<string, mixed>
+         */
         $result = new ArrayObject([
             'content'      => App::frontend()->tpl->getData(App::frontend()->ctx->current_tpl),
             'content_type' => App::frontend()->ctx->content_type,

@@ -127,13 +127,15 @@ class UrlHandler
      *
      * @param      string  $type   The type
      *
-     * @return     void|string
+     * @return     string
      */
-    public function getBase(string $type)
+    public function getBase(string $type): string
     {
         if (isset($this->types[$type])) {
             return $this->types[$type]['url'];
         }
+
+        return '';
     }
 
     /**

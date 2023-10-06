@@ -181,14 +181,14 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
+            $rs2   = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' . // @phpstan-ignore-line
             "SET setting_type='array', setting_value = '" . App::con()->escape($value) . "' " .
             "WHERE setting_id='" . App::con()->escape($rs->setting_id) . "' " .
             "AND setting_ns='" . App::con()->escape($rs->setting_ns) . "' ";
             if ($rs->blog_id == '') {
                 $rs2 .= 'AND blog_id IS null';
             } else {
-                $rs2 .= "AND blog_id = '" . App::con()->escape($rs->blog_id) . "'";
+                $rs2 .= "AND blog_id = '" . App::con()->escape($rs->blog_id) . "'"; // @phpstan-ignore-line
             }
             App::con()->execute($rs2);
         }
@@ -214,14 +214,14 @@ class Upgrade
             }
             settype($value, 'array');
             $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' ' .
+            $rs2   = 'UPDATE ' . App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' ' . // @phpstan-ignore-line
             "SET pref_type='array', pref_value = '" . App::con()->escape($value) . "' " .
             "WHERE pref_id='" . App::con()->escape($rs->pref_id) . "' " .
             "AND pref_ws='" . App::con()->escape($rs->pref_ws) . "' ";
             if ($rs->user_id == '') {
                 $rs2 .= 'AND user_id IS null';
             } else {
-                $rs2 .= "AND user_id = '" . App::con()->escape($rs->user_id) . "'";
+                $rs2 .= "AND user_id = '" . App::con()->escape($rs->user_id) . "'"; // @phpstan-ignore-line
             }
             App::con()->execute($rs2);
         }

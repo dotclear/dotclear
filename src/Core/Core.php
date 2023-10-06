@@ -133,7 +133,7 @@ class Core extends Container
      */
     protected function getDefaultServices(): array
     {
-        return [
+        return [    // @phpstan-ignore-line
             ConfigInterface::class     => fn ($container) => $container->getConfig(),
             ConnectionInterface::class => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
                 if (empty($driver)) {

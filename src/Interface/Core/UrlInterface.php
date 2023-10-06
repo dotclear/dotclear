@@ -80,7 +80,7 @@ interface UrlInterface
      *
      * @param      string  $type   The type
      *
-     * @return     mixed
+     * @return     string
      */
     public function getBase(string $type);
 
