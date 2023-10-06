@@ -63,8 +63,8 @@ namespace Dotclear {
             // Start tick
             define('DC_START_TIME', microtime(true));
 
-            // Set exception handler (for a nice rendering)
-            set_exception_handler(function (Throwable $exception) { new Fault($exception); });
+            // Set exception handler
+            Fault::setExceptionHandler();
 
             try {
                 // Run application
