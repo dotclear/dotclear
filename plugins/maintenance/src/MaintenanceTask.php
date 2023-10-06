@@ -101,28 +101,28 @@ class MaintenanceTask
      *
      * @var     string  $task
      */
-    protected string $task;
+    protected string $task = '';
 
     /**
      * Task step.
      *
      * @var     null|string     $step
      */
-    protected ?string $step;
+    protected ?string $step = null;
 
     /**
      * Task error message.
      *
      * @var     string  $error
      */
-    protected string $error;
+    protected string $error = '';
 
     /**
      * Task success message.
      *
      * @var     string  $success
      */
-    protected string $success;
+    protected string $success = '';
 
     /**
      * Constructor.
