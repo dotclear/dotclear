@@ -113,7 +113,7 @@ class UserPreferences implements UserPreferencesInterface
         }
 
         /* Prevent empty tables (install phase, for instance) */
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             return;
         }
 

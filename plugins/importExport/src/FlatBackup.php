@@ -91,7 +91,7 @@ class FlatBackup
                 $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]);
             }
 
-            return new FlatBackupItem($this->line_name, $res, $this->line_num);
+            return new FlatBackupItem((string) $this->line_name, $res, (int) $this->line_num);
         }
 
         return $this->getLine();

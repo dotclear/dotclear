@@ -40,7 +40,7 @@ class FilterComments extends Filters
 
         $filters = $filters->getArrayCopy();
 
-        $this->add($filters);
+        $this->add($filters);   // @phpstan-ignore-line
     }
 
     /**

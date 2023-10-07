@@ -74,7 +74,7 @@ class Text
         $pattern['ss'] = '\x{00DF}';
 
         foreach ($pattern as $r => $p) {
-            $str = preg_replace('/[' . $p . ']/u', $r, $str);
+            $str = (string) preg_replace('/[' . $p . ']/u', $r, $str);
         }
 
         return $str;
@@ -93,7 +93,7 @@ class Text
     public static function str2URL(string $str, bool $with_slashes = true): string
     {
         $str = self::deaccent($str);
-        $str = preg_replace('/[^A-Za-z0-9_\s\'\:\/[\]-]/', '', $str);
+        $str = (string) preg_replace('/[^A-Za-z0-9_\s\'\:\/[\]-]/', '', $str);
 
         return self::tidyURL($str, $with_slashes);
     }
@@ -112,7 +112,7 @@ class Text
         $str = strip_tags($str);
         $str = str_replace(['?', '&', '#', '=', '+', '<', '>', '"', '%'], '', $str);
         $str = str_replace("'", ' ', $str);
-        $str = preg_replace('/[\s]+/u', ' ', trim($str));
+        $str = (string) preg_replace('/[\s]+/u', ' ', trim($str));
 
         if (!$keep_slashes) {
             $str = str_replace('/', '-', $str);
@@ -122,11 +122,11 @@ class Text
             $str = str_replace(' ', '-', $str);
         }
 
-        $str = preg_replace('/\-+/', '-', $str);
+        $str = (string) preg_replace('/\-+/', '-', $str);
 
         # Remove path changes in URL
-        $str = preg_replace('%^/%', '', $str);
-        $str = preg_replace('%\.+/%', '', $str);
+        $str = (string) preg_replace('%^/%', '', $str);
+        $str = (string) preg_replace('%\.+/%', '', $str);
 
         return $str;
     }
@@ -698,7 +698,7 @@ class Text
     public static function removeDiacritics(string $str): string
     {
         for ($i = 0; $i < sizeof(self::$defaultDiacriticsRemovalMap); $i++) {
-            $str = preg_replace(
+            $str = (string) preg_replace(
                 self::$defaultDiacriticsRemovalMap[$i]['letters'] . 'um',
                 self::$defaultDiacriticsRemovalMap[$i]['base'],
                 $str

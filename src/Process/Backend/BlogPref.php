@@ -102,8 +102,8 @@ class BlogPref extends Process
         // Date format combo
         $da->now = time();
 
-        $date_formats = $da->blog_settings->system->date_formats;
-        $time_formats = $da->blog_settings->system->time_formats;
+        $date_formats = $da->blog_settings?->system->date_formats;
+        $time_formats = $da->blog_settings?->system->time_formats;
 
         $stack = ['' => ''];
         foreach ($date_formats as $format) {
@@ -132,8 +132,8 @@ class BlogPref extends Process
             __('post id/title')        => '{id}/{t}',
             __('post id')              => '{id}',
         ];
-        if (!in_array($da->blog_settings->system->post_url_format, $da->post_url_combo)) {
-            $da->post_url_combo[Html::escapeHTML($da->blog_settings->system->post_url_format)] = Html::escapeHTML($da->blog_settings->system->post_url_format);
+        if (!in_array($da->blog_settings?->system->post_url_format, $da->post_url_combo)) {
+            $da->post_url_combo[Html::escapeHTML($da->blog_settings?->system->post_url_format)] = Html::escapeHTML($da->blog_settings?->system->post_url_format);
         }
 
         // Note title tag combo
@@ -151,8 +151,8 @@ class BlogPref extends Process
             __('Title, Country, Date')       => 'Title ;; Country ;; Date(%b %Y) ;; separator(, )',
             __('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
         ];
-        if (!in_array($da->blog_settings->system->media_img_title_pattern, $da->img_title_combo)) {
-            $da->img_title_combo[Html::escapeHTML($da->blog_settings->system->media_img_title_pattern)] = Html::escapeHTML($da->blog_settings->system->media_img_title_pattern);
+        if (!in_array($da->blog_settings?->system->media_img_title_pattern, $da->img_title_combo)) {
+            $da->img_title_combo[Html::escapeHTML($da->blog_settings?->system->media_img_title_pattern)] = Html::escapeHTML($da->blog_settings?->system->media_img_title_pattern);
         }
 
         // Image default size combo

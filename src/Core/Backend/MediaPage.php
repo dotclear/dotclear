@@ -163,19 +163,22 @@ class MediaPage extends FilterMedia
      */
     public function getDirsRecord(): MetaRecord
     {
-        $dir = $this->media_dir;
-        // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
-        if (!App::config()->showHiddenDirs()) {
-            for ($i = (is_countable($dir['dirs']) ? count($dir['dirs']) : 0) - 1; $i >= 0; $i--) {
-                if ($dir['dirs'][$i]->d && str_starts_with($dir['dirs'][$i]->basename, '.')) {
-                    unset($dir['dirs'][$i]);
+        $items = [];
+
+        if ($dir = $this->media_dir) {
+            // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
+            if (!App::config()->showHiddenDirs()) {
+                for ($i = (is_countable($dir['dirs']) ? count($dir['dirs']) : 0) - 1; $i >= 0; $i--) {
+                    if ($dir['dirs'][$i]->d && str_starts_with($dir['dirs'][$i]->basename, '.')) {
+                        unset($dir['dirs'][$i]);
+                    }
                 }
             }
-        }
-        $items = array_values(array_merge($dir['dirs'], $dir['files']));
+            $items = array_values(array_merge($dir['dirs'], $dir['files']));
 
-        // Transform each File array value to associative array if necessary
-        $items = array_map(fn ($v) => $v instanceof File ? (array) $v : $v, $items);
+            // Transform each File array value to associative array if necessary
+            $items = array_map(fn ($v) => $v instanceof File ? (array) $v : $v, $items);
+        }
 
         return MetaRecord::newFromArray($items);
     }
@@ -189,7 +192,9 @@ class MediaPage extends FilterMedia
      */
     public function mediaLine(string $file_id): string
     {
-        return ListingMedia::mediaLine($this, App::media()->getFile((int) $file_id), 1, $this->media_has_query);
+        $file = App::media()->getFile((int) $file_id);
+
+        return $file ? ListingMedia::mediaLine($this, $file, 1, $this->media_has_query) : '';
     }
 
     /**
@@ -199,7 +204,7 @@ class MediaPage extends FilterMedia
      */
     public function showUploader(): bool
     {
-        return $this->media_uploader;
+        return (bool) $this->media_uploader;
     }
 
     /**
@@ -383,7 +388,7 @@ class MediaPage extends FilterMedia
             ];
 
             if ($this->media_has_query || $this->q) {
-                $count = $this->media_has_query ? count($this->getDirs('files')) : 0;
+                $count = $this->media_has_query ? count((array) $this->getDirs('files')) : 0;
 
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {

@@ -358,7 +358,7 @@ abstract class Actions
             $redirect_args[$this->field_entries] = array_keys($this->entries);
         }
 
-        return $this->uri . (str_contains($this->uri, '?') ? '&' : '?') . http_build_query($redirect_args) . $this->redir_anchor;
+        return $this->uri . (str_contains((string) $this->uri, '?') ? '&' : '?') . http_build_query($redirect_args) . $this->redir_anchor;
     }
 
     /**

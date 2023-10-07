@@ -112,7 +112,7 @@ class BackendDefaultActions
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id())) {
-                $sql->and('user_id = ' . $sql->quote(App::auth()->userID()));
+                $sql->and('user_id = ' . $sql->quote((string) App::auth()->userID()));
             }
 
             $sql->update($cur);

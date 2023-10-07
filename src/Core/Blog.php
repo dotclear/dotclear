@@ -517,11 +517,11 @@ class Blog implements BlogInterface
                 ->where('comment_id' . $sql->in($comments_ids))
                 ->group('post_id');
 
-            $rs = $sql->select();
-
             $affected_posts = [];
-            while ($rs->fetch()) {
-                $affected_posts[] = (int) $rs->post_id;
+            if ($rs = $sql->select()) {
+                while ($rs->fetch()) {
+                    $affected_posts[] = (int) $rs->post_id;
+                }
             }
         }
 
@@ -545,14 +545,14 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ]);
 
-        $rs = $sql->select();
-
         $posts = [];
-        while ($rs->fetch()) {
-            if ($rs->comment_trackback) {
-                $posts[$rs->post_id]['trackback'] = $rs->nb_comment;
-            } else {
-                $posts[$rs->post_id]['comment'] = $rs->nb_comment;
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                if ($rs->comment_trackback) {
+                    $posts[$rs->post_id]['trackback'] = $rs->nb_comment;
+                } else {
+                    $posts[$rs->post_id]['comment'] = $rs->nb_comment;
+                }
             }
         }
 
@@ -754,10 +754,11 @@ class Blog implements BlogInterface
 
         $sql->group('C.cat_id');
 
-        $rs       = $sql->select();
         $counters = [];
-        while ($rs->fetch()) {
-            $counters[$rs->cat_id] = $rs->nb_post;
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                $counters[$rs->cat_id] = $rs->nb_post;
+            }
         }
 
         return $counters;
@@ -884,13 +885,14 @@ class Blog implements BlogInterface
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
+        if ($rs) {
+            if ($rs->nb_post > 0) {
+                throw new ConflictException(__('This category is not empty.'));
+            }
 
-        if ($rs->nb_post > 0) {
-            throw new ConflictException(__('This category is not empty.'));
+            $this->categories()->deleteNode($id, true);
+            $this->triggerBlog();
         }
-
-        $this->categories()->deleteNode($id, true);
-        $this->triggerBlog();
     }
 
     public function resetCategoriesOrder(): void
@@ -930,8 +932,7 @@ class Blog implements BlogInterface
         }
 
         $rs = $sql->select();
-
-        if (!$rs->isEmpty()) {
+        if ($rs && !$rs->isEmpty()) {
             $sql = new SelectStatement();
             $sql
                 ->column('cat_url')
@@ -944,8 +945,7 @@ class Blog implements BlogInterface
             }
 
             $rs = $sql->select();
-
-            if ($rs->isEmpty()) {
+            if (!$rs || $rs->isEmpty()) {
                 // First duplicate, add '1' to URL and return it
                 return $url . '1';
             }
@@ -1266,26 +1266,27 @@ class Blog implements BlogInterface
             $sql->limit($params['limit']);
         }
 
-        $rs = $sql->select();
+        ;
+        if ($rs = $sql->select()) {
+            $rs->_nb_media = [];
+            $rs->extend(Post::class);
 
-        $rs->_nb_media = [];
-        $rs->extend(Post::class);
+            # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
+            $this->behavior->callBehavior('coreBlogGetPosts', $rs);
 
-        # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
-        $this->behavior->callBehavior('coreBlogGetPosts', $rs);
-
-        # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
-        $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
-        $this->behavior->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
-        if ($alt['rs']) {
-            if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
-                $rs = new MetaRecord($alt['rs']);
-            } elseif ($alt['rs'] instanceof MetaRecord) { // @phpstan-ignore-line
-                $rs = $alt['rs'];
+            # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
+            $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
+            $this->behavior->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
+            if ($alt['rs']) {
+                if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
+                    $rs = new MetaRecord($alt['rs']);
+                } elseif ($alt['rs'] instanceof MetaRecord) { // @phpstan-ignore-line
+                    $rs = $alt['rs'];
+                }
             }
         }
 
-        return $rs;
+        return $rs ?? MetaRecord::newFromArray([]);
     }
 
     public function getNextPost(MetaRecord $post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false): ?MetaRecord
@@ -1373,7 +1374,7 @@ class Blog implements BlogInterface
         }
         $sql->order('post_lang ' . $order);
 
-        return $sql->select();
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     public function getDates($params = []): MetaRecord
@@ -1480,9 +1481,11 @@ class Blog implements BlogInterface
         $sql->order('dt ' . $order);
 
         $rs = $sql->select();
-        $rs->extend(Dates::class);
+        if ($rs) {
+            $rs->extend(Dates::class);
+        }
 
-        return $rs;
+        return $rs ?? MetaRecord::newFromArray([]);
     }
 
     public function addPost(Cursor $cur): int
@@ -1504,7 +1507,7 @@ class Blog implements BlogInterface
                 ->from($this->prefix . self::POST_TABLE_NAME);
             $rs = $sql->select();
 
-            $cur->post_id     = (int) $rs->f(0) + 1;
+            $cur->post_id     = $rs ? (int) $rs->f(0) + 1 : 1;
             $cur->blog_id     = (string) $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
@@ -1587,9 +1590,10 @@ class Blog implements BlogInterface
                 ->column('post_id')
                 ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_id = ' . (int) $id)
-                ->and('user_id = ' . $sql->quote($this->auth->userID()));
+                ->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
 
-            if ($sql->select()->isEmpty()) {
+            $rs = $sql->select();
+            if (!$rs || $rs->isEmpty()) {
                 throw new UnauthorizedException(__('You are not allowed to edit this entry'));
             }
         }
@@ -1633,7 +1637,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1668,7 +1672,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1714,7 +1718,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1752,7 +1756,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1825,7 +1829,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $sql->delete();
@@ -1846,8 +1850,7 @@ class Blog implements BlogInterface
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
-
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             return;
         }
 
@@ -1944,7 +1947,7 @@ class Blog implements BlogInterface
             $sql->and('post_type = ' . $sql->quote($post_type));
         }
 
-        return $sql->select();
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -2001,10 +2004,10 @@ class Blog implements BlogInterface
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and($field . $sql->in(array_keys($sub)));
 
-            $rs = $sql->select();
-
-            while ($rs->fetch()) {
-                $queries[$rs->f($field)] = '(C.cat_lft BETWEEN ' . $rs->cat_lft . ' AND ' . $rs->cat_rgt . ')';
+            if ($rs = $sql->select()) {
+                while ($rs->fetch()) {
+                    $queries[$rs->f($field)] = '(C.cat_lft BETWEEN ' . $rs->cat_lft . ' AND ' . $rs->cat_rgt . ')';
+                }
             }
         }
 
@@ -2125,18 +2128,20 @@ class Blog implements BlogInterface
     {
         if ($format == 'wiki') {
             $this->filter->initWikiPost();
-            $this->filter->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
-            $tag = match ($this->settings->system->note_title_tag) {
-                1       => 'h3',
-                2       => 'p',
-                default => 'h4',
-            };
-            $this->filter->wiki()->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
-                __('Notes') . '</' . $tag . '>%s</div>');
-            $this->filter->wiki()->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
-                __('Note') . '</' . $tag . '>%s</div>');
-            if (str_starts_with($lang, 'fr')) {
-                $this->filter->wiki()->setOpt('active_fr_syntax', 1);
+            if ($this->filter->wiki()) {
+                $this->filter->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
+                $tag = match ($this->settings->system->note_title_tag) {
+                    1       => 'h3',
+                    2       => 'p',
+                    default => 'h4',
+                };
+                $this->filter->wiki()->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+                    __('Notes') . '</' . $tag . '>%s</div>');
+                $this->filter->wiki()->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+                    __('Note') . '</' . $tag . '>%s</div>');
+                if (str_starts_with($lang, 'fr')) {
+                    $this->filter->wiki()->setOpt('active_fr_syntax', 1);
+                }
             }
         }
 
@@ -2200,7 +2205,7 @@ class Blog implements BlogInterface
 
         $rs = $sql->select();
 
-        if (!$rs->isEmpty()) {
+        if ($rs && !$rs->isEmpty()) {
             $i   = 1;
             $sql = new SelectStatement();
             $sql
@@ -2211,18 +2216,19 @@ class Blog implements BlogInterface
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('post_url DESC');
 
-            $rs = $sql->select();
-            if ($rs->count()) {
-                $a = [];
-                while ($rs->fetch()) {
-                    $a[] = $rs->post_url;
-                }
+            if ($rs = $sql->select()) {
+                if ($rs->count()) {
+                    $a = [];
+                    while ($rs->fetch()) {
+                        $a[] = $rs->post_url;
+                    }
 
-                natsort($a);
-                $t_url = end($a);
-                if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
-                    $i   = (int) $m[2];
-                    $url = $m[1];
+                    natsort($a);
+                    $t_url = end($a);
+                    if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
+                        $i   = (int) $m[2];
+                        $url = $m[1];
+                    }
                 }
             }
 
@@ -2421,12 +2427,14 @@ class Blog implements BlogInterface
         }
 
         $rs = $sql->select();
-        $rs->extend(Comment::class);
+        if ($rs) {
+            $rs->extend(Comment::class);
 
-        # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
-        $this->behavior->callBehavior('coreBlogGetComments', $rs);
+            # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
+            $this->behavior->callBehavior('coreBlogGetComments', $rs);
+        }
 
-        return $rs;
+        return $rs ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -2449,7 +2457,7 @@ class Blog implements BlogInterface
 
             $rs = $sql->select();
 
-            $cur->comment_id    = (int) $rs->f(0) + 1;
+            $cur->comment_id    = $rs ? (int) $rs->f(0) + 1 : 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
             $offset          = Date::getTimeOffset($this->settings->system->blog_timezone);
@@ -2571,7 +2579,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote($this->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2610,9 +2618,10 @@ class Blog implements BlogInterface
             ->where('comment_id' . $sql->in($co_ids))
             ->group('post_id');
 
-        $rs = $sql->select();
-        while ($rs->fetch()) {
-            $affected_posts[] = (int) $rs->post_id;
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                $affected_posts[] = (int) $rs->post_id;
+            }
         }
 
         $sql = new DeleteStatement();
@@ -2628,7 +2637,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote($this->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2660,7 +2669,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote($this->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));

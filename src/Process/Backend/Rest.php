@@ -169,7 +169,7 @@ class Rest extends Process
 
             if ($updater->getNotify() && $new_v) {
                 // Check PHP version required
-                if (version_compare(phpversion(), $updater->getPHPVersion()) >= 0) {
+                if (version_compare(phpversion(), (string) $updater->getPHPVersion()) >= 0) {
                     $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
                     '<p><a class="button submit" href="' . App::backend()->url->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
                     '<a class="button" href="' . App::backend()->url->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .

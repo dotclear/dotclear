@@ -262,7 +262,7 @@ class form
             extract($args);
         }
 
-        $component = new Input($nid, $type);
+        $component = new Input($nid, $type ?? 'text');
         if ($default || $default === '0') {
             $component->value($default);
         }

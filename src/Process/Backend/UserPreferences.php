@@ -211,7 +211,7 @@ class UserPreferences extends Process
                 App::behavior()->callBehavior('adminBeforeUserProfileUpdate', $cur, App::auth()->userID());
 
                 // Update user
-                App::users()->updUser(App::auth()->userID(), $cur);
+                App::users()->updUser((string) App::auth()->userID(), $cur);
 
                 // Update profile
                 // Sanitize list of secondary mails and urls if any
@@ -340,7 +340,7 @@ class UserPreferences extends Process
                 App::auth()->prefs()->interface->put('rte_flags', $rf, 'array');
 
                 // Update user
-                App::users()->updUser(App::auth()->userID(), $cur);
+                App::users()->updUser((string) App::auth()->userID(), $cur);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, App::auth()->userID());

@@ -202,7 +202,7 @@ class Auth implements AuthInterface
             return false;
         }
 
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             // Avoid time attacks by measuring server response time during user existence check
             sleep(rand(2, 5));
 
@@ -447,11 +447,11 @@ class Auth implements AuthInterface
             $sql
                 ->column('blog_id')
                 ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
-                ->where('blog_id = ' . $sql->quote($blog_id));
+                ->where('blog_id = ' . $sql->quote((string) $blog_id));
 
             $rs = $sql->select();
 
-            $this->user_blogs[$blog_id] = $rs->isEmpty() ? false : [self::PERMISSION_ADMIN => true];
+            $this->user_blogs[$blog_id] = !$rs || $rs->isEmpty() ? false : [self::PERMISSION_ADMIN => true];
 
             return $this->user_blogs[$blog_id];
         }
@@ -461,16 +461,15 @@ class Auth implements AuthInterface
             ->column('permissions')
             ->from($this->perm_table)
             ->where('user_id = ' . $sql->quote($this->userID()))
-            ->and('blog_id = ' . $sql->quote($blog_id))
+            ->and('blog_id = ' . $sql->quote((string) $blog_id))
             ->and($sql->orGroup([
                 $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
                 $sql->like('permissions', '%|' . self::PERMISSION_ADMIN . '|%'),
                 $sql->like('permissions', '%|' . self::PERMISSION_CONTENT_ADMIN . '|%'),
             ]));
 
-        $rs = $sql->select();
-
-        $this->user_blogs[$blog_id] = $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
+        $rs                         = $sql->select();
+        $this->user_blogs[$blog_id] = !$rs || $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
 
         return $this->user_blogs[$blog_id];
     }
@@ -524,7 +523,7 @@ class Auth implements AuthInterface
         }
 
         $rs = $sql->select();
-        if (!$rs->isEmpty()) {
+        if ($rs && !$rs->isEmpty()) {
             return $rs->blog_id;
         }
 
@@ -561,8 +560,8 @@ class Auth implements AuthInterface
 
     public function parsePermissions($level): array
     {
-        $level = preg_replace('/^\|/', '', (string) $level);
-        $level = preg_replace('/\|$/', '', (string) $level);
+        $level = (string) preg_replace('/^\|/', '', (string) $level);
+        $level = (string) preg_replace('/\|$/', '', (string) $level);
 
         $res = [];
         foreach (explode('|', $level) as $v) {
@@ -603,7 +602,7 @@ class Auth implements AuthInterface
 
         $rs = $sql->select();
 
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             throw new BadRequestException(__('That user does not exist in the database.'));
         }
 
@@ -630,7 +629,7 @@ class Auth implements AuthInterface
 
         $rs = $sql->select();
 
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             throw new BadRequestException(__('That key does not exist in the database.'));
         }
 

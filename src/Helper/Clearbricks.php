@@ -23,12 +23,12 @@ class Clearbricks
     /**
      * Instance singleton
      */
-    private static ?self $instance = null;
+    private static self $instance;
 
     public function __construct()
     {
         // Singleton mode
-        if (self::$instance) {
+        if (isset(self::$instance)) {
             throw new Exception('Library can not be loaded twice.', 500);
         }
 
@@ -57,7 +57,7 @@ class Clearbricks
      */
     public static function lib(): self
     {
-        if (!self::$instance) {
+        if (!isset(self::$instance)) {
             // Init singleton
             new self();
         }

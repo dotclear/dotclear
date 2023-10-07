@@ -921,7 +921,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function xmlrpc(?string $args): void
     {
-        $blog_id = preg_replace('#^([^/]*).*#', '$1', (string) $args);
+        $blog_id = (string) preg_replace('#^([^/]*).*#', '$1', (string) $args);
         (new XmlRpc($blog_id))->serve();
     }
 

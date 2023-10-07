@@ -100,7 +100,7 @@ class BackendBehaviors
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
         // Check user option
-        if (!My::prefs()->dashboard_icon) {
+        if (!My::prefs() || !My::prefs()->dashboard_icon) {
             return;
         }
 
@@ -138,7 +138,7 @@ class BackendBehaviors
      */
     public static function adminDashboardItems(ArrayObject $items): void
     {
-        if (!My::prefs()->dashboard_item) {
+        if (!My::prefs() || !My::prefs()->dashboard_item) {
             return;
         }
 
@@ -191,11 +191,11 @@ class BackendBehaviors
         '<h4>' . My::name() . '</h4>' .
 
         '<p><label for="maintenance_dashboard_icon" class="classic">' .
-        form::checkbox('maintenance_dashboard_icon', 1, My::prefs()->dashboard_icon) .
+        form::checkbox('maintenance_dashboard_icon', 1, My::prefs()?->dashboard_icon) .
         __('Display overdue tasks counter on maintenance dashboard icon') . '</label></p>' .
 
         '<p><label for="maintenance_dashboard_item" class="classic">' .
-        form::checkbox('maintenance_dashboard_item', 1, My::prefs()->dashboard_item) .
+        form::checkbox('maintenance_dashboard_item', 1, My::prefs()?->dashboard_item) .
         __('Display overdue tasks list on dashboard items') . '</label></p>' .
 
             '</div>';
@@ -212,8 +212,8 @@ class BackendBehaviors
             return;
         }
 
-        My::prefs()->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
-        My::prefs()->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
+        My::prefs()?->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
+        My::prefs()?->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
     }
 
     /**

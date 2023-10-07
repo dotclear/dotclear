@@ -46,7 +46,7 @@ class ListingBlogs extends Listing
                 }
             }
 
-            $pager = new Pager($page, $this->rs_count, $nb_per_page, 10);
+            $pager = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
 
             $cols = [
                 'blog' => '<th' .

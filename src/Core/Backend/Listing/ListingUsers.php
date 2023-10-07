@@ -38,7 +38,7 @@ class ListingUsers extends Listing
                 echo '<p><strong>' . __('No user') . '</strong></p>';
             }
         } else {
-            $pager = new Pager($page, $this->rs_count, $nb_per_page, 10);
+            $pager = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
 
             $html_block = '<div class="table-outer clear">' .
                 '<table>';

@@ -407,100 +407,102 @@ class ModuleImportWp extends Module
         $wp_prefix = $this->vars['db_prefix'];
         $rs        = $db->select('SELECT * FROM ' . $wp_prefix . 'users');
 
-        try {
-            $this->con->begin();
+        if ($rs) {
+            try {
+                $this->con->begin();
 
-            while ($rs->fetch()) {
-                $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
-                $this->vars['user_ids'][$rs->ID] = $user_login;
-                if (!App::users()->userExists($user_login)) {
-                    $cur                   = App::auth()->openUserCursor();
-                    $cur->user_id          = $user_login;
-                    $cur->user_pwd         = Crypt::createPassword();
-                    $cur->user_displayname = $rs->user_nicename;
-                    $cur->user_email       = $rs->user_email;
-                    $cur->user_url         = $rs->user_url;
-                    $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = App::blog()->settings()->system->lang;
-                    $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
-                    $permissions           = [];
+                while ($rs->fetch()) {
+                    $user_login                      = (string) preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
+                    $this->vars['user_ids'][$rs->ID] = $user_login;
+                    if (!App::users()->userExists($user_login)) {
+                        $cur                   = App::auth()->openUserCursor();
+                        $cur->user_id          = $user_login;
+                        $cur->user_pwd         = Crypt::createPassword();
+                        $cur->user_displayname = $rs->user_nicename;
+                        $cur->user_email       = $rs->user_email;
+                        $cur->user_url         = $rs->user_url;
+                        $cur->user_creadt      = $rs->user_registered;
+                        $cur->user_lang        = App::blog()->settings()->system->lang;
+                        $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
+                        $permissions           = [];
 
-                    $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
-                    while ($rs_meta->fetch()) {
-                        switch ($rs_meta->meta_key) {
-                            case 'first_name':
-                                $cur->user_firstname = Text::cleanStr($rs_meta->meta_value);
+                        $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
+                        while ($rs_meta->fetch()) {
+                            switch ($rs_meta->meta_key) {
+                                case 'first_name':
+                                    $cur->user_firstname = Text::cleanStr($rs_meta->meta_value);
 
-                                break;
-                            case 'last_name':
-                                $cur->user_name = Text::cleanStr($rs_meta->meta_value);
+                                    break;
+                                case 'last_name':
+                                    $cur->user_name = Text::cleanStr($rs_meta->meta_value);
 
-                                break;
-                            case 'description':
-                                $cur->user_desc = Text::cleanStr($rs_meta->meta_value);
+                                    break;
+                                case 'description':
+                                    $cur->user_desc = Text::cleanStr($rs_meta->meta_value);
 
-                                break;
-                            case 'rich_editing':
-                                $cur->user_options = new ArrayObject([
-                                    'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false,
-                                ]);
+                                    break;
+                                case 'rich_editing':
+                                    $cur->user_options = new ArrayObject([
+                                        'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false,
+                                    ]);
 
-                                break;
-                            case 'wp_user_level':
-                                switch ($rs_meta->meta_value) {
-                                    case '0': # Subscriber
-                                        $cur->user_status = 0;
+                                    break;
+                                case 'wp_user_level':
+                                    switch ($rs_meta->meta_value) {
+                                        case '0': # Subscriber
+                                            $cur->user_status = 0;
 
-                                        break;
-                                    case '1': # Contributor
-                                        $permissions['usage']   = true;
-                                        $permissions['publish'] = true;
-                                        $permissions['delete']  = true;
+                                            break;
+                                        case '1': # Contributor
+                                            $permissions['usage']   = true;
+                                            $permissions['publish'] = true;
+                                            $permissions['delete']  = true;
 
-                                        break;
-                                    case '2': # Author
-                                    case '3':
-                                    case '4':
-                                        $permissions['contentadmin'] = true;
-                                        $permissions['media']        = true;
+                                            break;
+                                        case '2': # Author
+                                        case '3':
+                                        case '4':
+                                            $permissions['contentadmin'] = true;
+                                            $permissions['media']        = true;
 
-                                        break;
-                                    case '5': # Editor
-                                    case '6':
-                                    case '7':
-                                        $permissions['contentadmin'] = true;
-                                        $permissions['categories']   = true;
-                                        $permissions['media_admin']  = true;
-                                        $permissions['pages']        = true;
-                                        $permissions['blogroll']     = true;
+                                            break;
+                                        case '5': # Editor
+                                        case '6':
+                                        case '7':
+                                            $permissions['contentadmin'] = true;
+                                            $permissions['categories']   = true;
+                                            $permissions['media_admin']  = true;
+                                            $permissions['pages']        = true;
+                                            $permissions['blogroll']     = true;
 
-                                        break;
-                                    case '8': # Administrator
-                                    case '9':
-                                    case '10':
-                                        $permissions['admin'] = true;
+                                            break;
+                                        case '8': # Administrator
+                                        case '9':
+                                        case '10':
+                                            $permissions['admin'] = true;
 
-                                        break;
-                                }
+                                            break;
+                                    }
 
-                                break;
+                                    break;
+                            }
                         }
+                        App::users()->addUser($cur);
+                        App::users()->setUserBlogPermissions(
+                            $cur->user_id,
+                            $this->blog_id,
+                            $permissions
+                        );
                     }
-                    App::users()->addUser($cur);
-                    App::users()->setUserBlogPermissions(
-                        $cur->user_id,
-                        $this->blog_id,
-                        $permissions
-                    );
                 }
-            }
-            $this->con->commit();
-            $db->close();
-        } catch (Exception $e) {
-            $this->con->rollback();
-            $db->close();
+                $this->con->commit();
+                $db->close();
+            } catch (Exception $e) {
+                $this->con->rollback();
+                $db->close();
 
-            throw $e;
+                throw $e;
+            }
         }
     }
 
@@ -715,15 +717,18 @@ class ModuleImportWp extends Module
         $cur->post_format = $this->vars['post_formater'];
         $_post_content    = explode('<!--more-->', $rs->post_content, 2);
         if (count($_post_content) == 1) {
-            $cur->post_excerpt = null;
-            $cur->post_content = Text::cleanStr(array_shift($_post_content));
+            $cur->post_excerpt       = null;
+            $cur->post_excerpt_xhtml = null;
+            $cur->post_content       = Text::cleanStr((string) array_shift($_post_content));
         } else {
-            $cur->post_excerpt = Text::cleanStr(array_shift($_post_content));
-            $cur->post_content = Text::cleanStr(array_shift($_post_content));
+            $cur->post_excerpt = Text::cleanStr((string) array_shift($_post_content));
+            $cur->post_content = Text::cleanStr((string) array_shift($_post_content));
         }
 
         $cur->post_content_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
-        $cur->post_excerpt_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
+        if (!is_null($cur->post_excerpt)) {
+            $cur->post_excerpt_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
+        }
 
         switch ($rs->post_status) {
             case 'publish':

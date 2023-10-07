@@ -409,7 +409,7 @@ class Store
         $arr = [];
 
         foreach (explode(' ', $str) as $_) {
-            $_ = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $_));
+            $_ = strtolower((string) preg_replace('/[^A-Za-z0-9]/', '', $_));
             if (strlen($_) >= 2) {
                 $arr[] = $_;
             }

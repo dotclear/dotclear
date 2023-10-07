@@ -155,7 +155,7 @@ class Socket
             return false;
         }
 
-        return stream_set_blocking($this->_handle, $block);
+        return $this->_handle ? stream_set_blocking($this->_handle, $block) : false;
     }
 
     /**
@@ -184,7 +184,9 @@ class Socket
     public function close(): void
     {
         if ($this->isOpen()) {
-            fclose($this->_handle);
+            if ($this->_handle) {
+                fclose($this->_handle);
+            }
             $this->_handle = null;
         }
     }
@@ -225,7 +227,9 @@ class Socket
             $data = implode("\r\n", $data) . "\r\n\r\n";
         }
 
-        fwrite($this->_handle, $data);
+        if ($this->_handle) {
+            fwrite($this->_handle, $data);
+        }
 
         return $this->iterator();
     }
@@ -243,7 +247,9 @@ class Socket
             return false;
         }
 
-        fflush($this->_handle);
+        if ($this->_handle) {
+            fflush($this->_handle);
+        }
     }
 
     /**

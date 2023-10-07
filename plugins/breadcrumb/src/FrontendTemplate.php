@@ -195,7 +195,7 @@ class FrontendTemplate
                     if ($page == 0) {
                         $ret .= $separator . __('Search:') . ' ' . App::frontend()->search;
                     } else {
-                        $ret .= $separator . '<a href="' . App::blog()->url() . '?q=' . rawurlencode(App::frontend()->search) . '">' . __('Search:') . ' ' . App::frontend()->search . '</a>';
+                        $ret .= $separator . '<a href="' . App::blog()->url() . '?q=' . rawurlencode((string) App::frontend()->search) . '">' . __('Search:') . ' ' . App::frontend()->search . '</a>';
                         $ret .= $separator . sprintf(__('page %d'), $page);
                     }
 

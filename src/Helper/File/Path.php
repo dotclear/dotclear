@@ -51,10 +51,10 @@ class Path
         }
 
         # Clean up
-        $filename = preg_replace('|/+|', '/', $filename);
+        $filename = (string) preg_replace('|/+|', '/', $filename);
 
         if (strlen($filename) > 1) {
-            $filename = preg_replace('|/$|', '', $filename);
+            $filename = (string) preg_replace('|/$|', '', $filename);
         }
 
         $prefix = '';
@@ -103,13 +103,13 @@ class Path
     public static function clean(?string $filename): string
     {
         // Remove double point (upper directory)
-        $filename = preg_replace(['|^\.\.|', '|/\.\.|', '|\.\.$|'], '', (string) $filename);
+        $filename = (string) preg_replace(['|^\.\.|', '|/\.\.|', '|\.\.$|'], '', (string) $filename);
 
         // Replace double slashes by one
-        $filename = preg_replace('|/{2,}|', '/', (string) $filename);
+        $filename = (string) preg_replace('|/{2,}|', '/', (string) $filename);
 
         // Remove trailing slash
-        $filename = preg_replace('|/$|', '', (string) $filename);
+        $filename = (string) preg_replace('|/$|', '', (string) $filename);
 
         return $filename;
     }
@@ -179,7 +179,7 @@ class Path
         $res['dirname']   = $pathinfo['dirname'] ?? '.';
         $res['basename']  = (string) $pathinfo['basename'];
         $res['extension'] = $pathinfo['extension'] ?? '';
-        $res['base']      = preg_replace('/\.' . preg_quote($res['extension'], '/') . '$/', '', $res['basename']);
+        $res['base']      = (string) preg_replace('/\.' . preg_quote($res['extension'], '/') . '$/', '', $res['basename']);
 
         return $res;
     }

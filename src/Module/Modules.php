@@ -1356,11 +1356,11 @@ class Modules implements ModulesInterface
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
         if ($strict) {
-            $current_version  = preg_replace('!-r(\d+)$!', '-p$1', $current_version);
-            $required_version = preg_replace('!-r(\d+)$!', '-p$1', $required_version);
+            $current_version  = (string) preg_replace('!-r(\d+)$!', '-p$1', $current_version);
+            $required_version = (string) preg_replace('!-r(\d+)$!', '-p$1', $required_version);
         } else {
-            $current_version  = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $current_version);
-            $required_version = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
+            $current_version  = (string) preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $current_version);
+            $required_version = (string) preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
         }
 
         return (bool) version_compare($current_version, $required_version, $operator);

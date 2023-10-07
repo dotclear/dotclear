@@ -146,7 +146,7 @@ class PostMedia implements PostMediaInterface
         $cur->link_type = $link_type;
 
         $cur->insert();
-        $this->blog->triggerBlog();
+        $this->blog?->triggerBlog();
     }
 
     public function removePostMedia(int $post_id, int $media_id, ?string $link_type = null): void
@@ -165,6 +165,6 @@ class PostMedia implements PostMediaInterface
         }
         $sql->delete();
 
-        $this->blog->triggerBlog();
+        $this->blog?->triggerBlog();
     }
 }

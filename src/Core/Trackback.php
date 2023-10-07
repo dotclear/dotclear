@@ -291,7 +291,7 @@ class Trackback implements TrackbackInterface
 
             $excerpt = trim(Html::clean($excerpt));
             $excerpt = Html::decodeEntities($excerpt);
-            $excerpt = preg_replace('/\s+/ms', ' ', $excerpt);
+            $excerpt = (string) preg_replace('/\s+/ms', ' ', $excerpt);
             $excerpt = Text::cutString($excerpt, 252);
             $excerpt = Html::escapeHTML($excerpt) . '...';
 
@@ -354,8 +354,8 @@ class Trackback implements TrackbackInterface
 
             preg_match('!<body[^>]*?>(.*)?</body>!msi', $remote_content, $m);
             $source = $m[1];
-            $source = preg_replace('![\r\n\s]+!ms', ' ', $source);
-            $source = preg_replace("/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/", "\n\n", $source);
+            $source = (string) preg_replace('![\r\n\s]+!ms', ' ', $source);
+            $source = (string) preg_replace("/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/", "\n\n", $source);
             $source = strip_tags($source, '<a>');
             $source = explode("\n\n", $source);
 
@@ -425,8 +425,8 @@ class Trackback implements TrackbackInterface
 
             preg_match('!<body[^>]*?>(.*)?</body>!msi', $remote_content, $m);
             $source = $m[1];
-            $source = preg_replace('![\r\n\s]+!ms', ' ', $source);
-            $source = preg_replace("/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/", "\n\n", $source);
+            $source = (string) preg_replace('![\r\n\s]+!ms', ' ', $source);
+            $source = (string) preg_replace("/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/", "\n\n", $source);
             $source = strip_tags($source, '<a>');
             $source = explode("\n\n", $source);
 
@@ -827,7 +827,7 @@ class Trackback implements TrackbackInterface
         preg_match_all($pattern_rdf, $page_content, $rdf_all, PREG_SET_ORDER);
 
         $url_path = parse_url($url, PHP_URL_PATH);
-        if ($url_path === false) {
+        if (!$url_path) {
             $url_path = '';
         }
         $sanitized_url = str_replace($url_path, Html::sanitizeURL($url_path), $url);
@@ -879,7 +879,7 @@ class Trackback implements TrackbackInterface
 
         # Else check content for <link href="ENDPOINT_URL" rel="webmention" />
         if ($wm_url && !$wm_api) {
-            $content = preg_replace('/<!--(.*)-->/Us', '', $page_content);
+            $content = (string) preg_replace('/<!--(.*)-->/Us', '', $page_content);
             if (preg_match('/<(?:link|a)[ ]+href="([^"]*)"[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]*\/?>/i', $content, $match)
                 || preg_match('/<(?:link|a)[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]+href="([^"]*)"[ ]*\/?>/i', $content, $match)) {
                 $wm_api = $match[1];

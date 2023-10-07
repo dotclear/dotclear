@@ -234,29 +234,31 @@ class UsersActions extends Process
                 '<th class="nowrap">' . __('Status') . '</th>' .
                 '</tr>';
 
-                while ($rs->fetch()) {
-                    $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
-                    $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
-                    $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
+                if ($rs) {
+                    while ($rs->fetch()) {
+                        $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
+                        $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
+                        $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
 
-                    echo
-                    '<tr class="line">' .
-                    '<td class="nowrap">' .
-                    form::checkbox(
-                        ['blogs[]'],
-                        $rs->blog_id,
-                        [
-                            'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"',
-                        ]
-                    ) .
-                    '</td>' .
-                    '<td class="nowrap">' . $rs->blog_id . '</td>' .
-                    '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
-                    '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
-                    ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
-                    '<td class="nowrap">' . App::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
-                    '<td class="status">' . $img_status . '</td>' .
-                    '</tr>';
+                        echo
+                        '<tr class="line">' .
+                        '<td class="nowrap">' .
+                        form::checkbox(
+                            ['blogs[]'],
+                            $rs->blog_id,
+                            [
+                                'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"',
+                            ]
+                        ) .
+                        '</td>' .
+                        '<td class="nowrap">' . $rs->blog_id . '</td>' .
+                        '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
+                        '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
+                        ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
+                        '<td class="nowrap">' . App::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
+                        '<td class="status">' . $img_status . '</td>' .
+                        '</tr>';
+                    }
                 }
 
                 echo

@@ -673,7 +673,7 @@ class ManagePage extends Process
                     App::url()->getURLFor(
                         'pagespreview',
                         App::auth()->userID() . '/' .
-                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) .
+                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) .
                         '/' . App::backend()->post->post_url
                     );
 

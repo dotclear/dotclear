@@ -48,7 +48,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
      */
     public static function renderParent(Template $tpl)
     {
-        return self::getStackBlock(self::$current_block, $tpl);
+        return self::getStackBlock((string) self::$current_block, $tpl);
     }
 
     /**

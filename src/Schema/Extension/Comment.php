@@ -137,7 +137,7 @@ class Comment
         $res = (string) $rs->comment_content;
 
         if (App::blog()->settings()->system->comments_nofollow) {
-            $res = preg_replace_callback(
+            $res = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function ($m) {
                     if (preg_match('/rel="ugc nofollow"/', $m[1])) {
@@ -149,7 +149,7 @@ class Comment
                 $res
             );
         } else {
-            $res = preg_replace_callback(
+            $res = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function ($m) {
                     if (preg_match('/rel="ugc"/', $m[1])) {
@@ -264,7 +264,7 @@ class Comment
     public static function getTrackbackContent(MetaRecord $rs): string
     {
         if ($rs->comment_trackback == 1) {
-            return preg_replace(
+            return (string) preg_replace(
                 '|<p><strong>.*?</strong></p>|msU',
                 '',
                 (string) $rs->comment_content

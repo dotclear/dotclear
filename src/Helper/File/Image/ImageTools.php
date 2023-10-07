@@ -192,11 +192,11 @@ class ImageTools
      *
      * @param string         $type        Image type (png, jpg, webp or avif)
      * @param string|null    $file        Output file. If null, output will be echoed in STDOUT
-     * @param int|null       $qual        JPEG/WepB/Avif image quality (0-100)
+     * @param int            $qual        JPEG/WepB/Avif image quality (0-100)
      *
      * @return bool
      */
-    public function output(string $type = 'png', ?string $file = null, ?int $qual = 90): bool
+    public function output(string $type = 'png', ?string $file = null, int $qual = 90): bool
     {
         if (!$file) {
             header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -229,7 +229,7 @@ class ImageTools
                 case 'avif':
                     if (function_exists('imageavif')) {
                         // PHP 8.1+
-                        $qual = $qual === null ? -1 : abs($qual / 10);
+                        $qual = $qual < 0 ? -1 : abs($qual / 10);
                         header('Content-type: image/avif');
                         imageavif($this->res, null, (int) $qual, -1);
 

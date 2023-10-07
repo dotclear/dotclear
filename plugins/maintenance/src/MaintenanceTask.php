@@ -149,7 +149,7 @@ class MaintenanceTask
         }
 
         if (!isset($this->name)) {
-            $this->name = $this->id;
+            $this->name = (string) $this->id;
         }
         if (!isset($this->error)) {
             $this->error = __('Failed to execute task.');
@@ -253,7 +253,7 @@ class MaintenanceTask
      */
     public function id(): string
     {
-        return $this->id;
+        return (string) $this->id;
     }
 
     /**
@@ -403,7 +403,7 @@ class MaintenanceTask
      */
     protected function log(): void
     {
-        $this->maintenance->setLog($this->id);
+        $this->maintenance->setLog((string) $this->id);
     }
 
     /**

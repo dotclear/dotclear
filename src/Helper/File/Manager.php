@@ -81,8 +81,8 @@ class Manager
      */
     public function __construct(?string $root, ?string $root_url = '')
     {
-        $this->root     = $this->pwd = (string) Path::real($root);
-        $this->root_url = $root_url;
+        $this->root     = $this->pwd = (string) Path::real((string) $root);
+        $this->root_url = (string) $root_url;
 
         if (!preg_match('#/$#', (string) $this->root_url)) {
             $this->root_url = $this->root_url . '/';
@@ -357,8 +357,10 @@ class Manager
         $directories = Files::getDirList($this->root);
 
         $res = [];
-        foreach ($directories['dirs'] as $directory) {
-            $res[] = new File($directory, $this->root, $this->root_url);
+        if ($directories) {
+            foreach ($directories['dirs'] as $directory) {
+                $res[] = new File($directory, $this->root, $this->root_url);
+            }
         }
 
         return $res;

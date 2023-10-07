@@ -430,19 +430,19 @@ class WikiToHtml
             $this->setOpt('first_title_level', 4);
         }
 
-        $html = str_replace("\r", '', $wiki);
+        $html = str_replace("\r", '', (string) $wiki);
 
         $escape_pattern = [];
 
         # traitement des titres à la setext
         if ($this->getOpt('active_setext_title') && $this->getOpt('active_title')) {
-            $html = preg_replace('/^(.*)\n[=]{5,}$/m', '!!!$1', $html);
-            $html = preg_replace('/^(.*)\n[-]{5,}$/m', '!!$1', $html);
+            $html = preg_replace('/^(.*)\n[=]{5,}$/m', '!!!$1', (string) $html);
+            $html = preg_replace('/^(.*)\n[-]{5,}$/m', '!!$1', (string) $html);
         }
 
         # Transformation des mots Wiki
         if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern')) {
-            $html = preg_replace('/' . $this->getOpt('words_pattern') . '/msu', '¶¶¶$1¶¶¶', $html);
+            $html = preg_replace('/' . $this->getOpt('words_pattern') . '/msu', '¶¶¶$1¶¶¶', (string) $html);
         }
 
         # Transformation des URLs automatiques
@@ -457,12 +457,12 @@ class WikiToHtml
                 $html = preg_replace(
                     '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a'])) . '])%msU',
                     '\\\$1',
-                    $html
+                    (string) $html
                 );
             }
 
             # Transforms urls while preserving tags.
-            $tree = preg_split($this->tag_pattern, $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+            $tree = preg_split($this->tag_pattern, (string) $html, -1, PREG_SPLIT_DELIM_CAPTURE);
             if ($tree) {
                 foreach ($tree as &$leaf) {
                     $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
@@ -472,7 +472,7 @@ class WikiToHtml
             }
         }
 
-        $this->wiki_lines   = explode("\n", $html);
+        $this->wiki_lines   = explode("\n", (string) $html);
         $this->wiki_lines[] = '';
 
         # Parse les blocs
@@ -480,39 +480,39 @@ class WikiToHtml
 
         # Line break
         if ($this->getOpt('active_br')) {
-            $html             = preg_replace('/(?<!\\\)%%%/', '<br />', $html);
+            $html             = preg_replace('/(?<!\\\)%%%/', '<br />', (string) $html);
             $escape_pattern[] = '%%%';
         }
 
         # Nettoyage des \s en trop
-        $html = preg_replace('/([\s]+)(<\/p>|<\/li>|<\/pre>)/u', '$2', $html);
-        $html = preg_replace('/(<li>)([\s]+)/u', '$1', $html);
+        $html = preg_replace('/([\s]+)(<\/p>|<\/li>|<\/pre>)/u', '$2', (string) $html);
+        $html = preg_replace('/(<li>)([\s]+)/u', '$1', (string) $html);
 
         # On vire les escapes
         if (!empty($escape_pattern)) {
-            $html = preg_replace('/\\\(' . implode('|', $escape_pattern) . ')/', '$1', $html);
+            $html = preg_replace('/\\\(' . implode('|', $escape_pattern) . ')/', '$1', (string) $html);
         }
 
         # On vire les ¶¶¶MotWiki¶¶¶ qui sont resté (dans les url...)
         if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern')) {
-            $html = preg_replace('/¶¶¶' . $this->getOpt('words_pattern') . '¶¶¶/msu', '$1', $html);
+            $html = preg_replace('/¶¶¶' . $this->getOpt('words_pattern') . '¶¶¶/msu', '$1', (string) $html);
         }
 
         # On remet les macros
         if ($this->getOpt('active_macros')) {
             $macro_pattern = '/^' . self::MACRO_PREFIX . '(\d+)' . self::MACRO_SUFFIX . '$/ms';
-            $html          = preg_replace_callback($macro_pattern, $this->__putMacro(...), $html);
+            $html          = preg_replace_callback($macro_pattern, $this->__putMacro(...), (string) $html);
         }
 
         # Auto line break dans les paragraphes
         if ($this->getOpt('active_auto_br')) {
-            $html = preg_replace_callback('%(<p>)(.*?)(</p>)%msu', $this->__autoBR(...), $html);
+            $html = preg_replace_callback('%(<p>)(.*?)(</p>)%msu', $this->__autoBR(...), (string) $html);
         }
 
         # Remove wrapping p around figure
         # Adapted from https://micahjon.com/2016/removing-wrapping-p-paragraph-tags-around-images-wordpress/
-        $ret = $html;
-        while (preg_match('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu', $ret)) {
+        $ret = (string) $html;
+        while (preg_match('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu', (string) $ret)) {
             $ret = preg_replace_callback(
                 '/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu',
                 function ($matches) {
@@ -528,7 +528,7 @@ class WikiToHtml
 
                     return $before . $figure . $after;
                 },
-                $ret
+                (string) $ret
             );
         }
         if (!is_null($ret)) {
@@ -546,7 +546,7 @@ class WikiToHtml
             $html .= sprintf("\n" . (count($this->foot_notes) > 1 ? $this->getOpt('note_str') : $this->getOpt('note_str_single')) . "\n", $html_notes);
         }
 
-        return $html;
+        return (string) $html;
     }
 
     /* PRIVATE
@@ -860,11 +860,11 @@ class WikiToHtml
             $valid = true;
 
             // Vérification d'intégrité
-            $dl    = ($type != $current_type) ? 0 : strlen($current_mode);
+            $dl    = ($type != $current_type) ? 0 : strlen((string) $current_mode);
             $d     = strlen($mode);
             $delta = $d - $dl;
 
-            if ($delta < 0 && !str_starts_with($current_mode, $mode)) {
+            if ($delta < 0 && !str_starts_with((string) $current_mode, $mode)) {
                 $valid = false;
             }
             if ($delta > 0 && $type == $current_type && !str_starts_with($mode, (string) $current_mode)) {
@@ -984,13 +984,13 @@ class WikiToHtml
         } elseif ($open && $type == 'hr') {
             return "\n<hr" . $attr_child . ' />';
         } elseif ($type == 'list') {
-            $dl    = ($open) ? 0 : strlen($previous_mode);
-            $d     = strlen($mode);
+            $dl    = ($open) ? 0 : strlen((string) $previous_mode);
+            $d     = strlen((string) $mode);
             $delta = $d - $dl;
             $res   = '';
 
             if ($delta > 0) {
-                if (substr($mode, -1, 1) == '*') {
+                if (substr((string) $mode, -1, 1) == '*') {
                     $res .= '<ul' . $attr_parent . ">\n";
                 } else {
                     $res .= '<ol' . $attr_parent . ">\n";
@@ -998,7 +998,7 @@ class WikiToHtml
             } elseif ($delta < 0) {
                 $res .= "</li>\n";
                 for ($j = 0; $j < abs($delta); $j++) {
-                    if (substr($previous_mode, (0 - $j - 1), 1) == '*') {
+                    if (substr((string) $previous_mode, (0 - $j - 1), 1) == '*') {
                         $res .= "</ul>\n</li>\n";
                     } else {
                         $res .= "</ol>\n</li>\n";
@@ -1060,8 +1060,8 @@ class WikiToHtml
             return "</summary>\n";
         } elseif ($close && $previous_type == 'list') {
             $res = '';
-            for ($j = 0; $j < strlen($previous_mode); $j++) {
-                if (substr($previous_mode, (0 - $j - 1), 1) == '*') {
+            for ($j = 0; $j < strlen((string) $previous_mode); $j++) {
+                if (substr((string) $previous_mode, (0 - $j - 1), 1) == '*') {
                     $res .= "</li>\n</ul>\n";
                 } else {
                     $res .= "</li>\n</ol>\n";

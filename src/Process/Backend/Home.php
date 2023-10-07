@@ -35,7 +35,7 @@ class Home extends Process
 
         if (!empty($_GET['default_blog'])) {
             try {
-                App::users()->setUserDefaultBlog(App::auth()->userID(), App::blog()->id());
+                App::users()->setUserDefaultBlog((string) App::auth()->userID(), App::blog()->id());
                 App::backend()->url->redirect('admin.home');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -135,7 +135,7 @@ class Home extends Process
             }
 
             $doc_links .= '</ul></div>';
-            $__dashboard_items[$dashboardItem]->append($doc_links);
+            $__dashboard_items[$dashboardItem]->append($doc_links); // @phpstan-ignore-line
             $dashboardItem++;
         }
 

@@ -41,14 +41,14 @@ class Template
     /**
      * Stack of node blocks callbacks
      *
-     * @var        array<string, callable|null>
+     * @var        array<string, callable>
      */
     protected $blocks = [];
 
     /**
      * Stack of node values callbacks
      *
-     * @var        array<string, callable|null>
+     * @var        array<string, callable>
      */
     protected $values = [];
 
@@ -264,7 +264,7 @@ class Template
      * The callback signature must be: callback(array $attr, string &$content)
      *
      * @param      string               $name      The name
-     * @param      callable|null        $callback  The callback
+     * @param      callable             $callback  The callback
      *
      * @throws     Exception
      */
@@ -283,7 +283,7 @@ class Template
      * The callback signature must be: callback(array $attr [, string $str_attr])
      *
      * @param      string               $name      The name
-     * @param      callable|null        $callback  The callback
+     * @param      callable             $callback  The callback
      *
      * @throws     Exception
      */
@@ -535,18 +535,18 @@ class Template
 
         // Remove every PHP tags
         if ($this->remove_php) {
-            $fc = preg_replace('/<\?(?=php|=|\s).*?\?>/ms', '', $fc);
+            $fc = (string) preg_replace('/<\?(?=php|=|\s).*?\?>/ms', '', $fc);
         }
 
         // Transform what could be considered as PHP short tags
-        $fc = preg_replace(
+        $fc = (string) preg_replace(
             '/(<\?(?!php|=|\s))(.*?)(\?>)/ms',
             '<?php echo "$1"; ?>$2<?php echo "$3"; ?>',
             $fc
         );
 
         // Remove template comments <!-- #... -->
-        $fc = preg_replace('/(^\s*)?<!-- #(.*?)-->/ms', '', $fc);
+        $fc = (string) preg_replace('/(^\s*)?<!-- #(.*?)-->/ms', '', $fc);
 
         # = tpl: blocks whitespace control syntax =
         # <tpl:...> or {{tpl:...}}
@@ -616,16 +616,16 @@ class Template
                             // Closing tag does not match opening tag
                             // Search if it closes a parent tag
                             $search = $node;
-                            while ($search->getTag() != 'ROOT' && $search->getTag() != $tag) {
-                                $search = $search->getParent();
+                            while ($search?->getTag() != 'ROOT' && $search?->getTag() != $tag) {
+                                $search = $search?->getParent();
                             }
-                            if ($search->getTag() == $tag) {
+                            if ($search?->getTag() == $tag) {
                                 $errors[] = sprintf(
                                     __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
-                                    Html::escapeHTML($node->getTag())
+                                    Html::escapeHTML($node?->getTag())
                                 );
-                                $search->setClosing();
-                                $node = $search->getParent();
+                                $search?->setClosing();
+                                $node = $search?->getParent();
                             } else {
                                 $errors[] = sprintf(
                                     __('Unexpected closing tag </tpl:%s> found.'),
@@ -647,9 +647,9 @@ class Template
                                 $this->parent_file = $attr['parent'];
                             }
                         } elseif (strtolower($tag) == 'parent') {
-                            $node->addChild(new TplNodeValueParent($tag, $attr, $str_attr));
+                            $node?->addChild(new TplNodeValueParent($tag, $attr, $str_attr));
                         } else {
-                            $node->addChild(new TplNodeValue($tag, $attr, $str_attr));
+                            $node?->addChild(new TplNodeValue($tag, $attr, $str_attr));
                         }
                     } else {
                         // Opening tag, create new node and dive into it
@@ -659,12 +659,12 @@ class Template
                         } else {
                             $newnode = new TplNodeBlock($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
                         }
-                        $node->addChild($newnode);
+                        $node?->addChild($newnode);
                         $node = $newnode;
                     }
                 } else {
                     // Simple text
-                    $node->addChild(new TplNodeText($block));
+                    $node?->addChild(new TplNodeText($block));
                 }
             }
         }

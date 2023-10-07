@@ -364,7 +364,7 @@ class Ctx
     {
         $str = self::remove_isolated_figcaption($str);
 
-        return trim(preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', Html::clean($str))));
+        return trim((string) preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', Html::clean($str))));
     }
 
     /**
@@ -564,8 +564,8 @@ class Ctx
             'ARCHIVE' => 'ARCHIVE',
         ];
 
-        $bases = preg_split('/\s*,\s*/', $base);
-        $overs = preg_split('/\s*,\s*/', $over);
+        $bases = preg_split('/\s*,\s*/', (string) $base);
+        $overs = preg_split('/\s*,\s*/', (string) $over);
 
         $bases = $bases !== false ? array_flip($bases) : [];
         $overs = $overs !== false ? array_flip($overs) : [];
@@ -770,7 +770,7 @@ class Ctx
                 $size = 's';
             }
             $p_url  = App::blog()->settings()->system->public_url;
-            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
+            $p_site = (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
             $p_root = App::blog()->publicPath();
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');

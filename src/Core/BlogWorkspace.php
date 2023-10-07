@@ -120,7 +120,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
                     'blog_id = ' . $sql->quote((string) $this->blog_id),
                     'blog_id IS NULL',
                 ]))
-                ->and('setting_ns = ' . $sql->quote($this->workspace))
+                ->and('setting_ns = ' . $sql->quote((string) $this->workspace))
                 ->order('setting_id DESC');
 
             try {
@@ -129,35 +129,37 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->con->error());
             }
         }
-        while ($rs->fetch()) {
-            if ($rs->f('setting_ns') !== $this->workspace) {
-                break;
-            }
-            $id    = trim((string) $rs->f('setting_id'));
-            $value = $rs->f('setting_value');
-            $type  = $rs->f('setting_type');
-
-            if ($type === self::NS_ARRAY) {
-                $value = @json_decode($value, true, 512, JSON_THROW_ON_ERROR);
-            } else {
-                if ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
-                    $type = self::NS_FLOAT;
-                } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT) {
-                    $type = self::NS_STRING;
+        if ($rs) {
+            while ($rs->fetch()) {
+                if ($rs->f('setting_ns') !== $this->workspace) {
+                    break;
                 }
+                $id    = trim((string) $rs->f('setting_id'));
+                $value = $rs->f('setting_value');
+                $type  = $rs->f('setting_type');
+
+                if ($type === self::NS_ARRAY) {
+                    $value = @json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+                } else {
+                    if ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
+                        $type = self::NS_FLOAT;
+                    } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT) {
+                        $type = self::NS_STRING;
+                    }
+                }
+
+                settype($value, $type);
+
+                $array = ($rs->blog_id ? 'local' : 'global') . '_settings';
+
+                $this->{$array}[$id] = [
+                    'ns'     => $this->workspace,
+                    'value'  => $value,
+                    'type'   => $type,
+                    'label'  => (string) $rs->f('setting_label'),
+                    'global' => (!$rs->blog_id),
+                ];
             }
-
-            settype($value, $type);
-
-            $array = ($rs->blog_id ? 'local' : 'global') . '_settings';
-
-            $this->{$array}[$id] = [
-                'ns'     => $this->workspace,
-                'value'  => $value,
-                'type'   => $type,
-                'label'  => (string) $rs->f('setting_label'),
-                'global' => (!$rs->blog_id),
-            ];
         }
 
         // Blog settings (local) overwrite global ones
@@ -283,11 +285,11 @@ class BlogWorkspace implements BlogWorkspaceInterface
             if ($global) {
                 $sql->where('blog_id IS NULL');
             } else {
-                $sql->where('blog_id = ' . $sql->quote($this->blog_id));
+                $sql->where('blog_id = ' . $sql->quote((string) $this->blog_id));
             }
             $sql
                 ->and('setting_id = ' . $sql->quote($name))
-                ->and('setting_ns = ' . $sql->quote($this->workspace));
+                ->and('setting_ns = ' . $sql->quote((string) $this->workspace));
 
             $sql->update($cur);
         } else {
@@ -413,7 +415,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function dumpWorkspace(): string
     {
-        return $this->workspace;
+        return (string) $this->workspace;
     }
 
     /**
@@ -450,6 +452,6 @@ class BlogWorkspace implements BlogWorkspaceInterface
     {
         $this->deprecated->set(self::class . '::dumpWorkspace()', '2.28');
 
-        return $this->workspace;
+        return (string) $this->workspace;
     }
 }

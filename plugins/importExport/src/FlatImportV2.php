@@ -108,7 +108,7 @@ class FlatImportV2 extends FlatBackup
             $this->mode = 'single';
         }
 
-        if (version_compare('1.2', $this->dc_version, '<=') && version_compare('1.3', $this->dc_version, '>')) {
+        if (version_compare('1.2', (string) $this->dc_version, '<=') && version_compare('1.3', (string) $this->dc_version, '>')) {
             $this->dc_major_version = '1.2';
         } else {
             $this->dc_major_version = '2.0';
@@ -747,7 +747,7 @@ class FlatImportV2 extends FlatBackup
         if (!$this->userExists($user_id)) {
             if (App::auth()->isSuperAdmin()) {
                 # Sanitizes user_id and create a lambda user
-                $user_id = preg_replace('/[^A-Za-z0-9]$/', '', (string) $user_id);
+                $user_id = (string) preg_replace('/[^A-Za-z0-9]$/', '', (string) $user_id);
                 $user_id .= strlen($user_id) < 2 ? '-a' : '';
 
                 # We change user_id, we need to check again

@@ -126,7 +126,7 @@ class Parser
         $generator = $this->xml->channel->children('http://webns.net/mvcb/')->generatorAgent;
         if ($generator) {
             $generator       = $generator->attributes('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
-            $this->generator = (string) $generator['resource'];
+            $this->generator = (string) $generator['resource']; // @phpstan-ignore-line
         }
 
         if (empty($this->xml->item)) {

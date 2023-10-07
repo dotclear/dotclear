@@ -245,7 +245,7 @@ class Session implements SessionInterface
         ;
 
         $rs = $sql->select();
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             return '';
         }
 
@@ -270,25 +270,28 @@ class Session implements SessionInterface
         ;
 
         $rs = $sql->select();
+        if ($rs) {
+            $cur            = $this->con->openCursor($this->table);
+            $cur->ses_time  = (string) time();
+            $cur->ses_value = (string) $data;
 
-        $cur            = $this->con->openCursor($this->table);
-        $cur->ses_time  = (string) time();
-        $cur->ses_value = (string) $data;
+            if (!$rs->isEmpty()) {
+                $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
+                $sqlUpdate
+                    ->where('ses_id = ' . $sqlUpdate->quote($this->checkID($ses_id)))
+                    ->update($cur)
+                ;
+            } else {
+                $cur->ses_id    = $this->checkID($ses_id);
+                $cur->ses_start = (string) time();
 
-        if (!$rs->isEmpty()) {
-            $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
-            $sqlUpdate
-                ->where('ses_id = ' . $sqlUpdate->quote($this->checkID($ses_id)))
-                ->update($cur)
-            ;
-        } else {
-            $cur->ses_id    = $this->checkID($ses_id);
-            $cur->ses_start = (string) time();
+                $cur->insert();
+            }
 
-            $cur->insert();
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     /**

@@ -435,7 +435,7 @@ class Tpl extends Template
             }
         }
 
-        if (!array_key_exists($table, $default_alias)) {
+        if ($table && !array_key_exists($table, $default_alias)) {
             return implode(', ', $res);
         }
 
@@ -532,7 +532,7 @@ class Tpl extends Template
     public function l10n(ArrayObject $attr, string $str_attr): string
     {
         # Normalize content
-        $str_attr = preg_replace('/\s+/x', ' ', $str_attr);
+        $str_attr = (string) preg_replace('/\s+/x', ' ', $str_attr);
 
         return "<?php echo __('" . str_replace("'", "\\'", $str_attr) . "'); ?>";
     }
@@ -1450,7 +1450,7 @@ class Tpl extends Template
             $url  = addslashes(trim((string) $attr['url']));
             $args = preg_split('/\s*[?]\s*/', $url, -1, PREG_SPLIT_NO_EMPTY);
             if ($args !== false) {
-                $url  = array_shift($args);
+                $url  = array_shift($args) ?? '';
                 $args = array_flip($args);
                 if (substr($url, 0, 1) == '!') {
                     $url = substr($url, 1);
@@ -1475,7 +1475,7 @@ class Tpl extends Template
                 foreach ($urls as $url) {
                     $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
                     if ($args !== false) {
-                        $url  = array_shift($args);
+                        $url  = array_shift($args) ?? '';
                         $args = array_flip($args);
                         if (substr($url, 0, 1) == '!') {
                             $url = substr($url, 1);
@@ -1937,7 +1937,7 @@ class Tpl extends Template
             $category = addslashes(trim((string) $attr['category']));
             $args     = preg_split('/\s*[?]\s*/', $category, -1, PREG_SPLIT_NO_EMPTY);
             if ($args !== false) {
-                $category = array_shift($args);
+                $category = array_shift($args) ?? '';
                 $args     = array_flip($args);
                 if (substr($category, 0, 1) == '!') {
                     $category = substr($category, 1);
@@ -1962,7 +1962,7 @@ class Tpl extends Template
                 foreach ($categories as $category) {
                     $args = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
                     if ($args !== false) {
-                        $category = array_shift($args);
+                        $category = array_shift($args) ?? '';
                         $args     = array_flip($args);
                         if (substr($category, 0, 1) == '!') {
                             $category = substr($category, 1);

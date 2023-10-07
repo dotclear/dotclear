@@ -191,7 +191,7 @@ class Auth extends Process
                 $cur                  = App::auth()->openUserCursor();
                 $cur->user_change_pwd = 0;
                 $cur->user_pwd        = $_POST['new_pwd'];
-                App::users()->updUser(App::auth()->userID(), $cur);
+                App::users()->updUser((string) App::auth()->userID(), $cur);
 
                 App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;

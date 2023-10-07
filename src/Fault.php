@@ -53,7 +53,7 @@ class Fault
 
         // Load custom error file if any
         if (is_file((string) self::$config?->errorFile())) {
-            include self::$config->errorFile();
+            include self::$config?->errorFile();
         }
 
         // Render HTTP page

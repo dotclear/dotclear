@@ -107,7 +107,7 @@ class Zip
      */
     public function addFile($file, ?string $name = null): void
     {
-        $file = preg_replace('#[\\\/]+#', '/', (string) $file);
+        $file = (string) preg_replace('#[\\\/]+#', '/', (string) $file);
 
         if (!$name) {
             $name = $file;
@@ -146,7 +146,7 @@ class Zip
      */
     public function addDirectory($dir, ?string $name = null, bool $recursive = false): void
     {
-        $dir = preg_replace('#[\\\/]+#', '/', (string) $dir);
+        $dir = (string) preg_replace('#[\\\/]+#', '/', (string) $dir);
         if (substr($dir, -1 - 1) != '/') {
             $dir .= '/';
         }

@@ -123,17 +123,17 @@ class IndexPosts extends MaintenanceTask
             $sql->limit([$start, $limit]);
         }
 
-        $rs = $sql->select();
+        if ($rs = $sql->select()) {
+            $cur = App::blog()->openPostCursor();
 
-        $cur = App::blog()->openPostCursor();
+            while ($rs->fetch()) {
+                $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
+                $rs->post_content_xhtml;
 
-        while ($rs->fetch()) {
-            $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
-            $rs->post_content_xhtml;
-
-            $cur->post_words = implode(' ', Text::splitWords($words));
-            $cur->update('WHERE post_id = ' . (int) $rs->post_id);
-            $cur->clean();
+                $cur->post_words = implode(' ', Text::splitWords($words));
+                $cur->update('WHERE post_id = ' . (int) $rs->post_id);
+                $cur->clean();
+            }
         }
 
         $start = (int) $start;

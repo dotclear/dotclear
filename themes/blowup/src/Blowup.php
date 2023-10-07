@@ -513,6 +513,9 @@ class Blowup
                 $body_color = $default_bg;
             }
             $body_color = sscanf($body_color, '#%2X%2X%2X');
+            if (!is_array($body_color)) {
+                return;
+            }
 
             # Create body gradient with color
             $d_body_bg = imagecreatetruecolor(50, 180);
@@ -534,6 +537,9 @@ class Blowup
                     $prelude_color = $default_prelude;
                 }
                 $prelude_color = sscanf($prelude_color, '#%2X%2X%2X');
+                if (!is_array($prelude_color)) {
+                    return;
+                }
 
                 $s_prelude = imagecreatetruecolor(50, 30);
                 if ($s_prelude !== false) {
@@ -549,6 +555,9 @@ class Blowup
         if ($top_image || $body_color || $gradient != 'light') {
             if (!is_array($body_color)) {
                 $body_color = sscanf($default_bg, '#%2X%2X%2X');
+                if (!is_array($body_color)) {
+                    return;
+                }
             }
 
             # Create top image from uploaded image
@@ -653,6 +662,9 @@ class Blowup
         $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
 
         $comment_color = sscanf($comment_color, '#%2X%2X%2X');
+        if (!is_array($comment_color)) {
+            return;
+        }
 
         $d_comment_t = imagecreatetruecolor(500, 25);
         if ($d_comment_t !== false) {

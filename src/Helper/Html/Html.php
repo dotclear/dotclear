@@ -55,7 +55,7 @@ class Html
             $str = str_replace(
                 ['&amp;', '&gt;', '&lt;'],
                 ['&amp;amp;', '&amp;gt;', '&amp;lt;'],
-                $str
+                (string) $str
             );
         }
 
@@ -64,7 +64,7 @@ class Html
             '&apos;' => "'",
         ];
 
-        $str = str_replace(array_keys($extra), array_values($extra), $str);
+        $str = str_replace(array_keys($extra), array_values($extra), (string) $str);
 
         return html_entity_decode($str, ENT_QUOTES, 'UTF-8');
     }
@@ -80,7 +80,7 @@ class Html
      */
     public static function clean(?string $str): string
     {
-        $str = strip_tags($str);
+        $str = strip_tags((string) $str);
 
         return $str;
     }
@@ -96,7 +96,7 @@ class Html
      */
     public static function escapeJS(?string $str): string
     {
-        $str = htmlspecialchars($str, ENT_NOQUOTES, 'UTF-8');
+        $str = htmlspecialchars((string) $str, ENT_NOQUOTES, 'UTF-8');
         $str = str_replace("'", "\'", $str);
         $str = str_replace('"', '\"', $str);
 
@@ -114,7 +114,7 @@ class Html
      */
     public static function escapeURL(?string $str): string
     {
-        return str_replace('&', '&amp;', $str);
+        return str_replace('&', '&amp;', (string) $str);
     }
 
     /**
@@ -142,7 +142,7 @@ class Html
      */
     public static function stripHostURL(?string $url): string
     {
-        return preg_replace('|^[a-z]{3,}://.*?(/.*$)|', '$1', (string) $url);
+        return (string) preg_replace('|^[a-z]{3,}://.*?(/.*$)|', '$1', (string) $url);
     }
 
     /**
@@ -160,13 +160,13 @@ class Html
         $str = (string) $str;
         if ($root) {
             foreach (self::$absolute_regs as $pattern) {
-                $str = preg_replace_callback(
+                $str = (string) preg_replace_callback(
                     $pattern,
                     function (array $matches) use ($root) {
                         $url = $matches[2];
 
                         $link = str_replace('%', '%%', $matches[1]) . '%s' . str_replace('%', '%%', $matches[3]);
-                        $host = preg_replace('|^([a-z]{3,}://)(.*?)/(.*)$|', '$1$2', $root);
+                        $host = (string) preg_replace('|^([a-z]{3,}://)(.*?)/(.*)$|', '$1$2', $root);
 
                         $parse = parse_url($matches[2]);
                         if (empty($parse['scheme'])) {

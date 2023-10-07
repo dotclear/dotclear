@@ -528,7 +528,7 @@ class Files
 
         $exclude_list = ['.', '..', '.svn', '.git', '.hg'];
 
-        $directory = preg_replace('|/$|', '', $directory);
+        $directory = (string) preg_replace('|/$|', '', $directory);
         if (!is_dir($directory)) {
             throw new Exception(sprintf(__('%s is not a directory.'), $directory));
         }
@@ -565,9 +565,9 @@ class Files
      */
     public static function tidyFileName(string $filename): string
     {
-        $filename = preg_replace('/^[.]/u', '', Text::deaccent($filename));
+        $filename = (string) preg_replace('/^[.]/u', '', Text::deaccent($filename));
 
-        return preg_replace('/[^A-Za-z0-9._-]/u', '_', $filename);
+        return (string) preg_replace('/[^A-Za-z0-9._-]/u', '_', $filename);
     }
 
     /**

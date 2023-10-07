@@ -76,8 +76,8 @@ class Schema extends AbstractSchema
             $len     = $rs->character_maximum_length;
             $len     = $len == '' ? null : (int) $len;
 
-            $default = preg_replace('/::([\w\d\s]*)$/', '', (string) $default);
-            $default = preg_replace('/^\((-?\d*)\)$/', '$1', $default);
+            $default = (string) preg_replace('/::([\w\d\s]*)$/', '', (string) $default);
+            $default = (string) preg_replace('/^\((-?\d*)\)$/', '$1', $default);
 
             // $default from db is a string and is NULL in schema so upgrade failed.
             if (strtoupper((string) $default) == 'NULL') {

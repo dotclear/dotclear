@@ -228,24 +228,26 @@ class Search extends Process
             printf('<h3>' . __('one entry found', '%d entries found', self::$count) . '</h3>', self::$count);
         }
 
-        self::$list->display(
-            (int) $args['page'],
-            (int) $args['nb'],
-            '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-entries">' .
+        if (self::$actions && self::$list) {
+            self::$list->display(
+                (int) $args['page'],
+                (int) $args['nb'],
+                '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-entries">' .
 
-            '%s' .
+                '%s' .
 
-            '<div class="two-cols">' .
-            '<p class="col checkboxes-helpers"></p>' .
+                '<div class="two-cols">' .
+                '<p class="col checkboxes-helpers"></p>' .
 
-            '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-            form::combo('action', self::$actions->getCombo()) .
-            '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            App::nonce()->getFormNonce() .
-            str_replace('%', '%%', self::$actions->getHiddenFields()) .
-            '</div>' .
-            '</form>'
-        );
+                '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
+                form::combo('action', self::$actions->getCombo()) .
+                '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
+                App::nonce()->getFormNonce() .
+                str_replace('%', '%%', self::$actions->getHiddenFields()) .
+                '</div>' .
+                '</form>'
+            );
+        }
     }
 
     /**
@@ -305,26 +307,28 @@ class Search extends Process
             App::blog()->id()
         );
 
-        self::$list->display(
-            (int) $args['page'],
-            (int) $args['nb'],
-            '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-comments">' .
+        if (self::$actions && self::$list) {
+            self::$list->display(
+                (int) $args['page'],
+                (int) $args['nb'],
+                '<form action="' . App::backend()->url->get('admin.search') . '" method="post" id="form-comments">' .
 
-            '%s' .
+                '%s' .
 
-            '<div class="two-cols">' .
-            '<p class="col checkboxes-helpers"></p>' .
+                '<div class="two-cols">' .
+                '<p class="col checkboxes-helpers"></p>' .
 
-            '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
-            form::combo('action', self::$actions->getCombo()) .
-            '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            App::nonce()->getFormNonce() .
-            str_replace('%', '%%', self::$actions->getHiddenFields()) .
-            '</div>' .
-            '</form>',
-            false,
-            false,
-            $show_ip
-        );
+                '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
+                form::combo('action', self::$actions->getCombo()) .
+                '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
+                App::nonce()->getFormNonce() .
+                str_replace('%', '%%', self::$actions->getHiddenFields()) .
+                '</div>' .
+                '</form>',
+                false,
+                false,
+                $show_ip
+            );
+        }
     }
 }

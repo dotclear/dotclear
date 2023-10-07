@@ -342,7 +342,7 @@ class Page
             '</form>';
 
         foreach (array_keys((array) App::backend()->menus) as $k) {
-            echo App::backend()->menus[$k]->draw();
+            echo App::backend()->menus[$k]?->draw();
         }
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br />(Codename: ' . App::config()->dotclearName() . ')');
@@ -688,7 +688,7 @@ class Page
         if ($hl_pos < 0) {
             $hl_pos = count((array) $elements) + $hl_pos;
         }
-        foreach ($elements as $element => $url) {
+        foreach ((array) $elements as $element => $url) {
             if ($hl && $index === $hl_pos) {
                 $element = sprintf('<span class="page-title" aria-current="location">%s</span>', $element);
             }
@@ -1173,7 +1173,7 @@ class Page
                 'files_in_queue'             => __('%d files in queue.'),
                 'queue_error'                => __('Queue error:'),
             ],
-            'base_url' => Path::clean(dirname(preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/',
+            'base_url' => Path::clean(dirname((string) preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/',
         ];
 
         return

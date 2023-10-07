@@ -50,10 +50,10 @@ class StaticRecord extends Record
     public function __construct($result, ?array $info)
     {
         if (is_array($result)) {
-            $this->__info = $info;
+            $this->__info = $info ?? [];
             $this->__data = $result;
         } else {
-            parent::__construct($result, $info);
+            parent::__construct($result, $info ?? []);
             $this->__data = parent::getData();
         }
 

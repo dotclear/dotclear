@@ -259,8 +259,8 @@ class ThemeEditor
                 throw new Exception('tocatch');
             }
 
-            $content = preg_replace('/(\r?\n)/m', "\n", $content);
-            $content = preg_replace('/\r/m', "\n", $content);
+            $content = (string) preg_replace('/(\r?\n)/m', "\n", $content);
+            $content = (string) preg_replace('/\r/m', "\n", $content);
 
             fwrite($fp, $content);
             fclose($fp);

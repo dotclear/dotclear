@@ -199,7 +199,7 @@ class Date
         ];
 
         /* @phpstan-ignore-next-line */
-        $out = preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function ($match) use ($translation_table, $timestamp) {
+        $out = (string) preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function ($match) use ($translation_table, $timestamp) {
             $prefix  = $match[1];
             $char    = $match[2];
             $pattern = '%' . $char;
@@ -255,8 +255,8 @@ class Date
         }
 
         $hash    = '799b4e471dc78154865706469d23d512';
-        $pattern = preg_replace('/(?<!%)%(a|A)/', '{{' . $hash . '__$1%w__}}', $pattern);
-        $pattern = preg_replace('/(?<!%)%(b|B)/', '{{' . $hash . '__$1%m__}}', $pattern);
+        $pattern = (string) preg_replace('/(?<!%)%(a|A)/', '{{' . $hash . '__$1%w__}}', $pattern);
+        $pattern = (string) preg_replace('/(?<!%)%(b|B)/', '{{' . $hash . '__$1%m__}}', $pattern);
 
         if ($timezone) {
             $current_timezone = self::getTZ();
@@ -269,7 +269,7 @@ class Date
             self::setTZ($current_timezone);
         }
 
-        $res = preg_replace_callback(
+        $res = (string) preg_replace_callback(
             '/{{' . $hash . '__(a|A|b|B)([0-9]{1,2})__}}/',
             function ($args) {
                 $b = [

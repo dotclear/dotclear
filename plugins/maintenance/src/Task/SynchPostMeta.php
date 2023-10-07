@@ -84,12 +84,12 @@ class SynchPostsMeta extends MaintenanceTask
 
     public function step()
     {
-        return $this->code ? sprintf($this->step, $this->code - $this->limit, $this->code) : null;
+        return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code) : null;
     }
 
     public function success(): string
     {
-        return $this->code ? sprintf($this->step, $this->code - $this->limit, $this->code) : $this->success;
+        return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code) : $this->success;
     }
 
     /**
@@ -118,32 +118,33 @@ class SynchPostsMeta extends MaintenanceTask
         if ($start !== null && $limit !== null) {
             $sql->limit([$start, $limit]);
         }
-        $rs = $sql->select();
 
         // Update posts meta
-        while ($rs->fetch()) {
-            $sql_meta = new SelectStatement();
-            $rs_meta  = $sql_meta
-                ->columns([
-                    'meta_id',
-                    'meta_type',
-                ])
-                ->from(App::con()->prefix() . App::meta()::META_TABLE_NAME)
-                ->where('post_id = ' . $rs->post_id)
-                ->select();
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                $sql_meta = new SelectStatement();
+                $rs_meta  = $sql_meta
+                    ->columns([
+                        'meta_id',
+                        'meta_type',
+                    ])
+                    ->from(App::con()->prefix() . App::meta()::META_TABLE_NAME)
+                    ->where('post_id = ' . $rs->post_id)
+                    ->select();
 
-            $meta = [];
-            while ($rs_meta->fetch()) {
-                $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
+                $meta = [];
+                while ($rs_meta->fetch()) {
+                    $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
+                }
+
+                $cur            = App::blog()->openPostCursor();
+                $cur->post_meta = serialize($meta);
+
+                $sql_upd = new UpdateStatement();
+                $sql_upd
+                    ->where('post_id = ' . (string) $rs->post_id)
+                    ->update($cur);
             }
-
-            $cur            = App::blog()->openPostCursor();
-            $cur->post_meta = serialize($meta);
-
-            $sql_upd = new UpdateStatement();
-            $sql_upd
-                ->where('post_id = ' . (string) $rs->post_id)
-                ->update($cur);
         }
         App::blog()->triggerBlog();
 

@@ -119,7 +119,7 @@ class Notice implements NoticeInterface
             $sql->limit($params['limit']);
         }
 
-        return $sql->select();
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     public function addNotice(Cursor $cur): int
@@ -133,17 +133,17 @@ class Notice implements NoticeInterface
                 ->column($sql->max('notice_id'))
                 ->from($this->table);
 
-            $rs = $sql->select();
+            if ($rs = $sql->select()) {
+                $cur->notice_id = (int) $rs->f(0) + 1;
+                $cur->ses_id    = (string) session_id();
 
-            $cur->notice_id = (int) $rs->f(0) + 1;
-            $cur->ses_id    = (string) session_id();
+                $this->fillNoticeCursor($cur, $cur->notice_id);
 
-            $this->fillNoticeCursor($cur, $cur->notice_id);
+                # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
+                $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
-            # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
-            $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
-
-            $cur->insert();
+                $cur->insert();
+            }
             $this->con->unlock();
         } catch (Throwable $e) {
             $this->con->unlock();

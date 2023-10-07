@@ -310,7 +310,15 @@ class FileServer
 
         // serve file
         Http::$cache_max_age = $this->debug && in_array($this->extension, self::DEFAULT_NOCACHE) ? 0 : self::$cache_ttl;
-        Http::cache([...[$this->file], ...get_included_files()]);
+
+        /**
+         * @var        array<string>
+         */
+        $mod_files = [
+            $this->file,
+            ...get_included_files(),
+        ];
+        Http::cache($mod_files);
 
         header('Content-Type: ' . Files::getMimeType((string) $this->file));
         readfile((string) $this->file);

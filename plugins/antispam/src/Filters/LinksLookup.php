@@ -96,7 +96,7 @@ class LinksLookup extends SpamFilter
             return;
         }
 
-        $urls = $this->getLinks($content);
+        $urls = $this->getLinks((string) $content);
         array_unshift($urls, $site);
 
         foreach ($urls as $u) {
@@ -108,7 +108,7 @@ class LinksLookup extends SpamFilter
                 continue;
             }
 
-            $domain      = preg_replace('/^[\w]{2,6}:\/\/([\w\d\.\-]+).*$/', '$1', $b['host']);
+            $domain      = (string) preg_replace('/^[\w]{2,6}:\/\/([\w\d\.\-]+).*$/', '$1', $b['host']);
             $domain_elem = explode('.', $domain);
 
             $i = count($domain_elem) - 1;

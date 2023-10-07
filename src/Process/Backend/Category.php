@@ -60,13 +60,15 @@ class Category extends Process
                 App::error()->add($e->getMessage());
             }
 
-            if (!App::error()->flag() && !$rs->isEmpty()) {
-                App::backend()->cat_id    = (int) $rs->cat_id;
-                App::backend()->cat_title = $rs->cat_title;
-                App::backend()->cat_url   = $rs->cat_url;
-                App::backend()->cat_desc  = $rs->cat_desc;
+            if ($rs) {
+                if (!App::error()->flag() && !$rs->isEmpty()) {
+                    App::backend()->cat_id    = (int) $rs->cat_id;
+                    App::backend()->cat_title = $rs->cat_title;
+                    App::backend()->cat_url   = $rs->cat_url;
+                    App::backend()->cat_desc  = $rs->cat_desc;
+                }
+                unset($rs);
             }
-            unset($rs);
 
             // Getting hierarchy information
             App::backend()->cat_parents = App::blog()->getCategoryParents((int) App::backend()->cat_id);

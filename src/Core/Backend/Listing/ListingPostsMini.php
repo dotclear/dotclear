@@ -33,7 +33,7 @@ class ListingPostsMini extends Listing
         if ($this->rs->isEmpty()) {
             echo '<p><strong>' . __('No entry') . '</strong></p>';
         } else {
-            $pager = new Pager($page, $this->rs_count, $nb_per_page, 10);
+            $pager = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
 
             $html_block = '<div class="table-outer clear">' .
             '<table><caption class="hidden">' . __('Entries list') . '</caption><tr>';

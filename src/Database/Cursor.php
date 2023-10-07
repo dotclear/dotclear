@@ -196,7 +196,7 @@ class Cursor
     public function getUpdate(string $where): string
     {
         // Legacy: remove WHERE from beginning of $where arg
-        $where = trim(preg_replace('/^(?:\s*)WHERE(.*?)$/i', '$1', $where, 1));
+        $where = trim((string) preg_replace('/^(?:\s*)WHERE(.*?)$/i', '$1', $where, 1));
 
         $sql = new UpdateStatement($this->__con);
         $sql

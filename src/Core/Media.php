@@ -327,7 +327,7 @@ class Media extends Manager implements MediaInterface
     public function chdir(?string $dir): void
     {
         parent::chdir($dir);
-        $this->relpwd = preg_replace('/^' . preg_quote($this->root, '/') . '\/?/', '', $this->pwd);
+        $this->relpwd = (string) preg_replace('/^' . preg_quote($this->root, '/') . '\/?/', '', $this->pwd);
     }
 
     /**
@@ -373,7 +373,7 @@ class Media extends Manager implements MediaInterface
                 $fi->editable = false;
             }
 
-            $type_prefix = explode('/', $fi->type);
+            $type_prefix = explode('/', (string) $fi->type);
             $type_prefix = $type_prefix[0];
 
             switch ($type_prefix) {
@@ -478,8 +478,8 @@ class Media extends Manager implements MediaInterface
             );
 
             # Cleaner URLs
-            $thumb_url = preg_replace('#\./#', '/', $thumb_url);
-            $thumb_url = preg_replace('#(?<!:)/+#', '/', $thumb_url);
+            $thumb_url = (string) preg_replace('#\./#', '/', $thumb_url);
+            $thumb_url = (string) preg_replace('#(?<!:)/+#', '/', $thumb_url);
 
             $thumb_alt     = '';
             $thumb_url_alt = '';
@@ -488,8 +488,8 @@ class Media extends Manager implements MediaInterface
                 $thumb_alt     = sprintf($this->thumb_tp, $this->root . '/' . $p['dirname'], $p['base'], '%s');
                 $thumb_url_alt = sprintf($this->thumb_tp, $this->root_url . $p['dirname'], $p['base'], '%s');
                 # Cleaner URLs
-                $thumb_url_alt = preg_replace('#\./#', '/', $thumb_url_alt);
-                $thumb_url_alt = preg_replace('#(?<!:)/+#', '/', $thumb_url_alt);
+                $thumb_url_alt = (string) preg_replace('#\./#', '/', $thumb_url_alt);
+                $thumb_url_alt = (string) preg_replace('#(?<!:)/+#', '/', $thumb_url_alt);
             }
 
             foreach (array_keys($this->thumb_sizes) as $suffix) {
@@ -631,15 +631,16 @@ class Media extends Manager implements MediaInterface
             ->and('media_dir = ' . $sql->quote($media_dir))
             ->and('media_private = 1');
 
-        $rsp      = $sql->select();
         $privates = [];
-        while ($rsp->fetch()) {
-            # File in subdirectory, forget about it!
-            if (dirname($rsp->media_file) != '.' && dirname($rsp->media_file) != $this->relpwd) {
-                continue;
-            }
-            if ($f = $this->fileRecord($rsp)) {
-                $privates[] = $f->relname;
+        if ($rsp = $sql->select()) {
+            while ($rsp->fetch()) {
+                # File in subdirectory, forget about it!
+                if (dirname($rsp->media_file) != '.' && dirname($rsp->media_file) != $this->relpwd) {
+                    continue;
+                }
+                if ($f = $this->fileRecord($rsp)) {
+                    $privates[] = $f->relname;
+                }
             }
         }
 
@@ -658,42 +659,43 @@ class Media extends Manager implements MediaInterface
         }
 
         $f_reg = [];
-
-        while ($rs->fetch()) {
-            # File in subdirectory, forget about it!
-            if (dirname($rs->media_file) != '.' && dirname($rs->media_file) != $this->relpwd) {
-                continue;
-            }
-
-            if ($this->inFiles($rs->media_file)) {
-                if ($f = $this->fileRecord($rs)) {
-                    if (isset($f_reg[$rs->media_file])) {
-                        # That media is duplicated in the database,
-                        # time to do a bit of house cleaning.
-                        $sql = new DeleteStatement();
-                        $sql
-                            ->from($this->table)
-                            ->where('media_id = ' . $f->media_id);
-
-                        $sql->delete();
-                    } else {
-                        $f_res[]                = $f;
-                        $f_reg[$rs->media_file] = 1;
-                    }
+        if ($rs) {
+            while ($rs->fetch()) {
+                # File in subdirectory, forget about it!
+                if (dirname($rs->media_file) != '.' && dirname($rs->media_file) != $this->relpwd) {
+                    continue;
                 }
-            } elseif (!empty($p_dir['files']) && $this->relpwd == '') {
-                # Physical file does not exist remove it from DB
-                # Because we don't want to erase everything on
-                # dotclear upgrade, do it only if there are files
-                # in directory and directory is root
-                $sql = new DeleteStatement();
-                $sql
-                    ->from($this->table)
-                    ->where('media_path = ' . $sql->quote($this->path))
-                    ->and('media_file = ' . $sql->quote($rs->media_file));
 
-                $sql->delete();
-                $this->callFileHandler(Files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
+                if ($this->inFiles($rs->media_file)) {
+                    if ($f = $this->fileRecord($rs)) {
+                        if (isset($f_reg[$rs->media_file])) {
+                            # That media is duplicated in the database,
+                            # time to do a bit of house cleaning.
+                            $sql = new DeleteStatement();
+                            $sql
+                                ->from($this->table)
+                                ->where('media_id = ' . $f->media_id);
+
+                            $sql->delete();
+                        } else {
+                            $f_res[]                = $f;
+                            $f_reg[$rs->media_file] = 1;
+                        }
+                    }
+                } elseif (!empty($p_dir['files']) && $this->relpwd == '') {
+                    # Physical file does not exist remove it from DB
+                    # Because we don't want to erase everything on
+                    # dotclear upgrade, do it only if there are files
+                    # in directory and directory is root
+                    $sql = new DeleteStatement();
+                    $sql
+                        ->from($this->table)
+                        ->where('media_path = ' . $sql->quote($this->path))
+                        ->and('media_file = ' . $sql->quote($rs->media_file));
+
+                    $sql->delete();
+                    $this->callFileHandler(Files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
+                }
             }
         }
 
@@ -711,7 +713,9 @@ class Media extends Manager implements MediaInterface
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
                 if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates)) {
                     if (($id = $this->createFile($f->basename, null, false, null, false)) !== false) {
-                        $this->dir['files'][] = $this->getFile($id);
+                        if ($gf = $this->getFile($id)) {
+                            $this->dir['files'][] = $gf;
+                        }
                     }
                 }
             }
@@ -756,7 +760,7 @@ class Media extends Manager implements MediaInterface
 
         $rs = $sql->select();
 
-        return $this->fileRecord($rs);
+        return $rs ? $this->fileRecord($rs) : null;
     }
 
     public function searchMedia(string $query): bool
@@ -801,9 +805,11 @@ class Media extends Manager implements MediaInterface
 
         $this->dir = ['dirs' => [], 'files' => []];
         $f_res     = [];
-        while ($rs->fetch()) {
-            if ($fr = $this->fileRecord($rs)) {
-                $f_res[] = $fr;
+        if ($rs) {
+            while ($rs->fetch()) {
+                if ($fr = $this->fileRecord($rs)) {
+                    $f_res[] = $fr;
+                }
             }
         }
         $this->dir['files'] = $f_res;
@@ -918,12 +924,12 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_dir = ' . $sql->quote($media_dir));
 
-        $rs = $sql->select();
-
         $del_ids = [];
-        while ($rs->fetch()) {
-            if (!is_file($this->root . '/' . $rs->media_file)) {
-                $del_ids[] = (int) $rs->media_id;
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                if (!is_file($this->root . '/' . $rs->media_file)) {
+                    $del_ids[] = (int) $rs->media_id;
+                }
             }
         }
         if (!empty($del_ids)) {
@@ -938,7 +944,7 @@ class Media extends Manager implements MediaInterface
 
     public function makeDir(?string $name): void
     {
-        $name = Files::tidyFileName($name);
+        $name = Files::tidyFileName((string) $name);
         parent::makeDir($name);
 
         # --BEHAVIOR-- coreAfterMediaDirCreate -- string|null
@@ -981,7 +987,7 @@ class Media extends Manager implements MediaInterface
 
         $rs = $sql->select();
 
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             $this->con->writeLock($this->table);
 
             try {
@@ -991,7 +997,7 @@ class Media extends Manager implements MediaInterface
                     ->column($sql->max('media_id'));
 
                 $rs       = $sql->select();
-                $media_id = (int) $rs->f(0) + 1;
+                $media_id = $rs ? (int) $rs->f(0) + 1 : 1;
 
                 $cur->media_id     = $media_id;
                 $cur->user_id      = $this->auth->userID();
@@ -1104,7 +1110,7 @@ class Media extends Manager implements MediaInterface
 
         $sql->update($cur);
 
-        $this->callFileHandler($file->type, 'update', $file, $newFile);
+        $this->callFileHandler((string) $file->type, 'update', $file, $newFile);
     }
 
     /**
@@ -1176,7 +1182,7 @@ class Media extends Manager implements MediaInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA_ADMIN,
         ]), $this->blog->id())) {
-            $sql->and('user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
 
         $sql->delete();
@@ -1200,10 +1206,11 @@ class Media extends Manager implements MediaInterface
             ->column('distinct media_dir')
             ->where('media_path = ' . $sql->quote($this->path));
 
-        $rs = $sql->select();
-        while ($rs->fetch()) {
-            if (is_dir($this->root . '/' . $rs->media_dir)) {
-                $dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                if (is_dir($this->root . '/' . $rs->media_dir)) {
+                    $dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
+                }
             }
         }
 
@@ -1240,9 +1247,9 @@ class Media extends Manager implements MediaInterface
         // Clean-up all extracted filenames
         $clean = function ($name) {
             $n = Text::deaccent($name);
-            $n = preg_replace('/^[.]/u', '', $n);
+            $n = (string) preg_replace('/^[.]/u', '', $n);
 
-            return preg_replace('/[^A-Za-z0-9._\-\/]/u', '_', $n);
+            return (string) preg_replace('/[^A-Za-z0-9._\-\/]/u', '_', $n);
         };
         if ($list !== false) {
             foreach ($list as $zk => $zv) {

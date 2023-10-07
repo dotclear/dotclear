@@ -85,7 +85,7 @@ class Diff
 
             # Try right diagonal
             $k++;
-            $x = array_key_exists($k, $V) ? $V[$k] : 0;
+            $x = array_key_exists($k, $V) ? $V[$k] : 0; // @phpstan-ignore-line
             $y = $x - $k;
             $y++;
 
@@ -96,7 +96,7 @@ class Diff
             }
 
             if ($x == $cx && $y == $cy) {
-                $x = $V[$k];
+                $x = $V[$k];    // @phpstan-ignore-line
                 $y = $x - $k;
 
                 $res[] = ['i', $x, $y];
@@ -106,7 +106,7 @@ class Diff
 
             # Right diagonal wasn't the solution, use left diagonal
             $k -= 2;
-            $x     = $V[$k];
+            $x     = $V[$k];    // @phpstan-ignore-line
             $y     = $x - $k;
             $res[] = ['d', $x, $y];
         }

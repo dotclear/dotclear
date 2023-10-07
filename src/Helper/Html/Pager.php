@@ -224,7 +224,7 @@ class Pager
             if ($i === $this->env) {
                 $htmlLinks .= sprintf($this->html_cur_page, $i);
             } else {
-                $htmlLinks .= '<a href="' . sprintf($this->page_url, $i) . '">' . $i . '</a>';
+                $htmlLinks .= '<a href="' . sprintf((string) $this->page_url, $i) . '">' . $i . '</a>';
             }
 
             if ($i !== $this->index_group_end) {
@@ -234,22 +234,22 @@ class Pager
 
         # Previous page
         if ($this->env !== 1) {
-            $htmlPrev = '<a href="' . sprintf($this->page_url, $this->env - 1) . '">' . $this->html_prev . '</a>&nbsp;';
+            $htmlPrev = '<a href="' . sprintf((string) $this->page_url, $this->env - 1) . '">' . $this->html_prev . '</a>&nbsp;';
         }
 
         # Next page
         if ($this->env !== $this->nb_pages) {
-            $htmlNext = '&nbsp;<a href="' . sprintf($this->page_url, $this->env + 1) . '">' . $this->html_next . '</a>';
+            $htmlNext = '&nbsp;<a href="' . sprintf((string) $this->page_url, $this->env + 1) . '">' . $this->html_next . '</a>';
         }
 
         # Previous group
         if ($this->env_group != 1) {
-            $htmlPrevGrp = '&nbsp;<a href="' . sprintf($this->page_url, $this->index_group_start - $this->nb_pages_per_group) . '">' . $this->html_prev_grp . '</a>&nbsp;';
+            $htmlPrevGrp = '&nbsp;<a href="' . sprintf((string) $this->page_url, $this->index_group_start - $this->nb_pages_per_group) . '">' . $this->html_prev_grp . '</a>&nbsp;';
         }
 
         # Next group
         if ($this->env_group != $this->nb_groups) {
-            $htmlNextGrp = '&nbsp;<a href="' . sprintf($this->page_url, $this->index_group_end + 1) . '">' . $this->html_next_grp . '</a>&nbsp;';
+            $htmlNextGrp = '&nbsp;<a href="' . sprintf((string) $this->page_url, $this->index_group_end + 1) . '">' . $this->html_next_grp . '</a>&nbsp;';
         }
 
         $res = $htmlPrev .
@@ -276,8 +276,8 @@ class Pager
 
         # Removing session information
         if (session_id()) {
-            $url = preg_replace('/' . preg_quote(session_name() . '=' . session_id(), '/') . '([&]?)/', '', $url);
-            $url = preg_replace('/&$/', '', $url);
+            $url = (string) preg_replace('/' . preg_quote(session_name() . '=' . session_id(), '/') . '([&]?)/', '', $url);
+            $url = (string) preg_replace('/&$/', '', $url);
         }
 
         # Escape page_url for sprintf
@@ -285,7 +285,7 @@ class Pager
 
         # Changing page ref
         if (preg_match('/[?&]' . $this->var_page . '=\d+/', $url)) {
-            $url = preg_replace('/([?&]' . $this->var_page . '=)\d+/', '$1%1$d', $url);
+            $url = (string) preg_replace('/([?&]' . $this->var_page . '=)\d+/', '$1%1$d', $url);
         } elseif (preg_match('/[\?]/', $url)) {
             $url .= '&' . $this->var_page . '=%1$d';
         } else {

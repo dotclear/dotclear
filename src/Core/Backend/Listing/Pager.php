@@ -109,7 +109,7 @@ class Pager extends HelperPager
         $this->setURL();
         $htmlFirst = $this->getLink(
             'first',
-            sprintf($this->page_url, 1),
+            sprintf((string) $this->page_url, 1),
             'images/pagination/first.svg',
             'images/pagination/no-first.svg',
             __('First page'),
@@ -117,7 +117,7 @@ class Pager extends HelperPager
         );
         $htmlPrev = $this->getLink(
             'prev',
-            sprintf($this->page_url, $this->env - 1),
+            sprintf((string) $this->page_url, $this->env - 1),
             'images/pagination/previous.svg',
             'images/pagination/no-previous.svg',
             __('Previous page'),
@@ -125,7 +125,7 @@ class Pager extends HelperPager
         );
         $htmlNext = $this->getLink(
             'next',
-            sprintf($this->page_url, $this->env + 1),
+            sprintf((string) $this->page_url, $this->env + 1),
             'images/pagination/next.svg',
             'images/pagination/no-next.svg',
             __('Next page'),
@@ -133,7 +133,7 @@ class Pager extends HelperPager
         );
         $htmlLast = $this->getLink(
             'last',
-            sprintf($this->page_url, $this->nb_pages),
+            sprintf((string) $this->page_url, $this->nb_pages),
             'images/pagination/last.svg',
             'images/pagination/no-last.svg',
             __('Last page'),

@@ -313,7 +313,7 @@ class Favorites
     public function appendMenu(Menus $menu): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite_menu) {
-            $menu[Menus::MENU_FAVORITES]->addItem(
+            $menu[Menus::MENU_FAVORITES]?->addItem(
                 $favorite_menu['title'],
                 $favorite_menu['url'],
                 $favorite_menu['small-icon'],

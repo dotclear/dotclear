@@ -38,7 +38,7 @@ class FlatExport
     public function __construct(ConnectionInterface $con, string $out = 'php://output', ?string $prefix = null)
     {
         $this->con    = &$con;
-        $this->prefix = $prefix;
+        $this->prefix = $prefix ?? '';
 
         if (($this->fp = fopen($out, 'w')) === false) {
             throw new Exception(__('Unable to create output file.'));

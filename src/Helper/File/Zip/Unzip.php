@@ -729,7 +729,7 @@ class Unzip
     protected function cleanFileName($n): string
     {
         $n = str_replace('../', '', (string) $n);
-        $n = preg_replace('#^/+#', '', (string) $n);
+        $n = (string) preg_replace('#^/+#', '', (string) $n);
 
         return $n;
     }

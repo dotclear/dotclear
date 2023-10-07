@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
+use Dotclear\Exception\DatabaseException;
 
 /**
  * @class SqlStatement
@@ -454,6 +455,10 @@ class SqlStatement
      */
     public function escape(string $value): string
     {
+        if (!$this->con) {
+            throw new DatabaseException('ConnectionInterface instance is missing.');
+        }
+
         return $this->con->escapeStr($value);
     }
 
@@ -467,6 +472,10 @@ class SqlStatement
      */
     public function quote(string $value, bool $escape = true): string
     {
+        if (!$this->con) {
+            throw new DatabaseException('ConnectionInterface instance is missing.');
+        }
+
         return "'" . ($escape ? $this->con->escapeStr($value) : $value) . "'";
     }
 
@@ -501,6 +510,10 @@ class SqlStatement
      */
     public function in($list, string $cast = ''): string
     {
+        if (!$this->con) {
+            throw new DatabaseException('ConnectionInterface instance is missing.');
+        }
+
         if ($cast !== '') {
             switch ($cast) {
                 case 'int':
@@ -548,6 +561,10 @@ class SqlStatement
      */
     public function dateFormat(string $field, string $pattern): string
     {
+        if (!$this->con) {
+            throw new DatabaseException('ConnectionInterface instance is missing.');
+        }
+
         return $this->con->dateFormat($field, $pattern);
     }
 
@@ -579,7 +596,7 @@ class SqlStatement
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-                $this->escape(preg_replace(['/\%/', '/\_/', '/\!/'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'";
+                $this->escape((string) preg_replace(['/\%/', '/\_/', '/\!/'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'";
         }
 
         return ' ' . $clause;
@@ -712,7 +729,7 @@ class SqlStatement
                 '\( ' => '(', // (<space> -> (
             ];
             foreach ($patterns as $pattern => $replace) {
-                $s = preg_replace('!' . $pattern . '!', $replace, $s);
+                $s = (string) preg_replace('!' . $pattern . '!', $replace, $s);
             }
 
             return trim((string) $s);

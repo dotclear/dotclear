@@ -64,7 +64,6 @@ class Container implements ContainerInterface
      * By default, an object is instanciated once.
      *
      * @throws NotFoundExceptionInterface
-     * @throws ContainerExceptionInterface
      *
      * @param   string  $id         The object ID
      * @param   bool    $reload     Force reload of the class
@@ -85,7 +84,7 @@ class Container implements ContainerInterface
                 // callable service
                 $this->services[$id] = $service($this, ...$args) :
                 // alias service, resolve alias and parse know container arguments
-                $this->services[$id] = $this->resolve($service, $args);
+                $this->services[$id] = $this->resolve((string) $service, $args);
         }
 
         // Unknow service

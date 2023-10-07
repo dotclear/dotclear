@@ -152,11 +152,11 @@ class Meta implements MetaInterface
                 ->from($this->con->prefix() . $this->blog::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
-                ->and('user_id = ' . $sql->quote($this->auth->userID()));
+                ->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
 
             $rs = $sql->select();
 
-            if ($rs->isEmpty()) {
+            if (!$rs || $rs->isEmpty()) {
                 throw new UnauthorizedException(__('You are not allowed to change this entry status'));
             }
         }
@@ -180,24 +180,24 @@ class Meta implements MetaInterface
             ])
             ->where('post_id = ' . $post_id);
 
-        $rs = $sql->select();
+        if ($rs = $sql->select()) {
+            $meta = [];
+            while ($rs->fetch()) {
+                $meta[$rs->meta_type][] = $rs->meta_id;
+            }
 
-        $meta = [];
-        while ($rs->fetch()) {
-            $meta[$rs->meta_type][] = $rs->meta_id;
+            $post_meta = serialize($meta);
+
+            $cur            = $this->blog->openPostCursor();
+            $cur->post_meta = $post_meta;
+
+            $sql = new UpdateStatement();
+            $sql->where('post_id = ' . $post_id);
+
+            $sql->update($cur);
+
+            $this->blog->triggerBlog();
         }
-
-        $post_meta = serialize($meta);
-
-        $cur            = $this->blog->openPostCursor();
-        $cur->post_meta = $post_meta;
-
-        $sql = new UpdateStatement();
-        $sql->where('post_id = ' . $post_id);
-
-        $sql->update($cur);
-
-        $this->blog->triggerBlog();
     }
 
     /**
@@ -443,7 +443,7 @@ class Meta implements MetaInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->blog->id())) {
-            $sql->and('P.user_id = ' . $sql->quote($this->auth->userID()));
+            $sql->and('P.user_id = ' . $sql->quote((string) $this->auth->userID()));
         }
         if ($post_type !== null) {
             $sql->and('P.post_type = ' . $sql->quote($post_type));
@@ -460,24 +460,24 @@ class Meta implements MetaInterface
 
         $sql->and('meta_id = ' . $sql->quote($meta_id));
 
-        $rs = $sql->select();
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                $to_update[] = $rs->post_id;
+            }
 
-        while ($rs->fetch()) {
-            $to_update[] = $rs->post_id;
-        }
-
-        if (empty($to_update)) {
-            return false;
+            if (empty($to_update)) {
+                return false;
+            }
         }
 
         $sqlNew->and('meta_id = ' . $sqlNew->quote($new_meta_id));
 
-        $rs = $sqlNew->select();
-
-        while ($rs->fetch()) {
-            if (in_array($rs->post_id, $to_update)) {
-                $to_remove[] = $rs->post_id;
-                unset($to_update[array_search($rs->post_id, $to_update)]);
+        if ($rs = $sqlNew->select()) {
+            while ($rs->fetch()) {
+                if (in_array($rs->post_id, $to_update)) {
+                    $to_remove[] = $rs->post_id;
+                    unset($to_update[array_search($rs->post_id, $to_update)]);
+                }
             }
         }
 
@@ -546,7 +546,7 @@ class Meta implements MetaInterface
 
         $rs = $sql->select();
 
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             return [];
         }
 

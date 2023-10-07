@@ -92,7 +92,7 @@ class Upgrade
      */
     public static function growUp(?string $version): bool
     {
-        if ($version === '') {
+        if ($version === '' || is_null($version)) {
             return false;
         }
 

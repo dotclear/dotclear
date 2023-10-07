@@ -105,7 +105,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             }
 
             $path       = '';
-            $http_query = HttpClient::initClient($site, $path);
+            $http_query = HttpClient::initClient((string) $site, $path);
             if ($http_query === false) {
                 throw new Exception('Unable to make an HTTP request');
             }

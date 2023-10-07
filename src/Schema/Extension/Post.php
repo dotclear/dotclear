@@ -504,7 +504,7 @@ class Post
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
 
-        $res = (int) $sql->select()->f(0);
+        $res = (int) $sql->select()?->f(0);
 
         $rs->_nb_media[$rs->index()] = $res;
 

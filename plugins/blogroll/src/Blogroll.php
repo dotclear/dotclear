@@ -81,11 +81,13 @@ class Blogroll extends initBlogroll
         }
 
         $rs = $sql->select();
-        $rs = $rs->toStatic();
+        if ($rs) {
+            $rs = $rs->toStatic();
 
-        $this->setLinksData($rs);
+            $this->setLinksData($rs);
+        }
 
-        return $rs;
+        return $rs ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -115,7 +117,7 @@ class Blogroll extends initBlogroll
             $sql->and('link_lang = ' . $sql->quote($params['lang']));
         }
 
-        return $sql->select();
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**

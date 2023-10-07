@@ -35,7 +35,7 @@ class Filter implements FilterInterface
     /**
      * The wiki instance.
      *
-     * @var     WikiToHtml  $wiki
+     * @var     null|WikiToHtml  $wiki
      */
     private ?WikiToHtml $wiki = null;
 
@@ -86,12 +86,16 @@ class Filter implements FilterInterface
             $this->initWiki();
         }
 
-        return $this->wiki->transform($str);
+        return $this->wiki ? $this->wiki->transform($str) : $str;
     }
 
     public function initWikiPost(): void
     {
         $this->initWiki();
+
+        if (!$this->wiki) {
+            return;
+        }
 
         $this->wiki->setOpts([
             'active_title'        => 1,
@@ -146,6 +150,10 @@ class Filter implements FilterInterface
     {
         $this->initWiki();
 
+        if (!$this->wiki) {
+            return;
+        }
+
         $this->wiki->setOpts([
             'active_title'        => 0,
             'active_setext_title' => 0,
@@ -191,6 +199,10 @@ class Filter implements FilterInterface
     public function initWikiComment(): void
     {
         $this->initWiki();
+
+        if (!$this->wiki) {
+            return;
+        }
 
         $this->wiki->setOpts([
             'active_title'        => 0,

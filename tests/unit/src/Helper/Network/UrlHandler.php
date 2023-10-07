@@ -158,9 +158,9 @@ class UrlHandler extends atoum
             ->string($url->getBase('post'))
             ->isEqualTo('post')
             ->variable($url->getBase('top'))
-            ->isNull()
+            ->isEqualTo('')
             ->variable($url->getBase('default'))
-            ->isNull()
+            ->isEqualTo('')
         ;
     }
 

@@ -203,7 +203,7 @@ class Http
             return $url . $path;
         }
 
-        return preg_replace('#^(.+?//.+?)/(.*)$#', '$1' . $path, $url);
+        return (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1' . $path, $url);
     }
 
     /**
@@ -324,7 +324,7 @@ class Http
         $since = null;
         if (!empty($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
             $since = (string) $_SERVER['HTTP_IF_MODIFIED_SINCE'];
-            $since = preg_replace('/^(.*)(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(.*)(GMT)(.*)/', '$2$3 GMT', $since);
+            $since = (string) preg_replace('/^(.*)(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(.*)(GMT)(.*)/', '$2$3 GMT', $since);
             $since = strtotime($since);
             $since = ($since <= $now) ? $since : null;
         }

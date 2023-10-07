@@ -209,10 +209,11 @@ class Antispam extends initAntispam
             $sql->and('comment_dt < \'' . $beforeDate . '\' ');
         }
 
-        $rs = $sql->select();
-        $r  = [];
-        while ($rs->fetch()) {
-            $r[] = (int) $rs->comment_id;
+        $r = [];
+        if ($rs = $sql->select()) {
+            while ($rs->fetch()) {
+                $r[] = (int) $rs->comment_id;
+            }
         }
 
         if (empty($r)) {

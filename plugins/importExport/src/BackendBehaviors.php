@@ -25,14 +25,16 @@ class BackendBehaviors
      */
     public static function registerIeModules(ArrayObject $modules): void
     {
-        $modules['import'] = array_merge($modules['import'], [ModuleImportFlat::class]);
-        $modules['import'] = array_merge($modules['import'], [ModuleImportFeed::class]);
+        $compose = fn ($src, $add) => isset($src) ? array_merge($src, $add) : $add;
 
-        $modules['export'] = array_merge($modules['export'], [ModuleExportFlat::class]);
+        $modules['import'] = $compose($modules['import'], [ModuleImportFlat::class]);
+        $modules['import'] = $compose($modules['import'], [ModuleImportFeed::class]);
+
+        $modules['export'] = $compose($modules['export'], [ModuleExportFlat::class]);
 
         if (App::auth()->isSuperAdmin()) {
-            $modules['import'] = array_merge($modules['import'], [ModuleImportDc1::class]);
-            $modules['import'] = array_merge($modules['import'], [ModuleImportWp::class]);
+            $modules['import'] = $compose($modules['import'], [ModuleImportDc1::class]);
+            $modules['import'] = $compose($modules['import'], [ModuleImportWp::class]);
         }
     }
 }

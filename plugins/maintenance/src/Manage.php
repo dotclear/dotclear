@@ -47,7 +47,7 @@ class Manage extends Process
                 App::error()->add('Unknown task ID');
             }
 
-            App::backend()->task->code(App::backend()->code);
+            App::backend()->task?->code(App::backend()->code);
         }
 
         return self::status(true);

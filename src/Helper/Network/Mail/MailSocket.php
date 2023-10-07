@@ -119,8 +119,10 @@ class MailSocket
             'To: <' . $to . ">\r\n" .
             'Subject: ' . $subject . "\r\n";
 
-        foreach ($headers as $header) {
-            $buffer .= $header . "\r\n";
+        if ($headers) {
+            foreach ($headers as $header) {
+                $buffer .= $header . "\r\n";
+            }
         }
 
         $buffer .= "\r\n\r\n" . $message;

@@ -76,7 +76,7 @@ class Update extends Process
         App::backend()->update_warning = false;
 
         if (App::backend()->new_v) {
-            App::backend()->zip_file       = App::config()->backupRoot() . '/' . basename(App::backend()->updater->getFileURL());
+            App::backend()->zip_file       = App::config()->backupRoot() . '/' . basename((string) App::backend()->updater->getFileURL());
             App::backend()->version_info   = App::backend()->updater->getInfoURL();
             App::backend()->update_warning = App::backend()->updater->getWarning();
         }

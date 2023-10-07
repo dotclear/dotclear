@@ -91,11 +91,11 @@ class SpamFilter
 
         if (!$this->id) {
             $path     = explode('\\', static::class);
-            $this->id = array_pop($path);
+            $this->id = (string) array_pop($path);
         }
 
         if (!$this->name) {
-            $this->name = $this->id;
+            $this->name = (string) $this->id;
         }
 
         if (isset(App::backend()->url)) {
@@ -215,7 +215,7 @@ class SpamFilter
             return false;
         }
 
-        return $this->gui_url;
+        return !is_null($this->gui_url) ? $this->gui_url : false;
     }
 
     /**

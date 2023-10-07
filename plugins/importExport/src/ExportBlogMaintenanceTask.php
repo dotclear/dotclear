@@ -51,7 +51,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
 
             // This process make an http redirect
             $ie = new ExportFlatMaintenanceTask();
-            $ie->setURL($this->id);
+            $ie->setURL((string) $this->id);
             $ie->process($this->export_type);
         }
         // Go to step and show form
@@ -71,7 +71,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
 
             // This process send file by http and stop script
             $ie = new ExportFlatMaintenanceTask();
-            $ie->setURL($this->id);
+            $ie->setURL((string) $this->id);
             $ie->process('ok');
         } else {
             return

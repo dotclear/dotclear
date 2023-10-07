@@ -121,14 +121,14 @@ class IndexComments extends MaintenanceTask
             $sql->limit([$start, $limit]);
         }
 
-        $rs = $sql->select();
+        if ($rs = $sql->select()) {
+            $cur = App::blog()->openCommentCursor();
 
-        $cur = App::blog()->openCommentCursor();
-
-        while ($rs->fetch()) {
-            $cur->comment_words = implode(' ', Text::splitWords($rs->comment_content));
-            $cur->update('WHERE comment_id = ' . (int) $rs->comment_id);
-            $cur->clean();
+            while ($rs->fetch()) {
+                $cur->comment_words = implode(' ', Text::splitWords($rs->comment_content));
+                $cur->update('WHERE comment_id = ' . (int) $rs->comment_id);
+                $cur->clean();
+            }
         }
 
         $start = (int) $start;

@@ -170,10 +170,10 @@ class FrontendTemplate
         }
 
         # We change tpl:lang syntax, we need it
-        $content = preg_replace('/\{\{tpl:lang\s+(.*?)\}\}/msu', '{tpl:lang $1}', $content);
+        $content = (string) preg_replace('/\{\{tpl:lang\s+(.*?)\}\}/msu', '{tpl:lang $1}', $content);
 
         # We remove every {{tpl:
-        $content = preg_replace('/\{\{tpl:.*?\}\}/msu', '', $content);
+        $content = (string) preg_replace('/\{\{tpl:.*?\}\}/msu', '', $content);
 
         return
         '<?php ' . self::class . "::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";

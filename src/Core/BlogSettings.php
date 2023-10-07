@@ -103,7 +103,7 @@ class BlogSettings implements BlogSettingsInterface
         }
 
         /* Prevent empty tables (install phase, for instance) */
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             return;
         }
 

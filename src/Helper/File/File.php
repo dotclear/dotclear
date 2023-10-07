@@ -79,7 +79,7 @@ class File
      *
      * @see {@link Files::getMimeType()}
      *
-     * @var string
+     * @var string|null
      */
     public $type;
 
@@ -180,7 +180,7 @@ class File
         $stat = stat($file);
         $path = Path::info($file);
 
-        $rel = preg_replace('/^' . preg_quote($root, '/') . '\/?/', '', (string) $file);
+        $rel = (string) preg_replace('/^' . preg_quote((string) $root, '/') . '\/?/', '', (string) $file);
 
         // Properties
         $this->file     = $file;
@@ -195,7 +195,7 @@ class File
         // File type
         $this->extension   = $path['extension'];
         $this->type        = $this->d ? null : Files::getMimeType($file);
-        $this->type_prefix = preg_replace('/^(.+?)\/.+$/', '$1', (string) $this->type);
+        $this->type_prefix = (string) preg_replace('/^(.+?)\/.+$/', '$1', (string) $this->type);
 
         // Filesystem infos
         $this->mtime = $stat ? $stat[9] : 0;

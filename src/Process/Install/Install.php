@@ -237,8 +237,8 @@ class Install extends Process
 
                 App::auth()->checkUser(self::$u_login);
 
-                self::$admin_url = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
-                self::$root_url  = preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
+                self::$admin_url = (string) preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
+                self::$root_url  = (string) preg_replace('%/admin/install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
 
                 # Create blog
                 $cur            = App::blog()->openBlogCursor();

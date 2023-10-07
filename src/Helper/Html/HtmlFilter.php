@@ -426,7 +426,7 @@ class HtmlFilter
      */
     private function getAttr(string $attr, string $value): string
     {
-        $value = preg_replace('/\xad+/', '', $value);
+        $value = (string) preg_replace('/\xad+/', '', $value);
 
         if (in_array($attr, $this->uri_attrs)) {
             $value = $this->getURI($value);

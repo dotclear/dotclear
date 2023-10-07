@@ -163,9 +163,11 @@ class Log implements LogInterface
         }
 
         $rs = $sql->select();
-        $rs->extend(ExtLog::class);
+        if ($rs) {
+            $rs->extend(ExtLog::class);
+        }
 
-        return $rs;
+        return $rs ?? MetaRecord::newFromArray([]);
     }
 
     public function addLog(Cursor $cur): int
@@ -181,7 +183,7 @@ class Log implements LogInterface
 
             $rs = $sql->select();
 
-            $cur->log_id = (int) $rs->f(0) + 1;
+            $cur->log_id = $rs ? (int) $rs->f(0) + 1 : 1;
 
             if ($cur->log_msg === '') {
                 throw new BadRequestException(__('No log message'));

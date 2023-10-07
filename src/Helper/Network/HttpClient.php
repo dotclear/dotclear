@@ -855,8 +855,8 @@ class HttpClient extends Socket
      */
     public function setAuthorization(?string $username, ?string $password): void
     {
-        $this->username = $username;
-        $this->password = $password;
+        $this->username = (string) $username;
+        $this->password = (string) $password;
     }
 
     /**

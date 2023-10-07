@@ -130,13 +130,13 @@ class Message
     public function parse(): bool
     {
         // first remove the XML declaration
-        $this->message = preg_replace('/<\?xml(.*)?\?>/', '', (string) $this->message);
+        $this->message = (string) preg_replace('/<\?xml(.*)?\?>/', '', (string) $this->message);
         if (trim($this->message) == '') {
             throw new Exception('XML Parser Error. Empty message');
         }
 
         // Strip DTD.
-        $header = preg_replace('/^<!DOCTYPE[^>]*+>/im', '', substr($this->message, 0, 200), 1);
+        $header = (string) preg_replace('/^<!DOCTYPE[^>]*+>/im', '', substr($this->message, 0, 200), 1);
 
         $xml = trim(substr_replace($this->message, $header, 0, 200));
         if ($xml == '') {
@@ -170,27 +170,29 @@ class Message
         }
         $this->_parser = xml_parser_create();
 
-        # Set XML parser to take the case of tags in to account
-        xml_parser_set_option($this->_parser, XML_OPTION_CASE_FOLDING, 0);
+        if ($this->_parser !== false) {
+            # Set XML parser to take the case of tags in to account
+            xml_parser_set_option($this->_parser, XML_OPTION_CASE_FOLDING, 0);
 
-        # Set XML parser callback functions
-        xml_set_object($this->_parser, $this);
-        xml_set_element_handler(
-            $this->_parser,
-            $this->tag_open(...),
-            $this->tag_close(...)
-        );
-        xml_set_character_data_handler($this->_parser, $this->cdata(...));
+            # Set XML parser callback functions
+            xml_set_object($this->_parser, $this);
+            xml_set_element_handler(
+                $this->_parser,
+                $this->tag_open(...),
+                $this->tag_close(...)
+            );
+            xml_set_character_data_handler($this->_parser, $this->cdata(...));
 
-        if (!xml_parse($this->_parser, $this->message)) {
-            $c = xml_get_error_code($this->_parser);
-            $e = xml_error_string($c);
-            $e .= ' on line ' . xml_get_current_line_number($this->_parser);
+            if (!xml_parse($this->_parser, $this->message)) {
+                $c = xml_get_error_code($this->_parser);
+                $e = xml_error_string($c);
+                $e .= ' on line ' . xml_get_current_line_number($this->_parser);
 
-            throw new Exception('XML Parser Error. ' . $e, $c);
+                throw new Exception('XML Parser Error. ' . $e, $c);
+            }
+
+            xml_parser_free($this->_parser);
         }
-
-        xml_parser_free($this->_parser);
 
         # Grab the error messages, if any
         if ($this->messageType == 'fault') {

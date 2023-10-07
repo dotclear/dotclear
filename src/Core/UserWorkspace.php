@@ -116,10 +116,10 @@ class UserWorkspace implements UserWorkspaceInterface
                 ])
                 ->from($this->table)
                 ->where($sql->orGroup([
-                    'user_id = ' . $sql->quote($this->user_id),
+                    'user_id = ' . $sql->quote((string) $this->user_id),
                     'user_id IS NULL',
                 ]))
-                ->and('pref_ws = ' . $sql->quote($this->workspace))
+                ->and('pref_ws = ' . $sql->quote((string) $this->workspace))
                 ->order('pref_id ASC');
 
             try {
@@ -128,35 +128,37 @@ class UserWorkspace implements UserWorkspaceInterface
                 throw $e;
             }
         }
-        while ($rs->fetch()) {
-            if ($rs->f('pref_ws') !== $this->workspace) {
-                break;
-            }
-            $name  = trim((string) $rs->f('pref_id'));
-            $value = $rs->f('pref_value');
-            $type  = $rs->f('pref_type');
-
-            if ($type === self::WS_ARRAY) {
-                $value = @json_decode($value, true);
-            } else {
-                if ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
-                    $type = self::WS_FLOAT;
-                } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT) {
-                    $type = self::WS_STRING;
+        if ($rs) {
+            while ($rs->fetch()) {
+                if ($rs->f('pref_ws') !== $this->workspace) {
+                    break;
                 }
+                $name  = trim((string) $rs->f('pref_id'));
+                $value = $rs->f('pref_value');
+                $type  = $rs->f('pref_type');
+
+                if ($type === self::WS_ARRAY) {
+                    $value = @json_decode($value, true);
+                } else {
+                    if ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
+                        $type = self::WS_FLOAT;
+                    } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT) {
+                        $type = self::WS_STRING;
+                    }
+                }
+
+                settype($value, $type);
+
+                $array = ($rs->user_id ? 'local' : 'global') . '_prefs';
+
+                $this->{$array}[$name] = [
+                    'ws'     => $this->workspace,
+                    'value'  => $value,
+                    'type'   => $type,
+                    'label'  => (string) $rs->f('pref_label'),
+                    'global' => (!$rs->user_id),
+                ];
             }
-
-            settype($value, $type);
-
-            $array = ($rs->user_id ? 'local' : 'global') . '_prefs';
-
-            $this->{$array}[$name] = [
-                'ws'     => $this->workspace,
-                'value'  => $value,
-                'type'   => $type,
-                'label'  => (string) $rs->f('pref_label'),
-                'global' => (!$rs->user_id),
-            ];
         }
 
         // User preferences (local) overwrite global ones
@@ -282,11 +284,11 @@ class UserWorkspace implements UserWorkspaceInterface
             if ($global) {
                 $sql->where('user_id IS NULL');
             } else {
-                $sql->where('user_id = ' . $sql->quote($this->user_id));
+                $sql->where('user_id = ' . $sql->quote((string) $this->user_id));
             }
             $sql
                 ->and('pref_id = ' . $sql->quote($name))
-                ->and('pref_ws = ' . $sql->quote($this->workspace));
+                ->and('pref_ws = ' . $sql->quote((string) $this->workspace));
 
             $sql->update($cur);
         } else {
@@ -428,7 +430,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
     public function dumpWorkspace(): string
     {
-        return $this->workspace;
+        return $this->workspace ?? '';
     }
 
     /**

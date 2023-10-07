@@ -135,13 +135,13 @@ class BackendBehaviors
     public static function adminPageHTTPHeaderCSP(ArrayObject $csp): void
     {
         // add 'unsafe-inline' for CSS, add 'unsafe-eval' for scripts as far as CKEditor 4.x is used
-        if (!str_contains($csp['style-src'], 'unsafe-inline')) {
+        if (!str_contains((string) $csp['style-src'], 'unsafe-inline')) {
             $csp['style-src'] .= " 'unsafe-inline'";
         }
-        if (!str_contains($csp['script-src'], 'unsafe-inline')) {
+        if (!str_contains((string) $csp['script-src'], 'unsafe-inline')) {
             $csp['script-src'] .= " 'unsafe-inline'";
         }
-        if (!str_contains($csp['script-src'], 'unsafe-eval')) {
+        if (!str_contains((string) $csp['script-src'], 'unsafe-eval')) {
             $csp['script-src'] .= " 'unsafe-eval'";
         }
     }
