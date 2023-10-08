@@ -21,9 +21,7 @@ $this->registerModule(
     'Olivier Meunier',      // Author
     '2.0',                  // Version
     [
-        'permissions' => App::auth()->makePermissions([
-            initBlogroll::PERMISSION_BLOGROLL,
-        ]),
+        'permissions' => 'My',
         'type' => 'plugin',
     ]
 );

@@ -93,6 +93,14 @@ abstract class MyModule
     public const UNINSTALL = 8;
 
     /**
+     * Global module context.
+     *
+     * @since   2.28
+     * @var     int     MODULE
+     */
+    public const MODULE = 10;
+
+    /**
      * The know modules defines.
      *
      * @var     array<string,ModuleDefine>  $defines
@@ -140,7 +148,10 @@ abstract class MyModule
         }
 
         // else default permissions
-        return match ($context) {
+        return  static::checkCustomContext(self::MODULE) !== false && match ($context) {
+            // Global module context
+            self::MODULE => true,
+
             // Installation of module
             self::INSTALL => App::task()->checkContext('BACKEND')
                     // Manageable only by super-admin
