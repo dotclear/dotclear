@@ -22,9 +22,12 @@ class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return in_array($context, [self::MANAGE, self::MENU]) ? // only super admin can manage pings
-            App::task()->checkContext('BACKEND')
-            && App::auth()->isSuperAdmin()
-            : null;
+        return match ($context) {
+            // Limit MANAGE to super admin
+            self::MANAGE, self::MENU => App::task()->checkContext('BACKEND')
+                && App::auth()->isSuperAdmin(),
+
+            default => null,
+        };
     }
 }

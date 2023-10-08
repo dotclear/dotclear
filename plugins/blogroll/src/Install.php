@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\blogroll;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
-use initBlogroll;
 
 /**
  * @brief   The module install process.
@@ -33,7 +32,7 @@ class Install extends Process
 
         $schema = new Structure(App::con(), App::con()->prefix());
 
-        $schema->{initBlogroll::LINK_TABLE_NAME}
+        $schema->{Blogroll::LINK_TABLE_NAME}
             ->link_id('bigint', 0, false)
             ->blog_id('varchar', 32, false)
             ->link_href('varchar', 255, false)

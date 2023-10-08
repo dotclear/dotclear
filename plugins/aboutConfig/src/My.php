@@ -22,7 +22,9 @@ class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return App::task()->checkContext('BACKEND')
+        // Limit to backend and super admin
+        return  $context === self::INSTALL ? null :
+            App::task()->checkContext('BACKEND')
             && App::auth()->isSuperAdmin();
     }
 }

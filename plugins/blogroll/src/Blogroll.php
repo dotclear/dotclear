@@ -17,7 +17,6 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BlogInterface;
-use initBlogroll;
 
 /**
  * @brief   The module blogroll handler.
@@ -25,8 +24,22 @@ use initBlogroll;
  *
  * @todo    Use sqlStatement in plugin blogroll handler
  */
-class Blogroll extends initBlogroll
+class Blogroll
 {
+    /**
+     * Blogroll permission
+     *
+     * @var        string
+     */
+    public const PERMISSION_BLOGROLL = 'blogroll';
+
+    /**
+     * Links table name
+     *
+     * @var        string
+     */
+    public const LINK_TABLE_NAME = 'link';
+
     /**
      * Current blog.
      *

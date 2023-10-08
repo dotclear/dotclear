@@ -14,7 +14,7 @@ use Dotclear\App;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use initBlogroll;
+use Dotclear\Plugin\blogroll\Blogroll;
 use form;
 
 /**
@@ -50,7 +50,7 @@ class ModuleExportFlat extends Module
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . App::con()->prefix() . initBlogroll::LINK_TABLE_NAME . ' ' . // @phpstan-ignore-line
+                    'SELECT * FROM ' . App::con()->prefix() . Blogroll::LINK_TABLE_NAME . ' ' . // @phpstan-ignore-line
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(

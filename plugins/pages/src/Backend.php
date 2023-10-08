@@ -36,7 +36,7 @@ class Backend extends Process
             return false;
         }
 
-        App::auth()->setPermissionType(My::PERMISSION_PAGES, __('manage pages'));
+        App::auth()->setPermissionType(Pages::PERMISSION_PAGES, __('manage pages'));
 
         App::postTypes()->set(new PostType(
             'page',
@@ -73,7 +73,7 @@ class Backend extends Process
                     'large-icon'  => My::icons(),
                     'permissions' => App::auth()->makePermissions([
                         App::auth()::PERMISSION_CONTENT_ADMIN,
-                        My::PERMISSION_PAGES,
+                        Pages::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
                         $params              = new ArrayObject();
@@ -93,7 +93,7 @@ class Backend extends Process
                     'large-icon'  => My::icons('np'),
                     'permissions' => App::auth()->makePermissions([
                         App::auth()::PERMISSION_CONTENT_ADMIN,
-                        My::PERMISSION_PAGES,
+                        Pages::PERMISSION_PAGES,
                     ]),
                     'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
                 ]);

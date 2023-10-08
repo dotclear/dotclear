@@ -21,7 +21,7 @@ $this->registerModule(
     [
         'requires'    => [['pages']],
         'permissions' => 'My',
-        'priority' => 999,
-        'type'     => 'plugin',
+        'priority'    => 999,
+        'type'        => 'plugin',
     ]
 );

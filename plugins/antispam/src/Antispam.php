@@ -18,14 +18,20 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BlogInterface;
-use initAntispam;
 
 /**
  * @brief   The module antispam handler.
  * @ingroup antispam
  */
-class Antispam extends initAntispam
+class Antispam
 {
+    /**
+     * Spam rules table name.
+     *
+     * @var     string  SPAMRULE_TABLE_NAME
+     */
+    public const SPAMRULE_TABLE_NAME = 'spamrule';
+
     /**
      * The spam filters stacks.
      *

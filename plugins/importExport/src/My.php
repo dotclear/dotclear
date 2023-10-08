@@ -22,13 +22,12 @@ class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return in_array($context, [self::MANAGE, self::MENU]) ?
+        // Limit to backend and admin
+        return  $context === self::INSTALL ? null :
             App::task()->checkContext('BACKEND')
             && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id())
-            : null;
+            ]), App::blog()->id());
     }
 }

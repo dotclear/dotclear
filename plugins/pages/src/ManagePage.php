@@ -10,10 +10,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -45,7 +45,7 @@ class ManagePage extends Process
 
         $params = [];
         Page::check(App::auth()->makePermissions([
-            My::PERMISSION_PAGES,
+            Pages::PERMISSION_PAGES,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
@@ -76,11 +76,11 @@ class ManagePage extends Process
 
         App::backend()->can_view_page = true;
         App::backend()->can_edit_page = App::auth()->check(App::auth()->makePermissions([
-            My::PERMISSION_PAGES,
+            Pages::PERMISSION_PAGES,
             App::auth()::PERMISSION_USAGE,
         ]), App::blog()->id());
         App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
-            My::PERMISSION_PAGES,
+            Pages::PERMISSION_PAGES,
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id());

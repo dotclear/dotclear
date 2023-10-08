@@ -19,4 +19,5 @@ use Dotclear\Module\MyPlugin;
  */
 class My extends MyPlugin
 {
+	// Use default permissions
 }

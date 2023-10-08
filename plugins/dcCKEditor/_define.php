@@ -20,8 +20,8 @@ $this->registerModule(
     '2.1',                           // Version
     [
         'permissions' => 'My',
-        'type'     => 'plugin',
-        'settings' => [
+        'type'        => 'plugin',
+        'settings'    => [
             'self' => '',
             'pref' => '#user-options.user_options_edition',
         ],

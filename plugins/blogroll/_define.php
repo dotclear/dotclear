@@ -13,8 +13,6 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
  */
-use Dotclear\App;
-
 $this->registerModule(
     'Blogroll',             // Name
     'Manage your blogroll', // Description
@@ -22,6 +20,6 @@ $this->registerModule(
     '2.0',                  // Version
     [
         'permissions' => 'My',
-        'type' => 'plugin',
+        'type'        => 'plugin',
     ]
 );

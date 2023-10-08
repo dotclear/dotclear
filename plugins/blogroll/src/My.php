@@ -23,6 +23,7 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return match ($context) {
+            // Limit backend to (content) admin and blogroll user
             self::MODULE => !App::task()->checkContext('BACKEND')
                 || (App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
@@ -32,6 +33,7 @@ class My extends MyPlugin
                     ]), App::blog()->id())
                 ),
 
+            // Allow MANAGE and MENU to also content admin and blogroll user
             self::MANAGE, self::MENU => App::task()->checkContext('BACKEND')
                 && App::blog()->isDefined()
                 && App::auth()->check(App::auth()->makePermissions([
@@ -39,6 +41,7 @@ class My extends MyPlugin
                     App::auth()::PERMISSION_ADMIN,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), App::blog()->id()),
+
             default =>  null,
         };
     }
