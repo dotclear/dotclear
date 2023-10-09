@@ -21,10 +21,7 @@ $this->registerModule(
     'Olivier Meunier', // Author
     '2.0',             // Version
     [
-        'permissions' => App::auth()->makePermissions([
-            App::auth()::PERMISSION_USAGE,
-            App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]),
+        'permissions' => 'My',
         'priority' => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
         'type'     => 'plugin',
         'settings' => [

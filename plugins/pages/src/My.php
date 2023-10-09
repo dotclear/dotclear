@@ -20,17 +20,18 @@ use Dotclear\Module\MyPlugin;
  */
 class My extends MyPlugin
 {
-    public const PERMISSION_PAGES = \initPages::PERMISSION_PAGES; // 'pages';
-
     protected static function checkCustomContext(int $context): ?bool
     {
-        return in_array($context, [self::BACKEND, self::MANAGE, self::MENU]) ? // allow pages permissions
-            App::task()->checkContext('BACKEND')
-            && App::blog()->isDefined()
-            && App::auth()->check(App::auth()->makePermissions([
-                My::PERMISSION_PAGES,
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id())
-            : null;
+        return match ($context) {
+            // Limit bakend to content admin and pages user
+            self::BACKEND, self::MANAGE, self::MENU => App::task()->checkContext('BACKEND')
+                && App::blog()->isDefined()
+                && App::auth()->check(App::auth()->makePermissions([
+                    Pages::PERMISSION_PAGES,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
+                ]), App::blog()->id()),
+            
+            default => null,
+        };
     }
 }

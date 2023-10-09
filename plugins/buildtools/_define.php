@@ -13,8 +13,6 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
  */
-use Dotclear\App;
-
 $this->registerModule(
     'buildtools',                             // Name
     'Internal build tools for dotclear team', // Description
@@ -22,8 +20,6 @@ $this->registerModule(
     '2.0',                                    // Version
     [
         'type'        => 'plugin',
-        'permissions' => App::auth()->makePermissions([
-            App::auth()::PERMISSION_ADMIN,
-        ]),
+        'permissions' => 'My',
     ]
 );

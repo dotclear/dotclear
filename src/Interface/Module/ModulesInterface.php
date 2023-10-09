@@ -47,11 +47,17 @@ interface ModulesInterface
     /**
      * Name of module old style initialization file.
      *
+     * @deprecated  since 2.28, use My and a namespaced class to declare module for constants instead
+     *
      * @var     string  MODULE_FILE_INIT
      */
     public const MODULE_FILE_INIT = '_init.php';
 
-    /** @var    string  Name of module define file */
+    /**
+     * Name of module define file.
+     *
+     * @var     string  MODULE_FILE_DEFINE
+     */
     public const MODULE_FILE_DEFINE = '_define.php';
 
     /**
@@ -161,6 +167,8 @@ interface ModulesInterface
 
     /**
      * Name of module XMLRPC services class (ex _xmlrpc.php) - obsolete since 2.24.
+     *
+     * @deprecated  since 2.24, obsolete
      *
      * @var     string  MODULE_CLASS_XMLRPC
      */

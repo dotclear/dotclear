@@ -5,11 +5,15 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
  */
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\pages;
 
 /**
+ * @brief   The module pages def.
  * @ingroup pages
  */
-class initPages
+class Pages
 {
     /**
      * Pages permission.
@@ -17,15 +21,4 @@ class initPages
      * @var     string  PERMISSION_PAGES
      */
     public const PERMISSION_PAGES = 'pages';
-}
-
-// backward compatibility
-
-/**
- * This class is an alias of initPages.
- *
- * @deprecated since 2.25
- */
-class dcPages extends initPages
-{
 }

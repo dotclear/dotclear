@@ -21,10 +21,8 @@ $this->registerModule(
     'Olivier Meunier & Dotclear Team', // Author
     '4.0',                             // Version
     [
-        'permissions' => App::auth()->makePermissions([
-            App::auth()::PERMISSION_ADMIN,
-        ]),
-        'priority' => 1_000_000_000,
-        'type'     => 'plugin',
+        'permissions' => 'My',
+        'priority'    => 1_000_000_000,
+        'type'        => 'plugin',
     ]
 );

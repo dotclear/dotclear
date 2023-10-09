@@ -19,7 +19,7 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
-use initBlogroll;
+use Dotclear\Plugin\blogroll\Blogroll;
 use form;
 
 /**
@@ -563,12 +563,12 @@ class ModuleImportWp extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME . ' ' .  // @phpstan-ignore-line
+                'DELETE FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME . ' ' .  // @phpstan-ignore-line
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
             );
 
             while ($rs->fetch()) {
-                $cur             = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
+                $cur             = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
                 $cur->blog_id    = $this->blog_id;
                 $cur->link_href  = Text::cleanStr($rs->link_url);
                 $cur->link_title = Text::cleanStr($rs->link_name);
@@ -576,7 +576,7 @@ class ModuleImportWp extends Module
                 $cur->link_xfn   = Text::cleanStr($rs->link_rel);
 
                 $cur->link_id = (new MetaRecord($this->con->select(
-                    'SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME
+                    'SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME
                 )))->f(0) + 1;
                 $cur->insert();
             }

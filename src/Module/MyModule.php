@@ -93,6 +93,14 @@ abstract class MyModule
     public const UNINSTALL = 8;
 
     /**
+     * Global module context.
+     *
+     * @since   2.28
+     * @var     int     MODULE
+     */
+    public const MODULE = 10;
+
+    /**
      * The know modules defines.
      *
      * @var     array<string,ModuleDefine>  $defines
@@ -139,8 +147,11 @@ abstract class MyModule
             return $check;
         }
 
-        // else default permissions
-        return match ($context) {
+        // else default permissions, we always check for whole module perms first
+        return  static::checkCustomContext(self::MODULE) !== false && match ($context) {
+            // Global module context (Beware this can be check in BACKEND, FRONTEND, INSTALL,...)
+            self::MODULE => App::config()->configPath() != '',
+
             // Installation of module
             self::INSTALL => App::task()->checkContext('BACKEND')
                     // Manageable only by super-admin

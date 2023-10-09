@@ -20,13 +20,16 @@ class My extends MyPlugin
 {
     public static function checkCustomContext(int $context): ?bool
     {
-        return in_array($context, [self::MANAGE, self::MENU]) ?
-            App::task()->checkContext('BACKEND')
-            && App::blog()->isDefined()
-            && App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_USAGE,
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id())
-            : null;
+        return match ($context) {
+            // Allow MANAGE to all
+            self::MANAGE, self::MENU => App::task()->checkContext('BACKEND')
+                && App::blog()->isDefined()
+                && App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_USAGE,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
+                ]), App::blog()->id()),
+
+            default => null,
+        };
     }
 }

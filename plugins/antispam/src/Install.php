@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\antispam;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
-use initAntispam;
 
 /**
  * @brief   The module install process.
@@ -35,7 +34,7 @@ class Install extends Process
         -------------------------------------------------------- */
         $schema = new Structure(App::con(), App::con()->prefix());
 
-        $schema->{initAntispam::SPAMRULE_TABLE_NAME}
+        $schema->{Antispam::SPAMRULE_TABLE_NAME}
             ->rule_id('bigint', 0, false)
             ->blog_id('varchar', 32, true)
             ->rule_type('varchar', 16, false, "'word'")
@@ -48,7 +47,7 @@ class Install extends Process
         ;
 
         if ($schema->driver() === 'pgsql') {
-            $schema->{initAntispam::SPAMRULE_TABLE_NAME}->index('idx_spamrule_blog_id_null', 'btree', '(blog_id IS NULL)');
+            $schema->{Antispam::SPAMRULE_TABLE_NAME}->index('idx_spamrule_blog_id_null', 'btree', '(blog_id IS NULL)');
         }
 
         // Schema installation

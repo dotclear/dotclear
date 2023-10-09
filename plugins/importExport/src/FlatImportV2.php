@@ -15,8 +15,8 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\ConnectionInterface;
-use initAntispam;
-use initBlogroll;
+use Dotclear\Plugin\antispam\Antispam;
+use Dotclear\Plugin\blogroll\Blogroll;
 use UnhandledMatchError;
 
 /**
@@ -119,7 +119,7 @@ class FlatImportV2 extends FlatBackup
 
         $this->cur_blog        = App::blog()->openBlogCursor();
         $this->cur_category    = App::blog()->categories()->openCategoryCursor();
-        $this->cur_link        = $this->con->openCursor($this->prefix . initBlogroll::LINK_TABLE_NAME);
+        $this->cur_link        = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
         $this->cur_setting     = App::blogWorkspace()->openBlogWorkspaceCursor();
         $this->cur_user        = App::auth()->openUserCursor();
         $this->cur_pref        = App::userWorkspace()->openUserWorkspaceCursor();
@@ -131,7 +131,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_log         = App::log()->openLogCursor();
         $this->cur_ping        = App::trackback()->openTrackbackCursor();
         $this->cur_comment     = App::blog()->openCommentCursor();
-        $this->cur_spamrule    = $this->con->openCursor($this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
+        $this->cur_spamrule    = $this->con->openCursor($this->prefix . Antispam::SPAMRULE_TABLE_NAME);
 
         # --BEHAVIOR-- importInit -- FlatBackup
         App::behavior()->callBehavior('importInitV2', $this);
@@ -165,7 +165,7 @@ class FlatImportV2 extends FlatBackup
         $rs                    = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME));
         $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
-        $rs                     = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . initBlogroll::LINK_TABLE_NAME));
+        $rs                     = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME));
         $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                     = new MetaRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME));
@@ -278,7 +278,7 @@ class FlatImportV2 extends FlatBackup
         $this->con->begin();
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blog()::BLOG_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME);
-        $this->con->execute('DELETE FROM ' . $this->prefix . initAntispam::SPAMRULE_TABLE_NAME);
+        $this->con->execute('DELETE FROM ' . $this->prefix . Antispam::SPAMRULE_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blogWorkspace()::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME);
 

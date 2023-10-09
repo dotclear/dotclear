@@ -13,7 +13,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\Process;
-use initBlogroll;
 
 /**
  * @brief   The module backend process.
@@ -35,7 +34,7 @@ class Backend extends Process
             return false;
         }
 
-        App::auth()->setPermissionType(initBlogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
+        App::auth()->setPermissionType(Blogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
 
         App::behavior()->addBehaviors([
             'adminDashboardFavoritesV2' => function (Favorites $favs) {
@@ -45,7 +44,7 @@ class Backend extends Process
                     'small-icon'  => My::icons(),
                     'large-icon'  => My::icons(),
                     'permissions' => App::auth()->makePermissions([
-                        initBlogroll::PERMISSION_BLOGROLL,
+                        Blogroll::PERMISSION_BLOGROLL,
                         App::auth()::PERMISSION_USAGE,
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                     ]),

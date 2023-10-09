@@ -21,7 +21,8 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         // allways limit to super admin
-        return App::task()->checkContext('BACKEND')
+        return $context === self::INSTALL ? null :
+            App::task()->checkContext('BACKEND')
             && App::auth()->isSuperAdmin();
     }
 }

@@ -412,7 +412,7 @@ class Modules implements ModulesInterface
 
         $ignored = [];
 
-        // First loop to init
+        // @deprecated  since 2.28, use My and a namespaced class to declare module for constants instead
         foreach ($this->parsePathModules($this->path) as $root => $stack) {
             // Init loop
             foreach ($stack as $entry) {
@@ -647,7 +647,7 @@ class Modules implements ModulesInterface
             // Check module perms on admin side
             $permissions = $this->define->get('permissions');
             if ($this->ns === 'admin') {
-                if (($permissions == '' && !App::auth()->isSuperAdmin()) || (!App::auth()->check($permissions, App::blog()->id()))) {
+                if ($permissions !== 'My' && (($permissions == '' && !App::auth()->isSuperAdmin()) || (!App::auth()->check($permissions, App::blog()->id())))) {
                     return;
                 }
             }
