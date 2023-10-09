@@ -29,8 +29,8 @@ class Menus extends ArrayObject
     /**
      * Prepend menu group.
      *
-     * @param 	string 	$section 	The menu section
-     * @param 	Menu 	$menu 		The menu instance
+     * @param   string  $section    The menu section
+     * @param   Menu    $menu       The menu instance
      */
     public function prependSection(string $section, Menu $menu): void
     {

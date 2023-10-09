@@ -523,8 +523,7 @@ class ThemesList extends ModulesList
                 $count  = 0;
                 foreach ($modules as $id) {
                     $disabled = !empty($_POST['disabled'][$id]);
-                    ;
-                    $define = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
+                    $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
                     if (!$define->isDefined()) {
                         continue;
                     }

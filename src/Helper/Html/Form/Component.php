@@ -275,7 +275,7 @@ abstract class Component
     public function checkMandatoryAttributes(): bool
     {
         // Check for mandatory info
-        return (isset($this->name) || isset($this->id));
+        return isset($this->name) || isset($this->id);
     }
 
     /**

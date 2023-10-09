@@ -26,7 +26,7 @@ interface LangInterface
     /**
      * Get the lang.
      *
-     * @return 	string 	The lang code.
+     * @return  string  The lang code.
      */
     public function getLang(): string;
 

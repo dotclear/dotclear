@@ -266,7 +266,7 @@ class Files
         if (is_file($filename)) {
             return is_writable(dirname($filename));
         } elseif (is_dir($filename)) {
-            return (is_writable(dirname($filename)) && count(static::scandir($filename)) <= 2);
+            return is_writable(dirname($filename)) && count(static::scandir($filename)) <= 2;
         }
 
         return false;
@@ -621,7 +621,6 @@ class Files
                 return '';
             }
             fwrite($resource, '1', strlen('1'));
-            //fclose($resource);
         } else {
             # Open existsing file
             $resource = @fopen($file, 'r+');

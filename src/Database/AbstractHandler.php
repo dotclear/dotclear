@@ -63,7 +63,7 @@ abstract class AbstractHandler extends Connection
     /**
      * Database name
      *
-     * @var string;
+     * @var string
      */
     protected string $__database;
 

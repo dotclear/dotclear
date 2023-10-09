@@ -141,7 +141,7 @@ class UserPref
             }
         }
         if ($columns !== null) {
-            return ($columns instanceof ArrayObject ? $columns : new ArrayObject($columns));
+            return $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
         }
         if ($type !== null) {
             return new ArrayObject($cols[$type] ?? []);

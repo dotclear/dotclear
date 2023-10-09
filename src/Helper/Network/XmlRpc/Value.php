@@ -98,14 +98,13 @@ class Value
 
                 return $return;
             case 'date':
-                return (is_object($this->data) && $this->data instanceof Date ?
+                return is_object($this->data) && $this->data instanceof Date ?
                     $this->data->getXml() :
-                    (new Date(!is_array($this->data) && !is_object($this->data) ? (int) $this->data : 0))->getXml());
+                    (new Date(!is_array($this->data) && !is_object($this->data) ? (int) $this->data : 0))->getXml();
             case 'base64':
-                return (is_object($this->data) && $this->data instanceof Base64 ?
+                return is_object($this->data) && $this->data instanceof Base64 ?
                     $this->data->getXml() :
-                    (new Base64(!is_array($this->data) && !is_object($this->data) ? (string) $this->data : ''))->getXml()
-                );
+                    (new Base64(!is_array($this->data) && !is_object($this->data) ? (string) $this->data : ''))->getXml();
         }
 
         return '';

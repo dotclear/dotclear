@@ -326,7 +326,7 @@ class StoreReader extends HttpClient
                     return $modules;
                 }
 
-                if (($fp = @fopen($cached_file, 'wb'))) {
+                if ($fp = @fopen($cached_file, 'wb')) {
                     fwrite($fp, serialize($modules));
                     fclose($fp);
                     Files::inheritChmod($cached_file);

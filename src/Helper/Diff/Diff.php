@@ -78,7 +78,7 @@ class Diff
 
         # Recover edit path
         $res = [];
-        for ($D = $D; $D > 0; $D--) {
+        for (; $D > 0; $D--) {
             $V  = array_pop($stack);
             $cx = $x;
             $cy = $y;
@@ -287,9 +287,7 @@ class Diff
                     throw new Exception(__('Bad context (in deletion)'));
                 }
                 $old_length--;
-            } elseif ($line == '') {
-                continue;
-            } else {
+            } elseif ($line != '') {
                 throw new Exception(__('Invalid diff format'));
             }
         }

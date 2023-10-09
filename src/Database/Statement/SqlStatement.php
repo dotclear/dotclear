@@ -735,7 +735,7 @@ class SqlStatement
             return trim((string) $s);
         };
 
-        return ($filter($local) === $filter($external));
+        return $filter($local) === $filter($external);
     }
 
     /**

@@ -246,7 +246,7 @@ class Page
 
         $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
-        $js['debug'] = !!App::config()->debugMode();
+        $js['debug'] = App::config()->debugMode();
 
         $js['showIp'] = App::blog()->isDefined() ? App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -438,7 +438,7 @@ class Page
 
         $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
-        $js['debug'] = !!App::config()->debugMode();
+        $js['debug'] = App::config()->debugMode();
 
         // Set JSON data
         echo Html::jsJson('dotclear_init', $js);

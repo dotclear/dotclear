@@ -197,7 +197,7 @@ class Post
     public static function isRepublished(MetaRecord $rs): bool
     {
         // Take care of post_dt does not store seconds
-        return (($rs->getTS('upddt') + Date::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60));
+        return ($rs->getTS('upddt') + Date::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60);
     }
 
     /**

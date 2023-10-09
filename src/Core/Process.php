@@ -84,15 +84,18 @@ abstract class Process
      *
      * This method is used to render something.
      * (echo something to std ouput, etc...)
+     *
+     * Example:
+     *
+     * ```php
+     * if (!self::status()) {
+     *     return;
+     * }
+     *
+     * echo 'well done!';
+     * ```
      */
     public static function render(): void
     {
-        /*
-        if (!self::status()) {
-            return;
-        }
-
-        echo 'well done!';
-        */
     }
 }

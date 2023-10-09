@@ -346,7 +346,7 @@ namespace Dotclear\Helper {
                     $vo = str_replace("'", "\\'", $vo);
                     if (is_array($tr)) {
                         $items = [];
-                        foreach ($tr as $i => $t) {
+                        foreach ($tr as $t) {
                             $t       = str_replace("'", "\\'", $t);
                             $items[] = '\'' . $t . '\'';
                         }

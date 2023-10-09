@@ -39,7 +39,7 @@ class Img extends Component
      */
     public function render(): string
     {
-        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+        return '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             ' src="' . $this->src . '"' .
             (isset($this->alt) ? ' alt="' . $this->alt . '"' : '') .
             (isset($this->height) ? ' height="' . strval((int) $this->height) . '"' : '') .
@@ -48,8 +48,6 @@ class Img extends Component
             (isset($this->srcset) ? ' srcset="' . $this->srcset . '"' : '') .
             (isset($this->width) ? ' width="' . strval((int) $this->width) . '"' : '') .
             $this->renderCommonAttributes() . '/>';
-
-        return $buffer;
     }
 
     /**

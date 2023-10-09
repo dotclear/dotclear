@@ -251,7 +251,6 @@ class Modules implements ModulesInterface
                     $dep = [$dep];
                 }
                 // optionnal minimum dependancy
-                $optionnal = false;
                 if (substr($dep[0], -1) == '?') {
                     $dep[0]                                = substr($dep[0], 0, -1);
                     $optionnals[$module->getId()][$dep[0]] = true;
@@ -480,8 +479,6 @@ class Modules implements ModulesInterface
             if ($ret !== true) {
                 // If _prepend.php file returns null (ie. it has a void return statement)
                 $ignored[] = $module->getId();
-
-                continue;
             }
         }
 

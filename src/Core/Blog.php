@@ -1266,7 +1266,6 @@ class Blog implements BlogInterface
             $sql->limit($params['limit']);
         }
 
-        ;
         if ($rs = $sql->select()) {
             $rs->_nb_media = [];
             $rs->extend(Post::class);

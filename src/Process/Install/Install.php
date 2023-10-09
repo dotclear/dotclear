@@ -217,8 +217,8 @@ class Install extends Process
                 # Fill database structrue
                 Utils::dbSchema($_s);
 
-                $si      = new Structure(App::con(), App::con()->prefix());
-                $changes = $si->synchronize($_s);
+                $si = new Structure(App::con(), App::con()->prefix());
+                $si->synchronize($_s);
 
                 # Create user
                 $cur                 = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);

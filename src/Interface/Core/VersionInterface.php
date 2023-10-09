@@ -39,9 +39,9 @@ interface VersionInterface
      *
      * Since 2.28 getVersion() always returns string.
      *
-     * @param 	string 	$module 	The module
+     * @param   string  $module     The module
      *
-     * @return 	string 	The version.
+     * @return  string  The version.
      */
     public function getVersion(string $module = 'core'): string;
 

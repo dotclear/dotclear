@@ -1379,15 +1379,13 @@ class Tpl extends Template
             $content
         );
 
-        $res = "<?php\n" .
+        return "<?php\n" .
             $params .
             'App::frontend()->ctx->categories = App::blog()->getCategories($params);' . "\n" .
              "?>\n" .
              '<?php while (App::frontend()->ctx->categories->fetch()) : ?>' .
              $content .
              '<?php endwhile; App::frontend()->ctx->categories = null; unset($params); ?>';
-
-        return $res;
     }
 
     /**

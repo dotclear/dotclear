@@ -450,7 +450,6 @@ class User extends Process
                     '<p>' . __('No permissions so far.') . '</p>';
                 } else {
                     foreach ($permissions as $k => $v) {
-                        $name = $v['name'] ?? $k;
                         if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                             echo
                             '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post" class="perm-block">' .

@@ -27,7 +27,7 @@ class Text
      */
     public static function isEmail(string $email): bool
     {
-        return (filter_var($email, FILTER_VALIDATE_EMAIL) !== false);
+        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
     /**

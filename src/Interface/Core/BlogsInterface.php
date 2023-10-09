@@ -56,10 +56,10 @@ interface BlogsInterface
      *   - [permission] => true
      *   - ...
      *
-     * @param 	string  $id 			The blog identifier
-     * @param 	bool 	$with_super 	Includes super admins in result
+     * @param   string  $id             The blog identifier
+     * @param   bool    $with_super     Includes super admins in result
      *
-     * @return 	array<string, array<string, mixed>> 	The blog permissions.
+     * @return  array<string, array<string, mixed>>     The blog permissions.
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array;
 
@@ -70,7 +70,7 @@ interface BlogsInterface
      *
      * @param      string  $id     The blog identifier
      *
-     * @return     MetaRecord 	The blog.
+     * @return     MetaRecord   The blog.
      */
     public function getBlog(string $id): MetaRecord;
 
@@ -82,27 +82,27 @@ interface BlogsInterface
      * - <var>q</var>: Search string on blog_id, blog_name and blog_url
      * - <var>limit</var>: limit results
      *
-     * @param 	array<string, mixed>|ArrayObject<string, mixed> 	$params 		The parameters
-     * @param 	bool 				                                $count_only 	Count only results
+     * @param   array<string, mixed>|ArrayObject<string, mixed>     $params         The parameters
+     * @param   bool                                                $count_only     Count only results
      *
-     * @return 	MetaRecord 	The blogs.
+     * @return  MetaRecord  The blogs.
      */
     public function getBlogs(array|ArrayObject $params = [], bool $count_only = false): MetaRecord;
 
     /**
      * Adds a new blog.
      *
-     * @param 	Cursor 	$cur 	The blog Cursor
+     * @param   Cursor  $cur    The blog Cursor
      *
-     * @throws 	UnauthorizedException
+     * @throws  UnauthorizedException
      */
     public function addBlog(Cursor $cur): void;
 
     /**
      * Updates a given blog.
      *
-     * @param 	string 	$id     The blog identifier
-     * @param 	Cursor 	$cur 	The Cursor
+     * @param   string  $id     The blog identifier
+     * @param   Cursor  $cur    The Cursor
      */
     public function updBlog(string $id, Cursor $cur): void;
 
@@ -112,28 +112,28 @@ interface BlogsInterface
      * @warning This will remove everything related to the blog (posts,
      * categories, comments, links...)
      *
-     * @param 	string 	$id 	The blog identifier
+     * @param   string  $id     The blog identifier
      *
-     * @throws 	UnauthorizedException
+     * @throws  UnauthorizedException
      */
     public function delBlog(string $id): void;
 
     /**
      * Determines if blog exists.
      *
-     * @param 	string 	$id 	The blog identifier
+     * @param   string  $id     The blog identifier
      *
-     * @return 	bool 	True if blog exists, False otherwise.
+     * @return  bool    True if blog exists, False otherwise.
      */
     public function blogExists(string $id): bool;
 
     /**
      * Counts the number of blog posts.
      *
-     * @param 	string 			$id 	The blog identifier
-     * @param 	null|string 	$type 	The post type
+     * @param   string          $id     The blog identifier
+     * @param   null|string     $type   The post type
      *
-     * @return 	int 	Number of blog posts.
+     * @return  int     Number of blog posts.
      */
     public function countBlogPosts(string $id, ?string $type = null): int;
 }

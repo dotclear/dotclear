@@ -480,7 +480,7 @@ class Trackback implements TrackbackInterface
 
         $rs = $this->blog->getComments($params, true);
         if (!$rs->isEmpty()) {
-            return ($rs->f(0));
+            return (bool) $rs->f(0);
         }
 
         return false;

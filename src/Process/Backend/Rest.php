@@ -310,7 +310,7 @@ class Rest extends Process
             }
         }
 
-        $data = [
+        return [
             'id' => $rs->post_id,
 
             'blog_id'            => $rs->blog_id,
@@ -347,8 +347,6 @@ class Rest extends Process
 
             'post_meta' => $metadata,
         ];
-
-        return $data;
     }
 
     /**
@@ -372,7 +370,7 @@ class Rest extends Process
             throw new Exception('No comment for this ID');
         }
 
-        $data = [
+        return [
             'id' => $rs->comment_id,
 
             'comment_dt'        => $rs->comment_dt,
@@ -394,8 +392,6 @@ class Rest extends Process
             'comment_email'     => App::auth()->userID() ? $rs->comment_email : '',
             'comment_spam_disp' => App::auth()->userID() ? Antispam::statusMessage($rs) : '',
         ];
-
-        return $data;
     }
 
     /**

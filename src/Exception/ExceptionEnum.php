@@ -12,7 +12,7 @@ namespace Dotclear\Exception;
 use Dotclear\Helper\L10n;
 
 /**
- * @brief 	Exception enumeration.
+ * @brief   Exception enumeration.
  *
  * Rules for ExceptionEnum:
  * * Exception code MUST be uniq for each exceptions
@@ -33,7 +33,7 @@ use Dotclear\Helper\L10n;
  * }
  * @endcode
  *
- * @return 	string 	The exception class name
+ * @return  string  The exception class name
  */
 enum ExceptionEnum: string
 {
@@ -57,7 +57,7 @@ enum ExceptionEnum: string
      *
      * A 3 digits code starting from 4xx or 5xx
      *
-     * @return 	int 	The exception code
+     * @return  int     The exception code
      */
     public function code(): int
     {
@@ -83,7 +83,7 @@ enum ExceptionEnum: string
     /**
      * Get (translated) exception label.
      *
-     * @return 	string 	The exception label
+     * @return  string  The exception label
      */
     public function label(): string
     {

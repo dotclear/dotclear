@@ -19,8 +19,8 @@ interface TaskInterface
     /**
      * Run task.
      *
-     * @param   string 	$utility 	The called app Utility
-     * @param   string 	$process    The called app Process
+     * @param   string  $utility    The called app Utility
+     * @param   string  $process    The called app Process
      */
     public function run(string $utility, string $process): void;
 

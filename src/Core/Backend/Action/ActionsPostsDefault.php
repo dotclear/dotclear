@@ -304,7 +304,6 @@ class ActionsPostsDefault
                 $cur_cat            = App::blog()->categories()->openCategoryCursor();
                 $cur_cat->cat_title = $post['new_cat_title'];
                 $cur_cat->cat_url   = '';
-                $title              = $cur_cat->cat_title;
 
                 $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
