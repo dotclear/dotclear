@@ -23,9 +23,11 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return match ($context) {
-            // Limit MANAGE to super admin
+            // Limit MANAGE to admin and super admin
             self::MANAGE, self::MENU => App::task()->checkContext('BACKEND')
-                && App::auth()->isSuperAdmin(),
+                && App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_ADMIN,
+                ]), App::blog()->id()),
 
             default => null,
         };
