@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Interface\Core\PostTypeInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 
 /**
@@ -22,7 +21,7 @@ class PostTypes implements PostTypesInterface
     /**
      * The post types stack.
      *
-     * @var     array<string,PostTypeInterface>     $stack
+     * @var     array<string,PostType>  $stack
      */
     private array $stack;
 
@@ -31,12 +30,12 @@ class PostTypes implements PostTypesInterface
         return isset($this->stack[$type]);
     }
 
-    public function __get(string $type): PostTypeInterface
+    public function __get(string $type): PostType
     {
         return $this->get($type);
     }
 
-    public function get(string $type): PostTypeInterface
+    public function get(string $type): PostType
     {
         if (!empty($type) && !isset($this->stack[$type])) {
             $type = 'post';
@@ -45,7 +44,7 @@ class PostTypes implements PostTypesInterface
         return $this->stack[$type] ?? new PostType('', '', '', 'undefined');
     }
 
-    public function set(PostTypeInterface $descriptor): PostTypesInterface
+    public function set(PostType $descriptor): PostTypesInterface
     {
         if ('' !== $descriptor->get('type')) {
             $this->stack[$descriptor->get('type')] = $descriptor;
