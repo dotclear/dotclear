@@ -41,14 +41,14 @@ namespace Dotclear {
     final class App extends Core
     {
         /**
-         * Application boostrap.
+         * Application.
          *
          * Load application with their utility and process, if any.
          *
          * Usage:
          * @code{php}
          * require_once path/to/App.php
-         * Dotclear\App::bootstrap(Utility, Process);
+         * new Dotclear\App(Utility, Process);
          * @endcode
          *
          * utility and process MUST extend Dotclear\Core\Process.
@@ -58,7 +58,7 @@ namespace Dotclear {
          * @param   string  $utility    The optionnal app utility (Backend or Frontend)
          * @param   string  $process    The optionnal app utility default process
          */
-        public static function bootstrap(string $utility = '', string $process = ''): void
+        public function __construct(string $utility = '', string $process = '')
         {
             // Start tick
             define('DC_START_TIME', microtime(true));
@@ -68,12 +68,12 @@ namespace Dotclear {
 
             try {
                 // Run application
-                new App(new Config(dirname(__DIR__)), Factories::getFactory(Core::CONTAINER_ID));
+                parent::__construct(new Config(dirname(__DIR__)), Factories::getFactory(Core::CONTAINER_ID));
 
-                if (App::config()->hasConfig()) {
+                if (self::config()->hasConfig()) {
                     try {
                         // Run database connection
-                        App::con();
+                        $this->con();
                     } catch (Throwable $e) {
                         throw new DatabaseException(
                             sprintf(
@@ -87,7 +87,7 @@ namespace Dotclear {
                                 '<p>If you\'re unsure what these terms mean you should probably contact ' .
                                 'your host. If you still need help you can always visit the ' .
                                 '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>'),
-                                (App::config()->dbHost() !== '' ? App::config()->dbHost() : 'localhost')
+                                ($this->config()->dbHost() !== '' ? $this->config()->dbHost() : 'localhost')
                             ),
                             DatabaseException::code(),
                             $e
@@ -96,7 +96,7 @@ namespace Dotclear {
                 }
 
                 // Run task
-                App::task()->run($utility, $process);
+                $this->task()->run($utility, $process);
             } catch(AppException $e) {
                 // Throw application exception as is. See Dotclear.Fault handler.
                 throw $e;
@@ -108,6 +108,20 @@ namespace Dotclear {
 
         /// @name Deprecated methods
         //@{
+        /**
+         * Application boostrap.
+         *
+         * @deprecated  Since 2.28, use App:config()->release(xxx) or App:config()->yyy() instead.
+         *
+         * @param   string  $utility    The optionnal app utility (Backend or Frontend)
+         * @param   string  $process    The optionnal app utility default process
+         */
+        public static function bootstrap(string $utility = '', string $process = ''): void
+        {
+            new self($utility, $process);
+
+        }
+
         /**
          * Read Dotclear release config.
          *

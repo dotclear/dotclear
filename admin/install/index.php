@@ -14,4 +14,4 @@
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'App.php']);
 
 // no process is required here as utility load it
-Dotclear\App::bootstrap('Install');
+new Dotclear\App('Install');
