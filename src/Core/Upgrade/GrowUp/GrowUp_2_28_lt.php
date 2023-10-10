@@ -55,6 +55,9 @@ class GrowUp_2_28_lt
                 'inc/public/class.dc.template.php',
                 'inc/public/rs.extension.php',
                 'inc/public/lib.tpl.context.php',
+                'plugins/antispam/_init.php',
+                'plugins/blogroll/_init.php',
+                'plugins/pages/_init.php',
             ],
             // Folders
             [
