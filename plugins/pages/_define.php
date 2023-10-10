@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin pages definition
  * @ingroup     pages
- * 
+ *
  * @defgroup    pages Plugin pages.
- * 
+ *
  * pages, Serve entries as simple web pages.
  *
  * @package     Dotclear
@@ -21,6 +21,6 @@ $this->registerModule(
     [
         'permissions' => 'My',
         'priority'    => 999,
-        'type'         => 'plugin',
+        'type'        => 'plugin',
     ]
 );

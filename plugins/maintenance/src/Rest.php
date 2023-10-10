@@ -9,13 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Exception;
-
-if (!App::task()->checkContext('BACKEND')) {
-    return;
-}
 
 /**
  * @brief   The module REST service handler.

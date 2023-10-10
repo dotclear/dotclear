@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin attachments definition
  * @ingroup     attachments
- * 
+ *
  * @defgroup    attachments Plugin attachments.
- * 
+ *
  * attachments, manage post attachments plugin for Dotclear.
  *
  * @package     Dotclear

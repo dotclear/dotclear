@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin dcProxyV2 definition
  * @ingroup     dcProxyV2
- * 
+ *
  * @defgroup    dcProxyV2 Plugin dcProxyV2.
- * 
+ *
  * dcProxyV2, Cope with function/method footprint V1 (< 2.24, 2.25).
  *
  * @package     Dotclear

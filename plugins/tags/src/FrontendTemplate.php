@@ -55,15 +55,13 @@ class FrontendTemplate
             $order = 'desc';
         }
 
-        $res = "<?php\n" .
+        return "<?php\n" .
         "App::frontend()->ctx->meta = App::meta()->computeMetaStats(App::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
         "App::frontend()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
         'while (App::frontend()->ctx->meta->fetch()) : ?>' . "\n" .
         $content .
         '<?php endwhile; ' . "\n" .
         'App::frontend()->ctx->meta = null; ?>';
-
-        return $res;
     }
 
     /**

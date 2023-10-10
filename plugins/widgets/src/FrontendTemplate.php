@@ -136,7 +136,7 @@ class FrontendTemplate
             $widgets = WidgetsStack::load($widgets);
         }
 
-        return (!$widgets->isEmpty());
+        return !$widgets->isEmpty();
     }
 
     /**

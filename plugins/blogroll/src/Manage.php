@@ -151,7 +151,7 @@ class Manage extends Process
         if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
             // Delete link
 
-            foreach ($_POST['remove'] as $k => $v) {
+            foreach ($_POST['remove'] as $v) {
                 try {
                     App::backend()->blogroll->delItem($v);
                 } catch (Exception $e) {

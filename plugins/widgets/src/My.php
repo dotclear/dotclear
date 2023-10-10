@@ -16,13 +16,13 @@ use Dotclear\Module\MyPlugin;
  * @brief   The module helper.
  * @ingroup widgets
  *
- * @since 	2.27
+ * @since   2.27
  */
 class My extends MyPlugin
 {
     public static function checkCustomContext(int $context): ?bool
     {
-        return match($context) {
+        return match ($context) {
             // Whole module: Limit backend to admin
             self::MODULE => !App::task()->checkContext('BACKEND')
                 || (

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package 	Dotclear
+ * @package     Dotclear
  *
- * @copyright 	Olivier Meunier & Association Dotclear
- * @copyright 	GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,9 +15,9 @@ use Dotclear\Module\MyPlugin;
  * @brief   The module helper.
  * @ingroup breadcrumb
  *
- * @since 	2.27
+ * @since   2.27
  */
 class My extends MyPlugin
 {
-	// Use standard permissions
+    // Use standard permissions
 }

@@ -53,7 +53,7 @@ class Install extends Process
                 $cur->post_status        = App::blog()::POST_PENDING; // Pending status
                 $cur->post_open_comment  = 0;
                 $cur->post_open_tb       = 0;
-                $post_id                 = App::blog()->addPost($cur);
+                App::blog()->addPost($cur);
             }
         }
 

@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin themeEditor definition
  * @ingroup     themeEditor
- * 
+ *
  * @defgroup    themeEditor Plugin themeEditor.
- * 
+ *
  * themeEditor, Internal build tools for dotclear team.
  *
  * @package     Dotclear

@@ -1,11 +1,11 @@
-<?php<?php
+<?php
 /**
  * @file
  * @brief       The plugin dcLegacyEditor definition
  * @ingroup     dcLegacyEditor
- * 
+ *
  * @defgroup    dcLegacyEditor Plugin dcLegacyEditor.
- * 
+ *
  * dcLegacyEditor, dotclear legacy editor.
  *
  * @package     Dotclear

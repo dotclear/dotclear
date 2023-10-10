@@ -15,9 +15,9 @@ use Dotclear\Module\MyPlugin;
  * @brief   The module helper.
  * @ingroup simpleMenu
  *
- * @since 	2.27
+ * @since   2.27
  */
 class My extends MyPlugin
 {
-	// Use default permissions
+    // Use default permissions
 }

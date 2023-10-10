@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin userPref definition
  * @ingroup     userPref
- * 
+ *
  * @defgroup    userPref Plugin userPref.
- * 
+ *
  * userPref, manage every user preference directive.
  *
  * @package     Dotclear

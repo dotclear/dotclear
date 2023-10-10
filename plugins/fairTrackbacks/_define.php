@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin fairTrackbacks definition
  * @ingroup     fairTrackbacks
- * 
+ *
  * @defgroup    fairTrackbacks Plugin fairTrackbacks.
- * 
+ *
  * fairTrackbacks, Trackback validity check.
  *
  * @package     Dotclear

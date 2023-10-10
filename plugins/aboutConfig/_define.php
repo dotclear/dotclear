@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin aboutConfig definition
  * @ingroup     aboutConfig
- * 
+ *
  * @defgroup    aboutConfig Plugin aboutConfig.
- * 
+ *
  * aboutConfig, Manage every blog configuration directive.
  *
  * @package     Dotclear

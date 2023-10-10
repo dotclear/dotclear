@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin simpleMenu definition
  * @ingroup     simpleMenu
- * 
+ *
  * @defgroup    simpleMenu Plugin simpleMenu.
- * 
+ *
  * simpleMenu, simple menu for themes.
  *
  * @package     Dotclear

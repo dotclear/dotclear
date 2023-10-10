@@ -11,7 +11,7 @@
  */
 
 /**
- * @deprecated 	since 2.25
+ * @deprecated  since 2.25
  */
 class dcBlogroll extends Dotclear\Plugin\blogroll\Blogroll
 {

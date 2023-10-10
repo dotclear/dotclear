@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin blogroll definition
  * @ingroup     blogroll
- * 
+ *
  * @defgroup    blogroll Plugin blogroll.
- * 
+ *
  * blogroll, manage your blogroll plugin for Dotclear.
  *
  * @package     Dotclear

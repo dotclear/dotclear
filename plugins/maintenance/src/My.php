@@ -16,7 +16,7 @@ use Dotclear\Module\MyPlugin;
  * @brief   The module helper.
  * @ingroup maintenance
  *
- * @since 	2.27
+ * @since   2.27
  */
 class My extends MyPlugin
 {
@@ -24,7 +24,7 @@ class My extends MyPlugin
     {
         // Limit to backend and admin
         return  $context === self::INSTALL ? null :
-        	App::task()->checkContext('BACKEND')
+            App::task()->checkContext('BACKEND')
             && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,

@@ -11,13 +11,13 @@
  */
 
 /**
- * @deprecated 	since 2.25
+ * @deprecated  since 2.25
  */
 class dcAntispam extends Dotclear\Plugin\antispam\Antispam
 {
 }
 /**
- * @deprecated 	since 2.25
+ * @deprecated  since 2.25
  */
 class dcSpamFilter extends Dotclear\Plugin\antispam\SpamFilter
 {

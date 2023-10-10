@@ -60,7 +60,7 @@ class Themes extends CleanerParent
         }
 
         $stack = [];
-        foreach ($dirs = self::getDirs($path) as $path => $count) {
+        foreach (self::getDirs($path) as $path => $count) {
             $stack[] = new ValueDescriptor(
                 ns:    $path,
                 count: $count

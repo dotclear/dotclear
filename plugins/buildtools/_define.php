@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin buildtools definition
  * @ingroup     buildtools
- * 
+ *
  * @defgroup    buildtools Plugin buildtools.
- * 
+ *
  * buildtools, Internal build tools for dotclear team.
  *
  * @package     Dotclear

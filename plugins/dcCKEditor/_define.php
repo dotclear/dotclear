@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin dcCKEditor definition
  * @ingroup     dcCKEditor
- * 
+ *
  * @defgroup    dcCKEditor Plugin dcCKEditor.
- * 
+ *
  * dcCKEditor, dotclear CKEditor integration.
  *
  * @package     Dotclear

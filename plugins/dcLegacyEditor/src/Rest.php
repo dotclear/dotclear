@@ -11,10 +11,6 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use Dotclear\App;
 
-if (!App::task()->checkContext('BACKEND')) {
-    return;
-}
-
 /**
  * @brief   The module backend REST service.
  * @ingroup dcLegacyEditor

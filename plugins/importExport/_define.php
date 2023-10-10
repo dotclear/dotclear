@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin importExport definition
  * @ingroup     importExport
- * 
+ *
  * @defgroup    importExport Plugin importExport.
- * 
+ *
  * importExport, Import and Export your blog.
  *
  * @package     Dotclear

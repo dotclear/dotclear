@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin akismet definition
  * @ingroup     akismet
- * 
+ *
  * @defgroup    akismet Plugin akismet.
- * 
+ *
  * akismet, aksimet antispam filter plugin for Dotclear 2
  *
  * @package     Dotclear

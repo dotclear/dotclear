@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin breadcrumb definition
  * @ingroup     breadcrumb
- * 
+ *
  * @defgroup    breadcrumb Plugin breadcrumb.
- * 
+ *
  * breadcrumb, breadcrumb plugin for Dotclear.
  *
  * @package     Dotclear

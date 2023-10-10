@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin pings definition
  * @ingroup     pings
- * 
+ *
  * @defgroup    pings Plugin pings.
- * 
+ *
  * pings, ping services.
  *
  * @package     Dotclear

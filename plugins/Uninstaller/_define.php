@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin Uninstaller definition
  * @ingroup     Uninstaller
- * 
+ *
  * @defgroup    Uninstaller Plugin Uninstaller.
- * 
+ *
  * Uninstaller, uninstall cleanly plugins and themes.
  *
  * @package     Dotclear

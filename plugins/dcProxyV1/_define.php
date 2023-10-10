@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin dcProxyV1 definition
  * @ingroup     dcProxyV1
- * 
+ *
  * @defgroup    dcProxyV1 Plugin dcProxyV1.
- * 
+ *
  * dcProxyV1, Cope with old core classes (< 2.26).
  *
  * @package     Dotclear

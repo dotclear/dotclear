@@ -11,13 +11,13 @@
  */
 
 /**
- * @deprecated 	since 2.25
+ * @deprecated  since 2.25
  */
 class dcMaintenance extends Dotclear\Plugin\maintenance\Maintenance
 {
 }
 /**
- * @deprecated 	since 2.25
+ * @deprecated  since 2.25
  */
 class dcMaintenanceTask extends Dotclear\Plugin\maintenance\MaintenanceTask
 {

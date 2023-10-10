@@ -15,9 +15,9 @@ use Dotclear\Module\MyPlugin;
  * @brief   The module helper.
  * @ingroup antispam
  *
- * @since 	2.27
+ * @since   2.27
  */
 class My extends MyPlugin
 {
-	// Use standard permissions
+    // Use standard permissions
 }

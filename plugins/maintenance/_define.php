@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin maintenance definition
  * @ingroup     maintenance
- * 
+ *
  * @defgroup    maintenance Plugin maintenance.
- * 
+ *
  * maintenance, Maintain your installation.
  *
  * @package     Dotclear

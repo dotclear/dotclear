@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\App;
-
-if (!App::task()->checkContext('BACKEND')) {
-    return;
-}
-
 /**
  * @brief   The module REST service handler.
  * @ingroup antispam

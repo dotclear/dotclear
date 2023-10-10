@@ -3,9 +3,9 @@
  * @file
  * @brief       The plugin antispam definition
  * @ingroup     antispam
- * 
+ *
  * @defgroup    antispam Plugin antispam.
- * 
+ *
  * antispam, generic antispam plugin for Dotclear.
  *
  * @package     Dotclear
