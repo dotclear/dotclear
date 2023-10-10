@@ -111,7 +111,7 @@ namespace Dotclear {
         /**
          * Application boostrap.
          *
-         * @deprecated  Since 2.28, use App:config()->release(xxx) or App:config()->yyy() instead.
+         * @deprecated  Since 2.28, use new App('Utility', 'Process');
          *
          * @param   string  $utility    The optionnal app utility (Backend or Frontend)
          * @param   string  $process    The optionnal app utility default process
