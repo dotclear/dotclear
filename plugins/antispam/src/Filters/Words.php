@@ -285,14 +285,14 @@ class Words extends SpamFilter
                 'blog_id ASC',
                 'rule_content ASC',
             ])
-            ->select();
+            ->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**
      * Adds a rule.
      *
      * @param   string  $content    The content
-     * @param   bool    $general    The general
+     * @param   bool    $general    The general flag
      *
      * @throws  Exception
      */
@@ -311,7 +311,7 @@ class Words extends SpamFilter
             ->and('rule_content = ' . $sql->quote($content))
             ->select();
 
-        if (!$rs->isEmpty() && !$general) {
+        if ($rs && !$rs->isEmpty() && !$general) {
             throw new Exception(__('This word exists'));
         }
 
@@ -325,19 +325,20 @@ class Words extends SpamFilter
             $cur->blog_id = App::blog()->id();
         }
 
-        if (!$rs->isEmpty() && $general) {
+        if ($rs && !$rs->isEmpty() && $general) {
             $sql = new UpdateStatement();
             $sql
                 ->where('rule_id = ' . (string) $rs->rule_id)
                 ->update($cur);
         } else {
-            $sql          = new SelectStatement();
-            $cur->rule_id = (int) $sql
+            $sql = new SelectStatement();
+            $run = $sql
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
-                ->select()
-                ->f(0) + 1;
+                ->select();
+            $max = $run ? $run->f(0) : 0;
 
+            $cur->rule_id = $max + 1;
             $cur->insert();
         }
     }

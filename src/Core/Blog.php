@@ -2727,7 +2727,7 @@ class Blog implements BlogInterface
             ->limit(1)
             ->select();
 
-        if ($last->isEmpty()) {
+        if (!$last || $last->isEmpty()) {
             return false;
         }
 

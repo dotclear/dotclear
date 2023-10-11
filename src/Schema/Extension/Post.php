@@ -494,6 +494,8 @@ class Post
         if (isset($rs->_nb_media[$rs->index()])) {
             return (int) $rs->_nb_media[$rs->index()];
         }
+
+        $res = 0;
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('media_id'))
@@ -504,7 +506,12 @@ class Post
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
 
-        $res = (int) $sql->select()?->f(0);
+        if ($run = $sql->select()) {
+            $value = $run->f(0);
+            if (is_string($value) || is_numeric($value)) {
+                $res = (int) $value;
+            }
+        }
 
         $rs->_nb_media[$rs->index()] = $res;
 

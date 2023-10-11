@@ -92,7 +92,7 @@ class Trackback implements TrackbackInterface
             ])
             ->from($this->table)
             ->where('post_id = ' . (string) $post_id)
-            ->select();
+            ->select() ?? MetaRecord::newFromArray([]);
     }
 
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
@@ -113,7 +113,7 @@ class Trackback implements TrackbackInterface
             ->and('ping_url = ' . $sql->quote($url))
             ->select();
 
-        if (!$rs->isEmpty()) {
+        if ($rs && !$rs->isEmpty()) {
             throw new BadRequestException(sprintf(__('%s has still been pinged'), $url));
         }
 

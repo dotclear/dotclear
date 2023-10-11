@@ -69,7 +69,9 @@ class UpdateStatement extends SqlStatement
      */
     public function ref($c, bool $reset = false): UpdateStatement
     {
-        return $this->from($c, $reset);
+        $this->from($c, $reset);
+
+        return $this;
     }
 
     /**

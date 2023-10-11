@@ -126,8 +126,10 @@ class Version implements VersionInterface
                 ->from($this->table)
                 ->select();
 
-            while ($rs->fetch()) {
-                $this->stack[(string) $rs->f('module')] = (string) $rs->f('version');
+            if ($rs) {
+                while ($rs->fetch()) {
+                    $this->stack[(string) $rs->f('module')] = (string) $rs->f('version');
+                }
             }
         }
     }

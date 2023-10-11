@@ -26,8 +26,10 @@ class GrowUp_2_25_lt
             ->from(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME)
             ->where('blog_status = ' . App::blog()::BLOG_REMOVED)
             ->select();
-        while ($rs->fetch()) {
-            $ids[] = $rs->blog_id;
+        if ($rs) {
+            while ($rs->fetch()) {
+                $ids[] = $rs->blog_id;
+            }
         }
         if (count($ids)) {
             App::users()->removeUsersDefaultBlogs($ids);

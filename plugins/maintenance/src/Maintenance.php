@@ -231,8 +231,10 @@ class Maintenance
             ->select();
 
         $logs = [];
-        while ($rs->fetch()) {
-            $logs[] = $rs->log_id;
+        if ($rs) {
+            while ($rs->fetch()) {
+                $logs[] = $rs->log_id;
+            }
         }
 
         // Delete old logs

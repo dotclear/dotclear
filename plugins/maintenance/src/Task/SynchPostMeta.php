@@ -103,12 +103,12 @@ class SynchPostsMeta extends MaintenanceTask
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {
         // Get number of posts
-        $sql   = new SelectStatement();
-        $count = $sql
+        $sql = new SelectStatement();
+        $run = $sql
             ->column($sql->count('post_id'))
             ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
-            ->select()
-            ->f(0);
+            ->select();
+        $count = $run ? $run->f(0) : 0;
 
         // Get posts ids to update
         $sql = new SelectStatement();
@@ -133,8 +133,10 @@ class SynchPostsMeta extends MaintenanceTask
                     ->select();
 
                 $meta = [];
-                while ($rs_meta->fetch()) {
-                    $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
+                if ($rs_meta) {
+                    while ($rs_meta->fetch()) {
+                        $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
+                    }
                 }
 
                 $cur            = App::blog()->openPostCursor();

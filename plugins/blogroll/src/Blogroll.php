@@ -175,12 +175,14 @@ class Blogroll
             throw new Exception(__('You must provide a link URL'));
         }
 
-        $sql          = new SelectStatement();
-        $cur->link_id = (int) $sql
+        $sql = new SelectStatement();
+        $run = $sql
             ->column($sql->max('link_id'))
             ->from($this->table)
-            ->select()
-            ->f(0) + 1;
+            ->select();
+        $max = $run ? $run->f(0) : 0;
+
+        $cur->link_id = $max + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();
@@ -262,12 +264,14 @@ class Blogroll
             throw new Exception(__('You must provide a category title'));
         }
 
-        $sql          = new SelectStatement();
-        $cur->link_id = (int) $sql
+        $sql = new SelectStatement();
+        $run = $sql
             ->column($sql->max('link_id'))
             ->from($this->table)
-            ->select()
-            ->f(0) + 1;
+            ->select();
+        $max = $run ? $run->f(0) : 0;
+
+        $cur->link_id = $max + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();

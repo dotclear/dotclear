@@ -281,13 +281,13 @@ class IpV6 extends SpamFilter
 
         if ($old->isEmpty()) {
             $sql = new SelectStatement();
-            $id  = (int) $sql
+            $run = $sql
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
-                ->select()
-                ->f(0) + 1;
+                ->select();
+            $max = $run ? $run->f(0) : 0;
 
-            $cur->rule_id      = $id;
+            $cur->rule_id      = $max + 1;
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $pattern;
 
@@ -337,7 +337,7 @@ class IpV6 extends SpamFilter
                 'blog_id ASC',
                 'rule_content ASC',
             ])
-            ->select();
+            ->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -363,7 +363,7 @@ class IpV6 extends SpamFilter
             ->where('rule_type = ' . $sql->quote($type))
             ->and($sql->like('rule_content', $ip . '%'))
             ->and($global ? 'blog_id IS NULL' : 'blog_id = ' . $sql->quote(App::blog()->id()))
-            ->select();
+            ->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -389,10 +389,12 @@ class IpV6 extends SpamFilter
             ->order('rule_content ASC')
             ->select();
 
-        while ($rs->fetch()) {
-            $pattern = $rs->rule_content;
-            if ($this->inrange($cip, $pattern)) {
-                return $pattern;
+        if ($rs) {
+            while ($rs->fetch()) {
+                $pattern = $rs->rule_content;
+                if ($this->inrange($cip, $pattern)) {
+                    return $pattern;
+                }
             }
         }
 

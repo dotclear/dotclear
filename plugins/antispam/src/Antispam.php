@@ -274,7 +274,7 @@ class Antispam
             ->where('user_id = ' . $sql->quote($user_id))
             ->select();
 
-        if ($rs->isEmpty()) {
+        if (!$rs || $rs->isEmpty()) {
             return false;
         }
 

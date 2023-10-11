@@ -102,12 +102,12 @@ class IndexPosts extends MaintenanceTask
      */
     public function indexAllPosts(?int $start = null, ?int $limit = null): ?int
     {
-        $sql   = new SelectStatement();
-        $count = (int) $sql
+        $sql = new SelectStatement();
+        $run = $sql
             ->column($sql->count('post_id'))
             ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
-            ->select()
-            ->f(0);
+            ->select();
+        $count = $run ? $run->f(0) : 0;
 
         $sql = new SelectStatement();
         $sql

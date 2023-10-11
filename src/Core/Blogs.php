@@ -272,7 +272,7 @@ class Blogs implements BlogsInterface
             ->where('blog_id = ' . $sql->quote($id))
             ->select();
 
-        return !$rs->isEmpty();
+        return $rs && !$rs->isEmpty();
     }
 
     public function countBlogPosts(string $id, ?string $type = null): int

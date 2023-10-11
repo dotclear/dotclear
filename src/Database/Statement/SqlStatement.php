@@ -127,7 +127,7 @@ class SqlStatement
      * @param       string  $property  The property
      * @param       mixed   $value     The value
      *
-     * @return      mixed    self instance, enabling to chain calls
+     * @return      static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function __set(string $property, $value)
@@ -197,7 +197,7 @@ class SqlStatement
      * @param mixed     $c      the column(s)
      * @param boolean   $reset  reset previous column(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function columns($c, bool $reset = false)
@@ -222,7 +222,7 @@ class SqlStatement
      * @param mixed     $c      the column(s)
      * @param boolean   $reset  reset previous column(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function fields($c, bool $reset = false)
@@ -236,7 +236,7 @@ class SqlStatement
      * @param      mixed    $c      the column(s)
      * @param      boolean  $reset  reset previous column(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function column($c, bool $reset = false)
@@ -250,7 +250,7 @@ class SqlStatement
      * @param      mixed    $c      the column(s)
      * @param      boolean  $reset  reset previous column(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function field($c, bool $reset = false)
@@ -265,7 +265,7 @@ class SqlStatement
      * @param boolean   $reset  reset previous from(s) first
      * @param boolean   $first  put the from clause(s) at top of list
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function from($c, bool $reset = false, bool $first = false)
@@ -302,7 +302,7 @@ class SqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous where(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function where($c, bool $reset = false)
@@ -330,7 +330,7 @@ class SqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous where(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function on($c, bool $reset = false)
@@ -344,7 +344,7 @@ class SqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous condition(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function cond($c, bool $reset = false)
@@ -369,7 +369,7 @@ class SqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous condition(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function and($c, bool $reset = false)
@@ -397,7 +397,7 @@ class SqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous condition(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function or($c, bool $reset = false)
@@ -425,7 +425,7 @@ class SqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous generic clause(s) first
      *
-     * @return mixed    self instance, enabling to chain calls
+     * @return static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
     public function sql($c, bool $reset = false)

@@ -324,13 +324,13 @@ class Ip extends SpamFilter
 
         if ($old->isEmpty()) {
             $sql = new SelectStatement();
-            $id  = (int) $sql
+            $run = $sql
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
-                ->select()
-                ->f(0) + 1;
+                ->select();
+            $max = $run ? $run->f(0) : 0;
 
-            $cur->rule_id      = $id;
+            $cur->rule_id      = $max + 1;
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $content;
 
@@ -380,7 +380,7 @@ class Ip extends SpamFilter
                 'blog_id ASC',
                 'rule_content ASC',
             ])
-            ->select();
+            ->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -403,7 +403,7 @@ class Ip extends SpamFilter
             ->where('rule_type = ' . $sql->quote($type))
             ->and($sql->like('rule_content', '%:' . (int) $ip . ':' . (int) $mask))
             ->and($global ? 'blog_id IS NULL' : 'blog_id = ' . $sql->quote(App::blog()->id()))
-            ->select();
+            ->select() ?? MetaRecord::newFromArray([]);
     }
 
     /**
@@ -429,10 +429,12 @@ class Ip extends SpamFilter
             ->order('rule_content ASC')
             ->select();
 
-        while ($rs->fetch()) {
-            [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
-            if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
-                return $pattern;
+        if ($rs) {
+            while ($rs->fetch()) {
+                [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
+                if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
+                    return $pattern;
+                }
             }
         }
 
