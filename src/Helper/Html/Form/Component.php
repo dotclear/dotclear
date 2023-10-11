@@ -171,9 +171,9 @@ abstract class Component
      *
      * @param      string  $type   The type
      *
-     * @return     self
+     * @return static    self instance, enabling to chain calls
      */
-    public function setType(string $type)
+    public function setType(string $type): static
     {
         $this->componentClass = $type;
 
@@ -195,9 +195,9 @@ abstract class Component
      *
      * @param      string  $element  The element
      *
-     * @return     self
+     * @return static    self instance, enabling to chain calls
      */
-    public function setElement(string $element)
+    public function setElement(string $element): static
     {
         $this->htmlElement = $element;
 
@@ -210,9 +210,9 @@ abstract class Component
      * @param      Label|null      $label     The label
      * @param      int|null        $position  The position
      *
-     * @return     self
+     * @return static    self instance, enabling to chain calls
      */
-    public function attachLabel(?Label $label = null, ?int $position = null)
+    public function attachLabel(?Label $label = null, ?int $position = null): static
     {
         if ($label) {
             $this->label($label);
@@ -230,9 +230,9 @@ abstract class Component
     /**
      * Detaches the label from this component
      *
-     * @return     self
+     * @return static    self instance, enabling to chain calls
      */
-    public function detachLabel()
+    public function detachLabel(): static
     {
         if (isset($this->label)) {
             unset($this->label);
@@ -248,11 +248,11 @@ abstract class Component
      * If it is an array of only one element, name = [first element]
      * Else name = [first element], id = [second element]
      *
-     * @param      string|array<mixed>|null $identifier (string or array)
+     * @param      string|array{0: string, 1?: string}|null $identifier (string or array)
      *
-     * @return     self
+     * @return static    self instance, enabling to chain calls
      */
-    public function setIdentifier($identifier)
+    public function setIdentifier($identifier): static
     {
         if (is_array($identifier)) {
             $this->name = (string) $identifier[0];

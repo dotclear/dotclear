@@ -20,9 +20,9 @@ class Caption extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      string $text     The text
-     * @param      mixed  $id       The identifier
-     * @param      string $element  The element
+     * @param      string                                       $text     The text
+     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string                                       $element  The element
      */
     public function __construct(string $text = '', $id = null, ?string $element = null)
     {

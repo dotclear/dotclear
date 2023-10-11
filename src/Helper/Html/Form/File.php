@@ -18,8 +18,8 @@ class File extends Input
     /**
      * Constructs a new instance.
      *
-     * @param      mixed  $id     The identifier
-     * @param      string $value  The value
+     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string                                       $value    The value
      */
     public function __construct($id = null, ?string $value = null)
     {

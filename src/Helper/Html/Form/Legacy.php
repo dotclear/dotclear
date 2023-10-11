@@ -67,7 +67,7 @@ class form
      * form::combo(['name', 'id'], $data, ['class' => 'maximal', 'extra_html' => 'data-language="php"']);
      * ```
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $data        Select box data
      * @param mixed                 $default     Default value in select box | associative array of optional parameters
      * @param string                $class       Element class name
@@ -120,7 +120,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $checked could be a boolean or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $value       Element value
      * @param mixed                 $checked     True if checked | associative array of optional parameters
      * @param string                $class       Element class name
@@ -173,7 +173,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $checked could be a boolean or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $value       Element value
      * @param mixed                 $checked     True if checked | associative array of optional parameters
      * @param string                $class       Element class name
@@ -226,7 +226,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param integer               $size         Element size
      * @param integer               $max          Element maxlength
      * @param mixed                 $default      Element value | associative array of optional parameters
@@ -301,7 +301,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param integer               $size        Element size
      * @param integer               $max         Element maxlength
      * @param mixed                 $default     Element value | associative array of optional parameters
@@ -374,7 +374,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $size        Element size | associative array of optional parameters
      * @param integer               $max         Element maxlength
      * @param string                $default     Element value
@@ -447,7 +447,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $size         Element size | associative array of optional parameters
      * @param integer               $max          Element maxlength
      * @param string                $default      Element value
@@ -520,7 +520,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $size         Element size | associative array of optional parameters
      * @param integer               $max          Element maxlength
      * @param string                $default      Element value
@@ -593,7 +593,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $size         Element size | associative array of optional parameters
      * @param integer               $max          Element maxlength
      * @param string                $default      Element value (in YYYY-MM-DDThh:mm format)
@@ -666,7 +666,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $size         Element size | associative array of optional parameters
      * @param integer               $max          Element maxlength
      * @param string                $default      Element value (in YYYY-MM-DD format)
@@ -739,7 +739,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $size         Element size | associative array of optional parameters
      * @param integer               $max          Element maxlength
      * @param string                $default      Element value (in hh:mm format)
@@ -812,7 +812,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $default     Element value | associative array of optional parameters
      * @param string                $class       Element class name
      * @param string                $tabindex    Element tabindex
@@ -870,7 +870,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $min could be a string or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param mixed                 $min          Element min value (may be negative) | associative array of optional parameters
      * @param integer               $max          Element max value (may be negative)
      * @param string                $default      Element value
@@ -937,7 +937,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array<string>  $nid         Element ID and name
+     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
      * @param integer               $cols         Number of columns
      * @param integer               $rows         Number of rows
      * @param mixed                 $default      Element value | associative array of optional parameters
@@ -1003,8 +1003,8 @@ class form
      * Returns HTML code for an hidden field. $nid could be a string or an array of
      * name and ID.
      *
-     * @param string|array<string>  $nid         Element ID and name
-     * @param mixed                 $value  Element value
+     * @param string|array{0: string, 1?: string}|null      $nid        The identifier
+     * @param mixed                                         $value      Element value
      *
      * @return string
      *

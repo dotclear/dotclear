@@ -20,8 +20,8 @@ class Td extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      mixed   $id       The identifier
-     * @param      string  $element  The element
+     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string                                       $element  The element
      */
     public function __construct($id = null, ?string $element = null)
     {

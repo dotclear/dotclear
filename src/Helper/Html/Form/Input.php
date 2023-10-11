@@ -25,9 +25,9 @@ class Input extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      mixed   $id           The identifier
-     * @param      string  $type         The input type
-     * @param      bool    $renderLabel  Render label if present
+     * @param      string|array{0: string, 1?: string}|null     $id             The identifier
+     * @param      string                                       $type           The input type
+     * @param      bool                                         $renderLabel    Render label if present
      */
     public function __construct($id = null, string $type = 'text', bool $renderLabel = true)
     {

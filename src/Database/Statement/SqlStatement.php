@@ -199,8 +199,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function columns($c, bool $reset = false)
+    public function columns($c, bool $reset = false): static
     {
         if ($reset) {
             $this->columns = [];
@@ -224,8 +223,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function fields($c, bool $reset = false)
+    public function fields($c, bool $reset = false): static
     {
         return $this->columns($c, $reset);
     }
@@ -238,8 +236,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function column($c, bool $reset = false)
+    public function column($c, bool $reset = false): static
     {
         return $this->columns($c, $reset);
     }
@@ -252,8 +249,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function field($c, bool $reset = false)
+    public function field($c, bool $reset = false): static
     {
         return $this->column($c, $reset);
     }
@@ -267,8 +263,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function from($c, bool $reset = false, bool $first = false)
+    public function from($c, bool $reset = false, bool $first = false): static
     {
         $filter = fn ($v) => trim(ltrim((string) $v, ','));
         if ($reset) {
@@ -304,8 +299,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function where($c, bool $reset = false)
+    public function where($c, bool $reset = false): static
     {
         $filter = fn ($v) => preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
         if ($reset) {
@@ -332,8 +326,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function on($c, bool $reset = false)
+    public function on($c, bool $reset = false): static
     {
         return $this->where($c, $reset);
     }
@@ -346,8 +339,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function cond($c, bool $reset = false)
+    public function cond($c, bool $reset = false): static
     {
         if ($reset) {
             $this->cond = [];
@@ -371,8 +363,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function and($c, bool $reset = false)
+    public function and($c, bool $reset = false): static
     {
         return $this->cond(array_map(fn ($v) => 'AND ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
@@ -399,8 +390,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function or($c, bool $reset = false)
+    public function or($c, bool $reset = false): static
     {
         return $this->cond(array_map(fn ($v) => 'OR ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
@@ -427,8 +417,7 @@ class SqlStatement
      *
      * @return static    self instance, enabling to chain calls
      */
-    #[\ReturnTypeWillChange]
-    public function sql($c, bool $reset = false)
+    public function sql($c, bool $reset = false): static
     {
         if ($reset) {
             $this->sql = [];
