@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Core\PostType;
+
 /**
  * @brief   Post types handler interface.
  *
@@ -32,9 +34,9 @@ interface PostTypesInterface
      *
      * @param   string  $type   The post type
      *
-     * @return  PostTypeInterface   The post type descriptor
+     * @return  PostType    The post type descriptor
      */
-    public function __get(string $type): PostTypeInterface;
+    public function __get(string $type): PostType;
 
     /**
      * Get a post type.
@@ -44,25 +46,25 @@ interface PostTypesInterface
      *
      * @param   string  $type   The post type
      *
-     * @return  PostTypeInterface   The post type descriptor
+     * @return  PostType    The post type descriptor
      */
-    public function get(string $type): PostTypeInterface;
+    public function get(string $type): PostType;
 
     /**
      * Set a post type.
      *
      * If post type exists, it wil be overwritten
      *
-     * @param   PostTypeInterface   $descriptor  The post type descriptor
+     * @param   PostType    $descriptor     The post type descriptor
      *
      * @return  PostTypesInterface  This instance
      */
-    public function set(PostTypeInterface $descriptor): PostTypesInterface;
+    public function set(PostType $descriptor): PostTypesInterface;
 
     /**
      * Get the posts types.
      *
-     * @return  array<string,PostTypeInterface>
+     * @return  array<string,PostType>
      */
     public function dump(): array;
 
