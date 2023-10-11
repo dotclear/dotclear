@@ -16,4 +16,4 @@
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 
-Dotclear\App::bootstrap('Backend', 'Home');
+new Dotclear\App('Backend', 'Home');

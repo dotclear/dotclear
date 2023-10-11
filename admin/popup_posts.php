@@ -9,4 +9,4 @@
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 
-Dotclear\App::bootstrap('Backend', 'PostsPopup');
+new Dotclear\App('Backend', 'PostsPopup');
