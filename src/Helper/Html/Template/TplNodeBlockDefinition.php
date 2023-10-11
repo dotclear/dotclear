@@ -21,7 +21,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
     /**
      * Stack of blocks
      *
-     * @var        array<string, mixed>
+     * @var        array<string, array{pos: int, blocks: array<string|ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>>}>
      */
     protected static $stack = [];
 
@@ -30,14 +30,14 @@ class TplNodeBlockDefinition extends TplNodeBlock
      *
      * @var string|null
      */
-    protected static $current_block = null;
+    protected static ?string $current_block = null;
 
     /**
      * Block name
      *
      * @var string
      */
-    protected $name;
+    protected string $name = '';
 
     /**
      * Renders the parent block of currently being displayed block
@@ -82,8 +82,14 @@ class TplNodeBlockDefinition extends TplNodeBlock
                 // Go deeper 1 level in stack, to enable calls to parent
                 $stack['pos']++;
                 $ret = '';
+
                 // Compile each and every children
-                foreach ($stack['blocks'][$pos] as $child) {
+
+                /**
+                 * @var ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>
+                 */
+                $children = $stack['blocks'][$pos];
+                foreach ($children as $child) {
                     $ret .= $child->compile($tpl);
                 }
                 $stack['pos']--;
@@ -109,8 +115,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
     public function __construct(string $tag, array $attr)
     {
         parent::__construct($tag, $attr);
-        $this->name = '';
-        if (isset($attr['name'])) {
+        if (isset($attr['name']) && is_string($attr['name'])) {
             $this->name = $attr['name'];
         }
     }

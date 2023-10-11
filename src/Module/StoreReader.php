@@ -61,7 +61,7 @@ class StoreReader extends HttpClient
     /**
      * HTTP Cache validators.
      *
-     * @var     array<string, string>|null  $validators
+     * @var     array<string, mixed>|null  $validators
      */
     protected $validators = null;
 
@@ -154,9 +154,9 @@ class StoreReader extends HttpClient
      * @param   string      $cache_dir  Cache directoy or null for no cache
      * @param   null|bool   $force      Force query repository. null to use cache without ttl
      *
-     * @return  mixed   Feed content, StoreParser instance or false
+     * @return  false|StoreParser   StoreParser instance or false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false)
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|StoreParser
     {
         $parser = new self();
         if ($cache_dir) {
@@ -261,9 +261,9 @@ class StoreReader extends HttpClient
      *
      * @param   string  $url    XML feed URL
      *
-     * @return  mixed   Feed content or False on fail
+     * @return  StoreParser|false   Feed content or False on fail
      */
-    protected function withCache(string $url)
+    protected function withCache(string $url): bool|StoreParser
     {
         $url_md5     = md5($url);
         $cached_file = sprintf(
@@ -285,7 +285,12 @@ class StoreReader extends HttpClient
                 # Direct cache
                 self::$read_code = static::READ_FROM_CACHE;
 
-                return unserialize((string) file_get_contents($cached_file));
+                /**
+                 * @var StoreParser
+                 */
+                $ret = unserialize((string) file_get_contents($cached_file));
+
+                return $ret;
             }
             $this->setValidator('IfModifiedSince', $ts);
         }
@@ -300,7 +305,12 @@ class StoreReader extends HttpClient
                 # Connection failed - fetched from cache
                 self::$read_code = static::READ_FROM_CACHE;
 
-                return unserialize((string) file_get_contents($cached_file));
+                /**
+                 * @var StoreParser
+                 */
+                $ret = unserialize((string) file_get_contents($cached_file));
+
+                return $ret;
             }
 
             return false;
@@ -308,15 +318,20 @@ class StoreReader extends HttpClient
 
         # Parse response
         switch ($this->getStatus()) {
-            # Not modified, use cache
             case '304':
+                # Not modified, use cache
                 @Files::touch($cached_file);
 
                 self::$read_code = static::READ_FROM_CACHE;
 
-                return unserialize((string) file_get_contents($cached_file));
-                # Ok, parse feed
+                /**
+                 * @var StoreParser
+                 */
+                $ret = unserialize((string) file_get_contents($cached_file));
+
+                return $ret;
             case '200':
+                # Ok, parse feed
                 $modules         = new StoreParser($this->getContent());
                 self::$read_code = static::READ_FROM_SOURCE;
 
@@ -369,7 +384,7 @@ class StoreReader extends HttpClient
     private function setValidator(string $key, $value): void
     {
         if ($key == 'IfModifiedSince') {
-            $value = gmdate('D, d M Y H:i:s', $value) . ' GMT';
+            $value = gmdate('D, d M Y H:i:s', is_numeric($value) ? (int) $value : null) . ' GMT';
         }
 
         $this->validators[$key] = $value;

@@ -48,7 +48,7 @@ class StoreParser
      *
      * @var     string  $bloc
      */
-    protected static $bloc = 'http://dotaddict.org/da/';
+    protected static string $bloc = 'http://dotaddict.org/da/';
 
     /**
      * Constructor.

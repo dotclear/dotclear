@@ -94,7 +94,7 @@ class Template
      *
      * @var        string
      */
-    protected $parent_file;
+    protected string $parent_file = '';
 
     /**
      * Stack of compiled template files
@@ -643,7 +643,7 @@ class Template
                             $attr     = $this->getAttrs($match[6]);
                         }
                         if (strtolower($tag) == 'extends') {
-                            if (isset($attr['parent']) && $this->parent_file == '') {
+                            if (isset($attr['parent']) && is_string($attr['parent']) && $this->parent_file === '') {
                                 $this->parent_file = $attr['parent'];
                             }
                         } elseif (strtolower($tag) == 'parent') {
@@ -706,14 +706,14 @@ class Template
                 $file = (string) $file;
                 $tree = $this->getCompiledTree($file, $err);
 
-                if ($this->parent_file == '__parent__') {
+                if ($this->parent_file === '__parent__') {
                     $this->parent_stack[] = $file;
                     $newfile              = $this->getParentFilePath(dirname($file), basename($file));
                     if (!$newfile) {
                         throw new Exception('No template found for ' . basename($file));
                     }
                     $file = $newfile;
-                } elseif ($this->parent_file != '') {   // @phpstan-ignore-line
+                } elseif ($this->parent_file !== '') {
                     $this->parent_stack[] = $file;
                     $file                 = $this->getFilePath($this->parent_file);
                     if ($file === false) {
@@ -784,7 +784,7 @@ class Template
     protected function compileValue(array $match): string
     {
         $v        = $match[1];
-        $attr     = isset($match[2]) ? $this->getAttrs($match[2]) : [];
+        $attr     = isset($match[2]) && is_string($match[2]) ? $this->getAttrs($match[2]) : [];
         $str_attr = $match[2] ?? null;
 
         return call_user_func($this->values[$v], $attr, ltrim((string) $str_attr));

@@ -30,13 +30,13 @@ class Value
      *
      * @var string
      */
-    protected $type;
+    protected string $type;
 
     /**
      * Constructor
      *
-     * @param mixed    $data        Data value
-     * @param mixed    $type        Data type
+     * @param mixed           $data        Data value
+     * @param string|false    $type        Data type
      */
     public function __construct($data, $type = false)
     {

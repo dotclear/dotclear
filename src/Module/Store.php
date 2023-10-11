@@ -131,19 +131,21 @@ class Store
                 $cur_define = $this->modules->getDefine($str_define->getId());
                 if ($cur_define->isDefined()) {
                     // is update ?
-                    if ($this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
-                        $str_define->set('root', $cur_define->get('root'));
-                        $str_define->set('root_writable', $cur_define->get('root_writable'));
-                        $str_define->set('current_version', $cur_define->get('version'));
+                    if (is_string($str_define->get('version')) && is_string($cur_define->get('version'))) {
+                        if ($this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
+                            $str_define->set('root', $cur_define->get('root'));
+                            $str_define->set('root_writable', $cur_define->get('root_writable'));
+                            $str_define->set('current_version', $cur_define->get('version'));
 
-                        // set memo for third party updates
-                        $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
+                            // set memo for third party updates
+                            $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
 
-                        $upd_defines[] = $str_define;
+                            $upd_defines[] = $str_define;
 
-                        // This update is new from main repository
-                        if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
-                            $this->has_new_update = true;
+                            // This update is new from main repository
+                            if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
+                                $this->has_new_update = true;
+                            }
                         }
                     }
                     // it's new

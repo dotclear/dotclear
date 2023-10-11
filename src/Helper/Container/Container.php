@@ -101,14 +101,14 @@ class Container implements ContainerInterface
      *
      * Retrieves and adds container services from class constructor arguments.
      *
-     * @param   string  $alias  The alias
-     * @param   mixed   $args   The arguments
+     * @param   string                      $alias  The alias
+     * @param   array<int|string, mixed>    $args   The arguments
      *
      * @throws  ContainerException
      *
      * @return  mixed
      */
-    private function resolve(string $alias, $args)
+    private function resolve(string $alias, array $args)
     {
         try {
             $reflector = new \ReflectionClass($alias);  // @phpstan-ignore-line
