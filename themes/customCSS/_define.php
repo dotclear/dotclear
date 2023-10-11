@@ -3,9 +3,9 @@
  * @file
  * @brief       The theme customCSS definition
  * @ingroup     customCSS
- * 
+ *
  * @defgroup    customCSS Theme customCSS.
- * 
+ *
  * customCSS, a customizable theme for Dotclear 2.
  *
  * @package     Dotclear

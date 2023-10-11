@@ -3,9 +3,9 @@
  * @file
  * @brief       The theme blueSilence definition
  * @ingroup     blueSilence
- * 
+ *
  * @defgroup    blueSilence Theme blueSilence.
- * 
+ *
  * blueSilence, a no configuration theme for Dotclear 2.
  *
  * @package     Dotclear

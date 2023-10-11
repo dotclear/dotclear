@@ -122,7 +122,7 @@ class Frontend extends Process
     /**
      * Tpl:EntryIfContentIsCut template block
      *
-     * @param      ArrayObject<string, string>  $attr   The attribute
+     * @param      ArrayObject<string, mixed>   $attr   The attribute
      * @param      string                       $content  The content
      *
      * @return     string       rendered element

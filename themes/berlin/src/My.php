@@ -1,9 +1,9 @@
 <?php
 /**
- * @package 	Dotclear
+ * @package     Dotclear
  *
- * @copyright 	Olivier Meunier & Association Dotclear
- * @copyright 	GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -12,7 +12,7 @@ namespace Dotclear\Theme\berlin;
 use Dotclear\Module\MyTheme;
 
 /**
- * @brief 	The module helper.
+ * @brief   The module helper.
  * @ingroup berlin
  *
  * @since 2.27

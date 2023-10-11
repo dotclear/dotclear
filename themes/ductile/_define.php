@@ -3,9 +3,9 @@
  * @file
  * @brief       The theme ductile definition
  * @ingroup     ductile
- * 
+ *
  * @defgroup    ductile Theme ductile.
- * 
+ *
  * ductile, a mediaqueries compliant elegant theme for Dotclear 2.
  *
  * @package     Dotclear

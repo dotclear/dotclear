@@ -1,9 +1,9 @@
 <?php
 /**
- * @package 	Dotclear
+ * @package     Dotclear
  *
- * @copyright 	Olivier Meunier & Association Dotclear
- * @copyright 	GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  *
  * @since 2.27
  */
@@ -14,7 +14,7 @@ namespace Dotclear\Theme\customCSS;
 use Dotclear\Module\MyTheme;
 
 /**
- * @brief 	The module helper.
+ * @brief   The module helper.
  * @ingroup customCSS
  */
 class My extends MyTheme

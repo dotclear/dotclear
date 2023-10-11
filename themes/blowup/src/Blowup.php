@@ -24,14 +24,14 @@ class Blowup
      *
      * @var        string
      */
-    protected static $css_folder = 'blowup-css';
+    protected static string $css_folder = 'blowup-css';
 
     /**
      * Images folder name
      *
      * @var        string
      */
-    protected static $img_folder = 'blowup-images';
+    protected static string $img_folder = 'blowup-images';
 
     /**
      * List of availables font families
@@ -221,7 +221,9 @@ class Blowup
      */
     public static function publicCssUrlHelper(): string
     {
-        return (string) ThemeConfig::publicCssUrlHelper(self::$css_folder);
+        $ret = ThemeConfig::publicCssUrlHelper(self::$css_folder);
+
+        return is_string($ret) ? $ret : '';
     }
 
     /**
@@ -324,7 +326,7 @@ class Blowup
                 $css['#top h1']['width']            = 'auto';
             }
 
-            if ($s['blog_title_p']) {
+            if (is_string($s['blog_title_p'])) {
                 $_p                    = explode(':', $s['blog_title_p']);
                 $css['#top h1']['top'] = $_p[1] . 'px';
                 if ($s['blog_title_a'] != 'center') {
@@ -403,17 +405,17 @@ class Blowup
 
         /* Images
         ------------------------------------------------------ */
-        self::backgroundImg($css, 'body', $s['body_bg_c'], 'body-bg.png');
+        self::backgroundImg($css, 'body', (bool) $s['body_bg_c'], 'body-bg.png');
         self::backgroundImg($css, 'body', $s['body_bg_g'] != 'light', 'body-bg.png');
-        self::backgroundImg($css, 'body', $s['prelude_c'], 'body-bg.png');
-        self::backgroundImg($css, '#top', $s['body_bg_c'], 'page-t.png');
+        self::backgroundImg($css, 'body', (bool) $s['prelude_c'], 'body-bg.png');
+        self::backgroundImg($css, '#top', (bool) $s['body_bg_c'], 'page-t.png');
         self::backgroundImg($css, '#top', $s['body_bg_g'] != 'light', 'page-t.png');
         self::backgroundImg($css, '#top', $s['uploaded'] || $s['top_image'], 'page-t.png');
-        self::backgroundImg($css, '#footer', $s['body_bg_c'], 'page-b.png');
-        self::backgroundImg($css, '#comments dt', $s['post_comment_bg_c'], 'comment-t.png');
-        self::backgroundImg($css, '#comments dd', $s['post_comment_bg_c'], 'comment-b.png');
-        self::backgroundImg($css, '#comments dt.me', $s['post_commentmy_bg_c'], 'commentmy-t.png');
-        self::backgroundImg($css, '#comments dd.me', $s['post_commentmy_bg_c'], 'commentmy-b.png');
+        self::backgroundImg($css, '#footer', (bool) $s['body_bg_c'], 'page-b.png');
+        self::backgroundImg($css, '#comments dt', (bool) $s['post_comment_bg_c'], 'comment-t.png');
+        self::backgroundImg($css, '#comments dd', (bool) $s['post_comment_bg_c'], 'comment-b.png');
+        self::backgroundImg($css, '#comments dt.me', (bool) $s['post_commentmy_bg_c'], 'commentmy-t.png');
+        self::backgroundImg($css, '#comments dd.me', (bool) $s['post_commentmy_bg_c'], 'commentmy-b.png');
 
         $res = '';
         foreach ($css as $selector => $values) {
@@ -454,11 +456,11 @@ class Blowup
         // Helper
         $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
 
-        $body_color       = $config['body_bg_c'];
-        $prelude_color    = $config['prelude_c'];
+        $body_color       = is_string($config['body_bg_c']) ? (string) $config['body_bg_c'] : null;
+        $prelude_color    = is_string($config['prelude_c']) ? (string) $config['prelude_c'] : null;
         $gradient         = $config['body_bg_g'];
-        $comment_color    = $config['post_comment_bg_c'];
-        $comment_color_my = $config['post_commentmy_bg_c'];
+        $comment_color    = is_string($config['post_comment_bg_c']) ? (string) $config['post_comment_bg_c'] : null;
+        $comment_color_my = is_string($config['post_commentmy_bg_c']) ? (string) $config['post_commentmy_bg_c'] : null;
         $top_image        = $config['top_image'];
 
         $config['top_height'] = null;

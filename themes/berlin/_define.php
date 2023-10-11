@@ -3,9 +3,9 @@
  * @file
  * @brief       The theme berlin definition
  * @ingroup     berlin
- * 
+ *
  * @defgroup    berlin Theme berlin.
- * 
+ *
  * berlin, the default theme for Dotclear 2
  *
  * @package     Dotclear
