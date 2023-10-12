@@ -89,12 +89,12 @@ class SpamFilter
     {
         $this->setInfo();
 
-        if (!$this->id) {
+        if (!isset($this->id)) {
             $path     = explode('\\', static::class);
             $this->id = (string) array_pop($path);
         }
 
-        if (!$this->name) {
+        if (!isset($this->name)) {
             $this->name = (string) $this->id;
         }
 
