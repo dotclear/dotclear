@@ -29,20 +29,20 @@ class Frontend extends Process
             return false;
         }
 
-        App::frontend()->tpl->addBlock('Attachments', FrontendTemplate::Attachments(...));
-        App::frontend()->tpl->addBlock('AttachmentsHeader', FrontendTemplate::AttachmentsHeader(...));
-        App::frontend()->tpl->addBlock('AttachmentsFooter', FrontendTemplate::AttachmentsFooter(...));
-        App::frontend()->tpl->addValue('AttachmentMimeType', FrontendTemplate::AttachmentMimeType(...));
-        App::frontend()->tpl->addValue('AttachmentType', FrontendTemplate::AttachmentType(...));
-        App::frontend()->tpl->addValue('AttachmentFileName', FrontendTemplate::AttachmentFileName(...));
-        App::frontend()->tpl->addValue('AttachmentSize', FrontendTemplate::AttachmentSize(...));
-        App::frontend()->tpl->addValue('AttachmentTitle', FrontendTemplate::AttachmentTitle(...));
-        App::frontend()->tpl->addValue('AttachmentThumbnailURL', FrontendTemplate::AttachmentThumbnailURL(...));
-        App::frontend()->tpl->addValue('AttachmentURL', FrontendTemplate::AttachmentURL(...));
-        App::frontend()->tpl->addValue('MediaURL', FrontendTemplate::MediaURL(...));
-        App::frontend()->tpl->addBlock('AttachmentIf', FrontendTemplate::AttachmentIf(...));
+        App::frontend()->template()->addBlock('Attachments', FrontendTemplate::Attachments(...));
+        App::frontend()->template()->addBlock('AttachmentsHeader', FrontendTemplate::AttachmentsHeader(...));
+        App::frontend()->template()->addBlock('AttachmentsFooter', FrontendTemplate::AttachmentsFooter(...));
+        App::frontend()->template()->addValue('AttachmentMimeType', FrontendTemplate::AttachmentMimeType(...));
+        App::frontend()->template()->addValue('AttachmentType', FrontendTemplate::AttachmentType(...));
+        App::frontend()->template()->addValue('AttachmentFileName', FrontendTemplate::AttachmentFileName(...));
+        App::frontend()->template()->addValue('AttachmentSize', FrontendTemplate::AttachmentSize(...));
+        App::frontend()->template()->addValue('AttachmentTitle', FrontendTemplate::AttachmentTitle(...));
+        App::frontend()->template()->addValue('AttachmentThumbnailURL', FrontendTemplate::AttachmentThumbnailURL(...));
+        App::frontend()->template()->addValue('AttachmentURL', FrontendTemplate::AttachmentURL(...));
+        App::frontend()->template()->addValue('MediaURL', FrontendTemplate::MediaURL(...));
+        App::frontend()->template()->addBlock('AttachmentIf', FrontendTemplate::AttachmentIf(...));
 
-        App::frontend()->tpl->addValue('EntryAttachmentCount', FrontendTemplate::EntryAttachmentCount(...));
+        App::frontend()->template()->addValue('EntryAttachmentCount', FrontendTemplate::EntryAttachmentCount(...));
 
         App::behavior()->addBehavior('tplIfConditions', FrontendBehaviors::tplIfConditions(...));
 

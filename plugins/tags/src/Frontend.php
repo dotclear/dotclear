@@ -29,18 +29,18 @@ class Frontend extends Process
             return false;
         }
 
-        App::frontend()->tpl->addBlock('Tags', FrontendTemplate::Tags(...));
-        App::frontend()->tpl->addBlock('TagsHeader', FrontendTemplate::TagsHeader(...));
-        App::frontend()->tpl->addBlock('TagsFooter', FrontendTemplate::TagsFooter(...));
-        App::frontend()->tpl->addBlock('EntryTags', FrontendTemplate::EntryTags(...));
-        App::frontend()->tpl->addBlock('TagIf', FrontendTemplate::TagIf(...));
-        App::frontend()->tpl->addValue('TagID', FrontendTemplate::TagID(...));
-        App::frontend()->tpl->addValue('TagCount', FrontendTemplate::TagCount(...));
-        App::frontend()->tpl->addValue('TagPercent', FrontendTemplate::TagPercent(...));
-        App::frontend()->tpl->addValue('TagRoundPercent', FrontendTemplate::TagRoundPercent(...));
-        App::frontend()->tpl->addValue('TagURL', FrontendTemplate::TagURL(...));
-        App::frontend()->tpl->addValue('TagCloudURL', FrontendTemplate::TagCloudURL(...));
-        App::frontend()->tpl->addValue('TagFeedURL', FrontendTemplate::TagFeedURL(...));
+        App::frontend()->template()->addBlock('Tags', FrontendTemplate::Tags(...));
+        App::frontend()->template()->addBlock('TagsHeader', FrontendTemplate::TagsHeader(...));
+        App::frontend()->template()->addBlock('TagsFooter', FrontendTemplate::TagsFooter(...));
+        App::frontend()->template()->addBlock('EntryTags', FrontendTemplate::EntryTags(...));
+        App::frontend()->template()->addBlock('TagIf', FrontendTemplate::TagIf(...));
+        App::frontend()->template()->addValue('TagID', FrontendTemplate::TagID(...));
+        App::frontend()->template()->addValue('TagCount', FrontendTemplate::TagCount(...));
+        App::frontend()->template()->addValue('TagPercent', FrontendTemplate::TagPercent(...));
+        App::frontend()->template()->addValue('TagRoundPercent', FrontendTemplate::TagRoundPercent(...));
+        App::frontend()->template()->addValue('TagURL', FrontendTemplate::TagURL(...));
+        App::frontend()->template()->addValue('TagCloudURL', FrontendTemplate::TagCloudURL(...));
+        App::frontend()->template()->addValue('TagFeedURL', FrontendTemplate::TagFeedURL(...));
 
         App::behavior()->addBehaviors([
             'publicPrependV2'        => FrontendBehaviors::publicPrepend(...),

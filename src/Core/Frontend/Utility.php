@@ -59,7 +59,7 @@ class Utility extends Process
      *
      * @var Tpl
      */
-    public Tpl $tpl;
+    private Tpl $tpl;
 
     /**
      * Searched term
@@ -196,14 +196,8 @@ class Utility extends Process
         // deprecated since 2.28, need to load dcCore::app()->ctx
         App::frontend()->context();
 
-        try {
-            App::frontend()->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->tpl');
-
-            // deprecated since 2.28, use App::frontend()->tpl instead
-            dcCore::app()->tpl = App::frontend()->tpl;
-        } catch (Throwable) {
-            throw new TemplateException(__('Can\'t create template files.'));
-        }
+        // deprecated since 2.28, need to load dcCore::app()->tpl
+        App::frontend()->template();
 
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
@@ -288,15 +282,15 @@ class Utility extends Process
         $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
-            App::frontend()->tpl->setPath(
+            App::frontend()->template()->setPath(
                 $tpl_path,
                 $dir,
-                App::frontend()->tpl->getPath()
+                App::frontend()->template()->getPath()
             );
         } else {
-            App::frontend()->tpl->setPath(
+            App::frontend()->template()->setPath(
                 $tpl_path,
-                App::frontend()->tpl->getPath()
+                App::frontend()->template()->getPath()
             );
         }
         App::url()->mode = App::blog()->settings()->system->url_scan;
@@ -318,7 +312,7 @@ class Utility extends Process
     }
 
     /**
-     * Context
+     * Get frontend context instance.
      *
      * @return  Ctx     The context
      */
@@ -336,6 +330,27 @@ class Utility extends Process
         }
 
         return $this->ctx;
+    }
+
+    /**
+     * Get frontend template instance.
+     *
+     * @return  Tpl     The template instance
+     */
+    public function template(): Tpl
+    {
+        if (!isset($this->tpl)) {
+            try {
+                $this->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->template()');
+
+                // deprecated since 2.28, use App::frontend()->template() instead
+                dcCore::app()->tpl = $this->tpl;
+            } catch (Throwable $e) {
+                throw new TemplateException(__('Can\'t create template files.'), TemplateException::code(), $e);
+            }
+        }
+
+        return $this->tpl;
     }
 
     /**

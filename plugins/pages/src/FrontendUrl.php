@@ -189,9 +189,9 @@ class FrontendUrl extends Url
                 $tplset           = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
                 $default_template = Path::real(App::plugins()->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
                 if (!empty($tplset) && is_dir($default_template . $tplset)) {
-                    App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);
+                    App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . $tplset);
                 } else {
-                    App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . App::config()->defaultTplset());
+                    App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
                 }
                 self::serveDocument('page.html');
             }

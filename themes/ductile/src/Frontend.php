@@ -48,11 +48,11 @@ class Frontend extends Process
         ]);
 
         # Templates
-        App::frontend()->tpl->addValue('ductileEntriesList', self::ductileEntriesList(...));
-        App::frontend()->tpl->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
-        App::frontend()->tpl->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
-        App::frontend()->tpl->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
-        App::frontend()->tpl->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
+        App::frontend()->template()->addValue('ductileEntriesList', self::ductileEntriesList(...));
+        App::frontend()->template()->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
+        App::frontend()->template()->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
+        App::frontend()->template()->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
+        App::frontend()->template()->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
 
         return true;
     }
@@ -138,10 +138,10 @@ class Frontend extends Process
             $urls = '1';
         }
 
-        $short              = App::frontend()->tpl->getFilters($attr);
+        $short              = App::frontend()->template()->getFilters($attr);
         $cut                = $attr['cut_string'];
         $attr['cut_string'] = 0;
-        $full               = App::frontend()->tpl->getFilters($attr);
+        $full               = App::frontend()->template()->getFilters($attr);
         $attr['cut_string'] = $cut;
 
         return '<?php if (strlen(' . sprintf($full, 'App::frontend()->context()->posts->getContent(' . $urls . ')') . ') > ' .
@@ -178,7 +178,7 @@ class Frontend extends Process
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
             '?>' . "\n" .
-            App::frontend()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
+            App::frontend()->template()->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
                 '<?php ' . "\n" .
                 '       break;' . "\n";
         }

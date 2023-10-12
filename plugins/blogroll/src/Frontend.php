@@ -29,8 +29,8 @@ class Frontend extends Process
             return false;
         }
 
-        App::frontend()->tpl->addValue('Blogroll', FrontendTemplate::blogroll(...));
-        App::frontend()->tpl->addValue('BlogrollXbelLink', FrontendTemplate::blogrollXbelLink(...));
+        App::frontend()->template()->addValue('Blogroll', FrontendTemplate::blogroll(...));
+        App::frontend()->template()->addValue('BlogrollXbelLink', FrontendTemplate::blogrollXbelLink(...));
 
         App::behavior()->addBehaviors([
             'initWidgets'        => Widgets::initWidgets(...),

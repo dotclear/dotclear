@@ -4360,7 +4360,7 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
-            $if[] = $sign . "App::frontend()->tpl->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
+            $if[] = $sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
         }
 
         if (isset($attr['has_tag'])) {
@@ -4369,7 +4369,7 @@ class Tpl extends Template
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
-            $if[] = "App::frontend()->tpl->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
+            $if[] = "App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
         }
 
         if (isset($attr['blog_id'])) {

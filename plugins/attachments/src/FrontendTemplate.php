@@ -158,7 +158,7 @@ class FrontendTemplate
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->type') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->type') . '; ?>';
     }
 
     /**
@@ -174,7 +174,7 @@ class FrontendTemplate
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->media_type') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_type') . '; ?>';
     }
 
     /**
@@ -190,7 +190,7 @@ class FrontendTemplate
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->basename') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->basename') . '; ?>';
     }
 
     /**
@@ -207,7 +207,7 @@ class FrontendTemplate
      */
     public static function AttachmentSize(ArrayObject $attr): string
     {
-        $f = App::frontend()->tpl->getFilters($attr);
+        $f = App::frontend()->template()->getFilters($attr);
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
@@ -228,7 +228,7 @@ class FrontendTemplate
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$attach_f->media_title') . '; ?>';
+        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_title') . '; ?>';
     }
 
     /**
@@ -251,7 +251,7 @@ class FrontendTemplate
         '    if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
         '        $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '    }' . "\n" .
-        '    echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        '    echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$url') . ';' . "\n" .
         '}' . "\n" .
         '?>';
     }
@@ -275,7 +275,7 @@ class FrontendTemplate
         'if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
         '    $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '}' . "\n" .
-        'echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        'echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
     }
 
@@ -298,7 +298,7 @@ class FrontendTemplate
         'if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
         '    $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '}' . "\n" .
-        'echo ' . sprintf(App::frontend()->tpl->getFilters($attr), '$url') . ';' . "\n" .
+        'echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$url') . ';' . "\n" .
         '?>';
     }
 
@@ -321,7 +321,7 @@ class FrontendTemplate
      */
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {
-        return App::frontend()->tpl->displayCounter(
+        return App::frontend()->template()->displayCounter(
             'App::frontend()->context()->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',

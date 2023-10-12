@@ -141,7 +141,7 @@ class Url extends UrlHandler implements UrlInterface
             App::frontend()->context()->nb_entry_first_page = App::frontend()->context()->nb_entry_per_page;
         }
 
-        $tpl_file = App::frontend()->tpl->getFilePath($tpl_name);
+        $tpl_file = App::frontend()->template()->getFilePath($tpl_name);
 
         if (!$tpl_file) {
             throw new Exception('Unable to find template ');
@@ -192,7 +192,7 @@ class Url extends UrlHandler implements UrlInterface
          * @var        ArrayObject<string, mixed>
          */
         $result = new ArrayObject([
-            'content'      => App::frontend()->tpl->getData(App::frontend()->context()->current_tpl),
+            'content'      => App::frontend()->template()->getData(App::frontend()->context()->current_tpl),
             'content_type' => App::frontend()->context()->content_type,
             'tpl'          => App::frontend()->context()->current_tpl,
             'blogupddt'    => App::blog()->upddt(),
@@ -280,7 +280,7 @@ class Url extends UrlHandler implements UrlInterface
         App::frontend()->context()->current_tpl  = '404.html';
         App::frontend()->context()->content_type = 'text/html';
 
-        echo App::frontend()->tpl->getData(App::frontend()->context()->current_tpl);
+        echo App::frontend()->template()->getData(App::frontend()->context()->current_tpl);
 
         # --BEHAVIOR-- publicAfterDocument --
         App::behavior()->callBehavior('publicAfterDocumentV2');
@@ -717,21 +717,21 @@ class Url extends UrlHandler implements UrlInterface
                 $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
                 $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', Utility::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
-                    App::frontend()->tpl->setPath(
+                    App::frontend()->template()->setPath(
                         $tpl_path,
                         $dir,
-                        App::frontend()->tpl->getPath()
+                        App::frontend()->template()->getPath()
                     );
                 } else {
-                    App::frontend()->tpl->setPath(
+                    App::frontend()->template()->setPath(
                         $tpl_path,
-                        App::frontend()->tpl->getPath()
+                        App::frontend()->template()->getPath()
                     );
                 }
                 // ------------------------------------------------------
 
                 // Don't use template cache
-                App::frontend()->tpl->use_cache = false;
+                App::frontend()->template()->use_cache = false;
                 // Reset HTTP cache
                 App::frontend()->cache()->resetTimes();
                 if (App::config()->adminUrl() != '') {
