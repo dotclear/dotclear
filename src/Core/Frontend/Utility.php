@@ -315,8 +315,8 @@ class Utility extends Process
 
             # --BEHAVIOR-- publicAfterDocument --
             App::behavior()->callBehavior('publicAfterDocumentV2');
-        } catch (Throwable) {
-            throw new TemplateException(__('Something went wrong while loading template file for your blog.'));
+        } catch (Throwable $e) {
+            throw new TemplateException(__('Something went wrong while loading template file for your blog.'), TemplateException::code(), $e);
         }
 
         // Do not try to execute a process added to the URL.
