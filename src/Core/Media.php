@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use dcCore;
 use SimpleXMLElement;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
@@ -238,6 +239,9 @@ class Media extends Manager implements MediaInterface
             $this->thumb_sizes[$code][3] = $this->thumb_sizes[$code][2];
             $this->thumb_sizes[$code][2] = __($this->thumb_sizes[$code][2]);
         }
+
+        // deprecated since 2.28, use App::media() instead
+        dcCore::app()->media = $this;
     }
 
     public function openMediaCursor(): Cursor

@@ -190,8 +190,8 @@ class Utility extends Process
             App::url()->registerDefault(Url::static_home(...));
         }
 
-        // deprecated since 2.28, use App::media() instead
-        dcCore::app()->media = App::media();
+        // deprecated since 2.28, need to load dcCore::app()->media
+        App::media();
 
         // deprecated since 2.28, need to load dcCore::app()->ctx
         App::frontend()->context();
@@ -201,9 +201,6 @@ class Utility extends Process
 
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
-
-        // deprecated since 2.23, use App::lang()->getLang() instead
-        $GLOBALS['_lang'] = App::lang()->getLang();
 
         if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');

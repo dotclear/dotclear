@@ -50,5 +50,8 @@ class Lang implements LangInterface
 
         // deprecated since 2.28, use App::lang()->setLang() instead
         dcCore::app()->lang = $this->lang;
+
+        // deprecated since 2.23, use App::lang()->getLang() instead
+        $GLOBALS['_lang'] = $this->lang;
     }
 }
