@@ -315,7 +315,7 @@ final class dcCore
     /**
      * context instance
      *
-     * @deprecated since 2.28, use App::frontend()->ctx instead
+     * @deprecated since 2.28, use App::frontend()->context() instead
      *
      * @var Ctx
      */

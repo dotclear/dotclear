@@ -32,16 +32,16 @@ class FrontendTemplate
     {
         return
             '<?php' . "\n" .
-            'if (App::frontend()->ctx->posts !== null) {' . "\n" .
-            '    App::frontend()->ctx->attachments = new ArrayObject(App::media()->getPostMedia(App::frontend()->ctx->posts->post_id,null,"attachment"));' . "\n" .
-            '    foreach (App::frontend()->ctx->attachments as $attach_i => $attach_f) : ' .
-            '        App::frontend()->ctx->file_url = $attach_f->file_url;' . "\n" .
+            'if (App::frontend()->context()->posts !== null) {' . "\n" .
+            '    App::frontend()->context()->attachments = new ArrayObject(App::media()->getPostMedia(App::frontend()->context()->posts->post_id,null,"attachment"));' . "\n" .
+            '    foreach (App::frontend()->context()->attachments as $attach_i => $attach_f) : ' .
+            '        App::frontend()->context()->file_url = $attach_f->file_url;' . "\n" .
             '?>' . "\n" .
             $content .
             '<?php' . "\n" .
             '    endforeach;' . "\n" .
-            '    App::frontend()->ctx->attachments = null;' . "\n" .
-            '    unset($attach_i,$attach_f,App::frontend()->ctx->file_url);' . "\n" .
+            '    App::frontend()->context()->attachments = null;' . "\n" .
+            '    unset($attach_i,$attach_f,App::frontend()->context()->file_url);' . "\n" .
             '}' . "\n" .
             '?>' . "\n";
     }
@@ -73,7 +73,7 @@ class FrontendTemplate
     public static function AttachmentsFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if ($attach_i+1 == count(App::frontend()->ctx->attachments)) : ?>' .
+            '<?php if ($attach_i+1 == count(App::frontend()->context()->attachments)) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -294,7 +294,7 @@ class FrontendTemplate
     {
         return
         '<?php ' . "\n" .
-        '$url = App::frontend()->ctx->file_url;' . "\n" .
+        '$url = App::frontend()->context()->file_url;' . "\n" .
         'if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
         '    $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '}' . "\n" .
@@ -322,7 +322,7 @@ class FrontendTemplate
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {
         return App::frontend()->tpl->displayCounter(
-            'App::frontend()->ctx->posts->countMedia(\'attachment\')',
+            'App::frontend()->context()->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',
                 'one'  => 'one attachment',

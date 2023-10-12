@@ -52,7 +52,7 @@ class Utility extends Process
      *
      * @var Ctx
      */
-    public Ctx $ctx;
+    private Ctx $ctx;
 
     /**
      * Tpl instance
@@ -193,14 +193,8 @@ class Utility extends Process
         // deprecated since 2.28, use App::media() instead
         dcCore::app()->media = App::media();
 
-        # Creating template context
-        App::frontend()->ctx = new Ctx();
-
-        // deprecated since 2.28, use App::frontend()->ctx instead
-        dcCore::app()->ctx = App::frontend()->ctx;
-
-        // deprecated since 2.23, use App::frontend()->ctx instead
-        $GLOBALS['_ctx'] = App::frontend()->ctx;
+        // deprecated since 2.28, need to load dcCore::app()->ctx
+        App::frontend()->context();
 
         try {
             App::frontend()->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->tpl');
@@ -321,6 +315,27 @@ class Utility extends Process
 
         // Do not try to execute a process added to the URL.
         return false;
+    }
+
+    /**
+     * Context
+     *
+     * @return  Ctx     The context
+     */
+    public function context(): Ctx
+    {
+        if (!isset($this->ctx)) {
+            # Creating template context
+            $this->ctx = new Ctx();
+
+            // deprecated since 2.28, use App::frontend()->context() instead
+            dcCore::app()->ctx = $this->ctx;
+
+            // deprecated since 2.23, use App::frontend()->context() instead
+            $GLOBALS['_ctx'] = $this->ctx;
+        }
+
+        return $this->ctx;
     }
 
     /**

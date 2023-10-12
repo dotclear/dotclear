@@ -33,13 +33,13 @@ class FrontendUrl extends Url
             $type = $m[2] == 'atom' ? 'atom' : 'rss2';
             $mime = 'application/xml';
 
-            App::frontend()->ctx->meta = App::meta()->computeMetaStats(
+            App::frontend()->context()->meta = App::meta()->computeMetaStats(
                 App::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $m[1], ])
             );
 
-            if (App::frontend()->ctx->meta->isEmpty()) {
+            if (App::frontend()->context()->meta->isEmpty()) {
                 self::p404();
             } else {
                 $tpl = $type;
@@ -55,13 +55,13 @@ class FrontendUrl extends Url
                 App::frontend()->setPageNumber($n);
             }
 
-            App::frontend()->ctx->meta = App::meta()->computeMetaStats(
+            App::frontend()->context()->meta = App::meta()->computeMetaStats(
                 App::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $args, ])
             );
 
-            if (App::frontend()->ctx->meta->isEmpty()) {
+            if (App::frontend()->context()->meta->isEmpty()) {
                 self::p404();
             } else {
                 self::serveDocument('tag.html');
@@ -91,17 +91,17 @@ class FrontendUrl extends Url
             $type     = (string) $m[2];
             $comments = !empty($m[3]);
 
-            App::frontend()->ctx->meta = App::meta()->computeMetaStats(
+            App::frontend()->context()->meta = App::meta()->computeMetaStats(
                 App::meta()->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $tag, ])
             );
 
-            if (App::frontend()->ctx->meta->isEmpty()) {
+            if (App::frontend()->context()->meta->isEmpty()) {
                 # The specified tag does not exist.
                 self::p404();
             } else {
-                App::frontend()->ctx->feed_subtitle = ' - ' . __('Tag') . ' - ' . App::frontend()->ctx->meta->meta_id;
+                App::frontend()->context()->feed_subtitle = ' - ' . __('Tag') . ' - ' . App::frontend()->context()->meta->meta_id;
 
                 if ($type === 'atom') {
                     $mime = 'application/atom+xml';
@@ -112,10 +112,10 @@ class FrontendUrl extends Url
                 $tpl = $type;
                 if ($comments) {
                     $tpl .= '-comments';
-                    App::frontend()->ctx->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
+                    App::frontend()->context()->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
                 } else {
-                    App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
-                    App::frontend()->ctx->short_feed_items  = App::blog()->settings()->system->short_feed_items;
+                    App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
+                    App::frontend()->context()->short_feed_items  = App::blog()->settings()->system->short_feed_items;
                 }
                 $tpl .= '.xml';
 

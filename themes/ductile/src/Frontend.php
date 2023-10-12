@@ -112,10 +112,10 @@ class Frontend extends Process
         }
 
         if ($nb_other > 0) {
-            App::frontend()->ctx->nb_entry_per_page = $nb_other;
+            App::frontend()->context()->nb_entry_per_page = $nb_other;
         }
         if ($nb_first > 0) {
-            App::frontend()->ctx->nb_entry_first_page = $nb_first;
+            App::frontend()->context()->nb_entry_first_page = $nb_first;
         }
     }
 
@@ -144,8 +144,8 @@ class Frontend extends Process
         $full               = App::frontend()->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
-        return '<?php if (strlen(' . sprintf($full, 'App::frontend()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
-        'strlen(' . sprintf($short, 'App::frontend()->ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+        return '<?php if (strlen(' . sprintf($full, 'App::frontend()->context()->posts->getContent(' . $urls . ')') . ') > ' .
+        'strlen(' . sprintf($short, 'App::frontend()->context()->posts->getContent(' . $urls . ')') . ')) : ?>' .
             $content .
             '<?php endif; ?>';
     }

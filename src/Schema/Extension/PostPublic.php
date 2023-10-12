@@ -41,7 +41,7 @@ class PostPublic extends Post
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
         // Not very nice hack but it does the job :)
-        if (isset(App::frontend()->ctx) && App::frontend()->ctx->short_feed_items === true) {
+        if (App::task()->checkContext('FRONTEND') && App::frontend()->context()->short_feed_items === true) {
             $content = parent::getContent($rs, $absolute_urls);
             $content = Ctx::remove_html($content);
             $content = Ctx::cut_string($content, 350);

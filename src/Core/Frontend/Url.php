@@ -134,11 +134,11 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
-        if (App::frontend()->ctx->nb_entry_per_page === null) {
-            App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_page;
+        if (App::frontend()->context()->nb_entry_per_page === null) {
+            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_page;
         }
-        if (App::frontend()->ctx->nb_entry_first_page === null) {
-            App::frontend()->ctx->nb_entry_first_page = App::frontend()->ctx->nb_entry_per_page;
+        if (App::frontend()->context()->nb_entry_first_page === null) {
+            App::frontend()->context()->nb_entry_first_page = App::frontend()->context()->nb_entry_per_page;
         }
 
         $tpl_file = App::frontend()->tpl->getFilePath($tpl_name);
@@ -147,28 +147,28 @@ class Url extends UrlHandler implements UrlInterface
             throw new Exception('Unable to find template ');
         }
 
-        App::frontend()->ctx->current_tpl  = $tpl_name;
-        App::frontend()->ctx->content_type = $content_type;
-        App::frontend()->ctx->http_cache   = $http_cache;
-        App::frontend()->ctx->http_etag    = $http_etag;
+        App::frontend()->context()->current_tpl  = $tpl_name;
+        App::frontend()->context()->content_type = $content_type;
+        App::frontend()->context()->http_cache   = $http_cache;
+        App::frontend()->context()->http_etag    = $http_etag;
 
         # --BEHAVIOR-- urlHandlerBeforeGetData -- context
-        App::behavior()->callBehavior('urlHandlerBeforeGetData', App::frontend()->ctx);
+        App::behavior()->callBehavior('urlHandlerBeforeGetData', App::frontend()->context());
 
-        if (App::frontend()->ctx->http_cache) {
+        if (App::frontend()->context()->http_cache) {
             App::frontend()->cache()->addFile($tpl_file);
             Http::cache(App::frontend()->cache()->getFiles(), App::frontend()->cache()->getTimes());
         }
 
-        header('Content-Type: ' . App::frontend()->ctx->content_type . '; charset=UTF-8');
+        header('Content-Type: ' . App::frontend()->context()->content_type . '; charset=UTF-8');
 
         // Additional headers
         $headers = new ArrayObject();
         if (App::blog()->settings()->system->prevents_clickjacking) {
             // Prevents Clickjacking as far as possible
             $header = 'X-Frame-Options: SAMEORIGIN';
-            if (App::frontend()->ctx->exists('xframeoption')) {
-                $url = parse_url(App::frontend()->ctx->xframeoption);
+            if (App::frontend()->context()->exists('xframeoption')) {
+                $url = parse_url(App::frontend()->context()->xframeoption);
                 if (is_array($url)) {
                     $header = sprintf(
                         'Content-Security-Policy: frame-ancestors \'self\' %s',
@@ -192,9 +192,9 @@ class Url extends UrlHandler implements UrlInterface
          * @var        ArrayObject<string, mixed>
          */
         $result = new ArrayObject([
-            'content'      => App::frontend()->tpl->getData(App::frontend()->ctx->current_tpl),
-            'content_type' => App::frontend()->ctx->content_type,
-            'tpl'          => App::frontend()->ctx->current_tpl,
+            'content'      => App::frontend()->tpl->getData(App::frontend()->context()->current_tpl),
+            'content_type' => App::frontend()->context()->content_type,
+            'tpl'          => App::frontend()->context()->current_tpl,
             'blogupddt'    => App::blog()->upddt(),
             'headers'      => headers_list(),
         ]);
@@ -202,7 +202,7 @@ class Url extends UrlHandler implements UrlInterface
         # --BEHAVIOR-- urlHandlerServeDocument -- ArrayObject
         App::behavior()->callBehavior('urlHandlerServeDocument', $result);
 
-        if (App::frontend()->ctx->http_cache && App::frontend()->ctx->http_etag) {
+        if (App::frontend()->context()->http_cache && App::frontend()->context()->http_etag) {
             Http::etag($result['content'], Http::getSelfURI());
         }
         echo $result['content'];
@@ -277,10 +277,10 @@ class Url extends UrlHandler implements UrlInterface
         Http::head(404, 'Not Found');
 
         App::url()->type                   = '404';
-        App::frontend()->ctx->current_tpl  = '404.html';
-        App::frontend()->ctx->content_type = 'text/html';
+        App::frontend()->context()->current_tpl  = '404.html';
+        App::frontend()->context()->content_type = 'text/html';
 
-        echo App::frontend()->tpl->getData(App::frontend()->ctx->current_tpl);
+        echo App::frontend()->tpl->getData(App::frontend()->context()->current_tpl);
 
         # --BEHAVIOR-- publicAfterDocument --
         App::behavior()->callBehavior('publicAfterDocumentV2');
@@ -312,7 +312,7 @@ class Url extends UrlHandler implements UrlInterface
 
             if (empty($_GET['q'])) {
                 if (App::blog()->settings()->system->nb_post_for_home !== null) {
-                    App::frontend()->ctx->nb_entry_first_page = App::blog()->settings()->system->nb_post_for_home;
+                    App::frontend()->context()->nb_entry_first_page = App::blog()->settings()->system->nb_post_for_home;
                 }
                 self::serveDocument('home.html');
                 App::blog()->publishScheduledEntries();
@@ -380,16 +380,16 @@ class Url extends UrlHandler implements UrlInterface
         );
         # --BEHAVIOR-- publicLangBeforeGetLangs -- ArrayObject, string|null
         App::behavior()->callBehavior('publicLangBeforeGetLangs', $params, $args);
-        App::frontend()->ctx->langs = App::blog()->getLangs($params);
+        App::frontend()->context()->langs = App::blog()->getLangs($params);
 
-        if (App::frontend()->ctx->langs->isEmpty()) {
+        if (App::frontend()->context()->langs->isEmpty()) {
             # The specified language does not exist.
             self::p404();
         } else {
             if ($page_number) {
                 App::frontend()->setPageNumber($page_number);
             }
-            App::frontend()->ctx->cur_lang = $args;
+            App::frontend()->context()->cur_lang = $args;
             self::home(null);
         }
     }
@@ -416,9 +416,9 @@ class Url extends UrlHandler implements UrlInterface
             );
             # --BEHAVIOR-- publicCategoryBeforeGetCategories -- ArrayObject, string|null
             App::behavior()->callBehavior('publicCategoryBeforeGetCategories', $params, $args);
-            App::frontend()->ctx->categories = App::blog()->getCategories($params);
+            App::frontend()->context()->categories = App::blog()->getCategories($params);
 
-            if (App::frontend()->ctx->categories->isEmpty()) {
+            if (App::frontend()->context()->categories->isEmpty()) {
                 // The specified category does no exist.
                 self::p404();
             } else {
@@ -450,9 +450,9 @@ class Url extends UrlHandler implements UrlInterface
             );
             # --BEHAVIOR-- publicArchiveBeforeGetDates -- ArrayObject, string|null
             App::behavior()->callBehavior('publicArchiveBeforeGetDates', $params, $args);
-            App::frontend()->ctx->archives = App::blog()->getDates($params);
+            App::frontend()->context()->archives = App::blog()->getDates($params);
 
-            if (App::frontend()->ctx->archives->isEmpty()) {
+            if (App::frontend()->context()->archives->isEmpty()) {
                 // There is no entries for the specified month.
                 self::p404();
             } else {
@@ -484,7 +484,7 @@ class Url extends UrlHandler implements UrlInterface
             );
             # --BEHAVIOR-- publicPostBeforeGetPosts -- ArrayObject, string|null
             App::behavior()->callBehavior('publicPostBeforeGetPosts', $params, $args);
-            App::frontend()->ctx->posts = App::blog()->getPosts($params);
+            App::frontend()->context()->posts = App::blog()->getPosts($params);
 
             $init_preview = [
                 'content'    => '',
@@ -495,19 +495,19 @@ class Url extends UrlHandler implements UrlInterface
                 'preview'    => false,
                 'remember'   => false,
             ];
-            App::frontend()->ctx->comment_preview = new ArrayObject($init_preview);
+            App::frontend()->context()->comment_preview = new ArrayObject($init_preview);
 
             App::blog()->withoutPassword(true);
 
-            if (App::frontend()->ctx->posts->isEmpty()) {
+            if (App::frontend()->context()->posts->isEmpty()) {
                 // The specified entry does not exist.
                 self::p404();
             } else {
-                $post_id       = App::frontend()->ctx->posts->post_id;
-                $post_password = App::frontend()->ctx->posts->post_password;
+                $post_id       = App::frontend()->context()->posts->post_id;
+                $post_password = App::frontend()->context()->posts->post_password;
 
                 // Password protected entry
-                if ($post_password != '' && !App::frontend()->ctx->preview) {
+                if ($post_password != '' && !App::frontend()->context()->preview) {
                     // Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
@@ -535,7 +535,7 @@ class Url extends UrlHandler implements UrlInterface
                     }
                 }
 
-                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && App::frontend()->ctx->posts->commentsActive();
+                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && App::frontend()->context()->posts->commentsActive();
 
                 // Posting a comment
                 if ($post_comment) {
@@ -570,17 +570,17 @@ class Url extends UrlHandler implements UrlInterface
                         $content = App::filter()->HTMLfilter($content);
                     }
 
-                    App::frontend()->ctx->comment_preview['content']    = $content;
-                    App::frontend()->ctx->comment_preview['rawcontent'] = $_POST['c_content'];
-                    App::frontend()->ctx->comment_preview['name']       = $name;
-                    App::frontend()->ctx->comment_preview['mail']       = $mail;
-                    App::frontend()->ctx->comment_preview['site']       = $site;
+                    App::frontend()->context()->comment_preview['content']    = $content;
+                    App::frontend()->context()->comment_preview['rawcontent'] = $_POST['c_content'];
+                    App::frontend()->context()->comment_preview['name']       = $name;
+                    App::frontend()->context()->comment_preview['mail']       = $mail;
+                    App::frontend()->context()->comment_preview['site']       = $site;
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
-                        App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->ctx->comment_preview);
+                        App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
-                        App::frontend()->ctx->comment_preview['preview'] = true;
+                        App::frontend()->context()->comment_preview['preview'] = true;
                     } else {
                         // Post the comment
                         $cur = App::blog()->openCommentCursor();
@@ -589,11 +589,11 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
-                        $cur->post_id         = App::frontend()->ctx->posts->post_id;
+                        $cur->post_id         = App::frontend()->context()->posts->post_id;
                         $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
-                        $redir = App::frontend()->ctx->posts->getURL();
+                        $redir = App::frontend()->context()->posts->getURL();
                         $redir .= App::blog()->settings()->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
@@ -621,13 +621,13 @@ class Url extends UrlHandler implements UrlInterface
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
-                            App::frontend()->ctx->form_error = $e->getMessage();
+                            App::frontend()->context()->form_error = $e->getMessage();
                         }
                     }
                 }
 
                 // The entry
-                if (App::frontend()->ctx->posts->trackbacksActive()) {
+                if (App::frontend()->context()->posts->trackbacksActive()) {
                     // Send additional headers if pingbacks/webmentions are allowed
                     header('X-Pingback: ' . App::blog()->url() . App::url()->getURLFor('xmlrpc', App::blog()->id()));
                     header('Link: <' . App::blog()->url() . App::url()->getURLFor('webmention') . '>; rel="webmention"');
@@ -655,9 +655,9 @@ class Url extends UrlHandler implements UrlInterface
                 // The user has no access to the entry.
                 self::p404();
             } else {
-                App::frontend()->ctx->preview = true;
+                App::frontend()->context()->preview = true;
                 if (App::config()->adminUrl() != '') {
-                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
+                    App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
                 self::post($post_url);
             }
@@ -735,7 +735,7 @@ class Url extends UrlHandler implements UrlInterface
                 // Reset HTTP cache
                 App::frontend()->cache()->resetTimes();
                 if (App::config()->adminUrl() != '') {
-                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
+                    App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
 
                 // Then go to blog home page
@@ -772,13 +772,13 @@ class Url extends UrlHandler implements UrlInterface
             $args = $matches[3];
             # --BEHAVIOR-- publicFeedBeforeGetLangs -- ArrayObject, string|null
             App::behavior()->callBehavior('publicFeedBeforeGetLangs', $params, $args);
-            App::frontend()->ctx->langs = App::blog()->getLangs($params);
+            App::frontend()->context()->langs = App::blog()->getLangs($params);
 
-            if (App::frontend()->ctx->langs->isEmpty()) {
+            if (App::frontend()->context()->langs->isEmpty()) {
                 // The specified language does not exist.
                 self::p404();
             }
-            App::frontend()->ctx->cur_lang = $matches[1];
+            App::frontend()->context()->cur_lang = $matches[1];
         }
 
         if (preg_match('#^rss2/xslt$#', (string) $args, $matches)) {
@@ -814,14 +814,14 @@ class Url extends UrlHandler implements UrlInterface
             );
             # --BEHAVIOR-- publicFeedBeforeGetCategories -- ArrayObject, string|null
             App::behavior()->callBehavior('publicFeedBeforeGetCategories', $params, $args);
-            App::frontend()->ctx->categories = App::blog()->getCategories($params);
+            App::frontend()->context()->categories = App::blog()->getCategories($params);
 
-            if (App::frontend()->ctx->categories->isEmpty()) {
+            if (App::frontend()->context()->categories->isEmpty()) {
                 // The specified category does no exist.
                 self::p404();
             }
 
-            $subtitle = ' - ' . App::frontend()->ctx->categories->cat_title;
+            $subtitle = ' - ' . App::frontend()->context()->categories->cat_title;
         } elseif ($post_id) {
             // Specific post
             $params = new ArrayObject(
@@ -832,25 +832,25 @@ class Url extends UrlHandler implements UrlInterface
             );
             # --BEHAVIOR-- publicFeedBeforeGetPosts -- ArrayObject, string|null
             App::behavior()->callBehavior('publicFeedBeforeGetPosts', $params, $args);
-            App::frontend()->ctx->posts = App::blog()->getPosts($params);
+            App::frontend()->context()->posts = App::blog()->getPosts($params);
 
-            if (App::frontend()->ctx->posts->isEmpty()) {
+            if (App::frontend()->context()->posts->isEmpty()) {
                 # The specified post does not exist.
                 self::p404();
             }
 
-            $subtitle = ' - ' . App::frontend()->ctx->posts->post_title;
+            $subtitle = ' - ' . App::frontend()->context()->posts->post_title;
         }
 
         $tpl = $type;
         if ($comments) {
             // Comments feed
             $tpl .= '-comments';
-            App::frontend()->ctx->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
+            App::frontend()->context()->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
         } else {
             // Posts feed
-            App::frontend()->ctx->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
-            App::frontend()->ctx->short_feed_items  = App::blog()->settings()->system->short_feed_items;
+            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
+            App::frontend()->context()->short_feed_items  = App::blog()->settings()->system->short_feed_items;
         }
         $tpl .= '.xml';
 
@@ -858,7 +858,7 @@ class Url extends UrlHandler implements UrlInterface
             $mime = 'application/atom+xml';
         }
 
-        App::frontend()->ctx->feed_subtitle = $subtitle;
+        App::frontend()->context()->feed_subtitle = $subtitle;
 
         header('X-Robots-Tag: ' . Ctx::robotsPolicy(App::blog()->settings()->system->robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed

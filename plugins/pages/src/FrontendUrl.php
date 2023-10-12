@@ -45,28 +45,28 @@ class FrontendUrl extends Url
             # --BEHAVIOR-- publicPagesBeforeGetPosts -- ArrayObject, string
             App::behavior()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
-            App::frontend()->ctx->posts = App::blog()->getPosts($params);
+            App::frontend()->context()->posts = App::blog()->getPosts($params);
 
-            App::frontend()->ctx->comment_preview               = new ArrayObject();
-            App::frontend()->ctx->comment_preview['content']    = '';
-            App::frontend()->ctx->comment_preview['rawcontent'] = '';
-            App::frontend()->ctx->comment_preview['name']       = '';
-            App::frontend()->ctx->comment_preview['mail']       = '';
-            App::frontend()->ctx->comment_preview['site']       = '';
-            App::frontend()->ctx->comment_preview['preview']    = false;
-            App::frontend()->ctx->comment_preview['remember']   = false;
+            App::frontend()->context()->comment_preview               = new ArrayObject();
+            App::frontend()->context()->comment_preview['content']    = '';
+            App::frontend()->context()->comment_preview['rawcontent'] = '';
+            App::frontend()->context()->comment_preview['name']       = '';
+            App::frontend()->context()->comment_preview['mail']       = '';
+            App::frontend()->context()->comment_preview['site']       = '';
+            App::frontend()->context()->comment_preview['preview']    = false;
+            App::frontend()->context()->comment_preview['remember']   = false;
 
             App::blog()->withoutPassword(true);
 
-            if (App::frontend()->ctx->posts->isEmpty()) {
+            if (App::frontend()->context()->posts->isEmpty()) {
                 # The specified page does not exist.
                 self::p404();
             } else {
-                $post_id       = App::frontend()->ctx->posts->post_id;
-                $post_password = App::frontend()->ctx->posts->post_password;
+                $post_id       = App::frontend()->context()->posts->post_id;
+                $post_password = App::frontend()->context()->posts->post_password;
 
                 # Password protected entry
-                if ($post_password != '' && !App::frontend()->ctx->preview) {
+                if ($post_password != '' && !App::frontend()->context()->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
@@ -93,7 +93,7 @@ class FrontendUrl extends Url
                     }
                 }
 
-                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && App::frontend()->ctx->posts->commentsActive();
+                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && App::frontend()->context()->posts->commentsActive();
 
                 # Posting a comment
                 if ($post_comment) {
@@ -128,17 +128,17 @@ class FrontendUrl extends Url
                         $content = App::filter()->HTMLfilter($content);
                     }
 
-                    App::frontend()->ctx->comment_preview['content']    = $content;
-                    App::frontend()->ctx->comment_preview['rawcontent'] = $_POST['c_content'];
-                    App::frontend()->ctx->comment_preview['name']       = $name;
-                    App::frontend()->ctx->comment_preview['mail']       = $mail;
-                    App::frontend()->ctx->comment_preview['site']       = $site;
+                    App::frontend()->context()->comment_preview['content']    = $content;
+                    App::frontend()->context()->comment_preview['rawcontent'] = $_POST['c_content'];
+                    App::frontend()->context()->comment_preview['name']       = $name;
+                    App::frontend()->context()->comment_preview['mail']       = $mail;
+                    App::frontend()->context()->comment_preview['site']       = $site;
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
-                        App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->ctx->comment_preview);
+                        App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
-                        App::frontend()->ctx->comment_preview['preview'] = true;
+                        App::frontend()->context()->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
                         $cur = App::blog()->openCommentCursor();
@@ -147,11 +147,11 @@ class FrontendUrl extends Url
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
-                        $cur->post_id         = App::frontend()->ctx->posts->post_id;
+                        $cur->post_id         = App::frontend()->context()->posts->post_id;
                         $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
                         $cur->comment_ip      = Http::realIP();
 
-                        $redir = App::frontend()->ctx->posts->getURL();
+                        $redir = App::frontend()->context()->posts->getURL();
                         $redir .= App::blog()->settings()->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
@@ -176,13 +176,13 @@ class FrontendUrl extends Url
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
-                            App::frontend()->ctx->form_error = $e->getMessage();
+                            App::frontend()->context()->form_error = $e->getMessage();
                         }
                     }
                 }
 
                 # The entry
-                if (App::frontend()->ctx->posts->trackbacksActive()) {
+                if (App::frontend()->context()->posts->trackbacksActive()) {
                     header('X-Pingback: ' . App::blog()->url() . App::url()->getURLFor('xmlrpc', App::blog()->id()));
                 }
 
@@ -216,9 +216,9 @@ class FrontendUrl extends Url
                 # The user has no access to the entry.
                 self::p404();
             } else {
-                App::frontend()->ctx->preview = true;
+                App::frontend()->context()->preview = true;
                 if (App::config()->adminUrl() != '') {
-                    App::frontend()->ctx->xframeoption = App::config()->adminUrl();
+                    App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
 
                 self::pages($post_url);
