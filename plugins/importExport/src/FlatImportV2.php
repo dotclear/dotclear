@@ -51,6 +51,11 @@ class FlatImportV2 extends FlatBackup
     private Cursor $cur_spamrule;
 
     /**
+     * @var array<string, Cursor>
+     */
+    protected array $cur_extra;
+
+    /**
      * @var        array<string, mixed>
      */
     public $old_ids = [
@@ -135,6 +140,29 @@ class FlatImportV2 extends FlatBackup
 
         # --BEHAVIOR-- importInit -- FlatBackup
         App::behavior()->callBehavior('importInitV2', $this);
+    }
+
+    /**
+     * Sets the extra cursor.
+     *
+     * @param      string   $name   The name
+     * @param      Cursor   $cur    The cursor
+     */
+    public function setExtraCursor(string $name, Cursor $cur): void
+    {
+        $this->cur_extra[$name] = $cur;
+    }
+
+    /**
+     * Gets the extra cursor.
+     *
+     * @param      string       $name   The name
+     *
+     * @return     Cursor|null  The extra cursor.
+     */
+    public function getExtraCursor(string $name): ?Cursor
+    {
+        return $this->cur_extra[$name] ?? null;
     }
 
     public function getMode(): string

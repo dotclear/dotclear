@@ -268,7 +268,7 @@ class UserPreferences extends Process
 
                 $cur->user_options = new ArrayObject(App::backend()->user_options);
 
-                # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, string
+                # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, null|string
                 App::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, App::auth()->userID());
 
                 // Update user prefs
