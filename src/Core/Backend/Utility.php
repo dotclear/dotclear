@@ -52,9 +52,9 @@ class Utility extends Process
     /**
      * Backend (admin) Favorites handler instance.
      *
-     *  @var    Favorites   $favs
+     *  @var    Favorites   $favorites
      */
-    public Favorites $favs;
+    private Favorites $favorites;
 
     /**
      * Backend (admin) Menus handler instance.
@@ -242,11 +242,10 @@ class Utility extends Process
 
         $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
 
-        App::backend()->favs  = new Favorites();
-        App::backend()->menus = new Menus();
+        // deprecated since 2.28, need to load dcCore::app()->favs
+        App::backend()->favorites();
 
-        // deprecated since 2.27, use App::backend()->favs instead
-        dcCore::app()->favs = App::backend()->favs;
+        App::backend()->menus = new Menus();
 
         // deprecated since 2.27, use App::backend()->menus instead
         dcCore::app()->menu = App::backend()->menus;
@@ -258,7 +257,7 @@ class Utility extends Process
         App::backend()->menus->setDefaultItems();
 
         if (!$user_ui_nofavmenu) {
-            App::backend()->favs->appendMenuSection(App::backend()->menus);
+            App::backend()->favorites()->appendMenuSection(App::backend()->menus);
         }
 
         // deprecated since 2.28, need to load dcCore::app()->media
@@ -266,10 +265,10 @@ class Utility extends Process
 
         // Load plugins
         App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::lang()->getLang());
-        App::backend()->favs->setup();
+        App::backend()->favorites()->setup();
 
         if (!$user_ui_nofavmenu) {
-            App::backend()->favs->appendMenu(App::backend()->menus);
+            App::backend()->favorites()->appendMenu(App::backend()->menus);
         }
 
         if (empty(App::blog()->settings()->system->jquery_migrate_mute)) {
@@ -303,6 +302,18 @@ class Utility extends Process
         }
 
         return $this->url;
+    }
+
+    public function favorites(): Favorites
+    {
+        if (!isset($this->favorites)) {
+            $this->favorites  = new Favorites();
+
+            // deprecated since 2.27, use App::backend()->favorites() instead
+            dcCore::app()->favs = $this->favorites;
+        }
+
+        return $this->favorites;
     }
 
     /**

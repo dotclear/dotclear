@@ -386,13 +386,13 @@ class UserPreferences extends Process
                 if (empty($_POST['append'])) {
                     throw new Exception(__('No favorite selected'));
                 }
-                $user_favs = App::backend()->favs->getFavoriteIDs(false);
+                $user_favs = App::backend()->favorites()->getFavoriteIDs(false);
                 foreach ($_POST['append'] as $v) {
-                    if (App::backend()->favs->exists($v)) {
+                    if (App::backend()->favorites()->exists($v)) {
                         $user_favs[] = $v;
                     }
                 }
-                App::backend()->favs->setFavoriteIDs($user_favs, false);
+                App::backend()->favorites()->setFavoriteIDs($user_favs, false);
 
                 if (!App::error()->flag()) {
                     Notices::addSuccessNotice(__('Favorites have been successfully added.'));
@@ -411,7 +411,7 @@ class UserPreferences extends Process
                     throw new Exception(__('No favorite selected'));
                 }
                 $user_fav_ids = [];
-                foreach (App::backend()->favs->getFavoriteIDs(false) as $v) {
+                foreach (App::backend()->favorites()->getFavoriteIDs(false) as $v) {
                     $user_fav_ids[$v] = true;
                 }
                 foreach ($_POST['remove'] as $v) {
@@ -419,7 +419,7 @@ class UserPreferences extends Process
                         unset($user_fav_ids[$v]);
                     }
                 }
-                App::backend()->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
+                App::backend()->favorites()->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!App::error()->flag()) {
                     Notices::addSuccessNotice(__('Favorites have been successfully removed.'));
                     App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
@@ -445,11 +445,11 @@ class UserPreferences extends Process
             // Order favs
 
             foreach ($order as $k => $v) {
-                if (!App::backend()->favs->exists((string) $v)) {
+                if (!App::backend()->favorites()->exists((string) $v)) {
                     unset($order[$k]);
                 }
             }
-            App::backend()->favs->setFavoriteIDs($order, false);    // @phpstan-ignore-line : $order is array<string>
+            App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore-line : $order is array<string>
             if (!App::error()->flag()) {
                 Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
@@ -459,8 +459,8 @@ class UserPreferences extends Process
         if (!empty($_POST['replace']) && App::auth()->isSuperAdmin()) {
             // Replace default favorites by current set (super admin only)
 
-            $user_favs = App::backend()->favs->getFavoriteIDs(false);
-            App::backend()->favs->setFavoriteIDs($user_favs, true);
+            $user_favs = App::backend()->favorites()->getFavoriteIDs(false);
+            App::backend()->favorites()->setFavoriteIDs($user_favs, true);
 
             if (!App::error()->flag()) {
                 Notices::addSuccessNotice(__('Default favorites have been successfully updated.'));
@@ -810,9 +810,9 @@ class UserPreferences extends Process
         '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
 
         $count    = 0;
-        $user_fav = App::backend()->favs->getFavoriteIDs(false);
+        $user_fav = App::backend()->favorites()->getFavoriteIDs(false);
         foreach ($user_fav as $id) {
-            if ($fav = App::backend()->favs->getFavorite($id)) {
+            if ($fav = App::backend()->favorites()->getFavorite($id)) {
                 // User favorites only
                 if ($count == 0) {
                     echo
@@ -872,9 +872,9 @@ class UserPreferences extends Process
             '<p>' . __('Currently no personal favorites.') . '</p>';
         }
 
-        $avail_fav       = App::backend()->favs->getFavorites(App::backend()->favs->getAvailableFavoritesIDs());
+        $avail_fav       = App::backend()->favorites()->getFavorites(App::backend()->favorites()->getAvailableFavoritesIDs());
         $default_fav_ids = [];
-        foreach (App::backend()->favs->getFavoriteIDs(true) as $v) {
+        foreach (App::backend()->favorites()->getFavoriteIDs(true) as $v) {
             $default_fav_ids[$v] = true;
         }
         echo

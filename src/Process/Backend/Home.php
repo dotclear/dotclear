@@ -120,7 +120,7 @@ class Home extends Process
 
         // Dashboard icons
         $__dashboard_icons = new ArrayObject();
-        App::backend()->favs->appendDashboardIcons($__dashboard_icons);
+        App::backend()->favorites()->appendDashboardIcons($__dashboard_icons);
 
         // Dashboard items
         $__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);

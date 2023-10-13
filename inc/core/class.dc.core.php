@@ -268,7 +268,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.28, use App::backend()->favs instead
+     * @deprecated since 2.28, use App::backend()->favorites() instead
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
