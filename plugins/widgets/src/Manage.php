@@ -198,6 +198,7 @@ class Manage extends Process
                 App::error()->add($e->getMessage());
             }
         } elseif (!empty($_POST['wreset'])) {
+            # Reset widgets list
             try {
                 My::settings()->put('widgets_nav', '');
                 My::settings()->put('widgets_extra', '');
