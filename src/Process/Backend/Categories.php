@@ -45,7 +45,7 @@ class Categories extends Process
             $rs = App::blog()->getCategory((int) $cat_id);
             if ($rs->isEmpty()) {
                 Notices::addErrorNotice(__('This category does not exist.'));
-                App::backend()->url->redirect('admin.categories');
+                App::backend()->url()->redirect('admin.categories');
             } else {
                 $name = $rs->cat_title;
             }
@@ -57,7 +57,7 @@ class Categories extends Process
                     __('The category "%s" has been successfully deleted.'),
                     Html::escapeHTML($name)
                 ));
-                App::backend()->url->redirect('admin.categories');
+                App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -87,7 +87,7 @@ class Categories extends Process
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
                 ));
-                App::backend()->url->redirect('admin.categories');
+                App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -102,7 +102,7 @@ class Categories extends Process
                 }
             }
             Notices::addSuccessNotice(__('Categories have been successfully reordered.'));
-            App::backend()->url->redirect('admin.categories');
+            App::backend()->url()->redirect('admin.categories');
         }
 
         if (!empty($_POST['reset'])) {
@@ -110,7 +110,7 @@ class Categories extends Process
             try {
                 App::blog()->resetCategoriesOrder();
                 Notices::addSuccessNotice(__('Categories order has been successfully reset.'));
-                App::backend()->url->redirect('admin.categories');
+                App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -161,7 +161,7 @@ class Categories extends Process
         $categories_combo = Combos::getCategoriesCombo($rs);
 
         echo
-        '<p class="top-add"><a class="button add" href="' . App::backend()->url->get('admin.category') . '">' . __('New category') . '</a></p>';
+        '<p class="top-add"><a class="button add" href="' . App::backend()->url()->get('admin.category') . '">' . __('New category') . '</a></p>';
 
         echo
         '<div class="col">';
@@ -169,7 +169,7 @@ class Categories extends Process
             echo '<p>' . __('No category so far.') . '</p>';
         } else {
             echo
-            '<form action="' . App::backend()->url->get('admin.categories') . '" method="post" id="form-categories">' .
+            '<form action="' . App::backend()->url()->get('admin.categories') . '" method="post" id="form-categories">' .
             '<div id="categories">';
 
             $ref_level = $level = $rs->level - 1;
@@ -187,8 +187,8 @@ class Categories extends Process
                 }
 
                 echo
-                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . App::backend()->url->get('admin.category', ['id' => $rs->cat_id]) . '">' . Html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
-                '<p class="cat-nb-posts">(<a href="' . App::backend()->url->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' . sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' . ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
+                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . App::backend()->url()->get('admin.category', ['id' => $rs->cat_id]) . '">' . Html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
+                '<p class="cat-nb-posts">(<a href="' . App::backend()->url()->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' . sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' . ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
                 '<p class="cat-url">' . __('URL:') . ' <code>' . Html::escapeHTML($rs->cat_url) . '</code></p>';
 
                 echo

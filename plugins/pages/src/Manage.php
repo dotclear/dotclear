@@ -71,7 +71,7 @@ class Manage extends Process
         }
 
         // Actions combo box
-        App::backend()->pages_actions_page          = new BackendActions(App::backend()->url->get('admin.plugin'), ['p' => 'pages']);
+        App::backend()->pages_actions_page          = new BackendActions(App::backend()->url()->get('admin.plugin'), ['p' => 'pages']);
         App::backend()->pages_actions_page_rendered = null;
         if (App::backend()->pages_actions_page->process()) {
             App::backend()->pages_actions_page_rendered = true;
@@ -130,7 +130,7 @@ class Manage extends Process
             App::backend()->post_list->display(
                 App::backend()->page,
                 App::backend()->nb_per_page,
-                '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="form-entries">' .
+                '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="form-entries">' .
 
                 '%s' .
 

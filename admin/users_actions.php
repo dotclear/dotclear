@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated 	since 2.27, use name "admin.user.actions" on App::backend()->url methods instead
+ * @deprecated 	since 2.27, use name "admin.user.actions" on App::backend()->url() methods instead
  *
  * @todo 		Move UsersActions to backend Actions
  *

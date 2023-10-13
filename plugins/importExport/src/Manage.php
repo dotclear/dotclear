@@ -115,7 +115,7 @@ class Manage extends Process
             '<h3>' . __('Export') . '</h3>' .
             '<p class="info">' . sprintf(
                 __('Export functions are in the page %s.'),
-                '<a href="' . App::backend()->url->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' .
+                '<a href="' . App::backend()->url()->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' .
                 __('Maintenance') . '</a>'
             ) . '</p>';
         }

@@ -170,7 +170,7 @@ class User extends Process
                     }
 
                     Notices::addSuccessNotice(__('User has been successfully updated.'));
-                    App::backend()->url->redirect('admin.user', ['id' => $new_id]);
+                    App::backend()->url()->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
 
@@ -202,9 +202,9 @@ class User extends Process
                     Notices::addSuccessNotice(__('User has been successfully created.'));
                     Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     if (!empty($_POST['saveplus'])) {
-                        App::backend()->url->redirect('admin.user');
+                        App::backend()->url()->redirect('admin.user');
                     } else {
-                        App::backend()->url->redirect('admin.user', ['id' => $new_id]);
+                        App::backend()->url()->redirect('admin.user', ['id' => $new_id]);
                     }
                 }
             } catch (Exception $e) {
@@ -232,7 +232,7 @@ class User extends Process
             Page::breadcrumb(
                 [
                     __('System')               => '',
-                    __('Users')                => App::backend()->url->get('admin.users'),
+                    __('Users')                => App::backend()->url()->get('admin.users'),
                     App::backend()->page_title => '',
                 ]
             )
@@ -247,7 +247,7 @@ class User extends Process
         }
 
         echo
-        '<form action="' . App::backend()->url->get('admin.user') . '" method="post" id="user-form">' .
+        '<form action="' . App::backend()->url()->get('admin.user') . '" method="post" id="user-form">' .
         '<div class="two-cols">' .
 
         '<div class="col">' .
@@ -433,9 +433,9 @@ class User extends Process
 
             if (!App::backend()->user_super) {
                 echo
-                '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post">' .
+                '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">' .
                 '<p><input type="submit" value="' . __('Add new permissions') . '" />' .
-                form::hidden(['redir'], App::backend()->url->get('admin.user', ['id' => App::backend()->user_id])) .
+                form::hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id])) .
                 form::hidden(['action'], 'blogs') .
                 form::hidden(['users[]'], App::backend()->user_id) .
                 App::nonce()->getFormNonce() .
@@ -452,9 +452,9 @@ class User extends Process
                     foreach ($permissions as $k => $v) {
                         if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                             echo
-                            '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post" class="perm-block">' .
+                            '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post" class="perm-block">' .
                             '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                            App::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
+                            App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
                             Html::escapeHTML($v['name']) . '</a> (' . Html::escapeHTML($k) . ')</p>';   // @phpstan-ignore-line
 
                             echo
@@ -468,7 +468,7 @@ class User extends Process
                             echo
                             '</ul>' .
                             '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                            form::hidden(['redir'], App::backend()->url->get('admin.user', ['id' => App::backend()->user_id])) .
+                            form::hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id])) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], App::backend()->user_id) .
                             form::hidden(['blogs[]'], $k) .
@@ -489,14 +489,14 @@ class User extends Process
             echo
             '<div class="clear fieldset">' .
             '<h3>' . __('Direct links') . '</h3>' .
-            '<p><a href="' . App::backend()->url->get(
+            '<p><a href="' . App::backend()->url()->get(
                 'admin.posts',
                 ['user_id' => App::backend()->user_id]
             ) . '">' . __('List of posts') . '</a></p>';
 
             if (App::backend()->user_email || App::backend()->user_url) {
                 echo
-                '<p><a href="' . App::backend()->url->get(
+                '<p><a href="' . App::backend()->url()->get(
                     'admin.comments',
                     [
                         'email' => App::backend()->user_email,

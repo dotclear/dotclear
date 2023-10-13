@@ -97,7 +97,7 @@ class PostMedia extends Process
 
                 echo
                 (new Form())
-                ->action(App::backend()->url->get('admin.post.media'))
+                ->action(App::backend()->url()->get('admin.post.media'))
                 ->method('post')
                 ->fields([
                     (new Para())

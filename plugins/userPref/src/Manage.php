@@ -184,7 +184,7 @@ class Manage extends Process
                 $ws_combo[$ws] = $prefix_id . $ws;
             }
             echo
-            '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
             '<p class="anchor-nav">' .
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ws_combo, ['class' => 'navigation']) .
@@ -195,7 +195,7 @@ class Manage extends Process
         }
 
         echo
-        '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post">';
+        '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post">';
         foreach ($prefs as $ws => $s) {
             ksort($s);
             echo sprintf($table_header, $prefix . $ws, $ws);

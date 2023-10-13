@@ -26,6 +26,6 @@ class ExportFlatMaintenanceTask extends ModuleExportFlat
      */
     public function setURL(string $id): void
     {
-        $this->url = App::backend()->url->get('admin.plugin', ['p' => 'maintenance', 'task' => $id], '&');
+        $this->url = App::backend()->url()->get('admin.plugin', ['p' => 'maintenance', 'task' => $id], '&');
     }
 }

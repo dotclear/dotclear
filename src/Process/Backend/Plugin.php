@@ -49,7 +49,7 @@ class Plugin extends Process
         $res = '';
         if (!empty($plugin)) {
             try {
-                App::backend()->setPageURL(App::backend()->url->get('admin.plugin.' . $plugin));
+                App::backend()->setPageURL(App::backend()->url()->get('admin.plugin.' . $plugin));
             } catch (Exception $e) {
                 // Unknown URL handler for plugin, back to dashboard
                 Http::redirect(App::config()->adminUrl());

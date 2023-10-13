@@ -80,8 +80,8 @@ class Post extends Process
         ]), App::blog()->id());
         App::backend()->can_delete = false;
 
-        $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
-        App::backend()->post_link = '<a href="' . App::backend()->url->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
+        $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
+        App::backend()->post_link = '<a href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
 
         App::backend()->next_link     = null;
         App::backend()->prev_link     = null;
@@ -211,7 +211,7 @@ class Post extends Process
         }
 
         App::backend()->comments_actions_page = new ActionsComments(
-            App::backend()->url->get('admin.post'),
+            App::backend()->url()->get('admin.post'),
             [
                 'id'            => App::backend()->post_id,
                 'action_anchor' => $anchor,
@@ -264,7 +264,7 @@ class Post extends Process
 
                 if (!App::error()->flag()) {
                     Notices::addSuccessNotice(__('All pings sent.'));
-                    App::backend()->url->redirect(
+                    App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => App::backend()->post_id, 'tb' => '1']
                     );
@@ -349,7 +349,7 @@ class Post extends Process
                 # --BEHAVIOR-- adminBeforePostDelete -- string|int
                 App::behavior()->callBehavior('adminBeforePostDelete', App::backend()->post_id);
                 App::blog()->delPost(App::backend()->post_id);
-                App::backend()->url->redirect('admin.posts');
+                App::backend()->url()->redirect('admin.posts');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -418,7 +418,7 @@ class Post extends Process
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
                     App::behavior()->callBehavior('adminAfterPostUpdate', $cur, (int) App::backend()->post_id);
                     Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
-                    App::backend()->url->redirect(
+                    App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => App::backend()->post_id]
                     );
@@ -438,7 +438,7 @@ class Post extends Process
                     App::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
                     Notices::addSuccessNotice(__('Entry has been successfully created.'));
-                    App::backend()->url->redirect(
+                    App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => $return_id]
                     );
@@ -538,7 +538,7 @@ class Post extends Process
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
-                    __('Posts')                           => App::backend()->url->get('admin.posts'),
+                    __('Posts')                           => App::backend()->url()->get('admin.posts'),
                     (App::backend()->post_id ?
                         $page_title_edit :
                         App::backend()->page_title) => '',
@@ -637,7 +637,7 @@ class Post extends Process
                         '<p>' . form::combo('post_format', App::backend()->available_formats, App::backend()->post_format, 'maximal') . '</p>' .
                         '<p class="format_control control_no_xhtml">' .
                         '<a id="convert-xhtml" class="button' . (App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : '') . '" href="' .
-                        App::backend()->url->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']) .
+                        App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']) .
                         '">' .
                         __('Convert to HTML') . '</a></p></div>',
                     ],
@@ -761,7 +761,7 @@ class Post extends Process
             echo
             '<div class="multi-part" title="' . (App::backend()->post_id ? __('Edit post') : __('New post')) .
             sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::backend()->post_format)) . '" id="edit-entry">' .
-            '<form action="' . App::backend()->url->get('admin.post') . '" method="post" id="entry-form">' .
+            '<form action="' . App::backend()->url()->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
             '<h3 class="out-of-screen-if-js">' . __('Edit post') . '</h3>';
@@ -795,7 +795,7 @@ class Post extends Process
                 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
             } else {
                 echo
-                '<a id="post-cancel" href="' . App::backend()->url->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                '<a id="post-cancel" href="' . App::backend()->url()->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
             echo(App::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
@@ -849,7 +849,7 @@ class Post extends Process
 
             if ($has_action) {
                 echo
-                '<form action="' . App::backend()->url->get('admin.post') . '" id="form-comments" method="post">';
+                '<form action="' . App::backend()->url()->get('admin.post') . '" id="form-comments" method="post">';
             }
 
             echo
@@ -882,7 +882,7 @@ class Post extends Process
             '<div class="fieldset clear">' .
             '<h3>' . __('Add a comment') . '</h3>' .
 
-            '<form action="' . App::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . App::backend()->url()->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="constrained">' .
             '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
@@ -940,7 +940,7 @@ class Post extends Process
             if ($has_action) {
                 // tracbacks actions
                 echo
-                '<form action="' . App::backend()->url->get('admin.post') . '" id="form-trackbacks" method="post">';
+                '<form action="' . App::backend()->url()->get('admin.post') . '" id="form-trackbacks" method="post">';
             }
 
             echo
@@ -976,7 +976,7 @@ class Post extends Process
 
                 echo
                 '<h3>' . __('Ping blogs') . '</h3>' .
-                '<form action="' . App::backend()->url->get('admin.post', ['id' => App::backend()->post_id]) . '" id="trackback-form" method="post">' .
+                '<form action="' . App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id]) . '" id="trackback-form" method="post">' .
                 '<p><label for="tb_urls" class="area">' . __('URLs to ping:') . '</label>' .
                 form::textarea('tb_urls', 60, 5, App::backend()->tb_urls) .
                 '</p>' .
@@ -987,7 +987,7 @@ class Post extends Process
                 '<p>' .
                 App::nonce()->getFormNonce() .
                 '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
-                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . App::backend()->url->get('admin.post', ['id' => App::backend()->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
+                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
                     '') .
                 '</p>' .
                 '</form>';
@@ -1072,7 +1072,7 @@ class Post extends Process
         }
 
         while ($rs->fetch()) {
-            $comment_url = App::backend()->url->get('admin.comment', ['id' => $rs->comment_id]);
+            $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
             $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
             $img_status = '';
@@ -1127,7 +1127,7 @@ class Post extends Process
 
             if ($show_ip) {
                 echo
-                '<td class="nowrap"><a href="' . App::backend()->url->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
+                '<td class="nowrap"><a href="' . App::backend()->url()->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
             }
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .

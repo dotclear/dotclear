@@ -65,7 +65,7 @@ class ManagePosts extends Process
         }
 
         App::backend()->posts_actions_page = new BackendActions(
-            App::backend()->url->get('admin.plugin'),
+            App::backend()->url()->get('admin.plugin'),
             ['p' => My::id(), 'm' => 'tag_posts', 'tag' => App::backend()->tag]
         );
 
@@ -184,7 +184,7 @@ class ManagePosts extends Process
             App::backend()->post_list->display(
                 App::backend()->page,
                 App::backend()->nb_per_page,
-                '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" id="form-entries">' .
+                '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="form-entries">' .
                 '%s' .
                 '<div class="two-cols">' .
                 '<p class="col checkboxes-helpers"></p>' .

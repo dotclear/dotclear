@@ -99,7 +99,7 @@ class SpamFilter
         }
 
         if (App::task()->checkContext('BACKEND')) {
-            $this->gui_url = App::backend()->url->get('admin.plugin.antispam', ['f' => $this->id], '&');
+            $this->gui_url = App::backend()->url()->get('admin.plugin.antispam', ['f' => $this->id], '&');
         }
     }
 

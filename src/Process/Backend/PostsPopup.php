@@ -85,7 +85,7 @@ class PostsPopup extends Process
         '<h2 class="page-title">' . __('Add a link to an entry') . '</h2>';
 
         echo
-        '<form action="' . App::backend()->url->get('admin.posts.popup') . '" method="get">' .
+        '<form action="' . App::backend()->url()->get('admin.posts.popup') . '" method="get">' .
         '<p><label for="type" class="classic">' . __('Entry type:') . '</label> ' . form::combo('type', App::backend()->type_combo, App::backend()->type) . '' .
         '<noscript><div><input type="submit" value="' . __('Ok') . '" /></div></noscript>' .
         form::hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id)) .
@@ -95,7 +95,7 @@ class PostsPopup extends Process
         '</form>';
 
         echo
-        '<form action="' . App::backend()->url->get('admin.posts.popup') . '" method="get">' .
+        '<form action="' . App::backend()->url()->get('admin.posts.popup') . '" method="get">' .
         '<p><label for="q" class="classic">' . __('Search entry:') . '</label> ' . form::field('q', 30, 255, Html::escapeHTML(App::backend()->q)) .
         ' <input type="submit" value="' . __('Search') . '" />' .
         form::hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id)) .

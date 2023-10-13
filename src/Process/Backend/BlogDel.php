@@ -70,7 +70,7 @@ class BlogDel extends Process
                     App::blogs()->delBlog(App::backend()->blog_id);
                     Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(App::backend()->blog_name)));
 
-                    App::backend()->url->redirect('admin.blogs');
+                    App::backend()->url()->redirect('admin.blogs');
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -88,7 +88,7 @@ class BlogDel extends Process
             Page::breadcrumb(
                 [
                     __('System')        => '',
-                    __('Blogs')         => App::backend()->url->get('admin.blogs'),
+                    __('Blogs')         => App::backend()->url()->get('admin.blogs'),
                     __('Delete a blog') => '',
                 ]
             )
@@ -109,7 +109,7 @@ class BlogDel extends Process
             ])->render() .
             // Form
             (new Form('form-del'))
-            ->action(App::backend()->url->get('admin.blog.del'))
+            ->action(App::backend()->url()->get('admin.blog.del'))
             ->method('post')
             ->fields([
                 App::nonce()->formNonce(),

@@ -188,7 +188,7 @@ class ModulesList
         $this->modules = $modules;
         $this->store   = new Store($modules, $xml_url, $force);
 
-        $this->page_url = App::backend()->url->get('admin.plugins');
+        $this->page_url = App::backend()->url()->get('admin.plugins');
 
         $this->setPath($modules_root);
         $this->setIndex(__('other'));
@@ -1107,10 +1107,10 @@ class ModulesList
                 if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                     $params = ['module' => $id, 'conf' => '1'];
                     if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
-                        $params['redir'] = App::backend()->url->get('admin.plugin.' . $id);
+                        $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
                     }
                     $settings_urls[] = '<a class="module-config" href="' .
-                    App::backend()->url->get('admin.plugins', $params) .
+                    App::backend()->url()->get('admin.plugins', $params) .
                     '">' . __('Configure plugin') . '</a>';
                 }
             }
@@ -1122,7 +1122,7 @@ class ModulesList
                                 App::auth()::PERMISSION_ADMIN,
                             ]), App::blog()->id())) {
                                 $settings_urls[] = '<a class="module-config" href="' .
-                                App::backend()->url->get('admin.blog.pref') . $sv .
+                                App::backend()->url()->get('admin.blog.pref') . $sv .
                                 '">' . __('Plugin settings (in blog parameters)') . '</a>';
                             }
 
@@ -1133,7 +1133,7 @@ class ModulesList
                                 App::auth()::PERMISSION_CONTENT_ADMIN,
                             ]), App::blog()->id())) {
                                 $settings_urls[] = '<a class="module-config" href="' .
-                                App::backend()->url->get('admin.user.preferences') . $sv .
+                                App::backend()->url()->get('admin.user.preferences') . $sv .
                                 '">' . __('Plugin settings (in user preferences)') . '</a>';
                             }
 
@@ -1142,7 +1142,7 @@ class ModulesList
                             if ($self) {
                                 if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                                     $settings_urls[] = '<a class="module-config" href="' .
-                                    App::backend()->url->get('admin.plugin.' . $id) . $sv .
+                                    App::backend()->url()->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
                                 }
                                 // No need to use default index.php
@@ -1164,7 +1164,7 @@ class ModulesList
             if ($index && $self) {
                 if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
                     $settings_urls[] = '<a class="module-config" href="' .
-                    App::backend()->url->get('admin.plugin.' . $id) .
+                    App::backend()->url()->get('admin.plugin.' . $id) .
                     '">' . __('Plugin main page') . '</a>';
                 }
             }

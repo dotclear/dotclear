@@ -198,7 +198,7 @@ class Manage extends Process
                 $ns_combo[$ns] = $prefix_id . $ns;
             }
             echo
-            '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+            '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
             '<p class="anchor-nav">' .
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ns_combo, ['class' => 'navigation']) .
@@ -209,7 +209,7 @@ class Manage extends Process
         }
 
         echo
-        '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post">';
+        '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post">';
         foreach ($settings as $ns => $s) {
             ksort($s);
             echo sprintf($table_header, $prefix . $ns, $ns);

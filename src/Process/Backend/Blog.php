@@ -74,7 +74,7 @@ class Blog extends Process
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, BlogSettingsInterface
                 App::behavior()->callBehavior('adminAfterBlogCreate', $cur, App::backend()->blog_id, $blog_settings);
                 Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
-                App::backend()->url->redirect('admin.blog', ['id' => $cur->blog_id]);
+                App::backend()->url()->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -95,7 +95,7 @@ class Blog extends Process
                 Page::breadcrumb(
                     [
                         __('System')   => '',
-                        __('Blogs')    => App::backend()->url->get('admin.blogs'),
+                        __('Blogs')    => App::backend()->url()->get('admin.blogs'),
                         __('New blog') => '',
                     ]
                 )
@@ -104,7 +104,7 @@ class Blog extends Process
             echo
             // Form
             (new Form('blog-form'))
-                ->action(App::backend()->url->get('admin.blog'))
+                ->action(App::backend()->url()->get('admin.blog'))
                 ->method('post')
                 ->fields([
                     // Form Nonce

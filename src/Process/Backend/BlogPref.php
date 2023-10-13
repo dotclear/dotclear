@@ -57,8 +57,8 @@ class BlogPref extends Process
             $da->blog_settings = App::blog()->settings();
             $da->blog_url      = App::blog()->url();
 
-            $da->action = App::backend()->url->get('admin.blog.pref');
-            $da->redir  = App::backend()->url->get('admin.blog.pref');
+            $da->action = App::backend()->url()->get('admin.blog.pref');
+            $da->redir  = App::backend()->url()->get('admin.blog.pref');
         } else {
             Page::checkSuper();
 
@@ -89,8 +89,8 @@ class BlogPref extends Process
                 App::error()->add($e->getMessage());
             }
 
-            $da->action = App::backend()->url->get('admin.blog');
-            $da->redir  = App::backend()->url->get('admin.blog', ['id' => '%s'], '&', true);
+            $da->action = App::backend()->url()->get('admin.blog');
+            $da->redir  = App::backend()->url()->get('admin.blog', ['id' => '%s'], '&', true);
         }
 
         // Language codes
@@ -411,7 +411,7 @@ class BlogPref extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')                                                   => '',
-                    __('Blogs')                                                    => App::backend()->url->get('admin.blogs'),
+                    __('Blogs')                                                    => App::backend()->url()->get('admin.blogs'),
                     __('Blog settings') . ' : ' . Html::escapeHTML($da->blog_name) => '',
                 ]
             );
@@ -904,7 +904,7 @@ class BlogPref extends Process
 
             if (App::auth()->isSuperAdmin() && $da->blog_id != App::blog()->id()) {
                 echo
-                '<form action="' . App::backend()->url->get('admin.blog.del') . '" method="post">' .
+                '<form action="' . App::backend()->url()->get('admin.blog.del') . '" method="post">' .
                 '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
                 form::hidden(['blog_id'], $da->blog_id) .
                 App::nonce()->getFormNonce() . '</p>' .
@@ -933,7 +933,7 @@ class BlogPref extends Process
                 echo '<p>' . __('No users') . '</p>';
             } else {
                 if (App::auth()->isSuperAdmin()) {
-                    $user_url_p = '<a href="' . App::backend()->url->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
+                    $user_url_p = '<a href="' . App::backend()->url()->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
                 } else {
                     $user_url_p = '%1$s';
                 }
@@ -1007,9 +1007,9 @@ class BlogPref extends Process
 
                         if (!$v['super'] && App::auth()->isSuperAdmin()) {
                             echo
-                            '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post">' .
+                            '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">' .
                             '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                            form::hidden(['redir'], App::backend()->url->get('admin.blog.pref', ['id' => $k], '&')) .
+                            form::hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&')) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], $k) .
                             form::hidden(['blogs[]'], $da->blog_id) .

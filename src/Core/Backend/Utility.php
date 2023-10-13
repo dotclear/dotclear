@@ -47,7 +47,7 @@ class Utility extends Process
      *
      * @var     Url     $url
      */
-    public Url $url;
+    private Url $url;
 
     /**
      * Backend (admin) Favorites handler instance.
@@ -119,11 +119,8 @@ class Utility extends Process
         // Instanciate Backend instance
         App::backend();
 
-        // New admin url instance
-        App::backend()->url = new Url();
-
-        // deprecated since 2.27, use App::backend()->url instead
-        dcCore::app()->adminurl = App::backend()->url;
+        // deprecated since 2.28, need to load dcCore::app()->adminurl
+        App::backend()->url();
 
         if (App::auth()->sessionExists()) {
             // If we have a session we launch it now
@@ -136,7 +133,7 @@ class Utility extends Process
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    App::backend()->url->redirect('admin.auth', $params);
+                    App::backend()->url()->redirect('admin.auth', $params);
                 }
             } catch (Throwable) {
                 throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
@@ -151,7 +148,7 @@ class Utility extends Process
                 // Kill admin session
                 App::backend()->killAdminSession();
                 // Logout
-                App::backend()->url->redirect('admin.auth');
+                App::backend()->url()->redirect('admin.auth');
                 exit;
             }
 
@@ -208,15 +205,15 @@ class Utility extends Process
                 App::blog()->loadFromBlog($_SESSION['sess_blog_id']);
             } else {
                 App::session()->destroy();
-                App::backend()->url->redirect('admin.auth');
+                App::backend()->url()->redirect('admin.auth');
             }
         }
 
         // Set default backend URLs
-        App::backend()->url->setDefaultURLs();
+        App::backend()->url()->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        App::postTypes()->set(new PostType('post', urldecode(App::backend()->url->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
+        App::postTypes()->set(new PostType('post', urldecode(App::backend()->url()->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
         if (!(App::auth()->userID() && App::blog()->isDefined())) {
@@ -294,6 +291,18 @@ class Utility extends Process
         App::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
 
         return true;
+    }
+
+    public function url(): Url
+    {
+        if (!isset($this->url)) {
+            $this->url = new Url();
+
+            // deprecated since 2.27, use App::backend()->url() instead
+            dcCore::app()->adminurl = $this->url;
+        }
+
+        return $this->url;
     }
 
     /**

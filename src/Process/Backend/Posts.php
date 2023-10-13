@@ -35,7 +35,7 @@ class Posts extends Process
 
         // Actions
         // -------
-        App::backend()->posts_actions_page = new ActionsPosts(App::backend()->url->get('admin.posts'));
+        App::backend()->posts_actions_page = new ActionsPosts(App::backend()->url()->get('admin.posts'));
         if (App::backend()->posts_actions_page->process()) {
             return self::status(false);
         }
@@ -83,7 +83,7 @@ class Posts extends Process
     {
         Page::open(
             __('Posts'),
-            Page::jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url->get('admin.posts')),
+            Page::jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url()->get('admin.posts')),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
@@ -98,7 +98,7 @@ class Posts extends Process
         }
         if (!App::error()->flag()) {
             echo
-            '<p class="top-add"><a class="button add" href="' . App::backend()->url->get('admin.post') . '">' . __('New post') . '</a></p>';
+            '<p class="top-add"><a class="button add" href="' . App::backend()->url()->get('admin.post') . '">' . __('New post') . '</a></p>';
 
             # filters
             App::backend()->post_filter->display('admin.posts');
@@ -107,7 +107,7 @@ class Posts extends Process
             App::backend()->post_list->display(
                 App::backend()->post_filter->page,
                 App::backend()->post_filter->nb,
-                '<form action="' . App::backend()->url->get('admin.posts') . '" method="post" id="form-entries">' .
+                '<form action="' . App::backend()->url()->get('admin.posts') . '" method="post" id="form-entries">' .
                 // List
                 '%s' .
 
@@ -117,7 +117,7 @@ class Posts extends Process
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
                 form::combo('action', App::backend()->posts_actions_page->getCombo()) .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
-                App::backend()->url->getHiddenFormFields('admin.posts', App::backend()->post_filter->values()) .
+                App::backend()->url()->getHiddenFormFields('admin.posts', App::backend()->post_filter->values()) .
                 App::nonce()->getFormNonce() .
                 '</div>' .
                 '</form>',

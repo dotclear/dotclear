@@ -195,11 +195,11 @@ class Manage extends Process
 
     private static function getRedirect(): string
     {
-        return (string) App::backend()->url->get(self::getRedir()) . '#' . self::getType() . 's';
+        return (string) App::backend()->url()->get(self::getRedir()) . '#' . self::getType() . 's';
     }
 
     private static function doRedirect(): void
     {
-        App::backend()->url->redirect(name: self::getRedir(), suffix: '#' . self::getType() . 's');
+        App::backend()->url()->redirect(name: self::getRedir(), suffix: '#' . self::getType() . 's');
     }
 }

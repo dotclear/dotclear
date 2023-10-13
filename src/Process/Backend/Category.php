@@ -120,7 +120,7 @@ class Category extends Process
                 try {
                     App::blog()->setCategoryParent(App::backend()->cat_id, $new_parent);
                     Notices::addSuccessNotice(__('The category has been successfully moved'));
-                    App::backend()->url->redirect('admin.categories');
+                    App::backend()->url()->redirect('admin.categories');
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -132,7 +132,7 @@ class Category extends Process
             try {
                 App::blog()->setCategoryPosition(App::backend()->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
                 Notices::addSuccessNotice(__('The category has been successfully moved'));
-                App::backend()->url->redirect('admin.categories');
+                App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -166,7 +166,7 @@ class Category extends Process
 
                     Notices::addSuccessNotice(__('The category has been successfully updated.'));
 
-                    App::backend()->url->redirect('admin.category', ['id' => $_POST['id']]);
+                    App::backend()->url()->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
                     // Create category
 
@@ -182,7 +182,7 @@ class Category extends Process
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
-                    App::backend()->url->redirect('admin.categories');
+                    App::backend()->url()->redirect('admin.categories');
                 }
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -198,11 +198,11 @@ class Category extends Process
 
         $elements = [
             Html::escapeHTML(App::blog()->name()) => '',
-            __('Categories')                      => App::backend()->url->get('admin.categories'),
+            __('Categories')                      => App::backend()->url()->get('admin.categories'),
         ];
         if (App::backend()->cat_id) {
             while (App::backend()->cat_parents->fetch()) {
-                $elements[Html::escapeHTML(App::backend()->cat_parents->cat_title)] = App::backend()->url->get('admin.category', ['id' => App::backend()->cat_parents->cat_id]);
+                $elements[Html::escapeHTML(App::backend()->cat_parents->cat_title)] = App::backend()->url()->get('admin.category', ['id' => App::backend()->cat_parents->cat_id]);
             }
         }
         $elements[$title] = '';
@@ -228,7 +228,7 @@ class Category extends Process
         }
 
         echo
-        '<form action="' . App::backend()->url->get('admin.category') . '" method="post" id="category-form">' .
+        '<form action="' . App::backend()->url()->get('admin.category') . '" method="post" id="category-form">' .
         '<h3>' . __('Category information') . '</h3>' .
         '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
         \form::field('cat_title', 40, 255, [
@@ -288,7 +288,7 @@ class Category extends Process
                 ->class('col')
                 ->items([
                     (new Form('cat-parent-form'))
-                        ->action(App::backend()->url->get('admin.category'))
+                        ->action(App::backend()->url()->get('admin.category'))
                         ->method('post')
                         ->class('fieldset')
                         ->fields([
@@ -317,7 +317,7 @@ class Category extends Process
                     ->class('col')
                     ->items([
                         (new Form('cat-sibling-form'))
-                            ->action(App::backend()->url->get('admin.category'))
+                            ->action(App::backend()->url()->get('admin.category'))
                             ->method('post')
                             ->class('fieldset')
                             ->fields([

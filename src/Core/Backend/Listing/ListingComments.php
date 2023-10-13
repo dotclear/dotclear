@@ -83,25 +83,25 @@ class ListingComments extends Listing
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_PUBLISHED]),
+                        App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_spam ?
                     sprintf(
                         __(', <a href="%s">spam</a> (1)', ', <a href="%s">spam</a> (%s)', $nb_spam),
-                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_JUNK]),
+                        App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_JUNK]),
                         $nb_spam
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_PENDING]),
+                        App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        App::backend()->url->get('admin.comments', ['status' => App::blog()::COMMENT_UNPUBLISHED]),
+                        App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -171,13 +171,13 @@ class ListingComments extends Listing
      */
     private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): string
     {
-        $author_url = App::backend()->url->get('admin.comments', [
+        $author_url = App::backend()->url()->get('admin.comments', [
             'author' => $this->rs->comment_author,
         ]);
 
         $post_url = App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id);
 
-        $comment_url = App::backend()->url->get('admin.comment', ['id' => $this->rs->comment_id]);
+        $comment_url = App::backend()->url()->get('admin.comment', ['id' => $this->rs->comment_id]);
 
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -238,7 +238,7 @@ class ListingComments extends Listing
 
         if ($show_ip) {
             $cols['ip'] = '<td class="nowrap"><a href="' .
-                App::backend()->url->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+                App::backend()->url()->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
                 $this->rs->comment_ip . '</a></td>';
         }
         if ($spam) {

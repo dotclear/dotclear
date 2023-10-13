@@ -279,7 +279,7 @@ abstract class MyModule
             $resource = '/' . $resource;
         }
         if (App::task()->checkContext('BACKEND') && !$frontend) {
-            return urldecode(App::backend()->url->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
+            return urldecode(App::backend()->url()->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }
 
         return App::blog()->isDefined() ? urldecode(App::blog()->getQmarkURL() . 'pf=' . self::id() . $resource) : '';

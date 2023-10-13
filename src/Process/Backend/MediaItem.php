@@ -148,7 +148,7 @@ class MediaItem extends Process
                 App::media()->uploadFile($_FILES['upfile']['tmp_name'], App::backend()->file->basename, true, null, false);
 
                 Notices::addSuccessNotice(__('File has been successfully updated.'));
-                App::backend()->url->redirect('admin.media.item', App::backend()->page_url_params);
+                App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -209,7 +209,7 @@ class MediaItem extends Process
                     App::backend()->page_url_params,
                     ['tab' => 'media-details-tab']
                 );
-                App::backend()->url->redirect('admin.media.item', App::backend()->page_url_params);
+                App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -226,7 +226,7 @@ class MediaItem extends Process
                     App::backend()->page_url_params,
                     ['tab' => 'media-details-tab']
                 );
-                App::backend()->url->redirect('admin.media.item', App::backend()->page_url_params);
+                App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -243,7 +243,7 @@ class MediaItem extends Process
                     App::backend()->media_page_url_params,
                     ['d' => $unzip_dir]
                 );
-                App::backend()->url->redirect('admin.media', App::backend()->media_page_url_params);
+                App::backend()->url()->redirect('admin.media', App::backend()->media_page_url_params);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -269,7 +269,7 @@ class MediaItem extends Process
             }
 
             Notices::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
-            App::backend()->url->redirect('admin.media.item', App::backend()->page_url_params);
+            App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
         }
 
         if (!empty($_POST['save_folder_prefs'])) {
@@ -296,7 +296,7 @@ class MediaItem extends Process
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
-            App::backend()->url->redirect('admin.media.item', App::backend()->page_url_params);
+            App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
         }
 
         if (!empty($_POST['remove_folder_prefs'])) {
@@ -307,7 +307,7 @@ class MediaItem extends Process
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
             }
-            App::backend()->url->redirect('admin.media.item', App::backend()->page_url_params);
+            App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
         }
 
         return true;
@@ -422,11 +422,11 @@ class MediaItem extends Process
         }
         $temp_params      = App::backend()->media_page_url_params;
         $temp_params['d'] = '%s';
-        $breadcrumb       = App::media()->breadCrumb(App::backend()->url->get('admin.media', $temp_params, '&amp;', true)) . (App::backend()->file === null ?
+        $breadcrumb       = App::media()->breadCrumb(App::backend()->url()->get('admin.media', $temp_params, '&amp;', true)) . (App::backend()->file === null ?
             '' :
             '<span class="page-title">' . App::backend()->file->basename . '</span>');
         $temp_params['d'] = '';
-        $home_url         = App::backend()->url->get('admin.media', $temp_params);
+        $home_url         = App::backend()->url()->get('admin.media', $temp_params);
         call_user_func(
             App::backend()->open_function,
             __('Media manager'),
@@ -739,7 +739,7 @@ class MediaItem extends Process
             if ($media_type != 'default') {
                 echo
                 '<div class="border-top">' .
-                '<form id="save_settings" action="' . App::backend()->url->getBase('admin.media.item') . '" method="post">' .
+                '<form id="save_settings" action="' . App::backend()->url()->getBase('admin.media.item') . '" method="post">' .
                 '<p>' . __('Make current settings as default') . ' ' .
                 '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '" /> ' . __('or') . ' ' .
                 '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '" />';
@@ -760,7 +760,7 @@ class MediaItem extends Process
                 form::hidden(['pref_alignment'], '') .
                 form::hidden(['pref_insertion'], '') .
                 form::hidden(['pref_legend'], '') .
-                App::backend()->url->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
+                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form></div>';
             }
@@ -810,14 +810,14 @@ class MediaItem extends Process
             foreach (array_reverse(App::backend()->file->media_thumb) as $s => $v) {
                 $strong_link = ($s === $thumb_size) ? '<strong>%s</strong>' : '%s';
                 echo
-                sprintf($strong_link, '<a href="' . App::backend()->url->get('admin.media.item', array_merge(
+                sprintf($strong_link, '<a href="' . App::backend()->url()->get('admin.media.item', array_merge(
                     App::backend()->page_url_params,
                     ['size' => $s, 'tab' => 'media-details-tab']
                 )) . '">' . App::media()->getThumbSizes()[$s][2] . '</a> | ');
             }
 
             echo
-            '<a href="' . App::backend()->url->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])) . '">' . __('original') . '</a>' .
+            '<a href="' . App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])) . '">' . __('original') . '</a>' .
             '</p>';
 
             if ($thumb_size !== 'o' && isset(App::backend()->file->media_thumb[$thumb_size])) {
@@ -881,7 +881,7 @@ class MediaItem extends Process
 
         if (empty($_GET['find_posts'])) {
             echo
-            '<p><a class="button" href="' . App::backend()->url->get('admin.media.item', array_merge(App::backend()->page_url_params, ['find_posts' => 1, 'tab' => 'media-details-tab'])) . '">' .
+            '<p><a class="button" href="' . App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['find_posts' => 1, 'tab' => 'media-details-tab'])) . '">' .
             __('Show entries containing this media') . '</a></p>';
         } else {
             echo
@@ -976,11 +976,11 @@ class MediaItem extends Process
         if (App::backend()->file->editable && App::backend()->is_media_writable) {
             if (App::backend()->file->media_type == 'image') {
                 echo
-                '<form class="clear fieldset" action="' . App::backend()->url->get('admin.media.item') . '" method="post">' .
+                '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
                 '<h4>' . __('Update thumbnails') . '</h4>' .
                 '<p class="more-info">' . __('This will create or update thumbnails for this image.') . '</p>' .
                 '<p><input type="submit" name="thumbs" value="' . __('Update thumbnails') . '" />' .
-                App::backend()->url->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
+                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }
@@ -992,7 +992,7 @@ class MediaItem extends Process
                 ];
 
                 echo
-                '<form class="clear fieldset" id="file-unzip" action="' . App::backend()->url->get('admin.media.item') . '" method="post">' .
+                '<form class="clear fieldset" id="file-unzip" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
                 '<h4>' . __('Extract archive') . '</h4>' .
                 '<ul>' .
                 '<li><strong>' . __('Extract in a new directory') . '</strong> : ' .
@@ -1003,13 +1003,13 @@ class MediaItem extends Process
                 '<p><label for="inflate_mode" class="classic">' . __('Extract mode:') . '</label> ' .
                 form::combo('inflate_mode', $inflate_combo, 'new') .
                 '<input type="submit" name="unzip" value="' . __('Extract') . '" />' .
-                App::backend()->url->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
+                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }
 
             echo
-            '<form class="clear fieldset" action="' . App::backend()->url->get('admin.media.item') . '" method="post">' .
+            '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
             '<h4>' . __('Change media properties') . '</h4>' .
             '<p><label for="media_file">' . __('File name:') . '</label>' .
             form::field('media_file', 30, 255, Html::escapeHTML(App::backend()->file->basename)) . '</p>' .
@@ -1047,11 +1047,11 @@ class MediaItem extends Process
             '<p><label for="media_path">' . __('New directory:') . '</label>' .
             form::combo('media_path', App::backend()->dirs_combo, dirname(App::backend()->file->relname)) . '</p>' .
             '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
-            App::backend()->url->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
+            App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
             App::nonce()->getFormNonce() . '</p>' .
             '</form>' .
 
-            '<form class="clear fieldset" action="' . App::backend()->url->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
+            '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
             '<h4>' . __('Change file') . '</h4>' .
             '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) . '</div>' .
             '<p><label for="upfile">' . __('Choose a file:') .
@@ -1059,17 +1059,17 @@ class MediaItem extends Process
             '<input type="file" id="upfile" name="upfile" size="35" />' .
             '</label></p>' .
             '<p><input type="submit" value="' . __('Send') . '" />' .
-            App::backend()->url->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
+            App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
             App::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
             if (App::backend()->file->del) {
                 echo
-                '<form id="delete-form" method="post" action="' . App::backend()->url->getBase('admin.media.item') . '">' .
+                '<form id="delete-form" method="post" action="' . App::backend()->url()->getBase('admin.media.item') . '">' .
                 '<p><input name="delete" type="submit" class="delete" value="' . __('Delete this media') . '" />' .
                 form::hidden('remove', rawurlencode(App::backend()->file->basename)) .
                 form::hidden('rmyes', 1) .
-                App::backend()->url->getHiddenFormFields('admin.media.item', App::backend()->media_page_url_params) .
+                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->media_page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }

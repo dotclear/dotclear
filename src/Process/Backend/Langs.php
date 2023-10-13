@@ -118,7 +118,7 @@ class Langs extends Process
                 }
 
                 Notices::addSuccessNotice(__('Language has been successfully deleted.'));
-                App::backend()->url->redirect('admin.langs');
+                App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -163,7 +163,7 @@ class Langs extends Process
                 } else {
                     Notices::addSuccessNotice(__('Language has been successfully installed.'));
                 }
-                App::backend()->url->redirect('admin.langs');
+                App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -196,7 +196,7 @@ class Langs extends Process
                 } else {
                     Notices::addSuccessNotice(__('Language has been successfully installed.'));
                 }
-                App::backend()->url->redirect('admin.langs');
+                App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -230,8 +230,8 @@ class Langs extends Process
         '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear installation.') . '</p>' .
         '<p>' . sprintf(
             __('You can change your user language in your <a href="%1$s">preferences</a> or change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-            App::backend()->url->get('admin.user.preferences'),
-            App::backend()->url->get('admin.blog.pref')
+            App::backend()->url()->get('admin.user.preferences'),
+            App::backend()->url()->get('admin.blog.pref')
         ) . '</p>';
 
         echo
@@ -271,7 +271,7 @@ class Langs extends Process
 
                 if ($is_deletable) {
                     echo
-                    '<form action="' . App::backend()->url->get('admin.langs') . '" method="post">' .
+                    '<form action="' . App::backend()->url()->get('admin.langs') . '" method="post">' .
                     '<div>' .
                     App::nonce()->getFormNonce() .
                     form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
@@ -303,7 +303,7 @@ class Langs extends Process
             }
 
             echo
-            '<form method="post" action="' . App::backend()->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+            '<form method="post" action="' . App::backend()->url()->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Available languages') . '</h4>' .
             '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
                 'Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>') . '</p>' .
@@ -327,7 +327,7 @@ class Langs extends Process
         if (App::backend()->is_writable) {
             # 'Upload language pack' form
             echo
-            '<form method="post" action="' . App::backend()->url->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+            '<form method="post" action="' . App::backend()->url()->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Upload a zip file') . '</h4>' .
             '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
             '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .

@@ -98,7 +98,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;'): string
     {
-        return App::task()->checkContext('BACKEND') ? App::backend()->url->get('admin.plugin.' . static::id(), $params, $separator) : '';
+        return App::task()->checkContext('BACKEND') ? App::backend()->url()->get('admin.plugin.' . static::id(), $params, $separator) : '';
     }
 
     /**
@@ -113,7 +113,7 @@ abstract class MyPlugin extends MyModule
         $fields = [];
         if (App::task()->checkContext('BACKEND')) {
             $params = array_merge(
-                App::backend()->url->getParams('admin.plugin.' . static::id()),
+                App::backend()->url()->getParams('admin.plugin.' . static::id()),
                 $params
             );
             foreach ($params as $key => $value) {
@@ -153,7 +153,7 @@ abstract class MyPlugin extends MyModule
     public static function redirect(array $params = [], string $suffix = ''): void
     {
         if (App::task()->checkContext('BACKEND')) {
-            App::backend()->url->redirect('admin.plugin.' . static::id(), $params, $suffix);
+            App::backend()->url()->redirect('admin.plugin.' . static::id(), $params, $suffix);
         }
     }
 }

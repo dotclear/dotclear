@@ -57,7 +57,7 @@ class Menus extends ArrayObject
             return;
         }
 
-        $url     = App::backend()->url->get($adminurl);
+        $url     = App::backend()->url()->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
         $this->offsetGet($section)?->prependItem(
             $desc,

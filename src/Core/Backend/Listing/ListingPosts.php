@@ -61,25 +61,25 @@ class ListingPosts extends Listing
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_PUBLISHED]),
+                        App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_PENDING]),
+                        App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_programmed ?
                     sprintf(
                         __(', <a href="%s">programmed</a> (1)', ', <a href="%s">programmed</a> (%s)', $nb_programmed),
-                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_SCHEDULED]),
+                        App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_SCHEDULED]),
                         $nb_programmed
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        App::backend()->url->get('admin.posts', ['status' => App::blog()::POST_UNPUBLISHED]),
+                        App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -149,7 +149,7 @@ class ListingPosts extends Listing
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]), App::blog()->id())) {
-            $cat_link = '<a href="' . App::backend()->url->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
+            $cat_link = '<a href="' . App::backend()->url()->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
             $cat_link = '%2$s';
         }

@@ -177,7 +177,7 @@ class Comment extends Process
                     App::behavior()->callBehavior('adminAfterCommentUpdate', $cur, App::backend()->comment_id);
 
                     Notices::addSuccessNotice(__('Comment has been successfully updated.'));
-                    App::backend()->url->redirect('admin.comment', ['id' => App::backend()->comment_id]);
+                    App::backend()->url()->redirect('admin.comment', ['id' => App::backend()->comment_id]);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -247,14 +247,14 @@ class Comment extends Process
             }
 
             echo
-            '<form action="' . App::backend()->url->get('admin.comment') . '" method="post" id="comment-form">' .
+            '<form action="' . App::backend()->url()->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="fieldset">' .
             '<h3>' . __('Information collected') . '</h3>';
 
             if (App::backend()->show_ip) {
                 echo
                 '<p>' . __('IP address:') . ' ' .
-                '<a href="' . App::backend()->url->get('admin.comments', ['ip' => App::backend()->comment_ip]) . '">' . App::backend()->comment_ip . '</a></p>';
+                '<a href="' . App::backend()->url()->get('admin.comments', ['ip' => App::backend()->comment_ip]) . '">' . App::backend()->comment_ip . '</a></p>';
             }
 
             echo

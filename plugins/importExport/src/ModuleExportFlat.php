@@ -214,7 +214,7 @@ class ModuleExportFlat extends Module
         __('Compress file') . '</label>' .
         '</p>' .
 
-        '<p class="zip-dl"><a href="' . App::backend()->url->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
+        '<p class="zip-dl"><a href="' . App::backend()->url()->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
         __('You may also want to download your media directory as a zip file') . '</a></p>' .
 
         '<p><input type="submit" value="' . __('Export') . '" />' .

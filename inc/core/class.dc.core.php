@@ -259,7 +259,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.28, use App::backend()->url instead
+     * @deprecated since 2.28, use App::backend()->url() instead
      *
      * @var \Dotclear\Core\Backend\Url
      */
