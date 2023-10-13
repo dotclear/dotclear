@@ -306,7 +306,7 @@ final class dcCore
     /**
      * Tpl instance
      *
-     * @deprecated since 2.28, use App::frontend()->tpl instead
+     * @deprecated since 2.28, use App::frontend()->template() instead
      *
      * @var Tpl
      */
@@ -315,7 +315,7 @@ final class dcCore
     /**
      * context instance
      *
-     * @deprecated since 2.28, use App::frontend()->ctx instead
+     * @deprecated since 2.28, use App::frontend()->context() instead
      *
      * @var Ctx
      */

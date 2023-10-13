@@ -52,14 +52,14 @@ class Utility extends Process
      *
      * @var Ctx
      */
-    public Ctx $ctx;
+    private Ctx $ctx;
 
     /**
      * Tpl instance
      *
      * @var Tpl
      */
-    public Tpl $tpl;
+    private Tpl $tpl;
 
     /**
      * Searched term
@@ -190,32 +190,17 @@ class Utility extends Process
             App::url()->registerDefault(Url::static_home(...));
         }
 
-        // deprecated since 2.28, use App::media() instead
-        dcCore::app()->media = App::media();
+        // deprecated since 2.28, need to load dcCore::app()->media
+        App::media();
 
-        # Creating template context
-        App::frontend()->ctx = new Ctx();
+        // deprecated since 2.28, need to load dcCore::app()->ctx
+        App::frontend()->context();
 
-        // deprecated since 2.28, use App::frontend()->ctx instead
-        dcCore::app()->ctx = App::frontend()->ctx;
-
-        // deprecated since 2.23, use App::frontend()->ctx instead
-        $GLOBALS['_ctx'] = App::frontend()->ctx;
-
-        try {
-            App::frontend()->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->tpl');
-
-            // deprecated since 2.28, use App::frontend()->tpl instead
-            dcCore::app()->tpl = App::frontend()->tpl;
-        } catch (Throwable) {
-            throw new TemplateException(__('Can\'t create template files.'));
-        }
+        // deprecated since 2.28, need to load dcCore::app()->tpl
+        App::frontend()->template();
 
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
-
-        // deprecated since 2.23, use App::lang()->getLang() instead
-        $GLOBALS['_lang'] = App::lang()->getLang();
 
         if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
@@ -294,15 +279,15 @@ class Utility extends Process
         $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
-            App::frontend()->tpl->setPath(
+            App::frontend()->template()->setPath(
                 $tpl_path,
                 $dir,
-                App::frontend()->tpl->getPath()
+                App::frontend()->template()->getPath()
             );
         } else {
-            App::frontend()->tpl->setPath(
+            App::frontend()->template()->setPath(
                 $tpl_path,
-                App::frontend()->tpl->getPath()
+                App::frontend()->template()->getPath()
             );
         }
         App::url()->mode = App::blog()->settings()->system->url_scan;
@@ -315,12 +300,54 @@ class Utility extends Process
 
             # --BEHAVIOR-- publicAfterDocument --
             App::behavior()->callBehavior('publicAfterDocumentV2');
-        } catch (Throwable) {
-            throw new TemplateException(__('Something went wrong while loading template file for your blog.'));
+        } catch (Throwable $e) {
+            throw new TemplateException(__('Something went wrong while loading template file for your blog.'), TemplateException::code(), $e);
         }
 
         // Do not try to execute a process added to the URL.
         return false;
+    }
+
+    /**
+     * Get frontend context instance.
+     *
+     * @return  Ctx     The context
+     */
+    public function context(): Ctx
+    {
+        if (!isset($this->ctx)) {
+            # Creating template context
+            $this->ctx = new Ctx();
+
+            // deprecated since 2.28, use App::frontend()->context() instead
+            dcCore::app()->ctx = $this->ctx;
+
+            // deprecated since 2.23, use App::frontend()->context() instead
+            $GLOBALS['_ctx'] = $this->ctx;
+        }
+
+        return $this->ctx;
+    }
+
+    /**
+     * Get frontend template instance.
+     *
+     * @return  Tpl     The template instance
+     */
+    public function template(): Tpl
+    {
+        if (!isset($this->tpl)) {
+            try {
+                $this->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->template()');
+
+                // deprecated since 2.28, use App::frontend()->template() instead
+                dcCore::app()->tpl = $this->tpl;
+            } catch (Throwable $e) {
+                throw new TemplateException(__('Can\'t create template files.'), TemplateException::code(), $e);
+            }
+        }
+
+        return $this->tpl;
     }
 
     /**

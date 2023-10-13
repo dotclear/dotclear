@@ -565,7 +565,7 @@ class Tpl extends Template
         }
 
         return
-            '<?php if (App::frontend()->ctx->loopPosition(' .
+            '<?php if (App::frontend()->context()->loopPosition(' .
             (string) $start . ',' .
             (string) $length . ',' .
             (string) $even . ',' .
@@ -587,7 +587,7 @@ class Tpl extends Template
      */
     public function LoopIndex(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), '(!App::frontend()->ctx->cur_loop ? 0 : App::frontend()->ctx->cur_loop->index() + 1)') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), '(!App::frontend()->context()->cur_loop ? 0 : App::frontend()->context()->cur_loop->index() + 1)') . '; ?>';
     }
 
     // Archives
@@ -628,8 +628,8 @@ class Tpl extends Template
             $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
         if (empty($attr['no_context']) && !isset($attr['category'])) {
-            $params .= 'if (App::frontend()->ctx->exists("categories")) { ' .
-                "\$params['cat_id'] = App::frontend()->ctx->categories->cat_id; " .
+            $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
+                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " .
                 "}\n";
         }
 
@@ -646,10 +646,10 @@ class Tpl extends Template
                  $attr,
                  $content
              ) .
-            'App::frontend()->ctx->archives = App::blog()->getDates($params); unset($params);' . "\n" .
+            'App::frontend()->context()->archives = App::blog()->getDates($params); unset($params);' . "\n" .
             "?>\n";
 
-        $res .= '<?php while (App::frontend()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->archives = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>';
 
         return $res;
     }
@@ -665,7 +665,7 @@ class Tpl extends Template
     public function ArchivesHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->archives->isStart()) : ?>' .
+            '<?php if (App::frontend()->context()->archives->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -681,7 +681,7 @@ class Tpl extends Template
     public function ArchivesFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->archives->isEnd()) : ?>' .
+            '<?php if (App::frontend()->context()->archives->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -697,7 +697,7 @@ class Tpl extends Template
     public function ArchivesYearHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->archives->yearHeader()) : ?>' .
+            '<?php if (App::frontend()->context()->archives->yearHeader()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -713,7 +713,7 @@ class Tpl extends Template
     public function ArchivesYearFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->archives->yearFooter()) : ?>' .
+            '<?php if (App::frontend()->context()->archives->yearFooter()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -737,7 +737,7 @@ class Tpl extends Template
             $format = addslashes($attr['format']);
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',App::frontend()->ctx->archives->dt)") . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',App::frontend()->context()->archives->dt)") . '; ?>';
     }
 
     /**
@@ -754,7 +754,7 @@ class Tpl extends Template
     public function ArchiveEntriesCount(ArrayObject $attr): string
     {
         return $this->displayCounter(
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->archives->nb_post'),
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->archives->nb_post'),
             [
                 'none' => 'no archive',
                 'one'  => 'one archive',
@@ -795,7 +795,7 @@ class Tpl extends Template
             $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
-        $params .= "\$params['next'] = App::frontend()->ctx->archives->dt;";
+        $params .= "\$params['next'] = App::frontend()->context()->archives->dt;";
 
         $res = "<?php\n";
         $res .= $params;
@@ -806,10 +806,10 @@ class Tpl extends Template
             $attr,
             $content
         );
-        $res .= 'App::frontend()->ctx->archives = App::blog()->getDates($params); unset($params);' . "\n";
+        $res .= 'App::frontend()->context()->archives = App::blog()->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->archives = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>';
 
         return $res;
     }
@@ -844,7 +844,7 @@ class Tpl extends Template
             $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
-        $params .= "\$params['previous'] = App::frontend()->ctx->archives->dt;";
+        $params .= "\$params['previous'] = App::frontend()->context()->archives->dt;";
 
         $res = "<?php\n";
         # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
@@ -855,10 +855,10 @@ class Tpl extends Template
             $content
         );
         $res .= $params;
-        $res .= 'App::frontend()->ctx->archives = App::blog()->getDates($params); unset($params);' . "\n";
+        $res .= 'App::frontend()->context()->archives = App::blog()->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->archives = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>';
 
         return $res;
     }
@@ -876,7 +876,7 @@ class Tpl extends Template
      */
     public function ArchiveURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->archives->url()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->archives->url()') . '; ?>';
     }
 
     // Blog
@@ -1031,8 +1031,8 @@ class Tpl extends Template
     {
         $filters = $this->getFilters($attr);
 
-        return '<?php if (App::frontend()->ctx->exists("cur_lang")) echo ' .
-            sprintf($filters, 'App::blog()->url().App::url()->getURLFor("lang",App::frontend()->ctx->cur_lang)') .
+        return '<?php if (App::frontend()->context()->exists("cur_lang")) echo ' .
+            sprintf($filters, 'App::blog()->url().App::url()->getURLFor("lang",App::frontend()->context()->cur_lang)') .
             '; else echo ' .
             sprintf($filters, 'App::blog()->url()') . '; ?>';
     }
@@ -1381,11 +1381,11 @@ class Tpl extends Template
 
         return "<?php\n" .
             $params .
-            'App::frontend()->ctx->categories = App::blog()->getCategories($params);' . "\n" .
+            'App::frontend()->context()->categories = App::blog()->getCategories($params);' . "\n" .
              "?>\n" .
-             '<?php while (App::frontend()->ctx->categories->fetch()) : ?>' .
+             '<?php while (App::frontend()->context()->categories->fetch()) : ?>' .
              $content .
-             '<?php endwhile; App::frontend()->ctx->categories = null; unset($params); ?>';
+             '<?php endwhile; App::frontend()->context()->categories = null; unset($params); ?>';
     }
 
     /**
@@ -1399,7 +1399,7 @@ class Tpl extends Template
     public function CategoriesHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->categories->isStart()) : ?>' .
+            '<?php if (App::frontend()->context()->categories->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1415,7 +1415,7 @@ class Tpl extends Template
     public function CategoriesFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->categories->isEnd()) : ?>' .
+            '<?php if (App::frontend()->context()->categories->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1453,15 +1453,15 @@ class Tpl extends Template
                 if (substr($url, 0, 1) == '!') {
                     $url = substr($url, 1);
                     if (isset($args['sub'])) {
-                        $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                        $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
                     } else {
-                        $if[] = '(App::frontend()->ctx->categories->cat_url != "' . $url . '")';
+                        $if[] = '(App::frontend()->context()->categories->cat_url != "' . $url . '")';
                     }
                 } else {
                     if (isset($args['sub'])) {
-                        $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                        $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
                     } else {
-                        $if[] = '(App::frontend()->ctx->categories->cat_url == "' . $url . '")';
+                        $if[] = '(App::frontend()->context()->categories->cat_url == "' . $url . '")';
                     }
                 }
             }
@@ -1478,15 +1478,15 @@ class Tpl extends Template
                         if (substr($url, 0, 1) == '!') {
                             $url = substr($url, 1);
                             if (isset($args['sub'])) {
-                                $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                                $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
                             } else {
-                                $if[] = '(App::frontend()->ctx->categories->cat_url != "' . $url . '")';
+                                $if[] = '(App::frontend()->context()->categories->cat_url != "' . $url . '")';
                             }
                         } else {
                             if (isset($args['sub'])) {
-                                $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->ctx->categories->cat_url, "' . $url . '"))';
+                                $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
                             } else {
-                                $if[] = '(App::frontend()->ctx->categories->cat_url == "' . $url . '")';
+                                $if[] = '(App::frontend()->context()->categories->cat_url == "' . $url . '")';
                             }
                         }
                     }
@@ -1496,12 +1496,12 @@ class Tpl extends Template
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '>' : '==';
-            $if[] = 'App::frontend()->ctx->categories->nb_post ' . $sign . ' 0';
+            $if[] = 'App::frontend()->context()->categories->nb_post ' . $sign . ' 0';
         }
 
         if (isset($attr['has_description'])) {
             $sign = (bool) $attr['has_description'] ? '!=' : '==';
-            $if[] = 'App::frontend()->ctx->categories->cat_desc ' . $sign . ' ""';
+            $if[] = 'App::frontend()->context()->categories->cat_desc ' . $sign . ' ""';
         }
 
         # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, string, array<int,string>
@@ -1526,8 +1526,8 @@ class Tpl extends Template
     {
         return
             "<?php\n" .
-            'App::frontend()->ctx->categories = App::blog()->getCategoryFirstChildren(App::frontend()->ctx->categories->cat_id);' . "\n" .
-            'while (App::frontend()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->categories = null; ?>';
+            'App::frontend()->context()->categories = App::blog()->getCategoryFirstChildren(App::frontend()->context()->categories->cat_id);' . "\n" .
+            'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
     }
 
     /**
@@ -1542,8 +1542,8 @@ class Tpl extends Template
     {
         return
             "<?php\n" .
-            'App::frontend()->ctx->categories = App::blog()->getCategoryParents(App::frontend()->ctx->categories->cat_id);' . "\n" .
-            'while (App::frontend()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->categories = null; ?>';
+            'App::frontend()->context()->categories = App::blog()->getCategoryParents(App::frontend()->context()->categories->cat_id);' . "\n" .
+            'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
     }
 
     /**
@@ -1568,7 +1568,7 @@ class Tpl extends Template
 
         return '<?php echo ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("feed","category/".' .
-            'App::frontend()->ctx->categories->cat_url."/' . $type . '")') . '; ?>';
+            'App::frontend()->context()->categories->cat_url."/' . $type . '")') . '; ?>';
     }
 
     /**
@@ -1584,7 +1584,7 @@ class Tpl extends Template
      */
     public function CategoryID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->categories->cat_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_id') . '; ?>';
     }
 
     /**
@@ -1602,7 +1602,7 @@ class Tpl extends Template
     {
         return '<?php echo ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("category",' .
-            'App::frontend()->ctx->categories->cat_url)') . '; ?>';
+            'App::frontend()->context()->categories->cat_url)') . '; ?>';
     }
 
     /**
@@ -1618,7 +1618,7 @@ class Tpl extends Template
      */
     public function CategoryShortURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->categories->cat_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_url') . '; ?>';
     }
 
     /**
@@ -1634,7 +1634,7 @@ class Tpl extends Template
      */
     public function CategoryDescription(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->categories->cat_desc') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_desc') . '; ?>';
     }
 
     /**
@@ -1650,7 +1650,7 @@ class Tpl extends Template
      */
     public function CategoryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->categories->cat_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_title') . '; ?>';
     }
 
     /**
@@ -1668,7 +1668,7 @@ class Tpl extends Template
     public function CategoryEntriesCount(ArrayObject $attr): string
     {
         return $this->displayCounter(
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->categories->nb_post'),
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->nb_post'),
             [
                 'none' => 'No post',
                 'one'  => 'One post',
@@ -1732,7 +1732,7 @@ class Tpl extends Template
                 $params .= '$nb_entry_first_page = $nb_entry_per_page = ' . $lastn . ";\n";
             } else {
                 // nb of entries per page not specified -> use ctx settings
-                $params .= "\$nb_entry_first_page=App::frontend()->ctx->nb_entry_first_page; \$nb_entry_per_page = App::frontend()->ctx->nb_entry_per_page;\n";
+                $params .= "\$nb_entry_first_page=App::frontend()->context()->nb_entry_first_page; \$nb_entry_per_page = App::frontend()->context()->nb_entry_per_page;\n";
                 $params .= "if ((App::url()->type == 'default') || (App::url()->type == 'default-page')) {\n";
                 $params .= "    \$params['limit'] = (App::frontend()->getPageNumber() === 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $params .= "} else {\n";
@@ -1781,27 +1781,27 @@ class Tpl extends Template
 
         if (empty($attr['no_context'])) {
             if (!isset($attr['author'])) {
-                $params .= 'if (App::frontend()->ctx->exists("users")) { ' .
-                    "\$params['user_id'] = App::frontend()->ctx->users->user_id; " .
+                $params .= 'if (App::frontend()->context()->exists("users")) { ' .
+                    "\$params['user_id'] = App::frontend()->context()->users->user_id; " .
                     "}\n";
             }
 
             if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category'])) {
-                $params .= 'if (App::frontend()->ctx->exists("categories")) { ' .
-                    "\$params['cat_id'] = App::frontend()->ctx->categories->cat_id.(App::blog()->settings()->system->inc_subcats?' ?sub':'');" .
+                $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
+                    "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->system->inc_subcats?' ?sub':'');" .
                     "}\n";
             }
 
-            $params .= 'if (App::frontend()->ctx->exists("archives")) { ' .
-                "\$params['post_year'] = App::frontend()->ctx->archives->year(); " .
-                "\$params['post_month'] = App::frontend()->ctx->archives->month(); ";
+            $params .= 'if (App::frontend()->context()->exists("archives")) { ' .
+                "\$params['post_year'] = App::frontend()->context()->archives->year(); " .
+                "\$params['post_month'] = App::frontend()->context()->archives->month(); ";
             if (!isset($attr['lastn'])) {
                 $params .= "unset(\$params['limit']); ";
             }
             $params .= "}\n";
 
-            $params .= 'if (App::frontend()->ctx->exists("langs")) { ' .
-                "\$params['post_lang'] = App::frontend()->ctx->langs->post_lang; " .
+            $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
+                "\$params['post_lang'] = App::frontend()->context()->langs->post_lang; " .
                 "}\n";
 
             $params .= 'if (isset(App::frontend()->search)) { ' .
@@ -1833,11 +1833,11 @@ class Tpl extends Template
             $attr,
             $content
         );
-        $res .= 'App::frontend()->ctx->post_params = $params;' . "\n";
-        $res .= 'App::frontend()->ctx->posts = App::blog()->getPosts($params); unset($params);' . "\n";
+        $res .= 'App::frontend()->context()->post_params = $params;' . "\n";
+        $res .= 'App::frontend()->context()->posts = App::blog()->getPosts($params); unset($params);' . "\n";
         $res .= "?>\n";
-        $res .= '<?php while (App::frontend()->ctx->posts->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            'App::frontend()->ctx->posts = null; App::frontend()->ctx->post_params = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->posts->fetch()) : ?>' . $content . '<?php endwhile; ' .
+            'App::frontend()->context()->posts = null; App::frontend()->context()->post_params = null; ?>';
 
         return $res;
     }
@@ -1853,7 +1853,7 @@ class Tpl extends Template
     public function DateHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->posts->firstPostOfDay()) : ?>' .
+            '<?php if (App::frontend()->context()->posts->firstPostOfDay()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1869,7 +1869,7 @@ class Tpl extends Template
     public function DateFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->posts->lastPostOfDay()) : ?>' .
+            '<?php if (App::frontend()->context()->posts->lastPostOfDay()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1918,16 +1918,16 @@ class Tpl extends Template
         if (isset($attr['type'])) {
             $type = trim((string) $attr['type']);
             $type = !empty($type) ? $type : 'post';
-            $if[] = 'App::frontend()->ctx->posts->post_type == "' . addslashes($type) . '"';
+            $if[] = 'App::frontend()->context()->posts->post_type == "' . addslashes($type) . '"';
         }
 
         if (isset($attr['url'])) {
             $url = trim((string) $attr['url']);
             if (substr($url, 0, 1) == '!') {
                 $url  = substr($url, 1);
-                $if[] = 'App::frontend()->ctx->posts->post_url != "' . addslashes($url) . '"';
+                $if[] = 'App::frontend()->context()->posts->post_url != "' . addslashes($url) . '"';
             } else {
-                $if[] = 'App::frontend()->ctx->posts->post_url == "' . addslashes($url) . '"';
+                $if[] = 'App::frontend()->context()->posts->post_url == "' . addslashes($url) . '"';
             }
         }
 
@@ -1940,15 +1940,15 @@ class Tpl extends Template
                 if (substr($category, 0, 1) == '!') {
                     $category = substr($category, 1);
                     if (isset($args['sub'])) {
-                        $if[] = '(!App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                        $if[] = '(!App::frontend()->context()->posts->underCat("' . $category . '"))';
                     } else {
-                        $if[] = '(App::frontend()->ctx->posts->cat_url != "' . $category . '")';
+                        $if[] = '(App::frontend()->context()->posts->cat_url != "' . $category . '")';
                     }
                 } else {
                     if (isset($args['sub'])) {
-                        $if[] = '(App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                        $if[] = '(App::frontend()->context()->posts->underCat("' . $category . '"))';
                     } else {
-                        $if[] = '(App::frontend()->ctx->posts->cat_url == "' . $category . '")';
+                        $if[] = '(App::frontend()->context()->posts->cat_url == "' . $category . '")';
                     }
                 }
             }
@@ -1965,15 +1965,15 @@ class Tpl extends Template
                         if (substr($category, 0, 1) == '!') {
                             $category = substr($category, 1);
                             if (isset($args['sub'])) {
-                                $if[] = '(!App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                                $if[] = '(!App::frontend()->context()->posts->underCat("' . $category . '"))';
                             } else {
-                                $if[] = '(App::frontend()->ctx->posts->cat_url != "' . $category . '")';
+                                $if[] = '(App::frontend()->context()->posts->cat_url != "' . $category . '")';
                             }
                         } else {
                             if (isset($args['sub'])) {
-                                $if[] = '(App::frontend()->ctx->posts->underCat("' . $category . '"))';
+                                $if[] = '(App::frontend()->context()->posts->underCat("' . $category . '"))';
                             } else {
-                                $if[] = '(App::frontend()->ctx->posts->cat_url == "' . $category . '")';
+                                $if[] = '(App::frontend()->context()->posts->cat_url == "' . $category . '")';
                             }
                         }
                     }
@@ -1983,82 +1983,82 @@ class Tpl extends Template
 
         if (isset($attr['first'])) {
             $sign = (bool) $attr['first'] ? '=' : '!';
-            $if[] = 'App::frontend()->ctx->posts->index() ' . $sign . '= 0';
+            $if[] = 'App::frontend()->context()->posts->index() ' . $sign . '= 0';
         }
 
         if (isset($attr['odd'])) {
             $sign = (bool) $attr['odd'] ? '=' : '!';
-            $if[] = '(App::frontend()->ctx->posts->index()+1)%2 ' . $sign . '= 1';
+            $if[] = '(App::frontend()->context()->posts->index()+1)%2 ' . $sign . '= 1';
         }
 
         if (isset($attr['even'])) {
             $sign = (bool) $attr['even'] ? '=' : '!';
-            $if[] = '(App::frontend()->ctx->posts->index()+1)%2 ' . $sign . '= 0';
+            $if[] = '(App::frontend()->context()->posts->index()+1)%2 ' . $sign . '= 0';
         }
 
         if (isset($attr['extended'])) {
             $sign = (bool) $attr['extended'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->posts->isExtended()';
+            $if[] = $sign . 'App::frontend()->context()->posts->isExtended()';
         }
 
         if (isset($attr['selected'])) {
             $sign = (bool) $attr['selected'] ? '' : '!';
-            $if[] = $sign . '(boolean)App::frontend()->ctx->posts->post_selected';
+            $if[] = $sign . '(boolean)App::frontend()->context()->posts->post_selected';
         }
 
         if (isset($attr['has_category'])) {
             $sign = (bool) $attr['has_category'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->posts->cat_id';
+            $if[] = $sign . 'App::frontend()->context()->posts->cat_id';
         }
 
         if (isset($attr['comments_active'])) {
             $sign = (bool) $attr['comments_active'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->posts->commentsActive()';
+            $if[] = $sign . 'App::frontend()->context()->posts->commentsActive()';
         }
 
         if (isset($attr['pings_active'])) {
             $sign = (bool) $attr['pings_active'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->posts->trackbacksActive()';
+            $if[] = $sign . 'App::frontend()->context()->posts->trackbacksActive()';
         }
 
         if (isset($attr['has_comment'])) {
             $sign = (bool) $attr['has_comment'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->posts->hasComments()';
+            $if[] = $sign . 'App::frontend()->context()->posts->hasComments()';
         }
 
         if (isset($attr['has_ping'])) {
             $sign = (bool) $attr['has_ping'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->posts->hasTrackbacks()';
+            $if[] = $sign . 'App::frontend()->context()->posts->hasTrackbacks()';
         }
 
         if (isset($attr['show_comments'])) {
             if ((bool) $attr['show_comments']) {
-                $if[] = '(App::frontend()->ctx->posts->hasComments() || App::frontend()->ctx->posts->commentsActive())';
+                $if[] = '(App::frontend()->context()->posts->hasComments() || App::frontend()->context()->posts->commentsActive())';
             } else {
-                $if[] = '(!App::frontend()->ctx->posts->hasComments() && !App::frontend()->ctx->posts->commentsActive())';
+                $if[] = '(!App::frontend()->context()->posts->hasComments() && !App::frontend()->context()->posts->commentsActive())';
             }
         }
 
         if (isset($attr['show_pings'])) {
             if ((bool) $attr['show_pings']) {
-                $if[] = '(App::frontend()->ctx->posts->hasTrackbacks() || App::frontend()->ctx->posts->trackbacksActive())';
+                $if[] = '(App::frontend()->context()->posts->hasTrackbacks() || App::frontend()->context()->posts->trackbacksActive())';
             } else {
-                $if[] = '(!App::frontend()->ctx->posts->hasTrackbacks() && !App::frontend()->ctx->posts->trackbacksActive())';
+                $if[] = '(!App::frontend()->context()->posts->hasTrackbacks() && !App::frontend()->context()->posts->trackbacksActive())';
             }
         }
 
         if (isset($attr['republished'])) {
             $sign = (bool) $attr['republished'] ? '' : '!';
-            $if[] = $sign . '(boolean)App::frontend()->ctx->posts->isRepublished()';
+            $if[] = $sign . '(boolean)App::frontend()->context()->posts->isRepublished()';
         }
 
         if (isset($attr['author'])) {
             $author = trim((string) $attr['author']);
             if (substr($author, 0, 1) == '!') {
                 $author = substr($author, 1);
-                $if[]   = 'App::frontend()->ctx->posts->user_id != "' . $author . '"';
+                $if[]   = 'App::frontend()->context()->posts->user_id != "' . $author . '"';
             } else {
-                $if[] = 'App::frontend()->ctx->posts->user_id == "' . $author . '"';
+                $if[] = 'App::frontend()->context()->posts->user_id == "' . $author . '"';
             }
         }
 
@@ -2089,7 +2089,7 @@ class Tpl extends Template
         $ret = Html::escapeHTML($ret);
 
         return
-        '<?php if (App::frontend()->ctx->posts->index() == 0) { ' .
+        '<?php if (App::frontend()->context()->posts->index() == 0) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -2113,7 +2113,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?php echo ((App::frontend()->ctx->posts->index()+1)%2 ? ' .
+        return '<?php echo ((App::frontend()->context()->posts->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
         '"' . addslashes($even) . '"); ?>';
     }
@@ -2138,7 +2138,7 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?php echo ((App::frontend()->ctx->posts->index()+1)%2+1 ? ' .
+        return '<?php echo ((App::frontend()->context()->posts->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
         '"' . addslashes($odd) . '"); ?>';
     }
@@ -2160,7 +2160,7 @@ class Tpl extends Template
         $ret = Html::escapeHTML($ret);
 
         return
-        '<?php if (App::frontend()->ctx->posts->post_selected) { ' .
+        '<?php if (App::frontend()->context()->posts->post_selected) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -2189,15 +2189,15 @@ class Tpl extends Template
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf(
                 $filters,
-                'App::frontend()->ctx->posts->getExcerpt(' . $urls . ').' .
-                '(strlen(App::frontend()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                'App::frontend()->ctx->posts->getContent(' . $urls . ')'
+                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
+                '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                'App::frontend()->context()->posts->getContent(' . $urls . ')'
             ) . '; ?>';
         }
 
         return '<?php echo ' . sprintf(
             $filters,
-            'App::frontend()->ctx->posts->getContent(' . $urls . ')'
+            'App::frontend()->context()->posts->getContent(' . $urls . ')'
         ) . '; ?>';
     }
 
@@ -2235,15 +2235,15 @@ class Tpl extends Template
         if (!empty($attr['full'])) {
             return '<?php if (strlen(' . sprintf(
                 $full,
-                'App::frontend()->ctx->posts->getExcerpt(' . $urls . ').' .
-                '(strlen(App::frontend()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                'App::frontend()->ctx->posts->getContent(' . $urls . ')'
+                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
+                '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                'App::frontend()->context()->posts->getContent(' . $urls . ')'
             ) . ') > ' .
             'strlen(' . sprintf(
                 $short,
-                'App::frontend()->ctx->posts->getExcerpt(' . $urls . ').' .
-                '(strlen(App::frontend()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                'App::frontend()->ctx->posts->getContent(' . $urls . ')'
+                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
+                '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                'App::frontend()->context()->posts->getContent(' . $urls . ')'
             ) . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
@@ -2251,11 +2251,11 @@ class Tpl extends Template
 
         return '<?php if (strlen(' . sprintf(
             $full,
-            'App::frontend()->ctx->posts->getContent(' . $urls . ')'
+            'App::frontend()->context()->posts->getContent(' . $urls . ')'
         ) . ') > ' .
             'strlen(' . sprintf(
                 $short,
-                'App::frontend()->ctx->posts->getContent(' . $urls . ')'
+                'App::frontend()->context()->posts->getContent(' . $urls . ')'
             ) . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
@@ -2281,7 +2281,7 @@ class Tpl extends Template
         }
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getExcerpt(' . $urls . ')') . '; ?>';
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getExcerpt(' . $urls . ')') . '; ?>';
     }
 
     /**
@@ -2297,7 +2297,7 @@ class Tpl extends Template
      */
     public function EntryAuthorCommonName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getAuthorCN()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorCN()') . '; ?>';
     }
 
     /**
@@ -2313,7 +2313,7 @@ class Tpl extends Template
      */
     public function EntryAuthorDisplayName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->user_displayname') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_displayname') . '; ?>';
     }
 
     /**
@@ -2329,7 +2329,7 @@ class Tpl extends Template
      */
     public function EntryAuthorID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->user_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_id') . '; ?>';
     }
 
     /**
@@ -2352,7 +2352,7 @@ class Tpl extends Template
         }
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getAuthorEmail(' . $protect . ')') . '; ?>';
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorEmail(' . $protect . ')') . '; ?>';
     }
 
     /**
@@ -2369,7 +2369,7 @@ class Tpl extends Template
     public function EntryAuthorEmailMD5(ArrayObject $attr): string
     {
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'md5(App::frontend()->ctx->posts->getAuthorEmail(false))') . '; ?>';
+            sprintf($this->getFilters($attr), 'md5(App::frontend()->context()->posts->getAuthorEmail(false))') . '; ?>';
     }
 
     /**
@@ -2385,7 +2385,7 @@ class Tpl extends Template
      */
     public function EntryAuthorLink(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getAuthorLink()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorLink()') . '; ?>';
     }
 
     /**
@@ -2401,7 +2401,7 @@ class Tpl extends Template
      */
     public function EntryAuthorURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->user_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_url') . '; ?>';
     }
 
     /**
@@ -2417,7 +2417,7 @@ class Tpl extends Template
      */
     public function EntryBasename(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->post_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_url') . '; ?>';
     }
 
     /**
@@ -2433,7 +2433,7 @@ class Tpl extends Template
      */
     public function EntryCategory(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->cat_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_title') . '; ?>';
     }
 
     /**
@@ -2449,7 +2449,7 @@ class Tpl extends Template
      */
     public function EntryCategoryDescription(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->cat_desc') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_desc') . '; ?>';
     }
 
     /**
@@ -2464,8 +2464,8 @@ class Tpl extends Template
     {
         return
             "<?php\n" .
-            'App::frontend()->ctx->categories = App::blog()->getCategoryParents(App::frontend()->ctx->posts->cat_id);' . "\n" .
-            'while (App::frontend()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->categories = null; ?>';
+            'App::frontend()->context()->categories = App::blog()->getCategoryParents(App::frontend()->context()->posts->cat_id);' . "\n" .
+            'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
     }
 
     /**
@@ -2481,7 +2481,7 @@ class Tpl extends Template
      */
     public function EntryCategoryID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->cat_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_id') . '; ?>';
     }
 
     /**
@@ -2497,7 +2497,7 @@ class Tpl extends Template
      */
     public function EntryCategoryURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getCategoryURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getCategoryURL()') . '; ?>';
     }
 
     /**
@@ -2513,7 +2513,7 @@ class Tpl extends Template
      */
     public function EntryCategoryShortURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->cat_url') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_url') . '; ?>';
     }
 
     /**
@@ -2529,7 +2529,7 @@ class Tpl extends Template
      */
     public function EntryFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getFeedID()') . '; ?>';
     }
 
     /**
@@ -2574,7 +2574,7 @@ class Tpl extends Template
      */
     public function EntryID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->post_id') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_id') . '; ?>';
     }
 
     /**
@@ -2593,8 +2593,8 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         return
-        '<?php if (App::frontend()->ctx->posts->post_lang) { ' .
-        'echo ' . sprintf($filters, 'App::frontend()->ctx->posts->post_lang') . '; ' .
+        '<?php if (App::frontend()->context()->posts->post_lang) { ' .
+        'echo ' . sprintf($filters, 'App::frontend()->context()->posts->post_lang') . '; ' .
         '} else {' .
         'echo ' . sprintf($filters, 'App::blog()->settings()->system->lang') . '; ' .
             '} ?>';
@@ -2619,13 +2619,13 @@ class Tpl extends Template
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
 
         return
-            '<?php $next_post = App::blog()->getNextPost(App::frontend()->ctx->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+            '<?php $next_post = App::blog()->getNextPost(App::frontend()->context()->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
             '<?php if ($next_post !== null) : ?>' .
 
-            '<?php App::frontend()->ctx->posts = $next_post; unset($next_post);' . "\n" .
-            'while (App::frontend()->ctx->posts->fetch()) : ?>' .
+            '<?php App::frontend()->context()->posts = $next_post; unset($next_post);' . "\n" .
+            'while (App::frontend()->context()->posts->fetch()) : ?>' .
             $content .
-            '<?php endwhile; App::frontend()->ctx->posts = null; ?>' .
+            '<?php endwhile; App::frontend()->context()->posts = null; ?>' .
             "<?php endif; ?>\n";
     }
 
@@ -2648,13 +2648,13 @@ class Tpl extends Template
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
 
         return
-            '<?php $prev_post = App::blog()->getNextPost(App::frontend()->ctx->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+            '<?php $prev_post = App::blog()->getNextPost(App::frontend()->context()->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
             '<?php if ($prev_post !== null) : ?>' .
 
-            '<?php App::frontend()->ctx->posts = $prev_post; unset($prev_post);' . "\n" .
-            'while (App::frontend()->ctx->posts->fetch()) : ?>' .
+            '<?php App::frontend()->context()->posts = $prev_post; unset($prev_post);' . "\n" .
+            'while (App::frontend()->context()->posts->fetch()) : ?>' .
             $content .
-            '<?php endwhile; App::frontend()->ctx->posts = null; ?>' .
+            '<?php endwhile; App::frontend()->context()->posts = null; ?>' .
             "<?php endif; ?>\n";
     }
 
@@ -2671,7 +2671,7 @@ class Tpl extends Template
      */
     public function EntryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_title') . '; ?>';
     }
 
     /**
@@ -2687,7 +2687,7 @@ class Tpl extends Template
      */
     public function EntryURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->posts->getURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getURL()') . '; ?>';
     }
 
     /**
@@ -2722,14 +2722,14 @@ class Tpl extends Template
 
         if ($rfc822) {
             return '<?php echo ' .
-                sprintf($filters, "\App::frontend()->ctx->posts->getRFC822Date('" . $type . "')") . '; ?>';
+                sprintf($filters, "\App::frontend()->context()->posts->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
             return '<?php echo ' .
-                sprintf($filters, "App::frontend()->ctx->posts->getISO8601Date('" . $type . "')") . '; ?>';
+                sprintf($filters, "App::frontend()->context()->posts->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
         return '<?php echo ' .
-            sprintf($filters, "App::frontend()->ctx->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
+            sprintf($filters, "App::frontend()->context()->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /**
@@ -2757,7 +2757,7 @@ class Tpl extends Template
         $type = (!empty($attr['upddt']) ? 'upddt' : $type);
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), "App::frontend()->ctx->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
+            sprintf($this->getFilters($attr), "App::frontend()->context()->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /**
@@ -2771,7 +2771,7 @@ class Tpl extends Template
     public function EntriesHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->posts->isStart()) : ?>' .
+            '<?php if (App::frontend()->context()->posts->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2787,7 +2787,7 @@ class Tpl extends Template
     public function EntriesFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->posts->isEnd()) : ?>' .
+            '<?php if (App::frontend()->context()->posts->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2813,9 +2813,9 @@ class Tpl extends Template
     public function EntryCommentCount(ArrayObject $attr): string
     {
         if (empty($attr['count_all'])) {
-            $operation = 'App::frontend()->ctx->posts->nb_comment';
+            $operation = 'App::frontend()->context()->posts->nb_comment';
         } else {
-            $operation = '(App::frontend()->ctx->posts->nb_comment + App::frontend()->ctx->posts->nb_trackback)';
+            $operation = '(App::frontend()->context()->posts->nb_comment + App::frontend()->context()->posts->nb_trackback)';
         }
 
         return $this->displayCounter(
@@ -2851,7 +2851,7 @@ class Tpl extends Template
     public function EntryPingCount(ArrayObject $attr): string
     {
         return $this->displayCounter(
-            'App::frontend()->ctx->posts->nb_trackback',
+            'App::frontend()->context()->posts->nb_trackback',
             [
                 'none' => 'no trackbacks',
                 'one'  => 'one trackback',
@@ -2877,7 +2877,7 @@ class Tpl extends Template
     {
         $format = !empty($attr['format']) && $attr['format'] == 'xml' ? 'xml' : 'html';
 
-        return "<?php if (App::frontend()->ctx->posts->trackbacksActive()) { echo App::frontend()->ctx->posts->getTrackbackData('" . $format . "'); } ?>\n";
+        return "<?php if (App::frontend()->context()->posts->trackbacksActive()) { echo App::frontend()->context()->posts->getTrackbackData('" . $format . "'); } ?>\n";
     }
 
     /**
@@ -2889,7 +2889,7 @@ class Tpl extends Template
      */
     public function EntryPingLink(ArrayObject $attr): string
     {
-        return "<?php if (App::frontend()->ctx->posts->trackbacksActive()) { echo App::frontend()->ctx->posts->getTrackbackLink(); } ?>\n";
+        return "<?php if (App::frontend()->context()->posts->trackbacksActive()) { echo App::frontend()->context()->posts->getTrackbackLink(); } ?>\n";
     }
 
     // Languages
@@ -2929,12 +2929,12 @@ class Tpl extends Template
             $attr,
             $content
         );
-        $res .= 'App::frontend()->ctx->langs = App::blog()->getLangs($params); unset($params);' . "\n";
+        $res .= 'App::frontend()->context()->langs = App::blog()->getLangs($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php if (App::frontend()->ctx->langs->count() > 1) : ' .
-            'while (App::frontend()->ctx->langs->fetch()) : ?>' . $content .
-            '<?php endwhile; App::frontend()->ctx->langs = null; endif; ?>';
+        $res .= '<?php if (App::frontend()->context()->langs->count() > 1) : ' .
+            'while (App::frontend()->context()->langs->fetch()) : ?>' . $content .
+            '<?php endwhile; App::frontend()->context()->langs = null; endif; ?>';
 
         return $res;
     }
@@ -2950,7 +2950,7 @@ class Tpl extends Template
     public function LanguagesHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->langs->isStart()) : ?>' .
+            '<?php if (App::frontend()->context()->langs->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2966,7 +2966,7 @@ class Tpl extends Template
     public function LanguagesFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->langs->isEnd()) : ?>' .
+            '<?php if (App::frontend()->context()->langs->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2984,7 +2984,7 @@ class Tpl extends Template
      */
     public function LanguageCode(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->langs->post_lang') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->langs->post_lang') . '; ?>';
     }
 
     /**
@@ -2998,7 +2998,7 @@ class Tpl extends Template
     public function LanguageIfCurrent(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->cur_lang == App::frontend()->ctx->langs->post_lang) : ?>' .
+            '<?php if (App::frontend()->context()->cur_lang == App::frontend()->context()->langs->post_lang) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3018,7 +3018,7 @@ class Tpl extends Template
     {
         return '<?php echo ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("lang",' .
-            'App::frontend()->ctx->langs->post_lang)') . '; ?>';
+            'App::frontend()->context()->langs->post_lang)') . '; ?>';
     }
 
     /**
@@ -3037,10 +3037,10 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         return
-        '<?php if (App::frontend()->ctx->exists("cur_lang")) ' . "\n" .
-        '   { echo ' . sprintf($filters, 'App::frontend()->ctx->cur_lang') . '; }' . "\n" .
-        'elseif (App::frontend()->ctx->exists("posts") && App::frontend()->ctx->posts->exists("post_lang")) ' . "\n" .
-        '   { echo ' . sprintf($filters, 'App::frontend()->ctx->posts->post_lang') . '; }' . "\n" .
+        '<?php if (App::frontend()->context()->exists("cur_lang")) ' . "\n" .
+        '   { echo ' . sprintf($filters, 'App::frontend()->context()->cur_lang') . '; }' . "\n" .
+        'elseif (App::frontend()->context()->exists("posts") && App::frontend()->context()->posts->exists("post_lang")) ' . "\n" .
+        '   { echo ' . sprintf($filters, 'App::frontend()->context()->posts->post_lang') . '; }' . "\n" .
         'else ' . "\n" .
         '   { echo ' . sprintf($filters, 'App::blog()->settings()->system->lang') . '; } ?>';
     }
@@ -3063,7 +3063,7 @@ class Tpl extends Template
     public function Pagination(ArrayObject $attr, string $content): string
     {
         $params = "<?php\n" .
-            '$params = App::frontend()->ctx->post_params;' . "\n" .
+            '$params = App::frontend()->context()->post_params;' . "\n" .
             # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
             App::behavior()->callBehavior(
                 'templatePrepareParams',
@@ -3074,7 +3074,7 @@ class Tpl extends Template
                 $attr,
                 $content
             ) .
-            'App::frontend()->ctx->pagination = App::blog()->getPosts($params,true); unset($params);' . "\n" .
+            'App::frontend()->context()->pagination = App::blog()->getPosts($params,true); unset($params);' . "\n" .
             "?>\n";
 
         if (isset($attr['no_context']) && $attr['no_context']) {
@@ -3083,7 +3083,7 @@ class Tpl extends Template
 
         return
             $params .
-            '<?php if (App::frontend()->ctx->pagination->f(0) > App::frontend()->ctx->posts->count()) : ?>' .
+            '<?php if (App::frontend()->context()->pagination->f(0) > App::frontend()->context()->posts->count()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3223,20 +3223,20 @@ class Tpl extends Template
         if ($lastn > 0) {
             $params .= "\$params['limit'] = " . $lastn . ";\n";
         } else {
-            $params .= "if (App::frontend()->ctx->nb_comment_per_page !== null) { \$params['limit'] = App::frontend()->ctx->nb_comment_per_page; }\n";
+            $params .= "if (App::frontend()->context()->nb_comment_per_page !== null) { \$params['limit'] = App::frontend()->context()->nb_comment_per_page; }\n";
         }
 
         if (empty($attr['no_context'])) {
-            $params .= 'if (App::frontend()->ctx->posts !== null) { ' .
-                "\$params['post_id'] = App::frontend()->ctx->posts->post_id; " .
+            $params .= 'if (App::frontend()->context()->posts !== null) { ' .
+                "\$params['post_id'] = App::frontend()->context()->posts->post_id; " .
                 "App::blog()->withoutPassword(false);\n" .
                 "}\n";
-            $params .= 'if (App::frontend()->ctx->exists("categories")) { ' .
-                "\$params['cat_id'] = App::frontend()->ctx->categories->cat_id; " .
+            $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
+                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " .
                 "}\n";
 
-            $params .= 'if (App::frontend()->ctx->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escape(App::frontend()->ctx->langs->post_lang).\"' \"; " .
+            $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
+                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escape(App::frontend()->context()->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -3264,16 +3264,16 @@ class Tpl extends Template
             $content
         );
         $res .= $params;
-        $res .= 'App::frontend()->ctx->comments = App::blog()->getComments($params); unset($params);' . "\n";
-        $res .= "if (App::frontend()->ctx->posts !== null) { App::blog()->withoutPassword(true);}\n";
+        $res .= 'App::frontend()->context()->comments = App::blog()->getComments($params); unset($params);' . "\n";
+        $res .= "if (App::frontend()->context()->posts !== null) { App::blog()->withoutPassword(true);}\n";
 
         if (!empty($attr['with_pings'])) {
-            $res .= 'App::frontend()->ctx->pings = App::frontend()->ctx->comments;' . "\n";
+            $res .= 'App::frontend()->context()->pings = App::frontend()->context()->comments;' . "\n";
         }
 
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->ctx->comments->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->comments = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->comments->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->comments = null; ?>';
 
         return $res;
     }
@@ -3291,7 +3291,7 @@ class Tpl extends Template
      */
     public function CommentAuthor(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->comment_author') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->comment_author') . '; ?>';
     }
 
     /**
@@ -3303,7 +3303,7 @@ class Tpl extends Template
      */
     public function CommentAuthorDomain(ArrayObject $attr): string
     {
-        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',(string) App::frontend()->ctx->comments->comment_site); ?>';
+        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',(string) App::frontend()->context()->comments->comment_site); ?>';
     }
 
     /**
@@ -3319,7 +3319,7 @@ class Tpl extends Template
      */
     public function CommentAuthorLink(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->getAuthorLink()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorLink()') . '; ?>';
     }
 
     /**
@@ -3331,7 +3331,7 @@ class Tpl extends Template
      */
     public function CommentAuthorMailMD5(ArrayObject $attr): string
     {
-        return '<?php echo md5(App::frontend()->ctx->comments->comment_email) ; ?>';
+        return '<?php echo md5(App::frontend()->context()->comments->comment_email) ; ?>';
     }
 
     /**
@@ -3347,7 +3347,7 @@ class Tpl extends Template
      */
     public function CommentAuthorURL($attr)
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->getAuthorURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorURL()') . '; ?>';
     }
 
     /**
@@ -3370,7 +3370,7 @@ class Tpl extends Template
         }
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->getContent(' . $urls . ')') . '; ?>';
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getContent(' . $urls . ')') . '; ?>';
     }
 
     /**
@@ -3402,12 +3402,12 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->ctx->comments->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->comments->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->ctx->comments->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->comments->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, "App::frontend()->ctx->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($filters, "App::frontend()->context()->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /**
@@ -3432,7 +3432,7 @@ class Tpl extends Template
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), "App::frontend()->ctx->comments->getTime('" . $format . "','" . $type . "')") .
+            sprintf($this->getFilters($attr), "App::frontend()->context()->comments->getTime('" . $format . "','" . $type . "')") .
             '; ?>';
     }
 
@@ -3456,7 +3456,7 @@ class Tpl extends Template
         }
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->getEmail(' . $protect . ')') . '; ?>';
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getEmail(' . $protect . ')') . '; ?>';
     }
 
     /**
@@ -3472,7 +3472,7 @@ class Tpl extends Template
      */
     public function CommentEntryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->post_title') . '; ?>';
     }
 
     /**
@@ -3488,7 +3488,7 @@ class Tpl extends Template
      */
     public function CommentFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getFeedID()') . '; ?>';
     }
 
     /**
@@ -3500,7 +3500,7 @@ class Tpl extends Template
      */
     public function CommentID(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->ctx->comments->comment_id; ?>';
+        return '<?php echo App::frontend()->context()->comments->comment_id; ?>';
     }
 
     /**
@@ -3521,7 +3521,7 @@ class Tpl extends Template
 
         if (isset($attr['is_ping'])) {
             $sign = (bool) $attr['is_ping'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->comments->comment_trackback';
+            $if[] = $sign . 'App::frontend()->context()->comments->comment_trackback';
         }
 
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
@@ -3551,7 +3551,7 @@ class Tpl extends Template
         $ret = Html::escapeHTML($ret);
 
         return
-        '<?php if (App::frontend()->ctx->comments->index() == 0) { ' .
+        '<?php if (App::frontend()->context()->comments->index() == 0) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -3572,7 +3572,7 @@ class Tpl extends Template
         $ret = Html::escapeHTML($ret);
 
         return
-        '<?php if (App::frontend()->ctx->comments->isMe()) { ' .
+        '<?php if (App::frontend()->context()->comments->isMe()) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -3596,7 +3596,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?php echo ((App::frontend()->ctx->comments->index()+1)%2 ? ' .
+        return '<?php echo ((App::frontend()->context()->comments->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
         '"' . addslashes($even) . '"); ?>';
     }
@@ -3621,7 +3621,7 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?php echo ((App::frontend()->ctx->comments->index()+1)%2+1 ? ' .
+        return '<?php echo ((App::frontend()->context()->comments->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
         '"' . addslashes($odd) . '"); ?>';
     }
@@ -3635,7 +3635,7 @@ class Tpl extends Template
      */
     public function CommentIP(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->ctx->comments->comment_ip; ?>';
+        return '<?php echo App::frontend()->context()->comments->comment_ip; ?>';
     }
 
     /**
@@ -3647,7 +3647,7 @@ class Tpl extends Template
      */
     public function CommentOrderNumber(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->ctx->comments->index()+1; ?>';
+        return '<?php echo App::frontend()->context()->comments->index()+1; ?>';
     }
 
     /**
@@ -3661,7 +3661,7 @@ class Tpl extends Template
     public function CommentsHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->comments->isStart()) : ?>' .
+            '<?php if (App::frontend()->context()->comments->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3677,7 +3677,7 @@ class Tpl extends Template
     public function CommentsFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->comments->isEnd()) : ?>' .
+            '<?php if (App::frontend()->context()->comments->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3695,7 +3695,7 @@ class Tpl extends Template
      */
     public function CommentPostURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comments->getPostURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getPostURL()') . '; ?>';
     }
 
     /**
@@ -3709,7 +3709,7 @@ class Tpl extends Template
     public function IfCommentAuthorEmail(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->comments->comment_email) : ?>' .
+            '<?php if (App::frontend()->context()->comments->comment_email) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3743,7 +3743,7 @@ class Tpl extends Template
     public function IfCommentPreviewOptional(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::blog()->settings()->system->comment_preview_optional || (App::frontend()->ctx->comment_preview !== null && App::frontend()->ctx->comment_preview["preview"])) : ?>' .
+            '<?php if (App::blog()->settings()->system->comment_preview_optional || (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"])) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3759,7 +3759,7 @@ class Tpl extends Template
     public function IfCommentPreview(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->comment_preview !== null && App::frontend()->ctx->comment_preview["preview"]) : ?>' .
+            '<?php if (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"]) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3777,7 +3777,7 @@ class Tpl extends Template
      */
     public function CommentPreviewName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comment_preview["name"]') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["name"]') . '; ?>';
     }
 
     /**
@@ -3793,7 +3793,7 @@ class Tpl extends Template
      */
     public function CommentPreviewEmail(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comment_preview["mail"]') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["mail"]') . '; ?>';
     }
 
     /**
@@ -3809,7 +3809,7 @@ class Tpl extends Template
      */
     public function CommentPreviewSite(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->comment_preview["site"]') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["site"]') . '; ?>';
     }
 
     /**
@@ -3827,9 +3827,9 @@ class Tpl extends Template
     public function CommentPreviewContent(ArrayObject $attr): string
     {
         if (!empty($attr['raw'])) {
-            $content = 'App::frontend()->ctx->comment_preview["rawcontent"]';
+            $content = 'App::frontend()->context()->comment_preview["rawcontent"]';
         } else {
-            $content = 'App::frontend()->ctx->comment_preview["content"]';
+            $content = 'App::frontend()->context()->comment_preview["content"]';
         }
 
         return '<?php echo ' . sprintf($this->getFilters($attr), $content) . '; ?>';
@@ -3845,7 +3845,7 @@ class Tpl extends Template
     public function CommentPreviewCheckRemember(ArrayObject $attr): string
     {
         return
-            "<?php if (App::frontend()->ctx->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
+            "<?php if (App::frontend()->context()->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
     }
 
     // Trackbacks
@@ -3864,7 +3864,7 @@ class Tpl extends Template
      */
     public function PingBlogName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->comment_author') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->comment_author') . '; ?>';
     }
 
     /**
@@ -3880,7 +3880,7 @@ class Tpl extends Template
      */
     public function PingContent(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->getTrackbackContent()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getTrackbackContent()') . '; ?>';
     }
 
     /**
@@ -3912,12 +3912,12 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->ctx->pings->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->pings->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->ctx->pings->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->pings->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, "App::frontend()->ctx->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($filters, "App::frontend()->context()->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /**
@@ -3942,7 +3942,7 @@ class Tpl extends Template
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
         return '<?php echo ' .
-            sprintf($this->getFilters($attr), "App::frontend()->ctx->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
+            sprintf($this->getFilters($attr), "App::frontend()->context()->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /**
@@ -3958,7 +3958,7 @@ class Tpl extends Template
      */
     public function PingEntryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->post_title') . '; ?>';
     }
 
     /**
@@ -3974,7 +3974,7 @@ class Tpl extends Template
      */
     public function PingFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getFeedID()') . '; ?>';
     }
 
     /**
@@ -3986,7 +3986,7 @@ class Tpl extends Template
      */
     public function PingID(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->ctx->pings->comment_id; ?>';
+        return '<?php echo App::frontend()->context()->pings->comment_id; ?>';
     }
 
     /**
@@ -4006,7 +4006,7 @@ class Tpl extends Template
         $ret = Html::escapeHTML($ret);
 
         return
-        '<?php if (App::frontend()->ctx->pings->index() == 0) { ' .
+        '<?php if (App::frontend()->context()->pings->index() == 0) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -4030,7 +4030,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?php echo ((App::frontend()->ctx->pings->index()+1)%2 ? ' .
+        return '<?php echo ((App::frontend()->context()->pings->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
         '"' . addslashes($even) . '"); ?>';
     }
@@ -4055,7 +4055,7 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?php echo ((App::frontend()->ctx->pings->index()+1)%2+1 ? ' .
+        return '<?php echo ((App::frontend()->context()->pings->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
         '"' . addslashes($odd) . '"); ?>';
     }
@@ -4069,7 +4069,7 @@ class Tpl extends Template
      */
     public function PingIP(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->ctx->pings->comment_ip; ?>';
+        return '<?php echo App::frontend()->context()->pings->comment_ip; ?>';
     }
 
     /**
@@ -4096,7 +4096,7 @@ class Tpl extends Template
      */
     public function PingOrderNumber(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->ctx->pings->index()+1; ?>';
+        return '<?php echo App::frontend()->context()->pings->index()+1; ?>';
     }
 
     /**
@@ -4112,7 +4112,7 @@ class Tpl extends Template
      */
     public function PingPostURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->getPostURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getPostURL()') . '; ?>';
     }
 
     /**
@@ -4132,8 +4132,8 @@ class Tpl extends Template
      */
     public function Pings(ArrayObject $attr, string $content): string
     {
-        $params = 'if (App::frontend()->ctx->posts !== null) { ' .
-            "\$params['post_id'] = App::frontend()->ctx->posts->post_id; " .
+        $params = 'if (App::frontend()->context()->posts !== null) { ' .
+            "\$params['post_id'] = App::frontend()->context()->posts->post_id; " .
             "App::blog()->withoutPassword(false);\n" .
             "}\n";
 
@@ -4147,16 +4147,16 @@ class Tpl extends Template
         if ($lastn > 0) {
             $params .= "\$params['limit'] = " . $lastn . ";\n";
         } else {
-            $params .= "if (App::frontend()->ctx->nb_comment_per_page !== null) { \$params['limit'] = App::frontend()->ctx->nb_comment_per_page; }\n";
+            $params .= "if (App::frontend()->context()->nb_comment_per_page !== null) { \$params['limit'] = App::frontend()->context()->nb_comment_per_page; }\n";
         }
 
         if (empty($attr['no_context'])) {
-            $params .= 'if (App::frontend()->ctx->exists("categories")) { ' .
-                "\$params['cat_id'] = App::frontend()->ctx->categories->cat_id; " .
+            $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
+                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " .
                 "}\n";
 
-            $params .= 'if (App::frontend()->ctx->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escape(App::frontend()->ctx->langs->post_lang).\"' \"; " .
+            $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
+                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escape(App::frontend()->context()->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -4180,11 +4180,11 @@ class Tpl extends Template
             $attr,
             $content
         );
-        $res .= 'App::frontend()->ctx->pings = App::blog()->getComments($params); unset($params);' . "\n";
-        $res .= "if (App::frontend()->ctx->posts !== null) { App::blog()->withoutPassword(true);}\n";
+        $res .= 'App::frontend()->context()->pings = App::blog()->getComments($params); unset($params);' . "\n";
+        $res .= "if (App::frontend()->context()->posts !== null) { App::blog()->withoutPassword(true);}\n";
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->ctx->pings->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->ctx->pings = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->pings->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->pings = null; ?>';
 
         return $res;
     }
@@ -4200,7 +4200,7 @@ class Tpl extends Template
     public function PingsHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->pings->isStart()) : ?>' .
+            '<?php if (App::frontend()->context()->pings->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -4216,7 +4216,7 @@ class Tpl extends Template
     public function PingsFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->pings->isEnd()) : ?>' .
+            '<?php if (App::frontend()->context()->pings->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -4234,7 +4234,7 @@ class Tpl extends Template
      */
     public function PingTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->getTrackbackTitle()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getTrackbackTitle()') . '; ?>';
     }
 
     /**
@@ -4250,7 +4250,7 @@ class Tpl extends Template
      */
     public function PingAuthorURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->ctx->pings->getAuthorURL()') . '; ?>';
+        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getAuthorURL()') . '; ?>';
     }
 
     // System
@@ -4278,7 +4278,7 @@ class Tpl extends Template
 
         return
             '<?php if (App::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
-            'App::behavior()->callBehavior(\'' . $behavior . '\',dcCore::app(),App::frontend()->ctx);' .
+            'App::behavior()->callBehavior(\'' . $behavior . '\',dcCore::app(),App::frontend()->context());' .
             '} ?>';
     }
 
@@ -4319,12 +4319,12 @@ class Tpl extends Template
 
         if (isset($attr['categories'])) {
             $sign = (bool) $attr['categories'] ? '!' : '=';
-            $if[] = 'App::frontend()->ctx->categories ' . $sign . '== null';
+            $if[] = 'App::frontend()->context()->categories ' . $sign . '== null';
         }
 
         if (isset($attr['posts'])) {
             $sign = (bool) $attr['posts'] ? '!' : '=';
-            $if[] = 'App::frontend()->ctx->posts ' . $sign . '== null';
+            $if[] = 'App::frontend()->context()->posts ' . $sign . '== null';
         }
 
         if (isset($attr['blog_lang'])) {
@@ -4342,7 +4342,7 @@ class Tpl extends Template
                 $sign                = '!';
                 $attr['current_tpl'] = substr($attr['current_tpl'], 1);
             }
-            $if[] = 'App::frontend()->ctx->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'";
+            $if[] = 'App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'";
         }
 
         if (isset($attr['current_mode'])) {
@@ -4360,7 +4360,7 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
-            $if[] = $sign . "App::frontend()->tpl->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
+            $if[] = $sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
         }
 
         if (isset($attr['has_tag'])) {
@@ -4369,7 +4369,7 @@ class Tpl extends Template
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
-            $if[] = "App::frontend()->tpl->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
+            $if[] = "App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
         }
 
         if (isset($attr['blog_id'])) {
@@ -4460,8 +4460,8 @@ class Tpl extends Template
      */
     public function SysFeedSubtitle(ArrayObject $attr): string
     {
-        return '<?php if (App::frontend()->ctx->feed_subtitle !== null) { echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->ctx->feed_subtitle') . ';} ?>';
+        return '<?php if (App::frontend()->context()->feed_subtitle !== null) { echo ' .
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->feed_subtitle') . ';} ?>';
     }
 
     /**
@@ -4475,7 +4475,7 @@ class Tpl extends Template
     public function SysIfFormError(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if (App::frontend()->ctx->form_error !== null) : ?>' .
+            '<?php if (App::frontend()->context()->form_error !== null) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -4490,7 +4490,7 @@ class Tpl extends Template
     public function SysFormError(ArrayObject $attr): string
     {
         return
-            '<?php if (App::frontend()->ctx->form_error !== null) { echo App::frontend()->ctx->form_error; } ?>';
+            '<?php if (App::frontend()->context()->form_error !== null) { echo App::frontend()->context()->form_error; } ?>';
     }
 
     /**

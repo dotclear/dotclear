@@ -29,7 +29,7 @@ class Frontend extends Process
             return false;
         }
 
-        App::frontend()->tpl->addValue('Breadcrumb', FrontendTemplate::breadcrumb(...));
+        App::frontend()->template()->addValue('Breadcrumb', FrontendTemplate::breadcrumb(...));
 
         return true;
     }

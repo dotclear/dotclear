@@ -53,14 +53,14 @@ class FrontendBehaviors
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($block == 'Entries' || $block == 'Comments')) {
             return
-                '<?php if (App::frontend()->ctx->exists("meta") && App::frontend()->ctx->meta->rows() && (App::frontend()->ctx->meta->meta_type == "tag")) { ' .
+                '<?php if (App::frontend()->context()->exists("meta") && App::frontend()->context()->meta->rows() && (App::frontend()->context()->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
                 "\$params['from'] .= ', '.App::con()->prefix().'meta META ';\n" .
                 "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
                 "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-                "\$params['sql'] .= \"AND META.meta_id = '\".App::con()->escape(App::frontend()->ctx->meta->meta_id).\"' \";\n" .
+                "\$params['sql'] .= \"AND META.meta_id = '\".App::con()->escape(App::frontend()->context()->meta->meta_id).\"' \";\n" .
                 "} ?>\n";
         }
 
@@ -76,9 +76,9 @@ class FrontendBehaviors
         $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
 
         if (!empty($tplset) && is_dir($default_template . $tplset)) {
-            App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . $tplset);
+            App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . $tplset);
         } else {
-            App::frontend()->tpl->setPath(App::frontend()->tpl->getPath(), $default_template . App::config()->defaultTplset());
+            App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
         }
     }
 }

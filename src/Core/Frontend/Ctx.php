@@ -427,10 +427,10 @@ class Ctx
                 if ($not) {
                     $cat_url .= ' ?not';
                 }
-                if (App::frontend()->ctx->exists('categories') && preg_match($pattern, $cat_url)) {
-                    $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->categories->cat_url, $cat_url);
-                } elseif (App::frontend()->ctx->exists('posts') && preg_match($pattern, $cat_url)) {
-                    $cat_url = preg_replace($pattern, (string) App::frontend()->ctx->posts->cat_url, $cat_url);
+                if (App::frontend()->context()->exists('categories') && preg_match($pattern, $cat_url)) {
+                    $cat_url = preg_replace($pattern, (string) App::frontend()->context()->categories->cat_url, $cat_url);
+                } elseif (App::frontend()->context()->exists('posts') && preg_match($pattern, $cat_url)) {
+                    $cat_url = preg_replace($pattern, (string) App::frontend()->context()->posts->cat_url, $cat_url);
                 }
             }
         }
@@ -445,16 +445,16 @@ class Ctx
      */
     public static function PaginationNbPages()
     {
-        if (App::frontend()->ctx->pagination === null) {
+        if (App::frontend()->context()->pagination === null) {
             return false;
         }
 
-        $nb_posts = App::frontend()->ctx->pagination->f(0);
+        $nb_posts = App::frontend()->context()->pagination->f(0);
         if ((App::url()->type === 'default') || (App::url()->type === 'default-page')) {
             // Home page (not static)
-            $nb_pages = (int) ceil(($nb_posts - App::frontend()->ctx->nb_entry_first_page) / App::frontend()->ctx->nb_entry_per_page + 1);
+            $nb_pages = (int) ceil(($nb_posts - App::frontend()->context()->nb_entry_first_page) / App::frontend()->context()->nb_entry_per_page + 1);
         } else {
-            $nb_pages = (int) ceil($nb_posts / App::frontend()->ctx->nb_entry_per_page);
+            $nb_pages = (int) ceil($nb_posts / App::frontend()->context()->nb_entry_per_page);
         }
 
         return $nb_pages;
@@ -780,8 +780,8 @@ class Ctx
             $alt = '';
 
             # We first look in post content
-            if (!$cat_only && App::frontend()->ctx->posts) {
-                $subject = ($content_only ? '' : App::frontend()->ctx->posts->post_excerpt_xhtml) . App::frontend()->ctx->posts->post_content_xhtml;
+            if (!$cat_only && App::frontend()->context()->posts) {
+                $subject = ($content_only ? '' : App::frontend()->context()->posts->post_excerpt_xhtml) . App::frontend()->context()->posts->post_content_xhtml;
                 if (preg_match_all($pattern, $subject, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
@@ -798,8 +798,8 @@ class Ctx
             }
 
             # No src, look in category description if available
-            if (!$src && $with_category && App::frontend()->ctx->posts->cat_desc) {
-                if (preg_match_all($pattern, (string) App::frontend()->ctx->posts->cat_desc, $m) > 0) {
+            if (!$src && $with_category && App::frontend()->context()->posts->cat_desc) {
+                if (preg_match_all($pattern, (string) App::frontend()->context()->posts->cat_desc, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));

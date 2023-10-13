@@ -264,8 +264,8 @@ class Utility extends Process
             App::backend()->favs->appendMenuSection(App::backend()->menus);
         }
 
-        // deprecated since 2.28, use App::media() instead
-        dcCore::app()->media = App::media();
+        // deprecated since 2.28, need to load dcCore::app()->media
+        App::media();
 
         // Load plugins
         App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::lang()->getLang());

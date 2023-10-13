@@ -56,12 +56,12 @@ class FrontendTemplate
         }
 
         return "<?php\n" .
-        "App::frontend()->ctx->meta = App::meta()->computeMetaStats(App::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
-        "App::frontend()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
-        'while (App::frontend()->ctx->meta->fetch()) : ?>' . "\n" .
+        "App::frontend()->context()->meta = App::meta()->computeMetaStats(App::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
+        "App::frontend()->context()->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
+        'while (App::frontend()->context()->meta->fetch()) : ?>' . "\n" .
         $content .
         '<?php endwhile; ' . "\n" .
-        'App::frontend()->ctx->meta = null; ?>';
+        'App::frontend()->context()->meta = null; ?>';
     }
 
     /**
@@ -75,7 +75,7 @@ class FrontendTemplate
     public static function TagsHeader(ArrayObject $attr, string $content): string
     {
         return
-        '<?php if (App::frontend()->ctx->meta->isStart()) : ?>' .
+        '<?php if (App::frontend()->context()->meta->isStart()) : ?>' .
         $content .
         '<?php endif; ?>';
     }
@@ -91,7 +91,7 @@ class FrontendTemplate
     public static function TagsFooter(ArrayObject $attr, string $content): string
     {
         return
-        '<?php if (App::frontend()->ctx->meta->isEnd()) : ?>' .
+        '<?php if (App::frontend()->context()->meta->isEnd()) : ?>' .
         $content .
         '<?php endif; ?>';
     }
@@ -127,12 +127,12 @@ class FrontendTemplate
         }
 
         $res = "<?php\n" .
-            "App::frontend()->ctx->meta = App::meta()->getMetaRecordset(App::frontend()->ctx->posts->post_meta,'" . $type . "'); " .
-            "App::frontend()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
+            "App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta,'" . $type . "'); " .
+            "App::frontend()->context()->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
-        $res .= '<?php while (App::frontend()->ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            'App::frontend()->ctx->meta = null; ?>';
+        $res .= '<?php while (App::frontend()->context()->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
+            'App::frontend()->context()->meta = null; ?>';
 
         return $res;
     }
@@ -161,7 +161,7 @@ class FrontendTemplate
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->ctx->meta->count';
+            $if[] = $sign . 'App::frontend()->context()->meta->count';
         }
 
         if (!empty($if)) {
@@ -184,9 +184,9 @@ class FrontendTemplate
      */
     public static function TagID(ArrayObject $attr): string
     {
-        $f = App::frontend()->tpl->getFilters($attr);
+        $f = App::frontend()->template()->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::frontend()->ctx->meta->meta_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'App::frontend()->context()->meta->meta_id') . '; ?>';
     }
 
     /**
@@ -196,7 +196,7 @@ class FrontendTemplate
      */
     public static function TagCount(): string
     {
-        return '<?php echo App::frontend()->ctx->meta->count; ?>';
+        return '<?php echo App::frontend()->context()->meta->count; ?>';
     }
 
     /**
@@ -206,7 +206,7 @@ class FrontendTemplate
      */
     public static function TagPercent(): string
     {
-        return '<?php echo App::frontend()->ctx->meta->percent; ?>';
+        return '<?php echo App::frontend()->context()->meta->percent; ?>';
     }
 
     /**
@@ -216,7 +216,7 @@ class FrontendTemplate
      */
     public static function TagRoundPercent(): string
     {
-        return '<?php echo App::frontend()->ctx->meta->roundpercent; ?>';
+        return '<?php echo App::frontend()->context()->meta->roundpercent; ?>';
     }
 
     /**
@@ -232,10 +232,10 @@ class FrontendTemplate
      */
     public static function TagURL(ArrayObject $attr): string
     {
-        $f = App::frontend()->tpl->getFilters($attr);
+        $f = App::frontend()->template()->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag",' .
-            'rawurlencode(App::frontend()->ctx->meta->meta_id))') . '; ?>';
+            'rawurlencode(App::frontend()->context()->meta->meta_id))') . '; ?>';
     }
 
     /**
@@ -251,7 +251,7 @@ class FrontendTemplate
      */
     public static function TagCloudURL(ArrayObject $attr): string
     {
-        $f = App::frontend()->tpl->getFilters($attr);
+        $f = App::frontend()->template()->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tags")') . '; ?>';
     }
@@ -276,10 +276,10 @@ class FrontendTemplate
             $type = 'rss2';
         }
 
-        $f = App::frontend()->tpl->getFilters($attr);
+        $f = App::frontend()->template()->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag_feed",' .
-            'rawurlencode(App::frontend()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
+            'rawurlencode(App::frontend()->context()->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
 
     /**
@@ -338,14 +338,14 @@ class FrontendTemplate
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
-        if (App::url()->type == 'post' && App::frontend()->ctx->posts instanceof MetaRecord) {
-            App::frontend()->ctx->meta = App::meta()->getMetaRecordset(App::frontend()->ctx->posts->post_meta, 'tag');
+        if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+            App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type == 'post' && App::frontend()->ctx->posts instanceof MetaRecord) {
-                while (App::frontend()->ctx->meta->fetch()) {
-                    if (App::frontend()->ctx->meta->meta_id == $rs->meta_id) {
+            if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+                while (App::frontend()->context()->meta->fetch()) {
+                    if (App::frontend()->context()->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';
 
                         break;

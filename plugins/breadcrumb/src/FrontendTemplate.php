@@ -84,9 +84,9 @@ class FrontendTemplate
                     } else {
                         // Home (first page only)
                         $ret = '<span id="bc-home">' . __('Home') . '</span>';
-                        if (App::frontend()->ctx->cur_lang) {
+                        if (App::frontend()->context()->cur_lang) {
                             $langs = L10n::getISOCodes();
-                            $ret .= $separator . ($langs[App::frontend()->ctx->cur_lang] ?? App::frontend()->ctx->cur_lang);
+                            $ret .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
                         }
                     }
 
@@ -98,9 +98,9 @@ class FrontendTemplate
                     if (App::blog()->settings()->system->static_home) {
                         $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
                     } else {
-                        if (App::frontend()->ctx->cur_lang) {
+                        if (App::frontend()->context()->cur_lang) {
                             $langs = L10n::getISOCodes();
-                            $ret .= $separator . ($langs[App::frontend()->ctx->cur_lang] ?? App::frontend()->ctx->cur_lang);
+                            $ret .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
                         }
                     }
                     $ret .= $separator . sprintf(__('page %d'), $page);
@@ -110,14 +110,14 @@ class FrontendTemplate
                 case 'category':
                     // Category
                     $ret        = '<a id="bc-home" href="' . App::blog()->url() . '">' . __('Home') . '</a>';
-                    $categories = App::blog()->getCategoryParents((int) App::frontend()->ctx->categories->cat_id);
+                    $categories = App::blog()->getCategoryParents((int) App::frontend()->context()->categories->cat_id);
                     while ($categories->fetch()) {
                         $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
                     if ($page == 0) {
-                        $ret .= $separator . App::frontend()->ctx->categories->cat_title;
+                        $ret .= $separator . App::frontend()->context()->categories->cat_title;
                     } else {
-                        $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('category', App::frontend()->ctx->categories->cat_url) . '">' . App::frontend()->ctx->categories->cat_title . '</a>';
+                        $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('category', App::frontend()->context()->categories->cat_url) . '">' . App::frontend()->context()->categories->cat_title . '</a>';
                         $ret .= $separator . sprintf(__('page %d'), $page);
                     }
 
@@ -126,17 +126,17 @@ class FrontendTemplate
                 case 'post':
                     // Post
                     $ret = '<a id="bc-home" href="' . App::blog()->url() . '">' . __('Home') . '</a>';
-                    if (App::frontend()->ctx->posts->cat_id) {
+                    if (App::frontend()->context()->posts->cat_id) {
                         // Parents cats of post's cat
-                        $categories = App::blog()->getCategoryParents((int) App::frontend()->ctx->posts->cat_id);
+                        $categories = App::blog()->getCategoryParents((int) App::frontend()->context()->posts->cat_id);
                         while ($categories->fetch()) {
                             $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                         }
                         // Post's cat
-                        $categories = App::blog()->getCategory((int) App::frontend()->ctx->posts->cat_id);
+                        $categories = App::blog()->getCategory((int) App::frontend()->context()->posts->cat_id);
                         $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
-                    $ret .= $separator . App::frontend()->ctx->posts->post_title;
+                    $ret .= $separator . App::frontend()->context()->posts->post_title;
 
                     break;
 
@@ -144,20 +144,20 @@ class FrontendTemplate
                     // Lang
                     $ret   = '<a id="bc-home" href="' . App::blog()->url() . '">' . __('Home') . '</a>';
                     $langs = L10n::getISOCodes();
-                    $ret .= $separator . ($langs[App::frontend()->ctx->cur_lang] ?? App::frontend()->ctx->cur_lang);
+                    $ret .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
 
                     break;
 
                 case 'archive':
                     // Archives
                     $ret = '<a id="bc-home" href="' . App::blog()->url() . '">' . __('Home') . '</a>';
-                    if (!App::frontend()->ctx->archives) {
+                    if (!App::frontend()->context()->archives) {
                         // Global archives
                         $ret .= $separator . __('Archives');
                     } else {
                         // Month archive
                         $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('archive') . '">' . __('Archives') . '</a>';
-                        $ret .= $separator . Date::dt2str('%B %Y', App::frontend()->ctx->archives->dt);
+                        $ret .= $separator . Date::dt2str('%B %Y', App::frontend()->context()->archives->dt);
                     }
 
                     break;
@@ -165,7 +165,7 @@ class FrontendTemplate
                 case 'pages':
                     // Page
                     $ret = '<a id="bc-home" href="' . App::blog()->url() . '">' . __('Home') . '</a>';
-                    $ret .= $separator . App::frontend()->ctx->posts->post_title;
+                    $ret .= $separator . App::frontend()->context()->posts->post_title;
 
                     break;
 
@@ -181,9 +181,9 @@ class FrontendTemplate
                     $ret = '<a id="bc-home" href="' . App::blog()->url() . '">' . __('Home') . '</a>';
                     $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' . __('All tags') . '</a>';
                     if ($page == 0) {
-                        $ret .= $separator . App::frontend()->ctx->meta->meta_id;
+                        $ret .= $separator . App::frontend()->context()->meta->meta_id;
                     } else {
-                        $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('tag', rawurlencode(App::frontend()->ctx->meta->meta_id)) . '">' . App::frontend()->ctx->meta->meta_id . '</a>';
+                        $ret .= $separator . '<a href="' . App::blog()->url() . App::url()->getURLFor('tag', rawurlencode(App::frontend()->context()->meta->meta_id)) . '">' . App::frontend()->context()->meta->meta_id . '</a>';
                         $ret .= $separator . sprintf(__('page %d'), $page);
                     }
 

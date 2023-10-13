@@ -32,7 +32,7 @@ class Frontend extends Process
         App::behavior()->addBehavior('initWidgets', Widgets::initWidgets(...));
 
         // Simple menu template functions
-        App::frontend()->tpl->addValue('SimpleMenu', FrontendTemplate::simpleMenu(...));
+        App::frontend()->template()->addValue('SimpleMenu', FrontendTemplate::simpleMenu(...));
 
         return true;
     }

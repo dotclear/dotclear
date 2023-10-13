@@ -305,8 +305,8 @@ class Widgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((App::url()->type == 'category' && App::frontend()->ctx->categories instanceof MetaRecord && App::frontend()->ctx->categories->cat_id == $rs->cat_id)
-                || (App::url()->type == 'post' && App::frontend()->ctx->posts instanceof MetaRecord && App::frontend()->ctx->posts->cat_id == $rs->cat_id)) {
+            if ((App::url()->type == 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
+                || (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -368,7 +368,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type == 'post' && App::frontend()->ctx->posts instanceof MetaRecord && App::frontend()->ctx->posts->post_id == $rs->post_id) {
+            if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -407,7 +407,7 @@ class Widgets
             '<ul>';
 
         while ($rs->fetch()) {
-            $l = (App::frontend()->ctx->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
+            $l = (App::frontend()->context()->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
 
             $lang_name = $langs[$rs->post_lang] ?? $rs->post_lang;
 
@@ -445,8 +445,8 @@ class Widgets
 
         $type = ($widget->type == 'atom' || $widget->type == 'rss2') ? $widget->type : 'rss2';
         $mime = $type == 'rss2' ? 'application/rss+xml' : 'application/atom+xml';
-        if (App::frontend()->ctx->exists('cur_lang')) {
-            $type = App::frontend()->ctx->cur_lang . '/' . $type;
+        if (App::frontend()->context()->exists('cur_lang')) {
+            $type = App::frontend()->context()->cur_lang . '/' . $type;
         }
 
         $p_title = __('This blog\'s entries %s feed');
@@ -603,7 +603,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type == 'post' && App::frontend()->ctx->posts instanceof MetaRecord && App::frontend()->ctx->posts->post_id == $rs->post_id) {
+            if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
