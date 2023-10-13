@@ -61,7 +61,7 @@ class Utility extends Process
      *
      * @var     Menus   $menus
      */
-    public Menus $menus;
+    private Menus $menus;
 
     /**
      * Backend help resources instance.
@@ -245,19 +245,11 @@ class Utility extends Process
         // deprecated since 2.28, need to load dcCore::app()->favs
         App::backend()->favorites();
 
-        App::backend()->menus = new Menus();
-
-        // deprecated since 2.27, use App::backend()->menus instead
-        dcCore::app()->menu = App::backend()->menus;
-
-        // deprecated Since 2.23, use App::backend()->menus instead
-        $GLOBALS['_menu'] = App::backend()->menus;
-
         // Set default menu
-        App::backend()->menus->setDefaultItems();
+        App::backend()->menus()->setDefaultItems();
 
         if (!$user_ui_nofavmenu) {
-            App::backend()->favorites()->appendMenuSection(App::backend()->menus);
+            App::backend()->favorites()->appendMenuSection(App::backend()->menus());
         }
 
         // deprecated since 2.28, need to load dcCore::app()->media
@@ -268,7 +260,7 @@ class Utility extends Process
         App::backend()->favorites()->setup();
 
         if (!$user_ui_nofavmenu) {
-            App::backend()->favorites()->appendMenu(App::backend()->menus);
+            App::backend()->favorites()->appendMenu(App::backend()->menus());
         }
 
         if (empty(App::blog()->settings()->system->jquery_migrate_mute)) {
@@ -282,7 +274,7 @@ class Utility extends Process
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
 
-            // deprecated Since 2.28, use App::themes()->menus instead
+            // deprecated Since 2.28, use App::themes() instead
             dcCore::app()->themes = App::themes();
         }
 
@@ -292,6 +284,11 @@ class Utility extends Process
         return true;
     }
 
+    /**
+     * Get backend Url instance.
+     *
+     * @return  Url     The backend URL handler
+     */
     public function url(): Url
     {
         if (!isset($this->url)) {
@@ -304,6 +301,11 @@ class Utility extends Process
         return $this->url;
     }
 
+    /**
+     * Get backend favorites instance.
+     *
+     * @return  Favorites   The favorites
+     */
     public function favorites(): Favorites
     {
         if (!isset($this->favorites)) {
@@ -314,6 +316,26 @@ class Utility extends Process
         }
 
         return $this->favorites;
+    }
+
+    /**
+     * Get backend menus instance.
+     *
+     * @return  Menus   The menu
+     */
+    public function menus(): Menus
+    {
+        if (!isset($this->menus)) {
+            $this->menus  = new Menus();
+
+            // deprecated since 2.27, use App::backend()->menus() instead
+            dcCore::app()->menu = $this->menus;
+
+            // deprecated Since 2.23, use App::backend()->menus() instead
+            $GLOBALS['_menu'] = $this->menus;
+        }
+
+        return $this->menus;
     }
 
     /**

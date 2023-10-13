@@ -38,11 +38,11 @@ abstract class MyPlugin extends MyModule
      */
     public static function addBackendMenuItem(string $menu = Menus::MENU_PLUGINS, array $params = [], string $scheme = '(&.*)?$', ?string $id = null): void
     {
-        if (!App::task()->checkContext('BACKEND') || !(App::backend()->menus[$menu] instanceof Menu)) {
+        if (!App::task()->checkContext('BACKEND') || !(App::backend()->menus()[$menu] instanceof Menu)) {
             return;
         }
 
-        App::backend()->menus[$menu]->addItem(
+        App::backend()->menus()[$menu]->addItem(
             static::name(),
             static::manageUrl($params, '&'),
             static::icons(),

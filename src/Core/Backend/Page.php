@@ -341,8 +341,8 @@ class Page
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
-        foreach (array_keys((array) App::backend()->menus) as $k) {
-            echo App::backend()->menus[$k]?->draw();
+        foreach (array_keys((array) App::backend()->menus()) as $k) {
+            echo App::backend()->menus()[$k]?->draw();
         }
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br />(Codename: ' . App::config()->dotclearName() . ')');

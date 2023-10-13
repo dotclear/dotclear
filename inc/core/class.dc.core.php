@@ -277,7 +277,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.28, use App::backend()->menus instead
+     * @deprecated since 2.28, use App::backend()->menus() instead
      *
      * @var \Dotclear\Core\Backend\Menus
      */
