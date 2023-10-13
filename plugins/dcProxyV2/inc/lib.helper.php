@@ -57,7 +57,7 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
 /**
  * Adds a menu item.
  *
- * @deprecated  since 2.21, use App::backend()->menus->addItem() instead
+ * @deprecated  since 2.21, use App::backend()->menus()->addItem() instead
  *
  * @param   string  $section    The section
  * @param   string  $desc       The description
@@ -69,5 +69,5 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
  */
 function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false): void
 {
-    App::backend()->menus->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
+    App::backend()->menus()->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
 }

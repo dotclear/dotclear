@@ -106,9 +106,9 @@ class Backend extends Process
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
                 Notices::addSuccessNotice(implode('<br />', $done));
                 if ($define->get('type') == 'theme') {
-                    App::backend()->url->redirect(name: 'admin.blog.theme', suffix: '#themes');
+                    App::backend()->url()->redirect(name: 'admin.blog.theme', suffix: '#themes');
                 } else {
-                    App::backend()->url->redirect(name: 'admin.plugins', suffix: '#plugins');
+                    App::backend()->url()->redirect(name: 'admin.plugins', suffix: '#plugins');
                 }
             }
         } catch (Exception $e) {

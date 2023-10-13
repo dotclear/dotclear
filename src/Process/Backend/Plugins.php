@@ -50,7 +50,7 @@ class Plugins extends Process
                 ['divtag' => true, 'with_ts' => false]
             );
 
-            App::backend()->url->redirect('admin.plugins');
+            App::backend()->url()->redirect('admin.plugins');
             exit;
         }
 
@@ -92,7 +92,7 @@ class Plugins extends Process
             __('Plugins management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', App::backend()->url->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', App::backend()->url()->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
             Page::jsLoad('js/_plugins.js') .
             Page::jsPageTabs() .

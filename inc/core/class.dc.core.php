@@ -259,7 +259,7 @@ final class dcCore
     /**
      * Backend Url instance.
      *
-     * @deprecated since 2.28, use App::backend()->url instead
+     * @deprecated since 2.28, use App::backend()->url() instead
      *
      * @var \Dotclear\Core\Backend\Url
      */
@@ -268,7 +268,7 @@ final class dcCore
     /**
      * Bakcend Favorites instance.
      *
-     * @deprecated since 2.28, use App::backend()->favs instead
+     * @deprecated since 2.28, use App::backend()->favorites() instead
      *
      * @var \Dotclear\Core\Backend\Favorites
      */
@@ -277,7 +277,7 @@ final class dcCore
     /**
      * Backend Menus instance.
      *
-     * @deprecated since 2.28, use App::backend()->menus instead
+     * @deprecated since 2.28, use App::backend()->menus() instead
      *
      * @var \Dotclear\Core\Backend\Menus
      */
@@ -286,7 +286,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * @deprecated since 2.28, use App::backend()->resources instance
+     * @deprecated since 2.28, use App::backend()->resources() instance
      *
      * @var array<string, mixed>
      */
@@ -373,7 +373,7 @@ final class dcCore
         $this->notices = App::notice();
 
         if (App::task()->checkContext('BACKEND')) {
-            // deprecated since 2.23, use App::backend()->resources instance instead
+            // deprecated since 2.23, use App::backend()->resources() instance instead
             $GLOBALS['__resources'] = &$this->resources;
         }
     }

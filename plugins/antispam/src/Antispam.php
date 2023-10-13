@@ -154,7 +154,7 @@ class Antispam
         if (($count = self::countSpam()) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
 
-            return '</span></a> <a href="' . App::backend()->url->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
+            return '</span></a> <a href="' . App::backend()->url()->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         }
 

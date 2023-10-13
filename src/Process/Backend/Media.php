@@ -73,7 +73,7 @@ class Media extends Process
         # User last and fav dirs
         if (App::backend()->page->showLast()) {
             if (!empty($_GET['fav']) && App::backend()->page->updateFav(rtrim((string) App::backend()->page->d, '/'), $_GET['fav'] == 'n')) {
-                App::backend()->url->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             }
             App::backend()->page->updateLast(rtrim((string) App::backend()->page->d, '/'));
         }
@@ -95,7 +95,7 @@ class Media extends Process
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
                     ));
-                    App::backend()->url->redirect('admin.media', App::backend()->page->values());
+                    App::backend()->url()->redirect('admin.media', App::backend()->page->values());
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -147,7 +147,7 @@ class Media extends Process
                 App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
 
                 Notices::addSuccessNotice(__('Files have been successfully uploaded.'));
-                App::backend()->url->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -169,7 +169,7 @@ class Media extends Process
                         is_countable($_POST['medias']) ? count($_POST['medias']) : 0
                     )
                 );
-                App::backend()->url->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -194,7 +194,7 @@ class Media extends Process
                     App::backend()->page->updateFav(App::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
                 Notices::addSuccessNotice($msg);
-                App::backend()->url->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -211,7 +211,7 @@ class Media extends Process
                         Html::escapeHTML(App::backend()->page->d)
                     )
                 );
-                App::backend()->url->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -222,14 +222,14 @@ class Media extends Process
             App::backend()->page->openPage(App::backend()->page->breadcrumb([__('confirm removal') => '']));
 
             echo
-            '<form action="' . Html::escapeURL(App::backend()->url->get('admin.media')) . '" method="post">' .
+            '<form action="' . Html::escapeURL(App::backend()->url()->get('admin.media')) . '" method="post">' .
             '<p>' . sprintf(
                 __('Are you sure you want to remove %s?'),
                 Html::escapeHTML($_GET['remove'])
             ) . '</p>' .
             '<p><input type="submit" value="' . __('Cancel') . '" /> ' .
             ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '" />' .
-            App::backend()->url->getHiddenFormFields('admin.media', App::backend()->page->values()) .
+            App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
             App::nonce()->getFormNonce() .
             form::hidden('remove', Html::escapeHTML($_GET['remove'])) . '</p>' .
             '</form>';
@@ -257,13 +257,13 @@ class Media extends Process
                 $ld_params      = App::backend()->page->values();
                 $ld_params['d'] = $ld;
                 $ld_params['q'] = ''; // Reset search
-                $last_folders_item .= '<option value="' . urldecode(App::backend()->url->get('admin.media', $ld_params)) . '"' .
+                $last_folders_item .= '<option value="' . urldecode(App::backend()->url()->get('admin.media', $ld_params)) . '"' .
             ($ld == rtrim((string) App::backend()->page->d, '/') ? ' selected="selected"' : '') . '>' .
             '/' . $ld . '</option>' . "\n";
                 if ($ld == rtrim((string) App::backend()->page->d, '/')) {
                     // Current directory is a favorite → button will un-fav
                     $ld_params['fav'] = 'n';
-                    $fav_url          = urldecode(App::backend()->url->get('admin.media', $ld_params));
+                    $fav_url          = urldecode(App::backend()->url()->get('admin.media', $ld_params));
                     unset($ld_params['fav']);
                     $fav_img = 'images/fav-on.png';
                     $fav_alt = __('Remove this folder from your favorites');
@@ -280,13 +280,13 @@ class Media extends Process
                     $ld_params      = App::backend()->page->values();
                     $ld_params['d'] = $ld;
                     $ld_params['q'] = ''; // Reset search
-                    $last_folders_item .= '<option value="' . urldecode(App::backend()->url->get('admin.media', $ld_params)) . '"' .
+                    $last_folders_item .= '<option value="' . urldecode(App::backend()->url()->get('admin.media', $ld_params)) . '"' .
                 ($ld == rtrim((string) App::backend()->page->d, '/') ? ' selected="selected"' : '') . '>' .
                 '/' . $ld . '</option>' . "\n";
                     if ($ld == rtrim((string) App::backend()->page->d, '/')) {
                         // Current directory is not a favorite → button will fav
                         $ld_params['fav'] = 'y';
-                        $fav_url          = urldecode(App::backend()->url->get('admin.media', $ld_params));
+                        $fav_url          = urldecode(App::backend()->url()->get('admin.media', $ld_params));
                         unset($ld_params['fav']);
                         $fav_img = 'images/fav-off.png';
                         $fav_alt = __('Add this folder to your favorites');
@@ -313,7 +313,7 @@ class Media extends Process
         App::backend()->page->openPage(
             App::backend()->page->breadcrumb(),
             Page::jsModal() .
-            App::backend()->page->js(App::backend()->url->get('admin.media', array_diff_key(App::backend()->page->values(), App::backend()->page->values(false, true)), '&')) .
+            App::backend()->page->js(App::backend()->url()->get('admin.media', array_diff_key(App::backend()->page->values(), App::backend()->page->values(false, true)), '&')) .
             Page::jsLoad('js/_media.js') .
             $starting_scripts .
             (App::backend()->page->mediaWritable() ? Page::jsUpload() : '')
@@ -385,21 +385,21 @@ class Media extends Process
         // add file mode into the filter box
         App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
-            '<a href="' . App::backend()->url->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
+            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
             '<img src="images/grid-' . (App::backend()->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '" />' .
             '</a>' .
-            '<a href="' . App::backend()->url->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
+            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
             '<img src="images/list-' . (App::backend()->page->file_mode == 'list' ? 'on' : 'off') . '.png" alt="' . __('List display mode') . '" />' .
             '</a>' .
             '</span></p>',
             false
         ));
 
-        $fmt_form_media = '<form action="' . App::backend()->url->get('admin.media') . '" method="post" id="form-medias">' .
+        $fmt_form_media = '<form action="' . App::backend()->url()->get('admin.media') . '" method="post" id="form-medias">' .
             '<div class="files-group">%s</div>' .
             '<p class="hidden">' .
             App::nonce()->getFormNonce() .
-            App::backend()->url->getHiddenFormFields('admin.media', App::backend()->page->values()) .
+            App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
             '</p>';
 
         if (!App::backend()->page->popup || App::backend()->page->select > 1) {
@@ -427,7 +427,7 @@ class Media extends Process
         );
 
         // display filter
-        App::backend()->page->display('admin.media', App::backend()->url->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
+        App::backend()->page->display('admin.media', App::backend()->url()->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
 
         // display list
         $media_list->display(App::backend()->page, $fmt_form_media, App::backend()->page->hasQuery());
@@ -448,14 +448,14 @@ class Media extends Process
             // Create directory
             if (App::backend()->page->mediaWritable()) {
                 echo
-                '<form action="' . App::backend()->url->getBase('admin.media') . '" method="post" class="fieldset">' .
+                '<form action="' . App::backend()->url()->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<div id="new-dir-f">' .
                 '<h4 class="pretty-title">' . __('Create new directory') . '</h4>' .
                 App::nonce()->getFormNonce() .
                 '<p><label for="newdir">' . __('Directory Name:') . '</label>' .
                 form::field('newdir', 35, 255) . '</p>' .
                 '<p><input type="submit" value="' . __('Create') . '" />' .
-                App::backend()->url->getHiddenFormFields('admin.media', App::backend()->page->values()) .
+                App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
                 '</p>' .
                 '</div>' .
                 '</form>';
@@ -464,11 +464,11 @@ class Media extends Process
             // Rebuild directory
             if (App::auth()->isSuperAdmin() && !App::backend()->page->popup && App::backend()->page->mediaWritable()) {
                 echo
-                '<form action="' . App::backend()->url->getBase('admin.media') . '" method="post" class="fieldset">' .
+                '<form action="' . App::backend()->url()->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .
                 App::nonce()->getFormNonce() .
                 '<p><input type="submit" value="' . __('Build') . '" />' .
-                App::backend()->url->getHiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])) .
+                App::backend()->url()->getHiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])) .
                 '</p>' .
                 '</form>';
             }
@@ -478,7 +478,7 @@ class Media extends Process
                 echo
                 '<div class="fieldset">' .
                 '<h4 class="pretty-title">' . sprintf(__('Backup content of %s'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”')) . '</h4>' .
-                '<p><a class="button submit" href="' . App::backend()->url->get(
+                '<p><a class="button submit" href="' . App::backend()->url()->get(
                     'admin.media',
                     array_merge(App::backend()->page->values(), ['zipdl' => 1])
                 ) . '">' . __('Download zip file') . '</a></p>' .
@@ -503,7 +503,7 @@ class Media extends Process
             echo
             '<h4>' . __('Add files') . '</h4>' .
             '<p class="more-info">' . __('Please take care to publish media that you own and that are not protected by copyright.') . '</p>' .
-            '<form id="fileupload" action="' . Html::escapeURL(App::backend()->url->get('admin.media', App::backend()->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
+            '<form id="fileupload" action="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
             '<p>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
             App::nonce()->getFormNonce() . '</p>' .
                 '<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>' .
@@ -512,7 +512,7 @@ class Media extends Process
 
             '<p><label for="upfile">' . '<span class="add-label one-file">' . __('Choose file') . '</span>' . '</label>' .
             '<button class="button choose_files">' . __('Choose files') . '</button>' .
-            '<input type="file" id="upfile" name="upfile[]"' . (App::backend()->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(App::backend()->url->get('admin.media', App::backend()->page->values())) . '" /></p>' .
+            '<input type="file" id="upfile" name="upfile[]"' . (App::backend()->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '" /></p>' .
 
             '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(App::config()->maxUploadSize()) . '</p>' .
 
@@ -523,7 +523,7 @@ class Media extends Process
             if (!App::backend()->page->showUploader()) {
                 echo
                 '<p class="one-file form-help info">' . __('To send several files at the same time, you can activate the enhanced uploader in') .
-                ' <a href="' . App::backend()->url->get('admin.user.preferences', ['tab' => 'user-options']) . '">' . __('My preferences') . '</a></p>';
+                ' <a href="' . App::backend()->url()->get('admin.user.preferences', ['tab' => 'user-options']) . '">' . __('My preferences') . '</a></p>';
             }
 
             echo
@@ -534,7 +534,7 @@ class Media extends Process
 
             echo
             '<p style="clear:both;">' .
-            App::backend()->url->getHiddenFormFields('admin.media', App::backend()->page->values()) .
+            App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
             '</p>' .
             '</form>' .
             '</div>' .
@@ -543,10 +543,10 @@ class Media extends Process
 
         # Empty remove form (for javascript actions)
         echo
-        '<form id="media-remove-hide" action="' . Html::escapeURL(App::backend()->url->get('admin.media', App::backend()->page->values())) . '" method="post" class="hidden">' .
+        '<form id="media-remove-hide" action="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '" method="post" class="hidden">' .
         '<div>' .
         form::hidden('rmyes', 1) .
-        App::backend()->url->getHiddenFormFields('admin.media', App::backend()->page->values()) .
+        App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
         form::hidden('remove', '') .
         App::nonce()->getFormNonce() .
         '</div>' .
@@ -561,7 +561,7 @@ class Media extends Process
             echo
             '<p class="info">' . sprintf(
                 __('Current settings for medias and images are defined in %s'),
-                '<a href="' . App::backend()->url->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
+                '<a href="' . App::backend()->url()->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
             ) . '</p>';
 
             // Go back button

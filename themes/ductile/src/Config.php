@@ -372,7 +372,7 @@ class Config extends Process
         '<div class="multi-part" id="themes-list' . (App::backend()->conf_tab === 'html' ? '' : '-html') . '" title="' . __('Content') . '">' .
         '<h3>' . __('Content') . '</h3>' .
 
-        '<form id="theme_config" action="' . App::backend()->url->get('admin.blog.theme', ['conf' => '1']) .
+        '<form id="theme_config" action="' . App::backend()->url()->get('admin.blog.theme', ['conf' => '1']) .
         '" method="post" enctype="multipart/form-data">' .
         '<h4>' . __('Header') . '</h4>' .
         '<p class="field"><label for="subtitle_hidden">' . __('Hide blog description:') . '</label> ' .
@@ -386,7 +386,7 @@ class Config extends Process
             '<p>' .
             sprintf(
                 __('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),
-                App::backend()->url->get('admin.plugin.simpleMenu')
+                App::backend()->url()->get('admin.plugin.simpleMenu')
             ) .
             '</p>';
         }
@@ -478,7 +478,7 @@ class Config extends Process
         echo
         '<div class="multi-part" id="themes-list' . (App::backend()->conf_tab === 'css' ? '' : '-css') . '" title="' . __('Presentation') . '">' .
 
-        '<form id="theme_config" action="' . App::backend()->url->get('admin.blog.theme', ['conf' => '1']) .
+        '<form id="theme_config" action="' . App::backend()->url()->get('admin.blog.theme', ['conf' => '1']) .
         '" method="post" enctype="multipart/form-data">' .
         '<h3>' . __('General settings') . '</h3>' .
 

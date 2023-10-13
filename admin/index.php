@@ -5,7 +5,7 @@
  * @ingroup     Endpoint
  * 
  * This page serves all admin pages.
- * Note: since 2.27 Use name "admin.home" on App::backend()->url methods
+ * Note: since 2.27 Use name "admin.home" on App::backend()->url() methods
  *
  * If no process found in _REQUEST, will use admin.home
  *

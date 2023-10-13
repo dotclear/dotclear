@@ -229,7 +229,7 @@ class Config extends Process
                 App::backend()->blowup_user = $blowup_user;
 
                 Notices::addSuccessNotice(__('Theme configuration has been successfully updated.'));
-                App::backend()->url->redirect('admin.blog.theme', ['conf' => '1']);
+                App::backend()->url()->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -250,9 +250,9 @@ class Config extends Process
         }
 
         echo
-        '<p><a class="back" href="' . App::backend()->url->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>' .
+        '<p><a class="back" href="' . App::backend()->url()->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>' .
 
-        '<form id="theme_config" action="' . App::backend()->url->get('admin.blog.theme', ['conf' => '1']) . '" method="post" enctype="multipart/form-data">' .
+        '<form id="theme_config" action="' . App::backend()->url()->get('admin.blog.theme', ['conf' => '1']) . '" method="post" enctype="multipart/form-data">' .
 
         '<div class="fieldset"><h3>' . __('Customization') . '</h3>' .
         '<h4>' . __('General') . '</h4>';

@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated 	since 2.27, use name "admin.blog.del" on App::backend()->url methods instead
+ * @deprecated 	since 2.27, use name "admin.blog.del" on App::backend()->url() methods instead
  *
  * @package 	Dotclear
  *

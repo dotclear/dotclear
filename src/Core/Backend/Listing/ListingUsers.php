@@ -119,13 +119,13 @@ class ListingUsers extends Listing
             'check' => '<td class="nowrap">' . form::hidden(['nb_post[]'], (int) $this->rs->nb_post) .
             form::checkbox(['users[]'], $this->rs->user_id) . '</td>',
             'username' => '<td class="maximal" scope="row"><a href="' .
-            App::backend()->url->get('admin.user', ['id' => $this->rs->user_id]) . '">' .
+            App::backend()->url()->get('admin.user', ['id' => $this->rs->user_id]) . '">' .
             $this->rs->user_id . '</a>&nbsp;' . $img_status . '</td>',
             'first_name'   => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_firstname) . '</td>',
             'last_name'    => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_name) . '</td>',
             'display_name' => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_displayname) . '</td>',
             'entries'      => '<td class="nowrap count"><a href="' .
-            App::backend()->url->get('admin.posts', ['user_id' => $this->rs->user_id]) . '">' .
+            App::backend()->url()->get('admin.posts', ['user_id' => $this->rs->user_id]) . '">' .
             $this->rs->nb_post . '</a></td>',
         ];
 

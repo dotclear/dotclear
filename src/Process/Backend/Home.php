@@ -36,7 +36,7 @@ class Home extends Process
         if (!empty($_GET['default_blog'])) {
             try {
                 App::users()->setUserDefaultBlog((string) App::auth()->userID(), App::blog()->id());
-                App::backend()->url->redirect('admin.home');
+                App::backend()->url()->redirect('admin.home');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -55,7 +55,7 @@ class Home extends Process
                 ['divtag' => true, 'with_ts' => false]
             );
 
-            App::backend()->url->redirect('admin.home');
+            App::backend()->url()->redirect('admin.home');
             exit;
         }
 
@@ -63,7 +63,7 @@ class Home extends Process
     }
 
     /**
-     * @deprecated  use of logout=1 in URL since 2.27, use App::backend()->url->redirect('admin.logout'); instead
+     * @deprecated  use of logout=1 in URL since 2.27, use App::backend()->url()->redirect('admin.logout'); instead
      */
     public static function process(): bool
     {
@@ -75,7 +75,7 @@ class Home extends Process
             // Kill admin session
             App::backend()->killAdminSession();
             // Logout
-            App::backend()->url->redirect('admin.auth');
+            App::backend()->url()->redirect('admin.auth');
             exit;
         }
 
@@ -120,17 +120,17 @@ class Home extends Process
 
         // Dashboard icons
         $__dashboard_icons = new ArrayObject();
-        App::backend()->favs->appendDashboardIcons($__dashboard_icons);
+        App::backend()->favorites()->appendDashboardIcons($__dashboard_icons);
 
         // Dashboard items
         $__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);
         $dashboardItem     = 0;
 
         // Documentation links
-        if (App::auth()->prefs()->dashboard->doclinks && !empty(App::backend()->resources->entries('doc'))) {
+        if (App::auth()->prefs()->dashboard->doclinks && !empty(App::backend()->resources()->entries('doc'))) {
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
-            foreach (App::backend()->resources->entries('doc') as $k => $v) {
+            foreach (App::backend()->resources()->entries('doc') as $k => $v) {
                 $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
             }
 
@@ -208,7 +208,7 @@ class Home extends Process
 
         if (App::auth()->getInfo('user_default_blog') != App::blog()->id() && App::auth()->getBlogCount() > 1) {
             echo
-            '<p><a href="' . App::backend()->url->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
+            '<p><a href="' . App::backend()->url()->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
         }
 
         if (App::blog()->status() == App::blog()::BLOG_OFFLINE) {
@@ -423,7 +423,7 @@ class Home extends Process
 
             $__dashboard_main[] = '<div id="quick">' .
                 '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->getOption('post_format'))) . '</h3>' .
-                '<form id="quick-entry" action="' . App::backend()->url->get('admin.post') . '" method="post" class="fieldset">' .
+                '<form id="quick-entry" action="' . App::backend()->url()->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
                 '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
                 form::field('post_title', 20, 255, [

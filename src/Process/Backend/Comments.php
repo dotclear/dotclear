@@ -39,7 +39,7 @@ class Comments extends Process
             try {
                 App::blog()->delJunkComments();
                 $_SESSION['comments_del_spam'] = true;
-                App::backend()->url->redirect('admin.comments');
+                App::backend()->url()->redirect('admin.comments');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -82,7 +82,7 @@ class Comments extends Process
             App::backend()->default_action = 'delete';
         }
 
-        App::backend()->comments_actions_page = new ActionsComments(App::backend()->url->get('admin.comments'));
+        App::backend()->comments_actions_page = new ActionsComments(App::backend()->url()->get('admin.comments'));
 
         if (App::backend()->comments_actions_page->process()) {
             return self::status(false);
@@ -116,7 +116,7 @@ class Comments extends Process
 
         Page::open(
             __('Comments and trackbacks'),
-            Page::jsLoad('js/_comments.js') . App::backend()->comment_filter->js(App::backend()->url->get('admin.comments')),
+            Page::jsLoad('js/_comments.js') . App::backend()->comment_filter->js(App::backend()->url()->get('admin.comments')),
             Page::breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
@@ -139,15 +139,15 @@ class Comments extends Process
             $spam_count = App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
             if ($spam_count > 0) {
                 echo
-                '<form action="' . App::backend()->url->get('admin.comments') . '" method="post" class="fieldset">';
+                '<form action="' . App::backend()->url()->get('admin.comments') . '" method="post" class="fieldset">';
 
                 if (!App::backend()->comment_filter->show() || (App::backend()->comment_filter->status != -2)) {
                     if ($spam_count == 1) {
                         echo '<p>' . sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . App::backend()->url->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
+                        '<a href="' . App::backend()->url()->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
                     } elseif ($spam_count > 1) {
                         echo '<p>' . sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . App::backend()->url->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
+                        '<a href="' . App::backend()->url()->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
                     }
                 }
 
@@ -170,7 +170,7 @@ class Comments extends Process
             App::backend()->comment_list->display(
                 App::backend()->comment_filter->page,
                 App::backend()->comment_filter->nb,
-                '<form action="' . App::backend()->url->get('admin.comments') . '" method="post" id="form-comments">' .
+                '<form action="' . App::backend()->url()->get('admin.comments') . '" method="post" id="form-comments">' .
 
                 '%s' .
 
@@ -185,7 +185,7 @@ class Comments extends Process
                 ) .
                 App::nonce()->getFormNonce() .
                 '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-                App::backend()->url->getHiddenFormFields('admin.comments', App::backend()->comment_filter->values(true)) .
+                App::backend()->url()->getHiddenFormFields('admin.comments', App::backend()->comment_filter->values(true)) .
                 '</div>' .
 
                 '</form>',

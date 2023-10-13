@@ -43,7 +43,7 @@ class ThemesList extends ModulesList
     public function __construct(ModulesInterface $modules, string $modules_root, string $xml_url, ?bool $force = false)
     {
         parent::__construct($modules, $modules_root, $xml_url, $force);
-        $this->page_url = App::backend()->url->get('admin.blog.theme');
+        $this->page_url = App::backend()->url()->get('admin.blog.theme');
     }
 
     /**

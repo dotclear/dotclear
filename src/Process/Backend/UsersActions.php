@@ -64,7 +64,7 @@ class UsersActions extends Process
             if (isset($_POST['redir']) && !str_contains($_POST['redir'], '://')) {
                 App::backend()->redir = $_POST['redir'];
             } else {
-                App::backend()->redir = App::backend()->url->get('admin.users', [
+                App::backend()->redir = App::backend()->url()->get('admin.users', [
                     'q'      => $_POST['q']      ?? '',
                     'sortby' => $_POST['sortby'] ?? '',
                     'order'  => $_POST['order']  ?? '',
@@ -148,7 +148,7 @@ class UsersActions extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')      => '',
-                    __('Users')       => App::backend()->url->get('admin.users'),
+                    __('Users')       => App::backend()->url()->get('admin.users'),
                     __('Permissions') => '',
                 ]
             );
@@ -156,7 +156,7 @@ class UsersActions extends Process
             $breadcrumb = Page::breadcrumb(
                 [
                     __('System')  => '',
-                    __('Users')   => App::backend()->url->get('admin.users'),
+                    __('Users')   => App::backend()->url()->get('admin.users'),
                     __('Actions') => '',
                 ]
             );
@@ -211,7 +211,7 @@ class UsersActions extends Process
 
             $user_list = [];
             foreach (App::backend()->users as $u) {
-                $user_list[] = '<a href="' . App::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+                $user_list[] = '<a href="' . App::backend()->url()->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -224,7 +224,7 @@ class UsersActions extends Process
                 echo '<p><strong>' . __('No blog') . '</strong></p>';
             } else {
                 echo
-                '<form action="' . App::backend()->url->get('admin.user.actions') . '" method="post" id="form-blogs">' .
+                '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post" id="form-blogs">' .
                 '<div class="table-outer clear">' .
                 '<table><tr>' .
                 '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
@@ -288,7 +288,7 @@ class UsersActions extends Process
 
             $user_list = [];
             foreach (App::backend()->users as $u) {
-                $user_list[] = '<a href="' . App::backend()->url->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+                $user_list[] = '<a href="' . App::backend()->url()->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
             }
 
             echo
@@ -296,11 +296,11 @@ class UsersActions extends Process
                 __('You are about to change permissions on the following blogs for users %s.'),
                 implode(', ', $user_list)
             ) . '</p>' .
-            '<form id="permissions-form" action="' . App::backend()->url->get('admin.user.actions') . '" method="post">';
+            '<form id="permissions-form" action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">';
 
             foreach (App::backend()->blogs as $b) {
                 echo
-                '<h3>' . ('Blog:') . ' <a href="' . App::backend()->url->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
+                '<h3>' . ('Blog:') . ' <a href="' . App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
 
                 $unknown_perms = $user_perm;

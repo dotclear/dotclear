@@ -98,7 +98,7 @@ class Users extends Process
     {
         Page::open(
             __('Users'),
-            Page::jsLoad('js/_users.js') . App::backend()->user_filter->js(App::backend()->url->get('admin.users')),
+            Page::jsLoad('js/_users.js') . App::backend()->user_filter->js(App::backend()->url()->get('admin.users')),
             Page::breadcrumb(
                 [
                     __('System') => '',
@@ -115,7 +115,7 @@ class Users extends Process
                 Notices::message(__('The permissions have been successfully updated.'));
             }
 
-            echo '<p class="top-add"><a class="button add" href="' . App::backend()->url->get('admin.user') . '">' . __('New user') . '</a></p>';
+            echo '<p class="top-add"><a class="button add" href="' . App::backend()->url()->get('admin.user') . '">' . __('New user') . '</a></p>';
 
             App::backend()->user_filter->display('admin.users');
 
@@ -124,7 +124,7 @@ class Users extends Process
                 App::backend()->user_filter->page,
                 App::backend()->user_filter->nb,
                 (new Form('form-users'))
-                    ->action(App::backend()->url->get('admin.user.actions'))
+                    ->action(App::backend()->url()->get('admin.user.actions'))
                     ->method('post')
                     ->fields([
                         new Text('', '%s'),
@@ -147,7 +147,7 @@ class Users extends Process
                                      App::nonce()->formNonce(),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
-                                     ...App::backend()->url->hiddenFormFields('admin.user.actions', App::backend()->user_filter->values(true)),
+                                     ...App::backend()->url()->hiddenFormFields('admin.user.actions', App::backend()->user_filter->values(true)),
                                  ]),
                              ]),
                     ])

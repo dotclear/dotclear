@@ -6,7 +6,7 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-\Dotclear\App::backend()->resources
+\Dotclear\App::backend()->resources()
     ->reset('rss_news') // remove previously set "en" rss news
     ->set('rss_news', 'Dotclear', 'https://fr.dotclear.org/blog/feed/category/News/atom')
     ->reset('doc') // remove previously set "en" doc

@@ -47,28 +47,28 @@ class Utility extends Process
      *
      * @var     Url     $url
      */
-    public Url $url;
+    private Url $url;
 
     /**
      * Backend (admin) Favorites handler instance.
      *
-     *  @var    Favorites   $favs
+     *  @var    Favorites   $favorites
      */
-    public Favorites $favs;
+    private Favorites $favorites;
 
     /**
      * Backend (admin) Menus handler instance.
      *
      * @var     Menus   $menus
      */
-    public Menus $menus;
+    private Menus $menus;
 
     /**
      * Backend help resources instance.
      *
      * @var     Resources   $resources
      */
-    public Resources $resources;
+    private Resources $resources;
 
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
@@ -119,11 +119,8 @@ class Utility extends Process
         // Instanciate Backend instance
         App::backend();
 
-        // New admin url instance
-        App::backend()->url = new Url();
-
-        // deprecated since 2.27, use App::backend()->url instead
-        dcCore::app()->adminurl = App::backend()->url;
+        // deprecated since 2.28, need to load dcCore::app()->adminurl
+        App::backend()->url();
 
         if (App::auth()->sessionExists()) {
             // If we have a session we launch it now
@@ -136,7 +133,7 @@ class Utility extends Process
 
                     // Preserve safe_mode if necessary
                     $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
-                    App::backend()->url->redirect('admin.auth', $params);
+                    App::backend()->url()->redirect('admin.auth', $params);
                 }
             } catch (Throwable) {
                 throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
@@ -151,7 +148,7 @@ class Utility extends Process
                 // Kill admin session
                 App::backend()->killAdminSession();
                 // Logout
-                App::backend()->url->redirect('admin.auth');
+                App::backend()->url()->redirect('admin.auth');
                 exit;
             }
 
@@ -208,23 +205,20 @@ class Utility extends Process
                 App::blog()->loadFromBlog($_SESSION['sess_blog_id']);
             } else {
                 App::session()->destroy();
-                App::backend()->url->redirect('admin.auth');
+                App::backend()->url()->redirect('admin.auth');
             }
         }
 
         // Set default backend URLs
-        App::backend()->url->setDefaultURLs();
+        App::backend()->url()->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        App::postTypes()->set(new PostType('post', urldecode(App::backend()->url->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
+        App::postTypes()->set(new PostType('post', urldecode(App::backend()->url()->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
 
         // No user nor blog, do not load more stuff
         if (!(App::auth()->userID() && App::blog()->isDefined())) {
             return true;
         }
-
-        // Load resources and help files
-        App::backend()->resources = new Resources();
 
         require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
         if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
@@ -235,33 +229,24 @@ class Utility extends Process
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
+                    App::backend()->resources()->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
                 }
             }
         }
         unset($hfiles);
         // Contextual help flag
-        App::backend()->resources->context(false);
+        App::backend()->resources()->context(false);
 
         $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
 
-        App::backend()->favs  = new Favorites();
-        App::backend()->menus = new Menus();
-
-        // deprecated since 2.27, use App::backend()->favs instead
-        dcCore::app()->favs = App::backend()->favs;
-
-        // deprecated since 2.27, use App::backend()->menus instead
-        dcCore::app()->menu = App::backend()->menus;
-
-        // deprecated Since 2.23, use App::backend()->menus instead
-        $GLOBALS['_menu'] = App::backend()->menus;
+        // deprecated since 2.28, need to load dcCore::app()->favs
+        App::backend()->favorites();
 
         // Set default menu
-        App::backend()->menus->setDefaultItems();
+        App::backend()->menus()->setDefaultItems();
 
         if (!$user_ui_nofavmenu) {
-            App::backend()->favs->appendMenuSection(App::backend()->menus);
+            App::backend()->favorites()->appendMenuSection(App::backend()->menus());
         }
 
         // deprecated since 2.28, need to load dcCore::app()->media
@@ -269,10 +254,10 @@ class Utility extends Process
 
         // Load plugins
         App::plugins()->loadModules(App::config()->pluginsRoot(), 'admin', App::lang()->getLang());
-        App::backend()->favs->setup();
+        App::backend()->favorites()->setup();
 
         if (!$user_ui_nofavmenu) {
-            App::backend()->favs->appendMenu(App::backend()->menus);
+            App::backend()->favorites()->appendMenu(App::backend()->menus());
         }
 
         if (empty(App::blog()->settings()->system->jquery_migrate_mute)) {
@@ -286,7 +271,7 @@ class Utility extends Process
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
 
-            // deprecated Since 2.28, use App::themes()->menus instead
+            // deprecated Since 2.28, use App::themes() instead
             dcCore::app()->themes = App::themes();
         }
 
@@ -294,6 +279,74 @@ class Utility extends Process
         App::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
 
         return true;
+    }
+
+    /**
+     * Get backend Url instance.
+     *
+     * @return  Url     The backend URL handler
+     */
+    public function url(): Url
+    {
+        if (!isset($this->url)) {
+            $this->url = new Url();
+
+            // deprecated since 2.27, use App::backend()->url() instead
+            dcCore::app()->adminurl = $this->url;
+        }
+
+        return $this->url;
+    }
+
+    /**
+     * Get backend favorites instance.
+     *
+     * @return  Favorites   The favorites
+     */
+    public function favorites(): Favorites
+    {
+        if (!isset($this->favorites)) {
+            $this->favorites  = new Favorites();
+
+            // deprecated since 2.27, use App::backend()->favorites() instead
+            dcCore::app()->favs = $this->favorites;
+        }
+
+        return $this->favorites;
+    }
+
+    /**
+     * Get backend menus instance.
+     *
+     * @return  Menus   The menu
+     */
+    public function menus(): Menus
+    {
+        if (!isset($this->menus)) {
+            $this->menus  = new Menus();
+
+            // deprecated since 2.27, use App::backend()->menus() instead
+            dcCore::app()->menu = $this->menus;
+
+            // deprecated Since 2.23, use App::backend()->menus() instead
+            $GLOBALS['_menu'] = $this->menus;
+        }
+
+        return $this->menus;
+    }
+
+    /**
+     * Get backend resources instance.
+     *
+     * @return  Resources   The menu
+     */
+    public function resources(): Resources
+    {
+        if (!isset($this->resources)) {
+            $this->resources  = new Resources();
+        }
+
+        return $this->resources;
     }
 
     /**

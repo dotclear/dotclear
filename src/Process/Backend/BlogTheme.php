@@ -60,7 +60,7 @@ class BlogTheme extends Process
                 ['divtag' => true, 'with_ts' => false]
             );
 
-            App::backend()->url->redirect('admin.blog.theme');
+            App::backend()->url()->redirect('admin.blog.theme');
             exit;
         }
 
@@ -148,7 +148,7 @@ class BlogTheme extends Process
             __('Themes management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', App::backend()->url->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
+                Page::jsJson('module_update_url', App::backend()->url()->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
             ) .
             Page::jsModal() .
             Page::jsLoad('js/_blog_theme.js') .

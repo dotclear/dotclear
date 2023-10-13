@@ -510,8 +510,8 @@ class Modules implements ModulesInterface
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
         if ($ns === 'admin') {
-            $base   = App::backend()->url->getBase('admin.plugin');
-            $params = App::backend()->url->getParams('admin.plugin');
+            $base   = App::backend()->url()->getBase('admin.plugin');
+            $params = App::backend()->url()->getParams('admin.plugin');
         }
 
         foreach ($this->defines as $module) {
@@ -526,7 +526,7 @@ class Modules implements ModulesInterface
                     $this->loadModuleL10Nresources($module->getId(), $lang);
                 }
                 // Create module admin URL
-                App::backend()->url->register(
+                App::backend()->url()->register(
                     'admin.plugin.' . $module->getId(),
                     $base,                                  // @phpstan-ignore-line
                     [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line

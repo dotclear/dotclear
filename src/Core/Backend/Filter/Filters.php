@@ -318,12 +318,12 @@ class Filters
         }
 
         $hiddens = '';
-        foreach (App::backend()->url->getParams($adminurl) as $key => $value) {
+        foreach (App::backend()->url()->getParams($adminurl) as $key => $value) {
             $hiddens .= form::hidden($key, $value);
         }
 
         echo
-        '<form action="' . App::backend()->url->get($adminurl) . $tab . '" method="get" id="filters-form">' .
+        '<form action="' . App::backend()->url()->get($adminurl) . $tab . '" method="get" id="filters-form">' .
         '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
         '<div class="table">';

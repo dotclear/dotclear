@@ -45,7 +45,7 @@ class Blogs extends Process
         -------------------------------------------------------- */
         App::backend()->blogs_actions_page = null;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->blogs_actions_page = new ActionsBlogs(App::backend()->url->get('admin.blogs'));
+            App::backend()->blogs_actions_page = new ActionsBlogs(App::backend()->url()->get('admin.blogs'));
             if (App::backend()->blogs_actions_page->process()) {
                 return false;
             }
@@ -94,7 +94,7 @@ class Blogs extends Process
 
         Page::open(
             __('List of blogs'),
-            Page::jsLoad('js/_blogs.js') . App::backend()->blog_filter->js(App::backend()->url->get('admin.blogs')),
+            Page::jsLoad('js/_blogs.js') . App::backend()->blog_filter->js(App::backend()->url()->get('admin.blogs')),
             Page::breadcrumb(
                 [
                     __('System')        => '',
@@ -111,7 +111,7 @@ class Blogs extends Process
                     ->items([
                         (new Link())
                             ->class(['button', 'add'])
-                            ->href(App::backend()->url->get('admin.blog'))
+                            ->href(App::backend()->url()->get('admin.blog'))
                             ->text(__('Create a new blog')),
                     ])
                     ->render();
@@ -123,7 +123,7 @@ class Blogs extends Process
             $form = null;
             if (App::auth()->isSuperAdmin()) {
                 $form = (new Form('form-blogs'))
-                        ->action(App::backend()->url->get('admin.blogs'))
+                        ->action(App::backend()->url()->get('admin.blogs'))
                         ->method('post')
                         ->fields([
                             // sprintf pattern for blog list
@@ -162,7 +162,7 @@ class Blogs extends Process
                                         ->class('classic')
                                     ),
                             ]),
-                            ...App::backend()->url->hiddenFormFields('admin.blogs', App::backend()->blog_filter->values(true)),
+                            ...App::backend()->url()->hiddenFormFields('admin.blogs', App::backend()->blog_filter->values(true)),
                         ]);
             }
 

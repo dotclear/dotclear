@@ -162,7 +162,7 @@ class ManageEdit extends Process
                 '</form>';
             } else {
                 echo
-                '<form action="' . App::backend()->url->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
+                '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
 
                 '<div class="col30 first-col">' .
                 '<h3>' . __('Edit link') . '</h3>' .
