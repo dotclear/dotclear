@@ -286,7 +286,7 @@ final class dcCore
     /**
      * Array of resources
      *
-     * @deprecated since 2.28, use App::backend()->resources instance
+     * @deprecated since 2.28, use App::backend()->resources() instance
      *
      * @var array<string, mixed>
      */
@@ -373,7 +373,7 @@ final class dcCore
         $this->notices = App::notice();
 
         if (App::task()->checkContext('BACKEND')) {
-            // deprecated since 2.23, use App::backend()->resources instance instead
+            // deprecated since 2.23, use App::backend()->resources() instance instead
             $GLOBALS['__resources'] = &$this->resources;
         }
     }

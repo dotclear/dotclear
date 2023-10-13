@@ -321,7 +321,7 @@ class Page
      */
     public static function close(): void
     {
-        if (!App::backend()->resources->context()) {
+        if (!App::backend()->resources()->context()) {
             if (!App::auth()->prefs()->interface->hidehelpbutton) {
                 echo
                 '<p id="help-button"><a href="' . App::backend()->url()->get('admin.help') . '" class="outgoing" title="' .
@@ -805,7 +805,7 @@ class Page
             return;
         }
 
-        if (empty(App::backend()->resources->entries('help'))) {
+        if (empty(App::backend()->resources()->entries('help'))) {
             return;
         }
 
@@ -817,7 +817,7 @@ class Page
                 continue;
             }
 
-            $file = App::backend()->resources->entry('help', $arg);
+            $file = App::backend()->resources()->entry('help', $arg);
             if (empty($file) || !file_exists($file) || !is_readable($file)) {
                 continue;
             }
@@ -835,7 +835,7 @@ class Page
         }
 
         // Set contextual help global flag
-        App::backend()->resources->context(true);
+        App::backend()->resources()->context(true);
 
         echo
         '<div id="help"><hr /><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .

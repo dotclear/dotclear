@@ -68,7 +68,7 @@ class Utility extends Process
      *
      * @var     Resources   $resources
      */
-    public Resources $resources;
+    private Resources $resources;
 
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
@@ -220,9 +220,6 @@ class Utility extends Process
             return true;
         }
 
-        // Load resources and help files
-        App::backend()->resources = new Resources();
-
         require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
         if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
             require $f;
@@ -232,13 +229,13 @@ class Utility extends Process
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
                 if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                    App::backend()->resources->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
+                    App::backend()->resources()->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
                 }
             }
         }
         unset($hfiles);
         // Contextual help flag
-        App::backend()->resources->context(false);
+        App::backend()->resources()->context(false);
 
         $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
 
@@ -336,6 +333,20 @@ class Utility extends Process
         }
 
         return $this->menus;
+    }
+
+    /**
+     * Get backend resources instance.
+     *
+     * @return  Resources   The menu
+     */
+    public function resources(): Resources
+    {
+        if (!isset($this->resources)) {
+            $this->resources  = new Resources();
+        }
+
+        return $this->resources;
     }
 
     /**

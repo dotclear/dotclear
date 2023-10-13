@@ -110,7 +110,7 @@ class Rest extends Process
 
         if (App::auth()->prefs()->dashboard->dcnews) {
             try {
-                if ('' == ($rss_news = App::backend()->resources->entry('rss_news', 'Dotclear'))) {
+                if ('' == ($rss_news = App::backend()->resources()->entry('rss_news', 'Dotclear'))) {
                     throw new Exception();
                 }
                 $feed_reader = new Reader();
