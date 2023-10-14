@@ -201,9 +201,10 @@ class Manage extends Process
         } elseif (!empty($_POST['wreset'])) {
             # Reset widgets list
             try {
-                My::settings()->put('widgets_nav', '');
-                My::settings()->put('widgets_extra', '');
-                My::settings()->put('widgets_custom', '');
+                My::settings()->drop('widgets_nav');
+                My::settings()->drop('widgets_extra');
+                My::settings()->drop('widgets_custom');
+
                 App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars have been resetting.'));
