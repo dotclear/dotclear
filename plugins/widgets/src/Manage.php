@@ -41,15 +41,15 @@ class Manage extends Process
 
         // Loading navigation, extra widgets and custom widgets
         App::backend()->widgets_nav = null;
-        if (My::settings()->widgets_nav) {
+        if (is_array(My::settings()->widgets_nav)) {
             App::backend()->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
         App::backend()->widgets_extra = null;
-        if (My::settings()->widgets_extra) {
+        if (is_array(My::settings()->widgets_extra)) {
             App::backend()->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
         App::backend()->widgets_custom = null;
-        if (My::settings()->widgets_custom) {
+        if (is_array(My::settings()->widgets_custom)) {
             App::backend()->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 
@@ -190,6 +190,7 @@ class Manage extends Process
                 My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
                 My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
                 My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
+
                 App::blog()->triggerBlog();
 
                 Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
@@ -329,11 +330,11 @@ class Manage extends Process
                 '<dd>';
 
             $w_settings = $w->settings();
-            if (empty($w_settings)) {
+            if (!count($w_settings)) {
                 $widget_elements->content .= '<p>' . __('No setting for this widget') . '</p>';
             } else {
                 $widget_elements->content .= '<ul>';
-                foreach ($w->settings() as $n => $s) {
+                foreach ($w_settings as $n => $s) {
                     switch ($s['type']) {
                         case 'check':
                             $s_type = __('boolean') . ', ' . __('possible values:') . ' <code>0</code> ' . __('or') . ' <code>1</code>';
