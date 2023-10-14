@@ -38,9 +38,9 @@ class FrontendTemplate
         $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type === '') {
-            $res = self::class . "::widgetsHandler(Widgets::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
-            '   ' . self::class . "::widgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
-            '   ' . self::class . "::widgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
+            $res = self::class . '::widgetsHandler(' . Widgets::class . "::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
+            '   ' . self::class . '::widgetsHandler(' . Widgets::class . "::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
+            '   ' . self::class . '::widgetsHandler(' . Widgets::class . "::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
         } else {
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
@@ -103,9 +103,9 @@ class FrontendTemplate
         $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type == '') {
-            $res = self::class . "::ifWidgetsHandler(Widgets::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
-            '   ' . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
-            '   ' . self::class . "::ifWidgetsHandler(Widgets::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
+            $res = self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
+            '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
+            '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
         } else {
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;

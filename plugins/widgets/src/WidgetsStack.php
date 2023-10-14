@@ -167,6 +167,9 @@ class WidgetsStack
 
         $result = new self();
         foreach ($A as $v) {
+            if (empty($v)) {
+                continue;
+            }
             if ($widgets->{$v['id']} != null) {
                 $w = clone $widgets->{$v['id']};
 
