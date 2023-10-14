@@ -179,7 +179,8 @@ $.fn.toggleWithDetails = function (s) {
     }
   };
   return this.each(() => {
-    $(target).on('click', (e) => {
+    $('summary', target).on('click', (e) => {
+      // Catch click only on summary child of details HTML element
       if (p.user_pref) {
         dotclear.jsonServicesPost('setSectionFold', () => {}, {
           section: p.user_pref,
