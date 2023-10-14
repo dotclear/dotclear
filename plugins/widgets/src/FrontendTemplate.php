@@ -56,7 +56,7 @@ class FrontendTemplate
         $wtype   = 'widgets_' . $type;
         $widgets = My::settings()->get($wtype);
 
-        if (!$widgets) {
+        if (!is_array($widgets)) {
             // If widgets value is empty, get defaults
             $widgets = self::Widgets($type);
         } else {
@@ -128,7 +128,7 @@ class FrontendTemplate
         $wtype   = 'widgets_' . $type;
         $widgets = My::settings()->get($wtype);
 
-        if (!$widgets) {
+        if (!is_array($widgets)) {
             // If widgets value is empty, get defaults
             $widgets = self::Widgets($type);
         } else {
