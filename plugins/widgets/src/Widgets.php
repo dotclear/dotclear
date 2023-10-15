@@ -63,8 +63,6 @@ class Widgets
      */
     public static function init(): void
     {
-        global $__widgets;
-
         // Available widgets
         self::$widgets = new WidgetsStack();
 
@@ -72,7 +70,7 @@ class Widgets
         dcCore::app()->widgets = self::$widgets;    // @phpstan-ignore-line
 
         // deprecated since 2.23, use Widgets::$widgets instead
-        $__widgets = self::$widgets;
+        $GLOBALS['__widgets'] = self::$widgets;
 
         self::$widgets
             ->create('search', __('Search engine'), Widgets::search(...), null, 'Search engine form')

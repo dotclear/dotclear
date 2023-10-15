@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 
@@ -45,7 +44,7 @@ class Backend extends Process
             'Pages'
         ));
 
-        My::addBackendMenuItem(Menus::MENU_BLOG);
+        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);
 
         App::behavior()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols) {

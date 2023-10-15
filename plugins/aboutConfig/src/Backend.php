@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\aboutConfig;
 
-use Dotclear\Core\Backend\Menus;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
 /**
@@ -29,7 +29,7 @@ class Backend extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            My::addBackendMenuItem(Menus::MENU_SYSTEM);
+            My::addBackendMenuItem(App::backend()->menus()::MENU_SYSTEM);
         }
 
         return self::status();
