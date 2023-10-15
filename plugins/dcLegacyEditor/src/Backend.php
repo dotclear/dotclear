@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use Dotclear\Core\Backend\Menus;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
@@ -33,7 +32,7 @@ class Backend extends Process
             return false;
         }
 
-        My::addBackendMenuItem(Menus::MENU_PLUGINS, [], '');
+        My::addBackendMenuItem(App::backend()->menus()::MENU_PLUGINS, [], '');
 
         if (My::settings()->active) {
             if (!App::filter()->wiki()) {
