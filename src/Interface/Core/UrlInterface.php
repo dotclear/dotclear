@@ -69,6 +69,13 @@ interface UrlInterface
     public function registerError($handler): void;
 
     /**
+     * Unregister an URL handler
+     *
+     * @param      string  $type   The type
+     */
+    public function unregister(string $type): void;
+
+    /**
      * Gets the registered URL handlers.
      *
      * @return     array<string, array<string, mixed>>  The types.
@@ -118,6 +125,34 @@ interface UrlInterface
      * Gets the appropriate page based on requested URI.
      */
     public function getDocument(): void;
+
+    /**
+     * Gets the arguments from an URI
+     *
+     * @param      string  $part   The part
+     * @param      mixed   $type   The type
+     * @param      mixed   $args   The arguments
+     */
+    public function getArgs(string $part, &$type, &$args): void;
+
+    /**
+     * Call an registered URL handler callback
+     *
+     * @param      string     $type   The type
+     * @param      string     $args   The arguments
+     *
+     * @throws     Exception
+     */
+    public function callHandler(string $type, ?string $args = null): void;
+
+    /**
+     * Call the default handler callback
+     *
+     * @param      string  $args   The arguments
+     *
+     * @throws     Exception
+     */
+    public function callDefaultHandler(?string $args = null): void;
 
     /**
      * Output 404 (not found) page
