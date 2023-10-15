@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
@@ -29,7 +30,7 @@ class Prepend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+        App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
             $stack->append(Filters\Ip::class);
             $stack->append(Filters\IpLookup::class);
             $stack->append(Filters\Words::class);
@@ -38,7 +39,7 @@ class Prepend extends Process
 
         // IP v6 filter depends on some math libraries, so enable it only if one of them is available
         if (function_exists('gmp_init') || function_exists('bcadd')) {
-            App::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
                 $stack->append(Filters\IpV6::class);
             });
         }

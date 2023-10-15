@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Process;
 
@@ -32,7 +33,7 @@ class Prepend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('AntispamInitFilters', function ($stack) {
+        App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
             $stack->append(AntispamFilterAkismet::class);
         });
 
