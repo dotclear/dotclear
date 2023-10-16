@@ -156,8 +156,8 @@ class Url extends UrlHandler implements UrlInterface
         App::behavior()->callBehavior('urlHandlerBeforeGetData', App::frontend()->context());
 
         if (App::frontend()->context()->http_cache) {
-            App::frontend()->cache()->addFile($tpl_file);
-            Http::cache(App::frontend()->cache()->getFiles(), App::frontend()->cache()->getTimes());
+            App::cache()->addFile($tpl_file);
+            Http::cache(App::cache()->getFiles(), App::cache()->getTimes());
         }
 
         header('Content-Type: ' . App::frontend()->context()->content_type . '; charset=UTF-8');
@@ -706,8 +706,8 @@ class Url extends UrlHandler implements UrlInterface
                 // --BEHAVIOR-- publicPrepend --
                 App::behavior()->callBehavior('publicPrependV2');
                 // Prepare the HTTP cache thing
-                App::frontend()->cache()->resetFiles();
-                App::frontend()->cache()->addFiles(get_included_files());
+                App::cache()->resetFiles();
+                App::cache()->addFiles(get_included_files());
                 $tpl_path = [
                     App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
                 ];
@@ -733,7 +733,7 @@ class Url extends UrlHandler implements UrlInterface
                 // Don't use template cache
                 App::frontend()->template()->use_cache = false;
                 // Reset HTTP cache
-                App::frontend()->cache()->resetTimes();
+                App::cache()->resetTimes();
                 if (App::config()->adminUrl() != '') {
                     App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }

@@ -11,6 +11,7 @@ namespace Dotclear\Core;
 
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Template\Template;
+use Dotclear\Helper\Network\HttpCacheStack;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Module\StoreReader;
@@ -20,7 +21,7 @@ use Dotclear\Module\StoreReader;
  *
  * @since   2.28, cache features have been grouped in this class
  */
-class Cache implements CacheInterface
+class Cache extends HttpCacheStack implements CacheInterface
 {
     /**
      * The full cache directory path.

@@ -21,7 +21,6 @@ use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Network\HttpCacheStack;
 use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\BlogException;
 use Dotclear\Exception\ContextException;
@@ -39,13 +38,6 @@ class Utility extends Process
 
     /** @var    string  The default templates folder name */
     public const TPL_ROOT = 'default-templates';
-
-    /**
-     * HTTP Cache stack
-     *
-     * @var HttpCacheStack;
-     */
-    private HttpCacheStack $cache;
 
     /**
      * Context
@@ -261,14 +253,14 @@ class Utility extends Process
         App::behavior()->callBehavior('publicPrependV2');
 
         # Prepare the HTTP cache thing
-        App::frontend()->cache()->addFiles(get_included_files());
-        App::frontend()->cache()->addTime(App::blog()->upddt());
+        App::cache()->addFiles(get_included_files());
+        App::cache()->addTime(App::blog()->upddt());
 
-        // deprecated Since 2.23, use App::frontend()->cache()->addFiles() or App::frontend()->cache()->getFiles() instead
-        $GLOBALS['mod_files'] = App::frontend()->cache()->getFiles();
+        // deprecated Since 2.23, use App::cache()->addFiles() or App::cache()->getFiles() instead
+        $GLOBALS['mod_files'] = App::cache()->getFiles();
 
-        // deprecated Since 2.23, use App::frontend()->cache()->addTimes() or App::frontend()->cache()->getTimes) instead
-        $GLOBALS['mod_ts'] = App::frontend()->cache()->getTimes();
+        // deprecated Since 2.23, use App::cache()->addTimes() or App::cache()->getTimes) instead
+        $GLOBALS['mod_ts'] = App::cache()->getTimes();
 
         $tpl_path = [
             App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
@@ -348,20 +340,6 @@ class Utility extends Process
         }
 
         return $this->tpl;
-    }
-
-    /**
-     * HTTP Cache stack.
-     *
-     * @return      HttpCacheStack
-     */
-    public function cache(): HttpCacheStack
-    {
-        if (!isset($this->cache)) {
-            $this->cache = new HttpCacheStack();
-        }
-
-        return $this->cache;
     }
 
     /**
