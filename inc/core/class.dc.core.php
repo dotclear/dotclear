@@ -203,7 +203,7 @@ final class dcCore
     /**
      * Error instance
      *
-     * @deprecated since 2.28, use App::session() instead
+     * @deprecated since 2.28, use App::error() instead
      *
      * @var ErrorInterface
      */
