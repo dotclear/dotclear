@@ -41,7 +41,7 @@ class FrontendUrl extends Url
             self::p404();
         }
 
-        Http::cache(App::frontend()->cache()->getFiles(), App::frontend()->cache()->getTimes());
+        Http::cache(App::cache()->getFiles(), App::cache()->getTimes());
 
         header('Content-Type: text/xml; charset=UTF-8');
 

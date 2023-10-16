@@ -324,7 +324,7 @@ final class dcCore
     /**
      * HTTP Cache stack
      *
-     * @deprecated since 2.28, permanently moved to App::frontend()->cache()
+     * @deprecated since 2.28, permanently moved to App::cache()
      *
      * @var array<string, mixed>
      */
