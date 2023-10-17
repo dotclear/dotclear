@@ -272,7 +272,7 @@ class FlatImportV2 extends FlatBackup
                 } catch (UnhandledMatchError) {
                 }
 
-                # --BEHAVIOR-- importSingle -- string, FlatBackup
+                # --BEHAVIOR-- importSingle -- FlatBackupItem, FlatImportV2
                 App::behavior()->callBehavior('importSingleV2', $line, $this);
             }
 
@@ -334,7 +334,7 @@ class FlatImportV2 extends FlatBackup
                     };
                 } catch (UnhandledMatchError) {
                 }
-                # --BEHAVIOR-- importFull -- line, FlatBackup
+                # --BEHAVIOR-- importFull -- FlatBackupItem, FlatImportV2
                 App::behavior()->callBehavior('importFullV2', $line, $this);
             }
         } catch (Exception $e) {
