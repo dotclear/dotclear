@@ -132,6 +132,20 @@ class Session implements SessionInterface
         }
     }
 
+    public function createFromCookieName(string $cookie_name): SessionInterface
+    {
+        return new self(
+            $this->con,
+            $this->table,
+            $cookie_name,
+            $this->cookie_path,
+            $this->cookie_domain,
+            $this->cookie_secure,
+            $this->ttl,
+            $this->transient
+        );
+    }
+
     /**
      * Session Start
      */

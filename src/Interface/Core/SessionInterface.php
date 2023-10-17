@@ -43,11 +43,22 @@ interface SessionInterface
     public function destroy(): void;
 
     /**
+     * Create a new session instance with a given cookie name.
+     *
+     * This does not overwrite current session instance.
+     *
+     * @param   string  $cookie_name    The cookie name
+     *
+     * @return  SessionInterface
+     */
+    public function createFromCookieName(string $cookie_name): SessionInterface;
+
+    /**
      * Session Transient
      *
      * This method set the transient flag of the session
      *
-     * @param bool     $transient     Session transient flag
+     * @param   bool    $transient  Session transient flag
      */
     public function setTransientSession(bool $transient = false): void;
 
@@ -63,8 +74,8 @@ interface SessionInterface
      * * (string) cookie domain,
      * * (bool) cookie secure,
      *
-     * @param mixed         $value        Cookie value
-     * @param int           $expire       Cookie expiration timestamp
+     * @param   mixed   $value      Cookie value
+     * @param   int     $expire     Cookie expiration timestamp
      *
      * @return  array<int,int|string|bool>
      */
@@ -73,52 +84,52 @@ interface SessionInterface
     /**
      * Session handler callback called on session open
      *
-     * @param      string  $path   The save path
-     * @param      string  $name   The session name
+     * @param   string  $path   The save path
+     * @param   string  $name   The session name
      *
-     * @return     bool
+     * @return  bool
      */
     public function _open(string $path, string $name): bool;
 
     /**
      * Session handler callback called on session close
      *
-     * @return     bool  ( description_of_the_return_value )
+     * @return  bool
      */
     public function _close(): bool;
 
     /**
      * Session handler callback called on session read
      *
-     * @param      string  $ses_id  The session identifier
+     * @param   string  $ses_id     The session identifier
      *
-     * @return     string
+     * @return  string
      */
     public function _read(string $ses_id): string;
 
     /**
      * Session handler callback called on session write
      *
-     * @param      string  $ses_id  The session identifier
-     * @param      string  $data    The data
+     * @param   string  $ses_id     The session identifier
+     * @param   string  $data       The data
      *
-     * @return     bool
+     * @return  bool
      */
     public function _write(string $ses_id, string $data): bool;
 
     /**
      * Session handler callback called on session destroy
      *
-     * @param      string  $ses_id  The session identifier
+     * @param   string  $ses_id     The session identifier
      *
-     * @return     bool
+     * @return  bool
      */
     public function _destroy(string $ses_id): bool;
 
     /**
      * Session handler callback called on session garbage collect
      *
-     * @return     bool
+     * @return  bool
      */
     public function _gc(): bool;
 }
