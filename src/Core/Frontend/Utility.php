@@ -206,8 +206,10 @@ class Utility extends Process
         # Loading plugins
         try {
             App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang()->getLang());
-        } catch (Throwable) {
-            // Ignore
+        } catch (Throwable $e) {
+            if (App::config()->debugMode() || App::config()->devMode()){
+                throw $e;
+            }
         }
 
         // deprecated since 2.28, use App::themes() instead
