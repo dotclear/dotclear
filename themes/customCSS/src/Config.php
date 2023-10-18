@@ -26,7 +26,26 @@ class Config extends Process
     {
         // limit to backend permissions
         if (My::checkContext(My::CONFIG)) {
-            App::backend()->css_file = Path::real(App::blog()->publicPath()) . '/custom_style.css';
+            $id = My::id();
+
+            App::backend()->css_file = Path::real(App::blog()->publicPath()) . DIRECTORY_SEPARATOR . $id . '.css';
+            // Cope with old way of customize this theme
+            if ($id === 'customCSS' && !is_file(App::backend()->css_file)) {
+                $old_file = Path::real(App::blog()->publicPath()) . '/custom_style.css';
+                if (is_file($old_file) && is_writeable(dirname(App::backend()->css_file))) {
+                    // Try to copy old file to new one
+                    $content = file_get_contents($old_file);
+                    if ($content !== false) {
+                        try {
+                            if ($fp = fopen(App::backend()->css_file, 'wb')) {
+                                fwrite($fp, $content);
+                                fclose($fp);
+                            }
+                        } catch (Exception) {
+                        }
+                    }
+                }
+            }
 
             if (!is_file(App::backend()->css_file) && !is_writable(dirname(App::backend()->css_file))) {
                 throw new Exception(
