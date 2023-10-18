@@ -95,7 +95,7 @@ final class dcCore
     /**
      * Blog instance
      *
-     * @deprecated since 2.28, use App::blogLodaer()->getBlog() instead
+     * @deprecated since 2.28, use App::blog() instead
      *
      * @var BlogInterface|null
      */
