@@ -152,7 +152,7 @@ class Url extends UrlHandler implements UrlInterface
         App::frontend()->context()->http_cache   = $http_cache;
         App::frontend()->context()->http_etag    = $http_etag;
 
-        # --BEHAVIOR-- urlHandlerBeforeGetData -- context
+        # --BEHAVIOR-- urlHandlerBeforeGetData -- Ctx
         App::behavior()->callBehavior('urlHandlerBeforeGetData', App::frontend()->context());
 
         if (App::frontend()->context()->http_cache) {
@@ -276,7 +276,7 @@ class Url extends UrlHandler implements UrlInterface
         header('Content-Type: text/html; charset=UTF-8');
         Http::head(404, 'Not Found');
 
-        App::url()->type                   = '404';
+        App::url()->type                         = '404';
         App::frontend()->context()->current_tpl  = '404.html';
         App::frontend()->context()->content_type = 'text/html';
 
