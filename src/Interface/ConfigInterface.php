@@ -610,14 +610,14 @@ interface ConfigInterface
     public function httpReverseProxy(): bool;
 
     /**
-     * Check add blocker use.
+     * Check ads blocker use.
      *
      * From config file.
      * Returns true if not set.
      *
      * @return  bool    True for check
      */
-    public function checkAddBlocker(): bool;
+    public function checkAdsBlocker(): bool;
 
     /**
      * CSP report file.

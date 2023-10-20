@@ -128,7 +128,7 @@ class Config implements ConfigInterface
     private readonly bool $show_hidden_dirs;
     private readonly bool $http_scheme_443;
     private readonly bool $http_revers_proxy;
-    private readonly bool $check_add_blocker;
+    private readonly bool $check_ads_blocker;
     private readonly string $csp_report_file;
     private readonly bool $has_config;
 
@@ -433,7 +433,7 @@ class Config implements ConfigInterface
         $this->start_time          = DC_START_TIME;
         $this->http_scheme_443     = DC_FORCE_SCHEME_443;
         $this->http_revers_proxy   = DC_REVERSE_PROXY;
-        $this->check_add_blocker   = DC_ADBLOCKER_CHECK;
+        $this->check_ads_blocker   = DC_ADBLOCKER_CHECK;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
@@ -790,9 +790,9 @@ class Config implements ConfigInterface
         return $this->http_revers_proxy;
     }
 
-    public function checkAddBlocker(): bool
+    public function checkAdsBlocker(): bool
     {
-        return $this->check_add_blocker;
+        return $this->check_ads_blocker;
     }
 
     public function cspReportFile(): string

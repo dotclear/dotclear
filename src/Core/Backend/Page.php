@@ -1080,7 +1080,7 @@ class Page
      */
     public static function jsAdsBlockCheck(): string
     {
-        $adblockcheck = App::config()->checkAddBlocker();
+        $adblockcheck = App::config()->checkAdsBlocker();
         if ($adblockcheck) {
             // May not be set (auth page for example)
             if (!App::auth()->userID()) {
