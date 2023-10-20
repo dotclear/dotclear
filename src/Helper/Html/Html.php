@@ -206,7 +206,7 @@ class Html
      */
     public static function jsJson(string $id, $vars): string
     {
-        // Use echo Html::jsLoad(App::blog()->getPF('util.js'));
+        // Use echo App::plugins()->jsLoad(App::blog()->getPF('util.js'));
         // to call the JS dotclear.getData() decoder in public mode
         return '<script type="application/json" id="' . self::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
