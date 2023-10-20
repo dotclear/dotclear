@@ -154,9 +154,7 @@ class UpdateStatement extends SqlStatement
     public function whereStatement(): string
     {
         # --BEHAVIOR-- coreBeforeUpdateWhereStatement -- SqlStatement
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreBeforeUpdateWhereStatement', $this);
-        }
+        App::behavior()->callBehavior('coreBeforeUpdateWhereStatement', $this);
 
         $query = '';
 
@@ -182,9 +180,7 @@ class UpdateStatement extends SqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertUpdateWhereStatement -- SqlStatement, string
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
-        }
+        App::behavior()->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
 
         return $query;
     }
@@ -197,9 +193,7 @@ class UpdateStatement extends SqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeUpdateStatement -- SqlStatement
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreBeforeUpdateStatement', $this);
-        }
+        App::behavior()->callBehavior('coreBeforeUpdateStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -238,9 +232,7 @@ class UpdateStatement extends SqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertUpdateStatement -- SqlStatement, string
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreAfterUpdateStatement', $this, $query);
-        }
+        App::behavior()->callBehavior('coreAfterUpdateStatement', $this, $query);
 
         return $query;
     }

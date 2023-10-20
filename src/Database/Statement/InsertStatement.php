@@ -124,9 +124,7 @@ class InsertStatement extends SqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeInsertStatement -- SqlStatement
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreBeforeInsertStatement', $this);
-        }
+        App::behavior()->callBehavior('coreBeforeInsertStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -163,9 +161,7 @@ class InsertStatement extends SqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertInsertStatement -- SqlStatement, string
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreAfterInsertStatement', $this, $query);
-        }
+        App::behavior()->callBehavior('coreAfterInsertStatement', $this, $query);
 
         return $query;
     }

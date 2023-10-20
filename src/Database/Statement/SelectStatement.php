@@ -259,9 +259,7 @@ class SelectStatement extends SqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeSelectStatement -- SqlStatement
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreBeforeSelectStatement', $this);
-        }
+        App::behavior()->callBehavior('coreBeforeSelectStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -344,9 +342,7 @@ class SelectStatement extends SqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertSelectStatement -- SqlStatement, string
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreAfterSelectStatement', $this, $query);
-        }
+        App::behavior()->callBehavior('coreAfterSelectStatement', $this, $query);
 
         return $query;
     }

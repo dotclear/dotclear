@@ -86,9 +86,7 @@ class JoinStatement extends SqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeJoinStatement -- SqlStatement
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreBeforeJoinStatement', $this);
-        }
+        App::behavior()->callBehavior('coreBeforeJoinStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -126,9 +124,7 @@ class JoinStatement extends SqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertJoinStatement -- SqlStatement, string
-        if (class_exists('dcCore')) {
-            App::behavior()->callBehavior('coreAfterJoinStatement', $this, $query);
-        }
+        App::behavior()->callBehavior('coreAfterJoinStatement', $this, $query);
 
         return $query;
     }
