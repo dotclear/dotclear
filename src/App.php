@@ -102,7 +102,7 @@ namespace Dotclear {
                 throw $e;
             } catch (Throwable $e) {
                 // Throw uncaught exception as application exception. See Dotclear.Fault handler.
-                throw new AppException('Site temporarily unavailable', $e->getCode(), $e);
+                throw new AppException('Site temporarily unavailable', (int) $e->getCode(), $e);
             }
         }
 
@@ -119,7 +119,6 @@ namespace Dotclear {
         public static function bootstrap(string $utility = '', string $process = ''): void
         {
             new self($utility, $process);
-
         }
 
         /**

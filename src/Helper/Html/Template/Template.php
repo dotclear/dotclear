@@ -499,7 +499,7 @@ class Template
      */
     public function getData(string $________): string
     {
-        self::$_k = array_keys($GLOBALS);
+        self::$_k = array_keys($GLOBALS);   // @phpstan-ignore-line
 
         foreach (self::$_k as self::$_n) {
             if (!in_array(self::$_n, self::$superglobals)) {

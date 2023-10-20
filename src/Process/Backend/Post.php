@@ -140,7 +140,7 @@ class Post extends Process
             } else {
                 App::backend()->post_id            = App::backend()->post->post_id;
                 App::backend()->cat_id             = App::backend()->post->cat_id;
-                App::backend()->post_dt            = date('Y-m-d H:i', strtotime(App::backend()->post->post_dt));
+                App::backend()->post_dt            = date('Y-m-d H:i', (int) strtotime(App::backend()->post->post_dt));
                 App::backend()->post_format        = App::backend()->post->post_format;
                 App::backend()->post_password      = App::backend()->post->post_password;
                 App::backend()->post_url           = App::backend()->post->post_url;
@@ -233,7 +233,7 @@ class Post extends Process
 
             if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status == App::blog()::POST_PUBLISHED && App::backend()->can_edit_post) {
                 App::backend()->tb_urls = $_POST['tb_urls'];
-                App::backend()->tb_urls = str_replace("\r", '', App::backend()->tb_urls);
+                App::backend()->tb_urls = (string) str_replace("\r", '', App::backend()->tb_urls);
 
                 $tb_post_title = Html::escapeHTML(trim(Html::clean(App::backend()->post_title)));
                 $tb_post_url   = App::backend()->post->getURL();
@@ -383,7 +383,7 @@ class Post extends Process
 
             $cur->cat_id  = (App::backend()->cat_id ?: null);
             $cur->post_dt = App::backend()->post_dt ?
-                date('Y-m-d H:i:00', strtotime(App::backend()->post_dt)) :
+                date('Y-m-d H:i:00', (int) strtotime(App::backend()->post_dt)) :
                 '';
             $cur->post_format        = App::backend()->post_format;
             $cur->post_password      = App::backend()->post_password;
@@ -1120,7 +1120,7 @@ class Post extends Process
             '</td>' .
             '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
             '<td class="nowrap">' .
-                '<time datetime="' . Date::iso8601(strtotime($rs->comment_dt), App::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601((int) strtotime($rs->comment_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
                 '</time>' .
             '</td>';

@@ -221,8 +221,8 @@ class Schema extends AbstractSchema
 
         $res = [];
         while ($rs->fetch()) {
-            $conkey  = preg_replace('/[^\d]/', '', $rs->conkey);
-            $confkey = preg_replace('/[^\d]/', '', $rs->confkey);
+            $conkey  = (string) preg_replace('/[^\d]/', '', $rs->conkey);
+            $confkey = (string) preg_replace('/[^\d]/', '', $rs->confkey);
 
             $k = [
                 'name'    => $rs->conname,

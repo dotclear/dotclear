@@ -1106,7 +1106,7 @@ class WikiToHtml
                 $tag      = array_search($tree[$i], $this->open_tags);
                 $tag_type = 'open';
 
-                if (($tidy = $this->__makeTag($tree, $tag, $i, $i, $attr, $tag_type)) !== false) {
+                if (($tidy = $this->__makeTag($tree, $tag, (int) $i, $i, $attr, $tag_type)) !== false) {
                     if ($tag != '') {
                         $html .= '<' . $tag . $attr;
                         $html .= ($tag_type == 'open') ? '>' : ' />';
@@ -1304,7 +1304,7 @@ class WikiToHtml
         $this->__specialUrls($url, $content, $lang, $title);
 
         // On vire les &nbsp; dans l'url
-        $url = str_replace('&nbsp;', ' ', $url);
+        $url = (string) str_replace('&nbsp;', ' ', $url);
 
         if (preg_match('/^(.+)[.](gif|jpg|jpeg|png)$/', $url) && !$no_image && $this->getOpt('active_auto_img')) {
             // On ajoute les dimensions de l'image si locale

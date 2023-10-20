@@ -119,7 +119,7 @@ class Akismet extends HttpClient
         $info        = [];
 
         foreach ($_SERVER as $k => $v) {
-            if (str_starts_with($k, 'HTTP_') && !in_array($k, $info_ignore)) {
+            if (str_starts_with((string) $k, 'HTTP_') && !in_array($k, $info_ignore)) {
                 $info[$k] = $v;
             }
         }

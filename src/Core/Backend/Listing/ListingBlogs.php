@@ -143,7 +143,7 @@ class ListingBlogs extends Listing
             App::blogs()->countBlogPosts($this->rs->blog_id) .
             '</td>',
             'upddt' => '<td class="nowrap count">' .
-            '<time datetime="' . Date::iso8601(strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz')) . '">' .
+            '<time datetime="' . Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz')) . '">' .
             Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz'))) .
             '</time>' .
             '</td>',

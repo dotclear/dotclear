@@ -121,7 +121,7 @@ class FilterPosts extends Filters
         ];
         while ($categories->fetch()) {
             $combo[
-                str_repeat('&nbsp;', ($categories->level - 1) * 4) .
+                str_repeat('&nbsp;', (int) (($categories->level - 1) * 4)) .
                 Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')'
             ] = $categories->cat_id;
         }

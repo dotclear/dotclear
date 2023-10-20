@@ -557,7 +557,7 @@ class ModuleImportDc1 extends Module
         $cur->post_upddt  = $rs->post_upddt;
         $cur->post_title  = Html::decodeEntities(Text::cleanStr($rs->post_titre));
 
-        $cur->post_url = date('Y/m/d/', strtotime($cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
+        $cur->post_url = date('Y/m/d/', (int) strtotime($cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
         $cur->post_url = substr($cur->post_url, 0, 255);
 
         $cur->post_format        = $rs->post_content_wiki == '' ? 'xhtml' : 'wiki';
@@ -585,7 +585,7 @@ class ModuleImportDc1 extends Module
             $cur->post_content_xhtml
         ));
 
-        $cur->post_id = (new MetaRecord($this->con->select(
+        $cur->post_id = (int) (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
         )))->f(0) + 1;
 

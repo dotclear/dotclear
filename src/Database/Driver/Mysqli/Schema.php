@@ -271,9 +271,9 @@ class Schema extends AbstractSchema
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 # Columns transformation
-                $st_cols = str_replace('`', '', $match[2][$i]);
+                $st_cols = (string) str_replace('`', '', $match[2][$i]);
                 $t_cols  = explode(',', $st_cols);
-                $sr_cols = str_replace('`', '', $match[4][$i]);
+                $sr_cols = (string) str_replace('`', '', $match[4][$i]);
                 $r_cols  = explode(',', $sr_cols);
 
                 # ON UPDATE|DELETE

@@ -42,7 +42,7 @@ class Combos
         }
         while ($categories->fetch()) {
             $option = new Option(
-                str_repeat('&nbsp;', ($categories->level - 1) * 4) .
+                str_repeat('&nbsp;', (int) (($categories->level - 1) * 4)) .
                 Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')',
                 ($use_url ? $categories->cat_url : (string) $categories->cat_id)
             );

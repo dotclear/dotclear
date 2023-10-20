@@ -75,7 +75,7 @@ class FlatBackup
 
             return $this->getLine();
         } elseif (substr($line, 0, 1) == '"') {
-            $line = preg_replace('/^"|"$/', '', $line);
+            $line = (string) preg_replace('/^"|"$/', '', $line);
             $line = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
             if ($line === false) {
                 return false;

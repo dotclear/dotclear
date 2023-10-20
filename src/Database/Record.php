@@ -339,7 +339,7 @@ class Record implements Iterator, Countable
      */
     public function moveEnd(): bool
     {
-        return (bool) $this->index($this->__info['rows'] - 1);
+        return (bool) $this->index((int) $this->__info['rows'] - 1);
     }
 
     /**

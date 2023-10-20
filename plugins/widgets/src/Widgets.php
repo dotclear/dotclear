@@ -148,7 +148,7 @@ class Widgets
         $rs         = App::blog()->getCategories(['post_type' => 'post']);
         $categories = ['' => '', __('Uncategorized') => 'null'];
         while ($rs->fetch()) {
-            $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
+            $categories[str_repeat('&nbsp;&nbsp;', (int) $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
         $w = self::$widgets->create('lastposts', __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
         $w
@@ -309,9 +309,9 @@ class Widgets
             }
 
             if ($rs->level > $level) {
-                $res .= str_repeat('<ul><li' . $class . '>', $rs->level - $level);
+                $res .= str_repeat('<ul><li' . $class . '>', (int) ($rs->level - $level));
             } elseif ($rs->level < $level) {
-                $res .= str_repeat('</li></ul>', -($rs->level - $level));
+                $res .= str_repeat('</li></ul>', (int) -($rs->level - $level));
             }
 
             if ($rs->level <= $level) {
@@ -326,7 +326,7 @@ class Widgets
         }
 
         if ($ref_level - $level < 0) {
-            $res .= str_repeat('</li></ul>', -($ref_level - $level));
+            $res .= str_repeat('</li></ul>', (int) -($ref_level - $level));
         }
 
         return $widget->renderDiv((bool) $widget->content_only, 'categories ' . $widget->class, '', $res);

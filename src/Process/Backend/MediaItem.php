@@ -910,7 +910,7 @@ class MediaItem extends Process
                     /**
                      * @var        string
                      */
-                    $v = App::con()->escape(preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v));
+                    $v = App::con()->escapeStr((string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v));
                     $params['sql'] .= "OR post_content_xhtml LIKE '%" . $v . "%' ";
                     $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $v . "%' ";
                 }

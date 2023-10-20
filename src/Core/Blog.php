@@ -1467,7 +1467,7 @@ class Blog implements BlogInterface
                 $dt              = $params['previous'];
             }
 
-            $dt = date('YmdHis', strtotime($dt));
+            $dt = date('YmdHis', (int) strtotime($dt));
 
             $sql->and($sql->dateFormat('post_dt', $dt_fc) . $pdir . $sql->quote($dt));
             $sql->limit(1);
@@ -2183,7 +2183,7 @@ class Blog implements BlogInterface
         # If URL is empty, we create a new one
         if ($url == '') {
             # Transform with format
-            $url = str_replace(
+            $url = (string) str_replace(
                 array_keys($url_patterns),
                 array_values($url_patterns),
                 $this->settings->system->post_url_format
@@ -2361,12 +2361,12 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_email'])) {
-            $comment_email = $sql->escape(str_replace('*', '%', $params['comment_email']));
+            $comment_email = $sql->escape((string) str_replace('*', '%', $params['comment_email']));
             $sql->and($sql->like('comment_email', $comment_email));
         }
 
         if (isset($params['comment_site'])) {
-            $comment_site = $sql->escape(str_replace('*', '%', $params['comment_site']));
+            $comment_site = $sql->escape((string) str_replace('*', '%', $params['comment_site']));
             $sql->and($sql->like('comment_site', $comment_site));
         }
 
@@ -2383,7 +2383,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_ip'])) {
-            $comment_ip = $sql->escape(str_replace('*', '%', $params['comment_ip']));
+            $comment_ip = $sql->escape((string) str_replace('*', '%', $params['comment_ip']));
             $sql->and($sql->like('comment_ip', $comment_ip));
         }
 

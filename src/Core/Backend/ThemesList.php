@@ -393,7 +393,7 @@ class ThemesList extends ModulesList
             # Can select only one theme at a time!
             if (is_array($_POST['select'])) {
                 $modules = array_keys($_POST['select']);
-                $define  = $this->modules->getDefine($modules[0]);
+                $define  = $this->modules->getDefine((string) $modules[0]);
 
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such theme.'));

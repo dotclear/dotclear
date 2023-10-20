@@ -343,7 +343,7 @@ namespace Dotclear\Helper {
 
             if ($strings !== false) {
                 foreach ($strings as $vo => $tr) {
-                    $vo = str_replace("'", "\\'", $vo);
+                    $vo = str_replace("'", "\\'", (string) $vo);
                     if (is_array($tr)) {
                         $items = [];
                         foreach ($tr as $t) {
@@ -648,7 +648,7 @@ namespace Dotclear\Helper {
          */
         protected static function cleanPoString($_): string
         {
-            return stripslashes(str_replace(['\n', '\r\n'], "\n", $_));
+            return stripslashes((string) str_replace(['\n', '\r\n'], "\n", $_));
         }
 
         /**

@@ -144,7 +144,7 @@ class UserPref
             return $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
         }
         if ($type !== null) {
-            return new ArrayObject($cols[$type] ?? []);
+            return new ArrayObject($cols[$type] ?? []); // @phpstan-ignore-line
         }
 
         return $cols;

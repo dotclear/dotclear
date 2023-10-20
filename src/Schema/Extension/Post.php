@@ -268,7 +268,7 @@ class Post
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt' || $type === 'creadt') {
-            return Date::iso8601($rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
+            return Date::iso8601((int) $rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
         }
 
         return Date::iso8601($rs->getTS(), $rs->post_tz);
@@ -285,7 +285,7 @@ class Post
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt' || $type === 'creadt') {
-            return Date::rfc822($rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
+            return Date::rfc822((int) $rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
         }
 
         return Date::rfc822($rs->getTS($type), $rs->post_tz);

@@ -215,7 +215,7 @@ class Notices
         $timestamp = '';
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
             $timestamp = '<span class="notice-ts">' .
-                '<time datetime="' . Date::iso8601(strtotime($notice['ts']), App::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601((int) strtotime($notice['ts']), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';

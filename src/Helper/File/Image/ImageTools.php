@@ -401,7 +401,7 @@ class ImageTools
             @imagesavealpha($dest, true);
 
             // Copy and resize (with resampling) from source to destination
-            imagecopyresampled($dest, $this->res, 0, 0, $offset_width, (int) $offset_height, $computed_width, $computed_height, $crop_width, (int) $crop_height);
+            imagecopyresampled($dest, $this->res, 0, 0, (int) $offset_width, (int) $offset_height, $computed_width, $computed_height, (int) $crop_width, (int) $crop_height);
 
             imagedestroy($this->res);
             $this->res = $dest;

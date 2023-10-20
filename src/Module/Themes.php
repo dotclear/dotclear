@@ -66,7 +66,7 @@ class Themes extends Modules implements ThemesInterface
 
         if (is_array($properties)) {
             foreach ($properties as $k => $v) {
-                $define->set($k, $v);
+                $define->set((string) $k, $v);
             }
         }
 

@@ -100,7 +100,7 @@ class Comment
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt') {
-            return Date::iso8601($rs->getTS($type) + Date::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
+            return Date::iso8601((int) $rs->getTS($type) + Date::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
         }
 
         return Date::iso8601($rs->getTS(), (string) $rs->comment_tz);
@@ -117,7 +117,7 @@ class Comment
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
         if ($type === 'upddt') {
-            return Date::rfc822($rs->getTS($type) + Date::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
+            return Date::rfc822((int) $rs->getTS($type) + Date::getTimeOffset((string) $rs->comment_tz), (string) $rs->comment_tz);
         }
 
         return Date::rfc822($rs->getTS(), (string) $rs->comment_tz);

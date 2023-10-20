@@ -225,7 +225,7 @@ class ListingPosts extends Listing
             App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
             Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
             'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601(strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
+                '<time datetime="' . Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
                 Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
                 '</time>' .
                 '</td>',

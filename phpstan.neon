@@ -16,7 +16,7 @@ parameters:
 # Go over level 9 (uncomment one/many of next lines to activate them):
 #  checkUninitializedProperties: true
 #  checkImplicitMixed: true
-#  checkBenevolentUnionTypes: true
+  checkBenevolentUnionTypes: true
 
   editorUrl: 'file://%%file%%'
 

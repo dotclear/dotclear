@@ -190,7 +190,7 @@ class Blogs implements BlogsInterface
         }
 
         if (!empty($params['q'])) {
-            $params['q'] = strtolower(str_replace('*', '%', $params['q']));
+            $params['q'] = strtolower((string) str_replace('*', '%', $params['q']));
             $where .= 'AND (' . // @phpstan-ignore-line
             "LOWER(B.blog_id) LIKE '" . $this->con->escape($params['q']) . "' " .
             "OR LOWER(B.blog_name) LIKE '" . $this->con->escape($params['q']) . "' " .

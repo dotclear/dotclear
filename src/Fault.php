@@ -57,7 +57,7 @@ class Fault
         }
 
         // Render HTTP page
-        self::render($code, $label, $message, $trace);
+        self::render((int) $code, $label, $message, $trace);
     }
 
     /**

@@ -582,7 +582,7 @@ class Modules implements ModulesInterface
 
         if (is_array($properties)) {
             foreach ($properties as $k => $v) {
-                $define->set($k, $v);
+                $define->set((string) $k, $v);
             }
         }
 
@@ -1316,7 +1316,7 @@ class Modules implements ModulesInterface
 
         // Add globals
         if ($globals) {
-            self::$_k = array_keys($GLOBALS);
+            self::$_k = array_keys($GLOBALS);   // @phpstan-ignore-line
 
             foreach (self::$_k as self::$_n) {
                 if (!in_array(self::$_n, self::$superglobals)) {

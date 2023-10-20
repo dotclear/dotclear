@@ -133,7 +133,7 @@ class ManagePage extends Process
                 App::backend()->can_view_page = false;
             } else {
                 App::backend()->post_id            = (int) App::backend()->post->post_id;
-                App::backend()->post_dt            = date('Y-m-d H:i', strtotime(App::backend()->post->post_dt));
+                App::backend()->post_dt            = date('Y-m-d H:i', (int) strtotime(App::backend()->post->post_dt));
                 App::backend()->post_format        = App::backend()->post->post_format;
                 App::backend()->post_password      = App::backend()->post->post_password;
                 App::backend()->post_url           = App::backend()->post->post_url;

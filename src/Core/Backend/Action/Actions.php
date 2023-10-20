@@ -153,7 +153,7 @@ abstract class Actions
         protected array $redir_args = []
     ) {
         $this->actions       = new ArrayObject();
-        $this->from          = new ArrayObject($_POST);
+        $this->from          = new ArrayObject($_POST);     // @phpstan-ignore-line
         $this->field_entries = 'entries';
         $this->cb_title      = __('Title');
         $this->caller_title  = __('Posts');

@@ -307,7 +307,7 @@ class SqlStatement
         }
         if (is_array($c)) {
             $c           = array_map($filter, $c);  // Cope with legacy code
-            $this->where = array_merge($this->where, $c);
+            $this->where = array_merge($this->where, $c);   // @phpstan-ignore-line
         } else {
             if (!is_null($c)) {
                 $c = $filter($c);   // Cope with legacy code

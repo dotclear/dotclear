@@ -271,7 +271,7 @@ class Blogroll
             ->select();
         $max = $run ? $run->f(0) : 0;
 
-        $cur->link_id = $max + 1;
+        $cur->link_id = (int) $max + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();

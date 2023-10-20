@@ -55,7 +55,7 @@ class Plugins extends Modules implements PluginsInterface
 
         if (is_array($properties)) {
             foreach ($properties as $k => $v) {
-                $define->set($k, $v);
+                $define->set((string) $k, $v);
             }
         }
 

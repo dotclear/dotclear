@@ -177,9 +177,9 @@ class Categories extends Process
                 $attr = 'id="cat_' . $rs->cat_id . '" class="cat-line clearfix"';
 
                 if ($rs->level > $level) {
-                    echo str_repeat('<ul><li ' . $attr . '>', $rs->level - $level);
+                    echo str_repeat('<ul><li ' . $attr . '>', (int) ($rs->level - $level));
                 } elseif ($rs->level < $level) {
-                    echo str_repeat('</li></ul>', -($rs->level - $level));
+                    echo str_repeat('</li></ul>', (int) -($rs->level - $level));
                 }
 
                 if ($rs->level <= $level) {
@@ -217,7 +217,7 @@ class Categories extends Process
             }
 
             if ($ref_level - $level < 0) {
-                echo str_repeat('</li></ul>', -($ref_level - $level));
+                echo str_repeat('</li></ul>', (int) -($ref_level - $level));
             }
             echo
             '</div>';

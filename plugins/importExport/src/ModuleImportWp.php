@@ -692,18 +692,18 @@ class ModuleImportWp extends Module
         }
 
         $permalink_infos = [
-            date('Y', strtotime($cur->post_dt)),
-            date('m', strtotime($cur->post_dt)),
-            date('d', strtotime($cur->post_dt)),
-            date('H', strtotime($cur->post_dt)),
-            date('i', strtotime($cur->post_dt)),
-            date('s', strtotime($cur->post_dt)),
+            date('Y', (int) strtotime($cur->post_dt)),
+            date('m', (int) strtotime($cur->post_dt)),
+            date('d', (int) strtotime($cur->post_dt)),
+            date('H', (int) strtotime($cur->post_dt)),
+            date('i', (int) strtotime($cur->post_dt)),
+            date('s', (int) strtotime($cur->post_dt)),
             $rs->post_name,
             $rs->ID,
             $cur->cat_id,
             $cur->user_id,
         ];
-        $cur->post_url = str_replace(
+        $cur->post_url = (string) str_replace(
             $this->vars['permalink_tags'],
             $permalink_infos,
             $rs->post_type == 'post' ? $this->vars['permalink_template'] : '%postname%'
@@ -757,7 +757,7 @@ class ModuleImportWp extends Module
             $cur->post_content_xhtml
         ));
 
-        $cur->post_id = (new MetaRecord($this->con->select(
+        $cur->post_id = (int) (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
         )))->f(0) + 1;
 

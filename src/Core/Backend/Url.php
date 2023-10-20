@@ -210,7 +210,7 @@ class Url
         $str = '';
         foreach ($qs as $field => $value) {
             if (strval($value) !== false) {
-                $str .= (new Hidden([$field], (string) $value))->render();
+                $str .= (new Hidden([$field], (string) $value))->render();  // @phpstan-ignore-line - [$field] shape?!?
             }
         }
 
@@ -241,7 +241,7 @@ class Url
         $stack = [];
         foreach ($qs as $field => $value) {
             if (strval($value) !== false) {
-                $stack[] = new Hidden([$field], (string) $value);
+                $stack[] = new Hidden([$field], (string) $value);   // @phpstan-ignore-line - [$field] shape?!?
             }
         }
 

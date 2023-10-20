@@ -324,7 +324,7 @@ class Antispam
             if (!$init) {
                 My::settings()->put('antispam_date_last_purge', time(), null, null, true, false);
             }
-            $date = date('Y-m-d H:i:s', time() - $moderationTTL * 86400);
+            $date = date('Y-m-d H:i:s', (int) (time() - $moderationTTL * 86400));
             Antispam::delAllSpam($date);
         }
     }
