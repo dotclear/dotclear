@@ -646,8 +646,8 @@ class ModulesList
 
         $define
             ->set('sid', self::sanitizeString($define->getId()))
-            ->set('label', empty($define->get('label')) ? (empty($define->get('name')) ? $define->getId() : $define->get('name')) : $define->get('label'))
-            ->set('name', __(empty($define->get('name')) ? $define->get('label') : $define->get('name')))
+            ->set('label', $define->get('label') ?: ($define->get('name') ?: $define->getId()))
+            ->set('name', __($define->get('name') ?: $define->get('label')))
             ->set('sname', self::sanitizeString(strtolower(Text::removeDiacritics($define->get('name')))));
     }
 
