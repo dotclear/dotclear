@@ -406,7 +406,8 @@ class Favorites
                 'title'      => __('My preferences'),
                 'url'        => App::backend()->url()->get('admin.user.preferences'),
                 'small-icon' => 'images/menu/user-pref.svg',
-                'large-icon' => 'images/menu/user-pref.svg', ],
+                'large-icon' => 'images/menu/user-pref.svg',
+            ],
             'new_post' => [
                 'title'       => __('New post'),
                 'url'         => App::backend()->url()->get('admin.post'),
@@ -416,7 +417,8 @@ class Favorites
                     App::auth()::PERMISSION_USAGE,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'active_cb' => ['defaultFavorites', fn (string $request_uri, array $request_params): bool => 'post.php' === $request_uri && !isset($request_params['id'])], ],
+                'active_cb' => fn (string $request_uri, array $request_params): bool => App::backend()->url()::INDEX === $request_uri && isset($request_params['process']) && $request_params['process'] === 'Post' && !isset($request_params['id']),
+            ],
             'posts' => [
                 'title'       => __('Posts'),
                 'url'         => App::backend()->url()->get('admin.posts'),
@@ -426,11 +428,12 @@ class Favorites
                     App::auth()::PERMISSION_USAGE,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
-                    $post_count    = App::blog()->getPosts([], true)->f(0);
+                'dashboard_cb' => function (ArrayObject $icon): void {
+                    $post_count    = (int) App::blog()->getPosts([], true)->f(0);
                     $str_entries   = __('%d post', '%d posts', $post_count);
                     $icon['title'] = sprintf($str_entries, $post_count);
-                }], ],
+                },
+            ],
             'comments' => [
                 'title'       => __('Comments'),
                 'url'         => App::backend()->url()->get('admin.comments'),
@@ -440,11 +443,12 @@ class Favorites
                     App::auth()::PERMISSION_USAGE,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
-                'dashboard_cb' => ['defaultFavorites', function (ArrayObject $icon): void {
-                    $comment_count = App::blog()->getComments([], true)->f(0);
+                'dashboard_cb' => function (ArrayObject $icon): void {
+                    $comment_count = (int) App::blog()->getComments([], true)->f(0);
                     $str_comments  = __('%d comment', '%d comments', $comment_count);
                     $icon['title'] = sprintf($str_comments, $comment_count);
-                }], ],
+                },
+            ],
             'search' => [
                 'title'       => __('Search'),
                 'url'         => App::backend()->url()->get('admin.search'),
@@ -453,7 +457,8 @@ class Favorites
                 'permissions' => App::auth()->makePermissions([
                     App::auth()::PERMISSION_USAGE,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
-                ]), ],
+                ]),
+            ],
             'categories' => [
                 'title'       => __('Categories'),
                 'url'         => App::backend()->url()->get('admin.categories'),
@@ -461,7 +466,8 @@ class Favorites
                 'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'permissions' => App::auth()->makePermissions([
                     App::auth()::PERMISSION_CATEGORIES,
-                ]), ],
+                ]),
+            ],
             'media' => [
                 'title'       => __('Media manager'),
                 'url'         => App::backend()->url()->get('admin.media'),
@@ -470,7 +476,8 @@ class Favorites
                 'permissions' => App::auth()->makePermissions([
                     App::auth()::PERMISSION_MEDIA,
                     App::auth()::PERMISSION_MEDIA_ADMIN,
-                ]), ],
+                ]),
+            ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),
                 'url'         => App::backend()->url()->get('admin.blog.pref'),
@@ -478,7 +485,8 @@ class Favorites
                 'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'permissions' => App::auth()->makePermissions([
                     App::auth()::PERMISSION_ADMIN,
-                ]), ],
+                ]),
+            ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
                 'url'         => App::backend()->url()->get('admin.blog.theme'),
@@ -486,7 +494,8 @@ class Favorites
                 'large-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'permissions' => App::auth()->makePermissions([
                     App::auth()::PERMISSION_ADMIN,
-                ]), ],
+                ]),
+            ],
             'blogs' => [
                 'title'       => __('Blogs'),
                 'url'         => App::backend()->url()->get('admin.blogs'),
@@ -495,27 +504,32 @@ class Favorites
                 'permissions' => !App::auth()->isSuperAdmin() && App::auth()->getBlogCount() > 1 ? App::auth()->makePermissions([
                     App::auth()::PERMISSION_USAGE,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
-                ]) : null, ],
+                ]) : null,
+            ],
             'users' => [
                 'title'      => __('Users'),
                 'url'        => App::backend()->url()->get('admin.users'),
                 'small-icon' => 'images/menu/users.svg',
-                'large-icon' => 'images/menu/users.svg', ],
+                'large-icon' => 'images/menu/users.svg',
+            ],
             'plugins' => [
                 'title'      => __('Plugins management'),
                 'url'        => App::backend()->url()->get('admin.plugins'),
                 'small-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
-                'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'], ],
+                'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
+            ],
             'langs' => [
                 'title'      => __('Languages'),
                 'url'        => App::backend()->url()->get('admin.langs'),
                 'small-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
-                'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'], ],
+                'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
+            ],
             'help' => [
                 'title'      => __('Global help'),
                 'url'        => App::backend()->url()->get('admin.help'),
                 'small-icon' => 'images/menu/help.svg',
-                'large-icon' => 'images/menu/help.svg', ],
+                'large-icon' => 'images/menu/help.svg',
+            ],
         ]);
     }
 }

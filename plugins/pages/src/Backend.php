@@ -83,7 +83,7 @@ class Backend extends Process
                             $icon['title'] = sprintf($str_pages, $page_count);
                         }
                     },
-                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && !(isset($params['act']) && $params['act'] == 'page'),
+                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && !isset($params['act']),
                 ]);
                 $favs->register('newpage', [
                     'title'       => __('New page'),
@@ -94,7 +94,7 @@ class Backend extends Process
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                         Pages::PERMISSION_PAGES,
                     ]),
-                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] == My::id() && isset($params['act']) && $params['act'] == 'page',
+                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && isset($params['act']) && $params['act'] == 'page' && !isset($params['id']),
                 ]);
             },
             'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions'),
