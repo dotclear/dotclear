@@ -56,10 +56,6 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
-    - message: '#Call to an undefined method form[a-zA-Z0-9\\_]+::#'
-      path: %currentWorkingDirectory%
-
     # arrayObject/type
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%
@@ -79,14 +75,6 @@ parameters:
       path: %currentWorkingDirectory%
 
     # 2.26+
-
-    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
-    - message: '#Call to an undefined method Dotclear\\Helper\\Html\\Form\\[a-zA-Z0-9\\_]+::#'
-      path: %currentWorkingDirectory%
-
-    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
-    - message: '#Access to an undefined property Dotclear\\Helper\\Html\\Form\\[a-zA-Z0-9\\_]+::#'
-      path: %currentWorkingDirectory%
 
     # XmlTag object and magic properties
     - message: '#Access to an undefined property Dotclear\\Helper\\Html\\XmlTag::#'

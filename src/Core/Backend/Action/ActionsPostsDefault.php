@@ -375,7 +375,7 @@ class ActionsPostsDefault
                                     ->for('new_cat_title'),
                                 (new Input('new_cat_title'))
                                     ->size(30)
-                                    ->maxlenght(255)
+                                    ->maxlength(255)
                                     ->value(''),
                             ]),
                         (new Para())
@@ -491,7 +491,7 @@ class ActionsPostsDefault
                                 ->for('new_auth_id'),
                             (new Input('new_auth_id'))
                                 ->size(20)
-                                ->maxlenght(255)
+                                ->maxlength(255)
                                 ->value(''),
                         ]),
                     (new Para())

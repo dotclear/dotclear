@@ -12,6 +12,18 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Table
  * @brief HTML Forms table creation helpers
+ *
+ * @method      $this caption(Caption $caption)
+ * @method      $this thead(Thead $thead)
+ * @method      $this tbody(Tbody $tbody)
+ * @method      $this tfoot(Tbody $tfoot)
+ * @method      $this items(array $items)
+ *
+ * @property    Caption $caption
+ * @property    Thead $thead
+ * @property    Tbody $tbody
+ * @property    Tfoot $tfoot
+ * @property    array $items
  */
 class Table extends Component
 {
@@ -80,7 +92,7 @@ class Table extends Component
             $buffer .= $this->tfoot->render();
         }
 
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item) {
                 if (isset($this->caption) && $item->getDefaultElement() === 'caption') {
                     // Do not put more than one legend in fieldset

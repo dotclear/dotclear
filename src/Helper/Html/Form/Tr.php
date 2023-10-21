@@ -12,6 +12,14 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Tr
  * @brief HTML Forms Tr creation helpers
+ *
+ * @method      $this format(string $format)
+ * @method      $this cols(array $cols)
+ * @method      $this items(array $items)
+ *
+ * @property    string $format
+ * @property    array $cols
+ * @property    array $items
  */
 class Tr extends Component
 {
@@ -46,14 +54,14 @@ class Tr extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with cols
-        if (isset($this->cols) && is_array($this->cols)) {
+        if (isset($this->cols)) {
             foreach ($this->cols as $col) {
-                $buffer .= sprintf(($this->format ?: '%s'), $col->render());   // @phpstan-ignore-line
+                $buffer .= sprintf(($this->format ?: '%s'), $col->render());
             }
         }
 
         // Cope with items (as cols)
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item) {
                 $buffer .= sprintf($format, $item->render());
             }

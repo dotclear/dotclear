@@ -12,6 +12,10 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Select
  * @brief HTML Forms select creation helpers
+ *
+ * @method      $this items(array $items)
+ *
+ * @property    array $items
  */
 class Select extends Component
 {
@@ -53,7 +57,7 @@ class Select extends Component
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item => $value) {
                 if ($value instanceof Option || $value instanceof Optgroup) {
                     /* @phpstan-ignore-next-line */

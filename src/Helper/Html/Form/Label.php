@@ -12,6 +12,12 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Label
  * @brief HTML Forms label creation helpers
+ *
+ * @method      $this for(string $id)
+ * @method      $this text(string $text)
+ *
+ * @property    string $for
+ * @property    string $text
  */
 class Label extends Component
 {

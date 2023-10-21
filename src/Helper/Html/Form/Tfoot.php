@@ -12,6 +12,14 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Thead
  * @brief HTML Forms Tfoot creation helpers
+ *
+ * @method      $this format(string $format)
+ * @method      $this rows(array $rows)
+ * @method      $this items(array $items)
+ *
+ * @property    string $format
+ * @property    array $rows
+ * @property    array $items
  */
 class Tfoot extends Component
 {
@@ -46,14 +54,14 @@ class Tfoot extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with rows
-        if (isset($this->rows) && is_array($this->rows)) {
+        if (isset($this->rows)) {
             foreach ($this->rows as $row) {
-                $buffer .= sprintf($format, $row->render());   // @phpstan-ignore-line
+                $buffer .= sprintf($format, $row->render());
             }
         }
 
         // Cope with items (as rows)
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item) {
                 $buffer .= sprintf($format, $item->render());
             }

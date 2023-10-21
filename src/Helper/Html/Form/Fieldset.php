@@ -12,6 +12,18 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Fieldset
  * @brief HTML Forms fieldset creation helpers
+ *
+ * @method      $this legend(Legend $legend)
+ * @method      $this fields(array $fields)
+ * @method      $this items(array $items)
+ * @method      $this format(string $format)
+ * @method      $this separator(string $separator)
+ *
+ * @property    Legend $legend
+ * @property    array $fields
+ * @property    array $items
+ * @property    string $format
+ * @property    string $separator
  */
 class Fieldset extends Component
 {
@@ -74,13 +86,13 @@ class Fieldset extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with fields
-        if (isset($this->fields) && is_array($this->fields)) {
+        if (isset($this->fields)) {
             foreach ($this->fields as $field) {
                 if (isset($this->legend) && $field->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
-                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }
                 $buffer .= sprintf($format, $field->render());
@@ -89,16 +101,16 @@ class Fieldset extends Component
         }
 
         // Cope with items
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item) {
                 if (isset($this->legend) && $item->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
-                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }
-                $buffer .= sprintf($format, $item->render());   // @phpstan-ignore-line
+                $buffer .= sprintf($format, $item->render());
                 $first = false;
             }
         }

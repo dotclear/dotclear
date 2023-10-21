@@ -9,11 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
-use html;
-
 /**
  * @class Option
  * @brief HTML Forms option creation helpers
+ *
+ * @method      $this text(string $text)
+ *
+ * @property    string $text
  */
 class Option extends Component
 {

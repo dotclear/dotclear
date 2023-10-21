@@ -12,6 +12,14 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Div
  * @brief HTML Forms Div creation helpers
+ *
+ * @method      $this items(array $items)
+ * @method      $this format(string $format)
+ * @method      $this separator(string $separator)
+ *
+ * @property    array $items
+ * @property    string $format
+ * @property    string $separator
  */
 class Div extends Component
 {
@@ -47,12 +55,12 @@ class Div extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with items
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item) {
-                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }
-                $buffer .= sprintf($format, $item->render());   // @phpstan-ignore-line
+                $buffer .= sprintf($format, $item->render());
                 $first = false;
             }
         }

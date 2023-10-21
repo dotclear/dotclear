@@ -12,6 +12,10 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Caption
  * @brief HTML Forms caption (table) creation helpers
+ *
+ * @method      $this text(string $text)
+ *
+ * @property    string $text
  */
 class Caption extends Component
 {

@@ -12,6 +12,10 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Text
  * @brief HTML Forms text creation helpers
+ *
+ * @method      $this text(string $text)
+ *
+ * @property    string $text
  */
 class Text extends Component
 {

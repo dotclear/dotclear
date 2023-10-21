@@ -14,6 +14,74 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms creation helpers
  *
  * This class describes a component.
+ *
+ * @method      $this accesskey(string $accesskey)
+ * @method      $this autocapitalize(string $autocapitalize)
+ * @method      $this autocomplete(string $autocomplete)
+ * @method      $this autocorrect(string $autocorrect)
+ * @method      $this autofocus(bool $autofocus)
+ * @method      $this checked(bool $checked)
+ * @method      $this class(string|array<string> $class)
+ * @method      $this contenteditable(bool $contenteditable)
+ * @method      $this default(null|string|int|float $default)
+ * @method      $this data(array<string, string> $data)
+ * @method      $this dir(string $dir)
+ * @method      $this disabled(bool $disabled)
+ * @method      $this extra(string|array<string> $extra)
+ * @method      $this form(string $form)
+ * @method      $this id(string $id)
+ * @method      $this inputmode(string $inputmode)
+ * @method      $this label(Label $label)
+ * @method      $this lang(string $lang)
+ * @method      $this list(string $list)
+ * @method      $this max(null|int $max)
+ * @method      $this maxlength(int $maxlength)
+ * @method      $this min(null|int $min)
+ * @method      $this name(string $name)
+ * @method      $this pattern(string $pattern)
+ * @method      $this placeholder(string $placeholder)
+ * @method      $this readonly(bool $readonly)
+ * @method      $this required(bool $required)
+ * @method      $this size(int $size)
+ * @method      $this spellcheck(bool $spellcheck)
+ * @method      $this tabindex(int $tabindex)
+ * @method      $this title(string $title)
+ * @method      $this type(string $type)
+ * @method      $this value(string|int|float $value)
+ *
+ * @property    string $accesskey
+ * @property    string $autocapitalize
+ * @property    string $autocomplete
+ * @property    string $autocorrect
+ * @property    bool $autofocus
+ * @property    bool $checked
+ * @property    string|array<string> $class
+ * @property    bool $contenteditable
+ * @property    array<string, string> $data
+ * @property    null|string|int|float $default
+ * @property    string $dir
+ * @property    bool $disabled
+ * @property    string|array<string> $extra
+ * @property    string $form
+ * @property    string $id
+ * @property    string $inputmode
+ * @property    Label $label
+ * @property    string $lang
+ * @property    string $list
+ * @property    int|null $max
+ * @property    int $maxlength
+ * @property    int|null $min
+ * @property    string $name
+ * @property    string $pattern
+ * @property    string $placeholder
+ * @property    bool $readonly
+ * @property    bool $required
+ * @property    int $size
+ * @property    bool $spellcheck
+ * @property    int $tabindex
+ * @property    string $title
+ * @property    string $type
+ * @property    string|int|float $value
  */
 abstract class Component
 {
@@ -288,12 +356,14 @@ abstract class Component
      *          name            => string name (required if id is not provided).
      *          id              => string id (required if name is not provided).
      *
-     *          value           => string value.
-     *          default         => string default value (will be used if value is not provided).
+     *          value           => string|int|float value.
+     *          default         => null|string|int|float default value (will be used if value is not provided).
      *          checked         => boolean checked.
      *
      *          accesskey       => string accesskey (character(s) space separated).
+     *          autocapitalize  => string autocapitalyze mode.
      *          autocomplete    => string autocomplete type.
+     *          autocorrect     => string autocorrect mode.
      *          autofocus       => boolean autofocus.
      *          class           => string (or array of string) class(es).
      *          contenteditable => boolean content editable.
@@ -403,7 +473,7 @@ abstract class Component
 
         '';
 
-        if (isset($this->data) && is_array($this->data)) {
+        if (isset($this->data)) {
             // Data attributes
             foreach ($this->data as $key => $value) {
                 $render .= ' data-' . $key . '="' . $value . '"';

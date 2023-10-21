@@ -12,6 +12,22 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Td
  * @brief HTML Forms Td creation helpers
+ *
+ * @method      $this colspan(int $colspan)
+ * @method      $this rowspan(int $rowspan)
+ * @method      $this headers(string $headers)
+ * @method      $this text(string $text)
+ * @method      $this separator(string $separator)
+ * @method      $this format(string $format)
+ * @method      $this items(array $items)
+ *
+ * @property    int $colspan
+ * @property    int $rowspan
+ * @property    string $headers
+ * @property    string $text
+ * @property    string $separator
+ * @property    string $format
+ * @property    array $items
  */
 class Td extends Component
 {
@@ -54,10 +70,10 @@ class Td extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with items
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             $first = true;
             foreach ($this->items as $item) {
-                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }
                 $buffer .= sprintf($format, $item->render());

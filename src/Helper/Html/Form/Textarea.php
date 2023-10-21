@@ -12,6 +12,12 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Textarea
  * @brief HTML Forms textarea creation helpers
+ *
+ * @method      $this cols(int $cols)
+ * @method      $this rows(int $rows)
+ *
+ * @property    int $cols
+ * @property    int $rows
  */
 class Textarea extends Component
 {

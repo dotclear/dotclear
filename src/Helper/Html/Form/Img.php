@@ -12,6 +12,22 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Img
  * @brief HTML Forms img creation helpers
+ *
+ * @method      $this src(string $src)
+ * @method      $this alt(string $alt)
+ * @method      $this height(int $height)
+ * @method      $this loading(string $loading)
+ * @method      $this sizes(string $sizes)
+ * @method      $this srcset(string $srcset)
+ * @method      $this width(int $width)
+ *
+ * @property    string $src
+ * @property    string $alt
+ * @property    itn $height
+ * @property    string $loading
+ * @property    string $sizes
+ * @property    string $srcset
+ * @property    int $width
  */
 class Img extends Component
 {

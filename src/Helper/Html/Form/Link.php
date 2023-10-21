@@ -12,6 +12,16 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Link
  * @brief HTML Forms note creation helpers
+ *
+ * @method      $this href(string $href)
+ * @method      $this text(string $text)
+ * @method      $this format(string $format)
+ * @method      $this separator(string $separator)
+ *
+ * @property    string $href
+ * @property    string $text
+ * @property    string $format
+ * @property    string $separator
  */
 class Link extends Component
 {
@@ -50,10 +60,10 @@ class Link extends Component
         // Cope with items
         if (isset($this->items) && is_array($this->items)) {
             foreach ($this->items as $item) {
-                if (!$first && $this->separator) {  // @phpstan-ignore-line
+                if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }
-                $buffer .= sprintf($format, $item->render());   // @phpstan-ignore-line
+                $buffer .= sprintf($format, $item->render());
                 $first = false;
             }
         }

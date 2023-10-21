@@ -12,6 +12,10 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Legend
  * @brief HTML Forms legend creation helpers
+ *
+ * @method      $this text(string $text)
+ *
+ * @property    string $text
  */
 class Legend extends Component
 {

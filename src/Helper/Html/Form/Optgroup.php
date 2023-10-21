@@ -12,6 +12,12 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Optgroup
  * @brief HTML Forms optgroup creation helpers
+ *
+ * @method      $this text(string $text)
+ * @method      $this items(array $items)
+ *
+ * @property    string $text
+ * @property    array $items
  */
 class Optgroup extends Component
 {
@@ -43,7 +49,7 @@ class Optgroup extends Component
             (isset($this->text) ? ' label="' . $this->text . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item => $value) {
                 if ($value instanceof Option || $value instanceof Optgroup) {
                     $buffer .= $value->render($default);
