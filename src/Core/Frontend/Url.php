@@ -335,6 +335,12 @@ class Url extends UrlHandler implements UrlInterface
             self::serveDocument('static.html');
             App::blog()->publishScheduledEntries();
         } else {
+            if ($args) {
+                if ($page_number = self::getPageNumber($args)) {
+                    App::frontend()->setPageNumber($page_number);
+                }
+            }
+
             self::search();
         }
     }
