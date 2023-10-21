@@ -70,10 +70,6 @@ parameters:
     - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsElement::#'
       path: %currentWorkingDirectory%
 
-    # dcModuleDefine auto properties
-    - message: '#Access to an undefined property dcModuleDefine::#'
-      path: %currentWorkingDirectory%
-
     # 2.26+
 
     # XmlTag object and magic properties
@@ -82,10 +78,6 @@ parameters:
 
     # XmlTag object and magic methods
     - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
-      path: %currentWorkingDirectory%
-
-    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
-    - message : '#Access to an undefined property Dotclear\\Helper\\File\\File::#'
       path: %currentWorkingDirectory%
 
     # Record object and auto properties
@@ -107,12 +99,6 @@ parameters:
     # Structure object and auto properties
     - message: '#Access to an undefined property Dotclear\\Database\\Structure::#'
       path: %currentWorkingDirectory%
-
-    # getDefines() ambiguous return value
-    - message: '#Call to an undefined method object::addMissing\(\).#'
-      path: */*/inc/core/class.dc.modules.php
-    - message: '#Call to an undefined method object::getId\(\).#'
-      path: */*/inc/core/class.dc.modules.php
 
     # 2.27+
 
