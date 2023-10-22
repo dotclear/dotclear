@@ -58,6 +58,7 @@ class FileServer
         'ttf',
         'txt',
         'webp',
+        'avif',
         'woff',
         'woff2',
         'xml',

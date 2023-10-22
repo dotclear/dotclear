@@ -53,7 +53,7 @@ class Media extends Process
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
                     $zip = new Zip($fp);
-                    $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp)$/');
+                    $zip->addExclusion('/(^|\/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp|avif)$/');
                     $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->page->d, '', true);
                     header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . (App::backend()->page->d ?: 'media') . '.zip');
                     header('Content-Type: application/x-zip');

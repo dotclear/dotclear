@@ -38,7 +38,7 @@ interface MediaInterface
     /**
      * Get thumbnail file pattern.
      *
-     * @param   string  $type   The thumbnail type (default, alpha, webp)
+     * @param   string  $type   The thumbnail type (default, alpha, webp, avif)
      *
      * @return  string  The file pattern
      */

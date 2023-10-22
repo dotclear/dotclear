@@ -117,6 +117,15 @@ class Media extends Manager implements MediaInterface
     public string $thumb_tp_webp = '%s/.%s_%s.webp';
 
     /**
+     * Thumbnail file pattern (Avif)
+     *
+     * @deprecated since 2.28, use self::getThumbnailFilePattern('avif')
+     *
+     * @var string
+     */
+    public string $thumb_tp_avif = '%s/.%s_%s.avif';
+
+    /**
      * Get available thumb sizes.
      *
      * Tubmnail sizes:
@@ -200,16 +209,19 @@ class Media extends Manager implements MediaInterface
         $this->addFileHandler('image/png', 'create', $this->imageThumbCreate(...));
         $this->addFileHandler('image/gif', 'create', $this->imageThumbCreate(...));
         $this->addFileHandler('image/webp', 'create', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/avif', 'create', $this->imageThumbCreate(...));
 
         $this->addFileHandler('image/png', 'update', $this->imageThumbUpdate(...));
         $this->addFileHandler('image/jpeg', 'update', $this->imageThumbUpdate(...));
         $this->addFileHandler('image/gif', 'update', $this->imageThumbUpdate(...));
         $this->addFileHandler('image/webp', 'update', $this->imageThumbUpdate(...));
+        $this->addFileHandler('image/avif', 'update', $this->imageThumbUpdate(...));
 
         $this->addFileHandler('image/png', 'remove', $this->imageThumbRemove(...));
         $this->addFileHandler('image/jpeg', 'remove', $this->imageThumbRemove(...));
         $this->addFileHandler('image/gif', 'remove', $this->imageThumbRemove(...));
         $this->addFileHandler('image/webp', 'remove', $this->imageThumbRemove(...));
+        $this->addFileHandler('image/avif', 'remove', $this->imageThumbRemove(...));
 
         $this->addFileHandler('image/jpeg', 'create', $this->imageMetaCreate(...));
         $this->addFileHandler('image/webp', 'create', $this->imageMetaCreate(...));
@@ -218,6 +230,7 @@ class Media extends Manager implements MediaInterface
         $this->addFileHandler('image/png', 'recreate', $this->imageThumbCreate(...));
         $this->addFileHandler('image/gif', 'recreate', $this->imageThumbCreate(...));
         $this->addFileHandler('image/webp', 'recreate', $this->imageThumbCreate(...));
+        $this->addFileHandler('image/avif', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
         $this->thumb_sizes['m'][0] = abs((int) $this->blog->settings()->system->media_img_m_size);
@@ -259,6 +272,7 @@ class Media extends Manager implements MediaInterface
         return match ($type) {
             'alpha' => $this->thumb_tp_alpha,
             'webp'  => $this->thumb_tp_webp,
+            'avif'  => $this->thumb_tp_avif,
             default => $this->thumb_tp,
         };
     }
@@ -465,17 +479,22 @@ class Media extends Manager implements MediaInterface
 
             $alpha = strtolower($p['extension']) === 'png';
             $webp  = strtolower($p['extension']) === 'webp';
+            $avif  = strtolower($p['extension']) === 'avif';
 
             $thumb = sprintf(
                 ($alpha ? $this->thumb_tp_alpha :
-                    ($webp ? $this->thumb_tp_webp : $this->thumb_tp)),
+                ($webp ? $this->thumb_tp_webp :
+                ($avif ? $this->thumb_tp_avif :
+                    $this->thumb_tp))),
                 $this->root . '/' . $p['dirname'],
                 $p['base'],
                 '%s'
             );
             $thumb_url = sprintf(
                 ($alpha ? $this->thumb_tp_alpha :
-                    ($webp ? $this->thumb_tp_webp : $this->thumb_tp)),
+                ($webp ? $this->thumb_tp_webp :
+                ($avif ? $this->thumb_tp_avif :
+                    $this->thumb_tp))),
                 $this->root_url . $p['dirname'],
                 $p['base'],
                 '%s'
@@ -488,7 +507,7 @@ class Media extends Manager implements MediaInterface
             $thumb_alt     = '';
             $thumb_url_alt = '';
 
-            if ($alpha || $webp) {
+            if ($alpha || $webp || $avif) {
                 $thumb_alt     = sprintf($this->thumb_tp, $this->root . '/' . $p['dirname'], $p['base'], '%s');
                 $thumb_url_alt = sprintf($this->thumb_tp, $this->root_url . $p['dirname'], $p['base'], '%s');
                 # Cleaner URLs
@@ -499,7 +518,7 @@ class Media extends Manager implements MediaInterface
             foreach (array_keys($this->thumb_sizes) as $suffix) {
                 if (file_exists(sprintf($thumb, $suffix))) {
                     $fi->media_thumb[$suffix] = sprintf($thumb_url, $suffix);
-                } elseif (($alpha || $webp) && file_exists(sprintf($thumb_alt, $suffix))) {
+                } elseif (($alpha || $webp || $avif) && file_exists(sprintf($thumb_alt, $suffix))) {
                     $fi->media_thumb[$suffix] = sprintf($thumb_url_alt, $suffix);
                 }
             }
@@ -1308,10 +1327,12 @@ class Media extends Manager implements MediaInterface
         $p     = Path::info($file);
         $alpha = strtolower($p['extension']) === 'png';
         $webp  = strtolower($p['extension']) === 'webp';
+        $avif  = strtolower($p['extension']) === 'avif';
         $thumb = sprintf(
             ($alpha ? $this->thumb_tp_alpha :
             ($webp ? $this->thumb_tp_webp :
-                $this->thumb_tp)),
+            ($avif ? $this->thumb_tp_avif :
+                $this->thumb_tp))),
             $p['dirname'],
             $p['base'],
             '%s'
@@ -1333,7 +1354,7 @@ class Media extends Manager implements MediaInterface
                 if (!file_exists($thumb_file) && $s[0] > 0 && ($suffix == 'sq' || $w > $s[0] || $h > $s[0])) {
                     $rate = ($s[0] < 100 ? 95 : ($s[0] < 600 ? 90 : 85));
                     $img->resize($s[0], $s[0], $s[1]);
-                    $img->output(($alpha || $webp ? strtolower($p['extension']) : 'jpeg'), $thumb_file, $rate);
+                    $img->output(($alpha || $webp || $avif ? strtolower($p['extension']) : 'jpeg'), $thumb_file, $rate);
                     $img->loadImage($file);
                 }
             }
@@ -1362,10 +1383,12 @@ class Media extends Manager implements MediaInterface
             $p         = Path::info($file->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
+            $avif      = strtolower($p['extension']) === 'avif';
             $thumb_old = sprintf(
                 ($alpha ? $this->thumb_tp_alpha :
                 ($webp ? $this->thumb_tp_webp :
-                    $this->thumb_tp)),
+                ($avif ? $this->thumb_tp_avif :
+                    $this->thumb_tp))),
                 $p['dirname'],
                 $p['base'],
                 '%s'
@@ -1374,10 +1397,12 @@ class Media extends Manager implements MediaInterface
             $p         = Path::info($newFile->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
+            $avif      = strtolower($p['extension']) === 'avif';
             $thumb_new = sprintf(
                 ($alpha ? $this->thumb_tp_alpha :
                 ($webp ? $this->thumb_tp_webp :
-                    $this->thumb_tp)),
+                ($avif ? $this->thumb_tp_avif :
+                    $this->thumb_tp))),
                 $p['dirname'],
                 $p['base'],
                 '%s'
@@ -1401,10 +1426,12 @@ class Media extends Manager implements MediaInterface
         $p     = Path::info($f);
         $alpha = strtolower($p['extension']) === 'png';
         $webp  = strtolower($p['extension']) === 'webp';
+        $avif  = strtolower($p['extension']) === 'avif';
         $thumb = sprintf(
             ($alpha ? $this->thumb_tp_alpha :
             ($webp ? $this->thumb_tp_webp :
-                $this->thumb_tp)),
+            ($avif ? $this->thumb_tp_avif :
+                $this->thumb_tp))),
             '',
             $p['base'],
             '%s'

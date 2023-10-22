@@ -825,11 +825,11 @@ class MediaItem extends Process
                 $alpha     = ($path_info['extension'] == 'png') || ($path_info['extension'] == 'PNG');
                 $alpha     = strtolower($path_info['extension']) === 'png';
                 $webp      = strtolower($path_info['extension']) === 'webp';
-                $thumb_tp  = ($alpha ?
-                    App::media()->getThumbnailFilePattern('alpha') :
-                    ($webp ?
-                        App::media()->getThumbnailFilePattern('webp') :
-                        App::media()->getThumbnailFilePattern()));
+                $avif      = strtolower($path_info['extension']) === 'avif';
+                $thumb_tp  = ($alpha ? App::media()->getThumbnailFilePattern('alpha') :
+                    ($webp ? App::media()->getThumbnailFilePattern('webp') :
+                    ($avif ? App::media()->getThumbnailFilePattern('avif') :
+                        App::media()->getThumbnailFilePattern())));
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
                 $stats      = stat($thumb_file);
