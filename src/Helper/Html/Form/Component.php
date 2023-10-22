@@ -34,9 +34,9 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this label(Label $label)
  * @method      $this lang(string $lang)
  * @method      $this list(string $list)
- * @method      $this max(null|int $max)
+ * @method      $this max(null|int|float|string $max)
  * @method      $this maxlength(int $maxlength)
- * @method      $this min(null|int $min)
+ * @method      $this min(null|int|float|string $min)
  * @method      $this name(string $name)
  * @method      $this pattern(string $pattern)
  * @method      $this placeholder(string $placeholder)
@@ -68,9 +68,9 @@ namespace Dotclear\Helper\Html\Form;
  * @property    Label $label
  * @property    string $lang
  * @property    string $list
- * @property    int|null $max
+ * @property    null|int|float|string $max
  * @property    int $maxlength
- * @property    int|null $min
+ * @property    null|int|float|string $min
  * @property    string $name
  * @property    string $pattern
  * @property    string $placeholder
@@ -449,11 +449,11 @@ abstract class Component
             (isset($this->list) ?
                 ' list="' . $this->list . '"' : '') .
             (isset($this->max) ?
-                ' max="' . strval((int) $this->max) . '"' : '') .
+                ' max="' . strval($this->max) . '"' : '') .
             (isset($this->maxlength) ?
                 ' maxlength="' . strval((int) $this->maxlength) . '"' : '') .
             (isset($this->min) ?
-                ' min="' . strval((int) $this->min) . '"' : '') .
+                ' min="' . strval($this->min) . '"' : '') .
             (isset($this->pattern) ?
                 ' pattern="' . $this->pattern . '"' : '') .
             (isset($this->placeholder) ?
