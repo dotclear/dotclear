@@ -89,9 +89,9 @@ class WidgetsElement
     /**
      * Widget settings.
      *
-     * @var     array<string, mixed>   $settings
+     * @var     array<string, array<'title'|'type'|'value'|'options'|'opts', mixed>>   $settings
      */
-    protected $settings = [];
+    protected array $settings;
 
     /**
      * Get array of widget settings
