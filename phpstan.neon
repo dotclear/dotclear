@@ -60,109 +60,84 @@ parameters:
 
     # WidgetsStack object and auto properties
     - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsStack::#'
-      path: %currentWorkingDirectory%
 
     # WidgetsElement object and auto properties
     - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsElement::#'
-      path: %currentWorkingDirectory%
 
     # 2.26+
 
     # XmlTag object and magic properties
     - message: '#Access to an undefined property Dotclear\\Helper\\Html\\XmlTag::#'
-      path: %currentWorkingDirectory%
 
     # XmlTag object and magic methods
     - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
-      path: %currentWorkingDirectory%
 
     # Record object and auto properties
     - message: '#Access to an undefined property Dotclear\\Database\\Record::#'
-      path: %currentWorkingDirectory%
 
     # Cursor object and auto properties
     - message : '#Access to an undefined property Dotclear\\Database\\Cursor::#'
-      path: %currentWorkingDirectory%
 
     # MetaRecord object and auto properties
     - message: '#Access to an undefined property Dotclear\\Database\\MetaRecord::#'
-      path: %currentWorkingDirectory%
 
     # MetaRecord object methods
     - message: '#Call to an undefined method Dotclear\\Database\\MetaRecord::#'
-      path: %currentWorkingDirectory%
 
     # Structure object and auto properties
     - message: '#Access to an undefined property Dotclear\\Database\\Structure::#'
-      path: %currentWorkingDirectory%
 
     # 2.27+
 
     # Dotclear\Core\Backend\Utility object and auto properties
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Utility::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\MediaPage object and auto properties
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\MediaPage::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\Filter\Filter
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\Filter::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\Filter\FilterBlogs
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterBlogs::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\Filter\FilterComments
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterComments::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\Filter\FilterPosts
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterPosts::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\Filter\FilterUsers
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterUsers::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Core\Backend\Filter\FilterMedia
     - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterMedia::#'
-      path: %currentWorkingDirectory%
 
     # 2.28+
 
     # Dotclear\Core\Frontend\Ctx object and auto properties
     - message: '#Access to an undefined property Dotclear\\Core\\Frontend\\Ctx::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Interface\Core\BlogWorkspaceInterface object and auto properties
     - message: '#Access to an undefined property Dotclear\\Interface\\Core\\BlogWorkspaceInterface::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Interface\Core\BlogSettingsInterface object and auto properties
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\BlogSettingsInterface::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Interface\Core\UserWorkspaceInterface object and auto properties
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UserWorkspaceInterface::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Interface\Core\UserPreferencesInterface object and auto properties
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UserPreferencesInterface::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Module\ModuleDefine object and auto properties
     - message : '#Access to an undefined property Dotclear\\Module\\ModuleDefine::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Interface\Core\UrlInterface object and auto properties
     - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UrlInterface::#'
-      path: %currentWorkingDirectory%
 
     # Dotclear\Helper\File\File object and auto properties
     - message : '#Access to an undefined property Dotclear\\Helper\\File\\File|stdClass::#'
-      path: %currentWorkingDirectory%
 
 # Notes:
 #
