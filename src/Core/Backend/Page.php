@@ -959,7 +959,7 @@ class Page
     public static function jsToggles(): string
     {
         $js = [];
-        if (App::auth()->prefs()->toggles) {
+        if (App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
             $unfolded_sections = explode(',', (string) App::auth()->prefs()->toggles->unfolded_sections);
             foreach ($unfolded_sections as $section => &$v) {
                 if ($v !== '') {

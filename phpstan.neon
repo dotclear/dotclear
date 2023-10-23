@@ -50,86 +50,44 @@ parameters:
 
   reportUnmatchedIgnoredErrors: false
 
+  # List of classes with dynamic properties not fully defined in their PHPDoc
+  universalObjectCratesClasses:
+    - Dotclear\Core\Backend\Filter\Filter
+    - Dotclear\Core\Backend\Filter\FilterBlogs
+    - Dotclear\Core\Backend\Filter\FilterComments
+    - Dotclear\Core\Backend\Filter\FilterPosts
+    - Dotclear\Core\Backend\Filter\FilterUsers
+    - Dotclear\Core\Backend\Filter\FilterMedia
+    - Dotclear\Core\Backend\MediaPage
+    - Dotclear\Core\Backend\Utility
+    - Dotclear\Core\Frontend\Ctx
+    - Dotclear\Database\Cursor
+    - Dotclear\Database\MetaRecord
+    - Dotclear\Database\Record
+    - Dotclear\Database\Structure
+    - Dotclear\Helper\File\File
+    - Dotclear\Helper\Html\XmlTag
+    - Dotclear\Interface\Core\BlogSettingsInterface
+    - Dotclear\Interface\Core\BlogWorkspaceInterface
+    - Dotclear\Interface\Core\UrlInterface
+    - Dotclear\Interface\Core\UserPreferencesInterface
+    - Dotclear\Interface\Core\UserWorkspaceInterface
+    - Dotclear\Module\ModuleDefine
+
   ignoreErrors:
 
     # $this variable may not be defined (plugins/themes)
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # 2.26+
-
-    # XmlTag object and magic properties
-    - message: '#Access to an undefined property Dotclear\\Helper\\Html\\XmlTag::#'
-
     # XmlTag object and magic methods
     - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
 
-    # Record object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Database\\Record::#'
+    # Structure object and magic methods
+    - message: '#Call to an undefined method Dotclear\\Database\\Table::#'
 
-    # Cursor object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Database\\Cursor::#'
-
-    # MetaRecord object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Database\\MetaRecord::#'
-
-    # MetaRecord object methods
+    # MetaRecord object and magic methods
     - message: '#Call to an undefined method Dotclear\\Database\\MetaRecord::#'
-
-    # Structure object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Database\\Structure::#'
-
-    # 2.27+
-
-    # Dotclear\Core\Backend\Utility object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Utility::#'
-
-    # Dotclear\Core\Backend\MediaPage object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\MediaPage::#'
-
-    # Dotclear\Core\Backend\Filter\Filter
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\Filter::#'
-
-    # Dotclear\Core\Backend\Filter\FilterBlogs
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterBlogs::#'
-
-    # Dotclear\Core\Backend\Filter\FilterComments
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterComments::#'
-
-    # Dotclear\Core\Backend\Filter\FilterPosts
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterPosts::#'
-
-    # Dotclear\Core\Backend\Filter\FilterUsers
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterUsers::#'
-
-    # Dotclear\Core\Backend\Filter\FilterMedia
-    - message: '#Access to an undefined property Dotclear\\Core\\Backend\\Filter\\FilterMedia::#'
-
-    # 2.28+
-
-    # Dotclear\Core\Frontend\Ctx object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Core\\Frontend\\Ctx::#'
-
-    # Dotclear\Interface\Core\BlogWorkspaceInterface object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Interface\\Core\\BlogWorkspaceInterface::#'
-
-    # Dotclear\Interface\Core\BlogSettingsInterface object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Interface\\Core\\BlogSettingsInterface::#'
-
-    # Dotclear\Interface\Core\UserWorkspaceInterface object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UserWorkspaceInterface::#'
-
-    # Dotclear\Interface\Core\UserPreferencesInterface object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UserPreferencesInterface::#'
-
-    # Dotclear\Module\ModuleDefine object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Module\\ModuleDefine::#'
-
-    # Dotclear\Interface\Core\UrlInterface object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Interface\\Core\\UrlInterface::#'
-
-    # Dotclear\Helper\File\File object and auto properties
-    - message : '#Access to an undefined property Dotclear\\Helper\\File\\File|stdClass::#'
 
 # Notes:
 #
