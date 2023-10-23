@@ -80,14 +80,12 @@ class Backend extends Process
         try {
             $uninstaller = Uninstaller::instance()->loadModules([$define]);
 
-            // Do not perform action on disabled module if a duplicate exists.
-            if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-                if (!in_array($define->get('type'), ['plugin', 'theme'])
-                    || $define->get('type') == 'plugin' && 1 < count(App::plugins()->getDefines(['id' => $define->getId()]))
-                    || $define->get('type') == 'theme'  && 1 < count(App::themes()->getDefines(['id' => $define->getId()]))
-                ) {
-                    return;
-                }
+            // Do not perform direct actions on module if a duplicate exists.
+            if (!in_array($define->get('type'), ['plugin', 'theme'])
+                || $define->get('type') == 'plugin' && 1 < count(App::plugins()->getDefines(['id' => $define->getId()]))
+                || $define->get('type') == 'theme'  && 1 < count(App::themes()->getDefines(['id' => $define->getId()]))
+            ) {
+                return;
             }
 
             $done = [];
