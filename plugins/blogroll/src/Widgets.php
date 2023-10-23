@@ -19,6 +19,8 @@ use Dotclear\Plugin\widgets\Widgets as dcWidgets;
  */
 class Widgets
 {
+    private const WIDGET_ID = 'links';
+
     /**
      * Initializes the blogroll widget.
      *
@@ -38,7 +40,7 @@ class Widgets
         }
 
         $widgets
-            ->create('links', My::name(), FrontendTemplate::linksWidget(...), null, 'Blogroll list')
+            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::linksWidget(...), null, 'Blogroll list')
             ->addTitle(__('Links'))
             ->setting('category', __('Category'), '', 'combo', $categories_combo)
             ->addHomeOnly()
@@ -55,6 +57,6 @@ class Widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[dcWidgets::WIDGETS_EXTRA]->append($widgets->links);
+        $default_widgets[dcWidgets::WIDGETS_EXTRA]->append($widgets->get(self::WIDGET_ID));
     }
 }

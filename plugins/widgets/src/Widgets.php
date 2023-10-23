@@ -58,6 +58,17 @@ class Widgets
      */
     public static array $default_widgets;
 
+    private const WIDGET_ID_SEARCH       = 'search';
+    private const WIDGET_ID_NAVIGATION   = 'navigation';
+    private const WIDGET_ID_BESTOF       = 'bestof';
+    private const WIDGET_ID_LANGS        = 'langs';
+    private const WIDGET_ID_CATEGORIES   = 'categories';
+    private const WIDGET_ID_SUBSCRIBE    = 'subscribe';
+    private const WIDGET_ID_FEED         = 'feed';
+    private const WIDGET_ID_TEXT         = 'text';
+    private const WIDGET_ID_LASTPOSTS    = 'lastposts';
+    private const WIDGET_ID_LASTCOMMENTS = 'lastcomments';
+
     /**
      * Initializes the default widgets.
      */
@@ -73,7 +84,7 @@ class Widgets
         $GLOBALS['__widgets'] = self::$widgets;
 
         self::$widgets
-            ->create('search', __('Search engine'), Widgets::search(...), null, 'Search engine form')
+            ->create(self::WIDGET_ID_SEARCH, __('Search engine'), Widgets::search(...), null, 'Search engine form')
             ->addTitle(__('Search'))
             ->setting('placeholder', __('Placeholder (HTML5 only, optional):'), '')
             ->addHomeOnly()
@@ -82,7 +93,7 @@ class Widgets
             ->addOffline();
 
         self::$widgets
-            ->create('navigation', __('Navigation links'), Widgets::navigation(...), null, 'List of navigation links')
+            ->create(self::WIDGET_ID_NAVIGATION, __('Navigation links'), Widgets::navigation(...), null, 'List of navigation links')
             ->addTitle()
             ->addHomeOnly()
             ->addContentOnly()
@@ -90,7 +101,7 @@ class Widgets
             ->addOffline();
 
         self::$widgets
-            ->create('bestof', __('Selected entries'), Widgets::bestof(...), null, 'List of selected entries')
+            ->create(self::WIDGET_ID_BESTOF, __('Selected entries'), Widgets::bestof(...), null, 'List of selected entries')
             ->addTitle(__('Best of me'))
             ->setting('orderby', __('Sort:'), 'asc', 'combo', [__('Ascending') => 'asc', __('Descending') => 'desc'])
             ->addHomeOnly()
@@ -99,7 +110,7 @@ class Widgets
             ->addOffline();
 
         self::$widgets
-            ->create('langs', __('Blog languages'), Widgets::langs(...), null, 'List of available languages')
+            ->create(self::WIDGET_ID_LANGS, __('Blog languages'), Widgets::langs(...), null, 'List of available languages')
             ->addTitle(__('Languages'))
             ->addHomeOnly()
             ->addContentOnly()
@@ -107,7 +118,7 @@ class Widgets
             ->addOffline();
 
         self::$widgets
-            ->create('categories', __('List of categories'), Widgets::categories(...), null, 'List of categories')
+            ->create(self::WIDGET_ID_CATEGORIES, __('List of categories'), Widgets::categories(...), null, 'List of categories')
             ->addTitle(__('Categories'))
             ->setting('postcount', __('With entries counts'), 0, 'check')
             ->setting('subcatscount', __('Include sub cats in count'), false, 'check')
@@ -118,7 +129,7 @@ class Widgets
             ->addOffline();
 
         self::$widgets
-            ->create('subscribe', __('Subscribe links'), Widgets::subscribe(...), null, 'Feed subscription links (RSS or Atom)')
+            ->create(self::WIDGET_ID_SUBSCRIBE, __('Subscribe links'), Widgets::subscribe(...), null, 'Feed subscription links (RSS or Atom)')
             ->addTitle(__('Subscribe'))
             ->setting('type', __('Feeds type:'), 'atom', 'combo', ['Atom' => 'atom', 'RSS' => 'rss2'])
             ->addHomeOnly()
@@ -126,8 +137,8 @@ class Widgets
             ->addClass()
             ->addOffline();
 
-        self::$widgets->
-            create('feed', __('Feed reader'), Widgets::feed(...), null, 'List of last entries from feed (RSS or Atom)')
+        self::$widgets
+            ->create(self::WIDGET_ID_FEED, __('Feed reader'), Widgets::feed(...), null, 'List of last entries from feed (RSS or Atom)')
             ->addTitle(__('Somewhere else'))
             ->setting('url', __('Feed URL:'), '')
             ->setting('limit', __('Entries limit:'), 10)
@@ -137,7 +148,7 @@ class Widgets
             ->addOffline();
 
         self::$widgets
-            ->create('text', __('Text'), Widgets::text(...), null, 'Simple text')
+            ->create(self::WIDGET_ID_TEXT, __('Text'), Widgets::text(...), null, 'Simple text')
             ->addTitle()
             ->setting('text', __('Text:'), '', 'textarea')
             ->addHomeOnly()
@@ -150,7 +161,7 @@ class Widgets
         while ($rs->fetch()) {
             $categories[str_repeat('&nbsp;&nbsp;', (int) $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
         }
-        $w = self::$widgets->create('lastposts', __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
+        $w = self::$widgets->create(self::WIDGET_ID_LASTPOSTS, __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
         $w
             ->addTitle(__('Last entries'))
             ->setting('category', __('Category:'), '', 'combo', $categories);
@@ -166,7 +177,7 @@ class Widgets
         unset($rs, $categories, $w);
 
         self::$widgets
-            ->create('lastcomments', __('Last comments'), Widgets::lastcomments(...), null, 'List of last comments published')
+            ->create('lastcomments', __(self::WIDGET_ID_LASTCOMMENTS), Widgets::lastcomments(...), null, 'List of last comments published')
             ->addTitle(__('Last comments'))
             ->setting('limit', __('Comments limit:'), 10)
             ->addHomeOnly()
@@ -184,10 +195,10 @@ class Widgets
             Widgets::WIDGETS_CUSTOM => new WidgetsStack(),
         ];
 
-        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->search);
-        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->bestof);
-        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->categories);
-        self::$default_widgets[Widgets::WIDGETS_CUSTOM]->append(self::$widgets->subscribe);
+        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->get(self::WIDGET_ID_SEARCH));
+        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->get(self::WIDGET_ID_BESTOF));
+        self::$default_widgets[Widgets::WIDGETS_NAV]->append(self::$widgets->get(self::WIDGET_ID_CATEGORIES));
+        self::$default_widgets[Widgets::WIDGETS_CUSTOM]->append(self::$widgets->get(self::WIDGET_ID_SUBSCRIBE));
 
         # --BEHAVIOR-- initDefaultWidgets -- WidgetsStack, array<string,WidgetsStack>
         App::behavior()->callBehavior('initDefaultWidgets', self::$widgets, self::$default_widgets);
@@ -223,7 +234,7 @@ class Widgets
             ($widget->title ? $widget->renderTitle('<label for="q">' . Html::escapeHTML($widget->title) . '</label>') : '') .
             '<form action="' . App::blog()->url() . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
-            ($widget->placeholder ? 'placeholder="' . Html::escapeHTML($widget->placeholder) . '"' : '') .
+            ($widget->get('placeholder') ? 'placeholder="' . Html::escapeHTML($widget->get('placeholder')) . '"' : '') .
             ' aria-label="' . __('Search') . '"/> ' .
             '<input type="submit" class="submit" value="ok" title="' . __('Search') . '" /></p>' .
             '</form>'
@@ -293,7 +304,7 @@ class Widgets
             return '';
         }
 
-        $rs = App::blog()->getCategories(['post_type' => 'post', 'without_empty' => !$widget->with_empty]);
+        $rs = App::blog()->getCategories(['post_type' => 'post', 'without_empty' => !$widget->get('with_empty')]);
         if ($rs->isEmpty()) {
             return '';
         }
@@ -320,7 +331,7 @@ class Widgets
 
             $res .= '<a href="' . App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url) . '">' .
             Html::escapeHTML($rs->cat_title) . '</a>' .
-                ($widget->postcount ? ' <span>(' . ($widget->subcatscount ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
+                ($widget->get('postcount') ? ' <span>(' . ($widget->get('subcatscount') ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
 
             $level = $rs->level;
         }
@@ -352,7 +363,7 @@ class Widgets
         $params = [
             'post_selected' => true,
             'no_content'    => true,
-            'order'         => 'post_dt ' . strtoupper($widget->orderby),
+            'order'         => 'post_dt ' . strtoupper($widget->get('orderby')),
         ];
 
         $rs = App::blog()->getPosts($params);
@@ -441,7 +452,7 @@ class Widgets
             return '';
         }
 
-        $type = ($widget->type == 'atom' || $widget->type == 'rss2') ? $widget->type : 'rss2';
+        $type = ($widget->get('type') == 'atom' || $widget->get('type') == 'rss2') ? $widget->get('type') : 'rss2';
         $mime = $type == 'rss2' ? 'application/rss+xml' : 'application/atom+xml';
         if (App::frontend()->context()->exists('cur_lang')) {
             $type = App::frontend()->context()->cur_lang . '/' . $type;
@@ -479,7 +490,7 @@ class Widgets
      */
     public static function feed(WidgetsElement $widget): string
     {
-        if (!$widget->url) {
+        if (!$widget->get('url')) {
             return '';
         }
 
@@ -491,10 +502,10 @@ class Widgets
             return '';
         }
 
-        $limit = abs((int) $widget->limit);
+        $limit = abs((int) $widget->get('limit'));
 
         try {
-            $feed = Reader::quickParse($widget->url, App::config()->cacheRoot());
+            $feed = Reader::quickParse($widget->get('url'), App::config()->cacheRoot());
             if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
                 return '';
             }
@@ -548,7 +559,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $widget->text;
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $widget->get('text');
 
         return $widget->renderDiv((bool) $widget->content_only, 'text ' . $widget->class, '', $res);
     }
@@ -571,22 +582,22 @@ class Widgets
             return '';
         }
 
-        $params['limit']      = abs((int) $widget->limit);
+        $params['limit']      = abs((int) $widget->get('limit'));
         $params['order']      = 'post_dt desc';
         $params['no_content'] = true;
 
-        if ($widget->category) {
-            if ($widget->category == 'null') {
+        if ($widget->get('category')) {
+            if ($widget->get('category') == 'null') {
                 $params['sql'] = ' AND P.cat_id IS NULL ';
-            } elseif (is_numeric($widget->category)) {
-                $params['cat_id'] = (int) $widget->category;
+            } elseif (is_numeric($widget->get('category'))) {
+                $params['cat_id'] = (int) $widget->get('category');
             } else {
-                $params['cat_url'] = $widget->category;
+                $params['cat_url'] = $widget->get('category');
             }
         }
 
-        if ($widget->tag) {
-            $params['meta_id'] = $widget->tag;
+        if ($widget->get('tag')) {
+            $params['meta_id'] = $widget->get('tag');
             $rs                = App::meta()->getPostsByMeta($params);
         } else {
             $rs = App::blog()->getPosts($params);
@@ -631,7 +642,7 @@ class Widgets
             return '';
         }
 
-        $params['limit'] = abs((int) $widget->limit);
+        $params['limit'] = abs((int) $widget->get('limit'));
         $params['order'] = 'comment_dt desc';
         $rs              = App::blog()->getComments($params);
 

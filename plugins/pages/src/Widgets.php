@@ -18,6 +18,8 @@ use Dotclear\Plugin\widgets\WidgetsStack;
  */
 class Widgets
 {
+    private const WIDGET_ID = 'pages';
+
     /**
      * Initializes the pages widget.
      *
@@ -26,7 +28,7 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create('pages', My::name(), FrontendTemplate::pagesWidget(...), null, 'List of published pages')
+            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::pagesWidget(...), null, 'List of published pages')
             ->addTitle(My::name())
             ->setting(
                 'sortby',
@@ -63,6 +65,6 @@ class Widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[dcWidgets::WIDGETS_NAV]->append($widgets->pages);
+        $default_widgets[dcWidgets::WIDGETS_NAV]->append($widgets->get(self::WIDGET_ID));
     }
 }

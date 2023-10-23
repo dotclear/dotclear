@@ -190,7 +190,7 @@ class FrontendTemplate
             return '';
         }
 
-        $links = self::getList($widget->renderSubtitle('', false), '<ul>%s</ul>', '<li%2$s>%1$s</li>', $widget->category);
+        $links = self::getList($widget->renderSubtitle('', false), '<ul>%s</ul>', '<li%2$s>%1$s</li>', $widget->get('category'));
 
         if (empty($links)) {
             return '';

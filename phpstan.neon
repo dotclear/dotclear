@@ -56,14 +56,6 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # 2.25+
-
-    # WidgetsStack object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsStack::#'
-
-    # WidgetsElement object and auto properties
-    - message: '#Access to an undefined property Dotclear\\Plugin\\widgets\\WidgetsElement::#'
-
     # 2.26+
 
     # XmlTag object and magic properties

@@ -301,12 +301,12 @@ class FrontendTemplate
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
-        $sort = $widget->sortby;
+        $sort = $widget->get('sortby');
         if (!in_array($sort, $combo)) {
             $sort = 'meta_id_lower';
         }
 
-        $order = $widget->orderby;
+        $order = $widget->get('orderby');
         if ($order != 'asc') {
             $order = 'desc';
         }
@@ -318,8 +318,8 @@ class FrontendTemplate
             $params['order'] = $sort . ' ' . ($order == 'asc' ? 'ASC' : 'DESC');
         }
 
-        if ($widget->limit !== '') {
-            $params['limit'] = abs((int) $widget->limit);
+        if ($widget->get('limit') !== '') {
+            $params['limit'] = abs((int) $widget->get('limit'));
         }
 
         $rs = App::meta()->computeMetaStats(
@@ -359,9 +359,9 @@ class FrontendTemplate
 
         $res .= '</ul>';
 
-        if (App::url()->getURLFor('tags') && !is_null($widget->alltagslinktitle) && $widget->alltagslinktitle !== '') {
+        if (App::url()->getURLFor('tags') && !is_null($widget->get('alltagslinktitle')) && $widget->get('alltagslinktitle') !== '') {
             $res .= '<p><strong><a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' .
-            Html::escapeHTML($widget->alltagslinktitle) . '</a></strong></p>';
+            Html::escapeHTML($widget->get('alltagslinktitle')) . '</a></strong></p>';
         }
 
         return $widget->renderDiv((bool) $widget->content_only, 'tags ' . $widget->class, '', $res);

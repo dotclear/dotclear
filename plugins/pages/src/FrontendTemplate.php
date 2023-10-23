@@ -39,16 +39,16 @@ class FrontendTemplate
         }
 
         $params['post_type']     = 'page';
-        $params['limit']         = abs((int) $widget->limit);
+        $params['limit']         = abs((int) $widget->get('limit'));
         $params['no_content']    = true;
         $params['post_selected'] = false;
 
-        $sort = $widget->sortby;
+        $sort = $widget->get('sortby');
         if (!in_array($sort, ['post_title', 'post_position', 'post_dt'])) {
             $sort = 'post_title';
         }
 
-        $order = $widget->orderby;
+        $order = $widget->get('orderby');
         if ($order !== 'asc') {
             $order = 'desc';
         }

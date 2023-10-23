@@ -18,6 +18,8 @@ use Dotclear\Plugin\widgets\WidgetsStack;
  */
 class Widgets
 {
+    private const WIDGET_ID = 'tags';
+
     /**
      * Add the tags widget to the list of available widgets.
      *
@@ -26,7 +28,7 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create('tags', My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud')
+            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud')
             ->addTitle(__('Tags'))
             ->setting('limit', __('Limit (empty means no limit):'), '20')
             ->setting(
@@ -66,6 +68,6 @@ class Widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[dcWidgets::WIDGETS_NAV]->append($widgets->tags);
+        $default_widgets[dcWidgets::WIDGETS_NAV]->append($widgets->get(self::WIDGET_ID));
     }
 }

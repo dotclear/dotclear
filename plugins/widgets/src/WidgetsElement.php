@@ -17,6 +17,14 @@ use form;
 /**
  * @brief   The widgets element handler.
  * @ingroup widgets
+ *
+ * Common widget properties
+ *
+ * @property    string $class
+ * @property    bool   $content_only
+ * @property    int    $homeonly
+ * @property    bool   $offline
+ * @property    string $title
  */
 class WidgetsElement
 {
@@ -291,6 +299,18 @@ class WidgetsElement
      */
     public function __get(string $n)
     {
+        return $this->get($n);
+    }
+
+    /**
+     * Gets the specified setting value.
+     *
+     * @param   string  $n  The setting name
+     *
+     * @return  mixed
+     */
+    public function get(string $n)
+    {
         if (isset($this->settings[$n])) {
             return $this->settings[$n]['value'];
         }
@@ -303,6 +323,17 @@ class WidgetsElement
      * @param   mixed   $v  The new value
      */
     public function __set(string $n, $v)
+    {
+        $this->set($n, $v);
+    }
+
+    /**
+     * Set the specified setting value.
+     *
+     * @param   string  $n  The setting name
+     * @param   mixed   $v  The new value
+     */
+    public function set(string $n, $v): void
     {
         if (isset($this->settings[$n])) {
             $this->settings[$n]['value'] = $v;

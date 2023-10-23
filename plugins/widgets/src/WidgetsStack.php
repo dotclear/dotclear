@@ -142,6 +142,18 @@ class WidgetsStack
     }
 
     /**
+     * Gets a widget.
+     *
+     * @param      string  $id     The widget identifier
+     *
+     * @return     mixed
+     */
+    public function get(string $id)
+    {
+        return $this->__get($id);
+    }
+
+    /**
      * Unset all widgets.
      */
     public function __wakeup()
