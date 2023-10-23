@@ -70,7 +70,7 @@ msgstr "supprimer les tables de logs sélectionnées"
 
 #: src/Cleaner/Logs.php:45
 msgid "delete \"%s\" logs table"
-msgstr "supprimer la table de logs \"%S\""
+msgstr "supprimer la table de logs \"%s\""
 
 #: src/Cleaner/Logs.php:46
 msgid "\"%s\" logs table deleted"
