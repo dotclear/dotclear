@@ -1853,7 +1853,11 @@ class Blog implements BlogInterface
             return;
         }
 
-        $now       = Date::toUTC(time());
+        $now = Date::toUTC(time());
+
+        /**
+         * @var        ArrayObject<int, int>
+         */
         $to_change = new ArrayObject();
 
         while ($rs->fetch()) {

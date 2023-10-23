@@ -110,8 +110,13 @@ class Manage extends Process
         }
         App::backend()->tags_combo = $tags_combo;
 
-        # Liste des types d'item de menu
-        $items         = new ArrayObject();
+        /**
+         * Liste des types d'item de menu
+         *
+         * @var        ArrayObject<string, ArrayObject<int, string|bool>>
+         */
+        $items = new ArrayObject();
+
         $items['home'] = new ArrayObject([__('Home'), false]);
 
         if (App::blog()->settings()->system->static_home) {

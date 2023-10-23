@@ -56,10 +56,6 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # arrayObject/type
-    - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
-      path: %currentWorkingDirectory%
-
     # 2.25+
 
     # WidgetsStack object and auto properties

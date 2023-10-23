@@ -75,6 +75,9 @@ class Backend extends Process
                         Pages::PERMISSION_PAGES,
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
+                        /**
+                         * @var        ArrayObject<string, string>
+                         */
                         $params              = new ArrayObject();
                         $params['post_type'] = 'page';
                         $page_count          = App::blog()->getPosts($params, true)->f(0);

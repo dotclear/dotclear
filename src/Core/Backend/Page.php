@@ -137,7 +137,11 @@ class Page
         $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
         # Display
-        $headers = new ArrayObject([]);
+
+        /**
+         * @var        ArrayObject<string, string>
+         */
+        $headers = new ArrayObject();
 
         # Content-Type
         $headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
@@ -155,6 +159,10 @@ class Page
         # Content-Security-Policy (only if safe mode if not active, it may help)
         if (!$safe_mode && App::blog()->settings()->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults
+
+            /**
+             * @var        ArrayObject<string, string>
+             */
             $csp = new ArrayObject([]);
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value

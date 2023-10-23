@@ -47,14 +47,19 @@ class FrontendUrl extends Url
 
             App::frontend()->context()->posts = App::blog()->getPosts($params);
 
-            App::frontend()->context()->comment_preview               = new ArrayObject();
-            App::frontend()->context()->comment_preview['content']    = '';
-            App::frontend()->context()->comment_preview['rawcontent'] = '';
-            App::frontend()->context()->comment_preview['name']       = '';
-            App::frontend()->context()->comment_preview['mail']       = '';
-            App::frontend()->context()->comment_preview['site']       = '';
-            App::frontend()->context()->comment_preview['preview']    = false;
-            App::frontend()->context()->comment_preview['remember']   = false;
+            /**
+             * @var        ArrayObject<string, mixed>
+             */
+            $cp               = new ArrayObject();
+            $cp['content']    = '';
+            $cp['rawcontent'] = '';
+            $cp['name']       = '';
+            $cp['mail']       = '';
+            $cp['site']       = '';
+            $cp['preview']    = false;
+            $cp['remember']   = false;
+
+            App::frontend()->context()->comment_preview = $cp;
 
             App::blog()->withoutPassword(true);
 
