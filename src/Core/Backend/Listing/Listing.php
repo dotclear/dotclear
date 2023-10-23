@@ -64,7 +64,7 @@ class Listing
      * Get user defined columns
      *
      * @param      string                                               $type   The type
-     * @param      array<string, string>|\ArrayObject<string, string>   $cols   The columns
+     * @param      array<string, mixed>|\ArrayObject<string, mixed>     $cols   The columns
      */
     public function userColumns(string $type, $cols): void
     {
