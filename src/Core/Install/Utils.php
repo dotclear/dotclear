@@ -99,27 +99,27 @@ class Utils
         /* Tables
         -------------------------------------------------------- */
         $_s->blog
-            ->blog_id('varchar', 32, false)
-            ->blog_uid('varchar', 32, false)
-            ->blog_creadt('timestamp', 0, false, 'now()')
-            ->blog_upddt('timestamp', 0, false, 'now()')
-            ->blog_url('varchar', 255, false)
-            ->blog_name('varchar', 255, false)
-            ->blog_desc('text', 0, true)
-            ->blog_status('smallint', 0, false, App::blog()::BLOG_ONLINE) // 2.24+ transition (update)
+            ->field('blog_id', 'varchar', 32, false)
+            ->field('blog_uid', 'varchar', 32, false)
+            ->field('blog_creadt', 'timestamp', 0, false, 'now()')
+            ->field('blog_upddt', 'timestamp', 0, false, 'now()')
+            ->field('blog_url', 'varchar', 255, false)
+            ->field('blog_name', 'varchar', 255, false)
+            ->field('blog_desc', 'text', 0, true)
+            ->field('blog_status', 'smallint', 0, false, App::blog()::BLOG_ONLINE) // 2.24+ transition ', update)
 
             ->primary('pk_blog', 'blog_id')
         ;
 
         $_s->category
-            ->cat_id('bigint', 0, false)
-            ->blog_id('varchar', 32, false)
-            ->cat_title('varchar', 255, false)
-            ->cat_url('varchar', 255, false)
-            ->cat_desc('text', 0, true)
-            ->cat_position('integer', 0, true, 0)
-            ->cat_lft('integer', 0, true)
-            ->cat_rgt('integer', 0, true)
+            ->field('cat_id', 'bigint', 0, false)
+            ->field('blog_id', 'varchar', 32, false)
+            ->field('cat_title', 'varchar', 255, false)
+            ->field('cat_url', 'varchar', 255, false)
+            ->field('cat_desc', 'text', 0, true)
+            ->field('cat_position', 'integer', 0, true, 0)
+            ->field('cat_lft', 'integer', 0, true)
+            ->field('cat_rgt', 'integer', 0, true)
 
             ->primary('pk_category', 'cat_id')
 
@@ -127,87 +127,87 @@ class Utils
         ;
 
         $_s->session
-            ->ses_id('varchar', 40, false)
-            ->ses_time('integer', 0, false, 0)
-            ->ses_start('integer', 0, false, 0)
-            ->ses_value('text', 0, false)
+            ->field('ses_id', 'varchar', 40, false)
+            ->field('ses_time', 'integer', 0, false, 0)
+            ->field('ses_start', 'integer', 0, false, 0)
+            ->field('ses_value', 'text', 0, false)
 
             ->primary('pk_session', 'ses_id')
         ;
 
         $_s->setting
-            ->setting_id('varchar', 255, false)
-            ->blog_id('varchar', 32, true)
-            ->setting_ns('varchar', 32, false, "'system'")
-            ->setting_value('text', 0, true, null)
-            ->setting_type('varchar', 8, false, "'string'")
-            ->setting_label('text', 0, true)
+            ->field('setting_id', 'varchar', 255, false)
+            ->field('blog_id', 'varchar', 32, true)
+            ->field('setting_ns', 'varchar', 32, false, "'system'")
+            ->field('setting_value', 'text', 0, true, null)
+            ->field('setting_type', 'varchar', 8, false, "'string'")
+            ->field('setting_label', 'text', 0, true)
 
             ->unique('uk_setting', 'setting_ns', 'setting_id', 'blog_id')
         ;
 
         $_s->user
-            ->user_id('varchar', 32, false)
-            ->user_super('smallint', 0, true)
-            ->user_status('smallint', 0, false, 1)
-            ->user_pwd('varchar', 255, false)
-            ->user_change_pwd('smallint', 0, false, 0)
-            ->user_recover_key('varchar', 32, true, null)
-            ->user_name('varchar', 255, true, null)
-            ->user_firstname('varchar', 255, true, null)
-            ->user_displayname('varchar', 255, true, null)
-            ->user_email('varchar', 255, true, null)
-            ->user_url('varchar', 255, true, null)
-            ->user_desc('text', 0, true)
-            ->user_default_blog('varchar', 32, true, null)
-            ->user_options('text', 0, true)
-            ->user_lang('varchar', 5, true, null)
-            ->user_tz('varchar', 128, false, "'UTC'")
-            ->user_post_status('smallint', 0, false, App::blog()::POST_PENDING)
-            ->user_creadt('timestamp', 0, false, 'now()')
-            ->user_upddt('timestamp', 0, false, 'now()')
+            ->field('user_id', 'varchar', 32, false)
+            ->field('user_super', 'smallint', 0, true)
+            ->field('user_status', 'smallint', 0, false, 1)
+            ->field('user_pwd', 'varchar', 255, false)
+            ->field('user_change_pwd', 'smallint', 0, false, 0)
+            ->field('user_recover_key', 'varchar', 32, true, null)
+            ->field('user_name', 'varchar', 255, true, null)
+            ->field('user_firstname', 'varchar', 255, true, null)
+            ->field('user_displayname', 'varchar', 255, true, null)
+            ->field('user_email', 'varchar', 255, true, null)
+            ->field('user_url', 'varchar', 255, true, null)
+            ->field('user_desc', 'text', 0, true)
+            ->field('user_default_blog', 'varchar', 32, true, null)
+            ->field('user_options', 'text', 0, true)
+            ->field('user_lang', 'varchar', 5, true, null)
+            ->field('user_tz', 'varchar', 128, false, "'UTC'")
+            ->field('user_post_status', 'smallint', 0, false, App::blog()::POST_PENDING)
+            ->field('user_creadt', 'timestamp', 0, false, 'now()')
+            ->field('user_upddt', 'timestamp', 0, false, 'now()')
 
             ->primary('pk_user', 'user_id')
         ;
 
         $_s->permissions
-            ->user_id('varchar', 32, false)
-            ->blog_id('varchar', 32, false)
-            ->permissions('text', 0, true)
+            ->field('user_id', 'varchar', 32, false)
+            ->field('blog_id', 'varchar', 32, false)
+            ->field('permissions', 'text', 0, true)
 
             ->primary('pk_permissions', 'user_id', 'blog_id')
         ;
 
         $_s->post
-            ->post_id('bigint', 0, false)
-            ->blog_id('varchar', 32, false)
-            ->user_id('varchar', 32, false)
-            ->cat_id('bigint', 0, true)
-            ->post_dt('timestamp', 0, false, 'now()')
-            ->post_tz('varchar', 128, false, "'UTC'")
-            ->post_creadt('timestamp', 0, false, 'now()')
-            ->post_upddt('timestamp', 0, false, 'now()')
-            ->post_password('varchar', 32, true, null)
-            ->post_type('varchar', 32, false, "'post'")
-            ->post_format('varchar', 32, false, "'xhtml'")
-            ->post_url('varchar', 255, false)
-            ->post_lang('varchar', 5, true, null)
-            ->post_title('varchar', 255, true, null)
-            ->post_excerpt('text', 0, true, null)
-            ->post_excerpt_xhtml('text', 0, true, null)
-            ->post_content('text', 0, true, null)
-            ->post_content_xhtml('text', 0, false)
-            ->post_notes('text', 0, true, null)
-            ->post_meta('text', 0, true, null)
-            ->post_words('text', 0, true, null)
-            ->post_status('smallint', 0, false, App::blog()::POST_UNPUBLISHED)
-            ->post_firstpub('smallint', 0, false, 0)
-            ->post_selected('smallint', 0, false, 0)
-            ->post_position('integer', 0, false, 0)
-            ->post_open_comment('smallint', 0, false, 0)
-            ->post_open_tb('smallint', 0, false, 0)
-            ->nb_comment('integer', 0, false, 0)
-            ->nb_trackback('integer', 0, false, 0)
+            ->field('post_id', 'bigint', 0, false)
+            ->field('blog_id', 'varchar', 32, false)
+            ->field('user_id', 'varchar', 32, false)
+            ->field('cat_id', 'bigint', 0, true)
+            ->field('post_dt', 'timestamp', 0, false, 'now()')
+            ->field('post_tz', 'varchar', 128, false, "'UTC'")
+            ->field('post_creadt', 'timestamp', 0, false, 'now()')
+            ->field('post_upddt', 'timestamp', 0, false, 'now()')
+            ->field('post_password', 'varchar', 32, true, null)
+            ->field('post_type', 'varchar', 32, false, "'post'")
+            ->field('post_format', 'varchar', 32, false, "'xhtml'")
+            ->field('post_url', 'varchar', 255, false)
+            ->field('post_lang', 'varchar', 5, true, null)
+            ->field('post_title', 'varchar', 255, true, null)
+            ->field('post_excerpt', 'text', 0, true, null)
+            ->field('post_excerpt_xhtml', 'text', 0, true, null)
+            ->field('post_content', 'text', 0, true, null)
+            ->field('post_content_xhtml', 'text', 0, false)
+            ->field('post_notes', 'text', 0, true, null)
+            ->field('post_meta', 'text', 0, true, null)
+            ->field('post_words', 'text', 0, true, null)
+            ->field('post_status', 'smallint', 0, false, App::blog()::POST_UNPUBLISHED)
+            ->field('post_firstpub', 'smallint', 0, false, 0)
+            ->field('post_selected', 'smallint', 0, false, 0)
+            ->field('post_position', 'integer', 0, false, 0)
+            ->field('post_open_comment', 'smallint', 0, false, 0)
+            ->field('post_open_tb', 'smallint', 0, false, 0)
+            ->field('nb_comment', 'integer', 0, false, 0)
+            ->field('nb_trackback', 'integer', 0, false, 0)
 
             ->primary('pk_post', 'post_id')
 
@@ -215,103 +215,103 @@ class Utils
         ;
 
         $_s->media
-            ->media_id('bigint', 0, false)
-            ->user_id('varchar', 32, false)
-            ->media_path('varchar', 255, false)
-            ->media_title('varchar', 255, false)
-            ->media_file('varchar', 255, false)
-            ->media_dir('varchar', 255, false, "'.'")
-            ->media_meta('text', 0, true, null)
-            ->media_dt('timestamp', 0, false, 'now()')
-            ->media_creadt('timestamp', 0, false, 'now()')
-            ->media_upddt('timestamp', 0, false, 'now()')
-            ->media_private('smallint', 0, false, 0)
+            ->field('media_id', 'bigint', 0, false)
+            ->field('user_id', 'varchar', 32, false)
+            ->field('media_path', 'varchar', 255, false)
+            ->field('media_title', 'varchar', 255, false)
+            ->field('media_file', 'varchar', 255, false)
+            ->field('media_dir', 'varchar', 255, false, "'.'")
+            ->field('media_meta', 'text', 0, true, null)
+            ->field('media_dt', 'timestamp', 0, false, 'now()')
+            ->field('media_creadt', 'timestamp', 0, false, 'now()')
+            ->field('media_upddt', 'timestamp', 0, false, 'now()')
+            ->field('media_private', 'smallint', 0, false, 0)
 
             ->primary('pk_media', 'media_id')
         ;
 
         $_s->post_media
-            ->media_id('bigint', 0, false)
-            ->post_id('bigint', 0, false)
-            ->link_type('varchar', 32, false, "'attachment'")
+            ->field('media_id', 'bigint', 0, false)
+            ->field('post_id', 'bigint', 0, false)
+            ->field('link_type', 'varchar', 32, false, "'attachment'")
 
             ->primary('pk_post_media', 'media_id', 'post_id', 'link_type')
         ;
 
         $_s->log
-            ->log_id('bigint', 0, false)
-            ->user_id('varchar', 32, true)
-            ->blog_id('varchar', 32, true)
-            ->log_table('varchar', 255, false)
-            ->log_dt('timestamp', 0, false, 'now()')
-            ->log_ip('varchar', 39, false)
-            ->log_msg('text', 0, true, null)
+            ->field('log_id', 'bigint', 0, false)
+            ->field('user_id', 'varchar', 32, true)
+            ->field('blog_id', 'varchar', 32, true)
+            ->field('log_table', 'varchar', 255, false)
+            ->field('log_dt', 'timestamp', 0, false, 'now()')
+            ->field('log_ip', 'varchar', 39, false)
+            ->field('log_msg', 'text', 0, true, null)
 
             ->primary('pk_log', 'log_id')
         ;
 
         $_s->version
-            ->module('varchar', 64, false)
-            ->version('varchar', 32, false)
+            ->field('module', 'varchar', 64, false)
+            ->field('version', 'varchar', 32, false)
 
             ->primary('pk_version', 'module')
         ;
 
         $_s->ping
-            ->post_id('bigint', 0, false)
-            ->ping_url('varchar', 255, false)
-            ->ping_dt('timestamp', 0, false, 'now()')
+            ->field('post_id', 'bigint', 0, false)
+            ->field('ping_url', 'varchar', 255, false)
+            ->field('ping_dt', 'timestamp', 0, false, 'now()')
 
             ->primary('pk_ping', 'post_id', 'ping_url')
         ;
 
         $_s->comment
-            ->comment_id('bigint', 0, false)
-            ->post_id('bigint', 0, false)
-            ->comment_dt('timestamp', 0, false, 'now()')
-            ->comment_tz('varchar', 128, false, "'UTC'")
-            ->comment_upddt('timestamp', 0, false, 'now()')
-            ->comment_author('varchar', 255, true, null)
-            ->comment_email('varchar', 255, true, null)
-            ->comment_site('varchar', 255, true, null)
-            ->comment_content('text', 0, true)
-            ->comment_words('text', 0, true, null)
-            ->comment_ip('varchar', 39, true, null)
-            ->comment_status('smallint', 0, true, App::blog()::COMMENT_UNPUBLISHED)
-            ->comment_spam_status('varchar', 128, true, 0)
-            ->comment_spam_filter('varchar', 32, true, null)
-            ->comment_trackback('smallint', 0, false, 0)
+            ->field('comment_id', 'bigint', 0, false)
+            ->field('post_id', 'bigint', 0, false)
+            ->field('comment_dt', 'timestamp', 0, false, 'now()')
+            ->field('comment_tz', 'varchar', 128, false, "'UTC'")
+            ->field('comment_upddt', 'timestamp', 0, false, 'now()')
+            ->field('comment_author', 'varchar', 255, true, null)
+            ->field('comment_email', 'varchar', 255, true, null)
+            ->field('comment_site', 'varchar', 255, true, null)
+            ->field('comment_content', 'text', 0, true)
+            ->field('comment_words', 'text', 0, true, null)
+            ->field('comment_ip', 'varchar', 39, true, null)
+            ->field('comment_status', 'smallint', 0, true, App::blog()::COMMENT_UNPUBLISHED)
+            ->field('comment_spam_status', 'varchar', 128, true, 0)
+            ->field('comment_spam_filter', 'varchar', 32, true, null)
+            ->field('comment_trackback', 'smallint', 0, false, 0)
 
             ->primary('pk_comment', 'comment_id')
         ;
 
         $_s->meta
-            ->meta_id('varchar', 255, false)
-            ->meta_type('varchar', 64, false)
-            ->post_id('bigint', 0, false)
+            ->field('meta_id', 'varchar', 255, false)
+            ->field('meta_type', 'varchar', 64, false)
+            ->field('post_id', 'bigint', 0, false)
 
             ->primary('pk_meta', 'meta_id', 'meta_type', 'post_id')
         ;
 
         $_s->pref
-            ->pref_id('varchar', 255, false)
-            ->user_id('varchar', 32, true)
-            ->pref_ws('varchar', 32, false, "'system'")
-            ->pref_value('text', 0, true, null)
-            ->pref_type('varchar', 8, false, "'string'")
-            ->pref_label('text', 0, true)
+            ->field('pref_id', 'varchar', 255, false)
+            ->field('user_id', 'varchar', 32, true)
+            ->field('pref_ws', 'varchar', 32, false, "'system'")
+            ->field('pref_value', 'text', 0, true, null)
+            ->field('pref_type', 'varchar', 8, false, "'string'")
+            ->field('pref_label', 'text', 0, true)
 
             ->unique('uk_pref', 'pref_ws', 'pref_id', 'user_id')
         ;
 
         $_s->notice
-            ->notice_id('bigint', 0, false)
-            ->ses_id('varchar', 40, false)
-            ->notice_type('varchar', 32, true)
-            ->notice_ts('timestamp', 0, false, 'now()')
-            ->notice_msg('text', 0, true, null)
-            ->notice_format('varchar', 32, true, "'text'")
-            ->notice_options('text', 0, true, null)
+            ->field('notice_id', 'bigint', 0, false)
+            ->field('ses_id', 'varchar', 40, false)
+            ->field('notice_type', 'varchar', 32, true)
+            ->field('notice_ts', 'timestamp', 0, false, 'now()')
+            ->field('notice_msg', 'text', 0, true, null)
+            ->field('notice_format', 'varchar', 32, true, "'text'")
+            ->field('notice_options', 'text', 0, true, null)
 
             ->primary('pk_notice', 'notice_id')
         ;

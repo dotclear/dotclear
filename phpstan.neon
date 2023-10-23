@@ -83,9 +83,6 @@ parameters:
     # XmlTag object and magic methods
     - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
 
-    # Structure object and magic methods
-    - message: '#Call to an undefined method Dotclear\\Database\\Table::#'
-
     # MetaRecord object and magic methods
     - message: '#Call to an undefined method Dotclear\\Database\\MetaRecord::#'
 
