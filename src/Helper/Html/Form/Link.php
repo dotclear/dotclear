@@ -60,7 +60,7 @@ class Link extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with items
-        if (isset($this->items) && is_array($this->items)) {
+        if (isset($this->items)) {
             foreach ($this->items as $item) {
                 if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
