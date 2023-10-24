@@ -11,6 +11,7 @@ namespace Dotclear\Plugin\importExport;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
@@ -20,6 +21,8 @@ use Exception;
  */
 class FlatExport
 {
+    use TraitDynamicProperties;
+
     private ConnectionInterface $con;
     private string $prefix;
 
