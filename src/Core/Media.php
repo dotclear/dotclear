@@ -920,7 +920,7 @@ class Media extends Manager implements MediaInterface
         foreach ($dir['files'] as $f) {
             try {
                 $this->chdir(dirname($f->relname));
-                $this->callFileHandler(Files::getMimeType($f->basename), 'recreate', null, $f->basename, $force);
+                $this->callFileHandler(Files::getMimeType($f->basename), 'recreate', null, $f->basename, 0, $force);
             } catch (Throwable) {
                 // Ignore errors on trying to rebuild thumbnails
             }
@@ -1310,7 +1310,7 @@ class Media extends Manager implements MediaInterface
     public function mediaFireRecreateEvent(File $f): void
     {
         $media_type = Files::getMimeType($f->basename);
-        $this->callFileHandler($media_type, 'recreate', null, $f->basename); // Args list to be completed as necessary (Franck)
+        $this->callFileHandler($media_type, 'recreate', null, $f->basename, 0);
     }
 
     /* Image handlers
