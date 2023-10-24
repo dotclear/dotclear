@@ -229,6 +229,26 @@ class Template
     }
 
     /**
+     * Prepend a template path.
+     *
+     * @param   string  $path   The path to prepend
+     */
+    public function prependPath(string $path): void
+    {
+        $this->setPath($path, $this->getPath());
+    }
+
+    /**
+     * Append a template path.
+     *
+     * @param   string  $path   The path to append
+     */
+    public function appendPath(string $path): void
+    {
+        $this->setPath($this->getPath(), $path);
+    }
+
+    /**
      * Gets the template paths.
      *
      * @return     array<string>
