@@ -136,7 +136,7 @@ class Media extends Manager implements MediaInterface
      *
      * @deprecated since 2.28, use self::getThumbnailCombo()
      *
-     * @var array<string, array{0:int, 1:string, 2:string}>
+     * @var array<string, array{0:int, 1:string, 2:string, 3?:string}>
      */
     public array $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],
@@ -237,7 +237,7 @@ class Media extends Manager implements MediaInterface
         $this->thumb_sizes['s'][0] = abs((int) $this->blog->settings()->system->media_img_s_size);
         $this->thumb_sizes['t'][0] = abs((int) $this->blog->settings()->system->media_img_t_size);
 
-        # --BEHAVIOR-- coreMediaConstruct -- Manager
+        # --BEHAVIOR-- coreMediaConstruct -- Manager -- deprecated since 2.28, as plugins are not yet loaded here
         $this->behavior->callBehavior('coreMediaConstruct', $this);
 
         // Sort thumb_sizes DESC on largest sizes
@@ -280,11 +280,36 @@ class Media extends Manager implements MediaInterface
     /**
      * Gets the thumb sizes.
      *
-     * @return     array<string, mixed>  The thumb sizes.
+     * @return     array<string, array{0:int, 1:string, 2:string, 3?:string}>  The thumb sizes.
      */
     public function getThumbSizes(): array
     {
         return $this->thumb_sizes;
+    }
+
+    /**
+     * Sets the thumb sizes.
+     *
+     * @param     array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
+     */
+    public function setThumbSizes(array $thumb_sizes): void
+    {
+        $this->thumb_sizes = $thumb_sizes;
+
+        // Sort thumb_sizes DESC on largest sizes
+        $sizes = [];
+        foreach ($this->thumb_sizes as $code => $size) {
+            $sizes[$code] = $size[0];
+        }
+        array_multisort($sizes, SORT_DESC, $this->thumb_sizes);
+
+        // Set thumbnails translations if necessary
+        foreach ($this->thumb_sizes as $code => $size) {
+            if (!isset($this->thumb_sizes[$code][3])) {
+                $this->thumb_sizes[$code][3] = $this->thumb_sizes[$code][2];
+                $this->thumb_sizes[$code][2] = __($this->thumb_sizes[$code][2]);
+            }
+        }
     }
 
     public function setFilterMimeType(string $type): void

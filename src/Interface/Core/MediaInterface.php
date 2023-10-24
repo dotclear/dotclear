@@ -45,17 +45,24 @@ interface MediaInterface
     public function getThumbnailFilePattern(string $type = ''): string;
 
     /**
-     * Get thumb sizes definniton.
+     * Get thumb sizes definition.
      *
-     * Tubmnail sizes:
+     * Thumbnail sizes:
      * - m: medium image
      * - s: small image
      * - t: thumbnail image
      * - sq: square image
      *
-     * @return array<string,array<int|string,string>>
+     * @return array<string, array{0:int, 1:string, 2:string, 3?:string}>
      */
     public function getThumbSizes(): array;
+
+    /**
+     * Sets the thumb sizes definition.
+     *
+     * @param     array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
+     */
+    public function setThumbSizes(array $thumb_sizes): void;
 
     /**
      * Set media type filter.

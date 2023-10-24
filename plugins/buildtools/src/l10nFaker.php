@@ -42,7 +42,9 @@ class l10nFaker
 
         $main .= "\n// Media sizes\n\n";
         foreach (App::media()->getThumbSizes() as $v) {
-            $main .= $this->fake_l10n($v[3]);
+            if (isset($v[3])) {
+                $main .= $this->fake_l10n($v[3]);
+            }
         }
 
         $post_types = App::postTypes()->dump();

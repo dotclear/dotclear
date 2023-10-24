@@ -290,7 +290,7 @@ class Blog implements BlogInterface
         $this->postmedia->loadFromBlog($this);
 
         if (!empty($id)) {
-            # --BEHAVIOR-- coreBlogConstruct -- BlogInterface
+            # --BEHAVIOR-- coreBlogConstruct -- BlogInterface -- deprecated since 2.28, as plugins are not yet loaded here
             $this->behavior->callBehavior('coreBlogConstruct', $this);
         }
 
