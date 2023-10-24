@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
+use Dotclear\Helper\TraitDynamicProperties;
 use Exception;
 
 /**
@@ -17,6 +18,8 @@ use Exception;
  */
 class FlatBackup
 {
+    use TraitDynamicProperties;
+
     protected mixed $fp;
 
     /**
