@@ -135,15 +135,9 @@ class Url
      * @param   string                  $name       The name
      * @param   array<string, mixed>    $params     The parameters
      * @param   string                  $suffix     The suffix
-     *
-     * @throws  Exception   If unknown URL
      */
     public function redirect(string $name, array $params = [], string $suffix = ''): void
     {
-        if (!isset($this->urls[$name])) {
-            throw new Exception('Unknown URL handler for ' . $name);
-        }
-
         Http::redirect($this->get($name, $params, '&') . $suffix);
     }
 
