@@ -37,7 +37,7 @@ class Prepend extends Process
             return false;
         }
 
-        if (!DC_FAIRTRACKBACKS_FORCE) {
+        if (defined('DC_FAIRTRACKBACKS_FORCE') && !DC_FAIRTRACKBACKS_FORCE) {
             App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
                 $stack->append(AntispamFilterFairTrackbacks::class);
             });

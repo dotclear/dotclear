@@ -71,7 +71,7 @@ class Backend extends Process
             },
         ]);
 
-        if (!DC_ANTISPAM_CONF_SUPER || App::auth()->isSuperAdmin()) {
+        if ((defined('DC_ANTISPAM_CONF_SUPER') && !DC_ANTISPAM_CONF_SUPER) || App::auth()->isSuperAdmin()) {
             App::behavior()->addBehaviors([
                 'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
                 'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),

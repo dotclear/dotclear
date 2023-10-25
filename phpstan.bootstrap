@@ -1,9 +1,5 @@
 <?php
 
-// Mock some global constants
-define('DC_ANTISPAM_CONF_SUPER', true);
-define('DC_FAIRTRACKBACKS_FORCE', true);
-
 // Xdebug method()
 // function xdebug_time_index() {}
 // function xdebug_get_profiler_filename() {}
