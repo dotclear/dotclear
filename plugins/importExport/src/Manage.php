@@ -16,6 +16,10 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Dd;
+use Dotclear\Helper\Html\Form\Dl;
+use Dotclear\Helper\Html\Form\Dt;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Html;
 
 /**
@@ -134,16 +138,16 @@ class Manage extends Process
      */
     protected static function listImportExportModules($modules): string
     {
-        $res = '';
+        $list = [];
         foreach ($modules as $id) {
             if (is_subclass_of($id, Module::class)) {
                 $o = new $id(dcCore::app());
 
-                $res .= '<dt><a href="' . $o->getURL(true) . '">' . Html::escapeHTML($o->name) . '</a></dt>' .
-                '<dd>' . Html::escapeHTML($o->description) . '</dd>';
+                $list[] = (new Dt())->items([(new Link())->href($o->getURL(true))->text($o->name)]);
+                $list[] = (new Dd())->text(Html::escapeHTML($o->description));
             }
         }
 
-        return '<dl class="modules">' . $res . '</dl>';
+        return (new Dl())->class('modules')->items($list)->render();
     }
 }
