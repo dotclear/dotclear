@@ -50,7 +50,7 @@ class Plugin extends Process
         if (!empty($plugin)) {
             try {
                 App::backend()->setPageURL(App::backend()->url()->get('admin.plugin.' . $plugin));
-            } catch (Exception $e) {
+            } catch (Exception) {
                 // Unknown URL handler for plugin, back to dashboard
                 Http::redirect(App::config()->adminUrl());
             }

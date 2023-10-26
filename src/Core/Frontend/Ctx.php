@@ -821,7 +821,7 @@ class Ctx
 
                 return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '" />';
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             // Ignore exception as it is not important not finding any image in content in a public context
         }
 
