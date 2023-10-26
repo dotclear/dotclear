@@ -183,10 +183,10 @@ class Parser
             $item->description = (string) $i->description;
             $item->content     = (string) $i->children('http://purl.org/rss/1.0/modules/content/')->encoded;
 
-            $item->subject = array_merge(
-                $this->nodes2array($i->children('http://purl.org/dc/elements/1.1/')->subject),
-                $this->nodes2array($i->category)
-            );
+            $item->subject = [
+                ...$this->nodes2array($i->children('http://purl.org/dc/elements/1.1/')->subject),
+                ...$this->nodes2array($i->category),
+            ];
 
             $item->pubdate = (string) $i->pubDate;
             if (!$item->pubdate && !empty($i->children('http://purl.org/dc/elements/1.1/')->date)) {

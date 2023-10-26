@@ -112,10 +112,10 @@ abstract class MyPlugin extends MyModule
     {
         $fields = [];
         if (App::task()->checkContext('BACKEND')) {
-            $params = array_merge(
-                App::backend()->url()->getParams('admin.plugin.' . static::id()),
-                $params
-            );
+            $params = [
+                ...App::backend()->url()->getParams('admin.plugin.' . static::id()),
+                ...$params,
+            ];
             foreach ($params as $key => $value) {
                 $fields[] = new Hidden([$key], (string) $value);
             }

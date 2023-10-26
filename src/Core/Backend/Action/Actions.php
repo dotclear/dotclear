@@ -304,7 +304,7 @@ abstract class Actions
             $ret[] = (new Hidden([$name], (string) $value));
         }
         if ($with_ids) {
-            $ret = array_merge($ret, $this->IDsHidden());
+            $ret = [...$ret, ...$this->IDsHidden()];
         }
 
         return $ret;
@@ -349,7 +349,7 @@ abstract class Actions
      */
     public function getRedirection(bool $with_selected_entries = false, array $params = []): string
     {
-        $redirect_args = array_merge($params, $this->redir_args);
+        $redirect_args = [...$params, ...$this->redir_args];
         if (isset($redirect_args['redir'])) {
             unset($redirect_args['redir']);
         }

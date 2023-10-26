@@ -337,7 +337,7 @@ class HtmlFilter
         $result = [];
         foreach ($args as $arg) {
             if (is_array($arg)) {
-                $result = array_merge($result, $arg);
+                $result = [...$result, ...$arg];
             } else {
                 $result[] = (string) $arg;
             }

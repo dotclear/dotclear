@@ -625,7 +625,7 @@ class Ctx
         $base_url   = App::blog()->getQmarkURL() . 'pf=';
 
         if (file_exists($definition)) {
-            return array_merge(self::smiliesDefinition($definition, $base_url), $definitions);
+            return [...self::smiliesDefinition($definition, $base_url), ...$definitions];
         }
 
         return false;

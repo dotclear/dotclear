@@ -179,7 +179,7 @@ class ModuleImportFlat extends Module
             return;
         }
 
-        $public_files = array_merge(['-' => ''], $this->getPublicFiles());
+        $public_files = ['-' => '', ...$this->getPublicFiles()];
         $has_files    = (bool) (count($public_files) - 1);
 
         echo

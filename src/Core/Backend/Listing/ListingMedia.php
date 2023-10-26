@@ -133,7 +133,7 @@ class ListingMedia extends Listing
 
         if ($file->d) {
             // Folder
-            $link = App::backend()->url()->get('admin.media', array_merge($filters->values(), ['d' => Html::sanitizeURL($file->relname)]));
+            $link = App::backend()->url()->get('admin.media', [...$filters->values(), 'd' => Html::sanitizeURL($file->relname)]);
             if ($file->parent) {
                 $display_name = '..';
                 $class .= ' media-folder-up';
@@ -142,7 +142,7 @@ class ListingMedia extends Listing
             }
         } else {
             // Item
-            $params = new ArrayObject(array_merge($filters->values(), ['id' => $file->media_id]));
+            $params = new ArrayObject([...$filters->values(), 'id' => $file->media_id]);
             unset($params['process']); // move to media item
 
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
@@ -199,7 +199,7 @@ class ListingMedia extends Listing
                 }
             } else {
                 $act .= '<a class="media-remove" ' .
-                'href="' . App::backend()->url()->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($filename)])) . '">' .
+                'href="' . App::backend()->url()->get($page_adminurl, [...$filters->values(), 'remove' => rawurlencode($filename)]) . '">' .
                 '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
             }
         }

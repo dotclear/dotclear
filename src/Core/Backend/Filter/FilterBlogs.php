@@ -48,10 +48,7 @@ class FilterBlogs extends Filters
         return (new Filter('status'))
             ->param('blog_status')
             ->title(__('Status:'))
-            ->options(array_merge(
-                ['-' => ''],
-                Combos::getBlogStatusesCombo()
-            ))
+            ->options(['-' => '', ...Combos::getBlogStatusesCombo()])
             ->prime(true);
     }
 }

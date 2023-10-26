@@ -91,7 +91,7 @@ class form
         if (func_num_args() > 2 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($default, $options));
+            $args    = [...$options, ...array_intersect_key($default, $options)];
             extract($args);
         }
 
@@ -144,7 +144,7 @@ class form
         if (func_num_args() > 2 && is_array($checked)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($checked, $options));
+            $args    = [...$options, ...array_intersect_key($checked, $options)];
             extract($args);
         }
 
@@ -197,7 +197,7 @@ class form
         if (func_num_args() > 2 && is_array($checked)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($checked, $options));
+            $args    = [...$options, ...array_intersect_key($checked, $options)];
             extract($args);
         }
 
@@ -258,7 +258,7 @@ class form
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($default, $options));
+            $args    = [...$options, ...array_intersect_key($default, $options)];
             extract($args);
         }
 
@@ -331,7 +331,7 @@ class form
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($default, $options));
+            $args    = [...$options, ...array_intersect_key($default, $options)];
             extract($args);
         }
 
@@ -404,7 +404,7 @@ class form
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($size, $options));
+            $args    = [...$options, ...array_intersect_key($size, $options)];
             extract($args);
         }
 
@@ -477,7 +477,7 @@ class form
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($size, $options));
+            $args    = [...$options, ...array_intersect_key($size, $options)];
             extract($args);
         }
 
@@ -550,7 +550,7 @@ class form
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($size, $options));
+            $args    = [...$options, ...array_intersect_key($size, $options)];
             extract($args);
         }
 
@@ -623,7 +623,7 @@ class form
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($size, $options));
+            $args    = [...$options, ...array_intersect_key($size, $options)];
             extract($args);
         }
 
@@ -696,7 +696,7 @@ class form
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($size, $options));
+            $args    = [...$options, ...array_intersect_key($size, $options)];
             extract($args);
         }
 
@@ -769,7 +769,7 @@ class form
         if (func_num_args() > 1 && is_array($size)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($size, $options));
+            $args    = [...$options, ...array_intersect_key($size, $options)];
             extract($args);
         }
 
@@ -836,7 +836,7 @@ class form
         if (func_num_args() > 1 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($default, $options));
+            $args    = [...$options, ...array_intersect_key($default, $options)];
             extract($args);
         }
 
@@ -900,7 +900,7 @@ class form
         if (func_num_args() > 1 && is_array($min)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($min, $options));
+            $args    = [...$options, ...array_intersect_key($min, $options)];
             extract($args);
         }
 
@@ -967,7 +967,7 @@ class form
         if (func_num_args() > 3 && is_array($default)) {
             // Cope with associative array of optional parameters
             $options = self::getDefaults(self::class, __FUNCTION__);
-            $args    = array_merge($options, array_intersect_key($default, $options));
+            $args    = [...$options, ...array_intersect_key($default, $options)];
             extract($args);
         }
 

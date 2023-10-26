@@ -162,7 +162,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         // User preferences (local) overwrite global ones
-        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
+        $this->prefs = [...$this->global_prefs, ...$this->local_prefs];
     }
 
     public function prefExists(string $name, bool $global = false): bool
@@ -365,7 +365,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         // User preferences (local) overwrite global ones
-        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
+        $this->prefs = [...$this->global_prefs, ...$this->local_prefs];
     }
 
     public function dropEvery(string $name, bool $global = false): void
@@ -395,7 +395,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         // User preferences (local) overwrite global ones
-        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
+        $this->prefs = [...$this->global_prefs, ...$this->local_prefs];
     }
 
     public function dropAll(bool $force_global = false): void
@@ -425,7 +425,7 @@ class UserWorkspace implements UserWorkspaceInterface
         $this->{$array} = [];
 
         // User preferences (local) overwrite global ones
-        $this->prefs = array_merge($this->global_prefs, $this->local_prefs);
+        $this->prefs = [...$this->global_prefs, ...$this->local_prefs];
     }
 
     public function dumpWorkspace(): string

@@ -284,13 +284,15 @@ class ModuleDefine
      */
     public function dump(): array
     {
-        return array_merge($this->default, $this->properties, [
+        return [
+            ...$this->default,
+            ...$this->properties,
             'id'             => $this->id,
             'enabled'        => $this->get('state') == self::STATE_ENABLED,
             'implies'        => $this->implies,
             'cannot_enable'  => $this->missing,
             'cannot_disable' => $this->using,
-        ]);
+        ];
     }
 
     /**

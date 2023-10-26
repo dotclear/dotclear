@@ -163,7 +163,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
 
         // Blog settings (local) overwrite global ones
-        $this->settings = array_merge($this->global_settings, $this->local_settings);
+        $this->settings = [...$this->global_settings, ...$this->local_settings];
     }
 
     public function settingExists(string $name, bool $global = false): bool
@@ -410,7 +410,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         $this->{$array} = [];
 
         // Blog settings (local) overwrite global ones
-        $this->settings = array_merge($this->global_settings, $this->local_settings);
+        $this->settings = [...$this->global_settings, ...$this->local_settings];
     }
 
     public function dumpWorkspace(): string

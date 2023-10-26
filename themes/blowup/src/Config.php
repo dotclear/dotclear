@@ -117,7 +117,7 @@ class Config extends Process
             $blowup_user = [];
         }
 
-        App::backend()->blowup_user = array_merge($blowup_base, $blowup_user);
+        App::backend()->blowup_user = [...$blowup_base, ...$blowup_user];
 
         App::backend()->gradient_types = [
             __('Light linear gradient')  => 'light',

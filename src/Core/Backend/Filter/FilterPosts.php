@@ -143,10 +143,7 @@ class FilterPosts extends Filters
         return (new Filter('status'))
             ->param('post_status')
             ->title(__('Status:'))
-            ->options(array_merge(
-                ['-' => ''],
-                Combos::getPostStatusesCombo()
-            ))
+            ->options(['-' => '', ...Combos::getPostStatusesCombo()])
             ->prime(true);
     }
 
@@ -168,10 +165,7 @@ class FilterPosts extends Filters
         return (new Filter('format'))
             ->param('where', fn ($f) => " AND post_format = '" . $f[0] . "' ")
             ->title(__('Format:'))
-            ->options(array_merge(
-                ['-' => ''],
-                $available_formats
-            ))
+            ->options(['-' => '', ...$available_formats])
             ->prime(true);
     }
 
@@ -255,10 +249,7 @@ class FilterPosts extends Filters
             ->param('post_month', fn ($f) => substr($f[0], 4, 2))
             ->param('post_year', fn ($f) => substr($f[0], 0, 4))
             ->title(__('Month:'))
-            ->options(array_merge(
-                ['-' => ''],
-                Combos::getDatesCombo($dates)
-            ));
+            ->options(['-' => '', ...Combos::getDatesCombo($dates)]);
     }
 
     /**
@@ -284,10 +275,7 @@ class FilterPosts extends Filters
         return (new Filter('lang'))
             ->param('post_lang')
             ->title(__('Lang:'))
-            ->options(array_merge(
-                ['-' => ''],
-                Combos::getLangsCombo($langs, false)
-            ));
+            ->options(['-' => '', ...Combos::getLangsCombo($langs, false)]);
     }
 
     /**

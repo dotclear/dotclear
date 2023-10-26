@@ -62,7 +62,7 @@ class Url
     {
         // by class name
         if (!str_contains($class, '.php')) {
-            $params = array_merge(['process' => $class], $params);
+            $params = ['process' => $class, ...$params];
             $class  = self::INDEX;
         }
         $this->urls[$name] = [

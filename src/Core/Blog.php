@@ -2763,7 +2763,7 @@ class Blog implements BlogInterface
 
         foreach ($ids as $id) {
             if (is_array($id) || ($id instanceof ArrayObject)) {
-                $clean_ids = array_merge($clean_ids, $this->cleanIds($id));
+                $clean_ids = [...$clean_ids, ...$this->cleanIds($id)];
             } else {
                 $id = abs((int) $id);
 

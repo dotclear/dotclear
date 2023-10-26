@@ -366,7 +366,7 @@ class WikiToHtml
 
         if ($option === 'acronyms_file' && isset($this->opt[$option]) && file_exists($this->opt[$option])) {
             // Parse and merge new acronyms
-            $this->acro_table = array_merge($this->acro_table, $this->__getAcronyms());
+            $this->acro_table = [...$this->acro_table, ...$this->__getAcronyms()];
         }
     }
 
@@ -557,29 +557,27 @@ class WikiToHtml
      */
     private function __initTags(): void
     {
-        $this->tags = array_merge(
-            [
-                'em'     => ["''", "''"],
-                'strong' => ['__', '__'],
-                'abbr'   => ['??', '??'],
-                'a'      => ['[', ']'],
-                'img'    => ['((', '))'],
-                'q'      => ['{{', '}}'],
-                'code'   => ['@@', '@@'],
-                'anchor' => ['~', '~'],
-                'del'    => ['--', '--'],
-                'ins'    => ['++', '++'],
-                'inline' => ['``', '``'],
-                'note'   => ['$$', '$$'],
-                'word'   => ['¶¶¶', '¶¶¶'],
-                'mark'   => ['""', '""'],
-                'sup'    => ['^', '^'],
-                'sub'    => [',,', ',,'],
-                'i'      => ['££', '££'],
-                'span'   => [';;', ';;'],
-            ],
-            $this->custom_tags
-        );
+        $this->tags = [
+            'em'     => ["''", "''"],
+            'strong' => ['__', '__'],
+            'abbr'   => ['??', '??'],
+            'a'      => ['[', ']'],
+            'img'    => ['((', '))'],
+            'q'      => ['{{', '}}'],
+            'code'   => ['@@', '@@'],
+            'anchor' => ['~', '~'],
+            'del'    => ['--', '--'],
+            'ins'    => ['++', '++'],
+            'inline' => ['``', '``'],
+            'note'   => ['$$', '$$'],
+            'word'   => ['¶¶¶', '¶¶¶'],
+            'mark'   => ['""', '""'],
+            'sup'    => ['^', '^'],
+            'sub'    => [',,', ',,'],
+            'i'      => ['££', '££'],
+            'span'   => [';;', ';;'],
+            ...$this->custom_tags,
+        ];
 
         $this->linetags = [
             'empty'   => 'øøø',

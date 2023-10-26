@@ -205,7 +205,7 @@ class SqlStatement
             $this->columns = [];
         }
         if (is_array($c)) {
-            $this->columns = array_merge($this->columns, $c);
+            $this->columns = [...$this->columns, ...$c];
         } else {
             if (!is_null($c)) {
                 array_push($this->columns, $c);
@@ -273,9 +273,9 @@ class SqlStatement
         if (is_array($c)) {
             $c = array_map($filter, $c);   // Cope with legacy code
             if ($first) {
-                $this->from = array_merge($c, $this->from);
+                $this->from = [...$c, ...$this->from];
             } else {
-                $this->from = array_merge($this->from, $c);
+                $this->from = [...$this->from, ...$c];
             }
         } else {
             if (!is_null($c)) {
@@ -307,7 +307,7 @@ class SqlStatement
         }
         if (is_array($c)) {
             $c           = array_map($filter, $c);  // Cope with legacy code
-            $this->where = array_merge($this->where, $c);   // @phpstan-ignore-line
+            $this->where = [...$this->where, ...$c];   // @phpstan-ignore-line
         } else {
             if (!is_null($c)) {
                 $c = $filter($c);   // Cope with legacy code
@@ -345,7 +345,7 @@ class SqlStatement
             $this->cond = [];
         }
         if (is_array($c)) {
-            $this->cond = array_merge($this->cond, $c);
+            $this->cond = [...$this->cond, ...$c];
         } else {
             if (!is_null($c)) {
                 array_push($this->cond, $c);
@@ -423,7 +423,7 @@ class SqlStatement
             $this->sql = [];
         }
         if (is_array($c)) {
-            $this->sql = array_merge($this->sql, $c);
+            $this->sql = [...$this->sql, ...$c];
         } else {
             if (!is_null($c)) {
                 array_push($this->sql, $c);

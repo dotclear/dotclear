@@ -200,7 +200,7 @@ class Akismet extends HttpClient
             'comment_content'      => $content,
         ];
 
-        $data = array_merge($data, $info);
+        $data = [...$data, ...$info];
 
         $this->host = $this->ak_host;
         $path       = sprintf($this->ak_path, $function);

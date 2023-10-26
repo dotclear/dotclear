@@ -224,10 +224,10 @@ class MetaRecord implements Iterator, Countable
     {
         $extensions = [];
         if ($this->static instanceof StaticRecord) {
-            $extensions = array_merge($extensions, $this->static->extensions());
+            $extensions = [...$extensions, ...$this->static->extensions()];
         }
         if ($this->dynamic instanceof Record) {
-            $extensions = array_merge($extensions, $this->dynamic->extensions());
+            $extensions = [...$extensions, ...$this->dynamic->extensions()];
         }
 
         return $extensions;

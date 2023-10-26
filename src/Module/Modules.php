@@ -171,7 +171,7 @@ class Modules implements ModulesInterface
      */
     public function getDefine(string $id, array $search = []): ModuleDefine
     {
-        $found = $this->getDefines(array_merge($search, ['id' => $id]));
+        $found = $this->getDefines([...$search, 'id' => $id]);
 
         return empty($found) ? new ModuleDefine($id) : $found[0];
     }

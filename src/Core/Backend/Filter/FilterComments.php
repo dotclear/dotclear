@@ -84,10 +84,7 @@ class FilterComments extends Filters
         return (new Filter('status'))
             ->param('comment_status')
             ->title(__('Status:'))
-            ->options(array_merge(
-                ['-' => ''],
-                Combos::getCommentStatusesCombo()
-            ))
+            ->options(['-' => '', ...Combos::getCommentStatusesCombo()])
             ->prime(true);
     }
 

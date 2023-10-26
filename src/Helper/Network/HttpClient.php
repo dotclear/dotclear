@@ -630,7 +630,7 @@ class HttpClient extends Socket
             $headers[] = 'Authorization: Basic ' . base64_encode($this->username . ':' . $this->password);
         }
 
-        $headers = array_merge($headers, $this->more_headers);
+        $headers = [...$headers, ...$this->more_headers];
 
         // If this is a POST, set the content type and length
         if ($this->postdata) {

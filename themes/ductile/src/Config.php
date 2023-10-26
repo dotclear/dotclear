@@ -169,21 +169,21 @@ class Config extends Process
         if (!is_array(App::backend()->ductile_user)) {
             App::backend()->ductile_user = [];
         }
-        App::backend()->ductile_user = array_merge($ductile_base, App::backend()->ductile_user);
+        App::backend()->ductile_user = [...$ductile_base, ...App::backend()->ductile_user];
 
         App::backend()->ductile_lists = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
         App::backend()->ductile_lists = @unserialize(App::backend()->ductile_lists);
         if (!is_array(App::backend()->ductile_lists)) {
             App::backend()->ductile_lists = $ductile_lists_base;
         }
-        App::backend()->ductile_lists = array_merge($ductile_lists_base, App::backend()->ductile_lists);
+        App::backend()->ductile_lists = [...$ductile_lists_base, ...App::backend()->ductile_lists];
 
         App::backend()->ductile_counts = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_counts');
         App::backend()->ductile_counts = @unserialize(App::backend()->ductile_counts);
         if (!is_array(App::backend()->ductile_counts)) {
             App::backend()->ductile_counts = App::backend()->ductile_counts_base;
         }
-        App::backend()->ductile_counts = array_merge(App::backend()->ductile_counts_base, App::backend()->ductile_counts);
+        App::backend()->ductile_counts = [...App::backend()->ductile_counts_base, ...App::backend()->ductile_counts];
 
         $ductile_stickers = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
         $ductile_stickers = @unserialize((string) $ductile_stickers);

@@ -84,7 +84,7 @@ class SelectStatement extends SqlStatement
             $this->join = [];
         }
         if (is_array($c)) {
-            $this->join = array_merge($this->join, $c);
+            $this->join = [...$this->join, ...$c];
         } else {
             array_push($this->join, $c);
         }
@@ -106,7 +106,7 @@ class SelectStatement extends SqlStatement
             $this->union = [];
         }
         if (is_array($c)) {
-            $this->union = array_merge($this->union, $c);
+            $this->union = [...$this->union, ...$c];
         } else {
             array_push($this->union, $c);
         }
@@ -128,7 +128,7 @@ class SelectStatement extends SqlStatement
             $this->having = [];
         }
         if (is_array($c)) {
-            $this->having = array_merge($this->having, $c);
+            $this->having = [...$this->having, ...$c];
         } else {
             array_push($this->having, $c);
         }
@@ -150,7 +150,7 @@ class SelectStatement extends SqlStatement
             $this->order = [];
         }
         if (is_array($c)) {
-            $this->order = array_merge($this->order, $c);
+            $this->order = [...$this->order, ...$c];
         } else {
             array_push($this->order, $c);
         }
@@ -172,7 +172,7 @@ class SelectStatement extends SqlStatement
             $this->group = [];
         }
         if (is_array($c)) {
-            $this->group = array_merge($this->group, $c);
+            $this->group = [...$this->group, ...$c];
         } else {
             array_push($this->group, $c);
         }

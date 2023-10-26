@@ -88,7 +88,7 @@ class UpdateStatement extends SqlStatement
             $this->sets = [];
         }
         if (is_array($c)) {
-            $this->sets = array_merge($this->sets, $c);
+            $this->sets = [...$this->sets, ...$c];
         } else {
             array_push($this->sets, $c);
         }
@@ -123,7 +123,7 @@ class UpdateStatement extends SqlStatement
             $this->values = [];
         }
         if (is_array($c)) {
-            $this->values = array_merge($this->values, $c);
+            $this->values = [...$this->values, ...$c];
         } else {
             array_push($this->values, $c);
         }

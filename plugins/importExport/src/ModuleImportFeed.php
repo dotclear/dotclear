@@ -82,7 +82,7 @@ class ModuleImportFeed extends Module
             if ($dns4 !== false) {
                 $dns = $dns4;
                 if ($dns6 !== false) {
-                    $dns = array_merge($dns4, $dns6);
+                    $dns = [...$dns4, ...$dns6];
                 }
             }
         } else {

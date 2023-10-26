@@ -249,7 +249,7 @@ class Files
      */
     public static function registerMimeTypes(array $types): void
     {
-        self::$mime_types = array_merge(self::$mime_types, $types);
+        self::$mime_types = [...self::$mime_types, ...$types];
     }
 
     /**

@@ -65,7 +65,7 @@ class InsertStatement extends SqlStatement
             $this->lines = [];
         }
         if (is_array($c)) {
-            $this->lines = array_merge($this->lines, $c);
+            $this->lines = [...$this->lines, ...$c];
         } else {
             array_push($this->lines, [$c]);
         }

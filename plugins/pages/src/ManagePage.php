@@ -747,8 +747,8 @@ class ManagePage extends Process
 
             $params = ['post_id' => App::backend()->post_id, 'order' => 'comment_dt ASC'];
 
-            $comments   = App::blog()->getComments(array_merge($params, ['comment_trackback' => 0]));
-            $trackbacks = App::blog()->getComments(array_merge($params, ['comment_trackback' => 1]));
+            $comments   = App::blog()->getComments([...$params, 'comment_trackback' => 0]);
+            $trackbacks = App::blog()->getComments([...$params, 'comment_trackback' => 1]);
 
             # Actions combo box
             $combo_action = App::backend()->comments_actions_page->getCombo();

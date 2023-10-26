@@ -69,23 +69,23 @@ class MediaItem extends Process
         ];
 
         if (App::backend()->plugin_id !== '') {
-            App::backend()->page_url_params = array_merge(
-                App::backend()->page_url_params,
-                ['plugin_id' => App::backend()->plugin_id]
-            );
-            App::backend()->media_page_url_params = array_merge(
-                App::backend()->media_page_url_params,
-                ['plugin_id' => App::backend()->plugin_id]
-            );
+            App::backend()->page_url_params = [
+                ...App::backend()->page_url_params,
+                'plugin_id' => App::backend()->plugin_id,
+            ];
+            App::backend()->media_page_url_params = [
+                ...App::backend()->media_page_url_params,
+                'plugin_id' => App::backend()->plugin_id,
+            ];
         }
 
         App::backend()->id = !empty($_REQUEST['id']) ? (int) $_REQUEST['id'] : '';
 
         if (App::backend()->id != '') {
-            App::backend()->page_url_params = array_merge(
-                App::backend()->page_url_params,
-                ['id' => App::backend()->id]
-            );
+            App::backend()->page_url_params = [
+                ...App::backend()->page_url_params,
+                'id' => App::backend()->id,
+            ];
         }
 
         if (App::backend()->popup) {

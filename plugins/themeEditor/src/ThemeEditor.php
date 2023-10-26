@@ -442,22 +442,19 @@ class ThemeEditor
      */
     protected function findTemplates(): void
     {
-        $this->tpl = array_merge(
-            $this->getFilesInDir($this->tplset_theme),
-            $this->getFilesInDir($this->parent_theme . '/tpl')
-        );
+        $this->tpl = [...$this->getFilesInDir($this->tplset_theme), ...$this->getFilesInDir($this->parent_theme . '/tpl')];
         $this->tpl_model = $this->tpl;
 
-        $this->tpl = array_merge($this->tpl, $this->getFilesInDir($this->user_theme . '/tpl'));
+        $this->tpl = [...$this->tpl, ...$this->getFilesInDir($this->user_theme . '/tpl')];
 
         # Then we look in Utility::TPL_ROOT plugins directory
         foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
             // Looking in Utility::TPL_ROOT directory
-            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl);
-            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), $this->tpl_model);
+            $this->tpl       = [...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), ...$this->tpl];
+            $this->tpl_model = [...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT), ...$this->tpl_model];
             // Looking in Utility::TPL_ROOT/tplset directory
-            $this->tpl       = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), $this->tpl);
-            $this->tpl_model = array_merge($this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), $this->tpl_model);
+            $this->tpl       = [...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), ...$this->tpl];
+            $this->tpl_model = [...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name), ...$this->tpl_model];
         }
 
         uksort($this->tpl, $this->sortFilesHelper(...));
@@ -469,8 +466,8 @@ class ThemeEditor
     protected function findStyles(): void
     {
         $this->css = $this->getFilesInDir($this->user_theme, 'css');
-        $this->css = array_merge($this->css, $this->getFilesInDir($this->user_theme . '/style', 'css', 'style/'));
-        $this->css = array_merge($this->css, $this->getFilesInDir($this->user_theme . '/css', 'css', 'css/'));
+        $this->css = [...$this->css, ...$this->getFilesInDir($this->user_theme . '/style', 'css', 'style/')];
+        $this->css = [...$this->css, ...$this->getFilesInDir($this->user_theme . '/css', 'css', 'css/')];
 
         uksort($this->css, $this->sortFilesHelper(...));
     }
@@ -481,7 +478,7 @@ class ThemeEditor
     protected function findScripts(): void
     {
         $this->js = $this->getFilesInDir($this->user_theme, 'js');
-        $this->js = array_merge($this->js, $this->getFilesInDir($this->user_theme . '/js', 'js', 'js/'));
+        $this->js = [...$this->js, ...$this->getFilesInDir($this->user_theme . '/js', 'js', 'js/')];
 
         uksort($this->js, $this->sortFilesHelper(...));
     }
@@ -494,9 +491,9 @@ class ThemeEditor
         $langs = L10n::getISOcodes(true, true);
         foreach ($langs as $v) {
             if ($this->parent_theme) {
-                $this->po = array_merge($this->po, $this->getFilesInDir($this->parent_theme . '/locales/' . $v, 'po', $v . '/'));
+                $this->po = [...$this->po, ...$this->getFilesInDir($this->parent_theme . '/locales/' . $v, 'po', $v . '/')];
             }
-            $this->po = array_merge($this->po, $this->getFilesInDir($this->user_theme . '/locales/' . $v, 'po', $v . '/'));
+            $this->po = [...$this->po, ...$this->getFilesInDir($this->user_theme . '/locales/' . $v, 'po', $v . '/')];
         }
 
         uksort($this->po, $this->sortFilesHelper(...));

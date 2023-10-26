@@ -86,7 +86,7 @@ class Clearbricks
      */
     public function add(array $stack): void
     {
-        $this->stack = array_merge($this->stack, $stack);
+        $this->stack = [...$this->stack, ...$stack];
     }
 
     /**
