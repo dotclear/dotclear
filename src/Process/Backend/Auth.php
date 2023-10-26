@@ -80,14 +80,14 @@ class Auth extends Process
 
             App::backend()->user_id  = $_POST['user_id'];
             App::backend()->user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
+        } elseif (isset($_COOKIE[App::backend()::COOKIE_NAME]) && strlen($_COOKIE[App::backend()::COOKIE_NAME]) == 104) {
             // If we have a remember cookie, go through auth process with user_key
 
-            $user_id = substr($_COOKIE['dc_admin'], 40);
+            $user_id = substr($_COOKIE[App::backend()::COOKIE_NAME], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
                 $user_id                 = trim((string) $user_id[1]);
-                App::backend()->user_key = substr($_COOKIE['dc_admin'], 0, 40);
+                App::backend()->user_key = substr($_COOKIE[App::backend()::COOKIE_NAME], 0, 40);
                 App::backend()->user_pwd = null;
             } else {
                 $user_id = null;
@@ -198,7 +198,7 @@ class Auth extends Process
                 $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
                 if ($data['user_remember']) {
-                    setcookie('dc_admin', $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                    setcookie(App::backend()::COOKIE_NAME, $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
 
                 App::backend()->url()->redirect('admin.home');
@@ -260,7 +260,7 @@ class Auth extends Process
                 }
 
                 if (!empty($_POST['user_remember'])) {
-                    setcookie('dc_admin', $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                    setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
 
                 App::backend()->url()->redirect('admin.home');
@@ -274,11 +274,11 @@ class Auth extends Process
                 } else {
                     // Session expired
 
-                    App::backend()->err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
+                    App::backend()->err = isset($_COOKIE[App::backend()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
                 }
-                if (isset($_COOKIE['dc_admin'])) {
-                    unset($_COOKIE['dc_admin']);
-                    setcookie('dc_admin', '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                if (isset($_COOKIE[App::backend()::COOKIE_NAME])) {
+                    unset($_COOKIE[App::backend()::COOKIE_NAME]);
+                    setcookie(App::backend()::COOKIE_NAME, '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
             }
         }

@@ -70,6 +70,13 @@ class Utility extends Process
      */
     private Resources $resources;
 
+    /**
+     * Backend login cookie name.
+     *
+     * @var     string  COOKIE_NAME
+     */
+    public const COOKIE_NAME = 'dc_admin';
+
     /** @deprecated since 2.27, use Menus::MENU_FAVORITES */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
 
@@ -381,9 +388,9 @@ class Utility extends Process
         App::session()->destroy();
 
         // Unset cookie if necessary
-        if (isset($_COOKIE['dc_admin'])) {
-            unset($_COOKIE['dc_admin']);
-            setcookie('dc_admin', '', -600, '', '', App::config()->adminSsl());
+        if (isset($_COOKIE[self::COOKIE_NAME])) {
+            unset($_COOKIE[self::COOKIE_NAME]);
+            setcookie(self::COOKIE_NAME, '', -600, '', '', App::config()->adminSsl());
         }
     }
 }
