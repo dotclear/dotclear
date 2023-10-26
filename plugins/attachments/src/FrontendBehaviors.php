@@ -33,7 +33,7 @@ class FrontendBehaviors
     {
         if ($tag == 'EntryIf' && isset($attr['has_attachment'])) {
             $sign = (bool) $attr['has_attachment'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->countMedia(\'attachment\')';
+            $if->append($sign . 'App::frontend()->context()->posts->countMedia(\'attachment\')');
         }
     }
 }

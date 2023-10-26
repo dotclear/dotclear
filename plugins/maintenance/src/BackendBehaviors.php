@@ -167,7 +167,7 @@ class BackendBehaviors
             return;
         }
 
-        $items[] = new ArrayObject([
+        $items->append(new ArrayObject([
             '<div id="maintenance-expired" class="box small"><h3>' .
             Helper::adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' .
             __('Maintenance') . '</h3>' .
@@ -175,7 +175,7 @@ class BackendBehaviors
             '<ul>' . implode('', $lines) . '</ul>' .
             '<p><a href="' . My::manageUrl() . '">' . __('Manage tasks') . '</a></p>' .
             '</div>',
-        ]);
+        ]));
     }
 
     /**

@@ -19,6 +19,34 @@ use Exception;
 interface UrlInterface
 {
     /**
+     * Gets the current type.
+     *
+     * @return     string  The type.
+     */
+    public function getType(): string;
+
+    /**
+     * Sets the current type.
+     *
+     * @param      string  $type   The type
+     */
+    public function setType(string $type): void;
+
+    /**
+     * Gets the current mode.
+     *
+     * @return     string  The mode.
+     */
+    public function getMode(): string;
+
+    /**
+     * Sets the current mode.
+     *
+     * @param      string  $mode   The mode
+     */
+    public function setMode(string $mode): void;
+
+    /**
      * Gets the home type set for the blog.
      *
      * @return     string  The home type (static or default)

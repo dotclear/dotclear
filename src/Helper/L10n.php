@@ -742,7 +742,7 @@ namespace Dotclear\Helper {
         {
             $_ = self::getLanguagesName();
 
-            return (($index = array_search($code, $_)) !== false) ? $index : self::$language_code;  // @phpstan-ignore-line
+            return (($index = array_search($code, $_)) !== false) ? $index : (string) self::$language_code;
         }
 
         /**

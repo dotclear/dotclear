@@ -53,7 +53,7 @@ class Manage extends Process
 
         // load Themes if required
         if (self::getType() == 'theme' && App::themes()->isEmpty()) {
-            App::themes()->loadModules((string) App::blog()->themesPath());
+            App::themes()->loadModules(App::blog()->themesPath());
         }
 
         // get selected module
@@ -195,7 +195,7 @@ class Manage extends Process
 
     private static function getRedirect(): string
     {
-        return (string) App::backend()->url()->get(self::getRedir()) . '#' . self::getType() . 's';
+        return App::backend()->url()->get(self::getRedir()) . '#' . self::getType() . 's';
     }
 
     private static function doRedirect(): void

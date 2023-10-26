@@ -43,7 +43,7 @@ class Fault
         $code    = $exception->getCode() ?: 500;
         $label   = htmlspecialchars(__($exception->getMessage()));
         $message = nl2br(__($exception->getPrevious() === null ? $exception->getMessage() : $exception->getPrevious()->getMessage()));
-        $trace   = htmlspecialchars(self::$config?->debugMode() !== false && $exception !== null ? self::trace($exception) : '');
+        $trace   = htmlspecialchars(self::$config?->debugMode() !== false ? self::trace($exception) : '');
 
         // Stop in CLI mode
         if (PHP_SAPI == 'cli') {
@@ -52,8 +52,8 @@ class Fault
         }
 
         // Load custom error file if any
-        if (is_file((string) self::$config?->errorFile())) {
-            include self::$config?->errorFile();
+        if (isset(self::$config) && is_file(self::$config->errorFile())) {
+            include self::$config->errorFile();
         }
 
         // Render HTTP page
@@ -107,9 +107,7 @@ class Fault
                 $line === null ? '' : ':',
                 $line === null ? '' : $line
             );
-            if (is_array($seen)) {
-                $seen[] = "$file:$line";
-            }
+            $seen[] = "$file:$line";
             if (!count($trace)) {
                 break;
             }

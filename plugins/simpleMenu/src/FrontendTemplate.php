@@ -78,7 +78,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (($widget->homeonly == 1 && !App::url()->isHome(App::url()->type)) || ($widget->homeonly == 2 && App::url()->isHome(App::url()->type))) {
+        if (($widget->homeonly == 1 && !App::url()->isHome(App::url()->getType())) || ($widget->homeonly == 2 && App::url()->isHome(App::url()->getType()))) {
             return '';
         }
 

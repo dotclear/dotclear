@@ -228,7 +228,7 @@ class Manage extends Process
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
     {
         $field = match ((string) $s['type']) {
-            App::userWorkspace()::WS_BOOLEAN, App::userWorkspace()::WS_BOOL => form::combo(
+            App::userWorkspace()::WS_BOOL => form::combo(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
                 $s['value'] ? 1 : 0
@@ -241,7 +241,8 @@ class Manage extends Process
                 Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
             ),
 
-            App::userWorkspace()::WS_INTEGER, App::userWorkspace()::WS_INT, App::userWorkspace()::WS_FLOAT, 'integer', 'float' => form::number(
+            App::userWorkspace()::WS_INT,
+            App::userWorkspace()::WS_FLOAT => form::number(
                 [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
                 null,
                 null,

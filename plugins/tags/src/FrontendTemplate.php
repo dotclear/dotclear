@@ -295,7 +295,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -338,12 +338,12 @@ class FrontendTemplate
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
-        if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+        if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
             App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+            if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
                 while (App::frontend()->context()->meta->fetch()) {
                     if (App::frontend()->context()->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';

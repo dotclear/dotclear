@@ -296,7 +296,7 @@ class Search extends Process
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('one comment found', '%d comments found', (int) self::$count) . '</h3>', self::$count);
+            printf('<h3>' . __('one comment found', '%d comments found', self::$count) . '</h3>', self::$count);
         }
 
         // IP are available only for super-admin and admin

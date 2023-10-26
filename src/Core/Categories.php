@@ -95,7 +95,7 @@ class Categories implements CategoriesInterface
         $from = $where = '';
         if ($start > 0) {
             $from  = ', ' . $this->table . ' AS C3';
-            $where = 'AND C3.' . $this->f_id . ' = ' . (int) $start . ' AND C1.' . $this->f_left . ' >= C3.' . $this->f_left . ' AND C1.' . $this->f_right . ' <= C3.' . $this->f_right;
+            $where = 'AND C3.' . $this->f_id . ' = ' . (string) $start . ' AND C1.' . $this->f_left . ' >= C3.' . $this->f_left . ' AND C1.' . $this->f_right . ' <= C3.' . $this->f_right;
             $where .= $this->getCondition('AND', 'C3.');
         }
 

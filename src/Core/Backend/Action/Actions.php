@@ -456,7 +456,7 @@ abstract class Actions
      */
     public function render(): void
     {
-        echo (string) $this->render;
+        echo $this->render;
     }
 
     /**

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.x-dev@13ea0c241dd01a951a977336e3d3afb6366b29d1">
-  <file src="plugins/akismet/src/AntispamFilterAkismet.php">
-    <RedundantCondition>
-      <code>DC_AKISMET_SUPER</code>
-    </RedundantCondition>
-  </file>
   <file src="plugins/antispam/src/Backend.php">
     <TypeDoesNotContainType>
       <code>!DC_ANTISPAM_CONF_SUPER</code>
@@ -17,11 +12,6 @@
       <code>(string) $type</code>
       <code>(string) $type</code>
     </RedundantCast>
-  </file>
-  <file src="plugins/antispam/src/Filters/IpLookup.php">
-    <TypeDoesNotContainType>
-      <code>DC_DNSBL_SUPER</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="plugins/antispam/src/Filters/IpV6.php">
     <RedundantCast>
@@ -40,14 +30,6 @@
     <InvalidArgument>
       <code>$filters_opt</code>
     </InvalidArgument>
-  </file>
-  <file src="plugins/antispam/src/SpamFilter.php">
-    <InvalidNullableReturnType>
-      <code>false|string</code>
-    </InvalidNullableReturnType>
-    <NullableReturnStatement>
-      <code><![CDATA[$this->gui_url]]></code>
-    </NullableReturnStatement>
   </file>
   <file src="plugins/attachments/src/BackendBehaviors.php">
     <RedundantCondition>
@@ -82,12 +64,6 @@
       <code><![CDATA[$_POST['professional']]]></code>
       <code><![CDATA[$_POST['romantic']]]></code>
     </InvalidArgument>
-  </file>
-  <file src="plugins/breadcrumb/src/FrontendTemplate.php">
-    <RedundantCast/>
-  </file>
-  <file src="plugins/dcLegacyEditor/src/BackendBehaviors.php">
-    <RedundantCast/>
   </file>
   <file src="plugins/fairTrackbacks/src/Frontend.php">
     <RedundantCondition>
@@ -125,14 +101,6 @@
     <RedundantCast>
       <code>(int) $new_post_id</code>
     </RedundantCast>
-  </file>
-  <file src="plugins/maintenance/src/MaintenanceTask.php">
-    <InvalidNullableReturnType>
-      <code>string</code>
-    </InvalidNullableReturnType>
-    <NullableReturnStatement>
-      <code><![CDATA[$this->id]]></code>
-    </NullableReturnStatement>
   </file>
   <file src="plugins/maintenance/src/Manage.php">
     <InvalidArrayOffset>
@@ -178,9 +146,6 @@
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="src/Core/Backend/Action/ActionsPostsDefault.php">
-    <RedundantCast/>
-  </file>
   <file src="src/Core/Backend/Favorites.php">
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
@@ -206,16 +171,10 @@
     <RedundantCondition/>
   </file>
   <file src="src/Core/Backend/Page.php">
-    <InvalidArgument>
-      <code><![CDATA['Content-Type: text/html; charset=UTF-8']]></code>
-      <code><![CDATA['content-type']]></code>
-      <code><![CDATA['content-type']]></code>
-    </InvalidArgument>
     <RedundantCast>
       <code>(bool) $show</code>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
-    <RedundantCondition/>
   </file>
   <file src="src/Core/Backend/ThemeConfig.php">
     <RedundantCondition>
@@ -236,7 +195,6 @@
     </RedundantCast>
   </file>
   <file src="src/Database/AbstractHandler.php">
-    <InvalidDocblock/>
     <RedundantCondition>
       <code><![CDATA[$v['field']]]></code>
     </RedundantCondition>
@@ -255,10 +213,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Database/Driver/Mysqli/Schema.php">
-    <InvalidReturnStatement>
-      <code>$res</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType/>
     <RedundantCast>
       <code>(string) $m[1]</code>
       <code>(string) $m[1]</code>
@@ -328,14 +282,6 @@
       <code>(bool) $null</code>
     </RedundantCast>
   </file>
-  <file src="src/Helper/Clearbricks.php">
-    <InvalidNullableReturnType>
-      <code>self</code>
-    </InvalidNullableReturnType>
-    <NullableReturnStatement>
-      <code>self::$instance</code>
-    </NullableReturnStatement>
-  </file>
   <file src="src/Helper/Date.php">
     <InvalidArgument/>
     <TooManyArguments>
@@ -358,7 +304,6 @@
   </file>
   <file src="src/Helper/File/Files.php">
     <RedundantCast>
-      <code>(bool) @chmod($file, fileperms(dirname($file)))</code>
       <code>(bool) @chmod($file, self::$dir_mode)</code>
     </RedundantCast>
   </file>
@@ -373,14 +318,6 @@
     </RedundantCast>
   </file>
   <file src="src/Helper/File/Zip/Unzip.php">
-    <InvalidScalarArgument>
-      <code>$lastmod_dateD</code>
-      <code>$lastmod_dateM</code>
-      <code>$lastmod_dateY</code>
-      <code>$lastmod_timeH</code>
-      <code>$lastmod_timeM</code>
-      <code>$lastmod_timeS</code>
-    </InvalidScalarArgument>
     <RedundantCast>
       <code>(string) $mem_limit</code>
     </RedundantCast>
@@ -566,10 +503,6 @@
     </RedundantCast>
   </file>
   <file src="themes/blowup/src/Blowup.php">
-    <InvalidArrayOffset>
-      <code>$body_color[1]</code>
-      <code>$body_color[2]</code>
-    </InvalidArrayOffset>
     <InvalidScalarArgument>
       <code>$body_color[0]</code>
       <code>$body_color[1]</code>

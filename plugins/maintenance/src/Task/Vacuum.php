@@ -50,7 +50,7 @@ class Vacuum extends MaintenanceTask
         $schema = App::con()->schema();
 
         foreach ($schema->getTables() as $table) {
-            if (str_starts_with($table, (string) App::con()->prefix())) {
+            if (str_starts_with($table, App::con()->prefix())) {
                 App::con()->vacuum($table);
             }
         }

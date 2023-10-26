@@ -110,18 +110,16 @@ class ThemeEditor
         $this->user_theme   = $user_theme_path !== false ? $user_theme_path : '';
         $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . App::config()->defaultTplset();
         $this->tplset_name  = App::config()->defaultTplset();
-        if (null !== App::themes()) {
-            $parent_theme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'parent');
-            if ($parent_theme) {
-                $parent_theme_path  = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
-                $this->parent_theme = $parent_theme_path !== false ? $parent_theme_path : '';
-                $this->parent_name  = $parent_theme;
-            }
-            $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            if ($tplset) {
-                $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
-                $this->tplset_name  = $tplset;
-            }
+        $parent_theme       = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'parent');
+        if ($parent_theme) {
+            $parent_theme_path  = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
+            $this->parent_theme = $parent_theme_path !== false ? $parent_theme_path : '';
+            $this->parent_name  = $parent_theme;
+        }
+        $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
+        if ($tplset) {
+            $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
+            $this->tplset_name  = $tplset;
         }
         $this->findTemplates();
         $this->findStyles();

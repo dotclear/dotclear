@@ -59,20 +59,20 @@ class FrontendTemplate
         }
 
         // Get current page if set
-        $page = (int) App::frontend()->getPageNumber();
+        $page = App::frontend()->getPageNumber();
 
         // Get blog URL
         $blogUrl = App::blog()->url();
 
         // Test if complete breadcrumb will be provided
         # --BEHAVIOR-- publicBreadcrumbExtended -- string
-        if (App::behavior()->callBehavior('publicBreadcrumbExtended', App::url()->type)) {
+        if (App::behavior()->callBehavior('publicBreadcrumbExtended', App::url()->getType())) {
             # --BEHAVIOR-- publicBreadcrumb -- string, string
-            $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->type, $separator);
+            $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->getType(), $separator);
 
             $ret = $special ?: '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
         } else {
-            switch (App::url()->type) {
+            switch (App::url()->getType()) {
                 case 'static':
                     // Static home
                     $ret = '<span id="bc-home">' . __('Home') . '</span>';
@@ -215,7 +215,7 @@ class FrontendTemplate
                     $ret = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
                     # --BEHAVIOR-- publicBreadcrumb -- string, string
                     # Should specific breadcrumb if any, will be added after home page url
-                    $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->type, $separator);
+                    $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->getType(), $separator);
                     if ($special) {
                         $ret .= $separator . $special;
                     }

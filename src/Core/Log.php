@@ -137,7 +137,7 @@ class Log implements LogInterface
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote((string) $this->blog->id()));
+            $sql->where('L.blog_id = ' . $sql->quote($this->blog->id()));
         }
 
         if (!empty($params['user_id'])) {

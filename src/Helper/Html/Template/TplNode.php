@@ -74,7 +74,7 @@ class TplNode
      */
     public function addChild($child): void
     {
-        $this->children[] = $child;
+        $this->children->append($child);
         $child->setParent($this);
     }
 

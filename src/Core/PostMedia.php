@@ -151,9 +151,6 @@ class PostMedia implements PostMediaInterface
 
     public function removePostMedia(int $post_id, int $media_id, ?string $link_type = null): void
     {
-        $post_id  = (int) $post_id;
-        $media_id = (int) $media_id;
-
         $sql = new DeleteStatement();
         $sql
             ->from($this->table)

@@ -89,14 +89,9 @@ class SpamFilter
     {
         $this->setInfo();
 
-        if (!isset($this->id)) {
-            $path     = explode('\\', static::class);
-            $this->id = (string) array_pop($path);
-        }
-
-        if (!isset($this->name)) {
-            $this->name = (string) $this->id;
-        }
+        $path       = explode('\\', static::class);
+        $this->id   = (string) array_pop($path);
+        $this->name = (string) $this->id;
 
         if (App::task()->checkContext('BACKEND')) {
             $this->gui_url = App::backend()->url()->get('admin.plugin.antispam', ['f' => $this->id], '&');

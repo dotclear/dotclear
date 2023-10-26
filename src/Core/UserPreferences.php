@@ -128,13 +128,13 @@ class UserPreferences implements UserPreferencesInterface
         } while (!$rs->isStart());
     }
 
-    public function addWorkspace(string $user_workspace): UserWorkspaceInterface
+    public function addWorkspace(string $workspace): UserWorkspaceInterface
     {
-        if (!$this->exists($user_workspace)) {
-            $this->workspaces[$user_workspace] = $this->workspace->createFromUser($this->user_id, $user_workspace);
+        if (!$this->exists($workspace)) {
+            $this->workspaces[$workspace] = $this->workspace->createFromUser($this->user_id, $workspace);
         }
 
-        return $this->workspaces[$user_workspace];
+        return $this->workspaces[$workspace];
     }
 
     public function renWorkspace(string $old_workspace, string $new_workspace): bool
@@ -164,39 +164,39 @@ class UserPreferences implements UserPreferencesInterface
         return true;
     }
 
-    public function delWorkspace(string $user_workspace): bool
+    public function delWorkspace(string $workspace): bool
     {
-        if (!$this->exists($user_workspace)) {
+        if (!$this->exists($workspace)) {
             return false;
         }
 
         // Remove the workspace from the workspace array
-        unset($this->workspaces[$user_workspace]);
+        unset($this->workspaces[$workspace]);
 
         // Delete all preferences from the workspace in the database
         $sql = new DeleteStatement();
         $sql
             ->from($this->table)
-            ->where('pref_ws = ' . $sql->quote($user_workspace));
+            ->where('pref_ws = ' . $sql->quote($workspace));
 
         $sql->delete();
 
         return true;
     }
 
-    public function get(string $user_workspace): UserWorkspaceInterface
+    public function get(string $workspace): UserWorkspaceInterface
     {
-        return $this->addWorkspace($user_workspace);
+        return $this->addWorkspace($workspace);
     }
 
-    public function __get(string $user_workspace): UserWorkspaceInterface
+    public function __get(string $workspace): UserWorkspaceInterface
     {
-        return $this->addWorkspace($user_workspace);
+        return $this->addWorkspace($workspace);
     }
 
-    public function exists(string $user_workspace): bool
+    public function exists(string $workspace): bool
     {
-        return array_key_exists($user_workspace, $this->workspaces);
+        return array_key_exists($workspace, $this->workspaces);
     }
 
     /**

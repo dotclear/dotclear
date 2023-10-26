@@ -252,10 +252,10 @@ class Url extends UrlHandler implements UrlInterface
         App::behavior()->callBehavior('urlHandlerGetArgsDocument', $this);
 
         if (!$type) {
-            $this->type = $this->getHomeType();
+            $this->setType($this->getHomeType());
             $this->callDefaultHandler($this->args);
         } else {
-            $this->type = $type;
+            $this->setType($type);
             $this->callHandler($type, $this->args);
         }
     }
@@ -276,7 +276,7 @@ class Url extends UrlHandler implements UrlInterface
         header('Content-Type: text/html; charset=UTF-8');
         Http::head(404, 'Not Found');
 
-        App::url()->type                         = '404';
+        App::url()->setType('404');
         App::frontend()->context()->current_tpl  = '404.html';
         App::frontend()->context()->content_type = 'text/html';
 
@@ -302,11 +302,11 @@ class Url extends UrlHandler implements UrlInterface
             // defaults to the home page, but is not a page number.
             self::p404();
         } else {
-            App::url()->type = 'default';
+            App::url()->setType('default');
             if ($page_number) {
                 App::frontend()->setPageNumber($page_number);
                 if ($page_number > 1) {
-                    App::url()->type = 'default-page';
+                    App::url()->setType('default-page');
                 }
             }
 
@@ -329,7 +329,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function static_home(?string $args): void
     {
-        App::url()->type = 'static';
+        App::url()->setType('static');
 
         if (empty($_GET['q'])) {
             self::serveDocument('static.html');
@@ -357,7 +357,7 @@ class Url extends UrlHandler implements UrlInterface
             // Search is disabled for this blog.
             self::p404();
         } else {
-            App::url()->type = 'search';
+            App::url()->setType('search');
 
             App::frontend()->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
             if (App::frontend()->search) {

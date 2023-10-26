@@ -84,7 +84,7 @@ class Manager
         $this->root     = $this->pwd = (string) Path::real((string) $root);
         $this->root_url = (string) $root_url;
 
-        if (!preg_match('#/$#', (string) $this->root_url)) {
+        if (!preg_match('#/$#', $this->root_url)) {
             $this->root_url = $this->root_url . '/';
         }
 

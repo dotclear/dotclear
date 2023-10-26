@@ -237,8 +237,8 @@ $tag = match (App::blog()->settings()->system->note_title_tag) {
 $notes_tag   = sprintf("['<%s>', '</%s>']", $tag, $tag);
 $notes_title = sprintf('"%s"', __('Note(s)'));
 ?>
-    footnotesHeaderEls: <?php printf($notes_tag); ?>,
-    footnotesTitle: <?php printf($notes_title); ?>
+    footnotesHeaderEls: <?php echo $notes_tag; ?>,
+    footnotesTitle: <?php echo $notes_title; ?>
   });
 
   CKEDITOR.on('instanceLoaded', (e) => {

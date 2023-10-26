@@ -93,7 +93,7 @@ class Logs extends CleanerParent
         if ($action == 'delete_all') {
             $sql = new DeleteStatement();
             $sql->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
-                ->where('log_table = ' . $sql->quote((string) $ns))
+                ->where('log_table = ' . $sql->quote($ns))
                 //->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();
 

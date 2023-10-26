@@ -480,7 +480,7 @@ class WikiToHtml
 
         # Line break
         if ($this->getOpt('active_br')) {
-            $html             = preg_replace('/(?<!\\\)%%%/', '<br />', (string) $html);
+            $html             = preg_replace('/(?<!\\\)%%%/', '<br />', $html);
             $escape_pattern[] = '%%%';
         }
 
@@ -751,7 +751,7 @@ class WikiToHtml
 
         $html = '';
 
-        $nb_lines = count((array) $this->wiki_lines);
+        $nb_lines = count($this->wiki_lines);
 
         for ($i = 0; $i < $nb_lines; $i++) {
             $previous_mode = $mode;

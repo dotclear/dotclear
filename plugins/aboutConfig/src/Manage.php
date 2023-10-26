@@ -243,7 +243,7 @@ class Manage extends Process
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): string
     {
         $field = match ((string) $s['type']) {
-            App::blogWorkspace()::NS_BOOL, App::blogWorkspace()::NS_BOOLEAN => form::combo(
+            App::blogWorkspace()::NS_BOOL => form::combo(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 [__('yes') => 1, __('no') => 0],
                 $s['value'] ? 1 : 0
@@ -256,7 +256,8 @@ class Manage extends Process
                 Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
             ),
 
-            App::blogWorkspace()::NS_INTEGER, App::blogWorkspace()::NS_INT, App::blogWorkspace()::NS_FLOAT => form::number(
+            App::blogWorkspace()::NS_INT,
+            App::blogWorkspace()::NS_FLOAT => form::number(
                 [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
                 null,
                 null,

@@ -911,7 +911,7 @@ final class dcCore
      *
      * @param      string  $id     The identifier
      *
-     * @return     MetaRecord.
+     * @return     MetaRecord
      */
     public function getUser(string $id): MetaRecord
     {
@@ -1103,7 +1103,7 @@ final class dcCore
      *
      * @param      string  $id     The blog identifier
      *
-     * @return     MetaRecord|false.
+     * @return     MetaRecord|false
      */
     public function getBlog(string $id)
     {
@@ -1118,7 +1118,7 @@ final class dcCore
      * @param      array<string, mixed>|ArrayObject<string, mixed>      $params      The parameters
      * @param      bool                                                 $count_only  Count only results
      *
-     * @return     MetaRecord.
+     * @return     MetaRecord
      */
     public function getBlogs($params = [], bool $count_only = false): MetaRecord
     {

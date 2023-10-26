@@ -35,7 +35,7 @@ class Antispam
     /**
      * The spam filters stacks.
      *
-     * @var     array<int,string>  $spamfilters
+     * @var     array<int, SpamFilter>  $spamfilters
      */
     private static array $spamfilters = [];
 

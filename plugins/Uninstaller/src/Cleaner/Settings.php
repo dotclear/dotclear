@@ -161,22 +161,22 @@ class Settings extends CleanerParent
         if ($action == 'delete_global' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('blog_id IS NULL')
-                ->and('setting_ns = ' . $sql->quote((string) $ns))
+                ->and('setting_ns = ' . $sql->quote($ns))
                 ->delete();
 
             return true;
         }
         if ($action == 'delete_local' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
-                ->where('blog_id = ' . $sql->quote((string) App::blog()->id()))
-                ->and('setting_ns = ' . $sql->quote((string) $ns))
+                ->where('blog_id = ' . $sql->quote(App::blog()->id()))
+                ->and('setting_ns = ' . $sql->quote($ns))
                 ->delete();
 
             return true;
         }
         if ($action == 'delete_all' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
-                ->where('setting_ns = ' . $sql->quote((string) $ns))
+                ->where('setting_ns = ' . $sql->quote($ns))
                 ->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();
 
@@ -193,7 +193,7 @@ class Settings extends CleanerParent
             // build ws/id requests
             $or = [];
             foreach ($matches[2] as $key => $name) {
-                $or[] = $sql->andGroup(['setting_ns = ' . $sql->quote((string) $name), 'setting_id = ' . $sql->quote((string) $matches[3][$key])]);
+                $or[] = $sql->andGroup(['setting_ns = ' . $sql->quote($name), 'setting_id = ' . $sql->quote($matches[3][$key])]);
             }
             if (empty($or)) {
                 return false;

@@ -113,6 +113,46 @@ class UrlHandler
     }
 
     /**
+     * Gets the current type.
+     *
+     * @return     string  The type.
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Sets the current type.
+     *
+     * @param      string  $type   The type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * Gets the current mode.
+     *
+     * @return     string  The mode.
+     */
+    public function getMode(): string
+    {
+        return $this->mode;
+    }
+
+    /**
+     * Sets the current mode.
+     *
+     * @param      string  $mode   The mode
+     */
+    public function setMode(string $mode): void
+    {
+        $this->mode = $mode;
+    }
+
+    /**
      * Gets the registered URL handlers.
      *
      * @return     array<string, array<string, mixed>>  The types.

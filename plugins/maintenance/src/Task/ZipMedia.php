@@ -64,7 +64,7 @@ class ZipMedia extends MaintenanceTask
         $this->description = __('It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big.');
     }
 
-    public function execute()
+    public function execute(): never
     {
         // Instance media
         App::media()->chdir('');

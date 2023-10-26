@@ -310,7 +310,7 @@ class ActionsPostsDefault
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                $new_cat_id = (int) App::blog()->addCategory($cur_cat, (int) $parent_cat);
+                $new_cat_id = App::blog()->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);

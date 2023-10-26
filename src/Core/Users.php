@@ -332,8 +332,8 @@ class Users implements UsersInterface
 
         $cur = $this->blog->auth()->openPermCursor();
 
-        $cur->user_id     = (string) $id;
-        $cur->blog_id     = (string) $blog_id;
+        $cur->user_id     = $id;
+        $cur->blog_id     = $blog_id;
         $cur->permissions = $perms;
 
         if ($delete_first || $no_perm) {
@@ -355,7 +355,7 @@ class Users implements UsersInterface
     {
         $cur = $this->blog->auth()->openUserCursor();
 
-        $cur->user_default_blog = (string) $blog_id;
+        $cur->user_default_blog = $blog_id;
 
         $sql = new UpdateStatement();
         $sql->where('user_id = ' . $sql->quote($id));

@@ -156,22 +156,22 @@ class Preferences extends CleanerParent
         if ($action == 'delete_global' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('user_id IS NULL')
-                ->and('pref_ws = ' . $sql->quote((string) $ns))
+                ->and('pref_ws = ' . $sql->quote($ns))
                 ->delete();
 
             return true;
         }
         if ($action == 'delete_local' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
-                ->where('user_id = ' . $sql->quote((string) App::blog()->id()))
-                ->and('pref_ws = ' . $sql->quote((string) $ns))
+                ->where('user_id = ' . $sql->quote(App::blog()->id()))
+                ->and('pref_ws = ' . $sql->quote($ns))
                 ->delete();
 
             return true;
         }
         if ($action == 'delete_all' && self::checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
-                ->where('pref_ws = ' . $sql->quote((string) $ns))
+                ->where('pref_ws = ' . $sql->quote($ns))
                 ->and($sql->orGroup(['user_id IS NULL', 'user_id IS NOT NULL']))
                 ->delete();
 
@@ -188,7 +188,7 @@ class Preferences extends CleanerParent
             // build ws/id requests
             $or = [];
             foreach ($matches[2] as $key => $name) {
-                $or[] = $sql->andGroup(['pref_ws = ' . $sql->quote((string) $name), 'pref_id = ' . $sql->quote((string) $matches[3][$key])]);
+                $or[] = $sql->andGroup(['pref_ws = ' . $sql->quote($name), 'pref_id = ' . $sql->quote($matches[3][$key])]);
             }
             if (empty($or)) {
                 return false;

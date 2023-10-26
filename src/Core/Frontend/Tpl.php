@@ -1456,15 +1456,15 @@ class Tpl extends Template
                 if (substr($url, 0, 1) == '!') {
                     $url = substr($url, 1);
                     if (isset($args['sub'])) {
-                        $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
+                        $if->append('(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                     } else {
-                        $if[] = '(App::frontend()->context()->categories->cat_url != "' . $url . '")';
+                        $if->append('(App::frontend()->context()->categories->cat_url != "' . $url . '")');
                     }
                 } else {
                     if (isset($args['sub'])) {
-                        $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
+                        $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                     } else {
-                        $if[] = '(App::frontend()->context()->categories->cat_url == "' . $url . '")';
+                        $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
                     }
                 }
             }
@@ -1481,15 +1481,15 @@ class Tpl extends Template
                         if (substr($url, 0, 1) == '!') {
                             $url = substr($url, 1);
                             if (isset($args['sub'])) {
-                                $if[] = '(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
+                                $if->append('(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                             } else {
-                                $if[] = '(App::frontend()->context()->categories->cat_url != "' . $url . '")';
+                                $if->append('(App::frontend()->context()->categories->cat_url != "' . $url . '")');
                             }
                         } else {
                             if (isset($args['sub'])) {
-                                $if[] = '(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))';
+                                $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                             } else {
-                                $if[] = '(App::frontend()->context()->categories->cat_url == "' . $url . '")';
+                                $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
                             }
                         }
                     }
@@ -1499,12 +1499,12 @@ class Tpl extends Template
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '>' : '==';
-            $if[] = 'App::frontend()->context()->categories->nb_post ' . $sign . ' 0';
+            $if->append('App::frontend()->context()->categories->nb_post ' . $sign . ' 0');
         }
 
         if (isset($attr['has_description'])) {
             $sign = (bool) $attr['has_description'] ? '!=' : '==';
-            $if[] = 'App::frontend()->context()->categories->cat_desc ' . $sign . ' ""';
+            $if->append('App::frontend()->context()->categories->cat_desc ' . $sign . ' ""');
         }
 
         # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, string, array<int,string>
@@ -1736,7 +1736,7 @@ class Tpl extends Template
             } else {
                 // nb of entries per page not specified -> use ctx settings
                 $params .= "\$nb_entry_first_page=App::frontend()->context()->nb_entry_first_page; \$nb_entry_per_page = App::frontend()->context()->nb_entry_per_page;\n";
-                $params .= "if ((App::url()->type == 'default') || (App::url()->type == 'default-page')) {\n";
+                $params .= "if ((App::url()->getType() == 'default') || (App::url()->getType() == 'default-page')) {\n";
                 $params .= "    \$params['limit'] = (App::frontend()->getPageNumber() === 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $params .= "} else {\n";
                 $params .= "    \$params['limit'] = \$nb_entry_per_page;\n";
@@ -1745,7 +1745,7 @@ class Tpl extends Template
             // Set offset (aka index of first entry)
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
-                $params .= "if ((App::url()->type == 'default') || (App::url()->type == 'default-page')) {\n";
+                $params .= "if ((App::url()->getType() == 'default') || (App::url()->getType() == 'default-page')) {\n";
                 $params .= "    \$params['limit'] = [(App::frontend()->getPageNumber() === 1 ? 0 : (App::frontend()->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $params .= "} else {\n";
                 $params .= "    \$params['limit'] = [(App::frontend()->getPageNumber() - 1) * \$nb_entry_per_page,\$params['limit']];\n";
@@ -1924,16 +1924,16 @@ class Tpl extends Template
         if (isset($attr['type'])) {
             $type = trim((string) $attr['type']);
             $type = !empty($type) ? $type : 'post';
-            $if[] = 'App::frontend()->context()->posts->post_type == "' . addslashes($type) . '"';
+            $if->append('App::frontend()->context()->posts->post_type == "' . addslashes($type) . '"');
         }
 
         if (isset($attr['url'])) {
             $url = trim((string) $attr['url']);
             if (substr($url, 0, 1) == '!') {
-                $url  = substr($url, 1);
-                $if[] = 'App::frontend()->context()->posts->post_url != "' . addslashes($url) . '"';
+                $url = substr($url, 1);
+                $if->append('App::frontend()->context()->posts->post_url != "' . addslashes($url) . '"');
             } else {
-                $if[] = 'App::frontend()->context()->posts->post_url == "' . addslashes($url) . '"';
+                $if->append('App::frontend()->context()->posts->post_url == "' . addslashes($url) . '"');
             }
         }
 
@@ -1946,15 +1946,15 @@ class Tpl extends Template
                 if (substr($category, 0, 1) == '!') {
                     $category = substr($category, 1);
                     if (isset($args['sub'])) {
-                        $if[] = '(!App::frontend()->context()->posts->underCat("' . $category . '"))';
+                        $if->append('(!App::frontend()->context()->posts->underCat("' . $category . '"))');
                     } else {
-                        $if[] = '(App::frontend()->context()->posts->cat_url != "' . $category . '")';
+                        $if->append('(App::frontend()->context()->posts->cat_url != "' . $category . '")');
                     }
                 } else {
                     if (isset($args['sub'])) {
-                        $if[] = '(App::frontend()->context()->posts->underCat("' . $category . '"))';
+                        $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
                     } else {
-                        $if[] = '(App::frontend()->context()->posts->cat_url == "' . $category . '")';
+                        $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
                     }
                 }
             }
@@ -1971,15 +1971,15 @@ class Tpl extends Template
                         if (substr($category, 0, 1) == '!') {
                             $category = substr($category, 1);
                             if (isset($args['sub'])) {
-                                $if[] = '(!App::frontend()->context()->posts->underCat("' . $category . '"))';
+                                $if->append('(!App::frontend()->context()->posts->underCat("' . $category . '"))');
                             } else {
-                                $if[] = '(App::frontend()->context()->posts->cat_url != "' . $category . '")';
+                                $if->append('(App::frontend()->context()->posts->cat_url != "' . $category . '")');
                             }
                         } else {
                             if (isset($args['sub'])) {
-                                $if[] = '(App::frontend()->context()->posts->underCat("' . $category . '"))';
+                                $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
                             } else {
-                                $if[] = '(App::frontend()->context()->posts->cat_url == "' . $category . '")';
+                                $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
                             }
                         }
                     }
@@ -1989,82 +1989,82 @@ class Tpl extends Template
 
         if (isset($attr['first'])) {
             $sign = (bool) $attr['first'] ? '=' : '!';
-            $if[] = 'App::frontend()->context()->posts->index() ' . $sign . '= 0';
+            $if->append('App::frontend()->context()->posts->index() ' . $sign . '= 0');
         }
 
         if (isset($attr['odd'])) {
             $sign = (bool) $attr['odd'] ? '=' : '!';
-            $if[] = '(App::frontend()->context()->posts->index()+1)%2 ' . $sign . '= 1';
+            $if->append('(App::frontend()->context()->posts->index()+1)%2 ' . $sign . '= 1');
         }
 
         if (isset($attr['even'])) {
             $sign = (bool) $attr['even'] ? '=' : '!';
-            $if[] = '(App::frontend()->context()->posts->index()+1)%2 ' . $sign . '= 0';
+            $if->append('(App::frontend()->context()->posts->index()+1)%2 ' . $sign . '= 0');
         }
 
         if (isset($attr['extended'])) {
             $sign = (bool) $attr['extended'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->isExtended()';
+            $if->append($sign . 'App::frontend()->context()->posts->isExtended()');
         }
 
         if (isset($attr['selected'])) {
             $sign = (bool) $attr['selected'] ? '' : '!';
-            $if[] = $sign . '(boolean)App::frontend()->context()->posts->post_selected';
+            $if->append($sign . '(boolean)App::frontend()->context()->posts->post_selected');
         }
 
         if (isset($attr['has_category'])) {
             $sign = (bool) $attr['has_category'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->cat_id';
+            $if->append($sign . 'App::frontend()->context()->posts->cat_id');
         }
 
         if (isset($attr['comments_active'])) {
             $sign = (bool) $attr['comments_active'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->commentsActive()';
+            $if->append($sign . 'App::frontend()->context()->posts->commentsActive()');
         }
 
         if (isset($attr['pings_active'])) {
             $sign = (bool) $attr['pings_active'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->trackbacksActive()';
+            $if->append($sign . 'App::frontend()->context()->posts->trackbacksActive()');
         }
 
         if (isset($attr['has_comment'])) {
             $sign = (bool) $attr['has_comment'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->hasComments()';
+            $if->append($sign . 'App::frontend()->context()->posts->hasComments()');
         }
 
         if (isset($attr['has_ping'])) {
             $sign = (bool) $attr['has_ping'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->posts->hasTrackbacks()';
+            $if->append($sign . 'App::frontend()->context()->posts->hasTrackbacks()');
         }
 
         if (isset($attr['show_comments'])) {
             if ((bool) $attr['show_comments']) {
-                $if[] = '(App::frontend()->context()->posts->hasComments() || App::frontend()->context()->posts->commentsActive())';
+                $if->append('(App::frontend()->context()->posts->hasComments() || App::frontend()->context()->posts->commentsActive())');
             } else {
-                $if[] = '(!App::frontend()->context()->posts->hasComments() && !App::frontend()->context()->posts->commentsActive())';
+                $if->append('(!App::frontend()->context()->posts->hasComments() && !App::frontend()->context()->posts->commentsActive())');
             }
         }
 
         if (isset($attr['show_pings'])) {
             if ((bool) $attr['show_pings']) {
-                $if[] = '(App::frontend()->context()->posts->hasTrackbacks() || App::frontend()->context()->posts->trackbacksActive())';
+                $if->append('(App::frontend()->context()->posts->hasTrackbacks() || App::frontend()->context()->posts->trackbacksActive())');
             } else {
-                $if[] = '(!App::frontend()->context()->posts->hasTrackbacks() && !App::frontend()->context()->posts->trackbacksActive())';
+                $if->append('(!App::frontend()->context()->posts->hasTrackbacks() && !App::frontend()->context()->posts->trackbacksActive())');
             }
         }
 
         if (isset($attr['republished'])) {
             $sign = (bool) $attr['republished'] ? '' : '!';
-            $if[] = $sign . '(boolean)App::frontend()->context()->posts->isRepublished()';
+            $if->append($sign . '(boolean)App::frontend()->context()->posts->isRepublished()');
         }
 
         if (isset($attr['author'])) {
             $author = trim((string) $attr['author']);
             if (substr($author, 0, 1) == '!') {
                 $author = substr($author, 1);
-                $if[]   = 'App::frontend()->context()->posts->user_id != "' . $author . '"';
+                $if->append('App::frontend()->context()->posts->user_id != "' . $author . '"');
             } else {
-                $if[] = 'App::frontend()->context()->posts->user_id == "' . $author . '"';
+                $if->append('App::frontend()->context()->posts->user_id == "' . $author . '"');
             }
         }
 
@@ -3151,12 +3151,12 @@ class Tpl extends Template
 
         if (isset($attr['start'])) {
             $sign = (bool) $attr['start'] ? '' : '!';
-            $if[] = $sign . Ctx::class . '::PaginationStart()';
+            $if->append($sign . Ctx::class . '::PaginationStart()');
         }
 
         if (isset($attr['end'])) {
             $sign = (bool) $attr['end'] ? '' : '!';
-            $if[] = $sign . Ctx::class . '::PaginationEnd()';
+            $if->append($sign . Ctx::class . '::PaginationEnd()');
         }
 
         # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, array<int,string>
@@ -3533,7 +3533,7 @@ class Tpl extends Template
 
         if (isset($attr['is_ping'])) {
             $sign = (bool) $attr['is_ping'] ? '' : '!';
-            $if[] = $sign . 'App::frontend()->context()->comments->comment_trackback';
+            $if->append($sign . 'App::frontend()->context()->comments->comment_trackback');
         }
 
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
@@ -4334,12 +4334,12 @@ class Tpl extends Template
 
         if (isset($attr['categories'])) {
             $sign = (bool) $attr['categories'] ? '!' : '=';
-            $if[] = 'App::frontend()->context()->categories ' . $sign . '== null';
+            $if->append('App::frontend()->context()->categories ' . $sign . '== null');
         }
 
         if (isset($attr['posts'])) {
             $sign = (bool) $attr['posts'] ? '!' : '=';
-            $if[] = 'App::frontend()->context()->posts ' . $sign . '== null';
+            $if->append('App::frontend()->context()->posts ' . $sign . '== null');
         }
 
         if (isset($attr['blog_lang'])) {
@@ -4348,7 +4348,7 @@ class Tpl extends Template
                 $sign              = '!';
                 $attr['blog_lang'] = substr($attr['blog_lang'], 1);
             }
-            $if[] = 'App::blog()->settings()->system->lang ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'";
+            $if->append('App::blog()->settings()->system->lang ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'");
         }
 
         if (isset($attr['current_tpl'])) {
@@ -4357,7 +4357,7 @@ class Tpl extends Template
                 $sign                = '!';
                 $attr['current_tpl'] = substr($attr['current_tpl'], 1);
             }
-            $if[] = 'App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'";
+            $if->append('App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'");
         }
 
         if (isset($attr['current_mode'])) {
@@ -4366,7 +4366,7 @@ class Tpl extends Template
                 $sign                 = '!';
                 $attr['current_mode'] = substr($attr['current_mode'], 1);
             }
-            $if[] = 'App::url()->type ' . $sign . "= '" . addslashes($attr['current_mode']) . "'";
+            $if->append('App::url()->getType() ' . $sign . "= '" . addslashes($attr['current_mode']) . "'");
         }
 
         if (isset($attr['has_tpl'])) {
@@ -4375,7 +4375,7 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
-            $if[] = $sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
+            $if->append($sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false");
         }
 
         if (isset($attr['has_tag'])) {
@@ -4384,7 +4384,7 @@ class Tpl extends Template
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
-            $if[] = "App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
+            $if->append("App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign);
         }
 
         if (isset($attr['blog_id'])) {
@@ -4393,31 +4393,31 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['blog_id'] = substr($attr['blog_id'], 1);
             }
-            $if[] = $sign . "(App::blog()->id() == '" . addslashes($attr['blog_id']) . "')";
+            $if->append($sign . "(App::blog()->id() == '" . addslashes($attr['blog_id']) . "')");
         }
 
         if (isset($attr['comments_active'])) {
             $sign = (bool) $attr['comments_active'] ? '' : '!';
-            $if[] = $sign . 'App::blog()->settings()->system->allow_comments';
+            $if->append($sign . 'App::blog()->settings()->system->allow_comments');
         }
 
         if (isset($attr['pings_active'])) {
             $sign = (bool) $attr['pings_active'] ? '' : '!';
-            $if[] = $sign . 'App::blog()->settings()->system->allow_trackbacks';
+            $if->append($sign . 'App::blog()->settings()->system->allow_trackbacks');
         }
 
         if (isset($attr['wiki_comments'])) {
             $sign = (bool) $attr['wiki_comments'] ? '' : '!';
-            $if[] = $sign . 'App::blog()->settings()->system->wiki_comments';
+            $if->append($sign . 'App::blog()->settings()->system->wiki_comments');
         }
 
         if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim((string) $attr['search_count']))) {
-            $if[] = '(isset(App::frontend()->search_count) && App::frontend()->search_count ' . Html::decodeEntities($attr['search_count']) . ')';
+            $if->append('(isset(App::frontend()->search_count) && App::frontend()->search_count ' . Html::decodeEntities($attr['search_count']) . ')');
         }
 
         if (isset($attr['jquery_needed'])) {
             $sign = (bool) $attr['jquery_needed'] ? '' : '!';
-            $if[] = $sign . 'App::blog()->settings()->system->jquery_needed';
+            $if->append($sign . 'App::blog()->settings()->system->jquery_needed');
         }
 
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>

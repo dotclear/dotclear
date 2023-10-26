@@ -221,7 +221,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -254,14 +254,14 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<nav role="navigation"><ul>';
 
-        if (!App::url()->isHome(App::url()->type)) {
+        if (!App::url()->isHome(App::url()->getType())) {
             // Not on home page (standard or static), add home link
             $res .= '<li class="topnav-home">' .
             '<a href="' . App::blog()->url() . '">' . __('Home') . '</a></li>';
@@ -300,7 +300,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -314,8 +314,8 @@ class Widgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((App::url()->type == 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
-                || (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id)) {
+            if ((App::url()->getType() == 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
+                || (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -356,7 +356,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -377,7 +377,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
+            if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -401,7 +401,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -448,7 +448,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -498,7 +498,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -555,7 +555,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -578,7 +578,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -612,7 +612,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
+            if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
@@ -638,7 +638,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 

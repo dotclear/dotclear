@@ -246,31 +246,34 @@ class Blog implements BlogInterface
         $themes_path = '';
         $public_path = '';
 
-        if (!empty($id) && ($blog = $this->getBlog($id)) !== false) {
-            $uid    = (string) $blog->blog_uid;
-            $name   = (string) $blog->blog_name;
-            $desc   = (string) $blog->blog_desc;
-            $url    = (string) $blog->blog_url;
-            $host   = (string) Http::getHostFromURL($url);
-            $creadt = (int) strtotime($blog->blog_creadt);
-            $upddt  = (int) strtotime($blog->blog_upddt);
-            $status = (int) $blog->blog_status;
+        if (!empty($id)) {
+            $blog = $this->getBlog($id);
+            if ($blog->count() > 0) {
+                $uid    = (string) $blog->blog_uid;
+                $name   = (string) $blog->blog_name;
+                $desc   = (string) $blog->blog_desc;
+                $url    = (string) $blog->blog_url;
+                $host   = Http::getHostFromURL($url);
+                $creadt = (int) strtotime($blog->blog_creadt);
+                $upddt  = (int) strtotime($blog->blog_upddt);
+                $status = (int) $blog->blog_status;
 
-            $this->settings   = $this->settings->createFromBlog($id);
-            $this->categories = $this->categories->createFromBlog($id);
+                $this->settings   = $this->settings->createFromBlog($id);
+                $this->categories = $this->categories->createFromBlog($id);
 
-            $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
-            $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
+                $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
+                $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
 
-            $this->post_status[self::POST_PENDING]     = __('Pending');
-            $this->post_status[self::POST_SCHEDULED]   = __('Scheduled');
-            $this->post_status[self::POST_UNPUBLISHED] = __('Unpublished');
-            $this->post_status[self::POST_PUBLISHED]   = __('Published');
+                $this->post_status[self::POST_PENDING]     = __('Pending');
+                $this->post_status[self::POST_SCHEDULED]   = __('Scheduled');
+                $this->post_status[self::POST_UNPUBLISHED] = __('Unpublished');
+                $this->post_status[self::POST_PUBLISHED]   = __('Published');
 
-            $this->comment_status[self::COMMENT_JUNK]        = __('Junk');
-            $this->comment_status[self::COMMENT_PENDING]     = __('Pending');
-            $this->comment_status[self::COMMENT_UNPUBLISHED] = __('Unpublished');
-            $this->comment_status[self::COMMENT_PUBLISHED]   = __('Published');
+                $this->comment_status[self::COMMENT_JUNK]        = __('Junk');
+                $this->comment_status[self::COMMENT_PENDING]     = __('Pending');
+                $this->comment_status[self::COMMENT_UNPUBLISHED] = __('Unpublished');
+                $this->comment_status[self::COMMENT_PUBLISHED]   = __('Published');
+            }
         }
 
         // Initialize deprecated public readonly properties
@@ -791,7 +794,7 @@ class Blog implements BlogInterface
         $cur->cat_url = implode('/', $url);
 
         $this->fillCategoryCursor($cur);
-        $cur->blog_id = (string) $this->id;
+        $cur->blog_id = $this->id;
 
         # --BEHAVIOR-- coreBeforeCategoryCreate -- BlogInterface, Cursor
         $this->behavior->callBehavior('coreBeforeCategoryCreate', $this, $cur);
@@ -840,7 +843,7 @@ class Blog implements BlogInterface
 
         $sql = new UpdateStatement();
         $sql
-            ->where('cat_id = ' . (int) $id)
+            ->where('cat_id = ' . (string) $id)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $sql->update($cur);
@@ -881,7 +884,7 @@ class Blog implements BlogInterface
         $sql
             ->column($sql->count('post_id', 'nb_post'))
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('cat_id = ' . (int) $id)
+            ->where('cat_id = ' . (string) $id)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -928,7 +931,7 @@ class Blog implements BlogInterface
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('cat_url DESC');
         if ($id) {
-            $sql->and('cat_id <> ' . (int) $id);
+            $sql->and('cat_id <> ' . (string) $id);
         }
 
         $rs = $sql->select();
@@ -941,7 +944,7 @@ class Blog implements BlogInterface
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('cat_url DESC');
             if ($id) {
-                $sql->and('cat_id <> ' . (int) $id);
+                $sql->and('cat_id <> ' . (string) $id);
             }
 
             $rs = $sql->select();
@@ -1507,7 +1510,7 @@ class Blog implements BlogInterface
             $rs = $sql->select();
 
             $cur->post_id     = $rs ? (int) $rs->f(0) + 1 : 1;
-            $cur->blog_id     = (string) $this->id;
+            $cur->blog_id     = $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
             $cur->post_tz     = $this->auth->getInfo('user_tz');
@@ -1660,7 +1663,7 @@ class Blog implements BlogInterface
         }
 
         $posts_ids = $this->cleanIds($ids);
-        $status    = (int) $status;
+        $status    = $status;
 
         $sql = new UpdateStatement();
         $sql
@@ -1782,7 +1785,7 @@ class Blog implements BlogInterface
         $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->id))
-            ->and('cat_id = ' . (int) $old_cat_id);
+            ->and('cat_id = ' . (string) $old_cat_id);
 
         $cur = $this->openPostCursor();
 
@@ -1869,7 +1872,7 @@ class Blog implements BlogInterface
 
             # If now_tz >= post_ts, we publish the entry
             if ($now_tz >= $post_ts) {
-                $to_change[] = (int) $rs->post_id;
+                $to_change->append((int) $rs->post_id);
             }
         }
         if (count($to_change)) {

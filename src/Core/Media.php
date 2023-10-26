@@ -794,7 +794,7 @@ class Media extends Manager implements MediaInterface
                 'user_id',
             ])
             ->where('media_path = ' . $sql->quote($this->path))
-            ->and('media_id = ' . (int) $id);
+            ->and('media_id = ' . (string) $id);
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA_ADMIN,
@@ -1049,14 +1049,14 @@ class Media extends Manager implements MediaInterface
 
                 $cur->media_id     = $media_id;
                 $cur->user_id      = $this->auth->userID();
-                $cur->media_path   = (string) $this->path;
-                $cur->media_file   = (string) $media_file;
-                $cur->media_dir    = (string) dirname($media_file);
+                $cur->media_path   = $this->path;
+                $cur->media_file   = $media_file;
+                $cur->media_dir    = dirname($media_file);
                 $cur->media_creadt = date('Y-m-d H:i:s');
                 $cur->media_upddt  = date('Y-m-d H:i:s');
 
-                $cur->media_title   = !$title ? (string) $name : (string) $title;
-                $cur->media_private = (int) (bool) $private;
+                $cur->media_title   = !$title ? $name : $title;
+                $cur->media_private = (int) $private;
 
                 if ($dt) {
                     $cur->media_dt = (string) $dt;
@@ -1140,8 +1140,8 @@ class Media extends Manager implements MediaInterface
 
             $this->moveFile($file->relname, $newFile->relname);
 
-            $cur->media_file = (string) $newFile->relname;
-            $cur->media_dir  = (string) dirname($newFile->relname);
+            $cur->media_file = $newFile->relname;
+            $cur->media_dir  = dirname($newFile->relname);
         }
 
         $cur->media_title   = (string) $newFile->media_title;

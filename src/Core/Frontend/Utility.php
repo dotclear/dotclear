@@ -143,7 +143,7 @@ class Utility extends Process
             throw new BlogException(__('Blog is not defined.'), 404);
         }
 
-        if ((int) App::blog()->status() !== App::blog()::BLOG_ONLINE) {
+        if (App::blog()->status() !== App::blog()::BLOG_ONLINE) {
             App::blog()->loadFromBlog('');
 
             throw new BlogException(__('This blog is offline. Please try again later.'), 404);
@@ -207,7 +207,7 @@ class Utility extends Process
         try {
             App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang()->getLang());
         } catch (Throwable $e) {
-            if (App::config()->debugMode() || App::config()->devMode()){
+            if (App::config()->debugMode() || App::config()->devMode()) {
                 throw $e;
             }
         }
@@ -284,7 +284,7 @@ class Utility extends Process
                 App::frontend()->template()->getPath()
             );
         }
-        App::url()->mode = App::blog()->settings()->system->url_scan;
+        App::url()->setMode(App::blog()->settings()->system->url_scan);
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --

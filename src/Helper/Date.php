@@ -486,7 +486,7 @@ class Date
      */
     public static function getZones(bool $flip = false, bool $groups = false): array
     {
-        if (!isset(self::$timezones)) {
+        if (empty(self::$timezones)) {
             // Read timezones from file
             if (!is_readable($file = __DIR__ . DIRECTORY_SEPARATOR . 'tz.dat')) {
                 return [];

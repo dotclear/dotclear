@@ -456,11 +456,11 @@ class Blowup
         // Helper
         $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
 
-        $body_color       = is_string($config['body_bg_c']) ? (string) $config['body_bg_c'] : null;
-        $prelude_color    = is_string($config['prelude_c']) ? (string) $config['prelude_c'] : null;
+        $body_color       = is_string($config['body_bg_c']) ? $config['body_bg_c'] : null;
+        $prelude_color    = is_string($config['prelude_c']) ? $config['prelude_c'] : null;
         $gradient         = $config['body_bg_g'];
-        $comment_color    = is_string($config['post_comment_bg_c']) ? (string) $config['post_comment_bg_c'] : null;
-        $comment_color_my = is_string($config['post_commentmy_bg_c']) ? (string) $config['post_commentmy_bg_c'] : null;
+        $comment_color    = is_string($config['post_comment_bg_c']) ? $config['post_comment_bg_c'] : null;
+        $comment_color_my = is_string($config['post_commentmy_bg_c']) ? $config['post_commentmy_bg_c'] : null;
         $top_image        = $config['top_image'];
 
         $config['top_height'] = null;
@@ -581,7 +581,7 @@ class Blowup
                 }
 
                 if ($d_page_t) {
-                    $fill = imagecolorallocate($d_page_t, $body_color[0], $body_color[1], $body_color[2]);
+                    $fill = imagecolorallocate($d_page_t, (int) $body_color[0], (int) $body_color[1], (int) $body_color[2]);
                     imagefill($d_page_t, 0, 0, (int) $fill);
 
                     if ($d_body_bg !== false) {
@@ -625,7 +625,7 @@ class Blowup
                 # Create bottom image with color
                 $d_page_b = imagecreatetruecolor(800, 8);
                 if ($d_page_b !== false) {
-                    $fill = imagecolorallocate($d_page_b, $body_color[0], $body_color[1], $body_color[2]);
+                    $fill = imagecolorallocate($d_page_b, (int) $body_color[0], (int) $body_color[1], (int) $body_color[2]);
                     imagefill($d_page_b, 0, 0, (int) $fill);
 
                     $s_page_b = imagecreatefrompng($page_b);

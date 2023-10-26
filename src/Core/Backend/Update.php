@@ -184,7 +184,7 @@ class Update
                     $client->setTimeout(App::config()->queryTimeout());
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                     $client->get($path);
-                    $status = (int) $client->getStatus();
+                    $status = $client->getStatus();
                 }
 
                 return $client;
@@ -389,7 +389,7 @@ class Update
                     $client->setPersistReferers(false);
                     $client->setOutput($dest);
                     $client->get($path);
-                    $status = (int) $client->getStatus();
+                    $status = $client->getStatus();
                 }
 
                 return $client;
@@ -651,7 +651,7 @@ class Update
             $xml = new SimpleXMLElement($str, LIBXML_NOERROR);
             $r   = $xml->xpath("/versions/subject[@name='" . $this->subject . "']/release[@name='" . $this->version . "']");
 
-            if (!empty($r) && is_array($r)) {
+            if (!empty($r)) {
                 $r                              = $r[0];
                 $this->version_info['version']  = isset($r['version']) ? (string) $r['version'] : null;
                 $this->version_info['href']     = isset($r['href']) ? (string) $r['href'] : null;

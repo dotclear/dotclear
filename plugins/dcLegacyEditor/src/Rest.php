@@ -23,7 +23,7 @@ class Rest
      * @param   array<string, mixed>   $get    The get
      * @param   array<string, mixed>   $post   The post
      *
-     * @return  array<string, string>
+     * @return  array{msg: null|string, ret: bool}
      */
     public static function convert(array $get, array $post): array
     {

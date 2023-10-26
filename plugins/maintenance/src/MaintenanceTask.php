@@ -148,13 +148,13 @@ class MaintenanceTask
             return;
         }
 
-        if (!isset($this->name)) {
+        if (empty($this->name)) {
             $this->name = (string) $this->id;
         }
-        if (!isset($this->error)) {
+        if (empty($this->error)) {
             $this->error = __('Failed to execute task.');
         }
-        if (!isset($this->success)) {
+        if (empty($this->success)) {
             $this->success = __('Task successfully executed.');
         }
 
@@ -307,7 +307,7 @@ class MaintenanceTask
      */
     public function ajax(): bool
     {
-        return (bool) $this->ajax;
+        return $this->ajax;
     }
 
     /**

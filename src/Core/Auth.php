@@ -345,7 +345,7 @@ class Auth implements AuthInterface
 
     public function mustChangePassword(): bool
     {
-        return (bool) $this->user_change_pwd;
+        return $this->user_change_pwd;
     }
 
     public function isSuperAdmin(): bool
@@ -386,7 +386,7 @@ class Auth implements AuthInterface
 
     public function allowPassChange(): bool
     {
-        return (bool) $this->allow_pass_change;
+        return $this->allow_pass_change;
     }
 
     //@}
@@ -490,7 +490,7 @@ class Auth implements AuthInterface
                 return $blog_id;
             }
             $rs = $this->blogs->getBlog($blog_id);
-            if ($rs !== false && $rs->blog_status !== $this->blog::BLOG_REMOVED) {
+            if ($rs->count() && $rs->blog_status !== $this->blog::BLOG_REMOVED) {
                 return $blog_id;
             }
         }

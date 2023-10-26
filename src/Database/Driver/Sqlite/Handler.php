@@ -264,7 +264,7 @@ class Handler extends AbstractHandler
             $m = $res->getColumnMeta($position);
 
             // We said short_column_names = 1
-            return preg_replace('/^.+\./', '', $m['name']); // @phpstan-ignore-line
+            return (string) preg_replace('/^.+\./', '', $m['name']); // @phpstan-ignore-line
         }
 
         return '';

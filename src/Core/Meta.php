@@ -81,7 +81,7 @@ class Meta implements MetaInterface
             return [];
         }
 
-        $meta = @unserialize((string) $str);
+        $meta = @unserialize($str);
         if (!is_array($meta)) {
             return [];
         }
@@ -419,7 +419,7 @@ class Meta implements MetaInterface
 
         $sql->delete();
 
-        $this->updatePostMeta((int) $post_id);
+        $this->updatePostMeta($post_id);
     }
 
     public function updateMeta(string $meta_id, string $new_meta_id, ?string $type = null, ?string $post_type = null): bool

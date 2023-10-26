@@ -101,9 +101,9 @@ class Session implements SessionInterface
         $this->cookie_domain = $cookie_domain;
         $this->cookie_secure = $cookie_secure;
         if (!is_null($ttl)) {
-            if (!str_starts_with(trim((string) $ttl), '-')) {
+            if (!str_starts_with(trim($ttl), '-')) {
                 // Clearbricks requires negative session TTL
-                $ttl = '-' . trim((string) $ttl);
+                $ttl = '-' . trim($ttl);
             }
             $this->ttl = $ttl;
         }

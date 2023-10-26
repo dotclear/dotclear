@@ -181,7 +181,7 @@ class Trackback implements TrackbackInterface
                 throw new BadRequestException(sprintf(__('%s is not a ping URL'), $url));
             }
 
-            $ping_error = trim((string) $match[1]);
+            $ping_error = trim($match[1]);
             $ping_msg   = (!empty($match[4])) ? $match[4] : '';
         }
         # Damnit ! Let's play pingback
@@ -229,8 +229,6 @@ class Trackback implements TrackbackInterface
 
             return;
         }
-
-        $post_id = (int) $post_id;
 
         $title     = !empty($_POST['title']) ? $_POST['title'] : '';
         $excerpt   = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
@@ -508,9 +506,9 @@ class Trackback implements TrackbackInterface
             '<p>' . $excerpt . '</p>';
 
         $cur                    = $this->blog->openCommentCursor();
-        $cur->comment_author    = (string) $blog_name;
-        $cur->comment_site      = (string) $url;
-        $cur->comment_content   = (string) $comment;
+        $cur->comment_author    = $blog_name;
+        $cur->comment_site      = $url;
+        $cur->comment_content   = $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
         $cur->comment_status    = $this->blog->settings()->system->trackbacks_pub ? $this->blog::COMMENT_PUBLISHED : $this->blog::COMMENT_PENDING;
@@ -538,7 +536,7 @@ class Trackback implements TrackbackInterface
         $sql
             ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
             ->where('post_id = ' . (string) $post_id)
-            ->and('comment_site = ' . $sql->quote($this->con->escape((string) $url)))   // @phpstan-ignore-line
+            ->and('comment_site = ' . $sql->quote($this->con->escape($url)))   // @phpstan-ignore-line
             ->and('comment_trackback = 1')
             ->delete();
     }

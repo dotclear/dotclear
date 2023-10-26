@@ -84,7 +84,7 @@ class Frontend extends Process
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
-                switch (App::url()->type) {
+                switch (App::url()->getType()) {
                     case 'default':
                     case 'default-page':
                         if (isset($s['default'])) {
@@ -96,9 +96,9 @@ class Frontend extends Process
 
                         break;
                     default:
-                        if (isset($s[App::url()->type])) {
+                        if (isset($s[App::url()->getType()])) {
                             // Nb de billets par page défini par la config du thème
-                            $nb_first = $nb_other = (int) $s[App::url()->type];
+                            $nb_first = $nb_other = (int) $s[App::url()->getType()];
                         }
 
                         break;
@@ -201,8 +201,8 @@ class Frontend extends Process
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
         if ($s !== null) {
             $s = @unserialize($s);
-            if (is_array($s) && isset($s[App::url()->type])) {
-                return $s[App::url()->type];
+            if (is_array($s) && isset($s[App::url()->getType()])) {
+                return $s[App::url()->getType()];
             }
         }
 
@@ -362,10 +362,10 @@ class Frontend extends Process
         echo
         '<style type="text/css">' . "\n" .
         '/* ' . __('Additionnal style directives') . ' */' . "\n" .
-        (string) self::ductileStyleHelper() .
-            "</style>\n" .
+        self::ductileStyleHelper() .
+        "</style>\n" .
         My::jsLoad('/ductile') . // root file
-        (string) self::ductileWebfontHelper();
+        self::ductileWebfontHelper();
     }
 
     /**

@@ -288,7 +288,7 @@ class Uninstaller
      * @param   string      $cleaner    The cleaner ID
      * @param   string      $action     The action ID
      * @param   string      $ns         Name of setting related to module
-     * @param   null|null   $default    The default state of form field (checked)
+     * @param   null|bool   $default    The default state of form field (checked)
      *
      * @return  null|ActionDescriptor   The action description
      */

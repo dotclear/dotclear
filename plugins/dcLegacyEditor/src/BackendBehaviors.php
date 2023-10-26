@@ -162,7 +162,7 @@ class BackendBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) (App::task()->checkContext('BACKEND') && App::auth()->getOption('toolbar_bottom')),
+            'toolbar_bottom' => (App::task()->checkContext('BACKEND') && App::auth()->getOption('toolbar_bottom')),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',

@@ -76,7 +76,7 @@ class Backend extends Process
                     ]),
                     'dashboard_cb' => function (ArrayObject $icon) {
                         /**
-                         * @var        ArrayObject<string, string>
+                         * @var        ArrayObject<string, mixed>
                          */
                         $params              = new ArrayObject();
                         $params['post_type'] = 'page';

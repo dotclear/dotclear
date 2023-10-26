@@ -76,11 +76,11 @@ class BackendBehaviors
         if ($context !== 'post') {
             return;
         }
-        $extraPlugins[] = [
+        $extraPlugins->append([
             'name'   => 'dctags',
             'button' => 'dcTags',
             'url'    => App::config()->adminUrl() . My::fileURL('js/ckeditor-tags-plugin.js'),
-        ];
+        ]);
     }
 
     /**

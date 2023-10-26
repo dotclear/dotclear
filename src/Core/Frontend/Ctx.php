@@ -450,7 +450,7 @@ class Ctx
         }
 
         $nb_posts = App::frontend()->context()->pagination->f(0);
-        if ((App::url()->type === 'default') || (App::url()->type === 'default-page')) {
+        if ((App::url()->getType() === 'default') || (App::url()->getType() === 'default-page')) {
             // Home page (not static)
             $nb_pages = (int) ceil(($nb_posts - App::frontend()->context()->nb_entry_first_page) / App::frontend()->context()->nb_entry_per_page + 1);
         } else {
@@ -469,8 +469,8 @@ class Ctx
      */
     public static function PaginationPosition(int $offset = 0): int
     {
-        if ((int) App::frontend()->getPageNumber() !== 0) {
-            $current_page = (int) App::frontend()->getPageNumber();
+        if (App::frontend()->getPageNumber() !== 0) {
+            $current_page = App::frontend()->getPageNumber();
         } else {
             $current_page = 1;
         }
@@ -497,7 +497,7 @@ class Ctx
      */
     public static function PaginationStart(): bool
     {
-        if ((int) App::frontend()->getPageNumber() !== 0) {
+        if (App::frontend()->getPageNumber() !== 0) {
             return self::PaginationPosition() == 1;
         }
 
@@ -511,7 +511,7 @@ class Ctx
      */
     public static function PaginationEnd(): bool
     {
-        if ((int) App::frontend()->getPageNumber() !== 0) {
+        if (App::frontend()->getPageNumber() !== 0) {
             return self::PaginationPosition() == self::PaginationNbPages();
         }
 

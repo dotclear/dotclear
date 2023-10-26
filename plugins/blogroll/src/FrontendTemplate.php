@@ -186,7 +186,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 

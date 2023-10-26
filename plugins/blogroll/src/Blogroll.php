@@ -160,7 +160,7 @@ class Blogroll
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->blog_id    = (string) $this->blog->id();
+        $cur->blog_id    = $this->blog->id();
         $cur->link_title = $title;
         $cur->link_href  = $href;
         $cur->link_desc  = $desc;
@@ -255,8 +255,8 @@ class Blogroll
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->blog_id    = (string) $this->blog->id();
-        $cur->link_desc  = (string) $title;
+        $cur->blog_id    = $this->blog->id();
+        $cur->link_desc  = $title;
         $cur->link_href  = '';
         $cur->link_title = '';
 

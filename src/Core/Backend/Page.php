@@ -1383,8 +1383,8 @@ class Page
     /**
      * Sets the x frame options.
      *
-     * @param      array<string, mixed>|ArrayObject<string, mixed>  $headers  The headers
-     * @param      mixed                                            $origin   The origin
+     * @param      array<string, string>|ArrayObject<string, string>    $headers  The headers
+     * @param      mixed                                                $origin   The origin
      */
     public static function setXFrameOptions($headers, $origin = null): void
     {

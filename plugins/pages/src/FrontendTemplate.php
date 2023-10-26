@@ -34,7 +34,7 @@ class FrontendTemplate
             return '';
         }
 
-        if (!$widget->checkHomeOnly(App::url()->type)) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -64,7 +64,7 @@ class FrontendTemplate
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->type === 'pages' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
+            if (App::url()->getType() === 'pages' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="page-current" aria-current="page"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
