@@ -308,7 +308,7 @@ class Auth extends Process
             '  <meta charset="UTF-8" />' . "\n" .
             '  <meta http-equiv="Content-Script-Type" content="text/javascript" />' . "\n" .
             '  <meta http-equiv="Content-Style-Type" content="text/css" />' . "\n" .
-            '  <meta http-equiv="Content-Language" content="$dlang" />' . "\n" .
+            '  <meta http-equiv="Content-Language" content="' . $dlang . '" />' . "\n" .
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
             '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
