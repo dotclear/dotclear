@@ -730,22 +730,12 @@ class ModuleImportWp extends Module
             $cur->post_excerpt_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
         }
 
-        switch ($rs->post_status) {
-            case 'publish':
-                $cur->post_status = App::blog()::POST_PUBLISHED;
-
-                break;
-            case 'draft':
-                $cur->post_status = App::blog()::POST_UNPUBLISHED;
-
-                break;
-            case 'pending':
-                $cur->post_status = App::blog()::POST_PENDING;
-
-                break;
-            default:
-                $cur->post_status = App::blog()::POST_PENDING;
-        }
+        $cur->post_status = match ($rs->post_status) {
+            'publish' => App::blog()::POST_PUBLISHED,
+            'draft'   => App::blog()::POST_UNPUBLISHED,
+            'pending' => App::blog()::POST_PENDING,
+            default   => App::blog()::POST_PENDING,
+        };
         $cur->post_type         = $rs->post_type;
         $cur->post_password     = $rs->post_password ?: null;
         $cur->post_open_comment = $rs->comment_status == 'open' ? 1 : 0;
