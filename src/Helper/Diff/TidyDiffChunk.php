@@ -106,7 +106,7 @@ class TidyDiffChunk
      */
     public function getInfo($n)
     {
-        return array_key_exists($n, $this->__info) ? $this->__info[$n] : null;
+        return $this->__info[$n] ?? null;
     }
 
     /**

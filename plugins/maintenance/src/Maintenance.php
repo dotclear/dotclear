@@ -95,7 +95,7 @@ class Maintenance
      */
     public function getTab(string $id)
     {
-        return array_key_exists($id, $this->tabs) ? $this->tabs[$id] : null;
+        return $this->tabs[$id] ?? null;
     }
 
     /**
@@ -136,7 +136,7 @@ class Maintenance
      */
     public function getGroup(string $id): ?MaintenanceDescriptor
     {
-        return array_key_exists($id, $this->groups) ? $this->groups[$id] : null;
+        return $this->groups[$id] ?? null;
     }
 
     /**
@@ -178,7 +178,7 @@ class Maintenance
      */
     public function getTask(string $id): ?MaintenanceTask
     {
-        return array_key_exists($id, $this->tasks) ? $this->tasks[$id] : null;
+        return $this->tasks[$id] ?? null;
     }
 
     /**

@@ -344,7 +344,7 @@ class ModuleDefine
             return $this->properties[$identifier];
         }
 
-        return array_key_exists($identifier, $this->default) ? $this->default[$identifier] : null;
+        return $this->default[$identifier] ?? null;
     }
 
     /**

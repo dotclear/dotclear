@@ -138,7 +138,7 @@ abstract class Component
      */
     public function __get(string $property)
     {
-        return array_key_exists($property, $this->properties) ? $this->properties[$property] : null;
+        return $this->properties[$property] ?? null;
     }
 
     /**

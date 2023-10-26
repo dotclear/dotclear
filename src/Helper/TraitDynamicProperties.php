@@ -46,7 +46,7 @@ trait TraitDynamicProperties
      */
     public function __get(string $identifier)
     {
-        return array_key_exists($identifier, $this->properties) ? $this->properties[$identifier] : null;
+        return $this->properties[$identifier] ?? null;
     }
 
     /**
