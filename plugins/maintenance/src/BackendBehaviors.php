@@ -229,7 +229,7 @@ class BackendBehaviors
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
-        if (array_search('maintenancetasks', $blocks->getArrayCopy(), true) !== false) {
+        if (in_array('maintenancetasks', $blocks->getArrayCopy(), true)) {
             $maintenance = new Maintenance();
 
             $res_tab = '';

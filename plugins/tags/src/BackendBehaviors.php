@@ -90,7 +90,7 @@ class BackendBehaviors
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
-        if (array_search('core_post', $blocks->getArrayCopy(), true) !== false) {
+        if (in_array('core_post', $blocks->getArrayCopy(), true)) {
             $blocks->append('tag_post');
         }
     }

@@ -51,7 +51,7 @@ class Backend extends Process
                 ]);
             },
             'adminPageHelpBlock' => function (ArrayObject $blocks) {
-                if (array_search('core_post', $blocks->getArrayCopy(), true) !== false) {
+                if (in_array('core_post', $blocks->getArrayCopy(), true)) {
                     $blocks->append('pings_post');
                 }
             },

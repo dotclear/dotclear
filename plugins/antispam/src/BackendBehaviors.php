@@ -27,7 +27,7 @@ class BackendBehaviors
      */
     public static function adminPageHelpBlock(ArrayObject $blocks): void
     {
-        if (array_search('core_comments', $blocks->getArrayCopy(), true) !== false) {
+        if (in_array('core_comments', $blocks->getArrayCopy(), true)) {
             $blocks->append('antispam_comments');
         }
     }
