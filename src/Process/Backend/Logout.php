@@ -36,7 +36,5 @@ class Logout extends Process
         // Logout
         App::backend()->url()->redirect('admin.auth');
         exit;
-
-        return true;
     }
 }
