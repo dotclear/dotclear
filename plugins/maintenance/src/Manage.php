@@ -204,7 +204,7 @@ class Manage extends Process
             Notices::getNotices();
 
             // content
-            if (substr($res, 0, 1) != '<') {
+            if (!str_starts_with($res, '<')) {
                 $res = sprintf('<p class="step-msg">%s</p>', $res);
             }
 

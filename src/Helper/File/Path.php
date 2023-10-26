@@ -37,7 +37,7 @@ class Path
         if ($os == 'win') {
             $absolute = preg_match('/^\w+:/', $filename);
         } else {
-            $absolute = substr($filename, 0, 1) == '/';
+            $absolute = str_starts_with($filename, '/');
         }
 
         # Standard path form
@@ -196,7 +196,7 @@ class Path
      */
     public static function fullFromRoot(string $path, string $root): string
     {
-        if (substr($path, 0, 1) == '/') {
+        if (str_starts_with($path, '/')) {
             return $path;
         }
 

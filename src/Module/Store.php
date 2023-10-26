@@ -159,7 +159,7 @@ class Store
         foreach ($this->modules->getDefines() as $cur_define) {
             if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
                 try {
-                    $str_url    = substr($cur_define->get('repository'), -12, 12) == '/dcstore.xml' ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
+                    $str_url    = str_ends_with($cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
                     $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force);
                     if ($str_parser === false) {
                         continue;

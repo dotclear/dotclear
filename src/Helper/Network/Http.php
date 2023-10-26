@@ -126,7 +126,7 @@ class Http
      */
     public static function getSelfURI(): string
     {
-        if (substr($_SERVER['REQUEST_URI'], 0, 1) != '/') {
+        if (!str_starts_with($_SERVER['REQUEST_URI'], '/')) {
             return self::getHost() . '/' . $_SERVER['REQUEST_URI'];
         }
 
@@ -147,11 +147,11 @@ class Http
         } else {
             $host = self::getHost();
 
-            if (substr($relative_url, 0, 1) == '/') {
+            if (str_starts_with($relative_url, '/')) {
                 $full_url = $host . $relative_url;
             } else {
                 $path = str_replace(DIRECTORY_SEPARATOR, '/', dirname($_SERVER['PHP_SELF']));
-                if (substr($path, -1) == '/') {
+                if (str_ends_with($path, '/')) {
                     $path = substr($path, 0, -1);
                 }
                 if ($path == '.') {
@@ -195,11 +195,11 @@ class Http
     public static function concatURL(string $url, string $path): string
     {
         // Ensure there is a trailing slash
-        if (substr($url, -1, 1) != '/') {
+        if (!str_ends_with($url, '/')) {
             $url .= '/';
         }
 
-        if (substr($path, 0, 1) != '/') {
+        if (!str_starts_with($path, '/')) {
             return $url . $path;
         }
 

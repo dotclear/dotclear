@@ -421,7 +421,7 @@ class Manage extends Process
                                 $order = array_keys($order);
                             } elseif (!empty($_POST['im_order'])) {
                                 $order = $_POST['im_order'];
-                                if (substr($order, -1) == ',') {
+                                if (str_ends_with($order, ',')) {
                                     $order = substr($order, 0, strlen($order) - 1);
                                 }
                                 $order = explode(',', $order);

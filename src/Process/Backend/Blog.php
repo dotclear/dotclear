@@ -65,7 +65,7 @@ class Blog extends Process
                 $blog_settings->system->put('lang', App::auth()->getInfo('user_lang'));
                 $blog_settings->system->put('blog_timezone', App::auth()->getInfo('user_tz'));
 
-                if (substr(App::backend()->blog_url, -1) == '?') {
+                if (str_ends_with(App::backend()->blog_url, '?')) {
                     $blog_settings->system->put('url_scan', 'query_string');
                 } else {
                     $blog_settings->system->put('url_scan', 'path_info');

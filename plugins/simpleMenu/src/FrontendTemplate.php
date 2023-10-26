@@ -137,7 +137,7 @@ class FrontendTemplate
 
                 # Cope with request only URL (ie ?query_part)
                 $href_part = '';
-                if ($href != '' && substr($href, 0, 1) == '?') {
+                if ($href != '' && str_starts_with($href, '?')) {
                     $href_part = substr($href, 1);
                 }
 

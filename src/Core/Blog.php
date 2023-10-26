@@ -423,7 +423,7 @@ class Blog implements BlogInterface
 
     public function getQmarkURL(): string
     {
-        return substr($this->url, -1) !== '?' ? $this->url . '?' : $this->url;
+        return !str_ends_with($this->url, '?') ? $this->url . '?' : $this->url;
     }
 
     public function getJsJQuery(): string

@@ -240,7 +240,7 @@ class Frontend extends Process
         }
 
         if (isset($s['logo_src']) && $s['logo_src'] !== null && $s['logo_src'] != '') {
-            if ((substr($s['logo_src'], 0, 1) == '/') || (parse_url($s['logo_src'], PHP_URL_SCHEME) != '')) {
+            if ((str_starts_with($s['logo_src'], '/')) || (parse_url($s['logo_src'], PHP_URL_SCHEME) != '')) {
                 // absolute URL
                 $img_url = $s['logo_src'];
             } else {

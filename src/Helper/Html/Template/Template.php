@@ -653,7 +653,7 @@ class Template
                                 );
                             }
                         }
-                    } elseif (substr($match[0], 0, 1) == '{') {
+                    } elseif (str_starts_with($match[0], '{')) {
                         // Value tag
                         $tag      = $match[4];
                         $str_attr = '';

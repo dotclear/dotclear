@@ -1453,7 +1453,7 @@ class Tpl extends Template
             if ($args !== false) {
                 $url  = array_shift($args) ?? '';
                 $args = array_flip($args);
-                if (substr($url, 0, 1) == '!') {
+                if (str_starts_with($url, '!')) {
                     $url = substr($url, 1);
                     if (isset($args['sub'])) {
                         $if->append('(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
@@ -1478,7 +1478,7 @@ class Tpl extends Template
                     if ($args !== false) {
                         $url  = array_shift($args) ?? '';
                         $args = array_flip($args);
-                        if (substr($url, 0, 1) == '!') {
+                        if (str_starts_with($url, '!')) {
                             $url = substr($url, 1);
                             if (isset($args['sub'])) {
                                 $if->append('(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
@@ -1929,7 +1929,7 @@ class Tpl extends Template
 
         if (isset($attr['url'])) {
             $url = trim((string) $attr['url']);
-            if (substr($url, 0, 1) == '!') {
+            if (str_starts_with($url, '!')) {
                 $url = substr($url, 1);
                 $if->append('App::frontend()->context()->posts->post_url != "' . addslashes($url) . '"');
             } else {
@@ -1943,7 +1943,7 @@ class Tpl extends Template
             if ($args !== false) {
                 $category = array_shift($args) ?? '';
                 $args     = array_flip($args);
-                if (substr($category, 0, 1) == '!') {
+                if (str_starts_with($category, '!')) {
                     $category = substr($category, 1);
                     if (isset($args['sub'])) {
                         $if->append('(!App::frontend()->context()->posts->underCat("' . $category . '"))');
@@ -1968,7 +1968,7 @@ class Tpl extends Template
                     if ($args !== false) {
                         $category = array_shift($args) ?? '';
                         $args     = array_flip($args);
-                        if (substr($category, 0, 1) == '!') {
+                        if (str_starts_with($category, '!')) {
                             $category = substr($category, 1);
                             if (isset($args['sub'])) {
                                 $if->append('(!App::frontend()->context()->posts->underCat("' . $category . '"))');
@@ -2060,7 +2060,7 @@ class Tpl extends Template
 
         if (isset($attr['author'])) {
             $author = trim((string) $attr['author']);
-            if (substr($author, 0, 1) == '!') {
+            if (str_starts_with($author, '!')) {
                 $author = substr($author, 1);
                 $if->append('App::frontend()->context()->posts->user_id != "' . $author . '"');
             } else {
@@ -4344,7 +4344,7 @@ class Tpl extends Template
 
         if (isset($attr['blog_lang'])) {
             $sign = '=';
-            if (substr($attr['blog_lang'], 0, 1) == '!') {
+            if (str_starts_with($attr['blog_lang'], '!')) {
                 $sign              = '!';
                 $attr['blog_lang'] = substr($attr['blog_lang'], 1);
             }
@@ -4353,7 +4353,7 @@ class Tpl extends Template
 
         if (isset($attr['current_tpl'])) {
             $sign = '=';
-            if (substr($attr['current_tpl'], 0, 1) == '!') {
+            if (str_starts_with($attr['current_tpl'], '!')) {
                 $sign                = '!';
                 $attr['current_tpl'] = substr($attr['current_tpl'], 1);
             }
@@ -4362,7 +4362,7 @@ class Tpl extends Template
 
         if (isset($attr['current_mode'])) {
             $sign = '=';
-            if (substr($attr['current_mode'], 0, 1) == '!') {
+            if (str_starts_with($attr['current_mode'], '!')) {
                 $sign                 = '!';
                 $attr['current_mode'] = substr($attr['current_mode'], 1);
             }
@@ -4371,7 +4371,7 @@ class Tpl extends Template
 
         if (isset($attr['has_tpl'])) {
             $sign = '';
-            if (substr($attr['has_tpl'], 0, 1) == '!') {
+            if (str_starts_with($attr['has_tpl'], '!')) {
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
@@ -4380,7 +4380,7 @@ class Tpl extends Template
 
         if (isset($attr['has_tag'])) {
             $sign = 'true';
-            if (substr($attr['has_tag'], 0, 1) == '!') {
+            if (str_starts_with($attr['has_tag'], '!')) {
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
@@ -4389,7 +4389,7 @@ class Tpl extends Template
 
         if (isset($attr['blog_id'])) {
             $sign = '';
-            if (substr($attr['blog_id'], 0, 1) == '!') {
+            if (str_starts_with($attr['blog_id'], '!')) {
                 $sign            = '!';
                 $attr['blog_id'] = substr($attr['blog_id'], 1);
             }

@@ -70,14 +70,14 @@ class FlatBackup
             return false;
         }
 
-        if (substr($line, 0, 1) == '[') {
+        if (str_starts_with($line, '[')) {
             $this->line_name = substr($line, 1, strpos($line, ' ') - 1);
 
             $line            = substr($line, strpos($line, ' ') + 1, -1);
             $this->line_cols = explode(',', $line);
 
             return $this->getLine();
-        } elseif (substr($line, 0, 1) == '"') {
+        } elseif (str_starts_with($line, '"')) {
             $line = (string) preg_replace('/^"|"$/', '', $line);
             $line = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
             if ($line === false) {

@@ -161,7 +161,7 @@ class Reader extends HttpClient
     {
         $str = trim($str);
         if (!empty($str)) {
-            if (substr($str, 0, 1) != '-') {
+            if (!str_starts_with($str, '-')) {
                 $str = '-' . $str;
             }
             $this->cache_ttl = $str;

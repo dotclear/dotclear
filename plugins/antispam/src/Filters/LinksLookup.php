@@ -121,7 +121,7 @@ class LinksLookup extends SpamFilter
                 $host = $domain_elem[$i - 1] . '.' . $host;
                 $i--;
                 $response = gethostbyname($host . '.' . $this->server);
-                if (substr($response, 0, 3) === '127' && substr($response, 8) !== '1') {
+                if (str_starts_with($response, '127') && substr($response, 8) !== '1') {
                     $status = substr($domain, 0, 128);
 
                     return true;

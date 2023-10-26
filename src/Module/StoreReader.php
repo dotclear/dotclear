@@ -208,7 +208,7 @@ class StoreReader extends HttpClient
         $str = trim($str);
 
         if (!empty($str)) {
-            $this->cache_ttl = substr($str, 0, 1) == '-' ? $str : '-' . $str;
+            $this->cache_ttl = str_starts_with($str, '-') ? $str : '-' . $str;
         }
     }
 

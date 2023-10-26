@@ -57,7 +57,7 @@ abstract class MyTheme extends MyModule
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if (!empty($resource) && substr($resource, 0, 1) !== '/') {
+        if (!empty($resource) && !str_starts_with($resource, '/')) {
             $resource = '/' . $resource;
         }
 

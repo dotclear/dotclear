@@ -203,7 +203,7 @@ class Modules implements ModulesInterface
                 if (is_null($source) || is_null($value)) {
                     continue;
                 }
-                if (substr($value, 0, 1) === '!') {
+                if (str_starts_with($value, '!')) {
                     if ($source === substr($value, 1)) {
                         $add_it = false;
 
@@ -251,7 +251,7 @@ class Modules implements ModulesInterface
                     $dep = [$dep];
                 }
                 // optionnal minimum dependancy
-                if (substr($dep[0], -1) == '?') {
+                if (str_ends_with($dep[0], '?')) {
                     $dep[0]                                = substr($dep[0], 0, -1);
                     $optionnals[$module->getId()][$dep[0]] = true;
                 }

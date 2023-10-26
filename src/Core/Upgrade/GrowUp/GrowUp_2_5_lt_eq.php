@@ -26,7 +26,7 @@ class GrowUp_2_5_lt_eq
             if (!is_dir($root) || !is_readable($root)) {
                 continue;
             }
-            if (substr($root, -1) != '/') {
+            if (!str_ends_with($root, '/')) {
                 $root .= '/';
             }
             if (($p = @dir($root)) === false) {

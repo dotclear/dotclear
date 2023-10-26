@@ -155,7 +155,7 @@ class Themes extends Modules implements ThemesInterface
                             }
                         }
 
-                        if (substr($rel, -4) === '.php') {
+                        if (str_ends_with($rel, '.php')) {
                             // Change namespace in *.php
                             $buf      = (string) file_get_contents($new_dir . $rel);
                             $prefixes = [

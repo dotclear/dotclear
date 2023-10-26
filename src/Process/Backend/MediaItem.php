@@ -666,7 +666,7 @@ class MediaItem extends Process
                 }
 
                 $url = App::backend()->file->file_url;
-                if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {
+                if (str_starts_with($url, App::blog()->host())) {
                     $url = substr($url, strlen(App::blog()->host()));
                 }
                 echo
@@ -708,7 +708,7 @@ class MediaItem extends Process
                 }
 
                 $url = App::backend()->file->file_url;
-                if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {
+                if (str_starts_with($url, App::blog()->host())) {
                     $url = substr($url, strlen(App::blog()->host()));
                 }
                 echo

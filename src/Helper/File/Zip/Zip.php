@@ -160,7 +160,7 @@ class Zip
         }
 
         if ($name !== '') {
-            if (substr($name, -1, 1) != '/') {
+            if (!str_ends_with($name, '/')) {
                 $name .= '/';
             }
 
@@ -380,7 +380,7 @@ class Zip
         if ($name === null) {
             return '';
         }
-        if (substr($name, 0, 1) == '/') {
+        if (str_starts_with($name, '/')) {
             $name = substr($name, 1);
         }
 

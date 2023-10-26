@@ -79,7 +79,7 @@ class CspReport extends Process
                     if (file_exists(App::config()->cspReportFile())) {
                         $contents = file_get_contents(App::config()->cspReportFile());
                         if ($contents) {
-                            if (substr($contents, -1) == ',') {
+                            if (str_ends_with($contents, ',')) {
                                 // Remove final comma if present
                                 $contents = substr($contents, 0, -1);
                             }

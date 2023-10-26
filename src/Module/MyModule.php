@@ -275,7 +275,7 @@ abstract class MyModule
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if (!empty($resource) && substr($resource, 0, 1) !== '/') {
+        if (!empty($resource) && !str_starts_with($resource, '/')) {
             $resource = '/' . $resource;
         }
         if (App::task()->checkContext('BACKEND') && !$frontend) {
@@ -299,7 +299,7 @@ abstract class MyModule
      */
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
-        $base = substr($resource, 0, 1) === '/' ? '' : 'css/';
+        $base = str_starts_with($resource, '/') ? '' : 'css/';
         $ext  = str_contains($resource, '.css') ? '' : '.css';
 
         if (is_null($version) || $version === '') {
@@ -323,7 +323,7 @@ abstract class MyModule
      */
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
-        $base = substr($resource, 0, 1) === '/' ? '' : 'js/';
+        $base = str_starts_with($resource, '/') ? '' : 'js/';
         $ext  = str_contains($resource, '.js') ? '' : '.js';
         if ($module && !str_contains($resource, '.js')) {
             $ext = str_contains($resource, '.mjs') ? '' : '.mjs';

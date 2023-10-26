@@ -990,7 +990,7 @@ class WikiToHtml
             $res   = '';
 
             if ($delta > 0) {
-                if (substr((string) $mode, -1, 1) == '*') {
+                if (str_ends_with((string) $mode, '*')) {
                     $res .= '<ul' . $attr_parent . ">\n";
                 } else {
                     $res .= '<ol' . $attr_parent . ">\n";

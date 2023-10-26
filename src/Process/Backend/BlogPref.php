@@ -197,7 +197,7 @@ class BlogPref extends Process
         $stack       = [__('Default') . ' (' . App::config()->defaultJQuery() . ')' => ''];
         if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root)) !== false) {
             while (($entry = $d->read()) !== false) {
-                if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root . '/' . $entry) && $entry != App::config()->defaultJQuery()) {
+                if ($entry != '.' && $entry != '..' && !str_starts_with($entry, '.') && is_dir($jquery_root . '/' . $entry) && $entry != App::config()->defaultJQuery()) {
                     $stack[$entry] = $entry;
                 }
             }
@@ -820,7 +820,7 @@ class BlogPref extends Process
                         ) .
                         '</p>';
                     } else {
-                        if (substr($content, 0, 6) != '<?xml ') {
+                        if (!str_starts_with($content, '<?xml ')) {
                             // Not well formed XML feed
                             echo
                             '<p class="form-note warn">' .

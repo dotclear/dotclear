@@ -414,7 +414,7 @@ class Ctx
      */
     public static function categoryPostParam(array &$args): void
     {
-        $not = substr($args['cat_url'], 0, 1) == '!';
+        $not = str_starts_with($args['cat_url'], '!');
         if ($not) {
             $args['cat_url'] = substr($args['cat_url'], 1);
         }

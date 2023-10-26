@@ -194,7 +194,7 @@ class MailSocket
         }
         $data = self::data();
 
-        if (substr($data, 0, 3) != '250') {
+        if (!str_starts_with($data, '250')) {
             return false;
         }
 
@@ -234,7 +234,7 @@ class MailSocket
 
         self::cmd('DATA', $data);
 
-        if (substr($data, 0, 3) != '354') {
+        if (!str_starts_with($data, '354')) {
             return false;
         }
 

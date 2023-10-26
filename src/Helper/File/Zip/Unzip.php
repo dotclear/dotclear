@@ -541,7 +541,7 @@ class Unzip
                     $i = $this->getFileHeaderInformation($v['relative_offset']);
 
                     $this->compressed_list[$k]['file_name']          = $k;
-                    $this->compressed_list[$k]['is_dir']             = $v['external_attributes1'] == 16 || substr($k, -1, 1) == '/';
+                    $this->compressed_list[$k]['is_dir']             = $v['external_attributes1'] == 16 || str_ends_with($k, '/');
                     $this->compressed_list[$k]['compression_method'] = $v['compression_method'];
                     $this->compressed_list[$k]['version_needed']     = $v['version_needed'];
                     $this->compressed_list[$k]['lastmod_datetime']   = $v['lastmod_datetime'];
@@ -648,7 +648,7 @@ class Unzip
             # Mount file table
             return [
                 'file_name'          => $file['file_name'],
-                'is_dir'             => substr($file['file_name'], -1, 1) == '/',
+                'is_dir'             => str_ends_with($file['file_name'], '/'),
                 'compression_method' => $file['compression_method'][1],
                 'version_needed'     => $file['version_needed'][1],
                 'lastmod_datetime'   => $this->getTimeStamp($file['lastmod_date'][1], $file['lastmod_time'][1]),

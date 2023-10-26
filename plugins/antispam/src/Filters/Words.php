@@ -119,7 +119,7 @@ class Words extends SpamFilter
         while ($rs->fetch()) {
             $word = $rs->rule_content;
 
-            if (substr($word, 0, 1) == '/' && substr($word, -1, 1) == '/') {
+            if (str_starts_with($word, '/') && str_ends_with($word, '/')) {
                 $reg = substr(substr($word, 1), 0, -1);
             } else {
                 $reg = preg_quote($word, '/');

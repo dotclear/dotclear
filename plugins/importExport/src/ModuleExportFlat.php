@@ -157,7 +157,7 @@ class ModuleExportFlat extends Module
 
             ob_end_clean();
 
-            if (substr($_SESSION['export_filename'], -4) == '.zip') {
+            if (str_ends_with($_SESSION['export_filename'], '.zip')) {
                 $_SESSION['export_filename'] = substr($_SESSION['export_filename'], 0, -4); //.'.txt';
             }
 

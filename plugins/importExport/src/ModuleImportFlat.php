@@ -269,7 +269,7 @@ class ModuleImportFlat extends Module
 
                 if (is_file($entry_path) && is_readable($entry_path)) {
                     // Do not test each zip file content here, its too long
-                    if ((substr($entry_path, -4) == '.zip') || (self::checkFileContent($entry_path))) {
+                    if ((str_ends_with($entry_path, '.zip')) || (self::checkFileContent($entry_path))) {
                         $public_files[$entry] = $entry_path;
                     }
                 }
@@ -320,7 +320,7 @@ class ModuleImportFlat extends Module
 
         foreach ($zip->getFilesList() as $zip_file) {
             # Check zipped file name
-            if (substr($zip_file, -4) != '.txt') {
+            if (!str_ends_with($zip_file, '.txt')) {
                 continue;
             }
 
