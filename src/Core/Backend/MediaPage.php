@@ -134,7 +134,7 @@ class MediaPage extends FilterMedia
             $this->media_archivable = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_MEDIA_ADMIN,
             ]), App::blog()->id())
-                && !((is_countable($rs) ? count($rs) : 0) === 0 || ((is_countable($rs) ? count($rs) : 0) === 1 && $rs->parent)); // @phpstan-ignore-line
+                && ($rs->count() !== 0 && !($rs->count() === 1 && $rs->parent)); // @phpstan-ignore-line
         }
 
         return $this->media_archivable;
