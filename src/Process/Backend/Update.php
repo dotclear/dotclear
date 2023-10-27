@@ -84,7 +84,7 @@ class Update extends Process
         # Hide "update me" message
         if (!empty($_GET['hide_msg'])) {
             App::backend()->updater->setNotify(false);
-            Http::redirect('index.php');
+            App::backend()->url()->redirect('admin.home');
         }
 
         App::backend()->step = $_GET['step'] ?? '';
