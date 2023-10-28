@@ -1017,8 +1017,8 @@ class ModulesList
                         '</ul></div>';
                 }
 
-                if (self::hasFileOrClass($id, $this->modules::MODULE_CLASS_CONFIG, $this->modules::MODULE_FILE_CONFIG)
-                 || self::hasFileOrClass($id, $this->modules::MODULE_CLASS_MANAGE, $this->modules::MODULE_FILE_MANAGE)
+                if (static::hasFileOrClass($id, $this->modules::MODULE_CLASS_CONFIG, $this->modules::MODULE_FILE_CONFIG)
+                 || static::hasFileOrClass($id, $this->modules::MODULE_CLASS_MANAGE, $this->modules::MODULE_FILE_MANAGE)
                  || !empty($define->get('section'))
                  || !empty($define->get('tags'))
                  || !empty($define->get('settings'))   && $define->get('state') == ModuleDefine::STATE_ENABLED
@@ -1093,8 +1093,8 @@ class ModulesList
     {
         $settings_urls = [];
 
-        $config = self::hasFileOrClass($id, App::plugins()::MODULE_CLASS_CONFIG, App::plugins()::MODULE_FILE_CONFIG);
-        $index  = self::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
+        $config = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_CONFIG, App::plugins()::MODULE_FILE_CONFIG);
+        $index  = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
 
         $settings = App::plugins()->moduleInfo($id, 'settings');
         if ($self) {
@@ -1815,7 +1815,7 @@ class ModulesList
      *
      * @return  bool    True if one exists
      */
-    private static function hasFileOrClass(string $id, string $class, string $file): bool
+    protected static function hasFileOrClass(string $id, string $class, string $file): bool
     {
         // by class name
         $ns    = App::plugins()->moduleInfo($id, 'namespace');
