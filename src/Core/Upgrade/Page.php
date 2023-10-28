@@ -50,22 +50,6 @@ class Page
     private static bool $xframe_loaded = false;
 
     /**
-     * Auth check
-     *
-     * @param      string  $permissions  The permissions
-     * @param      bool    $home         Currently on dashboard
-     */
-    public static function check(string $permissions, bool $home = false): void
-    {
-        if (!App::auth()->isSuperAdmin()) {
-            if (session_id()) {
-                App::session()->destroy();
-            }
-            App::upgrade()->url()->redirect('upgrade.auth');
-        }
-    }
-
-    /**
      * Check super admin
      *
      * @param      bool  $home   The home
@@ -367,15 +351,6 @@ class Page
     }
 
     /**
-     * Display Help block
-     *
-     * @param      mixed  ...$params  The parameters
-     */
-    public static function helpBlock(...$params): void
-    {
-    }
-
-    /**
      * Get HTML code to preload resource
      *
      * @param      string       $src         The source
@@ -448,10 +423,6 @@ class Page
      */
     private static function appendVersion(string $src, ?string $version = ''): string
     {
-        if (App::config()->debugMode()) {
-            return $src;
-        }
-
         return $src .
             (str_contains($src, '?') ? '&amp;' : '?') .
             'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));

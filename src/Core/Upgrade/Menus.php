@@ -80,7 +80,7 @@ class Menus extends ArrayObject
         }
 
         // add menu sections
-        $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', __('System settings')));
+        $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', ''));
 
         // add menu items
         $this->addItem(
@@ -115,9 +115,19 @@ class Menus extends ArrayObject
         );
         $this->addItem(
             self::MENU_SYSTEM,
-            __('Plugins management'),
+            __('Plugins'),
             'upgrade.plugins',
             ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
+            App::auth()->isSuperAdmin(),
+            false,
+            false,
+            'Plugins'
+        );
+        $this->addItem(
+            self::MENU_SYSTEM,
+            __('Tools'),
+            'upgrade.tools',
+            ['images/menu/tools.svg', 'images/menu/tools-dark.svg'],
             App::auth()->isSuperAdmin(),
             false,
             false,

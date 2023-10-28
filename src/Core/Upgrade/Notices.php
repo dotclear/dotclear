@@ -57,7 +57,7 @@ class Notices
         if (App::error()->flag() && !self::$error_displayed) {
             $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>';
             foreach (App::error()->dump() as $msg) {
-                $res .= self::error($msg, true, false, false);
+                $res .= self::message($msg, true, false, false, self::NOTICE_ERROR);
             }
             $res .= '</div>';
 
@@ -215,8 +215,6 @@ class Notices
             '</' . $container . '>';
     }
 
-    // Direct messages
-
     /**
      * Direct messages, usually immediately displayed
      *
@@ -250,50 +248,5 @@ class Notices
         }
 
         return $res;
-    }
-
-    /**
-     * Display a success message
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  With the timestamp
-     * @param      bool    $div        Inside a div (else in a p)
-     * @param      bool    $echo       Display the message?
-     *
-     * @return     string
-     */
-    public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
-    {
-        return self::message($msg, $timestamp, $div, $echo, self::$notice_types[self::NOTICE_SUCCESS]);
-    }
-
-    /**
-     * Display a warning message
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  With the timestamp
-     * @param      bool    $div        Inside a div (else in a p)
-     * @param      bool    $echo       Display the message?
-     *
-     * @return     string
-     */
-    public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
-    {
-        return self::message($msg, $timestamp, $div, $echo, self::$notice_types[self::NOTICE_WARNING]);
-    }
-
-    /**
-     * Display an error message
-     *
-     * @param      string  $msg        The message
-     * @param      bool    $timestamp  With the timestamp
-     * @param      bool    $div        Inside a div (else in a p)
-     * @param      bool    $echo       Display the message?
-     *
-     * @return     string
-     */
-    public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
-    {
-        return self::message($msg, $timestamp, $div, $echo, self::$notice_types[self::NOTICE_ERROR]);
     }
 }

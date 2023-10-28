@@ -11,10 +11,10 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\PluginsList;
 use Dotclear\Core\Upgrade\NextStore;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
+use Dotclear\Core\Upgrade\PluginsList;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -34,12 +34,14 @@ class Plugins extends Process
     private static array $next_store;
 
     /**
-     * @var     null|array<string, array<string, string>> $plugins_install
+     * @var     null|array<string, array<string, bool|string>> $plugins_install
      */
     private static ?array $plugins_install = null;
 
     public static function init(): bool
     {
+        Page::checkSuper();
+
         // -- Page helper --
         self::$plugins_list = new PluginsList(
             App::plugins(),
@@ -49,10 +51,6 @@ class Plugins extends Process
         );
 
         PluginsList::$allow_multi_install = App::config()->allowMultiModules();
-        // deprecated since 2.26
-        PluginsList::$distributed_modules = explode(',', App::config()->distributedPlugins());
-
-        Page::checkSuper();
 
         # -- Execute actions --
         try {
@@ -70,10 +68,43 @@ class Plugins extends Process
 
     public static function process(): bool
     {
-        // -- Plugin install --
+        // Plugins install
         self::$plugins_install = null;
         if (!App::error()->flag()) {
             self::$plugins_install = App::plugins()->installModules();
+        }
+
+        // Messages
+        if (!empty(self::$plugins_install['success'])) {
+            $success = [];
+            foreach (self::$plugins_install['success'] as $k => $v) {
+                $info      = implode(' - ', self::$plugins_list->getSettingsUrls($k, true));
+                $success[] = $k . ($info !== '' ? ' → ' . $info : '');
+            }
+            Notices::AddSuccessNotice(
+                __('Following plugins have been installed:') .
+                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>'
+            );
+            unset($success);
+        }
+        if (!empty(self::$plugins_install['failure'])) {
+            $failure = [];
+            foreach (self::$plugins_install['failure'] as $k => $v) {
+                $failure[] = $k . ' (' . $v . ')';
+            }
+
+            Notices::AddErrorNotice(
+                __('Following plugins have not been installed:') .
+                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>'
+            );
+            unset($failure);
+        }
+        if (null == App::blog()->settings()->system->store_plugin_url) {
+            Notices::AddMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
+        }
+
+        if (!App::error()->flag() && !empty($_GET['nocache'])) {
+            Notices::AddSuccessNotice(__('Manual checking of plugins update done successfully.'));
         }
 
         return true;
@@ -92,50 +123,11 @@ class Plugins extends Process
             Page::jsPageTabs(),
             Page::breadcrumb(
                 [
-                    __('System')             => '',
+                    __('Dotclear update')    => '',
                     __('Plugins management') => '',
                 ]
             )
         );
-
-        // -- Plugins install messages --
-        if (!empty(self::$plugins_install['success'])) {
-            $success = [];
-            foreach (self::$plugins_install['success'] as $k => $v) {
-                $info      = implode(' - ', self::$plugins_list->getSettingsUrls($k, true));
-                $success[] = $k . ($info !== '' ? ' → ' . $info : '');
-            }
-            Notices::success(
-                __('Following plugins have been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>',
-                false,
-                true
-            );
-            unset($success);
-        }
-        if (!empty(self::$plugins_install['failure'])) {
-            $failure = [];
-            foreach (self::$plugins_install['failure'] as $k => $v) {
-                $failure[] = $k . ' (' . $v . ')';
-            }
-
-            Notices::error(
-                __('Following plugins have not been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>',
-                false,
-                true
-            );
-            unset($failure);
-        }
-
-        // -- Display modules lists --
-        if (null == App::blog()->settings()->system->store_plugin_url) {
-            Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
-        }
-
-        if (!App::error()->flag() && !empty($_GET['nocache'])) {
-            Notices::success(__('Manual checking of plugins update done successfully.'));
-        }
 
         // Updated modules from repo
         $defines = self::$plugins_list->store->getDefines(true);
@@ -295,6 +287,9 @@ class Plugins extends Process
         Page::close();
     }
 
+    /**
+     * @param   array<int, string>  $excludes
+     */
     protected static function nextStoreList(PluginsList $modules, array $excludes, string $page_url): void
     {
         echo
@@ -306,7 +301,7 @@ class Plugins extends Process
         App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
-        '<p class="more-info">' . sprintf(__('You can check repositorires for modules versions available for Dotclear release greater than %s.'), App::config()->dotclearVersion()) . '</p>';
+        '<p class="more-info">' . sprintf(__('You can check repositories for modules written for Dotclear release greater than %s.'), App::config()->dotclearVersion()) . '</p>';
 
         $list = [];
         foreach ($modules->getModules() as $id => $module) {
@@ -331,6 +326,10 @@ class Plugins extends Process
         '</div>';
     }
 
+    /**
+     * @param   array<string, array<string, mixed>>  $modules
+     * @param   array<string, array<string, mixed>>  $repos
+     */
     protected static function displayNextStoreList(array $modules, array $repos): void
     {
         echo
@@ -350,7 +349,7 @@ class Plugins extends Process
         foreach ($modules as $id => $module) {
             if (!isset($repos[$id])) {
                 $img = [__('No version available'), 'check-off.png'];
-            } elseif (isset($repos[$id]) && version_compare(App::config()->dotclearVersion(), $repos[$id]['dc_min'], '>=')) {
+            } elseif (version_compare(App::config()->dotclearVersion(), $repos[$id]['dc_min'], '>=')) {
                 $img = [__('No update available'), 'check-wrn.png'];
             } else {
                 $img = [__('Newer version available'), 'check-on.png'];

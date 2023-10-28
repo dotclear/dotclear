@@ -25,14 +25,12 @@ use form;
 class Auth extends Process
 {
     private static string $dlang;
-    private static string $page_url;
 
-    private static ?string $user_id    = null;
-    private static ?string $user_pwd   = null;
-    private static ?string $user_key   = null;
-    private static ?string $user_email = null;
-    private static ?string $err        = null;
-    private static ?string $msg        = null;
+    private static ?string $user_id  = null;
+    private static ?string $user_pwd = null;
+    private static ?string $user_key = null;
+    private static ?string $err      = null;
+    private static ?string $msg      = null;
 
     public static function init(): bool
     {
@@ -50,18 +48,11 @@ class Auth extends Process
             L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
         }
 
-        if (App::config()->adminUrl() != '') {
-            self::$page_url = App::config()->adminUrl() . App::upgrade()->url()->get('upgrade.auth');
-        } else {
-            self::$page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
-        }
-
-        self::$user_id    = null;
-        self::$user_pwd   = null;
-        self::$user_key   = null;
-        self::$user_email = null;
-        self::$err        = null;
-        self::$msg        = null;
+        self::$user_id  = null;
+        self::$user_pwd = null;
+        self::$user_key = null;
+        self::$err      = null;
+        self::$msg      = null;
 
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
             // If we have POST login informations, go throug auth process

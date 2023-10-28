@@ -38,8 +38,8 @@ class Backup extends Process
                 '',
                 Page::breadcrumb(
                     [
-                        __('System')          => '',
-                        __('Dotclear update') => '',
+                        __('Dotclear update')     => '',
+                        __('Backups and restore') => '',
                     ]
                 )
             );
@@ -102,13 +102,11 @@ class Backup extends Process
             '',
             Page::breadcrumb(
                 [
-                    __('System')              => '',
+                    __('Dotclear update')     => '',
                     __('Backups and restore') => '',
                 ]
             )
         );
-
-        echo Notices::getNotices();
 
         if (empty(self::$archives)) {
             echo

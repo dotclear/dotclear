@@ -18,7 +18,6 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 

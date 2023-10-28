@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Upgrade;
 
+use stdClass;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
@@ -33,8 +34,15 @@ class Langs extends Process
     private const LANG_INSTALLED = 1;
     private const LANG_UPDATED   = 2;
 
-    private static bool $is_writable    = false;
-    private static array $iso_codes     = [];
+    private static bool $is_writable = false;
+    /**
+     * @var     array<string, string>   $iso_codes
+     */
+    private static array $iso_codes = [];
+
+    /**
+     * @var     array<int, stdClass>     $dc_langs
+     */
     private static bool|array $dc_langs = false;
 
     public static function init(): bool
@@ -206,6 +214,14 @@ class Langs extends Process
             }
         }
 
+        if (!empty($_GET['removed'])) {
+            Notices::AddSuccessNotice(__('Language has been successfully deleted.'));
+        }
+
+        if (!empty($_GET['added'])) {
+            Notices::AddSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+        }
+
         return true;
     }
 
@@ -216,19 +232,11 @@ class Langs extends Process
             Page::jsLoad('js/_langs.js'),
             Page::breadcrumb(
                 [
-                    __('System')               => '',
+                    __('Dotclear update')      => '',
                     __('Languages management') => '',
                 ]
             )
         );
-
-        if (!empty($_GET['removed'])) {
-            Notices::success(__('Language has been successfully deleted.'));
-        }
-
-        if (!empty($_GET['added'])) {
-            Notices::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
-        }
 
         echo
         '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear installation.') . '</p>';
@@ -293,7 +301,7 @@ class Langs extends Process
         'removing the relevant directory in your %s folder.'), '<strong>locales</strong>') . '</p>';
         }
 
-        if (!empty(self::$dc_langs) && self::$is_writable) {
+        if (is_array(self::$dc_langs) && !empty(self::$dc_langs) && self::$is_writable) {
             $dc_langs_combo = [];
             foreach (self::$dc_langs as $lang) {
                 if ($lang->link && isset(self::$iso_codes[$lang->title])) {

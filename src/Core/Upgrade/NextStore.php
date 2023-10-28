@@ -37,6 +37,7 @@ class NextStore extends Store
         $updates = [];
         $current = array_merge($this->modules->getModules(), $this->modules->getDisabledModules());
         foreach ($current as $p_id => $p_infos) {
+            $p_id = (string) $p_id;
             # non privileged user has no info
             if (!is_array($p_infos)) {
                 continue;

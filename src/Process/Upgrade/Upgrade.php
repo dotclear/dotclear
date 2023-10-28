@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Core\Process;
@@ -20,7 +19,7 @@ use Exception;
 class Upgrade extends Process
 {
     private static Update $updater;
-    private static bool|string $new_v   = false;
+    private static bool|string $new_ver = false;
     private static string $zip_file     = '';
     private static string $version_info = '';
     private static bool $update_warning = false;
@@ -37,8 +36,8 @@ class Upgrade extends Process
                 '',
                 Page::breadcrumb(
                     [
-                        __('System')          => '',
                         __('Dotclear update') => '',
+                        __('Update')          => '',
                     ]
                 )
             );
@@ -55,8 +54,8 @@ class Upgrade extends Process
                 '',
                 Page::breadcrumb(
                     [
-                        __('System')          => '',
                         __('Dotclear update') => '',
+                        __('Update')          => '',
                     ]
                 )
             );
@@ -68,15 +67,11 @@ class Upgrade extends Process
         }
 
         self::$updater = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
-        self::$new_v   = self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
+        self::$new_ver = self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
-        self::$zip_file       = '';
-        self::$version_info   = '';
-        self::$update_warning = false;
-
-        if (self::$new_v) {
+        if (self::$new_ver) {
             self::$zip_file       = App::config()->backupRoot() . '/' . basename((string) self::$updater->getFileURL());
-            self::$version_info   = self::$updater->getInfoURL();
+            self::$version_info   = (string) self::$updater->getInfoURL();
             self::$update_warning = self::$updater->getWarning();
         }
 
@@ -95,7 +90,7 @@ class Upgrade extends Process
     public static function process(): bool
     {
         # Upgrade process
-        if (self::$new_v && self::$step) {
+        if (self::$new_ver && self::$step) {
             try {
                 self::$updater->setForcedFiles('inc/digests');
 
@@ -186,15 +181,11 @@ class Upgrade extends Process
                 : ''),
             Page::breadcrumb(
                 [
-                    __('System')          => '',
                     __('Dotclear update') => '',
+                    __('Update')          => '',
                 ]
             )
         );
-
-        if (!App::error()->flag() && !empty($_GET['nocache'])) {
-            Notices::success(__('Manual checking of update done successfully.'));
-        }
 
         if (!self::$step) {
             // Warning about PHP version if necessary
@@ -208,21 +199,25 @@ class Upgrade extends Process
                 ) .
                 '</p>';
             }
-            if (empty(self::$new_v)) {
+            if (empty(self::$new_ver)) {
                 echo
-                '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>' .
-                '<form action="' . App::upgrade()->url()->get('upgrade.upgrade') . '" method="get">' .
-                '<p><input type="hidden" name="process" value="Upgrade" />' .
-                '<p><input type="hidden" name="nocache" value="1" />' .
-                '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
-                '</form>';
+                '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>';
+
+                if (App::error()->flag() || empty($_GET['nocache'])) {
+                    echo
+                    '<form action="' . App::upgrade()->url()->get('upgrade.upgrade') . '" method="get">' .
+                    '<p><input type="hidden" name="process" value="Upgrade" />' .
+                    '<p><input type="hidden" name="nocache" value="1" />' .
+                    '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
+                    '</form>';
+                }
             } else {
                 echo
-                '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), self::$new_v) .
+                '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), self::$new_ver) .
                 (self::$version_info ? ' <a href="' . self::$version_info . '" title="' . __('Information about this version') . '">(' .
                 __('Information about this version') . ')</a>' : '') .
                 '</p>';
-                if (version_compare(phpversion(), self::$updater->getPHPVersion()) < 0) {
+                if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
                     echo
                     '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion()) . '</p>';
                 } else {

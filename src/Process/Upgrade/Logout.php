@@ -36,7 +36,5 @@ class Logout extends Process
         // Logout
         App::upgrade()->url()->redirect('upgrade.auth');
         exit;
-
-        return true;
     }
 }
