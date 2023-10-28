@@ -18,6 +18,7 @@ namespace Dotclear\Core;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
+use Dotclear\Core\Upgrade\Utility as Upgrade;
 use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
 
@@ -177,6 +178,7 @@ class Core extends Container
             TaskInterface::class            => Task::class,
             ThemesInterface::class          => Themes::class,
             TrackbackInterface::class       => Trackback::class,
+            Upgrade::class                  => Upgrade::class,
             UrlInterface::class             => Url::class,
             UsersInterface::class           => Users::class,
             UserPreferencesInterface::class => UserPreferences::class,
@@ -204,6 +206,16 @@ class Core extends Container
     public static function backend(): Backend
     {
         return self::$instance->get(Backend::class);
+    }
+
+    /**
+     * Upgrade Utility.
+     *
+     * @see     Dotclear.Core.Upgrade.Utility
+     */
+    public static function Upgrade(): Upgrade
+    {
+        return self::$instance->get(Upgrade::class);
     }
 
     /**

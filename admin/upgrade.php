@@ -1,8 +1,7 @@
-#!/usr/bin/env php
 <?php
 /**
  * @file
- * @brief 		The upgrade procedure (CLI).
+ * @brief 		The upgrade procedure.
  * @ingroup     Endpoint
  *
  * @package 	Dotclear
@@ -10,4 +9,6 @@
  * @copyright 	Olivier Meunier & Association Dotclear
  * @copyright 	GPL-2.0-only
  */
-echo 'You should run: php ' . dirname(__DIR__) . '/upgrade.php' . "\n";
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
+
+new Dotclear\App('Upgrade', 'Auth');

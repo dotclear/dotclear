@@ -313,7 +313,7 @@ class Utility extends Process
     public function favorites(): Favorites
     {
         if (!isset($this->favorites)) {
-            $this->favorites  = new Favorites();
+            $this->favorites = new Favorites();
 
             // deprecated since 2.27, use App::backend()->favorites() instead
             dcCore::app()->favs = $this->favorites;
@@ -330,7 +330,7 @@ class Utility extends Process
     public function menus(): Menus
     {
         if (!isset($this->menus)) {
-            $this->menus  = new Menus();
+            $this->menus = new Menus();
 
             // deprecated since 2.27, use App::backend()->menus() instead
             dcCore::app()->menu = $this->menus;
@@ -350,7 +350,7 @@ class Utility extends Process
     public function resources(): Resources
     {
         if (!isset($this->resources)) {
-            $this->resources  = new Resources();
+            $this->resources = new Resources();
         }
 
         return $this->resources;
