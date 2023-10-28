@@ -310,7 +310,7 @@ class Url
         $this->register('admin.rest', 'Rest');
 
         // we don't care of admin process for FileServer
-        $this->register('load.plugin.file', 'index.php', ['pf' => 'dummy.css']);
-        $this->register('load.var.file', 'index.php', ['vf' => 'dummy.json']);
+        $this->register('load.plugin.file', self::INDEX, ['pf' => 'dummy.css']);
+        $this->register('load.var.file', self::INDEX, ['vf' => 'dummy.json']);
     }
 }
