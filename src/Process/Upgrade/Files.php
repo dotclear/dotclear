@@ -1,0 +1,372 @@
+<?php
+/**
+ * @package     Dotclear
+ * @subpackage  Upgrade
+ *
+ * @author      Franck Paul and contributors
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Process\Upgrade;
+
+use Dotclear\App;
+use Dotclear\Core\Upgrade\Page;
+use Dotclear\Core\Process;
+use Dotclear\Helper\File\Zip\Zip;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\L10n;
+use Exception;
+
+/**
+ * @brief   Upgrade process corrupted files helper.
+ *
+ * @todo    Allow .zip in vf= of FileServer for the backup fiel download
+ * @todo    Add resources. (waiting to manage resources on whole Upgrade Utility)
+ *
+ * @since 2.29
+ */
+class Files extends Process
+{
+    private static string $path_backup;
+    private static string $path_helpus;
+    private static string $path_disclaimer;
+    private static string $uri = '';
+
+    /**
+     * List of changes.
+     *
+     * @var     array<string, array<string, mixed>>    $changes
+     */
+    private static array $changes = [
+        'same'    => [],
+        'changed' => [],
+        'removed' => [],
+    ];
+
+    public static function init(): bool
+    {
+        Page::checkSuper();
+
+        return self::status(true);
+    }
+
+    public static function process(): bool
+    {
+        self::$path_backup     = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'digests.bak']);
+        self::$path_helpus     = '';//L10n::getFilePath(App::config()->localesRoot(), 'helpus.html', App:lang()->getLang());
+        self::$path_disclaimer = '';//L10n::getFilePath(App::config()->localesRoot(), 'disclaimer.html', App:lang()->getLang());
+
+        if (isset($_POST['erase_backup']) && is_file(self::$path_backup)) {
+            @unlink(self::$path_backup);
+        }
+
+        try {
+            if (isset($_POST['override'])) {
+                $changes = self::check(App::config()->dotclearRoot(), App::config()->digestsRoot());
+                $arr     = $changes['same'];
+                foreach ($changes['changed'] as $k => $v) {
+                    $arr[$k] = $v['new'];
+                }
+                ksort($arr);
+                self::$changes = $changes;
+
+                $digest = '';
+                foreach ($arr as $k => $v) {
+                    $digest .= sprintf("%s  %s\n", $v, $k);
+                }
+                rename(App::config()->digestsRoot(), self::$path_backup);
+                file_put_contents(App::config()->digestsRoot(), $digest);
+                self::$uri = self::backup(self::$changes);
+            } elseif (isset($_POST['disclaimer_ok'])) {
+                self::$changes = self::check(App::config()->dotclearRoot(), App::config()->digestsRoot());
+            }
+        } catch (Exception $e) {
+            App::error()->add($e->getMessage());
+        }
+
+        return true;
+    }
+
+    public static function render(): void
+    {
+        Page::open(
+            __('Files'),
+            '',
+            Page::breadcrumb(
+                [
+                    __('Dotclear update') => '',
+                    __('Corrupted files') => '',
+                ]
+            )
+        );
+
+        if (App::error()->flag()) {
+            Page::close();
+
+            return;
+        }
+
+        echo (new Div())
+            ->items([
+                (new Text('h3', __('Corrupted files'))),
+                (new Text('p', __('On this page, you can bypass corrupted files or modified files in order to perform update.'))),
+            ])
+            ->render();
+
+        if (isset($_POST['override'])) {
+            if (!empty(self::$uri)) {
+                $item = (new Text(
+                    null,
+                    is_file(self::$path_helpus) ?
+                    sprintf((string) file_get_contents(self::$path_helpus), self::$uri, 'fakemeup@dotclear.org') :
+                    '<a href="' . self::$uri . '">' . __('Download backup of digests file.') . '</a>'
+                ));
+            } else {
+                $item = (new Para())->items([
+                    (new Text(null, __('The updates have been performed.'))),
+                ]);
+            }
+            echo (new Div())
+                ->class('message')
+                ->items([
+                    $item,
+                    (new Para())->items([
+                        (new Link())
+                            ->href(App::upgrade()->url()->get('upgrade.upgrade'))
+                            ->text(__('Update Dotclear')),
+                    ]),
+                ])
+            ->render();
+        } elseif (isset($_POST['disclaimer_ok'])) {
+            if ((is_countable(self::$changes['changed']) ? count(self::$changes['changed']) : 0) == 0 && (is_countable(self::$changes['removed']) ? count(self::$changes['removed']) : 0) == 0) {
+                echo (new Para())->class('message')->items([
+                    (new Text(null, __('No changed filed have been found, nothing to do!'))),
+                ])
+                ->render();
+            } else {
+                $changed       = [];
+                $block_changed = '';
+                if ((is_countable(self::$changes['changed']) ? count(self::$changes['changed']) : 0) != 0) {
+                    foreach (self::$changes['changed'] as $k => $v) {
+                        $changed[] = (new Text('li', sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new'])));
+                    }
+                    $block_changed = (new Div())->items([
+                        (new Para())->items([
+                            (new Text(null, __('The following files will have their checksum faked:'))),
+                        ]),
+                        (new Para(null, 'ul'))->items($changed),
+                    ])
+                    ->render();
+                }
+                $removed       = [];
+                $block_removed = '';
+                if ((is_countable(self::$changes['removed']) ? count(self::$changes['removed']) : 0) != 0) {
+                    foreach (self::$changes['removed'] as $k => $v) {
+                        $removed[] = (new Text('li', (string) $k));
+                    }
+                    $block_removed = (new Div())->items([
+                        (new Para())->items([
+                            (new Text(null, __('The following files digests will have their checksum cleaned:'))),
+                        ]),
+                        (new Para(null, 'ul'))->items($removed),
+                    ])
+                    ->render();
+                }
+
+                echo (new Div())->class('message')->items([
+                    (new Text(null, $block_changed)),
+                    (new Text(null, $block_removed)),
+                    (new Form('frm-override'))
+                        ->action(App::upgrade()->url()->get('upgrade.files'))
+                        ->method('post')
+                        ->fields([
+                            (new Submit(['confirm'], __('Still ok to continue'))),
+                            (new Hidden(['override'], (string) 1)),
+                            App::nonce()->formNonce(),
+                        ]),
+                ])
+                ->render();
+            }
+        } else {
+            if (file_exists(self::$path_backup)) {
+                echo (new Div())->class('error')->items([
+                    (new Para())->items([
+                        (new Text(null, __('Fake Me Up has already been run once.'))),
+                    ]),
+                    (new Form('frm-erase'))
+                        ->action(App::upgrade()->url()->get('upgrade.files'))
+                        ->method('post')
+                        ->fields([
+                            (new Para())->items([
+                                (new Checkbox('erase_backup'))
+                                    ->value(1)
+                                    ->label((new Label(__('Remove the backup digest file, I want to play again'), Label::INSIDE_TEXT_AFTER))),
+                            ]),
+                            (new Para())->items([
+                                (new Submit(['confirm'], __('Continue'))),
+                                App::nonce()->formNonce(),
+                            ]),
+                        ]),
+                ])
+                ->render();
+            } else {
+                echo (new Para())->class('error')->items([
+                    (new Text(null, __('Please read carefully the following disclaimer before proceeding!'))),
+                ])
+                ->render();
+                echo (new Div())->class('message')->items([
+                    (new Text(null, is_file(self::$path_disclaimer) ? (string) file_get_contents(self::$path_disclaimer) : '...')),
+                    (new Form('frm-disclaimer'))
+                        ->action(App::upgrade()->url()->get('upgrade.files'))
+                        ->method('post')
+                        ->fields([
+                            (new Para())->items([
+                                (new Checkbox('disclaimer_ok'))
+                                    ->value(1)
+                                    ->label((new Label(__('I have read and understood the disclaimer and wish to continue anyway.'), Label::INSIDE_TEXT_AFTER))),
+                            ]),
+                            (new Para())->items([
+                                (new Submit(['confirm'], __('Continue'))),
+                                App::nonce()->formNonce(),
+                            ]),
+                        ]),
+                ])
+                ->render();
+            }
+        }
+
+        Page::close();
+    }
+
+    /**
+     * Check digest file.
+     *
+     * @param   string  $root           The root
+     * @param   string  $digests_file   The digests file
+     *
+     * @throws  Exception
+     *
+     * @return  array<string, array<string, mixed>>
+     */
+    private static function check(string $root, string $digests_file): array
+    {
+        if (!is_readable($digests_file)) {
+            throw new Exception(__('Unable to read digests file.'));
+        }
+
+        $opts     = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
+        $contents = file($digests_file, $opts);
+        if (!$contents) {
+            return [
+                'same'    => [],
+                'changed' => [],
+                'removed' => [],
+            ];
+        }
+
+        $changed = [];
+        $same    = [];
+        $removed = [];
+
+        foreach ($contents as $digest) {
+            if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
+                continue;
+            }
+
+            $md5      = $m[1];
+            $filename = $root . '/' . $m[2];
+
+            # Invalid checksum
+            if (is_readable($filename)) {
+                $md5_new = md5_file($filename);
+                if ($md5 == $md5_new) {
+                    $same[$m[2]] = $md5;
+                } else {
+                    $changed[$m[2]] = ['old' => $md5,'new' => $md5_new];
+                }
+            } else {
+                $removed[$m[2]] = true;
+            }
+        }
+
+        # No checksum found in digests file
+        if (empty($md5)) {
+            throw new Exception(__('Invalid digests file.'));
+        }
+
+        return [
+            'same'    => $same,
+            'changed' => $changed,
+            'removed' => $removed,
+        ];
+    }
+
+    /**
+     * Backup digest.
+     *
+     * @param   array<string, array<string, mixed>>     $changes    The changes
+     *
+     * @return  string  False on error, zip URI on success
+     */
+    private static function backup(array $changes)
+    {
+        $zip_name      = sprintf('fmu_backup_%s.zip', date('YmdHis'));
+        $zip_file      = sprintf('%s/%s', App::config()->varRoot(), $zip_name);
+        $zip_uri       = sprintf('%s?vf=%s', App::config()->adminUrl(), $zip_name);
+        $checksum_file = sprintf('%s/fmu_checksum_%s.txt', App::config()->varRoot(), date('Ymd'));
+
+        $c_data = 'Fake Me Up Checksum file - ' . date('d/m/Y H:i:s') . "\n\n" .
+            'Dotclear version : ' . App::config()->dotclearVersion() . "\n\n";
+        if (is_countable($changes['removed']) ? count($changes['removed']) : 0) {
+            $c_data .= "== Removed files ==\n";
+            foreach ($changes['removed'] as $k => $v) {
+                $c_data .= sprintf(" * %s\n", $k);
+            }
+            $c_data .= "\n";
+        }
+        if (file_exists($zip_file)) {
+            @unlink($zip_file);
+        }
+
+        $b_fp = @fopen($zip_file, 'wb');
+        if ($b_fp === false) {
+            return '';
+        }
+        $b_zip = new Zip($b_fp);
+
+        if (is_countable($changes['changed']) ? count($changes['changed']) : 0) {
+            $c_data .= "== Invalid checksum files ==\n";
+            foreach ($changes['changed'] as $k => $v) {
+                $name = substr($k, 2);
+                $c_data .= sprintf(" * %s [expected: %s ; current: %s]\n", $k, $v['old'], $v['new']);
+
+                try {
+                    $b_zip->addFile(App::config()->dotclearRoot() . '/' . $name, $name);
+                } catch (Exception $e) {
+                    $c_data .= $e->getMessage();
+                }
+            }
+        }
+        file_put_contents($checksum_file, $c_data);
+        $b_zip->addFile($checksum_file, basename($checksum_file));
+
+        $b_zip->write();
+        fclose($b_fp);
+        $b_zip->close();
+
+        @unlink($checksum_file);
+
+        return $zip_uri;
+    }
+}

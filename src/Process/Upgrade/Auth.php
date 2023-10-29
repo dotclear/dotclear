@@ -10,9 +10,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Upgrade;
 
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -50,12 +51,6 @@ class Auth extends Process
             L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
         }
 
-        self::$user_id  = null;
-        self::$user_pwd = null;
-        self::$user_key = null;
-        self::$err      = null;
-        self::$msg      = null;
-
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
             // If we have POST login informations, go throug auth process
 
@@ -74,6 +69,17 @@ class Auth extends Process
                 $user_id = null;
             }
             self::$user_id = $user_id;
+        }
+
+        // Auto upgrade
+        if ((count($_GET) == 1 && empty($_POST))) {
+            try {
+                if (($changes = Upgrade::dotclearUpgrade()) !== false) {
+                    self::$msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
+                }
+            } catch (Exception $e) {
+                self::$err = $e->getMessage();
+            }
         }
 
         // Enable REST service if disabled

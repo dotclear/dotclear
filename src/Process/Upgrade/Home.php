@@ -62,8 +62,7 @@ class Home extends Process
             )
         );
 
-        $updt = $infos = $helps = [];
-
+        // New version
         if (!empty(self::$new_ver)) {
             echo
             '<p class="static-msg dc-update updt-info">' .
@@ -86,10 +85,15 @@ class Home extends Process
                     '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release.') . '</p>';
                 }
                 echo
-                '<p>' . sprintf(__('After reading help bellow, you can perform update from sidebar menu item "%s".'), __('Update')) . '</p>';
+                '<p>' . sprintf(__('After reading help bellow, you can perform update from page "%s".'), '<a href="' . App::upgrade()->url()->get('upgrade.upgrade') . '">' . __('Update') . '</a>') . '</p>';
             }
         }
 
+        echo
+        '<div id="dashboard-main"><div id="dashboard-boxes"><div class="db-items" id="db-items">';
+
+        // System
+        $infos   = [];
         $infos[] = sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion());
         $infos[] = sprintf(__('Installed PHP version is %s, next Dotclear release required %s or earlier.'), phpversion(), App::config()->nextRequiredPhp());
 
@@ -121,29 +125,29 @@ class Home extends Process
             $infos[] = __('Official plugins repository could not be updated as there is no URL set in configuration.');
         }
 
-        $helps[] = __('Check your system support next relase requirements like PHP version.');
-        $helps[] = __('Check your plugins and themes are up to date.');
-        $helps[] = __('Note if some plugins crash your installation, go back here to disable or remove or update them.');
-
         echo
-        '<div id="dashboard-main"><div id="dashboard-boxes"><div class="db-contents" id="db-contents">';
-
-        // System
-        echo
-        '<div class="box large">' .
+        '<div class="box small">' .
         '<h3>' . __('System') . '</h3>' .
         '<ul><li>' . implode("</li>\n<li>", $infos) . '</li></ul>' .
         '</div>';
 
         // Help
+        $helps = [
+            __("Do you read the official post about this release on Dotclear's blog?"),
+            __('Does your system support next release requirements like PHP version?'),
+            __('Does your plugins and themes are up to date?'),
+            __('Note if some plugins crash your installation, go back here to disable or to remove or to update them.'),
+        ];
+
         echo
-        '<div class="box large">' .
+        '<div class="box medium">' .
         '<h3>' . __('Help') . '</h3>' .
         '<p>' . __('Before performing update you should take into account some inforamtions') . '</p>' .
             '<ul><li>' . implode("</li>\n<li>", $helps) . '</li></ul>' .
         '</div>';
 
-        echo '</div></div><div>';
+        echo
+        '</div></div><div>';
 
         Page::close();
     }

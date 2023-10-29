@@ -55,7 +55,8 @@ class Url extends BackendUrl
         $this->register('upgrade.backup', 'Backup');
         $this->register('upgrade.langs', 'Langs');
         $this->register('upgrade.plugins', 'Plugins');
-        $this->register('upgrade.tools', 'Tools');
+        $this->register('upgrade.cache', 'Cache');
+        $this->register('upgrade.files', 'Files');
         $this->register('upgrade.rest', 'Rest');
 
         // we don't care of admin process for FileServer

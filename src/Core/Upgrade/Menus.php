@@ -127,13 +127,23 @@ class Menus extends ArrayObject
         );
         $this->addItem(
             self::MENU_SYSTEM,
-            __('Tools'),
-            'upgrade.tools',
+            __('Cache'),
+            'upgrade.cache',
             ['images/menu/tools.svg', 'images/menu/tools-dark.svg'],
             App::auth()->isSuperAdmin(),
             false,
             false,
-            'Plugins'
+            'Cache'
+        );
+        $this->addItem(
+            self::MENU_SYSTEM,
+            __('Files'),
+            'upgrade.files',
+            ['images/menu/tools.svg', 'images/menu/tools-dark.svg'],
+            App::auth()->isSuperAdmin(),
+            false,
+            false,
+            'Files'
         );
     }
 }
