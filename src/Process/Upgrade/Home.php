@@ -72,7 +72,7 @@ class Home extends Process
             if (self::$updater->getWarning()) {
                 $updt[] = __('This update may potentially require some precautions, you should carefully read the information post associated with this release.');
             }
-            $updt[] = sprintf(__('After reading help bellow, you can perform update from sidebar menu "%s".'), __('Update'));
+            $updt[] = sprintf(__('After reading help bellow, you can perform update from sidebar menu item "%s".'), __('Update'));
         }
 
         $infos[] = sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion());

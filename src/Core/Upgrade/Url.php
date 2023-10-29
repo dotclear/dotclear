@@ -27,9 +27,14 @@ class Url
     private ArrayObject $urls;
 
     /**
-     * @var    string  Default index page
+     * @var    string  Default upgrade index page
      */
     public const INDEX = 'upgrade.php';
+
+    /**
+     * @var    string  Default backend index page
+     */
+    public const BACKEND = 'index.php';
 
     /**
      * Constructs a new instance.
@@ -47,6 +52,7 @@ class Url
         // set required URLs
         $this->register('upgrade.auth', 'Auth');
         $this->register('upgrade.logout', 'Logout');
+        $this->register('admin.home', self::BACKEND);
     }
 
     /**

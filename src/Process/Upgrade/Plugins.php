@@ -301,7 +301,7 @@ class Plugins extends Process
         App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
-        '<p class="more-info">' . sprintf(__('You can check repositories for modules written for Dotclear release greater than %s.'), App::config()->dotclearVersion()) . '</p>';
+        '<p class="more-info">' . sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion()) . '</p>';
 
         $list = [];
         foreach ($modules->getModules() as $id => $module) {

@@ -153,6 +153,7 @@ class Page
         '<form action="' . App::upgrade()->url()->get('upgrade.home') . '" method="post" id="top-info-blog">' .
         '</form>' .
         '<ul id="top-info-user">' .
+        '<li><a class="smallscreen" href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Back to normal dashboard') . '</a></li>' .
         '<li><a href="' . App::upgrade()->url()->get('upgrade.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
