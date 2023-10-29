@@ -1,6 +1,7 @@
 <?php
 /**
  * @package     Dotclear
+ * @subpackage  Upgrade
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
@@ -30,7 +31,7 @@ use Throwable;
  * All upgrade process MUST be executed with safe mode.
  * Behaviors are prohibited.
  *
- * @since   2.27
+ * @since   2.29
  */
 class Utility extends Process
 {

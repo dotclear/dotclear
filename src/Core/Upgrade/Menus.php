@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,9 +15,11 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Menu;
 
 /**
- * Utility class for Upgrade menu stack.
+ * @brief   Utility class for Upgrade menu stack.
  *
  * @extends ArrayObject<string, Menu>
+ *
+ * @sicne 2.29
  */
 class Menus extends ArrayObject
 {

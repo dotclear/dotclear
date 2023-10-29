@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -13,9 +13,16 @@ namespace Dotclear\Core\Upgrade;
 use Dotclear\Module\StoreReader;
 use Dotclear\Module\StoreParser;
 
+/**
+ * @brief   Unversionned Store reader.
+ *
+ * @since   2.29
+ */
 class NextStoreReader extends StoreReader
 {
-    # overwrite StoreReader to remove cache and use NextStoreParser
+    /**
+     * Overwrite StoreReader to remove cache and use NextStoreParser.
+     */
     public function parse(string $url): bool|StoreParser
     {
         $this->validators = [];
@@ -27,7 +34,9 @@ class NextStoreReader extends StoreReader
         return new NextStoreParser($this->getContent());
     }
 
-    # overwrite StoreReader to remove cache and use NextStoreParser
+    /**
+     * Overwrite StoreReader to remove cache and use NextStoreParser.
+     */
     public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|StoreParser
     {
         $parser = new self();

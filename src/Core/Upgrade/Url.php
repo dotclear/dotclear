@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,7 +16,9 @@ use Dotclear\Core\Backend\Url as BackendUrl;
 use Exception;
 
 /**
- * URL Handler for upgrade urls
+ * @brief   URL Handler for upgrade urls.
+ *
+ * @since   2.29
  */
 class Url extends BackendUrl
 {

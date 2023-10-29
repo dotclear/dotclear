@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -15,9 +15,16 @@ use Dotclear\Module\Store;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
+/**
+ * @brief   Unversionned Store manager.
+ *
+ * @since   2.29
+ */
 class NextStore extends Store
 {
-    # overwrite Store::check to remove cache and use NextStoreReader and check disabled modules
+    /**
+     * Overwrite Store::check to remove cache and use NextStoreReader and check disabled modules.
+     */
     public function check(?bool $force = true): bool
     {
         if (!$this->xml_url) {
@@ -38,11 +45,11 @@ class NextStore extends Store
         $current = array_merge($this->modules->getModules(), $this->modules->getDisabledModules());
         foreach ($current as $p_id => $p_infos) {
             $p_id = (string) $p_id;
-            # non privileged user has no info
+            // Non privileged user has no info
             if (!is_array($p_infos)) {
                 continue;
             }
-            # main repository
+            // Main repository
             if (isset($raw_datas[$p_id])) {
                 if (App::plugins()->versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>=')) {
                     $updates[$p_id]                    = $raw_datas[$p_id];
@@ -52,7 +59,7 @@ class NextStore extends Store
                 }
                 unset($raw_datas[$p_id]);
             }
-            # per module third-party repository
+            // Per module third-party repository
             if (!empty($p_infos['repository']) && App::config()->allowRepositories()) {
                 try {
                     $dcs_url    = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : Http::concatURL($p_infos['repository'], 'dcstore.xml');

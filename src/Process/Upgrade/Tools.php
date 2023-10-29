@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +16,11 @@ use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Exception;
 
+/**
+ * @brief   Upgrade process various tools.
+ *
+ * @since 2.29
+ */
 class Tools extends Process
 {
     public static function init(): bool

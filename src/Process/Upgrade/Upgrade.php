@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -16,6 +16,11 @@ use Dotclear\Core\Upgrade\Update;
 use Dotclear\Core\Process;
 use Exception;
 
+/**
+ * @brief   Core upgrade process page.
+ *
+ * @since   2.29
+ */
 class Upgrade extends Process
 {
     private static Update $updater;

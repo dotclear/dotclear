@@ -17,7 +17,9 @@ use Dotclear\Core\Process;
 use Exception;
 
 /**
- * @since 2.27 Before as admin/index.php
+ * @brief   Upgrade process home page.
+ *
+ * @since   2.29
  */
 class Home extends Process
 {
@@ -63,16 +65,29 @@ class Home extends Process
         $updt = $infos = $helps = [];
 
         if (!empty(self::$new_ver)) {
+            echo
+            '<p class="static-msg dc-update updt-info">' .
+            sprintf(__('Dotclear %s is available.'), self::$new_ver);
+
             if (self::$updater->getInfoURL()) {
-                $updt[] = '<a href="' . self::$updater->getInfoURL() . '" title="' . __('Information about this version') . '">' . __('Information about this version') . '</a>';
+                echo
+                ' <a href="' . self::$updater->getInfoURL() . '" title="' . __('Information about this version') . '">' . __('Information about this version') . '</a>';
             }
+
+            echo
+            '</p>';
+
             if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
-                $updt[] = sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion());
+                echo
+                '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion()) . '</p>';
+            } else {
+                if (self::$updater->getWarning()) {
+                    echo
+                    '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release.') . '</p>';
+                }
+                echo
+                '<p>' . sprintf(__('After reading help bellow, you can perform update from sidebar menu item "%s".'), __('Update')) . '</p>';
             }
-            if (self::$updater->getWarning()) {
-                $updt[] = __('This update may potentially require some precautions, you should carefully read the information post associated with this release.');
-            }
-            $updt[] = sprintf(__('After reading help bellow, you can perform update from sidebar menu item "%s".'), __('Update'));
         }
 
         $infos[] = sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion());
@@ -96,7 +111,7 @@ class Home extends Process
             $infos[] = sprintf(__('Backup directory "%s" does not exist or is not writable.'), App::config()->backupRoot());
         }
 
-        if (str_contains(App::config()->dotclearversion(), '-dev')) {
+        if (is_dir(App::config()->dotclearRoot() . DIRECTORY_SEPARATOR . '.git')) {
             $infos[] = __('Your are using developement release, some features are not available.');
         } elseif (!is_readable(App::config()->digestsRoot())) {
             $infos[] = sprintf(__('Dotclear digests file "%s" is not readable.'), App::config()->digestsRoot());
@@ -112,15 +127,6 @@ class Home extends Process
 
         echo
         '<div id="dashboard-main"><div id="dashboard-boxes"><div class="db-contents" id="db-contents">';
-
-        // Update
-        if (count($updt)) {
-            echo
-            '<div class="box large">' .
-            '<h3>' . sprintf(__('Dotclear %s is available.'), self::$new_ver) . '</h3>' .
-            '<ul><li>' . implode("</li>\n<li>", $updt) . '</li></ul>' .
-            '</div>';
-        }
 
         // System
         echo

@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -25,7 +25,9 @@ use Exception;
 use form;
 
 /**
- * @since 2.27 Before as admin/langs.php
+ * @brief   Langs management page.
+ *
+ * @since   2.29
  */
 class Langs extends Process
 {

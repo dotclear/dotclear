@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -12,9 +12,16 @@ namespace Dotclear\Core\Upgrade;
 
 use Dotclear\Module\StoreParser;
 
+/**
+ * @brief   Unversionned Store parser.
+ *
+ * @since   2.29
+ */
 class NextStoreParser extends StoreParser
 {
-    # overwrite dcStoreParser to bypasse current dotclear version
+    /**
+     * Overwrite StoreParser to bypasse current dotclear version.
+     */
     protected function _parse(): void
     {
         if (empty($this->xml->module)) {
@@ -29,7 +36,7 @@ class NextStoreParser extends StoreParser
 
             $item = [];
 
-            # DC/DA shared markers
+            // DC/DA shared markers
             $item['id']      = (string) $attrs['id'];
             $item['file']    = (string) $i->file;
             $item['label']   = (string) $i->name; // deprecated
@@ -38,7 +45,7 @@ class NextStoreParser extends StoreParser
             $item['author']  = (string) $i->author;
             $item['desc']    = (string) $i->desc;
 
-            # DA specific markers
+            // DA specific markers
             $item['dc_min']  = (string) $i->children(self::$bloc)->dcmin;
             $item['details'] = (string) $i->children(self::$bloc)->details;
             $item['section'] = (string) $i->children(self::$bloc)->section;
@@ -51,7 +58,7 @@ class NextStoreParser extends StoreParser
             }
             $item['tags'] = implode(', ', $tags);
 
-            # No more filters here, return all modules
+            // No more filters here, return all modules
             $this->items[$item['id']] = $item;
         }
     }

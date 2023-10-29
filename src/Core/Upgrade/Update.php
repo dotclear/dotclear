@@ -1,9 +1,10 @@
 <?php
 /**
- * @package Dotclear
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -19,7 +20,7 @@ use Exception;
 use SimpleXMLElement;
 
 /**
- * Core update helper.
+ * @brief   Core update helper.
  */
 class Update
 {

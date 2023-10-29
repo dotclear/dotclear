@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -22,11 +22,11 @@ use Dotclear\Module\Store;
 use Exception;
 
 /**
- * Helper for admin list of plugins.
+ * @breif   Helper for upgrade list of plugins.
  *
  * Provides an object to parse XML feed of modules from a repository.
  *
- * @since 2.6
+ * @since   2.29
  */
 class PluginsList extends ModulesList
 {

@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -14,7 +14,9 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Notices as BackendNotices;
 
 /**
- * Upgrade notices handling facilities
+ * @brief   Upgrade notices handling facilities.
+ *
+ * @since   2.29
  */
 class Notices extends BackendNotices
 {

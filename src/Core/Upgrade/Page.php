@@ -16,6 +16,11 @@ use Dotclear\Core\Backend\Page as BackendPage;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
+/**
+ * @brief   Upgrade page helper.
+ *
+ * @since   2.29
+ */
 class Page extends BackendPage
 {
     /**
