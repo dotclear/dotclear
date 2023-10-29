@@ -24,7 +24,7 @@ class Url
     /**
      * @var    ArrayObject<string, array<string, mixed>>     List of registered admin URLs
      */
-    private ArrayObject $urls;
+    protected ArrayObject $urls;
 
     /**
      * @var    string  Default backend index page
@@ -52,7 +52,7 @@ class Url
         // set required URLs
         $this->register('admin.auth', 'Auth');
         $this->register('admin.logout', 'Logout');
-        $this->register('upgrade.home', self::UPGRADE);
+        $this->register('upgrade.home', static::UPGRADE);
     }
 
     /**
@@ -69,7 +69,7 @@ class Url
         // by class name
         if (!str_contains($class, '.php')) {
             $params = ['process' => $class, ...$params];
-            $class  = self::INDEX;
+            $class  = static::INDEX;
         }
         $this->urls[$name] = [
             'url' => $class,
@@ -316,7 +316,7 @@ class Url
         $this->register('admin.rest', 'Rest');
 
         // we don't care of admin process for FileServer
-        $this->register('load.plugin.file', self::INDEX, ['pf' => 'dummy.css']);
-        $this->register('load.var.file', self::INDEX, ['vf' => 'dummy.json']);
+        $this->register('load.plugin.file', static::INDEX, ['pf' => 'dummy.css']);
+        $this->register('load.var.file', static::INDEX, ['vf' => 'dummy.json']);
     }
 }

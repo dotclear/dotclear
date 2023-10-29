@@ -759,7 +759,7 @@ class Page
      *
      * @return     string
      */
-    private static function debugInfo(): string
+    protected static function debugInfo(): string
     {
         $global_vars = implode(', ', array_keys($GLOBALS));
 

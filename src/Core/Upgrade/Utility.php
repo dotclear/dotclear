@@ -140,9 +140,6 @@ class Utility extends Process
             }
         }
 
-        // Set default backend URLs
-        App::upgrade()->url()->setDefaultURLs();
-
         // Set default menu
         App::upgrade()->menus()->setDefaultItems();
 

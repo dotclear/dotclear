@@ -43,7 +43,7 @@ class Notices
     /**
      * Error has been displayed?
      */
-    private static bool $error_displayed = false;
+    protected static bool $error_displayed = false;
 
     /**
      * Gets the HTML code of notices.
@@ -209,7 +209,7 @@ class Notices
      *
      * @return     string  The notification.
      */
-    private static function getNotification(array $notice): string
+    protected static function getNotification(array $notice): string
     {
         $container = (isset($notice['format']) && $notice['format'] === 'html') ? 'div' : 'p';
         $timestamp = '';
