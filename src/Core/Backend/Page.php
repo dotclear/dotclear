@@ -151,9 +151,9 @@ class Page
 
         # Prevents Clickjacking as far as possible
         if (isset($options['x-frame-allow'])) {
-            self::setXFrameOptions($headers, $options['x-frame-allow']);
+            static::setXFrameOptions($headers, $options['x-frame-allow']);
         } else {
-            self::setXFrameOptions($headers);
+            static::setXFrameOptions($headers);
         }
 
         # Content-Security-Policy (only if safe mode if not active, it may help)
@@ -230,10 +230,10 @@ class Page
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
 
-        echo self::cssLoad('style/default.css');
+        echo static::cssLoad('style/default.css');
 
         if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
-            echo self::cssLoad('style/default-rtl.css');
+            echo static::cssLoad('style/default-rtl.css');
         }
 
         if (!App::auth()->prefs()->interface->hide_std_favicon) {
@@ -264,8 +264,8 @@ class Page
         echo Html::jsJson('dotclear_init', $js);
 
         echo
-            self::jsCommon() .
-            self::jsToggles() .
+            static::jsCommon() .
+            static::jsToggles() .
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead
@@ -386,7 +386,7 @@ class Page
             ' -->' . "\n";
 
         if (App::config()->devMode() === true) {
-            echo self::debugInfo();
+            echo static::debugInfo();
         }
 
         echo
@@ -427,10 +427,10 @@ class Page
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
-        echo self::cssLoad('style/default.css');
+        echo static::cssLoad('style/default.css');
 
         if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
-            echo self::cssLoad('style/default-rtl.css');
+            echo static::cssLoad('style/default-rtl.css');
         }
 
         if (App::auth()->prefs()->interface->htmlfontsize) {
@@ -452,8 +452,8 @@ class Page
         echo Html::jsJson('dotclear_init', $js);
 
         echo
-        self::jsCommon() .
-        self::jsToggles() .
+        static::jsCommon() .
+        static::jsToggles() .
             $head;
 
         # --BEHAVIOR-- adminPageHTMLHead --
@@ -871,7 +871,7 @@ class Page
         if (!isset(self::$preloaded[$escaped_src])) {
             self::$preloaded[$escaped_src] = true;
 
-            return '<link rel="preload" href="' . self::appendVersion($escaped_src, $version) . '" as="' . $type . '" />' . "\n";
+            return '<link rel="preload" href="' . static::appendVersion($escaped_src, $version) . '" as="' . $type . '" />' . "\n";
         }
 
         return '';
@@ -892,7 +892,7 @@ class Page
         if (!isset(self::$loaded_css[$escaped_src])) {
             self::$loaded_css[$escaped_src] = true;
 
-            return '<link rel="stylesheet" href="' . self::appendVersion($escaped_src, $version) . '" type="text/css" media="' . $media . '" />' . "\n";
+            return '<link rel="stylesheet" href="' . static::appendVersion($escaped_src, $version) . '" type="text/css" media="' . $media . '" />' . "\n";
         }
 
         return '';
@@ -913,7 +913,7 @@ class Page
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
 
-            return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . self::appendVersion($escaped_src, $version) . '"></script>' . "\n";
+            return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . static::appendVersion($escaped_src, $version) . '"></script>' . "\n";
         }
 
         return '';
@@ -927,7 +927,7 @@ class Page
      *
      * @return     string
      */
-    private static function appendVersion(string $src, ?string $version = ''): string
+    protected static function appendVersion(string $src, ?string $version = ''): string
     {
         if (App::config()->debugMode()) {
             return $src;
@@ -969,8 +969,8 @@ class Page
         }
 
         return
-        self::jsJson('dotclear_toggles', $js) .
-        self::jsLoad('js/toggles.js');
+        static::jsJson('dotclear_toggles', $js) .
+        static::jsLoad('js/toggles.js');
     }
 
     /**
@@ -1039,7 +1039,7 @@ class Page
             'xhtml_not_valid'                      => __('There are HTML markup errors.'),
             'warning_validate_no_save_content'     => __('Attention: an audit of a content not yet registered.'),
             'confirm_change_post_format'           => __('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?'),
-            'confirm_change_post_format_noconvert' => __('Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?'),
+            'confirm_change_post_format_noconvert' => __('Warning: post format change will not convert existing content. You will need to apply new format by yourstatic. Proceed anyway?'),
             'load_enhanced_uploader'               => __('Loading enhanced uploader, please wait.'),
 
             'module_author'  => __('Author:'),
@@ -1060,25 +1060,25 @@ class Page
         ];
 
         return
-        self::jsLoad('js/prepend.js') .
-        self::jsLoad('js/jquery/jquery.js') .
+        static::jsLoad('js/prepend.js') .
+        static::jsLoad('js/jquery/jquery.js') .
         (
             App::config()->debugMode() ?
-            self::jsJson('dotclear_jquery', [
+            static::jsJson('dotclear_jquery', [
                 'mute' => (!App::blog()->isDefined() || App::blog()->settings()->system->jquery_migrate_mute),
             ]) .
-            self::jsLoad('js/jquery-mute.js') .
-            self::jsLoad('js/jquery/jquery-migrate.js') :
+            static::jsLoad('js/jquery-mute.js') .
+            static::jsLoad('js/jquery/jquery-migrate.js') :
             ''
         ) .
 
-        self::jsJson('dotclear', $js) .
-        self::jsJson('dotclear_msg', $js_msg) .
+        static::jsJson('dotclear', $js) .
+        static::jsJson('dotclear_msg', $js_msg) .
 
-        self::jsLoad('js/common.js') .
-        self::jsLoad('js/easter.js') .
-        self::jsLoad('js/services.js') .
-        self::jsLoad('js/prelude.js');
+        static::jsLoad('js/common.js') .
+        static::jsLoad('js/easter.js') .
+        static::jsLoad('js/services.js') .
+        static::jsLoad('js/prelude.js');
     }
 
     /**
@@ -1098,7 +1098,7 @@ class Page
             }
         }
 
-        return $adblockcheck ? self::jsLoad('js/ads.js') : '';
+        return $adblockcheck ? static::jsLoad('js/ads.js') : '';
     }
 
     /**
@@ -1117,8 +1117,8 @@ class Page
         ];
 
         return
-        self::jsJson('confirm_close', $js) .
-        self::jsLoad('js/confirm-close.js');
+        static::jsJson('confirm_close', $js) .
+        static::jsLoad('js/confirm-close.js');
     }
 
     /**
@@ -1135,9 +1135,9 @@ class Page
         ];
 
         return
-        self::jsJson('page_tabs', $js) .
-        self::jsLoad('js/jquery/jquery.pageTabs.js') .
-        self::jsLoad('js/page-tabs.js');
+        static::jsJson('page_tabs', $js) .
+        static::jsLoad('js/jquery/jquery.pageTabs.js') .
+        static::jsLoad('js/page-tabs.js');
     }
 
     /**
@@ -1148,7 +1148,7 @@ class Page
     public static function jsModal(): string
     {
         return
-        self::jsLoad('js/jquery/jquery.magnific-popup.js');
+        static::jsLoad('js/jquery/jquery.magnific-popup.js');
     }
 
     /**
@@ -1185,19 +1185,19 @@ class Page
         ];
 
         return
-        self::jsJson('file_upload', $js) .
-        self::jsJson('file_upload_msg', $js_msg) .
-        self::jsLoad('js/file-upload.js') .
-        self::jsLoad('js/jquery/jquery-ui.custom.js') .
-        self::jsLoad('js/jsUpload/tmpl.js') .
-        self::jsLoad('js/jsUpload/template-upload.js') .
-        self::jsLoad('js/jsUpload/template-download.js') .
-        self::jsLoad('js/jsUpload/load-image.js') .
-        self::jsLoad('js/jsUpload/jquery.iframe-transport.js') .
-        self::jsLoad('js/jsUpload/jquery.fileupload.js') .
-        self::jsLoad('js/jsUpload/jquery.fileupload-process.js') .
-        self::jsLoad('js/jsUpload/jquery.fileupload-resize.js') .
-        self::jsLoad('js/jsUpload/jquery.fileupload-ui.js');
+        static::jsJson('file_upload', $js) .
+        static::jsJson('file_upload_msg', $js_msg) .
+        static::jsLoad('js/file-upload.js') .
+        static::jsLoad('js/jquery/jquery-ui.custom.js') .
+        static::jsLoad('js/jsUpload/tmpl.js') .
+        static::jsLoad('js/jsUpload/template-upload.js') .
+        static::jsLoad('js/jsUpload/template-download.js') .
+        static::jsLoad('js/jsUpload/load-image.js') .
+        static::jsLoad('js/jsUpload/jquery.iframe-transport.js') .
+        static::jsLoad('js/jsUpload/jquery.fileupload.js') .
+        static::jsLoad('js/jsUpload/jquery.fileupload-process.js') .
+        static::jsLoad('js/jsUpload/jquery.fileupload-resize.js') .
+        static::jsLoad('js/jsUpload/jquery.fileupload-ui.js');
     }
 
     /**
@@ -1207,7 +1207,7 @@ class Page
      */
     public static function jsMetaEditor(): string
     {
-        return self::jsLoad('js/meta-editor.js');
+        return static::jsLoad('js/meta-editor.js');
     }
 
     /**
@@ -1226,9 +1226,9 @@ class Page
         ];
 
         return
-        self::jsJson('filter_controls', $js) .
-        self::jsJson('filter_options', ['auto_filter' => App::auth()->prefs()->interface->auto_filter]) .
-        self::jsLoad('js/filter-controls.js');
+        static::jsJson('filter_controls', $js) .
+        static::jsJson('filter_options', ['auto_filter' => App::auth()->prefs()->interface->auto_filter]) .
+        static::jsLoad('js/filter-controls.js');
     }
 
     /**
@@ -1242,8 +1242,8 @@ class Page
      */
     public static function jsLoadCodeMirror(string $theme = '', bool $multi = true, array $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike']): string
     {
-        $ret = self::cssLoad('js/codemirror/lib/codemirror.css') .
-        self::jsLoad('js/codemirror/lib/codemirror.js');
+        $ret = static::cssLoad('js/codemirror/lib/codemirror.css') .
+        static::jsLoad('js/codemirror/lib/codemirror.js');
 
         /**
          * Allow 3rd party plugin to add their own textarea, the given ArrayObject should be completed with the
@@ -1263,18 +1263,18 @@ class Page
         }
 
         if ($multi) {
-            $ret .= self::jsLoad('js/codemirror/addon/mode/multiplex.js');
+            $ret .= static::jsLoad('js/codemirror/addon/mode/multiplex.js');
         }
         foreach ($modes as $mode) {
-            $ret .= self::jsLoad('js/codemirror/mode/' . $mode . '/' . $mode . '.js');
+            $ret .= static::jsLoad('js/codemirror/mode/' . $mode . '/' . $mode . '.js');
         }
 
-        $ret .= self::jsLoad('js/codemirror/addon/edit/closebrackets.js') .
-        self::jsLoad('js/codemirror/addon/edit/matchbrackets.js') .
-        self::cssLoad('js/codemirror/addon/display/fullscreen.css') .
-        self::jsLoad('js/codemirror/addon/display/fullscreen.js');
+        $ret .= static::jsLoad('js/codemirror/addon/edit/closebrackets.js') .
+        static::jsLoad('js/codemirror/addon/edit/matchbrackets.js') .
+        static::cssLoad('js/codemirror/addon/display/fullscreen.css') .
+        static::jsLoad('js/codemirror/addon/display/fullscreen.js');
         if ($theme != '' && $theme !== 'default') {
-            $ret .= self::cssLoad('js/codemirror/theme/' . $theme . '.css');
+            $ret .= static::cssLoad('js/codemirror/theme/' . $theme . '.css');
         }
 
         return $ret;
@@ -1329,8 +1329,8 @@ class Page
         }
 
         return
-        self::jsJson('codemirror', $js) .
-        self::jsLoad('js/codemirror.js');
+        static::jsJson('codemirror', $js) .
+        static::jsLoad('js/codemirror.js');
     }
 
     /**
@@ -1522,7 +1522,7 @@ class Page
     {
         App::deprecated()->set('My::cssLoad()', '2.27');
 
-        return self::cssLoad(urldecode(self::getPF($src)), $media, $version);
+        return static::cssLoad(urldecode(static::getPF($src)), $media, $version);
     }
 
     /**
@@ -1538,6 +1538,6 @@ class Page
     {
         App::deprecated()->set('My::jsLoad()', '2.27');
 
-        return self::jsLoad(urldecode(self::getPF($src)), $version, $module);
+        return static::jsLoad(urldecode(static::getPF($src)), $version, $module);
     }
 }

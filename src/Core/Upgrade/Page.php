@@ -256,7 +256,7 @@ class Page extends BackendPage
      *
      * @return     string
      */
-    private static function appendVersion(string $src, ?string $version = ''): string
+    protected static function appendVersion(string $src, ?string $version = ''): string
     {
         return $src .
             (str_contains($src, '?') ? '&amp;' : '?') .

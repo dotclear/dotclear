@@ -13,8 +13,6 @@ namespace Dotclear\Core\Upgrade;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Url as BackendUrl;
-use Dotclear\Helper\Html\Form\Hidden;
-use Dotclear\Helper\Network\Http;
 use Exception;
 
 /**

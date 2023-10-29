@@ -31,7 +31,7 @@ class Notices
      *
      * @var array<string, string>
      */
-    private static array $notice_types = [
+    protected static array $notice_types = [
         // id → CSS class
         self::NOTICE_SUCCESS => 'success',
         self::NOTICE_WARNING => 'warning-msg',
