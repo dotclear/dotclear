@@ -82,6 +82,41 @@ class Update extends Process
 
     public static function render(): void
     {
+        // Keep for < 2.29 process vs new code
+        if (($_GET['step'] ?? '') == 'unzip' && !App::error()->flag()) {
+            // Check if safe_mode is ON, will be use below
+            $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
+
+            // Update done, need to go back to authentication (see below), but we need
+            // to kill the admin session before sending any header
+            App::backend()->killAdminSession();
+
+            Page::open(
+                __('Dotclear update'),
+                '',
+                Page::breadcrumb(
+                    [
+                        __('System')          => '',
+                        __('Dotclear update') => '',
+                    ]
+                )
+            );
+
+            // Keep safe-mode for next authentication
+            $params = $safe_mode ? ['safe_mode' => 1] : []; // @phpstan-ignore-line
+
+            echo
+            '<p class="message">' .
+            __("Congratulations, you're one click away from the end of the update.") .
+            ' <strong><a href="' . App::backend()->url()->get('admin.auth', $params) . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
+            '</p>';
+
+            Page::helpBlock('core_update');
+            Page::close();
+
+            return;
+        }
+
         Page::open(
             __('Dotclear update'),
             '',
