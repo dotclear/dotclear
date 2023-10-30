@@ -35,12 +35,6 @@ class Home extends Process
 
     public static function process(): bool
     {
-        try {
-            self::$updater = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
-            self::$new_ver = self::$updater->check(App::config()->dotclearVersion(), false);
-        } catch(Exception) {
-        }
-
         return self::status();
     }
 
@@ -61,33 +55,6 @@ class Home extends Process
                 ['home_link' => false]
             )
         );
-
-        // New version
-        if (!empty(self::$new_ver)) {
-            echo
-            '<p class="static-msg dc-update updt-info">' .
-            sprintf(__('Dotclear %s is available.'), self::$new_ver);
-
-            if (self::$updater->getInfoURL()) {
-                echo
-                ' <a href="' . self::$updater->getInfoURL() . '" title="' . __('Information about this version') . '">' . __('Information about this version') . '</a>';
-            }
-
-            echo
-            '</p>';
-
-            if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
-                echo
-                '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion()) . '</p>';
-            } else {
-                if (self::$updater->getWarning()) {
-                    echo
-                    '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release.') . '</p>';
-                }
-                echo
-                '<p>' . sprintf(__('After reading help bellow, you can perform update from page "%s".'), '<a href="' . App::upgrade()->url()->get('upgrade.upgrade') . '">' . __('Update') . '</a>') . '</p>';
-            }
-        }
 
         echo
         '<div id="dashboard-main"><div id="dashboard-boxes"><div class="db-items" id="db-items">';

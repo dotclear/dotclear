@@ -52,7 +52,6 @@ class Url
         // set required URLs
         $this->register('admin.auth', 'Auth');
         $this->register('admin.logout', 'Logout');
-        $this->register('upgrade.home', static::UPGRADE);
     }
 
     /**
@@ -318,5 +317,9 @@ class Url
         // we don't care of admin process for FileServer
         $this->register('load.plugin.file', static::INDEX, ['pf' => 'dummy.css']);
         $this->register('load.var.file', static::INDEX, ['vf' => 'dummy.json']);
+
+        // from upgrade 
+        $this->register('upgrade.home', static::UPGRADE);
+        $this->register('upgrade.upgrade', static::UPGRADE, ['process' => 'Upgrade']);
     }
 }

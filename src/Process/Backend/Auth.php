@@ -64,7 +64,7 @@ class Auth extends Process
         App::backend()->err        = null;
         App::backend()->msg        = null;
 
-        // Auto upgrade
+        // Auto upgrade, keep it for backward compatibility. (now on Dotclear\Process\Upgrade\Auth)
         if ((count($_GET) == 1 && empty($_POST)) || App::backend()->safe_mode) {
             try {
                 if (($changes = Upgrade::dotclearUpgrade()) !== false) {

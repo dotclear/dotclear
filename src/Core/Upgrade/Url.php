@@ -48,7 +48,6 @@ class Url extends BackendUrl
         // set required URLs
         $this->register('upgrade.auth', 'Auth');
         $this->register('upgrade.logout', 'Logout');
-        $this->register('admin.home', self::BACKEND);
 
         $this->register('upgrade.home', 'Home');
         $this->register('upgrade.upgrade', 'Upgrade');
@@ -57,11 +56,14 @@ class Url extends BackendUrl
         $this->register('upgrade.plugins', 'Plugins');
         $this->register('upgrade.cache', 'Cache');
         $this->register('upgrade.files', 'Files');
-        $this->register('upgrade.rest', 'Rest');
 
         // we don't care of admin process for FileServer
         $this->register('load.plugin.file', self::INDEX, ['pf' => 'dummy.css']);
         $this->register('load.var.file', self::INDEX, ['vf' => 'dummy.json']);
+
+        // from backend
+        $this->register('admin.home', self::BACKEND);
+        $this->register('admin.rest', self::BACKEND, ['process' => 'Rest']);
     }
 
     /**

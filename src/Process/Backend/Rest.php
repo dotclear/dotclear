@@ -164,15 +164,15 @@ class Rest extends Process
 
         if (App::auth()->isSuperAdmin() && !App::config()->coreNotUpdate() && is_readable(App::config()->digestsRoot()) && !App::auth()->prefs()->dashboard->nodcupdate) {
             $updater      = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
-            $new_v        = $updater->check(App::config()->dotclearVersion());
+            $new_v        = $updater->check(App::config()->dotclearVersion(), false);
             $version_info = $new_v ? $updater->getInfoURL() : '';
 
             if ($updater->getNotify() && $new_v) {
                 // Check PHP version required
                 if (version_compare(phpversion(), (string) $updater->getPHPVersion()) >= 0) {
                     $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
-                    '<p><a class="button submit" href="' . App::backend()->url()->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . App::backend()->url()->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
+                    '<p><a class="button submit" href="' . App::backend()->url()->get('upgrade.upgrade') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
+                    '<a class="button" href="' . App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
                         ($updater->getWarning() ? '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>' : '') .

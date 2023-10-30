@@ -110,7 +110,7 @@ class Page extends BackendPage
         }
         $js['hideMoreInfo']   = (bool) App::auth()->prefs()->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (bool) App::auth()->prefs()->interface->showajaxloader;
-        $js['servicesUri']    = App::upgrade()->url()->get('upgrade.rest');
+        $js['servicesUri']    = App::upgrade()->url()->get('admin.rest');
         $js['servicesOff']    = !App::rest()->serveRestRequests();
         $js['noDragDrop']     = (bool) App::auth()->prefs()->accessibility->nodragdrop;
         $js['debug']          = false;
