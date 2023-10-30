@@ -90,7 +90,7 @@ class Menus extends ArrayObject
             __('Update'),
             'upgrade.upgrade',
             ['images/menu/update.svg', 'images/menu/update-dark.svg'],
-            App::auth()->isSuperAdmin(),// && is_readable(App::config()->digestsRoot()),
+            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,
             false,
             'Upgrade'
@@ -140,7 +140,7 @@ class Menus extends ArrayObject
             __('Files'),
             'upgrade.files',
             ['images/menu/tools.svg', 'images/menu/tools-dark.svg'],
-            App::auth()->isSuperAdmin(),
+            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,
             false,
             'Files'

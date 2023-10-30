@@ -31,7 +31,6 @@ use Exception;
 /**
  * @brief   Upgrade process corrupted files helper.
  *
- * @todo    Allow .zip in vf= of FileServer for the backup fiel download
  * @todo    Add resources. (waiting to manage resources on whole Upgrade Utility)
  *
  * @since 2.29
@@ -41,7 +40,7 @@ class Files extends Process
     private static string $path_backup;
     private static string $path_helpus;
     private static string $path_disclaimer;
-    private static string $uri = '';
+    private static string $zip_name = '';
 
     /**
      * List of changes.
@@ -87,7 +86,7 @@ class Files extends Process
                 }
                 rename(App::config()->digestsRoot(), self::$path_backup);
                 file_put_contents(App::config()->digestsRoot(), $digest);
-                self::$uri = self::backup(self::$changes);
+                self::$zip_name = self::backup(self::$changes);
             } elseif (isset($_POST['disclaimer_ok'])) {
                 self::$changes = self::check(App::config()->dotclearRoot(), App::config()->digestsRoot());
             }
@@ -100,6 +99,18 @@ class Files extends Process
 
     public static function render(): void
     {
+        if (!empty($_GET['download']) && preg_match('/^fmu_backup_[0-9]{14}.zip$/', $_GET['download'])) {
+            $f = App::config()->varRoot() . DIRECTORY_SEPARATOR . $_GET['download'];
+            if (is_file($f)) {
+                $c = (string) file_get_contents($f);
+                header('Content-Disposition: attachment;filename=' . $_GET['download']);
+                header('Content-Type: application/x-zip');
+                header('Content-Length: ' . strlen($c));
+                echo $c;
+                exit;
+            }
+        }
+
         Page::open(
             __('Files'),
             '',
@@ -125,12 +136,12 @@ class Files extends Process
             ->render();
 
         if (isset($_POST['override'])) {
-            if (!empty(self::$uri)) {
+            if (!empty(self::$zip_name)) {
                 $item = (new Text(
                     null,
                     is_file(self::$path_helpus) ?
-                    sprintf((string) file_get_contents(self::$path_helpus), self::$uri, 'fakemeup@dotclear.org') :
-                    '<a href="' . self::$uri . '">' . __('Download backup of digests file.') . '</a>'
+                    sprintf((string) file_get_contents(self::$path_helpus), self::$zip_name, 'fakemeup@dotclear.org') :
+                    '<a href="' . App::upgrade()->url()->get('upgrade.files', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
                 ));
             } else {
                 $item = (new Para())->items([
@@ -317,13 +328,12 @@ class Files extends Process
      *
      * @param   array<string, array<string, mixed>>     $changes    The changes
      *
-     * @return  string  False on error, zip URI on success
+     * @return  string  False on error, zip name on success
      */
     private static function backup(array $changes)
     {
         $zip_name      = sprintf('fmu_backup_%s.zip', date('YmdHis'));
         $zip_file      = sprintf('%s/%s', App::config()->varRoot(), $zip_name);
-        $zip_uri       = sprintf('%s?vf=%s', App::config()->adminUrl(), $zip_name);
         $checksum_file = sprintf('%s/fmu_checksum_%s.txt', App::config()->varRoot(), date('Ymd'));
 
         $c_data = 'Fake Me Up Checksum file - ' . date('d/m/Y H:i:s') . "\n\n" .
@@ -367,6 +377,6 @@ class Files extends Process
 
         @unlink($checksum_file);
 
-        return $zip_uri;
+        return $zip_name;
     }
 }
