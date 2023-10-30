@@ -356,6 +356,7 @@ class Langs extends Process
             '</form>';
         }
 
+        Page::helpBlock('core_langs');
         Page::close();
     }
 }

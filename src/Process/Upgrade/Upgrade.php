@@ -49,6 +49,8 @@ class Upgrade extends Process
             echo
             '<h3>' . __('Precheck update error') . '</h3>' .
             '<p>' . __('It seems that backup directory does not exist, upgrade can not be performed.') . '</p>';
+
+            Page::helpBlock('core_upgrade');
             Page::close();
             exit;
         }
@@ -67,6 +69,8 @@ class Upgrade extends Process
             echo
             '<h3>' . __('Precheck update error') . '</h3>' .
             '<p>' . __('It seems that there are no "digests" file on your system, upgrade can not be performed.') . '</p>';
+
+            Page::helpBlock('core_upgrade');
             Page::close();
             exit;
         }
@@ -247,6 +251,7 @@ class Upgrade extends Process
             '</p>';
         }
 
+        Page::helpBlock('core_upgrade');
         Page::close();
     }
 }

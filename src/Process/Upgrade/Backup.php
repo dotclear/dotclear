@@ -139,6 +139,7 @@ class Backup extends Process
             '</form>';
         }
 
+        Page::helpBlock('core_backup');
         Page::close();
     }
 }

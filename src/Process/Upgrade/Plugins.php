@@ -291,6 +291,7 @@ class Plugins extends Process
             '<p class="warning">' . __('Some functions are disabled, please give write access to your plugins directory to enable them.') . '</p>';
         }
 
+        Page::helpBlock('core_plugins');
         Page::close();
     }
 
