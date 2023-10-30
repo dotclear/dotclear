@@ -48,7 +48,7 @@ class Upgrade extends Process
             );
             echo
             '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('Backup directory does not exist') . '</p>';
+            '<p>' . __('It seems that backup directory does not exist, upgrade can not be performed.') . '</p>';
             Page::close();
             exit;
         }
@@ -66,7 +66,7 @@ class Upgrade extends Process
             );
             echo
             '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('Access denied') . '</p>';
+            '<p>' . __('It seems that there are no "digests" file on your system, upgrade can not be performed.') . '</p>';
             Page::close();
             exit;
         }
