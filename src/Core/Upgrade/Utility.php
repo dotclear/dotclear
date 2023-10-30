@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Resources;
 use Dotclear\Core\Process;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
@@ -52,16 +53,23 @@ class Utility extends Process
     private Url $url;
 
     /**
-     * Backend (admin) Menus handler instance.
+     * Upgrade Menus handler instance.
      *
      * @var     Menus   $menus
      */
     private Menus $menus;
 
     /**
+     * Upgrade help resources instance.
+     *
+     * @var     Resources   $resources
+     */
+    private Resources $resources;
+
+    /**
      * Constructs a new instance.
      *
-     * @throws     ContextException  (if not admin context)
+     * @throws     ContextException  (if not upgrade context)
      */
     public function __construct()
     {
@@ -163,6 +171,36 @@ class Utility extends Process
 
         // Set lexical lang
         App::lexical()->setLexicalLang('admin', App::lang()->getLang());
+
+        // Get en help resources
+        $helps = [];
+        if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'help']))) !== false) {
+            foreach ($hfiles as $hfile) {
+                if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
+                    $helps[$m[1]] = implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'help', $hfile]);
+                }
+            }
+        }
+        unset($hfiles);
+
+        // Get user lang help resources
+        if (App::lang()->getLang() !== 'en' && ($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
+            foreach ($hfiles as $hfile) {
+                if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
+                    $helps[$m[1]] = implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]);
+                }
+            }
+        }
+        unset($hfiles);
+
+        // Set help resources
+        foreach($helps as $key => $file) {
+            App::upgrade()->resources()->set('help', $key, $file);
+        }
+        unset($helps);
+
+        // Contextual help flag
+        App::upgrade()->resources()->context(false);
     }
 
     /**
@@ -191,6 +229,20 @@ class Utility extends Process
         }
 
         return $this->menus;
+    }
+
+    /**
+     * Get upgrade resources instance.
+     *
+     * @return  Resources   The menu
+     */
+    public function resources(): Resources
+    {
+        if (!isset($this->resources)) {
+            $this->resources = new Resources();
+        }
+
+        return $this->resources;
     }
 
     /**

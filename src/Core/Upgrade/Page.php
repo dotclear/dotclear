@@ -165,6 +165,14 @@ class Page extends BackendPage
      */
     public static function close(): void
     {
+        if (!App::upgrade()->resources()->context()) {
+            if (!App::auth()->prefs()->interface->hidehelpbutton) {
+                echo
+                '<p id="help-button"><a href="#" class="outgoing" title="' .
+                __('Global help') . '">' . __('Global help') . '</a></p>';
+            }
+        }
+
         echo
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
@@ -251,6 +259,65 @@ class Page extends BackendPage
         $res .= '</h2>';
 
         return $res;
+    }
+    /**
+     * Display Help block
+     *
+     * @param      mixed  ...$params  The parameters
+     */
+    public static function helpBlock(...$params): void
+    {
+        if (App::auth()->prefs()->interface->hidehelpbutton) {
+            return;
+        }
+
+        $args = new ArrayObject($params);
+
+        if (!count($args)) {
+            return;
+        }
+
+        if (empty(App::upgrade()->resources()->entries('help'))) {
+            return;
+        }
+
+        $content = '';
+        foreach ($args as $arg) {
+            if (is_object($arg) && isset($arg->content)) {
+                $content .= $arg->content;
+
+                continue;
+            }
+
+            $file = App::upgrade()->resources()->entry('help', $arg);
+            if (empty($file) || !file_exists($file) || !is_readable($file)) {
+                continue;
+            }
+
+            $file_content = (string) file_get_contents($file);
+            if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
+                $content .= $matches[1];
+            } else {
+                $content .= $file_content;
+            }
+        }
+
+        if (trim($content) == '') {
+            return;
+        }
+
+        // Set contextual help global flag
+        App::upgrade()->resources()->context(true);
+
+        echo
+        '<div id="help"><hr /><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .
+        $content .
+        '</div>' .
+        '<div id="helplink"><hr />' .
+        '<p>' .
+        sprintf(__('See also %s'), sprintf('<a href="#">%s</a>', __('the global help'))) .
+            '.</p>' .
+            '</div></div>';
     }
 
     /**
