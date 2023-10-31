@@ -63,8 +63,10 @@ class Files extends Process
     public static function process(): bool
     {
         self::$path_backup     = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'digests.bak']);
-        self::$path_helpus     = '';//L10n::getFilePath(App::config()->localesRoot(), 'helpus.html', App:lang()->getLang());
-        self::$path_disclaimer = '';//L10n::getFilePath(App::config()->localesRoot(), 'disclaimer.html', App:lang()->getLang());
+        self::$path_helpus     = L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', App::lang()->getLang()) ?:
+            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', 'en');
+        self::$path_disclaimer = L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', App::lang()->getLang()) ?:
+            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', 'en');
 
         if (isset($_POST['erase_backup']) && is_file(self::$path_backup)) {
             @unlink(self::$path_backup);
@@ -140,7 +142,7 @@ class Files extends Process
                 $item = (new Text(
                     null,
                     is_file(self::$path_helpus) ?
-                    sprintf((string) file_get_contents(self::$path_helpus), self::$zip_name, 'fakemeup@dotclear.org') :
+                    sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.files', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
                     '<a href="' . App::upgrade()->url()->get('upgrade.files', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
                 ));
             } else {
@@ -154,6 +156,7 @@ class Files extends Process
                     $item,
                     (new Para())->items([
                         (new Link())
+                            ->class('button submit')
                             ->href(App::upgrade()->url()->get('upgrade.upgrade'))
                             ->text(__('Update Dotclear')),
                     ]),
