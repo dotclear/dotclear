@@ -217,7 +217,7 @@ class Attic extends Process
             Page::breadcrumb(
                 [
                     __('Dotclear update') => '',
-                    __('Incremental')     => '',
+                    __('Attic')     => '',
                 ]
             )
         );
@@ -240,7 +240,7 @@ class Attic extends Process
                 echo
                 '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
                 '<h3>' . sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')) . '</h3>' .
-                '<p>' . __('Select intermediate version to update to:') . '</p>';
+                '<p>' . __('Select intermediate stable release to update to:') . '</p>';
 
                 foreach (self::$releases as $version => $release) {
                     echo

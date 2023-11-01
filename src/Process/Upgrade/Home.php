@@ -104,7 +104,7 @@ class Home extends Process
         echo
         '<div class="box medium">' .
         '<h3>' . __('Help') . '</h3>' .
-        '<p>' . __('Before performing update you should take into account some inforamtions') . '</p>' .
+        '<p>' . __('Before performing update you should take into account some informations listed bellow:') . '</p>' .
             '<ul><li>' . implode("</li>\n<li>", $helps) . '</li></ul>' .
         '</div>';
 
