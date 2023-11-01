@@ -194,8 +194,9 @@ class Incremental extends Process
         );
 
         if (empty(self::$step)) {
+            $releases = self::$updater->getReleases(App::config()->dotclearVersion());
             // No redirect avec each step as we need selected version in a POST form
-            if (empty(self::$updater->getReleases())) {
+            if (empty($releases)) {
                 echo
                 '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>';
 
@@ -214,11 +215,7 @@ class Incremental extends Process
                 '<p class="warning-msg">' . __('There are no additionnal informations about incremental release here, you should carefully read the information post associated with selected release on Dotclear\'s blog.') . '</p>' .
                 '<p>' . __('Select intermediate version to update to:') . '</p>';
 
-                foreach (self::$updater->getReleases() as $version => $release) {
-                    if (version_compare($version, App::config()->dotclearVersion(), '<=')) {
-                        continue;
-                    }
-
+                foreach ($releases as $version => $release) {
                     echo
                     '<p><label class="classic">' . form::radio(['version'], Html::escapeHTML($version)) . ' ' .
                     Html::escapeHTML($version) . '</label></p>';

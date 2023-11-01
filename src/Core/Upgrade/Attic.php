@@ -164,10 +164,25 @@ class Attic extends Update
     }
 
     /**
+     * Get available releases.
+     *
+     * @param   string  $version    The minimum version
+     *
      * @return  array<string, array<string, string>>
      */
-    public function getReleases(): array
+    public function getReleases(string $version = ''): array
     {
-        return $this->releases;
+        if (!$version) {
+            return $this->releases;
+        }
+
+        $releases = [];
+        foreach ($this->releases as $v => $release) {
+            if (version_compare($v, $version, '>')) {
+                $releases[$v] = $release;
+            }
+        }
+
+        return $releases;
     }
 }
