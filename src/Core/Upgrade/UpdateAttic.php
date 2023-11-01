@@ -15,7 +15,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
-class Attic extends Update
+class UpdateAttic extends Update
 {
     /**
      * Releases cache filename.

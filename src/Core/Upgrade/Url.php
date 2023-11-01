@@ -51,7 +51,7 @@ class Url extends BackendUrl
 
         $this->register('upgrade.home', 'Home');
         $this->register('upgrade.upgrade', 'Upgrade');
-        $this->register('upgrade.incremental', 'Incremental');
+        $this->register('upgrade.attic', 'Attic');
         $this->register('upgrade.backup', 'Backup');
         $this->register('upgrade.langs', 'Langs');
         $this->register('upgrade.plugins', 'Plugins');

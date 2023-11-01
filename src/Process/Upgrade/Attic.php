@@ -13,7 +13,7 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\Attic;
+use Dotclear\Core\Upgrade\UpdateAttic;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -24,11 +24,11 @@ use form;
  *
  * @since   2.29
  */
-class Incremental extends Process
+class Attic extends Process
 {
     private static string $step     = '';
     private static string $zip_file = '';
-    private static Attic $updater;
+    private static UpdateAttic $updater;
 
     public static function init(): bool
     {
@@ -81,7 +81,7 @@ class Incremental extends Process
     public static function process(): bool
     {
         self::$step    = !empty($_REQUEST['step']) && in_array($_REQUEST['step'], ['confirm', 'check', 'download', 'backup', 'unzip']) ? $_REQUEST['step'] : '';
-        self::$updater = new Attic(App::config()->coreAtticUrl(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . 'versions');
+        self::$updater = new UpdateAttic(App::config()->coreAtticUrl(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . 'versions');
         self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
         if (!empty($_POST['version'])) {
             self::$zip_file = self::$updater->selectVersion($_POST['version']);
@@ -110,7 +110,7 @@ class Incremental extends Process
                         throw new Exception(
                             sprintf(
                                 __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
-                                'href="' . App::upgrade()->url()->get('upgrade.incremental', ['step' => 'download']) . '"'
+                                'href="' . App::upgrade()->url()->get('upgrade.attic', ['step' => 'download']) . '"'
                             ) .
                             ' ' .
                             __('If this problem persists try to ' .
@@ -202,7 +202,7 @@ class Incremental extends Process
 
                 if (App::error()->flag() || empty($_GET['nocache'])) {
                     echo
-                    '<form action="' . App::upgrade()->url()->get('upgrade.incremental') . '" method="get">' .
+                    '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="get">' .
                     '<p><input type="hidden" name="process" value="Upgrade" />' .
                     '<p><input type="hidden" name="nocache" value="1" />' .
                     '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
@@ -210,7 +210,7 @@ class Incremental extends Process
                 }
             } else {
                 echo
-                '<form action="' . App::upgrade()->url()->get('upgrade.incremental') . '" method="post">' .
+                '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
                 '<h3>' . sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')) . '</h3>' .
                 '<p class="warning-msg">' . __('There are no additionnal informations about incremental release here, you should carefully read the information post associated with selected release on Dotclear\'s blog.') . '</p>' .
                 '<p>' . __('Select intermediate version to update to:') . '</p>';
@@ -229,7 +229,7 @@ class Incremental extends Process
             }
         } elseif (self::$step == 'check' && !App::error()->flag()) {
             echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.incremental') . '" method="post">' .
+            '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
                 '<h3>' . sprintf(__('Step %s of %s: %s'), '2', '5', __('Check')) . '</h3>' .
             '<p>' . sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion())) . '</p>' .
             '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
@@ -239,7 +239,7 @@ class Incremental extends Process
             '</form>';
         } elseif (self::$step == 'download' && !App::error()->flag()) {
             echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.incremental') . '" method="post">' .
+            '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
             '<h3>' . sprintf(__('Step %s of %s: %s'), '3', '5', __('Download')) . '</h3>' .
             '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
             '<p><input type="hidden" name="step" value="backup" />' .
@@ -248,7 +248,7 @@ class Incremental extends Process
             '</form>';
         } elseif (self::$step == 'backup' && !App::error()->flag()) {
             echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.incremental') . '" method="post">' .
+            '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
             '<h3>' . sprintf(__('Step %s of %s: %s'), '4', '5', __('Backup')) . '</h3>' .
             '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
             '<p><input type="hidden" name="step" value="unzip" />' .

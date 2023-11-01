@@ -97,13 +97,13 @@ class Menus extends ArrayObject
         );
         $this->addItem(
             self::MENU_SYSTEM,
-            __('Incremental'),
-            'upgrade.incremental',
+            __('Attic'),
+            'upgrade.attic',
             ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
             App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,
             false,
-            'Incremental'
+            'Attic'
         );
         $this->addItem(
             self::MENU_SYSTEM,
