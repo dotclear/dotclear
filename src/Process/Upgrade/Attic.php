@@ -26,8 +26,32 @@ use form;
  */
 class Attic extends Process
 {
-    private static string $step     = '';
+    /**
+     * Step in update process.
+     *
+     * @var     string  $step
+     */
+    private static string $step = '';
+
+    /**
+     * The downloaded release zip file name.
+     *
+     * @var     string  $zip_file
+     */
     private static string $zip_file = '';
+
+    /**
+     * The releases stack.
+     *
+     * @var     array<string, array<string, string>>
+     */
+    private static array $releases = [];
+
+    /**
+     * The attic updater instance.
+     *
+     * @var     UpdateAttic     $updater
+     */
     private static UpdateAttic $updater;
 
     public static function init(): bool
@@ -89,6 +113,11 @@ class Attic extends Process
 
         if (!self::$updater->getVersion() || empty(self::$step)) {
             self::$step = '';
+
+            self::$releases = self::$updater->getReleases(App::config()->dotclearVersion());
+            if (!empty(self::$releases)) {
+                Notices::addWarningNotice(__('There are no additionnal informations about incremental release here, you should carefully read the information post associated with selected release on Dotclear\'s blog.'));
+            }
 
             return true;
         }
@@ -194,9 +223,8 @@ class Attic extends Process
         );
 
         if (empty(self::$step)) {
-            $releases = self::$updater->getReleases(App::config()->dotclearVersion());
             // No redirect avec each step as we need selected version in a POST form
-            if (empty($releases)) {
+            if (empty(self::$releases)) {
                 echo
                 '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>';
 
@@ -212,10 +240,9 @@ class Attic extends Process
                 echo
                 '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
                 '<h3>' . sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')) . '</h3>' .
-                '<p class="warning-msg">' . __('There are no additionnal informations about incremental release here, you should carefully read the information post associated with selected release on Dotclear\'s blog.') . '</p>' .
                 '<p>' . __('Select intermediate version to update to:') . '</p>';
 
-                foreach ($releases as $version => $release) {
+                foreach (self::$releases as $version => $release) {
                     echo
                     '<p><label class="classic">' . form::radio(['version'], Html::escapeHTML($version)) . ' ' .
                     Html::escapeHTML($version) . '</label></p>';
@@ -224,13 +251,13 @@ class Attic extends Process
                 echo
                 '<p><input type="hidden" name="step" value="check" />' .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" value="' . __('Continue to check') . '" /></p>' .
+                '<input type="submit" value="' . __('Continue to integrity') . '" /></p>' .
                 '</form>';
             }
         } elseif (self::$step == 'check' && !App::error()->flag()) {
             echo
             '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
-                '<h3>' . sprintf(__('Step %s of %s: %s'), '2', '5', __('Check')) . '</h3>' .
+            '<h3>' . sprintf(__('Step %s of %s: %s'), '2', '5', __('Integrity')) . '</h3>' .
             '<p>' . sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion())) . '</p>' .
             '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
             '<p><input type="hidden" name="step" value="download" />' .
