@@ -15,19 +15,24 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
 
+/**
+ * @brief   Core attic update helper.
+ *
+ * @since   2.29
+ */
 class UpdateAttic extends Update
 {
     /**
      * Releases cache filename.
      *
-     * @var     string CACHE_FILENAME
+     * @var     string  CACHE_FILENAME
      */
     public const CACHE_FILENAME = 'releases.json';
 
     /**
      * The releases stack.
      *
-     * @var     array<string, array<string, string>>
+     * @var     array<string, array<string, string>>    $releases
      */
     private array $releases = [];
 
@@ -43,11 +48,6 @@ class UpdateAttic extends Update
         $this->cache_file = $cache_dir . DIRECTORY_SEPARATOR . self::CACHE_FILENAME;
     }
 
-    /**
-     * Sets the notify flag.
-     *
-     * @param   mixed   $n  The new value
-     */
     public function setNotify($n): void
     {
     }

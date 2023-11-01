@@ -31,7 +31,7 @@ use Exception;
 /**
  * @brief   Upgrade process corrupted files helper.
  *
- * @since 2.29
+ * @since   2.29
  */
 class Digests extends Process
 {

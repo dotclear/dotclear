@@ -16,7 +16,7 @@ use Dotclear\Core\Process;
 /**
  * @brief   Process to logout from upgrade.
  *
- * @since   2.28
+ * @since   2.29
  */
 class Logout extends Process
 {

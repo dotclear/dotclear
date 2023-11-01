@@ -19,11 +19,15 @@ use Dotclear\Core\Backend\Menu;
  *
  * @extends ArrayObject<string, Menu>
  *
- * @sicne 2.29
+ * @since   2.29
  */
 class Menus extends ArrayObject
 {
-    // Menu sections
+    /**
+     * Menu sections.
+     *
+     * @var     string MENU_SYSTEM
+     */
     public const MENU_SYSTEM = 'System';
 
     /**

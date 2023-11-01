@@ -31,9 +31,9 @@ use Exception;
 class PluginsList extends ModulesList
 {
     /**
-     * Store instance
+     * Store instance.
      *
-     * @var Store
+     * @var     Store   $store
      */
     public readonly Store $store;
 
@@ -42,10 +42,10 @@ class PluginsList extends ModulesList
      *
      * Note that this creates Store instance.
      *
-     * @param    ModulesInterface   $modules        Modules instance
-     * @param    string             $modules_root   Modules root directories
-     * @param    null|string        $xml_url        URL of modules feed from repository
-     * @param    null|bool          $force          Force query repository
+     * @param   ModulesInterface    $modules        Modules instance
+     * @param   string              $modules_root   Modules root directories
+     * @param   null|string         $xml_url        URL of modules feed from repository
+     * @param   null|bool           $force          Force query repository
      */
     public function __construct(ModulesInterface $modules, string $modules_root, ?string $xml_url, ?bool $force = false)
     {
@@ -59,13 +59,13 @@ class PluginsList extends ModulesList
     }
 
     /**
-     * Get settings URLs if any
+     * Get settings URLs if any.
      *
-     * @param   string  $id     Module ID
-     * @param   boolean $check  Check permission
-     * @param   boolean $self   Include self URL (→ plugin index.php URL)
+     * @param   string      $id     Module ID
+     * @param   boolean     $check  Check permission
+     * @param   boolean     $self   Include self URL (→ plugin index.php URL)
      *
-     * @return array<string>    Array of settings URLs
+     * @return  array<string>   Array of settings URLs
      */
     public static function getSettingsUrls(string $id, bool $check = false, bool $self = true): array
     {
@@ -77,10 +77,10 @@ class PluginsList extends ModulesList
     /**
      * Get action buttons to add to modules list.
      *
-     * @param    ModuleDefine     $define     Module info
-     * @param    array<string>    $actions    Actions keys
+     * @param   ModuleDefine    $define     Module info
+     * @param   array<string>   $actions    Actions keys
      *
-     * @return   array<string>    Array of actions buttons
+     * @return  array<string>  Array of actions buttons
      */
     protected function getActions(ModuleDefine $define, array $actions): array
     {
@@ -204,7 +204,7 @@ class PluginsList extends ModulesList
      *
      * Set a notice on success through Notices::addSuccessNotice
      *
-     * @throws    Exception    Module not find or command failed
+     * @throws  Exception   Module not find or command failed
      */
     public function doActions(): void
     {
@@ -421,9 +421,9 @@ class PluginsList extends ModulesList
      *
      * Used for search or id.
      *
-     * @param    string    $str        String to sanitize
+     * @param   string  $str    String to sanitize
      *
-     * @return   string     Sanitized string
+     * @return  string  Sanitized string
      */
     public static function sanitizeString(string $str): string
     {

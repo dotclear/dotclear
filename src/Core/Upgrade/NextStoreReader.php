@@ -22,6 +22,8 @@ class NextStoreReader extends StoreReader
 {
     /**
      * Overwrite StoreReader to remove cache and use NextStoreParser.
+     *
+     * {@inheritdoc}
      */
     public function parse(string $url): bool|StoreParser
     {
@@ -36,6 +38,8 @@ class NextStoreReader extends StoreReader
 
     /**
      * Overwrite StoreReader to remove cache and use NextStoreParser.
+     *
+     * {@inheritdoc}
      */
     public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|StoreParser
     {

@@ -23,12 +23,16 @@ use Exception;
 class Url extends BackendUrl
 {
     /**
-     * @var    string  Default upgrade index page
+     * Default upgrade idnex page.
+     *
+     * @var     string  INDEX
      */
     public const INDEX = 'upgrade.php';
 
     /**
-     * @var    string  Default backend index page
+     * Default backend index page.
+     *
+     * @var     string  BACKEND
      */
     public const BACKEND = 'index.php';
 
@@ -67,9 +71,6 @@ class Url extends BackendUrl
         $this->register('admin.rest', self::BACKEND, ['process' => 'Rest']);
     }
 
-    /**
-     * Set default upgrade URLs handlers.
-     */
     public function setDefaultUrls(): void
     {
     }

@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;

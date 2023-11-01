@@ -25,7 +25,7 @@ use Exception;
 /**
  * @brief   Cache cleaner helper.
  *
- * @since 2.29
+ * @since   2.29
  */
 class Cache extends Process
 {

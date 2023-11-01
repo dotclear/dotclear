@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Dotclear
- * @subpackage Upgrade
+ * @package     Dotclear
+ * @subpackage  Upgrade
  *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   GPL-2.0-only
  */
 declare(strict_types=1);
 
@@ -24,10 +24,10 @@ use Dotclear\Helper\L10n;
 class Page extends BackendPage
 {
     /**
-     * Auth check
+     * Auth check.
      *
-     * @param      string  $permissions  The permissions
-     * @param      bool    $home         Currently on dashboard
+     * @param   string  $permissions    Permissions
+     * @param   bool    $home           Currently on dashboard
      */
     public static function check(string $permissions, bool $home = false): void
     {
@@ -35,9 +35,9 @@ class Page extends BackendPage
     }
 
     /**
-     * Check super admin
+     * Check super admin.
      *
-     * @param      bool  $home   The home
+     * @param   bool    $home   The home
      */
     public static function checkSuper(bool $home = false): void
     {
@@ -50,12 +50,12 @@ class Page extends BackendPage
     }
 
     /**
-     * Top of admin page
+     * Top of upgrade page.
      *
-     * @param      string                   $title       The title
-     * @param      string                   $head        The head
-     * @param      string                   $breadcrumb  The breadcrumb
-     * @param      array<string, string>    $options     The options
+     * @param   string                  $title          The title
+     * @param   string                  $head           The head
+     * @param   string                  $breadcrumb     The breadcrumb
+     * @param   array<string, string>   $options        The options
      */
     public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = []): void
     {
@@ -161,7 +161,7 @@ class Page extends BackendPage
     }
 
     /**
-     * End of admin page
+     * End of admin page.
      */
     public static function close(): void
     {
@@ -221,12 +221,12 @@ class Page extends BackendPage
     }
 
     /**
-     * Get breadcrumb
+     * Get breadcrumb.
      *
-     * @param      array<int|string, mixed>|null    $elements  The elements
-     * @param      array<string, mixed>             $options   The options
+     * @param   array<int|string, mixed>|null   $elements   The elements
+     * @param   array<string, mixed>            $options    The options
      *
-     * @return     string
+     * @return  string
      */
     public static function breadcrumb(?array $elements = null, array $options = []): string
     {
@@ -261,9 +261,9 @@ class Page extends BackendPage
         return $res;
     }
     /**
-     * Display Help block
+     * Display Help block.
      *
-     * @param      mixed  ...$params  The parameters
+     * @param   mixed   ...$params  The parameters
      */
     public static function helpBlock(...$params): void
     {
@@ -323,10 +323,10 @@ class Page extends BackendPage
     /**
      * Appends a version to force cache refresh if necessary.
      *
-     * @param      string       $src         The source
-     * @param      null|string  $version     The version
+     * @param   string          $src        The source
+     * @param   null|string     $version    The version
      *
-     * @return     string
+     * @return  string
      */
     protected static function appendVersion(string $src, ?string $version = ''): string
     {
@@ -338,9 +338,9 @@ class Page extends BackendPage
     /**
      * Gets plugin file.
      *
-     * @param      string  $file   The filename
+     * @param   string  $file   The filename
      *
-     * @return     string  The URL.
+     * @return  string  The URL.
      */
     public static function getPF(string $file): string
     {
@@ -350,9 +350,9 @@ class Page extends BackendPage
     /**
      * Gets var file.
      *
-     * @param      string  $file   The filename
+     * @param   string  $file   The filename
      *
-     * @return     string  The URL.
+     * @return  string  The URL.
      */
     public static function getVF(string $file): string
     {

@@ -23,11 +23,13 @@ use form;
 /**
  * @brief   Core backup and restore page.
  *
- * @since 2.29
+ * @since   2.29
  */
 class Backup extends Process
 {
     /**
+     * Backups archives.
+     *
      * @var     array<int, string>  $archives
      */
     private static array $archives = [];

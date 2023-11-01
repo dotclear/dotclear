@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\UpdateAttic;
 use Dotclear\Core\Process;
