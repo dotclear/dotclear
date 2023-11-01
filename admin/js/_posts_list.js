@@ -29,9 +29,9 @@ dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
           $(td).append(content);
           $(line).addClass('expand');
           line.parentNode.insertBefore(tr, line.nextSibling);
-        } else {
-          $(line).toggleClass('expand');
+          return;
         }
+        $(line).toggleClass('expand');
       },
       {
         clean: e.metaKey,

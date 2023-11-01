@@ -86,26 +86,25 @@ class metaEditor {
       }
       return;
     }
-    const This = this;
 
     dotclear.jsonServicesGet(
       'getMeta',
       (data) => {
-        This.meta_list.empty();
+        this.meta_list.empty();
         for (const elt of data) {
           const { meta_id } = elt;
-          li = $(`<li><a href="${This.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
+          li = $(`<li><a href="${this.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
           const a_remove = $(
             '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>',
           );
-          a_remove.get(0).caller = This;
+          a_remove.get(0).caller = this;
           a_remove.get(0).meta_id = meta_id;
           a_remove.on('click', function () {
             this.caller.removeMeta(this.meta_id);
             return false;
           });
           li.prepend('&nbsp;').prepend(a_remove);
-          This.meta_list.append(li);
+          this.meta_list.append(li);
         }
       },
       {
@@ -131,7 +130,6 @@ class metaEditor {
   }
 
   showMetaList(list_type, target) {
-    const This = this;
     const params = { metaType: this.meta_type, sortby: 'metaId,asc' };
     if (list_type == 'more') {
       params.limit = 30;
@@ -151,8 +149,8 @@ class metaEditor {
             const meta_link = $(`<button type="button" class="metaItem meta-helper">${elt.meta_id}</button>`);
             meta_link.get(0).meta_id = elt.meta_id;
             meta_link.on('click', () => {
-              const v = This.splitMetaValues(`${This.meta_dialog.val()},${elt.meta_id}`);
-              This.meta_dialog.val(v.join(','));
+              const v = this.splitMetaValues(`${this.meta_dialog.val()},${elt.meta_id}`);
+              this.meta_dialog.val(v.join(','));
               return false;
             });
 
@@ -165,9 +163,9 @@ class metaEditor {
 
           if (list_type == 'more') {
             const a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
-            a_more.append(This.text_all + String.fromCharCode(160) + String.fromCharCode(187));
+            a_more.append(this.text_all + String.fromCharCode(160) + String.fromCharCode(187));
             a_more.on('click', () => {
-              This.showMetaList('more-all', target);
+              this.showMetaList('more-all', target);
               return false;
             });
             pl.append(', ').append(a_more);
@@ -179,7 +177,7 @@ class metaEditor {
             const pa = $('<p></p>');
             target.append(pa);
 
-            const a = $(`<button type="button" class="button metaGetList meta-helper">${This.text_choose}</button>`);
+            const a = $(`<button type="button" class="button metaGetList meta-helper">${this.text_choose}</button>`);
             a.on('click', function () {
               $(this).parent().next().removeClass('hide');
               $(this).remove();
@@ -190,9 +188,9 @@ class metaEditor {
           }
 
           target.append(pl);
-        } else {
-          pl.empty();
+          return;
         }
+        pl.empty();
       },
       params,
     );
@@ -232,16 +230,16 @@ class metaEditor {
       }
       this.meta_field.val(meta.join(','));
       this.displayMetaList();
-    } else {
-      const text_confirm_msg = this.text_confirm_remove.replace(/%s/, this.meta_type);
+      return;
+    }
+    const text_confirm_msg = this.text_confirm_remove.replace(/%s/, this.meta_type);
 
-      if (window.confirm(text_confirm_msg)) {
-        dotclear.jsonServicesPost('delMeta', (data) => this.displayMetaList(), {
-          postId: this.post_id,
-          metaId: meta_id,
-          metaType: this.meta_type,
-        });
-      }
+    if (window.confirm(text_confirm_msg)) {
+      dotclear.jsonServicesPost('delMeta', (data) => this.displayMetaList(), {
+        postId: this.post_id,
+        metaId: meta_id,
+        metaType: this.meta_type,
+      });
     }
   }
 

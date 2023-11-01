@@ -32,10 +32,10 @@ dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
           $(td).append(content);
           $(line).addClass('expand');
           line.parentNode.insertBefore(tr, line.nextSibling);
-        } else {
-          // No content, content not found or server error
-          $(line).removeClass('expand');
+          return;
         }
+        // No content, content not found or server error
+        $(line).removeClass('expand');
       },
       {
         clean,

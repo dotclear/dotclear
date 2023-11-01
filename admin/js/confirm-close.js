@@ -171,17 +171,15 @@ window.addEventListener('load', () => {
     const checkBattery = () => {
       navigator.getBattery().then((battery) => {
         const level = battery.level * 100;
-        if (level < 5) {
-          // Low battery level, check form
-          if (
-            dotclear.confirmClosePage !== undefined &&
-            !dotclear.confirmClosePage.form_submit &&
-            !dotclear.confirmClosePage.compareForms()
-          ) {
-            // Form unsaved, emit a warning
-            const message = dotclear.confirmClosePage.lowbattery.replace(/%d/, level);
-            alert(message);
-          }
+        if (
+          level < 5 &&
+          dotclear.confirmClosePage !== undefined &&
+          !dotclear.confirmClosePage.form_submit &&
+          !dotclear.confirmClosePage.compareForms()
+        ) {
+          // Form unsaved, emit a warning
+          const message = dotclear.confirmClosePage.lowbattery.replace(/%d/, level);
+          alert(message);
         }
       });
     };
@@ -196,14 +194,17 @@ window.addEventListener('beforeunload', (event) => {
   }
 
   if (
-    dotclear.confirmClosePage !== undefined &&
-    !dotclear.confirmClosePage.form_submit &&
-    !dotclear.confirmClosePage.compareForms()
+    !(
+      dotclear.confirmClosePage !== undefined &&
+      !dotclear.confirmClosePage.form_submit &&
+      !dotclear.confirmClosePage.compareForms()
+    )
   ) {
-    if (dotclear.debug) {
-      console.log('Confirmation before exiting is required.');
-    }
-    event.preventDefault(); // HTML5 specification
-    event.returnValue = ''; // Google Chrome requires returnValue to be set.
+    return;
   }
+  if (dotclear.debug) {
+    console.log('Confirmation before exiting is required.');
+  }
+  event.preventDefault(); // HTML5 specification
+  event.returnValue = ''; // Google Chrome requires returnValue to be set.
 });
