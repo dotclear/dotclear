@@ -556,7 +556,7 @@ class Update
         $cur_digests = file($root_digests, $opts);
         $new_digests = explode("\n", $zip->unzip($zip_digests));
         if ($cur_digests !== false && $new_digests !== false) {
-            $new_files = self::getNewFiles($cur_digests, $new_digests);
+            $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
 
         if (!empty($this->forced_files)) {
