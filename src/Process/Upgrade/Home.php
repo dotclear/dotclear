@@ -12,9 +12,7 @@ namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\Update;
 use Dotclear\Core\Process;
-use Exception;
 
 /**
  * @brief   Upgrade process home page.
@@ -23,9 +21,6 @@ use Exception;
  */
 class Home extends Process
 {
-    private static Update $updater;
-    private static bool|string $new_ver = false;
-
     public static function init(): bool
     {
         Page::checkSuper();

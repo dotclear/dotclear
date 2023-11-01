@@ -111,6 +111,7 @@ class Config implements ConfigInterface
     private readonly bool $db_persist;
     private readonly string $master_key;
     private readonly string $crypt_algo;
+    private readonly string $core_attic_url;
     private readonly string $core_update_url;
     private readonly string $core_update_canal;
     private readonly bool $core_not_update;
@@ -336,6 +337,10 @@ class Config implements ConfigInterface
             define('DC_UPDATE_URL', $this->release('release_update_url'));
         }
 
+        if (!defined('DC_ATTIC_URL')) {
+            define('DC_ATTIC_URL', $this->release('release_attic_url'));
+        }
+
         if (!defined('DC_UPDATE_VERSION')) {
             define('DC_UPDATE_VERSION', $this->release('release_update_canal'));
         }
@@ -416,6 +421,7 @@ class Config implements ConfigInterface
         $this->db_prefix           = DC_DBPREFIX;
         $this->db_persist          = DC_DBPERSIST;
         $this->plugins_root        = DC_PLUGINS_ROOT;
+        $this->core_attic_url      = DC_ATTIC_URL;
         $this->core_update_url     = DC_UPDATE_URL;
         $this->core_update_canal   = DC_UPDATE_VERSION;
         $this->core_not_update     = DC_NOT_UPDATE;
@@ -703,6 +709,11 @@ class Config implements ConfigInterface
     public function cryptAlgo(): string
     {
         return $this->crypt_algo;
+    }
+
+    public function coreAtticUrl(): string
+    {
+        return $this->core_attic_url;
     }
 
     public function coreUpdateUrl(): string

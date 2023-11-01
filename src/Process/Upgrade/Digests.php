@@ -31,11 +31,9 @@ use Exception;
 /**
  * @brief   Upgrade process corrupted files helper.
  *
- * @todo    Add resources. (waiting to manage resources on whole Upgrade Utility)
- *
  * @since 2.29
  */
-class Files extends Process
+class Digests extends Process
 {
     private static string $path_backup;
     private static string $path_helpus;
@@ -62,11 +60,11 @@ class Files extends Process
 
     public static function process(): bool
     {
-        self::$path_backup     = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'digests.bak']);
-        self::$path_helpus     = L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', App::lang()->getLang()) ?:
-            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', 'en');
-        self::$path_disclaimer = L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', App::lang()->getLang()) ?:
-            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', 'en');
+        self::$path_backup = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'digests.bak']);
+        self::$path_helpus = (string) (L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', App::lang()->getLang()) ?:
+            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', 'en'));
+        self::$path_disclaimer = (string) (L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', App::lang()->getLang()) ?:
+            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', 'en'));
 
         if (isset($_POST['erase_backup']) && is_file(self::$path_backup)) {
             @unlink(self::$path_backup);
@@ -142,8 +140,8 @@ class Files extends Process
                 $item = (new Text(
                     null,
                     is_file(self::$path_helpus) ?
-                    sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.files', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
-                    '<a href="' . App::upgrade()->url()->get('upgrade.files', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
+                    sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
+                    '<a href="' . App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
                 ));
             } else {
                 $item = (new Para())->items([
@@ -163,7 +161,7 @@ class Files extends Process
                 ])
             ->render();
         } elseif (isset($_POST['disclaimer_ok'])) {
-            if ((is_countable(self::$changes['changed']) ? count(self::$changes['changed']) : 0) == 0 && (is_countable(self::$changes['removed']) ? count(self::$changes['removed']) : 0) == 0) {
+            if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
                 echo (new Para())->class('message')->items([
                     (new Text(null, __('No changed filed have been found, nothing to do!'))),
                 ])
@@ -171,7 +169,7 @@ class Files extends Process
             } else {
                 $changed       = [];
                 $block_changed = '';
-                if ((is_countable(self::$changes['changed']) ? count(self::$changes['changed']) : 0) != 0) {
+                if (count(self::$changes['changed']) != 0) {
                     foreach (self::$changes['changed'] as $k => $v) {
                         $changed[] = (new Text('li', sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new'])));
                     }
@@ -185,7 +183,7 @@ class Files extends Process
                 }
                 $removed       = [];
                 $block_removed = '';
-                if ((is_countable(self::$changes['removed']) ? count(self::$changes['removed']) : 0) != 0) {
+                if (count(self::$changes['removed']) != 0) {
                     foreach (self::$changes['removed'] as $k => $v) {
                         $removed[] = (new Text('li', (string) $k));
                     }
@@ -202,7 +200,7 @@ class Files extends Process
                     (new Text(null, $block_changed)),
                     (new Text(null, $block_removed)),
                     (new Form('frm-override'))
-                        ->action(App::upgrade()->url()->get('upgrade.files'))
+                        ->action(App::upgrade()->url()->get('upgrade.digests'))
                         ->method('post')
                         ->fields([
                             (new Submit(['confirm'], __('Still ok to continue'))),
@@ -219,7 +217,7 @@ class Files extends Process
                         (new Text(null, __('Fake Me Up has already been run once.'))),
                     ]),
                     (new Form('frm-erase'))
-                        ->action(App::upgrade()->url()->get('upgrade.files'))
+                        ->action(App::upgrade()->url()->get('upgrade.digests'))
                         ->method('post')
                         ->fields([
                             (new Para())->items([
@@ -242,7 +240,7 @@ class Files extends Process
                 echo (new Div())->class('message')->items([
                     (new Text(null, is_file(self::$path_disclaimer) ? (string) file_get_contents(self::$path_disclaimer) : '...')),
                     (new Form('frm-disclaimer'))
-                        ->action(App::upgrade()->url()->get('upgrade.files'))
+                        ->action(App::upgrade()->url()->get('upgrade.digests'))
                         ->method('post')
                         ->fields([
                             (new Para())->items([
@@ -341,7 +339,7 @@ class Files extends Process
 
         $c_data = 'Fake Me Up Checksum file - ' . date('d/m/Y H:i:s') . "\n\n" .
             'Dotclear version : ' . App::config()->dotclearVersion() . "\n\n";
-        if (is_countable($changes['removed']) ? count($changes['removed']) : 0) {
+        if (count($changes['removed'])) {
             $c_data .= "== Removed files ==\n";
             foreach ($changes['removed'] as $k => $v) {
                 $c_data .= sprintf(" * %s\n", $k);
@@ -358,7 +356,7 @@ class Files extends Process
         }
         $b_zip = new Zip($b_fp);
 
-        if (is_countable($changes['changed']) ? count($changes['changed']) : 0) {
+        if (count($changes['changed'])) {
             $c_data .= "== Invalid checksum files ==\n";
             foreach ($changes['changed'] as $k => $v) {
                 $name = substr($k, 2);

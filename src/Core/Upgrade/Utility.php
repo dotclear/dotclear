@@ -194,7 +194,7 @@ class Utility extends Process
         unset($hfiles);
 
         // Set help resources
-        foreach($helps as $key => $file) {
+        foreach ($helps as $key => $file) {
             App::upgrade()->resources()->set('help', $key, $file);
         }
         unset($helps);

@@ -51,11 +51,12 @@ class Url extends BackendUrl
 
         $this->register('upgrade.home', 'Home');
         $this->register('upgrade.upgrade', 'Upgrade');
+        $this->register('upgrade.incremental', 'Incremental');
         $this->register('upgrade.backup', 'Backup');
         $this->register('upgrade.langs', 'Langs');
         $this->register('upgrade.plugins', 'Plugins');
         $this->register('upgrade.cache', 'Cache');
-        $this->register('upgrade.files', 'Files');
+        $this->register('upgrade.digests', 'Digests');
 
         // we don't care of admin process for FileServer
         $this->register('load.plugin.file', self::INDEX, ['pf' => 'dummy.css']);

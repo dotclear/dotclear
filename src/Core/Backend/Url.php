@@ -318,7 +318,7 @@ class Url
         $this->register('load.plugin.file', static::INDEX, ['pf' => 'dummy.css']);
         $this->register('load.var.file', static::INDEX, ['vf' => 'dummy.json']);
 
-        // from upgrade 
+        // from upgrade
         $this->register('upgrade.home', static::UPGRADE);
         $this->register('upgrade.upgrade', static::UPGRADE, ['process' => 'Upgrade']);
     }

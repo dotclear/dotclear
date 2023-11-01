@@ -97,6 +97,16 @@ class Menus extends ArrayObject
         );
         $this->addItem(
             self::MENU_SYSTEM,
+            __('Incremental'),
+            'upgrade.incremental',
+            ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
+            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+            false,
+            false,
+            'Incremental'
+        );
+        $this->addItem(
+            self::MENU_SYSTEM,
             __('Backups'),
             'upgrade.backup',
             ['images/menu/backup.svg', 'images/menu/backup-dark.svg'],
@@ -137,13 +147,13 @@ class Menus extends ArrayObject
         );
         $this->addItem(
             self::MENU_SYSTEM,
-            __('Files'),
-            'upgrade.files',
-            ['images/menu/tools.svg', 'images/menu/tools-dark.svg'],
+            __('Digests'),
+            'upgrade.digests',
+            ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
             App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,
             false,
-            'Files'
+            'Digests'
         );
     }
 }
