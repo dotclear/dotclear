@@ -200,7 +200,7 @@ class Incremental extends Process
                 echo
                 '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>';
 
-                if (App::error()->flag() || !empty($_GET['nocache'])) {
+                if (App::error()->flag() || empty($_GET['nocache'])) {
                     echo
                     '<form action="' . App::upgrade()->url()->get('upgrade.incremental') . '" method="get">' .
                     '<p><input type="hidden" name="process" value="Upgrade" />' .
