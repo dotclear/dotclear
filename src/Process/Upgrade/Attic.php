@@ -217,7 +217,7 @@ class Attic extends Process
             Page::breadcrumb(
                 [
                     __('Dotclear update') => '',
-                    __('Attic')     => '',
+                    __('Attic')           => '',
                 ]
             )
         );

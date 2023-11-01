@@ -74,7 +74,9 @@ class UpdateAttic extends Update
                 return null;
             }
             $contents = json_decode($contents, true);
-            if (!is_array($contents)) {
+            if (is_array($contents)) {
+                $this->releases = $contents;
+
                 return null;
             }
         }
@@ -127,7 +129,7 @@ class UpdateAttic extends Update
             if ($client === false || !$status || $status >= 400) {
                 throw new Exception();
             }
-            $this->parseContent($client->getContent());
+            $this->readVersion($client->getContent());
         } catch (Exception) {
             return null;
         }
@@ -138,17 +140,17 @@ class UpdateAttic extends Update
         return null;
     }
 
-    public function parseContent(string $data): bool
+    public function readVersion(string $str): void
     {
         $this->releases = [];
 
         try {
-            $xml = simplexml_load_string($data);
+            $xml = simplexml_load_string($str);
             if (!$xml) {
-                return false;
+                return;
             }
         } catch(Exception) {
-            return false;
+            return;
         }
 
         foreach ($xml->subject->release as $release) {
@@ -159,8 +161,6 @@ class UpdateAttic extends Update
         }
 
         uksort($this->releases, fn ($a, $b) => version_compare($a, $b, '>') ? 1 : -1);
-
-        return true;
     }
 
     /**
