@@ -154,7 +154,6 @@ $.fn.toggleWithLegend = function (target, s) {
 };
 
 $.fn.toggleWithDetails = function (s) {
-  const target = this;
   const defaults = {
     unfolded_sections: dotclear.unfolded_sections,
     hide: true, // Is section unfolded?
@@ -168,18 +167,18 @@ $.fn.toggleWithDetails = function (s) {
   }
   const toggle = () => {
     if (!p.hide && p.fn) {
-      p.fn.apply(target);
+      p.fn.apply(this);
       p.fn = false;
     }
     p.hide = !p.hide;
-    if (p.hide && target.attr('open')) {
-      target.removeAttr('open');
-    } else if (!p.hide && !target.attr('open')) {
-      target.attr('open', 'open');
+    if (p.hide && this.attr('open')) {
+      this.removeAttr('open');
+    } else if (!p.hide && !this.attr('open')) {
+      this.attr('open', 'open');
     }
   };
   return this.each(() => {
-    $('summary', target).on('click', (e) => {
+    $('summary', this).on('click', (e) => {
       // Catch click only on summary child of details HTML element
       if (p.user_pref) {
         dotclear.jsonServicesPost('setSectionFold', () => {}, {
@@ -338,11 +337,12 @@ $.fn.helpViewer = function () {
 -------------------------------------------------------- */
 dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
   $(`${frm_id}:not(${cancel_id})`).on('keyup', (e) => {
-    if (e.key == 'Enter' && $(ok_id).prop('disabled') !== true) {
-      e.preventDefault();
-      e.stopPropagation();
-      $(ok_id).trigger('click');
+    if (!(e.key == 'Enter' && $(ok_id).prop('disabled') !== true)) {
+      return;
     }
+    e.preventDefault();
+    e.stopPropagation();
+    $(ok_id).trigger('click');
   });
 };
 
@@ -498,21 +498,24 @@ dotclear.outgoingLinks = (target) => {
   const elements = document.querySelectorAll(target);
   elements.forEach((element) => {
     if (
-      (element.hostname &&
-        element.hostname != location.hostname &&
-        !element.classList.contains('modal') &&
-        !element.classList.contains('modal-image')) ||
-      element.classList.contains('outgoing')
+      !(
+        (element.hostname &&
+          element.hostname != location.hostname &&
+          !element.classList.contains('modal') &&
+          !element.classList.contains('modal-image')) ||
+        element.classList.contains('outgoing')
+      )
     ) {
-      element.title = `${element.title} (${dotclear.msg.new_window})`;
-      if (!element.classList.contains('outgoing')) {
-        element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>';
-      }
-      element.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.open(element.href);
-      });
+      return;
     }
+    element.title = `${element.title} (${dotclear.msg.new_window})`;
+    if (!element.classList.contains('outgoing')) {
+      element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>';
+    }
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(element.href);
+    });
   });
 };
 
@@ -617,39 +620,40 @@ dotclear.badge = ($elt, options = null) => {
   }
 
   // Add the new badge if any
-  if (!opt.remove && opt.value !== null) {
-    // Compose badge classes
-    const classes = ['badge'];
-    classes.push(`badge-${opt.id}`);
-    classes.push(opt.inline ? 'badge-inline' : 'badge-block');
-    if (opt.icon) {
-      classes.push('badge-icon');
-    }
-    if (opt.type) {
-      classes.push(`badge-${opt.type}`);
-    }
-    if (opt.left) {
-      classes.push('badge-left');
-    }
-    if (opt.noborder) {
-      classes.push('badge-noborder');
-    }
-    if (opt.small) {
-      classes.push('badge-small');
-    }
-    if (opt.classes) {
-      classes.push(`${opt.classes}`);
-    }
-    const cls = classes.join(' ');
-    // Compose badge
-    const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
-    if (opt.sibling) {
-      // Add badge after it's sibling
-      $elt.after(xml);
-    } else {
-      // Append badge to the elt
-      $elt.append(xml);
-    }
+  if (!(!opt.remove && opt.value !== null)) {
+    return;
+  }
+  // Compose badge classes
+  const classes = ['badge'];
+  classes.push(`badge-${opt.id}`);
+  classes.push(opt.inline ? 'badge-inline' : 'badge-block');
+  if (opt.icon) {
+    classes.push('badge-icon');
+  }
+  if (opt.type) {
+    classes.push(`badge-${opt.type}`);
+  }
+  if (opt.left) {
+    classes.push('badge-left');
+  }
+  if (opt.noborder) {
+    classes.push('badge-noborder');
+  }
+  if (opt.small) {
+    classes.push('badge-small');
+  }
+  if (opt.classes) {
+    classes.push(`${opt.classes}`);
+  }
+  const cls = classes.join(' ');
+  // Compose badge
+  const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
+  if (opt.sibling) {
+    // Add badge after it's sibling
+    $elt.after(xml);
+  } else {
+    // Append badge to the elt
+    $elt.append(xml);
   }
 };
 
@@ -842,12 +846,13 @@ $(() => {
     dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
     const switchScheme = (e) => {
       const theme = e.matches ? 'dark' : 'light';
-      if (theme !== dotclear.data.theme) {
-        $('body').removeClass(`${dotclear.data.theme}-mode`);
-        dotclear.data.theme = theme;
-        $('body').addClass(`${dotclear.data.theme}-mode`);
-        document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
+      if (theme === dotclear.data.theme) {
+        return;
       }
+      $('body').removeClass(`${dotclear.data.theme}-mode`);
+      dotclear.data.theme = theme;
+      $('body').addClass(`${dotclear.data.theme}-mode`);
+      document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
     };
     try {
       dotclear.theme_OS.addEventListener('change', (e) => switchScheme(e));
@@ -914,11 +919,12 @@ $(() => {
   $('body')
     .contents()
     .each(function () {
-      if (this.nodeType == 8) {
-        let { data } = this;
-        data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />').replace(/\n/g, '<br/>');
-        $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
+      if (this.nodeType != 8) {
+        return;
       }
+      let { data } = this;
+      data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />').replace(/\n/g, '<br/>');
+      $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
     });
 
   // manage outgoing links
@@ -926,11 +932,12 @@ $(() => {
 
   // Popups: dealing with Escape key fired
   $('#dotclear-admin.popup').on('keyup', (e) => {
-    if (e.key == 'Escape') {
-      e.preventDefault();
-      window.close();
-      return false;
+    if (e.key != 'Escape') {
+      return;
     }
+    e.preventDefault();
+    window.close();
+    return false;
   });
 
   // Blog switcher
