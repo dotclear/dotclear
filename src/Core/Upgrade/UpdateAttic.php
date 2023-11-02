@@ -61,6 +61,7 @@ class UpdateAttic extends Update
         $this->version_info['version']  = $version;
         $this->version_info['href']     = $this->releases[$version]['href'];
         $this->version_info['checksum'] = $this->releases[$version]['checksum'];
+        $this->version_info['info']     = $this->releases[$version]['info'];
 
         return App::config()->backupRoot() . '/' . basename((string) $this->version_info['href']);
     }
@@ -157,6 +158,7 @@ class UpdateAttic extends Update
             $this->releases[(string) $release['version']] = [
                 'href'     => (string) $release['href'],
                 'checksum' => (string) $release['checksum'],
+                'info'     => (string) $release['info'],
             ];
         }
 

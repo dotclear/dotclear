@@ -256,11 +256,16 @@ class Attic extends Process
                 foreach (self::$releases as $version => $release) {
                     $i++;
                     $options[] = (new Para())
+                    ->separator(' ')
                         ->items([
                             (new Radio(['version', 'version' . $i]))
                                 ->value(Html::escapeHTML($version)),
                             (new Label(Html::escapeHTML($version), Label::OUTSIDE_LABEL_AFTER, 'version' . $i))
                                 ->class('classic'),
+                            (new Link())
+                                ->href($release['info'])
+                                ->title(__('Release note'))
+                                ->text(__('Release note')),
                         ]);
                 }
 

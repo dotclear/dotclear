@@ -4,7 +4,7 @@
 
   "release_version": "2.28-dev",
   "release_name": "PHP 7 is dead, long life to PHP 8",
-  "release_attic_url": "https://download.dotclear.org/versions.xml",
+  "release_attic_url": "https://download.dotclear.org/attic/versions.xml",
   "release_update_url": "https://download.dotclear.org/versions.xml",
   "release_update_canal": "stable",
 
