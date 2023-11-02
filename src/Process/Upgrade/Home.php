@@ -89,7 +89,7 @@ class Home extends Process
 
         Page::open(
             __('Dashboard'),
-            Page::jsLoad('js/_index.js') .
+            Page::jsLoad('js/_upgrade.js') .
             Page::jsAdsBlockCheck(),
             Page::breadcrumb(
                 [
