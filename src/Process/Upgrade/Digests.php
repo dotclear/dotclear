@@ -214,7 +214,7 @@ class Digests extends Process
             if (file_exists(self::$path_backup)) {
                 echo (new Div())->class('error')->items([
                     (new Para())->items([
-                        (new Text(null, __('Fake Me Up has already been run once.'))),
+                        (new Text(null, __('This tool has already been run once.'))),
                     ]),
                     (new Form('frm-erase'))
                         ->action(App::upgrade()->url()->get('upgrade.digests'))

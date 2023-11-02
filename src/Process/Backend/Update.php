@@ -159,7 +159,7 @@ class Update extends Process
                 '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), App::backend()->updater->getPHPVersion()) . '</p>';
             } else {
                 echo
-                '<p><a title="' . Html::escapeHTML(__('Dotclear upgrade dashboard')) . '" href="' . App::backend()->url()->get('upgrade.home') . '">' . __('To upgrade your Dotclear installation go to upgrade dashboard and follow instructions.') . '</a></p>';
+                '<p><a title="' . Html::escapeHTML(__('Dotclear upgrade dashboard')) . '" href="' . App::backend()->url()->get('upgrade.home') . '">' . __('To upgrade your Dotclear installation go to dedicated dashboard and follow instructions.') . '</a></p>';
             }
         }
 

@@ -84,6 +84,7 @@ class Home extends Process
             (new li())->text(__('Does your system support next release requirements like PHP version?')),
             (new li())->text(__('Does your plugins and themes are up to date?')),
             (new li())->text(__('Note if some plugins crash your installation, go back here to disable or to remove or to update them.')),
+            (new li())->text(__('Once update done, do not forget to check and update blogs themes.')),
         ];
 
         Page::open(
@@ -97,6 +98,10 @@ class Home extends Process
                 ['home_link' => false]
             )
         );
+
+        echo (new Text('p', __("You are on a dashboard dedicated to Dotclear's update.")))
+            ->class('message')
+            ->render();
 
         echo (new Div('dashboard-main'))
             ->items([
