@@ -12,9 +12,9 @@ namespace Dotclear\Process\Backend;
 
 use dcCore;
 use Dotclear\App;
-use Dotclear\Core\Backend\Update;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
+use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
@@ -175,7 +175,6 @@ class Rest extends Process
                     '<a class="button" href="' . App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
-                        ($updater->getWarning() ? '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>' : '') .
                         '</div>';
                 } else {
                     $ret = '<p class="info">' .
