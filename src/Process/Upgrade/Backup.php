@@ -16,9 +16,17 @@ use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
+use Dotclear\Helper\Html\Form\{
+    Div,
+    Form,
+    Label,
+    Para,
+    Radio,
+    Submit,
+    Text
+};
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   Core backup and restore page.
@@ -50,9 +58,14 @@ class Backup extends Process
                     ]
                 )
             );
-            echo
-            '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('Backup directory does not exist') . '</p>';
+
+            echo (new Para())
+                ->items([
+                    (new Text('h3', __('Precheck update error'))),
+                    (new Text('p', __('It seems that backup directory does not exist, upgrade can not be performed.'))),
+                ])
+                ->render();
+
             Page::close();
             exit;
         }
@@ -104,6 +117,52 @@ class Backup extends Process
 
     public static function render(): void
     {
+        if (empty(self::$archives)) {
+            $items[] = (new Text('p', __('There are no backups available.')))
+                ->class('info');
+        } else {
+            $archives = self::$archives;
+            $items[]  = (new Text('h3', __('Update backup files')));
+            $items[]  = (new Text('p', __('The following files are backups of previously updates. You can revert your previous installation or delete theses files.')));
+
+            echo
+            '<form action="' . App::upgrade()->url()->get('upgrade.backup') . '" method="post">';
+
+            $options = [];
+            $i       = 0;
+            foreach ($archives as $archive) {
+                $i++;
+                $options[] = (new Para())
+                    ->items([
+                        (new Radio(['backup_file', 'backup_file' . $i]))
+                            ->value(Html::escapeHTML($archive)),
+                        (new Label(Html::escapeHTML($archive), Label::OUTSIDE_LABEL_AFTER, 'backup_file' . $i))
+                            ->class('classic'),
+                    ]);
+            }
+
+            $items[] = (new Form('bck'))
+                ->method('post')
+                ->action(App::upgrade()->url()->get('upgrade.backup'))
+                ->fields([
+                    ...$options,
+                    (new Para())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
+                            (new Text('', sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
+                        ]),
+                    (new Para())
+                        ->separator(' ')
+                        ->items([
+                            App::nonce()->formNonce(),
+                            (new Submit(['b_del'], __('Delete selected file')))
+                                ->class('delete'),
+                            (new Submit(['b_revert'], __('Revert to selected file'))),
+                        ]),
+                ]);
+        }
+
         Page::open(
             __('Backups'),
             '',
@@ -115,31 +174,7 @@ class Backup extends Process
             )
         );
 
-        if (empty(self::$archives)) {
-            echo
-            '<p class="info">' . __('There are no backups available.') . '</p>';
-        } else {
-            $archives = self::$archives;
-            echo
-            '<h3>' . __('Update backup files') . '</h3>' .
-            '<p>' . __('The following files are backups of previously updates. You can revert your previous installation or delete theses files.') . '</p>';
-
-            echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.backup') . '" method="post">';
-            foreach ($archives as $archive) {
-                echo
-                '<p><label class="classic">' . form::radio(['backup_file'], Html::escapeHTML($archive)) . ' ' .
-                Html::escapeHTML($archive) . '</label></p>';
-            }
-
-            echo
-            '<p><strong>' . __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.') . '</strong> ' .
-            sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)) . '</p>' .
-            '<p><input type="submit" class="delete" name="b_del" value="' . __('Delete selected file') . '" /> ' .
-            '<input type="submit" name="b_revert" value="' . __('Revert to selected file') . '" />' .
-            App::nonce()->getFormNonce() . '</p>' .
-            '</form>';
-        }
+        echo (new Div())->items($items)->render();
 
         Page::helpBlock('core_backup');
         Page::close();
