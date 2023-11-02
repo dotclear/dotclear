@@ -116,7 +116,7 @@ class Home extends Process
                                     ->class('box medium')
                                     ->items([
                                         (new Text('h3', __('Help'))),
-                                        (new Text('p', __('Before performing update you should take into account some informations listed bellow:') )),
+                                        (new Text('p', __('Before performing update you should take into account some informations listed bellow:'))),
                                         (new Ul())
                                             ->items($helps),
                                     ]),

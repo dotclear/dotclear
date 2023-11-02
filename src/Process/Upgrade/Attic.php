@@ -195,7 +195,6 @@ class Attic extends Process
                     break;
             }
         } catch (Exception $e) {
-            pdump($e);
             $msg = $e->getMessage();
 
             if ($e->getCode() == self::$updater::ERR_FILES_CHANGED) {
@@ -228,17 +227,6 @@ class Attic extends Process
             App::upgrade()->killAdminSession();
         }
 
-        Page::open(
-            __('Dotclear update'),
-            '',
-            Page::breadcrumb(
-                [
-                    __('Dotclear update') => '',
-                    __('Attic')           => '',
-                ]
-            )
-        );
-
         $items = [];
 
         if (empty(self::$step)) {
@@ -246,7 +234,7 @@ class Attic extends Process
             if (empty(self::$releases)) {
                 $items[] = (new Para())
                     ->items([
-                        (new Text('string', __('No newer Dotclear version available.'))),
+                        (new Text('strong', __('No newer Dotclear version available.'))),
                     ]);
 
                 if (App::error()->flag() || empty($_GET['nocache'])) {
@@ -256,7 +244,7 @@ class Attic extends Process
                         ->fields([
                             (new Para())
                                 ->items([
-                                    (new Hidden(['process'], 'Upgrade')),
+                                    (new Hidden(['process'], 'Attic')),
                                     (new Hidden(['nocache'], '1')),
                                     (new Submit(['submit'], __('Force checking update Dotclear'))),
                                 ]),
@@ -349,6 +337,17 @@ class Attic extends Process
                         ]),
                 ]);
         }
+
+        Page::open(
+            __('Dotclear update'),
+            '',
+            Page::breadcrumb(
+                [
+                    __('Dotclear update') => '',
+                    __('Attic')           => '',
+                ]
+            )
+        );
 
         if (!empty($items)) {
             echo (new Div())->items($items)->render();

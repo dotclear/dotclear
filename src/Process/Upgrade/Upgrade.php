@@ -14,6 +14,15 @@ use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\{
+    Div,
+    Form,
+    Hidden,
+    Link,
+    Para,
+    Submit,
+    Text
+};
 use Exception;
 
 /**
@@ -46,9 +55,13 @@ class Upgrade extends Process
                     ]
                 )
             );
-            echo
-            '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('It seems that backup directory does not exist, upgrade can not be performed.') . '</p>';
+
+            echo (new Para())
+                ->items([
+                    (new Text('h3', __('Precheck update error'))),
+                    (new Text('p', __('It seems that backup directory does not exist, upgrade can not be performed.'))),
+                ])
+                ->render();
 
             Page::helpBlock('core_upgrade');
             Page::close();
@@ -66,9 +79,13 @@ class Upgrade extends Process
                     ]
                 )
             );
-            echo
-            '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('It seems that there are no "digests" file on your system, upgrade can not be performed.') . '</p>';
+
+            echo (new Para())
+                ->items([
+                    (new Text('h3', __('Precheck update error'))),
+                    (new Text('p', __('It seems that there are no "digests" file on your system, upgrade can not be performed.'))),
+                ])
+                ->render();
 
             Page::helpBlock('core_upgrade');
             Page::close();
@@ -180,7 +197,85 @@ class Upgrade extends Process
         if (self::$step == 'unzip' && !App::error()->flag()) {
             // Update done, need to go back to authentication (see below), but we need
             // to kill the admin session before sending any header
-            App::backend()->killAdminSession();
+            App::upgrade()->killAdminSession();
+        }
+
+        if (!self::$step) {
+            // Warning about PHP version if necessary
+            if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
+                $items[] = (new Text('p', sprintf(
+                    __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+                    App::config()->nextRequiredPhp(),
+                    phpversion()
+                )))
+                    ->class('info more-info');
+            }
+            if (empty(self::$new_ver)) {
+                $items[] = (new Para())
+                    ->items([
+                        (new Text('strong', __('No newer Dotclear version available.'))),
+                    ]);
+
+                if (App::error()->flag() || empty($_GET['nocache'])) {
+                    $items[] = (new Form('updcache'))
+                        ->method('get')
+                        ->action(App::upgrade()->url()->get('upgrade.upgrade'))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Hidden(['process'], 'Upgrade')),
+                                    (new Hidden(['nocache'], '1')),
+                                    (new Submit(['submit'], __('Force checking update Dotclear'))),
+                                ]),
+                        ]);
+                }
+            } else {
+                $items[] = (new Para())
+                    ->class('static-msg dc-update updt-info')
+                    ->separator(' ')
+                    ->items([
+                        (new Text('', sprintf(__('Dotclear %s is available.'), self::$new_ver))),
+                        self::$version_info ?
+                            (new Link())
+                                ->href(self::$version_info)
+                                ->title(__('Information about this version'))
+                                ->text(__('Information about this version'))
+                            : (new Text('', '')),
+                    ]);
+
+                if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
+                    $items[] = (new Text('p', sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion())))
+                        ->class('warning-msg');
+                } else {
+                    if (self::$update_warning) {
+                        $items[] = (new Text('p', __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).')))
+                            ->class('warning-msg');
+                    }
+
+                    $items[] = (new Text('p', __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.')));
+                    $items[] = (new Form('updcheck'))
+                        ->method('get')
+                        ->action(App::upgrade()->url()->get('upgrade.upgrade'))
+                        ->fields([
+                            (new Hidden(['step'], 'check')),
+                            (new Hidden(['process'], 'Upgrade')),
+                            (new Submit(['submit'], __('Update Dotclear'))),
+                        ]);
+                }
+            }
+        } elseif (self::$step == 'unzip' && !App::error()->flag()) {
+            $items[] = (new Div())
+                ->items([
+                    (new Text('p', __("Congratulations, you're one click away from the end of the update.")))
+                        ->class('message'),
+                    (new Para())
+                        ->items([
+                            (new Link())
+                                ->class('button submit')
+                                ->href(App::upgrade()->url()->get('upgrade.auth'))
+                                ->text(__('Finish the update.')),
+                        ]),
+                ]);
         }
 
         Page::open(
@@ -196,59 +291,8 @@ class Upgrade extends Process
             )
         );
 
-        if (!self::$step) {
-            // Warning about PHP version if necessary
-            if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
-                echo
-                '<p class="info more-info">' .
-                sprintf(
-                    __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-                    App::config()->nextRequiredPhp(),
-                    phpversion()
-                ) .
-                '</p>';
-            }
-            if (empty(self::$new_ver)) {
-                echo
-                '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>';
-
-                if (App::error()->flag() || empty($_GET['nocache'])) {
-                    echo
-                    '<form action="' . App::upgrade()->url()->get('upgrade.upgrade') . '" method="get">' .
-                    '<p><input type="hidden" name="process" value="Upgrade" />' .
-                    '<p><input type="hidden" name="nocache" value="1" />' .
-                    '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
-                    '</form>';
-                }
-            } else {
-                echo
-                '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), self::$new_ver) .
-                (self::$version_info ? ' <a href="' . self::$version_info . '" title="' . __('Information about this version') . '">(' .
-                __('Information about this version') . ')</a>' : '') .
-                '</p>';
-                if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
-                    echo
-                    '<p class="warning-msg">' . sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion()) . '</p>';
-                } else {
-                    if (self::$update_warning) {
-                        echo
-                        '<p class="warning-msg">' . __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).') . '</p>';
-                    }
-                    echo
-                    '<p>' . __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.') . '</p>' .
-                    '<form action="' . App::upgrade()->url()->get('upgrade.upgrade') . '" method="get">' .
-                    '<p><input type="hidden" name="step" value="check" />' .
-                    '<p><input type="hidden" name="process" value="Upgrade" />' .
-                    '<input type="submit" value="' . __('Update Dotclear') . '" /></p>' .
-                    '</form>';
-                }
-            }
-        } elseif (self::$step == 'unzip' && !App::error()->flag()) {
-            echo
-            '<p class="message">' .
-            __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="' . App::upgrade()->url()->get('upgrade.auth') . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
-            '</p>';
+        if (!empty($items)) {
+            echo (new Div())->items($items)->render();
         }
 
         Page::helpBlock('core_upgrade');
