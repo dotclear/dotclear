@@ -15,9 +15,19 @@ use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\UpdateAttic;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\{
+    Div,
+    Form,
+    Hidden,
+    Label,
+    Link,
+    Para,
+    Radio,
+    Submit,
+    Text
+};
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   Core incremental upgrade process page.
@@ -66,13 +76,17 @@ class Attic extends Process
                 Page::breadcrumb(
                     [
                         __('Dotclear update') => '',
-                        __('Incremental')     => '',
+                        __('Attic')           => '',
                     ]
                 )
             );
-            echo
-            '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('It seems that backup directory does not exist, upgrade can not be performed.') . '</p>';
+
+            echo (new Para())
+                ->items([
+                    (new Text('h3', __('Precheck update error'))),
+                    (new Text('p', __('It seems that backup directory does not exist, upgrade can not be performed.'))),
+                ])
+                ->render();
 
             Page::helpBlock('core_upgrade');
             Page::close();
@@ -86,13 +100,17 @@ class Attic extends Process
                 Page::breadcrumb(
                     [
                         __('Dotclear update') => '',
-                        __('Incremental')     => '',
+                        __('Attic')           => '',
                     ]
                 )
             );
-            echo
-            '<h3>' . __('Precheck update error') . '</h3>' .
-            '<p>' . __('It seems that there are no "digests" file on your system, upgrade can not be performed.') . '</p>';
+
+            echo (new Para())
+                ->items([
+                    (new Text('h3', __('Precheck update error'))),
+                    (new Text('p', __('It seems that there are no "digests" file on your system, upgrade can not be performed.'))),
+                ])
+                ->render();
 
             Page::helpBlock('core_upgrade');
             Page::close();
@@ -163,22 +181,21 @@ class Attic extends Process
 
                     break;
                 case 'unzip':
-                    /*                    self::$updater->performUpgrade(
-                                            self::$zip_file,
-                                            'dotclear/inc/digests',
-                                            'dotclear',
-                                            App::config()->dotclearRoot(),
-                                            App::config()->dotclearRoot() . '/inc/digests'
-                                        );
-                    */
+                    self::$updater->performUpgrade(
+                        self::$zip_file,
+                        'dotclear/inc/digests',
+                        'dotclear',
+                        App::config()->dotclearRoot(),
+                        App::config()->dotclearRoot() . '/inc/digests'
+                    );
+
                     // Disable REST service until next authentication
                     App::rest()->enableRestServer(false);
-
-                    Notices::addSuccessNotice(__('Dotclear overwrited successfully'));
 
                     break;
             }
         } catch (Exception $e) {
+            pdump($e);
             $msg = $e->getMessage();
 
             if ($e->getCode() == self::$updater::ERR_FILES_CHANGED) {
@@ -222,73 +239,119 @@ class Attic extends Process
             )
         );
 
+        $items = [];
+
         if (empty(self::$step)) {
             // No redirect avec each step as we need selected version in a POST form
             if (empty(self::$releases)) {
-                echo
-                '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>';
+                $items[] = (new Para())
+                    ->items([
+                        (new Text('string', __('No newer Dotclear version available.'))),
+                    ]);
 
                 if (App::error()->flag() || empty($_GET['nocache'])) {
-                    echo
-                    '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="get">' .
-                    '<p><input type="hidden" name="process" value="Upgrade" />' .
-                    '<p><input type="hidden" name="nocache" value="1" />' .
-                    '<input type="submit" value="' . __('Force checking update Dotclear') . '" /></p>' .
-                    '</form>';
+                    $items[] = (new Form('atticcache'))
+                        ->method('get')
+                        ->action(App::upgrade()->url()->get('upgrade.attic'))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Hidden(['process'], 'Upgrade')),
+                                    (new Hidden(['nocache'], '1')),
+                                    (new Submit(['submit'], __('Force checking update Dotclear'))),
+                                ]),
+                        ]);
                 }
             } else {
-                echo
-                '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
-                '<h3>' . sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')) . '</h3>' .
-                '<p>' . __('Select intermediate stable release to update to:') . '</p>';
-
+                $options = [];
+                $i       = 0;
                 foreach (self::$releases as $version => $release) {
-                    echo
-                    '<p><label class="classic">' . form::radio(['version'], Html::escapeHTML($version)) . ' ' .
-                    Html::escapeHTML($version) . '</label></p>';
+                    $i++;
+                    $options[] = (new Para())
+                        ->items([
+                            (new Radio(['version', 'version' . $i]))
+                                ->value(Html::escapeHTML($version)),
+                            (new Label(Html::escapeHTML($version), Label::OUTSIDE_LABEL_AFTER, 'version' . $i))
+                                ->class('classic'),
+                        ]);
                 }
 
-                echo
-                '<p><input type="hidden" name="step" value="check" />' .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" value="' . __('Continue to integrity') . '" /></p>' .
-                '</form>';
+                $items[] = (new Form('atticstep1'))
+                    ->method('post')
+                    ->action(App::upgrade()->url()->get('upgrade.attic'))
+                    ->fields([
+                        (new Text('h3', sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')))),
+                        (new Text('p', __('Select intermediate stable release to update to:'))),
+                        ... $options,
+                        (new Para())
+                            ->items([
+                                (new Hidden(['step'], 'check')),
+                                App::nonce()->formNonce(),
+                                (new Submit(['submit'], __('Continue to integrity'))),
+                            ]),
+                    ]);
             }
         } elseif (self::$step == 'check' && !App::error()->flag()) {
-            echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
-            '<h3>' . sprintf(__('Step %s of %s: %s'), '2', '5', __('Integrity')) . '</h3>' .
-            '<p>' . sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion())) . '</p>' .
-            '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
-            '<p><input type="hidden" name="step" value="download" />' .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" value="' . __('Continue to download') . '" /></p>' .
-            '</form>';
+            $items[] = (new Form('atticstep2'))
+                ->method('post')
+                ->action(App::upgrade()->url()->get('upgrade.attic'))
+                ->fields([
+                    (new Text('h3', sprintf(__('Step %s of %s: %s'), '2', '5', __('Integrity')))),
+                    (new Text('p', sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion())))),
+                    (new Para())
+                        ->items([
+                            (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
+                            (new Hidden(['step'], 'download')),
+                            App::nonce()->formNonce(),
+                            (new Submit(['submit'], __('Continue to download'))),
+                        ]),
+                ]);
         } elseif (self::$step == 'download' && !App::error()->flag()) {
-            echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
-            '<h3>' . sprintf(__('Step %s of %s: %s'), '3', '5', __('Download')) . '</h3>' .
-            '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
-            '<p><input type="hidden" name="step" value="backup" />' .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" value="' . __('Continue to backup') . '" /></p>' .
-            '</form>';
+            $items[] = (new Form('atticstep3'))
+                ->method('post')
+                ->action(App::upgrade()->url()->get('upgrade.attic'))
+                ->fields([
+                    (new Text('h3', sprintf(__('Step %s of %s: %s'), '3', '5', __('Download')))),
+                    (new Para())
+                        ->items([
+                            (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
+                            (new Hidden(['step'], 'backup')),
+                            App::nonce()->formNonce(),
+                            (new Submit(['submit'], __('Continue to backup'))),
+                        ]),
+                ]);
         } elseif (self::$step == 'backup' && !App::error()->flag()) {
-            echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.attic') . '" method="post">' .
-            '<h3>' . sprintf(__('Step %s of %s: %s'), '4', '5', __('Backup')) . '</h3>' .
-            '<p><input type="hidden" name="version" value="' . Html::escapeHTML((string) self::$updater->getVersion()) . '" />' .
-            '<p><input type="hidden" name="step" value="unzip" />' .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" value="' . __('Continue to overwrite') . '" /></p>' .
-            '</form>';
+            $items[] = (new Form('atticstep4'))
+                ->method('post')
+                ->action(App::upgrade()->url()->get('upgrade.attic'))
+                ->fields([
+                    (new Text('h3', sprintf(__('Step %s of %s: %s'), '4', '5', __('Backup')))),
+                    (new Para())
+                        ->items([
+                            (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
+                            (new Hidden(['step'], 'unzip')),
+                            App::nonce()->formNonce(),
+                            (new Submit(['submit'], __('Continue to overwrite'))),
+                        ]),
+                ]);
         } elseif (self::$step == 'unzip' && !App::error()->flag()) {
-            echo
-            '<h3>' . sprintf(__('Step %s of %s: %s'), '5', '5', __('Overwrite')) . '</h3>' .
-            '<p class="message">' .
-            __("Congratulations, you're one click away from the end of the update.") .
-            ' <strong><a href="' . App::upgrade()->url()->get('upgrade.auth') . '" class="button submit">' . __('Finish the update.') . '</a></strong>' .
-            '</p>';
+            $items[] = (new Div())
+                ->items([
+                    (new Text('h3', sprintf(__('Step %s of %s: %s'), '5', '5', __('Overwrite')))),
+                    (new Text('p', __("Congratulations, you're one click away from the end of the update.")))
+                        ->class('message'),
+                    (new Para())
+                        ->items([
+                            (new Link())
+                                ->class('button submit')
+                                ->href(App::upgrade()->url()->get('upgrade.auth'))
+                                ->text(__('Finish the update.')),
+                        ]),
+                ]);
+        }
+
+        if (!empty($items)) {
+            echo (new Div())->items($items)->render();
         }
 
         Page::close();
