@@ -7,6 +7,7 @@
   "release_attic_url": "https://download.dotclear.org/attic/versions.xml",
   "release_update_url": "https://download.dotclear.org/versions.xml",
   "release_update_canal": "stable",
+  "release_previous_versions": "https://download.dotclear.org/releases.xml",
 
   "l10n_update_url": "https://services.dotclear.net/dc2.l10n/?version=%s",
 
