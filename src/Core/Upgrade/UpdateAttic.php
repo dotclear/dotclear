@@ -27,7 +27,7 @@ class UpdateAttic extends Update
      *
      * @var     string  CACHE_FILENAME
      */
-    public const CACHE_FILENAME = 'releases.json';
+    public const CACHE_FILENAME = 'dotclear-attic.json';
 
     /**
      * The releases stack.
@@ -58,10 +58,12 @@ class UpdateAttic extends Update
             return '';
         }
 
-        $this->version_info['version']  = $version;
-        $this->version_info['href']     = $this->releases[$version]['href'];
-        $this->version_info['checksum'] = $this->releases[$version]['checksum'];
-        $this->version_info['info']     = $this->releases[$version]['info'];
+        $this->version_info['version']  = isset($this->releases[$version]['version']) ? (string) $this->releases[$version]['version'] : null;
+        $this->version_info['href']     = isset($this->releases[$version]['href']) ? (string) $this->releases[$version]['href'] : null;
+        $this->version_info['checksum'] = isset($this->releases[$version]['checksum']) ? (string) $this->releases[$version]['checksum'] : null;
+        $this->version_info['info']     = isset($this->releases[$version]['info']) ? (string) $this->releases[$version]['info'] : null;
+        $this->version_info['php']      = isset($this->releases[$version]['php']) ? (string) $this->releases[$version]['php'] : null;
+        $this->version_info['warning']  = isset($this->releases[$version]['warning']) ? (bool) $this->releases[$version]['warning'] : false;
 
         return App::config()->backupRoot() . '/' . basename((string) $this->version_info['href']);
     }
@@ -155,14 +157,16 @@ class UpdateAttic extends Update
         }
 
         foreach ($xml->subject->release as $release) {
-            $this->releases[(string) $release['version']] = [
-                'href'     => (string) $release['href'],
-                'checksum' => (string) $release['checksum'],
-                'info'     => (string) $release['info'],
-            ];
+            $v = (string) $release['version'];
+            $this->releases[$v]['version']  = isset($release['version']) ? (string) $release['version'] : null;
+            $this->releases[$v]['href']     = isset($release['href']) ? (string) $release['href'] : null;
+            $this->releases[$v]['checksum'] = isset($release['checksum']) ? (string) $release['checksum'] : null;
+            $this->releases[$v]['info']     = isset($release['info']) ? (string) $release['info'] : null;
+            $this->releases[$v]['php']      = isset($release['php']) ? (string) $release['php'] : null;
+            $this->releases[$v]['warning']  = isset($release['warning']) ? (bool) $release['warning'] : false;
         }
 
-        uksort($this->releases, fn ($a, $b) => version_compare($a, $b, '>') ? 1 : -1);
+        uksort($this->releases, fn ($a, $b) => version_compare($a, $b, '<') ? 1 : -1);
     }
 
     /**

@@ -24,7 +24,10 @@ use Dotclear\Helper\Html\Form\{
     Para,
     Radio,
     Submit,
-    Text
+    Table,
+    Td,
+    Text,
+    Tr
 };
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -134,7 +137,7 @@ class Attic extends Process
 
             self::$releases = self::$updater->getReleases(App::config()->dotclearVersion());
             if (!empty(self::$releases)) {
-                Notices::addWarningNotice(__('There are no additionnal informations about incremental release here, you should carefully read the information post associated with selected release on Dotclear\'s blog.'));
+                Notices::addWarningNotice(__('There are no additionnal informations about releases listed bellow, you should carefully read the information post associated with selected release on Dotclear\'s blog.'));
             }
 
             return true;
@@ -255,17 +258,34 @@ class Attic extends Process
                 $i       = 0;
                 foreach (self::$releases as $version => $release) {
                     $i++;
-                    $options[] = (new Para())
-                    ->separator(' ')
+                    $options[] = (new Tr())
+                        ->class('line')
                         ->items([
-                            (new Radio(['version', 'version' . $i]))
-                                ->value(Html::escapeHTML($version)),
-                            (new Label(Html::escapeHTML($version), Label::OUTSIDE_LABEL_AFTER, 'version' . $i))
-                                ->class('classic'),
-                            (new Link())
-                                ->href($release['info'])
-                                ->title(__('Release note'))
-                                ->text(__('Release note')),
+                            (new Td())
+                                ->class('minimal')
+                                ->items([
+                                    (new Radio(['version', 'version' . $i]))
+                                        ->value(Html::escapeHTML($version)),
+                                ]),
+                            (new Td())
+                                ->class('nowrap')
+                                ->items([
+                                    (new Label(Html::escapeHTML($version), Label::OUTSIDE_LABEL_AFTER, 'version' . $i))
+                                        ->class('classic'),
+                                ]),
+                            (new Td())
+                                ->class('nowrap')
+                                ->items([
+                                    (new Text('', sprintf(__('Required PHP version %s or higher'), $release['php']))),
+                                ]),
+                            (new Td())
+                                ->class('maximal')
+                                ->items([
+                                    (new Link())
+                                        ->href($release['info'])
+                                        ->title(__('Release note'))
+                                        ->text(__('Release note')),
+                                ]),
                         ]);
                 }
 
@@ -275,7 +295,12 @@ class Attic extends Process
                     ->fields([
                         (new Text('h3', sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')))),
                         (new Text('p', __('Select intermediate stable release to update to:'))),
-                        ... $options,
+                        (new Div())
+                            ->class('table-outer')
+                            ->items([
+                                (new Table())
+                                    ->items($options),
+                            ]),
                         (new Para())
                             ->items([
                                 (new Hidden(['step'], 'check')),
