@@ -15,7 +15,10 @@ use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\{
     Div,
+    Img,
     Li,
+    Link,
+    Para,
     Text,
     Ul
 };
@@ -88,6 +91,36 @@ class Home extends Process
             (new li())->text(__('Once update done, do not forget to check and update blogs themes.')),
         ];
 
+        // Icons
+        $icons = (new Div());
+        if (!App::auth()->prefs()->dashboard->nofavicons) {
+            $icons = [];
+            foreach (self::dashboardIcons() as $icon) {
+                if (!$icon[4]) {
+                    continue;
+                }
+                $icons[] = (new Para())
+                    ->items([
+                        (new Link('icon-process-' . $icon[5] . '-fav'))
+                            ->href(App::upgrade()->url()->get((string) $icon[1]))
+                            ->items([
+                                (new Img((string) $icon[2]))
+                                    ->class('light-only'),
+                                (new Img((string) $icon[3]))
+                                    ->class('dark-only'),
+                                (new Text('', '<br/>')),
+                                (new Text('span', (string) $icon[0]))
+                                    ->class('db-icon-title'),
+                            ]),
+                    ]);
+            }
+            $icons = (new Div('dashboard-icons'))
+                ->items([
+                    (new Div('icons'))
+                        ->items($icons),
+                ]);
+        }
+
         Page::open(
             __('Dashboard'),
             Page::jsLoad('js/_upgrade.js') .
@@ -106,6 +139,7 @@ class Home extends Process
 
         echo (new Div('dashboard-main'))
             ->items([
+                $icons,
                 (new Div('dashboard-boxes'))
                     ->items([
                         (new Div('db-items'))
@@ -132,5 +166,64 @@ class Home extends Process
             ->render();
 
         Page::close();
+    }
+
+    /**
+     * @return  array<int, array<int, string|bool>>
+     */
+    private static function dashboardIcons()
+    {
+        return [
+            [
+                __('Update'),
+                'upgrade.upgrade',
+                'images/menu/update.svg',
+                'images/menu/update-dark.svg',
+                App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+                'Upgrade',
+            ], [
+                __('Attic'),
+                'upgrade.attic',
+                'images/menu/blog-pref.svg',
+                'images/menu/blog-pref-dark.svg',
+                App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+                'Attic',
+            ], [
+                __('Backups'),
+                'upgrade.backup',
+                'images/menu/backup.svg',
+                'images/menu/backup-dark.svg',
+                App::auth()->isSuperAdmin(),
+                'Backup',
+            ], [
+                __('Languages'),
+                'upgrade.langs',
+                'images/menu/langs.svg',
+                'images/menu/langs-dark.svg',
+                App::auth()->isSuperAdmin(),
+                'Langs',
+            ], [
+                __('Plugins'),
+                'upgrade.plugins',
+                'images/menu/plugins.svg',
+                'images/menu/plugins-dark.svg',
+                App::auth()->isSuperAdmin(),
+                'Plugins',
+            ], [
+                __('Cache'),
+                'upgrade.cache',
+                'images/menu/tools.svg',
+                'images/menu/tools-dark.svg',
+                App::auth()->isSuperAdmin(),
+                'Cache',
+            ], [
+                __('Digests'),
+                'upgrade.digests',
+                'images/menu/edit.svg',
+                'images/menu/edit-dark.svg',
+                App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+                'Digests',
+            ],
+        ];
     }
 }
