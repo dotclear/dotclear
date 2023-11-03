@@ -338,7 +338,7 @@ class Config implements ConfigInterface
         }
 
         if (!defined('DC_ATTIC_URL')) {
-            define('DC_ATTIC_URL', $this->release('release_attic_url'));
+            define('DC_ATTIC_URL', $this->release('release_previous_versions'));
         }
 
         if (!defined('DC_UPDATE_VERSION')) {
