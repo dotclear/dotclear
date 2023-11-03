@@ -249,7 +249,7 @@ abstract class Actions
     {
         $ret = '';
         foreach (array_keys($this->entries) as $id) {
-            $ret .= (new Hidden($this->field_entries . '[]', $id))->render();
+            $ret .= (new Hidden($this->field_entries . '[]', (string) $id))->render();
         }
 
         return $ret;
@@ -264,7 +264,7 @@ abstract class Actions
     {
         $ret = [];
         foreach (array_keys($this->entries) as $id) {
-            $ret[] = (new Hidden($this->field_entries . '[]', $id));
+            $ret[] = (new Hidden($this->field_entries . '[]', (string) $id));
         }
 
         return $ret;
@@ -358,7 +358,12 @@ abstract class Actions
             $redirect_args[$this->field_entries] = array_keys($this->entries);
         }
 
-        return $this->uri . (str_contains((string) $this->uri, '?') ? '&' : '?') . http_build_query($redirect_args) . $this->redir_anchor;
+        $args = http_build_query($redirect_args);
+        // Dirty hack to get back %[n]= instead of [n]= instead of %5B{0..9}%5D= in URLs used for named array,
+        // as http_build_query urlencode() its result.
+        $args = preg_replace('/\%5B((\d)+?\%5D=)*/', '[$2]=', (string) $args);
+
+        return $this->uri . (str_contains((string) $this->uri, '?') ? '&' : '?') . $args . $this->redir_anchor;
     }
 
     /**
@@ -500,7 +505,7 @@ abstract class Actions
                             ->colspan(2)
                             ->text($this->cb_title),
                     ]),
-                ... $items,
+                ...$items,
             ]);
     }
 
