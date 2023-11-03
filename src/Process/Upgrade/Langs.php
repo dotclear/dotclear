@@ -17,12 +17,27 @@ use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
+use Dotclear\Helper\Html\Form\{
+    Div,
+    File,
+    Form,
+    Hidden,
+    Label,
+    Para,
+    Password,
+    Select,
+    Submit,
+    Table,
+    Td,
+    Th,
+    Text,
+    Tr
+};
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
-use form;
 
 /**
  * @brief   Langs management page.
@@ -229,6 +244,8 @@ class Langs extends Process
 
     public static function render(): void
     {
+        $items = [];
+
         Page::open(
             __('Languages management'),
             Page::jsLoad('js/_langs.js'),
@@ -240,11 +257,8 @@ class Langs extends Process
             )
         );
 
-        echo
-        '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear installation.') . '</p>';
-
-        echo
-        '<h3>' . __('Installed languages') . '</h3>';
+        $items[] = (new Text('p', __('Here you can install, upgrade or remove languages for your Dotclear installation.')));
+        $items[] = (new Text('h3', __('Installed languages')));
 
         $langs      = scandir(App::config()->l10nRoot());
         $langs_list = [];
@@ -259,48 +273,73 @@ class Langs extends Process
         }
 
         if (empty($langs_list)) {
-            echo
-            '<p><strong>' . __('No additional language is installed.') . '</strong></p>';
+            $items[] = (new Para())
+                ->items([
+                    (new Text('strong', __('No additional language is installed.'))),
+                ]);
         } else {
-            echo
-            '<div class="table-outer clear">' .
-            '<table class="plugins"><tr>' .
-            '<th>' . __('Language') . '</th>' .
-            '<th class="nowrap">' . __('Action') . '</th>' .
-            '</tr>';
-
+            $options = [];
+            $i       = 0;
             foreach ($langs_list as $lang_code => $lang) {
-                $is_deletable = self::$is_writable && is_writable($lang);
-
-                echo
-                '<tr class="line wide">' .
-                '<td class="maximal nowrap" lang="' . $lang_code . '">(' . $lang_code . ') ' .
-                '<strong>' . Html::escapeHTML(self::$iso_codes[$lang_code]) . '</strong></td>' .
-                '<td class="nowrap action">';
-
-                if ($is_deletable) {
-                    echo
-                    '<form action="' . App::upgrade()->url()->get('upgrade.langs') . '" method="post">' .
-                    '<div>' .
-                    App::nonce()->getFormNonce() .
-                    form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
-                    '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
-                    '</div>' .
-                    '</form>';
+                $actions = [];
+                if (self::$is_writable && is_writable($lang)) {
+                    $actions[] = (new Form('options_' . $i++))
+                        ->method('post')
+                        ->action(App::upgrade()->url()->get('upgrade.langs'))
+                        ->fields([
+                            (new Div())
+                                ->items([
+                                    App::nonce()->formNonce(),
+                                    (new Hidden(['locale_id'], Html::escapeHTML($lang_code))),
+                                    (new Submit(['delete'], __('Delete')))
+                                        ->class('delete'),
+                                ]),
+                        ]);
                 }
 
-                echo
-                '</td></tr>';
+                $options[] = (new Tr())
+                    ->class('line wide')
+                    ->items([
+                        (new Td())
+                            ->class('maximal nowrap')
+                            ->lang($lang_code)
+                            ->separator(' ')
+                            ->items([
+                                (new Text('', '(' . $lang_code . ')')),
+                                (new Text('strong', Html::escapeHTML(self::$iso_codes[$lang_code]))),
+                            ]),
+                        (new Td())
+                            ->class('action nowrap')
+                            ->items($actions),
+                    ]);
             }
-            echo
-            '</table></div>';
+
+            $items[] = (new Div())
+                ->class('table-outer clear')
+                ->items([
+                    (new Table())
+                        ->class('plugins')
+                        ->items([
+                            (new Tr())
+                                ->items([
+                                    (new Th())
+                                        ->text(__('Language')),
+                                    (new Th())
+                                        ->class('nowrap')
+                                        ->text(__('Action')),
+                                ]),
+                            ...$options,
+                        ]),
+                ]);
         }
 
-        echo '<h3>' . __('Install or upgrade languages') . '</h3>';
+        $items[] = (new Text('h3', __('Install or upgrade languages')));
 
         if (!self::$is_writable) {
-            echo '<p>' . sprintf(__('You can install or remove a language by adding or ' .
-        'removing the relevant directory in your %s folder.'), '<strong>locales</strong>') . '</p>';
+            $items[] = (new Text('p', sprintf(
+                __('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),
+                '<strong>locales</strong>'
+            )));
         }
 
         if (is_array(self::$dc_langs) && !empty(self::$dc_langs) && self::$is_writable) {
@@ -311,50 +350,97 @@ class Langs extends Process
                 }
             }
 
-            echo
-            '<form method="post" action="' . App::upgrade()->url()->get('upgrade.langs') . '" enctype="multipart/form-data" class="fieldset">' .
-            '<h4>' . __('Available languages') . '</h4>' .
-            '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
-                'Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>') . '</p>' .
-            '<p class="field"><label for="pkg_url" class="classic">' . __('Language:') . '</label> ' .
-            form::combo(['pkg_url'], $dc_langs_combo) . '</p>' .
-            '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-            form::password(
-                ['your_pwd', 'your_pwd1'],
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password', ]
-            ) . '</p>' .
-            '<p><input type="submit" value="' . __('Install language') . '" />' .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</form>';
+            $items[] = (new Form('langavailable'))
+                ->class('fieldset')
+                ->method('post')
+                ->action(App::upgrade()->url()->get('upgrade.langs'))
+                ->extra('enctype="multipart/form-data"')
+                ->fields([
+                    (new Text('h4', __('Available languages'))),
+                    (new Text('p', sprintf(
+                        __('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'),
+                        '<strong>' . App::config()->dotclearVersion() . '</strong>'
+                    ))),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new Label(__('Language:')))
+                                ->class('classic')
+                                ->for('pkg_url'),
+                            (new Select(['pkg_url']))
+                                ->items($dc_langs_combo),
+                        ]),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new Password(['your_pwd', 'your_pwd1']))
+                                ->placeholder(__('Your password:'))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->required(true)
+                                ->autocomplete('current-password')
+                                ->label((new Label(
+                                    __('Your password:'),
+                                    Label::OUTSIDE_LABEL_BEFORE
+                                ))),
+                        ]),
+                    App::nonce()->formNonce(),
+                    (new Submit(['install'], __('Install language'))),
+
+                ]);
         }
 
         if (self::$is_writable) {
             # 'Upload language pack' form
-            echo
-            '<form method="post" action="' . App::upgrade()->url()->get('upgrade.langs') . '" enctype="multipart/form-data" class="fieldset">' .
-            '<h4>' . __('Upload a zip file') . '</h4>' .
-            '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
-            '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .
-            '<input type="file" id="pkg_file" name="pkg_file" required /></p>' .
-            '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-            form::password(
-                ['your_pwd', 'your_pwd2'],
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password', ]
-            ) . '</p>' .
-            '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</form>';
+            $items[] = (new Form('langupload'))
+                ->class('fieldset')
+                ->method('post')
+                ->action(App::upgrade()->url()->get('upgrade.langs'))
+                ->extra('enctype="multipart/form-data"')
+                ->fields([
+                    (new Text('h4', __('Upload a zip file'))),
+                    (new Text('p', __('You can install languages by uploading zip files.'))),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new File('pkg_file'))
+                                ->size(30)
+                                ->required(true)
+                                ->label(
+                                    (new Label(
+                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:'),
+                                        Label::OUTSIDE_LABEL_BEFORE
+                                    ))
+                                    ->class('classic required')
+                                ),
+                        ]),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new Password(['your_pwd', 'your_pwd2']))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->required(true)
+                                ->placeholder(__('Password'))
+                                ->autocomplete('current-password')
+                                ->label(
+                                    (new Label(
+                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:'),
+                                        Label::OUTSIDE_LABEL_BEFORE
+                                    ))
+                                    ->class('classic required')
+                                ),
+                        ]),
+
+                    (new Para())
+                        ->items([
+                            App::nonce()->formNonce(),
+                            (new Submit(['upload_pkg'], __('Upload language'))),
+                        ]),
+                ]);
         }
+
+        echo (new Div())->items($items)->render();
 
         Page::helpBlock('core_langs');
         Page::close();
