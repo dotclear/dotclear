@@ -1039,7 +1039,7 @@ class Page
             'xhtml_not_valid'                      => __('There are HTML markup errors.'),
             'warning_validate_no_save_content'     => __('Attention: an audit of a content not yet registered.'),
             'confirm_change_post_format'           => __('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?'),
-            'confirm_change_post_format_noconvert' => __('Warning: post format change will not convert existing content. You will need to apply new format by yourstatic. Proceed anyway?'),
+            'confirm_change_post_format_noconvert' => __('Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?'),
             'load_enhanced_uploader'               => __('Loading enhanced uploader, please wait.'),
 
             'module_author'  => __('Author:'),
