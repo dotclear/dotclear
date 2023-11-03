@@ -70,7 +70,8 @@ class Home extends Process
 
         if (is_dir(App::config()->dotclearRoot() . DIRECTORY_SEPARATOR . '.git')) {
             $infos[] = (new li())->text(__('Your are using developement release, some features are not available.'));
-        } elseif (!is_readable(App::config()->digestsRoot())) {
+        }
+        if (!is_readable(App::config()->digestsRoot())) {
             $infos[] = (new li())->text(sprintf(__('Dotclear digests file "%s" is not readable.'), App::config()->digestsRoot()));
         }
 

@@ -113,7 +113,7 @@ class Page extends BackendPage
         $js['servicesUri']    = App::upgrade()->url()->get('admin.rest');
         $js['servicesOff']    = !App::rest()->serveRestRequests();
         $js['noDragDrop']     = (bool) App::auth()->prefs()->accessibility->nodragdrop;
-        $js['debug']          = false;
+        $js['debug']          = App::config()->debugMode();
         $js['showIp']         = false;
 
         // Set some JSON data
@@ -130,15 +130,17 @@ class Page extends BackendPage
         '<ul id="prelude">' .
         '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
         '<li><a href="#main-menu">' . __('Go to the menu') . '</a></li>' .
+        '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
         '<h1><a href="' . App::upgrade()->url()->get('upgrade.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . App::config()->vendorName() . '</span></a></h1>' . "\n";
 
         echo
         '<form action="' . App::upgrade()->url()->get('upgrade.home') . '" method="post" id="top-info-blog">' .
+        '<p><strong>' . __("Dotclear's update dashboard") . '</strong></p>' .
         '</form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="smallscreen" href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Back to normal dashboard') . '</a></li>' .
+        '<li><a class="smallscreen" href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Go to normal dashboard') . '</a></li>' .
         '<li><a href="' . App::upgrade()->url()->get('upgrade.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
             '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
@@ -168,7 +170,7 @@ class Page extends BackendPage
         if (!App::upgrade()->resources()->context()) {
             if (!App::auth()->prefs()->interface->hidehelpbutton) {
                 echo
-                '<p id="help-button"><a href="#" class="outgoing" title="' .
+                '<p id="help-button"><a href="' . App::upgrade()->url()->get('upgrade.home') . '" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
             }
         }
@@ -315,7 +317,7 @@ class Page extends BackendPage
         '</div>' .
         '<div id="helplink"><hr />' .
         '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="#">%s</a>', __('the global help'))) .
+        sprintf(__('See also %s'), sprintf('<a href="%s">%s</a>',App::upgrade()->url()->get('upgrade.home'), __('the global help'))) .
             '.</p>' .
             '</div></div>';
     }
