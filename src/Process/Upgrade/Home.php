@@ -82,7 +82,7 @@ class Home extends Process
         // Help
         $helps = [
             (new li())->text(__("Do you read the official post about this release on Dotclear's blog?")),
-            (new li())->text(__('Does your system support next release requirements like PHP version?')),
+            (new li())->text(__('Does your system support this release requirements like PHP version?')),
             (new li())->text(__('Does your plugins and themes are up to date?')),
             (new li())->text(__('Note if some plugins crash your installation, go back here to disable or to remove or to update them.')),
             (new li())->text(__('Once update done, do not forget to check and update blogs themes.')),
@@ -121,7 +121,7 @@ class Home extends Process
                                 (new Div())
                                     ->class('box medium')
                                     ->items([
-                                        (new Text('h3', __('Help'))),
+                                        (new Text('h3', __('Warning'))),
                                         (new Text('p', __('Before performing update you should take into account some informations listed bellow:'))),
                                         (new Ul())
                                             ->items($helps),

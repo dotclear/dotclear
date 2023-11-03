@@ -317,7 +317,7 @@ class Page extends BackendPage
         '</div>' .
         '<div id="helplink"><hr />' .
         '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="%s">%s</a>',App::upgrade()->url()->get('upgrade.home'), __('the global help'))) .
+        sprintf(__('See also %s'), sprintf('<a href="%s">%s</a>', App::upgrade()->url()->get('upgrade.home'), __('the global help'))) .
             '.</p>' .
             '</div></div>';
     }

@@ -16,15 +16,17 @@ use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Zip\Zip;
-use Dotclear\Helper\Html\Form\Checkbox;
-use Dotclear\Helper\Html\Form\Div;
-use Dotclear\Helper\Html\Form\Form;
-use Dotclear\Helper\Html\Form\Hidden;
-use Dotclear\Helper\Html\Form\Label;
-use Dotclear\Helper\Html\Form\Link;
-use Dotclear\Helper\Html\Form\Para;
-use Dotclear\Helper\Html\Form\Submit;
-use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\{
+    Checkbox,
+    Div,
+    Form,
+    Hidden,
+    Label,
+    Link,
+    Para,
+    Submit,
+    Text
+};
 use Dotclear\Helper\L10n;
 use Exception;
 
