@@ -18,12 +18,14 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this fields(array $fields)
  * @method      $this items(array $items)
  * @method      $this separator(string $separator)
+ * @method      $this enctype(string $enctype)
  *
  * @property    null|string $action
  * @property    string $method
  * @property    array $fields
  * @property    array $items
  * @property    string $separator
+ * @property    string $enctype
  */
 class Form extends Component
 {
@@ -59,6 +61,7 @@ class Form extends Component
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             (isset($this->action) ? ' action="' . $this->action . '"' : '') .
             (isset($this->method) ? ' method="' . $this->method . '"' : '') .
+            (isset($this->enctype) ? ' enctype="' . $this->enctype . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
         $first = true;
