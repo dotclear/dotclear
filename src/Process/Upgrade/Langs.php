@@ -354,7 +354,7 @@ class Langs extends Process
                 ->class('fieldset')
                 ->method('post')
                 ->action(App::upgrade()->url()->get('upgrade.langs'))
-                ->extra('enctype="multipart/form-data"')
+                ->enctype('multipart/form-data')
                 ->fields([
                     (new Text('h4', __('Available languages'))),
                     (new Text('p', sprintf(
@@ -396,7 +396,7 @@ class Langs extends Process
                 ->class('fieldset')
                 ->method('post')
                 ->action(App::upgrade()->url()->get('upgrade.langs'))
-                ->extra('enctype="multipart/form-data"')
+                ->enctype('multipart/form-data')
                 ->fields([
                     (new Text('h4', __('Upload a zip file'))),
                     (new Text('p', __('You can install languages by uploading zip files.'))),
