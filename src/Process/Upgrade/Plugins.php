@@ -236,6 +236,7 @@ class Plugins extends Process
         echo
         '</div>';
 
+        // Check all Modules except from ditrib
         self::nextStoreList(self::$plugins_list, explode(',', App::config()->distributedPlugins()), App::upgrade()->url()->get('upgrade.plugins'));
 
         if (self::$plugins_list->isWritablePath()) {
@@ -298,7 +299,7 @@ class Plugins extends Process
     /**
      * @param   array<int, string>  $excludes
      */
-    protected static function nextStoreList(PluginsList $modules, array $excludes, string $page_url): void
+    protected static function nextStoreList(PluginsList $plugins, array $excludes, string $page_url): void
     {
         echo
         '<div class="multi-part" id="nextstore" title="' . __('Store version') . '">' .
@@ -312,9 +313,10 @@ class Plugins extends Process
         '<p class="more-info">' . sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion()) . '</p>';
 
         $list = [];
-        foreach ($modules->getModules() as $id => $module) {
-            if (!in_array($id, $excludes)) {
-                $list[$id] = $module;
+        // Check ALL modules
+        foreach ($plugins->modules->getDefines() as $module) {
+            if (is_a($module, ModuleDefine::class) && !in_array($module->getId(), $excludes)) {
+                $list[$module->getId()] = $module;
             }
         }
 
@@ -335,8 +337,8 @@ class Plugins extends Process
     }
 
     /**
-     * @param   array<string, array<string, mixed>>  $modules
-     * @param   array<string, array<string, mixed>>  $repos
+     * @param   array<string, ModuleDefine>             $modules
+     * @param   array<string, array<string, mixed>>     $repos
      */
     protected static function displayNextStoreList(array $modules, array $repos): void
     {
@@ -367,11 +369,11 @@ class Plugins extends Process
             $default_icon = false;
 
             echo
-            '<tr class="line' . (isset($repos[$id]) ? '' : ' offline') . '" id="mvmodules_m_' . Html::escapeHTML($id) . '">' .
+            '<tr class="line' . (isset($repos[$id]) ? '' : ' offline') . '" id="mvmodules_m_' . Html::escapeHTML((string) $id) . '">' .
             '<td class="module-icon nowrap">' .
             $img . '</td>' .
             '<th class="module-name nowrap" scope="row">' .
-            Html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
+            Html::escapeHTML($module->get('name')) . ($id != $module->get('name') ? sprintf(__(' (%s)'), $id) : '') .
             '</td>';
 
             if (isset($repos[$id])) {
@@ -386,12 +388,12 @@ class Plugins extends Process
                 if (App::config()->allowRepositories()) {
                     echo
                     '<td class="module-repository nowrap count">' .
-                    (empty($module['repository']) ? __('Official repository') : __('Third-party repository')) . '</td>';
+                    (empty($module->get('repository')) ? __('Official repository') : __('Third-party repository')) . '</td>';
                 }
             } else {
                 echo
                 '<td class="module-current-version nowrap count">' .
-                Html::escapeHTML($module['version']) . '</td>' .
+                Html::escapeHTML($module->get('version')) . '</td>' .
                 '<td class="module-version nowrap count maximal" colspan="' . (App::config()->allowRepositories() ? '3' : '2') . '">' .
                 Html::escapeHTML(__('No version available on stores')) . '</td>';
             }
