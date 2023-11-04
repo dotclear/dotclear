@@ -105,10 +105,10 @@ class Home extends Process
                             ->href(App::upgrade()->url()->get((string) $icon[1]))
                             ->items([
                                 (new Img((string) $icon[2]))
-                                    ->alt($icon[5])
+                                    ->alt((string) $icon[5])
                                     ->class('light-only'),
                                 (new Img((string) $icon[3]))
-                                    ->alt($icon[5])
+                                    ->alt((string) $icon[5])
                                     ->class('dark-only'),
                                 (new Text('', '<br/>')),
                                 (new Text('span', (string) $icon[0]))
