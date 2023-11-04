@@ -36,7 +36,7 @@ class Plugins extends Process
     private static PluginsList $plugins_list;
 
     /**
-     * @var     array<string, array<string, mixed>> $next_store
+     * @var     array<int, ModuleDefine>    $next_store
      */
     private static array $next_store;
 
@@ -67,7 +67,7 @@ class Plugins extends Process
         }
 
         if (!empty($_POST['nextstorecheck'])) {
-            self::$next_store = (new NextStore(App::plugins(), (string) App::blog()->settings()->get('system')->get('store_plugin_url'), true))->get(true);
+            self::$next_store = (new NextStore(App::plugins(), (string) App::blog()->settings()->get('system')->get('store_plugin_url'), true))->getDefines(true);
         }
 
         return self::status(true);
@@ -337,8 +337,8 @@ class Plugins extends Process
     }
 
     /**
-     * @param   array<string, ModuleDefine>             $modules
-     * @param   array<string, array<string, mixed>>     $repos
+     * @param   array<string, ModuleDefine>     $modules
+     * @param   array<int, ModuleDefine>        $repos
      */
     protected static function displayNextStoreList(array $modules, array $repos): void
     {
@@ -356,10 +356,16 @@ class Plugins extends Process
             '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
 
+        // regain module ID
+        $store = [];
+        foreach($repos as $module) {
+            $store[$module->getId()] = $module;
+        }
+
         foreach ($modules as $id => $module) {
-            if (!isset($repos[$id])) {
+            if (!isset($store[$id])) {
                 $img = [__('No version available'), 'check-off.png'];
-            } elseif (version_compare(App::config()->dotclearVersion(), $repos[$id]['dc_min'], '>=')) {
+            } elseif (version_compare(App::config()->dotclearVersion(), $store[$id]->get('dc_min'), '>=')) {
                 $img = [__('No update available'), 'check-wrn.png'];
             } else {
                 $img = [__('Newer version available'), 'check-on.png'];
@@ -369,21 +375,21 @@ class Plugins extends Process
             $default_icon = false;
 
             echo
-            '<tr class="line' . (isset($repos[$id]) ? '' : ' offline') . '" id="mvmodules_m_' . Html::escapeHTML((string) $id) . '">' .
+            '<tr class="line' . (isset($store[$id]) ? '' : ' offline') . '" id="mvmodules_m_' . Html::escapeHTML((string) $id) . '">' .
             '<td class="module-icon nowrap">' .
             $img . '</td>' .
             '<th class="module-name nowrap" scope="row">' .
             Html::escapeHTML($module->get('name')) . ($id != $module->get('name') ? sprintf(__(' (%s)'), $id) : '') .
             '</td>';
 
-            if (isset($repos[$id])) {
+            if (isset($store[$id])) {
                 echo
                 '<td class="module-version nowrap count">' .
-                Html::escapeHTML($repos[$id]['current_version']) . '</td>' .
+                Html::escapeHTML($store[$id]->get('current_version')) . '</td>' .
                 '<td class="module-version nowrap count maximal">' .
-                Html::escapeHTML($repos[$id]['version']) . '</td>' .
+                Html::escapeHTML($store[$id]->get('version')) . '</td>' .
                 '<td class="module-version nowrap count">' .
-                Html::escapeHTML($repos[$id]['dc_min']) . '</td>';
+                Html::escapeHTML($store[$id]->get('dc_min')) . '</td>';
 
                 if (App::config()->allowRepositories()) {
                     echo
