@@ -16,10 +16,20 @@ use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\PluginsList;
 use Dotclear\Core\Process;
-use Dotclear\Helper\Html\Form\Form;
-use Dotclear\Helper\Html\Form\Hidden;
-use Dotclear\Helper\Html\Form\Para;
-use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\{
+    Caption,
+    Div,
+    Form,
+    Hidden,
+    Img,
+    Para,
+    Submit,
+    Table,
+    Td,
+    Text,
+    Th,
+    Tr
+};
 use Dotclear\Helper\Html\Html;
 use Dotclear\Module\ModuleDefine;
 use Exception;
@@ -301,17 +311,6 @@ class Plugins extends Process
      */
     protected static function nextStoreList(PluginsList $plugins, array $excludes, string $page_url): void
     {
-        echo
-        '<div class="multi-part" id="nextstore" title="' . __('Store version') . '">' .
-        '<h3>' . __('Check stores versions') . '</h3>' .
-
-        '<form method="post" action="' . $page_url . '#nextstore" id="nextstoreform">' .
-        '<p><input type="submit" name="nextstorecheck" value="' . __('Check lastest stores versions') . '" />' .
-        App::nonce()->getFormNonce() . '</p>' .
-        '</form>' .
-
-        '<p class="more-info">' . sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion()) . '</p>';
-
         $list = [];
         // Check ALL modules
         foreach ($plugins->modules->getDefines() as $module) {
@@ -320,48 +319,51 @@ class Plugins extends Process
             }
         }
 
+        $items = [];
         if (!count($list)) {
-            echo
-            '<div class="info">' . __('There is no module to check') . '</div>' .
-            '</div>';
-
-            return;
+            $items[] = (new Text('p', __('There is no module to check')))
+                ->class('info');
+        } elseif (isset(self::$next_store)) {
+            $items[] = self::displayNextStoreList($list, self::$next_store);
         }
 
-        if (isset(self::$next_store)) {
-            self::displayNextStoreList($list, self::$next_store);
-        }
-
-        echo
-        '</div>';
+        echo (new Div('nextstore'))
+            ->class('multi-part')
+            ->title(__('Store version'))
+            ->items([
+                (new Text('h3', __('Check stores versions'))),
+                (new Form('nextstoreform'))
+                    ->method('post')
+                    ->action($page_url . '#nextstore')
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Submit(['nextstorecheck'], __('Check lastest stores versions'))),
+                            ]),
+                    ]),
+                    (new Text('p', sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion())))
+                        ->class('more-info'),
+                ...$items,
+            ])
+            ->render();
     }
 
     /**
      * @param   array<string, ModuleDefine>     $modules
      * @param   array<int, ModuleDefine>        $repos
+     *
+     * @return  Div
      */
-    protected static function displayNextStoreList(array $modules, array $repos): void
+    protected static function displayNextStoreList(array $modules, array $repos): Div
     {
-        echo
-        '<div class="table-outer">' .
-        '<table id="mvmodules" class="modules">' .
-        '<caption class="hidden">' . Html::escapeHTML(__('Modules list')) . '</caption><tr>' .
-        '<th class="first nowrap" colspan="2">' . __('Name') . '</th>' .
-        '<th class="nowrap count" scope="col">' . __('Current version') . '</th>' .
-        '<th class="nowrap count" scope="col">' . __('Latest version') . '</th>' .
-        '<th class="nowrap count" scope="col">' . __('Written for Dotclear') . '</th>';
-
-        if (App::config()->allowRepositories()) {
-            echo
-            '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
-        }
-
         // regain module ID
         $store = [];
         foreach($repos as $module) {
             $store[$module->getId()] = $module;
         }
 
+        $trs = [];
         foreach ($modules as $id => $module) {
             if (!isset($store[$id])) {
                 $img = [__('No version available'), 'check-off.png'];
@@ -370,45 +372,83 @@ class Plugins extends Process
             } else {
                 $img = [__('Newer version available'), 'check-on.png'];
             }
-            $img = sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" />', $img[0], $img[1]);
 
-            $default_icon = false;
-
-            echo
-            '<tr class="line' . (!isset($store[$id]) || $module->get('version') == $store[$id]->get('version') ? ' offline' : '') . '" id="mvmodules_m_' . Html::escapeHTML((string) $id) . '">' .
-            '<td class="module-icon nowrap">' .
-            $img . '</td>' .
-            '<th class="module-name nowrap" scope="row">' .
-            Html::escapeHTML($module->get('name')) . ($id != $module->get('name') ? sprintf(__(' (%s)'), $id) : '') .
-            '</td>';
+            $tds = [];
+            $tds[] = (new Td())
+                ->class('module-icon nowrap')
+                ->items([
+                    (new Img('images/' . $img[1]))
+                        ->alt($img[0])
+                        ->title($img[0]),
+                ]);
+            $tds[] = (new Td())
+                ->class('module-name nowrap')
+                ->text(Html::escapeHTML($module->get('name')) . ($id != $module->get('name') ? sprintf(__(' (%s)'), $id) : ''));
 
             if (isset($store[$id])) {
-                echo
-                '<td class="module-version nowrap count">' .
-                Html::escapeHTML($store[$id]->get('current_version')) . '</td>' .
-                '<td class="module-version nowrap count maximal">' .
-                Html::escapeHTML($store[$id]->get('version')) . '</td>' .
-                '<td class="module-version nowrap count">' .
-                Html::escapeHTML($store[$id]->get('dc_min')) . '</td>';
+                $tds[] = (new Td())
+                    ->class('module-version nowrap count')
+                    ->text(Html::escapeHTML($store[$id]->get('current_version')));
+                $tds[] = (new Td())
+                    ->class('module-version nowrap count maximal')
+                    ->text(Html::escapeHTML($store[$id]->get('version')));
+                $tds[] = (new Td())
+                    ->class('module-version nowrap count')
+                    ->text(Html::escapeHTML($store[$id]->get('dc_min')));
 
                 if (App::config()->allowRepositories()) {
-                    echo
-                    '<td class="module-repository nowrap count">' .
-                    (empty($module->get('repository')) ? __('Official repository') : __('Third-party repository')) . '</td>';
+                    $tds[] = (new Td())
+                        ->class('module-repository nowrap count')
+                        ->text((empty($module->get('repository')) ? __('Official repository') : __('Third-party repository')));
                 }
             } else {
-                echo
-                '<td class="module-current-version nowrap count">' .
-                Html::escapeHTML($module->get('version')) . '</td>' .
-                '<td class="module-version nowrap count maximal" colspan="' . (App::config()->allowRepositories() ? '3' : '2') . '">' .
-                Html::escapeHTML(__('No version available on stores')) . '</td>';
+                $tds[] = (new Td())
+                    ->class('module-current-version nowrap count')
+                    ->text(Html::escapeHTML($module->get('version')));
+                $tds[] = (new Td())
+                    ->class('module-version nowrap count maximal')
+                    ->colspan(3)
+                    ->text(Html::escapeHTML(__('No version available')));
             }
 
-            echo
-            '</tr>';
+            $trs[] = (new Tr('mvmodules_m_' . Html::escapeHTML((string) $id)))
+                ->class('line' . (!isset($store[$id]) || $module->get('version') == $store[$id]->get('version') ? ' offline' : ''))
+                ->items($tds);
         }
 
-        echo
-        '</table></div>';
+        return (new Div())
+            ->class('table-outer')
+            ->items([
+                (new Table('mvmodules'))
+                    ->class('modules')
+                    ->items([
+                        (new Caption(Html::escapeHTML(__('Modules list'))))
+                            ->class('hidden'),
+                        (new Tr())
+                            ->items([
+                                (new Th())
+                                    ->class('first nowrap')
+                                    ->colspan(2)
+                                    ->text(__('Name')),
+                                (new Th())
+                                    ->class('nowrap count')
+                                    ->scope('col')
+                                    ->text(__('Current version')),
+                                (new Th())
+                                    ->class('nowrap count')
+                                    ->scope('col')
+                                    ->text(__('Latest version')),
+                                (new Th())
+                                    ->class('nowrap count')
+                                    ->scope('col')
+                                    ->text(__('Written for Dotclear')),
+                                (new Th())
+                                    ->class('nowrap')
+                                    ->scope('col')
+                                    ->text(__('Repository')),
+                            ]),
+                        ...$trs,
+                    ]),
+            ]);
     }
 }
