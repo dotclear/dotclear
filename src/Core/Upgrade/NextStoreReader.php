@@ -11,10 +11,11 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\Module\StoreReader;
-use Dotclear\Module\StoreParser;
 
 /**
  * @brief   Unversionned Store reader.
+ *
+ * This does not use cache.
  *
  * @since   2.29
  */
@@ -25,7 +26,7 @@ class NextStoreReader extends StoreReader
      *
      * {@inheritdoc}
      */
-    public function parse(string $url): bool|StoreParser
+    public function parse(string $url): bool|NextStoreParser
     {
         $this->validators = [];
 
@@ -41,7 +42,7 @@ class NextStoreReader extends StoreReader
      *
      * {@inheritdoc}
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|StoreParser
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|NextStoreParser
     {
         $parser = new self();
 

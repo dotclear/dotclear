@@ -41,7 +41,7 @@ class NextStore extends Store
         $upd_versions = [];
 
         // check update from main repository
-        if ($str_parser !== false) {
+        if (!is_bool($str_parser)) {
             foreach($this->modules->getDefines() as $cur_define) {
                 foreach ($str_parser->getDefines() as $str_define) {
                     if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>=')) {
@@ -64,7 +64,7 @@ class NextStore extends Store
                 try {
                     $str_url    = str_ends_with($cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
                     $str_parser = NextStoreReader::quickParse($str_url, App::config()->cacheRoot(), $force);
-                    if ($str_parser === false) {
+                    if (is_bool($str_parser)) {
                         continue;
                     }
 
