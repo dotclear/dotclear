@@ -375,7 +375,7 @@ class Plugins extends Process
             $default_icon = false;
 
             echo
-            '<tr class="line' . (isset($store[$id]) ? '' : ' offline') . '" id="mvmodules_m_' . Html::escapeHTML((string) $id) . '">' .
+            '<tr class="line' . (!isset($store[$id]) || $module->get('version') == $store[$id]->get('version') ? ' offline' : '') . '" id="mvmodules_m_' . Html::escapeHTML((string) $id) . '">' .
             '<td class="module-icon nowrap">' .
             $img . '</td>' .
             '<th class="module-name nowrap" scope="row">' .
