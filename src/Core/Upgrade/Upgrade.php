@@ -239,18 +239,66 @@ class Upgrade
             return;
         }
 
+        // Files removing
         if (is_array($files)) {
             foreach ($files as $f) {
-                if (file_exists(App::config()->dotclearRoot() . '/' . $f)) {
-                    @unlink(App::config()->dotclearRoot() . '/' . $f);
-                }
+                self::houseCleaningHelper(App::config()->dotclearRoot() . '/' . $f, false);
             }
         }
 
+        // Folders removing
         if (is_array($folders)) {
             foreach ($folders as $f) {
-                if (file_exists(App::config()->dotclearRoot() . '/' . $f)) {
-                    Files::deltree(App::config()->dotclearRoot() . '/' . $f);
+                self::houseCleaningHelper(App::config()->dotclearRoot() . '/' . $f, true);
+            }
+        }
+    }
+
+    /**
+     * Removing file/folder helper
+     *
+     * Note: if the file/folder cannot be removed it will be then renamed (by adding -OLD to its fullname)
+     *
+     * @param      string  $fullname  The fullname
+     * @param      bool    $is_dir    Indicates if it is a folder
+     */
+    private static function houseCleaningHelper(string $fullname, bool $is_dir = false): void
+    {
+        if (file_exists($fullname)) {
+            // First removal pass
+            if ($is_dir) {
+                // Delete folder
+                Files::deltree($fullname);
+            } else {
+                // Delete file
+                @unlink($fullname);
+            }
+
+            // Clear PHP file or folder information cache
+            clearstatcache(true, $fullname);
+
+            if (file_exists($fullname)) {
+                // Try a second removal pass
+                if ($is_dir) {
+                    // Delete folder
+                    Files::deltree($fullname);
+                } else {
+                    // Delete file
+                    @unlink($fullname);
+                }
+            } else {
+                return;
+            }
+
+            // Clear PHP file or folder information cache
+            clearstatcache(true, $fullname);
+
+            if (file_exists($fullname)) {
+                // File or Folder still exists, try to rename it (adding -OLD to its fullname)
+                // It will at least prevents .php files (renamed to .php-OLD) to be taken into account
+                try {
+                    rename($fullname, $fullname . '-OLD');
+                } catch (Exception) {
                 }
             }
         }
