@@ -250,4 +250,81 @@ class Utility extends Process
             setcookie(self::COOKIE_NAME, '', -600, '', '', App::config()->adminSsl());
         }
     }
+
+    /**
+     * Get menus description.
+     *
+     * Used by sidebar menu, home dashboard and url handler.
+     *
+     * @return  array<int, Icon>
+     */
+    public function getIcons(): array
+    {
+        return [
+            new Icon(
+                name: __('Update'),
+                url: 'upgrade.upgrade',
+                icon: 'images/menu/update.svg',
+                dark: 'images/menu/update-dark.svg',
+                perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+                id: 'Upgrade'
+            ),
+            new Icon(
+                name: __('Attic'),
+                url: 'upgrade.attic',
+                icon: 'images/menu/blog-pref.svg',
+                dark: 'images/menu/blog-pref-dark.svg',
+                perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+                id: 'Attic'
+            ),
+            new Icon(
+                name: __('Backups'),
+                url: 'upgrade.backup',
+                icon: 'images/menu/backup.svg',
+                dark: 'images/menu/backup-dark.svg',
+                perm: App::auth()->isSuperAdmin(),
+                id: 'Backup'
+            ),
+            new Icon(
+                name: __('Languages'),
+                url: 'upgrade.langs',
+                icon: 'images/menu/langs.svg',
+                dark: 'images/menu/langs-dark.svg',
+                perm: App::auth()->isSuperAdmin(),
+                id: 'Langs'
+            ),
+            new Icon(
+                name: __('Plugins'),
+                url: 'upgrade.plugins',
+                icon: 'images/menu/plugins.svg',
+                dark: 'images/menu/plugins-dark.svg',
+                perm: App::auth()->isSuperAdmin(),
+                id: 'Plugins'
+            ),
+            new Icon(
+                name: __('Cache'),
+                url: 'upgrade.cache',
+                icon: 'images/menu/tools.svg',
+                dark: 'images/menu/tools-dark.svg',
+                perm: App::auth()->isSuperAdmin(),
+                id: 'Cache'
+            ),
+            new Icon(
+                name: __('Digests'),
+                url: 'upgrade.digests',
+                icon: 'images/menu/edit.svg',
+                dark: 'images/menu/edit-dark.svg',
+                perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
+                id: 'Digests'
+            ),
+            new Icon(
+                name: __('Replay'),
+                url: 'upgrade.replay',
+                icon: 'images/menu/update.svg',
+                dark: 'images/menu/update-dark.svg',
+                perm: App::auth()->isSuperAdmin(),
+                id: 'Replay'
+            ),
+        ];
+    }
 }

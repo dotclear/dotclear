@@ -88,86 +88,17 @@ class Menus extends ArrayObject
         // add menu sections
         $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', ''));
 
-        // add menu items
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Update'),
-            'upgrade.upgrade',
-            ['images/menu/update.svg', 'images/menu/update-dark.svg'],
-            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-            false,
-            false,
-            'Upgrade'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Attic'),
-            'upgrade.attic',
-            ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
-            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-            false,
-            false,
-            'Attic'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Backups'),
-            'upgrade.backup',
-            ['images/menu/backup.svg', 'images/menu/backup-dark.svg'],
-            App::auth()->isSuperAdmin(),
-            false,
-            false,
-            'Backup'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Languages'),
-            'upgrade.langs',
-            ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
-            App::auth()->isSuperAdmin(),
-            false,
-            false,
-            'Langs'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Plugins'),
-            'upgrade.plugins',
-            ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
-            App::auth()->isSuperAdmin(),
-            false,
-            false,
-            'Plugins'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Cache'),
-            'upgrade.cache',
-            ['images/menu/tools.svg', 'images/menu/tools-dark.svg'],
-            App::auth()->isSuperAdmin(),
-            false,
-            false,
-            'Cache'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Digests'),
-            'upgrade.digests',
-            ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
-            App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-            false,
-            false,
-            'Digests'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
-            __('Replay'),
-            'upgrade.replay',
-            ['images/menu/update.svg', 'images/menu/update-dark.svg'],
-            App::auth()->isSuperAdmin(),
-            false,
-            false,
-            'Replay'
-        );
+        foreach (App::upgrade()->getIcons() as $icon) {
+            $this->addItem(
+                self::MENU_SYSTEM,
+                $icon->name,
+                $icon->url,
+                [$icon->icon, $icon->dark],
+                $icon->perm,
+                false,
+                false,
+                $icon->id
+            );
+        }
     }
 }

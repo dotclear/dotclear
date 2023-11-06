@@ -95,23 +95,23 @@ class Home extends Process
         $icons = (new Div());
         if (!App::auth()->prefs()->dashboard->nofavicons) {
             $icons = [];
-            foreach (self::dashboardIcons() as $icon) {
-                if (!$icon[4]) {
+            foreach (App::upgrade()->getIcons() as $icon) {
+                if (!$icon->perm) {
                     continue;
                 }
                 $icons[] = (new Para())
                     ->items([
-                        (new Link('icon-process-' . $icon[5] . '-fav'))
-                            ->href(App::upgrade()->url()->get((string) $icon[1]))
+                        (new Link('icon-process-' . $icon->id . '-fav'))
+                            ->href(App::upgrade()->url()->get((string) $icon->url))
                             ->items([
-                                (new Img((string) $icon[2]))
-                                    ->alt((string) $icon[5])
+                                (new Img((string) $icon->icon))
+                                    ->alt((string) $icon->id)
                                     ->class('light-only'),
-                                (new Img((string) $icon[3]))
-                                    ->alt((string) $icon[5])
+                                (new Img((string) $icon->dark))
+                                    ->alt((string) $icon->id)
                                     ->class('dark-only'),
                                 (new Text('', '<br/>')),
-                                (new Text('span', (string) $icon[0]))
+                                (new Text('span', (string) $icon->name))
                                     ->class('db-icon-title'),
                             ]),
                     ]);
@@ -168,71 +168,5 @@ class Home extends Process
             ->render();
 
         Page::close();
-    }
-
-    /**
-     * @return  array<int, array<int, string|bool>>
-     */
-    private static function dashboardIcons()
-    {
-        return [
-            [
-                __('Update'),
-                'upgrade.upgrade',
-                'images/menu/update.svg',
-                'images/menu/update-dark.svg',
-                App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                'Upgrade',
-            ], [
-                __('Attic'),
-                'upgrade.attic',
-                'images/menu/blog-pref.svg',
-                'images/menu/blog-pref-dark.svg',
-                App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                'Attic',
-            ], [
-                __('Backups'),
-                'upgrade.backup',
-                'images/menu/backup.svg',
-                'images/menu/backup-dark.svg',
-                App::auth()->isSuperAdmin(),
-                'Backup',
-            ], [
-                __('Languages'),
-                'upgrade.langs',
-                'images/menu/langs.svg',
-                'images/menu/langs-dark.svg',
-                App::auth()->isSuperAdmin(),
-                'Langs',
-            ], [
-                __('Plugins'),
-                'upgrade.plugins',
-                'images/menu/plugins.svg',
-                'images/menu/plugins-dark.svg',
-                App::auth()->isSuperAdmin(),
-                'Plugins',
-            ], [
-                __('Cache'),
-                'upgrade.cache',
-                'images/menu/tools.svg',
-                'images/menu/tools-dark.svg',
-                App::auth()->isSuperAdmin(),
-                'Cache',
-            ], [
-                __('Digests'),
-                'upgrade.digests',
-                'images/menu/edit.svg',
-                'images/menu/edit-dark.svg',
-                App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                'Digests',
-            ], [
-                __('Replay'),
-                'upgrade.replay',
-                'images/menu/update.svg',
-                'images/menu/update-dark.svg',
-                App::auth()->isSuperAdmin(),
-                'Replay',
-            ],
-        ];
     }
 }

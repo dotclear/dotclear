@@ -52,16 +52,11 @@ class Url extends BackendUrl
         // set required URLs
         $this->register('upgrade.auth', 'Auth');
         $this->register('upgrade.logout', 'Logout');
-
         $this->register('upgrade.home', 'Home');
-        $this->register('upgrade.upgrade', 'Upgrade');
-        $this->register('upgrade.attic', 'Attic');
-        $this->register('upgrade.backup', 'Backup');
-        $this->register('upgrade.langs', 'Langs');
-        $this->register('upgrade.plugins', 'Plugins');
-        $this->register('upgrade.cache', 'Cache');
-        $this->register('upgrade.digests', 'Digests');
-        $this->register('upgrade.replay', 'Replay');
+
+        foreach (App::upgrade()->getIcons() as $icon) {
+            $this->register($icon->url, $icon->id);
+        }
 
         // we don't care of admin process for FileServer
         $this->register('load.plugin.file', self::INDEX, ['pf' => 'dummy.css']);
