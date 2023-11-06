@@ -58,6 +58,10 @@ class GrowUp_2_28_lt
                 'plugins/antispam/_init.php',
                 'plugins/blogroll/_init.php',
                 'plugins/pages/_init.php',
+                // typo or missing in some previous housecleanings
+                'plugins/maintenance/_services.php',
+                'plugins/tags/tags_posts.php',
+                'plugins/blogroll/index.php',
             ],
             // Folders
             [
