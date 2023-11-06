@@ -225,6 +225,13 @@ class Home extends Process
                 'images/menu/edit-dark.svg',
                 App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
                 'Digests',
+            ], [
+                __('Replay'),
+                'upgrade.replay',
+                'images/menu/update.svg',
+                'images/menu/update-dark.svg',
+                App::auth()->isSuperAdmin(),
+                'Replay',
             ],
         ];
     }

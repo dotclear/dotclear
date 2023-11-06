@@ -159,5 +159,15 @@ class Menus extends ArrayObject
             false,
             'Digests'
         );
+        $this->addItem(
+            self::MENU_SYSTEM,
+            __('Replay'),
+            'upgrade.replay',
+            ['images/menu/update.svg', 'images/menu/update-dark.svg'],
+            App::auth()->isSuperAdmin(),
+            false,
+            false,
+            'Replay'
+        );
     }
 }

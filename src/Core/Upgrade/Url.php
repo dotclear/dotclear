@@ -61,6 +61,7 @@ class Url extends BackendUrl
         $this->register('upgrade.plugins', 'Plugins');
         $this->register('upgrade.cache', 'Cache');
         $this->register('upgrade.digests', 'Digests');
+        $this->register('upgrade.replay', 'Replay');
 
         // we don't care of admin process for FileServer
         $this->register('load.plugin.file', self::INDEX, ['pf' => 'dummy.css']);
