@@ -59,6 +59,10 @@ class GrowUp_2_28_lt
                 'plugins/blogroll/_init.php',
                 'plugins/pages/_init.php',
                 // typo or missing in some previous housecleanings
+                'inc/core_error.php',
+                'inc/load_plugin_file.php',
+                'inc/load_var_file.php',
+                'inc/core/class.dc.ns.process.php',
                 'plugins/maintenance/_services.php',
                 'plugins/tags/tags_posts.php',
                 'plugins/blogroll/index.php',
