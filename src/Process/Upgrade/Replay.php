@@ -97,7 +97,8 @@ class Replay extends Process
                             ->default(''),
                         (new Submit(['submit'], __('Replay'))),
                     ]),
-
+                (new Text('p', __('Replay version lower than the last one can break your installation, do it at your own risk.')))
+                    ->class('warning'),
             ])
             ->render();
 
