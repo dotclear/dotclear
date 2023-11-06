@@ -59,6 +59,15 @@ class Plugins extends Process
     {
         Page::checkSuper();
 
+        // Load modules in safe mode
+        App::plugins()->safeMode(true);
+
+        try {
+            App::plugins()->loadModules(App::config()->pluginsRoot(), 'upgrade', App::lang()->getLang());
+        } catch(Throwable) {
+            App::error()->add(__('Some plugins could not be loaded.'));
+        }
+
         // -- Page helper --
         self::$plugins_list = new PluginsList(
             App::plugins(),

@@ -138,15 +138,6 @@ class Utility extends Process
 
             // Load locales
             self::loadLocales();
-
-            // Load modules in safe mode
-            App::plugins()->safeMode(true);
-
-            try {
-                App::plugins()->loadModules(App::config()->pluginsRoot(), 'upgrade', App::lang()->getLang());
-            } catch(Throwable) {
-                App::error()->add(__('Some plugins could not be loaded.'));
-            }
         }
 
         // Set default menu
