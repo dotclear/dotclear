@@ -380,7 +380,13 @@ class Attic extends Process
         );
 
         if (!empty($items)) {
-            echo (new Div())->items($items)->render();
+            echo (new Div())
+                ->items([
+                    (new Text('h3', __('Previous releases'))),
+                    (new Text('p', __('On this page you can update dotclear to a release between yours and latest.'))),
+                    ...$items,
+                ])
+                ->render();
         }
 
         Page::close();

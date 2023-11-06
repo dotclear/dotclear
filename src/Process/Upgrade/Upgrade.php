@@ -200,6 +200,8 @@ class Upgrade extends Process
             App::upgrade()->killAdminSession();
         }
 
+        $items = [];
+
         if (!self::$step) {
             // Warning about PHP version if necessary
             if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
@@ -292,7 +294,13 @@ class Upgrade extends Process
         );
 
         if (!empty($items)) {
-            echo (new Div())->items($items)->render();
+            echo (new Div())
+                ->items([
+                    (new Text('h3', __('Latest release'))),
+                    (new Text('p', __('On this page you can update dotclear to the latest release.'))),
+                    ...$items,
+                ])
+                ->render();
         }
 
         Page::helpBlock('core_upgrade');
