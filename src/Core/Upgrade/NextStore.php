@@ -42,7 +42,7 @@ class NextStore extends Store
 
         // check update from main repository
         if (!is_bool($str_parser)) {
-            foreach($this->modules->getDefines() as $cur_define) {
+            foreach ($this->modules->getDefines() as $cur_define) {
                 foreach ($str_parser->getDefines() as $str_define) {
                     if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>=')) {
                         $str_define->set('root', $cur_define->get('root'));

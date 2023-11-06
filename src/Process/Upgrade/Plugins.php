@@ -32,7 +32,7 @@ use Dotclear\Helper\Html\Form\{
 };
 use Dotclear\Helper\Html\Html;
 use Dotclear\Module\ModuleDefine;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Upgarde process plugins management page.
@@ -81,7 +81,7 @@ class Plugins extends Process
         # -- Execute actions --
         try {
             self::$plugins_list->doActions();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             App::error()->add($e->getMessage());
         }
 
@@ -351,8 +351,8 @@ class Plugins extends Process
                                 (new Submit(['nextstorecheck'], __('Check lastest stores versions'))),
                             ]),
                     ]),
-                    (new Text('p', sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion())))
-                        ->class('more-info'),
+                (new Text('p', sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion())))
+                    ->class('more-info'),
                 ...$items,
             ])
             ->render();
@@ -368,7 +368,7 @@ class Plugins extends Process
     {
         // regain module ID
         $store = [];
-        foreach($repos as $module) {
+        foreach ($repos as $module) {
             $store[$module->getId()] = $module;
         }
 
@@ -382,7 +382,7 @@ class Plugins extends Process
                 $img = [__('Newer version available'), 'check-on.png'];
             }
 
-            $tds = [];
+            $tds   = [];
             $tds[] = (new Td())
                 ->class('module-icon nowrap')
                 ->items([
