@@ -42,18 +42,18 @@ class Upgrade
 
         if (version_compare($version, App::config()->dotclearVersion(), '<') == 1 || str_contains(App::config()->dotclearVersion(), 'dev')) {
             try {
-                if (App::con()->driver() == 'sqlite') {
-                    return false; // Need to find a way to upgrade sqlite database
+                // Need to find a way to upgrade sqlite database
+                $changes = 0;
+                if (App::con()->driver() != 'sqlite') {
+                    # Database upgrade
+                    $_s = new Structure(App::con(), App::con()->prefix());
+
+                    # Fill database structrue
+                    Utils::dbSchema($_s);
+
+                    $si      = new Structure(App::con(), App::con()->prefix());
+                    $changes = $si->synchronize($_s);
                 }
-
-                # Database upgrade
-                $_s = new Structure(App::con(), App::con()->prefix());
-
-                # Fill database structrue
-                Utils::dbSchema($_s);
-
-                $si      = new Structure(App::con(), App::con()->prefix());
-                $changes = $si->synchronize($_s);
 
                 /* Some other upgrades
                 ------------------------------------ */
