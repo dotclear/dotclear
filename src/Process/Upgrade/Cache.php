@@ -15,7 +15,9 @@ use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\{
+    Div,
     Form,
+    Note,
     Para,
     Submit,
     Text
@@ -73,21 +75,22 @@ class Cache extends Process
             ->action(App::upgrade()->url()->get('upgrade.cache'))
             ->method('post')
             ->fields([
-                (new Text('h3', __('Cache management'))),
-                (new Text('p', __('On this page, you can clear templates and repositories cache.'))),
-                (new Para())
+                (new Note())
+                    ->class('static-msg')
+                    ->text(__('On this page, you can clear templates and repositories cache.')),
+                (new Div())
+                    ->class('fieldset')
                     ->items([
+                        (new Text('h4', __('Cache folders'))),
                         (new Para())
+                            ->separator(' ')
                             ->items([
                                 (new Submit(['cleartplcache']))
                                     ->value(__('Empty templates cache directory')),
-                            ]),
-                        (new Para())
-                            ->items([
                                 (new Submit(['clearrepocache']))
                                     ->value(__('Empty repositories cache directory')),
+                                App::nonce()->formNonce(),
                             ]),
-                        App::nonce()->formNonce(),
                     ]),
             ])
             ->render();

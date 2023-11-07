@@ -16,8 +16,10 @@ use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\{
+    Div,
     Form,
     Label,
+    Note,
     Para,
     Select,
     Submit,
@@ -81,24 +83,29 @@ class Replay extends Process
             )
         );
 
-        echo (new Form('replay'))
-            ->action(App::upgrade()->url()->get('upgrade.replay'))
-            ->method('post')
-            ->fields([
-                (new Text('h3', __('Replay update actions'))),
-                (new Text('p', __('If some files remain from last update, you can try to replay update action from a given version.'))),
-                (new Para())
-                    ->items([
-                        App::nonce()->formNonce(),
-                        (new Label(__('Replay grow up action from version:'), Label::OUTSIDE_LABEL_BEFORE))
-                            ->for('replay_version'),
-                        (new Select('replay_version'))
-                            ->items(self::$versions)
-                            ->default(''),
-                        (new Submit(['submit'], __('Replay'))),
+        echo (new Div())
+            ->items([
+                (new Note())
+                    ->class('static-msg')
+                    ->text(__('On this page, you can try to replay update action from a given version if some files remain from last update.')),
+                (new Form('replay'))
+                    ->class('fieldset')
+                    ->action(App::upgrade()->url()->get('upgrade.replay'))
+                    ->method('post')
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Label(__('Replay grow up action from version:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->for('replay_version'),
+                                (new Select('replay_version'))
+                                    ->items(self::$versions)
+                                    ->default(''),
+                                (new Submit(['submit'], __('Replay'))),
+                            ]),
+                        (new Text('p', __('Replay version lower than the last one can break your installation, do it at your own risk.')))
+                            ->class('warning'),
                     ]),
-                (new Text('p', __('Replay version lower than the last one can break your installation, do it at your own risk.')))
-                    ->class('warning'),
             ])
             ->render();
 

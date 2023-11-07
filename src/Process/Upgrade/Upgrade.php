@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\{
     Form,
     Hidden,
     Link,
+    Note,
     Para,
     Submit,
     Text
@@ -242,34 +243,36 @@ class Upgrade extends Process
                                 ->href(self::$version_info)
                                 ->title(__('Information about this version'))
                                 ->text(__('Information about this version'))
-                            : (new Text('', '')),
+                            : (new Text()),
                     ]);
 
                 if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
                     $items[] = (new Text('p', sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion())))
                         ->class('warning-msg');
                 } else {
-                    if (self::$update_warning) {
-                        $items[] = (new Text('p', __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).')))
-                            ->class('warning-msg');
-                    }
-
-                    $items[] = (new Text('p', __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.')));
                     $items[] = (new Form('updcheck'))
+                        ->class('fieldset')
                         ->method('get')
                         ->action(App::upgrade()->url()->get('upgrade.upgrade'))
                         ->fields([
-                            (new Hidden(['step'], 'check')),
-                            (new Hidden(['process'], 'Upgrade')),
-                            (new Submit(['submit'], __('Update Dotclear'))),
+                            (new Text('p', __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.'))),
+                            (new Para())
+                                ->items([
+                                    (new Hidden(['step'], 'check')),
+                                    (new Hidden(['process'], 'Upgrade')),
+                                    (new Submit(['submit'], __('Update Dotclear'))),
+                                ]),
+                            self::$update_warning ? 
+                                (new Text('p', __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).')))
+                                    ->class('warning') : (new Text()),
                         ]);
                 }
             }
         } elseif (self::$step == 'unzip' && !App::error()->flag()) {
             $items[] = (new Div())
+                ->class('fieldset')
                 ->items([
-                    (new Text('p', __("Congratulations, you're one click away from the end of the update.")))
-                        ->class('message'),
+                    (new Text('p', __("Congratulations, you're one click away from the end of the update."))),
                     (new Para())
                         ->items([
                             (new Link())
@@ -296,8 +299,9 @@ class Upgrade extends Process
         if (!empty($items)) {
             echo (new Div())
                 ->items([
-                    (new Text('h3', __('Latest release'))),
-                    (new Text('p', __('On this page you can update dotclear to the latest release.'))),
+                    (new Note())
+                        ->class('static-msg')
+                        ->text(__('On this page you can update dotclear to the latest release.')),
                     ...$items,
                 ])
                 ->render();

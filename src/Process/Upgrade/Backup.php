@@ -20,10 +20,14 @@ use Dotclear\Helper\Html\Form\{
     Div,
     Form,
     Label,
+    Note,
     Para,
     Radio,
     Submit,
-    Text
+    Table,
+    Td,
+    Text,
+    Tr
 };
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -119,38 +123,43 @@ class Backup extends Process
     {
         if (empty(self::$archives)) {
             $items[] = (new Text('p', __('There are no backups available.')))
-                ->class('info');
+                ->class('message');
         } else {
             $archives = self::$archives;
-            $items[]  = (new Text('h3', __('Update backup files')));
-            $items[]  = (new Text('p', __('The following files are backups of previously updates. You can revert your previous installation or delete theses files.')));
-
-            echo
-            '<form action="' . App::upgrade()->url()->get('upgrade.backup') . '" method="post">';
 
             $options = [];
             $i       = 0;
             foreach ($archives as $archive) {
                 $i++;
-                $options[] = (new Para())
+                $options[] = (new Tr())
+                    ->class('line')
                     ->items([
-                        (new Radio(['backup_file', 'backup_file' . $i]))
-                            ->value(Html::escapeHTML($archive)),
-                        (new Label(Html::escapeHTML($archive), Label::OUTSIDE_LABEL_AFTER, 'backup_file' . $i))
-                            ->class('classic'),
+                        (new Td())
+                            ->class('minimal')
+                            ->items([
+                                (new Radio(['backup_file', 'backup_file' . $i]))
+                                    ->value(Html::escapeHTML($archive)),
+                                ]),
+                        (new Td())
+                            ->class('maximal')
+                            ->items([
+                                (new Label(Html::escapeHTML($archive), Label::OUTSIDE_LABEL_AFTER, 'backup_file' . $i))
+                                    ->class('classic'),
+                            ]),
                     ]);
             }
 
             $items[] = (new Form('bck'))
+                ->class('fieldset')
                 ->method('post')
                 ->action(App::upgrade()->url()->get('upgrade.backup'))
                 ->fields([
-                    ...$options,
-                    (new Para())
-                        ->separator(' ')
+                    (new Text('h4', __('Backups of previously updates'))),
+                    (new Div())
+                        ->class('table-outer')
                         ->items([
-                            (new Text('strong', __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
-                            (new Text('', sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
+                            (new Table())
+                                ->items($options),
                         ]),
                     (new Para())
                         ->separator(' ')
@@ -159,6 +168,13 @@ class Backup extends Process
                             (new Submit(['b_del'], __('Delete selected file')))
                                 ->class('delete'),
                             (new Submit(['b_revert'], __('Revert to selected file'))),
+                        ]),
+                    (new Para())
+                        ->class('warning')
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
+                            (new Text('', sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
                         ]),
                 ]);
         }
@@ -174,7 +190,14 @@ class Backup extends Process
             )
         );
 
-        echo (new Div())->items($items)->render();
+        echo (new Div())
+            ->items([
+                (new Note())
+                        ->class('static-msg')
+                        ->text(__('On this page you can revert your previous installation or delete theses files.')),
+                ...$items
+            ])
+            ->render();
 
         Page::helpBlock('core_backup');
         Page::close();

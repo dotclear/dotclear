@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
+use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Zip\Zip;
@@ -23,6 +24,7 @@ use Dotclear\Helper\Html\Form\{
     Hidden,
     Label,
     Link,
+    Note,
     Para,
     Submit,
     Text
@@ -96,6 +98,19 @@ class Digests extends Process
             App::error()->add($e->getMessage());
         }
 
+        // Mesasges
+        if (isset($_POST['override'])) {
+            if (empty(self::$zip_name)) {
+                Notices::addSuccessNotices(__('The updates have been performed.'));
+            }
+        } elseif (isset($_POST['disclaimer_ok'])) {
+            if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
+                Notices::addWarningNotice(__('No changed filed have been found, nothing to do!'));
+            }
+        } elseif (file_exists(self::$path_backup)) {
+            Notices::addErrorNotice(__('This tool has already been run once.'));
+        }
+
         return true;
     }
 
@@ -132,8 +147,9 @@ class Digests extends Process
 
         echo (new Div())
             ->items([
-                (new Text('h3', __('Corrupted files'))),
-                (new Text('p', __('On this page, you can bypass corrupted files or modified files in order to perform update.'))),
+                (new Note())
+                    ->class('static-msg')
+                    ->text(__('On this page, you can bypass corrupted files or modified files in order to perform update.')),
             ])
             ->render();
 
@@ -145,13 +161,10 @@ class Digests extends Process
                     sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
                     '<a href="' . App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
                 ));
-            } else {
-                $item = (new Para())->items([
-                    (new Text(null, __('The updates have been performed.'))),
-                ]);
             }
+
             echo (new Div())
-                ->class('message')
+                ->class('fieldset')
                 ->items([
                     $item,
                     (new Para())->items([
@@ -164,10 +177,17 @@ class Digests extends Process
             ->render();
         } elseif (isset($_POST['disclaimer_ok'])) {
             if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
-                echo (new Para())->class('message')->items([
-                    (new Text(null, __('No changed filed have been found, nothing to do!'))),
-                ])
-                ->render();
+                echo (new Div())
+                    ->class('fieldset')
+                    ->items([
+                        (new Text('p', __('Digests file is up to date.'))),
+                        (new Link())
+                            ->class('button submit')
+                            ->href(App::upgrade()->url()->get('upgrade.upgrade'))
+                            ->text(__('Update Dotclear')),
+                    ])
+                    ->render();
+
             } else {
                 $changed       = [];
                 $block_changed = '';
@@ -175,13 +195,16 @@ class Digests extends Process
                     foreach (self::$changes['changed'] as $k => $v) {
                         $changed[] = (new Text('li', sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new'])));
                     }
-                    $block_changed = (new Div())->items([
-                        (new Para())->items([
-                            (new Text(null, __('The following files will have their checksum faked:'))),
-                        ]),
-                        (new Para(null, 'ul'))->items($changed),
-                    ])
-                    ->render();
+                    $block_changed = (new Div())
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Text(null, __('The following files will have their checksum faked:'))),
+                                ]),
+                            (new Para(null, 'ul'))
+                                ->items($changed),
+                        ])
+                        ->render();
                 }
                 $removed       = [];
                 $block_removed = '';
@@ -189,74 +212,72 @@ class Digests extends Process
                     foreach (self::$changes['removed'] as $k => $v) {
                         $removed[] = (new Text('li', (string) $k));
                     }
-                    $block_removed = (new Div())->items([
-                        (new Para())->items([
-                            (new Text(null, __('The following files digests will have their checksum cleaned:'))),
-                        ]),
-                        (new Para(null, 'ul'))->items($removed),
-                    ])
-                    ->render();
+                    $block_removed = (new Div())
+                        ->items([
+                            (new Para())
+                                ->items([
+                                (new Text(null, __('The following files digests will have their checksum cleaned:'))),
+                            ]),
+                            (new Para(null, 'ul'))
+                                ->items($removed),
+                        ])
+                        ->render();
                 }
 
-                echo (new Div())->class('message')->items([
-                    (new Text(null, $block_changed)),
-                    (new Text(null, $block_removed)),
-                    (new Form('frm-override'))
-                        ->action(App::upgrade()->url()->get('upgrade.digests'))
-                        ->method('post')
-                        ->fields([
-                            (new Submit(['confirm'], __('Still ok to continue'))),
-                            (new Hidden(['override'], (string) 1)),
-                            App::nonce()->formNonce(),
-                        ]),
-                ])
-                ->render();
+                echo (new Form('frm-override'))
+                    ->class('fieldset')
+                    ->action(App::upgrade()->url()->get('upgrade.digests'))
+                    ->method('post')
+                    ->fields([
+                        (new Text(null, $block_changed)),
+                        (new Text(null, $block_removed)),
+                        (new Submit(['confirm'], __('Still ok to continue'))),
+                        (new Hidden(['override'], (string) 1)),
+                        App::nonce()->formNonce(),
+                    ])
+                    ->render();
             }
         } else {
             if (file_exists(self::$path_backup)) {
-                echo (new Div())->class('error')->items([
-                    (new Para())->items([
-                        (new Text(null, __('This tool has already been run once.'))),
-                    ]),
-                    (new Form('frm-erase'))
-                        ->action(App::upgrade()->url()->get('upgrade.digests'))
-                        ->method('post')
-                        ->fields([
-                            (new Para())->items([
+                echo (new Form('frm-erase'))
+                    ->class('fieldset')
+                    ->action(App::upgrade()->url()->get('upgrade.digests'))
+                    ->method('post')
+                    ->fields([
+                        (new Para())
+                            ->items([
                                 (new Checkbox('erase_backup'))
                                     ->value(1)
                                     ->label((new Label(__('Remove the backup digest file, I want to play again'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            (new Para())->items([
+                        (new Para())
+                            ->items([
                                 (new Submit(['confirm'], __('Continue'))),
                                 App::nonce()->formNonce(),
                             ]),
-                        ]),
                 ])
                 ->render();
             } else {
-                echo (new Para())->class('error')->items([
-                    (new Text(null, __('Please read carefully the following disclaimer before proceeding!'))),
-                ])
-                ->render();
-                echo (new Div())->class('message')->items([
-                    (new Text(null, is_file(self::$path_disclaimer) ? (string) file_get_contents(self::$path_disclaimer) : '...')),
-                    (new Form('frm-disclaimer'))
-                        ->action(App::upgrade()->url()->get('upgrade.digests'))
-                        ->method('post')
-                        ->fields([
-                            (new Para())->items([
+                echo (new Form('frm-disclaimer'))
+                    ->class('fieldset')
+                    ->action(App::upgrade()->url()->get('upgrade.digests'))
+                    ->method('post')
+                    ->fields([
+                        (new Div())
+                            ->items([(new Text(null, is_file(self::$path_disclaimer) ? (string) file_get_contents(self::$path_disclaimer) : '...'))]),
+                        (new Para())
+                            ->items([
                                 (new Checkbox('disclaimer_ok'))
                                     ->value(1)
                                     ->label((new Label(__('I have read and understood the disclaimer and wish to continue anyway.'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            (new Para())->items([
+                        (new Para())
+                            ->items([
                                 (new Submit(['confirm'], __('Continue'))),
                                 App::nonce()->formNonce(),
                             ]),
-                        ]),
-                ])
-                ->render();
+                    ])
+                    ->render();
             }
         }
 

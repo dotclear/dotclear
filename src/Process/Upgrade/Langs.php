@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\{
     Form,
     Hidden,
     Label,
+    Note,
     Para,
     Password,
     Select,
@@ -239,6 +240,12 @@ class Langs extends Process
             Notices::AddSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
         }
 
+        if (!self::$is_writable) {
+            Notices::addWarningNotice(sprintf(__('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),
+                '<strong>locales</strong>'
+            ));
+        }
+
         return true;
     }
 
@@ -257,8 +264,7 @@ class Langs extends Process
             )
         );
 
-        $items[] = (new Text('p', __('Here you can install, upgrade or remove languages for your Dotclear installation.')));
-        $items[] = (new Text('h3', __('Installed languages')));
+        $items = [];
 
         $langs      = scandir(App::config()->l10nRoot());
         $langs_list = [];
@@ -272,12 +278,7 @@ class Langs extends Process
             }
         }
 
-        if (empty($langs_list)) {
-            $items[] = (new Para())
-                ->items([
-                    (new Text('strong', __('No additional language is installed.'))),
-                ]);
-        } else {
+        if (!empty($langs_list)) {
             $options = [];
             $i       = 0;
             foreach ($langs_list as $lang_code => $lang) {
@@ -315,31 +316,27 @@ class Langs extends Process
             }
 
             $items[] = (new Div())
-                ->class('table-outer clear')
+                ->class('fieldset')
                 ->items([
-                    (new Table())
-                        ->class('plugins')
+                    (new Text('h4', __('Installed languages'))),
+                    (new Div())
+                        ->class('table-outer clear')
                         ->items([
-                            (new Tr())
+                            (new Table())
+                                ->class('plugins')
                                 ->items([
-                                    (new Th())
-                                        ->text(__('Language')),
-                                    (new Th())
-                                        ->class('nowrap')
-                                        ->text(__('Action')),
+                                    (new Tr())
+                                        ->items([
+                                            (new Th())
+                                                ->text(__('Language')),
+                                            (new Th())
+                                                ->class('nowrap')
+                                                ->text(__('Action')),
+                                        ]),
+                                    ...$options,
                                 ]),
-                            ...$options,
                         ]),
                 ]);
-        }
-
-        $items[] = (new Text('h3', __('Install or upgrade languages')));
-
-        if (!self::$is_writable) {
-            $items[] = (new Text('p', sprintf(
-                __('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),
-                '<strong>locales</strong>'
-            )));
         }
 
         if (is_array(self::$dc_langs) && !empty(self::$dc_langs) && self::$is_writable) {
@@ -356,7 +353,7 @@ class Langs extends Process
                 ->action(App::upgrade()->url()->get('upgrade.langs'))
                 ->enctype('multipart/form-data')
                 ->fields([
-                    (new Text('h4', __('Available languages'))),
+                    (new Text('h4', __('Install or upgrade languages from available languages'))),
                     (new Text('p', sprintf(
                         __('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'),
                         '<strong>' . App::config()->dotclearVersion() . '</strong>'
@@ -398,7 +395,7 @@ class Langs extends Process
                 ->action(App::upgrade()->url()->get('upgrade.langs'))
                 ->enctype('multipart/form-data')
                 ->fields([
-                    (new Text('h4', __('Upload a zip file'))),
+                    (new Text('h4', __('Install or upgrade languages from an upload a zip file'))),
                     (new Text('p', __('You can install languages by uploading zip files.'))),
                     (new Para())
                         ->class('field')
@@ -440,7 +437,14 @@ class Langs extends Process
                 ]);
         }
 
-        echo (new Div())->items($items)->render();
+        echo (new Div())
+            ->items([
+                (new Note())
+                    ->class('static-msg')
+                    ->text(__('Here you can install, upgrade or remove languages for your Dotclear installation.')),
+                ...$items,
+            ])
+            ->render();
 
         Page::helpBlock('core_langs');
         Page::close();
