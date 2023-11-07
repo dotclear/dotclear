@@ -64,7 +64,7 @@ class GrowUp_2_28_lt
                 'inc/load_var_file.php',
                 'inc/core/class.dc.ns.process.php',
                 'plugins/maintenance/_services.php',
-                'plugins/tags/tags_posts.php',
+                'plugins/tags/tag_posts.php',
                 'plugins/blogroll/index.php',
             ],
             // Folders
