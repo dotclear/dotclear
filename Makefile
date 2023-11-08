@@ -83,8 +83,9 @@ config: clean config-stamp
 
 	## Create digest
 	cd $(DC) && ( \
-		md5sum `find . -type f -not -path "./inc/digests" -not -path "./cache/*" -not -path "./var/*" -not -path "./db/*" -not -path ./CHANGELOG` \
-		> inc/digests \
+		find . -type f -not -path "./inc/digests" -not -path "./cache/*" -not -path "./var/*" -not -path "./db/*" -not -path ./CHANGELOG \
+		| sort \
+		| xargs md5sum > inc/digests \
 	)
 
 	touch config-stamp
