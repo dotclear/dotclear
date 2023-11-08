@@ -83,7 +83,7 @@ config: clean config-stamp
 
 	## Create digest
 	cd $(DC) && ( \
-		md5sum `find . -type f -not -path "./inc/digest" -not -path "./cache/*" -not -path "./var/*" -not -path "./db/*" -not -path ./CHANGELOG` \
+		md5sum `find . -type f -not -path "./inc/digests" -not -path "./cache/*" -not -path "./var/*" -not -path "./db/*" -not -path ./CHANGELOG` \
 		> inc/digests \
 	)
 
