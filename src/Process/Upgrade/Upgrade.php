@@ -262,7 +262,7 @@ class Upgrade extends Process
                                     (new Hidden(['process'], 'Upgrade')),
                                     (new Submit(['submit'], __('Update Dotclear'))),
                                 ]),
-                            self::$update_warning ? 
+                            self::$update_warning ?
                                 (new Text('p', __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).')))
                                     ->class('warning') : (new Text()),
                         ]);

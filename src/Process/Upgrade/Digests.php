@@ -101,7 +101,7 @@ class Digests extends Process
         // Mesasges
         if (isset($_POST['override'])) {
             if (empty(self::$zip_name)) {
-                Notices::addSuccessNotices(__('The updates have been performed.'));
+                Notices::addSuccessNotice(__('The updates have been performed.'));
             }
         } elseif (isset($_POST['disclaimer_ok'])) {
             if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
@@ -154,14 +154,12 @@ class Digests extends Process
             ->render();
 
         if (isset($_POST['override'])) {
-            if (!empty(self::$zip_name)) {
-                $item = (new Text(
-                    null,
-                    is_file(self::$path_helpus) ?
-                    sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
-                    '<a href="' . App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
-                ));
-            }
+            $item = empty(self::$zip_name) ? (new Text()) :(new Text(
+                null,
+                is_file(self::$path_helpus) ?
+                sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
+                '<a href="' . App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]) . '">' . __('Download backup of digests file.') . '</a>'
+            ));
 
             echo (new Div())
                 ->class('fieldset')

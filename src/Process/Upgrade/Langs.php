@@ -241,7 +241,8 @@ class Langs extends Process
         }
 
         if (!self::$is_writable) {
-            Notices::addWarningNotice(sprintf(__('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),
+            Notices::addWarningNotice(sprintf(
+                __('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),
                 '<strong>locales</strong>'
             ));
         }
