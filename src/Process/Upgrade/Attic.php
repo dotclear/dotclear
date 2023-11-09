@@ -129,8 +129,8 @@ class Attic extends Process
         self::$step    = !empty($_REQUEST['step']) && in_array($_REQUEST['step'], ['confirm', 'check', 'download', 'backup', 'unzip']) ? $_REQUEST['step'] : '';
         self::$updater = new UpdateAttic(App::config()->coreAtticUrl(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . 'versions');
         self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
-        if (!empty($_POST['version'])) {
-            self::$zip_file = self::$updater->selectVersion($_POST['version']);
+        if (!empty($_REQUEST['version'])) {
+            self::$zip_file = self::$updater->selectVersion($_REQUEST['version']);
         }
 
         if (!self::$updater->getVersion() || empty(self::$step)) {
@@ -148,8 +148,6 @@ class Attic extends Process
                 case 'check':
                     self::$updater->checkIntegrity(App::config()->dotclearRoot() . '/inc/digests', App::config()->dotclearRoot());
 
-                    Notices::addSuccessNotice(__('Dotclear integrity checked successfully'));
-
                     break;
                 case 'download':
                     self::$updater->download(self::$zip_file);
@@ -157,7 +155,7 @@ class Attic extends Process
                         throw new Exception(
                             sprintf(
                                 __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
-                                'href="' . App::upgrade()->url()->get('upgrade.attic', ['step' => 'download']) . '"'
+                                'href="' . App::upgrade()->url()->get('upgrade.attic', ['step' => 'download', 'version' => (string) self::$updater->getVersion()]) . '"'
                             ) .
                             ' ' .
                             __('If this problem persists try to ' .
@@ -165,7 +163,7 @@ class Attic extends Process
                         );
                     }
 
-                    Notices::addSuccessNotice(sprintf(__('File %s downloaded successfully'), Html::escapeHTML((string) self::$updater->getVersion())));
+                    App::upgrade()->url()->redirect('upgrade.attic', ['step' => 'backup', 'version' => (string) self::$updater->getVersion()]);
 
                     break;
                 case 'backup':
@@ -177,7 +175,7 @@ class Attic extends Process
                         App::config()->backupRoot() . '/backup-' . App::config()->dotclearVersion() . '.zip'
                     );
 
-                    Notices::addSuccessNotice(__('Dotclear backuped successfully'));
+                    App::upgrade()->url()->redirect('upgrade.attic', ['step' => 'unzip', 'version' => (string) self::$updater->getVersion()]);
 
                     break;
                 case 'unzip':
@@ -291,7 +289,6 @@ class Attic extends Process
                     ->method('post')
                     ->action(App::upgrade()->url()->get('upgrade.attic'))
                     ->fields([
-                        (new Text('h4', sprintf(__('Step %s of %s: %s'), '1', '5', __('Select')))),
                         (new Text('p', __('Select intermediate stable release to update to:'))),
                         (new Div())
                             ->class('table-outer')
@@ -303,7 +300,7 @@ class Attic extends Process
                             ->items([
                                 (new Hidden(['step'], 'check')),
                                 App::nonce()->formNonce(),
-                                (new Submit(['submit'], __('Continue to integrity'))),
+                                (new Submit(['submit'], __('Select'))),
                             ]),
                         (new Text('p', __('There are no additionnal informations about releases listed bellow, you should carefully read the information post associated with selected release on Dotclear\'s blog.')))
                             ->class('warning'),
@@ -315,53 +312,20 @@ class Attic extends Process
                 ->method('post')
                 ->action(App::upgrade()->url()->get('upgrade.attic'))
                 ->fields([
-                    (new Text('h4', sprintf(__('Step %s of %s: %s'), '2', '5', __('Integrity')))),
                     (new Text('p', sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion())))),
                     (new Para())
                         ->items([
                             (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
                             (new Hidden(['step'], 'download')),
                             App::nonce()->formNonce(),
-                            (new Submit(['submit'], __('Continue to download'))),
-                        ]),
-                ]);
-        } elseif (self::$step == 'download' && !App::error()->flag()) {
-            $items[] = (new Form('atticstep3'))
-                ->class('fieldset')
-                ->method('post')
-                ->action(App::upgrade()->url()->get('upgrade.attic'))
-                ->fields([
-                    (new Text('h4', sprintf(__('Step %s of %s: %s'), '3', '5', __('Download')))),
-                    (new Para())
-                        ->items([
-                            (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
-                            (new Hidden(['step'], 'backup')),
-                            App::nonce()->formNonce(),
-                            (new Submit(['submit'], __('Continue to backup'))),
-                        ]),
-                ]);
-        } elseif (self::$step == 'backup' && !App::error()->flag()) {
-            $items[] = (new Form('atticstep4'))
-                ->class('fieldset')
-                ->method('post')
-                ->action(App::upgrade()->url()->get('upgrade.attic'))
-                ->fields([
-                    (new Text('h4', sprintf(__('Step %s of %s: %s'), '4', '5', __('Backup')))),
-                    (new Para())
-                        ->items([
-                            (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
-                            (new Hidden(['step'], 'unzip')),
-                            App::nonce()->formNonce(),
-                            (new Submit(['submit'], __('Continue to overwrite'))),
+                            (new Submit(['submit'], __('Update Dotclear'))),
                         ]),
                 ]);
         } elseif (self::$step == 'unzip' && !App::error()->flag()) {
             $items[] = (new Div())
                 ->class('fieldset')
                 ->items([
-                    (new Text('h4', sprintf(__('Step %s of %s: %s'), '5', '5', __('Overwrite')))),
-                    (new Text('p', __("Congratulations, you're one click away from the end of the update.")))
-                        ->class('message'),
+                    (new Text('p', __("Congratulations, you're one click away from the end of the update."))),
                     (new Para())
                         ->items([
                             (new Link())
