@@ -3,8 +3,6 @@
  * @package     Dotclear
  * @subpackage  Upgrade
  *
- * @author      Franck Paul and contributors
- *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
  */
@@ -34,6 +32,10 @@ use Exception;
 
 /**
  * @brief   Upgrade process corrupted files helper.
+ *
+ * Taken from plugin fakemeup.
+ *
+ * @author  Franck Paul and contributors
  *
  * @since   2.29
  */

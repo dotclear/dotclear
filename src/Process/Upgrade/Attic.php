@@ -302,7 +302,7 @@ class Attic extends Process
                                 App::nonce()->formNonce(),
                                 (new Submit(['submit'], __('Select'))),
                             ]),
-                        (new Text('p', __('There are no additionnal informations about releases listed bellow, you should carefully read the information post associated with selected release on Dotclear\'s blog.')))
+                        (new Text('p', __('There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear\'s blog.')))
                             ->class('warning'),
                     ]);
             }

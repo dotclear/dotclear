@@ -28,7 +28,7 @@ use Dotclear\Helper\Html\Form\{
 use Exception;
 
 /**
- * @brief   Cache cleaner helper.
+ * @brief   Growup replay helper.
  *
  * @since   2.29
  */
