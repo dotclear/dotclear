@@ -1,3 +1,39 @@
+Dotclear 2.28 - 2023-11-??
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2 compliance
+* Core: All admin/install/helper/db/public code is now PHP namespaced
+* Core: Add whitespace control capabilities to template engine, thanks manusauvage for the patch
+* Core: Move some old deprecated autoload from dcProxyV2 to dcProxyv1 as some plugins may need them before loading of dcProxyV2
+* Core: Add extra cursor management for FlatImport (useful with 3rd party plugins)
+* Core: Show exception in debug/dev mode
+* Core: Complete support of Avif image format
+* Core: Add Media::setThumbSizes() method and set two behaviors (coreBlogConstruct and coreMediaConstruct) as deprecated
+* Core: Add dl, dt, dd form element with unit tests
+* Core: Add enctype form property (Helper/Html/Form/Form)
+* Core: Add a second removal pass to housecleaning step of upgrade and add a renaming fallback procedure if file or folder cannot be deleted
+* Core: Allow upgrade on sqlite install (except db schema)
+* Fix: Take care of unnumbered post URL to compose a new unique one
+* Fix: Show comment's IP column even if not spam
+* Fix: Fix SQLite table schema info fields (int for notnull, ?string for dflt_value)
+* Fix: Use localized rss news if available rather than English one
+* Fix: Unknown path class on some config file
+* Fix: Thumbnails creation
+* Fix: Process XSS
+* Fix: Allow pings management by blogs' admins too
+* Fix: Fix empty widgets area management, will use defaults widgets in it only if not set as empty array in settings (ie null)
+* Fix: Click (open/close) event management on details HTML element
+* Fix: Custom CSS css management with cloning feature
+* Fix: Don't forget to get current page number when searching in Static home mode
+* Fix: Search URL in breadcrumb
+* Fix: Some favorites (admin) callbacks
+* Fix: Cope with min/max non integer values and add Html/Form/Decimal
+* Fix: Thumbnails re-creation
+* Fix: Typo in makefile
+* i18n: Various translation have been added or updated (using DeepL engine), they should be reviewed
+* a11y: Fix link color on small screens
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.27.3 - 2023-08-31
 ===========================================================
 * Fix: Review password recovery procedure (link sent in email was buggy)
