@@ -19,7 +19,7 @@ dotclear.easter = () => {
       this.size = Math.random() * 8;
       this.speedX = Math.random() * 3 - 1.5;
       this.speedY = Math.random() * 3 - 1.5;
-      this.color = `hsl(${hue}, 100%, 50%)`;
+      this.color = `hsl(${hue}, 80%, 80%)`;
     }
 
     update() {
@@ -36,7 +36,7 @@ dotclear.easter = () => {
   }
 
   const animate = () => {
-    ctx.fillStyle = 'rgba(58, 83, 155, 1)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     hue += 2;
     handleParticles();
