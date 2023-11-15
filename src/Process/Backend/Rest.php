@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use ArrayObject;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\Backend\UserPref;
@@ -259,6 +260,14 @@ class Rest extends Process
 
         $repo = new Store($mod, $url);
         $upd  = $repo->getDefines(true);
+
+        $tmp = new ArrayObject($upd);
+
+        # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
+        App::behavior()->callBehavior('afterCheckStoreUpdate', $post['store'], $tmp);
+
+        $upd = $tmp->getArrayCopy();
+
         if (!empty($upd)) {
             $data = [
                 'ret'   => sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd)),

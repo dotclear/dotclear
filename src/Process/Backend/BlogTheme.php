@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
@@ -190,6 +191,14 @@ class BlogTheme extends Process
 
             // Updated themes from repo
             $defines = App::backend()->list->store->getDefines(true);
+
+            $tmp = new ArrayObject($defines);
+
+            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
+            App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
+
+            $defines = $tmp->getArrayCopy();
+
             if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .

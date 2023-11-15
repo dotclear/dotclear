@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
@@ -163,6 +164,14 @@ class Plugins extends Process
 
             // Updated modules from repo
             $defines = App::backend()->list->store->getDefines(true);
+
+            $tmp = new ArrayObject($defines);
+
+            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
+            App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
+
+            $defines = $tmp->getArrayCopy();
+
             if (!empty($defines)) {
                 echo
                 '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
@@ -180,7 +189,7 @@ class Plugins extends Process
                         /* cols */
                         ['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
                         /* actions */
-                        ['update']
+                        ['update', 'behavior']
                     );
 
                 echo
