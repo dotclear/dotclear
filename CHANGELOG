@@ -1,4 +1,4 @@
-Dotclear 2.28 - 2023-11-??
+Dotclear 2.28 - 2023-11-15
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2 compliance
 * Core: All admin/install/helper/db/public code is now PHP namespaced
