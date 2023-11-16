@@ -154,7 +154,7 @@ class Config implements ConfigInterface
             define('DC_BLOG_ID', '');
         }
 
-        $this->blog_id = DC_BLOG_ID;
+        $this->blog_id = (string) DC_BLOG_ID;
 
         // From release file
         $file    = $this->dotclearRoot() . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
@@ -396,50 +396,50 @@ class Config implements ConfigInterface
             define('DC_ADBLOCKER_CHECK', true);
         }
 
-        $this->debug_mode          = DC_DEBUG;
-        $this->dev_mode            = DC_DEV;
-        $this->error_file          = DC_ERRORFILE;
-        $this->master_key          = DC_MASTER_KEY;
-        $this->next_required_php   = DC_NEXT_REQUIRED_PHP;
-        $this->vendor_name         = DC_VENDOR_NAME;
-        $this->xmlrpc_url          = DC_XMLRPC_URL;
-        $this->session_ttl         = DC_SESSION_TTL;
-        $this->session_name        = DC_SESSION_NAME;
-        $this->admin_ssl           = DC_ADMIN_SSL;
-        $this->admin_url           = DC_ADMIN_URL;
-        $this->admin_mailfrom      = DC_ADMIN_MAILFROM;
-        $this->db_driver           = DC_DBDRIVER;
-        $this->db_host             = DC_DBHOST;
-        $this->db_user             = DC_DBUSER;
-        $this->db_password         = DC_DBPASSWORD;
-        $this->db_name             = DC_DBNAME;
-        $this->db_prefix           = DC_DBPREFIX;
-        $this->db_persist          = DC_DBPERSIST;
-        $this->plugins_root        = DC_PLUGINS_ROOT;
-        $this->core_update_url     = DC_UPDATE_URL;
-        $this->core_update_canal   = DC_UPDATE_VERSION;
-        $this->core_not_update     = DC_NOT_UPDATE;
-        $this->allow_multi_modules = DC_ALLOW_MULTI_MODULES;
-        $this->store_not_update    = DC_STORE_NOT_UPDATE;
-        $this->allow_rest_services = DC_REST_SERVICES;          // @phpstan-ignore-line : PHPStan false positive, bool only!
-        $this->allow_repositories  = DC_ALLOW_REPOSITORIES;
-        $this->query_timeout       = DC_QUERY_TIMEOUT;
-        $this->show_hidden_dirs    = DC_SHOW_HIDDEN_DIRS;
-        $this->crypt_algo          = DC_CRYPT_ALGO;
-        $this->cache_root          = DC_TPL_CACHE;
-        $this->var_root            = DC_VAR;
-        $this->backup_root         = DC_BACKUP_PATH;
-        $this->core_upgrade        = DC_UPGRADE;
+        $this->debug_mode          = (bool) DC_DEBUG;
+        $this->dev_mode            = (bool) DC_DEV;
+        $this->error_file          = (string) DC_ERRORFILE;
+        $this->master_key          = (string) DC_MASTER_KEY;
+        $this->next_required_php   = (string) DC_NEXT_REQUIRED_PHP;
+        $this->vendor_name         = (string) DC_VENDOR_NAME;
+        $this->xmlrpc_url          = (string) DC_XMLRPC_URL;
+        $this->session_ttl         = (string) (DC_SESSION_TTL ?? '-120 minutes');
+        $this->session_name        = (string) DC_SESSION_NAME;
+        $this->admin_ssl           = (bool) DC_ADMIN_SSL;
+        $this->admin_url           = (string) DC_ADMIN_URL;
+        $this->admin_mailfrom      = (string) DC_ADMIN_MAILFROM;
+        $this->db_driver           = (string) DC_DBDRIVER;
+        $this->db_host             = (string) DC_DBHOST;
+        $this->db_user             = (string) DC_DBUSER;
+        $this->db_password         = (string) DC_DBPASSWORD;
+        $this->db_name             = (string) DC_DBNAME;
+        $this->db_prefix           = (string) DC_DBPREFIX;
+        $this->db_persist          = (bool) DC_DBPERSIST;
+        $this->plugins_root        = (string) DC_PLUGINS_ROOT;
+        $this->core_update_url     = (string) DC_UPDATE_URL;
+        $this->core_update_canal   = (string) DC_UPDATE_VERSION;
+        $this->core_not_update     = (bool) DC_NOT_UPDATE;
+        $this->allow_multi_modules = (bool) DC_ALLOW_MULTI_MODULES;
+        $this->store_not_update    = (bool) DC_STORE_NOT_UPDATE;
+        $this->allow_rest_services = (bool) DC_REST_SERVICES;          // @phpstan-ignore-line : PHPStan false positive, bool only!
+        $this->allow_repositories  = (bool) DC_ALLOW_REPOSITORIES;
+        $this->query_timeout       = (int) DC_QUERY_TIMEOUT;
+        $this->show_hidden_dirs    = (bool) DC_SHOW_HIDDEN_DIRS;
+        $this->crypt_algo          = (string) DC_CRYPT_ALGO;
+        $this->cache_root          = (string) DC_TPL_CACHE;
+        $this->var_root            = (string) DC_VAR;
+        $this->backup_root         = (string) DC_BACKUP_PATH;
+        $this->core_upgrade        = (string) DC_UPGRADE;
         $this->start_time          = DC_START_TIME;
-        $this->http_scheme_443     = DC_FORCE_SCHEME_443;
-        $this->http_revers_proxy   = DC_REVERSE_PROXY;
-        $this->check_ads_blocker   = DC_ADBLOCKER_CHECK;
+        $this->http_scheme_443     = (bool) DC_FORCE_SCHEME_443;
+        $this->http_revers_proxy   = (bool) DC_REVERSE_PROXY;
+        $this->check_ads_blocker   = (bool) DC_ADBLOCKER_CHECK;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
             define('DC_CSP_LOGFILE', Path::reduce([$this->varRoot(), 'csp', self::CSP_REPORT_FILE]));
         }
-        $this->csp_report_file = DC_CSP_LOGFILE;
+        $this->csp_report_file = (string) DC_CSP_LOGFILE;
 
         // Set config for Exception handler
         Fault::$config = $this;
@@ -450,12 +450,12 @@ class Config implements ConfigInterface
         }
 
         // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
-        if (defined('DC_AUTH_CLASS') && is_subclass_of(DC_AUTH_CLASS, AuthInterface::class)) {
+        if (defined('DC_AUTH_CLASS') && is_subclass_of((string) DC_AUTH_CLASS, AuthInterface::class)) {
             Factories::addService('core', AuthInterface::class, fn ($container) => new (DC_AUTH_CLASS)(dcCore::app()));
         }
 
         // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
-        if (defined('DC_DBHANDLER_CLASS') && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
+        if (defined('DC_DBHANDLER_CLASS') && is_subclass_of((string) DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
             Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);  // @phpstan-ignore-line
         }
 
