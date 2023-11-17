@@ -292,7 +292,7 @@ class Tpl extends Template
         $res = App::behavior()->callBehavior('templateBeforeBlockV2', $this->current_tag, $attr);
 
         # --BEHAVIOR-- templateInsideBlock -- string, ArrayObject, array<int,string>
-        App::behavior()->callBehavior('templateInsideBlockV2', $this->current_tag, $attr, [& $content]);
+        App::behavior()->callBehavior('templateInsideBlockV2', $this->current_tag, $attr, [&$content]);
 
         $res .= parent::compileBlockNode($this->current_tag, $attr, $content);
 
@@ -2728,7 +2728,7 @@ class Tpl extends Template
 
         if ($rfc822) {
             return '<?php echo ' .
-                sprintf($filters, "\App::frontend()->context()->posts->getRFC822Date('" . $type . "')") . '; ?>';
+                sprintf($filters, "App::frontend()->context()->posts->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
             return '<?php echo ' .
                 sprintf($filters, "App::frontend()->context()->posts->getISO8601Date('" . $type . "')") . '; ?>';

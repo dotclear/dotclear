@@ -92,8 +92,8 @@ class metaEditor {
       (data) => {
         this.meta_list.empty();
         for (const elt of data) {
-          const { meta_id } = elt;
-          li = $(`<li><a href="${this.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
+          const { meta_id, uri } = elt;
+          li = $(`<li><a href="${this.meta_url}${uri}">${meta_id}</a></li>`);
           const a_remove = $(
             '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>',
           );
