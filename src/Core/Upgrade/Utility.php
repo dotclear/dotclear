@@ -272,8 +272,8 @@ class Utility extends Process
             new Icon(
                 name: __('Attic'),
                 url: 'upgrade.attic',
-                icon: 'images/menu/blog-pref.svg',
-                dark: 'images/menu/blog-pref-dark.svg',
+                icon: 'images/menu/attic.svg',
+                dark: 'images/menu/attic-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
                 id: 'Attic'
             ),
@@ -304,24 +304,24 @@ class Utility extends Process
             new Icon(
                 name: __('Cache'),
                 url: 'upgrade.cache',
-                icon: 'images/menu/tools.svg',
-                dark: 'images/menu/tools-dark.svg',
+                icon: 'images/menu/clear-cache.svg',
+                dark: 'images/menu/clear-cache-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
                 id: 'Cache'
             ),
             new Icon(
                 name: __('Digests'),
                 url: 'upgrade.digests',
-                icon: 'images/menu/edit.svg',
-                dark: 'images/menu/edit-dark.svg',
+                icon: 'images/menu/digests.svg',
+                dark: 'images/menu/digests-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
                 id: 'Digests'
             ),
             new Icon(
                 name: __('Replay'),
                 url: 'upgrade.replay',
-                icon: 'images/menu/update.svg',
-                dark: 'images/menu/update-dark.svg',
+                icon: 'images/menu/replay.svg',
+                dark: 'images/menu/replay-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
                 id: 'Replay'
             ),
