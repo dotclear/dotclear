@@ -304,28 +304,46 @@ class Blog implements BlogInterface
 
     private function getBlog(string $blog_id): MetaRecord
     {
-        $join  = ''; // %1$s
-        $where = ''; // %2$s
+        $sql = new SelectStatement();
+        $sql
+            ->columns([
+                'B.blog_id',
+                'blog_uid',
+                'blog_url',
+                'blog_name',
+                'blog_desc',
+                'blog_creadt',
+                'blog_upddt',
+                'blog_status',
+            ])
+            ->from($sql->as($this->con->prefix() . self::BLOG_TABLE_NAME, 'B'))
+            ->where('B.blog_id' . $sql->in($blog_id))
+            ->order('B.blog_id ASC')
+            ;
 
         if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
-            $join  = 'INNER JOIN ' . $this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
-            $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .  // @phpstan-ignore-line
-                "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                'AND blog_status IN (' . (string) self::BLOG_ONLINE . ',' . (string) self::BLOG_OFFLINE . ') ';
+            $sql
+                ->join(
+                    (new JoinStatement())
+                        ->inner()
+                        ->from($sql->as($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME, 'PE'))
+                        ->on('B.blog_id = PE.blog_id')
+                        ->statement()
+                )
+                ->and('PE.user_id = ' . $sql->quote($this->auth->userID()))
+                ->and($sql->orGroup([
+                    $sql->like('permissions', '%|' . $this->auth::PERMISSION_USAGE . '|%'),
+                    $sql->like('permissions', '%|' . $this->auth::PERMISSION_ADMIN . '|%'),
+                    $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
+                ]))
+                ->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]))
+                ;
         } elseif (!$this->auth->userID()) {
-            $where = 'AND blog_status IN (' . (string) self::BLOG_ONLINE . ',' . (string) self::BLOG_OFFLINE . ') ';
+            $sql->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]));
+
         }
 
-        $where .= 'AND B.blog_id ' . $this->con->in($blog_id);
-
-        $strReq = 'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, blog_upddt, blog_status ';
-        $strReq .= 'FROM ' . $this->con->prefix() . self::BLOG_TABLE_NAME . ' B ' .
-            '%1$s ' .
-            'WHERE NULL IS NULL ' .
-            '%2$s ';
-        $strReq .= 'ORDER BY B.blog_id ASC ';
-
-        return new MetaRecord($this->con->select(sprintf($strReq, $join, $where)));
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     /// @name Class public methods
@@ -1958,6 +1976,8 @@ class Blog implements BlogInterface
 
     /**
      * Get a category filter SQL clause
+     *
+     * @todo    Use sqlStatement in getPostsCategoryFilter
      *
      * @param  array<string>    $arr        filters
      * @param  string           $field

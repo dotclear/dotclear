@@ -132,75 +132,80 @@ class Blogs implements BlogsInterface
 
     public function getBlogs(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
     {
-        $join  = ''; // %1$s
-        $where = ''; // %2$s
+        $sql = new SelectStatement();
 
         if ($count_only) {
-            $strReq = 'SELECT count(B.blog_id) ' .
-            'FROM ' . $this->con->prefix() . $this->blog::BLOG_TABLE_NAME . ' B ' .
-                '%1$s ' .
-                'WHERE NULL IS NULL ' .
-                '%2$s ';
+            $sql
+                ->column($sql->count('B.blog_id'))
+                ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->where('NULL IS NULL')
+                ;
         } else {
-            $strReq = 'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
-                'blog_upddt, blog_status ';
-            if (!empty($params['columns'])) {
-                $strReq .= ',';
-                if (is_array($params['columns'])) {
-                    $strReq .= implode(',', $params['columns']);
-                } else {
-                    $strReq .= $params['columns'];
-                }
-                $strReq .= ' ';
-            }
-            $strReq .= 'FROM ' . $this->con->prefix() . $this->blog::BLOG_TABLE_NAME . ' B ' .
-                '%1$s ' .
-                'WHERE NULL IS NULL ' .
-                '%2$s ';
+            $sql
+                ->columns([
+                    'B.blog_id',
+                    'blog_uid',
+                    'blog_url',
+                    'blog_name',
+                    'blog_desc',
+                    'blog_creadt',
+                    'blog_upddt',
+                    'blog_status',
+                ])
+                ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->where('NULL IS NULL')
+                ;
 
-            if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';    // @phpstan-ignore-line
-            } else {
-                $strReq .= 'ORDER BY B.blog_id ASC ';
+            if (!empty($params['columns'])) {
+                $sql->columns($params['columns']);
             }
+
+            $sql->order(!empty($params['order']) ? $sql->escape($params['order']) : 'B.blog_id ASC');
 
             if (!empty($params['limit'])) {
-                $strReq .= $this->con->limit($params['limit']);
+                $sql->limit($params['limit']);
             }
         }
 
         if ($this->blog->auth()->userID() && !$this->blog->auth()->isSuperAdmin()) {
-            $join  = 'INNER JOIN ' . $this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME . ' PE ON B.blog_id = PE.blog_id ';
-            $where = "AND PE.user_id = '" . $this->con->escape($this->blog->auth()->userID()) . "' " .  // @phpstan-ignore-line
-                "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
+            $sql
+                ->join(
+                    (new JoinStatement())
+                        ->inner()
+                        ->from($sql->as($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'PE'))
+                        ->on('B.blog_id = PE.blog_id')
+                        ->statement()
+                )
+                ->and('PE.user_id = ' . $sql->quote($this->blog->auth()->userID()))
+                ->and($sql->orGroup([
+                    $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_USAGE . '|%'),
+                    $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_ADMIN . '|%'),
+                    $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_CONTENT_ADMIN . '|%'),
+                ]))
+                ->and('blog_status' . $sql->in([(string) $this->blog::BLOG_ONLINE, (string) $this->blog::BLOG_OFFLINE]))
+                ;
         } elseif (!$this->blog->auth()->userID()) {
-            $where = 'AND blog_status IN (' . (string) $this->blog::BLOG_ONLINE . ',' . (string) $this->blog::BLOG_OFFLINE . ') ';
+            $sql->and('blog_status' . $sql->in([(string) $this->blog::BLOG_ONLINE, (string) $this->blog::BLOG_OFFLINE]));
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->blog->auth()->isSuperAdmin()) {
-            $where .= 'AND blog_status = ' . (int) $params['blog_status'] . ' ';
+            $sql->and('blog_status = ' . (int) $params['blog_status'] );
         }
 
         if (isset($params['blog_id']) && $params['blog_id'] !== '') {
-            if (!is_array($params['blog_id'])) {
-                $params['blog_id'] = [$params['blog_id']];
-            }
-            $where .= 'AND B.blog_id ' . $this->con->in($params['blog_id']);
+            $sql->and('B.blog_id' . $sql->in($params['blog_id']));
         }
 
         if (!empty($params['q'])) {
             $params['q'] = strtolower((string) str_replace('*', '%', $params['q']));
-            $where .= 'AND (' . // @phpstan-ignore-line
-            "LOWER(B.blog_id) LIKE '" . $this->con->escape($params['q']) . "' " .
-            "OR LOWER(B.blog_name) LIKE '" . $this->con->escape($params['q']) . "' " .
-            "OR LOWER(B.blog_url) LIKE '" . $this->con->escape($params['q']) . "' " .
-                ') ';
+            $sql->and($sql->orGroup([
+                $sql->like('LOWER(B.blog_id)', $sql->escape($params['q'])),
+                $sql->like('LOWER(B.blog_name)', $sql->escape($params['q'])),
+                $sql->like('LOWER(B.blog_url)', $sql->escape($params['q'])),
+            ]));
         }
 
-        $strReq = sprintf($strReq, $join, $where);
-
-        return new MetaRecord($this->con->select($strReq));
+        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     public function addBlog(Cursor $cur): void
