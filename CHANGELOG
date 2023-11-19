@@ -1,3 +1,11 @@
+Dotclear 2.28.1 - 2023-11-19
+===========================================================
+* Fix: Some housecleaning missing in 2.28
+* Fix: Don't overwrite antispam filter name if already set, seen in list of antispam filters
+* Fix: Cast constants types as far as possible
+* Fix: Template code for EntryDate
+* Fix: Meta edition URL (entry edition page)
+
 Dotclear 2.28 - 2023-11-15
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2 compliance
