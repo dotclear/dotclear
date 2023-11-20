@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-11-20 22:23\n"
+"Last-Translator: \n"
+"Language-Team: Lithuanian\n"
+"Language: lt_LT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && (n%100>19 || n%100<11) ? 0 : (n%10>=2 && n%10<=9) && (n%100>19 || n%100<11) ? 1 : n%1!=0 ? 2: 3);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: lt\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "Šviesus linijinis gradientas"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "Vidutinis linijinis nuolydis"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "Tamsus linijinis gradientas"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "Vientisa spalva"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "Pasirinktinis..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "Temos konfigūracija sėkmingai atnaujinta."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "Grįžti į tinklaraščio išvaizdą"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "Pritaikymas"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "Bendra"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "Fono spalva:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "Fono spalvos užpildymas:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "Pagrindinio teksto šriftas:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "Pagrindinio teksto šrifto dydis:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "Pagrindinė teksto spalva:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "Teksto eilutės aukštis:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "Nuorodų spalva:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "Aplankytų nuorodų spalva:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "Dėmesio nuorodos spalva:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "Preliudo spalva:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "Paslėpti pagrindinį pavadinimą"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "Pagrindinio pavadinimo šriftas:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "Pagrindinio pavadinimo šrifto dydis:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "Pagrindinė pavadinimo spalva:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "Pagrindinio pavadinimo suderinimas:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "centras"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "kairėje"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "dešinėje"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "Pagrindinio pavadinimo padėtis (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "Viršutinė nuotrauka"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Pasirinkite \"Custom...\" ir įkelkite savo paveikslėlį."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "Pridėkite savo paveikslėlį:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG arba PNG failas, 800 pikselių pločio, didžiausias dydis %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Šoninė juosta"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "Šoninės juostos padėtis:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Šoninės juostos teksto šriftas:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "Šoninės juostos teksto šrifto dydis:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "Šoninės juostos teksto spalva:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "Šoninės juostos pavadinimų šriftas:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "Šoninės juostos pavadinimų šrifto dydis:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "Šoninės juostos pavadinimų spalva:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "Šoninės juostos 2-ojo lygio pavadinimų šriftas:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Šoninės juostos 2-ojo lygio pavadinimų šrifto dydis:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "Šoninės juostos 2-ojo lygio pavadinimų spalva:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "Šoninės juostos linijų spalva:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "Šoninės juostos nuorodų spalva:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "Šoninės juostos aplankytų nuorodų spalva:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "Šoninės juostos fokusavimo nuorodų spalva:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "Datos pavadinimo šriftas:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "Datos pavadinimo šrifto dydis:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "Data pavadinimas spalva:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "Įrašo pavadinimo šriftas:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "Įrašo pavadinimo šrifto dydis:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "Įrašo pavadinimo spalva:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "Komentaro fono spalva:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "Komentaro teksto spalva:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "Mano komentaro fono spalva:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "Mano komentaro teksto spalva:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "Kojinė"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Kojinės šriftas:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "Kojinės šrifto dydis:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "Kojinės spalva:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "Nuorodų į apačią spalva:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "Fono spalva:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "Papildomi CSS"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Bet kokie papildomi CSS stiliai (turi būti parašyti naudojant CSS sintaksę):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "Konfigūracijos importas / eksportas"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Konfigūraciją galite bendrinti naudodami šį kodą. Norėdami taikyti konfigūraciją, įklijuokite kodą, spustelėkite \"Taikyti kodą\" ir išsaugokite."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "Kopijuokite šį kodą:"
+
