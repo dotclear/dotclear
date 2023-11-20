@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-11-20 22:24\n"
+"Last-Translator: \n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: pl\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "Jasny gradient liniowy"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "Średni gradient liniowy"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "Ciemny gradient liniowy"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "Jednolity kolor"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "Niestandardowe..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "Konfiguracja motywu została pomyślnie zaktualizowana."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "Powrót do wyglądu bloga"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "Personalizacja"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "Ogólne"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "Kolor tła:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "Kolor wypełnienia tła:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "Czcionka tekstu głównego:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "Rozmiar czcionki tekstu głównego:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "Główny kolor tekstu:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "Wysokość linii tekstu:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "Kolor linków:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "Kolor odwiedzanych linków:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "Kolor łącza ostrości:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "Kolor preludium:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "Ukryj tytuł główny"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "Czcionka tytułu głównego:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "Rozmiar czcionki tytułu głównego:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "Kolor tytułu głównego:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "Wyrównanie tytułu głównego:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "centrum"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "lewy"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "prawo"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "Pozycja tytułu głównego (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "Obraz z góry"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Wybierz opcję \"Niestandardowe...\", aby przesłać własny obraz."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "Dodaj swój obraz:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "Plik JPEG lub PNG, szerokość 800 pikseli, maksymalny rozmiar %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Pasek boczny"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "Pozycja paska bocznego:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Czcionka tekstu na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "Rozmiar czcionki tekstu na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "Kolor tekstu na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "Czcionka tytułów na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "Rozmiar czcionki tytułów na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "Kolor tytułów pasków bocznych:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "Czcionka tytułów 2. poziomu paska bocznego:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Rozmiar czcionki tytułów 2. poziomu paska bocznego:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "Kolor tytułów drugiego poziomu paska bocznego:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "Kolor linii paska bocznego:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "Kolor linków paska bocznego:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "Kolor linków odwiedzanych na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "Kolor linków skupiających się na pasku bocznym:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "Czcionka tytułu daty:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "Rozmiar czcionki tytułu daty:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "Kolor tytułu daty:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "Czcionka tytułu wpisu:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "Rozmiar czcionki tytułu wpisu:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "Kolor tytułu wpisu:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "Kolor tła komentarza:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "Kolor tekstu komentarza:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "Kolor tła mojego komentarza:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "Mój kolor tekstu komentarza:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "Stopka"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Czcionka stopki:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "Rozmiar czcionki stopki:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "Kolor stopki:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "Kolor linków stopki:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "Kolor tła stopki:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "Dodatkowy CSS"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Wszelkie dodatkowe style CSS (muszą być napisane przy użyciu składni CSS):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "Import / eksport konfiguracji"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Możesz udostępnić swoją konfigurację za pomocą poniższego kodu. Aby zastosować konfigurację, wklej kod, kliknij \"Zastosuj kod\" i zapisz."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "Skopiuj ten kod:"
+
