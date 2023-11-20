@@ -1,0 +1,83 @@
+<html>
+<head>
+
+<title>Konfiguracja kanałowa</title>
+</head>
+
+<body>
+<p>Modyfikując konfigurację motywu Ductile, można bardzo łatwo go spersonalizować</p>
+
+<h3>Personalizacja treści</h3>
+<p>Na tej karcie możesz spersonalizować zawartość swojego bloga.</p>
+<dl>
+  <dt>Nagłówek</dt>
+    <dd>Zaznacz pole "Ukryj opis bloga", aby nie wyświetlać opisu bloga zwykle wyświetlanego pod tytułem.</dd>
+
+<p>Jeśli wtyczka "Proste menu" jest zainstalowana i aktywna, możesz kliknąć wskazany link, aby skonfigurować menu nagłówka. (menu główne?)</p>
+
+<p>Określ adres URL logo, które ma być używane zamiast domyślnego. Jeśli adres URL nie zaczyna się od <code>/</code>, będzie to względny adres URL z folderu <code>img</code> motywu (na przykład umieszczenie <code>logo.png</code>jest podobne do używania domyślnego logo). Wyczyść to pole, aby powrócić do domyślnej konfiguracji.</p>
+
+  <dt>Naklejki</dt>
+    <dd>Naklejki będą wyświetlane na górze ekranu jako małe obrazki na dużych ekranach i na dole strony na bardzo małych ekranach. Wszystkie obrazy, których nazwa pliku odpowiada schematowi sticker-*.png i umieszczone w podfolderze img motywu, są wymienione. Dla każdego z nich można wskazać etykietę i odpowiadający jej adres url. (Pozostaw jedno z obu pól puste, aby go nie wyświetlać.)<br />
+Możesz także zmodyfikować kolejność wyświetlania za pomocą przeciągania i upuszczania, jeśli javascript jest włączony i jeśli nie wyłączyłeś go w swoich preferencjach. Jeśli javascript jest wyłączony, pole pozwala wskazać kolejność wyświetlania (od 1 do n).</dd>
+
+  <dt>Typy i limity dla list postów</dt>
+
+    <dd>Niektóre z kontekstów wyświetlania bloga mają postać listy postów. Tak jest na przykład w przypadku strony głównej lub miesięcznych archiwów. Dla każdego z kontekstów wymienionych w tabeli można określić, czy treść każdego wyświetlanego posta ma być tylko tytułem, krótką formą (zawartość pola wyodrębniania pierwszych 300 znaków) czy ich pełną formą. UWAGA. Na stronie głównej pierwszy post jest zawsze wyświetlany w pełnej formie.<br />
+Ponadto dla niektórych z tych kontekstów można również określić liczbę postów wyświetlanych na stronie. Jeśli pozostawisz to pole puste, użyta zostanie wartość określona w ustawieniach ogólnych bloga.</dd>
+
+</dl>
+
+<h3>Personalizacja prezentacji</h3>
+<p>Na tej karcie możesz spersonalizować niektóre elementy prezentacji swojego bloga.</p>
+
+<h4>Parametry ogólne</h4>
+
+<p>Parametry te będą używane na wszystkich szerokościach wyświetlania bloga.</p>
+<dl>
+  <dt>Czcionki</dt>
+    <dd>W tym miejscu można wybrać główną rodzinę czcionek, która będzie używana w większości tekstów. Można również określić drugą rodzinę czcionek (drugorzędną), która będzie używana dla niektórych tytułów drugiego poziomu i komentarzy. Opcja "domyślna" pozwala pozostawić pierwotny wybór.</dd>
+
+  <dt>Tytuł bloga</dt>
+
+    <dd>W tym miejscu można określić, czy tytuł bloga ma być pogrubiony, jego rozmiar (domyślnie em, rozpoznawane jednostki to %, pt, px, em i ex), a także kolor, używając formatu #rrggbb z rr, gg i bb wybranymi w zakresie 0 i ff.<br />
+Opróżnij jedno lub wszystkie pola, aby anulować wybór i powrócić do ustawień domyślnych.</dd>
+
+
+  <dt>Tytuły postów</dt>
+    <dd>Możesz tutaj wskazać, czy tytuły postów mają być wyświetlane pogrubioną czcionką, ich rozmiar (domyślnie em, rozpoznawane jednostki to %, pt, px, em i ex), a także ich kolor za pomocą próbnika kolorów dostępnego po kliknięciu ikony próbnika lub określając kolor w formacie #rrggbb z rr, gg i bb wybranymi w zakresie 0 i ff.<br />
+Opróżnij jedno lub wszystkie pola, aby anulować swój wybór i powrócić do pierwotnego.</dd>
+
+  <dt>Tytuły bez linku</dt>
+    <dd>W tym miejscu można określić kolor tytułów bez linku (zasadniczo: tytuł postu, gdy jest wyświetlany samodzielnie, podtytuły w postach, aktywny element w menu poziomym) za pomocą próbnika kolorów dostępnego po kliknięciu ikony próbnika lub określając kolor w formacie #rrggbb z rr, gg i bb wybranymi w zakresie 0 i ff.<br />
+Opróżnij jedno lub wszystkie pola, aby anulować wybór i powrócić do ustawień domyślnych.</dd>
+
+  <dt>Linki w postach</dt>
+    <dd>Możesz tutaj wskazać, czy linki zawarte w Twoich postach powinny być wyświetlane pogrubione, czy nie, oraz zdefiniować ich kolor w stanie normalnym, jak również w stanie "odwiedzonym", ich kolor, gdy są aktywne lub gdy są najechane lub przejmują fokus, korzystając z próbnika kolorów dostępnego po kliknięciu ikony próbnika lub określając kolor w formacie #rrggbb z rr, gg i bb wybranymi w zakresie 0 i ff.<br />
+Opróżnij jedno lub wszystkie pola, aby anulować wybór i powrócić do ustawień domyślnych.</dd>
+
+<h4>Parametry specyficzne dla telefonów komórkowych</h4>
+
+<p>Parametry te są używane tylko wtedy, gdy szerokość wyświetlacza jest mniejsza niż 480 pikseli (na przykład w telefonach komórkowych). Jeśli zostaną określone, zastąpią równoważne parametry określone w parametrach ogólnych powyżej.</p>
+
+  <dt>Tytuł bloga</dt>
+
+    <dd>W tym miejscu można określić, czy tytuł bloga ma być pogrubiony, jego rozmiar (domyślnie em, rozpoznawane jednostki to %, pt, px, em i ex), a także kolor, używając formatu #rrggbb z rr, gg i bb wybranymi w zakresie 0 i ff.<br />
+Opróżnij jedno lub wszystkie pola, aby anulować wybór i powrócić do ustawień domyślnych.</dd>
+
+
+  <dt>Tytuły postów</dt>
+    <dd>Możesz tutaj wskazać, czy tytuły postów mają być wyświetlane pogrubioną czcionką, ich rozmiar (domyślnie em, rozpoznawane jednostki to %, pt, px, em i ex), a także ich kolor za pomocą próbnika kolorów dostępnego po kliknięciu ikony próbnika lub określając kolor w formacie #rrggbb z rr, gg i bb wybranymi w zakresie 0 i ff.<br />
+Opróżnij jedno lub wszystkie pola, aby anulować wybór i powrócić do ustawień domyślnych.</dd>
+
+<h3>Dostępność i kontrast między kolorami</h3>
+
+<p>Po wybraniu koloru współczynnik kontrastu zostanie wyświetlony w pobliżu pola i określony, w takim przypadku, że kontrast ten jest zgodny z zaleceniami WCAG 2.0. Aby kontrast między kolorem tła a kolorem czcionki był prawidłowy, powinien mieć następujące wartości:</p>
+<ul>
+<li>Co najmniej 4,5:1 dla tekstu o normalnym rozmiarze dla poziomu AA;</li>
+<li>Co najmniej 7:1 dla tekstu o normalnym rozmiarze dla poziomu AA;</li>
+<li>Co najmniej 3:1 dla tekstów o powiększonym rozmiarze (150% lub 120% pogrubienia) dla poziomu AA;</li>
+<li>Co najmniej 4,5:1 dla tekstów o powiększonym rozmiarze (150% lub 120% pogrubienia) dla poziomu AAA.</li>
+</ul>
+</body>
+</html>
