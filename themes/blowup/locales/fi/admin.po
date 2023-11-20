@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-11-20 22:22\n"
+"Last-Translator: \n"
+"Language-Team: Finnish\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: fi\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "Kevyt lineaarinen kaltevuus"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "Keskisuuri lineaarinen kaltevuus"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "Tumma lineaarinen kaltevuus"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "Tasainen väri"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "Custom..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "Teemakokoonpano on päivitetty onnistuneesti."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "Takaisin Blogin ulkoasuun"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "Mukauttaminen"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "Yleistä"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "Taustan väri:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "Taustan värin täyttö:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "Päätekstin fontti:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "Pääkirjoituksen fonttikoko:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "Tekstin pääväri:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "Tekstin rivin korkeus:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "Linkkien väri:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "Vierailtujen linkkien väri:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "Focus linkit väri:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "Preludin väri:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "Piilota pääotsikko"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "Pääotsikon fontti:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "Pääotsikon fonttikoko:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "Pääotsikon väri:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "Pääotsikon kohdistus:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "center"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "vasen"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "oikea"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "Pääotsikon sijainti (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "Ylin kuva"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Valitse \"Mukautettu...\" ladataksesi oman kuvasi."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "Lisää kuva:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG- tai PNG-tiedosto, 800 pikseliä leveä, enimmäiskoko %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Sivupalkki"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "Sivupalkin sijainti:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Sivupalkin tekstin fontti:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "Sivupalkin tekstin fontti:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "Sivupalkin tekstin väri:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "Sivupalkin otsikoiden fontti:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "Sivupalkin otsikoiden fonttikoko:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "Sivupalkin otsikoiden väri:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "Sivupalkin 2. tason otsikoiden fontti:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Sivupalkin 2. tason otsikoiden fonttikoko:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "Sivupalkin 2. tason otsikoiden väri:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "Sivupalkin rivien väri:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "Sivupalkin linkkien väri:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "Sivupalkin vierailtujen linkkien väri:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "Sivupalkin tarkennuslinkkien väri:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "Päivämäärän otsikon fontti:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "Päivämäärän otsikon fonttikoko:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "Päivämäärä otsikko väri:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "Otsikon fontti:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "Merkinnän otsikon fonttikoko:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "Merkinnän otsikon väri:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "Kommentin taustaväri:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "Kommentin tekstin väri:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "Kommenttini taustaväri:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "Kommenttini tekstin väri:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "Alatunniste"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Alatunnisteen fontti:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "Alatunnisteen fonttikoko:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "Alatunnisteen väri:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "Alatunnisteen linkkien väri:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "Alatunnisteen taustaväri:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "Lisää CSS"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Mahdolliset ylimääräiset CSS-tyylit (on kirjoitettava CSS-syntaksilla):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "Asetusten tuonti/vienti"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Voit jakaa kokoonpanosi seuraavan koodin avulla. Jos haluat soveltaa kokoonpanoa, liitä koodi, napsauta \"Käytä koodia\" ja tallenna."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "Kopioi tämä koodi:"
+
