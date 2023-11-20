@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:11+0200\n"
+"PO-Revision-Date: 2023-11-20 22:23\n"
+"Last-Translator: \n"
+"Language-Team: Lithuanian\n"
+"Language: lt_LT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && (n%100>19 || n%100<11) ? 0 : (n%10>=2 && n%10<=9) && (n%100>19 || n%100<11) ? 1 : n%1!=0 ? 2: 3);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: lt\n"
+"X-Crowdin-File: /master/themes/berlin/locales/_pot/main.pot\n"
+"X-Crowdin-File-ID: 557\n"
+
+#: themes/berlin/src/Frontend.php:35
+msgid "Show menu"
+msgstr "Rodyti meniu"
+
+#: themes/berlin/src/Frontend.php:36
+msgid "Hide menu"
+msgstr "Paslėpti meniu"
+
+#: themes/berlin/src/Frontend.php:37
+msgid "Main menu"
+msgstr "Pagrindinis meniu"
+
