@@ -1,6 +1,7 @@
 <?php
 /**
  * @package     Dotclear
+ * @subpackage  Upgrade
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
@@ -103,6 +104,27 @@ class Upgrade
          */
         $cleanup_sessions = false;
 
+        // Check upgrades by version
+        foreach (self::getGrowUpVersions() as $upgrade) {
+            // current version need upgrade
+            if (version_compare($version, $upgrade['version'], $upgrade['equal'])) {
+                require_once $upgrade['file'];
+                $cleanup_sessions = $upgrade['class']::init($cleanup_sessions);
+            }
+        }
+
+        // Set dc version
+        App::version()->setVersion('core', App::config()->dotclearVersion());
+        Utils::blogDefaults();
+
+        return $cleanup_sessions;
+    }
+
+    /**
+     * @return  array<int, array<string, string>>
+     */
+    public static function getGrowUpVersions(): array
+    {
         // Prepare upgrades scan
         $path = 'GrowUp';
         $dir  = implode(DIRECTORY_SEPARATOR, [__DIR__, $path, '']);
@@ -145,20 +167,7 @@ class Upgrade
         // Sort growup versions
         usort($upgrades, fn ($a, $b) => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
 
-        // Check upgrades by version
-        foreach ($upgrades as $upgrade) {
-            // current version need upgrade
-            if (version_compare($version, $upgrade['version'], $upgrade['equal'])) {
-                require_once $upgrade['file'];
-                $cleanup_sessions = $upgrade['class']::init($cleanup_sessions);
-            }
-        }
-
-        // Set dc version
-        App::version()->setVersion('core', App::config()->dotclearVersion());
-        Utils::blogDefaults();
-
-        return $cleanup_sessions;
+        return $upgrades;
     }
 
     /**

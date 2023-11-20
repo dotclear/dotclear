@@ -437,6 +437,16 @@ interface ConfigInterface
     public function cryptAlgo(): string;
 
     /**
+     * Dotclear attic URL.
+     *
+     * From config file or release file.
+     * Returns empty string if not set.
+     *
+     * @return  string  Update URL
+     */
+    public function coreAtticUrl(): string;
+
+    /**
      * Dotclear update URL.
      *
      * From config file or release file.
