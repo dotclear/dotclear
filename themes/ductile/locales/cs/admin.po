@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:12+0200\n"
+"PO-Revision-Date: 2023-11-20 22:21\n"
+"Last-Translator: \n"
+"Language-Team: Czech\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: cs\n"
+"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 565\n"
+
+#: themes/ductile/src/Config.php:55
+msgid "Full"
+msgstr "Úplný"
+
+#: themes/ductile/src/Config.php:68
+msgid "Home (first page)"
+msgstr "Home (první stránka)"
+
+#: themes/ductile/src/Config.php:69
+msgid "Home (other pages)"
+msgstr "Home (další stránky)"
+
+#: themes/ductile/src/Config.php:70
+msgid "Entries for a category"
+msgstr "Záznamy pro kategorii"
+
+#: themes/ductile/src/Config.php:71
+msgid "Entries for a tag"
+msgstr "Položky pro značku"
+
+#: themes/ductile/src/Config.php:72
+msgid "Search result entries"
+msgstr "Záznamy o výsledcích vyhledávání"
+
+#: themes/ductile/src/Config.php:73
+msgid "Month archive entries"
+msgstr "Záznamy z archivu měsíce"
+
+#: themes/ductile/src/Config.php:78
+msgid "Ductile primary"
+msgstr "Primární tvárnost"
+
+#: themes/ductile/src/Config.php:79
+msgid "Ductile secondary"
+msgstr "Tažné sekundární"
+
+#: themes/ductile/src/Config.php:80
+msgid "Times New Roman"
+msgstr "Times New Roman"
+
+#: themes/ductile/src/Config.php:81
+msgid "Georgia"
+msgstr "Georgia"
+
+#: themes/ductile/src/Config.php:82
+msgid "Garamond"
+msgstr "Garamond"
+
+#: themes/ductile/src/Config.php:83
+msgid "Helvetica/Arial"
+msgstr "Helvetica/Arial"
+
+#: themes/ductile/src/Config.php:84
+msgid "Verdana"
+msgstr "Verdana"
+
+#: themes/ductile/src/Config.php:85
+msgid "Trebuchet MS"
+msgstr "Trebuchet MS"
+
+#: themes/ductile/src/Config.php:86
+msgid "Impact"
+msgstr "Dopad"
+
+#: themes/ductile/src/Config.php:87
+msgid "Monospace"
+msgstr "Monospace"
+
+#: themes/ductile/src/Config.php:91
+msgid "none"
+msgstr "žádné"
+
+#: themes/ductile/src/Config.php:92
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+#: themes/ductile/src/Config.php:93
+msgid "stylesheet (Google)"
+msgstr "soubor stylů (Google)"
+
+#: themes/ductile/src/Config.php:340
+msgid "Theme configuration upgraded."
+msgstr "Konfigurace tématu byla aktualizována."
+
+#: themes/ductile/src/Config.php:361
+msgid "Font family"
+msgstr "Rodina písma"
+
+#: themes/ductile/src/Config.php:377
+msgid "Header"
+msgstr "Záhlaví"
+
+#: themes/ductile/src/Config.php:378
+msgid "Hide blog description:"
+msgstr "Skrýt popis blogu:"
+
+#: themes/ductile/src/Config.php:381
+msgid "Logo URL:"
+msgstr "Adresa URL loga:"
+
+#: themes/ductile/src/Config.php:388
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "Chcete-li nakonfigurovat horní nabídku, přejděte na stránku pro správu <a href=\"%s\">Jednoduchá nabídka</a>."
+
+#: themes/ductile/src/Config.php:395
+msgid "Stickers"
+msgstr "Nálepky"
+
+#: themes/ductile/src/Config.php:397
+msgid "Stickers (footer)"
+msgstr "Nálepky (zápatí)"
+
+#: themes/ductile/src/Config.php:401
+msgid "Image"
+msgstr "Obrázek"
+
+#: themes/ductile/src/Config.php:429
+msgid "Entries list types and limits"
+msgstr "Typy a omezení seznamu záznamů"
+
+#: themes/ductile/src/Config.php:430
+msgid "Entries lists"
+msgstr "Seznam záznamů"
+
+#: themes/ductile/src/Config.php:433
+msgid "Context"
+msgstr "Kontext"
+
+#: themes/ductile/src/Config.php:434
+msgid "Entries list type"
+msgstr "Seznam záznamů"
+
+#: themes/ductile/src/Config.php:465
+msgid "Miscellaneous options"
+msgstr "Různé možnosti"
+
+#: themes/ductile/src/Config.php:466
+msgid "Comment preview is not mandatory:"
+msgstr "Náhled komentáře není povinný:"
+
+#: themes/ductile/src/Config.php:479
+msgid "Presentation"
+msgstr "Prezentace"
+
+#: themes/ductile/src/Config.php:483
+msgid "General settings"
+msgstr "Obecná nastavení"
+
+#: themes/ductile/src/Config.php:485
+msgid "Fonts"
+msgstr "Písma"
+
+#: themes/ductile/src/Config.php:489
+msgid "Main text"
+msgstr "Hlavní text"
+
+#: themes/ductile/src/Config.php:490
+msgid "Main font:"
+msgstr "Hlavní písmo:"
+
+#: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
+msgid "Set to Default to use a webfont."
+msgstr "Pro použití webového písma nastavte hodnotu Výchozí."
+
+#: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
+msgid "Webfont family:"
+msgstr "Rodina webových písem:"
+
+#: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
+msgid "Webfont URL:"
+msgstr "Adresa URL webového písma:"
+
+#: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
+msgid "Webfont API:"
+msgstr "Adresa URL webového písma:"
+
+#: themes/ductile/src/Config.php:506
+msgid "Secondary text"
+msgstr "Sekundární text"
+
+#: themes/ductile/src/Config.php:507
+msgid "Secondary font:"
+msgstr "Sekundární text:"
+
+#: themes/ductile/src/Config.php:522
+msgid "Titles"
+msgstr "Tituly"
+
+#: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
+msgid "Blog title"
+msgstr "Název blogu"
+
+#: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
+#: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
+#: themes/ductile/src/Config.php:625
+msgid "In bold:"
+msgstr "Tučně:"
+
+#: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
+#: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
+msgid "Font size (in em by default):"
+msgstr "Velikost písma (ve výchozím nastavení v em):"
+
+#: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
+#: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
+#: themes/ductile/src/Config.php:631
+msgid "Color:"
+msgstr "Barva:"
+
+#: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
+msgid "Post title"
+msgstr "Název příspěvku"
+
+#: themes/ductile/src/Config.php:566
+msgid "Titles without link"
+msgstr "Názvy bez odkazu"
+
+#: themes/ductile/src/Config.php:577
+msgid "Inside posts links"
+msgstr "Odkazy na příspěvky uvnitř"
+
+#: themes/ductile/src/Config.php:581
+msgid "Normal and visited links color:"
+msgstr "Normální barva a barva navštívených odkazů:"
+
+#: themes/ductile/src/Config.php:591
+msgid "Active, hover and focus links color:"
+msgstr "Barva aktivních odkazů, odkazů při najetí a odkazů při zaostření:"
+
+#: themes/ductile/src/Config.php:601
+msgid "Mobile specific settings"
+msgstr "Nastavení specifická pro mobilní zařízení"
+
