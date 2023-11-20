@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-11-20 22:21\n"
+"Last-Translator: \n"
+"Language-Team: Danish\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: da\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "Lys lineær gradient"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "Medium lineær gradient"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "Mørk lineær gradient"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "Ensfarvet"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "Tilpasset..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "Temakonfigurationen er blevet opdateret."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "Tilbage til bloggens udseende"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "Tilpasning"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "Generelt"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "Baggrundsfarve:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "Baggrundsfarve:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "Skrifttype til hovedtekst:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "Skriftstørrelse for hovedtekst:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "Hovedtekstfarve:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "Højde på tekstlinje:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "Links farve:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "Besøgte links farve:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "Fokus forbinder farve:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "Prelude-farve:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "Skjul hovedtitel"
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "Skrifttype til hovedtitel:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "Hovedtitlens skriftstørrelse:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "Hovedtitlens farve:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "Justering af hovedtitel:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "centrum"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "venstre"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "ret"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "Position for hovedtitel (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "Øverste billede"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Vælg \"Custom...\" for at uploade dit eget billede."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "Tilføj dit billede:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG- eller PNG-fil, 800 pixels bred, maksimal størrelse %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "Sidepanel"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "Sidebar-position:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "Skrifttype til sidebjælketekst:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "Skriftstørrelse for sidebjælketekst:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "Tekstfarve til sidepanelet:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "Skrifttype til sidebjælketitler:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "Sidebar-titlernes skriftstørrelse:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "Sidebar-titlernes farve:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "Skrifttype til titler på 2. niveau i sidepanelet:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Skriftstørrelse for titler på 2. niveau i sidepanelet:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "Sidebar 2. niveau titler farve:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "Farve på sidelinjer:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "Sidebar links farve:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "Farve på besøgte links i sidepanelet:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "Sidebar fokus links farve:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "Dato titel skrifttype:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "Dato titel skriftstørrelse:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "Dato titel farve:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "Skrifttype til postens titel:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "Skriftstørrelse for postens titel:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "Farve på indgangens titel:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "Kommentar baggrundsfarve:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "Farve på kommentartekst:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "Min kommentars baggrundsfarve:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "Farven på min kommentartekst:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "Sidefod"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "Skrifttype til sidefod:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "Skriftstørrelse for sidefod:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "Farve på sidefod:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "Footer links farve:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "Footer baggrundsfarve:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "Yderligere CSS"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Eventuelle yderligere CSS-stilarter (skal skrives ved hjælp af CSS-syntaksen):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "Import/eksport af konfiguration"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Du kan dele din konfiguration ved hjælp af følgende kode. For at anvende en konfiguration skal du indsætte koden, klikke på \"Anvend kode\" og gemme."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "Kopier denne kode:"
+
