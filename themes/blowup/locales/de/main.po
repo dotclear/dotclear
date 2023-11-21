@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-02 15:15+0200\n"
-"PO-Revision-Date: 2023-09-08 03:15\n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2023-11-21 10:29\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -17,31 +17,31 @@ msgstr ""
 "X-Crowdin-File: /master/themes/blowup/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 561\n"
 
-#: themes/blowup/src/Backend.php:37
+#: themes/blowup/src/Backend.php:38
 msgid "Predefined styles"
 msgstr "Vordefinierte Stile"
 
-#: themes/blowup/src/Backend.php:38
+#: themes/blowup/src/Backend.php:39
 msgid "Apply code"
 msgstr "Code anwenden"
 
-#: themes/blowup/src/Backend.php:39
+#: themes/blowup/src/Backend.php:40
 msgid "Choose a predefined style"
 msgstr "Wählen Sie einen vordefinierten Stil"
 
-#: themes/blowup/src/Blowup.php:70
+#: themes/blowup/src/Blowup.php:108
 msgid "default"
 msgstr "Standard"
 
-#: themes/blowup/src/Blowup.php:303
+#: themes/blowup/src/Blowup.php:434
 msgid "Unable to create css file."
 msgstr "Die css-Datei kann nicht erstellt werden."
 
-#: themes/blowup/src/Blowup.php:334
+#: themes/blowup/src/Blowup.php:476
 msgid "Unable to create images."
 msgstr "Kann Bilder nicht erstellen."
 
-#: themes/blowup/src/Blowup.php:418
+#: themes/blowup/src/Blowup.php:580
 msgid "Unable to open image."
 msgstr "Das Bild kann nicht geöffnet werden."
 
