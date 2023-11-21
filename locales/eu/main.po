@@ -1,4332 +1,6072 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2016-07-18 15:47+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
-"Language: eu\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-21 06:40\n"
+"Last-Translator: \n"
+"Language-Team: Basque\n"
+"Language: eu_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: eu\n"
+"X-Crowdin-File: /master/locales/_pot/main.pot\n"
+"X-Crowdin-File-ID: 262\n"
 
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:329
+#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:497
+#: src/Process/Install/Install.php:341
 msgid "medium"
 msgstr ""
 
+#: inc/core/_fake_l10n.php:7
 msgid "small"
 msgstr ""
 
+#: inc/core/_fake_l10n.php:8
 msgid "thumbnail"
 msgstr ""
 
+#: inc/core/_fake_l10n.php:9
 msgid "square"
 msgstr ""
 
+#: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:116
+#: src/Core/Backend/Action/ActionsPosts.php:61
+#: src/Core/Backend/Action/ActionsPosts.php:68
+#: src/Core/Backend/Favorites.php:421 src/Core/Backend/Menus.php:165
+#: src/Core/Backend/UserPref.php:47 src/Core/Backend/UserPref.php:181
+#: src/Process/Backend/Post.php:528 src/Process/Backend/Post.php:541
+#: src/Process/Backend/Posts.php:85 src/Process/Backend/Posts.php:90
 msgid "Posts"
 msgstr ""
 
+#: inc/core/_fake_l10n.php:14
 msgid "Pages"
 msgstr ""
 
-msgid "administrator"
-msgstr ""
-
-msgid "manage all entries and comments"
-msgstr ""
-
-msgid "manage their own entries and comments"
-msgstr ""
-
-msgid "publish entries and comments"
-msgstr ""
-
-msgid "delete entries and comments"
-msgstr ""
-
-msgid "manage categories"
-msgstr ""
-
-msgid "manage all media items"
-msgstr ""
-
-msgid "manage their own media items"
-msgstr ""
-
-msgid "That user does not exist in the database."
-msgstr ""
-
-msgid "That key does not exist in the database."
-msgstr ""
-
-msgid "Pending"
-msgstr ""
-
-msgid "Scheduled"
-msgstr ""
-
-msgid "Unpublished"
-msgstr ""
-
-msgid "Published"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-msgid "You are not allowed to add categories"
-msgstr ""
-
-msgid "You are not allowed to update categories"
-msgstr ""
-
-msgid "You are not allowed to delete categories"
-msgstr ""
-
-msgid "This category is not empty."
-msgstr ""
-
-msgid "You are not allowed to reset categories order"
-msgstr ""
-
-msgid "Empty category URL"
-msgstr ""
-
-msgid "You must provide a category title"
-msgstr ""
-
-msgid "You must provide a category URL"
-msgstr ""
-
-msgid "You are not allowed to create an entry"
-msgstr ""
-
-msgid "You are not allowed to update entries"
-msgstr ""
-
-msgid "No such entry ID"
-msgstr ""
-
-msgid "You are not allowed to edit this entry"
-msgstr ""
-
-msgid "You are not allowed to change this entry status"
-msgstr ""
-
-msgid "You are not allowed to change this entry category"
-msgstr ""
-
-msgid "You are not allowed to change entries category"
-msgstr ""
-
-msgid "You are not allowed to delete entries"
-msgstr ""
-
-msgid "No entry title"
-msgstr ""
-
-msgid "No entry content"
-msgstr ""
-
-msgid "Notes"
-msgstr ""
-
-msgid "Note"
-msgstr ""
-
-msgid "Empty entry URL"
-msgstr ""
-
-msgid "You are not allowed to update comments"
-msgstr ""
-
-msgid "No such comment ID"
-msgstr ""
-
-msgid "You are not allowed to update this comment"
-msgstr ""
-
-msgid "You are not allowed to change this comment's status"
-msgstr ""
-
-msgid "You are not allowed to delete comments"
-msgstr ""
-
-msgid "You must provide a comment"
-msgstr ""
-
-msgid "You must provide an author name"
-msgstr ""
-
-msgid "Email address is not valid."
-msgstr ""
-
-msgid "online"
-msgstr ""
-
-msgid "offline"
-msgstr ""
-
-msgid "removed"
-msgstr ""
-
-msgid "You are not an administrator"
-msgstr ""
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "No password given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Password must contain at least 6 characters."
-msgstr ""
-
-msgid "Invalid user language code"
-msgstr ""
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "No blog name"
-msgstr ""
-
-msgid "No blog URL"
-msgstr ""
-
-msgid "No log message"
-msgstr ""
-
-msgid "unknown"
-msgstr ""
-
-msgid "No blog defined."
-msgstr ""
-
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
-
-msgid "You are not a super administrator."
-msgstr ""
-
-msgid "Permission denied."
-msgstr ""
-
-msgid "You are not the file owner."
-msgstr ""
-
-msgid "This file is not allowed."
-msgstr ""
-
-msgid "New file already exists."
-msgstr ""
-
-msgid "File does not exist in the database."
-msgstr ""
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
-
-msgid "Empty module zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr ""
-
-msgid "An error occurred during module deletion."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
-
-#, php-format
-msgid "Unable to read new %s file"
-msgstr ""
-
-msgid "Cannot deactivate plugin."
-msgstr ""
-
-msgid "No such module."
-msgstr ""
-
-msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot activate plugin."
-msgstr ""
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr ""
-
-msgid "Unable to retrieve settings:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr ""
-
-msgid "No namespace specified"
-msgstr ""
-
-msgid "No notice message"
-msgstr ""
-
-msgid "Unable to retrieve workspaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr ""
-
-msgid "Unable to retrieve namespaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr ""
-
-msgid "Wrong data feed"
-msgstr ""
-
-msgid "An error occurred while downloading the file."
-msgstr ""
-
-msgid "Themes folder unreachable"
-msgstr ""
-
-msgid "Themes folder unreadable"
-msgstr ""
-
-#, php-format
-msgid " (copy #%s)"
-msgstr ""
-
-msgid " (copy)"
-msgstr ""
-
-msgid "Unable to modify _define.php"
-msgstr ""
-
-msgid "Destination folder already exist"
-msgstr ""
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr ""
-
-msgid "Unable to ping URL"
-msgstr ""
-
-msgid "Bad server response code"
-msgstr ""
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr ""
-
-#, php-format
-msgid "%s, ping error:"
-msgstr ""
-
-msgid "Don't repeat yourself, please."
-msgstr ""
-
-msgid "Where's your title?"
-msgstr ""
-
-msgid "Sorry, an internal problem has occured."
-msgstr ""
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
-
-msgid "Sorry but you can not ping this type of content."
-msgstr ""
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
-
-msgid "Digests file not found."
-msgstr ""
-
-msgid "No file to download"
-msgstr ""
-
-msgid "Root directory is not writable."
-msgstr ""
-
-msgid "An error occurred while downloading archive."
-msgstr ""
-
-msgid "Archive not found."
-msgstr ""
-
-msgid "Unable to read current digests file."
-msgstr ""
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr ""
-
-msgid "Incomplete archive."
-msgstr ""
-
-msgid "Unable to read digests file."
-msgstr ""
-
-msgid "Invalid digests file."
-msgstr ""
-
-msgid "Unable to retrieve prefs:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid pref id"
-msgstr ""
-
-msgid "No workspace specified"
-msgstr ""
-
+#: src/App.php:142
 #, php-format
 msgid "Unable to find class %s"
 msgstr ""
 
+#: src/App.php:150 src/App.php:590
 msgid "Process failed"
 msgstr ""
 
+#: src/App.php:174
 msgid "Dotclear release file was not found"
 msgstr ""
 
+#: src/App.php:179
 msgid "Dotclear release file is not readable"
 msgstr ""
 
+#: src/App.php:187
 #, php-format
 msgid "Dotclear release key %s was not found"
 msgstr ""
 
+#: src/App.php:193
 msgid "Not found"
 msgstr ""
 
+#: src/App.php:474
 msgid "Site temporarily unavailable"
 msgstr ""
 
+#: src/App.php:475
 msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
 msgstr ""
 
+#: src/App.php:481
 msgid "Unable to connect to database"
 msgstr ""
 
+#: src/App.php:484
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr ""
 
+#: src/App.php:495 src/Core/Frontend/Utility.php:150
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#: src/App.php:585
 #, php-format
 msgid "Unable to find or initialize class %s"
 msgstr ""
 
+#: src/Core/Auth.php:183
+msgid "administrator"
+msgstr ""
+
+#: src/Core/Auth.php:184
+msgid "manage all entries and comments"
+msgstr ""
+
+#: src/Core/Auth.php:185
+msgid "manage their own entries and comments"
+msgstr ""
+
+#: src/Core/Auth.php:186
+msgid "publish entries and comments"
+msgstr ""
+
+#: src/Core/Auth.php:187
+msgid "delete entries and comments"
+msgstr ""
+
+#: src/Core/Auth.php:188
+msgid "manage categories"
+msgstr ""
+
+#: src/Core/Auth.php:189
+msgid "manage all media items"
+msgstr ""
+
+#: src/Core/Auth.php:190
+msgid "manage their own media items"
+msgstr ""
+
+#: src/Core/Auth.php:634
+msgid "That user does not exist in the database."
+msgstr ""
+
+#: src/Core/Auth.php:661
+msgid "That key does not exist in the database."
+msgstr ""
+
+#: src/Core/Backend/Action/Actions.php:115
+#: src/Core/Backend/Action/ActionsComments.php:156
+#: src/Core/Backend/Combos.php:258 src/Core/Backend/Listing/ListingPosts.php:85
+#: src/Core/Backend/Listing/ListingPostsMini.php:38
+#: src/Process/Backend/BlogPref.php:150 src/Process/Backend/BlogPref.php:185
+#: src/Process/Backend/Home.php:431 src/Process/Backend/MediaItem.php:598
+#: src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogs.php:42
+#: src/Core/Backend/Action/ActionsBlogs.php:68
+#: src/Core/Backend/Action/ActionsBlogs.php:75
+#: src/Core/Backend/Action/ActionsBlogs.php:115
+#: src/Core/Backend/Favorites.php:491 src/Core/Backend/Menus.php:242
+#: src/Core/Backend/UserPref.php:80 src/Core/Backend/UserPref.php:195
+#: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
+#: src/Process/Backend/BlogPref.php:415
 msgid "Blogs"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogs.php:86
 msgid "Back to blogs list"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogs.php:116
 msgid "Blogs actions"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogs.php:154
+#: src/Core/Backend/Listing/ListingBlogs.php:50
 msgid "Blog id"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogs.php:156 src/Core/Backend/Combos.php:304
+#: src/Core/Backend/Listing/ListingBlogs.php:51
+#: src/Core/Backend/UserPref.php:82 src/Process/Backend/Blog.php:138
+#: src/Process/Backend/BlogPref.php:468
+#: src/Process/Backend/UsersActions.php:226
 msgid "Blog name"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:31
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:33
+#: src/Core/Backend/Action/ActionsPostsDefault.php:46
+#: src/Core/Backend/Combos.php:261 src/Core/Backend/Combos.php:279
+#: src/Core/Backend/Combos.php:306 src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingComments.php:110
+#: src/Core/Backend/Listing/ListingPosts.php:93
+#: src/Core/Backend/Listing/ListingPostsMini.php:41
+#: src/Core/Backend/UserPref.php:61 src/Core/Backend/UserPref.php:86
+#: src/Process/Backend/Post.php:617 src/Process/Backend/Post.php:1063
+#: src/Process/Backend/UsersActions.php:229
 msgid "Status"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:32
 msgid "Set online"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:33
 msgid "Set offline"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:34
 msgid "Set as removed"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:39
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:40
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:48
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:49
+#: src/Core/Backend/Action/ActionsPostsDefault.php:100
+#: src/Core/Backend/Action/ActionsPostsDefault.php:101
+#: src/Core/Backend/Listing/ListingMedia.php:199
+#: src/Core/Backend/ModulesList.php:1220 src/Process/Backend/Comment.php:311
+#: src/Process/Backend/Langs.php:272 src/Process/Backend/Post.php:801
+#: src/Process/Backend/Users.php:42
 msgid "Delete"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:60
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:97
 msgid "No blog selected"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:78
 msgid "Selected blogs have been successfully updated."
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:101
+#: src/Core/Backend/ModulesList.php:1555 src/Core/Backend/ThemesList.php:644
+#: src/Process/Backend/BlogDel.php:67 src/Process/Backend/Langs.php:131
+#: src/Process/Backend/Langs.php:172 src/Process/Backend/User.php:100
+#: src/Process/Backend/UsersActions.php:109
 msgid "Password verification failed"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:107
+#: src/Process/Backend/BlogPref.php:915
 msgid "The current blog cannot be deleted."
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:124
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsComments.php:42
+#: src/Core/Backend/Action/ActionsComments.php:68
+#: src/Core/Backend/Action/ActionsComments.php:75
+#: src/Core/Backend/Action/ActionsComments.php:115
+#: src/Core/Backend/Favorites.php:435
+#: src/Core/Backend/Listing/ListingPosts.php:89
+#: src/Core/Backend/Listing/ListingPosts.php:90 src/Core/Backend/Menus.php:152
+#: src/Core/Backend/UserPref.php:52 src/Core/Backend/UserPref.php:57
+#: src/Core/Backend/UserPref.php:188 src/Process/Backend/Post.php:847
+#: src/Process/Backend/Post.php:856
 msgid "Comments"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsComments.php:86
 msgid "Back to comments list"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsComments.php:116
 msgid "Comments actions"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsComments.php:154
+#: src/Core/Backend/Combos.php:260 src/Core/Backend/Combos.php:278
+#: src/Core/Backend/Listing/ListingComments.php:108
+#: src/Core/Backend/Listing/ListingPosts.php:88
+#: src/Core/Backend/Listing/ListingPostsMini.php:40
+#: src/Core/Backend/UserPref.php:51 src/Core/Backend/UserPref.php:60
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Post.php:890
+#: src/Process/Backend/Post.php:1060
 msgid "Author"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:34
+#: src/Core/Backend/Action/ActionsPostsDefault.php:47
 msgid "Publish"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:35
+#: src/Core/Backend/Action/ActionsPostsDefault.php:48
 msgid "Unpublish"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:36
+#: src/Core/Backend/Action/ActionsPostsDefault.php:50
 msgid "Mark as pending"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:37
 msgid "Mark as junk"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:64
 msgid "Blocklist IP"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:66
 msgid "Blocklist IP (global)"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:70
+#: src/Process/Backend/Post.php:1062
 msgid "IP address"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:87
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:114
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:142
 msgid "No comment selected"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:99
+#: src/Process/Backend/Comments.php:128
 msgid "Selected comments have been successfully updated."
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:127
+#: src/Process/Backend/Comments.php:130
 msgid "Selected comments have been successfully deleted."
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:176
 msgid "IP addresses for selected comments have been blocklisted."
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPosts.php:79
 msgid "Back to entries list"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPosts.php:109
 msgid "Posts actions"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:49
 msgid "Schedule"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:60
 msgid "First publication"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:61
+#: src/Core/Backend/Action/ActionsPostsDefault.php:196
 msgid "Never published"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:62
+#: src/Core/Backend/Action/ActionsPostsDefault.php:196
 msgid "Already published"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:68
 msgid "Mark"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:69
 msgid "Mark as selected"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:70
 msgid "Mark as unselected"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:75
+#: src/Core/Backend/Action/ActionsPostsDefault.php:81
+#: src/Core/Backend/Action/ActionsPostsDefault.php:90
 msgid "Change"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:76
 msgid "Change category"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:82
 msgid "Change language"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:91
 msgid "Change author"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:125
+#: src/Core/Backend/Action/ActionsPostsDefault.php:182
+#: src/Core/Backend/Action/ActionsPostsDefault.php:214
+#: src/Core/Backend/Action/ActionsPostsDefault.php:256
+#: src/Core/Backend/Action/ActionsPostsDefault.php:295
+#: src/Core/Backend/Action/ActionsPostsDefault.php:425
+#: src/Core/Backend/Action/ActionsPostsDefault.php:518
 msgid "No entry selected"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:144
 msgid "Published entries cannot be set to scheduled"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:153
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:191
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:271
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:318
+#: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:113
+#: src/Core/Backend/Listing/ListingPosts.php:160
 msgid "(No cat)"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:325
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:341
 msgid "Change category for this selection"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:355
+#: src/Core/Backend/Filter/FilterPosts.php:124 src/Process/Backend/Home.php:438
+#: src/Process/Backend/Post.php:653
 msgid "Category:"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:368
 msgid "Create a new category for the post(s)"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:372
+#: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:445
+#: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:661
+#: src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:381
+#: src/Process/Backend/Category.php:241 src/Process/Backend/Category.php:295
+#: src/Process/Backend/Home.php:447 src/Process/Backend/Post.php:663
 msgid "Parent:"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:396
+#: src/Core/Backend/Action/ActionsPostsDefault.php:496
+#: src/Core/Backend/Action/ActionsPostsDefault.php:581
+#: src/Core/Backend/ModulesList.php:1784 src/Process/Backend/BlogPref.php:900
+#: src/Process/Backend/Category.php:273 src/Process/Backend/Category.php:305
+#: src/Process/Backend/Category.php:339 src/Process/Backend/Comment.php:307
+#: src/Process/Backend/Home.php:453 src/Process/Backend/MediaItem.php:1035
+#: src/Process/Backend/Post.php:779 src/Process/Backend/Post.php:915
+#: src/Process/Backend/User.php:420 src/Process/Backend/UsersActions.php:340
+#: src/Process/Install/Install.php:422
 msgid "Save"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:428
 msgid "This user does not exist"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:437
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:470
 msgid "Change author for this selection"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:483
 msgid "New author (author ID):"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:528
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:543
 msgid "Change language for this selection"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:551
+#: src/Core/Backend/Action/ActionsPostsDefault.php:555
+#: src/Core/Backend/Combos.php:131 src/Core/Backend/Combos.php:135
 msgid "Available"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:551
+#: src/Core/Backend/Action/ActionsPostsDefault.php:554
+#: src/Core/Backend/Action/ActionsPostsDefault.php:557
+#: src/Core/Backend/Combos.php:131 src/Core/Backend/Combos.php:134
+#: src/Core/Backend/Combos.php:137
 msgid "Most used"
 msgstr ""
 
+#: src/Core/Backend/Action/ActionsPostsDefault.php:569
 msgid "Entry language:"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:249 src/Process/Backend/UserPreferences.php:165
 msgid "Descending"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:250 src/Process/Backend/UserPreferences.php:166
 msgid "Ascending"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:257 src/Core/Backend/Combos.php:275
+#: src/Core/Backend/Listing/ListingComments.php:109
+#: src/Core/Backend/Listing/ListingMedia.php:83
+#: src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/Listing/ListingPostsMini.php:39
+#: src/Core/Backend/UserPref.php:49 src/Core/Backend/UserPref.php:59
+#: src/Core/Backend/UserPref.php:206 src/Process/Backend/Post.php:1061
 msgid "Date"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:259 src/Core/Backend/Listing/ListingPosts.php:87
+#: src/Core/Backend/UserPref.php:50 src/Process/Backend/Post.php:652
 msgid "Category"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:262 src/Core/Backend/Filter/FilterPosts.php:193
+#: src/Core/Backend/Listing/ListingPosts.php:126
+#: src/Core/Backend/Listing/ListingPosts.php:196
+#: src/Core/Backend/Listing/ListingPostsMini.php:112
 msgid "Selected"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:263
 msgid "Number of comments"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:264
 msgid "Number of trackbacks"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:276
 msgid "Entry title"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:277
 msgid "Entry date"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:280
+#: src/Core/Backend/Listing/ListingComments.php:116
+#: src/Core/Backend/UserPref.php:63
 msgid "Spam filter"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:291
+#: src/Core/Backend/Listing/ListingComments.php:114
+#: src/Core/Backend/UserPref.php:62
 msgid "IP"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:303 src/Core/Backend/Listing/ListingBlogs.php:54
+#: src/Core/Backend/UserPref.php:85
 msgid "Last update"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:305 src/Process/Backend/Blog.php:119
+#: src/Process/Backend/BlogPref.php:782
+#: src/Process/Backend/UsersActions.php:225
 msgid "Blog ID"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:319 src/Core/Backend/Listing/ListingUsers.php:49
+#: src/Process/Install/Install.php:402
 msgid "Username"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:320 src/Core/Backend/Listing/ListingUsers.php:51
+#: src/Core/Backend/UserPref.php:74
 msgid "Last Name"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:321 src/Core/Backend/Listing/ListingUsers.php:50
+#: src/Core/Backend/UserPref.php:73
 msgid "First Name"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:322 src/Core/Backend/Listing/ListingUsers.php:52
+#: src/Core/Backend/UserPref.php:75
 msgid "Display name"
 msgstr ""
 
+#: src/Core/Backend/Combos.php:323
 msgid "Number of entries"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:304
+#: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:192
+#: src/Core/Backend/Page.php:283 src/Process/Backend/Media.php:526
+#: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:411 src/Core/Backend/Menus.php:178
+#: src/Process/Backend/Home.php:427 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Post.php:762 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:431 src/Process/Backend/Rest.php:77
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Favorites.php:445 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Favorites.php:449 src/Core/Backend/Menus.php:139
+#: src/Core/Backend/UserPref.php:214 src/Process/Backend/PostsPopup.php:100
+#: src/Process/Backend/Search.php:95 src/Process/Backend/Search.php:100
+#: src/Process/Backend/Search.php:112
 msgid "Search"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:458 src/Core/Backend/Menus.php:127
+#: src/Process/Backend/Categories.php:141
+#: src/Process/Backend/Categories.php:146 src/Process/Backend/Category.php:199
 msgid "Categories"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:466 src/Core/Backend/MediaPage.php:335
+#: src/Core/Backend/MediaPage.php:337 src/Core/Backend/MediaPage.php:387
+#: src/Core/Backend/Menus.php:114 src/Core/Backend/UserPref.php:203
+#: src/Process/Backend/Media.php:441 src/Process/Backend/Media.php:480
+#: src/Process/Backend/MediaItem.php:428 src/Process/Backend/MediaItem.php:434
 msgid "Media manager"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:475 src/Core/Backend/Menus.php:102
+#: src/Process/Backend/BlogPref.php:408 src/Process/Backend/BlogPref.php:416
+#: src/Process/Backend/BlogPref.php:429
 msgid "Blog settings"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:483 src/Core/Backend/Menus.php:90
+#: src/Process/Backend/BlogTheme.php:81 src/Process/Backend/BlogTheme.php:90
+#: src/Process/Backend/BlogTheme.php:162
 msgid "Blog appearance"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:232
+#: src/Core/Backend/UserPref.php:71 src/Core/Backend/UserPref.php:171
+#: src/Process/Backend/BlogPref.php:930 src/Process/Backend/User.php:235
+#: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
+#: src/Process/Backend/UsersActions.php:146
+#: src/Process/Backend/UsersActions.php:154
+#: src/Process/Backend/UsersActions.php:161
 msgid "Users"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:505 src/Core/Backend/Menus.php:222
+#: src/Process/Backend/Plugins.php:92 src/Process/Backend/Plugins.php:105
+#: src/Process/Backend/Plugins.php:324 src/Process/Backend/Plugins.php:331
 msgid "Plugins management"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:212
 msgid "Languages"
 msgstr ""
 
+#: src/Core/Backend/Favorites.php:515 src/Core/Backend/Page.php:473
+#: src/Process/Backend/Help.php:107 src/Process/Backend/Help.php:114
+#: src/Process/Backend/Help.php:120
 msgid "Global help"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterBlogs.php:49
+#: src/Core/Backend/Filter/FilterComments.php:81
+#: src/Core/Backend/Filter/FilterPosts.php:136
+#: src/Process/Backend/Comment.php:282
 msgid "Status:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:985
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:969
+#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:894
+#: src/Process/Backend/User.php:344 src/Process/Backend/UserPreferences.php:543
+#: src/Process/Install/Install.php:389
 msgid "Email:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:984
+#: src/Process/Backend/Comment.php:278 src/Process/Backend/Post.php:898
 msgid "Web site:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:55
+#: src/Core/Backend/Filter/FilterPosts.php:85
+#: src/Core/Backend/ModulesList.php:996 src/Core/Backend/Page.php:1026
+#: src/Process/Backend/Comment.php:266
 msgid "Author:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:65
 msgid "Type:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:68
+#: src/Process/Backend/Post.php:908
 msgid "Comment"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:69
 msgid "Trackback"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterComments.php:103 src/Core/Backend/Page.php:986
+#: src/Process/Backend/Comment.php:256
 msgid "IP address:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterMedia.php:132
 msgid "Media type:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterMedia.php:136
 msgid "image"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterMedia.php:137
 msgid "text"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterMedia.php:138
 msgid "audio"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterMedia.php:139
 msgid "video"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:159
 msgid "Format:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:174 src/Process/Backend/Auth.php:136
+#: src/Process/Backend/Auth.php:457 src/Process/Backend/User.php:276
+#: src/Process/Install/Install.php:452
 msgid "Password:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:177
 msgid "With password"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:178
 msgid "Without password"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:190
 msgid "Selected:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:194
 msgid "Not selected"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:206
 msgid "Attachments:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:209
 msgid "With attachments"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:210
 msgid "Without attachments"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:238
 msgid "Month:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:265
 msgid "Lang:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:279
 msgid "Comments:"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:282
+#: src/Core/Backend/Filter/FilterPosts.php:297
 msgid "Opened"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:283
+#: src/Core/Backend/Filter/FilterPosts.php:298
 msgid "Closed"
 msgstr ""
 
+#: src/Core/Backend/Filter/FilterPosts.php:294
 msgid "Trackbacks:"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:336 src/Core/Backend/Page.php:1218
 msgid "Show filters and display options"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:354
 msgid "Filters"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:364
 msgid "Display options"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:367
+#: src/Process/Backend/UserPreferences.php:723
 msgid "Order by:"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:380
+#: src/Process/Backend/UserPreferences.php:728
 msgid "Sort:"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:402
+#: src/Process/Backend/UserPreferences.php:733
 msgid "Show"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:410
 msgid "Save current options"
 msgstr ""
 
+#: src/Core/Backend/Filter/Filters.php:418
 msgid "Apply filters and display options"
 msgstr ""
 
+#: src/Core/Backend/Filter/FiltersLibrary.php:66
+#: src/Core/Backend/MediaPage.php:374 src/Core/Backend/Page.php:484
 msgid "Search:"
 msgstr ""
 
+#: src/Core/Backend/Listing/Listing.php:48
 msgid "&#171; prev."
 msgstr ""
 
+#: src/Core/Backend/Listing/Listing.php:49
 msgid "next &#187;"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:33
 msgid "No blog matches the filter"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:35
+#: src/Process/Backend/UsersActions.php:219
 msgid "No blog"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:52
+#: src/Core/Backend/ModulesList.php:1628 src/Core/Backend/UserPref.php:83
+#: src/Process/Backend/LinkPopup.php:61
+#: src/Process/Backend/UsersActions.php:227
 msgid "URL"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:53
+#: src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/UserPref.php:76 src/Core/Backend/UserPref.php:84
 msgid "Entries (all types)"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:70
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:73
 msgid "Blogs list"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:94
+#: src/Core/Backend/Listing/ListingComments.php:146
+#: src/Core/Backend/Listing/ListingPosts.php:120
+#: src/Core/Backend/Listing/ListingUsers.php:82
+#: src/Process/Backend/MediaItem.php:609
 msgid "Legend: "
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:95 src/Core/Blogs.php:46
+msgid "online"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingBlogs.php:96 src/Core/Blogs.php:47
+msgid "offline"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingBlogs.php:97 src/Core/Blogs.php:48
+msgid "removed"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingBlogs.php:125
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:126
 msgid "Edit blog settings"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 #, php-format
 msgid "Switch to blog %s"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:36
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:38
+#: src/Process/Backend/Comment.php:130 src/Process/Backend/Post.php:861
 msgid "No comments"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:67
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingComments.php:78
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:81
+#: src/Core/Backend/Listing/ListingPosts.php:59
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
 msgid_plural ", <a href=\"%s\">published</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingComments.php:87
 #, php-format
 msgid ", <a href=\"%s\">spam</a> (1)"
 msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingComments.php:93
+#: src/Core/Backend/Listing/ListingPosts.php:65
 #, php-format
 msgid ", <a href=\"%s\">pending</a> (1)"
 msgid_plural ", <a href=\"%s\">pending</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingComments.php:99
+#: src/Core/Backend/Listing/ListingPosts.php:77
 #, php-format
 msgid ", <a href=\"%s\">unpublished</a> (1)"
 msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingComments.php:107
 msgid "Type"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:118
+#: src/Core/Backend/UserPref.php:64
 msgid "Entry"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:147
+#: src/Core/Backend/Listing/ListingComments.php:183
+#: src/Core/Backend/Listing/ListingPosts.php:121
+#: src/Core/Backend/Listing/ListingPosts.php:168
+#: src/Core/Backend/Listing/ListingPostsMini.php:84 src/Core/Blog.php:241
+#: src/Core/Blog.php:246 src/Process/Backend/Post.php:475
+#: src/Process/Backend/Post.php:1082
+msgid "Published"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingComments.php:148
+#: src/Core/Backend/Listing/ListingComments.php:188
+#: src/Core/Backend/Listing/ListingPosts.php:122
+#: src/Core/Backend/Listing/ListingPosts.php:173
+#: src/Core/Backend/Listing/ListingPostsMini.php:89 src/Core/Blog.php:240
+#: src/Core/Blog.php:245 src/Process/Backend/Post.php:476
+#: src/Process/Backend/Post.php:1087
+msgid "Unpublished"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingComments.php:149
+#: src/Core/Backend/Listing/ListingComments.php:193
+#: src/Core/Backend/Listing/ListingPosts.php:124
+#: src/Core/Backend/Listing/ListingPosts.php:183
+#: src/Core/Backend/Listing/ListingPostsMini.php:99 src/Core/Blog.php:238
+#: src/Core/Blog.php:244 src/Process/Backend/Post.php:478
+#: src/Process/Backend/Post.php:1092
+msgid "Pending"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingComments.php:150
+#: src/Core/Backend/Listing/ListingComments.php:198 src/Core/Blog.php:243
+#: src/Process/Backend/Post.php:1097
+msgid "Junk"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingComments.php:209
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:210
+#: src/Core/Backend/Listing/ListingComments.php:224
 msgid "comment"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:210
+#: src/Core/Backend/Listing/ListingComments.php:224
 msgid "trackback"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:221
 msgid "Type and author"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingComments.php:223
+#: src/Process/Backend/Post.php:1064 src/Process/Backend/Post.php:1135
 msgid "Edit"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:38
 msgid "No file matches the filter"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:40
 msgid "No file."
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:59
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:62
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:63
 #, php-format
 msgid "Nb of items: %d"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:82
+#: src/Core/Backend/ModulesList.php:778 src/Core/Backend/UserPref.php:205
+#: src/Process/Backend/Category.php:234
 msgid "Name"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:84
+#: src/Core/Backend/UserPref.php:207
 msgid "Size"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:163
+#: src/Core/Backend/Listing/ListingMedia.php:164
+#: src/Process/Backend/Media.php:342
 msgid "Select this file"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:173
+#: src/Core/Backend/Listing/ListingMedia.php:179
+#: src/Process/Backend/Media.php:358 src/Process/Backend/Media.php:371
 msgid "Attach this file to entry"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:184
+#: src/Core/Backend/Listing/ListingMedia.php:185
 msgid "Insert this file into entry"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:199
 msgid "delete"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:213
+#: src/Core/Backend/Listing/ListingMedia.php:237
 msgid "private media"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingMedia.php:220
+#: src/Core/Backend/Listing/ListingMedia.php:245
 msgid "open"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:33
 msgid "No entry matches the filter"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:35
+#: src/Core/Backend/Listing/ListingPostsMini.php:30
 msgid "No entry"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:49
 #, php-format
 msgid "List of %s entries matching the filter."
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:56
 #, php-format
 msgid "List of entries (%s)"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:71
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:91
+#: src/Core/Backend/Listing/ListingPosts.php:92
+#: src/Core/Backend/UserPref.php:53 src/Process/Backend/Post.php:938
 msgid "Trackbacks"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:123
+#: src/Core/Backend/Listing/ListingPosts.php:178
+#: src/Core/Backend/Listing/ListingPostsMini.php:94 src/Core/Blog.php:239
+#: src/Process/Backend/Post.php:477
+msgid "Scheduled"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingPosts.php:125
+#: src/Core/Backend/Listing/ListingPosts.php:191
+#: src/Core/Backend/Listing/ListingPostsMini.php:107
 msgid "Protected"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:127
 msgid "Attachments"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:202
+#: src/Core/Backend/Listing/ListingPostsMini.php:118
 #, php-format
 msgid "%d attachment"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPosts.php:202
+#: src/Core/Backend/Listing/ListingPostsMini.php:118
 #, php-format
 msgid "%d attachments"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingPostsMini.php:35
 msgid "Entries list"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingUsers.php:32
 msgid "No user matches the filter"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingUsers.php:34
 msgid "No user"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingUsers.php:43
 #, php-format
 msgid "List of %s users match the filter."
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingUsers.php:45
 msgid "Users list"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingUsers.php:83
+#: src/Core/Backend/Listing/ListingUsers.php:106
 msgid "admin"
 msgstr ""
 
+#: src/Core/Backend/Listing/ListingUsers.php:84
+#: src/Core/Backend/Listing/ListingUsers.php:109
 msgid "superadmin"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:113
 msgid "First page"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:121
 msgid "Previous page"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:129
 msgid "Next page"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:137
 msgid "Last page"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:141
 #, php-format
 msgid "Page %s / %s"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:146
 #, php-format
 msgid "Direct access page %s"
 msgstr ""
 
+#: src/Core/Backend/Listing/Pager.php:149 src/Core/Backend/Page.php:128
+#: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
+#: src/Process/Backend/Post.php:874 src/Process/Backend/Post.php:966
+#: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:199
+#: src/Process/Backend/Search.php:262 src/Process/Backend/Users.php:149
 msgid "ok"
 msgstr ""
 
+#: src/Core/Backend/MediaPage.php:374
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/Menus.php:83
 msgid "Blog"
 msgstr ""
 
+#: src/Core/Backend/Menus.php:84
 msgid "System settings"
 msgstr ""
 
+#: src/Core/Backend/Menus.php:85
 msgid "Plugins"
 msgstr ""
 
+#: src/Core/Backend/Menus.php:202 src/Core/Backend/ModulesList.php:1244
 msgid "Update"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:195
 msgid "other"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:399
 msgid "Search in repository:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:402 src/Core/Backend/Page.php:486
+#: src/Process/Backend/Categories.php:204
 msgid "OK"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:406
 msgid "Reset search"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:412
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:419
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:491
 msgid "current selection"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:495
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:500
 msgid "no results"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:504
 msgid "Browse index:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:767
 msgid "Plugins list"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:783
 msgid "Score"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:788
 msgid "Version"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:793
 msgid "Current version"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:798 src/Core/Backend/ModulesList.php:1001
+#: src/Core/Backend/Page.php:1027 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:803
 msgid "Repository"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:813 src/Process/Backend/Langs.php:254
 msgid "Action"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:889 src/Core/Backend/ModulesList.php:893
+#: src/Core/Backend/ModulesList.php:898
 #, php-format
 msgid " (%s)"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:930
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:936
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:953 src/Core/Backend/ThemesList.php:178
 msgid "Official repository"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:953 src/Core/Backend/ModulesList.php:1037
+#: src/Core/Backend/ThemesList.php:178
 msgid "Third-party repository"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:961 src/Core/Backend/ModulesList.php:962
 msgid "Plugin from official distribution"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:965 src/Core/Backend/ModulesList.php:966
 msgid "Plugin in development"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/Page.php:1028
+#: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1009 src/Core/Backend/ThemesList.php:182
 msgid "update locked"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1030
 msgid "Section:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1047 src/Core/Backend/Page.php:1031
 msgid "Tags:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1065
 msgid "No plugins matched your search."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1115
 msgid "Configure plugin"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1127
 msgid "Plugin settings (in blog parameters)"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1138
 msgid "Plugin settings (in user preferences)"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1147 src/Core/Backend/ModulesList.php:1158
 msgid "Plugin settings"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1169
 msgid "Plugin main page"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1203
 msgid "Activate"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1211
 msgid "Deactivate"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1228
 msgid "Clone"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1236
 msgid "Install"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1286
 msgid "Activate selected plugins"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1287
 msgid "Activate all plugins from this list"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1298
 msgid "Deactivate selected plugins"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1299
 msgid "Deactivate all plugins from this list"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1310
 msgid "Update selected plugins"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1311
 msgid "Update all plugins from this list"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1362 src/Core/Backend/ModulesList.php:1416
+#: src/Core/Backend/ModulesList.php:1447 src/Core/Backend/ModulesList.php:1485
+#: src/Core/Backend/ModulesList.php:1546
 msgid "No such plugin."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1382
 msgid "You don't have permissions to delete this plugin."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1384
 msgid "Some plugins have not been delete."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1387
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:1420
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:1451
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:1489
 msgid "Some plugins have not been deactivated."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1492
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:1539
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ModulesList.php:1543
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1563 src/Core/Backend/ThemesList.php:652
+#: src/Process/Backend/Langs.php:178
 msgid "Unable to move uploaded file."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1581
 msgid "The plugin has been successfully updated."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1582
 msgid "The plugin has been successfully installed."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1605 src/Process/Backend/Langs.php:325
 msgid "Upload a zip file"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1606 src/Core/Backend/ModulesList.php:1608
+#: src/Core/Backend/ModulesList.php:1626 src/Core/Backend/ModulesList.php:1631
+#: src/Process/Backend/Blog.php:122 src/Process/Backend/Blog.php:143
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:461
+#: src/Process/Backend/BlogPref.php:781 src/Process/Backend/BlogPref.php:786
+#: src/Process/Backend/Category.php:231 src/Process/Backend/Comment.php:266
+#: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:435
+#: src/Process/Backend/Langs.php:306 src/Process/Backend/Langs.php:327
+#: src/Process/Backend/Langs.php:329 src/Process/Backend/LinkPopup.php:58
+#: src/Process/Backend/Post.php:709 src/Process/Backend/Post.php:731
+#: src/Process/Backend/Post.php:887 src/Process/Backend/Post.php:902
+#: src/Process/Backend/User.php:256 src/Process/Backend/User.php:275
+#: src/Process/Backend/User.php:290 src/Process/Backend/User.php:410
+#: src/Process/Backend/UsersActions.php:330 src/Process/Install/Install.php:399
+#: src/Process/Install/Install.php:407 src/Process/Install/Install.php:414
+#: src/Process/Install/Wizard.php:215 src/Process/Install/Wizard.php:233
 msgid "Required field"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1606
 msgid "Zip file path:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1608 src/Core/Backend/ModulesList.php:1631
+#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:306
+#: src/Process/Backend/Langs.php:329 src/Process/Backend/User.php:410
+#: src/Process/Backend/UsersActions.php:330
 msgid "Your password:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/ModulesList.php:1637
+#: src/Process/Backend/Langs.php:312 src/Process/Backend/Langs.php:335
+#: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:283
+#: src/Process/Backend/User.php:296 src/Process/Backend/User.php:416
+#: src/Process/Backend/UsersActions.php:336 src/Process/Install/Install.php:410
+#: src/Process/Install/Install.php:416
 msgid "Password"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1618 src/Core/Backend/Page.php:1170
+#: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1625
 msgid "Download a zip file"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1626
 msgid "Zip file URL:"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1641
 msgid "Download"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1682
 msgid "Unknown plugin ID"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1693
 msgid "This plugin has no configuration file."
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1701 src/Process/Backend/Auth.php:273
 msgid "Insufficient permissions"
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1776
 #, php-format
 msgid "Configure \"%s\""
 msgstr ""
 
+#: src/Core/Backend/ModulesList.php:1777
 msgid "Back"
 msgstr ""
 
+#: src/Core/Backend/Notices.php:65 src/Core/Backend/Page.php:987
+#: src/Core/Backend/Page.php:1165 src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr ""
 
+#: src/Core/Backend/Notices.php:65 src/Process/Install/Install.php:362
+#: src/Process/Install/Install.php:470 src/Process/Install/Wizard.php:196
 msgid "Errors:"
 msgstr ""
 
+#: src/Core/Backend/Notices.php:217 src/Core/Backend/Notices.php:250
 msgid "%H:%M:%S"
 msgstr ""
 
+#: src/Core/Backend/Page.php:112 src/Process/Backend/User.php:456
 msgid "Blog:"
 msgstr ""
 
+#: src/Core/Backend/Page.php:116
 msgid "Change blog"
 msgstr ""
 
+#: src/Core/Backend/Page.php:125
 msgid "Blogs:"
 msgstr ""
 
+#: src/Core/Backend/Page.php:268
 msgid "Go to the content"
 msgstr ""
 
+#: src/Core/Backend/Page.php:269
 msgid "Go to the menu"
 msgstr ""
 
+#: src/Core/Backend/Page.php:270
 msgid "Go to help"
 msgstr ""
 
+#: src/Core/Backend/Page.php:273 src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr ""
 
+#: src/Core/Backend/Page.php:278 src/Core/Backend/Page.php:279
 msgid "Go to site"
 msgstr ""
 
+#: src/Core/Backend/Page.php:284
 #, php-format
 msgid "Logout %s"
 msgstr ""
 
+#: src/Core/Backend/Page.php:292
 msgid "Hide main menu"
 msgstr ""
 
+#: src/Core/Backend/Page.php:293
 msgid "Show main menu"
 msgstr ""
 
+#: src/Core/Backend/Page.php:304
 msgid "Safe mode"
 msgstr ""
 
+#: src/Core/Backend/Page.php:305
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
+#: src/Core/Backend/Page.php:493
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
 
+#: src/Core/Backend/Page.php:506 src/Core/Backend/Page.php:630
 msgid "Page top"
 msgstr ""
 
+#: src/Core/Backend/Page.php:672 src/Core/Backend/Page.php:673
 msgid "Go to dashboard"
 msgstr ""
 
+#: src/Core/Backend/Page.php:830
 msgid "Help about this page"
 msgstr ""
 
+#: src/Core/Backend/Page.php:835
 #, php-format
 msgid "See also %s"
 msgstr ""
 
+#: src/Core/Backend/Page.php:835
 msgid "the global help"
 msgstr ""
 
+#: src/Core/Backend/Page.php:969
 msgid "uncover"
 msgstr ""
 
+#: src/Core/Backend/Page.php:973
 msgid "hide"
 msgstr ""
 
+#: src/Core/Backend/Page.php:977
 msgid "Need help?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:978
 msgid "new window"
 msgstr ""
 
+#: src/Core/Backend/Page.php:979
 msgid "Hide"
 msgstr ""
 
+#: src/Core/Backend/Page.php:980
 msgid "Select:"
 msgstr ""
 
+#: src/Core/Backend/Page.php:981
 msgid "No selection"
 msgstr ""
 
+#: src/Core/Backend/Page.php:982
 msgid "Select all"
 msgstr ""
 
+#: src/Core/Backend/Page.php:983
 msgid "Invert selection"
 msgstr ""
 
+#: src/Core/Backend/Page.php:988 src/Process/Backend/Post.php:440
+#: src/Process/Backend/Post.php:555
 msgid "Entry has been successfully created."
 msgstr ""
 
+#: src/Core/Backend/Page.php:989
 msgid "Edit entry"
 msgstr ""
 
+#: src/Core/Backend/Page.php:990
 msgid "view entry"
 msgstr ""
 
+#: src/Core/Backend/Page.php:991
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:992
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:993
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:994
 msgid "Are you sure you want to delete this entry?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:995
 msgid "Click here to unlock the field"
 msgstr ""
 
+#: src/Core/Backend/Page.php:996
 msgid "Are you sure you want to delete all spams?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:997
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:998
 msgid "Are you sure you want to delete this comment?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:999
 msgid "Users with posts cannot be deleted."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1000
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1001
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1002
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1003
 msgid "Are you sure you want to reorder all categories?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1004
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1005
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1006
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1007
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1008
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1009
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1010
 msgid "Are you sure you want to delete selected plugins?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1011
 msgid "Use this theme"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1012
 msgid "Remove this theme"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1013
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1014
 msgid "Are you sure you want to delete selected themes?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1015
 msgid "Are you sure you want to delete this backup?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1016
 msgid "Are you sure you want to revert to this backup?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1017
 msgid "Zip file content"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1018
 msgid "HTML markup validator"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1019
 msgid "HTML content is valid."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1020
 msgid "There are HTML markup errors."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1021
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1022
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1023
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1024
 msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1029
 msgid "Help:"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1033
 msgid "Hide this notice"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1035
 msgid "Show password"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1036
 msgid "Hide password"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1038
 msgid "Reset to now"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1040
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1095
 msgid "You have unsaved changes."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1096
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1156
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1157
 msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1161
 msgid "Limit exceeded."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1162
 msgid "File size exceeds allowed limit."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1163
 msgid "Canceled."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1164
 msgid "HTTP Error:"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1166 src/Process/Backend/Media.php:513
 msgid "Choose file"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1167 src/Process/Backend/Media.php:514
 msgid "Choose files"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1168 src/Process/Backend/Blog.php:189
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:901
+#: src/Process/Backend/Category.php:274 src/Process/Backend/Comment.php:308
+#: src/Process/Backend/LinkPopup.php:72 src/Process/Backend/Media.php:230
+#: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:525
+#: src/Process/Backend/MediaItem.php:725 src/Process/Backend/MediaItem.php:1076
+#: src/Process/Backend/Post.php:795 src/Process/Backend/Post.php:798
+#: src/Process/Backend/PostMedia.php:110 src/Process/Backend/Search.php:113
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:616
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Cancel"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1169
 msgid "Clean"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1171 src/Process/Backend/MediaItem.php:1047
 msgid "Send"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1172
 msgid "File successfully uploaded."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1173
 msgid "No file in queue."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1174
 msgid "1 file in queue."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1175
 #, php-format
 msgid "%d files in queue."
 msgstr ""
 
+#: src/Core/Backend/Page.php:1176
 msgid "Queue error:"
 msgstr ""
 
+#: src/Core/Backend/Page.php:1219
 msgid "Cancel filters and display options"
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "(%s)"
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:249 src/Core/Backend/ThemeConfig.php:397
 msgid "The 'public' directory does not exist."
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:256 src/Core/Backend/ThemeConfig.php:268
+#: src/Core/Backend/ThemeConfig.php:404 src/Core/Backend/ThemeConfig.php:416
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:390
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:436
 msgid "Unable to create images."
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:443
 msgid "Invalid file type."
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:449 src/Helper/File/Manager.php:408
+#: src/Helper/File/Manager.php:448
 msgid "An error occurred while writing the file."
 msgstr ""
 
+#: src/Core/Backend/ThemeConfig.php:455
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:111
 #, php-format
 msgid "Score: %s"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:129
 #, php-format
 msgid "%s screenshot."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:158
 #, php-format
 msgid "by %s"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:162
 #, php-format
 msgid "version %s"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:166
 #, php-format
 msgid "(current version %s)"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:171
 #, php-format
 msgid "(built on \"%s\")"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:173
 #, php-format
 msgid "(requires \"%s\")"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:212
 msgid "View stylesheet"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:227
 msgid "Configure theme"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:257
 msgid "No themes matched your search."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:297
 msgid "Use this one"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:794
 msgid "Preview"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:355
 msgid "Update selected themes"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:356
 msgid "Update all themes from this list"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:399 src/Core/Backend/ThemesList.php:437
+#: src/Core/Backend/ThemesList.php:475 src/Core/Backend/ThemesList.php:510
+#: src/Core/Backend/ThemesList.php:551 src/Core/Backend/ThemesList.php:585
+#: src/Core/Backend/ThemesList.php:635
 msgid "No such theme."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:405
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:441
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ThemesList.php:479
 msgid "Some themes have not been deactivated."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:482
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ThemesList.php:514
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ThemesList.php:549
 msgid "You don't have permissions to delete this theme."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:553
 msgid "Some themes have not been delete."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:556
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ThemesList.php:589
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ThemesList.php:628
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Core/Backend/ThemesList.php:632
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:670
 msgid "The theme has been successfully updated."
 msgstr ""
 
+#: src/Core/Backend/ThemesList.php:671
 msgid "The theme has been successfully installed."
 msgstr ""
 
+#: src/Core/Backend/Update.php:331
+msgid "Digests file not found."
+msgstr ""
+
+#: src/Core/Backend/Update.php:368
+msgid "No file to download"
+msgstr ""
+
+#: src/Core/Backend/Update.php:372 src/Core/Backend/Update.php:455
+msgid "Root directory is not writable."
+msgstr ""
+
+#: src/Core/Backend/Update.php:410
+msgid "An error occurred while downloading archive."
+msgstr ""
+
+#: src/Core/Backend/Update.php:444 src/Core/Backend/Update.php:530
+msgid "Archive not found."
+msgstr ""
+
+#: src/Core/Backend/Update.php:450 src/Core/Backend/Update.php:536
+msgid "Unable to read current digests file."
+msgstr ""
+
+#: src/Core/Backend/Update.php:473 src/Core/Backend/Update.php:544
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr ""
+
+#: src/Core/Backend/Update.php:567
+msgid "Incomplete archive."
+msgstr ""
+
+#: src/Core/Backend/Update.php:671
+msgid "Unable to read digests file."
+msgstr ""
+
+#: src/Core/Backend/Update.php:695
+msgid "Invalid digests file."
+msgstr ""
+
+#: src/Core/Backend/UserPref.php:175
 msgid "users per page"
 msgstr ""
 
+#: src/Core/Backend/UserPref.php:185
 msgid "entries per page"
 msgstr ""
 
+#: src/Core/Backend/UserPref.php:192
 msgid "comments per page"
 msgstr ""
 
+#: src/Core/Backend/UserPref.php:199
 msgid "blogs per page"
 msgstr ""
 
+#: src/Core/Backend/UserPref.php:211
 msgid "media per page"
 msgstr ""
 
+#: src/Core/Backend/UserPref.php:218
 msgid "results per page"
 msgstr ""
 
+#: src/Core/Backend/Utility.php:112
 msgid "Database error"
 msgstr ""
 
+#: src/Core/Backend/Utility.php:112
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
+#: src/Core/Backend/Utility.php:130
 msgid "Precondition Failed"
 msgstr ""
 
+#: src/Core/Blog.php:348 src/Core/Media.php:167
+msgid "No blog defined."
+msgstr ""
+
+#: src/Core/Blog.php:851
+msgid "You are not allowed to add categories"
+msgstr ""
+
+#: src/Core/Blog.php:907
+msgid "You are not allowed to update categories"
+msgstr ""
+
+#: src/Core/Blog.php:991
+msgid "You are not allowed to delete categories"
+msgstr ""
+
+#: src/Core/Blog.php:1004
+msgid "This category is not empty."
+msgstr ""
+
+#: src/Core/Blog.php:1019
+msgid "You are not allowed to reset categories order"
+msgstr ""
+
+#: src/Core/Blog.php:1090
+msgid "Empty category URL"
+msgstr ""
+
+#: src/Core/Blog.php:1107
+msgid "You must provide a category title"
+msgstr ""
+
+#: src/Core/Blog.php:1117
+msgid "You must provide a category URL"
+msgstr ""
+
+#: src/Core/Blog.php:1700
+msgid "You are not allowed to create an entry"
+msgstr ""
+
+#: src/Core/Blog.php:1768
+msgid "You are not allowed to update entries"
+msgstr ""
+
+#: src/Core/Blog.php:1774 src/Core/Blog.php:2088
+msgid "No such entry ID"
+msgstr ""
+
+#: src/Core/Blog.php:1807
+msgid "You are not allowed to edit this entry"
+msgstr ""
+
+#: src/Core/Blog.php:1849 src/Core/Blog.php:1892 src/Core/Meta.php:142
+#: src/Core/Meta.php:159
+msgid "You are not allowed to change this entry status"
+msgstr ""
+
+#: src/Core/Blog.php:1946 src/Core/Blog.php:1998
+msgid "You are not allowed to change this entry category"
+msgstr ""
+
+#: src/Core/Blog.php:2039
+msgid "You are not allowed to change entries category"
+msgstr ""
+
+#: src/Core/Blog.php:2082
+msgid "You are not allowed to delete entries"
+msgstr ""
+
+#: src/Core/Blog.php:2328
+msgid "No entry title"
+msgstr ""
+
+#: src/Core/Blog.php:2332 src/Core/Blog.php:2348
+msgid "No entry content"
+msgstr ""
+
+#: src/Core/Blog.php:2424
+msgid "Notes"
+msgstr ""
+
+#: src/Core/Blog.php:2426
+msgid "Note"
+msgstr ""
+
+#: src/Core/Blog.php:2533
+msgid "Empty entry URL"
+msgstr ""
+
+#: src/Core/Blog.php:2826
+msgid "You are not allowed to update comments"
+msgstr ""
+
+#: src/Core/Blog.php:2832 src/Core/Blog.php:2838 src/Core/Blog.php:2960
+msgid "No such comment ID"
+msgstr ""
+
+#: src/Core/Blog.php:2846
+msgid "You are not allowed to update this comment"
+msgstr ""
+
+#: src/Core/Blog.php:2901
+msgid "You are not allowed to change this comment's status"
+msgstr ""
+
+#: src/Core/Blog.php:2954 src/Core/Blog.php:3011
+msgid "You are not allowed to delete comments"
+msgstr ""
+
+#: src/Core/Blog.php:3046
+msgid "You must provide a comment"
+msgstr ""
+
+#: src/Core/Blog.php:3050
+msgid "You must provide an author name"
+msgstr ""
+
+#: src/Core/Blog.php:3054
+msgid "Email address is not valid."
+msgstr ""
+
+#: src/Core/BlogSettings.php:87
+msgid "Unable to retrieve namespaces:"
+msgstr ""
+
+#: src/Core/BlogSettings.php:122
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr ""
+
+#: src/Core/BlogWorkspace.php:85
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr ""
+
+#: src/Core/BlogWorkspace.php:135
+msgid "Unable to retrieve settings:"
+msgstr ""
+
+#: src/Core/BlogWorkspace.php:221 src/Core/BlogWorkspace.php:319
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr ""
+
+#: src/Core/BlogWorkspace.php:311 src/Core/BlogWorkspace.php:351
+#: src/Core/BlogWorkspace.php:374 src/Core/BlogWorkspace.php:394
+msgid "No namespace specified"
+msgstr ""
+
+#: src/Core/Blogs.php:201 src/Core/Blogs.php:241 src/Core/Users.php:158
+#: src/Core/Users.php:188 src/Core/Users.php:239 src/Core/Users.php:348
+#: src/Core/Users.php:376
+msgid "You are not an administrator"
+msgstr ""
+
+#: src/Core/Blogs.php:226
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+#: src/Core/Blogs.php:230
+msgid "No blog name"
+msgstr ""
+
+#: src/Core/Blogs.php:234
+msgid "No blog URL"
+msgstr ""
+
+#: src/Core/Frontend/Url.php:594
+msgid "You must provide a valid email address."
+msgstr ""
+
+#: src/Core/Frontend/Utility.php:149
 msgid "Database problem"
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:151
 msgid "Something went wrong while trying to read the database."
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:156
 msgid "Blog is not defined."
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:156
 msgid "Did you change your Blog ID?"
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:161
 msgid "Blog is offline."
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:161
 msgid "This blog is offline. Please try again later."
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:215
 msgid "Can't create template files."
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:264
 msgid "Default theme not found."
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:264
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr ""
 
+#: src/Core/Frontend/Utility.php:322
 msgid "Something went wrong while loading template file for your blog."
 msgstr ""
 
+#: src/Core/Install/Utils.php:31 src/Process/Backend/Update.php:285
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr ""
 
+#: src/Core/Install/Utils.php:35
 msgid "Multibyte string module (mbstring) is not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:39
 msgid "Iconv module is not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:43
 msgid "Output control functions are not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:47
 msgid "SimpleXML module is not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:51
 msgid "DOM XML module is not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:56
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr ""
 
+#: src/Core/Install/Utils.php:60
 msgid "SPL module is not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:65
 #, php-format
 msgid "MySQL version is %s (%s or earlier needed)."
 msgstr ""
 
+#: src/Core/Install/Utils.php:78
 msgid "MySQL InnoDB engine is not available."
 msgstr ""
 
+#: src/Core/Install/Utils.php:83
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr ""
 
+#: src/Core/Log.php:198
+msgid "No log message"
+msgstr ""
+
+#: src/Core/Media.php:182 src/Process/Backend/Home.php:252
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+#: src/Core/Media.php:185 src/Process/Backend/Home.php:256
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+#: src/Core/Media.php:837 src/Core/Media.php:864
+msgid "You are not a super administrator."
+msgstr ""
+
+#: src/Core/Media.php:953 src/Core/Media.php:1039 src/Core/Media.php:1116
+#: src/Core/Media.php:1132 src/Core/Media.php:1150
+msgid "Permission denied."
+msgstr ""
+
+#: src/Core/Media.php:1052
+msgid "You are not the file owner."
+msgstr ""
+
+#: src/Core/Media.php:1067
+msgid "This file is not allowed."
+msgstr ""
+
+#: src/Core/Media.php:1071
+msgid "New file already exists."
+msgstr ""
+
+#: src/Core/Media.php:1170
+msgid "File does not exist in the database."
+msgstr ""
+
+#: src/Core/Media.php:1215
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr ""
+
+#: src/Core/Notice.php:160
+msgid "No notice message"
+msgstr ""
+
+#: src/Core/Trackback.php:86
+#, php-format
+msgid "%s has still been pinged"
+msgstr ""
+
+#: src/Core/Trackback.php:109 src/Core/Trackback.php:134
+#: src/Core/Trackback.php:158
+msgid "Unable to ping URL"
+msgstr ""
+
+#: src/Core/Trackback.php:114
+msgid "Bad server response code"
+msgstr ""
+
+#: src/Core/Trackback.php:142
+#, php-format
+msgid "%s is not a ping URL"
+msgstr ""
+
+#: src/Core/Trackback.php:163
+#, php-format
+msgid "%s, ping error:"
+msgstr ""
+
+#: src/Core/Trackback.php:300
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+#: src/Core/Trackback.php:307 src/Core/Trackback.php:378
+msgid "Where's your title?"
+msgstr ""
+
+#: src/Core/Trackback.php:342
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+#: src/Core/Trackback.php:345
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#: src/Core/Trackback.php:558
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+#: src/Core/Trackback.php:577
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+#: src/Core/Trackback.php:589
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+#: src/Core/Trackback.php:594
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+#: src/Core/Trackback.php:621
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+#: src/Core/Trackback.php:846
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+#: src/Core/Trackback.php:850
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+#: src/Core/Trackback.php:854
+msgid "LOL!"
+msgstr ""
+
+#: src/Core/Upgrade/Upgrade.php:74
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#: src/Core/UserPreferences.php:58
+msgid "Unable to retrieve workspaces:"
+msgstr ""
+
+#: src/Core/UserPreferences.php:132
+#, php-format
+msgid "Invalid UserWorkspace: %s"
+msgstr ""
+
+#: src/Core/UserWorkspace.php:83
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
+#: src/Core/UserWorkspace.php:93
+msgid "Unable to retrieve prefs:"
+msgstr ""
+
+#: src/Core/UserWorkspace.php:223 src/Core/UserWorkspace.php:321
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr ""
+
+#: src/Core/UserWorkspace.php:313 src/Core/UserWorkspace.php:348
+#: src/Core/UserWorkspace.php:381 src/Core/UserWorkspace.php:411
+msgid "No workspace specified"
+msgstr ""
+
+#: src/Core/Users.php:162 src/Process/Install/Install.php:102
+msgid "No user ID given"
+msgstr ""
+
+#: src/Core/Users.php:166 src/Process/Install/Install.php:112
+msgid "No password given"
+msgstr ""
+
+#: src/Core/Users.php:450 src/Process/Install/Install.php:105
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+#: src/Core/Users.php:461 src/Process/Backend/User.php:287
+#: src/Process/Install/Install.php:118
+msgid "Password must contain at least 6 characters."
+msgstr ""
+
+#: src/Core/Users.php:467
+msgid "Invalid user language code"
+msgstr ""
+
+#: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
+#: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr ""
 
+#: src/Database/Statement/InsertStatement.php:130
 msgid "SQL INSERT requires an INTO source"
 msgstr ""
 
+#: src/Database/Statement/JoinStatement.php:94
 msgid "SQL JOIN requires a FROM source"
 msgstr ""
 
+#: src/Database/Statement/SelectStatement.php:243
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+#: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source"
 msgstr ""
 
+#: src/Database/Statement/UpdateStatement.php:196
 msgid "SQL UPDATE requires a FROM source"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:248
 msgid "Bad range"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:252 src/Helper/Diff/Diff.php:323
 msgid "Invalid range"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:260 src/Helper/Diff/Diff.php:330
 msgid "Invalid line number"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:264 src/Helper/Diff/Diff.php:298
+#: src/Helper/Diff/Diff.php:334 src/Helper/Diff/Diff.php:368
 msgid "Chunk is out of range"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:273
 msgid "Bad context"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:287
 msgid "Bad context (in deletion)"
 msgstr ""
 
+#: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:363
 msgid "Invalid diff format"
 msgstr ""
 
+#: src/Helper/File/Files.php:181 src/Helper/File/Files.php:536
 msgid "Unable to open directory."
 msgstr ""
 
+#: src/Helper/File/Files.php:357
 msgid "Unable to create directory."
 msgstr ""
 
+#: src/Helper/File/Files.php:400
 msgid "File is not writable."
 msgstr ""
 
+#: src/Helper/File/Files.php:406
 msgid "Unable to open file."
 msgstr ""
 
+#: src/Helper/File/Files.php:478
 msgid "Not an uploaded file."
 msgstr ""
 
+#: src/Helper/File/Files.php:486
 msgid "The uploaded file exceeds the maximum file size allowed."
 msgstr ""
 
+#: src/Helper/File/Files.php:488
 msgid "The uploaded file was only partially uploaded."
 msgstr ""
 
+#: src/Helper/File/Files.php:490
 msgid "No file was uploaded."
 msgstr ""
 
+#: src/Helper/File/Files.php:492
 msgid "Missing a temporary folder."
 msgstr ""
 
+#: src/Helper/File/Files.php:494
 msgid "Failed to write file to disk."
 msgstr ""
 
+#: src/Helper/File/Files.php:496
 msgid "A PHP extension stopped the file upload."
 msgstr ""
 
+#: src/Helper/File/Files.php:529
 #, php-format
 msgid "%s is not a directory."
 msgstr ""
 
+#: src/Helper/File/Files.php:582
 msgid "Can't get file path"
 msgstr ""
 
+#: src/Helper/File/Files.php:589
 msgid "Can't lock a directory"
 msgstr ""
 
+#: src/Helper/File/Files.php:601
 msgid "Can't call php function named flock"
 msgstr ""
 
+#: src/Helper/File/Files.php:615
 msgid "Can't create file"
 msgstr ""
 
+#: src/Helper/File/Files.php:625
 msgid "Can't open file"
 msgstr ""
 
+#: src/Helper/File/Files.php:633
 msgid "Can't lock file"
 msgstr ""
 
+#: src/Helper/File/Files.php:655 src/Helper/File/Manager.php:539
+#: src/Helper/File/Manager.php:543
 msgid "File cannot be removed."
 msgstr ""
 
+#: src/Helper/File/Image/ImageTools.php:178
 msgid "Not enough memory to open image."
 msgstr ""
 
+#: src/Helper/File/Manager.php:392 src/Helper/File/Manager.php:435
 msgid "Uploading this file is not allowed."
 msgstr ""
 
+#: src/Helper/File/Manager.php:396 src/Helper/File/Manager.php:439
 msgid "Destination directory is not in jail."
 msgstr ""
 
+#: src/Helper/File/Manager.php:400
 msgid "File already exists."
 msgstr ""
 
+#: src/Helper/File/Manager.php:404 src/Helper/File/Manager.php:443
 msgid "Cannot write in this directory."
 msgstr ""
 
+#: src/Helper/File/Manager.php:484
 msgid "Source file does not exist."
 msgstr ""
 
+#: src/Helper/File/Manager.php:490 src/Helper/File/Manager.php:493
+#: src/Helper/File/Manager.php:535
 msgid "File is not in jail."
 msgstr ""
 
+#: src/Helper/File/Manager.php:497
 msgid "Destination directory is not writable."
 msgstr ""
 
+#: src/Helper/File/Manager.php:501
 msgid "Unable to rename file."
 msgstr ""
 
+#: src/Helper/File/Manager.php:559
 msgid "Directory is not in jail."
 msgstr ""
 
+#: src/Helper/File/Manager.php:563 src/Helper/File/Manager.php:567
 msgid "Directory cannot be removed."
 msgstr ""
 
+#: src/Helper/File/Zip/Unzip.php:90
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr ""
 
+#: src/Helper/File/Zip/Unzip.php:98
 #, php-format
 msgid "Trying to unzip a folder name %s"
 msgstr ""
 
+#: src/Helper/File/Zip/Unzip.php:232
 msgid "Unable to write destination file."
 msgstr ""
 
+#: src/Helper/File/Zip/Unzip.php:245
 msgid "Unable to write in target directory, permission denied."
 msgstr ""
 
+#: src/Helper/File/Zip/Unzip.php:537 src/Helper/File/Zip/Zip.php:350
 msgid "Not enough memory to open file."
 msgstr ""
 
+#: src/Helper/File/Zip/Zip.php:76
 msgid "File does not exist"
 msgstr ""
 
+#: src/Helper/File/Zip/Zip.php:79
 msgid "Cannot read file"
 msgstr ""
 
+#: src/Helper/File/Zip/Zip.php:126
 msgid "Directory does not exist"
 msgstr ""
 
+#: src/Helper/File/Zip/Zip.php:129
 msgid "Cannot read directory"
 msgstr ""
 
+#: src/Helper/Html/Template/Template.php:583
+#: src/Helper/Html/Template/Template.php:632
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr ""
 
+#: src/Helper/Html/Template/Template.php:590
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
+#: src/Helper/Html/Template/Template.php:640
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
 
+#: src/Module/Modules.php:196
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#: src/Module/Modules.php:209
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr ""
+
+#: src/Module/Modules.php:216
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#: src/Module/Modules.php:535
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#: src/Module/Modules.php:563
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr ""
+
+#: src/Module/Modules.php:622
+msgid "Empty module zip file."
+msgstr ""
+
+#: src/Module/Modules.php:629
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+#: src/Module/Modules.php:663 src/Module/Modules.php:699
+#, php-format
+msgid "Module is not installed: %s"
+msgstr ""
+
+#: src/Module/Modules.php:714
+#, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr ""
+
+#: src/Module/Modules.php:718
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#: src/Module/Modules.php:726
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr ""
+
+#: src/Module/Modules.php:732
+#, php-format
+msgid "Unable to read new %s file"
+msgstr ""
+
+#: src/Module/Modules.php:742 src/Module/Modules.php:834
+#: src/Module/Modules.php:838
+msgid "Cannot deactivate plugin."
+msgstr ""
+
+#: src/Module/Modules.php:817 src/Module/Modules.php:830
+#: src/Module/Modules.php:847
+msgid "No such module."
+msgstr ""
+
+#: src/Module/Modules.php:821
+msgid "Cannot remove module files"
+msgstr ""
+
+#: src/Module/Modules.php:851 src/Module/Modules.php:855
+msgid "Cannot activate plugin."
+msgstr ""
+
+#: src/Module/Store.php:344 src/Module/Store.php:347
+msgid "An error occurred while downloading the file."
+msgstr ""
+
+#: src/Module/StoreParser.php:48
+msgid "Wrong data feed"
+msgstr ""
+
+#: src/Module/Themes.php:118
+msgid "Themes folder unreachable"
+msgstr ""
+
+#: src/Module/Themes.php:122
+msgid "Themes folder unreadable"
+msgstr ""
+
+#: src/Module/Themes.php:130
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+#: src/Module/Themes.php:130
+msgid " (copy)"
+msgstr ""
+
+#: src/Module/Themes.php:167
+msgid "Unable to modify _define.php"
+msgstr ""
+
+#: src/Module/Themes.php:199
+msgid "Destination folder already exist"
+msgstr ""
+
+#: src/Process/Backend/Auth.php:71
 msgid "Dotclear has been upgraded."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:118
 msgid "Password reset"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:119
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:119
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
+#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:446
+#: src/Process/Install/Install.php:399 src/Process/Install/Install.php:451
 msgid "Username:"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:125
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:135
 msgid "Your new password"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:141
 msgid "Your new password is in your mailbox."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:184 src/Process/Backend/User.php:126
+#: src/Process/Backend/UserPreferences.php:204
+#: src/Process/Install/Install.php:115
 msgid "Passwords don't match"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:188
 msgid "You didn't change your password."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:238
 msgid "You have to change your password before you can login."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:240
 msgid "In order to login, you have to change your password now."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:246
 msgid "Safe Mode can only be used for super administrators."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:277
 msgid "Administration session expired"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:277
 msgid "Wrong username or password"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:328 src/Process/Backend/Auth.php:329
+#: src/Process/Backend/Auth.php:330 src/Process/Backend/User.php:224
+#: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:496
+#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Install/Install.php:340 src/Process/Install/Install.php:341
+#: src/Process/Install/Install.php:342
 #, php-format
 msgid "Password strength: %s"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:328 src/Process/Backend/User.php:224
+#: src/Process/Backend/UserPreferences.php:496
+#: src/Process/Install/Install.php:340
 msgid "weak"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:330 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Install/Install.php:342
 msgid "strong"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
 msgid "Back to login screen"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:363
 msgid "Request a new password"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:386
 msgid "recover"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:489
 msgid "Other option"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:398
 msgid "Change your password"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:276
+#: src/Process/Backend/UserPreferences.php:581
+#: src/Process/Install/Install.php:407
 msgid "New password:"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:290
+#: src/Process/Install/Install.php:414
 msgid "Confirm password:"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:419
 msgid "change"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:435
 msgid "Safe mode login"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:437
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:438
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:467
 msgid "Remember my ID on this device"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:468
 msgid "log in"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:483
 msgid "You must accept cookies in order to use the private area."
 msgstr ""
 
+#: src/Process/Backend/Auth.php:490
 msgid "Get back to normal authentication"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:493
 msgid "Connection issue?"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:496
 msgid "I forgot my password"
 msgstr ""
 
+#: src/Process/Backend/Auth.php:499
 msgid "I want to log in in safe mode"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:76
 #, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:93 src/Process/Backend/Blog.php:99
 msgid "New blog"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
+#: src/Process/Backend/BlogPref.php:414 src/Process/Backend/Blogs.php:100
+#: src/Process/Backend/Langs.php:211 src/Process/Backend/Plugin.php:134
+#: src/Process/Backend/Plugins.php:104 src/Process/Backend/Update.php:44
+#: src/Process/Backend/Update.php:63 src/Process/Backend/Update.php:244
+#: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
+#: src/Process/Backend/UsersActions.php:145
+#: src/Process/Backend/UsersActions.php:153
 msgid "System"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:781
 msgid "Blog ID:"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:783
+#: src/Process/Backend/User.php:263
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr ""
 
+#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:461
 msgid "Blog name:"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:791
 msgid "Blog URL"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:786
 msgid "Blog URL:"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:471
 msgid "Blog description:"
 msgstr ""
 
+#: src/Process/Backend/Blog.php:187 src/Process/Backend/Media.php:457
 msgid "Create"
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:51
 msgid "No such blog ID"
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:71
 #, php-format
 msgid "Blog \"%s\" successfully deleted"
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:86 src/Process/Backend/BlogDel.php:92
 msgid "Delete a blog"
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:98
 msgid "Warning"
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:99
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:108
 msgid "Please give your password to confirm the blog deletion."
 msgstr ""
 
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:909
 msgid "Delete this blog"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:75
 msgid "No given blog id."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:80
 msgid "No such blog."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:129
 msgid "year/month/day/title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:130
 msgid "year/month/title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:131
 msgid "year/title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:132
 msgid "title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:133
 msgid "post id/title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:134
 msgid "post id"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:142
 msgid "H4"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:143
 msgid "H3"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:144
 msgid "P"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:149 src/Process/Backend/BlogPref.php:970
+#: src/Process/Backend/Category.php:243 src/Process/Backend/MediaItem.php:607
+#: src/Process/Backend/MediaItem.php:609
 msgid "(none)"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:151
 msgid "Title, Date"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:152
 msgid "Title, Country, Date"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:153
 msgid "Title, City, Country, Date"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:165 src/Process/Backend/MediaItem.php:512
+#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:816
 msgid "original"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:176 src/Process/Backend/BlogPref.php:186
+#: src/Process/Backend/MediaItem.php:604 src/Process/Backend/MediaItem.php:616
+#: src/Process/Backend/MediaItem.php:651 src/Process/Backend/MediaItem.php:693
 msgid "None"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:177 src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:652 src/Process/Backend/MediaItem.php:694
 msgid "Left"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:178 src/Process/Backend/MediaItem.php:618
+#: src/Process/Backend/MediaItem.php:653 src/Process/Backend/MediaItem.php:695
 msgid "Right"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:179 src/Process/Backend/MediaItem.php:619
+#: src/Process/Backend/MediaItem.php:654 src/Process/Backend/MediaItem.php:696
 msgid "Center"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:184 src/Process/Backend/MediaItem.php:592
 msgid "Legend and title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:191
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:192
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:193
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:198
+#: src/Process/Backend/UserPreferences.php:127
 msgid "Default"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:210
 msgid "Never"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:211
 msgid "Three months"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:212
 msgid "Six months"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:213
 msgid "One year"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:214
 msgid "Two years"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:295
 msgid "This blog ID is already used."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:303
 msgid "Invalid language code"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:383 src/Process/Backend/BlogPref.php:452
 msgid "Blog has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:431
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:432
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:448
 msgid "Blog has been successfully created."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:456
 msgid "Parameters"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:457 src/Process/Backend/Media.php:564
 msgid "Blog parameters"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:459 src/Process/Backend/BlogPref.php:779
 msgid "Blog details"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:484
 msgid "Blog status:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:500 src/Process/Backend/BlogPref.php:842
 msgid "Blog configuration"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:501
 msgid "Blog editor name:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:504
 msgid "Default language:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:507
 msgid "Blog timezone:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:510
 msgid "Copyright notice:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:523 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:529 src/Process/Backend/Post.php:678
 msgid "Accept comments"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:532
 msgid "Moderate comments"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:534
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:545 src/Process/Backend/BlogPref.php:573
 msgid "No limit: leave blank."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:548
 msgid "Wiki syntax for comments"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:551
 msgid "Preview of comment before submit is not mandatory"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:557 src/Process/Backend/Post.php:686
 msgid "Accept trackbacks"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:560
 msgid "Moderate trackbacks"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:562
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:576
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:580
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:587
 msgid "Blog presentation"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:590
 msgid "Date format:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:592
 msgid "Pattern of date"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:594 src/Process/Backend/BlogPref.php:600
+#: src/Process/Backend/BlogPref.php:847
 msgid "Sample:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:596
 msgid "Time format:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:598
 msgid "Pattern of time"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:604
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:608
 msgid "Display smilies on entries and comments"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:612
 msgid "Disable internal search system"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:619
 #, php-format
 msgid "Display %s entries on first page"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:631
 #, php-format
 msgid "Display %s entries per page"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:643
 #, php-format
 msgid "Display %s entries per feed"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:655
 #, php-format
 msgid "Display %s comments per feed"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:668
 msgid "Truncate feeds"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:672
 msgid "Include sub-categories in category page and category posts feed"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:681
 msgid "Display an entry as static home page"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:683
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:685
 msgid "Choose an entry"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:687
 msgid "Leave empty to use the default presentation."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:691
 msgid "Media and images"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:693
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:694
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:695
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:699
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:700
 msgid "Thumbnail"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:708
 msgid "Small"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:716
 msgid "Medium"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:724
 msgid "Default size of the inserted video (in pixels)"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:725
 msgid "Width"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:733
 msgid "Height"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:743
 msgid "Default image insertion attributes"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:744
 msgid "Inserted image title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:748
 msgid "Use original media date if possible"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:751
 msgid "Do not display date if alone in title"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:752
 msgid "It is retrieved from the picture's metadata."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:754
 msgid "Size of inserted image:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:761
 msgid "Image alignment:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:766
 msgid "Insert a link to the original image"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:767
 msgid "Image legend and title:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:776
 msgid "Advanced parameters"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:784
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:795
 msgid "URL scan method:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:818
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:829
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:844
 msgid "New post URL format:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:847
 msgid "Dotclear"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:850
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:857
 msgid "Search engines robots policy"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:870
 msgid "jQuery javascript library"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:873
 msgid "Load the jQuery library"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:875
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:881
 msgid "Blog security"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:885
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:893
 msgid "Plugins parameters"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:917
 msgid "Only superadmin can delete a blog."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:931
 msgid "Users on this blog"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:934
 msgid "No users"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:975
 msgid "Publications on this blog:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:982
 #, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:987
 msgid "Permissions:"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:990 src/Process/Backend/User.php:320
 msgid "Super administrator"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:991
 msgid "All rights on all blogs."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:997
+#: src/Process/Backend/UsersActions.php:321
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:1001
 msgid "All rights on this blog."
 msgstr ""
 
+#: src/Process/Backend/BlogPref.php:1012 src/Process/Backend/User.php:470
 msgid "Change permissions"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:58
 msgid "The following themes have been disabled :"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:92
 msgid "Theme configuration"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:148
 msgid "Themes management"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:170 src/Process/Backend/Plugins.php:143
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:174
 msgid "Manual checking of themes update done successfully."
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:186
 msgid "Force checking update of themes"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:195 src/Process/Backend/BlogTheme.php:196
 msgid "Update themes"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:198
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Process/Backend/BlogTheme.php:215 src/Process/Backend/BlogTheme.php:301
+#: src/Process/Backend/Plugins.php:188 src/Process/Backend/Plugins.php:275
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:229 src/Process/Backend/BlogTheme.php:231
 msgid "Installed themes"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:231
 msgid "Activated themes"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/Plugins.php:208
 msgid "(in normal mode)"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:234
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:255 src/Process/Backend/BlogTheme.php:256
 msgid "Deactivated themes"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:257
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:281
 msgid "Add themes"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:282
 msgid "Add themes from repository"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:310 src/Process/Backend/Plugins.php:285
 msgid "Install or upgrade manually"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:311
 msgid "Add themes from a package"
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:312
 msgid "You can install themes by uploading or downloading zip files."
 msgstr ""
 
+#: src/Process/Backend/BlogTheme.php:326
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr ""
 
+#: src/Process/Backend/Blogs.php:96 src/Process/Backend/Blogs.php:101
 msgid "List of blogs"
 msgstr ""
 
+#: src/Process/Backend/Blogs.php:115
 msgid "Create a new blog"
 msgstr ""
 
+#: src/Process/Backend/Blogs.php:138 src/Process/Backend/Comments.php:184
+#: src/Process/Backend/Users.php:138 src/Process/Backend/UsersActions.php:155
 msgid "Actions"
 msgstr ""
 
+#: src/Process/Backend/Blogs.php:141
 msgid "Selected blogs action:"
 msgstr ""
 
+#: src/Process/Backend/Blogs.php:159
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:47
 msgid "This category does not exist."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:57
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:78
 msgid "Category where to move entries does not exist"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:87
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr ""
 
+#: src/Process/Backend/Categories.php:104
+#: src/Process/Backend/Categories.php:155
 msgid "Categories have been successfully reordered."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:112
 msgid "Categories order has been successfully reset."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:152
 msgid "The category has been successfully removed."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:158
 msgid "Entries have been successfully moved to the category you choose."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:164 src/Process/Backend/Category.php:195
 msgid "New category"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:169
 msgid "No category so far."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:191
 #, php-format
 msgid "%d entries"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:191
 #, php-format
 msgid "%d entry"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:191
 msgid "total:"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:254
+#: src/Process/Backend/User.php:360 src/Process/Backend/UserPreferences.php:557
 msgid "URL:"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:199
 msgid "Move entries to"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:213
 msgid "Delete category"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:231
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr ""
 
+#: src/Process/Backend/Categories.php:236
 msgid "Save categories order"
 msgstr ""
 
+#: src/Process/Backend/Categories.php:243
 msgid "Reorder all categories on the top level"
 msgstr ""
 
+#: src/Process/Backend/Category.php:79
 msgid "Top level"
 msgstr ""
 
+#: src/Process/Backend/Category.php:120 src/Process/Backend/Category.php:132
 msgid "The category has been successfully moved"
 msgstr ""
 
+#: src/Process/Backend/Category.php:165
 msgid "The category has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/Category.php:180
 #, php-format
 msgid "The category \"%s\" has been successfully created."
 msgstr ""
 
+#: src/Process/Backend/Category.php:225
 msgid "Category has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/Category.php:230
 msgid "Category information"
 msgstr ""
 
+#: src/Process/Backend/Category.php:231 src/Process/Backend/Post.php:887
 msgid "Name:"
 msgstr ""
 
+#: src/Process/Backend/Category.php:258
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr ""
 
+#: src/Process/Backend/Category.php:261
 msgid "Description:"
 msgstr ""
 
+#: src/Process/Backend/Category.php:282
 msgid "Move this category"
 msgstr ""
 
+#: src/Process/Backend/Category.php:293
 msgid "Category parent"
 msgstr ""
 
+#: src/Process/Backend/Category.php:322
 msgid "Category sibling"
 msgstr ""
 
+#: src/Process/Backend/Category.php:324
 msgid "Move current category"
 msgstr ""
 
+#: src/Process/Backend/Category.php:329
 msgid "before"
 msgstr ""
 
+#: src/Process/Backend/Category.php:330
 msgid "after"
 msgstr ""
 
+#: src/Process/Backend/Category.php:332
 msgid "position: "
 msgstr ""
 
+#: src/Process/Backend/Comment.php:71
 msgid "Entry does not exist."
 msgstr ""
 
+#: src/Process/Backend/Comment.php:90 src/Process/Backend/Post.php:563
 msgid "Comment has been successfully created."
 msgstr ""
 
+#: src/Process/Backend/Comment.php:179 src/Process/Backend/Comment.php:239
 msgid "Comment has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/Comment.php:195
 msgid "Comment has been successfully deleted."
 msgstr ""
 
+#: src/Process/Backend/Comment.php:203
 msgid "You can't edit this comment."
 msgstr ""
 
+#: src/Process/Backend/Comment.php:224 src/Process/Backend/Comment.php:227
 msgid "Edit comment"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:245
 #, php-format
 msgid "Your comment on my blog %s"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:246
 #, php-format
-msgid ""
-"Hi!\n"
-"\n"
+msgid "Hi!\n\n"
 "You wrote a comment on:\n"
-"%s\n"
-"\n"
-"\n"
+"%s\n\n\n"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:246
 msgid "Send an e-mail"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:252
 msgid "Information collected"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:261
 msgid "Date:"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:265
 msgid "Comment submitted"
 msgstr ""
 
+#: src/Process/Backend/Comment.php:293 src/Process/Backend/Post.php:903
 msgid "Comment:"
 msgstr ""
 
+#: src/Process/Backend/Comments.php:135
 msgid "Spam comments have been successfully deleted."
 msgstr ""
 
+#: src/Process/Backend/Comments.php:146
 msgid "You have one spam comment."
 msgstr ""
 
+#: src/Process/Backend/Comments.php:147
 msgid "Show it."
 msgstr ""
 
+#: src/Process/Backend/Comments.php:149
 #, php-format
 msgid "You have %s spam comments."
 msgstr ""
 
+#: src/Process/Backend/Comments.php:150
 msgid "Show them."
 msgstr ""
 
+#: src/Process/Backend/Comments.php:157
 msgid "Delete all spams"
 msgstr ""
 
+#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:869
+#: src/Process/Backend/Search.php:260
 msgid "Selected comments action:"
 msgstr ""
 
+#: src/Process/Backend/Home.php:53 src/Process/Backend/Plugins.php:48
 msgid "The following plugins have been disabled :"
 msgstr ""
 
+#: src/Process/Backend/Home.php:131
 msgid "Documentation and support"
 msgstr ""
 
+#: src/Process/Backend/Home.php:176
 msgid "Dashboard area's drag and drop is disabled"
 msgstr ""
 
+#: src/Process/Backend/Home.php:177
 msgid "Dashboard area's drag and drop is enabled"
 msgstr ""
 
+#: src/Process/Backend/Home.php:190 src/Process/Backend/Home.php:203
 msgid "Dashboard"
 msgstr ""
 
+#: src/Process/Backend/Home.php:211
 msgid "Make this blog my default blog"
 msgstr ""
 
+#: src/Process/Backend/Home.php:215
 msgid "This blog is offline"
 msgstr ""
 
+#: src/Process/Backend/Home.php:217
 msgid "This blog is removed"
 msgstr ""
 
+#: src/Process/Backend/Home.php:222 src/Process/Backend/Home.php:230
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr ""
 
+#: src/Process/Backend/Home.php:223 src/Process/Backend/Home.php:231
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
+#: src/Process/Backend/Home.php:241
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr ""
 
+#: src/Process/Backend/Home.php:245
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
 
+#: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:118
+#: src/Process/Install/Install.php:428
 msgid "Following plugins have been installed:"
 msgstr ""
 
+#: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:132
+#: src/Process/Install/Install.php:435
 msgid "Following plugins have not been installed:"
 msgstr ""
 
+#: src/Process/Backend/Home.php:307
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
+#: src/Process/Backend/Home.php:425
 msgid "Quick post"
 msgstr ""
 
+#: src/Process/Backend/Home.php:435 src/Process/Backend/Post.php:731
 msgid "Content:"
 msgstr ""
 
+#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:738
 msgid "Content"
 msgstr ""
 
+#: src/Process/Backend/Home.php:444 src/Process/Backend/Post.php:660
 msgid "Add a new category"
 msgstr ""
 
+#: src/Process/Backend/Home.php:450
 msgid "This category will be created when you will save your post."
 msgstr ""
 
+#: src/Process/Backend/Home.php:457
 msgid "Save and publish"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:81
 msgid "Invalid language zip file."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:85
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:94
 msgid "An error occurred during language upgrade."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:109
 msgid "No such installed language"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:113
 msgid "You can't remove English language."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:117
 msgid "Permissions to delete language denied."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:120 src/Process/Backend/Langs.php:218
 msgid "Language has been successfully deleted."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:137
 msgid "Invalid language file URL."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:158 src/Process/Backend/Langs.php:191
+#: src/Process/Backend/Langs.php:222
 msgid "Language has been successfully upgraded"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:160 src/Process/Backend/Langs.php:193
+#: src/Process/Backend/Langs.php:222
 msgid "Language has been successfully installed."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:207 src/Process/Backend/Langs.php:212
 msgid "Languages management"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:226
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:228
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:234
 msgid "Installed languages"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:248
 msgid "No additional language is installed."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:253
 msgid "Language"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:284
 msgid "Install or upgrade languages"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:287
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:301
 msgid "Available languages"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:302
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:304 src/Process/Backend/User.php:380
 msgid "Language:"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:315
 msgid "Install language"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:326
 msgid "You can install languages by uploading zip files."
 msgstr ""
 
+#: src/Process/Backend/Langs.php:327
 msgid "Language zip file:"
 msgstr ""
 
+#: src/Process/Backend/Langs.php:338
 msgid "Upload language"
 msgstr ""
 
+#: src/Process/Backend/LinkPopup.php:52 src/Process/Backend/LinkPopup.php:54
 msgid "Add a link"
 msgstr ""
 
+#: src/Process/Backend/LinkPopup.php:58
 msgid "Link URL:"
 msgstr ""
 
+#: src/Process/Backend/LinkPopup.php:64
 msgid "Link title:"
 msgstr ""
 
+#: src/Process/Backend/LinkPopup.php:66
 msgid "Link language:"
 msgstr ""
 
+#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/MediaItem.php:724
 msgid "Insert"
 msgstr ""
 
+#: src/Process/Backend/Media.php:67
 msgid "Not a valid directory"
 msgstr ""
 
+#: src/Process/Backend/Media.php:88
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr ""
 
+#: src/Process/Backend/Media.php:95
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr ""
 
+#: src/Process/Backend/Media.php:149
 msgid "Files have been successfully uploaded."
 msgstr ""
 
+#: src/Process/Backend/Media.php:165
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Process/Backend/Media.php:185
 msgid "Directory has been successfully removed."
 msgstr ""
 
+#: src/Process/Backend/Media.php:189
 msgid "File has been successfully removed."
 msgstr ""
 
+#: src/Process/Backend/Media.php:210
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr ""
 
+#: src/Process/Backend/Media.php:222 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
 msgstr ""
 
+#: src/Process/Backend/Media.php:227
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
+#: src/Process/Backend/Media.php:231 src/Process/Backend/PostMedia.php:111
 msgid "Yes"
 msgstr ""
 
+#: src/Process/Backend/Media.php:269
 msgid "Remove this folder from your favorites"
 msgstr ""
 
+#: src/Process/Backend/Media.php:292
 msgid "Add this folder to your favorites"
 msgstr ""
 
+#: src/Process/Backend/Media.php:298
 msgid "Goto recent folder:"
 msgstr ""
 
+#: src/Process/Backend/Media.php:328
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr ""
 
+#: src/Process/Backend/Media.php:342
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr ""
 
+#: src/Process/Backend/Media.php:345 src/Process/Backend/Media.php:411
 msgid "Choose selected medias"
 msgstr ""
 
+#: src/Process/Backend/Media.php:345
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr ""
 
+#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
+#: src/Process/Backend/Media.php:375 src/Process/Backend/MediaItem.php:740
 msgid "or"
 msgstr ""
 
+#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
+#: src/Process/Backend/Media.php:375
 msgid "upload a new file"
 msgstr ""
 
+#: src/Process/Backend/Media.php:356
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr ""
 
+#: src/Process/Backend/Media.php:370
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr ""
 
+#: src/Process/Backend/Media.php:388 src/Process/Backend/Media.php:389
 msgid "Grid display mode"
 msgstr ""
 
+#: src/Process/Backend/Media.php:391 src/Process/Backend/Media.php:392
 msgid "List display mode"
 msgstr ""
 
+#: src/Process/Backend/Media.php:414
 msgid "Remove selected medias"
 msgstr ""
 
+#: src/Process/Backend/Media.php:441
 #, php-format
 msgid "In %s:"
 msgstr ""
 
+#: src/Process/Backend/Media.php:453
 msgid "Create new directory"
 msgstr ""
 
+#: src/Process/Backend/Media.php:455
 msgid "Directory Name:"
 msgstr ""
 
+#: src/Process/Backend/Media.php:468
 msgid "Build missing thumbnails in directory"
 msgstr ""
 
+#: src/Process/Backend/Media.php:470
 msgid "Build"
 msgstr ""
 
+#: src/Process/Backend/Media.php:480
 #, php-format
 msgid "Backup content of %s"
 msgstr ""
 
+#: src/Process/Backend/Media.php:484
 msgid "Download zip file"
 msgstr ""
 
+#: src/Process/Backend/Media.php:504
 msgid "Add files"
 msgstr ""
 
+#: src/Process/Backend/Media.php:505
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr ""
 
+#: src/Process/Backend/Media.php:517
 msgid "Maximum file size allowed:"
 msgstr ""
 
+#: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1032
 msgid "Private"
 msgstr ""
 
+#: src/Process/Backend/Media.php:525
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
+#: src/Process/Backend/Media.php:530
 msgid "Refresh"
 msgstr ""
 
+#: src/Process/Backend/Media.php:531
 msgid "Clear all"
 msgstr ""
 
+#: src/Process/Backend/Media.php:563
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:112
 msgid "Not a valid file"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:205
+#: src/Process/Backend/MediaItem.php:455
 msgid "File has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:222 src/Process/Backend/MediaItem.php:458
 msgid "Thumbnails have been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:239
 msgid "Zip file has been successfully extracted."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:269 src/Process/Backend/MediaItem.php:461
 msgid "Default media insertion settings have been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:295
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:306
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:481
 msgid "Select media item"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:497 src/Process/Backend/MediaItem.php:566
 msgid "Image size:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:524
 msgid "Select"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:548 src/Process/Backend/MediaItem.php:549
 msgid "Insert media item"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:585
 msgid "Image legend and title"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:607
 msgid "Title: "
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:614
 msgid "Image alignment"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:634
 msgid "Image insertion"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:637
 msgid "As a single image"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:639
 msgid "As a link to the original image"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:647
 msgid "MP3 disposition"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:648
 msgid "Please note that you cannot insert mp3 files with visual editor."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:676
 msgid "Please note that you cannot insert video files with visual editor."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:680
 msgid "Video size"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:681
 msgid "Width:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:683
 msgid "Height:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:690
 msgid "Video disposition"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:719
 msgid "Media item will be inserted as a link."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:739
 msgid "Make current settings as default"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:740
 msgid "For the blog"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:741
 msgid "For this folder only"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:750
 msgid "Settings exist for this folder:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:751
 msgid "Remove them"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/MediaItem.php:773
+#: src/Process/Backend/MediaItem.php:858
 msgid "Media details"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:805
 msgid "Available sizes:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:834
 msgid "Thumbnail details"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:838 src/Process/Backend/MediaItem.php:866
 msgid "Image width:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:839 src/Process/Backend/MediaItem.php:867
 msgid "Image height:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:842 src/Process/Backend/MediaItem.php:871
 msgid "File size:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:843 src/Process/Backend/MediaItem.php:872
 msgid "File URL:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:860
 msgid "File owner:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:861
 msgid "File type:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:878
 msgid "Show entries containing this media"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:881
 msgid "Entries containing this media"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:911
 msgid "No entry seems contain this media."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:918
 msgid "published"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:919
 msgid "unpublished"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:920
 msgid "scheduled"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:921
 msgid "pending"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:938
 msgid "Image details"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:953
 msgid "No detail"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:960
 msgid "Updates and modifications"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:966 src/Process/Backend/MediaItem.php:968
 msgid "Update thumbnails"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:967
 msgid "This will create or update thumbnails for this image."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:984
 msgid "Extract in a new directory"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:977 src/Process/Backend/MediaItem.php:986
 msgid "Extract in current directory"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:982
 msgid "Extract archive"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:985
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:987
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:989
 msgid "Extract mode:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:991
 msgid "Extract"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:999
 msgid "Change media properties"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1000
 msgid "File name:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1002
 msgid "File title:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1015
 msgid "File description:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1025
 msgid "File date:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1033
 msgid "New directory:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Change file"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1043
 msgid "Choose a file:"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1044
 #, php-format
 msgid "Maximum size %s"
 msgstr ""
 
+#: src/Process/Backend/MediaItem.php:1055
 msgid "Delete this media"
 msgstr ""
 
+#: src/Process/Backend/Plugin.php:80
 msgid "No content found on this plugin."
 msgstr ""
 
+#: src/Process/Backend/Plugin.php:130 src/Process/Backend/Plugin.php:135
 msgid "Plugin not found"
 msgstr ""
 
+#: src/Process/Backend/Plugin.php:139
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:147
 msgid "Manual checking of plugins update done successfully."
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:159
 msgid "Force checking update of plugins"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:168 src/Process/Backend/Plugins.php:169
 msgid "Update plugins"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:171
 #, php-format
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Process/Backend/Plugins.php:198 src/Process/Backend/Plugins.php:207
 msgid "Installed plugins"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:207
 msgid "Activated plugins"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:210
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:229
 msgid "Deactivated plugins"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:230
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:255
 msgid "Add plugins"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:256
 msgid "Add plugins from repository"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:286
 msgid "Add plugins from a package"
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:287
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:301
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
 
+#: src/Process/Backend/Plugins.php:332
 msgid "Plugin configuration"
 msgstr ""
 
+#: src/Process/Backend/Post.php:131 src/Process/Backend/Post.php:762
+#: src/Process/Backend/Post.php:767
 msgid "Edit post"
 msgstr ""
 
+#: src/Process/Backend/Post.php:138
 msgid "This entry does not exist."
 msgstr ""
 
+#: src/Process/Backend/Post.php:170
 msgid "Next entry"
 msgstr ""
 
+#: src/Process/Backend/Post.php:185
 msgid "Previous entry"
 msgstr ""
 
+#: src/Process/Backend/Post.php:266 src/Process/Backend/Post.php:566
 msgid "All pings sent."
 msgstr ""
 
+#: src/Process/Backend/Post.php:296
 msgid "Invalid publication date"
 msgstr ""
 
+#: src/Process/Backend/Post.php:420
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr ""
 
+#: src/Process/Backend/Post.php:482
 #, php-format
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
+#: src/Process/Backend/Post.php:553
 msgid "Entry has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/Post.php:557
 msgid "File has been successfully attached."
 msgstr ""
 
+#: src/Process/Backend/Post.php:559 src/Process/Backend/PostMedia.php:87
 msgid "Attachment has been successfully removed."
 msgstr ""
 
+#: src/Process/Backend/Post.php:575
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
+#: src/Process/Backend/Post.php:580
 msgid "Go to this entry on the site"
 msgstr ""
 
+#: src/Process/Backend/Post.php:619
 msgid "Entry status"
 msgstr ""
 
+#: src/Process/Backend/Post.php:626
 msgid "Publication date and hour"
 msgstr ""
 
+#: src/Process/Backend/Post.php:632
 msgid "Entry language"
 msgstr ""
 
+#: src/Process/Backend/Post.php:636
 msgid "Text formatting"
 msgstr ""
 
+#: src/Process/Backend/Post.php:642
 msgid "Convert to HTML"
 msgstr ""
 
+#: src/Process/Backend/Post.php:646
 msgid "Filing"
 msgstr ""
 
+#: src/Process/Backend/Post.php:650
 msgid "Selected entry"
 msgstr ""
 
+#: src/Process/Backend/Post.php:672 src/Process/Backend/User.php:378
 msgid "Options"
 msgstr ""
 
+#: src/Process/Backend/Post.php:675
 msgid "Comments and trackbacks list"
 msgstr ""
 
+#: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr ""
 
+#: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr ""
 
+#: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr ""
 
+#: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
 
+#: src/Process/Backend/Post.php:696
 msgid "Edit basename"
 msgstr ""
 
+#: src/Process/Backend/Post.php:700
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr ""
 
+#: src/Process/Backend/Post.php:717
 msgid "Excerpt:"
 msgstr ""
 
+#: src/Process/Backend/Post.php:718
 msgid "Introduction to the post."
 msgstr ""
 
+#: src/Process/Backend/Post.php:743
 msgid "Personal notes:"
 msgstr ""
 
+#: src/Process/Backend/Post.php:744
 msgid "Unpublished notes."
 msgstr ""
 
+#: src/Process/Backend/Post.php:848 src/Process/Backend/Post.php:883
 msgid "Add a comment"
 msgstr ""
 
+#: src/Process/Backend/Post.php:947
 msgid "Trackbacks received"
 msgstr ""
 
+#: src/Process/Backend/Post.php:953
 msgid "No trackback"
 msgstr ""
 
+#: src/Process/Backend/Post.php:961
 msgid "Selected trackbacks action:"
 msgstr ""
 
+#: src/Process/Backend/Post.php:978 src/Process/Backend/Post.php:989
 msgid "Ping blogs"
 msgstr ""
 
+#: src/Process/Backend/Post.php:980
 msgid "URLs to ping:"
 msgstr ""
 
+#: src/Process/Backend/Post.php:984
 msgid "Excerpt to send:"
 msgstr ""
 
+#: src/Process/Backend/Post.php:990
 msgid "Auto discover ping URLs"
 msgstr ""
 
+#: src/Process/Backend/Post.php:998
 msgid "Previously sent pings"
 msgstr ""
 
+#: src/Process/Backend/Post.php:1115
 msgid "select this comment"
 msgstr ""
 
+#: src/Process/Backend/Post.php:1115
 msgid "select this trackback"
 msgstr ""
 
+#: src/Process/Backend/Post.php:1135
 msgid "Edit this comment"
 msgstr ""
 
+#: src/Process/Backend/PostMedia.php:74
 msgid "This attachment does not exist"
 msgstr ""
 
+#: src/Process/Backend/PostMedia.php:94
 msgid "Remove attachment"
 msgstr ""
 
+#: src/Process/Backend/PostMedia.php:96
 msgid "Attachment"
 msgstr ""
 
+#: src/Process/Backend/PostMedia.php:105
 msgid "Are you sure you want to remove this attachment?"
 msgstr ""
 
+#: src/Process/Backend/Posts.php:95
 msgid "Selected entries have been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/Posts.php:97
 msgid "Selected entries have been successfully deleted."
 msgstr ""
 
+#: src/Process/Backend/Posts.php:117 src/Process/Backend/Search.php:197
 msgid "Selected entries action:"
 msgstr ""
 
+#: src/Process/Backend/PostsPopup.php:78 src/Process/Backend/PostsPopup.php:85
 msgid "Add a link to an entry"
 msgstr ""
 
+#: src/Process/Backend/PostsPopup.php:89
 msgid "Entry type:"
 msgstr ""
 
+#: src/Process/Backend/PostsPopup.php:90
 msgid "Ok"
 msgstr ""
 
+#: src/Process/Backend/PostsPopup.php:99
 msgid "Search entry:"
 msgstr ""
 
+#: src/Process/Backend/PostsPopup.php:123
 msgid "cancel"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:108
 msgid "Dotclear news not available"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:122
 msgid "Dotclear news"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:130
 msgid "%d %B %Y:"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:162
 msgid "Dotclear update not available"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:173
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:174
 msgid "Upgrade now"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:175
 msgid "Remind me later"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:177 src/Process/Backend/Update.php:280
+#: src/Process/Backend/Update.php:281
 msgid "Information about this version"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:178 src/Process/Backend/Update.php:289
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr ""
 
+#: src/Process/Backend/Rest.php:183
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:198 src/Process/Backend/Update.php:263
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:230
 msgid "No updates are available"
 msgstr ""
 
+#: src/Process/Backend/Rest.php:265
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Process/Backend/Rest.php:830
 msgid "List options saved"
 msgstr ""
 
+#: src/Process/Backend/Search.php:107
 msgid "Search options"
 msgstr ""
 
+#: src/Process/Backend/Search.php:108
 msgid "Query:"
 msgstr ""
 
+#: src/Process/Backend/Search.php:110
 msgid "In:"
 msgstr ""
 
+#: src/Process/Backend/Search.php:127
 msgid "No results found"
 msgstr ""
 
+#: src/Process/Backend/Search.php:139
 msgid "Search in entries"
 msgstr ""
 
+#: src/Process/Backend/Search.php:140
 msgid "Search in comments"
 msgstr ""
 
+#: src/Process/Backend/Search.php:184
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Process/Backend/Search.php:239
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Process/Backend/Update.php:40 src/Process/Backend/Update.php:45
+#: src/Process/Backend/Update.php:59 src/Process/Backend/Update.php:64
+#: src/Process/Backend/Update.php:237 src/Process/Backend/Update.php:245
+#: src/Process/Backend/Update.php:256
 msgid "Dotclear update"
 msgstr ""
 
+#: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:69
 msgid "Precheck update error"
 msgstr ""
 
+#: src/Process/Backend/Update.php:51
 msgid "Backup directory does not exist"
 msgstr ""
 
+#: src/Process/Backend/Update.php:70
 msgid "Access denied"
 msgstr ""
 
+#: src/Process/Backend/Update.php:127
 #, php-format
 msgid "Unable to delete file %s"
 msgstr ""
 
+#: src/Process/Backend/Update.php:159
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr ""
 
+#: src/Process/Backend/Update.php:163
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
+#: src/Process/Backend/Update.php:199
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
+#: src/Process/Backend/Update.php:202
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr ""
 
+#: src/Process/Backend/Update.php:206
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
+#: src/Process/Backend/Update.php:251
 msgid "Manual checking of update done successfully."
 msgstr ""
 
+#: src/Process/Backend/Update.php:271
 msgid "No newer Dotclear version available."
 msgstr ""
 
+#: src/Process/Backend/Update.php:275
 msgid "Force checking update Dotclear"
 msgstr ""
 
+#: src/Process/Backend/Update.php:279
 #, php-format
 msgid "Dotclear %s is available."
 msgstr ""
 
+#: src/Process/Backend/Update.php:292
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
+#: src/Process/Backend/Update.php:296
 msgid "Update Dotclear"
 msgstr ""
 
+#: src/Process/Backend/Update.php:306
 msgid "Manage backup files"
 msgstr ""
 
+#: src/Process/Backend/Update.php:309
 msgid "Update backup files"
 msgstr ""
 
+#: src/Process/Backend/Update.php:310
 msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
 msgstr ""
 
+#: src/Process/Backend/Update.php:321
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
 msgstr ""
 
+#: src/Process/Backend/Update.php:322
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
 msgstr ""
 
+#: src/Process/Backend/Update.php:323
 msgid "Delete selected file"
 msgstr ""
 
+#: src/Process/Backend/Update.php:324
 msgid "Revert to selected file"
 msgstr ""
 
+#: src/Process/Backend/Update.php:334
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr ""
 
+#: src/Process/Backend/Update.php:335
 msgid "Finish the update."
 msgstr ""
 
+#: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
 msgstr ""
 
+#: src/Process/Backend/User.php:172 src/Process/Backend/User.php:242
+#: src/Process/Backend/UsersActions.php:131
 msgid "User has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/User.php:178
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr ""
 
+#: src/Process/Backend/User.php:202 src/Process/Backend/User.php:246
 msgid "User has been successfully created."
 msgstr ""
 
+#: src/Process/Backend/User.php:203
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr ""
 
+#: src/Process/Backend/User.php:254
 msgid "User profile"
 msgstr ""
 
+#: src/Process/Backend/User.php:256
 msgid "User ID:"
 msgstr ""
 
+#: src/Process/Backend/User.php:259
 msgid "Login"
 msgstr ""
 
+#: src/Process/Backend/User.php:267
 msgid "Warning:"
 msgstr ""
 
+#: src/Process/Backend/User.php:268
 msgid "If you change your username, you will have to log in again."
 msgstr ""
 
+#: src/Process/Backend/User.php:305
 msgid "Password change required to connect"
 msgstr ""
 
+#: src/Process/Backend/User.php:323 src/Process/Backend/UserPreferences.php:522
+#: src/Process/Install/Install.php:383
 msgid "Last Name:"
 msgstr ""
 
+#: src/Process/Backend/User.php:330 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Install/Install.php:377
 msgid "First Name:"
 msgstr ""
 
+#: src/Process/Backend/User.php:337 src/Process/Backend/UserPreferences.php:536
 msgid "Display name:"
 msgstr ""
 
+#: src/Process/Backend/User.php:351
 msgid "Mandatory for password recovering procedure."
 msgstr ""
 
+#: src/Process/Backend/User.php:353 src/Process/Backend/UserPreferences.php:550
 msgid "Alternate emails (comma separated list):"
 msgstr ""
 
+#: src/Process/Backend/User.php:358 src/Process/Backend/UserPreferences.php:555
 msgid "Invalid emails will be automatically removed from list."
 msgstr ""
 
+#: src/Process/Backend/User.php:368 src/Process/Backend/UserPreferences.php:565
 msgid "Alternate URLs (comma separated list):"
 msgstr ""
 
+#: src/Process/Backend/User.php:373 src/Process/Backend/UserPreferences.php:570
 msgid "Invalid URLs will be automatically removed from list."
 msgstr ""
 
+#: src/Process/Backend/User.php:379 src/Process/Backend/UserPreferences.php:629
 msgid "Interface"
 msgstr ""
 
+#: src/Process/Backend/User.php:384
 msgid "Timezone:"
 msgstr ""
 
+#: src/Process/Backend/User.php:388 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
 msgstr ""
 
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
 msgstr ""
 
+#: src/Process/Backend/User.php:393 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
 msgstr ""
 
+#: src/Process/Backend/User.php:397 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
 msgstr ""
 
+#: src/Process/Backend/User.php:421
 msgid "Save and create another"
 msgstr ""
 
+#: src/Process/Backend/User.php:432 src/Process/Backend/UsersActions.php:147
 msgid "Permissions"
 msgstr ""
 
+#: src/Process/Backend/User.php:437
 msgid "Add new permissions"
 msgstr ""
 
+#: src/Process/Backend/User.php:450
 msgid "No permissions so far."
 msgstr ""
 
+#: src/Process/Backend/User.php:483
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+#: src/Process/Backend/User.php:491
 msgid "Direct links"
 msgstr ""
 
+#: src/Process/Backend/User.php:495
 msgid "List of posts"
 msgstr ""
 
+#: src/Process/Backend/User.php:505
 msgid "List of comments"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:118
 msgid "Light"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:119
 msgid "Dark"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:120
 msgid "Automatic"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:125
 msgid "Smallest"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:126
 msgid "Smaller"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:128
 msgid "Larger"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:129
 msgid "Largest"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:141
 msgid "Blog description (in blog parameters)"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:142
 msgid "Category description"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:183
+#: src/Process/Backend/UserPreferences.php:200
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:231
 msgid "Personal information has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:348
 msgid "Personal options has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:375
 msgid "Dashboard options has been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:387
+#: src/Process/Backend/UserPreferences.php:411
 msgid "No favorite selected"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:398
 msgid "Favorites have been successfully added."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:424
 msgid "Favorites have been successfully removed."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:454
 msgid "Favorites have been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:466
 msgid "Default favorites have been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:480
 msgid "Dashboard items order have been successfully reset."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:517
+#: src/Process/Backend/UserPreferences.php:519
 msgid "My profile"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:572
 msgid "Language for my interface:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:575
 msgid "My timezone:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:580
 msgid "Change my password"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:590
 msgid "Confirm new password:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:598
 msgid "Your current password:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:609
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:615
 msgid "Update my profile"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:623
+#: src/Process/Backend/UserPreferences.php:626
 msgid "My options"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:631
 msgid "Theme:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:636
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:640
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:644
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:645
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:649
 msgid "Hide all secondary information and notes"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:653
 msgid "Hide help button"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:657
 msgid "Show asynchronous requests indicator"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:659
 msgid "Font size:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:664
 msgid "Use operating system font"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:666
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:668
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:674
 msgid "Do not use standard favicon"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:675
 msgid "This will be applied for all users"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:682
 msgid "Disable Ad-blocker check"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:683
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:688
 msgid "Optional columns displayed in lists"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:707
 msgid "Options for lists"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:710
 msgid "Apply filters on the fly"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:836
 #, php-format
 msgid "position of %s"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:853
 msgid "Save order"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:856
 msgid "Delete selected favorites"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:858
 msgid "Are you sure you want to remove selected favorites?"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:863
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:864
 msgid "Define as default favorites"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:871
 msgid "Currently no personal favorites."
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:885
 msgid "Other available favorites"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:913
 msgid "(default favorite)"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:924
 msgid "Add to my favorites"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:933
 msgid "Menu"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:936
 msgid "Display favorites at the top of the menu"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:939
 msgid "Dashboard icons"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:942
 msgid "Display dashboard icons"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:946
 msgid "Dashboard modules"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:950
 msgid "Display documentation links"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:954
 msgid "Display Dotclear news"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:958
 msgid "Display quick entry form"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:964
 msgid "Do not display Dotclear updates"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:977
 msgid "Save my dashboard options"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Dashboard items order"
 msgstr ""
 
+#: src/Process/Backend/UserPreferences.php:987
 msgid "Reset dashboard items order"
 msgstr ""
 
+#: src/Process/Backend/Users.php:41 src/Process/Backend/UsersActions.php:260
 msgid "Set permissions"
 msgstr ""
 
+#: src/Process/Backend/Users.php:112
 msgid "User has been successfully removed."
 msgstr ""
 
+#: src/Process/Backend/Users.php:115
 msgid "The permissions have been successfully updated."
 msgstr ""
 
+#: src/Process/Backend/Users.php:141
 msgid "Selected users action:"
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:77
 msgid "No blog or user given."
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:88
 msgid "You cannot delete yourself."
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:100
 msgid "User has been successfully deleted."
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:189
 msgid "Back to user profile"
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:214
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:228
 msgid "Entries"
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:244
 msgid "select"
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:281
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr ""
 
+#: src/Process/Backend/UsersActions.php:329
 msgid "Validate permissions"
 msgstr ""
 
+#: src/Process/Install/Install.php:65
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr ""
 
+#: src/Process/Install/Install.php:72 src/Process/Install/Wizard.php:105
 msgid "Dotclear is already installed."
 msgstr ""
 
+#: src/Process/Install/Install.php:79 src/Process/Install/Wizard.php:99
 msgid "Dotclear cannot be installed."
 msgstr ""
 
+#: src/Process/Install/Install.php:108
 msgid "Invalid email address"
 msgstr ""
 
+#: src/Process/Install/Install.php:171
 msgid "My first blog"
 msgstr ""
 
+#: src/Process/Install/Install.php:184
 msgid "%A, %B %e %Y"
 msgstr ""
 
+#: src/Process/Install/Install.php:260
 msgid "Welcome to Dotclear!"
 msgstr ""
 
+#: src/Process/Install/Install.php:261
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
+#: src/Process/Install/Install.php:273
 msgid "Dotclear Team"
 msgstr ""
 
-msgid ""
-"<p>This is a comment.</p>\n"
+#: src/Process/Install/Install.php:276
+msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr ""
 
+#: src/Process/Install/Install.php:332
 msgid "Dotclear Install"
 msgstr ""
 
+#: src/Process/Install/Install.php:346
 msgid "show"
 msgstr ""
 
+#: src/Process/Install/Install.php:354
 msgid "Dotclear installation"
 msgstr ""
 
+#: src/Process/Install/Install.php:358
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr ""
 
+#: src/Process/Install/Install.php:366
 msgid "Configuration file has been successfully created."
 msgstr ""
 
+#: src/Process/Install/Install.php:371 src/Process/Install/Install.php:376
 msgid "User information"
 msgstr ""
 
+#: src/Process/Install/Install.php:373
 msgid "Please provide the following information needed to create the first user."
 msgstr ""
 
+#: src/Process/Install/Install.php:398
 msgid "Username and password"
 msgstr ""
 
+#: src/Process/Install/Install.php:443
 msgid "All done!"
 msgstr ""
 
+#: src/Process/Install/Install.php:447
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr ""
 
+#: src/Process/Install/Install.php:449
 msgid "Your account"
 msgstr ""
 
+#: src/Process/Install/Install.php:455
 msgid "Your blog"
 msgstr ""
 
+#: src/Process/Install/Install.php:457
 msgid "Blog address:"
 msgstr ""
 
+#: src/Process/Install/Install.php:458
 msgid "Administration interface:"
 msgstr ""
 
+#: src/Process/Install/Install.php:462
 msgid "Manage your blog now"
 msgstr ""
 
+#: src/Process/Install/Install.php:469
 msgid "Installation can not be completed"
 msgstr ""
 
+#: src/Process/Install/Install.php:471
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:51
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:52
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:84
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:109
 msgid "Master email is not valid."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:115
 #, php-format
 msgid "File %s does not exist."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:120 src/Process/Install/Wizard.php:141
 #, php-format
 msgid "Cannot write %s file."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:184 src/Process/Install/Wizard.php:192
 msgid "Dotclear installation wizard"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:198
 msgid "Welcome"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:199
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:202
 msgid "Attention:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:203
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:210
 msgid "System information"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:212
 msgid "Please provide the following information needed to create your configuration file."
 msgstr ""
 
+#: src/Process/Install/Wizard.php:215
 msgid "Database type:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:219
 msgid "MySQLi"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:220
 msgid "MySQLi (full UTF-8)"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:221
 msgid "PostgreSQL"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:222
 msgid "SQLite"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:223
 msgid "Driver"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:225
 msgid "Database Host Name:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:227
 msgid "Database Name:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:229
 msgid "Database User Name:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:231
 msgid "Database Password:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:233
 msgid "Database Tables Prefix:"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:236
 msgid "Prefix"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:239
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
 
+#: src/Process/Install/Wizard.php:247
 msgid "Continue"
 msgstr ""
+
+#: src/Schema/Extension/Log.php:44
+msgid "unknown"
+msgstr ""
+
+#: src/Schema/Extension/PostPublic.php:50
+msgid "Read"
+msgstr "Irakurri"
+
