@@ -5,7 +5,7 @@
 
 <body>
 
-<h3>Wiki syntax reference</h3>
+<h4>Wiki syntax reference</h4>
 
 <p>The wiki syntax is a way to enhance your text with a minimal set
 of tags, studied to cover the basic needs (titles, paragraphs, quotes,
@@ -25,16 +25,23 @@ lists...)</p>
   <li><strong>Lists</strong>: Start each line with
   <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively.
   List imbrication is done by mixing list markers this way:
-<pre>
-* item 1
+  <pre>
+    <code>*</code> * item 1
 ** item 1.1
 * item 2
 *# item 2.1
 ...
-</pre>
+  </pre>
   </li>
-  <li><strong>Preformatted text</strong>: each line must start with a space.</li>
+  <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+  <pre>
+  <code>=</code> term
+  <code>:</code> description of the term
+  </pre>
+  </li>
   <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
+  <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
+  <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
 </ul>
 </dd>
 
@@ -43,8 +50,8 @@ lists...)</p>
 <ul>
   <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
   <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
-  <li><strong>New line</strong>: <code>%%%</code></li>
-  <li><strong>Insertion</strong>: two plusses <code>++text++</code></li>
+  <li><strong>New line</strong>:</li>
+  <li><strong>Insertion</strong>: two plusses <code>++text++</code> <code>%%%</code></li>
   <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
   <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
@@ -60,6 +67,9 @@ lists...)</p>
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
   <li><strong>Code</strong>: <code>@@code@@</code></li>
   <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
+  <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
+  <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+  <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
 </ul>
 </dd>
 
@@ -79,7 +89,6 @@ powerful formatting, i.e. HTML syntax. Do it the following way:
 </pre>
 </dd>
 </dl>
-
 
 </body>
 </html>

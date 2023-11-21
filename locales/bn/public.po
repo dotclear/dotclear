@@ -1,20 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2016-07-18 15:42+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
-"Language: bn\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-21 06:42\n"
+"Last-Translator: \n"
+"Language-Team: Bengali\n"
+"Language: bn_BD\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: bn\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
 msgstr "%dটি এটাচমেন্ট"
@@ -28,19 +29,19 @@ msgstr "%dটি ট্র্যাকব্যাক"
 msgid "%s reactions"
 msgstr ""
 
-# Not found strings
-#, fuzzy
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr "কন্টেন্টে যাও"
+msgstr "বিষয়বস্তুর প্রবেশাধিকার"
 
 msgid "Add a comment"
 msgstr "মন্তব্য করুন"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "পিং যোগ করো"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Additionnal style directives"
 
 msgid "All keywords"
 msgstr "সব কিওয়ার্ড"
@@ -54,24 +55,29 @@ msgstr "এটাচমেন্ট"
 msgid "Best of me"
 msgstr "আমার সবচেয়ে ভালগুলো"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "ব্লগ তথ্য"
 
-#, fuzzy
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr "মেনুতে যাও"
+msgstr "ব্লগ মেনু"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "লিখেছেন"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "শ্রেণীবিভাগ"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "তারিখের মধ্যে"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "ট্যাগ দ্বারা"
 
 msgid "Categories"
 msgstr "ক্যাটাগরিসমূহ"
@@ -83,17 +89,20 @@ msgid "Comments"
 msgstr "মন্তব্যসমূহ"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "সাধারণ উইকি সিনট্যাক্স ব্যবহার করে মন্তব্য করা যেতে পারে."
 
 msgid "Comments feed"
 msgstr "মন্তব্যের ফিড"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "বিস্তারিত"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "ডকুমেন্ট পাওয়া যায় নি"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "ইমেইল এড্রেস"
 
@@ -103,21 +112,25 @@ msgstr "ইমেইল এড্রেসটি বৈধ নয়"
 msgid "Entries feed"
 msgstr "এন্ট্রির ফিড"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "আর্কাইভ এক্সপ্লোর করুন"
 
-#, fuzzy
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr "মেনুতে যাও"
+msgstr "অতিরিক্ত মেনু"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
-msgstr ""
+msgstr "সেখান থেকে"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
-msgstr ""
+msgstr "FromDay"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
-msgstr ""
+msgstr "হোমপেজে যাও"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML কোড লেখা হিসেবে দেখানো হবে এবং লিংকগুলোকে অটোমেটিক কনভার্ট করা হবে।"
@@ -126,7 +139,7 @@ msgid "Home"
 msgstr "হোম"
 
 msgid "In"
-msgstr ""
+msgstr "এক্ষেত্রে"
 
 msgid "Languages"
 msgstr "ভাষাসমূহ"
@@ -134,41 +147,45 @@ msgstr "ভাষাসমূহ"
 msgid "Links"
 msgstr "লিংকসমূহ"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "নাম অথবা ছদ্মনাম"
 
-#, fuzzy
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
-msgstr "পরে এন্ট্রিগুলো"
+msgstr "পরবর্তী এন্ট্রি"
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "পোস্টের তারিখ:"
 
 msgid "Page top"
-msgstr ""
+msgstr "পৃষ্ঠা শীর্ষক"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
-msgstr ""
+msgstr "Pagination"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "পাসওয়ার্ড লাগবে"
 
 msgid "Password:"
 msgstr "পাসওয়ার্ড:"
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "পারমালিংক"
 
 msgid "Powered by %s"
 msgstr "%s-এর সাহায্যে চলছে"
 
-#, fuzzy
 msgid "Preview"
-msgstr "প্রিভিউ"
+msgstr "প্রাকদর্শন"
 
-#, fuzzy
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
-msgstr "আগের এন্ট্রিগুলো"
+msgstr "পূর্ববর্তী বার্তা:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS ফিড হলো একটি ফ্রি ব্লগ সামারি। এতে কন্টেন্ট থাকে (পোস্ট অথবা মন্তব্য) বা কন্টেন্টের সামারি আর সঙ্গে থাকে সম্পূর্ণ কন্টেন্টের লিংক এবং অন্যান্য মেটাডাটা। সর্বশেষ প্রকাশিত আইটেমগুলো আপনার প্রিয় RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a> দিয়ে পড়তে পারবেন।"
@@ -176,21 +193,23 @@ msgstr "RSS ফিড হলো একটি ফ্রি ব্লগ সাম
 msgid "Read"
 msgstr "পড়ুন"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "এই ব্লগে আমাকে মনে রেখ"
 
 msgid "Required field"
-msgstr ""
+msgstr "আবশ্যক ক্ষেত্র"
 
 msgid "Search"
 msgstr "সার্চ"
 
 msgid "Send"
-msgstr ""
+msgstr "প্রেরণ"
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "নিচের URLটি আপনার aggregator-এ কপি করুন:"
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "সাবক্যাটাগরিসমূহ"
 
@@ -200,58 +219,73 @@ msgstr "সাবস্ক্রাইব করুন"
 msgid "Subscribe to"
 msgstr "সাবস্ক্রাইব করুন"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "পরামর্শ:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "আপনি যে ডকুমেন্ট খুঁজছেন তার অস্তিত্ব নেই।"
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "রিসেন্টস পোস্টের তালিকা পাওয়া যাচ্ছে"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
-msgstr ""
+msgstr "তারা একই বিষয়ে পোস্ট করেছে."
 
 msgid "This blog's comments Atom feed"
 msgstr "এই ব্লগের মন্তব্যের এ্যাটম ফিড"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "এই ক্যাটাগরির মন্তব্যের এ্যাটম ফিড"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "এই ক্যাটাগরির এন্ট্রির এ্যাটম ফিড"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "এই পোস্টের মন্তব্যের এটম ফিড"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "এই পোস্টের মন্তব্য ফিড"
 
-# Not found strings
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "কন্টেন্টে যাও"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "মেনুতে যাও"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "সার্চে যাও"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "ট্র্যাকব্যাক  URL"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "যে ইউ-আর-এল, আপনি চেষ্টা করেছেন টাইপস, অথবা পাতাটি মুছে ফেলা হয়েছে অথবা সরানো হয়েছে."
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "অনুসন্ধান ফর্ম ব্যবহার করো"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "ওয়েবসাইট"
 
 msgid "What is an RSS feed?"
 msgstr "RSS ফিড কি?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "এই জায়গাটিতে প্রবেশ করতে হলে আপনাকে পাসওয়ার্ড দিতে হবে।"
 
@@ -264,12 +298,15 @@ msgstr "আপনাকে অবশ্যই একটি বৈধ ইমে�
 msgid "You must provide an author name"
 msgstr "আপনাকে অবশ্যই লেখকের নাম লীখতে হবে"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "আপনার মন্তব্য"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "আপনার মন্তব্য প্রকাশিত হয়েছে"
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "আপনার মন্তব্য জমা পড়েছে এবং রিভিউয়ের পর প্রকাশিত হবে।"
 
@@ -282,34 +319,38 @@ msgstr "<em>%1$s</em> সার্চ করে <strong>%2$s</strong>টি ফ�
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "<em>%1$s</em> সার্চ করে কোনো ফলাফল পাওয়া যায় নি।"
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "লিখেছেন"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "এখানে"
 
 msgid "in"
-msgstr ""
+msgstr "In"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "পরে এন্ট্রিগুলো"
 
 msgid "no attachments"
 msgstr "শূণ্য এটাচমেন্ট"
 
-#, fuzzy
 msgid "no comments"
-msgstr "শূণ্য মন্তব্য"
+msgstr "কোন মন্তব্য নেই"
 
 msgid "no reactions"
-msgstr ""
+msgstr "কোন প্রতিক্রিয়া নেই"
 
 msgid "no trackbacks"
 msgstr "শূণ্য ট্র্যাকব্যাক"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
-msgstr ""
+msgstr "Of of"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "তারিখ:"
 
@@ -319,38 +360,36 @@ msgstr "একটি এটাচমেন্ট"
 msgid "one comment"
 msgstr "একটি মন্তব্য"
 
-#, fuzzy
 msgid "one reaction"
-msgstr "বিস্তারিত"
+msgstr "একটি প্রতিক্রিয়া"
 
 msgid "one trackback"
 msgstr "একটি ট্র্যাকব্যাক"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "যদি থাকে"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "পেজ"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "প্রিভিউ"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "আগের এন্ট্রিগুলো"
 
 msgid "reactions"
-msgstr ""
+msgstr "প্রতিক্রিয়া"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "পাঠাও"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "টোডে"
 
-#, fuzzy
-#~ msgid "Hide password"
-#~ msgstr "পাসওয়ার্ড:"
-
-#, fuzzy
-#~ msgid "Show password"
-#~ msgstr "পাসওয়ার্ড:"
