@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:23+0100\n"
-"PO-Revision-Date: 2023-11-21 10:09\n"
+"PO-Revision-Date: 2023-11-21 14:32\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -297,7 +297,7 @@ msgstr "\"%s\" tabla eliminada"
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
-msgstr "Error al borrar la tabla \"%s\"."
+msgstr "Error al borrar la tabla \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:53
 msgid "empty selected tables"
@@ -316,7 +316,7 @@ msgstr "\"%s\" tabla vaciada"
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
-msgstr "Error al vaciar la tabla \"%s\"."
+msgstr "Error al vaciar la tabla \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:35
 msgid "Themes"
@@ -343,7 +343,7 @@ msgstr "\"%s\" archivos y directorios temáticos eliminados"
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "No se han podido eliminar los archivos y directorios del tema \"%s\"."
+msgstr "No se han podido eliminar los archivos y directorios del tema \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:36
 msgid "Var"
@@ -397,7 +397,7 @@ msgstr "\"%s\" número de versión eliminado"
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
-msgstr "Error al borrar el número de versión \"%s\"."
+msgstr "Error al borrar el número de versión \"%s\""
 
 #: plugins/Uninstaller/src/CleanersStack.php:120
 #, php-format
@@ -1246,7 +1246,7 @@ msgstr "La etiqueta {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} debe estar
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:35
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr "No encapsular el breadcrumb en una etiqueta &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; ."
+msgstr "No encapsular el breadcrumb en una etiqueta &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt;."
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:74
 #: plugins/breadcrumb/src/FrontendTemplate.php:79
