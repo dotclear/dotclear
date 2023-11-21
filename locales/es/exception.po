@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-20 22:25\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: es\n"
+"X-Crowdin-File: /master/locales/_pot/exception.pot\n"
+"X-Crowdin-File-ID: 580\n"
+"Language: es_ES\n"
+
+# in Dotclear\Exception\ExceptionEnum (and Dotclear\App)
+msgid "Site temporarily unavailable"
+msgstr "Sitio temporalmente no disponible"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Bad Request"
+msgstr "Mala petición"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Blog handling error"
+msgstr "Error en la gestión del blog"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Application configuration error"
+msgstr "Error de configuración de la aplicación"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Conflict"
+msgstr "Conflicto"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Application context error"
+msgstr "Error de contexto de aplicación"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Database connection error"
+msgstr "Error de conexión a la base de datos"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Not Found"
+msgstr "No se ha encontrado"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Precondition Failed"
+msgstr "Condición previa fallida"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Application process error"
+msgstr "Error en el proceso de solicitud"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Session handling error"
+msgstr "Error de gestión de la sesión"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Template handling error"
+msgstr "Error de gestión de plantillas"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Unauthorized"
+msgstr "Sin autorización"
+
+# in Dotclear\Exception\ExceptionEnum
+msgid "Internal Server Error"
+msgstr "Error interno del servidor"
+
+# in Dotclear\App
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Esto significa que la información sobre el nombre de usuario y la contraseña en su archivo <strong>config.php</strong> es incorrecta o que no podemos contactar con el servidor de la base de datos en \"<em>%s</em>\". Esto podría significar que el servidor de base de datos de su host no funciona.</p> <ul><li>¿Está seguro de que tiene el nombre de usuario y la contraseña correctos?</li><li>¿Está seguro de que ha escrito el nombre de host correcto?</li><li>¿Estás seguro de que el servidor de base de datos está funcionando?</li></ul><p>Si no estás seguro de lo que significan estos términos, probablemente deberías ponerte en contacto con tu proveedor de alojamiento. Si sigues necesitando ayuda, siempre puedes visitar los foros de soporte de <a href=\"https://forum.dotclear.net/\">Dotclear</a>.</p>"
+
+# in Dotclear\Config
+msgid "Dotclear release file is not readable"
+msgstr "El archivo de liberación de Dotclear no es legible"
+
+# in Dotclear\Config
+msgid "Dotclear is not installed or failed to load config file."
+msgstr "Dotclear no está instalado o no se ha podido cargar el archivo de configuración."
+
+# in Dotclear\Config
+#, php-format
+msgid "%s cryptographic algorithm configured is not strong enough, please change it."
+msgstr "%s algoritmo criptográfico configurado no es lo suficientemente fuerte, por favor, cámbielo."
+
+# in Dotclear\Config
+#, php-format
+msgid "%s directory does not exist. Please create it."
+msgstr "%s no existe. Por favor, créelo."
+
+# in Dotclear\Config
+#, php-format
+msgid "Dotclear release key %s was not found"
+msgstr "No se ha encontrado la clave de desbloqueo de Dotclear %s"
+
+# in Dotclear\Core\Task (and Dotclear\Core\Core and maybe others)
+msgid "Application can not be started twice."
+msgstr "La aplicación no puede iniciarse dos veces."
+
+# in Dotclear\Core\Task
+msgid "Unable to load deprecated core"
+msgstr "No se puede cargar el núcleo obsoleto"
+
+# in Dotclear\Core\Task
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Le pedimos disculpas por esta indisponibilidad temporal.<br />Gracias por su comprensión.</p>"
+
+# in Dotclear\Core\Task
+#, php-format
+msgid "Unable to find class %s"
+msgstr "No se puede encontrar la clase %s"
+
+# in Dotclear\Core\Task
+#, php-format
+msgid "Unable to initialize class %s"
+msgstr "No se ha podido inicializar la clase %s"
+

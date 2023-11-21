@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-11-20 22:23\n"
+"Last-Translator: \n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: he\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:119
+msgid "Light linear gradient"
+msgstr "הדרגה לינארית של האור"
+
+#: themes/blowup/src/Config.php:120
+msgid "Medium linear gradient"
+msgstr "הדרגה לינארית בינונית"
+
+#: themes/blowup/src/Config.php:121
+msgid "Dark linear gradient"
+msgstr "הדרגה לינארית כהה"
+
+#: themes/blowup/src/Config.php:122
+msgid "Solid color"
+msgstr "צבע מוצק"
+
+#: themes/blowup/src/Config.php:125
+msgid "Custom..."
+msgstr "מותאם אישית ..."
+
+#: themes/blowup/src/Config.php:227
+msgid "Theme configuration has been successfully updated."
+msgstr "תצורת הערכה עודכנה בהצלחה."
+
+#: themes/blowup/src/Config.php:249
+msgid "Back to Blog appearance"
+msgstr "חזרה אל מראה הבלוג"
+
+#: themes/blowup/src/Config.php:253
+msgid "Customization"
+msgstr "התאמה"
+
+#: themes/blowup/src/Config.php:254
+msgid "General"
+msgstr "כללי"
+
+#: themes/blowup/src/Config.php:258
+msgid "Background color:"
+msgstr "צבע רקע:"
+
+#: themes/blowup/src/Config.php:261
+msgid "Background color fill:"
+msgstr "מילוי צבע רקע:"
+
+#: themes/blowup/src/Config.php:266
+msgid "Main text font:"
+msgstr "גופן תמליל ראשי:"
+
+#: themes/blowup/src/Config.php:269
+msgid "Main text font size:"
+msgstr "גודל גופן תמליל ראשי:"
+
+#: themes/blowup/src/Config.php:272
+msgid "Main text color:"
+msgstr "צבע תמליל ראשי:"
+
+#: themes/blowup/src/Config.php:275
+msgid "Text line height:"
+msgstr "גובה שורת תמליל:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Links color:"
+msgstr "צבע קישורים:"
+
+#: themes/blowup/src/Config.php:282
+msgid "Visited links color:"
+msgstr "צבע קישורים שביקרים:"
+
+#: themes/blowup/src/Config.php:285
+msgid "Focus links color:"
+msgstr "צבע קישור המוקד:"
+
+#: themes/blowup/src/Config.php:292
+msgid "Prelude color:"
+msgstr "צבע מוקדם:"
+
+#: themes/blowup/src/Config.php:297
+msgid "Hide main title"
+msgstr "הסתרת הכותרת הראשית."
+
+#: themes/blowup/src/Config.php:300
+msgid "Main title font:"
+msgstr "גופן כותרת ראשית:"
+
+#: themes/blowup/src/Config.php:303
+msgid "Main title font size:"
+msgstr "גודל גופן ראשי:"
+
+#: themes/blowup/src/Config.php:306
+msgid "Main title color:"
+msgstr "צבע כותרת ראשית:"
+
+#: themes/blowup/src/Config.php:309
+msgid "Main title alignment:"
+msgstr "יישור כותרת ראשי:"
+
+#: themes/blowup/src/Config.php:310
+msgid "center"
+msgstr "מוקד"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "left"
+msgstr "שמאל"
+
+#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+msgid "right"
+msgstr "נכון"
+
+#: themes/blowup/src/Config.php:312
+msgid "Main title position (x:y)"
+msgstr "מיקום כותרת ראשית (x:y)"
+
+#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+msgid "Top image"
+msgstr "תמונה עליונה"
+
+#: themes/blowup/src/Config.php:326
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "בחרו \"מותאם\" כדי לטעון את התמונה שלכם."
+
+#: themes/blowup/src/Config.php:328
+msgid "Add your image:"
+msgstr "הוספת התמונה:"
+
+#: themes/blowup/src/Config.php:329
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "קובץ JPEG או PNG, ברוחב 800 פיקסלים, גודל מרבי %s"
+
+#: themes/blowup/src/Config.php:340
+msgid "Sidebar"
+msgstr "סרגל צד"
+
+#: themes/blowup/src/Config.php:341
+msgid "Sidebar position:"
+msgstr "מיקום סרגל הצד:"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar text font:"
+msgstr "גופן תמליל בסרגל הצד:"
+
+#: themes/blowup/src/Config.php:347
+msgid "Sidebar text font size:"
+msgstr "גודל גופן תמליל של סרגל צד:"
+
+#: themes/blowup/src/Config.php:350
+msgid "Sidebar text color:"
+msgstr "צבע תמליל בסרגל הצד:"
+
+#: themes/blowup/src/Config.php:353
+msgid "Sidebar titles font:"
+msgstr "גופן כותרות של סרגל צד:"
+
+#: themes/blowup/src/Config.php:356
+msgid "Sidebar titles font size:"
+msgstr "גודל גופן של כותרות סרגל הצד:"
+
+#: themes/blowup/src/Config.php:359
+msgid "Sidebar titles color:"
+msgstr "צבע כותרות בסרגל הצד:"
+
+#: themes/blowup/src/Config.php:362
+msgid "Sidebar 2nd level titles font:"
+msgstr "גופן של כותרות ברמה 2 של סרגל הצד:"
+
+#: themes/blowup/src/Config.php:365
+msgid "Sidebar 2nd level titles font size:"
+msgstr "גודל גופן ברמה 2 של סרגל הצד:"
+
+#: themes/blowup/src/Config.php:368
+msgid "Sidebar 2nd level titles color:"
+msgstr "צבע כותרות ברמה 2 של סרגל הצד:"
+
+#: themes/blowup/src/Config.php:371
+msgid "Sidebar lines color:"
+msgstr "צבע שורות בסרגל הצד:"
+
+#: themes/blowup/src/Config.php:374
+msgid "Sidebar links color:"
+msgstr "צבע קישור של סרגל צד:"
+
+#: themes/blowup/src/Config.php:377
+msgid "Sidebar visited links color:"
+msgstr "סרגל הצד ביקר בקישורים:"
+
+#: themes/blowup/src/Config.php:380
+msgid "Sidebar focus links color:"
+msgstr "צבע קישור של מיקוד סרגל צד:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Date title font:"
+msgstr "גופן כותרת תאריך:"
+
+#: themes/blowup/src/Config.php:387
+msgid "Date title font size:"
+msgstr "גודל גופן של כותרת תאריך:"
+
+#: themes/blowup/src/Config.php:390
+msgid "Date title color:"
+msgstr "צבע כותרת תאריך:"
+
+#: themes/blowup/src/Config.php:393
+msgid "Entry title font:"
+msgstr "גופן כותרת רשומה:"
+
+#: themes/blowup/src/Config.php:396
+msgid "Entry title font size:"
+msgstr "גודל גופן של כותרת רשומה:"
+
+#: themes/blowup/src/Config.php:399
+msgid "Entry title color:"
+msgstr "צבע כותרת רשומה:"
+
+#: themes/blowup/src/Config.php:404
+msgid "Comment background color:"
+msgstr "צבע רקע של הערה:"
+
+#: themes/blowup/src/Config.php:409
+msgid "Comment text color:"
+msgstr "צבע תמליל הערה:"
+
+#: themes/blowup/src/Config.php:414
+msgid "My comment background color:"
+msgstr "צבע הרקע של ההערה שלי:"
+
+#: themes/blowup/src/Config.php:419
+msgid "My comment text color:"
+msgstr "צבע תמליל ההערה שלי:"
+
+#: themes/blowup/src/Config.php:422
+msgid "Footer"
+msgstr "כותרת תחתונה"
+
+#: themes/blowup/src/Config.php:423
+msgid "Footer font:"
+msgstr "גופן כותרת תחתונה:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer font size:"
+msgstr "גודל גופן של כותרת תחתונה:"
+
+#: themes/blowup/src/Config.php:429
+msgid "Footer color:"
+msgstr "צבע כותרת תחתונה:"
+
+#: themes/blowup/src/Config.php:432
+msgid "Footer links color:"
+msgstr "צבע קישור כותרת תחתונה:"
+
+#: themes/blowup/src/Config.php:435
+msgid "Footer background color:"
+msgstr "צבע רקע של כותרת תחתונה:"
+
+#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+msgid "Additional CSS"
+msgstr "CSS נוסף"
+
+#: themes/blowup/src/Config.php:439
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "כל סגנונות CSS נוספים (חייבים להיכתב באמצעות תחביר CSS):"
+
+#: themes/blowup/src/Config.php:461
+msgid "Configuration import / export"
+msgstr "יבוא/יצוא תצורה"
+
+#: themes/blowup/src/Config.php:463
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "תוכלו לשתף את התצורה באמצעות הקוד שלהלן. כדי להחיל תצורה, הדביקו את הקוד, לחצו על \"קוד החלה\" ושמרו."
+
+#: themes/blowup/src/Config.php:467
+msgid "Copy this code:"
+msgstr "העתקת קוד זה:"
+

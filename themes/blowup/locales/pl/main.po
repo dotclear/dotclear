@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 15:15+0200\n"
+"PO-Revision-Date: 2023-11-20 22:24\n"
+"Last-Translator: \n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: pl\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/main.pot\n"
+"X-Crowdin-File-ID: 561\n"
+
+#: themes/blowup/src/Backend.php:37
+msgid "Predefined styles"
+msgstr "Predefiniowane style"
+
+#: themes/blowup/src/Backend.php:38
+msgid "Apply code"
+msgstr "Zastosuj kod"
+
+#: themes/blowup/src/Backend.php:39
+msgid "Choose a predefined style"
+msgstr "Wybierz predefiniowany styl"
+
+#: themes/blowup/src/Blowup.php:70
+msgid "default"
+msgstr "domyślny"
+
+#: themes/blowup/src/Blowup.php:303
+msgid "Unable to create css file."
+msgstr "Nie można utworzyć pliku css."
+
+#: themes/blowup/src/Blowup.php:334
+msgid "Unable to create images."
+msgstr "Nie można utworzyć obrazów."
+
+#: themes/blowup/src/Blowup.php:418
+msgid "Unable to open image."
+msgstr "Nie można otworzyć obrazu."
+

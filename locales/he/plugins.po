@@ -1,2099 +1,3355 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-20 22:22\n"
+"Last-Translator: \n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: he\n"
+"X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
+"X-Crowdin-File-ID: 264\n"
 
+#: plugins/Uninstaller/src/Backend.php:45
+msgid "Uninstall"
+msgstr "הסרת התקנה"
+
+#: plugins/Uninstaller/src/Backend.php:105
+msgid "Plugin has been successfully uninstalled."
+msgstr "התוסף הוסרה בהצלחה."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Cache"
+msgstr "מטמון"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:39
+msgid "Folders from cache directory"
+msgstr "תיקיות ממדריך המטמון"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+msgid "delete selected cache directories"
+msgstr "מחיקת מדריכי מטמון שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr "מחיקה \"%s\" מדריך מטמון"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr "\"%s\" מדריך המטמון נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:47
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "המחיקה נכשלה \"%s\" מדריך מטמון"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+msgid "empty selected cache directories"
+msgstr "מדריכי מטמון שנבחרו ריקים"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr "ריק \"%s\" מדריך מטמון"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr "\"%s\" מדריך מטמון רוקן"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:56
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "כשל ריק \"%s\" מדריך מטמון"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:40
+msgid "Logs"
+msgstr "יומנים"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:41
+msgid "Logs in Dotclear logs table"
+msgstr "Logs בטבלה יומני Dotנקו"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+msgid "delete selected logs tables"
+msgstr "מחיקת טבלאות היומנים שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr "מחיקה \"%s\" טבלת לוגים"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:48
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr "\"%s\" טבלת היומנים נמחקה"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:49
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr "המחיקה נכשלה \"%s\" טבלת לוגים"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
+msgid "Folders from plugins directories"
+msgstr "תיקיות ממדריכי תוספים"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+msgid "delete selected plugins files and directories"
+msgstr "מחיקת קובצי התוספים והמדריכים שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr "מחיקה \"%s\" קבצים ומדריכים של תוספים"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "\"%s\" קבצים ומדריכים שנמחקו נמחקו."
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "המחיקה נכשלה \"%s\" קבצים ומדריכים של תוספים"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
+msgid "Preferences"
+msgstr "העדפות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:40
+msgid "Users preferences workspaces"
+msgstr "מרחבי עבודה של העדפות משתמשים"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+msgid "delete selected global preferences workspaces"
+msgstr "מחיקת מרחבי העבודה של ההעדפות הגלובליות שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr "מחיקה \"%s\" סביבת עבודה גלובלית של העדפות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "\"%s\" מרחב העבודה של ההעדפות הגלובליות נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "המחיקה נכשלה \"%s\" סביבת עבודה גלובלית של העדפות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+msgid "delete selected users preferences workspaces"
+msgstr "מחיקת העדפות של העדפות משתמשים שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr "מחיקה \"%s\" סביבת עבודה של העדפות משתמשים"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "\"%s\" מרחב העבודה של העדפות המשתמשים נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:57
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "המחיקה נכשלה \"%s\" סביבת עבודה של העדפות משתמשים"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+msgid "delete selected preferences workspaces"
+msgstr "מחיקת מרחבי העבודה שנבחרו של ההעדפות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr "מחיקה \"%s\" סביבת עבודה של העדפות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr "\"%s\" מרחב העבודה של ההעדפות נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:66
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "המחיקה נכשלה \"%s\" סביבת עבודה של העדפות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "delete related preferences"
+msgstr "מחיקת העדפות קשורות"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
+msgid "related preferences deleted"
+msgstr "העדפות קשורות נמחקו"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:74
+msgid "Failed to delete related preferences"
+msgstr "מחיקת ההעדפות הקשורות נכשלה"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
+#: plugins/dcCKEditor/tpl/index.php:9 plugins/dcLegacyEditor/tpl/index.php:4
+msgid "Settings"
+msgstr "הגדרות"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:40
+msgid "Namespaces registered in dcSettings"
+msgstr "מרחבי שמות הרשומים ב-dcSettings"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+msgid "delete selected global settings namespaces"
+msgstr "מחיקת מרחבי שמות של הגדרות גלובליות שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr "מחיקה \"%s\" מרחב שמות של הגדרות גלובליות"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr "\"%s\" מרחב שמות של הגדרות גלובליות נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "המחיקה נכשלה \"%s\" מרחב שמות של הגדרות גלובליות"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+msgid "delete selected blog settings namespaces"
+msgstr "מחיקת מרחבי שמות של הגדרות הבלוג שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr "מחיקה \"%s\" מרחב השמות של הגדרות הבלוג"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "\"%s\" מרחב השמות של הגדרות הבלוג נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:57
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "המחיקה נכשלה \"%s\" מרחב השמות של הגדרות הבלוג"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+msgid "delete selected settings namespaces"
+msgstr "מחיקת מרחבי שמות של הגדרות שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr "מחיקה \"%s\" מרחב השמות של ההגדרות"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr "\"%s\" מרחב השמות של ההגדרות נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:66
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "המחיקה נכשלה \"%s\" מרחב השמות של ההגדרות"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "delete related settings"
+msgstr "מחיקת הגדרות קשורות"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
+msgid "related settings deleted"
+msgstr "הגדרות קשורות נמחקו"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:74
+msgid "Failed to delete related settings"
+msgstr "מחיקת הגדרות קשורות נכשלה"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:43
+msgid "Tables"
+msgstr "טבלאות"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+msgid "All database tables of Dotclear"
+msgstr "כל טבלאות מסד הנתונים של Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:49
+msgid "delete selected tables"
+msgstr "מחיקת הטבלאות שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:50
+#, php-format
+msgid "delete \"%s\" table"
+msgstr "מחיקה \"%s\" טבלה"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:51
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr "\"%s\" נמחק מהטבלה"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:52
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr "המחיקה נכשלה \"%s\" טבלה"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:58
+msgid "empty selected tables"
+msgstr "טבלאות שנבחרו ריקות"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:59
+#, php-format
+msgid "empty \"%s\" table"
+msgstr "ריק \"%s\" טבלה"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:60
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr "\"%s\" רוקנו את הטבלה"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:61
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr "כשל ריק \"%s\" טבלה"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
+msgid "Themes"
+msgstr "ערכות"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:38
+msgid "Folders from blog themes directory"
+msgstr "תיקיות ממדריך ערכות הבלוג"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+msgid "delete selected themes files and directories"
+msgstr "מחיקת קובצי הערכות והמדריכים שנבחרו."
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr "מחיקה \"%s\" קובצי ערכה ומדריכים"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr "\"%s\" קבצים ומדריכים שנמחקו נמחקו"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:46
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "המחיקה נכשלה \"%s\" קובצי ערכה ומדריכים"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Var"
+msgstr "וור"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
+msgid "Folders from Dotclear VAR directory"
+msgstr "תיקיות ממדריך Dotclear VAR"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+msgid "delete selected var directories"
+msgstr "מחיקת מדריכי var שנבחרו"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr "מחיקה \"%s\" מדריך var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr "\"%s\" מדריך var נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr "המחיקה נכשלה \"%s\" מדריך var"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
+msgid "Versions"
+msgstr "גרסאות"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:38
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "גרסאות רשומות בטבלה \"גרסה\" של Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+msgid "delete selected versions numbers"
+msgstr "מחיקת מספרי גרסאות שנבחרו."
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr "מחיקה \"%s\" מספר גרסה"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr "\"%s\" מספר גרסה נמחק"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:46
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr "המחיקה נכשלה \"%s\" מספר גרסה"
+
+#: plugins/Uninstaller/src/CleanersStack.php:118
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr "ניקוי לא ידוע \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:121
+msgid "Unsintaller can't remove itself"
+msgstr "Unsinהגבוהים לא יכול להסיר את עצמו"
+
+#: plugins/Uninstaller/src/Manage.php:61
+msgid "Unknown module id to uninstall"
+msgstr "זיהוי מודול לא ידוע להסרה"
+
+#: plugins/Uninstaller/src/Manage.php:69
+msgid "There are no uninstall actions for this module"
+msgstr "אין פעולות הסרת התקנה עבור מודול זה."
+
+#: plugins/Uninstaller/src/Manage.php:94
+msgid "Uninstall action successfuly excecuted"
+msgstr "פעולת הסרת התקנה הושלמה בהצלחה."
+
+#: plugins/Uninstaller/src/Manage.php:97
+msgid "No uninstall action done"
+msgstr "לא בוצעה פעולת הסרת התקנה"
+
+#: plugins/Uninstaller/src/Manage.php:142
+msgid "Perform selected actions"
+msgstr "ביצוע פעולות נבחרות"
+
+#: plugins/Uninstaller/src/Manage.php:157
+msgid "Are you sure you perform these ations?"
+msgstr "אתם בטוחים שאתם מבצעים את זה?"
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr "הסרת תוסף ההתקנה \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr "הסרת ערכת התקנה \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:174
+#, php-format
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr "המודול \"%s %s\" מציע תהליך לא חוקי מתקדם:"
+
+#: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgstr "Cope עם מחלקות ליבה ישנות (< 2.26)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:27
 msgid "Generic antispam plugin for Dotclear"
-msgstr ""
+msgstr "תוסף antispam גנרי עבור Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:23
 msgid "Akismet interface for Dotclear"
-msgstr ""
+msgstr "ממשק Akismet עבור Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Trackback validity check"
-msgstr ""
+msgstr "בדיקת תקינות Trackback"
 
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:23
 msgid "Manage post attachments"
-msgstr ""
+msgstr "ניהול קבצים מצורפים"
 
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
-msgstr ""
+msgstr "שרת רשומות כדפי רשת פשוטים."
 
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "Manage every blog configuration directive"
-msgstr ""
+msgstr "ניהול כל הנחיית תצורת בלוג"
 
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
-msgstr ""
+msgstr "עורך מדור קודם ברור"
 
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:23
 msgid "Theme Editor"
-msgstr ""
+msgstr "עורך ערכה"
 
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
-msgstr ""
+msgstr "תפריט פשוט עבור Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:25
 msgid "Import and Export your blog"
-msgstr ""
+msgstr "יבוא ויצוא הבלוג שלכם"
 
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:23
 msgid "Manage every user preference directive"
-msgstr ""
+msgstr "ניהול כל הנחיית העדפת משתמש"
 
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:23
 msgid "dotclear CKEditor integration"
-msgstr ""
+msgstr "שילוב Dotclear CKEditor"
 
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:23
 msgid "Maintain your installation"
-msgstr ""
+msgstr "שמרו על ההתקנה."
 
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb for Dotclear"
-msgstr ""
+msgstr "נתיב ניווט עבור Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:26
 msgid "Manage your blogroll"
-msgstr ""
+msgstr "ניהול האזור שלכם"
 
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
-msgstr ""
+msgstr "שירותי פינג"
 
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
-msgstr ""
+msgstr "תגים לפרסומים"
 
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
-msgstr ""
+msgstr "פקדים עבור סרגל הצד של הבלוג"
 
+#: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
+msgstr "Cope עם טבלה/טביעת רגל שיטה V1 (< 2.24, 2.25)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
-msgstr ""
+msgstr "טופס מנוע חיפוש"
 
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
-msgstr ""
+msgstr "רשימת קישורי ניווט"
 
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
-msgstr ""
+msgstr "רשימה של הרשומות הנבחרות"
 
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
-msgstr ""
+msgstr "רשימת השפות הזמינות"
 
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:88
 msgid "List of categories"
-msgstr ""
+msgstr "רשימת סיווגים"
 
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
-msgstr ""
+msgstr "קישורי מינוי לערוץ תוכן (RSS או Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr ""
+msgstr "רשימה של רשומות אחרונות מתוך ערוץ תוכן (RSS או Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
-msgstr ""
+msgstr "תמליל פשוט"
 
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
-msgstr ""
+msgstr "רשימה של רשומות אחרונות שפורסמו"
 
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
-msgstr ""
+msgstr "רשימת הערות אחרונות שפורסמו"
 
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
-msgstr ""
+msgstr "רשימת דפים שפורסמו"
 
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
-msgstr ""
+msgstr "רשימה של פריטי תפריט פשוטים"
 
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
-msgstr ""
+msgstr "רשימת Blogroll"
 
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
-msgstr ""
+msgstr "ענן תגים"
 
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "about:config"
-msgstr ""
+msgstr "כ: config"
 
+#: plugins/aboutConfig/src/Manage.php:67 plugins/aboutConfig/src/Manage.php:87
 msgid "Configuration successfully updated"
-msgstr ""
+msgstr "התצורה עודכנה בהצלחה"
 
+#: plugins/aboutConfig/src/Manage.php:123
+#: plugins/aboutConfig/src/Manage.php:124
 #, php-format
 msgid "Settings for %s"
-msgstr ""
+msgstr "הגדרות עבור %s"
 
+#: plugins/aboutConfig/src/Manage.php:131
+#: plugins/aboutConfig/src/Manage.php:132
 msgid "Global settings"
-msgstr ""
+msgstr "הגדרות גלובליות"
 
+#: plugins/aboutConfig/src/Manage.php:155 plugins/userPref/src/Manage.php:150
 msgid "Setting ID"
-msgstr ""
+msgstr "הגדרת ת \" ז"
 
+#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:151
 msgid "Value"
-msgstr ""
+msgstr "ערך"
 
+#: plugins/aboutConfig/src/Manage.php:158 plugins/antispam/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:252 plugins/blogroll/src/Manage.php:395
+#: plugins/simpleMenu/src/Manage.php:221 plugins/simpleMenu/src/Manage.php:669
+#: plugins/userPref/src/Manage.php:153
 msgid "Description"
-msgstr ""
+msgstr "תיאור"
 
+#: plugins/aboutConfig/src/Manage.php:202 plugins/userPref/src/Manage.php:197
 msgid "Goto:"
-msgstr ""
+msgstr "מעבר:"
 
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "no"
-msgstr ""
+msgstr "לא"
 
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "yes"
-msgstr ""
+msgstr "כן"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:78
 msgid "Akismet spam filter"
-msgstr ""
+msgstr "מסנן דואר זבל של Akismet"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:91
 #, php-format
 msgid "Filtered by %s."
-msgstr ""
+msgstr "מסונן על ידי %s."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
 msgid "Filter configuration have been successfully saved."
-msgstr ""
+msgstr "תצורת מסנן נשמרה בהצלחה."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:226
 msgid "Akismet API key:"
-msgstr ""
+msgstr "מפתח API של Akisפגש:"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key verified"
-msgstr ""
+msgstr "מפתח API אומת"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:233
 msgid "API key not verified"
-msgstr ""
+msgstr "מפתח ה-API לא אומת"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:239
 msgid "Get your own API key"
-msgstr ""
+msgstr "קבלת מפתח API משלכם"
 
+#: plugins/akismet/src/Prepend.php:23
 msgid "Akismet"
-msgstr ""
+msgstr "עקיפה"
 
+#: plugins/antispam/src/Antispam.php:125
 msgid "This comment is a spam:"
-msgstr ""
+msgstr "הערה זו היא דואר זבל:"
 
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comment)"
-msgstr ""
+msgstr "(כולל %d הערת spam)"
 
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comments)"
-msgstr ""
+msgstr "(כולל %d הערות spam)"
 
+#: plugins/antispam/src/Backend.php:27
 msgid "Antispam"
-msgstr ""
+msgstr "אנטיספאם"
 
+#: plugins/antispam/src/BackendBehaviors.php:41
+#: plugins/antispam/src/Manage.php:192
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
+msgstr "כל הערות spam ישנות מ- %s יום יימחקו אוטומטית."
 
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:193
 #, php-format
 msgid "You can modify this duration in the %s"
-msgstr ""
+msgstr "ניתן לשנות משך זה ב- %s"
 
+#: plugins/antispam/src/BackendBehaviors.php:57
 msgid "Delete junk comments older than"
-msgstr ""
+msgstr "מחיקת הערות זבל הישנות מ -"
 
+#: plugins/antispam/src/BackendBehaviors.php:63
 msgid "days"
-msgstr ""
+msgstr "ימים"
 
+#: plugins/antispam/src/BackendBehaviors.php:65
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
+msgstr "הגדירו -1 כדי להשבית מאפיין זה. השאירו ריק כדי להשתמש בעיכוב ברירת מחדל של 7 ימים."
 
+#: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set spam filters."
-msgstr ""
+msgstr "הגדרת מסנני דואר זבל."
 
+#: plugins/antispam/src/Filters/Ip.php:74
 msgid "IP Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "מסנן IP Blocklist/מסנן רשימה"
 
+#: plugins/antispam/src/Filters/Ip.php:87
+#: plugins/antispam/src/Filters/IpV6.php:87
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
-msgstr ""
+msgstr "מסונן על ידי %1$s עם כלל %2$s."
 
+#: plugins/antispam/src/Filters/Ip.php:147
+#: plugins/antispam/src/Filters/IpV6.php:147
 msgid "IP address has been successfully added."
-msgstr ""
+msgstr "כתובת IP נוספה בהצלחה."
 
+#: plugins/antispam/src/Filters/Ip.php:158
+#: plugins/antispam/src/Filters/IpV6.php:158
 msgid "IP addresses have been successfully removed."
-msgstr ""
+msgstr "כתובות IP סולקו בהצלחה."
 
+#: plugins/antispam/src/Filters/Ip.php:168
+#: plugins/antispam/src/Filters/IpV6.php:167
 msgid "Blocklist"
-msgstr ""
+msgstr "רשימת Blocklist"
 
+#: plugins/antispam/src/Filters/Ip.php:169
+#: plugins/antispam/src/Filters/IpV6.php:168
 msgid "Allowlist"
-msgstr ""
+msgstr "רשימת בחירה"
 
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:188
 msgid "Add an IP address: "
-msgstr ""
+msgstr "הוספת כתובת IP: "
 
+#: plugins/antispam/src/Filters/Ip.php:193
+#: plugins/antispam/src/Filters/IpV6.php:192
 msgid "Global IP (used for all blogs)"
-msgstr ""
+msgstr "כתובת IP גלובלית (משמש עבור כל הבלוגים)"
 
+#: plugins/antispam/src/Filters/Ip.php:198
+#: plugins/antispam/src/Filters/IpV6.php:197
+#: plugins/antispam/src/Filters/Words.php:186
+#: plugins/widgets/src/Manage.php:287
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
+#: plugins/antispam/src/Filters/Ip.php:204
+#: plugins/antispam/src/Filters/IpV6.php:203
 msgid "No IP address in list."
-msgstr ""
+msgstr "אין כתובת IP ברשימה."
 
+#: plugins/antispam/src/Filters/Ip.php:207
+#: plugins/antispam/src/Filters/IpV6.php:206
 msgid "IP list"
-msgstr ""
+msgstr "רשימת IP"
 
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:235
 msgid "Local IPs (used only for this blog)"
-msgstr ""
+msgstr "IPs מקומי (משמש רק עבור בלוג זה)"
 
+#: plugins/antispam/src/Filters/Ip.php:243
+#: plugins/antispam/src/Filters/IpV6.php:241
 msgid "Global IPs (used for all blogs)"
-msgstr ""
+msgstr "IPs גלובלי (משמש עבור כל הבלוגים)"
 
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
-msgstr ""
+msgstr "בדיקת כתובת IP של שולח מול שרתי DNSBL"
 
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:70
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
-msgstr ""
+msgstr "מסונן על ידי %1$s עם שרת %2$s."
 
+#: plugins/antispam/src/Filters/IpLookup.php:145
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr ""
+msgstr "רשימת שרתי DNSBL עודכנה בהצלחה."
 
+#: plugins/antispam/src/Filters/IpLookup.php:156
 msgid "IP Lookup servers"
-msgstr ""
+msgstr "שרתי איתור IP"
 
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "Add here a coma separated list of servers."
-msgstr ""
+msgstr "הוסף כאן רשימה מופרדת בתרדמת של שרתים."
 
+#: plugins/antispam/src/Filters/IpV6.php:74
 msgid "IP v6 Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "מסנן Blocklist של IP v6/מסנן רשימה"
 
+#: plugins/antispam/src/Filters/LinksLookup.php:57
 msgid "Checks links in comments against surbl.org"
-msgstr ""
+msgstr "בדיקת קישורים בהערות מול surbl.org"
 
+#: plugins/antispam/src/Filters/Words.php:74
 msgid "Words Blocklist"
-msgstr ""
+msgstr "רשימת מילים"
 
+#: plugins/antispam/src/Filters/Words.php:87
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
-msgstr ""
+msgstr "מסונן על ידי %1$s עם המילה %2$s."
 
+#: plugins/antispam/src/Filters/Words.php:143
 msgid "Words have been successfully added."
-msgstr ""
+msgstr "מילים נוספו בהצלחה."
 
+#: plugins/antispam/src/Filters/Words.php:156
 msgid "Word has been successfully added."
-msgstr ""
+msgstr "המילה נוספה בהצלחה."
 
+#: plugins/antispam/src/Filters/Words.php:167
 msgid "Words have been successfully removed."
-msgstr ""
+msgstr "מילים סולקו בהצלחה."
 
+#: plugins/antispam/src/Filters/Words.php:177
 msgid "Add a word "
-msgstr ""
+msgstr "הוספת מילה "
 
+#: plugins/antispam/src/Filters/Words.php:181
 msgid "Global word (used for all blogs)"
-msgstr ""
+msgstr "מילה גלובלית (משמש עבור כל הבלוגים)"
 
+#: plugins/antispam/src/Filters/Words.php:191
 msgid "No word in list."
-msgstr ""
+msgstr "אין מילה ברשימה."
 
+#: plugins/antispam/src/Filters/Words.php:194
 msgid "List of bad words"
-msgstr ""
+msgstr "רשימה של מילים רעות"
 
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
-msgstr ""
+msgstr "מילים מקומיות (בשימוש רק עבור בלוג זה)"
 
+#: plugins/antispam/src/Filters/Words.php:229
 msgid "Global words (used for all blogs)"
-msgstr ""
+msgstr "מילים גלובליות (משמש עבור כל הבלוגים)"
 
+#: plugins/antispam/src/Filters/Words.php:240
 msgid "Delete selected words"
-msgstr ""
+msgstr "מחיקת המילים הנבחרות"
 
+#: plugins/antispam/src/Filters/Words.php:246
 msgid "Create default wordlist"
-msgstr ""
+msgstr "יצירת רשימת מילים המוגדרת כברירת מחדל"
 
+#: plugins/antispam/src/Filters/Words.php:292
 msgid "This word exists"
-msgstr ""
+msgstr "מילה זו קיימת"
 
+#: plugins/antispam/src/FrontendUrl.php:59
 msgid "Spam moderation"
-msgstr ""
+msgstr "פיקוח של Spam"
 
+#: plugins/antispam/src/FrontendUrl.php:63
 msgid "Spam"
-msgstr ""
+msgstr "דואר זבל"
 
+#: plugins/antispam/src/FrontendUrl.php:67
 msgid "Ham"
-msgstr ""
+msgstr "Ham"
 
+#: plugins/antispam/src/Manage.php:49
 msgid "Filter does not exist."
-msgstr ""
+msgstr "המסנן אינו קיים."
 
+#: plugins/antispam/src/Manage.php:53
 msgid "Filter has no user interface."
-msgstr ""
+msgstr "לסנן אין ממשק משתמש."
 
+#: plugins/antispam/src/Manage.php:111 plugins/antispam/src/Manage.php:204
 msgid "Filters configuration has been successfully saved."
-msgstr ""
+msgstr "תצורת המסננים נשמרה בהצלחה."
 
+#: plugins/antispam/src/Manage.php:128
 #, php-format
 msgid "%s configuration"
-msgstr ""
+msgstr "%s תצורה"
 
+#: plugins/antispam/src/Manage.php:148
 #, php-format
 msgid "%s filter configuration"
-msgstr ""
+msgstr "%s תצורת מסנן"
 
+#: plugins/antispam/src/Manage.php:152
 msgid "Back to filters list"
-msgstr ""
+msgstr "בחזרה לרשימת המסננים"
 
+#: plugins/antispam/src/Manage.php:176
 msgid "Information"
-msgstr ""
+msgstr "מידע"
 
+#: plugins/antispam/src/Manage.php:178
 msgid "Junk comments:"
-msgstr ""
+msgstr "הערות זבל:"
 
+#: plugins/antispam/src/Manage.php:180
 msgid "Published comments:"
-msgstr ""
+msgstr "הערות שפורסמו:"
 
+#: plugins/antispam/src/Manage.php:210
 msgid "Available spam filters"
-msgstr ""
+msgstr "מסנני דואר זבל זמינים"
 
+#: plugins/antispam/src/Manage.php:212
+#: plugins/pages/src/BackendDefaultActions.php:76
 msgid "Order"
-msgstr ""
+msgstr "הזמנה"
 
+#: plugins/antispam/src/Manage.php:213 plugins/antispam/src/Manage.php:244
 msgid "Active"
-msgstr ""
+msgstr "פעיל"
 
+#: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:252
 msgid "Auto Del."
-msgstr ""
+msgstr "דלק אוטומטי."
 
+#: plugins/antispam/src/Manage.php:215
 msgid "Filter name"
-msgstr ""
+msgstr "שם מסנן"
 
+#: plugins/antispam/src/Manage.php:225 plugins/antispam/src/Manage.php:226
 msgid "Filter configuration"
-msgstr ""
+msgstr "תצורת מסנן"
 
+#: plugins/antispam/src/Manage.php:236 plugins/blogroll/src/Manage.php:269
 msgid "position"
-msgstr ""
+msgstr "תפקיד"
 
+#: plugins/antispam/src/Manage.php:282
 msgid "Syndication"
-msgstr ""
+msgstr "סינדיקציה"
 
+#: plugins/antispam/src/Manage.php:284
 msgid "Junk comments RSS feed"
-msgstr ""
+msgstr "ערוץ RSS של הערות זבל"
 
+#: plugins/antispam/src/Manage.php:285
 msgid "Published comments RSS feed"
-msgstr ""
+msgstr "ערוץ RSS של הערות שפורסמו"
 
+#: plugins/antispam/src/SpamFilter.php:110
 msgid "No description"
-msgstr ""
+msgstr "אין תיאור"
 
+#: plugins/antispam/src/SpamFilter.php:163
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
-msgstr ""
+msgstr "מסונן על ידי %1$s (%2$s)"
 
+#: plugins/antispam/src/SpamFilters.php:155
 msgid "Unknown filter."
-msgstr ""
+msgstr "מסנן לא ידוע."
 
+#: plugins/attachments/src/Backend.php:23
 msgid "attachments"
-msgstr ""
+msgstr "קבצים מצורפים"
 
+#: plugins/attachments/src/BackendBehaviors.php:51
 #, php-format
 msgid "Attachments (%d)"
-msgstr ""
+msgstr "קבצים מצורפים (%d)"
 
+#: plugins/attachments/src/BackendBehaviors.php:75
 msgid "remove"
-msgstr ""
+msgstr "הסרה"
 
+#: plugins/attachments/src/BackendBehaviors.php:83
 msgid "No attachment."
-msgstr ""
+msgstr "אין קובץ מצורף."
 
+#: plugins/attachments/src/BackendBehaviors.php:86
 msgid "Add files to this entry"
-msgstr ""
+msgstr "הוספת קבצים לרשומה זו"
 
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
-msgstr ""
+msgstr "בלוגרול"
 
+#: plugins/blogroll/src/Backend.php:37
 msgid "manage blogroll"
-msgstr ""
+msgstr "ניהול blogroll"
 
+#: plugins/blogroll/src/Blogroll.php:140 plugins/blogroll/src/Blogroll.php:178
 msgid "You must provide a link title"
-msgstr ""
+msgstr "עליכם לספק כותרת קישור."
 
+#: plugins/blogroll/src/Blogroll.php:144 plugins/blogroll/src/Blogroll.php:182
 msgid "You must provide a link URL"
-msgstr ""
+msgstr "עליכם לספק URL של קישור"
 
+#: plugins/blogroll/src/Manage.php:82 plugins/blogroll/src/Manage.php:390
 msgid "Nothing to import"
-msgstr ""
+msgstr "אין דבר לייבוא"
 
+#: plugins/blogroll/src/Manage.php:105
 msgid "links have been successfully imported."
-msgstr ""
+msgstr "קישורים יובאו בהצלחה."
 
+#: plugins/blogroll/src/Manage.php:112
 msgid "Import operation cancelled."
-msgstr ""
+msgstr "פעולת יבוא בוטלה."
 
+#: plugins/blogroll/src/Manage.php:127
 msgid "Link has been successfully created."
-msgstr ""
+msgstr "הקישור נוצר בהצלחה."
 
+#: plugins/blogroll/src/Manage.php:142
 msgid "category has been successfully created."
-msgstr ""
+msgstr "הסיווג נוצר בהצלחה."
 
+#: plugins/blogroll/src/Manage.php:164
 msgid "Items have been successfully removed."
-msgstr ""
+msgstr "הפריטים סולקו בהצלחה."
 
+#: plugins/blogroll/src/Manage.php:194
 msgid "Items order has been successfully updated"
-msgstr ""
+msgstr "סדר הפריטים עודכן בהצלחה"
 
+#: plugins/blogroll/src/Manage.php:254
 msgid "Lang"
-msgstr ""
+msgstr "לאנג"
 
+#: plugins/blogroll/src/Manage.php:276
 msgid "select this link"
-msgstr ""
+msgstr "בחירת קישור זה."
 
+#: plugins/blogroll/src/Manage.php:310
 msgid "Are you sure you want to delete selected links?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם למחוק את הקישורים שנבחרו?"
 
+#: plugins/blogroll/src/Manage.php:310
 msgid "Delete selected links"
-msgstr ""
+msgstr "מחיקת הקישורים שנבחרו"
 
+#: plugins/blogroll/src/Manage.php:315
 msgid "The link list is empty."
-msgstr ""
+msgstr "רשימת הקישורים ריקה."
 
+#: plugins/blogroll/src/Manage.php:323
 msgid "Add a new link"
-msgstr ""
+msgstr "הוספת קישור חדש"
 
+#: plugins/blogroll/src/Manage.php:353
 msgid "Add a category"
-msgstr ""
+msgstr "הוספת סיווג"
 
+#: plugins/blogroll/src/Manage.php:370 plugins/blogroll/src/Manage.php:375
+#: plugins/blogroll/src/Manage.php:387
 msgid "Import links"
-msgstr ""
+msgstr "קישורי יבוא"
 
+#: plugins/blogroll/src/Manage.php:376
 msgid "OPML or XBEL File:"
-msgstr ""
+msgstr "OPML או קובץ XBEL:"
 
+#: plugins/blogroll/src/Manage.php:380 plugins/blogroll/src/Manage.php:424
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleImportFeed.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:261
 msgid "Import"
-msgstr ""
+msgstr "יבוא"
 
+#: plugins/blogroll/src/ManageEdit.php:47
 msgid "No such link or title"
-msgstr ""
+msgstr "אין קישור או כותרת כאלה."
 
+#: plugins/blogroll/src/ManageEdit.php:97
 msgid "Link has been successfully updated"
-msgstr ""
+msgstr "הקישור עודכן בהצלחה"
 
+#: plugins/blogroll/src/ManageEdit.php:114
 msgid "Category has been successfully updated"
-msgstr ""
+msgstr "הסיווג עודכן בהצלחה."
 
+#: plugins/blogroll/src/ManageEdit.php:143
 msgid "Return to blogroll"
-msgstr ""
+msgstr "חזרה אל blogroll"
 
+#: plugins/blogroll/src/ManageEdit.php:149
 msgid "Edit category"
-msgstr ""
+msgstr "עריכת סיווג"
 
+#: plugins/blogroll/src/ManageEdit.php:167
 msgid "Edit link"
-msgstr ""
+msgstr "קישור ' עריכה '"
 
+#: plugins/blogroll/src/ManageEdit.php:203
 msgid "XFN information"
-msgstr ""
+msgstr "מידע XFN"
 
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
-msgstr ""
+msgstr "מידע נוסף על <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">ויקיפדיה</a> אתר"
 
+#: plugins/blogroll/src/ManageEdit.php:210
 msgid "_xfn_Me"
-msgstr ""
+msgstr "_xfn_Me"
 
+#: plugins/blogroll/src/ManageEdit.php:213
 msgid "_xfn_Another link for myself"
-msgstr ""
+msgstr "_xfn_האחר קישור עבור עצמי"
 
+#: plugins/blogroll/src/ManageEdit.php:217
 msgid "_xfn_Friendship"
-msgstr ""
+msgstr "_xfn_ידידות"
 
+#: plugins/blogroll/src/ManageEdit.php:223
 msgid "_xfn_Contact"
-msgstr ""
+msgstr "_xfn_צרו קשר"
 
+#: plugins/blogroll/src/ManageEdit.php:228
 msgid "_xfn_Acquaintance"
-msgstr ""
+msgstr "_xfn_Acquainהכנסות"
 
+#: plugins/blogroll/src/ManageEdit.php:233
 msgid "_xfn_Friend"
-msgstr ""
+msgstr "_xfn_ידיד"
 
+#: plugins/blogroll/src/ManageEdit.php:239
 msgid "_xfn_Physical"
-msgstr ""
+msgstr "_xfn_הפיזי"
 
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "_xfn_Met"
-msgstr ""
+msgstr "_xfn_פגשתי"
 
+#: plugins/blogroll/src/ManageEdit.php:250
 msgid "_xfn_Professional"
-msgstr ""
+msgstr "_xfn_מקצוע"
 
+#: plugins/blogroll/src/ManageEdit.php:256
 msgid "_xfn_Co-worker"
-msgstr ""
+msgstr "_xfn_Co - עובד"
 
+#: plugins/blogroll/src/ManageEdit.php:261
 msgid "_xfn_Colleague"
-msgstr ""
+msgstr "_xfn_עמיתים"
 
+#: plugins/blogroll/src/ManageEdit.php:266
 msgid "_xfn_Geographical"
-msgstr ""
+msgstr "_xfn_Geoגרפיות"
 
+#: plugins/blogroll/src/ManageEdit.php:272
 msgid "_xfn_Co-resident"
-msgstr ""
+msgstr "_xfn_Co - תושב"
 
+#: plugins/blogroll/src/ManageEdit.php:277
 msgid "_xfn_Neighbor"
-msgstr ""
+msgstr "_xfn_שכנים"
 
+#: plugins/blogroll/src/ManageEdit.php:283
 msgid "_xfn_Family"
-msgstr ""
+msgstr "_xfn_משפחה"
 
+#: plugins/blogroll/src/ManageEdit.php:289
 msgid "_xfn_Child"
-msgstr ""
+msgstr "_xfn_Child"
 
+#: plugins/blogroll/src/ManageEdit.php:294
 msgid "_xfn_Parent"
-msgstr ""
+msgstr "_xfn_הורה"
 
+#: plugins/blogroll/src/ManageEdit.php:299
 msgid "_xfn_Sibling"
-msgstr ""
+msgstr "_xfn_Sibling"
 
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "_xfn_Spouse"
-msgstr ""
+msgstr "_xfn_Spouse"
 
+#: plugins/blogroll/src/ManageEdit.php:309
 msgid "_xfn_Kin"
-msgstr ""
+msgstr "_xfn_Kin"
 
+#: plugins/blogroll/src/ManageEdit.php:315
 msgid "_xfn_Romantic"
-msgstr ""
+msgstr "_xfn_רומנטית"
 
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Muse"
-msgstr ""
+msgstr "_xfn_Muse"
 
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Crush"
-msgstr ""
+msgstr "_xfn_Cהגיוס"
 
+#: plugins/blogroll/src/ManageEdit.php:331
 msgid "_xfn_Date"
-msgstr ""
+msgstr "_xfn_Date"
 
+#: plugins/blogroll/src/ManageEdit.php:336
 msgid "_xfn_Sweetheart"
-msgstr ""
+msgstr "_xfn_המתוק"
 
+#: plugins/blogroll/src/UtilsImport.php:37
 msgid "You need to provide a XBEL or OPML file."
-msgstr ""
+msgstr "אתה צריך לספק XBEL או קובץ OPML."
 
+#: plugins/blogroll/src/UtilsImport.php:48
+#: plugins/blogroll/src/UtilsImport.php:83
 msgid "File is not in XML format."
-msgstr ""
+msgstr "הקובץ אינו במבנה XML."
 
+#: plugins/blogroll/src/Widgets.php:32
 msgid "All categories"
-msgstr ""
+msgstr "כל הקטגוריות"
 
+#: plugins/blogroll/src/Widgets.php:41
 msgid "Links"
-msgstr ""
+msgstr "קישורים"
 
+#: plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb"
-msgstr ""
+msgstr "נתיב ניווט"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:31
 msgid "Enable breadcrumb for this blog"
-msgstr ""
+msgstr "הפעלת נתיב ניווט עבור בלוג זה."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr ""
+msgstr "ה - {{tpl: Breadפירורים [מפריד = \" &amp;rsaquo; \"]} התג אמור להיות קיים (או נוסף אם לא) בתבנית."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:34
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr ""
+msgstr "אל תקפיצו את סימן הדרך &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; תג."
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:69
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:85
+#: plugins/breadcrumb/src/FrontendTemplate.php:96
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:114 plugins/simpleMenu/src/Manage.php:225
+#: plugins/widgets/src/Widgets.php:234
 msgid "Home"
-msgstr ""
+msgstr "בית"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
-msgstr ""
+msgstr "עמוד %d"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:252 plugins/widgets/src/Widgets.php:251
 msgid "Archives"
-msgstr ""
+msgstr "ארכיונים"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:103 plugins/simpleMenu/src/Manage.php:272
+#: plugins/tags/src/Widgets.php:53
 msgid "All tags"
-msgstr ""
+msgstr "כל התגים"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
-msgstr ""
+msgstr "404"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Generate fake l10n"
-msgstr ""
+msgstr "הפקת l10n מזויף"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "fake l10n file generated."
-msgstr ""
+msgstr "קובץ l10n מזויף הופק."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "Failed to generate fake l10n file."
-msgstr ""
+msgstr "לא ניתן להפיק קובץ l10n מזויף."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
-msgstr ""
+msgstr "הפיקו קובץ php כי תוכן מחרוזות לתרגום שלא נעשים עם כלי ליבה."
 
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:6
 msgid "dcCKEditor"
-msgstr ""
+msgstr "DcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:38
+#: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
-msgstr ""
+msgstr "מ \" ל"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Media chooser"
-msgstr ""
+msgstr "בוחר מדיה"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "m"
-msgstr ""
+msgstr "מ '"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Link to an entry"
-msgstr ""
+msgstr "קישור לרשומה"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Link"
-msgstr ""
+msgstr "קישור"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "l"
-msgstr ""
+msgstr "L"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "External image"
-msgstr ""
+msgstr "תמונה חיצונית"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
-msgstr ""
+msgstr "שדה ה-URL אינו יכול להיות ריק."
 
+#: plugins/dcCKEditor/src/Manage.php:130
+#: plugins/dcLegacyEditor/src/Manage.php:42
 msgid "The configuration has been updated."
-msgstr ""
+msgstr "התצורה עודכנה."
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:237
 msgid "Note(s)"
-msgstr ""
+msgstr "הערות (ים)"
 
-msgid "Settings"
-msgstr ""
-
+#: plugins/dcCKEditor/tpl/index.php:14 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
-msgstr ""
+msgstr "הפעלת תוסף"
 
+#: plugins/dcCKEditor/tpl/index.php:19
 msgid "Enable dcCKEditor plugin"
-msgstr ""
+msgstr "הפעלת תוסף dcCKEditor"
 
+#: plugins/dcCKEditor/tpl/index.php:31
 msgid "Add alignment buttons"
-msgstr ""
+msgstr "הוספת לחצני יישור"
 
+#: plugins/dcCKEditor/tpl/index.php:37
 msgid "Add lists buttons"
-msgstr ""
+msgstr "הוספת לחצני ' רשימות '"
 
+#: plugins/dcCKEditor/tpl/index.php:43
 msgid "Add text color button"
-msgstr ""
+msgstr "לחצן ' הוספת צבע תמליל '"
 
+#: plugins/dcCKEditor/tpl/index.php:49
 msgid "Add background text color button"
-msgstr ""
+msgstr "לחצן ' הוספת צבע תמליל רקע '"
 
+#: plugins/dcCKEditor/tpl/index.php:54
 msgid "Custom colors list:"
-msgstr ""
+msgstr "רשימת צבעים מותאמת:"
 
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Add colors without # separated by a comma."
-msgstr ""
+msgstr "הוספת צבעים ללא # מופרדת בפסיקים."
 
+#: plugins/dcCKEditor/tpl/index.php:60
 msgid "Leave empty to use the default palette:"
-msgstr ""
+msgstr "השאירו ריק כדי להשתמש בערכת ברירת המחדל:"
 
+#: plugins/dcCKEditor/tpl/index.php:62
 msgid "Example of custom color list:"
-msgstr ""
+msgstr "דוגמה לרשימת צבעים מותאמים:"
 
+#: plugins/dcCKEditor/tpl/index.php:67
 msgid "Colors per row in palette:"
-msgstr ""
+msgstr "צבעים לכל שורה בבורר:"
 
+#: plugins/dcCKEditor/tpl/index.php:72
 msgid "Valid range: 4 to 16"
-msgstr ""
+msgstr "טווח חוקי: 4 עד 16"
 
+#: plugins/dcCKEditor/tpl/index.php:77
 msgid "Add collapse button"
-msgstr ""
+msgstr "לחצן ' הוספת כיווץ '"
 
+#: plugins/dcCKEditor/tpl/index.php:83
 msgid "Add format selection"
-msgstr ""
+msgstr "הוספת בחירת עיצוב:"
 
+#: plugins/dcCKEditor/tpl/index.php:88
 msgid "Custom formats"
-msgstr ""
+msgstr "עיצובים מותאמים"
 
+#: plugins/dcCKEditor/tpl/index.php:93
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr ""
+msgstr "פורמטים המוגדרים כברירת מחדל הם p; h1; h.3; h.4; h.h4; h.6; כתובת"
 
+#: plugins/dcCKEditor/tpl/index.php:98
 msgid "Add table button"
-msgstr ""
+msgstr "לחצן ' הוספת טבלה '"
 
+#: plugins/dcCKEditor/tpl/index.php:104
 msgid "Add clipboard buttons"
-msgstr ""
+msgstr "הוספת לחצני לוח הגזירים"
 
+#: plugins/dcCKEditor/tpl/index.php:108
 msgid "Copy, Paste, Paste Text, Paste from Word"
-msgstr ""
+msgstr "העתקה, הדבקה, הדבקת תמליל, הדבקה מתוך Word"
 
+#: plugins/dcCKEditor/tpl/index.php:113
 msgid "Add undo/redo buttons"
-msgstr ""
+msgstr "הוספת לחצני ' ביטול/ביצוע מחדש '"
 
+#: plugins/dcCKEditor/tpl/index.php:119
 msgid "Disables the built-in spell checker if the browser provides one"
-msgstr ""
+msgstr "השבתת בודק האיות המובנה אם הדפדפן מספק אחד"
 
+#: plugins/dcCKEditor/tpl/index.php:127 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/simpleMenu/src/Manage.php:632
 msgid "Save configuration"
-msgstr ""
+msgstr "שמירת תצורה"
 
+#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/tpl/index.php:1
 msgid "dcLegacyEditor"
-msgstr ""
+msgstr "DcLegacyEditor"
 
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "Dotclear wiki"
-msgstr ""
+msgstr "ויקי של Dotclear"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:86
 msgid "visual"
-msgstr ""
+msgstr "חזותי"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
 msgid "source"
-msgstr ""
+msgstr "מקור"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:88
 msgid "You can use the following shortcuts to format your text."
-msgstr ""
+msgstr "תוכלו להשתמש בקיצורי הדרך שלהלן כדי לעצב את התמליל."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
 msgid "Block format"
-msgstr ""
+msgstr "מבנה בלוק"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
 msgid "-- none --"
-msgstr ""
+msgstr "-אף אחד -"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
 msgid "-- block format --"
-msgstr ""
+msgstr "-- מבנה גוש --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
 msgid "Paragraph"
-msgstr ""
+msgstr "פיסקה"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
 msgid "Level 1 header"
-msgstr ""
+msgstr "כותרת ברמה 1"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
 msgid "Level 2 header"
-msgstr ""
+msgstr "כותרת ברמה 2"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:98
 msgid "Level 3 header"
-msgstr ""
+msgstr "כותרת ברמה 3"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:99
 msgid "Level 4 header"
-msgstr ""
+msgstr "כותרת ברמה 4"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
 msgid "Level 5 header"
-msgstr ""
+msgstr "כותרת ברמה 5"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
 msgid "Level 6 header"
-msgstr ""
+msgstr "כותרת ברמה 6"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "Strong emphasis"
-msgstr ""
+msgstr "דגש חזק"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "Emphasis"
-msgstr ""
+msgstr "דגשים"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "Inserted"
-msgstr ""
+msgstr "הוספה"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
 msgid "Deleted"
-msgstr ""
+msgstr "נמחק"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
 msgid "Inline quote"
-msgstr ""
+msgstr "הצעת מחיר"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Code"
-msgstr ""
+msgstr "קוד"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "Line break"
-msgstr ""
+msgstr "מעבר שורה"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "Blockquote"
-msgstr ""
+msgstr "Blockציטוט"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Preformated text"
-msgstr ""
+msgstr "תמליל מושמד"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Unordered list"
-msgstr ""
+msgstr "רשימה לא ממוספרת"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Ordered list"
-msgstr ""
+msgstr "רשימה מסודרת"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "URL?"
-msgstr ""
+msgstr "URL?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "Language?"
-msgstr ""
+msgstr "שפה?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Remove text formating"
-msgstr ""
+msgstr "סילוק חטיבת תמליל"
 
+#: plugins/dcLegacyEditor/tpl/index.php:11
 msgid "Enable dcLegacyEditor plugin"
-msgstr ""
+msgstr "הפעלת תוסף dcLegacyEditor"
 
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:62
 msgid "Checks trackback source for a link to the post"
-msgstr ""
+msgstr "בדיקת מקור trackback עבור קישור להודעה."
 
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Fair Trackbacks"
-msgstr ""
+msgstr "Trackbacks הוגן"
 
+#: plugins/importExport/src/Backend.php:25
 msgid "Import / Export"
-msgstr ""
+msgstr "יבוא/יצוא"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:34
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:32
 msgid "Database export"
-msgstr ""
+msgstr "יצוא מסד נתונים"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
 msgid "Download database of current blog"
-msgstr ""
+msgstr "הורדת מסד הנתונים של הבלוג הנוכחי"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:93
+#: plugins/importExport/src/ModuleExportFlat.php:224
+#: plugins/importExport/src/ModuleExportFlat.php:248
 msgid "Compress file"
-msgstr ""
+msgstr "דחיסת קובץ"
 
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Download database of all blogs"
-msgstr ""
+msgstr "הורדת מסד הנתונים של כל הבלוגים"
 
+#: plugins/importExport/src/FlatBackup.php:37
 msgid "No file to read."
-msgstr ""
+msgstr "אין קובץ לקריאה."
 
+#: plugins/importExport/src/FlatExport.php:35
 msgid "Unable to create output file."
-msgstr ""
+msgstr "לא ניתן ליצור קובץ פלט."
 
+#: plugins/importExport/src/FlatImportV2.php:75
 msgid "File is not a DotClear backup."
-msgstr ""
+msgstr "הקובץ אינו גיבוי Dotנקה."
 
+#: plugins/importExport/src/FlatImportV2.php:128
 msgid "File is not a single blog export."
-msgstr ""
+msgstr "הקובץ אינו יצוא של בלוג יחיד."
 
+#: plugins/importExport/src/FlatImportV2.php:242
+#: plugins/importExport/src/FlatImportV2.php:296
 #, php-format
 msgid "Error raised at line %s"
-msgstr ""
+msgstr "שגיאה שהועלתה בשורה %s"
 
+#: plugins/importExport/src/FlatImportV2.php:251
 msgid "File is not a full export."
-msgstr ""
+msgstr "הקובץ אינו יצוא מלא."
 
+#: plugins/importExport/src/FlatImportV2.php:710
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
+msgstr "זיהוי של \"%3$s\" אינו תואם לרשומה \"%1$s\" בקו %2$s של קובץ גיבוי."
 
+#: plugins/importExport/src/Manage.php:84
+#: plugins/maintenance/src/Manage.php:175
 msgid "Please wait..."
-msgstr ""
+msgstr "נא להמתין ..."
 
+#: plugins/importExport/src/Manage.php:117
+#: plugins/importExport/src/ModuleExportFlat.php:230
+#: plugins/importExport/src/ModuleExportFlat.php:251
 msgid "Export"
-msgstr ""
+msgstr "יצוא"
 
+#: plugins/importExport/src/Manage.php:119
 #, php-format
 msgid "Export functions are in the page %s."
-msgstr ""
+msgstr "פונקציות יצוא הן בעמוד %s."
 
+#: plugins/importExport/src/Manage.php:121
+#: plugins/maintenance/src/Backend.php:23
+#: plugins/maintenance/src/BackendBehaviors.php:169
 msgid "Maintenance"
-msgstr ""
+msgstr "תחזוקה"
 
+#: plugins/importExport/src/Module.php:160
 msgid "Congratulation!"
-msgstr ""
+msgstr "ברכות!"
 
+#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr ""
+msgstr "הבלוג שלכם יובא בהצלחה. ברוכים הבאים על Dotנקו 2!"
 
+#: plugins/importExport/src/Module.php:165
 msgid "Why don't you blog this now?"
-msgstr ""
+msgstr "למה שלא תפרסם את זה עכשיו?"
 
+#: plugins/importExport/src/Module.php:170
 msgid "visit your dashboard"
-msgstr ""
+msgstr "בקרו בלוח המחוונים שלכם"
 
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Flat file export"
-msgstr ""
+msgstr "יצוא קובץ שטוח"
 
+#: plugins/importExport/src/ModuleExportFlat.php:32
 msgid "Exports a blog or a full Dotclear installation to flat file."
-msgstr ""
+msgstr "יצוא בלוג או התקנה מלאה של Dotclear לקובץ שטוח."
 
+#: plugins/importExport/src/ModuleExportFlat.php:162
 msgid "Export file not found."
-msgstr ""
+msgstr "קובץ הייצוא לא נמצא."
 
+#: plugins/importExport/src/ModuleExportFlat.php:201
 msgid "Failed to compress export file."
-msgstr ""
+msgstr "לא ניתן לדחוס את קובץ הייצוא."
 
+#: plugins/importExport/src/ModuleExportFlat.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:203
 msgid "Single blog"
-msgstr ""
+msgstr "בלוג יחיד"
 
+#: plugins/importExport/src/ModuleExportFlat.php:216
 #, php-format
 msgid "This will create an export of your current blog: %s"
-msgstr ""
+msgstr "פעולה זו תיצור יצוא של הבלוג הנוכחי שלכם: %s"
 
+#: plugins/importExport/src/ModuleExportFlat.php:228
 msgid "You may also want to download your media directory as a zip file"
-msgstr ""
+msgstr "תוכלו גם להוריד את מדריך המדיה כקובץ zip"
 
+#: plugins/importExport/src/ModuleExportFlat.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "Multiple blogs"
-msgstr ""
+msgstr "בלוגים מרובים"
 
+#: plugins/importExport/src/ModuleExportFlat.php:240
 msgid "This will create an export of all the content of your database."
-msgstr ""
+msgstr "פעולה זו תיצור יצוא של כל התוכן של מסד הנתונים שלכם."
 
+#: plugins/importExport/src/ModuleImportDc1.php:60
 msgid "Dotclear 1.2 import"
-msgstr ""
+msgstr "יבוא Dotclear 1.2"
 
+#: plugins/importExport/src/ModuleImportDc1.php:61
 msgid "Import a Dotclear 1.2 installation into your current blog."
-msgstr ""
+msgstr "יבאו התקנה של Dotנקו 1.2 לתוך הבלוג הנוכחי שלכם."
 
+#: plugins/importExport/src/ModuleImportDc1.php:190
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
-msgstr ""
+msgstr "יבאו את התוכן של הבלוג של Dotclear 1.2 בבלוג הנוכחי: %s."
 
+#: plugins/importExport/src/ModuleImportDc1.php:193
+#: plugins/importExport/src/ModuleImportWp.php:216
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr ""
+msgstr "שימו לב שתהליך זה ירוקן את הסיווגים, הבלוג, הרשומות וההערות בבלוג הנוכחי."
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "General information"
-msgstr ""
+msgstr "מידע כללי"
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Import my blog now"
-msgstr ""
+msgstr "יבוא הבלוג שלי עכשיו"
 
+#: plugins/importExport/src/ModuleImportDc1.php:198
 msgid "We first need some information about your old Dotclear 1.2 installation."
-msgstr ""
+msgstr "אנחנו צריכים מידע נוסף על התקנת Dotclear 1.2 הישן שלך."
 
+#: plugins/importExport/src/ModuleImportDc1.php:199
 msgid "Database driver:"
-msgstr ""
+msgstr "מנהל מסד נתונים:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:211
+#: plugins/importExport/src/ModuleImportWp.php:233
 msgid "Entries import options"
-msgstr ""
+msgstr "אפשרויות יבוא של רשומות"
 
+#: plugins/importExport/src/ModuleImportDc1.php:212
+#: plugins/importExport/src/ModuleImportWp.php:258
 msgid "Number of entries to import at once:"
-msgstr ""
+msgstr "מספר הרשומות ליבוא בבת אחת:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportWp.php:275
 msgid "Importing users"
-msgstr ""
+msgstr "יבוא משתמשים"
 
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:282
 msgid "Importing categories"
-msgstr ""
+msgstr "יבוא סיווגים"
 
+#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportWp.php:289
 msgid "Importing blogroll"
-msgstr ""
+msgstr "יבוא של bloמכולת"
 
+#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportWp.php:296
 #, php-format
 msgid "Importing entries from %d to %d / %d"
-msgstr ""
+msgstr "יבוא רשומות מ- %d עד %d / %d"
 
+#: plugins/importExport/src/ModuleImportDc1.php:254
 msgid "Please read carefully"
-msgstr ""
+msgstr "נא לקרוא בזהירות."
 
+#: plugins/importExport/src/ModuleImportDc1.php:256
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr ""
+msgstr "כל משתמש חדש שיובא קיבל סיסמה אקראית ויהיה צורך לבקש אחד חדש באמצעות מעקב אחר הקישור \"שכחתי את הסיסמה שלי\" בדף ההתחברות (כתובת הדואל הרשומה שלהם חייבת להיות חוקית.)"
 
+#: plugins/importExport/src/ModuleImportDc1.php:261
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr ""
+msgstr "שימו לב שלDotנקו 2 יש מתכונת URL חדשה. תוכלו להימנע מקישורים שבורים על-ידי התקנת <a href=\"%s\">DC1 לניתוב</a> תוסף והפעילו אותו בתצורת הבלוג."
 
+#: plugins/importExport/src/ModuleImportDc1.php:285
+#: plugins/importExport/src/ModuleImportWp.php:331
 msgid "next step"
-msgstr ""
+msgstr "השלב הבא"
 
+#: plugins/importExport/src/ModuleImportDc1.php:295
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr ""
+msgstr "בהתאם לגודל הבלוג, זה יכול לקחת כמה דקות."
 
+#: plugins/importExport/src/ModuleImportDc1.php:323
 msgid "Dotclear tables not found"
-msgstr ""
+msgstr "טבלאות Dotנקו לא נמצאו"
 
+#: plugins/importExport/src/ModuleImportFeed.php:115
 msgid "RSS or Atom feed import"
-msgstr ""
+msgstr "יבוא ערוץ RSS או Atom"
 
+#: plugins/importExport/src/ModuleImportFeed.php:116
 msgid "Add a feed content to the blog."
-msgstr ""
+msgstr "הוספת תוכן ערוץ תוכן לבלוג."
 
+#: plugins/importExport/src/ModuleImportFeed.php:143
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:158
+#: plugins/importExport/src/ModuleImportFeed.php:163
+#: plugins/importExport/src/ModuleImportFeed.php:169
+#: plugins/importExport/src/ModuleImportFeed.php:176
 msgid "Cannot retrieve feed URL."
-msgstr ""
+msgstr "לא ניתן לאחזר URL של ערוץ תוכן."
 
+#: plugins/importExport/src/ModuleImportFeed.php:179
 msgid "No items in feed."
-msgstr ""
+msgstr "אין פריטים בהזנה."
 
+#: plugins/importExport/src/ModuleImportFeed.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:187
 msgid "Content successfully imported."
-msgstr ""
+msgstr "התוכן יובא בהצלחה."
 
+#: plugins/importExport/src/ModuleImportFeed.php:221
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "הוספת תוכן ערוץ תוכן לבלוג הנוכחי: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/widgets/src/Widgets.php:110
 msgid "Feed URL:"
-msgstr ""
+msgstr "URL של ערוץ תוכן:"
 
+#: plugins/importExport/src/ModuleImportFlat.php:41
 msgid "Flat file import"
-msgstr ""
+msgstr "יבוא קובץ שטוח"
 
+#: plugins/importExport/src/ModuleImportFlat.php:42
 msgid "Imports a blog or a full Dotclear installation from flat file."
-msgstr ""
+msgstr "יבוא בלוג או התקנת Dotclear מלאה מקובץ שטוח."
 
+#: plugins/importExport/src/ModuleImportFlat.php:182
 msgid "Single blog successfully imported."
-msgstr ""
+msgstr "בלוג יחיד יובא בהצלחה."
 
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Are you sure you want to import a full backup file?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם ליבא קובץ גיבוי מלא?"
 
+#: plugins/importExport/src/ModuleImportFlat.php:204
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "הדבר יבא גיבוי בלוג יחיד כתוכן חדש בבלוג הנוכחי: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFlat.php:206
+#: plugins/importExport/src/ModuleImportFlat.php:233
 msgid "Upload a backup file"
-msgstr ""
+msgstr "טעינת קובץ גיבוי"
 
+#: plugins/importExport/src/ModuleImportFlat.php:207
+#: plugins/importExport/src/ModuleImportFlat.php:234
 #, php-format
 msgid "maximum size %s"
-msgstr ""
+msgstr "גודל מרבי %s"
 
+#: plugins/importExport/src/ModuleImportFlat.php:213
+#: plugins/importExport/src/ModuleImportFlat.php:240
 msgid "or pick up a local file in your public directory"
-msgstr ""
+msgstr "או להרים קובץ מקומי במדריך הציבורי שלכם"
 
+#: plugins/importExport/src/ModuleImportFlat.php:231
 msgid "This will reset all the content of your database, except users."
-msgstr ""
+msgstr "פעולה זו תאפס את כל התוכן של מסד הנתונים שלכם, מלבד משתמשים."
 
+#: plugins/importExport/src/ModuleImportFlat.php:352
 msgid "Another file with same name exists."
-msgstr ""
+msgstr "קובץ אחר עם אותו שם קיים."
 
+#: plugins/importExport/src/ModuleImportFlat.php:360
 msgid "Failed to extract backup file."
-msgstr ""
+msgstr "חילוץ קובץ הגיבוי נכשל."
 
+#: plugins/importExport/src/ModuleImportFlat.php:372
 msgid "No backup in compressed file."
-msgstr ""
+msgstr "אין גיבוי בקובץ דחוס."
 
+#: plugins/importExport/src/ModuleImportWp.php:81
 msgid "WordPress import"
-msgstr ""
+msgstr "יבוא WordPress"
 
+#: plugins/importExport/src/ModuleImportWp.php:82
 msgid "Import a WordPress installation into your current blog."
-msgstr ""
+msgstr "יבאו התקנה של WordPress לתוך הבלוג הנוכחי."
 
+#: plugins/importExport/src/ModuleImportWp.php:213
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
-msgstr ""
+msgstr "פעולה זו תייבא את תוכן העבודה שלכם כתוכן חדש בבלוג הנוכחי: %s."
 
+#: plugins/importExport/src/ModuleImportWp.php:221
 msgid "We first need some information about your old WordPress installation."
-msgstr ""
+msgstr "תחילה אנו זקוקים למידע אודות התקנת WordPress הישנה שלך."
 
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr ""
+msgstr "הטיפול של וורדפרס וDotclear של קטגוריות הם די שונים. תוכלו להקצות כמה קטגוריות לפרסום יחיד ב-WordPress. בעולם Dotclear, אנחנו רואים את זה יותר כמו \"קטגוריה אחת, כמה תגים.\" לכן Dotclear יכול לייבא רק קטגוריה אחת לכל פרסום ובוחר את המספר הנמוך ביותר. אם ברצונכם לשמור מעקב אחר כל סיווג, תוכלו ליבא אותם כתגים, עם קידומת אופציונלית."
 
+#: plugins/importExport/src/ModuleImportWp.php:242
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "מצד שני, ב-WordPress, לא ניתן לבטל את הסיווג, ולהתקנה המוגדרת כברירת מחדל יש קטגוריה ראשונה של <i>\"לא מסווג\"</i>. אם לא תשנו את הסיווג, תוכלו פשוט להתעלם ממנו במהלך יבוא הבלוג, כפי ש-Dotclear מאפשר לכם לשמור על הפרסומים שלכם ללא סיווג."
 
+#: plugins/importExport/src/ModuleImportWp.php:251
 msgid "Ignore the first category:"
-msgstr ""
+msgstr "התעלמות מהקטגוריה הראשונה:"
 
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Import lowest numbered category on posts:"
-msgstr ""
+msgstr "יבוא הסיווג הנמוך ביותר על פרסומים:"
 
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Import all categories as tags:"
-msgstr ""
+msgstr "יבוא כל הסיווגים כתגים:"
 
+#: plugins/importExport/src/ModuleImportWp.php:256
 msgid "Prefix such tags with:"
-msgstr ""
+msgstr "קידומת תגים אלה עם:"
 
+#: plugins/importExport/src/ModuleImportWp.php:264
 msgid "Content filters"
-msgstr ""
+msgstr "מסנני תוכן"
 
+#: plugins/importExport/src/ModuleImportWp.php:265
 msgid "You may want to process your post and/or comment content with the following filters."
-msgstr ""
+msgstr "ייתכן שתרצו לעבד את תוכן הפרסום ו/או ההערה עם המסננים שלהלן."
 
+#: plugins/importExport/src/ModuleImportWp.php:266
 msgid "Post content formatter:"
-msgstr ""
+msgstr "פרסום תוכן של תוכן:"
 
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Comment content formatter:"
-msgstr ""
+msgstr "מעצב תוכן של הערה:"
 
+#: plugins/importExport/src/ModuleImportWp.php:370
 msgid "WordPress tables not found"
-msgstr ""
+msgstr "טבלאות WordPress לא נמצאו"
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Servicing"
-msgstr ""
+msgstr "סרביתיות"
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Tools to maintain the performance of your blogs."
-msgstr ""
+msgstr "כלים כדי לשמור על הביצועים של הבלוגים שלכם."
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Backup"
-msgstr ""
+msgstr "גיבוי"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to back up your content."
-msgstr ""
+msgstr "כלים שיגבו את התוכן שלכם."
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Development"
-msgstr ""
+msgstr "פיתוח"
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Tools to assist in development of plugins, themes and core."
-msgstr ""
+msgstr "כלים לסייע בפיתוח תוספים, נושאים והליבה."
 
+#: plugins/maintenance/src/BackendBehaviors.php:38
 msgid "Optimize"
-msgstr ""
+msgstr "מיטוב"
 
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Count and index"
-msgstr ""
+msgstr "ספירה ואינדקס"
 
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Purge"
-msgstr ""
+msgstr "מחיקה לצמיתות"
 
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Other"
-msgstr ""
+msgstr "אחר"
 
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "Current blog"
-msgstr ""
+msgstr "בלוג נוכחי"
 
+#: plugins/maintenance/src/BackendBehaviors.php:43
 msgid "All blogs"
-msgstr ""
+msgstr "כל הבלוגים"
 
+#: plugins/maintenance/src/BackendBehaviors.php:45
 msgid "Maintain translations"
-msgstr ""
+msgstr "שמירת תרגומים"
 
+#: plugins/maintenance/src/BackendBehaviors.php:45
 msgid "Translations"
-msgstr ""
+msgstr "עסקאות"
 
+#: plugins/maintenance/src/BackendBehaviors.php:121
+#: plugins/maintenance/src/Rest.php:85
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "משימה אחת לביצוע"
+msgstr[1] "%s משימות לביצוע"
+msgstr[2] "%s משימות לביצוע"
+msgstr[3] "%s משימות לביצוע"
 
+#: plugins/maintenance/src/BackendBehaviors.php:152
+#: plugins/maintenance/src/Manage.php:267
 msgid "This task has never been executed."
-msgstr ""
+msgstr "משימה זו מעולם לא בוצעה."
 
+#: plugins/maintenance/src/BackendBehaviors.php:155
+#: plugins/maintenance/src/Manage.php:272
 #, php-format
 msgid "Last execution of this task was on %s."
-msgstr ""
+msgstr "ביצוע אחרון של משימה זו היה על %s."
 
+#: plugins/maintenance/src/BackendBehaviors.php:170
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "יש משימה לביצוע."
+msgstr[1] "יש %s משימות לביצוע."
+msgstr[2] "יש %s משימות לביצוע."
+msgstr[3] "יש %s משימות לביצוע."
 
+#: plugins/maintenance/src/BackendBehaviors.php:172
 msgid "Manage tasks"
-msgstr ""
+msgstr "ניהול משימות"
 
+#: plugins/maintenance/src/BackendBehaviors.php:191
 msgid "Display overdue tasks counter on maintenance dashboard icon"
-msgstr ""
+msgstr "הצגת דלפק משימות באיחור על איקון לוח המחוונים של התחזוקה"
 
+#: plugins/maintenance/src/BackendBehaviors.php:195
 msgid "Display overdue tasks list on dashboard items"
-msgstr ""
+msgstr "הצגת רשימת משימות באיחור בפריטי לוח מחוונים"
 
+#: plugins/maintenance/src/MaintenanceTask.php:161
 msgid "Failed to execute task."
-msgstr ""
+msgstr "ביצוע המשימה נכשל."
 
+#: plugins/maintenance/src/MaintenanceTask.php:164
 msgid "Task successfully executed."
-msgstr ""
+msgstr "המשימה בוצעה בהצלחה."
 
+#: plugins/maintenance/src/Manage.php:116
 msgid "Maintenance plugin has been successfully configured."
-msgstr ""
+msgstr "תוסף התחזוקה הוגדר בהצלחה."
 
+#: plugins/maintenance/src/Manage.php:134
 msgid "System settings have been saved."
-msgstr ""
+msgstr "הגדרות המערכת נשמרו."
 
+#: plugins/maintenance/src/Manage.php:139
 msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
+msgstr "כל הגדרות מדיניות האבטחה של הבלוג אופסו לברירת המחדל."
 
+#: plugins/maintenance/src/Manage.php:164
 msgid "Every week"
-msgstr ""
+msgstr "כל שבוע"
 
+#: plugins/maintenance/src/Manage.php:165
 msgid "Every two weeks"
-msgstr ""
+msgstr "מדי שבועיים"
 
+#: plugins/maintenance/src/Manage.php:166
 msgid "Every month"
-msgstr ""
+msgstr "מדי חודש"
 
+#: plugins/maintenance/src/Manage.php:167
 msgid "Every two months"
-msgstr ""
+msgstr "מדי חודשיים"
 
+#: plugins/maintenance/src/Manage.php:191
 msgid "You have not sufficient permissions to view this page."
-msgstr ""
+msgstr "אין לכם הרשאות מספיקות להצגת דף זה."
 
+#: plugins/maintenance/src/Manage.php:268
+#: plugins/maintenance/src/Manage.php:276
 msgid "You should execute it now."
-msgstr ""
+msgstr "אתה צריך לבצע את זה עכשיו."
 
+#: plugins/maintenance/src/Manage.php:298
+#: plugins/maintenance/src/Manage.php:320
 msgid "Execute task"
-msgstr ""
+msgstr "ביצוע משימה"
 
+#: plugins/maintenance/src/Manage.php:302
 msgid "This may take a very long time."
-msgstr ""
+msgstr "פעולה זו עשויה להימשך זמן רב."
 
+#: plugins/maintenance/src/Manage.php:332
+#: plugins/maintenance/src/Manage.php:333
 msgid "Alert settings"
-msgstr ""
+msgstr "הגדרות התרעה"
 
+#: plugins/maintenance/src/Manage.php:337
 msgid "Activation"
-msgstr ""
+msgstr "הפעלה"
 
+#: plugins/maintenance/src/Manage.php:340
 msgid "Display alert messages on late tasks"
-msgstr ""
+msgstr "הצגת הודעות התרעה במשימות אחרות"
 
+#: plugins/maintenance/src/Manage.php:343
 #, php-format
 msgid "You can place list of late tasks on your %s."
-msgstr ""
+msgstr "תוכלו להציב רשימה של משימות מאוחרות ב- %s."
 
+#: plugins/maintenance/src/Manage.php:349
 msgid "Frequency"
-msgstr ""
+msgstr "תדירות"
 
+#: plugins/maintenance/src/Manage.php:352
 msgid "Use one recall time for all tasks"
-msgstr ""
+msgstr "שימוש בזמן החזרה אחד עבור כל המשימות"
 
+#: plugins/maintenance/src/Manage.php:354
 msgid "Recall time for all tasks:"
-msgstr ""
+msgstr "זמן החזרות עבור כל המשימות:"
 
+#: plugins/maintenance/src/Manage.php:360
 msgid "Use one recall time per task"
-msgstr ""
+msgstr "שימוש בזמן החזרה אחד לכל משימה"
 
+#: plugins/maintenance/src/Manage.php:391
 msgid "Content-Security-Policy"
-msgstr ""
+msgstr "תוכן-אבטחה-מדיניות"
 
+#: plugins/maintenance/src/Manage.php:396
 msgid "Enable Content-Security-Policy system"
-msgstr ""
+msgstr "הפעלת תוכן-אבטחה-מערכת מדיניות"
 
+#: plugins/maintenance/src/Manage.php:399
 msgid "Enable Content-Security-Policy report only"
-msgstr ""
+msgstr "הפעלת תוכן-אבטחה-דוח מדיניות בלבד"
 
+#: plugins/maintenance/src/Manage.php:405
 msgid "Enable Content-Security-Policy system by default"
-msgstr ""
+msgstr "הפעלת תוכן-אבטחה-מערכת מדיניות כברירת מחדל"
 
+#: plugins/maintenance/src/Manage.php:408
 msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
+msgstr "הפעלת תוכן-אבטחה-דוח מדיניות רק כברירת מחדל"
 
+#: plugins/maintenance/src/Manage.php:411
 msgid "Also apply these settings to all blogs"
-msgstr ""
+msgstr "גם להחיל הגדרות אלה על כל הבלוגים."
 
+#: plugins/maintenance/src/Task/CSP.php:34
 msgid "Delete the Content-Security-Policy report file"
-msgstr ""
+msgstr "מחיקת קובץ דוח ' תוכן-אבטחה-מדיניות '"
 
+#: plugins/maintenance/src/Task/CSP.php:35
 msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
+msgstr "תוכן-קובץ דוח מדיניות נמחק."
 
+#: plugins/maintenance/src/Task/CSP.php:36
 msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
+msgstr "לא ניתן למחוק את קובץ דוח מדיניות האבטחה."
 
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Remove the Content-Security-Policy report file."
-msgstr ""
+msgstr "סלקו את קובץ דוח מדיניות האבטחה."
 
+#: plugins/maintenance/src/Task/Cache.php:35
 msgid "Empty templates cache directory"
-msgstr ""
+msgstr "מדריך מטמון תבניות ריק"
 
+#: plugins/maintenance/src/Task/Cache.php:36
 msgid "Templates cache directory emptied."
-msgstr ""
+msgstr "מדריך מטמון התבניות רוקן."
 
+#: plugins/maintenance/src/Task/Cache.php:37
 msgid "Failed to empty templates cache directory."
-msgstr ""
+msgstr "לא ניתן לרוקן את מדריך מטמון התבניות."
 
+#: plugins/maintenance/src/Task/Cache.php:39
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "ייתכן שיועיל לרוקן מטמון זה בעת שינוי קובצי .html או .css של ערכה (או בעת עדכון ערכה או תוסף). שימו לב: עם כמה הובלות, לא ניתן לרוקן את מטמון התבניות עם תוסף זה. לאחר מכן עליכם למחוק את המדריך <strong>%s</strong> ישירות בשרת עם תוכנת FTP."
 
+#: plugins/maintenance/src/Task/CountComments.php:36
 msgid "Count again comments and trackbacks"
-msgstr ""
+msgstr "ספירה חוזרת של הערות והפניות trackback"
 
+#: plugins/maintenance/src/Task/CountComments.php:37
 msgid "Comments and trackback counted."
-msgstr ""
+msgstr "הערות ומעקב חוזר נספרו."
 
+#: plugins/maintenance/src/Task/CountComments.php:38
 msgid "Failed to count comments and trackbacks."
-msgstr ""
+msgstr "לא ניתן לספור הערות והפניות trackback."
 
+#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
+msgstr "ספירה חוזרת של הערות והפניות trackback מאפשרת לבדוק את מספרם המדויק. פעולה זו יכולה להיות שימושית בזמן יבוא מפלטפורמת בלוג אחרת (או בעת ביצוע הגירה מ-dotנקו 1 ל-dotנקו 2)."
 
+#: plugins/maintenance/src/Task/IndexComments.php:59
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Search engine index"
-msgstr ""
+msgstr "אינדקס מנוע חיפוש"
 
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Index all comments for search engine"
-msgstr ""
+msgstr "אינדקס כל ההערות עבור מנוע החיפוש"
 
+#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 msgid "Next"
-msgstr ""
+msgstr "הבא"
 
+#: plugins/maintenance/src/Task/IndexComments.php:62
 #, php-format
 msgid "Indexing comment %d to %d."
-msgstr ""
+msgstr "מפתוח הערה %d עד %d."
 
+#: plugins/maintenance/src/Task/IndexComments.php:63
 msgid "Comments index done."
-msgstr ""
+msgstr "אינדקס הערות בוצע."
 
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Failed to index comments."
-msgstr ""
+msgstr "כשל בהערות האינדקס."
 
+#: plugins/maintenance/src/Task/IndexComments.php:66
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "האינדקס כל ההערות והפניות trackback באינדקס מנוע החיפוש. פעולה זו הכרחית, לאחר יבוא תוכן בבלוג, כדי להשתמש במנוע חיפוש פנימי, בדפים ציבוריים ופרטיים."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Index all entries for search engine"
-msgstr ""
+msgstr "אינדקס כל הרשומות עבור מנוע החיפוש"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 #, php-format
 msgid "Indexing entry %d to %d."
-msgstr ""
+msgstr "מפתוח ערך %d עד %d."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Entries index done."
-msgstr ""
+msgstr "אינדקס הרשומות בוצע."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Failed to index entries."
-msgstr ""
+msgstr "כשל באינדקס של רשומות."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:66
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "אינדקס כל הרשומות באינדקס של מנוע החיפוש. פעולה זו הכרחית, לאחר יבוא תוכן בבלוג, כדי להשתמש במנוע חיפוש פנימי, בדפים ציבוריים ופרטיים."
 
+#: plugins/maintenance/src/Task/Logs.php:41
 msgid "Delete all logs"
-msgstr ""
+msgstr "מחיקת כל היומנים"
 
+#: plugins/maintenance/src/Task/Logs.php:42
 msgid "Logs deleted."
-msgstr ""
+msgstr "היומנים נמחקו."
 
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Failed to delete logs."
-msgstr ""
+msgstr "מחיקת היומנים נכשלה."
 
+#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr ""
+msgstr "היומנים מקליטים את כל הפעילות והחיבור אל היסטוריית הבלוג. אלא אם כן אתה צריך לשמור על ההיסטוריה הזאת, לשקול מחיקת יומנים אלה מעת לעת."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Entries metadata"
-msgstr ""
+msgstr "מטה-נתונים של רשומות"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Synchronize entries metadata"
-msgstr ""
+msgstr "סינכרון מטה-נתונים של רשומות"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 #, php-format
 msgid "Synchronize entry %d to %d."
-msgstr ""
+msgstr "סנכרון רשומת %d עד %d."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata synchronize done."
-msgstr ""
+msgstr "בוצע סינכרון של מטה-נתונים של רשומות."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Failed to synchronize entries metadata."
-msgstr ""
+msgstr "נכשל בסינכרון רשומות מטה-נתונים."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
-msgstr ""
+msgstr "סינכרון כל המטה-נתונים של הרשומות יכול להיות שימושי לאחר יבוא תוכן בבלוג או ביצוע פעולה רעה בטבלאות מסד הנתונים."
 
+#: plugins/maintenance/src/Task/Vacuum.php:35
 msgid "Optimise database"
-msgstr ""
+msgstr "מסד נתונים מיטבי"
 
+#: plugins/maintenance/src/Task/Vacuum.php:36
 msgid "optimize tables"
-msgstr ""
+msgstr "מיטוב טבלאות"
 
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimization successful."
-msgstr ""
+msgstr "מיטוב בוצע בהצלחה."
 
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "Failed to optimize tables."
-msgstr ""
+msgstr "מיטוב טבלאות נכשל."
 
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
-msgstr ""
+msgstr "לאחר מספר פעולות מחיקה או עדכון במסד הנתונים של Dotclear, הוא מקבל מקוטע. מיטוב יאפשר להשמיט את זה. אין לזה השפעה על שלמות הנתונים שלך. מומלץ למטב לפני כל יצוא בלוג."
 
+#: plugins/maintenance/src/Task/ZipMedia.php:56
 msgid "Download media folder of current blog"
-msgstr ""
+msgstr "הורדת תיקיית המדיה של הבלוג הנוכחי"
 
+#: plugins/maintenance/src/Task/ZipMedia.php:58
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
-msgstr ""
+msgstr "יתכן ויעיל לגבות את תיקיית המדיה שלכם. פעולה זו קושרת את כל תוכן תיקיית המדיה לקובץ zip יחיד. שימו לב: עם כמה הובלות, לא ניתן לדחוס את תיקיית המדיה עם תוסף זה אם הוא גדול מדי."
 
+#: plugins/maintenance/src/Task/ZipTheme.php:57
 msgid "Download active theme of current blog"
-msgstr ""
+msgstr "הורדת ערכה פעילה של הבלוג הנוכחי"
 
+#: plugins/maintenance/src/Task/ZipTheme.php:59
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
-msgstr ""
+msgstr "מומלץ לגבות את הערכה הפעילה לפני כל שינוי או עדכון. תיקיית ערכת נושא זו לקובץ zip יחיד."
 
+#: plugins/pages/src/Backend.php:38
 msgid "manage pages"
-msgstr ""
+msgstr "ניהול דפים"
 
+#: plugins/pages/src/Backend.php:82
 #, php-format
 msgid "%d page"
-msgstr ""
+msgstr "%d עמוד"
 
+#: plugins/pages/src/Backend.php:82
 #, php-format
 msgid "%d pages"
-msgstr ""
+msgstr "%d עמודים"
 
+#: plugins/pages/src/Backend.php:89 plugins/pages/src/Manage.php:128
+#: plugins/pages/src/ManagePage.php:74 plugins/pages/src/ManagePage.php:654
 msgid "New page"
-msgstr ""
+msgstr "דף חדש"
 
+#: plugins/pages/src/BackendActions.php:52
 msgid "Pages actions"
-msgstr ""
+msgstr "פעולות דפים"
 
+#: plugins/pages/src/BackendActions.php:74
 msgid "Back to pages list"
-msgstr ""
+msgstr "חזרה לרשימת הדפים"
 
+#: plugins/pages/src/BackendDefaultActions.php:119
+#: plugins/pages/src/Manage.php:125
 msgid "Selected pages have been successfully reordered."
-msgstr ""
+msgstr "הדפים שנבחרו הוזמנו מחדש בהצלחה."
 
+#: plugins/pages/src/BackendList.php:35
 msgid "No page"
-msgstr ""
+msgstr "אין דף"
 
+#: plugins/pages/src/BackendList.php:93 plugins/pages/src/BackendList.php:146
 msgid "Hidden"
-msgstr ""
+msgstr "מוסתר"
 
+#: plugins/pages/src/BackendList.php:175
 msgid "Select this page"
-msgstr ""
+msgstr "בחירת דף זה."
 
+#: plugins/pages/src/Frontend.php:35
 msgid "Published on"
-msgstr ""
+msgstr "פורסם ב -"
 
+#: plugins/pages/src/Frontend.php:36
 msgid "This page's comments feed"
-msgstr ""
+msgstr "ערוץ תוכן של דף זה."
 
-msgid "You must provide a valid email address."
-msgstr ""
-
+#: plugins/pages/src/Install.php:47
 msgid "My first page"
-msgstr ""
+msgstr "הדף הראשון שלי"
 
+#: plugins/pages/src/Install.php:48
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+msgstr "זה הדף הראשון שלך. כשתהיו מוכנים לבלוג, התחברו לעריכה או מחקו אותה."
 
+#: plugins/pages/src/Manage.php:107
 msgid "Are you sure you want to delete selected pages?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם למחוק את הדפים שנבחרו?"
 
+#: plugins/pages/src/Manage.php:121
 msgid "Selected pages have been successfully updated."
-msgstr ""
+msgstr "הדפים שנבחרו עודכנו בהצלחה."
 
+#: plugins/pages/src/Manage.php:123
 msgid "Selected pages have been successfully deleted."
-msgstr ""
+msgstr "הדפים שנבחרו נמחקו בהצלחה."
 
+#: plugins/pages/src/Manage.php:142
 msgid "Selected pages action:"
-msgstr ""
+msgstr "פעולת עמודים שנבחרו:"
 
+#: plugins/pages/src/Manage.php:151
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
-msgstr ""
+msgstr "כדי לסדר מחדש את סדר הדפים, שנו את המספר המתחיל לשורה, ולחצו על הלחצן 'שמירת סדר דפים'."
 
+#: plugins/pages/src/Manage.php:153
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
-msgstr ""
+msgstr "כדי לסדר מחדש את סדר הדפים, העבירו פריטים באמצעות גרירה ושחרור, ולאחר מכן לחצו על הלחצן 'שמירת סדר דפים'."
 
+#: plugins/pages/src/Manage.php:154
 msgid "Save pages order"
-msgstr ""
+msgstr "שמירת סדר דפים"
 
+#: plugins/pages/src/ManagePage.php:131
 msgid "This page does not exist."
-msgstr ""
+msgstr "דף זה אינו קיים."
 
+#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:654
+#: plugins/pages/src/ManagePage.php:659
 msgid "Edit page"
-msgstr ""
+msgstr "עריכת דף"
 
+#: plugins/pages/src/ManagePage.php:433
 msgid "Are you sure you want to delete this page?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם למחוק דף זה?"
 
+#: plugins/pages/src/ManagePage.php:470
 msgid "Page has been successfully updated."
-msgstr ""
+msgstr "הדף עודכן בהצלחה."
 
+#: plugins/pages/src/ManagePage.php:472
 msgid "Page has been successfully created."
-msgstr ""
+msgstr "הדף נוצר בהצלחה."
 
+#: plugins/pages/src/ManagePage.php:485
 msgid "Don't forget to validate your HTML conversion by saving your post."
-msgstr ""
+msgstr "אל תשכחו לאמת את המרת ה-HTML שלכם באמצעות שמירת הפרסום."
 
+#: plugins/pages/src/ManagePage.php:490
 msgid "Go to this page on the site"
-msgstr ""
+msgstr "מעבר לדף זה באתר"
 
+#: plugins/pages/src/ManagePage.php:532
 msgid "Page status"
-msgstr ""
+msgstr "מצב עמוד"
 
+#: plugins/pages/src/ManagePage.php:545
 msgid "Page language"
-msgstr ""
+msgstr "שפת דף"
 
+#: plugins/pages/src/ManagePage.php:558 plugins/pages/src/Widgets.php:37
 msgid "Page position"
-msgstr ""
+msgstr "מיקום עמוד"
 
+#: plugins/pages/src/ManagePage.php:585
 msgid "Hide in widget Pages"
-msgstr ""
+msgstr "הסתרה בדפי פקדים"
 
+#: plugins/pages/src/ManagePage.php:595
 msgid "Warning: If you set the URL manually, it may conflict with another page."
-msgstr ""
+msgstr "אזהרה: אם תגדירו את ה-URL באופן ידני, הוא עלול להתנגש עם דף אחר."
 
+#: plugins/pages/src/ManagePage.php:610
 msgid "Introduction to the page."
-msgstr ""
+msgstr "מבוא לדף."
 
+#: plugins/pages/src/ManagePage.php:960
 msgid "Select this comment"
-msgstr ""
+msgstr "בחרו הערה זו."
 
+#: plugins/pages/src/Widgets.php:36
 msgid "Page title"
-msgstr ""
+msgstr "כותרת דף"
 
+#: plugins/pages/src/Widgets.php:38
 msgid "Publication date"
-msgstr ""
+msgstr "תאריך פרסום"
 
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:50
 msgid "Pings"
-msgstr ""
+msgstr "פינגים"
 
+#: plugins/pings/src/Manage.php:61
 msgid "Settings have been successfully updated."
-msgstr ""
+msgstr "ההגדרות עודכנו בהצלחה."
 
+#: plugins/pings/src/Manage.php:82
 msgid "Pings configuration"
-msgstr ""
+msgstr "תצורת Pings"
 
+#: plugins/pings/src/Manage.php:88
 msgid "Activate pings extension"
-msgstr ""
+msgstr "הרחבת הרחבת pings"
 
+#: plugins/pings/src/Manage.php:93 plugins/pings/src/Manage.php:115
 msgid "Service name:"
-msgstr ""
+msgstr "שם שירות:"
 
+#: plugins/pings/src/Manage.php:95 plugins/pings/src/Manage.php:117
 msgid "Service URI:"
-msgstr ""
+msgstr "URI של שירות:"
 
+#: plugins/pings/src/Manage.php:106
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
+#: plugins/pings/src/Manage.php:123
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr ""
+msgstr "ביטול אוטומטי של כל השירותים בפרסום הראשון של הרשומה (הבלוג הנוכחי בלבד)"
 
+#: plugins/pings/src/Manage.php:130
 msgid "Test ping services"
-msgstr ""
+msgstr "בדיקת שירותי פינג"
 
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:46
+#: plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
-msgstr ""
+msgstr "תפריט פשוט"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "Active page"
-msgstr ""
+msgstr "דף פעיל"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "active page"
-msgstr ""
+msgstr "דף פעיל"
 
+#: plugins/simpleMenu/src/Manage.php:69
 msgid "All months"
-msgstr ""
+msgstr "כל החודשים"
 
+#: plugins/simpleMenu/src/Manage.php:127
 msgid "Archive"
-msgstr ""
+msgstr "ארכיב"
 
+#: plugins/simpleMenu/src/Manage.php:130
 msgid "Page"
-msgstr ""
+msgstr "עמוד"
 
+#: plugins/simpleMenu/src/Manage.php:133 plugins/tags/src/Backend.php:24
+#: plugins/tags/src/Widgets.php:29
 msgid "Tags"
-msgstr ""
+msgstr "תגים"
 
+#: plugins/simpleMenu/src/Manage.php:140
 msgid "User defined"
-msgstr ""
+msgstr "משתמש הוגדר"
 
+#: plugins/simpleMenu/src/Manage.php:181
 msgid "Configuration successfully updated."
-msgstr ""
+msgstr "התצורה עודכנה בהצלחה."
 
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:668
 msgid "Label"
-msgstr ""
+msgstr "תווית"
 
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Home page"
-msgstr ""
+msgstr "דף הבית"
 
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:231
+#: plugins/widgets/src/Widgets.php:238 plugins/widgets/src/Widgets.php:245
 msgid "Recent posts"
-msgstr ""
+msgstr "פרסומים אחרונים"
 
+#: plugins/simpleMenu/src/Manage.php:238
 #, php-format
 msgid "Switch to %s language"
-msgstr ""
+msgstr "מעבר ל- %s שפה"
 
+#: plugins/simpleMenu/src/Manage.php:245
 msgid "Recent Posts from this category"
-msgstr ""
+msgstr "פרסומים אחרונים מסיווג זה"
 
+#: plugins/simpleMenu/src/Manage.php:257
 #, php-format
 msgid "Posts from %s"
-msgstr ""
+msgstr "פרסומים מ- %s"
 
+#: plugins/simpleMenu/src/Manage.php:277
 #, php-format
 msgid "Recent posts for %s tag"
-msgstr ""
+msgstr "פרסומים אחרונים עבור תג %s"
 
+#: plugins/simpleMenu/src/Manage.php:337
 msgid "Menu item has been successfully added."
-msgstr ""
+msgstr "פריט התפריט נוסף בהצלחה."
 
+#: plugins/simpleMenu/src/Manage.php:342
 msgid "Label and URL of menu item are mandatory."
-msgstr ""
+msgstr "תווית וURL של פריט תפריט הם שדות חובה."
 
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu items have been successfully removed."
-msgstr ""
+msgstr "פריטי תפריט סולקו בהצלחה."
 
+#: plugins/simpleMenu/src/Manage.php:378
 msgid "No menu items selected."
-msgstr ""
+msgstr "לא נבחרו פריטי תפריט."
 
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label is mandatory."
-msgstr ""
+msgstr "התווית היא הכרחית."
 
+#: plugins/simpleMenu/src/Manage.php:395
 msgid "URL is mandatory."
-msgstr ""
+msgstr "ה-URL הוא חובה."
 
+#: plugins/simpleMenu/src/Manage.php:440
 msgid "Menu items have been successfully updated."
-msgstr ""
+msgstr "פריטי תפריט עודכנו בהצלחה."
 
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Step #1"
-msgstr ""
+msgstr "שלב #1"
 
+#: plugins/simpleMenu/src/Manage.php:483 plugins/simpleMenu/src/Manage.php:491
 msgid "Step #2"
-msgstr ""
+msgstr "שלב #2"
 
+#: plugins/simpleMenu/src/Manage.php:489
 msgid "Step #3"
-msgstr ""
+msgstr "שלב #3"
 
+#: plugins/simpleMenu/src/Manage.php:501
 msgid "Add item"
-msgstr ""
+msgstr "הוספת פריט"
 
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Select type"
-msgstr ""
+msgstr "בחירת סוג"
 
+#: plugins/simpleMenu/src/Manage.php:530
 msgid "Type of item menu:"
-msgstr ""
+msgstr "סוג תפריט פריט:"
 
+#: plugins/simpleMenu/src/Manage.php:533 plugins/simpleMenu/src/Manage.php:572
 msgid "Continue..."
-msgstr ""
+msgstr "המשך ..."
 
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
-msgstr ""
+msgstr "בחירת שפה:"
 
+#: plugins/simpleMenu/src/Manage.php:552
 msgid "Select category:"
-msgstr ""
+msgstr "בחירת סיווג:"
 
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Select month (if necessary):"
-msgstr ""
+msgstr "בחירת חודש (במידת הצורך):"
 
+#: plugins/simpleMenu/src/Manage.php:558
 msgid "Select page:"
-msgstr ""
+msgstr "בחירת דף:"
 
+#: plugins/simpleMenu/src/Manage.php:561
 msgid "Select tag (if necessary):"
-msgstr ""
+msgstr "בחרו תג (במקרה הצורך):"
 
+#: plugins/simpleMenu/src/Manage.php:587
 msgid "Label of item menu:"
-msgstr ""
+msgstr "תווית של תפריט פריט:"
 
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Description of item menu:"
-msgstr ""
+msgstr "תיאור של תפריט פריט:"
 
+#: plugins/simpleMenu/src/Manage.php:605
 msgid "URL of item menu:"
-msgstr ""
+msgstr "URL של תפריט פריט:"
 
+#: plugins/simpleMenu/src/Manage.php:614 plugins/simpleMenu/src/Manage.php:671
 msgid "Open URL on a new tab"
-msgstr ""
+msgstr "פתיחת URL בלשונית חדשה"
 
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Add this item"
-msgstr ""
+msgstr "הוספת פריט זה:"
 
+#: plugins/simpleMenu/src/Manage.php:630
 msgid "Enable simple menu for this blog"
-msgstr ""
+msgstr "הפעלת תפריט פשוט עבור בלוג זה."
 
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Add an item"
-msgstr ""
+msgstr "הוספת פריט."
 
+#: plugins/simpleMenu/src/Manage.php:657
 msgid "Menu items list"
-msgstr ""
+msgstr "רשימת פריטי תפריט"
 
+#: plugins/simpleMenu/src/Manage.php:740
 msgid "Update menu"
-msgstr ""
+msgstr "תפריט עדכון"
 
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Delete selected menu items"
-msgstr ""
+msgstr "מחיקת פריטי תפריט נבחרים."
 
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Are you sure you want to remove selected menu items?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם לסלק את פריטי התפריט שנבחרו?"
 
+#: plugins/simpleMenu/src/Manage.php:750
 msgid "No menu items so far."
-msgstr ""
+msgstr "אין פריטי תפריט עד כה."
 
+#: plugins/simpleMenu/src/Widgets.php:31
 msgid "Item description"
-msgstr ""
+msgstr "תיאור פריט"
 
+#: plugins/simpleMenu/src/Widgets.php:35
 msgid "Displayed in link"
-msgstr ""
+msgstr "מוצג בקישור"
 
+#: plugins/simpleMenu/src/Widgets.php:36
 msgid "Used as link title"
-msgstr ""
+msgstr "משמש ככותרת קישור"
 
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link and used as title"
-msgstr ""
+msgstr "מוצג בקישור ומשמש ככותרת"
 
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Not displayed nor used"
-msgstr ""
+msgstr "לא מוצג ולא נמצא בשימוש"
 
+#: plugins/tags/src/BackendBehaviors.php:51
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
-msgstr ""
+msgstr "תג"
 
+#: plugins/tags/src/BackendBehaviors.php:198
 msgid "Add tags"
-msgstr ""
+msgstr "הוספת תגים"
 
+#: plugins/tags/src/BackendBehaviors.php:207
 msgid "Remove tags"
-msgstr ""
+msgstr "סילוק תגים"
 
+#: plugins/tags/src/BackendBehaviors.php:242
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "התג נוסף בהצלחה לרשומות שנבחרו."
+msgstr[1] "תגים נוספו בהצלחה לרשומות שנבחרו."
+msgstr[2] "תגים נוספו בהצלחה לרשומות שנבחרו."
+msgstr[3] "תגים נוספו בהצלחה לרשומות שנבחרו."
 
+#: plugins/tags/src/BackendBehaviors.php:255
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Are you sure you want to remove this tag?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם לסלק תג זה?"
 
+#: plugins/tags/src/BackendBehaviors.php:256
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Add a tag to this entry"
-msgstr ""
+msgstr "הוספת תג לרשומה זו."
 
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:396
 msgid "Choose from list"
-msgstr ""
+msgstr "בחירה מתוך רשימה"
 
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:397
 msgid "all"
-msgstr ""
+msgstr "כל"
 
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Enter tags separated by comma"
-msgstr ""
+msgstr "ציינו תגים מופרדים בפסיקים"
 
+#: plugins/tags/src/BackendBehaviors.php:263
+#: plugins/tags/src/BackendBehaviors.php:402
 msgid "used in %e - frequency %p%"
-msgstr ""
+msgstr "בשימוש ב- %e -תדירות %p%"
 
+#: plugins/tags/src/BackendBehaviors.php:264
+#: plugins/tags/src/BackendBehaviors.php:403 plugins/tags/src/Manage.php:95
 msgid "entry"
-msgstr ""
+msgstr "כניסה"
 
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:404 plugins/tags/src/Manage.php:95
 msgid "entries"
-msgstr ""
+msgstr "רשומות"
 
+#: plugins/tags/src/BackendBehaviors.php:273
 msgid "Add tags to this selection"
-msgstr ""
+msgstr "הוספת תגים לבחירה זו."
 
+#: plugins/tags/src/BackendBehaviors.php:286
 msgid "Tags to add:"
-msgstr ""
+msgstr "תגים להוספה:"
 
+#: plugins/tags/src/BackendBehaviors.php:319
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "התג סולק בהצלחה מהרשומות הנבחרות."
+msgstr[1] "תגים סולקו בהצלחה מהרשומות הנבחרות."
+msgstr[2] "תגים סולקו בהצלחה מהרשומות הנבחרות."
+msgstr[3] "תגים סולקו בהצלחה מהרשומות הנבחרות."
 
+#: plugins/tags/src/BackendBehaviors.php:342
 msgid "No tags for selected entries"
-msgstr ""
+msgstr "אין תגים לרשומות שנבחרו."
 
+#: plugins/tags/src/BackendBehaviors.php:349
 msgid "Remove selected tags from this selection"
-msgstr ""
+msgstr "סילוק התגים שנבחרו מבחירה זו."
 
+#: plugins/tags/src/BackendBehaviors.php:358
 msgid "Following tags have been found in selected entries:"
-msgstr ""
+msgstr "תגים במעקב נמצאו ברשומות הנבחרות:"
 
+#: plugins/tags/src/BackendBehaviors.php:423
 msgid "Short"
-msgstr ""
+msgstr "קצר"
 
+#: plugins/tags/src/BackendBehaviors.php:424
 msgid "Extended"
-msgstr ""
+msgstr "מורחב"
 
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Tags list format:"
-msgstr ""
+msgstr "מבנה רשימת תגים:"
 
+#: plugins/tags/src/FrontendBehaviors.php:28
 msgid "This tag's comments Atom feed"
-msgstr ""
+msgstr "תווית זו של הערות Atom"
 
+#: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's entries Atom feed"
-msgstr ""
+msgstr "תג זה של רשומות Atom"
 
+#: plugins/tags/src/Manage.php:114
 msgid "No tags on this blog."
-msgstr ""
+msgstr "אין תגים בבלוג זה."
 
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
-msgstr ""
+msgstr "התג שונה בהצלחה."
 
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
-msgstr ""
+msgstr "התג סולק בהצלחה."
 
+#: plugins/tags/src/ManagePosts.php:138
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם לסלק את התג: \"%s?"
 
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
-msgstr ""
+msgstr "חזרה לרשימת התגים"
 
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
-msgstr ""
+msgstr "שינוי שם"
 
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
-msgstr ""
+msgstr "מחיקת תג זה"
 
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
-msgstr ""
+msgstr "רשימת רשומות עם התג \"%s"
 
+#: plugins/tags/src/Widgets.php:30
 msgid "Limit (empty means no limit):"
-msgstr ""
+msgstr "מגבלה (ריק פירושו ללא מגבלה):"
 
+#: plugins/tags/src/Widgets.php:37
 msgid "Tag name"
-msgstr ""
+msgstr "שם תג"
 
+#: plugins/tags/src/Widgets.php:38
 msgid "Entries count"
-msgstr ""
+msgstr "ספירת רשומות"
 
+#: plugins/tags/src/Widgets.php:39
 msgid "Newest entry"
-msgstr ""
+msgstr "כניסה מערבית"
 
+#: plugins/tags/src/Widgets.php:40
 msgid "Oldest entry"
-msgstr ""
+msgstr "הרשומה הישנה ביותר"
 
+#: plugins/tags/src/Widgets.php:53
 msgid "Link to all tags:"
-msgstr ""
+msgstr "קישור לכל התגים:"
 
+#: plugins/themeEditor/src/Backend.php:23
 msgid "themeEditor"
-msgstr ""
+msgstr "עורך themeEditor"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Edit theme files"
-msgstr ""
+msgstr "עריכת קובצי הערכה"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:76
 msgid "Syntax highlighting"
-msgstr ""
+msgstr "הבלטת תחביר"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:81
 msgid "Syntax highlighting in theme editor"
-msgstr ""
+msgstr "הבלטת תחביר בעורך ערכות נושא"
 
+#: plugins/themeEditor/src/Manage.php:87
 msgid "The theme update has been locked."
-msgstr ""
+msgstr "עדכון הערכה ננעל."
 
+#: plugins/themeEditor/src/Manage.php:95
 msgid "The theme update has been unocked."
-msgstr ""
+msgstr "עדכון הערכה סולק."
 
+#: plugins/themeEditor/src/Manage.php:118
 msgid "The file has been reset."
-msgstr ""
+msgstr "הקובץ אופס."
 
+#: plugins/themeEditor/src/Manage.php:144
 msgid "Unlock update"
-msgstr ""
+msgstr "ביטול נעילה"
 
+#: plugins/themeEditor/src/Manage.php:145
 msgid "Lock update"
-msgstr ""
+msgstr "עדכון נעילה"
 
+#: plugins/themeEditor/src/Manage.php:149
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr ""
+msgstr "נעילת העדכון של הערכה אינה מונעת לשנות את הקבצים שלה, רק כדי לעדכן אותה באופן גלובלי."
 
+#: plugins/themeEditor/src/Manage.php:161
 msgid "Saving document..."
-msgstr ""
+msgstr "המסמך נשמר כעת ..."
 
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Document saved"
-msgstr ""
+msgstr "המסמך נשמר"
 
+#: plugins/themeEditor/src/Manage.php:163
 msgid "An error occurred:"
-msgstr ""
+msgstr "אירעה שגיאה:"
 
+#: plugins/themeEditor/src/Manage.php:164
 msgid "Are you sure you want to reset this file?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם לאפס קובץ זה?"
 
+#: plugins/themeEditor/src/Manage.php:186
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
-msgstr ""
+msgstr "הנושא הנוכחי שלכם בבלוג זה הוא \"%s."
 
+#: plugins/themeEditor/src/Manage.php:197
 msgid "Please select a file to edit."
-msgstr ""
+msgstr "נא לבחור קובץ לעריכה."
 
+#: plugins/themeEditor/src/Manage.php:202
 msgid "File editor"
-msgstr ""
+msgstr "עורך קבצים"
 
+#: plugins/themeEditor/src/Manage.php:203
 #, php-format
 msgid "Editing file %s"
-msgstr ""
+msgstr "עריכת קובץ %s"
 
+#: plugins/themeEditor/src/Manage.php:213
 msgid "Reset"
-msgstr ""
+msgstr "איפוס"
 
+#: plugins/themeEditor/src/Manage.php:219
 msgid "This file is not writable. Please check your theme files permissions."
-msgstr ""
+msgstr "קובץ זה אינו מאפשר כתיבה. בדקו את הרשאות קובצי הערכה שלכם."
 
+#: plugins/themeEditor/src/Manage.php:246
 msgid "Templates files"
-msgstr ""
+msgstr "קובצי תבניות"
 
+#: plugins/themeEditor/src/Manage.php:249
 msgid "CSS files"
-msgstr ""
+msgstr "קובצי CSS"
 
+#: plugins/themeEditor/src/Manage.php:252
 msgid "JavaScript files"
-msgstr ""
+msgstr "קובצי JavaScript"
 
+#: plugins/themeEditor/src/Manage.php:255
 msgid "Locales files"
-msgstr ""
+msgstr "קובצי Locales"
 
+#: plugins/themeEditor/src/Manage.php:258
 msgid "PHP files"
-msgstr ""
+msgstr "קבצי PHP"
 
+#: plugins/themeEditor/src/Manage.php:267
 msgid "You can't edit a distributed theme."
-msgstr ""
+msgstr "אינכם יכולים לערוך ערכה מבוזרת."
 
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
-msgstr ""
+msgstr "אין קובץ"
 
+#: plugins/themeEditor/src/ThemeEditor.php:164
 msgid "From theme:"
-msgstr ""
+msgstr "מהערכה:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:166
 msgid "From parent:"
-msgstr ""
+msgstr "מהורה:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:171
 msgid "From template set:"
-msgstr ""
+msgstr "מערך תבנית:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:206
+#: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:325
 msgid "File does not exist."
-msgstr ""
+msgstr "הקובץ אינו קיים."
 
+#: plugins/themeEditor/src/ThemeEditor.php:211
 #, php-format
 msgid "File %s is not readable"
-msgstr ""
+msgstr "קובץ %s אינו קריא"
 
+#: plugins/themeEditor/src/ThemeEditor.php:273
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "לא ניתן לכתוב את הקובץ %s. בדקו את קובצי הערכה והרשאות התיקיות שלכם."
+
+#: plugins/themeEditor/src/ThemeEditor.php:338
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "לא ניתן למחוק את הקובץ %s. בדקו את קובצי הערכה והרשאות התיקיות שלכם."
+
+#: plugins/userPref/src/Backend.php:23
 msgid "user:preferences"
-msgstr ""
+msgstr "משתמש: העדפות"
 
+#: plugins/userPref/src/Manage.php:70 plugins/userPref/src/Manage.php:89
 msgid "Preferences successfully updated"
-msgstr ""
+msgstr "ההעדפות עודכנו בהצלחה"
 
+#: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
 msgid "User preferences"
-msgstr ""
+msgstr "העדפות משתמש"
 
+#: plugins/userPref/src/Manage.php:127 plugins/userPref/src/Manage.php:128
 msgid "Global preferences"
-msgstr ""
+msgstr "העדפות גלובליות"
 
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
-msgstr ""
+msgstr "פקדים"
 
+#: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
-msgstr ""
+msgstr "Textareas של הפקד"
 
+#: plugins/widgets/src/Install.php:34
 msgid "Unable to initialize default widgets."
-msgstr ""
+msgstr "לא ניתן לאתחל פקדי ברירת מחדל."
 
+#: plugins/widgets/src/Manage.php:57
 msgid "navigation"
-msgstr ""
+msgstr "ניווט"
 
+#: plugins/widgets/src/Manage.php:58
 msgid "extra"
-msgstr ""
+msgstr "תוספת"
 
+#: plugins/widgets/src/Manage.php:59
 msgid "custom"
-msgstr ""
+msgstr "מותאם אישית"
 
+#: plugins/widgets/src/Manage.php:194
 msgid "Sidebars and their widgets have been saved."
-msgstr ""
+msgstr "סרגל הצד והרכיבים הגרפיים שלהם נשמרו."
 
+#: plugins/widgets/src/Manage.php:206
 msgid "Sidebars have been resetting."
-msgstr ""
+msgstr "סרגל הצד כבר הגדרה מחדש."
 
+#: plugins/widgets/src/Manage.php:237
 msgid "Are you sure you want to reset sidebars?"
-msgstr ""
+msgstr "אתם בטוחים שברצונכם לאפס את סרגל הצד?"
 
+#: plugins/widgets/src/Manage.php:270
 msgid "Available widgets"
-msgstr ""
+msgstr "פקדים זמינים"
 
+#: plugins/widgets/src/Manage.php:271
 msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+msgstr "גררו רכיבים גרפיים מרשימה זו אל אחד מסרגלי הצד, להוספה."
 
+#: plugins/widgets/src/Manage.php:281 plugins/widgets/src/Manage.php:399
 msgid "order"
-msgstr ""
+msgstr "הזמנה"
 
+#: plugins/widgets/src/Manage.php:285
 msgid "Append to:"
-msgstr ""
+msgstr "חל על:"
 
+#: plugins/widgets/src/Manage.php:296
 msgid "Add widgets to sidebars"
-msgstr ""
+msgstr "הוספת פקדים לסרגלי צד"
 
+#: plugins/widgets/src/Manage.php:303
 msgid "Navigation sidebar"
-msgstr ""
+msgstr "סרגל צד ניווט"
 
+#: plugins/widgets/src/Manage.php:308
 msgid "Extra sidebar"
-msgstr ""
+msgstr "סרגל צד נוסף"
 
+#: plugins/widgets/src/Manage.php:313
 msgid "Custom sidebar"
-msgstr ""
+msgstr "סרגל צד מותאם"
 
+#: plugins/widgets/src/Manage.php:318
 msgid "Update sidebars"
-msgstr ""
+msgstr "עדכון צדדי"
 
+#: plugins/widgets/src/Manage.php:320
 msgid "Reset sidebars"
-msgstr ""
+msgstr "איפוס סרגל צד"
 
+#: plugins/widgets/src/Manage.php:328
 msgid "Widget ID:"
-msgstr ""
+msgstr "זיהוי פקד:"
 
+#: plugins/widgets/src/Manage.php:334
 msgid "No setting for this widget"
-msgstr ""
+msgstr "אין הגדרה עבור פקד זה."
 
+#: plugins/widgets/src/Manage.php:340
 msgid "boolean"
-msgstr ""
+msgstr "בוליאני"
 
+#: plugins/widgets/src/Manage.php:340 plugins/widgets/src/Manage.php:345
 msgid "possible values:"
-msgstr ""
+msgstr "ערכים אפשריים:"
 
+#: plugins/widgets/src/Manage.php:344
 msgid "empty string"
-msgstr ""
+msgstr "מחרוזת ריקה"
 
+#: plugins/widgets/src/Manage.php:345
 msgid "listitem"
-msgstr ""
+msgstr "ליסטיקה"
 
+#: plugins/widgets/src/Manage.php:351
 msgid "string"
-msgstr ""
+msgstr "מחרוזת"
 
+#: plugins/widgets/src/Manage.php:357
 msgid "Setting name:"
-msgstr ""
+msgstr "שם הגדרה:"
 
+#: plugins/widgets/src/Manage.php:382
 msgid "No widget as far."
-msgstr ""
+msgstr "אין פקד עד כה."
 
+#: plugins/widgets/src/Manage.php:389 plugins/widgets/src/Manage.php:404
 msgid "Up the widget"
-msgstr ""
+msgstr "למעלה הפקד"
 
+#: plugins/widgets/src/Manage.php:390 plugins/widgets/src/Manage.php:405
 msgid "Down the widget"
-msgstr ""
+msgstr "למטה הפקד"
 
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove the widget"
-msgstr ""
+msgstr "סילוק הפקד"
 
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove widget"
-msgstr ""
+msgstr "סילוק פקד"
 
+#: plugins/widgets/src/Manage.php:418
 msgid "Drag widgets here to remove."
-msgstr ""
+msgstr "גררו רכיבים גרפיים כאן לסילוק."
 
+#: plugins/widgets/src/Widgets.php:54
 msgid "Search engine"
-msgstr ""
+msgstr "מנוע חיפוש"
 
+#: plugins/widgets/src/Widgets.php:56
 msgid "Placeholder (HTML5 only, optional):"
-msgstr ""
+msgstr "מציין מקום (HTML5 בלבד, אופציונלי):"
 
+#: plugins/widgets/src/Widgets.php:63
 msgid "Navigation links"
-msgstr ""
+msgstr "קישורי ניווט"
 
+#: plugins/widgets/src/Widgets.php:71
 msgid "Selected entries"
-msgstr ""
+msgstr "רשומות שנבחרו"
 
+#: plugins/widgets/src/Widgets.php:72
 msgid "Best of me"
-msgstr ""
+msgstr "הכי טוב שלי"
 
+#: plugins/widgets/src/Widgets.php:80
 msgid "Blog languages"
-msgstr ""
+msgstr "שפות בלוג"
 
+#: plugins/widgets/src/Widgets.php:90
 msgid "With entries counts"
-msgstr ""
+msgstr "עם ערכים ספירות"
 
+#: plugins/widgets/src/Widgets.php:91
 msgid "Include sub cats in count"
-msgstr ""
+msgstr "הכללת תת-חתולים בספירת"
 
+#: plugins/widgets/src/Widgets.php:92
 msgid "Include empty categories"
-msgstr ""
+msgstr "הכללת סיווגים ריקים"
 
+#: plugins/widgets/src/Widgets.php:99
 msgid "Subscribe links"
-msgstr ""
+msgstr "יצירת קישור ' קישורים '"
 
+#: plugins/widgets/src/Widgets.php:100
 msgid "Subscribe"
-msgstr ""
+msgstr "מינוי"
 
+#: plugins/widgets/src/Widgets.php:101
 msgid "Feeds type:"
-msgstr ""
+msgstr "סוג ערוצי תוכן:"
 
+#: plugins/widgets/src/Widgets.php:108
 msgid "Feed reader"
-msgstr ""
+msgstr "קורא ערוצי תוכן"
 
+#: plugins/widgets/src/Widgets.php:109
 msgid "Somewhere else"
-msgstr ""
+msgstr "במקום אחר"
 
+#: plugins/widgets/src/Widgets.php:111 plugins/widgets/src/Widgets.php:139
 msgid "Entries limit:"
-msgstr ""
+msgstr "מגבלת רשומות:"
 
+#: plugins/widgets/src/Widgets.php:118
 msgid "Text"
-msgstr ""
+msgstr "טקסט"
 
+#: plugins/widgets/src/Widgets.php:120
 msgid "Text:"
-msgstr ""
+msgstr "תמליל:"
 
+#: plugins/widgets/src/Widgets.php:127
 msgid "Uncategorized"
-msgstr ""
+msgstr "לא מסווג"
 
+#: plugins/widgets/src/Widgets.php:131 plugins/widgets/src/Widgets.php:133
 msgid "Last entries"
-msgstr ""
+msgstr "רשומות אחרונות"
 
+#: plugins/widgets/src/Widgets.php:136
 msgid "Tag:"
-msgstr ""
+msgstr "תג:"
 
+#: plugins/widgets/src/Widgets.php:147 plugins/widgets/src/Widgets.php:148
 msgid "Last comments"
-msgstr ""
+msgstr "הערות אחרונות"
 
+#: plugins/widgets/src/Widgets.php:149
 msgid "Comments limit:"
-msgstr ""
+msgstr "מגבלת הערות:"
 
+#: plugins/widgets/src/Widgets.php:428
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr ""
+msgstr "רשומות בלוג אלה %s ערוץ תוכן"
 
+#: plugins/widgets/src/Widgets.php:429
 #, php-format
 msgid "This blog's comments %s feed"
-msgstr ""
+msgstr "הערות בבלוג זה %s ערוץ תוכן"
 
+#: plugins/widgets/src/Widgets.php:437
 msgid "Entries feed"
-msgstr ""
+msgstr "הזנת רשומות"
 
+#: plugins/widgets/src/Widgets.php:443
 msgid "Comments feed"
-msgstr ""
+msgstr "הזנת הערות"
 
+#: plugins/widgets/src/WidgetsElement.php:479
 msgid "Title (optional)"
-msgstr ""
+msgstr "כותרת (אופציונלי)"
 
+#: plugins/widgets/src/WidgetsElement.php:490
 msgid "All pages"
-msgstr ""
+msgstr "כל הדפים"
 
+#: plugins/widgets/src/WidgetsElement.php:491
 msgid "Home page only"
-msgstr ""
+msgstr "דף הבית בלבד"
 
+#: plugins/widgets/src/WidgetsElement.php:492
 msgid "Except on home page"
-msgstr ""
+msgstr "פרט לדף הבית"
 
+#: plugins/widgets/src/WidgetsElement.php:500
 msgid "Display on:"
-msgstr ""
+msgstr "הצגה ב:"
 
+#: plugins/widgets/src/WidgetsElement.php:536
 msgid "Content only"
-msgstr ""
+msgstr "תוכן בלבד"
 
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "CSS class:"
-msgstr ""
+msgstr "מחלקת CSS:"
 
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Offline"
-msgstr ""
+msgstr "לא מקוון"
+

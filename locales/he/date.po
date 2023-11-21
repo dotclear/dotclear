@@ -1,135 +1,136 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-11-20 22:22\n"
+"Last-Translator: \n"
+"Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: he\n"
+"X-Crowdin-File: /master/locales/_pot/date.pot\n"
+"X-Crowdin-File-ID: 260\n"
+"Language: he_IL\n"
 
 msgid "%Y-%m-%d %H:%M"
-msgstr ""
+msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr ""
+msgstr "_יאן"
 
 msgid "_Feb"
-msgstr ""
+msgstr "_פב"
 
 msgid "_Mar"
-msgstr ""
+msgstr "_Mar"
 
 msgid "_Apr"
-msgstr ""
+msgstr "_אפיר"
 
 msgid "_May"
-msgstr ""
+msgstr "_מאי"
 
 msgid "_Jun"
-msgstr ""
+msgstr "_יוני"
 
 msgid "_Jul"
-msgstr ""
+msgstr "_Jul"
 
 msgid "_Aug"
-msgstr ""
+msgstr "_Aug"
 
 msgid "_Sep"
-msgstr ""
+msgstr "_Sp"
 
 msgid "_Oct"
-msgstr ""
+msgstr "_Oct"
 
 msgid "_Nov"
-msgstr ""
+msgstr "_Nov"
 
 msgid "_Dec"
-msgstr ""
+msgstr "_Dec"
 
 msgid "January"
-msgstr ""
+msgstr "ינואר"
 
 msgid "February"
-msgstr ""
+msgstr "פברואר"
 
 msgid "March"
-msgstr ""
+msgstr "מרץ"
 
 msgid "April"
-msgstr ""
+msgstr "אפריל"
 
 msgid "May"
-msgstr ""
+msgstr "מאי"
 
 msgid "June"
-msgstr ""
+msgstr "יוני"
 
 msgid "July"
-msgstr ""
+msgstr "יולי"
 
 msgid "August"
-msgstr ""
+msgstr "אוגוסט"
 
 msgid "September"
-msgstr ""
+msgstr "ספטמבר"
 
 msgid "October"
-msgstr ""
+msgstr "אוקטובר"
 
 msgid "November"
-msgstr ""
+msgstr "נובמבר"
 
 msgid "December"
-msgstr ""
+msgstr "דצמבר"
 
 msgid "_Mon"
-msgstr ""
+msgstr "_Mon"
 
 msgid "_Tue"
-msgstr ""
+msgstr "_Tue"
 
 msgid "_Wed"
-msgstr ""
+msgstr "_WED"
 
 msgid "_Thu"
-msgstr ""
+msgstr "_Thu"
 
 msgid "_Fri"
-msgstr ""
+msgstr "_Fri"
 
 msgid "_Sat"
-msgstr ""
+msgstr "_Sat"
 
 msgid "_Sun"
-msgstr ""
+msgstr "_סאן"
 
 msgid "Monday"
-msgstr ""
+msgstr "יום שני"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "יום שלישי"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "יום רביעי"
 
 msgid "Thursday"
-msgstr ""
+msgstr "יום חמישי"
 
 msgid "Friday"
-msgstr ""
+msgstr "יום שישי"
 
 msgid "Saturday"
-msgstr ""
+msgstr "שבת"
 
 msgid "Sunday"
-msgstr ""
+msgstr "יום ראשון"
+
