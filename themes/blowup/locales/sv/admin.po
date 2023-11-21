@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-02 15:15+0200\n"
-"PO-Revision-Date: 2023-09-08 03:15\n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2023-11-21 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -17,276 +17,276 @@ msgstr ""
 "X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
 "X-Crowdin-File-ID: 559\n"
 
-#: themes/blowup/src/Config.php:119
+#: themes/blowup/src/Config.php:123
 msgid "Light linear gradient"
 msgstr "Ljus linjär gradient"
 
-#: themes/blowup/src/Config.php:120
+#: themes/blowup/src/Config.php:124
 msgid "Medium linear gradient"
 msgstr "Medelhög linjär gradient"
 
-#: themes/blowup/src/Config.php:121
+#: themes/blowup/src/Config.php:125
 msgid "Dark linear gradient"
 msgstr "Mörk linjär gradient"
 
-#: themes/blowup/src/Config.php:122
+#: themes/blowup/src/Config.php:126
 msgid "Solid color"
 msgstr "Solid färg"
 
-#: themes/blowup/src/Config.php:125
+#: themes/blowup/src/Config.php:129
 msgid "Custom..."
 msgstr "Custom..."
 
-#: themes/blowup/src/Config.php:227
+#: themes/blowup/src/Config.php:231
 msgid "Theme configuration has been successfully updated."
 msgstr "Temakonfigurationen har uppdaterats framgångsrikt."
 
-#: themes/blowup/src/Config.php:249
+#: themes/blowup/src/Config.php:253
 msgid "Back to Blog appearance"
 msgstr "Tillbaka till Bloggens utseende"
 
-#: themes/blowup/src/Config.php:253
+#: themes/blowup/src/Config.php:257
 msgid "Customization"
 msgstr "Anpassning"
 
-#: themes/blowup/src/Config.php:254
+#: themes/blowup/src/Config.php:258
 msgid "General"
 msgstr "Allmänt"
 
-#: themes/blowup/src/Config.php:258
+#: themes/blowup/src/Config.php:262
 msgid "Background color:"
 msgstr "Bakgrundsfärg:"
 
-#: themes/blowup/src/Config.php:261
+#: themes/blowup/src/Config.php:265
 msgid "Background color fill:"
 msgstr "Bakgrundsfärg fyllning:"
 
-#: themes/blowup/src/Config.php:266
+#: themes/blowup/src/Config.php:270
 msgid "Main text font:"
 msgstr "Huvudtextens teckensnitt:"
 
-#: themes/blowup/src/Config.php:269
+#: themes/blowup/src/Config.php:273
 msgid "Main text font size:"
 msgstr "Huvudtextens teckenstorlek:"
 
-#: themes/blowup/src/Config.php:272
+#: themes/blowup/src/Config.php:276
 msgid "Main text color:"
 msgstr "Huvudtextens färg:"
 
-#: themes/blowup/src/Config.php:275
+#: themes/blowup/src/Config.php:279
 msgid "Text line height:"
 msgstr "Höjd på textraden:"
 
-#: themes/blowup/src/Config.php:279
+#: themes/blowup/src/Config.php:283
 msgid "Links color:"
 msgstr "Länkar färg:"
 
-#: themes/blowup/src/Config.php:282
+#: themes/blowup/src/Config.php:286
 msgid "Visited links color:"
 msgstr "Besökta länkar färg:"
 
-#: themes/blowup/src/Config.php:285
+#: themes/blowup/src/Config.php:289
 msgid "Focus links color:"
 msgstr "Fokus länkar färg:"
 
-#: themes/blowup/src/Config.php:292
+#: themes/blowup/src/Config.php:296
 msgid "Prelude color:"
 msgstr "Förspel färg:"
 
-#: themes/blowup/src/Config.php:297
+#: themes/blowup/src/Config.php:301
 msgid "Hide main title"
 msgstr "Dölj huvudrubrik"
 
-#: themes/blowup/src/Config.php:300
+#: themes/blowup/src/Config.php:304
 msgid "Main title font:"
 msgstr "Typsnitt för huvudtitel:"
 
-#: themes/blowup/src/Config.php:303
+#: themes/blowup/src/Config.php:307
 msgid "Main title font size:"
 msgstr "Huvudtitelns teckenstorlek:"
 
-#: themes/blowup/src/Config.php:306
+#: themes/blowup/src/Config.php:310
 msgid "Main title color:"
 msgstr "Huvudtitelns färg:"
 
-#: themes/blowup/src/Config.php:309
+#: themes/blowup/src/Config.php:313
 msgid "Main title alignment:"
 msgstr "Justering av huvudtitel:"
 
-#: themes/blowup/src/Config.php:310
+#: themes/blowup/src/Config.php:314
 msgid "center"
 msgstr "centrum"
 
-#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "left"
 msgstr "vänster"
 
-#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "right"
 msgstr "rätt"
 
-#: themes/blowup/src/Config.php:312
+#: themes/blowup/src/Config.php:316
 msgid "Main title position (x:y)"
 msgstr "Huvudtitelns position (x:y)"
 
-#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+#: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
 msgid "Top image"
 msgstr "Toppbild"
 
-#: themes/blowup/src/Config.php:326
+#: themes/blowup/src/Config.php:330
 msgid "Choose \"Custom...\" to upload your own image."
 msgstr "Välj \"Egen...\" för att ladda upp din egen bild."
 
-#: themes/blowup/src/Config.php:328
+#: themes/blowup/src/Config.php:332
 msgid "Add your image:"
 msgstr "Lägg till din bild:"
 
-#: themes/blowup/src/Config.php:329
+#: themes/blowup/src/Config.php:333
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "JPEG- eller PNG-fil, 800 pixlar bred, maximal storlek %s"
 
-#: themes/blowup/src/Config.php:340
+#: themes/blowup/src/Config.php:344
 msgid "Sidebar"
 msgstr "Sidofält"
 
-#: themes/blowup/src/Config.php:341
+#: themes/blowup/src/Config.php:345
 msgid "Sidebar position:"
 msgstr "Position för sidofält:"
 
-#: themes/blowup/src/Config.php:344
+#: themes/blowup/src/Config.php:348
 msgid "Sidebar text font:"
 msgstr "Typsnitt för text i sidofältet:"
 
-#: themes/blowup/src/Config.php:347
+#: themes/blowup/src/Config.php:351
 msgid "Sidebar text font size:"
 msgstr "Teckenstorlek för text i sidofältet:"
 
-#: themes/blowup/src/Config.php:350
+#: themes/blowup/src/Config.php:354
 msgid "Sidebar text color:"
 msgstr "Textfärg för sidofältet:"
 
-#: themes/blowup/src/Config.php:353
+#: themes/blowup/src/Config.php:357
 msgid "Sidebar titles font:"
 msgstr "Typsnitt för sidofältets titlar:"
 
-#: themes/blowup/src/Config.php:356
+#: themes/blowup/src/Config.php:360
 msgid "Sidebar titles font size:"
 msgstr "Sidofältets titlar teckenstorlek:"
 
-#: themes/blowup/src/Config.php:359
+#: themes/blowup/src/Config.php:363
 msgid "Sidebar titles color:"
 msgstr "Färg för sidofältets titlar:"
 
-#: themes/blowup/src/Config.php:362
+#: themes/blowup/src/Config.php:366
 msgid "Sidebar 2nd level titles font:"
 msgstr "Sidofält 2:a nivån titlar typsnitt:"
 
-#: themes/blowup/src/Config.php:365
+#: themes/blowup/src/Config.php:369
 msgid "Sidebar 2nd level titles font size:"
 msgstr "Sidofält 2:a nivån titlar teckenstorlek:"
 
-#: themes/blowup/src/Config.php:368
+#: themes/blowup/src/Config.php:372
 msgid "Sidebar 2nd level titles color:"
 msgstr "Sidofält 2:a nivån titlar färg:"
 
-#: themes/blowup/src/Config.php:371
+#: themes/blowup/src/Config.php:375
 msgid "Sidebar lines color:"
 msgstr "Färg på sidofältets linjer:"
 
-#: themes/blowup/src/Config.php:374
+#: themes/blowup/src/Config.php:378
 msgid "Sidebar links color:"
 msgstr "Färg för länkar i sidofältet:"
 
-#: themes/blowup/src/Config.php:377
+#: themes/blowup/src/Config.php:381
 msgid "Sidebar visited links color:"
 msgstr "Färg för besökta länkar i sidofältet:"
 
-#: themes/blowup/src/Config.php:380
+#: themes/blowup/src/Config.php:384
 msgid "Sidebar focus links color:"
 msgstr "Sidofältets fokuslänkar färg:"
 
-#: themes/blowup/src/Config.php:384
+#: themes/blowup/src/Config.php:388
 msgid "Date title font:"
 msgstr "Datum titel typsnitt:"
 
-#: themes/blowup/src/Config.php:387
+#: themes/blowup/src/Config.php:391
 msgid "Date title font size:"
 msgstr "Teckenstorlek för datumtitel:"
 
-#: themes/blowup/src/Config.php:390
+#: themes/blowup/src/Config.php:394
 msgid "Date title color:"
 msgstr "Datum titel färg:"
 
-#: themes/blowup/src/Config.php:393
+#: themes/blowup/src/Config.php:397
 msgid "Entry title font:"
 msgstr "Typsnitt för postens titel:"
 
-#: themes/blowup/src/Config.php:396
+#: themes/blowup/src/Config.php:400
 msgid "Entry title font size:"
 msgstr "Teckenstorlek för postens titel:"
 
-#: themes/blowup/src/Config.php:399
+#: themes/blowup/src/Config.php:403
 msgid "Entry title color:"
 msgstr "Inmatning titel färg:"
 
-#: themes/blowup/src/Config.php:404
+#: themes/blowup/src/Config.php:408
 msgid "Comment background color:"
 msgstr "Bakgrundsfärg för kommentarer:"
 
-#: themes/blowup/src/Config.php:409
+#: themes/blowup/src/Config.php:413
 msgid "Comment text color:"
 msgstr "Textfärg för kommentar:"
 
-#: themes/blowup/src/Config.php:414
+#: themes/blowup/src/Config.php:418
 msgid "My comment background color:"
 msgstr "Bakgrundsfärg för min kommentar:"
 
-#: themes/blowup/src/Config.php:419
+#: themes/blowup/src/Config.php:423
 msgid "My comment text color:"
 msgstr "Min kommentar textfärg:"
 
-#: themes/blowup/src/Config.php:422
+#: themes/blowup/src/Config.php:426
 msgid "Footer"
 msgstr "Sidfot"
 
-#: themes/blowup/src/Config.php:423
+#: themes/blowup/src/Config.php:427
 msgid "Footer font:"
 msgstr "Font för sidfot:"
 
-#: themes/blowup/src/Config.php:426
+#: themes/blowup/src/Config.php:430
 msgid "Footer font size:"
 msgstr "Fontstorlek för sidfot:"
 
-#: themes/blowup/src/Config.php:429
+#: themes/blowup/src/Config.php:433
 msgid "Footer color:"
 msgstr "Färg för sidfot:"
 
-#: themes/blowup/src/Config.php:432
+#: themes/blowup/src/Config.php:436
 msgid "Footer links color:"
 msgstr "Färg på länkar i sidfoten:"
 
-#: themes/blowup/src/Config.php:435
+#: themes/blowup/src/Config.php:439
 msgid "Footer background color:"
 msgstr "Bakgrundsfärg för sidfoten:"
 
-#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+#: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
 msgid "Additional CSS"
 msgstr "Ytterligare CSS"
 
-#: themes/blowup/src/Config.php:439
+#: themes/blowup/src/Config.php:443
 msgid "Any additional CSS styles (must be written using the CSS syntax):"
 msgstr "Eventuella ytterligare CSS-stilar (måste skrivas med CSS-syntaxen):"
 
-#: themes/blowup/src/Config.php:461
+#: themes/blowup/src/Config.php:465
 msgid "Configuration import / export"
 msgstr "Import/export av konfiguration"
 
-#: themes/blowup/src/Config.php:463
+#: themes/blowup/src/Config.php:467
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Du kan dela din konfiguration med hjälp av följande kod. För att tillämpa en konfiguration klistrar du in koden, klickar på \"Tillämpa kod\" och sparar."
 
-#: themes/blowup/src/Config.php:467
+#: themes/blowup/src/Config.php:471
 msgid "Copy this code:"
 msgstr "Kopiera denna kod:"
 
