@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-02 15:15+0200\n"
-"PO-Revision-Date: 2023-11-20 22:24\n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2023-11-21 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -17,31 +17,31 @@ msgstr ""
 "X-Crowdin-File: /master/themes/blowup/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 561\n"
 
-#: themes/blowup/src/Backend.php:37
+#: themes/blowup/src/Backend.php:38
 msgid "Predefined styles"
 msgstr "Predefiniowane style"
 
-#: themes/blowup/src/Backend.php:38
+#: themes/blowup/src/Backend.php:39
 msgid "Apply code"
 msgstr "Zastosuj kod"
 
-#: themes/blowup/src/Backend.php:39
+#: themes/blowup/src/Backend.php:40
 msgid "Choose a predefined style"
 msgstr "Wybierz predefiniowany styl"
 
-#: themes/blowup/src/Blowup.php:70
+#: themes/blowup/src/Blowup.php:108
 msgid "default"
 msgstr "domyślny"
 
-#: themes/blowup/src/Blowup.php:303
+#: themes/blowup/src/Blowup.php:434
 msgid "Unable to create css file."
 msgstr "Nie można utworzyć pliku css."
 
-#: themes/blowup/src/Blowup.php:334
+#: themes/blowup/src/Blowup.php:476
 msgid "Unable to create images."
 msgstr "Nie można utworzyć obrazów."
 
-#: themes/blowup/src/Blowup.php:418
+#: themes/blowup/src/Blowup.php:580
 msgid "Unable to open image."
 msgstr "Nie można otworzyć obrazu."
 
