@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-02 15:15+0200\n"
-"PO-Revision-Date: 2023-09-08 03:15\n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2023-11-21 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -17,276 +17,276 @@ msgstr ""
 "X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
 "X-Crowdin-File-ID: 559\n"
 
-#: themes/blowup/src/Config.php:119
+#: themes/blowup/src/Config.php:123
 msgid "Light linear gradient"
 msgstr "Gradiente lineare chiaro"
 
-#: themes/blowup/src/Config.php:120
+#: themes/blowup/src/Config.php:124
 msgid "Medium linear gradient"
 msgstr "Gradiente lineare medio"
 
-#: themes/blowup/src/Config.php:121
+#: themes/blowup/src/Config.php:125
 msgid "Dark linear gradient"
 msgstr "Gradiente lineare scuro"
 
-#: themes/blowup/src/Config.php:122
+#: themes/blowup/src/Config.php:126
 msgid "Solid color"
 msgstr "Tinta unita"
 
-#: themes/blowup/src/Config.php:125
+#: themes/blowup/src/Config.php:129
 msgid "Custom..."
 msgstr "Personalizzato..."
 
-#: themes/blowup/src/Config.php:227
+#: themes/blowup/src/Config.php:231
 msgid "Theme configuration has been successfully updated."
 msgstr "La configurazione del tema è stata aggiornata con successo."
 
-#: themes/blowup/src/Config.php:249
+#: themes/blowup/src/Config.php:253
 msgid "Back to Blog appearance"
 msgstr "Torna all'aspetto del blog"
 
-#: themes/blowup/src/Config.php:253
+#: themes/blowup/src/Config.php:257
 msgid "Customization"
 msgstr "Personalizzazione"
 
-#: themes/blowup/src/Config.php:254
+#: themes/blowup/src/Config.php:258
 msgid "General"
 msgstr "Generale"
 
-#: themes/blowup/src/Config.php:258
+#: themes/blowup/src/Config.php:262
 msgid "Background color:"
 msgstr "Colore di sfondo:"
 
-#: themes/blowup/src/Config.php:261
+#: themes/blowup/src/Config.php:265
 msgid "Background color fill:"
 msgstr "Colore di sfondo riempimento:"
 
-#: themes/blowup/src/Config.php:266
+#: themes/blowup/src/Config.php:270
 msgid "Main text font:"
 msgstr "Font del testo principale:"
 
-#: themes/blowup/src/Config.php:269
+#: themes/blowup/src/Config.php:273
 msgid "Main text font size:"
 msgstr "Dimensione del carattere del testo principale:"
 
-#: themes/blowup/src/Config.php:272
+#: themes/blowup/src/Config.php:276
 msgid "Main text color:"
 msgstr "Colore del testo principale:"
 
-#: themes/blowup/src/Config.php:275
+#: themes/blowup/src/Config.php:279
 msgid "Text line height:"
 msgstr "Altezza della linea di testo:"
 
-#: themes/blowup/src/Config.php:279
+#: themes/blowup/src/Config.php:283
 msgid "Links color:"
 msgstr "Colore dei link:"
 
-#: themes/blowup/src/Config.php:282
+#: themes/blowup/src/Config.php:286
 msgid "Visited links color:"
 msgstr "Colore dei link visitati:"
 
-#: themes/blowup/src/Config.php:285
+#: themes/blowup/src/Config.php:289
 msgid "Focus links color:"
 msgstr "Focus link colore:"
 
-#: themes/blowup/src/Config.php:292
+#: themes/blowup/src/Config.php:296
 msgid "Prelude color:"
 msgstr "Colore del preludio:"
 
-#: themes/blowup/src/Config.php:297
+#: themes/blowup/src/Config.php:301
 msgid "Hide main title"
 msgstr "Nascondi il titolo principale"
 
-#: themes/blowup/src/Config.php:300
+#: themes/blowup/src/Config.php:304
 msgid "Main title font:"
 msgstr "Font del titolo principale:"
 
-#: themes/blowup/src/Config.php:303
+#: themes/blowup/src/Config.php:307
 msgid "Main title font size:"
 msgstr "Dimensione del carattere del titolo principale:"
 
-#: themes/blowup/src/Config.php:306
+#: themes/blowup/src/Config.php:310
 msgid "Main title color:"
 msgstr "Colore del titolo principale:"
 
-#: themes/blowup/src/Config.php:309
+#: themes/blowup/src/Config.php:313
 msgid "Main title alignment:"
 msgstr "Allineamento del titolo principale:"
 
-#: themes/blowup/src/Config.php:310
+#: themes/blowup/src/Config.php:314
 msgid "center"
 msgstr "centro"
 
-#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "left"
 msgstr "sinistra"
 
-#: themes/blowup/src/Config.php:310 themes/blowup/src/Config.php:342
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "right"
 msgstr "diritto"
 
-#: themes/blowup/src/Config.php:312
+#: themes/blowup/src/Config.php:316
 msgid "Main title position (x:y)"
 msgstr "Posizione del titolo principale (x:y)"
 
-#: themes/blowup/src/Config.php:323 themes/blowup/src/Config.php:324
+#: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
 msgid "Top image"
 msgstr "Immagine superiore"
 
-#: themes/blowup/src/Config.php:326
+#: themes/blowup/src/Config.php:330
 msgid "Choose \"Custom...\" to upload your own image."
 msgstr "Scegliere \"Personalizzato...\" per caricare la propria immagine."
 
-#: themes/blowup/src/Config.php:328
+#: themes/blowup/src/Config.php:332
 msgid "Add your image:"
 msgstr "Aggiungete la vostra immagine:"
 
-#: themes/blowup/src/Config.php:329
+#: themes/blowup/src/Config.php:333
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "File JPEG o PNG, larghezza 800 pixel, dimensione massima %s"
 
-#: themes/blowup/src/Config.php:340
+#: themes/blowup/src/Config.php:344
 msgid "Sidebar"
 msgstr "Barra laterale"
 
-#: themes/blowup/src/Config.php:341
+#: themes/blowup/src/Config.php:345
 msgid "Sidebar position:"
 msgstr "Posizione della barra laterale:"
 
-#: themes/blowup/src/Config.php:344
+#: themes/blowup/src/Config.php:348
 msgid "Sidebar text font:"
 msgstr "Carattere del testo della barra laterale:"
 
-#: themes/blowup/src/Config.php:347
+#: themes/blowup/src/Config.php:351
 msgid "Sidebar text font size:"
 msgstr "Dimensione del carattere del testo della barra laterale:"
 
-#: themes/blowup/src/Config.php:350
+#: themes/blowup/src/Config.php:354
 msgid "Sidebar text color:"
 msgstr "Colore del testo della barra laterale:"
 
-#: themes/blowup/src/Config.php:353
+#: themes/blowup/src/Config.php:357
 msgid "Sidebar titles font:"
 msgstr "Font dei titoli della barra laterale:"
 
-#: themes/blowup/src/Config.php:356
+#: themes/blowup/src/Config.php:360
 msgid "Sidebar titles font size:"
 msgstr "Dimensione del carattere dei titoli della barra laterale:"
 
-#: themes/blowup/src/Config.php:359
+#: themes/blowup/src/Config.php:363
 msgid "Sidebar titles color:"
 msgstr "Colore dei titoli della barra laterale:"
 
-#: themes/blowup/src/Config.php:362
+#: themes/blowup/src/Config.php:366
 msgid "Sidebar 2nd level titles font:"
 msgstr "Font dei titoli di secondo livello della barra laterale:"
 
-#: themes/blowup/src/Config.php:365
+#: themes/blowup/src/Config.php:369
 msgid "Sidebar 2nd level titles font size:"
 msgstr "Dimensione dei caratteri dei titoli del secondo livello della barra laterale:"
 
-#: themes/blowup/src/Config.php:368
+#: themes/blowup/src/Config.php:372
 msgid "Sidebar 2nd level titles color:"
 msgstr "Colore dei titoli del secondo livello della barra laterale:"
 
-#: themes/blowup/src/Config.php:371
+#: themes/blowup/src/Config.php:375
 msgid "Sidebar lines color:"
 msgstr "Colore delle linee della barra laterale:"
 
-#: themes/blowup/src/Config.php:374
+#: themes/blowup/src/Config.php:378
 msgid "Sidebar links color:"
 msgstr "Colore dei collegamenti della barra laterale:"
 
-#: themes/blowup/src/Config.php:377
+#: themes/blowup/src/Config.php:381
 msgid "Sidebar visited links color:"
 msgstr "Colore dei link visitati nella barra laterale:"
 
-#: themes/blowup/src/Config.php:380
+#: themes/blowup/src/Config.php:384
 msgid "Sidebar focus links color:"
 msgstr "Colore dei collegamenti della barra laterale:"
 
-#: themes/blowup/src/Config.php:384
+#: themes/blowup/src/Config.php:388
 msgid "Date title font:"
 msgstr "Carattere del titolo della data:"
 
-#: themes/blowup/src/Config.php:387
+#: themes/blowup/src/Config.php:391
 msgid "Date title font size:"
 msgstr "Dimensione del carattere del titolo della data:"
 
-#: themes/blowup/src/Config.php:390
+#: themes/blowup/src/Config.php:394
 msgid "Date title color:"
 msgstr "Data titolo colore:"
 
-#: themes/blowup/src/Config.php:393
+#: themes/blowup/src/Config.php:397
 msgid "Entry title font:"
 msgstr "Font del titolo della voce:"
 
-#: themes/blowup/src/Config.php:396
+#: themes/blowup/src/Config.php:400
 msgid "Entry title font size:"
 msgstr "Dimensione del carattere del titolo della voce:"
 
-#: themes/blowup/src/Config.php:399
+#: themes/blowup/src/Config.php:403
 msgid "Entry title color:"
 msgstr "Colore del titolo della voce:"
 
-#: themes/blowup/src/Config.php:404
+#: themes/blowup/src/Config.php:408
 msgid "Comment background color:"
 msgstr "Colore di sfondo dei commenti:"
 
-#: themes/blowup/src/Config.php:409
+#: themes/blowup/src/Config.php:413
 msgid "Comment text color:"
 msgstr "Colore del testo del commento:"
 
-#: themes/blowup/src/Config.php:414
+#: themes/blowup/src/Config.php:418
 msgid "My comment background color:"
 msgstr "Il colore di sfondo del mio commento:"
 
-#: themes/blowup/src/Config.php:419
+#: themes/blowup/src/Config.php:423
 msgid "My comment text color:"
 msgstr "Il colore del testo del mio commento:"
 
-#: themes/blowup/src/Config.php:422
+#: themes/blowup/src/Config.php:426
 msgid "Footer"
 msgstr "Piè di pagina"
 
-#: themes/blowup/src/Config.php:423
+#: themes/blowup/src/Config.php:427
 msgid "Footer font:"
 msgstr "Font del piè di pagina:"
 
-#: themes/blowup/src/Config.php:426
+#: themes/blowup/src/Config.php:430
 msgid "Footer font size:"
 msgstr "Dimensione del carattere del piè di pagina:"
 
-#: themes/blowup/src/Config.php:429
+#: themes/blowup/src/Config.php:433
 msgid "Footer color:"
 msgstr "Colore del piè di pagina:"
 
-#: themes/blowup/src/Config.php:432
+#: themes/blowup/src/Config.php:436
 msgid "Footer links color:"
 msgstr "Colore dei collegamenti a piè di pagina:"
 
-#: themes/blowup/src/Config.php:435
+#: themes/blowup/src/Config.php:439
 msgid "Footer background color:"
 msgstr "Colore di sfondo del piè di pagina:"
 
-#: themes/blowup/src/Config.php:438 themes/blowup/src/Config.php:443
+#: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
 msgid "Additional CSS"
 msgstr "CSS aggiuntivo"
 
-#: themes/blowup/src/Config.php:439
+#: themes/blowup/src/Config.php:443
 msgid "Any additional CSS styles (must be written using the CSS syntax):"
 msgstr "Eventuali stili CSS aggiuntivi (devono essere scritti utilizzando la sintassi CSS):"
 
-#: themes/blowup/src/Config.php:461
+#: themes/blowup/src/Config.php:465
 msgid "Configuration import / export"
 msgstr "Importazione/esportazione della configurazione"
 
-#: themes/blowup/src/Config.php:463
+#: themes/blowup/src/Config.php:467
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "È possibile condividere la configurazione utilizzando il seguente codice. Per applicare una configurazione, incollare il codice, fare clic su \"Applica codice\" e salvare."
 
-#: themes/blowup/src/Config.php:467
+#: themes/blowup/src/Config.php:471
 msgid "Copy this code:"
 msgstr "Copiare questo codice:"
 
