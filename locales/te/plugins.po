@@ -1,2273 +1,3347 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2016-07-18 15:54+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
-"Language: te\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-21 06:43\n"
+"Last-Translator: \n"
+"Language-Team: Telugu\n"
+"Language: te_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: te\n"
+"X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
+"X-Crowdin-File-ID: 264\n"
 
+#: plugins/Uninstaller/src/Backend.php:45
+msgid "Uninstall"
+msgstr "స్థాపించు"
+
+#: plugins/Uninstaller/src/Backend.php:105
+msgid "Plugin has been successfully uninstalled."
+msgstr "ప్లగిన్ సమర్ధవంతంగా అన్స్టాల్ చేయబడింది."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Cache"
+msgstr "క్యాచీComment"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:39
+msgid "Folders from cache directory"
+msgstr "క్యాచీ డైరెక్టరీ నుండి ફોલ્ડర్Name"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+msgid "delete selected cache directories"
+msgstr "ఎంపికచేసిన కాచే డైరెక్టరీలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr "తొలగించు \"%s\" క్యాచీ డైరెక్టరీ"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr "\"%s\" క్యాచీ డైరెక్టరీ తొలగించబడింది"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:47
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "తొలగించుట విఫలమైంది \"%s\" క్యాచీ డైరెక్టరీ"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+msgid "empty selected cache directories"
+msgstr "ఖాళీ యెంపికచేసిన కాచే డైరెక్టరీలు"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr "ఖాళీ \"%s\" క్యాచీ డైరెక్టరీ"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr "\"%s\" క్యాచీ డైరెక్టరీ ఖాళీ"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:56
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "ఖాళీగా విఫలమైంది \"%s\" క్యాచీ డైరెక్టరీ"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:40
+msgid "Logs"
+msgstr "లోగములు"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:41
+msgid "Logs in Dotclear logs table"
+msgstr "Dotclear logs పట్టికలో లాగులు"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+msgid "delete selected logs tables"
+msgstr "@ info: status"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr "తొలగించు \"%s\" లాగ్ పట్టిక"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:48
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr "\"%s\" లాగ్ పట్టిక తొలగించబడిందిComment"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:49
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr "తొలగించుట విఫలమైంది \"%s\" లాగ్ పట్టిక"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
+msgid "Folders from plugins directories"
+msgstr "ప్లగిన్స్ డైరెక్టరీల నుండి ફોલ્ડర్స్Name"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+msgid "delete selected plugins files and directories"
+msgstr "ఎంపికచేసిన ప్లగిన్లను దస్త్రములు మరియు డైరెక్టరీలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr "తొలగించు \"%s\" ప్లగిన్ ఫైళ్ళు మరియు డైరెక్టరీలు"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "\"%s\" ప్లగిన్ ఫైళ్ళు మరియు డైరెక్టరీలు తొలగించబడ్డాయి"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "తొలగించుట విఫలమైంది \"%s\" ప్లగిన్ ఫైళ్ళు మరియు డైరెక్టరీలు"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
+msgid "Preferences"
+msgstr "అభీష్టాలు"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:40
+msgid "Users preferences workspaces"
+msgstr "వాడుకదారులు అభీష్టాలను పనిచేస్తాయి"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+msgid "delete selected global preferences workspaces"
+msgstr "ఎంపికచేసిన ప్రపంచ ప్రాధాన్య కార్యాలయాలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr "తొలగించు \"%s\" ప్రపంచ ప్రాధాన్య కార్యకలాపాలు"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "\"%s\" ప్రపంచ ప్రాధాన్యం పనిప్రదేశం తొలగించబడిందిName"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "తొలగించుట విఫలమైంది \"%s\" ప్రపంచ ప్రాధాన్య కార్యకలాపాలు"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+msgid "delete selected users preferences workspaces"
+msgstr "ఎంపికచేసిన వినియోగదారులను అభ్యర్దించే అభీష్టాలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr "తొలగించు \"%s\" వాడుకదారులు అభ్యర్ధనల పనిప్రదేశం"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "\"%s\" వినియోగదారుల ప్రాధాన్యం పనిప్రదేశం తొలగించబడిందిName"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:57
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "తొలగించుట విఫలమైంది \"%s\" వాడుకదారులు అభ్యర్ధనల పనిప్రదేశం"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+msgid "delete selected preferences workspaces"
+msgstr "ఎంపికచేసిన అభీష్టాలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr "తొలగించు \"%s\" అభీష్టములు పనిప్రదేశము"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr "\"%s\" అభ్యర్ధన పనిప్రదేశము తొలగించబడిందిName"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:66
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "తొలగించుట విఫలమైంది \"%s\" అభీష్టములు పనిప్రదేశము"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "delete related preferences"
+msgstr "సంబంధిత అభీష్టాలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
+msgid "related preferences deleted"
+msgstr "సంబంధిత అభీష్టాలు తొలగించబడ్డాయి"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:74
+msgid "Failed to delete related preferences"
+msgstr "సంబంధిత అభీష్టాలను తొలగించుటలో విఫలమైంది"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
+#: plugins/dcCKEditor/tpl/index.php:9 plugins/dcLegacyEditor/tpl/index.php:4
+msgid "Settings"
+msgstr "అమరిక"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:40
+msgid "Namespaces registered in dcSettings"
+msgstr "డిస్సెటన్లలో నమోస్పాలు నమోదైంది"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+msgid "delete selected global settings namespaces"
+msgstr "ఎంపికచేసిన ప్రపంచ అమరికలను తీసివేయుము"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr "తొలగించు \"%s\" ఆवैश्विक అమరికల నామమాత్ర"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr "\"%s\" वैश्विक అమరికల నమస్పేస్ తొలగించబడుతోంది"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:48
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "తొలగించుట విఫలమైంది \"%s\" ఆवैश्विक అమరికల నామమాత్ర"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+msgid "delete selected blog settings namespaces"
+msgstr "ఎంపికచేసిన బ్లాగు అమరికలను తీసివేయుము"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr "తొలగించు \"%s\" బ్లాగు అమరిక నమస్పేస్"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "\"%s\" బ్లాగు అమరికల నమస్పేస్ తొలగించబడినది"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:57
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "తొలగించుట విఫలమైంది \"%s\" బ్లాగు అమరిక నమస్పేస్"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+msgid "delete selected settings namespaces"
+msgstr "ఎంపికచేసిన అమరికలను తీసివేయుము"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr "తొలగించు \"%s\" అమరిక నమస్పేస్"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr "\"%s\" అమర్పు నమస్పేస్ తొలగించబడినది"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:66
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "తొలగించుట విఫలమైంది \"%s\" అమరిక నమస్పేస్"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "delete related settings"
+msgstr "సంబంధిత అమరికలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
+msgid "related settings deleted"
+msgstr "సంబంధిత అమరికలను తొలగించింది"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:74
+msgid "Failed to delete related settings"
+msgstr "సంబంధిత అమరికలను తొలగించుటలో విఫలమైంది"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:43
+msgid "Tables"
+msgstr "పలక"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+msgid "All database tables of Dotclear"
+msgstr "Dotస్పష్టం యొక్క అన్ని డాటాబేస్ tables"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:49
+msgid "delete selected tables"
+msgstr "ఎంపికచేసిన పటాలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:50
+#, php-format
+msgid "delete \"%s\" table"
+msgstr "తొలగించు \"%s\" పట్టిక"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:51
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr "\"%s\" పట్టిక తొలగించబడినది"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:52
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr "తొలగించుట విఫలమైంది \"%s\" పట్టిక"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:58
+msgid "empty selected tables"
+msgstr "ఖాళీ యెంపికచేసిన टेबल"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:59
+#, php-format
+msgid "empty \"%s\" table"
+msgstr "ఖాళీ \"%s\" పట్టిక"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:60
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr "\"%s\" పట్టిక ఎంపీచేయి"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:61
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr "ఖాళీగా విఫలమైంది \"%s\" పట్టిక"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
+msgid "Themes"
+msgstr "థీమ్స్"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:38
+msgid "Folders from blog themes directory"
+msgstr "బ్లాగుల థీమ్స్ డైరెక్టరీ నుండి"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+msgid "delete selected themes files and directories"
+msgstr "ఎంపికచేసిన థీమ్స్ ఫైల్స్ మరియు డైరెక్టరీలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr "తొలగించు \"%s\" థీమ్ దస్త్రములు మరియు డైరెక్టరీలు"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr "\"%s\" థీమ్ ఫైల్స్ మరియు డైరెక్టరీలు తొలగించబడ్డాయి"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:46
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "తొలగించుట విఫలమైంది \"%s\" థీమ్ దస్త్రములు మరియు డైరెక్టరీలు"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Var"
+msgstr "Var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
+msgid "Folders from Dotclear VAR directory"
+msgstr "Dotclear VAR డైరెక్టరీ నుండి ફોલ્ડర్స్Name"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+msgid "delete selected var directories"
+msgstr "ఎంపికచేసిన var డైరెక్టరీలను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr "తొలగించు \"%s\" వేర్ డైరెక్టరీ"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr "\"%s\" విమాన డైరెక్టరీ తొలగించబడింది"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr "తొలగించుట విఫలమైంది \"%s\" వేర్ డైరెక్టరీ"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
+msgid "Versions"
+msgstr "వర్షన్స్"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:38
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "టేబుల్ \"వెర్షన్\" లో నమోదు చేయబడిన Versions of Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+msgid "delete selected versions numbers"
+msgstr "ఎంపికచేసిన వెర్షన్లను తొలగించుము"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr "తొలగించు \"%s\" వెర్షన్ సంఖ్య"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr "\"%s\" వెర్షన్ నంబర్ తొలగించబడినది"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:46
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr "తొలగించుట విఫలమైంది \"%s\" వెర్షన్ సంఖ్య"
+
+#: plugins/Uninstaller/src/CleanersStack.php:118
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr "తెలియని శుభ్రం \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:121
+msgid "Unsintaller can't remove itself"
+msgstr "Unsintaller తనను తీసివేయలేము"
+
+#: plugins/Uninstaller/src/Manage.php:61
+msgid "Unknown module id to uninstall"
+msgstr "అన్స్థాపించుటకు తెలియని మాడ్యూల్ ID"
+
+#: plugins/Uninstaller/src/Manage.php:69
+msgid "There are no uninstall actions for this module"
+msgstr "ఈ మాడ్యూల్ కొరకు అన్స్టాల్ చర్యలు లేవు"
+
+#: plugins/Uninstaller/src/Manage.php:94
+msgid "Uninstall action successfuly excecuted"
+msgstr "@ action: Uninstall action"
+
+#: plugins/Uninstaller/src/Manage.php:97
+msgid "No uninstall action done"
+msgstr "@ action: uninstall action"
+
+#: plugins/Uninstaller/src/Manage.php:142
+msgid "Perform selected actions"
+msgstr "ఎంపికచేసిన చర్యలను పెంచుము"
+
+#: plugins/Uninstaller/src/Manage.php:157
+msgid "Are you sure you perform these ations?"
+msgstr "మీరు ఖచ్చితంగా ఈ చేర్పులను నిర్వహించావు?"
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr "అన్స్టాల్ ప్లగిన్ \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr "థీమ్ స్థాపించుము \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:174
+#, php-format
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr "మాడ్యూల్ \"%s %s\" ఆధునికత unsintall ప్రక్రియ అందిస్తుంది:"
+
+#: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgstr "పాత కోర్ తరగతులతో కోప్ (< 2.26)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:27
 msgid "Generic antispam plugin for Dotclear"
-msgstr ""
+msgstr "Dotclear కొరకు జెనరాక్ యాంటిస్పామ్ ప్లగిన్"
 
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:23
 msgid "Akismet interface for Dotclear"
-msgstr ""
+msgstr "Dotclear కోసం Akismet ఇంటర్ఫేస్"
 
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Trackback validity check"
-msgstr ""
+msgstr "ట్రాక్బ్యాక్ వాలీ పరిశీలము"
 
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:23
 msgid "Manage post attachments"
-msgstr ""
+msgstr "పోస్ట్ యాటాక్మెంట్లను చేర్చు"
 
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
-msgstr ""
+msgstr "సాధారణ వెబ్ పేజీలుగా సెర్వ్ ఎంట్రీలను"
 
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "Manage every blog configuration directive"
-msgstr ""
+msgstr "ప్రతి బ్లాగు ఆకృతీకరణను నిర్వచించుము"
 
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
-msgstr ""
+msgstr "Dotస్పష్టమైన లెసిటి ఎడిటర్"
 
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:23
 msgid "Theme Editor"
 msgstr "అలంకార కూర్పరి"
 
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
-msgstr ""
+msgstr "Dotస్పష్టం కొరకు Name"
 
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:25
 msgid "Import and Export your blog"
-msgstr ""
+msgstr "మీ బ్లాగు దిగుమతి మరియు ఎగుమతి చేయుము"
 
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:23
 msgid "Manage every user preference directive"
-msgstr ""
+msgstr "ప్రతి వినియోగదారు అభ్యర్ధన డైరెక్టివ్ మానేజ్"
 
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:23
 msgid "dotclear CKEditor integration"
-msgstr ""
+msgstr "Dotclear CKEditor సమర్పణ"
 
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:23
 msgid "Maintain your installation"
-msgstr ""
+msgstr "మీ స్థాపన నిర్వహించుము"
 
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb for Dotclear"
-msgstr ""
+msgstr "Dotస్పష్టం కొరకు Breadcrumb"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:26
 msgid "Manage your blogroll"
-msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
+msgstr "మీ బ్లాగ్రోల్ మేనేజ్"
 
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
-msgstr ""
+msgstr "పిండం సేవలు"
 
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
-msgstr ""
+msgstr "జాబితా కొరకు టాగ్స్"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
-msgstr "టపాలకు ట్యాగులను చేర్చండి"
+msgstr "మీ బ్లాగు సిబార్ల కొరకు విడ్జెట్స్"
 
+#: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
+msgstr "Cope with function/method footprint V1 (< 2.24, 2.25)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
-msgstr ""
+msgstr "శోధన ఇంజిన్ రూపం"
 
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
-msgstr ""
+msgstr "नेविगेशन లింకుల జాబితా"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
-msgstr "ఇటీవలి టపాలు"
+msgstr "ఎంపికచేసిన ఎంట్రీల జాబితా"
 
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
-msgstr ""
+msgstr "లభ్యమైన భాషల జాబితా"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:88
 msgid "List of categories"
-msgstr "అన్ని వర్గాలు"
+msgstr "వర్గాల జాబితా"
 
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
-msgstr ""
+msgstr "ఫీడ్ సబ్స్క్రిప్షన్ లింకులు (RSS లేదా Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr ""
+msgstr "ఫీడ్ (RSS లేదా Atom) నుండి చివరి ఎంట్రీలను జాబితా"
 
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
-msgstr ""
+msgstr "సామాన్య పాఠం"
 
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
-msgstr ""
+msgstr "ప్రచురించిన ఆఖరి ఎంట్రీల జాబితా"
 
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
-msgstr ""
+msgstr "ప్రచురించిన చివరి వ్యాఖ్యల జాబితా"
 
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
-msgstr ""
+msgstr "ప్రచురించిన పేజీల జాబితా"
 
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
-msgstr ""
+msgstr "సరళమైన మెనూ అంశాలను జాబితా"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
-msgstr "బ్లాగ్మిత్రులు"
+msgstr "Blogroll జాబితా"
 
-#, fuzzy
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
-msgstr "చేర్చాల్సిన ట్యాగులు:"
+msgstr "టాగ్స్ మేఘName"
 
+#: plugins/aboutConfig/src/Backend.php:23
 msgid "about:config"
-msgstr ""
+msgstr "గురించి: config"
 
+#: plugins/aboutConfig/src/Manage.php:67 plugins/aboutConfig/src/Manage.php:87
 msgid "Configuration successfully updated"
-msgstr ""
+msgstr "ఆకృతీకరణ సమర్ధవంతంగా"
 
+#: plugins/aboutConfig/src/Manage.php:123
+#: plugins/aboutConfig/src/Manage.php:124
 #, php-format
 msgid "Settings for %s"
-msgstr ""
+msgstr "%s కొరకు అమరిక"
 
-#, fuzzy
+#: plugins/aboutConfig/src/Manage.php:131
+#: plugins/aboutConfig/src/Manage.php:132
 msgid "Global settings"
-msgstr "బ్లాగు అమరికలు"
+msgstr "గ్లోబల్ అమరికName"
 
-#, fuzzy
+#: plugins/aboutConfig/src/Manage.php:155 plugins/userPref/src/Manage.php:150
 msgid "Setting ID"
-msgstr "అమరిక పేరు"
+msgstr "ID సెటింగ్"
 
+#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:151
 msgid "Value"
 msgstr "విలువ"
 
+#: plugins/aboutConfig/src/Manage.php:158 plugins/antispam/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:252 plugins/blogroll/src/Manage.php:395
+#: plugins/simpleMenu/src/Manage.php:221 plugins/simpleMenu/src/Manage.php:669
+#: plugins/userPref/src/Manage.php:153
 msgid "Description"
 msgstr "వివరణ"
 
+#: plugins/aboutConfig/src/Manage.php:202 plugins/userPref/src/Manage.php:197
 msgid "Goto:"
-msgstr ""
+msgstr "గో:"
 
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "no"
 msgstr "కాదు"
 
+#: plugins/aboutConfig/src/Manage.php:247 plugins/userPref/src/Manage.php:241
 msgid "yes"
-msgstr ""
+msgstr "అవును"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:78
 msgid "Akismet spam filter"
-msgstr ""
+msgstr "Akismet స్పామ్ ఫిల్టర్"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:91
 #, php-format
 msgid "Filtered by %s."
-msgstr ""
+msgstr "దస్త్రం %s."
 
-#, fuzzy
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
 msgid "Filter configuration have been successfully saved."
-msgstr "పేజీని విజయవంతంగా సృష్టించాం."
+msgstr "ఫిల్టర్ ఆకృతీకరణను సమర్ధవంతంగా రక్షిస్తుంది."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:226
 msgid "Akismet API key:"
-msgstr ""
+msgstr "Akismet API కీ:"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key verified"
-msgstr ""
+msgstr "API కీ నిర్ధారిత"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:233
 msgid "API key not verified"
-msgstr ""
+msgstr "API కీ నిర్ధారించబడలేదు"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:239
 msgid "Get your own API key"
-msgstr ""
+msgstr "మీ సొంత API కీ పొందండి"
 
+#: plugins/akismet/src/Prepend.php:23
 msgid "Akismet"
-msgstr ""
+msgstr "అకిస్మ్యాట్"
 
+#: plugins/antispam/src/Antispam.php:125
 msgid "This comment is a spam:"
-msgstr ""
+msgstr "ఈ వ్యాఖ్యానము స్పాము:"
 
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comment)"
-msgstr ""
+msgstr "(ఉదయం %d స్పామ్ వ్యాఖ్యానం)"
 
+#: plugins/antispam/src/Antispam.php:140 plugins/antispam/src/Rest.php:30
 #, php-format
 msgid "(including %d spam comments)"
-msgstr ""
+msgstr "(ఉదయం %d స్పామ్ వ్యాఖ్యలు)"
 
+#: plugins/antispam/src/Backend.php:27
 msgid "Antispam"
-msgstr ""
+msgstr "ఆంటిస్పామ్"
 
+#: plugins/antispam/src/BackendBehaviors.php:41
+#: plugins/antispam/src/Manage.php:192
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
+msgstr "అన్ని స్పామ్ వ్యాఖ్యలు %s రోజు (లు) స్వయంచాలితంగా తొలగించబడతాయి."
 
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:193
 #, php-format
 msgid "You can modify this duration in the %s"
-msgstr ""
+msgstr "మీరు ఈ కాలవ్యవధి %s లో సవరించుకోవచ్చు"
 
+#: plugins/antispam/src/BackendBehaviors.php:57
 msgid "Delete junk comments older than"
-msgstr ""
+msgstr "@ action: button"
 
+#: plugins/antispam/src/BackendBehaviors.php:63
 msgid "days"
 msgstr "రోజులు"
 
+#: plugins/antispam/src/BackendBehaviors.php:65
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
+msgstr "ఈ లక్షణమును అచేతనము చేయుటకు -1 ను అమర్చు అప్రమేయ 7 రోజుల ఆలస్యం వుపయోగించుటకు ఖాళీని వడవండి."
 
+#: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set spam filters."
-msgstr ""
+msgstr "స్పామ్ ఫిల్టర్లను అమర్చు"
 
+#: plugins/antispam/src/Filters/Ip.php:74
 msgid "IP Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "IP Blocklist/అనుమతి జాబితా ఫిల్టర్"
 
+#: plugins/antispam/src/Filters/Ip.php:87
+#: plugins/antispam/src/Filters/IpV6.php:87
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
-msgstr ""
+msgstr "దస్త్రం %1$s పాలన %2$s."
 
+#: plugins/antispam/src/Filters/Ip.php:147
+#: plugins/antispam/src/Filters/IpV6.php:147
 msgid "IP address has been successfully added."
-msgstr ""
+msgstr "IP చిరునామాను సమర్ధవంతంగా చేర్చబడింది."
 
+#: plugins/antispam/src/Filters/Ip.php:158
+#: plugins/antispam/src/Filters/IpV6.php:158
 msgid "IP addresses have been successfully removed."
-msgstr ""
+msgstr "IP చిరునామాను విజయవంతంగా తొలగించారు."
 
+#: plugins/antispam/src/Filters/Ip.php:168
+#: plugins/antispam/src/Filters/IpV6.php:167
 msgid "Blocklist"
-msgstr ""
+msgstr "బ్లక్టిజాబితా"
 
+#: plugins/antispam/src/Filters/Ip.php:169
+#: plugins/antispam/src/Filters/IpV6.php:168
 msgid "Allowlist"
-msgstr ""
+msgstr "అనుమతించు జాబితా"
 
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:188
 msgid "Add an IP address: "
-msgstr ""
+msgstr "IP చిరునామాను జతచేయుము: "
 
+#: plugins/antispam/src/Filters/Ip.php:193
+#: plugins/antispam/src/Filters/IpV6.php:192
 msgid "Global IP (used for all blogs)"
-msgstr ""
+msgstr "గ్లోబల్ ఐపి (అన్ని బ్లాగులకు ఉపయోగపడే)"
 
+#: plugins/antispam/src/Filters/Ip.php:198
+#: plugins/antispam/src/Filters/IpV6.php:197
+#: plugins/antispam/src/Filters/Words.php:186
+#: plugins/widgets/src/Manage.php:287
 msgid "Add"
 msgstr "చేర్చు"
 
+#: plugins/antispam/src/Filters/Ip.php:204
+#: plugins/antispam/src/Filters/IpV6.php:203
 msgid "No IP address in list."
-msgstr ""
+msgstr "జాబితాలో IP చిరునామాను లేదు."
 
+#: plugins/antispam/src/Filters/Ip.php:207
+#: plugins/antispam/src/Filters/IpV6.php:206
 msgid "IP list"
 msgstr "IPల జాబితా"
 
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:235
 msgid "Local IPs (used only for this blog)"
-msgstr ""
+msgstr "స్థానిక IPs (ఈ బ్లాగుకు మాత్రమే ఉపయోగించబడినది)"
 
+#: plugins/antispam/src/Filters/Ip.php:243
+#: plugins/antispam/src/Filters/IpV6.php:241
 msgid "Global IPs (used for all blogs)"
-msgstr ""
+msgstr "గ్లోబల్ IPs (అన్ని బ్లాగులకు ఉపయోగపడే)"
 
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
-msgstr ""
+msgstr "DNSBL సర్వర్లకు వ్యతిరేకంగా IP చిరునామాను పరిశీలించుచున్నది"
 
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:70
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
-msgstr ""
+msgstr "ఫైల్డ్ ద్వారా %1$s సర్వర్ తో %2$s."
 
-#, fuzzy
+#: plugins/antispam/src/Filters/IpLookup.php:145
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "DNSBL సర్వర్ల జాబితా పరిచయం చేయబడింది."
 
+#: plugins/antispam/src/Filters/IpLookup.php:156
 msgid "IP Lookup servers"
-msgstr ""
+msgstr "IP లుకప్ సర్వర్లు"
 
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "Add here a coma separated list of servers."
-msgstr ""
+msgstr "ఇక్కడ ఒక కోమా విడిపోయిన సర్వర్ల జాబితాను జతచేయుము."
 
+#: plugins/antispam/src/Filters/IpV6.php:74
 msgid "IP v6 Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "IP v6 Blocklist/Allowlist ఫిల్టర్"
 
+#: plugins/antispam/src/Filters/LinksLookup.php:57
 msgid "Checks links in comments against surbl.org"
-msgstr ""
+msgstr "surbl.org కు వ్యతిరేకంగా వ్యాఖ్యలలో లింకులు"
 
+#: plugins/antispam/src/Filters/Words.php:74
 msgid "Words Blocklist"
-msgstr ""
+msgstr "వర్డ్స్ బార్కల్ జాబితా"
 
+#: plugins/antispam/src/Filters/Words.php:87
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
-msgstr ""
+msgstr "దస్త్రం %1$s with word %2$s."
 
+#: plugins/antispam/src/Filters/Words.php:143
 msgid "Words have been successfully added."
-msgstr ""
+msgstr "వర్డ్స్ విజయవంతంగా చేర్చబడింది."
 
+#: plugins/antispam/src/Filters/Words.php:156
 msgid "Word has been successfully added."
-msgstr ""
+msgstr "పదం సమర్ధవంతంగా చేర్చబడింది."
 
+#: plugins/antispam/src/Filters/Words.php:167
 msgid "Words have been successfully removed."
-msgstr ""
+msgstr "వర్డ్స్ విజయవంతంగా తొలగించబడింది."
 
+#: plugins/antispam/src/Filters/Words.php:177
 msgid "Add a word "
-msgstr ""
+msgstr "ఒక పదము జతచేయుము "
 
+#: plugins/antispam/src/Filters/Words.php:181
 msgid "Global word (used for all blogs)"
-msgstr ""
+msgstr "గ్లోబల్ పదం (అన్ని బ్లాగులకు ఉపయోగించే)"
 
+#: plugins/antispam/src/Filters/Words.php:191
 msgid "No word in list."
-msgstr ""
+msgstr "జాబితాలో ఏ పదం లేదు."
 
+#: plugins/antispam/src/Filters/Words.php:194
 msgid "List of bad words"
-msgstr ""
+msgstr "చెడు పదాల జాబితా"
 
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
-msgstr ""
+msgstr "స్థానిక పదాలు (ఈ బ్లాగుకు మాత్రమే వాడతారు)."
 
+#: plugins/antispam/src/Filters/Words.php:229
 msgid "Global words (used for all blogs)"
-msgstr ""
+msgstr "గ్లోబల్ పదాలు (అన్ని బ్లాగులకు ఉపయోగపడే)"
 
+#: plugins/antispam/src/Filters/Words.php:240
 msgid "Delete selected words"
-msgstr ""
+msgstr "ఎంపికచేసిన పదాలను తొలగించుము"
 
+#: plugins/antispam/src/Filters/Words.php:246
 msgid "Create default wordlist"
-msgstr ""
+msgstr "అప్రమేయ జాబితాను సృష్టించుము"
 
+#: plugins/antispam/src/Filters/Words.php:292
 msgid "This word exists"
-msgstr ""
+msgstr "ఈ పదం వుంది"
 
+#: plugins/antispam/src/FrontendUrl.php:59
 msgid "Spam moderation"
-msgstr ""
+msgstr "స్పామ్ ఆధునికత"
 
+#: plugins/antispam/src/FrontendUrl.php:63
 msgid "Spam"
-msgstr ""
+msgstr "స్పామ్"
 
+#: plugins/antispam/src/FrontendUrl.php:67
 msgid "Ham"
-msgstr ""
+msgstr "హామ్"
 
+#: plugins/antispam/src/Manage.php:49
 msgid "Filter does not exist."
-msgstr ""
+msgstr "ఫిల్టర్ లేదు."
 
+#: plugins/antispam/src/Manage.php:53
 msgid "Filter has no user interface."
-msgstr ""
+msgstr "ఫిల్టర్ కు యూజర్ ఇంటర్ఫేస్ లేదు."
 
+#: plugins/antispam/src/Manage.php:111 plugins/antispam/src/Manage.php:204
 msgid "Filters configuration has been successfully saved."
-msgstr ""
+msgstr "ఫైల్టర్స్ ఆకృతీకరణను సమర్ధవంతంగా రక్షిస్తోంది."
 
+#: plugins/antispam/src/Manage.php:128
 #, php-format
 msgid "%s configuration"
-msgstr ""
+msgstr "%s ఆకృతీకరణము"
 
+#: plugins/antispam/src/Manage.php:148
 #, php-format
 msgid "%s filter configuration"
-msgstr ""
+msgstr "%s ఫిల్టర్ ఆకృతీకరణము"
 
+#: plugins/antispam/src/Manage.php:152
 msgid "Back to filters list"
-msgstr ""
+msgstr "తిరిగి ఫిల్టర్స్ జాబితాకు"
 
+#: plugins/antispam/src/Manage.php:176
 msgid "Information"
 msgstr "సమాచారం"
 
+#: plugins/antispam/src/Manage.php:178
 msgid "Junk comments:"
-msgstr ""
+msgstr "జంక్ వ్యాఖ్యలు:"
 
+#: plugins/antispam/src/Manage.php:180
 msgid "Published comments:"
-msgstr ""
+msgstr "ప్రచురణ వ్యాఖ్యలు:"
 
+#: plugins/antispam/src/Manage.php:210
 msgid "Available spam filters"
-msgstr ""
+msgstr "అందుబాటులో స్పామ్ ఫిల్టర్లు"
 
+#: plugins/antispam/src/Manage.php:212
+#: plugins/pages/src/BackendDefaultActions.php:76
 msgid "Order"
 msgstr "క్రమం"
 
+#: plugins/antispam/src/Manage.php:213 plugins/antispam/src/Manage.php:244
 msgid "Active"
-msgstr ""
+msgstr "క్రియాశీలము"
 
+#: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:252
 msgid "Auto Del."
-msgstr ""
+msgstr "ఆటో డెల్."
 
+#: plugins/antispam/src/Manage.php:215
 msgid "Filter name"
 msgstr "వడపోత పేరు"
 
+#: plugins/antispam/src/Manage.php:225 plugins/antispam/src/Manage.php:226
 msgid "Filter configuration"
-msgstr ""
+msgstr "ఫిల్టర్ ఆకృతీకరణName"
 
-#, fuzzy
+#: plugins/antispam/src/Manage.php:236 plugins/blogroll/src/Manage.php:269
 msgid "position"
-msgstr "పేజీ స్థానం"
+msgstr "స్థానము"
 
+#: plugins/antispam/src/Manage.php:282
 msgid "Syndication"
-msgstr ""
+msgstr "సిండికేషన్"
 
+#: plugins/antispam/src/Manage.php:284
 msgid "Junk comments RSS feed"
-msgstr ""
+msgstr "జాక్ వ్యాఖ్యలు RSS ఫీడ్"
 
+#: plugins/antispam/src/Manage.php:285
 msgid "Published comments RSS feed"
-msgstr ""
+msgstr "ప్రచురణ వ్యాఖ్యలు RSS ఫీడ్"
 
+#: plugins/antispam/src/SpamFilter.php:110
 msgid "No description"
 msgstr "వివరణ లేదు"
 
+#: plugins/antispam/src/SpamFilter.php:163
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
-msgstr ""
+msgstr "దస్త్రం %1$s (%2$s)"
 
+#: plugins/antispam/src/SpamFilters.php:155
 msgid "Unknown filter."
-msgstr ""
+msgstr "తెలియని ఫిల్టర్."
 
-#, fuzzy
+#: plugins/attachments/src/Backend.php:23
 msgid "attachments"
-msgstr "ఇటీవలి వ్యాఖ్యలు"
+msgstr "యాటాక్మెంట్లుComment"
 
+#: plugins/attachments/src/BackendBehaviors.php:51
 #, php-format
 msgid "Attachments (%d)"
-msgstr ""
+msgstr "అటవీ (%d)"
 
+#: plugins/attachments/src/BackendBehaviors.php:75
 msgid "remove"
-msgstr ""
+msgstr "తొలగించు"
 
+#: plugins/attachments/src/BackendBehaviors.php:83
 msgid "No attachment."
-msgstr ""
+msgstr "అనుబంధం లేదు."
 
-#, fuzzy
+#: plugins/attachments/src/BackendBehaviors.php:86
 msgid "Add files to this entry"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "ఈ ప్రవేశమునకు ఫైళ్ళను జతచేయుము"
 
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "బ్లాగ్మిత్రులు"
 
+#: plugins/blogroll/src/Backend.php:37
 msgid "manage blogroll"
 msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
 
+#: plugins/blogroll/src/Blogroll.php:140 plugins/blogroll/src/Blogroll.php:178
 msgid "You must provide a link title"
-msgstr ""
+msgstr "మీరు లింకు టైటిల్ను అందించాలి"
 
+#: plugins/blogroll/src/Blogroll.php:144 plugins/blogroll/src/Blogroll.php:182
 msgid "You must provide a link URL"
-msgstr ""
+msgstr "మీరు ఒక లింకు URLను అందించాలి"
 
+#: plugins/blogroll/src/Manage.php:82 plugins/blogroll/src/Manage.php:390
 msgid "Nothing to import"
-msgstr ""
+msgstr "దిగుమతి చేయలేదు"
 
+#: plugins/blogroll/src/Manage.php:105
 msgid "links have been successfully imported."
-msgstr ""
+msgstr "లింకులు సమర్ధవంతంగా దిగుమతి చేయబడింది."
 
+#: plugins/blogroll/src/Manage.php:112
 msgid "Import operation cancelled."
-msgstr ""
+msgstr "దిగుమతి ఆపరేషన్ రద్దు."
 
+#: plugins/blogroll/src/Manage.php:127
 msgid "Link has been successfully created."
-msgstr ""
+msgstr "లింకు సమర్ధవంతంగా సృష్టించబడింది."
 
+#: plugins/blogroll/src/Manage.php:142
 msgid "category has been successfully created."
-msgstr ""
+msgstr "వర్గం విజయవంతంగా సృష్టించబడింది."
 
+#: plugins/blogroll/src/Manage.php:164
 msgid "Items have been successfully removed."
-msgstr ""
+msgstr "అంశాలు సమర్ధవంతంగా తొలగించబడ్డాయి."
 
+#: plugins/blogroll/src/Manage.php:194
 msgid "Items order has been successfully updated"
-msgstr ""
+msgstr "అంశం క్రమం సమర్ధవంతంగా నవీకరిస్తోంది"
 
+#: plugins/blogroll/src/Manage.php:254
 msgid "Lang"
 msgstr "భాష"
 
+#: plugins/blogroll/src/Manage.php:276
 msgid "select this link"
-msgstr ""
+msgstr "ఈ లింకును యెంపికచేయుము"
 
+#: plugins/blogroll/src/Manage.php:310
 msgid "Are you sure you want to delete selected links?"
-msgstr ""
+msgstr "మీరు యెంపికచేసిన లింకులను తొలగించాలనుకుంటున్నారా?"
 
+#: plugins/blogroll/src/Manage.php:310
 msgid "Delete selected links"
-msgstr ""
+msgstr "ఎంపికచేసిన లింకులను తొలగించుము"
 
+#: plugins/blogroll/src/Manage.php:315
 msgid "The link list is empty."
-msgstr ""
+msgstr "లింకు జాబితా ఖాళీగా ఉంది."
 
+#: plugins/blogroll/src/Manage.php:323
 msgid "Add a new link"
-msgstr ""
+msgstr "కొత్త లింకు జతచేయుము"
 
+#: plugins/blogroll/src/Manage.php:353
 msgid "Add a category"
-msgstr ""
+msgstr "ఒక వర్గం జతచేయుము"
 
+#: plugins/blogroll/src/Manage.php:370 plugins/blogroll/src/Manage.php:375
+#: plugins/blogroll/src/Manage.php:387
 msgid "Import links"
-msgstr ""
+msgstr "లింకులు దిగుమతిచేయి"
 
+#: plugins/blogroll/src/Manage.php:376
 msgid "OPML or XBEL File:"
-msgstr ""
+msgstr "OPML లేదా XBEL దస్త్రం:"
 
+#: plugins/blogroll/src/Manage.php:380 plugins/blogroll/src/Manage.php:424
+#: plugins/importExport/src/Manage.php:114
+#: plugins/importExport/src/ModuleImportFeed.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:261
 msgid "Import"
-msgstr ""
+msgstr "దిగుమతి"
 
+#: plugins/blogroll/src/ManageEdit.php:47
 msgid "No such link or title"
-msgstr ""
+msgstr "ఎటువంటి లింకు లేదా శీర్జకత లేదు"
 
+#: plugins/blogroll/src/ManageEdit.php:97
 msgid "Link has been successfully updated"
-msgstr ""
+msgstr "లింకు సమర్ధవంతంగా నవీకరిస్తోంది"
 
+#: plugins/blogroll/src/ManageEdit.php:114
 msgid "Category has been successfully updated"
-msgstr ""
+msgstr "వర్గము సమర్ధవంతంగా నవీకరిస్తోంది"
 
+#: plugins/blogroll/src/ManageEdit.php:143
 msgid "Return to blogroll"
 msgstr "తిరిగి బ్లాగ్మిత్రులకి"
 
-#, fuzzy
+#: plugins/blogroll/src/ManageEdit.php:149
 msgid "Edit category"
-msgstr "పేజీ మార్పు"
+msgstr "వర్గము సరికూర్చు"
 
+#: plugins/blogroll/src/ManageEdit.php:167
 msgid "Edit link"
-msgstr ""
+msgstr "లింకు సరికూర్చు"
 
-#, fuzzy
+#: plugins/blogroll/src/ManageEdit.php:203
 msgid "XFN information"
-msgstr "సమాచారం"
+msgstr "ఎక్స్ ఎఫ్ఎన్ సమాచారంName"
 
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
-msgstr ""
+msgstr "మరింత సమాచారం <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">వికీపీడియా</a> వెబ్ సైట్"
 
+#: plugins/blogroll/src/ManageEdit.php:210
 msgid "_xfn_Me"
-msgstr ""
+msgstr "_xfn_Me"
 
+#: plugins/blogroll/src/ManageEdit.php:213
 msgid "_xfn_Another link for myself"
-msgstr ""
+msgstr "_xfn_మరొక లింకు నా కొరకు"
 
+#: plugins/blogroll/src/ManageEdit.php:217
 msgid "_xfn_Friendship"
-msgstr ""
+msgstr "Xfn_ఫ్రెండ్స్ను (_f)"
 
+#: plugins/blogroll/src/ManageEdit.php:223
 msgid "_xfn_Contact"
-msgstr ""
+msgstr "Xfn_Contact (_C)"
 
+#: plugins/blogroll/src/ManageEdit.php:228
 msgid "_xfn_Acquaintance"
-msgstr ""
+msgstr "_xfn_Acquaintance"
 
+#: plugins/blogroll/src/ManageEdit.php:233
 msgid "_xfn_Friend"
-msgstr ""
+msgstr "Xfn_ఫ్రెండ్ (_f)"
 
+#: plugins/blogroll/src/ManageEdit.php:239
 msgid "_xfn_Physical"
-msgstr ""
+msgstr "_xfn_భౌతిక"
 
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "_xfn_Met"
-msgstr ""
+msgstr "_xfn_Met"
 
+#: plugins/blogroll/src/ManageEdit.php:250
 msgid "_xfn_Professional"
-msgstr ""
+msgstr "Xfn_ప్రొఫెషనల్ (_x)"
 
+#: plugins/blogroll/src/ManageEdit.php:256
 msgid "_xfn_Co-worker"
-msgstr ""
+msgstr "Xfn_సహచరుడు (_x)"
 
+#: plugins/blogroll/src/ManageEdit.php:261
 msgid "_xfn_Colleague"
-msgstr ""
+msgstr "Xfn_Colలీగ్"
 
+#: plugins/blogroll/src/ManageEdit.php:266
 msgid "_xfn_Geographical"
-msgstr ""
+msgstr "_xfn_Geographical"
 
+#: plugins/blogroll/src/ManageEdit.php:272
 msgid "_xfn_Co-resident"
-msgstr ""
+msgstr "Xfn_Co-నివాసిత (_x)"
 
+#: plugins/blogroll/src/ManageEdit.php:277
 msgid "_xfn_Neighbor"
-msgstr ""
+msgstr "_xfn_నెస్బర్"
 
+#: plugins/blogroll/src/ManageEdit.php:283
 msgid "_xfn_Family"
 msgstr "కుటుబం"
 
+#: plugins/blogroll/src/ManageEdit.php:289
 msgid "_xfn_Child"
 msgstr "బిడ్డ"
 
+#: plugins/blogroll/src/ManageEdit.php:294
 msgid "_xfn_Parent"
-msgstr ""
+msgstr "_xfn_Parent"
 
+#: plugins/blogroll/src/ManageEdit.php:299
 msgid "_xfn_Sibling"
 msgstr "సహోదరి"
 
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "_xfn_Spouse"
-msgstr ""
+msgstr "_xfn_Spouse"
 
+#: plugins/blogroll/src/ManageEdit.php:309
 msgid "_xfn_Kin"
-msgstr ""
+msgstr "_xfn_Kin"
 
+#: plugins/blogroll/src/ManageEdit.php:315
 msgid "_xfn_Romantic"
-msgstr ""
+msgstr "Xfn_Romantic (_x)"
 
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Muse"
-msgstr ""
+msgstr "Xfn_Muse (_M)"
 
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Crush"
-msgstr ""
+msgstr "Xfn_Crush (_C)"
 
+#: plugins/blogroll/src/ManageEdit.php:331
 msgid "_xfn_Date"
-msgstr ""
+msgstr "_xfn_తేదీ"
 
+#: plugins/blogroll/src/ManageEdit.php:336
 msgid "_xfn_Sweetheart"
-msgstr ""
+msgstr "_xfn_Sweetheart"
 
+#: plugins/blogroll/src/UtilsImport.php:37
 msgid "You need to provide a XBEL or OPML file."
-msgstr ""
+msgstr "మీరు ఒక XBEL లేదా OPML దస్త్రం అందించాలి."
 
+#: plugins/blogroll/src/UtilsImport.php:48
+#: plugins/blogroll/src/UtilsImport.php:83
 msgid "File is not in XML format."
-msgstr ""
+msgstr "ఫైలు XML ఫార్మాట్ లో లేదు."
 
+#: plugins/blogroll/src/Widgets.php:32
 msgid "All categories"
 msgstr "అన్ని వర్గాలు"
 
+#: plugins/blogroll/src/Widgets.php:41
 msgid "Links"
 msgstr "లంకెలు"
 
+#: plugins/breadcrumb/src/Backend.php:23
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Breadcrumb"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:31
 msgid "Enable breadcrumb for this blog"
-msgstr ""
+msgstr "ఈ బ్లాగుకు breadcrumb ను చేర్చు"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr ""
+msgstr "The {{tpl:Breadcrumb [separator = \" &amp;rsaquo; \"]} ట్యాగ్లో ఉండాలి (లేదా ప్రవేశపెట్టకపోతే)."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:34
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr ""
+msgstr "ఒక &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; ట్యాగ్లో breadcrumb ఎన్సెప్స్కోట్ చేయవద్దు."
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:69
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:85
+#: plugins/breadcrumb/src/FrontendTemplate.php:96
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:114 plugins/simpleMenu/src/Manage.php:225
+#: plugins/widgets/src/Widgets.php:234
 msgid "Home"
-msgstr ""
+msgstr "హోమ్"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
-msgstr ""
+msgstr "పేజీ %d"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:252 plugins/widgets/src/Widgets.php:251
 msgid "Archives"
-msgstr ""
+msgstr "ఆర్కైవ్"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:103 plugins/simpleMenu/src/Manage.php:272
+#: plugins/tags/src/Widgets.php:53
 msgid "All tags"
 msgstr "అన్ని ట్యాగులూ"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
-msgstr ""
+msgstr "404"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Generate fake l10n"
-msgstr ""
+msgstr "నకిల్ l10n జననము చేయుము"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "fake l10n file generated."
-msgstr ""
+msgstr "నకిల్ l10n దస్త్రం ఉత్పత్తి."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "Failed to generate fake l10n file."
-msgstr ""
+msgstr "నకిల్ l10n దస్త్రం తయారు చేయలేకపొయాను."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
-msgstr ""
+msgstr "ఒక php దస్త్రమును జెనరేట్ చేయుము, ఆ విషయము కోర్ పనిముట్లతో చేయబడవు అని అనువదించండి."
 
+#: plugins/dcCKEditor/src/Backend.php:23 plugins/dcCKEditor/tpl/index.php:6
 msgid "dcCKEditor"
-msgstr ""
+msgstr "DcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:38
+#: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Media chooser"
-msgstr ""
+msgstr "మీడియా ఎంచుకున్న"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "m"
-msgstr ""
+msgstr "M"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Link to an entry"
-msgstr ""
+msgstr "ఒక ప్రవేశమునకు లింకు"
 
-#, fuzzy
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Link"
-msgstr "లంకెలు"
+msgstr "లింకు"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "l"
-msgstr ""
+msgstr "ఎల్"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "External image"
-msgstr ""
+msgstr "బయటి చిత్రం"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
-msgstr ""
+msgstr "URL క్షేత్రం ఖాళీగా ఉండలేము."
 
+#: plugins/dcCKEditor/src/Manage.php:130
+#: plugins/dcLegacyEditor/src/Manage.php:42
 msgid "The configuration has been updated."
-msgstr ""
+msgstr "ఆకృతీకరణను నవీకరిస్తుంది."
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:237
 msgid "Note(s)"
-msgstr ""
+msgstr "Note (s)"
 
-#, fuzzy
-msgid "Settings"
-msgstr "అమరిక పేరు"
-
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:14 plugins/dcLegacyEditor/tpl/index.php:7
 msgid "Plugin activation"
-msgstr "పేజీ స్థానం"
+msgstr "ప్లగిన్ క్రియాశీలము"
 
+#: plugins/dcCKEditor/tpl/index.php:19
 msgid "Enable dcCKEditor plugin"
-msgstr ""
+msgstr "DcCKEditor ప్లగిన్ చేర్చు"
 
+#: plugins/dcCKEditor/tpl/index.php:31
 msgid "Add alignment buttons"
-msgstr ""
+msgstr "అణు బటన్లను జతచేయుము"
 
+#: plugins/dcCKEditor/tpl/index.php:37
 msgid "Add lists buttons"
-msgstr ""
+msgstr "జాబితా బటన్లను జతచేయుము"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:43
 msgid "Add text color button"
-msgstr "ప్రక్కపట్టీ పాఠ్యపు రంగు:"
+msgstr "టెక్స్ట్ రంగు బటన్ను జతచేయుము"
 
+#: plugins/dcCKEditor/tpl/index.php:49
 msgid "Add background text color button"
-msgstr ""
+msgstr "బ్యాక్గ్రౌడ్ టెక్స్ట్ రంగు బటన్ చేర్చు"
 
+#: plugins/dcCKEditor/tpl/index.php:54
 msgid "Custom colors list:"
-msgstr ""
+msgstr "ఆస్తి రంగుల జాబితా:"
 
+#: plugins/dcCKEditor/tpl/index.php:59
 msgid "Add colors without # separated by a comma."
-msgstr ""
+msgstr "# కాకుండా నిలువుగా రంగులను జతచేయుము."
 
+#: plugins/dcCKEditor/tpl/index.php:60
 msgid "Leave empty to use the default palette:"
-msgstr ""
+msgstr "అప్రమేయ పాలెట్ను వుపయోగించుటకు ఖాళీని వదిలించుము:"
 
+#: plugins/dcCKEditor/tpl/index.php:62
 msgid "Example of custom color list:"
-msgstr ""
+msgstr "ఆచారం రంగు జాబితాకు ఉదాహరణ:"
 
+#: plugins/dcCKEditor/tpl/index.php:67
 msgid "Colors per row in palette:"
-msgstr ""
+msgstr "పల్లెలో వరుసగా రంగులు:"
 
+#: plugins/dcCKEditor/tpl/index.php:72
 msgid "Valid range: 4 to 16"
-msgstr ""
+msgstr "వైధ్య శ్రేణులు: 4 నుండి 16"
 
+#: plugins/dcCKEditor/tpl/index.php:77
 msgid "Add collapse button"
-msgstr ""
+msgstr "పతనం బటన్ జతచేయుము"
 
-#, fuzzy
+#: plugins/dcCKEditor/tpl/index.php:83
 msgid "Add format selection"
-msgstr "టపాలకు ట్యాగులను చేర్చండి"
+msgstr "ఫార్మాట్ ఎంపిక"
 
+#: plugins/dcCKEditor/tpl/index.php:88
 msgid "Custom formats"
-msgstr ""
+msgstr "@ action: button Choose formats"
 
+#: plugins/dcCKEditor/tpl/index.php:93
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr ""
+msgstr "అప్రమేయ ఫార్మాట్లు; h1; h2; h3; h4; h5; h6; pre; address"
 
+#: plugins/dcCKEditor/tpl/index.php:98
 msgid "Add table button"
-msgstr ""
+msgstr "పట్టిక బటన్ జతచేయుము"
 
+#: plugins/dcCKEditor/tpl/index.php:104
 msgid "Add clipboard buttons"
-msgstr ""
+msgstr "ক্লিబోర్డ్ బటన్లను జతచేయుము"
 
+#: plugins/dcCKEditor/tpl/index.php:108
 msgid "Copy, Paste, Paste Text, Paste from Word"
-msgstr ""
+msgstr "కాపీ, పేస్ట్, పేస్ట్ వచనం, పదం నుండి ప్రతిబింబము"
 
+#: plugins/dcCKEditor/tpl/index.php:113
 msgid "Add undo/redo buttons"
-msgstr ""
+msgstr "తిరస్కారం/redo బటన్లను జతచేయుము"
 
+#: plugins/dcCKEditor/tpl/index.php:119
 msgid "Disables the built-in spell checker if the browser provides one"
-msgstr ""
+msgstr "బ్రౌజర్ ఒకటి అందించినట్లయితే built-in spell పరిశీలనలను అనిపించుము."
 
+#: plugins/dcCKEditor/tpl/index.php:127 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/simpleMenu/src/Manage.php:632
 msgid "Save configuration"
-msgstr ""
+msgstr "ఆకృతీకరణను దాయుము"
 
+#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/tpl/index.php:1
 msgid "dcLegacyEditor"
-msgstr ""
+msgstr "DcLegacyEditor"
 
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "Dotclear wiki"
-msgstr ""
+msgstr "Dotclear wiki"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:86
 msgid "visual"
-msgstr ""
+msgstr "దృశ్య"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:87
 msgid "source"
-msgstr ""
+msgstr "మూలం"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:88
 msgid "You can use the following shortcuts to format your text."
-msgstr ""
+msgstr "మీరు మీ వచనమును ఫార్మాట్ చేయుటకు క్రింది శీఘ్రమార్గాలను ఉపయోగించుకోవచ్చు."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:91
 msgid "Block format"
-msgstr ""
+msgstr "బ్లాక్ ఫార్మాట్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:93
 msgid "-- none --"
-msgstr ""
+msgstr "-ఎవరూ -"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:94
 msgid "-- block format --"
-msgstr ""
+msgstr "-- బ్లాక్ ఫార్మాట్ -"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:95
 msgid "Paragraph"
-msgstr ""
+msgstr "పరాగ్రపు"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:96
 msgid "Level 1 header"
-msgstr ""
+msgstr "స్థాయి 1 హెడర్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:97
 msgid "Level 2 header"
-msgstr ""
+msgstr "స్థాయి 2 హెడర్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:98
 msgid "Level 3 header"
-msgstr ""
+msgstr "స్థాయి 3 హెడర్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:99
 msgid "Level 4 header"
-msgstr ""
+msgstr "స్థాయి 4 హెడర్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:100
 msgid "Level 5 header"
-msgstr ""
+msgstr "స్థాయి 5 హెడర్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:101
 msgid "Level 6 header"
-msgstr ""
+msgstr "స్థాయి 6 హెడర్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "Strong emphasis"
-msgstr ""
+msgstr "బలమైన ధరలు"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "Emphasis"
-msgstr ""
+msgstr "ఖాళీ"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "Inserted"
-msgstr ""
+msgstr "ప్రశంసించబడినది"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:107
 msgid "Deleted"
-msgstr ""
+msgstr "తిరస్కరిస్తోంది"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:108
 msgid "Inline quote"
-msgstr ""
+msgstr "ఇన్లైన్ వ్యాఖ్యానము"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Code"
-msgstr ""
+msgstr "కోడ్"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "Line break"
-msgstr ""
+msgstr "లైన్ విరామం"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "Blockquote"
-msgstr ""
+msgstr "Blockquote"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Preformated text"
-msgstr ""
+msgstr "ప్రాతినిధ్య వచనము"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Unordered list"
-msgstr ""
+msgstr "ఆదేశించిన జాబితా"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Ordered list"
-msgstr ""
+msgstr "ఆర్డర్ జాబితా"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "URL?"
-msgstr ""
+msgstr "ఉర్ల్?"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "Language?"
-msgstr "భాష"
+msgstr "భాష?"
 
-#, fuzzy
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Remove text formating"
-msgstr "ట్యాగులను తొలగించండి"
+msgstr "టెక్స్ట్ ఫార్మిటింగ్ తొలగించుము"
 
+#: plugins/dcLegacyEditor/tpl/index.php:11
 msgid "Enable dcLegacyEditor plugin"
-msgstr ""
+msgstr "DcLegacyEditor ప్లగిన్ చేర్చు"
 
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:62
 msgid "Checks trackback source for a link to the post"
-msgstr ""
+msgstr "పోస్ట్ కు లింకు కోసం ట్రాక్బ్యాక్ మూలాన్ని పరిశీలించుము"
 
+#: plugins/fairTrackbacks/src/Prepend.php:23
 msgid "Fair Trackbacks"
-msgstr ""
+msgstr "ఫెయిర్ ట్రాక్బాక్"
 
+#: plugins/importExport/src/Backend.php:25
 msgid "Import / Export"
-msgstr ""
+msgstr "దిగుమతి/ ఎగుమతి"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:34
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:32
 msgid "Database export"
-msgstr ""
+msgstr "డాటాబేస్ ఎగుమతి"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
 msgid "Download database of current blog"
-msgstr ""
+msgstr "ప్రస్తుత బ్లాగు యొక్క డాటాబేస్ ను డౌన్లోడ్"
 
-#, fuzzy
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:95
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:93
+#: plugins/importExport/src/ModuleExportFlat.php:224
+#: plugins/importExport/src/ModuleExportFlat.php:248
 msgid "Compress file"
-msgstr "ఫైళ్ళు లేవు"
+msgstr "సంప్రదాయ ఫైలు"
 
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Download database of all blogs"
-msgstr ""
+msgstr "అన్ని బ్లాగుల డాటాబేస్ డౌన్లోడ్"
 
+#: plugins/importExport/src/FlatBackup.php:37
 msgid "No file to read."
-msgstr ""
+msgstr "చదువుటకు ఏ ఫైలు లేదు."
 
+#: plugins/importExport/src/FlatExport.php:35
 msgid "Unable to create output file."
-msgstr ""
+msgstr "అవుట్పుట్ ఫైలు సృష్టించలేక పోయింది."
 
+#: plugins/importExport/src/FlatImportV2.php:75
 msgid "File is not a DotClear backup."
-msgstr ""
+msgstr "దస్త్రం Dotපැහැදිලි బ్యాకప్ కాదు."
 
+#: plugins/importExport/src/FlatImportV2.php:128
 msgid "File is not a single blog export."
-msgstr ""
+msgstr "దస్త్రం ఒక బ్లాగు ఎగుమతి కాదు."
 
+#: plugins/importExport/src/FlatImportV2.php:242
+#: plugins/importExport/src/FlatImportV2.php:296
 #, php-format
 msgid "Error raised at line %s"
-msgstr ""
+msgstr "లైన్ వద్ద లేపిన దోషం %s"
 
+#: plugins/importExport/src/FlatImportV2.php:251
 msgid "File is not a full export."
-msgstr ""
+msgstr "దస్త్రం పూర్తి ఎగుమతి కాదు."
 
+#: plugins/importExport/src/FlatImportV2.php:710
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
+msgstr "యొక్క ID \"%3$s\" రికార్డ్లో సరిపోలేదు \"%1$s\" రేఖ %2$s బ్యాకప్ ఫైల్."
 
+#: plugins/importExport/src/Manage.php:84
+#: plugins/maintenance/src/Manage.php:175
 msgid "Please wait..."
 msgstr "దయచేసి వేచివుండండి..."
 
+#: plugins/importExport/src/Manage.php:117
+#: plugins/importExport/src/ModuleExportFlat.php:230
+#: plugins/importExport/src/ModuleExportFlat.php:251
 msgid "Export"
-msgstr ""
+msgstr "ఎగుమతి"
 
+#: plugins/importExport/src/Manage.php:119
 #, php-format
 msgid "Export functions are in the page %s."
-msgstr ""
+msgstr "ఎగుమతి కార్యకలాపాలు పేజీలో %s."
 
+#: plugins/importExport/src/Manage.php:121
+#: plugins/maintenance/src/Backend.php:23
+#: plugins/maintenance/src/BackendBehaviors.php:169
 msgid "Maintenance"
-msgstr ""
+msgstr "నిర్వహణ"
 
+#: plugins/importExport/src/Module.php:160
 msgid "Congratulation!"
 msgstr "అభినందనలు!"
 
+#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr ""
+msgstr "మీ బ్లాగు విజయవంతంగా దిగుమతి చేయబడింది. Dotclear 2 లో స్వాగతం!"
 
+#: plugins/importExport/src/Module.php:165
 msgid "Why don't you blog this now?"
-msgstr ""
+msgstr "ఎందుకు మీరు ఇప్పుడు దీనిని బ్లాగు?"
 
+#: plugins/importExport/src/Module.php:170
 msgid "visit your dashboard"
-msgstr ""
+msgstr "మీ డాష్ బోర్డు సందర్శించు"
 
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Flat file export"
-msgstr ""
+msgstr "ఫ్లాట్ ఫైల్ ఎగుమతి"
 
+#: plugins/importExport/src/ModuleExportFlat.php:32
 msgid "Exports a blog or a full Dotclear installation to flat file."
-msgstr ""
+msgstr "ఒక బ్లాగు లేదా పూర్తి Dotclear స్థాపన ఫ్లాట్ ఫైల్ కు ఎక్స్పోర్ట్ చేయండి."
 
+#: plugins/importExport/src/ModuleExportFlat.php:162
 msgid "Export file not found."
-msgstr ""
+msgstr "ఎగుమతి దస్త్రం కనపడలేదు."
 
+#: plugins/importExport/src/ModuleExportFlat.php:201
 msgid "Failed to compress export file."
-msgstr ""
+msgstr "ఎగుమతి దస్త్రం సంప్రదించలేదు."
 
-#, fuzzy
+#: plugins/importExport/src/ModuleExportFlat.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:203
 msgid "Single blog"
-msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
+msgstr "ఒంటరి బ్లాగు"
 
+#: plugins/importExport/src/ModuleExportFlat.php:216
 #, php-format
 msgid "This will create an export of your current blog: %s"
-msgstr ""
+msgstr "ఇది మీ ప్రస్తుత బ్లాగు యొక్క ఎగుమతి సృష్టిస్తుంది: %s"
 
+#: plugins/importExport/src/ModuleExportFlat.php:228
 msgid "You may also want to download your media directory as a zip file"
-msgstr ""
+msgstr "మీరు కూడా జిప్ ఫైల్ వలె మీ మీడియా డైరెక్టరీ డౌన్లోడ్ చేయవచ్చు."
 
+#: plugins/importExport/src/ModuleExportFlat.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "Multiple blogs"
-msgstr ""
+msgstr "బహుళ బ్లాగులు"
 
+#: plugins/importExport/src/ModuleExportFlat.php:240
 msgid "This will create an export of all the content of your database."
-msgstr ""
+msgstr "ఇది మీ డేటాబేస్ యొక్క అన్ని విషయాలను ఎగుమతి చేస్తుంది."
 
+#: plugins/importExport/src/ModuleImportDc1.php:60
 msgid "Dotclear 1.2 import"
-msgstr ""
+msgstr "Dotclear 1.2 దిగుమతి"
 
+#: plugins/importExport/src/ModuleImportDc1.php:61
 msgid "Import a Dotclear 1.2 installation into your current blog."
-msgstr ""
+msgstr "Dotclear 1.2 స్థాపన మీ ప్రస్తుత బ్లాగు లోకి దిగుమతిస్తుంది."
 
+#: plugins/importExport/src/ModuleImportDc1.php:190
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
-msgstr ""
+msgstr "ప్రస్తుత బ్లాగు లో ఒక Dotclear 1.2 యొక్క బ్లాగుల సారాంశమును దిగుమతి చేయుము: %s."
 
+#: plugins/importExport/src/ModuleImportDc1.php:193
+#: plugins/importExport/src/ModuleImportWp.php:216
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr ""
+msgstr "ఈ ప్రక్రియ ప్రస్తుత బ్లాగులో మీ వర్గములు, blogroll, ఎంట్రీలు మరియు వ్యాఖ్యలు ఖాళీ చేస్తుంది."
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "General information"
 msgstr "సాధారణ సమాచారం"
 
+#: plugins/importExport/src/ModuleImportDc1.php:197
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Import my blog now"
-msgstr ""
+msgstr "ఇప్పుడు నా బ్లాగు దిగుమతి చేయండి"
 
+#: plugins/importExport/src/ModuleImportDc1.php:198
 msgid "We first need some information about your old Dotclear 1.2 installation."
-msgstr ""
+msgstr "మేము మొదట మీ పాత Dotclear 1.2 స్థాపన గురించి కొన్ని సమాచారం అవసరం."
 
+#: plugins/importExport/src/ModuleImportDc1.php:199
 msgid "Database driver:"
-msgstr ""
+msgstr "డాటాబేస్ డ్రైవర్:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:211
+#: plugins/importExport/src/ModuleImportWp.php:233
 msgid "Entries import options"
 msgstr "టపాల దిగుమతి ఎంపికలు"
 
+#: plugins/importExport/src/ModuleImportDc1.php:212
+#: plugins/importExport/src/ModuleImportWp.php:258
 msgid "Number of entries to import at once:"
-msgstr ""
+msgstr "ఒక్కసారిగా దిగుమతి చేయబడిన ఎంట్రీల సంఖ్య:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportWp.php:275
 msgid "Importing users"
 msgstr "వాడుకరులను దిగుమతిస్తున్నాం"
 
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:282
 msgid "Importing categories"
 msgstr "వర్గాలని దిగుమతిస్తున్నాం"
 
+#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportWp.php:289
 msgid "Importing blogroll"
 msgstr "బ్లాగ్మిత్రులని దిగుమతిస్తున్నాం"
 
+#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportWp.php:296
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr ""
 
+#: plugins/importExport/src/ModuleImportDc1.php:254
 msgid "Please read carefully"
-msgstr ""
+msgstr "దయచేసి జాగ్రతగా చదువుము"
 
+#: plugins/importExport/src/ModuleImportDc1.php:256
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr ""
+msgstr "ప్రతి కొత్తగా దిగుమతి చేయబడిన వినియోగదారుడు యాదృచ్ధమైన సంకేతాన్ని పొందారు మరియు \"నేను నా పాస్ వర్డ్\" లింక్ ను లాగిన్ పేజ్ (వాటి నమోదు చేయబడిన మెయిల్ అడ్రస్ ను చెల్లించవలసి వచ్చేది) ను అనుసరిస్తూ క్రొత్త ఒకటి అడగవలసి ఉంటుంది."
 
+#: plugins/importExport/src/ModuleImportDc1.php:261
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr ""
+msgstr "దయచేసి ఈ Dotclear 2 ఒక నూతన URL నమూనాను కలిగి ఉంది. <a href=\"%s\">DC1 రీడైరెక్ట్</a> ప్లగిన్ ను స్థాపించడం ద్వారా విరిగిన లింకులను మీరు తప్పించుకోవచ్చు మరియు మీ బ్లాగు ఆకృతీకరణలో క్రియాశీలము చేయవచ్చు."
 
+#: plugins/importExport/src/ModuleImportDc1.php:285
+#: plugins/importExport/src/ModuleImportWp.php:331
 msgid "next step"
-msgstr ""
+msgstr "తరువాతి అడుగు"
 
+#: plugins/importExport/src/ModuleImportDc1.php:295
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr ""
+msgstr "మీ బ్లాగు యొక్క పరిమాణం మీద ఆధారపడుతుంది, అది కొన్ని నిమిషాలు పడుతుంది."
 
+#: plugins/importExport/src/ModuleImportDc1.php:323
 msgid "Dotclear tables not found"
-msgstr ""
+msgstr "Dotclear tables కనపడలేదు"
 
+#: plugins/importExport/src/ModuleImportFeed.php:115
 msgid "RSS or Atom feed import"
-msgstr ""
+msgstr "RSS లేదా Atom ఫీడ్ దిగుమతిName"
 
+#: plugins/importExport/src/ModuleImportFeed.php:116
 msgid "Add a feed content to the blog."
-msgstr ""
+msgstr "బ్లాగుకు ఒక ఫీడ్ విషయం చేర్చు."
 
+#: plugins/importExport/src/ModuleImportFeed.php:143
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:158
+#: plugins/importExport/src/ModuleImportFeed.php:163
+#: plugins/importExport/src/ModuleImportFeed.php:169
+#: plugins/importExport/src/ModuleImportFeed.php:176
 msgid "Cannot retrieve feed URL."
-msgstr ""
+msgstr "ఫీడ్ URL పొందలేకపొయాను."
 
+#: plugins/importExport/src/ModuleImportFeed.php:179
 msgid "No items in feed."
-msgstr ""
+msgstr "ఫీడ్ లో ఏ అంశాలు లేదు."
 
+#: plugins/importExport/src/ModuleImportFeed.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:187
 msgid "Content successfully imported."
-msgstr ""
+msgstr "విషయం సమర్ధవంతంగా దిగుమతి చేయబడింది."
 
+#: plugins/importExport/src/ModuleImportFeed.php:221
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "ప్రస్తుత బ్లాగు కు ఒక ఫీడ్ విషయం చేర్చు: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/widgets/src/Widgets.php:110
 msgid "Feed URL:"
-msgstr ""
+msgstr "ఫీడ్ URL:"
 
+#: plugins/importExport/src/ModuleImportFlat.php:41
 msgid "Flat file import"
-msgstr ""
+msgstr "ఫ్లాట్ ఫైల్ దిగుమతిName"
 
+#: plugins/importExport/src/ModuleImportFlat.php:42
 msgid "Imports a blog or a full Dotclear installation from flat file."
-msgstr ""
+msgstr "ఒక బ్లాగు లేదా ఫ్లాట్ ఫైల్ నుండి పూర్తి Dotclear స్థాపన."
 
+#: plugins/importExport/src/ModuleImportFlat.php:182
 msgid "Single blog successfully imported."
-msgstr ""
+msgstr "ఒకే బ్లాగ్ విజయవంతంగా దిగుమతి చేయబడింది."
 
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Are you sure you want to import a full backup file?"
-msgstr ""
+msgstr "మీరు ఒక పూర్తి బ్యాకప్ ఫైలు దిగుమతి చేసుకుంటున్నారా?"
 
+#: plugins/importExport/src/ModuleImportFlat.php:204
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr ""
 
+#: plugins/importExport/src/ModuleImportFlat.php:206
+#: plugins/importExport/src/ModuleImportFlat.php:233
 msgid "Upload a backup file"
-msgstr ""
+msgstr "బ్యాకప్ ఫైలు అప్లోడ్ చేయుము"
 
+#: plugins/importExport/src/ModuleImportFlat.php:207
+#: plugins/importExport/src/ModuleImportFlat.php:234
 #, php-format
 msgid "maximum size %s"
-msgstr ""
+msgstr "అత్యధిక పరిమాణం %s."
 
+#: plugins/importExport/src/ModuleImportFlat.php:213
+#: plugins/importExport/src/ModuleImportFlat.php:240
 msgid "or pick up a local file in your public directory"
-msgstr ""
+msgstr "లేదా మీ ప్రజా డైరెక్టరీలో ఒక స్థానిక దస్త్రం తీయండి"
 
+#: plugins/importExport/src/ModuleImportFlat.php:231
 msgid "This will reset all the content of your database, except users."
-msgstr ""
+msgstr "ఇది వినియోగదారులు తప్ప, మీ డేటాబేస్ యొక్క అన్ని విషయాలను రిసెట్ చేస్తుంది."
 
+#: plugins/importExport/src/ModuleImportFlat.php:352
 msgid "Another file with same name exists."
-msgstr ""
+msgstr "ఇదే పేరుతో మరొక ఫైల్ ఉంది."
 
+#: plugins/importExport/src/ModuleImportFlat.php:360
 msgid "Failed to extract backup file."
-msgstr ""
+msgstr "బ్యాకప్ ఫైలు ఎక్కించుటలో విఫలమైంది."
 
+#: plugins/importExport/src/ModuleImportFlat.php:372
 msgid "No backup in compressed file."
-msgstr ""
+msgstr "సంప్రదించబడిన ఫైలులో బ్యాకప్ లేదు."
 
+#: plugins/importExport/src/ModuleImportWp.php:81
 msgid "WordPress import"
-msgstr ""
+msgstr "WordPress దిగుమతి"
 
+#: plugins/importExport/src/ModuleImportWp.php:82
 msgid "Import a WordPress installation into your current blog."
-msgstr ""
+msgstr "WordPress స్థాపన మీ ప్రస్తుత బ్లాగు లోకి దిగుమతి చేయండి."
 
+#: plugins/importExport/src/ModuleImportWp.php:213
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
-msgstr ""
+msgstr "ఇది ప్రస్తుత బ్లాగు: %s లో కొత్త విషయాల వలె మీ WordPress సారాంశం దిగుమతి చేసుకుంటుంది."
 
+#: plugins/importExport/src/ModuleImportWp.php:221
 msgid "We first need some information about your old WordPress installation."
-msgstr ""
+msgstr "మేము మొదట మీ పాత WordPress స్థాపన గురించి కొన్ని సమాచారం అవసరం."
 
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr ""
+msgstr "వర్డ్ప్రెస్ మరియు డూట్స్క్వెల్ యొక్క నిర్వహణ నిర్వహణ చాలా విభిన్నంగా ఉన్నాయి. వర్డ్ప్రెస్ లో ఒక పదవికి అనేక వర్గాలను మీరు అడుగవచ్చు. డొటస్పీ ప్రపంచంలో, మనం ఇది \"ఒక వర్గం, అనేక టాగ్స్\" వంటి మరిన్ని చూడండి. అందువలన Dotclear ఒక్కో వర్గం మాత్రమే దిగుమతి చేసుకోవచ్చు మరియు అతితక్కువ సంఖ్యలో ఎంచుకోవచ్చు. మీరు ప్రతి వర్గము యొక్క ఒక ట్రేస్ను ఉంచవలసి వుంటే, మీరు వాటిని టాగ్స్ గా దిగుమతి చేసుకోవచ్చు, ఒక ఐచ్చికం ప్రీఫిక్తో."
 
+#: plugins/importExport/src/ModuleImportWp.php:242
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "మరొక వైపు, వర్డ్ప్రెస్ లో, ఒక పోస్ట్ ను అన్వేషించలేకపోవచ్చు, మరియు ఒక అప్రమేయ స్థాపన మొదటి వర్గము కలిగి ఉంది <i>\"Uncategorized\"</i>. మీరు ఆ వర్గం మార్చుకోలేకపోతే, మీ బ్లాగు దిగుమతి చేయడానికి మీరు కేవలం దానిని విరమించుకోవచ్చు, Dotclear మీరు నిజానికి మీ పోస్టులు uncategorized ఉంచడానికి అనుమతిస్తుంది."
 
+#: plugins/importExport/src/ModuleImportWp.php:251
 msgid "Ignore the first category:"
-msgstr ""
+msgstr "మొదటి వర్గమును उपेक्षा చేయుము:"
 
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Import lowest numbered category on posts:"
-msgstr ""
+msgstr "అతి తక్కువ సంఖ్యలో జాబితాలో దిగుమతి చేయబడింది:"
 
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Import all categories as tags:"
-msgstr ""
+msgstr "అన్ని వర్గాలను టాగ్స్ గా దిగుమతిచేయి:"
 
+#: plugins/importExport/src/ModuleImportWp.php:256
 msgid "Prefix such tags with:"
-msgstr ""
+msgstr "అటువంటి టాగ్లను ముందుగా చేయుము:"
 
+#: plugins/importExport/src/ModuleImportWp.php:264
 msgid "Content filters"
-msgstr ""
+msgstr "కంటెంట్ ఫిల్టర్లు"
 
+#: plugins/importExport/src/ModuleImportWp.php:265
 msgid "You may want to process your post and/or comment content with the following filters."
-msgstr ""
+msgstr "మీరు మీ పోస్ట్ మరియు/లేదా వ్యాఖ్య విషయాలను క్రింది ఫిల్టర్లతో ప్రక్రియ చేయాలనుకుంటున్నారా."
 
+#: plugins/importExport/src/ModuleImportWp.php:266
 msgid "Post content formatter:"
-msgstr ""
+msgstr "పోస్ట్ కంట్రీ ఫార్మాటరు:"
 
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Comment content formatter:"
-msgstr ""
+msgstr "వ్యాఖ్య సారాంశం ఫార్మాటరు:"
 
+#: plugins/importExport/src/ModuleImportWp.php:370
 msgid "WordPress tables not found"
-msgstr ""
+msgstr "WordPress tables కనపడలేదు"
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Servicing"
-msgstr ""
+msgstr "సెర్వికింగ్"
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Tools to maintain the performance of your blogs."
-msgstr ""
+msgstr "మీ బ్లాగుల ప్రదర్శన నిర్వహించడానికి తోటలు."
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Backup"
-msgstr "వెనక్కి"
+msgstr "బ్యాక్అప్"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to back up your content."
-msgstr ""
+msgstr "మీ సారూప్యత తిరిగి చేయడానికి తోలులు."
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Development"
-msgstr ""
+msgstr "అభివృద్ధి"
 
+#: plugins/maintenance/src/BackendBehaviors.php:36
 msgid "Tools to assist in development of plugins, themes and core."
-msgstr ""
+msgstr "ప్లగిన్స్, థీమ్స్ మరియు కోర్ అభివృద్ధిలో సహాయం చేయడానికి తోటలు."
 
+#: plugins/maintenance/src/BackendBehaviors.php:38
 msgid "Optimize"
-msgstr ""
+msgstr "ఆప్టిమైజ్"
 
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Count and index"
-msgstr ""
+msgstr "సంఖ్య మరియు సూచిక"
 
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Purge"
-msgstr ""
+msgstr "పునర్చేయుము"
 
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Other"
-msgstr ""
+msgstr "ఇతర"
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "Current blog"
-msgstr "తిరిగి బ్లాగ్మిత్రులకి"
+msgstr "ప్రస్తుత బ్లాగు"
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:43
 msgid "All blogs"
-msgstr "అన్ని ట్యాగులూ"
+msgstr "అన్ని బ్లాగులు"
 
+#: plugins/maintenance/src/BackendBehaviors.php:45
 msgid "Maintain translations"
-msgstr ""
+msgstr "(t) అనువాదాలు"
 
+#: plugins/maintenance/src/BackendBehaviors.php:45
 msgid "Translations"
-msgstr ""
+msgstr "అనువాదములు"
 
+#: plugins/maintenance/src/BackendBehaviors.php:121
+#: plugins/maintenance/src/Rest.php:85
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "నిర్వర్తించుటకు ఒక పని"
+msgstr[1] "%s పనులను నిర్వర్తించుటకు"
 
+#: plugins/maintenance/src/BackendBehaviors.php:152
+#: plugins/maintenance/src/Manage.php:267
 msgid "This task has never been executed."
-msgstr ""
+msgstr "ఈ పని ఎప్పుడూ నిర్వచించబడలేదు."
 
+#: plugins/maintenance/src/BackendBehaviors.php:155
+#: plugins/maintenance/src/Manage.php:272
 #, php-format
 msgid "Last execution of this task was on %s."
-msgstr ""
+msgstr "ఈ పని చివరి నిర్వచనం %s న జరిగింది."
 
+#: plugins/maintenance/src/BackendBehaviors.php:170
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "నిర్వచించడానికి ఒక పని ఉంది."
+msgstr[1] "నిర్వచించడానికి %s పనులను ఉన్నాయి."
 
-#, fuzzy
+#: plugins/maintenance/src/BackendBehaviors.php:172
 msgid "Manage tasks"
-msgstr "పేజీలను సంభాళించండి"
+msgstr "పనులను మానేజ్ చేయి"
 
+#: plugins/maintenance/src/BackendBehaviors.php:191
 msgid "Display overdue tasks counter on maintenance dashboard icon"
-msgstr ""
+msgstr "నిర్వహణ డాష్బోర్డ్ ప్రతిబింబనపై పొడవైన పనుల కౌంటర్ ప్రదర్శించుము"
 
+#: plugins/maintenance/src/BackendBehaviors.php:195
 msgid "Display overdue tasks list on dashboard items"
-msgstr ""
+msgstr "డాష్బోర్డ్ అంశంపై పొడవైన పనుల జాబితాను ప్రదర్శించుము"
 
+#: plugins/maintenance/src/MaintenanceTask.php:161
 msgid "Failed to execute task."
-msgstr ""
+msgstr "కార్యమును నిర్వర్తించలేదు."
 
-#, fuzzy
+#: plugins/maintenance/src/MaintenanceTask.php:164
 msgid "Task successfully executed."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "పని సమర్ధవంతంగా నిర్వచించబడింది."
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:116
 msgid "Maintenance plugin has been successfully configured."
-msgstr "పేజీని విజయవంతంగా సృష్టించాం."
+msgstr "నిర్వహణ ప్లగిన్ సమర్ధవంతంగా ఆకృతిచేయబడింది."
 
+#: plugins/maintenance/src/Manage.php:134
 msgid "System settings have been saved."
-msgstr ""
+msgstr "సిస్టమ్ అమరికలను రక్షిస్తోంది."
 
+#: plugins/maintenance/src/Manage.php:139
 msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
+msgstr "అన్ని బ్లాగు యొక్క కంటెంట్-సెక్యూరిటీ-విధాన అమరిక అప్రమేయంగా తిరస్కరిస్తుంది."
 
+#: plugins/maintenance/src/Manage.php:164
 msgid "Every week"
-msgstr ""
+msgstr "ప్రతి వారం"
 
+#: plugins/maintenance/src/Manage.php:165
 msgid "Every two weeks"
-msgstr ""
+msgstr "ప్రతి రెండు వారాలు"
 
+#: plugins/maintenance/src/Manage.php:166
 msgid "Every month"
-msgstr ""
+msgstr "ప్రతి నెల"
 
+#: plugins/maintenance/src/Manage.php:167
 msgid "Every two months"
-msgstr ""
+msgstr "ప్రతి రెండు నెలలు"
 
+#: plugins/maintenance/src/Manage.php:191
 msgid "You have not sufficient permissions to view this page."
-msgstr ""
+msgstr "మీరు ఈ పేజీ వీక్షించడానికి తగిన అనుమతి లేదు."
 
+#: plugins/maintenance/src/Manage.php:268
+#: plugins/maintenance/src/Manage.php:276
 msgid "You should execute it now."
-msgstr ""
+msgstr "మీరు ఇప్పుడు అది నిర్వర్తించాలి."
 
+#: plugins/maintenance/src/Manage.php:298
+#: plugins/maintenance/src/Manage.php:320
 msgid "Execute task"
-msgstr ""
+msgstr "పని ప్రశంసించుము"
 
+#: plugins/maintenance/src/Manage.php:302
 msgid "This may take a very long time."
-msgstr ""
+msgstr "ఇది చాలా కాలం పడుతుంది."
 
-#, fuzzy
+#: plugins/maintenance/src/Manage.php:332
+#: plugins/maintenance/src/Manage.php:333
 msgid "Alert settings"
-msgstr "బ్లాగు అమరికలు"
+msgstr "అలెర్ట్ అమరికComment"
 
+#: plugins/maintenance/src/Manage.php:337
 msgid "Activation"
-msgstr ""
+msgstr "క్రియాశీలము"
 
+#: plugins/maintenance/src/Manage.php:340
 msgid "Display alert messages on late tasks"
-msgstr ""
+msgstr "ఆలస్య సందేశాలను ఆలస్యం సందేశాలను ప్రదర్శించుము"
 
+#: plugins/maintenance/src/Manage.php:343
 #, php-format
 msgid "You can place list of late tasks on your %s."
-msgstr ""
+msgstr "మీరు మీ %s న ఆలయ పనుల జాబితాను స్థానం చేయవచ్చు."
 
+#: plugins/maintenance/src/Manage.php:349
 msgid "Frequency"
-msgstr ""
+msgstr "Frequency"
 
+#: plugins/maintenance/src/Manage.php:352
 msgid "Use one recall time for all tasks"
-msgstr ""
+msgstr "అన్ని పనులకు ఒక గుర్తు సమయం వుపయోగించుము"
 
+#: plugins/maintenance/src/Manage.php:354
 msgid "Recall time for all tasks:"
-msgstr ""
+msgstr "అన్ని పనులకు రికార్డు సమయం:"
 
+#: plugins/maintenance/src/Manage.php:360
 msgid "Use one recall time per task"
-msgstr ""
+msgstr "@ info: whats"
 
+#: plugins/maintenance/src/Manage.php:391
 msgid "Content-Security-Policy"
-msgstr ""
+msgstr "కంటెంట్-సెక్యూరిటీ-విధానం"
 
+#: plugins/maintenance/src/Manage.php:396
 msgid "Enable Content-Security-Policy system"
-msgstr ""
+msgstr "కంటెంట్-సెక్యూరిటీ-విధాన వ్యవస్థను చేర్చు"
 
+#: plugins/maintenance/src/Manage.php:399
 msgid "Enable Content-Security-Policy report only"
-msgstr ""
+msgstr "కంటెంట్-సెక్యూరిటీ-విధాన నివేదిక"
 
+#: plugins/maintenance/src/Manage.php:405
 msgid "Enable Content-Security-Policy system by default"
-msgstr ""
+msgstr "అప్రమేయ ద్వారా కంటెంట్-సెక్యూరిటీ-విధాన వ్యవస్థను చేర్చు"
 
+#: plugins/maintenance/src/Manage.php:408
 msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
+msgstr "సారూప్యత-సెక్యూరిటీ-విధాన నివేదిక మాత్రమే అప్రమేయంగా చేస్తోంది"
 
+#: plugins/maintenance/src/Manage.php:411
 msgid "Also apply these settings to all blogs"
-msgstr ""
+msgstr "అన్ని బ్లాగులకు కూడా ఈ అమరికలను ఆపాదించుము."
 
+#: plugins/maintenance/src/Task/CSP.php:34
 msgid "Delete the Content-Security-Policy report file"
-msgstr ""
+msgstr "కాంటెంట్-సెక్యూరిటీ-విధాన నివేదిక ఫైలు"
 
+#: plugins/maintenance/src/Task/CSP.php:35
 msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
+msgstr "కంటెంట్-సెక్యూరిటీ-విధాన నివేదిక ఫైలు తొలగించబడింది."
 
+#: plugins/maintenance/src/Task/CSP.php:36
 msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
+msgstr "కంటెంట్-సెక్యూరిటీ-విధాన నివేదిక ఫైల్ ను తొలగించలేదు."
 
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Remove the Content-Security-Policy report file."
-msgstr ""
+msgstr "కంటెంట్-సెక్యూరిటీ-విధాన నివేదిక ఫైలు"
 
+#: plugins/maintenance/src/Task/Cache.php:35
 msgid "Empty templates cache directory"
-msgstr ""
+msgstr "ఖాళీ టెంప్లేట్ క్యాచీ డైరెక్టరీ"
 
+#: plugins/maintenance/src/Task/Cache.php:36
 msgid "Templates cache directory emptied."
-msgstr ""
+msgstr "టెంప్లెప్స్ క్యాచీ డైరెక్టరీ ఖాళీ"
 
+#: plugins/maintenance/src/Task/Cache.php:37
 msgid "Failed to empty templates cache directory."
-msgstr ""
+msgstr "టెంప్లేట్ క్యాచీ డైరెక్టరీను ఖాళీ చేయలేదు."
 
+#: plugins/maintenance/src/Task/Cache.php:39
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "థీమ్ యొక్క .html లేదా .css ఫైళ్లు (లేదా ఒక థీమ్ లేదా ప్లగిన్ ను అప్ డేటింగ్ చేయునప్పుడు) సవరించినప్పుడు ఈ క్యాచీని ఖాళీ చేయుటకు ఉపయోగపడుతుంది. నోటీసు: కొన్ని హోస్టర్లతో, టెంప్లేట్ క్యాచీని ఈ ప్లగిన్ తో ఖాళీ చేయలేము. అప్పుడు మీరు మీ FTP సాఫ్ట్వేర్ తో సర్వర్ మీద డైరెక్టరీ <strong>%s</strong> నేరుగా తొలగించాలి."
 
+#: plugins/maintenance/src/Task/CountComments.php:36
 msgid "Count again comments and trackbacks"
-msgstr ""
+msgstr "మళ్ళీ వ్యాఖ్యలు మరియు trackback"
 
+#: plugins/maintenance/src/Task/CountComments.php:37
 msgid "Comments and trackback counted."
-msgstr ""
+msgstr "వ్యాఖ్యలు మరియు ట్రాక్బ్యాక్ లెక్కించారు."
 
+#: plugins/maintenance/src/Task/CountComments.php:38
 msgid "Failed to count comments and trackbacks."
-msgstr ""
+msgstr "వ్యాఖ్యలు మరియు trackbacks లెక్కించటంలో విఫలమైంది."
 
+#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
+msgstr "మళ్ళీ వ్యాఖ్యలు మరియు ట్రాక్వెస్ట్లను వాటి నిర్దిత సంఖ్యలను పరిశీలించటానికి అనుమతిస్తుంది. ఈ ఆపరేషన్ మరొక బ్లాగు ప్లాట్ఫారం నుండి దిగుమతి చేయనప్పుడు (లేదా dotclear 1 నుండి dotclear 2 నుండి వలస వెళ్ళినప్పుడు) ఉపయోగకరంగా ఉండవచ్చు."
 
+#: plugins/maintenance/src/Task/IndexComments.php:59
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Search engine index"
-msgstr ""
+msgstr "శోధన ఇంజిన్ సూచిక"
 
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Index all comments for search engine"
-msgstr ""
+msgstr "శోధన ఇంజిన్ కొరకు అన్ని వ్యాఖ్యలను సూచిస్తుంది"
 
+#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 msgid "Next"
-msgstr ""
+msgstr "తదుపరి"
 
+#: plugins/maintenance/src/Task/IndexComments.php:62
 #, php-format
 msgid "Indexing comment %d to %d."
-msgstr ""
+msgstr "Indexing comment %d to %d."
 
+#: plugins/maintenance/src/Task/IndexComments.php:63
 msgid "Comments index done."
-msgstr ""
+msgstr "వ్యాఖ్య సూచిక"
 
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Failed to index comments."
-msgstr ""
+msgstr "వ్యాఖ్యలను సూచికలో విఫలమైంది."
 
+#: plugins/maintenance/src/Task/IndexComments.php:66
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "శోధన ఇంజిన్ సూచికలో అన్ని వ్యాఖ్యలు మరియు trackbacks సూచిస్తుంది. ఈ ఆపరేషన్ అవసరమవుతుంది, మీ బ్లాగు, అంతర్గత శోధన ఇంజను ఉపయోగించడానికి, ప్రజా మరియు ప్రైవేట్ పేజీల మీద, అంతర్గత శోధన ఇంజను ఉపయోగించుకోవాలి."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Index all entries for search engine"
-msgstr ""
+msgstr "శోధన ఇంజన్ కొరకు అన్ని ఎంట్రీలను సూచిస్తుంది"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 #, php-format
 msgid "Indexing entry %d to %d."
-msgstr ""
+msgstr "Indexing entry %d to %d."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Entries index done."
-msgstr ""
+msgstr "ఇండెక్స్ చేసిన సూచిక."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Failed to index entries."
-msgstr ""
+msgstr "ఎంట్రీలను సూచికపొయాను."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:66
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "శోధన ఇంజిన్ సూచికలో అన్ని ఎంట్రీలను సూచిస్తుంది. ఈ ఆపరేషన్ అవసరమవుతుంది, మీ బ్లాగు, అంతర్గత శోధన ఇంజను ఉపయోగించడానికి, ప్రజా మరియు ప్రైవేట్ పేజీల మీద, అంతర్గత శోధన ఇంజను ఉపయోగించుకోవాలి."
 
+#: plugins/maintenance/src/Task/Logs.php:41
 msgid "Delete all logs"
-msgstr ""
+msgstr "అన్ని లాగ్లను తొలగించు"
 
+#: plugins/maintenance/src/Task/Logs.php:42
 msgid "Logs deleted."
-msgstr ""
+msgstr "లాగ్స్ తొలగించబడినది."
 
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Failed to delete logs."
-msgstr ""
+msgstr "లోగ్లను తొలగించుటలో విఫలమైంది."
 
+#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr ""
+msgstr "లాగ్ మీ బ్లాగు చరిత్రకు అన్ని కార్యకలాపాలు మరియు అనుసంధానమును రికార్డు చేయుచున్నది. మీరు ఈ చరిత్రను కాపాడవలసిన అవసరం లేని, సమయం నుండి ఈ లోపాలను మెలింగ్ ఆలోచన."
 
-#, fuzzy
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Entries metadata"
-msgstr "టపాల ఫీడు"
+msgstr "ఎంటెన్ మెటాడేటా"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Synchronize entries metadata"
-msgstr ""
+msgstr "ఎంట్రీలను మెటాడేటాను సింక్రోజ్ చేయుము"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 #, php-format
 msgid "Synchronize entry %d to %d."
-msgstr ""
+msgstr "Synchronize entry %d to %d."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata synchronize done."
-msgstr ""
+msgstr "Entries metadata synchronize done."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Failed to synchronize entries metadata."
-msgstr ""
+msgstr "ఎంట్రీ మెటాడేటాను సింక్రోజ్ చేయటంలో విఫలమైంది."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
-msgstr ""
+msgstr "అన్ని ఎంట్రీ మెటాడతా అనుసంధానించండి మీ బ్లాగులో సారూప్యత, డేటాబేస్ టేబుల్పై చెడు ఆపరేషన్ తర్వాత ఉపయోగకరంగా ఉండవచ్చు."
 
+#: plugins/maintenance/src/Task/Vacuum.php:35
 msgid "Optimise database"
-msgstr ""
+msgstr "ఆప్టిమిస్ డేటాబేస్"
 
+#: plugins/maintenance/src/Task/Vacuum.php:36
 msgid "optimize tables"
-msgstr ""
+msgstr "పతకాలను ఆప్టిమైజ్ చేయుము"
 
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimization successful."
-msgstr ""
+msgstr "ఆప్టిమైజేషన్ విజయవంతం."
 
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "Failed to optimize tables."
-msgstr ""
+msgstr "పతకాలను ఆప్టిమైజ్ చేయలేకపొయాను."
 
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
-msgstr ""
+msgstr "Dotclear యొక్క డేటాబేస్ పై ఎన్నో తొలగించబడిన లేదా నవీకరణ కార్యకలాపాల తర్వాత, అది గరిష్టంగా పొందుతుంది. ఆప్టిమేయింగ్ దానిని విడదీయడానికి అనుమతిస్తుంది. ఇది మీ డేటా యొక్క యథార్ధం మీద ఎటువంటి సమాచారం లేదు. ఏ బ్లాగు ఎగుమతి చేయడానికి ముందు ఇది ఆప్టిమైజ్ చేయడానికి సిఫార్సు చేయబడుతుంది."
 
+#: plugins/maintenance/src/Task/ZipMedia.php:56
 msgid "Download media folder of current blog"
-msgstr ""
+msgstr "ప్రస్తుత బ్లాగు యొక్క మాధ్యమ ఫోల్డరు డౌన్లోడ్"
 
+#: plugins/maintenance/src/Task/ZipMedia.php:58
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
-msgstr ""
+msgstr "మీ మీడియా ఫోల్డర్ను బ్యాకప్ చేయడానికి ఇది ఉపయోగపడుతుంది. ఇది అన్ని మీడియా ఫోల్డర్ యొక్క అన్ని విషయాలను ఒకే జిప్ ఫైల్లోకి వస్తుంది. నోటీసు: కొన్ని హోస్టర్లతో, మీడియా ఫోల్డర్ను ఈ ప్లగిన్ తో సంప్రదించలేము అది చాలా పెద్దది ఉంటే."
 
+#: plugins/maintenance/src/Task/ZipTheme.php:57
 msgid "Download active theme of current blog"
-msgstr ""
+msgstr "ప్రస్తుత బ్లాగు యొక్క క్రియాశీల థీమ్ డౌన్లోడ్"
 
+#: plugins/maintenance/src/Task/ZipTheme.php:59
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
-msgstr ""
+msgstr "ఏ మార్పు లేదా నవీకరణ ముందు క్రియాశీల థీమ్ను బ్యాకప్ చేయడానికి ఇది ఉపయోగకరంగా ఉండవచ్చు. ఈ సంప్రదించబడిన థీమ్ ఫోల్డర్ ఒక జిప్ ఫైల్లోకి."
 
+#: plugins/pages/src/Backend.php:38
 msgid "manage pages"
 msgstr "పేజీలను సంభాళించండి"
 
-#, fuzzy, php-format
+#: plugins/pages/src/Backend.php:82
+#, php-format
 msgid "%d page"
-msgstr "పేజీ మార్పు"
+msgstr "%d పేజీ"
 
-#, fuzzy, php-format
+#: plugins/pages/src/Backend.php:82
+#, php-format
 msgid "%d pages"
-msgstr "పేజీ మార్పు"
+msgstr "%d పేజీలు"
 
+#: plugins/pages/src/Backend.php:89 plugins/pages/src/Manage.php:128
+#: plugins/pages/src/ManagePage.php:74 plugins/pages/src/ManagePage.php:654
 msgid "New page"
 msgstr "కొత్త పేజీ"
 
-#, fuzzy
+#: plugins/pages/src/BackendActions.php:52
 msgid "Pages actions"
-msgstr "పేజీ స్థానం"
+msgstr "చర్యలు"
 
+#: plugins/pages/src/BackendActions.php:74
 msgid "Back to pages list"
-msgstr ""
+msgstr "వెనుక పేజీల జాబితా"
 
-#, fuzzy
+#: plugins/pages/src/BackendDefaultActions.php:119
+#: plugins/pages/src/Manage.php:125
 msgid "Selected pages have been successfully reordered."
-msgstr "పేజీని విజయవంతంగా సృష్టించాం."
+msgstr "ఎంపికచేసిన పేజీలను సమర్ధవంతంగా పునర్క్రమించింది."
 
+#: plugins/pages/src/BackendList.php:35
 msgid "No page"
 msgstr "పేజీ లేదు"
 
+#: plugins/pages/src/BackendList.php:93 plugins/pages/src/BackendList.php:146
 msgid "Hidden"
-msgstr ""
+msgstr "@ action: inmenu"
 
-#, fuzzy
+#: plugins/pages/src/BackendList.php:175
 msgid "Select this page"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "ఈ పేజీ యెంపికచేయుము"
 
+#: plugins/pages/src/Frontend.php:35
 msgid "Published on"
 msgstr "ప్రచురణ సమయం"
 
+#: plugins/pages/src/Frontend.php:36
 msgid "This page's comments feed"
-msgstr ""
+msgstr "ఈ పేజీ యొక్క వ్యాఖ్యలు ఫీడ్"
 
-msgid "You must provide a valid email address."
-msgstr ""
-
-#, fuzzy
+#: plugins/pages/src/Install.php:47
 msgid "My first page"
-msgstr "పేజీ మార్పు"
+msgstr "నా మొదటి పేజీ"
 
+#: plugins/pages/src/Install.php:48
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+msgstr "ఇది మీ మొదటి పేజీ. మీరు బ్లాగు చేయడానికి సిద్ధంగా ఉన్నప్పుడు లాగ్ లో ఎడిట్ లేదా తొలగించండి."
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:107
 msgid "Are you sure you want to delete selected pages?"
-msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+msgstr "మీరు యెంపికచేసిన పేజీలను తొలగించాలనుకుంటున్నారా?"
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:121
 msgid "Selected pages have been successfully updated."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "ఎంపికచేసిన పేజీలు సమర్ధవంతంగా నవీకరిస్తోంది."
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:123
 msgid "Selected pages have been successfully deleted."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "ఎంపికచేసిన పేజీలు విజయవంతంగా తొలగించబడ్డాయి."
 
+#: plugins/pages/src/Manage.php:142
 msgid "Selected pages action:"
 msgstr "ఎంచుకున్న పేజీలపై చర్య:"
 
+#: plugins/pages/src/Manage.php:151
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
-msgstr ""
+msgstr "పేజీల క్రమంలో పునరాభిమానం చేయడానికి, లైన్ యొక్క మాదిరిగా సంఖ్యను మార్చుము, తరువాత \"పేజీల క్రమం\" బటన్ ను నొక్కండి."
 
+#: plugins/pages/src/Manage.php:153
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
-msgstr ""
+msgstr "పేజీలను పునర్క్రమించుటకు, ట్రాగ్ మరియు డ్రాప్ ద్వారా అంశాలను కదుపుము, తరువాత \"పేజీల క్రమం\" బటన్ నొక్కండి."
 
-#, fuzzy
+#: plugins/pages/src/Manage.php:154
 msgid "Save pages order"
-msgstr "క్రమం"
+msgstr "పేజీల క్రమమును దాచు"
 
+#: plugins/pages/src/ManagePage.php:131
 msgid "This page does not exist."
 msgstr "ఈ పేజీ లేనే లేదు."
 
+#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:654
+#: plugins/pages/src/ManagePage.php:659
 msgid "Edit page"
 msgstr "పేజీ మార్పు"
 
+#: plugins/pages/src/ManagePage.php:433
 msgid "Are you sure you want to delete this page?"
 msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
+#: plugins/pages/src/ManagePage.php:470
 msgid "Page has been successfully updated."
 msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
 
+#: plugins/pages/src/ManagePage.php:472
 msgid "Page has been successfully created."
 msgstr "పేజీని విజయవంతంగా సృష్టించాం."
 
+#: plugins/pages/src/ManagePage.php:485
 msgid "Don't forget to validate your HTML conversion by saving your post."
-msgstr ""
+msgstr "మీ పదవిని సేవించడం ద్వారా మీ HTML మార్పిడి వడపోవడానికి మర్చిపోవద్దు."
 
+#: plugins/pages/src/ManagePage.php:490
 msgid "Go to this page on the site"
-msgstr ""
+msgstr "సైటుపై ఈ పేజీ వెళ్ళు"
 
+#: plugins/pages/src/ManagePage.php:532
 msgid "Page status"
 msgstr "పేజీ స్థితి:"
 
-#, fuzzy
+#: plugins/pages/src/ManagePage.php:545
 msgid "Page language"
-msgstr "పేజీ భాష:"
+msgstr "పుట భాష"
 
+#: plugins/pages/src/ManagePage.php:558 plugins/pages/src/Widgets.php:37
 msgid "Page position"
 msgstr "పేజీ స్థానం"
 
+#: plugins/pages/src/ManagePage.php:585
 msgid "Hide in widget Pages"
-msgstr ""
+msgstr "విడ్జట్ పేజీలలో మరుగుచేయి"
 
+#: plugins/pages/src/ManagePage.php:595
 msgid "Warning: If you set the URL manually, it may conflict with another page."
-msgstr ""
+msgstr "హెచ్చరిక: మీరు URL స్నేహం చేయబడితే, అది మరొక పేజీతో కలపవచ్చు."
 
+#: plugins/pages/src/ManagePage.php:610
 msgid "Introduction to the page."
-msgstr ""
+msgstr "పేజీకి ప్రవేశం."
 
-#, fuzzy
+#: plugins/pages/src/ManagePage.php:960
 msgid "Select this comment"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "ఈ వ్యాఖ్యను యెంపికచేయుము"
 
+#: plugins/pages/src/Widgets.php:36
 msgid "Page title"
 msgstr "పేజీ శీర్షిక"
 
+#: plugins/pages/src/Widgets.php:38
 msgid "Publication date"
 msgstr "ప్రచురణ తేదీ"
 
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:50
 msgid "Pings"
-msgstr ""
+msgstr "పిండం"
 
+#: plugins/pings/src/Manage.php:61
 msgid "Settings have been successfully updated."
-msgstr ""
+msgstr "అమరికలను సమర్ధవంతంగా నవీకరిస్తోంది."
 
+#: plugins/pings/src/Manage.php:82
 msgid "Pings configuration"
-msgstr ""
+msgstr "Pings ఆకృతీకరణName"
 
+#: plugins/pings/src/Manage.php:88
 msgid "Activate pings extension"
-msgstr ""
+msgstr "క్రియాశీల పిండం ఎక్స్టెన్షన్"
 
+#: plugins/pings/src/Manage.php:93 plugins/pings/src/Manage.php:115
 msgid "Service name:"
-msgstr ""
+msgstr "సేవ పేరు:"
 
+#: plugins/pings/src/Manage.php:95 plugins/pings/src/Manage.php:117
 msgid "Service URI:"
-msgstr ""
+msgstr "సేవ URI:"
 
-#, fuzzy
+#: plugins/pings/src/Manage.php:106
 msgid "Error"
-msgstr "పొరపాటు"
+msgstr "దోషము"
 
+#: plugins/pings/src/Manage.php:123
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr ""
+msgstr "స్వయంగా ప్రవేశం యొక్క మొదటి ప్రచురణ (ప్రస్తుత బ్లాగు మాత్రమే) అన్ని సేవలను అందిస్తుంది."
 
+#: plugins/pings/src/Manage.php:130
 msgid "Test ping services"
-msgstr ""
+msgstr "పరీక్ష సేవలు"
 
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:46
+#: plugins/simpleMenu/src/Widgets.php:27
 msgid "Simple menu"
-msgstr ""
+msgstr "సామాన్య మెనూ"
 
-#, fuzzy
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "Active page"
-msgstr "పేజీని చూడండి"
+msgstr "క్రియాశీల పేజీ"
 
-#, fuzzy
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "active page"
-msgstr "పేజీని చూడండి"
+msgstr "క్రియాశీల పేజీ"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:69
 msgid "All months"
-msgstr "అన్ని ట్యాగులూ"
+msgstr "అన్ని నెలలు"
 
+#: plugins/simpleMenu/src/Manage.php:127
 msgid "Archive"
-msgstr ""
+msgstr "ఆర్కైవ్"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:130
 msgid "Page"
-msgstr "పేజీలు"
+msgstr "పుట"
 
+#: plugins/simpleMenu/src/Manage.php:133 plugins/tags/src/Backend.php:24
+#: plugins/tags/src/Widgets.php:29
 msgid "Tags"
 msgstr "ట్యాగులు"
 
+#: plugins/simpleMenu/src/Manage.php:140
 msgid "User defined"
-msgstr ""
+msgstr "యూజర్ నిర్వచించబడింది"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:181
 msgid "Configuration successfully updated."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "ఆకృతీకరణ విజయవంతమయ్యింది."
 
+#: plugins/simpleMenu/src/Manage.php:220 plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:668
 msgid "Label"
-msgstr ""
+msgstr "లెబెల్"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Home page"
-msgstr "పేజీ లేదు"
+msgstr "నివాస పేజీ"
 
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:231
+#: plugins/widgets/src/Widgets.php:238 plugins/widgets/src/Widgets.php:245
 msgid "Recent posts"
-msgstr ""
+msgstr "ఇటీవలి పదవులు"
 
+#: plugins/simpleMenu/src/Manage.php:238
 #, php-format
 msgid "Switch to %s language"
-msgstr ""
+msgstr "%s భాషకు మార్చుము"
 
+#: plugins/simpleMenu/src/Manage.php:245
 msgid "Recent Posts from this category"
-msgstr ""
+msgstr "ఇటీవలి పోస్టులు"
 
+#: plugins/simpleMenu/src/Manage.php:257
 #, php-format
 msgid "Posts from %s"
-msgstr ""
+msgstr "%s నుండి పోస్టులు"
 
+#: plugins/simpleMenu/src/Manage.php:277
 #, php-format
 msgid "Recent posts for %s tag"
-msgstr ""
+msgstr "ఇటీవలి పదవులు %s ట్యాగ్కు"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:337
 msgid "Menu item has been successfully added."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "మెనూ అంశం సమర్ధవంతంగా చేర్చబడింది."
 
+#: plugins/simpleMenu/src/Manage.php:342
 msgid "Label and URL of menu item are mandatory."
-msgstr ""
+msgstr "జాబితా అంశం యొక్క లాబెల్ మరియు యు. యూ. యూ."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu items have been successfully removed."
-msgstr "పేజీని విజయవంతంగా సృష్టించాం."
+msgstr "మెనూ అంశాలను విజయవంతంగా తొలగించారు."
 
+#: plugins/simpleMenu/src/Manage.php:378
 msgid "No menu items selected."
-msgstr ""
+msgstr "ఎంచుకున్న మెనూ అంశములు లేవు."
 
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label is mandatory."
-msgstr ""
+msgstr "లబెల్ తప్పనిసరి."
 
+#: plugins/simpleMenu/src/Manage.php:395
 msgid "URL is mandatory."
-msgstr ""
+msgstr "URL తప్పనిసరి."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:440
 msgid "Menu items have been successfully updated."
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "మెనూ అంశములు విజయవంతమయ్యాయి."
 
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Step #1"
-msgstr ""
+msgstr "స్టెప్ #1"
 
+#: plugins/simpleMenu/src/Manage.php:483 plugins/simpleMenu/src/Manage.php:491
 msgid "Step #2"
-msgstr ""
+msgstr "స్టెప్ #2"
 
+#: plugins/simpleMenu/src/Manage.php:489
 msgid "Step #3"
-msgstr ""
+msgstr "స్టెప్ #3"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:501
 msgid "Add item"
-msgstr "ట్యాగులను చేర్చండి"
+msgstr "అంశము జతచేయుము"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Select type"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "రకము యెంపికచేయుము"
 
+#: plugins/simpleMenu/src/Manage.php:530
 msgid "Type of item menu:"
-msgstr ""
+msgstr "అంశము మెనూకు రకము:"
 
+#: plugins/simpleMenu/src/Manage.php:533 plugins/simpleMenu/src/Manage.php:572
 msgid "Continue..."
-msgstr ""
+msgstr "కొనసాగించు ..."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:549
 msgid "Select language:"
-msgstr "బ్లాగు భాషలు"
+msgstr "భాష యెంపికచేయుము:"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:552
 msgid "Select category:"
-msgstr "పేజీ మార్పు"
+msgstr "వర్గం యెంపికచేయుము:"
 
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Select month (if necessary):"
-msgstr ""
+msgstr "నెలను యెంపికచేయుము (అవసరమైతే):"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:558
 msgid "Select page:"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "పేజీ యెంపికచేయుము:"
 
+#: plugins/simpleMenu/src/Manage.php:561
 msgid "Select tag (if necessary):"
-msgstr ""
+msgstr "(అవసరమైతే) ట్యాగ్ను యెంపికచేయుము:"
 
+#: plugins/simpleMenu/src/Manage.php:587
 msgid "Label of item menu:"
-msgstr ""
+msgstr "అంశపు మెనూని లెబెల్:"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Description of item menu:"
-msgstr "వివరణ"
+msgstr "@ item: inmenu"
 
+#: plugins/simpleMenu/src/Manage.php:605
 msgid "URL of item menu:"
-msgstr ""
+msgstr "అంశము మెనూకు URL:"
 
+#: plugins/simpleMenu/src/Manage.php:614 plugins/simpleMenu/src/Manage.php:671
 msgid "Open URL on a new tab"
-msgstr ""
+msgstr "కొత్త టాబుపై URL తెరువుము"
 
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Add this item"
-msgstr ""
+msgstr "ఈ అంశమును జతచేయుము"
 
+#: plugins/simpleMenu/src/Manage.php:630
 msgid "Enable simple menu for this blog"
-msgstr ""
+msgstr "ఈ బ్లాగుకు సాధారణ మెనూను చేర్చు"
 
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Add an item"
-msgstr ""
+msgstr "అంశమును జతచేయుము"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:657
 msgid "Menu items list"
-msgstr "వర్గాల జాబితా"
+msgstr "జాబితా జాబితా జాబితా"
 
+#: plugins/simpleMenu/src/Manage.php:740
 msgid "Update menu"
-msgstr ""
+msgstr "మెనూను నవీకరణ చేయి"
 
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Delete selected menu items"
-msgstr ""
+msgstr "ఎంపికచేసిన మెనూ అంశాలను తొలగించుము"
 
-#, fuzzy
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Are you sure you want to remove selected menu items?"
-msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+msgstr "మీరు యెంపికచేసిన మెనూ అంశాలను తొలగించాలని అనుకొనుచున్నారా?"
 
+#: plugins/simpleMenu/src/Manage.php:750
 msgid "No menu items so far."
-msgstr ""
+msgstr "ఇప్పటివరకు ఏ మెనూ అంశాలు లేవు."
 
-#, fuzzy
+#: plugins/simpleMenu/src/Widgets.php:31
 msgid "Item description"
-msgstr "వివరణ లేదు"
+msgstr "అంశం వివరణ"
 
+#: plugins/simpleMenu/src/Widgets.php:35
 msgid "Displayed in link"
-msgstr ""
+msgstr "లింకులో ప్రదర్శించబడినది"
 
+#: plugins/simpleMenu/src/Widgets.php:36
 msgid "Used as link title"
-msgstr ""
+msgstr "లింకు శీర్షిక వలె వుపయోగించబడింది"
 
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link and used as title"
-msgstr ""
+msgstr "లింకులో వుపయోగించి టైటిల్ గా వుపయోగించాడు."
 
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Not displayed nor used"
-msgstr ""
+msgstr "ప్రదర్శించలేదు మరియు ఉపయోగించబడలేదు"
 
+#: plugins/tags/src/BackendBehaviors.php:51
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/FrontendUrl.php:103 plugins/tags/src/ManagePosts.php:149
 msgid "Tag"
 msgstr "ట్యాగు"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:198
 msgid "Add tags"
-msgstr "ట్యాగులను చేర్చండి"
+msgstr "ట్యాగ్లను జతచేయుము"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:207
 msgid "Remove tags"
-msgstr "ట్యాగులను తొలగించండి"
+msgstr "ట్యాగ్లను తీసివేయుము"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:242
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "పేజీని విజయవంతంగా తాజాకరించాం."
-msgstr[1] "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr[0] "ఎంపికచేసిన ఎంటర్లలో టాగ్ సమర్ధవంతంగా చేర్చబడింది"
+msgstr[1] "ఎంపికచేసిన ఎంట్రీలను టాగ్లు సమర్ధవంతంగా చేర్చారు"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:255
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Are you sure you want to remove this tag?"
-msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+msgstr "మీరు ఈ ట్యాగ్ను తీసివేయాలని అనుకొనుచున్నారా?"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:256
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Add a tag to this entry"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "ఈ ప్రవేశమునకు ట్యాగ్ను జతచేయుము"
 
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:396
 msgid "Choose from list"
-msgstr ""
+msgstr "జాబితా నుండి యెంచుకొనుము"
 
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:397
 msgid "all"
 msgstr "అన్నీ"
 
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Enter tags separated by comma"
-msgstr ""
+msgstr "కామన్ ద్వారా వేరుచేయబడిన టాగ్లను ప్రవేశపెట్టుము"
 
+#: plugins/tags/src/BackendBehaviors.php:263
+#: plugins/tags/src/BackendBehaviors.php:402
 msgid "used in %e - frequency %p%"
 msgstr ""
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:264
+#: plugins/tags/src/BackendBehaviors.php:403 plugins/tags/src/Manage.php:95
 msgid "entry"
-msgstr "మధ్య"
+msgstr "ప్రవేశం"
 
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:404 plugins/tags/src/Manage.php:95
 msgid "entries"
 msgstr "టపాలు"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:273
 msgid "Add tags to this selection"
-msgstr "టపాలకు ట్యాగులను చేర్చండి"
+msgstr "ఈ ఎంపికకు టాగ్లను జతచేయుము"
 
+#: plugins/tags/src/BackendBehaviors.php:286
 msgid "Tags to add:"
 msgstr "చేర్చాల్సిన ట్యాగులు:"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:319
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "పేజీని విజయవంతంగా సృష్టించాం."
-msgstr[1] "పేజీని విజయవంతంగా సృష్టించాం."
+msgstr[0] "ఎంపికచేసిన ఎంటర్ల నుండి టాగ్ సమర్ధవంతంగా తొలగించబడింది"
+msgstr[1] "@ info: status"
 
+#: plugins/tags/src/BackendBehaviors.php:342
 msgid "No tags for selected entries"
-msgstr ""
+msgstr "ఎంపికచేసిన ఎంట్రీలకు టాగ్స్ లేదు"
 
+#: plugins/tags/src/BackendBehaviors.php:349
 msgid "Remove selected tags from this selection"
-msgstr ""
+msgstr "ఈ ఎంపిక నుండి ఎంపికచేసిన టాగ్లను తీసివేయుము"
 
+#: plugins/tags/src/BackendBehaviors.php:358
 msgid "Following tags have been found in selected entries:"
-msgstr ""
+msgstr "@ info: status"
 
+#: plugins/tags/src/BackendBehaviors.php:423
 msgid "Short"
-msgstr ""
+msgstr "శీఘ్రము"
 
+#: plugins/tags/src/BackendBehaviors.php:424
 msgid "Extended"
-msgstr ""
+msgstr "విస్తృత"
 
-#, fuzzy
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Tags list format:"
-msgstr "చేర్చాల్సిన ట్యాగులు:"
+msgstr "టాగ్స్ జాబితా ఫార్మాట్:"
 
+#: plugins/tags/src/FrontendBehaviors.php:28
 msgid "This tag's comments Atom feed"
-msgstr ""
+msgstr "ఈ ట్యాగ్ యొక్క వ్యాఖ్యలు Atom ఫీడ్"
 
+#: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's entries Atom feed"
-msgstr ""
+msgstr "ఈ ట్యాగ్ యొక్క ఎంట్రీలు Atom ఫీడ్"
 
+#: plugins/tags/src/Manage.php:114
 msgid "No tags on this blog."
 msgstr "ఈ బ్లాగులో ట్యాగులేమీ లేవు."
 
+#: plugins/tags/src/ManagePosts.php:85
 msgid "Tag has been successfully renamed"
-msgstr ""
+msgstr "ట్యాగ్ సమర్ధవంతంగా పేరు మార్చబడింది"
 
+#: plugins/tags/src/ManagePosts.php:104
 msgid "Tag has been successfully removed"
-msgstr ""
+msgstr "ట్యాగ్ సమర్ధవంతంగా తొలగించబడింది"
 
-#, fuzzy, php-format
+#: plugins/tags/src/ManagePosts.php:138
+#, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+msgstr "ట్యాగ్ను తీసివేయాలని మీరు ఖచ్చితంగా భావిస్తున్నారా: \"%s\"?"
 
+#: plugins/tags/src/ManagePosts.php:153
 msgid "Back to tags list"
-msgstr ""
+msgstr "బ్యాక్ టాగ్స్ జాబితా"
 
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Rename"
-msgstr ""
+msgstr "పునఃనామము"
 
-#, fuzzy
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
-msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+msgstr "ఈ ట్యాగ్ను తొలగించు"
 
+#: plugins/tags/src/ManagePosts.php:185
 #, php-format
 msgid "List of entries with the tag “%s”"
-msgstr ""
+msgstr "ట్యాగ్తో ఎంట్రీల జాబితా \"%s\""
 
+#: plugins/tags/src/Widgets.php:30
 msgid "Limit (empty means no limit):"
-msgstr ""
+msgstr "పరిమితి (ఖాళీ అంటే పరిమిత లేదు):"
 
+#: plugins/tags/src/Widgets.php:37
 msgid "Tag name"
 msgstr "ట్యాగు పేరు"
 
+#: plugins/tags/src/Widgets.php:38
 msgid "Entries count"
 msgstr "టపాల సంఖ్య"
 
+#: plugins/tags/src/Widgets.php:39
 msgid "Newest entry"
-msgstr ""
+msgstr "నివేదిక ప్రవేశము"
 
+#: plugins/tags/src/Widgets.php:40
 msgid "Oldest entry"
-msgstr ""
+msgstr "ఓల్డెస్ట్ ప్రవేశం"
 
+#: plugins/tags/src/Widgets.php:53
 msgid "Link to all tags:"
-msgstr ""
+msgstr "అన్ని టాగ్కు లింకు:"
 
-#, fuzzy
+#: plugins/themeEditor/src/Backend.php:23
 msgid "themeEditor"
-msgstr "అలంకార కూర్పరి"
+msgstr "థీమ్ఎడిటర్"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:36
+#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Edit theme files"
-msgstr ""
+msgstr "థీమ్ ఫైళ్ళను సరికూర్చు"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:76
 msgid "Syntax highlighting"
-msgstr ""
+msgstr "@ info: whatस"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:81
 msgid "Syntax highlighting in theme editor"
-msgstr ""
+msgstr "థీమ్ ఎడిటర్ లో సింపర్ హైలైటింగ్"
 
+#: plugins/themeEditor/src/Manage.php:87
 msgid "The theme update has been locked."
-msgstr ""
+msgstr "థీమ్ నవీకరణను లాక్ చేయబడింది."
 
+#: plugins/themeEditor/src/Manage.php:95
 msgid "The theme update has been unocked."
-msgstr ""
+msgstr "థీమ్ నవీకరణ చేయబడింది."
 
+#: plugins/themeEditor/src/Manage.php:118
 msgid "The file has been reset."
-msgstr ""
+msgstr "ఫైలు రిసెట్ చేయబడింది."
 
+#: plugins/themeEditor/src/Manage.php:144
 msgid "Unlock update"
-msgstr ""
+msgstr "అన్లాక్ నవీకరణ"
 
+#: plugins/themeEditor/src/Manage.php:145
 msgid "Lock update"
-msgstr ""
+msgstr "నవీకరణను లాక్ చేయుము"
 
+#: plugins/themeEditor/src/Manage.php:149
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr ""
+msgstr "థీమ్ యొక్క లాక్ నవీకరణను దాని ఫైళ్ళను సవరించటానికి నిరోధించదు, దానిని ప్రపంచంలోనే నవీకరణ చేయడానికి మాత్రమే."
 
+#: plugins/themeEditor/src/Manage.php:161
 msgid "Saving document..."
-msgstr ""
+msgstr "డాక్యుమెంటు దాచు ..."
 
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Document saved"
-msgstr ""
+msgstr "డాక్యుమెంటు సేవ్"
 
+#: plugins/themeEditor/src/Manage.php:163
 msgid "An error occurred:"
-msgstr ""
+msgstr "ఒక దోషము సంభవించింది:"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:164
 msgid "Are you sure you want to reset this file?"
-msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+msgstr "మీరు ఈ ఫైలును తిరస్కరిస్తున్నారా?"
 
+#: plugins/themeEditor/src/Manage.php:186
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
-msgstr ""
+msgstr "ఈ బ్లాగులో మీ ప్రస్తుత థీమ్ \"%s\"."
 
+#: plugins/themeEditor/src/Manage.php:197
 msgid "Please select a file to edit."
-msgstr ""
+msgstr "దయచేసి సరికూర్చు ఫైలు యెంపికచేయుము."
 
+#: plugins/themeEditor/src/Manage.php:202
 msgid "File editor"
-msgstr ""
+msgstr "దస్త్రపు ఎడిటర్"
 
+#: plugins/themeEditor/src/Manage.php:203
 #, php-format
 msgid "Editing file %s"
-msgstr ""
+msgstr "ఎడిటింగ్ ఫైలు %s"
 
+#: plugins/themeEditor/src/Manage.php:213
 msgid "Reset"
-msgstr ""
+msgstr "పునరాశి"
 
+#: plugins/themeEditor/src/Manage.php:219
 msgid "This file is not writable. Please check your theme files permissions."
-msgstr ""
+msgstr "ఈ దస్త్రం వ్రాయదగినది కాదు. దయచేసి మీ థీమ్ ఫైల్స్ అనుమతులను పరిశీలించు."
 
+#: plugins/themeEditor/src/Manage.php:246
 msgid "Templates files"
-msgstr ""
+msgstr "టెంప్లెట్లు దస్త్రములు"
 
+#: plugins/themeEditor/src/Manage.php:249
 msgid "CSS files"
-msgstr ""
+msgstr "CSS దస్త్రములు"
 
+#: plugins/themeEditor/src/Manage.php:252
 msgid "JavaScript files"
-msgstr ""
+msgstr "జావాస్క్రిప్ట్ దస్త్రములు"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:255
 msgid "Locales files"
-msgstr "ఫైళ్ళు లేవు"
+msgstr "Locales దస్త్రములు"
 
-#, fuzzy
+#: plugins/themeEditor/src/Manage.php:258
 msgid "PHP files"
-msgstr "ఫైళ్ళు లేవు"
+msgstr "PHP ఫైల్స్"
 
+#: plugins/themeEditor/src/Manage.php:267
 msgid "You can't edit a distributed theme."
-msgstr ""
+msgstr "మీరు పంపిణీ థీమ్ ఎडिट చేయలేరు."
 
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "ఫైళ్ళు లేవు"
 
+#: plugins/themeEditor/src/ThemeEditor.php:164
 msgid "From theme:"
-msgstr ""
+msgstr "థీమ్ నుండి:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:166
 msgid "From parent:"
-msgstr ""
+msgstr "తల్లిదారు నుండి:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:171
 msgid "From template set:"
-msgstr ""
+msgstr "ట్యాప్లెట్ సెట్ నుండి:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:206
+#: plugins/themeEditor/src/ThemeEditor.php:236
+#: plugins/themeEditor/src/ThemeEditor.php:325
 msgid "File does not exist."
 msgstr "ఫైలు లేనే లేదు."
 
+#: plugins/themeEditor/src/ThemeEditor.php:211
 #, php-format
 msgid "File %s is not readable"
-msgstr ""
+msgstr "దస్త్రం %s చదువుకోలేదు"
 
+#: plugins/themeEditor/src/ThemeEditor.php:273
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "దస్త్రం %sవ్రాయలేకపొయాను. దయచేసి మీ థీమ్ ఫైళ్ళు మరియు ఫోల్డర్ల అనుమతులను పరిశీలించుము."
+
+#: plugins/themeEditor/src/ThemeEditor.php:338
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "దస్త్రం %sతొలగించలేకపోయింది. దయచేసి మీ థీమ్ ఫైళ్ళు మరియు ఫోల్డర్ల అనుమతులను పరిశీలించుము."
+
+#: plugins/userPref/src/Backend.php:23
 msgid "user:preferences"
-msgstr ""
+msgstr "వినియోగదారు: అభీష్టాలు"
 
-#, fuzzy
+#: plugins/userPref/src/Manage.php:70 plugins/userPref/src/Manage.php:89
 msgid "Preferences successfully updated"
-msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+msgstr "అభీష్టాలు విజయవంతమయ్యాయి"
 
+#: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
 msgid "User preferences"
-msgstr ""
+msgstr "యూజర్ ప్రాధాన్యం"
 
+#: plugins/userPref/src/Manage.php:127 plugins/userPref/src/Manage.php:128
 msgid "Global preferences"
-msgstr ""
+msgstr "గ్లోబల్ ప్రాధాన్యం"
 
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
 msgstr "విడ్జెట్లు"
 
+#: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
-msgstr ""
+msgstr "విడ్జట్ యొక్క పాఠ్య ప్రాంతాలు"
 
+#: plugins/widgets/src/Install.php:34
 msgid "Unable to initialize default widgets."
-msgstr ""
+msgstr "అప్రమేయ విడ్జెట్లను ప్రారంభించలేకపొయాను."
 
+#: plugins/widgets/src/Manage.php:57
 msgid "navigation"
-msgstr ""
+msgstr "నావిగేషన్"
 
+#: plugins/widgets/src/Manage.php:58
 msgid "extra"
-msgstr ""
+msgstr "అదనపు"
 
+#: plugins/widgets/src/Manage.php:59
 msgid "custom"
-msgstr ""
+msgstr "ఆచారం"
 
+#: plugins/widgets/src/Manage.php:194
 msgid "Sidebars and their widgets have been saved."
-msgstr ""
+msgstr "Sidebars మరియు వారి విడ్జెట్లను రక్షించారు."
 
+#: plugins/widgets/src/Manage.php:206
 msgid "Sidebars have been resetting."
-msgstr ""
+msgstr "Sidebars రెస్టెటింగ్ చేశారు."
 
+#: plugins/widgets/src/Manage.php:237
 msgid "Are you sure you want to reset sidebars?"
-msgstr ""
+msgstr "మీరు సిబార్లను రిసెట్ చేయాలనుకుంటున్నారా?"
 
+#: plugins/widgets/src/Manage.php:270
 msgid "Available widgets"
 msgstr "అందుబాటులో ఉన్న విడ్జెట్లు"
 
+#: plugins/widgets/src/Manage.php:271
 msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+msgstr "ఈ జాబితా నుండి ఒక సిబార్జర్ల నుండి విడ్జట్లను చేర్చు, కలుపుటకు."
 
+#: plugins/widgets/src/Manage.php:281 plugins/widgets/src/Manage.php:399
 msgid "order"
 msgstr "క్రమం"
 
+#: plugins/widgets/src/Manage.php:285
 msgid "Append to:"
-msgstr ""
+msgstr "అప్మెంటు:"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:296
 msgid "Add widgets to sidebars"
-msgstr "టపాలకు ట్యాగులను చేర్చండి"
+msgstr "విడ్జెట్లను సిబార్లకు జతచేయుము"
 
+#: plugins/widgets/src/Manage.php:303
 msgid "Navigation sidebar"
-msgstr ""
+msgstr "దిగుమతిపట్టీ"
 
+#: plugins/widgets/src/Manage.php:308
 msgid "Extra sidebar"
-msgstr ""
+msgstr "ఎక్స్ర సైడబార్"
 
+#: plugins/widgets/src/Manage.php:313
 msgid "Custom sidebar"
-msgstr ""
+msgstr "@ action: button"
 
+#: plugins/widgets/src/Manage.php:318
 msgid "Update sidebars"
-msgstr ""
+msgstr "సిబార్లను నవీకరణ చేయి"
 
+#: plugins/widgets/src/Manage.php:320
 msgid "Reset sidebars"
-msgstr ""
+msgstr "సిబార్లను పునరావృతం చేయుము"
 
+#: plugins/widgets/src/Manage.php:328
 msgid "Widget ID:"
-msgstr ""
+msgstr "విడ్జట్ ID:"
 
+#: plugins/widgets/src/Manage.php:334
 msgid "No setting for this widget"
-msgstr ""
+msgstr "ఈ విడ్జట్కు అమర్పు లేదు"
 
+#: plugins/widgets/src/Manage.php:340
 msgid "boolean"
-msgstr ""
+msgstr "బూలియన్"
 
+#: plugins/widgets/src/Manage.php:340 plugins/widgets/src/Manage.php:345
 msgid "possible values:"
-msgstr ""
+msgstr "సాధ్యమైన విలువలు:"
 
+#: plugins/widgets/src/Manage.php:344
 msgid "empty string"
-msgstr ""
+msgstr "ఖాళీ శత్రువు"
 
+#: plugins/widgets/src/Manage.php:345
 msgid "listitem"
-msgstr ""
+msgstr "Listitem"
 
+#: plugins/widgets/src/Manage.php:351
 msgid "string"
-msgstr ""
+msgstr "స్టింగ్"
 
+#: plugins/widgets/src/Manage.php:357
 msgid "Setting name:"
 msgstr "అమరిక పేరు:"
 
+#: plugins/widgets/src/Manage.php:382
 msgid "No widget as far."
-msgstr ""
+msgstr "విడ్జట్ దూరంగా లేదు."
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:389 plugins/widgets/src/Manage.php:404
 msgid "Up the widget"
-msgstr "ప్రదర్శనా విడ్జెట్లు"
+msgstr "విడ్జట్ పైకి"
 
+#: plugins/widgets/src/Manage.php:390 plugins/widgets/src/Manage.php:405
 msgid "Down the widget"
-msgstr ""
+msgstr "విడ్జట్ డౌన్"
 
-#, fuzzy
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove the widget"
-msgstr "ట్యాగులను తొలగించండి"
+msgstr "విడ్జట్ను తొలగించుము"
 
+#: plugins/widgets/src/Manage.php:406
 msgid "Remove widget"
-msgstr ""
+msgstr "విడ్జట్ను తొలగించుము"
 
+#: plugins/widgets/src/Manage.php:418
 msgid "Drag widgets here to remove."
-msgstr ""
+msgstr "తొలగించుటకు ఇక్కడ విడ్జట్లను డ్రాగ్ చేయుము."
 
+#: plugins/widgets/src/Widgets.php:54
 msgid "Search engine"
-msgstr ""
+msgstr "శోధన ఇంజన్"
 
+#: plugins/widgets/src/Widgets.php:56
 msgid "Placeholder (HTML5 only, optional):"
-msgstr ""
+msgstr "ప్లేసిల్డర్ (HTML5 మాత్రమే, ఐచ్చికం):"
 
+#: plugins/widgets/src/Widgets.php:63
 msgid "Navigation links"
-msgstr ""
+msgstr "దిగుమతి లింకులు"
 
+#: plugins/widgets/src/Widgets.php:71
 msgid "Selected entries"
-msgstr ""
+msgstr "ఎంపికచేసిన ఎంటీలను"
 
+#: plugins/widgets/src/Widgets.php:72
 msgid "Best of me"
-msgstr ""
+msgstr "నాకు ఉత్తమ"
 
+#: plugins/widgets/src/Widgets.php:80
 msgid "Blog languages"
 msgstr "బ్లాగు భాషలు"
 
+#: plugins/widgets/src/Widgets.php:90
 msgid "With entries counts"
-msgstr ""
+msgstr "ఎంట్రెస్ కౌంటీలతో"
 
+#: plugins/widgets/src/Widgets.php:91
 msgid "Include sub cats in count"
-msgstr ""
+msgstr "లెక్కలో సబ్ పిల్లులు"
 
-#, fuzzy
+#: plugins/widgets/src/Widgets.php:92
 msgid "Include empty categories"
-msgstr "వర్గాలని దిగుమతిస్తున్నాం"
+msgstr "ఖాళీ వర్గాలను చేర్చుము"
 
+#: plugins/widgets/src/Widgets.php:99
 msgid "Subscribe links"
-msgstr ""
+msgstr "సబ్స్కర్ లింకులు"
 
+#: plugins/widgets/src/Widgets.php:100
 msgid "Subscribe"
-msgstr ""
+msgstr "సబ్స్చేర్బె"
 
+#: plugins/widgets/src/Widgets.php:101
 msgid "Feeds type:"
-msgstr ""
+msgstr "ఫీడ్స్ రకము:"
 
+#: plugins/widgets/src/Widgets.php:108
 msgid "Feed reader"
-msgstr ""
+msgstr "ఫీడ్ రీడర్"
 
+#: plugins/widgets/src/Widgets.php:109
 msgid "Somewhere else"
 msgstr "మరెక్కడో"
 
+#: plugins/widgets/src/Widgets.php:111 plugins/widgets/src/Widgets.php:139
 msgid "Entries limit:"
 msgstr "టపాల పరిమితి:"
 
+#: plugins/widgets/src/Widgets.php:118
 msgid "Text"
 msgstr "పాఠ్యం"
 
+#: plugins/widgets/src/Widgets.php:120
 msgid "Text:"
 msgstr "పాఠ్యం:"
 
+#: plugins/widgets/src/Widgets.php:127
 msgid "Uncategorized"
 msgstr "అవర్గీకృతం"
 
+#: plugins/widgets/src/Widgets.php:131 plugins/widgets/src/Widgets.php:133
 msgid "Last entries"
 msgstr "ఇటీవలి టపాలు"
 
+#: plugins/widgets/src/Widgets.php:136
 msgid "Tag:"
-msgstr ""
+msgstr "టాగ్:"
 
+#: plugins/widgets/src/Widgets.php:147 plugins/widgets/src/Widgets.php:148
 msgid "Last comments"
 msgstr "ఇటీవలి వ్యాఖ్యలు"
 
+#: plugins/widgets/src/Widgets.php:149
 msgid "Comments limit:"
 msgstr "వ్యాఖ్యల పరిమితి:"
 
+#: plugins/widgets/src/Widgets.php:428
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr ""
+msgstr "ఈ బ్లాగుల ఎంట్రీలు %s ఫీడ్"
 
+#: plugins/widgets/src/Widgets.php:429
 #, php-format
 msgid "This blog's comments %s feed"
-msgstr ""
+msgstr "ఈ బ్లాగుల వ్యాఖ్యలు %s ఫీడ్"
 
+#: plugins/widgets/src/Widgets.php:437
 msgid "Entries feed"
 msgstr "టపాల ఫీడు"
 
+#: plugins/widgets/src/Widgets.php:443
 msgid "Comments feed"
 msgstr "వ్యాఖ్యల ఫీడు"
 
+#: plugins/widgets/src/WidgetsElement.php:479
 msgid "Title (optional)"
-msgstr ""
+msgstr "శీర్షిక (ఐచ్చికం)"
 
-#, fuzzy
+#: plugins/widgets/src/WidgetsElement.php:490
 msgid "All pages"
-msgstr "అన్ని ట్యాగులూ"
+msgstr "అన్ని పేజీలు"
 
+#: plugins/widgets/src/WidgetsElement.php:491
 msgid "Home page only"
-msgstr ""
+msgstr "హోమ్ పేజీ మాత్రమే"
 
+#: plugins/widgets/src/WidgetsElement.php:492
 msgid "Except on home page"
-msgstr ""
+msgstr "ఇంటి పేజీలో తప్ప"
 
+#: plugins/widgets/src/WidgetsElement.php:500
 msgid "Display on:"
-msgstr ""
+msgstr "ప్రదర్శన:"
 
+#: plugins/widgets/src/WidgetsElement.php:536
 msgid "Content only"
-msgstr ""
+msgstr "కంటెంట్ మాత్రమే"
 
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "CSS class:"
-msgstr ""
+msgstr "CSS తరగతి:"
 
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Offline"
-msgstr ""
+msgstr "ఆఫ్లైన్"
 
-#~ msgid "Presentation widgets"
-#~ msgstr "ప్రదర్శనా విడ్జెట్లు"
-
-#~ msgid "General"
-#~ msgstr "సాధారణ"
-
-#~ msgid "center"
-#~ msgstr "మధ్య"
-
-#~ msgid "left"
-#~ msgstr "ఎడమ"
-
-#~ msgid "right"
-#~ msgstr "కుడి"
-
-#~ msgid "Sidebar"
-#~ msgstr "ప్రక్కపట్టీ"
-
-#~ msgid "Sidebar position:"
-#~ msgstr "ప్రక్కపట్టీ స్థానం:"
-
-#~ msgid "Sidebar text font:"
-#~ msgstr "ప్రక్కపట్టీ పాఠ్య ఖతి:"
-
-#~ msgid "Sidebar text color:"
-#~ msgstr "ప్రక్కపట్టీ పాఠ్యపు రంగు:"
-
-#, fuzzy
-#~ msgid "Liste des auteurs"
-#~ msgstr "అన్ని వర్గాలు"
-
-#, fuzzy
-#~ msgid "Liste des séries"
-#~ msgstr "ఇటీవలి టపాలు"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
-
-#~ msgid "or"
-#~ msgstr "లేదా"
-
-#, fuzzy
-#~ msgid "The 'public' directory does not exist."
-#~ msgstr "ఈ పేజీ లేనే లేదు."
-
-#~ msgid "next"
-#~ msgstr "తర్వాత"
-
-#~ msgid "Pages"
-#~ msgstr "పేజీలు"
-
-#~ msgid "next page"
-#~ msgstr "తర్వాతి పేజీ"
-
-#~ msgid "previous page"
-#~ msgstr "క్రితం పేజీ"
-
-#~ msgid "Page password"
-#~ msgstr "పేజీ సంకేతపదం:"
-
-#~ msgid "Add files to this page"
-#~ msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
-
-#~ msgid "Tags:"
-#~ msgstr "ట్యాగులు:"
-
-#, fuzzy
-#~ msgid "Actions for this tag"
-#~ msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
-
-#, fuzzy
-#~ msgid "Edit tag name:"
-#~ msgstr "పేజీ మార్పు"
-
-#~ msgid "Setting value"
-#~ msgstr "అమరిక విలువ"
-
-#~ msgid "List"
-#~ msgstr "జాబితా"
-
-#~ msgid "Preview"
-#~ msgstr "మునుజూపు"
-
-#~ msgid "Send"
-#~ msgstr "పంపించు"
-
-#~ msgid "Preview page"
-#~ msgstr "పేజీ మునుజూపు"
-
-#~ msgid "more"
-#~ msgstr "మరిన్ని"
