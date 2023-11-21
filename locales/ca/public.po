@@ -1,20 +1,21 @@
-# Dotclear language pack (Catalan).
-# Aina Chabert Ramon <ainachabert@gmail.com>, 2008.
-#
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2.0-rc1\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
-"PO-Revision-Date: 2016-07-18 15:43+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-21 06:38\n"
+"Last-Translator: \n"
 "Language-Team: Catalan\n"
-"Language: ca\n"
+"Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: ca\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
 msgstr "%d fitxers adjunts"
@@ -28,13 +29,14 @@ msgstr "%d respostes"
 msgid "%s reactions"
 msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr "Anar al contingut"
+msgstr ""
 
 msgid "Add a comment"
 msgstr "Afegir un comentari"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr ""
 
@@ -53,27 +55,32 @@ msgstr "Fitxers adjunts"
 msgid "Best of me"
 msgstr "A remarcar"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr "Anar al menú"
+msgstr ""
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "Per"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr ""
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr ""
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr ""
 
 msgid "Categories"
-msgstr "Categories"
+msgstr ""
 
 msgid "Comment"
 msgstr "Comentari"
@@ -87,12 +94,15 @@ msgstr ""
 msgid "Comments feed"
 msgstr "Registre de comentaris"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Continuar llegint"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "No s'ha trobat el document"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "Adreça de correu electrònic"
 
@@ -102,19 +112,23 @@ msgstr "L'adreça de correu electrònic no és vàlida"
 msgid "Entries feed"
 msgstr "Registre d'entrades"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr "Anar al menú"
+msgstr ""
 
+#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr ""
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr ""
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr ""
 
@@ -133,42 +147,45 @@ msgstr "Idiomes"
 msgid "Links"
 msgstr "Enllaços"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "Nom o pseudònim"
 
-#, fuzzy
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
-msgstr "registres següents"
+msgstr ""
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "El"
 
 msgid "Page top"
 msgstr ""
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr ""
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Es necessària una contrasenya"
 
 msgid "Password:"
 msgstr "Contrasenya:"
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "Enllaç permanent"
 
-#, fuzzy
 msgid "Powered by %s"
-msgstr "Impulsat per"
+msgstr ""
 
-#, fuzzy
 msgid "Preview"
-msgstr "vista prèvia"
+msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
-msgstr "registres anteriors"
+msgstr ""
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Un arxiu RSS recull les informacions d'actualització d'un lloc web. Proporciona continguts (tant nous registres com comentaris) o un resum dels mateixos, juntament amb un enllaç a la versió completa i a qualsevol altre informació que contingui. D'aquesta manera, els últims temes publicats poden ser llegits pels seus RSS favorits <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
@@ -176,6 +193,7 @@ msgstr "Un arxiu RSS recull les informacions d'actualització d'un lloc web. Pro
 msgid "Read"
 msgstr "Llegir"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Recorda'm en aquest blog"
 
@@ -191,9 +209,9 @@ msgstr ""
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Simplement copii l'adreça següent en el seu agregador:"
 
-#, fuzzy
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
-msgstr "Categories"
+msgstr ""
 
 msgid "Subscribe"
 msgstr "Subscriure's"
@@ -201,61 +219,73 @@ msgstr "Subscriure's"
 msgid "Subscribe to"
 msgstr "Subscriure's a"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr ""
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "El document que cerca no existeix"
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr ""
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "Incloses en el mateix tema"
 
-#, fuzzy
 msgid "This blog's comments Atom feed"
-msgstr "Fitxers RSS de comentaris d'aquest Blog"
+msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
-msgstr "Fitxers RSS de comentaris d'aquesta categoria"
+msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
-msgstr "Fitxers RSS d'entrades d'aquesta categoria"
+msgstr ""
 
-#, fuzzy
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
-msgstr "Fitxers de comentaris d'aquesta entrada"
+msgstr ""
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Fitxers de comentaris d'aquesta entrada"
 
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Anar al contingut"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Anar al menú"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Cercar"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "URL de resposta"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr ""
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr ""
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Lloc Web"
 
 msgid "What is an RSS feed?"
 msgstr "Què és un arxiu RSS?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Necessita una contrasenya per a accedir a aquesta àrea."
 
@@ -268,12 +298,15 @@ msgstr "Ha d'indicar una adreça de correu electrònic vàlida"
 msgid "You must provide an author name"
 msgstr "Ha d'indicar un nom d'autor"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "El seu comentari"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "El seu comentari ha estat publicat"
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "El seu comentari s'ha lliurat i es revisarà per la seva publicació"
 
@@ -286,24 +319,26 @@ msgstr ""
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr ""
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "per"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr ""
 
 msgid "in"
 msgstr ""
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "registres següents"
 
 msgid "no attachments"
 msgstr "sense fitxers adjunts"
 
-#, fuzzy
 msgid "no comments"
-msgstr "Sense comentaris"
+msgstr ""
 
 msgid "no reactions"
 msgstr ""
@@ -311,9 +346,11 @@ msgstr ""
 msgid "no trackbacks"
 msgstr "Sense respostes"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "de"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "el"
 
@@ -323,38 +360,36 @@ msgstr "un fitxer adjunt"
 msgid "one comment"
 msgstr "Un comentari"
 
-#, fuzzy
 msgid "one reaction"
-msgstr "Continuar llegint"
+msgstr ""
 
 msgid "one trackback"
 msgstr "Una resposta"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "opcional"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "pàgina"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "vista prèvia"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "registres anteriors"
 
 msgid "reactions"
 msgstr ""
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "lliurar"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Hide password"
-#~ msgstr "Contrasenya:"
-
-#, fuzzy
-#~ msgid "Show password"
-#~ msgstr "Contrasenya:"
