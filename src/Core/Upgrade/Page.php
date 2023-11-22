@@ -126,7 +126,7 @@ class Page extends BackendPage
 
         echo
         "</head>\n" .
-        '<body id="dotclear-admin" class="no-js' . ($rtl ? ' rtl ' : '') . '">' . "\n" .
+        '<body id="dotclear-admin" class="mode-upgrade no-js' . ($rtl ? ' rtl ' : '') . '">' . "\n" .
         '<ul id="prelude">' .
         '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
         '<li><a href="#main-menu">' . __('Go to the menu') . '</a></li>' .
