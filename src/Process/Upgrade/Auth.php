@@ -235,7 +235,7 @@ class Auth extends Process
             '<p><input type="submit" value="' . __('log in') . '" class="login" /></p>' .
             '</fieldset>' .
             '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>' .
-            '<p><a class="back" href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Back to normal dashboard') . '</a><p>';
+            '<p><a href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Back to normal dashboard') . '</a><p>';
         }
 
         echo self::html_end();
