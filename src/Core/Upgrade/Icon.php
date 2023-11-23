@@ -22,7 +22,8 @@ class Icon
         public readonly string $url,
         public readonly string $icon,
         public readonly string $dark,
-        public readonly bool $perm
+        public readonly bool $perm,
+        public readonly string $descr
     ) {
     }
 }

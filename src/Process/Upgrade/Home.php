@@ -114,9 +114,10 @@ class Home extends Process
                                 (new Img((string) $icon->dark))
                                     ->alt((string) $icon->id)
                                     ->class('dark-only'),
-                                (new Text('', '<br/>')),
                                 (new Text('span', (string) $icon->name))
                                     ->class('db-icon-title'),
+                                (new Text('span', (string) $icon->descr))
+                                    ->class('db-icon-descr'),
                             ]),
                     ]);
             }
@@ -139,10 +140,6 @@ class Home extends Process
             )
         );
 
-        echo (new Text('p', __("You are on a dashboard dedicated to Dotclear's update.")))
-            ->class('message')
-            ->render();
-
         echo (new Div('dashboard-main'))
             ->items([
                 $icons,
@@ -152,19 +149,15 @@ class Home extends Process
                             ->class('db-items')
                             ->items([
                                 (new Div())
-                                    ->class('box small')
-                                    ->items([
-                                        (new Text('h3', __('System'))),
-                                        (new Ul())
-                                            ->items($infos),
-                                    ]),
-                                (new Div())
                                     ->class('box medium')
                                     ->items([
                                         (new Text('h3', __('Warning'))),
                                         (new Text('p', __('Before performing update you should take into account some informations listed bellow:'))),
                                         (new Ul())
                                             ->items($helps),
+                                        (new Text('h3', __('System'))),
+                                        (new Ul())
+                                            ->items($infos),
                                     ]),
                             ]),
                     ]),

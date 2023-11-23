@@ -95,7 +95,7 @@ class Menus extends ArrayObject
                 $icon->url,
                 [$icon->icon, $icon->dark],
                 $icon->perm,
-                false,
+                true,
                 false,
                 $icon->id
             );

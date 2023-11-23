@@ -22,7 +22,6 @@ use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Exception\SessionException;
 use Dotclear\Helper\L10n;
-use Dotclear\Helper\Network\Http;
 use Dotclear\Process\Upgrade\Cli;
 use Throwable;
 
@@ -267,7 +266,8 @@ class Utility extends Process
                 icon: 'images/menu/update.svg',
                 dark: 'images/menu/update-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                id: 'Upgrade'
+                id: 'Upgrade',
+                descr: __('On this page you can update dotclear to the latest release.')
             ),
             new Icon(
                 name: __('Attic'),
@@ -275,7 +275,8 @@ class Utility extends Process
                 icon: 'images/menu/attic.svg',
                 dark: 'images/menu/attic-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                id: 'Attic'
+                id: 'Attic',
+                descr: __('On this page you can update dotclear to a release between yours and latest.')
             ),
             new Icon(
                 name: __('Backups'),
@@ -283,7 +284,8 @@ class Utility extends Process
                 icon: 'images/menu/backup.svg',
                 dark: 'images/menu/backup-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Backup'
+                id: 'Backup',
+                descr: __('On this page you can revert your previous installation or delete theses files.')
             ),
             new Icon(
                 name: __('Languages'),
@@ -291,7 +293,8 @@ class Utility extends Process
                 icon: 'images/menu/langs.svg',
                 dark: 'images/menu/langs-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Langs'
+                id: 'Langs',
+                descr: __('Here you can install, upgrade or remove languages for your Dotclear installation.')
             ),
             new Icon(
                 name: __('Plugins'),
@@ -299,7 +302,8 @@ class Utility extends Process
                 icon: 'images/menu/plugins.svg',
                 dark: 'images/menu/plugins-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Plugins'
+                id: 'Plugins',
+                descr: __('On this page you will manage plugins.')
             ),
             new Icon(
                 name: __('Cache'),
@@ -307,7 +311,8 @@ class Utility extends Process
                 icon: 'images/menu/clear-cache.svg',
                 dark: 'images/menu/clear-cache-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Cache'
+                id: 'Cache',
+                descr: __('On this page, you can clear templates and repositories cache.')
             ),
             new Icon(
                 name: __('Digests'),
@@ -315,7 +320,8 @@ class Utility extends Process
                 icon: 'images/menu/digests.svg',
                 dark: 'images/menu/digests-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                id: 'Digests'
+                id: 'Digests',
+                descr: __('On this page, you can bypass corrupted files or modified files in order to perform update.')
             ),
             new Icon(
                 name: __('Replay'),
@@ -323,7 +329,8 @@ class Utility extends Process
                 icon: 'images/menu/replay.svg',
                 dark: 'images/menu/replay-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Replay'
+                id: 'Replay',
+                descr: __('On this page, you can try to replay update action from a given version if some files remain from last update.')
             ),
         ];
     }
