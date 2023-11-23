@@ -204,7 +204,23 @@
 
 // Upgrade mode
 
-.mode-upgrade {
+.upgrade-mode {
+  :root &,
+  :root[data-theme='light'] & {
+    --header-background: #673ab7;
+    --header-background-alt: #673ab7;
+  }
+  :root[data-theme='dark'] & {
+    --header-background: #244757;
+    --header-background-alt: #244757;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --header-background: #244757;
+      --header-background-alt: #244757;
+    }
+  }
+
   #dashboard-main {
     text-align: inherit;
     display: grid;
@@ -238,15 +254,15 @@
     flex-wrap: nowrap;
     flex-direction: column;
 
-    a {
-      text-align: center;
-    }
-
     p {
       width: inherit;
       flex-direction: row;
       align-items: flex-start;
       gap: 1em;
+    }
+
+    a {
+      text-align: center;
     }
   }
 

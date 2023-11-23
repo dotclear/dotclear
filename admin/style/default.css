@@ -3732,50 +3732,64 @@ span.ibw {
   background-color: var(--body-background);
 }
 
-.mode-upgrade #dashboard-main {
+:root .upgrade-mode, :root[data-theme=light] .upgrade-mode {
+  --header-background: #673ab7;
+  --header-background-alt: #673ab7;
+}
+:root[data-theme=dark] .upgrade-mode {
+  --header-background: #244757;
+  --header-background-alt: #244757;
+}
+@media (prefers-color-scheme: dark) {
+  .upgrade-mode :root:not([data-theme=light]) {
+    --header-background: #244757;
+    --header-background-alt: #244757;
+  }
+}
+.upgrade-mode #dashboard-main {
   text-align: inherit;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1em;
 }
-.mode-upgrade #dashboard-boxes,
-.mode-upgrade #icons {
+.upgrade-mode #dashboard-boxes,
+.upgrade-mode #icons {
   margin: 0;
 }
-.mode-upgrade .db-items {
+.upgrade-mode .db-items {
   display: block;
 }
 @media screen and (max-width: 43em) {
-  .mode-upgrade #dashboard-main {
+  .upgrade-mode #dashboard-main {
     grid-template-columns: 1fr;
   }
-  .mode-upgrade #icons {
+  .upgrade-mode #icons {
     margin: 1em;
   }
 }
-.mode-upgrade #ajax-news {
+.upgrade-mode #ajax-news {
   display: none;
 }
-.mode-upgrade #icons {
+.upgrade-mode #icons {
   flex-wrap: nowrap;
   flex-direction: column;
 }
-.mode-upgrade #icons a {
-  text-align: center;
-}
-.mode-upgrade #icons p {
+.upgrade-mode #icons p {
   width: inherit;
   flex-direction: row;
   align-items: flex-start;
   gap: 1em;
 }
-.mode-upgrade .dc-update p {
+.upgrade-mode #icons a {
+  text-align: center;
+}
+.upgrade-mode .dc-update p {
   display: flex;
   flex-direction: row;
   gap: 0.5em;
   flex-wrap: wrap;
 }
-.mode-upgrade .updt-info a {
+.upgrade-mode .updt-info a {
   margin-left: 0;
 }
 
