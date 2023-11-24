@@ -262,7 +262,30 @@
     }
 
     a {
-      text-align: center;
+      display: grid;
+      grid-template-areas:
+        'icon title'
+        'icon descr';
+      grid-template-rows: auto 1fr;
+      gap: 1em;
+
+      img {
+        grid-area: 'icon';
+      }
+      span {
+        .db-icon-title {
+          grid-area: 'title';
+        }
+
+        .db-icon-descr {
+          grid-area: 'descr';
+          border-bottom: none;
+        }
+      }
+    }
+
+    span.db-icon-title {
+      flex: none;
     }
   }
 
