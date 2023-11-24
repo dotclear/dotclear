@@ -63,7 +63,7 @@ class Menus extends ArrayObject
 
         $url     = App::upgrade()->url()->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
-        $this->offsetGet($section)?->prependItem(
+        $this->offsetGet($section)?->addItem(
             $desc,
             $url,
             $icon,
