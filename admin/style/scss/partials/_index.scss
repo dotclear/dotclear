@@ -209,15 +209,18 @@
   :root[data-theme='light'] & {
     --header-background: #673ab7;
     --header-background-alt: #673ab7;
+    --collapser-focus: #673ab7;
   }
   :root[data-theme='dark'] & {
     --header-background: #244757;
     --header-background-alt: #244757;
+    --collapser-focus: #244757;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
       --header-background: #244757;
       --header-background-alt: #244757;
+      --collapser-focus: #244757;
     }
   }
 

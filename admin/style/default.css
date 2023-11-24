@@ -3735,15 +3735,18 @@ span.ibw {
 :root .upgrade-mode, :root[data-theme=light] .upgrade-mode {
   --header-background: #673ab7;
   --header-background-alt: #673ab7;
+  --collapser-focus: #673ab7;
 }
 :root[data-theme=dark] .upgrade-mode {
   --header-background: #244757;
   --header-background-alt: #244757;
+  --collapser-focus: #244757;
 }
 @media (prefers-color-scheme: dark) {
   .upgrade-mode :root:not([data-theme=light]) {
     --header-background: #244757;
     --header-background-alt: #244757;
+    --collapser-focus: #244757;
   }
 }
 .upgrade-mode #dashboard-main {
