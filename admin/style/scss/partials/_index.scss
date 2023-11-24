@@ -270,15 +270,15 @@
       gap: 1em;
 
       img {
-        grid-area: 'icon';
+        grid-area: icon;
       }
       span {
-        .db-icon-title {
-          grid-area: 'title';
+        &.db-icon-title {
+          grid-area: title;
         }
 
-        .db-icon-descr {
-          grid-area: 'descr';
+        &.db-icon-descr {
+          grid-area: descr;
           border-bottom: none;
         }
       }

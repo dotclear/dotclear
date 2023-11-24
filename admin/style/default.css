@@ -3787,13 +3787,13 @@ span.ibw {
   gap: 1em;
 }
 .upgrade-mode #icons a img {
-  grid-area: "icon";
+  grid-area: icon;
 }
-.upgrade-mode #icons a span .db-icon-title {
-  grid-area: "title";
+.upgrade-mode #icons a span.db-icon-title {
+  grid-area: title;
 }
-.upgrade-mode #icons a span .db-icon-descr {
-  grid-area: "descr";
+.upgrade-mode #icons a span.db-icon-descr {
+  grid-area: descr;
   border-bottom: none;
 }
 .upgrade-mode #icons span.db-icon-title {
