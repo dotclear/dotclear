@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-25 06:44\n"
+"PO-Revision-Date: 2023-11-25 08:17\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -2736,7 +2736,7 @@ msgstr "Тут ви можете встановити, оновити або в�
 
 #: src/Core/Upgrade/Utility.php:306
 msgid "On this page you will manage plugins."
-msgstr ""
+msgstr "На цій сторінці ви можете керувати плагінами."
 
 #: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:64
 msgid "Cache"
