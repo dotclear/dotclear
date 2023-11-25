@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-25 06:44\n"
+"PO-Revision-Date: 2023-11-25 08:17\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -2802,7 +2802,7 @@ msgstr "هنا يمكنك تثبيت أو ترقية أو إزالة اللغا�
 
 #: src/Core/Upgrade/Utility.php:306
 msgid "On this page you will manage plugins."
-msgstr ""
+msgstr "في هذه الصفحة ، ستقوم بادارة plugins."
 
 #: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:64
 msgid "Cache"
