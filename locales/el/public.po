@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-09-07 14:31\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-25 06:45\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -29,12 +29,14 @@ msgstr "%d ίχνη"
 msgid "%s reactions"
 msgstr "%s αντιδράσεις"
 
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "Πρόσβαση στο περιεχόμενο"
 
 msgid "Add a comment"
 msgstr "Προσθέστε ένα σχόλιο"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "Προσθήκη ping"
 
@@ -53,21 +55,27 @@ msgstr "Συνημμένα"
 msgid "Best of me"
 msgstr "Καλύτερο από μένα"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "Πληροφορίες ιστολογίου"
 
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "μενού ιστολογίου"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "Από"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "Κατά κατηγορία"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "Κατά ημερομηνία"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "Με ετικέτα"
 
@@ -86,12 +94,15 @@ msgstr "Σχόλια μπορούν να μορφοποιηθούν χρησιμ
 msgid "Comments feed"
 msgstr "Ροή σχολίων"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Συνέχεια ανάγνωσης"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "Το έγγραφο δεν βρέθηκε"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
 
@@ -101,18 +112,23 @@ msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου 
 msgid "Entries feed"
 msgstr "Τροφοδοσία καταχωρήσεων"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "Εξερεύνηση αρχείων"
 
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Extra menu"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "Από"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "FromDay"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "Μετάβαση στην αρχική σελίδα"
 
@@ -131,27 +147,33 @@ msgstr "Γλώσσες"
 msgid "Links"
 msgstr "Σύνδεσμοι"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "Όνομα ή ψευδώνυμο"
 
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "Επόμενη καταχώρηση:"
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "Ενεργό"
 
 msgid "Page top"
 msgstr "Κορυφή σελίδας"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "Σελιδοποίηση"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Απαιτείται κωδικός πρόσβασης"
 
 msgid "Password:"
 msgstr "Κωδικός:"
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "Permalink"
 
@@ -161,6 +183,7 @@ msgstr "Τροφοδοτείται από %s"
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "Προηγούμενη καταχώριση:"
 
@@ -170,6 +193,7 @@ msgstr "RSS feed είναι μια δωρεάν περίληψη ιστολογ�
 msgid "Read"
 msgstr "Ανάγνωση"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Να με θυμάσαι σε αυτό το blog"
 
@@ -185,6 +209,7 @@ msgstr "Αποστολή"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Απλά αντιγράψτε το ακόλουθο URL στον συγκεντρωτή σας:"
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "Υποκατηγορίες"
 
@@ -194,57 +219,73 @@ msgstr "Εγγραφή"
 msgid "Subscribe to"
 msgstr "Εγγραφή σε"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "Προτείνες:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "Το έγγραφο που ψάχνετε δεν υπάρχει."
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "Η λίστα των πρόσφατων δημοσιεύσεων είναι διαθέσιμη"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "Δημοσίευσαν στο ίδιο θέμα"
 
 msgid "This blog's comments Atom feed"
 msgstr "Σχόλια αυτού του ιστολογίου"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "Σχόλια αυτής της κατηγορίας Ροή Atom"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "Οι καταχωρήσεις αυτής της κατηγορίας Atom"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "Σχόλια αυτής της ανάρτησης"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Ροή σχολίων αυτής της ανάρτησης"
 
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Προς περιεχόμενο"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Στο μενού"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Για αναζήτηση"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "Url Παρακολούθησης"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "URL που δοκιμάσατε έχει typos, ή η σελίδα έχει διαγραφεί ή μετακινηθεί."
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "Χρήση φόρμας αναζήτησης"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Ιστοσελίδα"
 
 msgid "What is an RSS feed?"
 msgstr "Τι είναι ένα RSS feed?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Πρέπει να δώσετε έναν κωδικό πρόσβασης για να αποκτήσετε πρόσβαση σε αυτήν την περιοχή."
 
@@ -257,12 +298,15 @@ msgstr "Πρέπει να δώσετε μια έγκυρη διεύθυνση em
 msgid "You must provide an author name"
 msgstr "Πρέπει να δώσετε ένα όνομα συγγραφέα"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "Το σχόλιό σας"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "Το σχόλιό σας έχει δημοσιευτεί."
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Το σχόλιό σας έχει υποβληθεί και θα επανεξεταστεί για δημοσίευση."
 
@@ -275,15 +319,18 @@ msgstr "Η αναζήτησή σας για <em>%1$s</em> επέστρεψε <st
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Η αναζήτησή σας για <em>%1$s</em> δεν επέστρεψε κανένα αποτέλεσμα."
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "από"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "εδώ"
 
 msgid "in"
 msgstr "σε"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "επόμενες καταχωρήσεις"
 
@@ -299,9 +346,11 @@ msgstr "δεν υπάρχουν αντιδράσεις"
 msgid "no trackbacks"
 msgstr "δεν υπάρχουν ίχνη"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "από"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "ενεργό"
 
@@ -317,23 +366,30 @@ msgstr "μία αντίδραση"
 msgid "one trackback"
 msgstr "ένα trackback"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "προαιρετικό"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "σελίδα"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "προεπισκόπηση"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "προηγούμενες καταχωρήσεις"
 
 msgid "reactions"
 msgstr "αντιδράσεις"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "αποστολή"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "toDay"
+
