@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-10 09:00+0200\n"
+"POT-Creation-Date: 2023-11-25 07:41+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -66,426 +66,6 @@ msgid "That user does not exist in the database."
 msgstr ""
 
 msgid "That key does not exist in the database."
-msgstr ""
-
-msgid "Pending"
-msgstr ""
-
-msgid "Scheduled"
-msgstr ""
-
-msgid "Unpublished"
-msgstr ""
-
-msgid "Published"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-msgid "You are not allowed to add categories"
-msgstr ""
-
-msgid "You are not allowed to update categories"
-msgstr ""
-
-msgid "You are not allowed to delete categories"
-msgstr ""
-
-msgid "This category is not empty."
-msgstr ""
-
-msgid "You are not allowed to reset categories order"
-msgstr ""
-
-msgid "Empty category URL"
-msgstr ""
-
-msgid "You must provide a category title"
-msgstr ""
-
-msgid "You must provide a category URL"
-msgstr ""
-
-msgid "You are not allowed to create an entry"
-msgstr ""
-
-msgid "You are not allowed to update entries"
-msgstr ""
-
-msgid "No such entry ID"
-msgstr ""
-
-msgid "You are not allowed to edit this entry"
-msgstr ""
-
-msgid "You are not allowed to change this entry status"
-msgstr ""
-
-msgid "You are not allowed to change this entry category"
-msgstr ""
-
-msgid "You are not allowed to change entries category"
-msgstr ""
-
-msgid "You are not allowed to delete entries"
-msgstr ""
-
-msgid "No entry title"
-msgstr ""
-
-msgid "No entry content"
-msgstr ""
-
-msgid "Notes"
-msgstr ""
-
-msgid "Note"
-msgstr ""
-
-msgid "Empty entry URL"
-msgstr ""
-
-msgid "You are not allowed to update comments"
-msgstr ""
-
-msgid "No such comment ID"
-msgstr ""
-
-msgid "You are not allowed to update this comment"
-msgstr ""
-
-msgid "You are not allowed to change this comment's status"
-msgstr ""
-
-msgid "You are not allowed to delete comments"
-msgstr ""
-
-msgid "You must provide a comment"
-msgstr ""
-
-msgid "You must provide an author name"
-msgstr ""
-
-msgid "Email address is not valid."
-msgstr ""
-
-msgid "online"
-msgstr ""
-
-msgid "offline"
-msgstr ""
-
-msgid "removed"
-msgstr ""
-
-msgid "You are not an administrator"
-msgstr ""
-
-msgid "No user ID given"
-msgstr ""
-
-msgid "No password given"
-msgstr ""
-
-msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "Password must contain at least 6 characters."
-msgstr ""
-
-msgid "Invalid user language code"
-msgstr ""
-
-msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
-
-msgid "No blog name"
-msgstr ""
-
-msgid "No blog URL"
-msgstr ""
-
-msgid "No log message"
-msgstr ""
-
-msgid "unknown"
-msgstr ""
-
-msgid "No blog defined."
-msgstr ""
-
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
-
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
-
-msgid "You are not a super administrator."
-msgstr ""
-
-msgid "Permission denied."
-msgstr ""
-
-msgid "You are not the file owner."
-msgstr ""
-
-msgid "This file is not allowed."
-msgstr ""
-
-msgid "New file already exists."
-msgstr ""
-
-msgid "File does not exist in the database."
-msgstr ""
-
-#, php-format
-msgid "Extract destination directory %s already exists."
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is not installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr ""
-
-#, php-format
-msgid "Requires %s module which is disabled"
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
-
-#, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
-
-msgid "Empty module zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "An error occurred during module deletion."
-msgstr ""
-
-#, php-format
-msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Unable to read new %s file"
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "Cannot deactivate plugin."
-msgstr ""
-
-msgid "No such module."
-msgstr ""
-
-msgid "Cannot remove module files"
-msgstr ""
-
-msgid "Cannot activate plugin."
-msgstr ""
-
-#, php-format
-msgid "Invalid setting dcNamespace: %s"
-msgstr ""
-
-msgid "Unable to retrieve settings:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid setting id"
-msgstr ""
-
-msgid "No namespace specified"
-msgstr ""
-
-msgid "No notice message"
-msgstr ""
-
-msgid "Unable to retrieve workspaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr ""
-
-msgid "Unable to retrieve namespaces:"
-msgstr ""
-
-#, php-format
-msgid "Invalid setting namespace: %s"
-msgstr ""
-
-#, fuzzy
-msgid "Wrong data feed"
-msgstr "Verklein feeds"
-
-msgid "An error occurred while downloading the file."
-msgstr "Er was een error toen het bestand gedownload werd."
-
-msgid "Themes folder unreachable"
-msgstr ""
-
-msgid "Themes folder unreadable"
-msgstr ""
-
-#, php-format
-msgid " (copy #%s)"
-msgstr ""
-
-msgid " (copy)"
-msgstr ""
-
-#, fuzzy
-msgid "Unable to modify _define.php"
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "Destination folder already exist"
-msgstr ""
-
-#, php-format
-msgid "%s has still been pinged"
-msgstr ""
-
-msgid "Unable to ping URL"
-msgstr ""
-
-msgid "Bad server response code"
-msgstr ""
-
-#, php-format
-msgid "%s is not a ping URL"
-msgstr ""
-
-#, php-format
-msgid "%s, ping error:"
-msgstr ""
-
-msgid "Don't repeat yourself, please."
-msgstr ""
-
-msgid "Where's your title?"
-msgstr ""
-
-msgid "Sorry, an internal problem has occured."
-msgstr ""
-
-msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
-
-msgid "Sorry but you can not ping this type of content."
-msgstr ""
-
-msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
-
-msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
-
-msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
-
-msgid "Digests file not found."
-msgstr ""
-
-msgid "No file to download"
-msgstr ""
-
-msgid "Root directory is not writable."
-msgstr ""
-
-msgid "An error occurred while downloading archive."
-msgstr ""
-
-msgid "Archive not found."
-msgstr ""
-
-msgid "Unable to read current digests file."
-msgstr ""
-
-msgid "Downloaded file does not seem to be a valid archive."
-msgstr ""
-
-msgid "Incomplete archive."
-msgstr ""
-
-msgid "Unable to read digests file."
-msgstr ""
-
-msgid "Invalid digests file."
-msgstr ""
-
-msgid "Unable to retrieve prefs:"
-msgstr ""
-
-#, php-format
-msgid "%s is not a valid pref id"
-msgstr ""
-
-msgid "No workspace specified"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Unable to find class %s"
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "Process failed"
-msgstr ""
-
-msgid "Dotclear release file was not found"
-msgstr ""
-
-msgid "Dotclear release file is not readable"
-msgstr ""
-
-#, php-format
-msgid "Dotclear release key %s was not found"
-msgstr ""
-
-msgid "Not found"
-msgstr ""
-
-msgid "Site temporarily unavailable"
-msgstr ""
-
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr ""
-
-msgid "Unable to connect to database"
-msgstr ""
-
-#, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
-
-msgid "The following error was encountered while trying to read the database:"
-msgstr ""
-
-#, php-format
-msgid "Unable to find or initialize class %s"
 msgstr ""
 
 msgid "Title"
@@ -988,6 +568,15 @@ msgstr "Blogs"
 msgid "Legend: "
 msgstr ""
 
+msgid "online"
+msgstr ""
+
+msgid "offline"
+msgstr ""
+
+msgid "removed"
+msgstr ""
+
 #, fuzzy, php-format
 msgid "Edit blog settings for %s"
 msgstr "Blog instellingen"
@@ -1044,6 +633,18 @@ msgid "Type"
 msgstr ""
 
 msgid "Entry"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Junk"
 msgstr ""
 
 #, php-format
@@ -1128,6 +729,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Trackbacks"
+msgstr ""
+
+msgid "Scheduled"
 msgstr ""
 
 msgid "Protected"
@@ -1780,6 +1384,10 @@ msgstr "Thema bestaat niet."
 msgid "The '%s' directory cannot be modified."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "The '%s' directory cannot be created."
+msgstr "Thema bestaat niet."
+
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr ""
 
@@ -1939,16 +1547,130 @@ msgstr "Geef %s posts weer per pagina"
 msgid "results per page"
 msgstr "Geef %s posts weer per pagina"
 
-msgid "Database error"
-msgstr ""
-
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Precondition Failed"
+msgid "You are not allowed to add categories"
 msgstr ""
 
-msgid "Database problem"
+msgid "You are not allowed to update categories"
+msgstr ""
+
+msgid "You are not allowed to delete categories"
+msgstr ""
+
+msgid "This category is not empty."
+msgstr ""
+
+msgid "You are not allowed to reset categories order"
+msgstr ""
+
+msgid "Empty category URL"
+msgstr ""
+
+msgid "You must provide a category title"
+msgstr ""
+
+msgid "You must provide a category URL"
+msgstr ""
+
+msgid "You are not allowed to create an entry"
+msgstr ""
+
+msgid "You are not allowed to update entries"
+msgstr ""
+
+msgid "No such entry ID"
+msgstr ""
+
+msgid "You are not allowed to edit this entry"
+msgstr ""
+
+msgid "You are not allowed to change this entry status"
+msgstr ""
+
+msgid "You are not allowed to change this entry category"
+msgstr ""
+
+msgid "You are not allowed to change entries category"
+msgstr ""
+
+msgid "You are not allowed to delete entries"
+msgstr ""
+
+msgid "No entry title"
+msgstr ""
+
+msgid "No entry content"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Empty entry URL"
+msgstr ""
+
+msgid "You are not allowed to update comments"
+msgstr ""
+
+msgid "No such comment ID"
+msgstr ""
+
+msgid "You are not allowed to update this comment"
+msgstr ""
+
+msgid "You are not allowed to change this comment's status"
+msgstr ""
+
+msgid "You are not allowed to delete comments"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "Email address is not valid."
+msgstr ""
+
+msgid "Unable to retrieve namespaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr ""
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr ""
+
+msgid "Unable to retrieve settings:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr ""
+
+msgid "No namespace specified"
+msgstr ""
+
+msgid "You are not an administrator"
+msgstr ""
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "No blog name"
+msgstr ""
+
+msgid "No blog URL"
+msgstr ""
+
+msgid "You must provide a valid email address."
 msgstr ""
 
 msgid "Something went wrong while trying to read the database."
@@ -1957,28 +1679,21 @@ msgstr ""
 msgid "Blog is not defined."
 msgstr ""
 
-msgid "Did you change your Blog ID?"
-msgstr ""
-
-#, fuzzy
-msgid "Blog is offline."
-msgstr "Blogs"
-
 msgid "This blog is offline. Please try again later."
-msgstr ""
-
-#, fuzzy
-msgid "Can't create template files."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "Default theme not found."
 msgstr ""
 
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr ""
 
+msgid "Default theme not found."
+msgstr ""
+
 msgid "Something went wrong while loading template file for your blog."
 msgstr ""
+
+#, fuzzy
+msgid "Can't create template files."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
 
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
@@ -2016,7 +1731,209 @@ msgstr ""
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr ""
 
+msgid "No log message"
+msgstr ""
+
+msgid "No blog defined."
+msgstr ""
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+msgid "You are not a super administrator."
+msgstr ""
+
+msgid "Permission denied."
+msgstr ""
+
+msgid "You are not the file owner."
+msgstr ""
+
+msgid "This file is not allowed."
+msgstr ""
+
+msgid "New file already exists."
+msgstr ""
+
+msgid "File does not exist in the database."
+msgstr ""
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr ""
+
+msgid "No notice message"
+msgstr ""
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr ""
+
+msgid "Unable to ping URL"
+msgstr ""
+
+msgid "Bad server response code"
+msgstr ""
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr ""
+
+#, php-format
+msgid "%s, ping error:"
+msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+msgid "LOL!"
+msgstr ""
+
+msgid "Dotclear's update dashboard"
+msgstr ""
+
+msgid "Go to normal dashboard"
+msgstr ""
+
+msgid "Digests file not found."
+msgstr ""
+
+msgid "No file to download"
+msgstr ""
+
+msgid "Root directory is not writable."
+msgstr ""
+
+msgid "An error occurred while downloading archive."
+msgstr ""
+
+msgid "Archive not found."
+msgstr ""
+
+msgid "Unable to read current digests file."
+msgstr ""
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr ""
+
+msgid "Incomplete archive."
+msgstr ""
+
+msgid "Unable to read digests file."
+msgstr ""
+
+msgid "Invalid digests file."
+msgstr ""
+
 msgid "Something went wrong with auto upgrade:"
+msgstr ""
+
+msgid "On this page you can update dotclear to the latest release."
+msgstr ""
+
+msgid "Attic"
+msgstr ""
+
+msgid "On this page you can update dotclear to a release between yours and latest."
+msgstr ""
+
+msgid "Backups"
+msgstr ""
+
+msgid "On this page you can revert your previous installation or delete theses files."
+msgstr ""
+
+msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
+msgstr ""
+
+msgid "On this page you will manage plugins."
+msgstr ""
+
+msgid "Cache"
+msgstr ""
+
+msgid "On this page, you can clear templates and repositories cache."
+msgstr ""
+
+msgid "Digests"
+msgstr ""
+
+msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
+msgstr ""
+
+msgid "Replay"
+msgstr ""
+
+msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
+msgstr ""
+
+msgid "Unable to retrieve workspaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid UserWorkspace: %s"
+msgstr ""
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
+msgid "Unable to retrieve prefs:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr ""
+
+msgid "No workspace specified"
+msgstr ""
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "No password given"
+msgstr ""
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Password must contain at least 6 characters."
+msgstr ""
+
+msgid "Invalid user language code"
 msgstr ""
 
 msgid "SQL DELETE requires a FROM source"
@@ -2198,6 +2115,10 @@ msgstr "Thema bestaat niet."
 msgid "Cannot read directory"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to write ZIP archive"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr ""
@@ -2207,6 +2128,90 @@ msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
 msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+#, php-format
+msgid "Module is not installed: %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Unable to upgrade \"%s\". (update locked)"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (older or same version)"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Unable to read new %s file"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "Cannot deactivate plugin."
+msgstr ""
+
+msgid "No such module."
+msgstr ""
+
+msgid "Cannot remove module files"
+msgstr ""
+
+msgid "Cannot activate plugin."
+msgstr ""
+
+msgid "An error occurred while downloading the file."
+msgstr "Er was een error toen het bestand gedownload werd."
+
+#, fuzzy
+msgid "Wrong data feed"
+msgstr "Verklein feeds"
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _define.php"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "Destination folder already exist"
 msgstr ""
 
 msgid "Dotclear has been upgraded."
@@ -3130,6 +3135,10 @@ msgstr ""
 msgid "Invalid language file URL."
 msgstr ""
 
+#, fuzzy
+msgid "Unable to make a HTTP request."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
 msgid "Language has been successfully upgraded"
 msgstr ""
 
@@ -3137,9 +3146,6 @@ msgid "Language has been successfully installed."
 msgstr ""
 
 msgid "Languages management"
-msgstr ""
-
-msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr ""
 
 #, php-format
@@ -3814,9 +3820,6 @@ msgstr ""
 msgid "Information about this version"
 msgstr ""
 
-msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
-msgstr ""
-
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr ""
@@ -3882,25 +3885,10 @@ msgstr "Thema bestaat niet."
 msgid "Access denied"
 msgstr ""
 
-#, php-format
-msgid "Unable to delete file %s"
+msgid "Congratulations, you're one click away from the end of the update."
 msgstr ""
 
-#, php-format
-msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
-msgstr ""
-
-msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
-
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
-
-#, php-format
-msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
-msgstr ""
-
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgid "Finish the update."
 msgstr ""
 
 msgid "Manual checking of update done successfully."
@@ -3916,38 +3904,11 @@ msgstr ""
 msgid "Dotclear %s is available."
 msgstr ""
 
-msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
-msgstr ""
+#, fuzzy
+msgid "Dotclear upgrade dashboard"
+msgstr "Dotclear is geupgrade."
 
-msgid "Update Dotclear"
-msgstr ""
-
-msgid "Manage backup files"
-msgstr ""
-
-msgid "Update backup files"
-msgstr ""
-
-msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
-msgstr ""
-
-msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
-msgstr ""
-
-#, php-format
-msgid "You should not revert to version prior to last one (%s)."
-msgstr ""
-
-msgid "Delete selected file"
-msgstr ""
-
-msgid "Revert to selected file"
-msgstr ""
-
-msgid "Congratulations, you're one click away from the end of the update."
-msgstr ""
-
-msgid "Finish the update."
+msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
 msgstr ""
 
 #, fuzzy
@@ -4516,6 +4477,270 @@ msgstr ""
 
 msgid "Continue"
 msgstr ""
+
+msgid "It seems that backup directory does not exist, upgrade can not be performed."
+msgstr ""
+
+msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
+msgstr ""
+
+#, php-format
+msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
+msgstr ""
+
+msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+msgid "You can bypass this warning by updating installation disgets file."
+msgstr ""
+
+#, php-format
+msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
+msgstr ""
+
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+#, php-format
+msgid "Required PHP version %s or higher"
+msgstr ""
+
+msgid "Release note"
+msgstr ""
+
+msgid "Select intermediate stable release to update to:"
+msgstr ""
+
+msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
+msgstr ""
+
+#, php-format
+msgid "Are you sure to update to version %s?"
+msgstr ""
+
+msgid "Update Dotclear"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "Back to normal dashboard"
+msgstr ""
+
+msgid "Backups and restore"
+msgstr ""
+
+#, php-format
+msgid "Unable to delete file %s"
+msgstr ""
+
+msgid "Backup deleted."
+msgstr ""
+
+msgid "Backup restored."
+msgstr ""
+
+msgid "There are no backups available."
+msgstr ""
+
+msgid "Backups of previously updates"
+msgstr ""
+
+msgid "Delete selected file"
+msgstr ""
+
+msgid "Revert to selected file"
+msgstr ""
+
+msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
+msgstr ""
+
+#, php-format
+msgid "You should not revert to version prior to last one (%s)."
+msgstr ""
+
+msgid "Templates cache directory emptied."
+msgstr ""
+
+msgid "Repositories cache directory emptied."
+msgstr ""
+
+msgid "Cache management"
+msgstr ""
+
+msgid "Cache folders"
+msgstr ""
+
+msgid "Empty templates cache directory"
+msgstr ""
+
+msgid "Empty repositories cache directory"
+msgstr ""
+
+#, fuzzy
+msgid "The updates have been performed."
+msgstr "Blog succesvol gemaakt."
+
+msgid "No changed filed have been found, nothing to do!"
+msgstr ""
+
+msgid "This tool has already been run once."
+msgstr ""
+
+msgid "Files"
+msgstr ""
+
+#, fuzzy
+msgid "Corrupted files"
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+#, fuzzy
+msgid "Download backup of digests file."
+msgstr "Upload een zip file"
+
+msgid "Digests file is up to date."
+msgstr ""
+
+msgid "The following files will have their checksum faked:"
+msgstr ""
+
+msgid "The following files digests will have their checksum cleaned:"
+msgstr ""
+
+msgid "Still ok to continue"
+msgstr ""
+
+msgid "Remove the backup digest file, I want to play again"
+msgstr ""
+
+msgid "I have read and understood the disclaimer and wish to continue anyway."
+msgstr ""
+
+#, php-format
+msgid "Installed Dotclear version is %s"
+msgstr ""
+
+#, php-format
+msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Backup directory \"%s\" does not exist or is not writable."
+msgstr "Thema bestaat niet."
+
+msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
+msgstr ""
+
+msgid "Your are using developement release, some features are not available."
+msgstr ""
+
+#, php-format
+msgid "Dotclear digests file \"%s\" is not readable."
+msgstr ""
+
+msgid "Official plugins repository could not be updated as there is no URL set in configuration."
+msgstr ""
+
+msgid "Do you read the official post about this release on Dotclear's blog?"
+msgstr ""
+
+msgid "Does your system support this release requirements like PHP version?"
+msgstr ""
+
+msgid "Does your plugins and themes are up to date?"
+msgstr ""
+
+msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
+msgstr ""
+
+msgid "Once update done, do not forget to check and update blogs themes."
+msgstr ""
+
+msgid "Before performing update you should take into account some informations listed bellow:"
+msgstr ""
+
+#, fuzzy
+msgid "Install or upgrade languages from available languages"
+msgstr "Installeer of upgrade een thema."
+
+#, fuzzy
+msgid "Install or upgrade languages from an upload a zip file"
+msgstr "Installeer of upgrade een thema."
+
+msgid "Some plugins could not be loaded."
+msgstr ""
+
+msgid "There is no module to check"
+msgstr ""
+
+#, fuzzy
+msgid "Store version"
+msgstr "versie %s"
+
+msgid "Check stores versions"
+msgstr ""
+
+msgid "Check lastest stores versions"
+msgstr ""
+
+#, php-format
+msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
+msgstr ""
+
+msgid "No version available"
+msgstr ""
+
+msgid "No update available"
+msgstr ""
+
+msgid "Newer version available"
+msgstr ""
+
+#, fuzzy
+msgid "Modules list"
+msgstr "Blogs"
+
+msgid "Latest version"
+msgstr ""
+
+msgid "Written for Dotclear"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Grow up from version %s successfully replayed."
+msgstr "Blog succesvol gemaakt."
+
+msgid "Replay update actions"
+msgstr ""
+
+msgid "Replay grow up action from version:"
+msgstr ""
+
+msgid "Replay version lower than the last one can break your installation, do it at your own risk."
+msgstr ""
+
+msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
+msgstr ""
+
+msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+#, fuzzy, php-format
+#~ msgid "Unable to find class %s"
+#~ msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+#, fuzzy
+#~ msgid "Blog is offline."
+#~ msgstr "Blogs"
 
 #, fuzzy, php-format
 #~ msgid "Directory \"%s\" has been successfully rebuilt."

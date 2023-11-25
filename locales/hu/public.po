@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"POT-Creation-Date: 2023-11-25 07:41+0100\n"
 "PO-Revision-Date: 2023-09-08 03:02\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
@@ -29,14 +29,12 @@ msgstr "%d trackback"
 msgid "%s reactions"
 msgstr "%s reakciók"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "Hozzáférés a tartalomhoz"
 
 msgid "Add a comment"
 msgstr "Szólj hozzá"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "Ping hozzáadása"
 
@@ -55,27 +53,21 @@ msgstr "Mellékletek"
 msgid "Best of me"
 msgstr "Legjobb tőlem"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "Blog info"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "Blog menü"
 
-#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "/"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "Kategóriánként"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "Dátum szerint"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "Címke szerint"
 
@@ -94,15 +86,12 @@ msgstr "A megjegyzés szimpla wiki-szintaxissal is formázható."
 msgid "Comments feed"
 msgstr "Hozzászólások feed-je"
 
-#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Folytatás"
 
-#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "A keresett lap nem található"
 
-#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "E-mail"
 
@@ -112,23 +101,18 @@ msgstr "Hibás e-mail cím"
 msgid "Entries feed"
 msgstr "Bejegyzések feed-je"
 
-#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "Felfedezni az archívumokat"
 
-#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Extra menü"
 
-#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "A  címről"
 
-#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "Tovább a honlapra"
 
@@ -147,33 +131,27 @@ msgstr "Nyelv"
 msgid "Links"
 msgstr "Linkek"
 
-#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "Név"
 
-#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "Következő bejegyzés:"
 
-#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "::"
 
 msgid "Page top"
 msgstr "Oldal teteje"
 
-#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "Oldalszámozás"
 
-#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Jelszó szükséges"
 
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "Permalink"
 
@@ -183,7 +161,6 @@ msgstr "Üzemelteti: poDesign Artworks"
 msgid "Preview"
 msgstr "Előnézet"
 
-#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "Előző bejegyzés:"
 
@@ -193,7 +170,6 @@ msgstr "Az RSS webes együttműködésre szolgáló XML állományformátumok cs
 msgid "Read"
 msgstr "Olvas"
 
-#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Emlékezz rám legközelebb is"
 
@@ -209,7 +185,6 @@ msgstr "Küldje el a"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Csak másold a következő URL-t a jelvevőbe:"
 
-#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "Alkategóriák"
 
@@ -219,73 +194,57 @@ msgstr "Feliratkozás"
 msgid "Subscribe to"
 msgstr "Feliratkozás:"
 
-#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "Javaslatok:"
 
-#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "A keresett dokumentum nem létezik."
 
-#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "A legutóbbi bejegyzések listája elérhető"
 
-#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "Ők jegyeztek be hasonló témában"
 
 msgid "This blog's comments Atom feed"
 msgstr "Ez a blog hozzászólásainak Atom feedje"
 
-#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "Ez a kategória hozzászólásainak Atom feedje"
 
-#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "Ez a kategória bejegyzéseinek Atom feedje"
 
-#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "Ez a bejegyzés hozzászólásainak Atom feedje"
 
-#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Ez a bejegyzés hozzászólásainak feedje"
 
-#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Tartalom"
 
-#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Menü"
 
-#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Keresés"
 
-#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "Trackback URL"
 
-#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "A próbált URL-címben elírás van, vagy az oldalt törölték vagy áthelyezték."
 
-#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "Keresés űrlap használata"
 
-#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Honlap"
 
 msgid "What is an RSS feed?"
 msgstr "Mi az RSS feed?"
 
-#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Meg kell adnod egy jelszót, hogy ehhez a területhez hozzáférhess."
 
@@ -298,15 +257,12 @@ msgstr "Élő e-mail címet kell megadnod."
 msgid "You must provide an author name"
 msgstr "Egy nevet meg kell adnod"
 
-#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "Hozzászólásod"
 
-#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "A hozzászólásodat publikáltuk."
 
-#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "A hozzászólásodat elmentettük, és most felülvizsgálatra vár."
 
@@ -319,18 +275,15 @@ msgstr "A keresésed (<em>%1$s</em>) eredményei:"
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "A keresésed (<em>%1$s</em>) nem adott eredményt."
 
-#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "/"
 
-#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "itt"
 
 msgid "in"
 msgstr "a  oldalon."
 
-#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "következő bejegyzések"
 
@@ -346,11 +299,9 @@ msgstr "nincs reakció"
 msgid "no trackbacks"
 msgstr "nincs trackback"
 
-#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "/"
 
-#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "::"
 
@@ -366,30 +317,23 @@ msgstr "egy reakció"
 msgid "one trackback"
 msgstr "1 trackback"
 
-#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "elhagyható"
 
-#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "oldal"
 
-#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "előnézet"
 
-#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "előző bejegyzések"
 
 msgid "reactions"
 msgstr "reakciók"
 
-#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "küldés"
 
-#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "toDay"
-

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"POT-Creation-Date: 2023-11-25 07:41+0100\n"
 "PO-Revision-Date: 2023-09-07 14:32\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
@@ -29,14 +29,12 @@ msgstr "%d gerizleme"
 msgid "%s reactions"
 msgstr "%s reaksiyonlar"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "İçeriğe erişim"
 
 msgid "Add a comment"
 msgstr "Ahkam yaz"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "Ping ekle"
 
@@ -55,27 +53,21 @@ msgstr "Ekler"
 msgid "Best of me"
 msgstr "En iyilerim"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "Blog bilgileri"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "Blog menüsü"
 
-#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "Yazan"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "Kategoriye göre"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "Tarihe göre"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "Etiket tarafından"
 
@@ -94,15 +86,12 @@ msgstr "Yorumlar basit bir wiki sözdizimi kullanılarak biçimlendirilebilir."
 msgid "Comments feed"
 msgstr "Ahkam beslemesi"
 
-#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "Tamamını oku"
 
-#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "Döküman bulunamadı"
 
-#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "Eposta adresi"
 
@@ -112,23 +101,18 @@ msgstr "Eposta adresi geçersiz"
 msgid "Entries feed"
 msgstr "Yazı beslemesi"
 
-#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "Arşivleri keşfedin"
 
-#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Ekstra menü"
 
-#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "Kimden"
 
-#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "Ana sayfaya git"
 
@@ -147,33 +131,27 @@ msgstr "Diller"
 msgid "Links"
 msgstr "Bağlantılar"
 
-#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "İsim veya rumuz"
 
-#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "Sonraki giriş:"
 
-#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "Tarih"
 
 msgid "Page top"
 msgstr "Sayfa başı"
 
-#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "Sayfalandırma"
 
-#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "Parola gerekli"
 
 msgid "Password:"
 msgstr "Parola:"
 
-#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "Kalıcı bağlantı"
 
@@ -183,7 +161,6 @@ msgstr "%s desteği ile"
 msgid "Preview"
 msgstr "Önizleme"
 
-#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "Önceki giriş:"
 
@@ -193,7 +170,6 @@ msgstr "RSS beslemesi ucretsiz bir blog özetidir. İçerik (yazıları veya ahk
 msgid "Read"
 msgstr "Oku"
 
-#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "Bu blog'da beni hatırla"
 
@@ -209,7 +185,6 @@ msgstr "Gönder"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Asagıdaki URL yi toplayıcınıza kopyalayın o kadar:"
 
-#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "Alt kategoriler"
 
@@ -219,73 +194,57 @@ msgstr "Anone ol"
 msgid "Subscribe to"
 msgstr "Kaydol"
 
-#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "Öneriler:"
 
-#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "Aradığınız döküman mevcut değil."
 
-#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "Son gönderilerin listesi mevcuttur"
 
-#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "Aynı başlığa yazdılar"
 
 msgid "This blog's comments Atom feed"
 msgstr "Blog'daki ahkamların Atom beslemesi"
 
-#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "Bu kategorideki yorumların atom beslemesi"
 
-#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "Bu kategorideki yazıların Atom beslemesi"
 
-#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "Bu yazının ahkam Atom beslemesi"
 
-#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "Bu yazının ahkam beslemesi"
 
-#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "İçeriğe git"
 
-#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Menüye git"
 
-#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "Aramaya git"
 
-#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "Gerizleme URL'si"
 
-#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "Denediğiniz URL'de yazım hataları var veya sayfa silinmiş ya da taşınmış."
 
-#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "Arama formunu kullanın"
 
-#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Vebsayfası"
 
 msgid "What is an RSS feed?"
 msgstr "RSS beslemesi nedir?"
 
-#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "Bu alana erişmek için parola girmelisiniz."
 
@@ -298,15 +257,12 @@ msgstr "Geçerli bir email adresi girin"
 msgid "You must provide an author name"
 msgstr "Yazar ismi girin"
 
-#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "Ahkamınız"
 
-#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "Ahkamınız yayımlandı"
 
-#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Ahkamınız gönderildi ve yayınlanmadan önce gözden geçirilecek."
 
@@ -319,18 +275,15 @@ msgstr "<em>%1$s</em> için aramanız <strong>%2$s</strong> sonuç döndürdü."
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "<em>%1$s</em> için aramanız olumsuz sonuçlandı."
 
-#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "yazan"
 
-#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "Burada"
 
 msgid "in"
 msgstr "içinde"
 
-#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "diğer yazılar"
 
@@ -346,11 +299,9 @@ msgstr "Reaksiyon yok"
 msgid "no trackbacks"
 msgstr "gerizleme yok"
 
-#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "."
 
-#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "tarih"
 
@@ -366,30 +317,23 @@ msgstr "bir reaksiyon"
 msgid "one trackback"
 msgstr "bir gerizleme"
 
-#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "seçimlik"
 
-#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "sayfa"
 
-#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "önizleme"
 
-#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "önceki yazılar"
 
 msgid "reactions"
 msgstr "reaksiyonlar"
 
-#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "yolla"
 
-#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "toDay"
-

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"POT-Creation-Date: 2023-11-25 07:41+0100\n"
 "PO-Revision-Date: 2023-11-20 22:24\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
@@ -29,14 +29,12 @@ msgstr "%d ట్రాకుబ్యాకులు"
 msgid "%s reactions"
 msgstr "%s ప్రతిస్పందనలు"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "సారూప్యతకు యాక్సెస్"
 
 msgid "Add a comment"
 msgstr "ఓ వ్యాఖ్య చేర్చండి"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "పిండం జతచేయుము"
 
@@ -55,27 +53,21 @@ msgstr "జోడింపులు"
 msgid "Best of me"
 msgstr "ఉత్తమం"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "బ్లాగ్ సమాచారం"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "బ్లాగు మెనూ"
 
-#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "రాసినది"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "వర్గం ద్వారా"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "తేదీ ద్వారా"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "ట్యాగ్ ద్వారా"
 
@@ -94,15 +86,12 @@ msgstr "వ్యాఖ్యానాలను ఒక సాధారణ వి
 msgid "Comments feed"
 msgstr "వ్యాఖ్యల ఫీడు"
 
-#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "చదవడం కొనసాగించండి"
 
-#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "పత్రం కనబడలేదు"
 
-#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "ఈమెయిలు చిరునామా"
 
@@ -112,23 +101,18 @@ msgstr "ఈమెయిలు చిరునామా సరైనది కా
 msgid "Entries feed"
 msgstr "టపాల ఫీడు"
 
-#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "ఎక్స్ప్లోర్ ఆర్కైవ్"
 
-#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Extra menu"
 
-#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "నుండి"
 
-#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "హోమ్పేజ్ కు వెళ్ళు"
 
@@ -147,33 +131,27 @@ msgstr "భాషలు"
 msgid "Links"
 msgstr "లంకెలు"
 
-#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "పేరు లేదా ముద్దుపేరు"
 
-#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "తరువాతి ప్రవేశము:"
 
-#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "తేదీ"
 
 msgid "Page top"
 msgstr "పుట టాప్"
 
-#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "Pagination"
 
-#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "సంకేతపదం కావాలి"
 
 msgid "Password:"
 msgstr "సంకేతపదం:"
 
-#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "స్థిరలింకు"
 
@@ -183,7 +161,6 @@ msgstr "%s తో శక్తిమంతం"
 msgid "Preview"
 msgstr "వీక్షణం"
 
-#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "మునుపటి ప్రవేశము:"
 
@@ -193,7 +170,6 @@ msgstr "RSS ఫీడు అనేది ఉచిత బ్లాగు సం�
 msgid "Read"
 msgstr "చదవండి"
 
-#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "ఈ బ్లాగులో నన్ను గుర్తుంచుకో"
 
@@ -209,7 +185,6 @@ msgstr "పంపు"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "ఈ URLని మీ సంకలిని లోనికి కాపీ చెయ్యండి:"
 
-#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "ఉపవర్గాలు"
 
@@ -219,73 +194,57 @@ msgstr "చందాచేరండి"
 msgid "Subscribe to"
 msgstr "చందాచేరండి"
 
-#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "సూచనలు:"
 
-#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "మీరు వెతుకుతున్న పత్రం ఇక్కడ లేదు."
 
-#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "గుర్తుల జాబితా-జాబితా"
 
-#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "వాళ్ళు ఇదే విషయంపై వ్రాసారు"
 
 msgid "This blog's comments Atom feed"
 msgstr "ఈ బ్లాగు యొక్క వ్యాఖ్యల ఆటమ్ ఫీడు"
 
-#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "ఈ వర్గంలోని వ్యాఖ్యల ఆటమ్ ఫీడు"
 
-#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "ఈ వర్గంలోని టపాల ఆటమ్ ఫీడు"
 
-#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "ఈ టపా యొక్క వ్యాఖ్యల ఆటమ్ ఫీడు"
 
-#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "ఈ టపా యొక్క వ్యాఖ్యల ఫీడు"
 
-#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "విషయానికి"
 
-#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "మెనూకి"
 
-#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "అన్వేషణకి"
 
-#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "ట్రాకుబ్యాకు URL"
 
-#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "మీరు ప్రయత్నించిన URLను typos కలిగి, లేదా పేజీ తొలగించబడింది లేదా తొలగించబడింది."
 
-#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "శోధన రూపమును వుపయోగించుము"
 
-#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "వెబ్ సైటు"
 
 msgid "What is an RSS feed?"
 msgstr "RSS ఫీడు అంటే ఏమిటి?"
 
-#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "ఈ ప్రదేశాన్ని చూడడానికి మీరు సంకేతపదం ఇవ్వాలి."
 
@@ -298,15 +257,12 @@ msgstr "మీరు తప్పనిసరిగా ఓ సరైన ఈమ�
 msgid "You must provide an author name"
 msgstr "రచయిత పేరు తప్పనిసరిగా ఇవ్వాలి"
 
-#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "మీ వ్యాఖ్య"
 
-#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "మీ వ్యాఖ్యని ప్రచురించాం."
 
-#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "మీ వ్యాఖ్య దాఖలైంది మరియు ప్రచురణకై సమీక్షించబడుతుంది."
 
@@ -319,18 +275,15 @@ msgstr "మీ శోధన <em>%1$s</em> తిరిగి <strong>%2$s</stron
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "మీ శోధన <em>%1$s</em> తిరిగి ఫలితం లేదు."
 
-#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "రాసినది"
 
-#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "ఇక్కడ"
 
 msgid "in"
 msgstr "లో"
 
-#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "తర్వాతి టపాలు"
 
@@ -346,11 +299,9 @@ msgstr "ఏ ప్రతిస్పందన"
 msgid "no trackbacks"
 msgstr "ట్రాకుబ్యాకులు లేవు"
 
-#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "యొక్క"
 
-#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "తేదీ"
 
@@ -366,30 +317,23 @@ msgstr "ఒక ప్రతిచర్య"
 msgid "one trackback"
 msgstr "ఒక ట్రాకుబ్యాకు"
 
-#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "ఐచ్ఛికం"
 
-#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "పేజీ"
 
-#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "మునుజూపు"
 
-#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "గత టపాలు"
 
 msgid "reactions"
 msgstr "ప్రతిస్పందనలు"
 
-#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "పంపించు"
 
-#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "టూడే"
-

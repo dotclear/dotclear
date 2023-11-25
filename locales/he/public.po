@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"POT-Creation-Date: 2023-11-25 07:41+0100\n"
 "PO-Revision-Date: 2023-11-20 22:22\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
@@ -29,14 +29,12 @@ msgstr "%d הפניות trackback"
 msgid "%s reactions"
 msgstr "%s תגובות"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "גישה לתוכן"
 
 msgid "Add a comment"
 msgstr "הוספת הערה:"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "הוספת פינג"
 
@@ -55,27 +53,21 @@ msgstr "קבצים מצורפים"
 msgid "Best of me"
 msgstr "הכי טוב שלי"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "פרטי בלוג"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "תפריט ' בלוג '"
 
-#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "על ידי"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "לפי קטגוריה"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "לפי תאריך"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "לפי תג"
 
@@ -94,15 +86,12 @@ msgstr "ניתן לעצב הערות באמצעות תחביר ויקי פשוט
 msgid "Comments feed"
 msgstr "הזנת הערות"
 
-#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "המשך קריאה"
 
-#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "המסמך לא נמצא"
 
-#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "כתובת דוא \" ל"
 
@@ -112,23 +101,18 @@ msgstr "כתובת הדואל אינה חוקית"
 msgid "Entries feed"
 msgstr "הזנת רשומות"
 
-#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "סיור בארכיונים"
 
-#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "תפריט נוסף"
 
-#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "מ -"
 
-#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "מעבר לדף הבית"
 
@@ -147,33 +131,27 @@ msgstr "שפות"
 msgid "Links"
 msgstr "קישורים"
 
-#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "שם או כינוי"
 
-#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "הרשומה הבאה:"
 
-#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "ב -"
 
 msgid "Page top"
 msgstr "הדף ' הדף '"
 
-#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "הרס"
 
-#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "סיסמה דרושה"
 
 msgid "Password:"
 msgstr "סיסמה:"
 
-#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "פרמינק"
 
@@ -183,7 +161,6 @@ msgstr "מופעל על ידי %s"
 msgid "Preview"
 msgstr "תצוגה מקדימה"
 
-#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "רשומה קודמת:"
 
@@ -193,7 +170,6 @@ msgstr "ערוץ RSS הוא סיכום בלוג פנוי. הוא מספק תוכ
 msgid "Read"
 msgstr "קריאה"
 
-#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "זוכר אותי על הבלוג הזה?"
 
@@ -209,7 +185,6 @@ msgstr "שלח"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "העתיקו את ה-URL שלהלן לתוצבר שלכם:"
 
-#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "תת-סיווגים"
 
@@ -219,73 +194,57 @@ msgstr "מינוי"
 msgid "Subscribe to"
 msgstr "מינוי ל -"
 
-#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "הצעות:"
 
-#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "המסמך שאתם מחפשים אינו קיים."
 
-#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "רשימת הפרסומים של הסנט זמינה."
 
-#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "הם פרסמו את אותו נושא"
 
 msgid "This blog's comments Atom feed"
 msgstr "רשומת Atom של הערות בבלוג זה"
 
-#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "סיווג זה של הערות Atom"
 
-#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "קטגוריה זו של רשומות Atom"
 
-#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "טעינת ערוץ תוכן של פרסום זה"
 
-#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "ערוץ תוכן של פרסום זה"
 
-#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "לתוכן"
 
-#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "תפריט ' כדי '"
 
-#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "כדי לחפש"
 
-#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "URL של Trackback"
 
-#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "ל-URL שניסיתם יש שגיאות דפוס, או שהדף נמחק או הועבר."
 
-#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "שימוש בטופס חיפוש"
 
-#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "אתר"
 
 msgid "What is an RSS feed?"
 msgstr "מהו ערוץ RSS?"
 
-#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "עליכם לתת סיסמה כדי לגשת לאזור זה."
 
@@ -298,15 +257,12 @@ msgstr "עליכם לספק כתובת דואל חוקית."
 msgid "You must provide an author name"
 msgstr "עליכם לספק שם מחבר."
 
-#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "ההערה שלכם"
 
-#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "ההערה שלך פורסמה."
 
-#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "ההערה שלכם הוגשה ונסקר לפרסום."
 
@@ -319,18 +275,15 @@ msgstr "החיפוש אחר <em>%1$s</em> החזיר <strong>%2$s</strong> תו�
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "החיפוש אחר <em>%1$s</em> חזר ללא תוצאה."
 
-#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "על ידי"
 
-#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "כאן"
 
 msgid "in"
 msgstr "ב"
 
-#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "רשומות הבאות:"
 
@@ -346,11 +299,9 @@ msgstr "ללא תגובות"
 msgid "no trackbacks"
 msgstr "אין הפניות trackback"
 
-#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "של"
 
-#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "ב"
 
@@ -366,30 +317,23 @@ msgstr "תגובה אחת"
 msgid "one trackback"
 msgstr "הפניית trackback אחת"
 
-#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "אופציונלי"
 
-#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "עמוד"
 
-#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "תצוגה מקדימה"
 
-#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "רשומות קודמות"
 
 msgid "reactions"
 msgstr "תגובות"
 
-#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "שליחה"
 
-#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "יום"
-

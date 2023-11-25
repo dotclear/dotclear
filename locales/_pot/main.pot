@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 08:23+0100\n"
+"POT-Creation-Date: 2023-11-25 07:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -666,7 +666,7 @@ msgid "Plugins management"
 msgstr ""
 
 #: src/Core/Backend/Favorites.php:522 src/Core/Backend/Menus.php:214
-#: src/Core/Upgrade/Utility.php:289
+#: src/Core/Upgrade/Utility.php:291
 msgid "Languages"
 msgstr ""
 
@@ -1249,12 +1249,12 @@ msgstr ""
 msgid "System settings"
 msgstr ""
 
-#: src/Core/Backend/Menus.php:87 src/Core/Upgrade/Utility.php:297
+#: src/Core/Backend/Menus.php:87 src/Core/Upgrade/Utility.php:300
 msgid "Plugins"
 msgstr ""
 
 #: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1243
-#: src/Core/Upgrade/PluginsList.php:136 src/Core/Upgrade/Utility.php:265
+#: src/Core/Upgrade/PluginsList.php:136 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
 msgid "Update"
@@ -2220,7 +2220,7 @@ msgstr ""
 msgid "results per page"
 msgstr ""
 
-#: src/Core/Backend/Utility.php:146 src/Core/Upgrade/Utility.php:116
+#: src/Core/Backend/Utility.php:146 src/Core/Upgrade/Utility.php:115
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
@@ -2642,26 +2642,59 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
+#: src/Core/Upgrade/Utility.php:270 src/Process/Upgrade/Upgrade.php:304
+msgid "On this page you can update dotclear to the latest release."
+msgstr ""
+
 #: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:83
 #: src/Process/Upgrade/Attic.php:107 src/Process/Upgrade/Attic.php:345
 msgid "Attic"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Backup.php:183
+#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:355
+msgid "On this page you can update dotclear to a release between yours and latest."
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:282 src/Process/Upgrade/Backup.php:183
 msgid "Backups"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:305 src/Process/Upgrade/Cache.php:64
+#: src/Core/Upgrade/Utility.php:288 src/Process/Upgrade/Backup.php:197
+msgid "On this page you can revert your previous installation or delete theses files."
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
+#: src/Process/Upgrade/Langs.php:445
+msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:306
+msgid "On this page you will manage plugins."
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:64
 msgid "Cache"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:313
+#: src/Core/Upgrade/Utility.php:315 src/Process/Upgrade/Cache.php:80
+msgid "On this page, you can clear templates and repositories cache."
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:318
 msgid "Digests"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:321 src/Process/Upgrade/Replay.php:76
+#: src/Core/Upgrade/Utility.php:324 src/Process/Upgrade/Digests.php:154
+msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:327 src/Process/Upgrade/Replay.php:76
 #: src/Process/Upgrade/Replay.php:104
 msgid "Replay"
+msgstr ""
+
+#: src/Core/Upgrade/Utility.php:333 src/Process/Upgrade/Replay.php:90
+msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr ""
 
 #: src/Core/UserPreferences.php:69
@@ -3239,7 +3272,7 @@ msgstr ""
 #: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
 #: src/Process/Backend/Update.php:125 src/Process/Backend/User.php:234
 #: src/Process/Backend/Users.php:104 src/Process/Backend/UsersActions.php:150
-#: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:157
+#: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
 msgid "System"
 msgstr ""
 
@@ -3285,7 +3318,7 @@ msgstr ""
 msgid "Delete a blog"
 msgstr ""
 
-#: src/Process/Backend/BlogDel.php:98 src/Process/Upgrade/Home.php:164
+#: src/Process/Backend/BlogDel.php:98 src/Process/Upgrade/Home.php:154
 msgid "Warning"
 msgstr ""
 
@@ -4179,7 +4212,7 @@ msgid "Dashboard area's drag and drop is enabled"
 msgstr ""
 
 #: src/Process/Backend/Home.php:190 src/Process/Backend/Home.php:203
-#: src/Process/Upgrade/Home.php:131
+#: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr ""
 
@@ -4304,10 +4337,6 @@ msgstr ""
 #: src/Process/Backend/Langs.php:211 src/Process/Backend/Langs.php:216
 #: src/Process/Upgrade/Langs.php:258 src/Process/Upgrade/Langs.php:263
 msgid "Languages management"
-msgstr ""
-
-#: src/Process/Backend/Langs.php:230 src/Process/Upgrade/Langs.php:445
-msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr ""
 
 #: src/Process/Backend/Langs.php:232
@@ -5248,7 +5277,7 @@ msgstr[1] ""
 #: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:187 src/Process/Upgrade/Cache.php:68
-#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:136
+#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
 #: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
 #: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
@@ -6096,10 +6125,6 @@ msgstr ""
 msgid "Update Dotclear"
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:355
-msgid "On this page you can update dotclear to a release between yours and latest."
-msgstr ""
-
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
 msgstr ""
@@ -6150,10 +6175,6 @@ msgstr ""
 msgid "You should not revert to version prior to last one (%s)."
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:197
-msgid "On this page you can revert your previous installation or delete theses files."
-msgstr ""
-
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
 msgstr ""
@@ -6164,10 +6185,6 @@ msgstr ""
 
 #: src/Process/Upgrade/Cache.php:69
 msgid "Cache management"
-msgstr ""
-
-#: src/Process/Upgrade/Cache.php:80
-msgid "On this page, you can clear templates and repositories cache."
 msgstr ""
 
 #: src/Process/Upgrade/Cache.php:84
@@ -6200,10 +6217,6 @@ msgstr ""
 
 #: src/Process/Upgrade/Digests.php:139
 msgid "Corrupted files"
-msgstr ""
-
-#: src/Process/Upgrade/Digests.php:154
-msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr ""
 
 #: src/Process/Upgrade/Digests.php:163
@@ -6286,11 +6299,7 @@ msgstr ""
 msgid "Once update done, do not forget to check and update blogs themes."
 msgstr ""
 
-#: src/Process/Upgrade/Home.php:142
-msgid "You are on a dashboard dedicated to Dotclear's update."
-msgstr ""
-
-#: src/Process/Upgrade/Home.php:165
+#: src/Process/Upgrade/Home.php:155
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr ""
 
@@ -6360,10 +6369,6 @@ msgstr ""
 msgid "Replay update actions"
 msgstr ""
 
-#: src/Process/Upgrade/Replay.php:90
-msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
-msgstr ""
-
 #: src/Process/Upgrade/Replay.php:99
 msgid "Replay grow up action from version:"
 msgstr ""
@@ -6378,10 +6383,6 @@ msgstr ""
 
 #: src/Process/Upgrade/Upgrade.php:266
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
-msgstr ""
-
-#: src/Process/Upgrade/Upgrade.php:304
-msgid "On this page you can update dotclear to the latest release."
 msgstr ""
 
 #: src/Schema/Extension/Log.php:44
