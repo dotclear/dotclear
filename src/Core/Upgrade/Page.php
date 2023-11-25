@@ -167,14 +167,6 @@ class Page extends BackendPage
      */
     public static function close(): void
     {
-        if (!App::upgrade()->resources()->context()) {
-            if (!App::auth()->prefs()->interface->hidehelpbutton) {
-                echo
-                '<p id="help-button"><a href="' . App::upgrade()->url()->get('upgrade.home') . '" title="' .
-                __('Global help') . '">' . __('Global help') . '</a></p>';
-            }
-        }
-
         echo
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
