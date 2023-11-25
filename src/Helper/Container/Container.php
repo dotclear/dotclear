@@ -133,6 +133,7 @@ class Container implements ContainerInterface
             if ($type instanceof \ReflectionUnionType) { //php 8.0+
                 $type = $type->getTypes()[0];
             }
+            /* @phpstan-ignore-next-line : isBuiltin() and getName() is only valid for \ReflectionNamedType !!! */
             $class = !$type || $type->isBuiltin() || !$this->factory->has($type->getName()) ? null : new \ReflectionClass($type->getName());
 
             if (null !== $class) {
