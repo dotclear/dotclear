@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-09-07 14:32\n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-11-25 06:45\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -29,12 +29,14 @@ msgstr "トラックバック(%d)"
 msgid "%s reactions"
 msgstr "%s の反応"
 
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "コンテンツへのアクセス"
 
 msgid "Add a comment"
 msgstr "コメントを追加"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "Pingを追加"
 
@@ -53,21 +55,27 @@ msgstr "添付ファイル"
 msgid "Best of me"
 msgstr "私のイチ押し"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "ブログ情報"
 
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "ブログメニュー"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "投稿者："
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "カテゴリ別"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "日付順"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "タグ別"
 
@@ -86,12 +94,15 @@ msgstr "コメントは単純な wiki 構文を使用してフォーマットで
 msgid "Comments feed"
 msgstr "コメントのフィード"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
 msgstr "続きを読む -"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "ドキュメントが見つかりませんでした"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "メールアドレス"
 
@@ -101,18 +112,23 @@ msgstr "メールアドレスが無効です"
 msgid "Entries feed"
 msgstr "エントリのフィード"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
 msgstr "アーカイブを探索"
 
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
 msgstr "Extra menu"
 
+#: __html_tpl_dummy.php:24
 msgid "From"
 msgstr "差出人:"
 
+#: __html_tpl_dummy.php:25
 msgid "FromDay"
 msgstr "FromDay"
 
+#: __html_tpl_dummy.php:26
 msgid "Go to homepage"
 msgstr "ホームページに移動"
 
@@ -131,27 +147,33 @@ msgstr "言語"
 msgid "Links"
 msgstr "リンク"
 
+#: __html_tpl_dummy.php:28
 msgid "Name or nickname"
 msgstr "お名前／ニックネーム"
 
+#: __html_tpl_dummy.php:29
 msgid "Next entry:"
 msgstr "次のエントリ:"
 
+#: __html_tpl_dummy.php:30
 msgid "On"
 msgstr "投稿日："
 
 msgid "Page top"
 msgstr "Page top"
 
+#: __html_tpl_dummy.php:33
 msgid "Pagination"
 msgstr "改ページ"
 
+#: __html_tpl_dummy.php:34
 msgid "Password needed"
 msgstr "パスワードが必要です"
 
 msgid "Password:"
 msgstr "パスワード："
 
+#: __html_tpl_dummy.php:36
 msgid "Permalink"
 msgstr "パーマリンク"
 
@@ -161,6 +183,7 @@ msgstr "Powered by %s"
 msgid "Preview"
 msgstr "プレビュー"
 
+#: __html_tpl_dummy.php:38
 msgid "Previous entry:"
 msgstr "前のエントリ:"
 
@@ -170,6 +193,7 @@ msgstr "RSSフィードはフリーなブログの要約です。 それはフ�
 msgid "Read"
 msgstr "読む"
 
+#: __html_tpl_dummy.php:40
 msgid "Remember me on this blog"
 msgstr "次回から入力を省略"
 
@@ -185,6 +209,7 @@ msgstr "送信"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "あなたのアグリゲータに以下のURLをコピーしてください："
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
 msgstr "サブカテゴリ"
 
@@ -194,57 +219,73 @@ msgstr "定期受信"
 msgid "Subscribe to"
 msgstr "定期受信："
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
 msgstr "提案:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
 msgstr "お探しのドキュメントは存在しません。"
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
 msgstr "アプリ履歴の一覧が利用可能です"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
 msgstr "同じトピックに関する投稿"
 
 msgid "This blog's comments Atom feed"
 msgstr "このブログのコメントのAtomフィード"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
 msgstr "このカテゴリのコメントのAtomフィード"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
 msgstr "このカテゴリのエントリのAtomフィード"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
 msgstr "この投稿のコメントのAtomフィード"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
 msgstr "この投稿のコメントフィード"
 
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "コンテンツへ"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "メニューへ"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
 msgstr "検索へ"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "トラックバックURL"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "URLがタイプされているか、ページが削除または移動されています。"
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
 msgstr "検索フォームを使用"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "ウェブサイト"
 
 msgid "What is an RSS feed?"
 msgstr "RSSフィードとは？"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
 msgstr "このエリアへのアクセスにはパスワードが必要です。"
 
@@ -257,12 +298,15 @@ msgstr "有効なメールアドレスを入力する必要があります。"
 msgid "You must provide an author name"
 msgstr "投稿者名の入力は必須です"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
 msgstr "あなたのコメント"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
 msgstr "コメントが掲載されました。"
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "コメントは正常に送信され、掲載待ちとなりました。"
 
@@ -275,15 +319,18 @@ msgstr "<em>%1$s</em> の検索結果は <strong>%2$s</strong> です。"
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "<em>%1$s</em> の検索結果はありません。"
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "投稿者："
 
+#: __html_tpl_dummy.php:67
 msgid "here"
 msgstr "ここ"
 
 msgid "in"
 msgstr "in"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
 msgstr "次のエントリ"
 
@@ -299,9 +346,11 @@ msgstr "反応なし"
 msgid "no trackbacks"
 msgstr "トラックバック(0)"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "/"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "投稿日："
 
@@ -317,23 +366,30 @@ msgstr "1つの反応は"
 msgid "one trackback"
 msgstr "トラックバック(1)"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
 msgstr "任意"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "ページ"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
 msgstr "プレビュー"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
 msgstr "前のエントリ"
 
 msgid "reactions"
 msgstr "反応"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
 msgstr "送信"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
 msgstr "today"
+
