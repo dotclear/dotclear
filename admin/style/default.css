@@ -3752,7 +3752,7 @@ span.ibw {
 .upgrade-mode #dashboard-main {
   text-align: inherit;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   gap: 1em;
 }
 .upgrade-mode #dashboard-boxes,
@@ -3762,20 +3762,21 @@ span.ibw {
 .upgrade-mode .db-items {
   display: block;
 }
+@media screen and (max-width: 62em) {
+  .upgrade-mode #dashboard-main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 @media screen and (max-width: 43em) {
   .upgrade-mode #dashboard-main {
     grid-template-columns: 1fr;
   }
-  .upgrade-mode #icons {
-    margin: 1em;
-  }
 }
 .upgrade-mode #icons {
-  flex-wrap: nowrap;
-  flex-direction: column;
+  justify-content: flex-start;
 }
 .upgrade-mode #icons p {
-  width: inherit;
+  width: calc(50% - 0.5em);
   flex-direction: row;
   align-items: flex-start;
   gap: 1em;
@@ -3798,6 +3799,30 @@ span.ibw {
 }
 .upgrade-mode #icons span.db-icon-title {
   flex: none;
+}
+@media screen and (max-width: 62em) {
+  .upgrade-mode #icons {
+    margin-top: 1em;
+  }
+  .upgrade-mode #icons p {
+    width: auto;
+  }
+  .upgrade-mode .db-items {
+    display: flex;
+  }
+}
+@media screen and (max-width: 43em) {
+  .upgrade-mode #icons {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 1em;
+  }
+  .upgrade-mode #icons p {
+    width: auto;
+  }
+  .upgrade-mode .db-items {
+    display: flex;
+  }
 }
 .upgrade-mode .badge-icon {
   right: -10px;

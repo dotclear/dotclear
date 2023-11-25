@@ -227,7 +227,7 @@
   #dashboard-main {
     text-align: inherit;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
     gap: 1em;
   }
 
@@ -240,21 +240,23 @@
     display: block;
   }
 
+  @media screen and (max-width: $tablet-screen) {
+    #dashboard-main {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   @media screen and (max-width: $mobile-screen) {
     #dashboard-main {
       grid-template-columns: 1fr;
     }
-    #icons {
-      margin: 1em;
-    }
   }
 
   #icons {
-    flex-wrap: nowrap;
-    flex-direction: column;
+    justify-content: flex-start;
 
     p {
-      width: inherit;
+      width: calc(50% - 0.5em);
       flex-direction: row;
       align-items: flex-start;
       gap: 1em;
@@ -285,6 +287,35 @@
 
     span.db-icon-title {
       flex: none;
+    }
+  }
+
+  @media screen and (max-width: $tablet-screen) {
+    #icons {
+      margin-top: 1em;
+
+      p {
+        width: auto;
+      }
+    }
+    .db-items {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: $mobile-screen) {
+    #icons {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      margin: 1em;
+
+      p {
+        width: auto;
+      }
+    }
+
+    .db-items {
+      display: flex;
     }
   }
 
