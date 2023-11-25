@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-21 10:09\n"
+"POT-Creation-Date: 2023-11-21 08:23+0100\n"
+"PO-Revision-Date: 2023-11-25 06:45\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -17,1445 +17,2008 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
+#: plugins/Uninstaller/src/Backend.php:46
 msgid "Uninstall"
 msgstr "Видалити"
 
+#: plugins/Uninstaller/src/Backend.php:104
 msgid "Plugin has been successfully uninstalled."
 msgstr "Плагін успішно видалено."
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
 msgid "Folders from cache directory"
 msgstr "Теки з каталогу кешу"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 msgid "delete selected cache directories"
 msgstr "видалити вибрані каталоги кешу"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "видалити \"%s\" каталог кешу"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" видалено каталог кешу"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Не вдалося видалити каталог кешу \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 msgid "empty selected cache directories"
 msgstr "очистити вибрані каталоги кешу"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "порожній \"%s\" каталог кешу"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" каталог кешу очищено"
 
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Не вдалося очистити каталог кешу \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Logs.php:37
 msgid "Logs"
 msgstr "Журнали"
 
+#: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs in Dotclear logs table"
 msgstr "Журнали в таблиці журналів Dotclear"
 
+#: plugins/Uninstaller/src/Cleaner/Logs.php:43
 msgid "delete selected logs tables"
 msgstr "видалити вибрані таблиці журналів"
 
+#: plugins/Uninstaller/src/Cleaner/Logs.php:44
 #, php-format
 msgid "delete \"%s\" logs table"
 msgstr "видалити \"%s\" таблицю журналів"
 
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
 msgstr "\"%s\" таблицю журналів видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
 msgstr "Не вдалося видалити таблицю журналів \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:36
 msgid "Folders from plugins directories"
 msgstr "Теки з каталогів плагінів"
 
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:41
 msgid "delete selected plugins files and directories"
 msgstr "видалити вибрані файли та каталоги плагінів"
 
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "видалити \"%s\" файли плагінів і каталоги"
 
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
 msgstr "\"%s\" видалено файли та каталоги плагінів"
 
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
 msgstr "Не вдалося видалити файли та каталоги плагінів \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:37
 msgid "Preferences"
 msgstr "Уподобання"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Users preferences workspaces"
 msgstr "Уподобання користувачів робочі простори"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:43
 msgid "delete selected global preferences workspaces"
 msgstr "видалити вибрані робочі області глобальних налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "видалити \"%s\" робочу область глобальних налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
 msgstr "\"%s\" видалено робочу область глобальних налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
 msgstr "Не вдалося видалити робочу область глобальних налаштувань \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:52
 msgid "delete selected users preferences workspaces"
 msgstr "видалити вибрані робочі області налаштувань користувачів"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "видалити \"%s\" робочу область налаштувань користувачів"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
 msgstr "\"%s\" видалено робочу область налаштувань користувачів"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
 msgstr "Не вдалося видалити робочу область налаштувань користувачів \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:61
 msgid "delete selected preferences workspaces"
 msgstr "видалити вибрані робочі області налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 #, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "видалити \"%s\" робочу область налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
 msgstr "\"%s\" видалено робочу область налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
 msgstr "Не вдалося видалити робочу область налаштувань \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:70
 msgid "delete related preferences"
 msgstr "видалити відповідні налаштування"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "related preferences deleted"
 msgstr "відповідні налаштування видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "Failed to delete related preferences"
 msgstr "Не вдалося видалити пов'язані налаштування"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:37
+#: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:16
 msgid "Settings"
 msgstr "Налаштування"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:38
 msgid "Namespaces registered in dcSettings"
 msgstr "Простори імен, зареєстровані в dcSettings"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:43
 msgid "delete selected global settings namespaces"
 msgstr "видалити вибрані простори імен глобальних налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:44
 #, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "видалити \"%s\" простір імен глобальних налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
 msgstr "\"%s\" простір імен глобальних налаштувань видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
 msgstr "Не вдалося видалити простір імен \"%s\" глобальних налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:52
 msgid "delete selected blog settings namespaces"
 msgstr "видалити вибрані простори імен налаштувань блогу"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "видалити \"%s\" простір імен налаштувань блогу"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
 msgstr "\"%s\" простір імен налаштувань блогу видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
 msgstr "Не вдалося видалити простір імен налаштувань блогу \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:61
 msgid "delete selected settings namespaces"
 msgstr "видалити вибрані простори імен налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
 #, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "видалити \"%s\" простір імен налаштувань"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted"
 msgstr "\"%s\" простір імен налаштувань видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
 msgstr "Не вдалося видалити простір імен налаштувань \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:70
 msgid "delete related settings"
 msgstr "видалити відповідні налаштування"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "related settings deleted"
 msgstr "відповідні налаштування видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "Failed to delete related settings"
 msgstr "Не вдалося видалити пов'язані налаштування"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
 msgstr "Таблиці"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
 msgstr "Всі таблиці бази даних Dotclear"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
 msgid "delete selected tables"
 msgstr "видалити вибрані таблиці"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "видалити таблицю \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "\"%s\" таблицю видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "Не вдалося видалити таблицю \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:53
 msgid "empty selected tables"
 msgstr "очистити вибрані таблиці"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "порожня \"%s\" таблиця"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "\"%s\"Стіл порожній"
 
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "Не вдалося очистити таблицю \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Themes.php:35
 msgid "Themes"
 msgstr "Теми"
 
+#: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Folders from blog themes directory"
 msgstr "Теки з каталогу тем блогу"
 
+#: plugins/Uninstaller/src/Cleaner/Themes.php:41
 msgid "delete selected themes files and directories"
 msgstr "видалити вибрані файли тем і каталоги"
 
+#: plugins/Uninstaller/src/Cleaner/Themes.php:42
 #, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "видалити \"%s\" файли і каталоги тем"
 
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
 msgstr "\"%s\" видалено файли і каталоги тем"
 
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
 msgstr "Не вдалося видалити файли і каталоги теми \"%s\""
 
+#: plugins/Uninstaller/src/Cleaner/Vars.php:36
 msgid "Var"
 msgstr "Вар"
 
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Folders from Dotclear VAR directory"
 msgstr "Теки з каталогу Dotclear VAR"
 
+#: plugins/Uninstaller/src/Cleaner/Vars.php:42
 msgid "delete selected var directories"
 msgstr "видалити вибрані каталоги var"
 
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
 #, php-format
 msgid "delete \"%s\" var directory"
 msgstr "видалити \"%s\" каталог var"
 
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted"
 msgstr "\"%s\" каталог var видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
 msgstr "Не вдалося видалити каталог \"%s\" var"
 
+#: plugins/Uninstaller/src/Cleaner/Versions.php:35
 msgid "Versions"
 msgstr "Версії"
 
+#: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "Версії, зареєстровані в таблиці \"версія\" Dotclear"
 
+#: plugins/Uninstaller/src/Cleaner/Versions.php:41
 msgid "delete selected versions numbers"
 msgstr "видалити вибрані номери версій"
 
+#: plugins/Uninstaller/src/Cleaner/Versions.php:42
 #, php-format
 msgid "delete \"%s\" version number"
 msgstr "видалити \"%s\" номер версії"
 
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted"
 msgstr "\"%s\" номер версії видалено"
 
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
 msgstr "Не вдалося видалити \"%s\" номер версії"
 
+#: plugins/Uninstaller/src/CleanersStack.php:120
 #, php-format
 msgid "Unknown cleaner \"%s\""
 msgstr "Невідомий очищувач \"%s\""
 
+#: plugins/Uninstaller/src/CleanersStack.php:123
 msgid "Unsintaller can't remove itself"
 msgstr "Деінсталятор не може видалити себе"
 
+#: plugins/Uninstaller/src/Manage.php:62
 msgid "Unknown module id to uninstall"
 msgstr "Невідомий ідентифікатор модуля для видалення"
 
+#: plugins/Uninstaller/src/Manage.php:70
 msgid "There are no uninstall actions for this module"
 msgstr "Для цього модуля не передбачено жодних дій з видалення"
 
+#: plugins/Uninstaller/src/Manage.php:95
 msgid "Uninstall action successfuly excecuted"
 msgstr "Видалення успішно виконано"
 
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "No uninstall action done"
 msgstr "Видалення не виконано"
 
+#: plugins/Uninstaller/src/Manage.php:143
 msgid "Perform selected actions"
 msgstr "Виконайте вибрані дії"
 
+#: plugins/Uninstaller/src/Manage.php:158
 msgid "Are you sure you perform these ations?"
 msgstr "Ви впевнені, що виконуєте ці дії?"
 
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Видаліть плагін \"%s\""
 
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Видаліть тему \"%s\""
 
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "Модуль \"%s %s\" пропонує розширений процес видалення:"
 
+#: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Впоратися зі старими основними класами (< 2.26)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:28
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Універсальний антиспам-плагін для Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
 msgid "Akismet interface for Dotclear"
 msgstr "Інтерфейс Akismet для Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:25
 msgid "Trackback validity check"
 msgstr "Перевірка валідності трекбеку"
 
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:24
 msgid "Manage post attachments"
 msgstr "Керування вкладеними файлами"
 
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
 msgstr "Подавайте записи у вигляді простих веб-сторінок"
 
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:24
 msgid "Manage every blog configuration directive"
 msgstr "Керуйте кожною директивою конфігурації блогу"
 
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
 msgstr "dotclear legacy editor"
 
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:24
 msgid "Theme Editor"
 msgstr "Редактор тем"
 
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
 msgstr "Просте меню для Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:26
 msgid "Import and Export your blog"
 msgstr "Імпорт та експорт вашого блогу"
 
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:24
 msgid "Manage every user preference directive"
 msgstr "Керуйте кожною директивою користувацьких налаштувань"
 
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:24
 msgid "dotclear CKEditor integration"
 msgstr "інтеграція з CKEditor"
 
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:24
 msgid "Maintain your installation"
 msgstr "Підтримуйте свою установку"
 
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb for Dotclear"
 msgstr "Хлібна крихта для Dotclear"
 
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:25
 msgid "Manage your blogroll"
 msgstr "Керування списком блогів"
 
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
 msgstr "Пінг-сервіси"
 
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
 msgstr "Теги для дописів"
 
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
 msgstr "Віджети для бічних панелей вашого блогу"
 
+#: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Впоратися зі слідом функції/методу V1 (< 2.24, 2.25)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
 msgstr "Форма пошукової системи"
 
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
 msgstr "Список навігаційних посилань"
 
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
 msgstr "Список вибраних записів"
 
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
 msgstr "Список доступних мов"
 
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:121
 msgid "List of categories"
 msgstr "Перелік категорій"
 
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "Посилання на підписку на стрічку (RSS або Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "Список останніх записів зі стрічки (RSS або Atom)"
 
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
 msgstr "Простий текст"
 
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
 msgstr "Список останніх опублікованих записів"
 
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
 msgstr "Список останніх опублікованих коментарів"
 
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
 msgstr "Список опублікованих сторінок"
 
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
 msgstr "Список простих пунктів меню"
 
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
 msgstr "Список блогів"
 
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
 msgstr "Хмара тегів"
 
+#: plugins/aboutConfig/src/Backend.php:24
 msgid "about:config"
 msgstr "about:config"
 
+#: plugins/aboutConfig/src/Manage.php:68 plugins/aboutConfig/src/Manage.php:88
 msgid "Configuration successfully updated"
 msgstr "Конфігурацію успішно оновлено"
 
+#: plugins/aboutConfig/src/Manage.php:124
+#: plugins/aboutConfig/src/Manage.php:125
 #, php-format
 msgid "Settings for %s"
 msgstr "Налаштування для %s"
 
+#: plugins/aboutConfig/src/Manage.php:132
+#: plugins/aboutConfig/src/Manage.php:133
 msgid "Global settings"
 msgstr "Глобальні налаштування"
 
+#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:142
 msgid "Setting ID"
 msgstr "Ідентифікатор налаштування"
 
+#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:143
 msgid "Value"
 msgstr "Значення"
 
+#: plugins/aboutConfig/src/Manage.php:159 plugins/antispam/src/Manage.php:217
+#: plugins/blogroll/src/Manage.php:253 plugins/blogroll/src/Manage.php:396
+#: plugins/simpleMenu/src/Manage.php:227 plugins/simpleMenu/src/Manage.php:672
+#: plugins/userPref/src/Manage.php:145
 msgid "Description"
 msgstr "Опис"
 
+#: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:189
 msgid "Goto:"
 msgstr "Готово:"
 
+#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
 msgid "no"
 msgstr "Ні."
 
+#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
 msgid "yes"
 msgstr "Так."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:79
 msgid "Akismet spam filter"
 msgstr "Спам-фільтр Akismet"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:92
 #, php-format
 msgid "Filtered by %s."
 msgstr "Відфільтровано за %s."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:210
 msgid "Filter configuration have been successfully saved."
 msgstr "Конфігурацію фільтра успішно збережено."
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:229
 msgid "Akismet API key:"
 msgstr "Ключ API Akismet:"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:234
 msgid "API key verified"
 msgstr "Ключ API перевірено"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:236
 msgid "API key not verified"
 msgstr "Ключ API не підтверджено"
 
+#: plugins/akismet/src/AntispamFilterAkismet.php:242
 msgid "Get your own API key"
 msgstr "Отримайте власний ключ API"
 
+#: plugins/akismet/src/Prepend.php:25
 msgid "Akismet"
 msgstr "Akismet"
 
+#: plugins/antispam/src/Antispam.php:140
 msgid "This comment is a spam:"
 msgstr "Цей коментар є спамом:"
 
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(включаючи спам-коментарі %d)"
 
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(включаючи спам-коментарі %d)"
 
+#: plugins/antispam/src/Backend.php:28
 msgid "Antispam"
 msgstr "Антиспам"
 
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:193
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Усі спам-коментарі, старші за %s днів, будуть автоматично видалені."
 
+#: plugins/antispam/src/BackendBehaviors.php:43
+#: plugins/antispam/src/Manage.php:194
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Ви можете змінити цю тривалість на сторінці %s"
 
+#: plugins/antispam/src/BackendBehaviors.php:58
 msgid "Delete junk comments older than"
 msgstr "Видаляйте непотрібні коментарі, старіші за"
 
+#: plugins/antispam/src/BackendBehaviors.php:64
 msgid "days"
 msgstr "днів"
 
+#: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
 msgstr "Встановіть -1, щоб вимкнути цю функцію; Залиште порожнім, щоб використовувати затримку за замовчуванням на 7 днів."
 
+#: plugins/antispam/src/BackendBehaviors.php:67
 msgid "Set spam filters."
 msgstr "Встановіть фільтри спаму."
 
+#: plugins/antispam/src/Filters/Ip.php:80
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "Фільтр блокування IP-адрес / фільтр дозволів"
 
+#: plugins/antispam/src/Filters/Ip.php:93
+#: plugins/antispam/src/Filters/IpV6.php:93
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Відфільтровано за %1$s з правилом %2$s."
 
+#: plugins/antispam/src/Filters/Ip.php:154
+#: plugins/antispam/src/Filters/IpV6.php:154
 msgid "IP address has been successfully added."
 msgstr "IP-адресу успішно додано."
 
+#: plugins/antispam/src/Filters/Ip.php:165
+#: plugins/antispam/src/Filters/IpV6.php:165
 msgid "IP addresses have been successfully removed."
 msgstr "IP-адреси успішно видалено."
 
+#: plugins/antispam/src/Filters/Ip.php:175
+#: plugins/antispam/src/Filters/IpV6.php:174
 msgid "Blocklist"
 msgstr "Блок-лист"
 
+#: plugins/antispam/src/Filters/Ip.php:176
+#: plugins/antispam/src/Filters/IpV6.php:175
 msgid "Allowlist"
 msgstr "Список дозволених"
 
+#: plugins/antispam/src/Filters/Ip.php:196
+#: plugins/antispam/src/Filters/IpV6.php:195
 msgid "Add an IP address: "
 msgstr "Додайте IP-адресу: "
 
+#: plugins/antispam/src/Filters/Ip.php:200
+#: plugins/antispam/src/Filters/IpV6.php:199
 msgid "Global IP (used for all blogs)"
 msgstr "Глобальний IP (використовується для всіх блогів)"
 
+#: plugins/antispam/src/Filters/Ip.php:205
+#: plugins/antispam/src/Filters/IpV6.php:204
+#: plugins/antispam/src/Filters/Words.php:193
+#: plugins/widgets/src/Manage.php:288
 msgid "Add"
 msgstr "Додати"
 
+#: plugins/antispam/src/Filters/Ip.php:211
+#: plugins/antispam/src/Filters/IpV6.php:210
 msgid "No IP address in list."
 msgstr "Немає IP-адреси у списку."
 
+#: plugins/antispam/src/Filters/Ip.php:214
+#: plugins/antispam/src/Filters/IpV6.php:213
 msgid "IP list"
 msgstr "Список IP-адрес"
 
+#: plugins/antispam/src/Filters/Ip.php:244
+#: plugins/antispam/src/Filters/IpV6.php:242
 msgid "Local IPs (used only for this blog)"
 msgstr "Локальні IP-адреси (використовуються тільки для цього блогу)"
 
+#: plugins/antispam/src/Filters/Ip.php:250
+#: plugins/antispam/src/Filters/IpV6.php:248
 msgid "Global IPs (used for all blogs)"
 msgstr "Глобальні IP-адреси (використовуються для всіх блогів)"
 
+#: plugins/antispam/src/Filters/IpLookup.php:78
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Перевіряє IP-адресу відправника на серверах DNSBL"
 
+#: plugins/antispam/src/Filters/IpLookup.php:91
+#: plugins/antispam/src/Filters/LinksLookup.php:73
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Відфільтровано %1$s за допомогою сервера %2$s."
 
+#: plugins/antispam/src/Filters/IpLookup.php:149
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "Список серверів DNSBL успішно оновлено."
 
+#: plugins/antispam/src/Filters/IpLookup.php:160
 msgid "IP Lookup servers"
 msgstr "Сервери пошуку IP-адрес"
 
+#: plugins/antispam/src/Filters/IpLookup.php:161
 msgid "Add here a coma separated list of servers."
 msgstr "Додайте сюди список серверів через кому."
 
+#: plugins/antispam/src/Filters/IpV6.php:80
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "Фільтр блокування / дозволу IP v6"
 
+#: plugins/antispam/src/Filters/LinksLookup.php:60
 msgid "Checks links in comments against surbl.org"
 msgstr "Перевіряє посилання в коментарях на surbl.org"
 
+#: plugins/antispam/src/Filters/Words.php:80
 msgid "Words Blocklist"
 msgstr "Блокування слів"
 
+#: plugins/antispam/src/Filters/Words.php:93
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Відфільтровано за %1$s зі словом %2$s."
 
+#: plugins/antispam/src/Filters/Words.php:150
 msgid "Words have been successfully added."
 msgstr "Слова успішно додано."
 
+#: plugins/antispam/src/Filters/Words.php:163
 msgid "Word has been successfully added."
 msgstr "Слово успішно додано."
 
+#: plugins/antispam/src/Filters/Words.php:174
 msgid "Words have been successfully removed."
 msgstr "Слова успішно видалено."
 
+#: plugins/antispam/src/Filters/Words.php:184
 msgid "Add a word "
 msgstr "Додати слово "
 
+#: plugins/antispam/src/Filters/Words.php:188
 msgid "Global word (used for all blogs)"
 msgstr "Глобальне слово (використовується для всіх блогів)"
 
+#: plugins/antispam/src/Filters/Words.php:198
 msgid "No word in list."
 msgstr "У списку немає жодного слова."
 
+#: plugins/antispam/src/Filters/Words.php:201
 msgid "List of bad words"
 msgstr "Список поганих слів"
 
+#: plugins/antispam/src/Filters/Words.php:230
 msgid "Local words (used only for this blog)"
 msgstr "Локальні слова (використовуються тільки для цього блогу)"
 
+#: plugins/antispam/src/Filters/Words.php:236
 msgid "Global words (used for all blogs)"
 msgstr "Глобальні слова (використовуються для всіх блогів)"
 
+#: plugins/antispam/src/Filters/Words.php:247
 msgid "Delete selected words"
 msgstr "Видалити виділені слова"
 
+#: plugins/antispam/src/Filters/Words.php:253
 msgid "Create default wordlist"
 msgstr "Створити список слів за замовчуванням"
 
+#: plugins/antispam/src/Filters/Words.php:315
 msgid "This word exists"
 msgstr "Це слово існує"
 
+#: plugins/antispam/src/FrontendUrl.php:60
 msgid "Spam moderation"
 msgstr "Модерація спаму"
 
+#: plugins/antispam/src/FrontendUrl.php:64
 msgid "Spam"
 msgstr "Спам"
 
+#: plugins/antispam/src/FrontendUrl.php:68
 msgid "Ham"
 msgstr "Шинка"
 
+#: plugins/antispam/src/Manage.php:50
 msgid "Filter does not exist."
 msgstr "Фільтр не існує."
 
+#: plugins/antispam/src/Manage.php:54
 msgid "Filter has no user interface."
 msgstr "Фільтр не має користувацького інтерфейсу."
 
+#: plugins/antispam/src/Manage.php:112 plugins/antispam/src/Manage.php:205
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфігурацію фільтрів успішно збережено."
 
+#: plugins/antispam/src/Manage.php:129
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфігурація"
 
+#: plugins/antispam/src/Manage.php:149
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s конфігурація фільтра"
 
+#: plugins/antispam/src/Manage.php:153
 msgid "Back to filters list"
 msgstr "Повернутися до списку фільтрів"
 
+#: plugins/antispam/src/Manage.php:177
 msgid "Information"
 msgstr "Інформація"
 
+#: plugins/antispam/src/Manage.php:179
 msgid "Junk comments:"
 msgstr "Сміттєві коментарі:"
 
+#: plugins/antispam/src/Manage.php:181
 msgid "Published comments:"
 msgstr "Опубліковані коментарі:"
 
+#: plugins/antispam/src/Manage.php:211
 msgid "Available spam filters"
 msgstr "Доступні фільтри спаму"
 
+#: plugins/antispam/src/Manage.php:213
+#: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
 msgstr "Порядок"
 
+#: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:245
 msgid "Active"
 msgstr "Активний"
 
+#: plugins/antispam/src/Manage.php:215 plugins/antispam/src/Manage.php:253
 msgid "Auto Del."
 msgstr "Автозапуск."
 
+#: plugins/antispam/src/Manage.php:216
 msgid "Filter name"
 msgstr "Назва фільтра"
 
+#: plugins/antispam/src/Manage.php:226 plugins/antispam/src/Manage.php:227
 msgid "Filter configuration"
 msgstr "Конфігурація фільтра"
 
+#: plugins/antispam/src/Manage.php:237 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "позиція"
 
+#: plugins/antispam/src/Manage.php:283
 msgid "Syndication"
 msgstr "Синдикація"
 
+#: plugins/antispam/src/Manage.php:285
 msgid "Junk comments RSS feed"
 msgstr "Небажані коментарі RSS-стрічка"
 
+#: plugins/antispam/src/Manage.php:286
 msgid "Published comments RSS feed"
 msgstr "Опубліковані коментарі RSS-стрічка"
 
+#: plugins/antispam/src/SpamFilter.php:107
 msgid "No description"
 msgstr "Без опису"
 
+#: plugins/antispam/src/SpamFilter.php:166
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Відфільтровано за %1$s (%2$s)"
 
+#: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
 msgstr "Невідомий фільтр."
 
+#: plugins/attachments/src/Backend.php:24
 msgid "attachments"
 msgstr "вкладення"
 
+#: plugins/attachments/src/BackendBehaviors.php:52
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Вкладення (%d)"
 
+#: plugins/attachments/src/BackendBehaviors.php:76
 msgid "remove"
 msgstr "видалити"
 
+#: plugins/attachments/src/BackendBehaviors.php:84
 msgid "No attachment."
 msgstr "Ніякої прихильності."
 
+#: plugins/attachments/src/BackendBehaviors.php:87
 msgid "Add files to this entry"
 msgstr "Додати файли до цього запису"
 
+#: plugins/blogroll/src/Backend.php:25
 msgid "Blogroll"
 msgstr "Список блогів"
 
+#: plugins/blogroll/src/Backend.php:36
 msgid "manage blogroll"
 msgstr "керувати списком блогів"
 
+#: plugins/blogroll/src/Blogroll.php:171 plugins/blogroll/src/Blogroll.php:214
 msgid "You must provide a link title"
 msgstr "Ви повинні вказати назву посилання"
 
+#: plugins/blogroll/src/Blogroll.php:175 plugins/blogroll/src/Blogroll.php:218
 msgid "You must provide a link URL"
 msgstr "Ви повинні вказати URL-адресу посилання"
 
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:391
 msgid "Nothing to import"
 msgstr "Нічого імпортувати"
 
+#: plugins/blogroll/src/Manage.php:106
 msgid "links have been successfully imported."
 msgstr "посилання успішно імпортовано."
 
+#: plugins/blogroll/src/Manage.php:113
 msgid "Import operation cancelled."
 msgstr "Операцію імпорту скасовано."
 
+#: plugins/blogroll/src/Manage.php:128
 msgid "Link has been successfully created."
 msgstr "Посилання успішно створено."
 
+#: plugins/blogroll/src/Manage.php:143
 msgid "category has been successfully created."
 msgstr "було успішно створено."
 
+#: plugins/blogroll/src/Manage.php:165
 msgid "Items have been successfully removed."
 msgstr "Елементи успішно видалено."
 
+#: plugins/blogroll/src/Manage.php:195
 msgid "Items order has been successfully updated"
 msgstr "Замовлення товарів успішно оновлено"
 
+#: plugins/blogroll/src/Manage.php:255
 msgid "Lang"
 msgstr "Ланг."
 
+#: plugins/blogroll/src/Manage.php:277
 msgid "select this link"
 msgstr "перейдіть за цим посиланням"
 
+#: plugins/blogroll/src/Manage.php:311
 msgid "Are you sure you want to delete selected links?"
 msgstr "Ви впевнені, що хочете видалити вибрані посилання?"
 
+#: plugins/blogroll/src/Manage.php:311
 msgid "Delete selected links"
 msgstr "Видалити вибрані посилання"
 
+#: plugins/blogroll/src/Manage.php:316
 msgid "The link list is empty."
 msgstr "Список посилань порожній."
 
+#: plugins/blogroll/src/Manage.php:324
 msgid "Add a new link"
 msgstr "Додати нове посилання"
 
+#: plugins/blogroll/src/Manage.php:354
 msgid "Add a category"
 msgstr "Додати категорію"
 
+#: plugins/blogroll/src/Manage.php:371 plugins/blogroll/src/Manage.php:376
+#: plugins/blogroll/src/Manage.php:388
 msgid "Import links"
 msgstr "Посилання для імпорту"
 
+#: plugins/blogroll/src/Manage.php:377
 msgid "OPML or XBEL File:"
 msgstr "OPML або XBEL файл:"
 
+#: plugins/blogroll/src/Manage.php:381 plugins/blogroll/src/Manage.php:425
+#: plugins/importExport/src/Manage.php:116
+#: plugins/importExport/src/ModuleImportFeed.php:227
+#: plugins/importExport/src/ModuleImportFlat.php:213
+#: plugins/importExport/src/ModuleImportFlat.php:251
 msgid "Import"
 msgstr "Імпорт"
 
+#: plugins/blogroll/src/ManageEdit.php:48
 msgid "No such link or title"
 msgstr "Немає такого посилання або назви"
 
+#: plugins/blogroll/src/ManageEdit.php:98
 msgid "Link has been successfully updated"
 msgstr "Посилання успішно оновлено"
 
+#: plugins/blogroll/src/ManageEdit.php:115
 msgid "Category has been successfully updated"
 msgstr "Категорію успішно оновлено"
 
+#: plugins/blogroll/src/ManageEdit.php:144
 msgid "Return to blogroll"
 msgstr "Повернутися до списку блогів"
 
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Edit category"
 msgstr "Редагувати категорію"
 
+#: plugins/blogroll/src/ManageEdit.php:168
 msgid "Edit link"
 msgstr "Редагувати посилання"
 
+#: plugins/blogroll/src/ManageEdit.php:204
 msgid "XFN information"
 msgstr "Інформація про XFN"
 
+#: plugins/blogroll/src/ManageEdit.php:205
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Більше інформації на сайті <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Вікіпедії</a>"
 
+#: plugins/blogroll/src/ManageEdit.php:211
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
+#: plugins/blogroll/src/ManageEdit.php:214
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Ще одне посилання для себе"
 
+#: plugins/blogroll/src/ManageEdit.php:218
 msgid "_xfn_Friendship"
 msgstr "_xfn_Дружба"
 
+#: plugins/blogroll/src/ManageEdit.php:224
 msgid "_xfn_Contact"
 msgstr "_xfn_Контакт"
 
+#: plugins/blogroll/src/ManageEdit.php:229
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Знайомство"
 
+#: plugins/blogroll/src/ManageEdit.php:234
 msgid "_xfn_Friend"
 msgstr "_xfn_Friend"
 
+#: plugins/blogroll/src/ManageEdit.php:240
 msgid "_xfn_Physical"
 msgstr "_xfn_Physical"
 
+#: plugins/blogroll/src/ManageEdit.php:246
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
+#: plugins/blogroll/src/ManageEdit.php:251
 msgid "_xfn_Professional"
 msgstr "_xfn_Professional"
 
+#: plugins/blogroll/src/ManageEdit.php:257
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Співробітник"
 
+#: plugins/blogroll/src/ManageEdit.php:262
 msgid "_xfn_Colleague"
 msgstr "_xfn_Colleague"
 
+#: plugins/blogroll/src/ManageEdit.php:267
 msgid "_xfn_Geographical"
 msgstr "_xfn_Географічний"
 
+#: plugins/blogroll/src/ManageEdit.php:273
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Співрезидент"
 
+#: plugins/blogroll/src/ManageEdit.php:278
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Сусід"
 
+#: plugins/blogroll/src/ManageEdit.php:284
 msgid "_xfn_Family"
 msgstr "_xfn_Family"
 
+#: plugins/blogroll/src/ManageEdit.php:290
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
+#: plugins/blogroll/src/ManageEdit.php:295
 msgid "_xfn_Parent"
 msgstr "_xfn_Батько"
 
+#: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Sibling"
 msgstr "_xfn_Брат/сестра"
 
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "_xfn_Spouse"
 msgstr "_xfn_Дружина/чоловік"
 
+#: plugins/blogroll/src/ManageEdit.php:310
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
+#: plugins/blogroll/src/ManageEdit.php:316
 msgid "_xfn_Romantic"
 msgstr "_xfn_Романтичний"
 
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Crush"
 msgstr "_xfn_Crush"
 
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Sweetheart"
 msgstr "Сонечко."
 
+#: plugins/blogroll/src/UtilsImport.php:38
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Вам потрібно надати файл у форматі XBEL або OPML."
 
+#: plugins/blogroll/src/UtilsImport.php:56
+#: plugins/blogroll/src/UtilsImport.php:98
 msgid "File is not in XML format."
 msgstr "Файл не у форматі XML."
 
+#: plugins/blogroll/src/Widgets.php:35
 msgid "All categories"
 msgstr "Всі категорії"
 
+#: plugins/blogroll/src/Widgets.php:44
 msgid "Links"
 msgstr "Посилання"
 
+#: plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb"
 msgstr "Хлібна крихта"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "Enable breadcrumb for this blog"
 msgstr "Включити хлібну крихту для цього блогу"
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:33
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
 msgstr "Тег {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} має бути присутнім (або вставленим, якщо його немає) у шаблоні."
 
+#: plugins/breadcrumb/src/BackendBehaviors.php:35
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Не інкапсулюйте хлібну крихту в тег &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; ."
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:79
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:90
+#: plugins/breadcrumb/src/FrontendTemplate.php:101
+#: plugins/breadcrumb/src/FrontendTemplate.php:116
+#: plugins/breadcrumb/src/FrontendTemplate.php:132
+#: plugins/breadcrumb/src/FrontendTemplate.php:149
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/breadcrumb/src/FrontendTemplate.php:171
+#: plugins/breadcrumb/src/FrontendTemplate.php:178
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
+#: plugins/breadcrumb/src/FrontendTemplate.php:216
+#: plugins/simpleMenu/src/Manage.php:120 plugins/simpleMenu/src/Manage.php:231
+#: plugins/widgets/src/Widgets.php:267
 msgid "Home"
 msgstr "Головна"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:125
+#: plugins/breadcrumb/src/FrontendTemplate.php:191
+#: plugins/breadcrumb/src/FrontendTemplate.php:203
 #, php-format
 msgid "page %d"
 msgstr "сторінка %d"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:160
+#: plugins/breadcrumb/src/FrontendTemplate.php:163
+#: plugins/simpleMenu/src/Manage.php:258 plugins/widgets/src/Widgets.php:284
 msgid "Archives"
 msgstr "Архіви"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/simpleMenu/src/Manage.php:104 plugins/simpleMenu/src/Manage.php:278
+#: plugins/tags/src/Widgets.php:56
 msgid "All tags"
 msgstr "Всі теги"
 
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
 msgid "404"
 msgstr "404"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "Generate fake l10n"
 msgstr "Згенеруйте фальшивий l10n"
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "fake l10n file generated."
 msgstr "згенеровано фальшивий файл l10n."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Failed to generate fake l10n file."
 msgstr "Не вдалося згенерувати фальшивий файл l10n."
 
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:43
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Створіть php-файл, що містить рядки для перекладу, які не можна перекласти основними інструментами."
 
+#: plugins/dcCKEditor/src/Backend.php:24 plugins/dcCKEditor/tpl/index.php:15
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:39
+#: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
 msgstr "HTML"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:157
 msgid "Media chooser"
 msgstr "Вибір медіа"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "m"
 msgstr "m"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:161
 msgid "Link to an entry"
 msgstr "Посилання на запис"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
 msgid "Link"
 msgstr "Посилання"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "l"
 msgstr "l"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "External image"
 msgstr "Зовнішній імідж"
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:66
 msgid "URL field cannot be empty."
 msgstr "Поле URL не може бути порожнім."
 
+#: plugins/dcCKEditor/src/Manage.php:128
+#: plugins/dcLegacyEditor/src/Manage.php:43
 msgid "The configuration has been updated."
 msgstr "Конфігурацію було оновлено."
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:238
 msgid "Note(s)"
 msgstr "Примітка(и)"
 
+#: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:19
 msgid "Plugin activation"
 msgstr "Активація плагіна"
 
+#: plugins/dcCKEditor/tpl/index.php:28
 msgid "Enable dcCKEditor plugin"
 msgstr "Увімкнути плагін dcCKEditor"
 
+#: plugins/dcCKEditor/tpl/index.php:40
 msgid "Add alignment buttons"
 msgstr "Додати кнопки вирівнювання"
 
+#: plugins/dcCKEditor/tpl/index.php:46
 msgid "Add lists buttons"
 msgstr "Кнопки додавання списків"
 
+#: plugins/dcCKEditor/tpl/index.php:52
 msgid "Add text color button"
 msgstr "Кнопка Додати колір тексту"
 
+#: plugins/dcCKEditor/tpl/index.php:58
 msgid "Add background text color button"
 msgstr "Кнопка додавання кольору фонового тексту"
 
+#: plugins/dcCKEditor/tpl/index.php:63
 msgid "Custom colors list:"
 msgstr "Користувацький список кольорів:"
 
+#: plugins/dcCKEditor/tpl/index.php:68
 msgid "Add colors without # separated by a comma."
 msgstr "Додавайте кольори без # через кому."
 
+#: plugins/dcCKEditor/tpl/index.php:69
 msgid "Leave empty to use the default palette:"
 msgstr "Залиште порожнім, щоб використовувати палітру за замовчуванням:"
 
+#: plugins/dcCKEditor/tpl/index.php:71
 msgid "Example of custom color list:"
 msgstr "Приклад користувацького списку кольорів:"
 
+#: plugins/dcCKEditor/tpl/index.php:76
 msgid "Colors per row in palette:"
 msgstr "Кольори на ряд у палітрі:"
 
+#: plugins/dcCKEditor/tpl/index.php:81
 msgid "Valid range: 4 to 16"
 msgstr "Допустимий діапазон: від 4 до 16"
 
+#: plugins/dcCKEditor/tpl/index.php:86
 msgid "Add collapse button"
 msgstr "Додати кнопку згортання"
 
+#: plugins/dcCKEditor/tpl/index.php:92
 msgid "Add format selection"
 msgstr "Додати вибір формату"
 
+#: plugins/dcCKEditor/tpl/index.php:97
 msgid "Custom formats"
 msgstr "Нестандартні формати"
 
+#: plugins/dcCKEditor/tpl/index.php:102
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "За замовчуванням формати p;h1;h2;h3;h4;h5;h6;pre;address"
 
+#: plugins/dcCKEditor/tpl/index.php:107
 msgid "Add table button"
 msgstr "Кнопка Додати таблицю"
 
+#: plugins/dcCKEditor/tpl/index.php:113
 msgid "Add clipboard buttons"
 msgstr "Додавання кнопок буфера обміну"
 
+#: plugins/dcCKEditor/tpl/index.php:117
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Копіювання, Вставка, Вставка тексту, Вставка з Word"
 
+#: plugins/dcCKEditor/tpl/index.php:122
 msgid "Add undo/redo buttons"
 msgstr "Додайте кнопки скасування/повторення"
 
+#: plugins/dcCKEditor/tpl/index.php:128
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Вимикає вбудовану перевірку орфографії, якщо браузер надає таку можливість"
 
+#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:31
+#: plugins/simpleMenu/src/Manage.php:635
 msgid "Save configuration"
 msgstr "Зберегти конфігурацію"
 
+#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/tpl/index.php:13
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "visual"
 msgstr "візуальний"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "source"
 msgstr "джерело"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "You can use the following shortcuts to format your text."
 msgstr "Для форматування тексту ви можете скористатися наступними комбінаціями клавіш."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Block format"
 msgstr "Формат блоку"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
 msgid "-- none --"
 msgstr "-- ні."
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- block format --"
 msgstr "-- формат блоку --"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "Paragraph"
 msgstr "Абзац"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Level 1 header"
 msgstr "Заголовок рівня 1"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 2 header"
 msgstr "Заголовок рівня 2"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 3 header"
 msgstr "Заголовок 3-го рівня"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 4 header"
 msgstr "Заголовок 4-го рівня"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 5 header"
 msgstr "Заголовок 5-го рівня"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 6 header"
 msgstr "Заголовок рівня 6"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "Strong emphasis"
 msgstr "Сильний акцент"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
 msgid "Emphasis"
 msgstr "Наголос"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
 msgstr "Вставлено"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Deleted"
 msgstr "Видалено"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Inline quote"
 msgstr "Вбудована цитата"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Code"
 msgstr "Код"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Line break"
 msgstr "Розрив рядка"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "Blockquote"
 msgstr "Blockquote"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "Preformated text"
 msgstr "Заздалегідь підготовлений текст"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "Unordered list"
 msgstr "Невпорядкований список"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "Ordered list"
 msgstr "Впорядкований список"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "URL?"
 msgstr "URL?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Language?"
 msgstr "Мова?"
 
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:162
 msgid "Remove text formating"
 msgstr "Видалити форматування тексту"
 
+#: plugins/dcLegacyEditor/tpl/index.php:23
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Увімкніть плагін dcLegacyEditor"
 
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
 msgstr "Перевіряє джерело трекбеку на наявність посилання на публікацію"
 
+#: plugins/fairTrackbacks/src/Prepend.php:25
 msgid "Fair Trackbacks"
 msgstr "Справедливий зворотній зв'язок"
 
+#: plugins/importExport/src/Backend.php:26
 msgid "Import / Export"
 msgstr "Імпорт / Експорт"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Database export"
 msgstr "Експорт бази даних"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:36
 msgid "Download database of current blog"
 msgstr "Завантажити базу даних поточного блогу"
 
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:83
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:81
+#: plugins/importExport/src/ModuleExportFlat.php:214
+#: plugins/importExport/src/ModuleExportFlat.php:238
 msgid "Compress file"
 msgstr "Стиснути файл"
 
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:34
 msgid "Download database of all blogs"
 msgstr "Завантажити базу даних всіх блогів"
 
+#: plugins/importExport/src/FlatBackup.php:49
 msgid "No file to read."
 msgstr "Файлу для читання немає."
 
+#: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
 msgstr "Не вдалося створити вихідний файл."
 
+#: plugins/importExport/src/FlatImportV2.php:96
 msgid "Unable to read the DotClear backup file."
 msgstr "Не вдалося прочитати файл резервної копії DotClear."
 
+#: plugins/importExport/src/FlatImportV2.php:100
 msgid "File is not a DotClear backup."
 msgstr "Файл не є резервною копією DotClear."
 
+#: plugins/importExport/src/FlatImportV2.php:176
 msgid "File is not a single blog export."
 msgstr "Файл не є експортом одного блогу."
 
+#: plugins/importExport/src/FlatImportV2.php:290
+#: plugins/importExport/src/FlatImportV2.php:344
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Виникла помилка в рядку %s"
 
+#: plugins/importExport/src/FlatImportV2.php:299
 msgid "File is not a full export."
 msgstr "Файл не є повним експортом."
 
+#: plugins/importExport/src/FlatImportV2.php:755
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "Ідентифікатор \"%3$s\" не збігається із записом \"%1$s\" у рядку %2$s файлу резервної копії."
 
+#: plugins/importExport/src/Manage.php:86
+#: plugins/maintenance/src/Manage.php:170
 msgid "Please wait..."
 msgstr "Будь ласка, зачекайте..."
 
+#: plugins/importExport/src/Manage.php:119
+#: plugins/importExport/src/ModuleExportFlat.php:220
+#: plugins/importExport/src/ModuleExportFlat.php:241
 msgid "Export"
 msgstr "Експорт"
 
+#: plugins/importExport/src/Manage.php:121
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Функції експорту знаходяться на сторінці %s."
 
+#: plugins/importExport/src/Manage.php:123
+#: plugins/maintenance/src/Backend.php:24
+#: plugins/maintenance/src/BackendBehaviors.php:173
 msgid "Maintenance"
 msgstr "Обслуговування"
 
+#: plugins/importExport/src/Module.php:161
 msgid "Congratulation!"
 msgstr "Вітаю!"
 
+#: plugins/importExport/src/Module.php:162
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "Ваш блог успішно імпортовано. Ласкаво просимо до Dotclear 2!"
 
+#: plugins/importExport/src/Module.php:166
 msgid "Why don't you blog this now?"
 msgstr "Чому б вам не написати про це в блозі зараз?"
 
+#: plugins/importExport/src/Module.php:171
 msgid "visit your dashboard"
 msgstr "відвідайте свою інформаційну панель"
 
+#: plugins/importExport/src/ModuleExportFlat.php:29
 msgid "Flat file export"
 msgstr "Експорт плоских файлів"
 
+#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Експортує блог або повну інсталяцію Dotclear у плаский файл."
 
+#: plugins/importExport/src/ModuleExportFlat.php:155
 msgid "Export file not found."
 msgstr "Файл експорту не знайдено."
 
+#: plugins/importExport/src/ModuleExportFlat.php:194
 msgid "Failed to compress export file."
 msgstr "Не вдалося стиснути файл експорту."
 
+#: plugins/importExport/src/ModuleExportFlat.php:205
+#: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog"
 msgstr "Єдиний блог"
 
+#: plugins/importExport/src/ModuleExportFlat.php:206
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Це створить експорт вашого поточного блогу: %s"
 
+#: plugins/importExport/src/ModuleExportFlat.php:218
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Ви також можете завантажити свою медіатеку у вигляді zip-файлу"
 
+#: plugins/importExport/src/ModuleExportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:220
 msgid "Multiple blogs"
 msgstr "Кілька блогів"
 
+#: plugins/importExport/src/ModuleExportFlat.php:230
 msgid "This will create an export of all the content of your database."
 msgstr "Це створить експорт усього вмісту вашої бази даних."
 
+#: plugins/importExport/src/ModuleImportDc1.php:68
 msgid "Dotclear 1.2 import"
 msgstr "Імпорт Dotclear 1.2"
 
+#: plugins/importExport/src/ModuleImportDc1.php:69
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Імпортуйте інсталяцію Dotclear 1.2 до вашого поточного блогу."
 
+#: plugins/importExport/src/ModuleImportDc1.php:187
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Імпортувати вміст блогу Dotclear 1.2 до поточного блогу: %s."
 
+#: plugins/importExport/src/ModuleImportDc1.php:190
+#: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Зверніть увагу, що цей процес очистить ваші категорії, список блогів, записи та коментарі в поточному блозі."
 
+#: plugins/importExport/src/ModuleImportDc1.php:194
+#: plugins/importExport/src/ModuleImportWp.php:224
 msgid "General information"
 msgstr "Загальна інформація"
 
+#: plugins/importExport/src/ModuleImportDc1.php:194
+#: plugins/importExport/src/ModuleImportWp.php:224
 msgid "Import my blog now"
 msgstr "Імпортуйте мій блог зараз"
 
+#: plugins/importExport/src/ModuleImportDc1.php:195
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Спочатку нам потрібна інформація про вашу стару інсталяцію Dotclear 1.2."
 
+#: plugins/importExport/src/ModuleImportDc1.php:196
 msgid "Database driver:"
 msgstr "Драйвер бази даних:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:208
+#: plugins/importExport/src/ModuleImportWp.php:237
 msgid "Entries import options"
 msgstr "Параметри імпорту записів"
 
+#: plugins/importExport/src/ModuleImportDc1.php:209
+#: plugins/importExport/src/ModuleImportWp.php:262
 msgid "Number of entries to import at once:"
 msgstr "Кількість записів для одночасного імпорту:"
 
+#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportWp.php:279
 msgid "Importing users"
 msgstr "Імпорт користувачів"
 
+#: plugins/importExport/src/ModuleImportDc1.php:223
+#: plugins/importExport/src/ModuleImportWp.php:286
 msgid "Importing categories"
 msgstr "Категорії, що імпортуються"
 
+#: plugins/importExport/src/ModuleImportDc1.php:230
+#: plugins/importExport/src/ModuleImportWp.php:293
 msgid "Importing blogroll"
 msgstr "Імпорт списку блогів"
 
+#: plugins/importExport/src/ModuleImportDc1.php:237
+#: plugins/importExport/src/ModuleImportWp.php:300
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Імпорт записів з %d на %d / %d"
 
+#: plugins/importExport/src/ModuleImportDc1.php:251
 msgid "Please read carefully"
 msgstr "Будь ласка, уважно прочитайте"
 
+#: plugins/importExport/src/ModuleImportDc1.php:253
+#: plugins/importExport/src/ModuleImportWp.php:314
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Кожен новий імпортований користувач отримав випадковий пароль і повинен буде попросити новий, перейшовши за посиланням \"Я забув свій пароль\" на сторінці входу (його зареєстрована адреса електронної пошти повинна бути дійсною)."
 
+#: plugins/importExport/src/ModuleImportDc1.php:258
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Зверніть увагу, що Dotclear 2 має нову структуру URL-адрес. Ви можете уникнути непрацюючих посилань, встановивши плагін <a href=\"%s\">DC1 redirect</a> і активувавши його в конфігурації вашого блогу."
 
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:335
 msgid "next step"
 msgstr "наступний крок"
 
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:345
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Залежно від розміру вашого блогу, це може зайняти кілька хвилин."
 
+#: plugins/importExport/src/ModuleImportDc1.php:320
 msgid "Dotclear tables not found"
 msgstr "Не знайдено жодної чіткої таблиці"
 
+#: plugins/importExport/src/ModuleImportFeed.php:121
 msgid "RSS or Atom feed import"
 msgstr "Імпорт RSS або Atom-стрічок"
 
+#: plugins/importExport/src/ModuleImportFeed.php:122
 msgid "Add a feed content to the blog."
 msgstr "Додайте вміст стрічки новин до блогу."
 
+#: plugins/importExport/src/ModuleImportFeed.php:144
+#: plugins/importExport/src/ModuleImportFeed.php:150
+#: plugins/importExport/src/ModuleImportFeed.php:159
+#: plugins/importExport/src/ModuleImportFeed.php:164
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:177
 msgid "Cannot retrieve feed URL."
 msgstr "Не вдається отримати URL-адресу каналу."
 
+#: plugins/importExport/src/ModuleImportFeed.php:180
 msgid "No items in feed."
 msgstr "Ніяких предметів у кормі."
 
+#: plugins/importExport/src/ModuleImportFeed.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:177
 msgid "Content successfully imported."
 msgstr "Вміст успішно імпортовано."
 
+#: plugins/importExport/src/ModuleImportFeed.php:219
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Додати вміст стрічки до поточного блогу: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFeed.php:221
+#: plugins/widgets/src/Widgets.php:143
 msgid "Feed URL:"
 msgstr "URL-адреса стрічки:"
 
+#: plugins/importExport/src/ModuleImportFlat.php:39
 msgid "Flat file import"
 msgstr "Імпорт плоских файлів"
 
+#: plugins/importExport/src/ModuleImportFlat.php:40
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Імпортує блог або повну інсталяцію Dotclear з плоского файлу."
 
+#: plugins/importExport/src/ModuleImportFlat.php:172
 msgid "Single blog successfully imported."
 msgstr "Окремий блог успішно імпортовано."
 
+#: plugins/importExport/src/ModuleImportFlat.php:188
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Ви впевнені, що хочете імпортувати повний файл резервної копії?"
 
+#: plugins/importExport/src/ModuleImportFlat.php:194
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Це імпортує резервну копію одного блогу як новий вміст до поточного блогу: <strong>%s</strong>."
 
+#: plugins/importExport/src/ModuleImportFlat.php:196
+#: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Upload a backup file"
 msgstr "Завантажте файл резервної копії"
 
+#: plugins/importExport/src/ModuleImportFlat.php:197
+#: plugins/importExport/src/ModuleImportFlat.php:224
 #, php-format
 msgid "maximum size %s"
 msgstr "максимальний розмір %s"
 
+#: plugins/importExport/src/ModuleImportFlat.php:203
+#: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "or pick up a local file in your public directory"
 msgstr "або візьміть локальний файл у вашій публічній директорії"
 
+#: plugins/importExport/src/ModuleImportFlat.php:221
 msgid "This will reset all the content of your database, except users."
 msgstr "Це призведе до скидання всього вмісту вашої бази даних, окрім користувачів."
 
+#: plugins/importExport/src/ModuleImportFlat.php:342
 msgid "Another file with same name exists."
 msgstr "Існує ще один файл з таким самим ім'ям."
 
+#: plugins/importExport/src/ModuleImportFlat.php:350
 msgid "Failed to extract backup file."
 msgstr "Не вдалося розпакувати файл резервної копії."
 
+#: plugins/importExport/src/ModuleImportFlat.php:362
 msgid "No backup in compressed file."
 msgstr "Відсутність резервної копії в стислому файлі."
 
+#: plugins/importExport/src/ModuleImportWp.php:96
 msgid "WordPress import"
 msgstr "Імпорт WordPress"
 
+#: plugins/importExport/src/ModuleImportWp.php:97
 msgid "Import a WordPress installation into your current blog."
 msgstr "Імпортуйте інсталяцію WordPress до вашого поточного блогу."
 
+#: plugins/importExport/src/ModuleImportWp.php:217
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Це імпортує ваш вміст WordPress як новий вміст у поточний блог: %s."
 
+#: plugins/importExport/src/ModuleImportWp.php:225
 msgid "We first need some information about your old WordPress installation."
 msgstr "Спочатку нам потрібна інформація про вашу стару версію WordPress."
 
+#: plugins/importExport/src/ModuleImportWp.php:241
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress і Dotclear працюють з категоріями зовсім по-різному. У WordPress ви можете призначити кілька категорій для одного допису. У світі Dotclear ми бачимо це більше як \"одна категорія, кілька тегів\". Тому Dotclear може імпортувати лише одну категорію для кожного допису і вибере найнижчу за номером. Якщо ви хочете відстежувати кожну категорію, ви можете імпортувати їх як теги з необов'язковим префіксом."
 
+#: plugins/importExport/src/ModuleImportWp.php:246
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "З іншого боку, в WordPress допис не може бути некатегоризованим, і в установці за замовчуванням перша категорія позначена <i>\"Некатегоризовані\"</i>. Якщо ви не змінили цю категорію, ви можете просто ігнорувати її під час імпорту блогу, оскільки Dotclear дозволяє вам фактично зберігати ваші дописи некатегоризованими."
 
+#: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Ignore the first category:"
 msgstr "Ігноруйте першу категорію:"
 
+#: plugins/importExport/src/ModuleImportWp.php:257
 msgid "Import lowest numbered category on posts:"
 msgstr "Імпортувати найнижчу за номером категорію дописів:"
 
+#: plugins/importExport/src/ModuleImportWp.php:259
 msgid "Import all categories as tags:"
 msgstr "Імпортуйте всі категорії як теги:"
 
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "Prefix such tags with:"
 msgstr "До таких тегів додається префікс with:"
 
+#: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Content filters"
 msgstr "Фільтри вмісту"
 
+#: plugins/importExport/src/ModuleImportWp.php:269
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Можливо, ви захочете обробити вміст вашого допису та/або коментаря за допомогою наступних фільтрів."
 
+#: plugins/importExport/src/ModuleImportWp.php:270
 msgid "Post content formatter:"
 msgstr "Формат контенту публікації:"
 
+#: plugins/importExport/src/ModuleImportWp.php:272
 msgid "Comment content formatter:"
 msgstr "Формат вмісту коментарів:"
 
+#: plugins/importExport/src/ModuleImportWp.php:374
 msgid "WordPress tables not found"
 msgstr "Таблиці WordPress не знайдено"
 
+#: plugins/maintenance/src/BackendBehaviors.php:33
 msgid "Servicing"
 msgstr "Обслуговування"
 
+#: plugins/maintenance/src/BackendBehaviors.php:33
 msgid "Tools to maintain the performance of your blogs."
 msgstr "Інструменти для підтримки продуктивності ваших блогів."
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Backup"
 msgstr "Резервне копіювання."
 
+#: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Tools to back up your content."
 msgstr "Інструменти для резервного копіювання контенту."
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Development"
 msgstr "Розвиток"
 
+#: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "Інструменти для розробки плагінів, тем та ядра."
 
+#: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Optimize"
 msgstr "Оптимізувати"
 
+#: plugins/maintenance/src/BackendBehaviors.php:38
 msgid "Count and index"
 msgstr "Підрахувати та проіндексувати"
 
+#: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Purge"
 msgstr "Чистка."
 
+#: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Other"
 msgstr "Інше"
 
+#: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Current blog"
 msgstr "Поточний блог"
 
+#: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "All blogs"
 msgstr "Всі блоги"
 
+#: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "Maintain translations"
 msgstr "Підтримувати переклади"
 
+#: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "Translations"
 msgstr "Переклади"
 
+#: plugins/maintenance/src/BackendBehaviors.php:120
+#: plugins/maintenance/src/Rest.php:75
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
@@ -1464,13 +2027,18 @@ msgstr[1] "%s завдання для виконання"
 msgstr[2] "%s завдання для виконання"
 msgstr[3] "%s завдання для виконання"
 
+#: plugins/maintenance/src/BackendBehaviors.php:156
+#: plugins/maintenance/src/Manage.php:262
 msgid "This task has never been executed."
 msgstr "Це завдання так і не було виконано."
 
+#: plugins/maintenance/src/BackendBehaviors.php:159
+#: plugins/maintenance/src/Manage.php:267
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Останнє виконання цього завдання було на %s."
 
+#: plugins/maintenance/src/BackendBehaviors.php:174
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
@@ -1479,532 +2047,720 @@ msgstr[1] "Є %s завдання, які потрібно виконати."
 msgstr[2] "Є %s завдання, які потрібно виконати."
 msgstr[3] "Є %s завдання, які потрібно виконати."
 
+#: plugins/maintenance/src/BackendBehaviors.php:176
 msgid "Manage tasks"
 msgstr "Керуйте завданнями"
 
+#: plugins/maintenance/src/BackendBehaviors.php:195
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Відображати лічильник прострочених завдань на іконці панелі технічного обслуговування"
 
+#: plugins/maintenance/src/BackendBehaviors.php:199
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Відображати список прострочених завдань на елементах дашборду"
 
+#: plugins/maintenance/src/MaintenanceTask.php:155
 msgid "Failed to execute task."
 msgstr "Не вдалося виконати завдання."
 
+#: plugins/maintenance/src/MaintenanceTask.php:158
 msgid "Task successfully executed."
 msgstr "Завдання успішно виконано."
 
+#: plugins/maintenance/src/Manage.php:114
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Плагін обслуговування успішно налаштовано."
 
+#: plugins/maintenance/src/Manage.php:132
 msgid "System settings have been saved."
 msgstr "Налаштування системи збережено."
 
+#: plugins/maintenance/src/Manage.php:137
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Всі налаштування Content-Security-Policy блогу були скинуті до значень за замовчуванням."
 
+#: plugins/maintenance/src/Manage.php:159
 msgid "Every week"
 msgstr "Щотижня"
 
+#: plugins/maintenance/src/Manage.php:160
 msgid "Every two weeks"
 msgstr "Кожні два тижні"
 
+#: plugins/maintenance/src/Manage.php:161
 msgid "Every month"
 msgstr "Щомісяця"
 
+#: plugins/maintenance/src/Manage.php:162
 msgid "Every two months"
 msgstr "Кожні два місяці"
 
+#: plugins/maintenance/src/Manage.php:186
 msgid "You have not sufficient permissions to view this page."
 msgstr "У вас недостатньо прав для перегляду цієї сторінки."
 
+#: plugins/maintenance/src/Manage.php:263
+#: plugins/maintenance/src/Manage.php:271
 msgid "You should execute it now."
 msgstr "Ви повинні виконати його зараз."
 
+#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:315
 msgid "Execute task"
 msgstr "Виконати завдання"
 
+#: plugins/maintenance/src/Manage.php:297
 msgid "This may take a very long time."
 msgstr "Це може зайняти дуже багато часу."
 
+#: plugins/maintenance/src/Manage.php:327
+#: plugins/maintenance/src/Manage.php:328
 msgid "Alert settings"
 msgstr "Налаштування сповіщень"
 
+#: plugins/maintenance/src/Manage.php:332
 msgid "Activation"
 msgstr "Активація"
 
+#: plugins/maintenance/src/Manage.php:335
 msgid "Display alert messages on late tasks"
 msgstr "Відображати сповіщення про прострочені завдання"
 
+#: plugins/maintenance/src/Manage.php:338
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Ви можете розмістити список прострочених завдань на своєму сайті %s."
 
+#: plugins/maintenance/src/Manage.php:344
 msgid "Frequency"
 msgstr "Частота"
 
+#: plugins/maintenance/src/Manage.php:347
 msgid "Use one recall time for all tasks"
 msgstr "Використовуйте один час нагадування для всіх завдань"
 
+#: plugins/maintenance/src/Manage.php:349
 msgid "Recall time for all tasks:"
 msgstr "Запам'ятайте час для всіх завдань:"
 
+#: plugins/maintenance/src/Manage.php:355
 msgid "Use one recall time per task"
 msgstr "Використовуйте один час нагадування для кожного завдання"
 
+#: plugins/maintenance/src/Manage.php:386
 msgid "Content-Security-Policy"
 msgstr "Content-Security-Policy"
 
+#: plugins/maintenance/src/Manage.php:391
 msgid "Enable Content-Security-Policy system"
 msgstr "Увімкніть систему Content-Security-Policy"
 
+#: plugins/maintenance/src/Manage.php:394
 msgid "Enable Content-Security-Policy report only"
 msgstr "Увімкнути лише звіт Content-Security-Policy"
 
+#: plugins/maintenance/src/Manage.php:400
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Увімкнути систему Content-Security-Policy за замовчуванням"
 
+#: plugins/maintenance/src/Manage.php:403
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "За замовчуванням увімкнути лише звіт Content-Security-Policy"
 
+#: plugins/maintenance/src/Manage.php:406
 msgid "Also apply these settings to all blogs"
 msgstr "Також застосуйте ці налаштування до всіх блогів"
 
+#: plugins/maintenance/src/Task/CSP.php:41
 msgid "Delete the Content-Security-Policy report file"
 msgstr "Видаліть файл звіту Content-Security-Policy"
 
+#: plugins/maintenance/src/Task/CSP.php:42
 msgid "Content-Security-Policy report file has been deleted."
 msgstr "Файл звіту Content-Security-Policy видалено."
 
+#: plugins/maintenance/src/Task/CSP.php:43
 msgid "Failed to delete the Content-Security-Policy report file."
 msgstr "Не вдалося видалити файл звіту Content-Security-Policy."
 
+#: plugins/maintenance/src/Task/CSP.php:45
 msgid "Remove the Content-Security-Policy report file."
 msgstr "Видаліть файл звіту Content-Security-Policy."
 
+#: plugins/maintenance/src/Task/Cache.php:43
 msgid "Failed to empty templates cache directory."
 msgstr "Не вдалося очистити каталог кешу шаблонів."
 
+#: plugins/maintenance/src/Task/Cache.php:45
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Може бути корисно очистити цей кеш при зміні .html або .css файлів теми (або при оновленні теми або плагіна). Примітка: на деяких хостерах кеш шаблонів не може бути очищений за допомогою цього плагіна. Можливо, вам доведеться видалити директорію <strong>%s</strong> безпосередньо на сервері за допомогою вашого FTP-програми."
 
+#: plugins/maintenance/src/Task/CountComments.php:42
 msgid "Count again comments and trackbacks"
 msgstr "Знову порахуйте коментарі та зворотні відгуки"
 
+#: plugins/maintenance/src/Task/CountComments.php:43
 msgid "Comments and trackback counted."
 msgstr "Зараховуються коментарі та трекбек."
 
+#: plugins/maintenance/src/Task/CountComments.php:44
 msgid "Failed to count comments and trackbacks."
 msgstr "Не враховано коментарі та трекбеки."
 
+#: plugins/maintenance/src/Task/CountComments.php:46
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Повторний підрахунок коментарів і трекбеків дозволяє перевірити їхню точну кількість. Ця операція може бути корисною при імпорті з іншої блог-платформи (або при переході з dotclear 1 на dotclear 2)."
 
+#: plugins/maintenance/src/Task/IndexComments.php:63
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Search engine index"
 msgstr "Індекс пошукової системи"
 
+#: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Index all comments for search engine"
 msgstr "Проіндексуйте всі коментарі для пошукової системи"
 
+#: plugins/maintenance/src/Task/IndexComments.php:65
+#: plugins/maintenance/src/Task/IndexPosts.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Next"
 msgstr "Далі"
 
+#: plugins/maintenance/src/Task/IndexComments.php:66
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Індексація коментаря %d на %d."
 
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Comments index done."
 msgstr "Індекс коментарів створено."
 
+#: plugins/maintenance/src/Task/IndexComments.php:68
 msgid "Failed to index comments."
 msgstr "Не вдалося проіндексувати коментарі."
 
+#: plugins/maintenance/src/Task/IndexComments.php:70
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Індексуйте всі коментарі та трекбеки в індексі пошукової системи. Ця операція необхідна після імпорту контенту в ваш блог для використання внутрішньої пошукової системи на публічних і приватних сторінках."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Index all entries for search engine"
 msgstr "Проіндексуйте всі записи для пошукової системи"
 
+#: plugins/maintenance/src/Task/IndexPosts.php:66
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Індексація запису %d на %d."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Entries index done."
 msgstr "Індекс записів зроблено."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:68
 msgid "Failed to index entries."
 msgstr "Не вдалося проіндексувати записи."
 
+#: plugins/maintenance/src/Task/IndexPosts.php:70
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Індексувати всі записи в індексі пошукової системи. Ця операція необхідна після імпорту контенту в ваш блог для використання внутрішньої пошукової системи на публічних і приватних сторінках."
 
+#: plugins/maintenance/src/Task/Logs.php:48
 msgid "Delete all logs"
 msgstr "Видалити всі журнали"
 
+#: plugins/maintenance/src/Task/Logs.php:49
 msgid "Logs deleted."
 msgstr "Журнали видалено."
 
+#: plugins/maintenance/src/Task/Logs.php:50
 msgid "Failed to delete logs."
 msgstr "Не вдалося видалити журнали."
 
+#: plugins/maintenance/src/Task/Logs.php:52
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Журнали фіксують всю активність і зв'язок з історією вашого блогу. Якщо вам не потрібно зберігати цю історію, подумайте про те, щоб час від часу видаляти ці журнали."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Entries metadata"
 msgstr "Метадані записів"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Synchronize entries metadata"
 msgstr "Синхронізувати метадані записів"
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:66
 #, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Синхронізуйте запис %d з %d."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Entries metadata synchronize done."
 msgstr "Синхронізація метаданих записів завершена."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:68
 msgid "Failed to synchronize entries metadata."
 msgstr "Не вдалося синхронізувати метадані записів."
 
+#: plugins/maintenance/src/Task/SynchPostMeta.php:70
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Синхронізація метаданих всіх записів може бути корисною після імпорту контенту в ваш блог або неправильної роботи з таблицями бази даних."
 
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "Optimise database"
 msgstr "Оптимізація бази даних"
 
+#: plugins/maintenance/src/Task/Vacuum.php:41
 msgid "optimize tables"
 msgstr "оптимізувати таблиці"
 
+#: plugins/maintenance/src/Task/Vacuum.php:42
 msgid "Optimization successful."
 msgstr "Оптимізація пройшла успішно."
 
+#: plugins/maintenance/src/Task/Vacuum.php:43
 msgid "Failed to optimize tables."
 msgstr "Не вдалося оптимізувати таблиці."
 
+#: plugins/maintenance/src/Task/Vacuum.php:45
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Після численних операцій видалення або оновлення бази даних Dotclear вона стає фрагментованою. Оптимізація дозволить дефрагментувати її. Це не впливає на цілісність ваших даних. Рекомендується проводити оптимізацію перед будь-яким експортом блогу."
 
+#: plugins/maintenance/src/Task/ZipMedia.php:62
 msgid "Download media folder of current blog"
 msgstr "Завантажити папку медіа поточного блогу"
 
+#: plugins/maintenance/src/Task/ZipMedia.php:64
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "Може бути корисно створити резервну копію вашої теки з медіафайлами. Цей плагін стискає весь вміст теки до одного zip-файлу. Зауважте: на деяких хостерах теку з медіафайлами не вдасться стиснути за допомогою цього плагіна, якщо вона завелика."
 
+#: plugins/maintenance/src/Task/ZipTheme.php:63
 msgid "Download active theme of current blog"
 msgstr "Завантажити активну тему поточного блогу"
 
+#: plugins/maintenance/src/Task/ZipTheme.php:65
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Перед будь-якими змінами або оновленнями може бути корисно створити резервну копію активної теми. Ця програма стискає теку з темою в один zip-файл."
 
+#: plugins/pages/src/Backend.php:38
 msgid "manage pages"
 msgstr "керувати сторінками"
 
+#: plugins/pages/src/Backend.php:85
 #, php-format
 msgid "%d page"
 msgstr "%d сторінка"
 
+#: plugins/pages/src/Backend.php:85
 #, php-format
 msgid "%d pages"
 msgstr "%d сторінок"
 
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
 msgstr "Нова сторінка"
 
+#: plugins/pages/src/BackendActions.php:53
 msgid "Pages actions"
 msgstr "Дії сторінок"
 
+#: plugins/pages/src/BackendActions.php:69
 msgid "Back to pages list"
 msgstr "Повернутися до списку сторінок"
 
+#: plugins/pages/src/BackendDefaultActions.php:123
+#: plugins/pages/src/Manage.php:123
 msgid "Selected pages have been successfully reordered."
 msgstr "Вибрані сторінки успішно переупорядковано."
 
+#: plugins/pages/src/BackendList.php:36
 msgid "No page"
 msgstr "Немає сторінки"
 
+#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
 msgid "Hidden"
 msgstr "Приховано"
 
+#: plugins/pages/src/BackendList.php:176
 msgid "Select this page"
 msgstr "Виберіть цю сторінку"
 
+#: plugins/pages/src/Frontend.php:36
 msgid "Published on"
 msgstr "Опубліковано на"
 
+#: plugins/pages/src/Frontend.php:37
 msgid "This page's comments feed"
 msgstr "Стрічка коментарів на цій сторінці"
 
+#: plugins/pages/src/Install.php:48
 msgid "My first page"
 msgstr "Моя перша сторінка"
 
+#: plugins/pages/src/Install.php:49
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Це ваша перша сторінка. Коли ви будете готові вести блог, увійдіть, щоб редагувати або видалити його."
 
+#: plugins/pages/src/Manage.php:105
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Ви впевнені, що хочете видалити вибрані сторінки?"
 
+#: plugins/pages/src/Manage.php:119
 msgid "Selected pages have been successfully updated."
 msgstr "Вибрані сторінки успішно оновлено."
 
+#: plugins/pages/src/Manage.php:121
 msgid "Selected pages have been successfully deleted."
 msgstr "Вибрані сторінки успішно видалено."
 
+#: plugins/pages/src/Manage.php:140
 msgid "Selected pages action:"
 msgstr "Дія вибраних сторінок:"
 
+#: plugins/pages/src/Manage.php:149
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Щоб змінити порядок сторінок, змініть номер на початку рядка, а потім натисніть кнопку \"Зберегти порядок сторінок\"."
 
+#: plugins/pages/src/Manage.php:151
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Щоб змінити порядок сторінок, перемістіть елементи перетягуванням, а потім натисніть кнопку \"Зберегти порядок сторінок\"."
 
+#: plugins/pages/src/Manage.php:152
 msgid "Save pages order"
 msgstr "Зберегти порядок сторінок"
 
+#: plugins/pages/src/ManagePage.php:132
 msgid "This page does not exist."
 msgstr "Цієї сторінки не існує."
 
+#: plugins/pages/src/ManagePage.php:153 plugins/pages/src/ManagePage.php:652
+#: plugins/pages/src/ManagePage.php:657
 msgid "Edit page"
 msgstr "Сторінка редагування"
 
+#: plugins/pages/src/ManagePage.php:431
 msgid "Are you sure you want to delete this page?"
 msgstr "Ви дійсно хочете видалити цю сторінку?"
 
+#: plugins/pages/src/ManagePage.php:468
 msgid "Page has been successfully updated."
 msgstr "Сторінку успішно оновлено."
 
+#: plugins/pages/src/ManagePage.php:470
 msgid "Page has been successfully created."
 msgstr "Сторінку успішно створено."
 
+#: plugins/pages/src/ManagePage.php:483
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Не забудьте підтвердити конвертацію в HTML, зберігши публікацію."
 
+#: plugins/pages/src/ManagePage.php:488
 msgid "Go to this page on the site"
 msgstr "Перейдіть на цю сторінку на сайті"
 
+#: plugins/pages/src/ManagePage.php:530
 msgid "Page status"
 msgstr "Статус сторінки"
 
+#: plugins/pages/src/ManagePage.php:543
 msgid "Page language"
 msgstr "Мова сторінки"
 
+#: plugins/pages/src/ManagePage.php:556 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Положення сторінки"
 
+#: plugins/pages/src/ManagePage.php:583
 msgid "Hide in widget Pages"
 msgstr "Приховати у віджеті Сторінки"
 
+#: plugins/pages/src/ManagePage.php:593
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Попередження: Якщо ви встановите URL вручну, він може конфліктувати з іншою сторінкою."
 
+#: plugins/pages/src/ManagePage.php:608
 msgid "Introduction to the page."
 msgstr "Вступ до сторінки."
 
+#: plugins/pages/src/ManagePage.php:958
 msgid "Select this comment"
 msgstr "Виберіть цей коментар"
 
+#: plugins/pages/src/Widgets.php:39
 msgid "Page title"
 msgstr "Назва сторінки"
 
+#: plugins/pages/src/Widgets.php:41
 msgid "Publication date"
 msgstr "Дата публікації"
 
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:51
 msgid "Pings"
 msgstr "Пінг"
 
+#: plugins/pings/src/Manage.php:62
 msgid "Settings have been successfully updated."
 msgstr "Налаштування успішно оновлено."
 
+#: plugins/pings/src/Manage.php:80
 msgid "Pings configuration"
 msgstr "Налаштування пінгів"
 
+#: plugins/pings/src/Manage.php:86
 msgid "Activate pings extension"
 msgstr "Увімкнути розширення пінгів"
 
+#: plugins/pings/src/Manage.php:91 plugins/pings/src/Manage.php:113
 msgid "Service name:"
 msgstr "Ім'я служби:"
 
+#: plugins/pings/src/Manage.php:93 plugins/pings/src/Manage.php:115
 msgid "Service URI:"
 msgstr "Сервісний URI:"
 
+#: plugins/pings/src/Manage.php:104
 msgid "Error"
 msgstr "Помилка."
 
+#: plugins/pings/src/Manage.php:121
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Автоматичний пінг всіх сервісів при першій публікації запису (тільки для поточного блогу)"
 
+#: plugins/pings/src/Manage.php:128
 msgid "Test ping services"
 msgstr "Послуги тестового пінгу"
 
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:47
+#: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
 msgstr "Просте меню"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:169
 msgid "Active page"
 msgstr "Активна сторінка"
 
+#: plugins/simpleMenu/src/FrontendTemplate.php:169
 msgid "active page"
 msgstr "активна сторінка"
 
+#: plugins/simpleMenu/src/Manage.php:70
 msgid "All months"
 msgstr "Всі місяці"
 
+#: plugins/simpleMenu/src/Manage.php:133
 msgid "Archive"
 msgstr "Архів"
 
+#: plugins/simpleMenu/src/Manage.php:136
 msgid "Page"
 msgstr "Сторінка"
 
+#: plugins/simpleMenu/src/Manage.php:139 plugins/tags/src/Backend.php:24
+#: plugins/tags/src/Widgets.php:32
 msgid "Tags"
 msgstr "Теги"
 
+#: plugins/simpleMenu/src/Manage.php:146
 msgid "User defined"
 msgstr "Визначено користувачем"
 
+#: plugins/simpleMenu/src/Manage.php:187
 msgid "Configuration successfully updated."
 msgstr "Конфігурацію успішно оновлено."
 
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:593
+#: plugins/simpleMenu/src/Manage.php:671
 msgid "Label"
 msgstr "Етикетка"
 
+#: plugins/simpleMenu/src/Manage.php:232
 msgid "Home page"
 msgstr "Головна сторінка"
 
+#: plugins/simpleMenu/src/Manage.php:232 plugins/simpleMenu/src/Manage.php:237
+#: plugins/widgets/src/Widgets.php:271 plugins/widgets/src/Widgets.php:278
 msgid "Recent posts"
 msgstr "Останні публікації"
 
+#: plugins/simpleMenu/src/Manage.php:244
 #, php-format
 msgid "Switch to %s language"
 msgstr "Перейдіть на мову %s"
 
+#: plugins/simpleMenu/src/Manage.php:251
 msgid "Recent Posts from this category"
 msgstr "Останні публікації з цієї категорії"
 
+#: plugins/simpleMenu/src/Manage.php:263
 #, php-format
 msgid "Posts from %s"
 msgstr "Дописи з %s"
 
+#: plugins/simpleMenu/src/Manage.php:283
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Останні публікації для тегу %s"
 
+#: plugins/simpleMenu/src/Manage.php:343
 msgid "Menu item has been successfully added."
 msgstr "Пункт меню успішно додано."
 
+#: plugins/simpleMenu/src/Manage.php:348
 msgid "Label and URL of menu item are mandatory."
 msgstr "Назва та URL пункту меню є обов'язковими."
 
+#: plugins/simpleMenu/src/Manage.php:381
 msgid "Menu items have been successfully removed."
 msgstr "Пункти меню успішно видалено."
 
+#: plugins/simpleMenu/src/Manage.php:384
 msgid "No menu items selected."
 msgstr "Не вибрано жодного пункту меню."
 
+#: plugins/simpleMenu/src/Manage.php:396
 msgid "Label is mandatory."
 msgstr "Етикетка обов'язкова."
 
+#: plugins/simpleMenu/src/Manage.php:401
 msgid "URL is mandatory."
 msgstr "URL-адреса обов'язкова."
 
+#: plugins/simpleMenu/src/Manage.php:446
 msgid "Menu items have been successfully updated."
 msgstr "Пункти меню успішно оновлено."
 
+#: plugins/simpleMenu/src/Manage.php:481
 msgid "Step #1"
 msgstr "Крок перший"
 
+#: plugins/simpleMenu/src/Manage.php:486 plugins/simpleMenu/src/Manage.php:494
 msgid "Step #2"
 msgstr "Крок 2"
 
+#: plugins/simpleMenu/src/Manage.php:492
 msgid "Step #3"
 msgstr "Крок 3"
 
+#: plugins/simpleMenu/src/Manage.php:504
 msgid "Add item"
 msgstr "Додати елемент"
 
+#: plugins/simpleMenu/src/Manage.php:532
 msgid "Select type"
 msgstr "Виберіть тип"
 
+#: plugins/simpleMenu/src/Manage.php:533
 msgid "Type of item menu:"
 msgstr "Тип пункту меню:"
 
+#: plugins/simpleMenu/src/Manage.php:536 plugins/simpleMenu/src/Manage.php:575
 msgid "Continue..."
 msgstr "Продовжуйте..."
 
+#: plugins/simpleMenu/src/Manage.php:552
 msgid "Select language:"
 msgstr "Виберіть мову:"
 
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Select category:"
 msgstr "Виберіть категорію:"
 
+#: plugins/simpleMenu/src/Manage.php:558
 msgid "Select month (if necessary):"
 msgstr "Виберіть місяць (якщо потрібно):"
 
+#: plugins/simpleMenu/src/Manage.php:561
 msgid "Select page:"
 msgstr "Виберіть сторінку:"
 
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Select tag (if necessary):"
 msgstr "Виберіть тег (якщо потрібно):"
 
+#: plugins/simpleMenu/src/Manage.php:590
 msgid "Label of item menu:"
 msgstr "Мітка пункту меню:"
 
+#: plugins/simpleMenu/src/Manage.php:597
 msgid "Description of item menu:"
 msgstr "Опис пункту меню:"
 
+#: plugins/simpleMenu/src/Manage.php:608
 msgid "URL of item menu:"
 msgstr "URL пункту меню:"
 
+#: plugins/simpleMenu/src/Manage.php:617 plugins/simpleMenu/src/Manage.php:674
 msgid "Open URL on a new tab"
 msgstr "Відкрийте URL-адресу на новій вкладці"
 
+#: plugins/simpleMenu/src/Manage.php:619
 msgid "Add this item"
 msgstr "Додати цей елемент"
 
+#: plugins/simpleMenu/src/Manage.php:633
 msgid "Enable simple menu for this blog"
 msgstr "Увімкнути просте меню для цього блогу"
 
+#: plugins/simpleMenu/src/Manage.php:646
 msgid "Add an item"
 msgstr "Додати елемент"
 
+#: plugins/simpleMenu/src/Manage.php:660
 msgid "Menu items list"
 msgstr "Список пунктів меню"
 
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Update menu"
 msgstr "Меню оновлення"
 
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "Delete selected menu items"
 msgstr "Видалення вибраних пунктів меню"
 
+#: plugins/simpleMenu/src/Manage.php:746
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Ви впевнені, що хочете видалити вибрані пункти меню?"
 
+#: plugins/simpleMenu/src/Manage.php:753
 msgid "No menu items so far."
 msgstr "Поки що немає пунктів меню."
 
+#: plugins/simpleMenu/src/Widgets.php:32
 msgid "Item description"
 msgstr "Опис товару"
 
+#: plugins/simpleMenu/src/Widgets.php:36
 msgid "Displayed in link"
 msgstr "Відображається за посиланням"
 
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Used as link title"
 msgstr "Використовується як заголовок посилання"
 
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Displayed in link and used as title"
 msgstr "Відображається у посиланні та використовується як заголовок"
 
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Not displayed nor used"
 msgstr "Не відображається і не використовується"
 
+#: plugins/tags/src/BackendBehaviors.php:52
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
 msgid "Tag"
 msgstr "Тег"
 
+#: plugins/tags/src/BackendBehaviors.php:199
 msgid "Add tags"
 msgstr "Додати теги"
 
+#: plugins/tags/src/BackendBehaviors.php:208
 msgid "Remove tags"
 msgstr "Видалити теги"
 
+#: plugins/tags/src/BackendBehaviors.php:243
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Тег успішно додано до вибраних записів"
@@ -2012,36 +2768,55 @@ msgstr[1] "Теги успішно додано до вибраних запис
 msgstr[2] "Теги успішно додано до вибраних записів"
 msgstr[3] "Теги успішно додано до вибраних записів"
 
+#: plugins/tags/src/BackendBehaviors.php:256
+#: plugins/tags/src/BackendBehaviors.php:396
 msgid "Are you sure you want to remove this tag?"
 msgstr "Ви впевнені, що хочете видалити цей тег?"
 
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:397
 msgid "Add a tag to this entry"
 msgstr "Додайте тег до цього запису"
 
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:398
 msgid "Choose from list"
 msgstr "Виберіть зі списку"
 
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:399
 msgid "all"
 msgstr "всі"
 
+#: plugins/tags/src/BackendBehaviors.php:260
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Enter tags separated by comma"
 msgstr "Введіть теги через кому"
 
+#: plugins/tags/src/BackendBehaviors.php:264
+#: plugins/tags/src/BackendBehaviors.php:404
 msgid "used in %e - frequency %p%"
 msgstr "використано в %e - частота %p%"
 
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
 msgid "entry"
 msgstr "в'їзд"
 
+#: plugins/tags/src/BackendBehaviors.php:266
+#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
 msgid "entries"
 msgstr "записи"
 
+#: plugins/tags/src/BackendBehaviors.php:274
 msgid "Add tags to this selection"
 msgstr "Додайте теги до цієї вибірки"
 
+#: plugins/tags/src/BackendBehaviors.php:287
 msgid "Tags to add:"
 msgstr "Додавання тегів:"
 
+#: plugins/tags/src/BackendBehaviors.php:320
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Тег успішно вилучено з вибраних записів"
@@ -2049,392 +2824,524 @@ msgstr[1] "Теги успішно видалено з вибраних запи
 msgstr[2] "Теги успішно видалено з вибраних записів"
 msgstr[3] "Теги успішно видалено з вибраних записів"
 
+#: plugins/tags/src/BackendBehaviors.php:343
 msgid "No tags for selected entries"
 msgstr "Немає тегів для вибраних записів"
 
+#: plugins/tags/src/BackendBehaviors.php:350
 msgid "Remove selected tags from this selection"
 msgstr "Видалити вибрані теги з цієї вибірки"
 
+#: plugins/tags/src/BackendBehaviors.php:359
 msgid "Following tags have been found in selected entries:"
 msgstr "У вибраних записах були знайдені наступні теги:"
 
+#: plugins/tags/src/BackendBehaviors.php:425
 msgid "Short"
 msgstr "Коротко"
 
+#: plugins/tags/src/BackendBehaviors.php:426
 msgid "Extended"
 msgstr "Розширений"
 
+#: plugins/tags/src/BackendBehaviors.php:433
 msgid "Tags list format:"
 msgstr "Формат списку тегів:"
 
+#: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's comments Atom feed"
 msgstr "Коментарі до цього тегу Atom feed"
 
+#: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
 msgstr "Записи цього тегу Atom feed"
 
+#: plugins/tags/src/Manage.php:112
 msgid "No tags on this blog."
 msgstr "У цьому блозі немає тегів."
 
+#: plugins/tags/src/ManagePosts.php:86
 msgid "Tag has been successfully renamed"
 msgstr "Тег успішно перейменовано"
 
+#: plugins/tags/src/ManagePosts.php:105
 msgid "Tag has been successfully removed"
 msgstr "Тег успішно видалено"
 
+#: plugins/tags/src/ManagePosts.php:136
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Ви впевнені, що хочете видалити тег: \"%s\"?"
 
+#: plugins/tags/src/ManagePosts.php:151
 msgid "Back to tags list"
 msgstr "Повернутися до списку тегів"
 
+#: plugins/tags/src/ManagePosts.php:159
 msgid "Rename"
 msgstr "Перейменувати"
 
+#: plugins/tags/src/ManagePosts.php:172
 msgid "Delete this tag"
 msgstr "Видаліть цей тег"
 
+#: plugins/tags/src/ManagePosts.php:183
 #, php-format
 msgid "List of entries with the tag “%s”"
 msgstr "Список записів з тегом \"%s\""
 
+#: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
 msgstr "Ліміт (порожній означає без ліміту):"
 
+#: plugins/tags/src/Widgets.php:40
 msgid "Tag name"
 msgstr "Назва тегу"
 
+#: plugins/tags/src/Widgets.php:41
 msgid "Entries count"
 msgstr "Зараховуються заявки"
 
+#: plugins/tags/src/Widgets.php:42
 msgid "Newest entry"
 msgstr "Останній запис"
 
+#: plugins/tags/src/Widgets.php:43
 msgid "Oldest entry"
 msgstr "Найстаріший запис"
 
+#: plugins/tags/src/Widgets.php:56
 msgid "Link to all tags:"
 msgstr "Посилання на всі теги:"
 
+#: plugins/themeEditor/src/Backend.php:24
 msgid "themeEditor"
 msgstr "themeEditor"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:37
+#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:175
 msgid "Edit theme files"
 msgstr "Редагування файлів тем"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:77
 msgid "Syntax highlighting"
 msgstr "Підсвічування синтаксису"
 
+#: plugins/themeEditor/src/BackendBehaviors.php:82
 msgid "Syntax highlighting in theme editor"
 msgstr "Підсвічування синтаксису в редакторі тем"
 
+#: plugins/themeEditor/src/Manage.php:85
 msgid "The theme update has been locked."
 msgstr "Оновлення теми заблоковано."
 
+#: plugins/themeEditor/src/Manage.php:93
 msgid "The theme update has been unocked."
 msgstr "Оновлення теми було розблоковано."
 
+#: plugins/themeEditor/src/Manage.php:116
 msgid "The file has been reset."
 msgstr "Файл було скинуто."
 
+#: plugins/themeEditor/src/Manage.php:139
 msgid "Unlock update"
 msgstr "Оновлення для розблокування"
 
+#: plugins/themeEditor/src/Manage.php:140
 msgid "Lock update"
 msgstr "Оновлення блокування"
 
+#: plugins/themeEditor/src/Manage.php:144
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
 msgstr "Блокування оновлення теми не заважає змінювати її файли, лише глобально оновлювати її."
 
+#: plugins/themeEditor/src/Manage.php:156
 msgid "Saving document..."
 msgstr "Збереження документа..."
 
+#: plugins/themeEditor/src/Manage.php:157
 msgid "Document saved"
 msgstr "Документ збережено"
 
+#: plugins/themeEditor/src/Manage.php:158
 msgid "An error occurred:"
 msgstr "Виникла помилка:"
 
+#: plugins/themeEditor/src/Manage.php:159
 msgid "Are you sure you want to reset this file?"
 msgstr "Ви впевнені, що хочете скинути цей файл?"
 
+#: plugins/themeEditor/src/Manage.php:181
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Ваша поточна тема в цьому блозі - \"%s\"."
 
+#: plugins/themeEditor/src/Manage.php:192
 msgid "Please select a file to edit."
 msgstr "Будь ласка, виберіть файл для редагування."
 
+#: plugins/themeEditor/src/Manage.php:197
 msgid "File editor"
 msgstr "Редактор файлів"
 
+#: plugins/themeEditor/src/Manage.php:198
 #, php-format
 msgid "Editing file %s"
 msgstr "Файл для редагування %s"
 
+#: plugins/themeEditor/src/Manage.php:208
 msgid "Reset"
 msgstr "Перезавантаження"
 
+#: plugins/themeEditor/src/Manage.php:214
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Цей файл недоступний для запису. Будь ласка, перевірте права доступу до файлів теми."
 
+#: plugins/themeEditor/src/Manage.php:241
 msgid "Templates files"
 msgstr "Файли шаблонів"
 
+#: plugins/themeEditor/src/Manage.php:244
 msgid "CSS files"
 msgstr "Файли CSS"
 
+#: plugins/themeEditor/src/Manage.php:247
 msgid "JavaScript files"
 msgstr "Файли JavaScript"
 
+#: plugins/themeEditor/src/Manage.php:250
 msgid "Locales files"
 msgstr "Файли локалей"
 
+#: plugins/themeEditor/src/Manage.php:253
 msgid "PHP files"
 msgstr "Файли PHP"
 
+#: plugins/themeEditor/src/Manage.php:262
 msgid "You can't edit a distributed theme."
 msgstr "Ви не можете редагувати розподілену тему."
 
+#: plugins/themeEditor/src/ThemeEditor.php:145
 msgid "No file"
 msgstr "Немає файлу"
 
+#: plugins/themeEditor/src/ThemeEditor.php:165
 msgid "From theme:"
 msgstr "Не по темі:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:167
 msgid "From parent:"
 msgstr "Від батька:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:172
 msgid "From template set:"
 msgstr "З набору шаблонів:"
 
+#: plugins/themeEditor/src/ThemeEditor.php:207
+#: plugins/themeEditor/src/ThemeEditor.php:237
+#: plugins/themeEditor/src/ThemeEditor.php:326
 msgid "File does not exist."
 msgstr "Файл не існує."
 
+#: plugins/themeEditor/src/ThemeEditor.php:212
 #, php-format
 msgid "File %s is not readable"
 msgstr "Файл %s не читається"
 
+#: plugins/themeEditor/src/ThemeEditor.php:274
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Неможливо записати файл %s. Будь ласка, перевірте права доступу до файлів і папок теми."
 
+#: plugins/themeEditor/src/ThemeEditor.php:339
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Не вдається видалити файл %s. Будь ласка, перевірте права доступу до файлів і папок теми."
 
+#: plugins/userPref/src/Backend.php:24
 msgid "user:preferences"
 msgstr "user:preferences"
 
+#: plugins/userPref/src/Manage.php:65 plugins/userPref/src/Manage.php:84
 msgid "Preferences successfully updated"
 msgstr "Налаштування успішно оновлено"
 
+#: plugins/userPref/src/Manage.php:111 plugins/userPref/src/Manage.php:112
 msgid "User preferences"
 msgstr "Налаштування користувача"
 
+#: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
 msgid "Global preferences"
 msgstr "Глобальні вподобання"
 
+#: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
 msgstr "Віджети"
 
+#: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
 msgstr "Текстові області віджету"
 
+#: plugins/widgets/src/Install.php:35
 msgid "Unable to initialize default widgets."
 msgstr "Не вдається ініціалізувати віджети за замовчуванням."
 
+#: plugins/widgets/src/Manage.php:58
 msgid "navigation"
 msgstr "навігація"
 
+#: plugins/widgets/src/Manage.php:59
 msgid "extra"
 msgstr "додатково"
 
+#: plugins/widgets/src/Manage.php:60
 msgid "custom"
 msgstr "звичай"
 
+#: plugins/widgets/src/Manage.php:196
 msgid "Sidebars and their widgets have been saved."
 msgstr "Бічні панелі та їх віджети збережено."
 
+#: plugins/widgets/src/Manage.php:210
 msgid "Sidebars have been resetting."
 msgstr "Бічні панелі було скинуто."
 
+#: plugins/widgets/src/Manage.php:238
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Ви впевнені, що хочете скинути бічні панелі?"
 
+#: plugins/widgets/src/Manage.php:271
 msgid "Available widgets"
 msgstr "Доступні віджети"
 
+#: plugins/widgets/src/Manage.php:272
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Перетягніть віджети з цього списку на одну з бічних панелей, щоб додати."
 
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
 msgid "order"
 msgstr "порядок"
 
+#: plugins/widgets/src/Manage.php:286
 msgid "Append to:"
 msgstr "Приєднатися до:"
 
+#: plugins/widgets/src/Manage.php:297
 msgid "Add widgets to sidebars"
 msgstr "Додавання віджетів до бічних панелей"
 
+#: plugins/widgets/src/Manage.php:304
 msgid "Navigation sidebar"
 msgstr "Бічна панель навігації"
 
+#: plugins/widgets/src/Manage.php:309
 msgid "Extra sidebar"
 msgstr "Додаткова бічна панель"
 
+#: plugins/widgets/src/Manage.php:314
 msgid "Custom sidebar"
 msgstr "Спеціальна бічна панель"
 
+#: plugins/widgets/src/Manage.php:319
 msgid "Update sidebars"
 msgstr "Оновлення бічних панелей"
 
+#: plugins/widgets/src/Manage.php:321
 msgid "Reset sidebars"
 msgstr "Скинути бічні панелі"
 
+#: plugins/widgets/src/Manage.php:329
 msgid "Widget ID:"
 msgstr "Ідентифікатор віджета:"
 
+#: plugins/widgets/src/Manage.php:335
 msgid "No setting for this widget"
 msgstr "Немає налаштувань для цього віджету"
 
+#: plugins/widgets/src/Manage.php:341
 msgid "boolean"
 msgstr "boolean"
 
+#: plugins/widgets/src/Manage.php:341 plugins/widgets/src/Manage.php:346
 msgid "possible values:"
 msgstr "можливі значення:"
 
+#: plugins/widgets/src/Manage.php:345
 msgid "empty string"
 msgstr "порожній рядок"
 
+#: plugins/widgets/src/Manage.php:346
 msgid "listitem"
 msgstr "listitem"
 
+#: plugins/widgets/src/Manage.php:352
 msgid "string"
 msgstr "рядок"
 
+#: plugins/widgets/src/Manage.php:358
 msgid "Setting name:"
 msgstr "Ім'я налаштування:"
 
+#: plugins/widgets/src/Manage.php:395
 msgid "No widget as far."
 msgstr "Віджету поки що немає."
 
+#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
 msgid "Up the widget"
 msgstr "Вгору віджету"
 
+#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
 msgid "Down the widget"
 msgstr "Вниз віджету"
 
+#: plugins/widgets/src/Manage.php:419
 msgid "Remove the widget"
 msgstr "Видаліть віджет"
 
+#: plugins/widgets/src/Manage.php:419
 msgid "Remove widget"
 msgstr "Видалити віджет"
 
+#: plugins/widgets/src/Manage.php:431
 msgid "Drag widgets here to remove."
 msgstr "Перетягніть віджети сюди, щоб вилучити."
 
+#: plugins/widgets/src/Widgets.php:87
 msgid "Search engine"
 msgstr "Пошукова система"
 
+#: plugins/widgets/src/Widgets.php:89
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Заповнювач (тільки HTML5, необов'язково):"
 
+#: plugins/widgets/src/Widgets.php:96
 msgid "Navigation links"
 msgstr "Навігаційні посилання"
 
+#: plugins/widgets/src/Widgets.php:104
 msgid "Selected entries"
 msgstr "Вибрані записи"
 
+#: plugins/widgets/src/Widgets.php:105
 msgid "Best of me"
 msgstr "Найкраще, що в мене є."
 
+#: plugins/widgets/src/Widgets.php:113
 msgid "Blog languages"
 msgstr "Мови блогу"
 
+#: plugins/widgets/src/Widgets.php:123
 msgid "With entries counts"
 msgstr "З підрахунком заявок"
 
+#: plugins/widgets/src/Widgets.php:124
 msgid "Include sub cats in count"
 msgstr "Враховувати підкотів у підрахунку"
 
+#: plugins/widgets/src/Widgets.php:125
 msgid "Include empty categories"
 msgstr "Включити порожні категорії"
 
+#: plugins/widgets/src/Widgets.php:132
 msgid "Subscribe links"
 msgstr "Посилання на підписку"
 
+#: plugins/widgets/src/Widgets.php:133
 msgid "Subscribe"
 msgstr "Підписатися"
 
+#: plugins/widgets/src/Widgets.php:134
 msgid "Feeds type:"
 msgstr "Тип корму:"
 
+#: plugins/widgets/src/Widgets.php:141
 msgid "Feed reader"
 msgstr "Зчитувач стрічки"
 
+#: plugins/widgets/src/Widgets.php:142
 msgid "Somewhere else"
 msgstr "Десь в іншому місці."
 
+#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
 msgid "Entries limit:"
 msgstr "Кількість місць обмежена:"
 
+#: plugins/widgets/src/Widgets.php:151
 msgid "Text"
 msgstr "Текст"
 
+#: plugins/widgets/src/Widgets.php:153
 msgid "Text:"
 msgstr "СМС:"
 
+#: plugins/widgets/src/Widgets.php:160
 msgid "Uncategorized"
 msgstr "Без категорії"
 
+#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
 msgid "Last entries"
 msgstr "Останні записи"
 
+#: plugins/widgets/src/Widgets.php:169
 msgid "Tag:"
 msgstr "Мітка:"
 
+#: plugins/widgets/src/Widgets.php:181
 msgid "Last comments"
 msgstr "Останні коментарі"
 
+#: plugins/widgets/src/Widgets.php:182
 msgid "Comments limit:"
 msgstr "Обмеження на коментарі:"
 
+#: plugins/widgets/src/Widgets.php:461
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Стрічка записів цього блогу %s"
 
+#: plugins/widgets/src/Widgets.php:462
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Стрічка коментарів цього блогу %s"
 
+#: plugins/widgets/src/Widgets.php:470
 msgid "Entries feed"
 msgstr "Стрічка заявок"
 
+#: plugins/widgets/src/Widgets.php:476
 msgid "Comments feed"
 msgstr "Стрічка коментарів"
 
+#: plugins/widgets/src/WidgetsElement.php:535
 msgid "Title (optional)"
 msgstr "Назва (необов'язково)"
 
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "All pages"
 msgstr "Всі сторінки"
 
+#: plugins/widgets/src/WidgetsElement.php:549
 msgid "Home page only"
 msgstr "Тільки головна сторінка"
 
+#: plugins/widgets/src/WidgetsElement.php:550
 msgid "Except on home page"
 msgstr "За винятком головної сторінки"
 
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "Display on:"
 msgstr "Дисплей увімкнено:"
 
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "Тільки вміст"
 
+#: plugins/widgets/src/WidgetsElement.php:606
 msgid "CSS class:"
 msgstr "Клас CSS:"
 
+#: plugins/widgets/src/WidgetsElement.php:618
 msgid "Offline"
 msgstr "Офлайн"
+
