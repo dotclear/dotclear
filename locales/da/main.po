@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-25 06:44\n"
+"PO-Revision-Date: 2023-11-25 08:17\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -2036,7 +2036,7 @@ msgstr "Mappen '%s' kan ikke ændres."
 #: src/Core/Backend/ThemeConfig.php:390
 #, php-format
 msgid "The '%s' directory cannot be created."
-msgstr ""
+msgstr "Mappen '%s' kan ikke oprettes."
 
 #: src/Core/Backend/ThemeConfig.php:396
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
@@ -2592,11 +2592,11 @@ msgstr "LOL!"
 
 #: src/Core/Upgrade/Page.php:140
 msgid "Dotclear's update dashboard"
-msgstr ""
+msgstr "Dotclears opdateringsdashboard"
 
 #: src/Core/Upgrade/Page.php:143
 msgid "Go to normal dashboard"
-msgstr ""
+msgstr "Gå til det normale dashboard"
 
 #: src/Core/Upgrade/Update.php:336
 msgid "Digests file not found."
@@ -2644,24 +2644,24 @@ msgstr "Noget gik galt med automatisk opgradering:"
 
 #: src/Core/Upgrade/Utility.php:270 src/Process/Upgrade/Upgrade.php:304
 msgid "On this page you can update dotclear to the latest release."
-msgstr ""
+msgstr "På denne side kan du opdatere dotclear til den nyeste version."
 
 #: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:83
 #: src/Process/Upgrade/Attic.php:107 src/Process/Upgrade/Attic.php:345
 msgid "Attic"
-msgstr ""
+msgstr "Loftet"
 
 #: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:355
 msgid "On this page you can update dotclear to a release between yours and latest."
-msgstr ""
+msgstr "På denne side kan du opdatere dotclear til en version mellem din egen og den nyeste."
 
 #: src/Core/Upgrade/Utility.php:282 src/Process/Upgrade/Backup.php:183
 msgid "Backups"
-msgstr ""
+msgstr "Sikkerhedskopier"
 
 #: src/Core/Upgrade/Utility.php:288 src/Process/Upgrade/Backup.php:197
 msgid "On this page you can revert your previous installation or delete theses files."
-msgstr ""
+msgstr "På denne side kan du vende tilbage til din tidligere installation eller slette disse filer."
 
 #: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
 #: src/Process/Upgrade/Langs.php:445
@@ -2670,7 +2670,7 @@ msgstr "Her kan du installere, opgradere eller slette sprog til din Dotclear ins
 
 #: src/Core/Upgrade/Utility.php:306
 msgid "On this page you will manage plugins."
-msgstr ""
+msgstr "På denne side kan du administrere plugins."
 
 #: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:64
 msgid "Cache"
@@ -2678,24 +2678,24 @@ msgstr "Cache"
 
 #: src/Core/Upgrade/Utility.php:315 src/Process/Upgrade/Cache.php:80
 msgid "On this page, you can clear templates and repositories cache."
-msgstr ""
+msgstr "På denne side kan du rydde cachen for skabeloner og repositories."
 
 #: src/Core/Upgrade/Utility.php:318
 msgid "Digests"
-msgstr ""
+msgstr "Digests"
 
 #: src/Core/Upgrade/Utility.php:324 src/Process/Upgrade/Digests.php:154
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
-msgstr ""
+msgstr "På denne side kan du omgå beskadigede filer eller ændrede filer for at udføre opdateringen."
 
 #: src/Core/Upgrade/Utility.php:327 src/Process/Upgrade/Replay.php:76
 #: src/Process/Upgrade/Replay.php:104
 msgid "Replay"
-msgstr ""
+msgstr "Afspilning"
 
 #: src/Core/Upgrade/Utility.php:333 src/Process/Upgrade/Replay.php:90
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
-msgstr ""
+msgstr "På denne side kan du forsøge at gentage opdateringen fra en given version, hvis der er filer tilbage fra sidste opdatering."
 
 #: src/Core/UserPreferences.php:69
 msgid "Unable to retrieve workspaces:"
@@ -2966,7 +2966,7 @@ msgstr "Kan ikke læse mappe"
 
 #: src/Helper/File/Zip/Zip.php:318
 msgid "Unable to write ZIP archive"
-msgstr ""
+msgstr "Kan ikke skrive ZIP-arkiv"
 
 #: src/Helper/Html/Template/Template.php:644
 #: src/Helper/Html/Template/Template.php:694
@@ -4318,7 +4318,7 @@ msgstr "Forkert sprog fil URL."
 
 #: src/Process/Backend/Langs.php:149 src/Process/Upgrade/Langs.php:179
 msgid "Unable to make a HTTP request."
-msgstr ""
+msgstr "Kunne ikke foretage en HTTP-anmodning."
 
 #: src/Process/Backend/Langs.php:162 src/Process/Backend/Langs.php:195
 #: src/Process/Backend/Langs.php:226 src/Process/Upgrade/Langs.php:192
@@ -5330,11 +5330,11 @@ msgstr "Dotclear %s er tilgængelig."
 
 #: src/Process/Backend/Update.php:162
 msgid "Dotclear upgrade dashboard"
-msgstr ""
+msgstr "Dotclear opgraderings-dashboard"
 
 #: src/Process/Backend/Update.php:162
 msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr ""
+msgstr "For at opgradere din Dotclear-installation skal du gå til det dedikerede dashboard og følge instruktionerne."
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6064,11 +6064,11 @@ msgstr "Fortsæt"
 #: src/Process/Upgrade/Attic.php:91 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
-msgstr ""
+msgstr "Det ser ud til, at backup-mappen ikke findes, så opgraderingen kan ikke udføres."
 
 #: src/Process/Upgrade/Attic.php:115 src/Process/Upgrade/Upgrade.php:87
 msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
-msgstr ""
+msgstr "Det ser ud til, at der ikke er nogen \"digests\"-fil på dit system, så opgraderingen kan ikke udføres."
 
 #: src/Process/Upgrade/Attic.php:157 src/Process/Upgrade/Upgrade.php:135
 #, php-format
@@ -6085,7 +6085,7 @@ msgstr "Følgende filer i din Dotclear installation er blevet ændret, så vi vi
 
 #: src/Process/Upgrade/Attic.php:200
 msgid "You can bypass this warning by updating installation disgets file."
-msgstr ""
+msgstr "Du kan omgå denne advarsel ved at opdatere installationens disgets-fil."
 
 #: src/Process/Upgrade/Attic.php:203 src/Process/Upgrade/Upgrade.php:178
 #, php-format
@@ -6099,24 +6099,24 @@ msgstr "Følgende filer fra din Dotclear installation kan ikke skrives. Ret venl
 #: src/Process/Upgrade/Attic.php:274
 #, php-format
 msgid "Required PHP version %s or higher"
-msgstr ""
+msgstr "Påkrævet PHP-version %s eller højere"
 
 #: src/Process/Upgrade/Attic.php:281 src/Process/Upgrade/Attic.php:282
 msgid "Release note"
-msgstr ""
+msgstr "Udgivelsesnote"
 
 #: src/Process/Upgrade/Attic.php:292
 msgid "Select intermediate stable release to update to:"
-msgstr ""
+msgstr "Vælg den mellemliggende stabile version, du vil opdatere til:"
 
 #: src/Process/Upgrade/Attic.php:305
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
-msgstr ""
+msgstr "Der er ingen yderligere oplysninger om de udgivelser, der er anført her, så du bør omhyggeligt læse det informationsindlæg, der er knyttet til den valgte udgivelse på Dotclears blog."
 
 #: src/Process/Upgrade/Attic.php:315
 #, php-format
 msgid "Are you sure to update to version %s?"
-msgstr ""
+msgstr "Er du sikker på, at du opdaterer til version %s?"
 
 #: src/Process/Upgrade/Attic.php:321 src/Process/Upgrade/Digests.php:174
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
@@ -6125,15 +6125,15 @@ msgstr "Opdater Dotclear"
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
-msgstr ""
+msgstr "Opgradering"
 
 #: src/Process/Upgrade/Auth.php:238
 msgid "Back to normal dashboard"
-msgstr ""
+msgstr "Tilbage til normalt instrumentbræt"
 
 #: src/Process/Upgrade/Backup.php:61 src/Process/Upgrade/Backup.php:188
 msgid "Backups and restore"
-msgstr ""
+msgstr "Sikkerhedskopiering og gendannelse"
 
 #: src/Process/Upgrade/Backup.php:101
 #, php-format
@@ -6142,19 +6142,19 @@ msgstr "Kan ikke slette filen %s"
 
 #: src/Process/Upgrade/Backup.php:103
 msgid "Backup deleted."
-msgstr ""
+msgstr "Backup slettet."
 
 #: src/Process/Upgrade/Backup.php:111
 msgid "Backup restored."
-msgstr ""
+msgstr "Backup gendannet."
 
 #: src/Process/Upgrade/Backup.php:125
 msgid "There are no backups available."
-msgstr ""
+msgstr "Der er ingen sikkerhedskopier tilgængelige."
 
 #: src/Process/Upgrade/Backup.php:157
 msgid "Backups of previously updates"
-msgstr ""
+msgstr "Sikkerhedskopier af tidligere opdateringer"
 
 #: src/Process/Upgrade/Backup.php:168
 msgid "Delete selected file"
@@ -6179,15 +6179,15 @@ msgstr "Skabeloner cache mappe tømt."
 
 #: src/Process/Upgrade/Cache.php:51
 msgid "Repositories cache directory emptied."
-msgstr ""
+msgstr "Repositories cache directory tømt."
 
 #: src/Process/Upgrade/Cache.php:69
 msgid "Cache management"
-msgstr ""
+msgstr "Cache-styring"
 
 #: src/Process/Upgrade/Cache.php:84
 msgid "Cache folders"
-msgstr ""
+msgstr "Cache-mapper"
 
 #: src/Process/Upgrade/Cache.php:89
 msgid "Empty templates cache directory"
@@ -6195,19 +6195,19 @@ msgstr "Tom cachemappe til skabeloner"
 
 #: src/Process/Upgrade/Cache.php:91
 msgid "Empty repositories cache directory"
-msgstr ""
+msgstr "Tøm repositories cache-mappe"
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
-msgstr ""
+msgstr "Opdateringerne er blevet udført."
 
 #: src/Process/Upgrade/Digests.php:110
 msgid "No changed filed have been found, nothing to do!"
-msgstr ""
+msgstr "Der er ikke fundet nogen ændrede filer, så der er ikke noget at gøre!"
 
 #: src/Process/Upgrade/Digests.php:113
 msgid "This tool has already been run once."
-msgstr ""
+msgstr "Dette værktøj er allerede blevet kørt én gang."
 
 #: src/Process/Upgrade/Digests.php:134
 msgid "Files"
@@ -6215,165 +6215,165 @@ msgstr "Filer"
 
 #: src/Process/Upgrade/Digests.php:139
 msgid "Corrupted files"
-msgstr ""
+msgstr "Beskadigede filer"
 
 #: src/Process/Upgrade/Digests.php:163
 msgid "Download backup of digests file."
-msgstr ""
+msgstr "Download backup af digests-fil."
 
 #: src/Process/Upgrade/Digests.php:183
 msgid "Digests file is up to date."
-msgstr ""
+msgstr "Digests-filen er opdateret."
 
 #: src/Process/Upgrade/Digests.php:202
 msgid "The following files will have their checksum faked:"
-msgstr ""
+msgstr "Følgende filer vil få deres checksum forfalsket:"
 
 #: src/Process/Upgrade/Digests.php:219
 msgid "The following files digests will have their checksum cleaned:"
-msgstr ""
+msgstr "De følgende fildigests vil få renset deres checksum:"
 
 #: src/Process/Upgrade/Digests.php:234
 msgid "Still ok to continue"
-msgstr ""
+msgstr "Stadig ok at fortsætte"
 
 #: src/Process/Upgrade/Digests.php:251
 msgid "Remove the backup digest file, I want to play again"
-msgstr ""
+msgstr "Fjern backup digest-filen, jeg vil spille igen"
 
 #: src/Process/Upgrade/Digests.php:272
 msgid "I have read and understood the disclaimer and wish to continue anyway."
-msgstr ""
+msgstr "Jeg har læst og forstået ansvarsfraskrivelsen og ønsker alligevel at fortsætte."
 
 #: src/Process/Upgrade/Home.php:53
 #, php-format
 msgid "Installed Dotclear version is %s"
-msgstr ""
+msgstr "Den installerede Dotclear-version er %s"
 
 #: src/Process/Upgrade/Home.php:54
 #, php-format
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr ""
+msgstr "Den installerede PHP-version er %s, næste Dotclear-udgivelse kræver %s eller tidligere."
 
 #: src/Process/Upgrade/Home.php:71
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
-msgstr ""
+msgstr "Backup-mappen \"%s\" findes ikke eller kan ikke skrives."
 
 #: src/Process/Upgrade/Home.php:75
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
-msgstr ""
+msgstr "Hvis du bruger Sqlite-databasedriveren, vil opgraderingen af databasestrukturen IKKE blive udført."
 
 #: src/Process/Upgrade/Home.php:79
 msgid "Your are using developement release, some features are not available."
-msgstr ""
+msgstr "Du bruger en udviklingsversion, og nogle funktioner er ikke tilgængelige."
 
 #: src/Process/Upgrade/Home.php:82
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
-msgstr ""
+msgstr "Dotclear digests-filen \"%s\" er ikke læsbar."
 
 #: src/Process/Upgrade/Home.php:86 src/Process/Upgrade/Plugins.php:129
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
-msgstr ""
+msgstr "Det officielle plugins-arkiv kunne ikke opdateres, da der ikke er angivet en URL i konfigurationen."
 
 #: src/Process/Upgrade/Home.php:91
 msgid "Do you read the official post about this release on Dotclear's blog?"
-msgstr ""
+msgstr "Har du læst det officielle indlæg om denne udgivelse på Dotclears blog?"
 
 #: src/Process/Upgrade/Home.php:92
 msgid "Does your system support this release requirements like PHP version?"
-msgstr ""
+msgstr "Understøtter dit system denne udgivelses krav som PHP-version?"
 
 #: src/Process/Upgrade/Home.php:93
 msgid "Does your plugins and themes are up to date?"
-msgstr ""
+msgstr "Er dine plugins og temaer opdaterede?"
 
 #: src/Process/Upgrade/Home.php:94
 msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
-msgstr ""
+msgstr "Bemærk, at hvis nogle plugins ødelægger din installation, skal du gå tilbage hertil for at deaktivere, fjerne eller opdatere dem."
 
 #: src/Process/Upgrade/Home.php:95
 msgid "Once update done, do not forget to check and update blogs themes."
-msgstr ""
+msgstr "Når opdateringen er færdig, må du ikke glemme at tjekke og opdatere bloggens temaer."
 
 #: src/Process/Upgrade/Home.php:155
 msgid "Before performing update you should take into account some informations listed bellow:"
-msgstr ""
+msgstr "Før du udfører opdateringen, bør du tage højde for nogle af nedenstående oplysninger:"
 
 #: src/Process/Upgrade/Langs.php:357
 msgid "Install or upgrade languages from available languages"
-msgstr ""
+msgstr "Installer eller opgrader sprog fra tilgængelige sprog"
 
 #: src/Process/Upgrade/Langs.php:399
 msgid "Install or upgrade languages from an upload a zip file"
-msgstr ""
+msgstr "Installer eller opgrader sprog fra en uploadet zip-fil"
 
 #: src/Process/Upgrade/Plugins.php:68
 msgid "Some plugins could not be loaded."
-msgstr ""
+msgstr "Nogle plugins kunne ikke indlæses."
 
 #: src/Process/Upgrade/Plugins.php:333
 msgid "There is no module to check"
-msgstr ""
+msgstr "Der er ikke noget modul at kontrollere"
 
 #: src/Process/Upgrade/Plugins.php:341
 msgid "Store version"
-msgstr ""
+msgstr "Butik version"
 
 #: src/Process/Upgrade/Plugins.php:343
 msgid "Check stores versions"
-msgstr ""
+msgstr "Tjek butikkernes versioner"
 
 #: src/Process/Upgrade/Plugins.php:351
 msgid "Check lastest stores versions"
-msgstr ""
+msgstr "Tjek de nyeste versioner af butikkerne"
 
 #: src/Process/Upgrade/Plugins.php:354
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
-msgstr ""
+msgstr "Du kan tjekke repositories for moduler, der er skrevet eksplicit til Dotclear-versioner større end %s."
 
 #: src/Process/Upgrade/Plugins.php:378 src/Process/Upgrade/Plugins.php:420
 msgid "No version available"
-msgstr ""
+msgstr "Ingen version tilgængelig"
 
 #: src/Process/Upgrade/Plugins.php:380
 msgid "No update available"
-msgstr ""
+msgstr "Ingen opdatering tilgængelig"
 
 #: src/Process/Upgrade/Plugins.php:382
 msgid "Newer version available"
-msgstr ""
+msgstr "Nyere version tilgængelig"
 
 #: src/Process/Upgrade/Plugins.php:434
 msgid "Modules list"
-msgstr ""
+msgstr "Liste over moduler"
 
 #: src/Process/Upgrade/Plugins.php:449
 msgid "Latest version"
-msgstr ""
+msgstr "Seneste version"
 
 #: src/Process/Upgrade/Plugins.php:453
 msgid "Written for Dotclear"
-msgstr ""
+msgstr "Skrevet for Dotclear"
 
 #: src/Process/Upgrade/Replay.php:63
 #, php-format
 msgid "Grow up from version %s successfully replayed."
-msgstr ""
+msgstr "Grow up fra version %s afspillet med succes."
 
 #: src/Process/Upgrade/Replay.php:81
 msgid "Replay update actions"
-msgstr ""
+msgstr "Opdatering af afspilning"
 
 #: src/Process/Upgrade/Replay.php:99
 msgid "Replay grow up action from version:"
-msgstr ""
+msgstr "Gentag opvæksten fra versionen:"
 
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
-msgstr ""
+msgstr "En lavere afspilningsversion end den sidste kan ødelægge din installation, så gør det på egen risiko."
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
