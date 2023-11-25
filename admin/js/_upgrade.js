@@ -24,13 +24,14 @@ dotclear.dbStoreUpdate = (store, icon) => {
             .replace(/([^\/]+)(\..*)$/g, '$1-update$2'),
         );
       // add icon text says there is an update
-      icon.children('a').children('.db-icon-title').append('<br />').append(data.ret);
+      icon.children('a').children('.db-icon-descr').append('<br />').append(`<strong>${data.ret}</strong`);
       // Badge (info) on dashboard icon
       dotclear.badge(icon, {
         id: `mu-${store}`,
         value: data.nb,
         icon: true,
         type: 'info',
+        left: true,
       });
     },
     { store },
@@ -46,4 +47,10 @@ $(() => {
       dotclear.outgoingLinks('#ajax-update a');
     }
   });
+
+  // check if store update available, if db has icon
+  if ($('#dashboard-main #icons p #icon-process-Plugins-fav').length) {
+    const plugins_db_icon = $('#dashboard-main #icons p #icon-process-Plugins-fav').parent();
+    dotclear.dbStoreUpdate('plugins', plugins_db_icon);
+  }
 });

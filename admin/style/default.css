@@ -3799,6 +3799,13 @@ span.ibw {
 .upgrade-mode #icons span.db-icon-title {
   flex: none;
 }
+.upgrade-mode .badge-icon {
+  right: -10px;
+}
+.upgrade-mode .badge-icon.badge-left {
+  right: inherit;
+  left: -10px;
+}
 .upgrade-mode .dc-update p {
   display: flex;
   flex-direction: row;

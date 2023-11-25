@@ -288,6 +288,14 @@
     }
   }
 
+  .badge-icon {
+    right: -10px;
+    &.badge-left {
+      right: inherit;
+      left: -10px;
+    }
+  }
+
   .dc-update p {
     display: flex;
     flex-direction: row;
