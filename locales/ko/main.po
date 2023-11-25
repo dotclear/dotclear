@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-25 06:44\n"
+"PO-Revision-Date: 2023-11-25 08:17\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2637,7 +2637,7 @@ msgstr "이곳에서 Dotclear에 언어를 설치, 갱신 또는 삭제할 수 �
 
 #: src/Core/Upgrade/Utility.php:306
 msgid "On this page you will manage plugins."
-msgstr ""
+msgstr "이 페이지에서는 플러그인을 관리합니다."
 
 #: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:64
 msgid "Cache"
