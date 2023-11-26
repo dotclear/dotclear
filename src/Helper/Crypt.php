@@ -31,7 +31,7 @@ class Crypt
     public static function hmac(string $key, string $data, string $hashfunc = 'sha1'): string
     {
         if (function_exists('hash_hmac')) {
-            if (!in_array($hashfunc, hash_algos())) {
+            if (!in_array($hashfunc, hash_hmac_algos())) {
                 $hashfunc = 'sha1';
             }
 
