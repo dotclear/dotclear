@@ -1084,12 +1084,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "181f43ae2f4afbbdd9426dc0fd8db0444439a033"
+                "reference": "6f00a541a2efe9ade13fed7573b19d911f8485ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/181f43ae2f4afbbdd9426dc0fd8db0444439a033",
-                "reference": "181f43ae2f4afbbdd9426dc0fd8db0444439a033",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/6f00a541a2efe9ade13fed7573b19d911f8485ed",
+                "reference": "6f00a541a2efe9ade13fed7573b19d911f8485ed",
                 "shasum": ""
             },
             "require": {
@@ -1135,7 +1135,7 @@
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
                 "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.x"
             },
-            "time": "2023-10-13T06:37:27+00:00"
+            "time": "2023-11-24T12:01:33+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -1190,12 +1190,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "3a5328b86920b12e30b6d96d95eec9fa4c805af7"
+                "reference": "3c7860c7d8ee08b7b2ba742367edff6ed190ad99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3a5328b86920b12e30b6d96d95eec9fa4c805af7",
-                "reference": "3a5328b86920b12e30b6d96d95eec9fa4c805af7",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3c7860c7d8ee08b7b2ba742367edff6ed190ad99",
+                "reference": "3c7860c7d8ee08b7b2ba742367edff6ed190ad99",
                 "shasum": ""
             },
             "require": {
@@ -1245,7 +1245,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-22T08:02:39+00:00"
+            "time": "2023-11-25T10:45:46+00:00"
         },
         {
             "name": "psr/container",
@@ -1358,12 +1358,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "18d1bf26a7f6886ace063f5335587fb69a842851"
+                "reference": "a424735c141e153b2e5337a210c9d2f36bbfeb32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/18d1bf26a7f6886ace063f5335587fb69a842851",
-                "reference": "18d1bf26a7f6886ace063f5335587fb69a842851",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/a424735c141e153b2e5337a210c9d2f36bbfeb32",
+                "reference": "a424735c141e153b2e5337a210c9d2f36bbfeb32",
                 "shasum": ""
             },
             "require": {
@@ -1418,7 +1418,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-22T11:55:17+00:00"
+            "time": "2023-11-23T06:21:27+00:00"
         },
         {
             "name": "spatie/array-to-xml",
@@ -2374,12 +2374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "07acefd0b6ec7e5f73af66b9479ae39e943a2214"
+                "reference": "b654545aa01d612f7e4559b749474d7a42cde3db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/07acefd0b6ec7e5f73af66b9479ae39e943a2214",
-                "reference": "07acefd0b6ec7e5f73af66b9479ae39e943a2214",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/b654545aa01d612f7e4559b749474d7a42cde3db",
+                "reference": "b654545aa01d612f7e4559b749474d7a42cde3db",
                 "shasum": ""
             },
             "require": {
@@ -2477,7 +2477,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2023-11-21T17:02:53+00:00"
+            "time": "2023-11-23T18:03:48+00:00"
         },
         {
             "name": "webmozart/assert",
