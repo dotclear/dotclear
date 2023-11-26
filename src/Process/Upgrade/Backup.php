@@ -91,7 +91,26 @@ class Backup extends Process
 
     public static function process(): bool
     {
-        # Revert or delete backup file
+        # delete all backup files except the last one
+        if (!empty($_POST['b_delall']) && count(self::$archives) > 1) {
+            $done  = false;
+            $stack = self::$archives;
+            array_pop($stack); // keep last backup
+            foreach($stack as $b_file) {
+                try {
+                    @unlink(App::config()->backupRoot() . '/' . $b_file);
+                    $done = true;
+                } catch(Exception) {
+                    App::error()->add(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
+                }
+            }
+            if ($done) {
+                Notices::addSuccessNotice(__('Backup deleted.'));
+            }
+            App::upgrade()->url()->redirect('upgrade.backup');
+        }
+
+        # Revert or delete a backup file
         if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'], self::$archives)) {
             $b_file = $_POST['backup_file'];
 
@@ -165,9 +184,9 @@ class Backup extends Process
                         ->separator(' ')
                         ->items([
                             App::nonce()->formNonce(),
+                            (new Submit(['b_revert'], __('Revert to selected file'))),
                             (new Submit(['b_del'], __('Delete selected file')))
                                 ->class('delete'),
-                            (new Submit(['b_revert'], __('Revert to selected file'))),
                         ]),
                     (new Para())
                         ->class('warning')
@@ -176,12 +195,17 @@ class Backup extends Process
                             (new Text('strong', __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
                             (new Text('', sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
                         ]),
+                    (new Para())
+                        ->items([
+                            (new Submit(['b_delall'], __('Delete all files but last')))
+                                ->class('delete'),
+                        ]),
                 ]);
         }
 
         Page::open(
             __('Backups'),
-            '',
+            Page::jsLoad('js/_backup.js'),
             Page::breadcrumb(
                 [
                     __('Dotclear update')     => '',
