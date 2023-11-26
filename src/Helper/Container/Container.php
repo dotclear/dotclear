@@ -110,39 +110,46 @@ class Container implements ContainerInterface
      */
     private function resolve(string $alias, array $args)
     {
-        try {
-            $reflector = new \ReflectionClass($alias);  // @phpstan-ignore-line
-        } catch (\ReflectionException $e) {
-            throw new ContainerException(
-                $e->getMessage(),
-                $e->getCode()
-            );
+        if (!class_exists($alias)) {
+            // Class does not exist
+            throw new ContainerException('Call to undefined factory service ' . $alias);
         }
+        $reflector = new \ReflectionClass($alias);
+
         if (!$reflector->isInstantiable()) {
+            // Class is not instantiable
             throw new ContainerException('Call to undefined factory service ' . $alias . ' argument ' . $reflector->getName());
         }
 
         $constructor = $reflector->getConstructor();
         if (null === $constructor) {
+            // Class has no constructor
             return $reflector->newInstance();
         }
 
+        // Check class parameters (that could be container class)
         $params = $constructor->getParameters();
         foreach ($params as $parameter) {
+            $class = null;
             $type = $parameter->getType();
-            if ($type instanceof \ReflectionUnionType) { //php 8.0+
+            if ($type instanceof \ReflectionUnionType) {
+                // Get first level class of extended class
                 $type = $type->getTypes()[0];
             }
-            /* @phpstan-ignore-next-line : isBuiltin() and getName() is only valid for \ReflectionNamedType !!! */
-            $class = !$type || $type->isBuiltin() || !$this->factory->has($type->getName()) ? null : new \ReflectionClass($type->getName());
+            if ($type instanceof \ReflectionNamedType && !$type->isBuiltin() && $this->factory->has($type->getName())) {
+                // Get class name
+                $class = $type->getName();
+            }
 
             if (null !== $class) {
+                // Get container class
                 $args[$parameter->name] = $this->get(
-                    $class->getName()
+                    $class
                 );
             } elseif (isset($args[$parameter->name])) {
-                // keep given arguments as is
+                // Keep given argument as is
             } elseif ($parameter->isDefaultValueAvailable()) {
+                // Get default argument value
                 $args[$parameter->name] = $parameter->getDefaultValue();
             }
         }
