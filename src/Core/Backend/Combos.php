@@ -121,7 +121,7 @@ class Combos
      * @param      MetaRecord  $langs           The langs
      * @param      bool        $with_available  If false, only list items from record if true, also list available languages
      *
-     * @return     array<string, mixed>   The langs combo.
+     * @return     array<int|string, mixed>   The langs combo.
      */
     public static function getLangsCombo(MetaRecord $langs, bool $with_available = false): array
     {
@@ -155,7 +155,7 @@ class Combos
         }
         unset($all_langs);
 
-        return $langs_combo;    // @phpstan-ignore-line
+        return $langs_combo;
     }
 
     /**
@@ -283,7 +283,7 @@ class Combos
             __('Number of trackbacks') => 'nb_trackback',
         ];
         # --BEHAVIOR-- adminPostsSortbyCombo -- array<int,array<string,string>>
-        App::behavior()->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
+        App::behavior()->callBehavior('adminPostsSortbyCombo', [&$sortby_combo]);
 
         return $sortby_combo;
     }
@@ -316,7 +316,7 @@ class Combos
         }
 
         # --BEHAVIOR-- adminCommentsSortbyCombo -- array<int,array<string,string>>
-        App::behavior()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
+        App::behavior()->callBehavior('adminCommentsSortbyCombo', [&$sortby_combo]);
 
         return $sortby_combo;
     }
@@ -335,7 +335,7 @@ class Combos
             __('Status')      => 'blog_status',
         ];
         # --BEHAVIOR-- adminBlogsSortbyCombo -- array<int,array<string,string>>
-        App::behavior()->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
+        App::behavior()->callBehavior('adminBlogsSortbyCombo', [&$sortby_combo]);
 
         return $sortby_combo;
     }
@@ -357,7 +357,7 @@ class Combos
                 __('Number of entries') => 'nb_post',
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo -- array<int,array<string,string>>
-            App::behavior()->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
+            App::behavior()->callBehavior('adminUsersSortbyCombo', [&$sortby_combo]);
         }
 
         return $sortby_combo;

@@ -59,11 +59,10 @@ class Schema extends AbstractSchema
      */
     public function db_get_columns(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         $sql = 'SELECT column_name, udt_name, character_maximum_length, ' .
         'is_nullable, column_default ' .
         'FROM information_schema.columns ' .
-        "WHERE table_name = '" . $this->con->escape($table) . "' ";
+        "WHERE table_name = '" . $this->con->escapeStr($table) . "' ";
 
         $rs = $this->con->select($sql);
 
@@ -104,7 +103,6 @@ class Schema extends AbstractSchema
      */
     public function db_get_keys(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         $sql = 'SELECT DISTINCT ON(cls.relname) cls.oid, cls.relname as idxname, indisunique::integer, indisprimary::integer, ' .
         'indnatts, tab.relname as tabname, contype, amname ' .
         'FROM pg_index idx ' .
@@ -117,7 +115,7 @@ class Schema extends AbstractSchema
         'LEFT OUTER JOIN pg_constraint con ON (con.tableoid = dep.refclassid AND con.oid = dep.refobjid) ' .
         'LEFT OUTER JOIN pg_description des ON des.objoid=con.oid ' .
         'LEFT OUTER JOIN pg_description desp ON (desp.objoid=con.oid AND desp.objsubid = 0) ' .
-        "WHERE tab.relname = '" . $this->con->escape($table) . "' " .
+        "WHERE tab.relname = '" . $this->con->escapeStr($table) . "' " .
             "AND contype IN ('p','u') " .
             'ORDER BY cls.relname ';
 
@@ -152,7 +150,6 @@ class Schema extends AbstractSchema
      */
     public function db_get_indexes(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         $sql = 'SELECT DISTINCT ON(cls.relname) cls.oid, cls.relname as idxname, n.nspname, ' .
         'indnatts, tab.relname as tabname, contype, amname ' .
         'FROM pg_index idx ' .
@@ -165,7 +162,7 @@ class Schema extends AbstractSchema
         'LEFT OUTER JOIN pg_constraint con ON (con.tableoid = dep.refclassid AND con.oid = dep.refobjid) ' .
         'LEFT OUTER JOIN pg_description des ON des.objoid=con.oid ' .
         'LEFT OUTER JOIN pg_description desp ON (desp.objoid=con.oid AND desp.objsubid = 0) ' .
-        "WHERE tab.relname = '" . $this->con->escape($table) . "' " .
+        "WHERE tab.relname = '" . $this->con->escapeStr($table) . "' " .
             'AND conname IS NULL ' .
             'ORDER BY cls.relname ';
 
@@ -199,7 +196,6 @@ class Schema extends AbstractSchema
      */
     public function db_get_references(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         $sql = 'SELECT ct.oid, conname, condeferrable, condeferred, confupdtype, ' .
         'confdeltype, confmatchtype, conkey, confkey, conrelid, confrelid, cl.relname as fktab, ' .
         'cr.relname as reftab ' .
@@ -209,7 +205,7 @@ class Schema extends AbstractSchema
         'JOIN pg_class cr ON cr.oid=confrelid ' .
         'JOIN pg_namespace nr ON nr.oid=cr.relnamespace ' .
         "WHERE contype='f' " .
-        "AND cl.relname = '" . $this->con->escape($table) . "' " .
+        "AND cl.relname = '" . $this->con->escapeStr($table) . "' " .
         'ORDER BY conname ';
 
         $rs = $this->con->select($sql);
@@ -476,8 +472,8 @@ class Schema extends AbstractSchema
      * @param      array<string>    $fields          The fields
      * @param      string           $foreign_table   The foreign table
      * @param      array<string>    $foreign_fields  The foreign fields
-     * @param      bool|string      $update          The update
-     * @param      bool|string      $delete          The delete
+     * @param      false|string     $update          The update
+     * @param      false|string     $delete          The delete
      */
     public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {

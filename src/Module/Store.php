@@ -148,7 +148,7 @@ class Store
                             }
                         }
                     }
-                    // it's new
+                // it's new
                 } else {
                     $new_defines[] = $str_define;
                 }
@@ -175,7 +175,7 @@ class Store
                             // if no update from main repository, add third party update
                             if (!isset($upd_versions[$str_define->getId()])) {
                                 $upd_defines[] = $str_define;
-                                // if update from third party repo is more recent than main repo, replace this last one
+                            // if update from third party repo is more recent than main repo, replace this last one
                             } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
 
@@ -203,12 +203,12 @@ class Store
 
         // old style data
         foreach ($this->defines['new'] as $define) {
-            $this->data['new'][$define->getId()] = $define->dump(); // @phpstan-ignore-line
+            $this->data['new'][$define->getId()] = $define->dump();
         }
         foreach ($this->defines['update'] as $define) {
             // keep only higher vesion
             if (!isset($this->data['update'][$define->getId()]) || $this->modules->versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')) {
-                $this->data['update'][$define->getId()] = $define->dump();  // @phpstan-ignore-line
+                $this->data['update'][$define->getId()] = $define->dump();
             }
         }
 

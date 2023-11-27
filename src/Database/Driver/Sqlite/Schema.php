@@ -201,7 +201,7 @@ class Schema extends AbstractSchema
         $res = [];
 
         # Get primary keys first
-        $sql = "SELECT sql FROM sqlite_master WHERE type='table' AND name='" . $this->con->escape($table) . "'";    // @phpstan-ignore-line
+        $sql = "SELECT sql FROM sqlite_master WHERE type='table' AND name='" . $this->con->escapeStr($table) . "'";
         $rs  = $this->con->select($sql);
 
         if ($rs->isEmpty()) {
@@ -286,8 +286,8 @@ class Schema extends AbstractSchema
         $res = [];
 
         # Find constraints on table
-        $bir = $this->con->select(sprintf($sql, $this->con->escape($table), 'bir'));    // @phpstan-ignore-line
-        $bur = $this->con->select(sprintf($sql, $this->con->escape($table), 'bur'));    // @phpstan-ignore-line
+        $bir = $this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bir'));
+        $bur = $this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bur'));
 
         if ($bir->isEmpty() || $bur->isempty()) {
             return $res;
@@ -305,7 +305,7 @@ class Schema extends AbstractSchema
 
             # Find on update
             $on_update = 'restrict';
-            $aur       = $this->con->select(sprintf($sql, $this->con->escape($p_table), 'aur'));    // @phpstan-ignore-line
+            $aur       = $this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'aur'));
             while ($aur->fetch()) {
                 if (!preg_match('/AFTER\s+UPDATE/msi', $aur->sql)) {
                     continue;
@@ -328,7 +328,7 @@ class Schema extends AbstractSchema
 
             # Find on delete
             $on_delete = 'restrict';
-            $bdr       = $this->con->select(sprintf($sql, $this->con->escape($p_table), 'bdr'));    // @phpstan-ignore-line
+            $bdr       = $this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'bdr'));
             while ($bdr->fetch()) {
                 if (!preg_match('/BEFORE\s+DELETE/msi', $bdr->sql)) {
                     continue;

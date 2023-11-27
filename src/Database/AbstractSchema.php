@@ -80,7 +80,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function getTables(): array
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_get_tables();
     }
 
@@ -95,7 +94,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function getColumns(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_get_columns($table);
     }
 
@@ -110,7 +108,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function getKeys(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_get_keys($table);
     }
 
@@ -125,7 +122,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function getIndexes(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_get_indexes($table);
     }
 
@@ -140,7 +136,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function getReferences(string $table): array
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_get_references($table);
     }
 
@@ -152,7 +147,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function createTable(string $name, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_create_table($name, $fields);
     }
 
@@ -168,7 +162,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function createField(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_create_field($table, $name, $type, $len, $null, $default);
     }
 
@@ -181,7 +174,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function createPrimary(string $table, string $name, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_create_primary($table, $name, $fields);
     }
 
@@ -194,7 +186,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function createUnique(string $table, string $name, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_create_unique($table, $name, $fields);
     }
 
@@ -208,7 +199,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function createIndex(string $table, string $name, string $type, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_create_index($table, $name, $type, $fields);
     }
 
@@ -220,12 +210,11 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      * @param      array<string>    $fields          The fields
      * @param      string           $foreign_table   The foreign table
      * @param      array<string>    $foreign_fields  The foreign fields
-     * @param      string|bool      $update          The update
-     * @param      string|bool      $delete          The delete
+     * @param      string|false     $update          The update
+     * @param      string|false     $delete          The delete
      */
     public function createReference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_create_reference($name, $table, $fields, $foreign_table, $foreign_fields, $update, $delete);
     }
 
@@ -241,7 +230,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function alterField(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_alter_field($table, $name, $type, $len, $null, $default);
     }
 
@@ -255,7 +243,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function alterPrimary(string $table, string $name, string $newname, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_alter_primary($table, $name, $newname, $fields);
     }
 
@@ -269,7 +256,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function alterUnique(string $table, string $name, string $newname, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_alter_unique($table, $name, $newname, $fields);
     }
 
@@ -284,7 +270,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function alterIndex(string $table, string $name, string $newname, string $type, array $fields): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_alter_index($table, $name, $newname, $type, $fields);
     }
 
@@ -297,12 +282,11 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      * @param      array<string>    $fields          The fields
      * @param      string           $foreign_table   The foreign table
      * @param      array<string>    $foreign_fields  The foreign fields
-     * @param      string|bool      $update          The update
-     * @param      string|bool      $delete          The delete
+     * @param      string|false     $update          The update
+     * @param      string|false     $delete          The delete
      */
     public function alterReference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_alter_reference($name, $newname, $table, $fields, $foreign_table, $foreign_fields, $update, $delete);
     }
 
@@ -314,7 +298,6 @@ abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
      */
     public function dropUnique(string $table, string $name): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_drop_unique($table, $name);
     }
 

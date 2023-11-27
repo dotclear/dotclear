@@ -445,7 +445,7 @@ class User extends Process
                 $permissions = App::users()->getUserPermissions(App::backend()->user_id);
                 $perm_types  = App::auth()->getPermissionsTypes();
 
-                if ((is_countable($permissions) ? count($permissions) : 0) == 0) {  // @phpstan-ignore-line
+                if (count($permissions) === 0) {
                     echo
                     '<p>' . __('No permissions so far.') . '</p>';
                 } else {

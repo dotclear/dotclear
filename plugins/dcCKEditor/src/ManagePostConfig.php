@@ -107,7 +107,7 @@ $(() => {
 <?php if (!empty(App::backend()->editor_cke_custom_color_list)) : ?>
   CKEDITOR.config.colorButton_colors = '<?php echo App::backend()->editor_cke_custom_color_list; ?>';
 <?php endif;?>
-  CKEDITOR.config.colorButton_colorsPerRow = <?php echo App::backend()->editor_cke_colors_per_row ?: 6; // @phpstan-ignore-line?>;
+  CKEDITOR.config.colorButton_colorsPerRow = <?php echo App::backend()->editor_cke_colors_per_row ?: 6; ?>;
 <?php endif;?>
 
   CKEDITOR.config.defaultLanguage = dotclear.user_language;

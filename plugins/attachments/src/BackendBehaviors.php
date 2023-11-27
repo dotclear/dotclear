@@ -48,7 +48,7 @@ class BackendBehaviors
     {
         if ($post !== null) {
             $post_media = App::media()->getPostMedia((int) $post->post_id, null, 'attachment');
-            $nb_media   = is_countable($post_media) ? count($post_media) : 0;   // @phpstan-ignore-line
+            $nb_media   = count($post_media);
             $title      = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
             $item       = '<h5 class="clear s-attachments">' . $title . '</h5>';
             foreach ($post_media as $file) {

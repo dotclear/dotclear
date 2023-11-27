@@ -242,7 +242,7 @@ class BackendBehaviors
                 __(
                     'Tag has been successfully added to selected entries',
                     'Tags have been successfully added to selected entries',
-                    is_countable($tags) ? count($tags) : 0  // @phpstan-ignore-line
+                    count($tags)
                 )
             );
             $ap->redirect(true);

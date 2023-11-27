@@ -139,7 +139,7 @@ class Blogs implements BlogsInterface
                 ->column($sql->count('B.blog_id'))
                 ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
                 ->where('NULL IS NULL')
-                ;
+            ;
         } else {
             $sql
                 ->columns([
@@ -154,7 +154,7 @@ class Blogs implements BlogsInterface
                 ])
                 ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
                 ->where('NULL IS NULL')
-                ;
+            ;
 
             if (!empty($params['columns'])) {
                 $sql->columns($params['columns']);
@@ -183,13 +183,13 @@ class Blogs implements BlogsInterface
                     $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
                 ->and('blog_status' . $sql->in([(string) $this->blog::BLOG_ONLINE, (string) $this->blog::BLOG_OFFLINE]))
-                ;
+            ;
         } elseif (!$this->blog->auth()->userID()) {
             $sql->and('blog_status' . $sql->in([(string) $this->blog::BLOG_ONLINE, (string) $this->blog::BLOG_OFFLINE]));
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->blog->auth()->isSuperAdmin()) {
-            $sql->and('blog_status = ' . (int) $params['blog_status'] );
+            $sql->and('blog_status = ' . (int) $params['blog_status']);
         }
 
         if (isset($params['blog_id']) && $params['blog_id'] !== '') {
@@ -229,7 +229,7 @@ class Blogs implements BlogsInterface
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->con->escape($id) . "'");  // @phpstan-ignore-line
+        $cur->update("WHERE blog_id = '" . $this->con->escapeStr($id) . "'");
     }
 
     /**

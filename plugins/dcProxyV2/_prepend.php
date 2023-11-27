@@ -24,14 +24,14 @@ class dcProxyV2
     /**
      * Loads behaviors.
      *
-     * @param      string  $class  The class
-     * @param      string  $file   The file
+     * @param      class-string  $class  The class
+     * @param      string        $file   The file
      */
     public static function loadBehaviors(string $class, string $file): void
     {
         Clearbricks::lib()->autoload([$class => $file]);
 
-        $reflectionCore = new ReflectionClass($class);  // @phpstan-ignore-line
+        $reflectionCore = new ReflectionClass($class);
         foreach ($reflectionCore->getMethods(ReflectionMethod::IS_STATIC) as $method) {
             App::behavior()->addBehavior($method->name . self::SUFFIX, [$method->class, $method->name]);    // @phpstan-ignore-line
         }

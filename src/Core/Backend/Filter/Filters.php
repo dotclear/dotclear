@@ -204,7 +204,7 @@ class Filters
         $filter->parse();
 
         # set key/value pair
-        $this->filters[$filter->id] = $filter;  // @phpstan-ignore-line
+        $this->filters[(string) $filter->id] = $filter;
 
         # has contents
         if ($filter->html != '' && $filter->form != 'none') {
@@ -262,17 +262,17 @@ class Filters
                     }
 
                     if (in_array($p[0], ['from', 'where', 'sql'])) {
-                        $params[$p[0]] .= $p[1];
+                        $params[(string) $p[0]] .= $p[1];
                     } elseif ($p[0] == 'columns' && is_array($p[1])) {
                         $params['columns'] = array_merge($params['columns'], $p[1]);
                     } else {
-                        $params[$p[0]] = $p[1];
+                        $params[(string) $p[0]] = $p[1];
                     }
                 }
             }
         }
 
-        return $params; // @phpstan-ignore-line
+        return $params;
     }
 
     /**

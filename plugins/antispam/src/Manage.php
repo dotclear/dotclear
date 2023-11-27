@@ -55,7 +55,7 @@ class Manage extends Process
                 }
 
                 App::backend()->filter     = App::backend()->filters[$_GET['f']];
-                App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL()); // @phpstan-ignore-line
+                App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL() ?: '');
             }
 
             // Remove all spam
@@ -71,17 +71,20 @@ class Manage extends Process
 
             // Update filters
             if (isset($_POST['filters_upd'])) {
+                /**
+                 * @var        array<int|string, array{0:bool, 1:int, 2:bool}>
+                 */
                 $filters_opt = [];
                 $i           = 0;
-                foreach (App::backend()->filters as $fid => $f) {
-                    $filters_opt[$fid] = [false, $i];
+                foreach (App::backend()->filters as $filter_id => $filter_id) {
+                    $filters_opt[$filter_id] = [false, $i, false];
                     $i++;
                 }
 
                 // Enable active filters
                 if (isset($_POST['filters_active']) && is_array($_POST['filters_active'])) {
-                    foreach ($_POST['filters_active'] as $v) {
-                        $filters_opt[$v][0] = true;
+                    foreach ($_POST['filters_active'] as $filter_id) {
+                        $filters_opt[$filter_id][0] = true;
                     }
                 }
 
@@ -95,19 +98,19 @@ class Manage extends Process
                 }
 
                 if (isset($order)) {
-                    foreach ($order as $i => $f) {
-                        $filters_opt[$f][1] = $i;
+                    foreach ($order as $i => $filter_id) {
+                        $filters_opt[$filter_id][1] = $i;
                     }
                 }
 
                 // Set auto delete flag
                 if (isset($_POST['filters_auto_del']) && is_array($_POST['filters_auto_del'])) {
-                    foreach ($_POST['filters_auto_del'] as $v) {
-                        $filters_opt[$v][2] = true;
+                    foreach ($_POST['filters_auto_del'] as $filter_id) {
+                        $filters_opt[$filter_id][2] = true;
                     }
                 }
 
-                Antispam::$filters->saveFilterOpts($filters_opt);   // @phpstan-ignore-line
+                Antispam::$filters->saveFilterOpts($filters_opt);
 
                 Notices::addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 My::redirect();

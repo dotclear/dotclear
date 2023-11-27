@@ -523,8 +523,8 @@ class ModuleImportWp extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' . // @phpstan-ignore-line
-                "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
+                'DELETE FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
+                "WHERE blog_id = '" . $this->con->escapeStr($this->blog_id) . "' "
             );
 
             $ord = 2;
@@ -563,8 +563,8 @@ class ModuleImportWp extends Module
 
         try {
             $this->con->execute(
-                'DELETE FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME . ' ' .  // @phpstan-ignore-line
-                "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
+                'DELETE FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME . ' ' .
+                "WHERE blog_id = '" . $this->con->escapeStr($this->blog_id) . "' "
             );
 
             while ($rs->fetch()) {
@@ -619,8 +619,8 @@ class ModuleImportWp extends Module
         try {
             if ($this->post_offset == 0) {
                 $this->con->execute(
-                    'DELETE FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' ' .   // @phpstan-ignore-line
-                    "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
+                    'DELETE FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' ' .
+                    "WHERE blog_id = '" . $this->con->escapeStr($this->blog_id) . "' "
                 );
             }
 

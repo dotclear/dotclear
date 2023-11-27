@@ -392,7 +392,7 @@ class ActionsPostsDefault
             $items[] = (new Para())
                 ->items([
                     App::nonce()->formNonce(),
-                    ... $ap->hiddenFields(),
+                    ...$ap->hiddenFields(),
                     (new Hidden('action', 'category')),
                     (new Submit('save'))
                         ->value(__('Save')),
@@ -497,7 +497,7 @@ class ActionsPostsDefault
                     (new Para())
                         ->items([
                             App::nonce()->formNonce(),
-                            ... $ap->hiddenFields(),
+                            ...$ap->hiddenFields(),
                             (new Hidden('action', 'author')),
                             (new Submit('save'))
                                 ->value(__('Save')),
@@ -587,7 +587,7 @@ class ActionsPostsDefault
                     (new Para())
                         ->items([
                             App::nonce()->formNonce(),
-                            ... $ap->hiddenFields(),
+                            ...$ap->hiddenFields(),
                             (new Hidden('action', 'lang')),
                             (new Submit('save'))
                                 ->value(__('Save')),

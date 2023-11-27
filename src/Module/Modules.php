@@ -471,7 +471,7 @@ class Modules implements ModulesInterface
             $class = $module->get('namespace') . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
             if (!empty($module->get('namespace')) && class_exists($class)) {
                 $ret = $class::init() ? $class::process() : false;
-                // by file name
+            // by file name
             } elseif (file_exists($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
                 $ret = $this->loadModuleFile($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND, true);
             }
@@ -509,6 +509,8 @@ class Modules implements ModulesInterface
      */
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
+        $base   = '';
+        $params = [];
         if ($ns === 'admin') {
             $base   = App::backend()->url()->getBase('admin.plugin');
             $params = App::backend()->url()->getParams('admin.plugin');
@@ -528,8 +530,8 @@ class Modules implements ModulesInterface
                 // Create module admin URL
                 App::backend()->url()->register(
                     'admin.plugin.' . $module->getId(),
-                    $base,                                  // @phpstan-ignore-line
-                    [...$params, 'p' => $module->getId()]   // @phpstan-ignore-line
+                    $base,
+                    [...$params, 'p' => $module->getId()]
                 );
             }
             // This check may be removed in near futur

@@ -131,7 +131,7 @@ class Container implements ContainerInterface
         $params = $constructor->getParameters();
         foreach ($params as $parameter) {
             $class = null;
-            $type = $parameter->getType();
+            $type  = $parameter->getType();
             if ($type instanceof \ReflectionUnionType) {
                 // Get first level class of extended class
                 $type = $type->getTypes()[0];

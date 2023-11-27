@@ -536,7 +536,7 @@ class Trackback implements TrackbackInterface
         $sql
             ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
             ->where('post_id = ' . (string) $post_id)
-            ->and('comment_site = ' . $sql->quote($this->con->escape($url)))   // @phpstan-ignore-line
+            ->and('comment_site = ' . $sql->quote($this->con->escapeStr($url)))
             ->and('comment_trackback = 1')
             ->delete();
     }

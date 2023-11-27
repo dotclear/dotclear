@@ -134,7 +134,6 @@ class Label extends Component
         ];
 
         $start = ($this->getElement() ?? self::DEFAULT_ELEMENT);
-        /* @phpstan-ignore-next-line */
         if ($this->_position !== self::INSIDE_TEXT_BEFORE && $this->_position !== self::INSIDE_TEXT_AFTER && isset($this->for)) {
             $start .= ' for="' . $this->for . '"';
         }

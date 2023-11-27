@@ -42,14 +42,14 @@ class FrontendBehaviors
     {
         if (($block == 'Entries' || $block == 'Comments') && isset($attr['tag'])) {
             return
-            "<?php\n" . // @phpstan-ignore-line
+            "<?php\n" .
             "if (!isset(\$params)) { \$params = []; }\n" .
             "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
             "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
             "\$params['from'] .= ', '.App::con()->prefix().'meta META ';\n" .
             "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
             "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-            "\$params['sql'] .= \"AND META.meta_id = '" . App::con()->escape($attr['tag']) . "' \";\n" .
+            "\$params['sql'] .= \"AND META.meta_id = '" . App::con()->escapeStr($attr['tag']) . "' \";\n" .
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($block == 'Entries' || $block == 'Comments')) {
             return

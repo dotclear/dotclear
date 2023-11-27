@@ -560,7 +560,7 @@ class IpV6 extends SpamFilter
         $ip_n = (string) inet_pton($ip);
         $bin  = '';
         for ($bit = strlen($ip_n) - 1; $bit >= 0; $bit--) {
-            $bin = sprintf('%08b', ord($ip_n[$bit])) . $bin;    // @phpstan-ignore-line
+            $bin = sprintf('%08b', ord($ip_n[$bit])) . $bin;
         }
 
         if (function_exists('gmp_init')) {

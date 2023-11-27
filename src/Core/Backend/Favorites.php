@@ -97,7 +97,7 @@ class Favorites
      *
      * @param string|array<string, mixed>  $id   the favorite id, or an array having 1 key 'name' set to id, their keys are merged to favorite.
      *
-     * @return array<string, mixed>|bool   array the favorite, false if not found (or not permitted)
+     * @return array<string, mixed>|false   array the favorite, false if not found (or not permitted)
      */
     public function getFavorite($id)
     {
@@ -148,7 +148,7 @@ class Favorites
             }
         }
 
-        return $favorites;  // @phpstan-ignore-line
+        return $favorites;
     }
 
     /**

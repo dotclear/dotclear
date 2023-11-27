@@ -187,11 +187,11 @@ namespace Dotclear\Helper {
             if ($singular == '') {
                 return '';
 
-                // If no l10n translation loaded or exists
+            // If no l10n translation loaded or exists
             } elseif ((empty(self::$locales) || !array_key_exists($singular, self::$locales)) && is_null($count)) {
                 return $singular;
 
-                // If no $plural form or if current language has no plural form return $singular translation
+            // If no $plural form or if current language has no plural form return $singular translation
             } elseif ($plural === null || $count === null || self::$language_pluralsnumber == 1) {
                 $t = !empty(self::$locales[$singular]) ? self::$locales[$singular] : $singular;
 
@@ -207,7 +207,7 @@ namespace Dotclear\Helper {
 
                 return is_array($t) ? $t[0] : $t;
 
-                // If it is plural and index exists in plurals translations
+            // If it is plural and index exists in plurals translations
             } elseif (!empty(self::$locales[$singular])
                     && is_array(self::$locales[$singular])
                     && array_key_exists($i, self::$locales[$singular])
@@ -519,7 +519,7 @@ namespace Dotclear\Helper {
                             // msgid
                             if (str_starts_with($def[2], 'msgid')) {
                                 $desc['previous-msgid'] = $str;
-                                // msgcxt
+                            // msgcxt
                             } else {
                                 $desc['previous-msgctxt'] = $str;
                             }
@@ -592,7 +592,7 @@ namespace Dotclear\Helper {
                             }
                         }
 
-                        // msgstr
+                    // msgstr
                     } else {
                         if (!is_array($entry['msgstr'])) {
                             $entry['msgstr'] .= $str;

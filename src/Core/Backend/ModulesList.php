@@ -1531,7 +1531,7 @@ class ModulesList
                 $count++;
             }
 
-            $tab = $count == count($defines) ? '#plugins' : '#update';   // @phpstan-ignore-line
+            $tab = $count == count($defines) ? '#plugins' : '#update';
 
             if ($count) {
                 Notices::addSuccessNotice(
@@ -1822,7 +1822,7 @@ class ModulesList
         $class = $ns . Autoloader::NS_SEP . $class;
         if (!empty($ns) && class_exists($class)) {
             $has = $class::init();
-            // by file name
+        // by file name
         } else {
             $root = App::plugins()->moduleInfo($id, 'root');
             $has  = !empty($root) && file_exists((string) Path::real($root . DIRECTORY_SEPARATOR . $file));

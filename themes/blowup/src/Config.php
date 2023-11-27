@@ -191,7 +191,6 @@ class Config extends Process
                 if (App::backend()->can_write_images) {
                     $uploaded = null;
 
-                    /* @phpstan-ignore-next-line */
                     if ($blowup_user['uploaded'] && is_file(Blowup::imagesPath() . '/' . $blowup_user['uploaded'])) {
                         $uploaded = Blowup::imagesPath() . '/' . $blowup_user['uploaded'];
                     }

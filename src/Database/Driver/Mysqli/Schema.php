@@ -553,8 +553,8 @@ class Schema extends AbstractSchema
      * @param      array<string>    $fields          The fields
      * @param      string           $foreign_table   The foreign table
      * @param      array<string>    $foreign_fields  The foreign fields
-     * @param      bool|string      $update          The update
-     * @param      bool|string      $delete          The delete
+     * @param      false|string     $update          The update
+     * @param      false|string     $delete          The delete
      */
     public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {

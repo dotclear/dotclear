@@ -831,7 +831,7 @@ class UserPreferences extends Process
                 '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' . $icon .
                 form::number(['order[' . $id . ']'], [
                     'min'        => 1,
-                    'max'        => is_countable($user_fav) ? count($user_fav) : 0, // @phpstan-ignore-line
+                    'max'        => count($user_fav),
                     'default'    => $count,
                     'class'      => 'position',
                     'extra_html' => 'title="' . sprintf(__('position of %s'), $title) . '"',

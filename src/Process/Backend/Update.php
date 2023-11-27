@@ -103,7 +103,7 @@ class Update extends Process
             );
 
             // Keep safe-mode for next authentication
-            $params = $safe_mode ? ['safe_mode' => 1] : []; // @phpstan-ignore-line
+            $params = $safe_mode ? ['safe_mode' => 1] : [];
 
             echo
             '<p class="message">' .

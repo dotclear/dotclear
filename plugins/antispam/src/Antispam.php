@@ -35,7 +35,7 @@ class Antispam
     /**
      * The spam filters stacks.
      *
-     * @var     array<int, SpamFilter>  $spamfilters
+     * @var     array<int, class-string<SpamFilter>|SpamFilter>  $spamfilters
      */
     private static array $spamfilters = [];
 
@@ -59,7 +59,7 @@ class Antispam
         if (!empty(dcCore::app()->spamfilters)) {
             foreach (dcCore::app()->spamfilters as $spamfilter) {
                 if (is_subclass_of($spamfilter, SpamFilter::class)) {
-                    self::$spamfilters[] = $spamfilter; // @phpstan-ignore-line
+                    self::$spamfilters[] = $spamfilter;
                 }
             }
         }

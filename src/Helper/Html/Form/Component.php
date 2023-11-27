@@ -125,7 +125,6 @@ abstract class Component
     {
         $class = static::class;
 
-        /* @phpstan-ignore-next-line */
         return new $class(...$args);
     }
 

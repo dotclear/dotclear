@@ -123,9 +123,7 @@ class Rest extends Process
                     $ret = '<div class="box medium dc-box" id="ajax-news"><h3>' . __('Dotclear news') . '</h3><dl id="news">';
                     $i   = 1;
                     foreach ($feed->items as $item) {
-                        /* @phpstan-ignore-next-line */
                         $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
-                        /* @phpstan-ignore-next-line */
                         $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
                         $ret .= '<dt>' . $dt . '</dt>' .
                         '<dd><p><strong>' . Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
@@ -251,7 +249,7 @@ class Rest extends Process
             $url = App::blog()->settings()->system->store_plugin_url;
         } else {
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,Modules>, array<int,string>
-            App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [& $mod], [& $url]);
+            App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [&$mod], [&$url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
                 throw new Exception('Unknown store type');

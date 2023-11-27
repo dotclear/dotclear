@@ -343,6 +343,15 @@ final class dcCore
     public $spamfilters = [];
 
     /**
+     * List of widgets
+     *
+     * @deprecated since 2.28, use Widgets::$widgets instead
+     *
+     * @var mixed
+     */
+    public $widgets;
+
+    /**
      * dcCore constructor inits everything related to Dotclear.
      */
     public function __construct()

@@ -86,7 +86,7 @@ abstract class Actions
     /**
      * List of url parameters (usually $_POST).
      *
-     * @var     ArrayObject<string, mixed>     $from
+     * @var     ArrayObject<int|string, mixed>     $from
      */
     protected ArrayObject $from;
 
@@ -153,7 +153,7 @@ abstract class Actions
         protected array $redir_args = []
     ) {
         $this->actions       = new ArrayObject();
-        $this->from          = new ArrayObject($_POST);     // @phpstan-ignore-line
+        $this->from          = new ArrayObject($_POST);
         $this->field_entries = 'entries';
         $this->cb_title      = __('Title');
         $this->caller_title  = __('Posts');
@@ -326,7 +326,7 @@ abstract class Actions
      *  by default, $_POST fields as defined in redirect_fields attributes
      *  are set into redirect_args.
      *
-     * @param   array<string, mixed>|ArrayObject<string, mixed>   $from   input to parse fields from (usually $_POST)
+     * @param   array<int|string, mixed>|ArrayObject<int|string, mixed>   $from   input to parse fields from (usually $_POST)
      */
     protected function setupRedir($from): void
     {
@@ -547,7 +547,7 @@ abstract class Actions
      *   entries ids are array keys, values contain entry description (if relevant)
      * - rs : MetaRecord given by db request
      *
-     * @param   ArrayObject<string, mixed>     $from
+     * @param   ArrayObject<int|string, mixed>     $from
      */
     abstract protected function fetchEntries(ArrayObject $from): void;
 }

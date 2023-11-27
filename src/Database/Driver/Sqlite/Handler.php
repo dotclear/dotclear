@@ -168,7 +168,7 @@ class Handler extends AbstractHandler
         }
 
         $data = [];
-        while ($r = $result->fetch(PDO::FETCH_ASSOC)) { // @phpstan-ignore-line
+        while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
             $R = [];
             foreach ($r as $k => $v) {
                 $k     = (string) preg_replace('/^(.*)\./', '', $k);
@@ -179,7 +179,7 @@ class Handler extends AbstractHandler
         }
 
         $info['rows'] = count($data);
-        $result->closeCursor(); // @phpstan-ignore-line
+        $result->closeCursor();
 
         return new StaticRecord($data, $info);
     }
@@ -367,7 +367,7 @@ class Handler extends AbstractHandler
 
     public function escapeSystem(string $str): string
     {
-        return "'" . $this->escape($str) . "'"; // @phpstan-ignore-line
+        return "'" . $this->escapeStr($str) . "'";
     }
 
     public function begin(): void
@@ -429,7 +429,7 @@ class Handler extends AbstractHandler
      */
     public function dateFormat(string $field, string $pattern): string
     {
-        return "strftime('" . $this->escape($pattern) . "'," . $field . ')';    // @phpstan-ignore-line
+        return "strftime('" . $this->escapeStr($pattern) . "'," . $field . ')';
     }
 
     /**

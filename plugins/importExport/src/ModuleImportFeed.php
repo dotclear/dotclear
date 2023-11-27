@@ -176,7 +176,7 @@ class ModuleImportFeed extends Module
         if ($feed === false) {
             throw new Exception(__('Cannot retrieve feed URL.'));
         }
-        if ((is_countable($feed->items) ? count($feed->items) : 0) == 0) {  // @phpstan-ignore-line
+        if (count($feed->items) === 0) {
             throw new Exception(__('No items in feed.'));
         }
 

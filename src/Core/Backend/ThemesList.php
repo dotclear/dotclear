@@ -218,7 +218,7 @@ class ThemesList extends ModulesList
                 $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
                 if (!empty($define->get('namespace')) && class_exists($class)) {
                     $config = $class::init();
-                    // by file name
+                // by file name
                 } else {
                     $config = file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
                 }
@@ -620,7 +620,7 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                $tab = $count == count($defines) ? '#themes' : '#update';   // @phpstan-ignore-line
+                $tab = $count == count($defines) ? '#themes' : '#update';
 
                 if ($count) {
                     Notices::addSuccessNotice(

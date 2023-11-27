@@ -169,10 +169,10 @@ class Url extends UrlHandler implements UrlInterface
             $header = 'X-Frame-Options: SAMEORIGIN';
             if (App::frontend()->context()->exists('xframeoption')) {
                 $url = parse_url(App::frontend()->context()->xframeoption);
-                if (is_array($url)) {
+                if (is_array($url) && isset($url['scheme']) && isset($url['host'])) {
                     $header = sprintf(
                         'Content-Security-Policy: frame-ancestors \'self\' %s',
-                        $url['scheme'] . '://' . $url['host']   // @phpstan-ignore-line
+                        $url['scheme'] . '://' . $url['host']
                     );
                 }
             }

@@ -536,7 +536,7 @@ class WikiToHtml
         }
 
         # On ajoute les notes
-        if (count($this->foot_notes) > 0) { // @phpstan-ignore-line
+        if (count($this->foot_notes) > 0) {
             $html_notes  = '';
             $note_number = 1;
             foreach ($this->foot_notes as $k => $v) {

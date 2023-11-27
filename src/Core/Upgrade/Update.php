@@ -515,7 +515,7 @@ class Update
         }
 
         $b_zip->write();
-        fclose($b_fp);    // @phpstan-ignore-line
+        fclose($b_fp);
         $b_zip->close();
 
         return true;

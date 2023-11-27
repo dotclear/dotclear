@@ -87,9 +87,15 @@ class AntispamFilterFairTrackbacks extends SpamFilter
         }
 
         try {
-            // Check source site URL
             $default_parse = ['scheme' => '', 'host' => '', 'path' => '', 'query' => ''];
-            $site_parts    = array_merge($default_parse, parse_url($site)); // @phpstan-ignore-line
+
+            // Check source site URL
+            $site_parts = $default_parse;
+            if ($site) {
+                if ($temp_parse = parse_url($site)) {
+                    $site_parts = array_merge($default_parse, $temp_parse);
+                }
+            }
 
             if (($site_parts['scheme'] !== 'http' && $site_parts['scheme'] !== 'https') || !$site_parts['host'] || !$site_parts['path']) {
                 throw new Exception('Invalid URL');
@@ -98,7 +104,12 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             // Check incomink link page
             $post       = App::blog()->getPosts(['post_id' => $post_id]);
             $post_url   = $post->getURL();
-            $post_parts = array_merge($default_parse, parse_url($post_url));    // @phpstan-ignore-line
+            $post_parts = $default_parse;
+            if ($post_url) {
+                if ($temp_parts = parse_url($post_url)) {
+                    $post_parts = array_merge($default_parse, $temp_parts);
+                }
+            }
 
             if ($post_url === $site) {
                 throw new Exception('Same source and destination');

@@ -153,8 +153,8 @@ class Handler extends AbstractHandler
      */
     public function db_close($handle): void
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            pg_close($handle);  // @phpstan-ignore-line
+        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+            pg_close($handle);
         }
     }
 
@@ -167,8 +167,8 @@ class Handler extends AbstractHandler
      */
     public function db_version($handle): string
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            return pg_parameter_status($handle, 'server_version');  // @phpstan-ignore-line
+        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+            return pg_parameter_status($handle, 'server_version') ?: '';
         }
 
         return '';
@@ -184,12 +184,12 @@ class Handler extends AbstractHandler
      */
     public function db_search_path($handle, $path): string
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
+        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
             $searchpath = explode('.', $path, 2);
             if (count($searchpath) > 1) {
                 $path  = $searchpath[1];
                 $query = 'SET search_path TO ' . $searchpath[0] . ',public;';
-                @pg_query($handle, $query); // @phpstan-ignore-line
+                @pg_query($handle, $query);
             }
         }
 
@@ -208,8 +208,8 @@ class Handler extends AbstractHandler
      */
     public function db_query($handle, string $query)
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            $res = @pg_query($handle, $query);  // @phpstan-ignore-line
+        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+            $res = @pg_query($handle, $query);
             if ($res === false) {
                 $msg = (string) $this->db_last_error($handle);
                 if (App::config()->devMode()) {
@@ -245,8 +245,8 @@ class Handler extends AbstractHandler
      */
     public function db_num_fields($res): int
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_num_fields($res); // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_num_fields($res);
         }
 
         return 0;
@@ -261,8 +261,8 @@ class Handler extends AbstractHandler
      */
     public function db_num_rows($res): int
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_num_rows($res);   // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_num_rows($res);
         }
 
         return 0;
@@ -278,8 +278,8 @@ class Handler extends AbstractHandler
      */
     public function db_field_name($res, int $position): string
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_field_name($res, $position);  // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_field_name($res, $position);
         }
 
         return '';
@@ -295,8 +295,8 @@ class Handler extends AbstractHandler
      */
     public function db_field_type($res, int $position): string
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_field_type($res, $position);  // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_field_type($res, $position);
         }
 
         return '';
@@ -311,8 +311,8 @@ class Handler extends AbstractHandler
      */
     public function db_fetch_assoc($res)
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_fetch_assoc($res);    // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_fetch_assoc($res);
         }
 
         return false;
@@ -328,8 +328,8 @@ class Handler extends AbstractHandler
      */
     public function db_result_seek($res, int $row): bool
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_result_seek($res, (int) $row);    // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_result_seek($res, (int) $row);
         }
 
         return false;
@@ -345,8 +345,8 @@ class Handler extends AbstractHandler
      */
     public function db_changes($handle, $res): int
     {
-        if (is_resource($res) || (class_exists('PgSql\Result') && $res instanceof Result)) {
-            return pg_affected_rows($res);  // @phpstan-ignore-line
+        if (class_exists('PgSql\Result') && $res instanceof Result) {
+            return pg_affected_rows($res);
         }
 
         return 0;
@@ -361,8 +361,8 @@ class Handler extends AbstractHandler
      */
     public function db_last_error($handle)
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            return pg_last_error($handle);  // @phpstan-ignore-line
+        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+            return pg_last_error($handle);
         }
 
         return false;
@@ -378,8 +378,8 @@ class Handler extends AbstractHandler
      */
     public function db_escape_string($str, $handle = null): string
     {
-        if (is_resource($handle) || (class_exists('PgSql\Connection') && $handle instanceof Connection)) {
-            return pg_escape_string($handle, (string) $str);    // @phpstan-ignore-line
+        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+            return pg_escape_string($handle, (string) $str);
         }
 
         return addslashes((string) $str);
@@ -435,7 +435,7 @@ class Handler extends AbstractHandler
 
         $pattern = str_replace(array_keys($rep), array_values($rep), $pattern);
 
-        return 'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";    // @phpstan-ignore-line
+        return 'TO_CHAR(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
     /**
@@ -512,7 +512,7 @@ class Handler extends AbstractHandler
             if (is_null($v)) {
                 $data[$k] = 'NULL';
             } elseif (is_string($v)) {
-                $data[$k] = "'" . $this->escape($v) . "'";  // @phpstan-ignore-line
+                $data[$k] = "'" . $this->escapeStr($v) . "'";
             } elseif (is_array($v)) {
                 $data[$k] = $v[0];
             } else {

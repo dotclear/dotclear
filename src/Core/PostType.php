@@ -68,7 +68,6 @@ class PostType implements PostTypeInterface
 
     public function dump(): array
     {
-        /* @phpstan-ignore-next-line */
         return get_object_vars($this);
     }
 }

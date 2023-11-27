@@ -369,7 +369,7 @@ class PluginsList extends ModulesList
                 $count++;
             }
 
-            $tab = $count == count($defines) ? '#plugins' : '#update';   // @phpstan-ignore-line
+            $tab = $count == count($defines) ? '#plugins' : '#update';
 
             if ($count) {
                 Notices::addSuccessNotice(

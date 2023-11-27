@@ -98,7 +98,7 @@ class Autoloader
             $this->root_base_dir = $this->normalizeBaseDir($root_base_dir);
         }
 
-        // @phpstan-ignore-next-line (Failed to see array as callable but works great)
+        // @phpstan-ignore-next-line (PHPStan failed to see 1st parameter as a closure as callable but works great)
         spl_autoload_register($this->loadClass(...), true, $prepend);
     }
 
@@ -254,7 +254,7 @@ class Autoloader
      * @param   string  $relative_class     The relative class name
      *
      * @return  null|string     Null if no mapped file can be loaded, or the
-     *                      name of the mapped file that was loaded
+     *                          name of the mapped file that was loaded
      */
     private function loadMappedFile(string $prefix, string $relative_class): ?string
     {

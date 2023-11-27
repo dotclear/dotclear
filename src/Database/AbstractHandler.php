@@ -77,19 +77,15 @@ abstract class AbstractHandler extends Connection
     public function __construct(string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
     {
         if ($persistent) {
-            /* @phpstan-ignore-next-line */
             $this->__link = $this->db_pconnect($host, $user, $password, $database);
         } else {
-            /* @phpstan-ignore-next-line */
             $this->__link = $this->db_connect($host, $user, $password, $database);
         }
 
-        /* @phpstan-ignore-next-line */
         $this->__version  = $this->db_version($this->__link);
         $this->__database = $database;
 
-        /* @phpstan-ignore-next-line */
-        if ($prefix != '') {
+        if ($prefix !== '') {
             $this->__prefix = $this->db_search_path($this->__link, $prefix);
         }
     }
@@ -99,7 +95,6 @@ abstract class AbstractHandler extends Connection
      */
     public function close(): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_close($this->__link);
     }
 
@@ -179,18 +174,14 @@ abstract class AbstractHandler extends Connection
 
         $this->__last_result = &$result;
 
-        $info        = [];
-        $info['con'] = &$this;
-        /* @phpstan-ignore-next-line */
+        $info         = [];
+        $info['con']  = &$this;
         $info['cols'] = $this->db_num_fields($result);
-        /* @phpstan-ignore-next-line */
         $info['rows'] = $this->db_num_rows($result);
         $info['info'] = [];
 
         for ($i = 0; $i < $info['cols']; $i++) {
-            /* @phpstan-ignore-next-line */
             $info['info']['name'][] = $this->db_field_name($result, $i);
-            /* @phpstan-ignore-next-line */
             $info['info']['type'][] = $this->db_field_type($result, $i);
         }
 
@@ -228,7 +219,6 @@ abstract class AbstractHandler extends Connection
      */
     public function execute(string $sql): bool
     {
-        /* @phpstan-ignore-next-line */
         $result = $this->db_exec($this->__link, $sql);
 
         $this->__last_result = &$result;
@@ -276,7 +266,6 @@ abstract class AbstractHandler extends Connection
      */
     public function writeLock(string $table): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_write_lock($table);
     }
 
@@ -287,7 +276,6 @@ abstract class AbstractHandler extends Connection
      */
     public function unlock(): void
     {
-        /* @phpstan-ignore-next-line */
         $this->db_unlock();
     }
 
@@ -310,7 +298,6 @@ abstract class AbstractHandler extends Connection
      */
     public function changes(): int
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_changes($this->__link, $this->__last_result);
     }
 
@@ -323,7 +310,6 @@ abstract class AbstractHandler extends Connection
      */
     public function error()
     {
-        /* @phpstan-ignore-next-line */
         $err = $this->db_last_error($this->__link);
 
         if (!$err) {
@@ -402,13 +388,13 @@ abstract class AbstractHandler extends Connection
         if (is_null($in)) {
             return ' IN (NULL) ';
         } elseif (is_string($in)) {
-            return " IN ('" . $this->escape($in) . "') ";   // @phpstan-ignore-line
+            return " IN ('" . $this->escapeStr($in) . "') ";
         } elseif (is_array($in)) {
             foreach ($in as $i => $v) {
                 if (is_null($v)) {
                     $in[$i] = 'NULL';
                 } elseif (is_string($v)) {
-                    $in[$i] = "'" . $this->escape($v) . "'";    // @phpstan-ignore-line
+                    $in[$i] = "'" . $this->escapeStr($v) . "'";
                 }
             }
 
@@ -528,7 +514,6 @@ abstract class AbstractHandler extends Connection
      */
     public function escapeStr(string $str): string
     {
-        /* @phpstan-ignore-next-line */
         return $this->db_escape_string($str, $this->__link);
     }
 

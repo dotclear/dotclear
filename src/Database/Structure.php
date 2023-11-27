@@ -196,11 +196,9 @@ class Structure
                 $got_work = true;
             } else { # Table exists
                 # Check new fields to create
-                $fields = $t->getFields();
-                /* @phpstan-ignore-next-line */
+                $fields    = $t->getFields();
                 $db_fields = $this->tables[$tname]->getFields();
                 foreach ($fields as $fname => $f) {
-                    /* @phpstan-ignore-next-line */
                     if (!$this->tables[$tname]->fieldExists($fname)) {
                         # Field doest not exist, create it
                         $field_create[$tname][$fname] = $f;
@@ -213,8 +211,7 @@ class Structure
                 }
 
                 # Check keys to add or upgrade
-                $keys = $t->getKeys();
-                /* @phpstan-ignore-next-line */
+                $keys    = $t->getKeys();
                 $db_keys = $this->tables[$tname]->getKeys();
 
                 foreach ($keys as $kname => $k) {
@@ -224,7 +221,6 @@ class Structure
                         $kname = $this->prefix . $kname;
                     }
 
-                    /* @phpstan-ignore-next-line */
                     $db_kname = $this->tables[$tname]->keyExists($kname, $k['type'], $k['cols']);
                     if (!$db_kname) {
                         # Key does not exist, create it
@@ -238,13 +234,11 @@ class Structure
                 }
 
                 # Check index to add or upgrade
-                $idx = $t->getIndexes();
-                /* @phpstan-ignore-next-line */
+                $idx    = $t->getIndexes();
                 $db_idx = $this->tables[$tname]->getIndexes();
 
                 foreach ($idx as $iname => $i) {
-                    $iname = $this->prefix . $iname;
-                    /* @phpstan-ignore-next-line */
+                    $iname    = $this->prefix . $iname;
                     $db_iname = $this->tables[$tname]->indexExists($iname, $i['type'], $i['cols']);
 
                     if (!$db_iname) {
@@ -259,15 +253,13 @@ class Structure
                 }
 
                 # Check references to add or upgrade
-                $ref = $t->getReferences();
-                /* @phpstan-ignore-next-line */
+                $ref    = $t->getReferences();
                 $db_ref = $this->tables[$tname]->getReferences();
 
                 foreach ($ref as $rname => $r) {
                     $rname        = $this->prefix . $rname;
                     $r['p_table'] = $this->prefix . $r['p_table'];
-                    /* @phpstan-ignore-next-line */
-                    $db_rname = $this->tables[$tname]->referenceExists($rname, $r['c_cols'], $r['p_table'], $r['p_cols']);
+                    $db_rname     = $this->tables[$tname]->referenceExists($rname, $r['c_cols'], $r['p_table'], $r['p_cols']);
 
                     if (!$db_rname) {
                         # Reference does not exist, create it

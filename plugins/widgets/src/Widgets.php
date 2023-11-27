@@ -78,7 +78,7 @@ class Widgets
         self::$widgets = new WidgetsStack();
 
         // deprecated since 2.28, use Widgets::$widgets instead
-        dcCore::app()->widgets = self::$widgets;    // @phpstan-ignore-line
+        dcCore::app()->widgets = self::$widgets;
 
         // deprecated since 2.23, use Widgets::$widgets instead
         $GLOBALS['__widgets'] = self::$widgets;
@@ -506,7 +506,7 @@ class Widgets
 
         try {
             $feed = Reader::quickParse($widget->get('url'), App::config()->cacheRoot());
-            if (!$feed || !(is_countable($feed->items) ? count($feed->items) : 0)) {    // @phpstan-ignore-line
+            if (!$feed || !count($feed->items)) {
                 return '';
             }
         } catch (Exception) {

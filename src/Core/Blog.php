@@ -319,7 +319,7 @@ class Blog implements BlogInterface
             ->from($sql->as($this->con->prefix() . self::BLOG_TABLE_NAME, 'B'))
             ->where('B.blog_id' . $sql->in($blog_id))
             ->order('B.blog_id ASC')
-            ;
+        ;
 
         if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
             $sql
@@ -337,10 +337,9 @@ class Blog implements BlogInterface
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
                 ->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]))
-                ;
+            ;
         } elseif (!$this->auth->userID()) {
             $sql->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]));
-
         }
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -1325,9 +1324,9 @@ class Blog implements BlogInterface
         $params['post_type'] = $post->post_type;
         $params['limit']     = 1;
         $params['order']     = 'post_dt ' . $order . ', P.post_id ' . $order;
-        $params['sql']       = 'AND ( ' .   // @phpstan-ignore-line
-            "   (post_dt = '" . $this->con->escape($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
-            '   OR post_dt ' . $sign . " '" . $this->con->escape($dt) . "' " .
+        $params['sql']       = 'AND ( ' .
+            "   (post_dt = '" . $this->con->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
+            '   OR post_dt ' . $sign . " '" . $this->con->escapeStr($dt) . "' " .
             ') ';
 
         if ($restrict_to_category) {
@@ -1335,7 +1334,7 @@ class Blog implements BlogInterface
         }
 
         if ($restrict_to_lang) {
-            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->con->escape($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';    // @phpstan-ignore-line
+            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->con->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
         }
 
         $rs = $this->getPosts($params);
@@ -2012,7 +2011,7 @@ class Blog implements BlogInterface
                         $queries[$id] = 'P.cat_id = ' . (int) $id;
                     }
                 } else {
-                    $queries[$id] = "C.cat_url = '" . $this->con->escape($id) . "' ";   // @phpstan-ignore-line
+                    $queries[$id] = "C.cat_url = '" . $this->con->escapeStr((string) $id) . "' ";
                 }
             }
         }
