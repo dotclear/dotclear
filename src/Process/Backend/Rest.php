@@ -627,12 +627,14 @@ class Rest extends Process
      *
      * Used with jquery.autocomplete()
      *
-     * @param      dcCore                   $core   dcCore instance
-     * @param      array<string, string>    $get    The get
+     * @param      mixed                    $unused     Was dcCore instance
+     * @param      array<string, string>    $get        The get
+     *
+     * @deprecated Since 2.29, use searchMetadata instead
      *
      * @return     XmlTag
      */
-    public static function searchMeta(dcCore $core, array $get): XmlTag
+    public static function searchMeta(mixed $unused, array $get): XmlTag
     {
         $q        = !empty($get['q']) ? $get['q'] : null;
         $metaType = !empty($get['metaType']) ? $get['metaType'] : null;

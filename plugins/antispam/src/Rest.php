@@ -16,7 +16,7 @@ namespace Dotclear\Plugin\antispam;
 class Rest
 {
     /**
-     * Gets the spams count.
+     * Gets the spams count. (JSON)
      *
      * @return  array<string, mixed>   The spams count message
      */
