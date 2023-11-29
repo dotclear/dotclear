@@ -5619,10 +5619,6 @@ msgstr ""
 msgid "Hide help button"
 msgstr ""
 
-#: src/Process/Backend/UserPreferences.php:657
-msgid "Show asynchronous requests indicator"
-msgstr ""
-
 #: src/Process/Backend/UserPreferences.php:659
 msgid "Font size:"
 msgstr ""

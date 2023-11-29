@@ -454,7 +454,6 @@ h6 {
   --msg-success-background-alt: #9bca1c;
   --dc-update-color: #000;
   --dc-update-background: #a2cbe9;
-  --ajax-loader: #82b9e1;
   --form-control-color: #000;
   --filter-border: #a2cbe9;
   --filter-options-border: #c9c9c9;
@@ -725,7 +724,6 @@ h6 {
   --msg-success-background-alt: #9bca1c;
   --dc-update-color: #000;
   --dc-update-background: #a2cbe9;
-  --ajax-loader: #82b9e1;
   --form-control-color: #fff;
   --filter-border: #a2cbe9;
   --filter-options-border: #c9cbcf;
@@ -997,7 +995,6 @@ h6 {
     --msg-success-background-alt: #9bca1c;
     --dc-update-color: #000;
     --dc-update-background: #a2cbe9;
-    --ajax-loader: #82b9e1;
     --form-control-color: #fff;
     --filter-border: #a2cbe9;
     --filter-options-border: #c9cbcf;
@@ -2786,15 +2783,6 @@ span.info {
     background-color: var(--msg-warn-background-alt);
   }
 }
-body.ajax-loader #header {
-  border-bottom-color: var(--ajax-loader);
-  transition: border-bottom-color 0.3s ease;
-}
-body.ajax-loader #collapser {
-  background-color: var(--ajax-loader);
-  transition: background-color 0.3s ease;
-}
-
 .guideline #main-menu {
   padding-bottom: 0;
   position: sticky;

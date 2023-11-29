@@ -71,7 +71,6 @@ class UserPreferences extends Process
         App::backend()->user_ui_blank_preview    = App::auth()->prefs()->interface->blank_preview;
         App::backend()->user_ui_hidemoreinfo     = App::auth()->prefs()->interface->hidemoreinfo;
         App::backend()->user_ui_hidehelpbutton   = App::auth()->prefs()->interface->hidehelpbutton;
-        App::backend()->user_ui_showajaxloader   = App::auth()->prefs()->interface->showajaxloader;
         App::backend()->user_ui_htmlfontsize     = App::auth()->prefs()->interface->htmlfontsize;
         App::backend()->user_ui_systemfont       = App::auth()->prefs()->interface->systemfont;
         App::backend()->user_ui_hide_std_favicon = false;
@@ -278,7 +277,6 @@ class UserPreferences extends Process
                 App::auth()->prefs()->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), 'boolean');
                 App::auth()->prefs()->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
                 App::auth()->prefs()->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
-                App::auth()->prefs()->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
                 App::auth()->prefs()->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
                 App::auth()->prefs()->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
                 if (App::auth()->isSuperAdmin()) {
@@ -651,10 +649,6 @@ class UserPreferences extends Process
         '<p><label for="user_ui_hidehelpbutton" class="classic">' .
         form::checkbox('user_ui_hidehelpbutton', 1, App::backend()->user_ui_hidehelpbutton) . ' ' .
         __('Hide help button') . '</label></p>' .
-
-        '<p><label for="user_ui_showajaxloader" class="classic">' .
-        form::checkbox('user_ui_showajaxloader', 1, App::backend()->user_ui_showajaxloader) . ' ' .
-        __('Show asynchronous requests indicator') . '</label></p>' .
 
         '<p><label for="user_ui_htmlfontsize" class="classic">' . __('Font size:') . '</label>' . ' ' .
         form::combo('user_ui_htmlfontsize', App::backend()->htmlfontsize_combo, App::backend()->user_ui_htmlfontsize) . '</p>' .

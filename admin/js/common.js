@@ -1029,18 +1029,6 @@ $(() => {
     $('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
   }
 
-  // Ajax loader activity indicator
-  if (dotclear.data.showAjaxLoader) {
-    $(document).ajaxStart(() => {
-      $('body').addClass('ajax-loader');
-      $('div.ajax-loader').show();
-    });
-    $(document).ajaxStop(() => {
-      $('body').removeClass('ajax-loader');
-      $('div.ajax-loader').hide();
-    });
-  }
-
   // Main menu collapser
   const objMain = $('#wrapper');
   const hideMainMenu = 'hide_main_menu';

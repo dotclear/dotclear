@@ -244,18 +244,6 @@ span.info {
   }
 }
 
-body.ajax-loader {
-  #header {
-    border-bottom-color: var(--ajax-loader);
-    transition: border-bottom-color 0.3s ease;
-  }
-
-  #collapser {
-    background-color: var(--ajax-loader);
-    transition: background-color 0.3s ease;
-  }
-}
-
 .guideline {
   #main-menu {
     padding-bottom: 0;
