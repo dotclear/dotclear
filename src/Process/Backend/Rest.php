@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\App;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
