@@ -9,7 +9,6 @@
 namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -275,10 +274,8 @@ class Frontend extends Process
 
     /**
      * Public inside footer behavior callback
-     *
-     * @param      dcCore  $core   The core
      */
-    public static function publicInsideFooter(dcCore $core = null): void
+    public static function publicInsideFooter(): void
     {
         $res     = '';
         $default = false;
