@@ -715,22 +715,25 @@ dotclear.services = (
   // Use JSON.stringify to push complex object in Javascript
   // Use json_decode(, [true]) to decode complex object in PHP (use true as 2nd param if key-array)
   if (get) {
+    // Add parameters to query part of URL
     const data = new URLSearchParams(service.search);
     Object.keys(params).forEach((key) => data.append(key, params[key]));
     service.search = data.toString();
   } else {
+    // Add parameters to body part of request
     const data = new FormData();
     Object.keys(params).forEach((key) => data.append(key, params[key]));
     init.body = data;
   }
   fetch(service, init)
-    .then((p) => {
-      if (!p.ok) {
-        throw Error(p.statusText);
+    .then((promise) => {
+      if (!promise.ok) {
+        throw Error(promise.statusText);
       }
-      return p.text();
+      // Return a promise of text representation of body -> response
+      return promise.text();
     })
-    .then((data) => onSuccess(data))
+    .then((response) => onSuccess(response))
     .catch((error) => onError(error));
 };
 
