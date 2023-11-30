@@ -9,6 +9,10 @@
  */
 declare(strict_types=1);
 
+use Dotclear\Config;
+use Dotclear\Core\Core;
+use Dotclear\Helper\Container\Factories;
+
 // Composer Autoloader
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -30,3 +34,6 @@ spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[
 
 // Ensure L10n functions exist
 require_once __DIR__ . '/../../src/Helper/L10n.php';
+
+// Instanciate Core
+new Core(new Config(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..'])), Factories::getFactory(Core::CONTAINER_ID));
