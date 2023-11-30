@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-25 08:17\n"
+"PO-Revision-Date: 2023-11-30 18:01\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -5694,10 +5694,6 @@ msgstr "Приховати всю другорядну інформацію та
 #: src/Process/Backend/UserPreferences.php:653
 msgid "Hide help button"
 msgstr "Приховати кнопку довідки"
-
-#: src/Process/Backend/UserPreferences.php:657
-msgid "Show asynchronous requests indicator"
-msgstr "Показати індикатор асинхронних запитів"
 
 #: src/Process/Backend/UserPreferences.php:659
 msgid "Font size:"
