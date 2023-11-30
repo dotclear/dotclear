@@ -27,13 +27,6 @@ class Message
     protected $brutxml;
 
     /**
-     * XML message
-     *
-     * @var string
-     */
-    protected $message;
-
-    /**
      * Type of message - methodCall / methodResponse / fault
      *
      * @var string
@@ -117,9 +110,10 @@ class Message
      *
      * @param string        $message        XML Message
      */
-    public function __construct(string $message)
-    {
-        $this->brutxml = $this->message = $message;
+    public function __construct(
+        protected string $message
+    ) {
+        $this->brutxml = $this->message;
     }
 
     /**

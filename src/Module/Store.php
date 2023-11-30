@@ -25,13 +25,6 @@ use Exception;
 class Store
 {
     /**
-     * Modules instance.
-     *
-     * @var     ModulesInterface    $modules
-     */
-    public ModulesInterface $modules;
-
-    /**
      * Modules fields to search on and their weight.
      *
      * @var     array<string,int>   $weighting
@@ -50,13 +43,6 @@ class Store
      * @var     string  $user_agent
      */
     protected string $user_agent = 'DotClear.org RepoBrowser/0.1';
-
-    /**
-     * XML feed URL.
-     *
-     * @var     null|string     $xml_url
-     */
-    protected ?string $xml_url = null;
 
     /**
      * Array of new/update modules from repository.
@@ -92,10 +78,11 @@ class Store
      * @param   string              $xml_url    XML feed URL
      * @param   null|bool           $force  Force query repository
      */
-    public function __construct(ModulesInterface $modules, ?string $xml_url, ?bool $force = false)
-    {
-        $this->modules    = $modules;
-        $this->xml_url    = $xml_url;
+    public function __construct(
+        public ModulesInterface $modules,
+        protected ?string $xml_url,
+        ?bool $force = false
+    ) {
         $this->user_agent = sprintf('Dotclear/%s)', App::config()->dotclearVersion());
 
         $this->check($force);

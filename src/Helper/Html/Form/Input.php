@@ -18,22 +18,19 @@ class Input extends Component
     private const DEFAULT_ELEMENT = 'input';
 
     /**
-     * Should include the associated label if exist
-     */
-    private bool $renderLabel = true;
-
-    /**
      * Constructs a new instance.
      *
      * @param      string|array{0: string, 1?: string}|null     $id             The identifier
      * @param      string                                       $type           The input type
      * @param      bool                                         $renderLabel    Render label if present
      */
-    public function __construct($id = null, string $type = 'text', bool $renderLabel = true)
-    {
+    public function __construct(
+        $id = null,
+        string $type = 'text',
+        private bool $renderLabel = true
+    ) {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
         $this->type($type);
-        $this->renderLabel = $renderLabel;
         if ($id !== null) {
             $this->setIdentifier($id);
         }

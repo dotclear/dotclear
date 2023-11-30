@@ -25,50 +25,9 @@ use Dotclear\Interface\Core\ConnectionInterface;
 class Session implements SessionInterface
 {
     /**
-     * Connection handler
-     *
-     * @var ConnectionInterface
-     */
-    private $con;
-
-    /**
-     * Table name
-     */
-    private string $table;
-
-    /**
-     * Cookie name
-     */
-    private string $cookie_name;
-
-    /**
-     * Cookie path
-     *
-     * @var string|null
-     */
-    private ?string $cookie_path;
-
-    /**
-     * Cookie domain
-     */
-    private ?string $cookie_domain = null;
-
-    /**
-     * Secure cookie
-     */
-    private bool $cookie_secure;
-
-    /**
      * TTL (must be a negative duration as '-120 minutes')
      */
     private string $ttl = '-120 minutes';
-
-    /**
-     * Transient session
-     *
-     * No DB optimize on session destruction if true
-     */
-    private bool $transient = false;
 
     /**
      * Constructor
@@ -85,21 +44,17 @@ class Session implements SessionInterface
      * @param bool                  $transient         Transient session : no db optimize on session destruction if true
      */
     public function __construct(
-        ConnectionInterface $con,
-        string $table,
-        string $cookie_name,
-        ?string $cookie_path = null,
-        ?string $cookie_domain = null,
-        bool $cookie_secure = false,
+        private ConnectionInterface $con,
+        private string $table,
+        private string $cookie_name,
+        private ?string $cookie_path = null,
+        private ?string $cookie_domain = null,
+        private bool $cookie_secure = false,
         ?string $ttl = null,
-        bool $transient = false
+        private bool $transient = false
     ) {
-        $this->con           = &$con;
-        $this->table         = $table;
-        $this->cookie_name   = $cookie_name;
-        $this->cookie_path   = is_null($cookie_path) ? '/' : $cookie_path;
-        $this->cookie_domain = $cookie_domain;
-        $this->cookie_secure = $cookie_secure;
+        $this->con         = &$con;   // May be not necessary, to be checked
+        $this->cookie_path = is_null($cookie_path) ? '/' : $cookie_path;
         if (!is_null($ttl)) {
             if (!str_starts_with(trim($ttl), '-')) {
                 // Clearbricks requires negative session TTL
@@ -107,7 +62,6 @@ class Session implements SessionInterface
             }
             $this->ttl = $ttl;
         }
-        $this->transient = $transient;
 
         if (function_exists('ini_set')) {
             @ini_set('session.use_cookies', '1');

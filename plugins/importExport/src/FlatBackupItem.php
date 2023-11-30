@@ -15,26 +15,18 @@ namespace Dotclear\Plugin\importExport;
  */
 class FlatBackupItem
 {
-    public string $__name;
-    public int $__line;
-
-    /**
-     * @var array<string, mixed>
-     */
-    private array $__data = [];
-
     /**
      * Constructs a new instance.
      *
-     * @param      string                   $name   The name
-     * @param      array<string, mixed>     $data   The data
-     * @param      int                      $line   The line
+     * @param      string                   $__name   The name
+     * @param      array<string, mixed>     $__data   The data
+     * @param      int                      $__line   The line
      */
-    public function __construct(string $name, array $data, int $line)
-    {
-        $this->__name = $name;
-        $this->__data = $data;
-        $this->__line = $line;
+    public function __construct(
+        public string $__name,
+        private array $__data,
+        public int $__line
+    ) {
     }
 
     public function f(string $name): string

@@ -22,19 +22,17 @@ class Select extends Component
     private const DEFAULT_ELEMENT = 'select';
 
     /**
-     * Should include the associated label if exist
-     */
-    private bool $renderLabel = true;
-
-    /**
      * Constructs a new instance.
      *
      * @param      string|array{0: string, 1?: string}|null     $id             The identifier
      * @param      string                                       $element        The element
      * @param      bool                                         $renderLabel    Render label if present
      */
-    public function __construct($id = null, ?string $element = null, bool $renderLabel = true)
-    {
+    public function __construct(
+        $id = null,
+        ?string $element = null,
+        private bool $renderLabel = true
+    ) {
         parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this->renderLabel = $renderLabel;
         if ($id !== null) {

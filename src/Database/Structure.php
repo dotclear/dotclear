@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+use Dotclear\Interface\Core\ConnectionInterface;
 use Exception;
 
 /**
@@ -19,16 +20,6 @@ use Exception;
 class Structure
 {
     /**
-     * @var mixed instance
-     */
-    protected $con;
-
-    /**
-     * @var string DB table prefix
-     */
-    protected $prefix;
-
-    /**
      * Stack of DB tables
      *
      * @var        array<string, Table>
@@ -38,13 +29,13 @@ class Structure
     /**
      * Constructs a new instance.
      *
-     * @param      mixed   $con     The DB handle
-     * @param      string  $prefix  The DB table prefix
+     * @param      ConnectionInterface  $con     The DB handle
+     * @param      string               $prefix  The DB table prefix
      */
-    public function __construct($con, string $prefix = '')
-    {
-        $this->con    = &$con;
-        $this->prefix = $prefix;
+    public function __construct(
+        protected ConnectionInterface $con,
+        protected string $prefix = ''
+    ) {
     }
 
     /**

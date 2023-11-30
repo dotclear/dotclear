@@ -19,11 +19,6 @@ use Exception;
 class Table
 {
     /**
-     * @var string
-     */
-    protected $name;
-
-    /**
      * @var        bool
      */
     protected $has_primary = false;
@@ -79,9 +74,9 @@ class Table
      *
      * @param      string  $name   The table name
      */
-    public function __construct(string $name)
-    {
-        $this->name = $name;
+    public function __construct(
+        protected string $name
+    ) {
     }
 
     /**

@@ -18,11 +18,6 @@ use Exception;
 class Unzip
 {
     /**
-     * @var  string
-     */
-    protected string $file_name;
-
-    /**
      * @var        array<string, array<string, mixed>>
      */
     protected array $compressed_list = [];
@@ -73,9 +68,9 @@ class Unzip
      *
      * @param      string  $file_name  The file name
      */
-    public function __construct(string $file_name)
-    {
-        $this->file_name = $file_name;
+    public function __construct(
+        protected string $file_name
+    ) {
     }
 
     public function __destruct()

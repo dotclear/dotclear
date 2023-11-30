@@ -38,15 +38,6 @@ class UrlHandler
     protected $error_handlers = [];
 
     /**
-     * URL mode
-     *
-     * Should be 'path_info' or 'query_string'
-     *
-     * @var string
-     */
-    public $mode;
-
-    /**
      * Current handler
      *
      * @var        string
@@ -56,11 +47,11 @@ class UrlHandler
     /**
      * Constructs a new instance.
      *
-     * @param      string  $mode   The URL mode
+     * @param      string  $mode   The URL mode, should be 'path_info' or 'query_string'
      */
-    public function __construct(string $mode = 'path_info')
-    {
-        $this->mode = $mode;
+    public function __construct(
+        public string $mode = 'path_info'
+    ) {
     }
 
     /**

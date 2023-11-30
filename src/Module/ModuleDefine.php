@@ -69,13 +69,6 @@ class ModuleDefine
     public const DEFAULT_PRIORITY = 1000;
 
     /**
-     * Module id, must be module's root path.
-     *
-     * @var     string  $id
-     */
-    private string $id;
-
-    /**
      * Dependencies : implies.
      *
      * @var     array<int,string>   $implies
@@ -166,11 +159,11 @@ class ModuleDefine
      *
      * @param   string  $id The module identifier (root path)
      */
-    public function __construct(string $id)
-    {
+    public function __construct(
+        private string $id
+    ) {
         $this->default['tplset'] = App::config()->defaultTplset();
 
-        $this->id = $id;
         $this->init();
     }
 

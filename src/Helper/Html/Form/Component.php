@@ -86,16 +86,6 @@ namespace Dotclear\Helper\Html\Form;
 abstract class Component
 {
     /**
-     * @var string Component class
-     */
-    private string $componentClass;
-
-    /**
-     * @var string|null HTML element (will be used to render component)
-     */
-    private ?string $htmlElement = null;
-
-    /**
      * @var array<array-key, mixed> Custom component properties (see __get() and __set())
      */
     protected array $properties = [];
@@ -103,13 +93,14 @@ abstract class Component
     /**
      * Constructs a new instance.
      *
-     * @param      null|string  $type         The component type
-     * @param      null|string  $htmlElement  The html element
+     * @param      null|string  $componentClass     The component class
+     * @param      null|string  $htmlElement        The html element (will be used to render component)
      */
-    public function __construct(?string $type = null, ?string $htmlElement = null)
-    {
-        $this->componentClass = $type ?? self::class;
-        $this->htmlElement    = $htmlElement;
+    public function __construct(
+        private ?string $componentClass = null,
+        private ?string $htmlElement = null
+    ) {
+        $this->componentClass ??= self::class;
     }
 
     /**
@@ -230,7 +221,7 @@ abstract class Component
      */
     public function getType(): string
     {
-        return $this->componentClass;
+        return $this->componentClass ?? self::class;
     }
 
     /**

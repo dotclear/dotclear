@@ -19,13 +19,6 @@ use Exception;
 class Socket
 {
     /**
-     * Server host
-     *
-     * @var string
-     */
-    protected $_host;
-
-    /**
      * Server port
      *
      * @var int
@@ -56,13 +49,15 @@ class Socket
     /**
      * Class constructor
      *
-     * @param string      $host        Server host
+     * @param string      $_host       Server host
      * @param int         $port        Server port
      * @param int         $timeout     Connection timeout in seconds
      */
-    public function __construct(string $host, int $port, int $timeout = 10)
-    {
-        $this->_host    = $host;
+    public function __construct(
+        protected string $_host,
+        int $port,
+        int $timeout = 10
+    ) {
         $this->_port    = abs($port);
         $this->_timeout = abs($timeout);
     }

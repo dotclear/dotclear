@@ -19,33 +19,19 @@ use Exception;
 class Value
 {
     /**
-     * Data value
-     *
-     * @var mixed
-     */
-    protected $data;
-
-    /**
-     * Data type
-     *
-     * @var string
-     */
-    protected string $type;
-
-    /**
      * Constructor
      *
      * @param mixed           $data        Data value
      * @param string|false    $type        Data type
      */
-    public function __construct($data, $type = false)
-    {
-        $this->data = $data;
-        if (!$type) {
-            $type = $this->calculateType();
+    public function __construct(
+        protected $data,
+        protected string|false $type = false
+    ) {
+        if (!$this->type) {
+            $this->type = $this->calculateType();
         }
-        $this->type = $type;
-        if ($type === 'struct' || $type === 'array') {
+        if ($this->type === 'struct' || $this->type === 'array') {
             if (is_array($this->data)) {
                 // Turn all the values in the array in to new Value objects
                 foreach ($this->data as $key => $value) {

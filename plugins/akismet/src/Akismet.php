@@ -49,30 +49,15 @@ class Akismet extends HttpClient
     protected $ak_path = '/%s/%s';
 
     /**
-     * Akismet API key.
-     *
-     * @var     null|string     $ak_key
-     */
-    protected $ak_key = null;
-
-    /**
-     * Blog URL.
-     *
-     * @var     string  $blog_url
-     */
-    protected $blog_url;
-
-    /**
      * Constructs a new instance.
      *
      * @param   string          $blog_url   The blog URL
-     * @param   null|string     $api_key    The API key
+     * @param   null|string     $ak_key     The Akismet API key
      */
-    public function __construct(string $blog_url, ?string $api_key)
-    {
-        $this->blog_url = $blog_url;
-        $this->ak_key   = $api_key;
-
+    public function __construct(
+        protected string $blog_url,
+        protected ?string $ak_key = null
+    ) {
         $this->ak_path = sprintf($this->ak_path, $this->ak_version, '%s');
         $this->ak_host = $this->ak_key . '.' . $this->base_host;
 

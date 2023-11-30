@@ -34,20 +34,6 @@ class Record implements Iterator, Countable
     protected $__link;
 
     /**
-     * Query result resource
-     *
-     * @var mixed
-     */
-    protected $__result;
-
-    /**
-     * Result information array
-     *
-     * @var array<string, mixed>
-     */
-    protected $__info;
-
-    /**
      * List of static functions that extend Record
      *
      * @var        array<string, callable>
@@ -87,14 +73,14 @@ class Record implements Iterator, Countable
      * - info[name] => an array with columns names
      * - info[type] => an array with columns types
      *
-     * @param mixed                     $result      Resource result
-     * @param array<string, mixed>      $info        Information array
+     * @param mixed                     $__result      Resource result
+     * @param array<string, mixed>      $__info        Information array
      */
-    public function __construct($result, array $info)
-    {
-        $this->__result = $result;
-        $this->__info   = $info;
-        $this->__link   = $info['con']->link();
+    public function __construct(
+        protected $__result,
+        protected array $__info
+    ) {
+        $this->__link = $this->__info['con']->link();
 
         // Move to first row
         $this->index(0);

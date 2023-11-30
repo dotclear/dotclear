@@ -17,20 +17,6 @@ namespace Dotclear\Helper\Network\XmlRpc;
 class Request
 {
     /**
-     * Request method name
-     *
-     * @var string
-     */
-    public $method;
-
-    /**
-     * Request method arguments
-     *
-     * @var array<int|string, array<int|string, mixed>>
-     */
-    public $args;
-
-    /**
      * Request XML string
      *
      * @var string
@@ -43,11 +29,10 @@ class Request
      * @param string                                        $method     Method name
      * @param array<int|string, array<int|string, mixed>>   $args       Method arguments
      */
-    public function __construct(string $method, array $args)
-    {
-        $this->method = $method;
-        $this->args   = $args;
-
+    public function __construct(
+        public string $method,
+        public array $args
+    ) {
         $this->xml = '<?xml version="1.0"?>' . "\n" .
         '<methodCall>' . "\n" .
         '  <methodName>' . $this->method . '</methodName>' . "\n" .

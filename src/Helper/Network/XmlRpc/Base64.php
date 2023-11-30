@@ -17,22 +17,15 @@ namespace Dotclear\Helper\Network\XmlRpc;
 class Base64
 {
     /**
-     * Base 64 decoded data
-     *
-     * @var string
-     */
-    protected $data;
-
-    /**
      * Constructor
      *
      * Create a new instance of Base64.
      *
-     * @param string        $data        Data
+     * @param string        $data        Base 64 decoded data
      */
-    public function __construct(string $data)
-    {
-        $this->data = $data;
+    public function __construct(
+        protected string $data
+    ) {
     }
 
     /**

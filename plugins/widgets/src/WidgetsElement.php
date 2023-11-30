@@ -52,27 +52,6 @@ class WidgetsElement
     public const EXCEPT_HOME = 2;
 
     /**
-     * Widget ID.
-     *
-     * @var     string  $id
-     */
-    private string $id;
-
-    /**
-     * Widget name.
-     *
-     * @var     string  $name
-     */
-    private string $name;
-
-    /**
-     * Widget description.
-     *
-     * @var     string  $desc
-     */
-    private string $desc;
-
-    /**
      * Widget callback.
      *
      * @var     null|callable   $public_callback
@@ -94,6 +73,30 @@ class WidgetsElement
     protected array $settings;
 
     /**
+     * Constructs a new instance.
+     *
+     * @param   string          $id         The widget ID
+     * @param   string          $name       The widget name
+     * @param   callable        $callback   The widget callback
+     * @param   string          $desc       The widget description
+     */
+    public function __construct(
+        private string $id,
+        private string $name,
+        $callback,
+        private string $desc = ''
+    ) {
+        if (!is_callable($callback)) {
+            $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
+            # --BEHAVIOR-- widgetGetCallback -- ArrayObject
+            App::behavior()->callBehavior('widgetGetCallback', $widget);
+            $callback = is_callable($widget['callback']) ? $widget['callback'] : null;
+        }
+
+        $this->public_callback = $callback;
+    }
+
+    /**
      * Get array of widget settings
      *
      * @param   int     $order  The order
@@ -111,29 +114,6 @@ class WidgetsElement
         $values['order'] = $order;
 
         return $values;
-    }
-
-    /**
-     * Constructs a new instance.
-     *
-     * @param   string          $id         The identifier
-     * @param   string          $name       The name
-     * @param   callable        $callback   The callback
-     * @param   string          $desc       The description
-     */
-    public function __construct(string $id, string $name, $callback, string $desc = '')
-    {
-        if (!is_callable($callback)) {
-            $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
-            # --BEHAVIOR-- widgetGetCallback -- ArrayObject
-            App::behavior()->callBehavior('widgetGetCallback', $widget);
-            $callback = is_callable($widget['callback']) ? $widget['callback'] : null;
-        }
-
-        $this->public_callback = $callback;
-        $this->id              = $id;
-        $this->name            = $name;
-        $this->desc            = $desc;
     }
 
     /**

@@ -41,13 +41,6 @@ class Blogroll
     public const LINK_TABLE_NAME = 'link';
 
     /**
-     * Current blog.
-     *
-     * @var     BlogInterface   $blog
-     */
-    private $blog;
-
-    /**
      * Table name.
      *
      * @var     string  $table
@@ -57,11 +50,11 @@ class Blogroll
     /**
      * Constructs a new instance.
      *
-     * @param   BlogInterface   $blog   The blog
+     * @param   BlogInterface   $blog   Current blog
      */
-    public function __construct(BlogInterface $blog)
-    {
-        $this->blog  = $blog;
+    public function __construct(
+        private BlogInterface $blog
+    ) {
         $this->table = App::con()->prefix() . self::LINK_TABLE_NAME;
     }
 
