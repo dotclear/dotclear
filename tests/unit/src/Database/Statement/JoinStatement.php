@@ -106,6 +106,7 @@ class JoinStatement extends atoum
                     $sql->statement();
                 }
             )
+            ->error('Undefined array key 0')->exists()
             ->error('SQL JOIN requires a FROM source')->exists()
         ;
     }

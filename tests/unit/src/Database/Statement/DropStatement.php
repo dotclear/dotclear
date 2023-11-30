@@ -79,6 +79,7 @@ class DropStatement extends atoum
                     $sql->statement();
                 }
             )
+            ->error('Undefined array key 0')->exists()
             ->error('SQL DROP TABLE requires a FROM source')->exists()
         ;
     }

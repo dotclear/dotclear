@@ -106,6 +106,7 @@ class DeleteStatement extends atoum
                     $sql->statement();
                 }
             )
+            ->error('Undefined array key 0')->exists()
             ->error('SQL DELETE requires a FROM source')->exists()
         ;
     }

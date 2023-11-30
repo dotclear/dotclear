@@ -107,6 +107,7 @@ class InsertStatement extends atoum
                     $sql->statement();
                 }
             )
+            ->error('Undefined array key 0')->exists()
             ->error('SQL INSERT requires an INTO source')->exists()
         ;
     }

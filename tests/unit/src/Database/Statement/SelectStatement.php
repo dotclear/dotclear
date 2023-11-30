@@ -431,6 +431,7 @@ class SelectStatement extends atoum
                     $sql->statement();
                 }
             )
+            ->error('Undefined array key 0')->exists()
             ->error('SQL SELECT requires a FROM source')->exists()
         ;
     }

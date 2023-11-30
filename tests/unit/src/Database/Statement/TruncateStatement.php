@@ -79,6 +79,7 @@ class TruncateStatement extends atoum
                     $sql->statement();
                 }
             )
+            ->error('Undefined array key 0')->exists()
             ->error('SQL TRUNCATE TABLE requires a FROM source')->exists()
         ;
     }
