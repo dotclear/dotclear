@@ -38,14 +38,11 @@ class MetaRecord implements Iterator, Countable
     /**
      * Constructs a new instance.
      *
-     * @param      MetaRecord|Record|StaticRecord            $record    The record
+     * @param      Record|StaticRecord            $record    The record
      */
     public function __construct($record)
     {
-        if ($record instanceof MetaRecord) {
-            // Transparent construction, allow new MetaRecord($metarecord), will return $metarecord
-            return $record;
-        } elseif ($record instanceof StaticRecord) {
+        if ($record instanceof StaticRecord) {
             $this->static = $record;
         } else {
             $this->dynamic = $record;
