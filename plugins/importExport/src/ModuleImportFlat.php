@@ -195,7 +195,7 @@ class ModuleImportFlat extends Module
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
         ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
-            ' <input type="file" id="up_single_file" name="up_single_file" size="20" />' .
+            ' <input type="file" id="up_single_file" name="up_single_file" size="20">' .
             '</p>';
 
         if ($has_files) {
@@ -210,7 +210,7 @@ class ModuleImportFlat extends Module
         App::nonce()->getFormNonce() .
         form::hidden(['do'], 1) .
         form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
-        '<input type="submit" value="' . __('Import') . '" /></p>' .
+        '<input type="submit" value="' . __('Import') . '"></p>' .
 
             '</form>';
 
@@ -222,7 +222,7 @@ class ModuleImportFlat extends Module
 
             '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
             ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
-                '<input type="file" id="up_full_file" name="up_full_file" size="20" />' .
+                '<input type="file" id="up_full_file" name="up_full_file" size="20">' .
                 '</p>';
 
             if ($has_files) {
@@ -248,7 +248,7 @@ class ModuleImportFlat extends Module
             App::nonce()->getFormNonce() .
             form::hidden(['do'], 1) .
             form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
-            '<input type="submit" value="' . __('Import') . '" /></p>' .
+            '<input type="submit" value="' . __('Import') . '"></p>' .
 
                 '</form>';
         }

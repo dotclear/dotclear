@@ -406,11 +406,11 @@ class Filters
 
         echo
         '</div>' .
-        '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
+        '<p><input type="submit" value="' . __('Apply filters and display options') . '">' .
 
         $extra . $hiddens .
 
-        '<br class="clear" /></p>' . //Opera sucks
+        '<br class="clear"></p>' . //Opera sucks
         '</form>';
     }
 }

@@ -648,7 +648,7 @@ class Ctx
                 if (preg_match('|^([^\t\s]*)[\t\s]+(.*)$|', $smiley, $matches)) {
                     $smiley_code = '/(\G|[\s]+|>)(' . preg_quote($matches[1], '/') . ')([\s]+|[<]|\Z)/ms';
                     $smiley_img  = '$1<img src="' . $url . $matches[2] . '" ' .
-                    'alt="$2" class="smiley" />$3';
+                    'alt="$2" class="smiley">$3';
                     $definitions[$smiley_code] = $smiley_img;
                 }
             }
@@ -819,7 +819,7 @@ class Ctx
                     return $src;
                 }
 
-                return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '" />';
+                return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '">';
             }
         } catch (Exception) {
             // Ignore exception as it is not important not finding any image in content in a public context

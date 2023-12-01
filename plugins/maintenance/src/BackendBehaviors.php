@@ -117,7 +117,7 @@ class BackendBehaviors
             return;
         }
 
-        $icon['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
+        $icon['title'] .= '<br>' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
         $icon['large-icon'] = My::icons('update');
     }
 

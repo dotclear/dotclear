@@ -62,7 +62,7 @@ class Plugin extends Process
                 $class::render();
                 $res = (string) ob_get_contents();
                 ob_end_clean();
-                // by file name
+            // by file name
             } elseif (App::plugins()->moduleExists($plugin)) {
                 $p_file = App::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . App::plugins()::MODULE_FILE_MANAGE;
                 if (file_exists($p_file)) {
@@ -101,7 +101,7 @@ class Plugin extends Process
                     }
                 }
 
-                if (preg_match_all('|(<link.*?/>)|ms', $m[1], $ms)) {
+                if (preg_match_all('|(<link.*?\/?>)|ms', $m[1], $ms)) {
                     // Extract plugin links
                     foreach ($ms[1] as $v) {
                         $p_head .= $v . "\n";
@@ -120,7 +120,7 @@ class Plugin extends Process
                 // Add direct links to plugin settings if any
                 $settings = ModulesList::getSettingsUrls((string) $plugin, true, false);
                 if (!empty($settings)) {
-                    echo '<hr class="clear"/><p class="right modules">' . implode(' - ', $settings) . '</p>';
+                    echo '<hr class="clear"><p class="right modules">' . implode(' - ', $settings) . '</p>';
                 }
             }
             $close_function();

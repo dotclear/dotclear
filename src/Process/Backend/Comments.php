@@ -60,7 +60,7 @@ class Comments extends Process
             'comment_spam_filter' => 'comment_spam_filter', ];
 
         # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
-        App::behavior()->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
+        App::behavior()->callBehavior('adminCommentsSortbyLexCombo', [&$sortby_lex]);
 
         $params['order'] = (array_key_exists(App::backend()->comment_filter->sortby, $sortby_lex) ?
             App::con()->lexFields($sortby_lex[App::backend()->comment_filter->sortby]) :
@@ -154,7 +154,7 @@ class Comments extends Process
                 echo
                 '<p>' .
                 App::nonce()->getFormNonce() .
-                '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
+                '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '"></p>';
 
                 # --BEHAVIOR-- adminCommentsSpamForm --
                 App::behavior()->callBehavior('adminCommentsSpamForm');
@@ -184,7 +184,7 @@ class Comments extends Process
                     ['default' => App::backend()->default_action, 'extra_html' => 'title="' . __('Actions') . '"']
                 ) .
                 App::nonce()->getFormNonce() .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
+                '<input id="do-action" type="submit" value="' . __('ok') . '"></p>' .
                 App::backend()->url()->getHiddenFormFields('admin.comments', App::backend()->comment_filter->values(true)) .
                 '</div>' .
 

@@ -126,7 +126,7 @@ class ThemesList extends ModulesList
                 }
 
                 $line .= '<div class="module-sshot"><img src="' . $sshot . '" loading="lazy" alt="' .
-                sprintf(__('%s screenshot.'), Html::escapeHTML($define->get('name'))) . '" /></div>';
+                sprintf(__('%s screenshot.'), Html::escapeHTML($define->get('name'))) . '"></div>';
             }
 
             $line .= $current ? '' : '<details><summary>' . __('Details') . '</summary>';
@@ -288,13 +288,13 @@ class ThemesList extends ModulesList
 
         // mark module state
         if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
+            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1">';
         }
 
         if ($id != App::blog()->settings()->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
-                $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
+                $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '">';
             }
             if (in_array('try', $actions)) {
                 $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) . '/' . $id);
@@ -354,7 +354,7 @@ class ThemesList extends ModulesList
                             $with_selection ?
                             __('Update selected themes') :
                             __('Update all themes from this list')
-                        ) . '" />' . App::nonce()->getFormNonce();
+                        ) . '">' . App::nonce()->getFormNonce();
                     }
 
                     break;

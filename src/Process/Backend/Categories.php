@@ -201,7 +201,7 @@ class Categories extends Process
                         $categories_combo,
                         fn ($cat) => $cat->value != ($rs->cat_id ?? '0')
                     ), '', '') .
-                    ' <input type="submit" class="reset" name="mov[' . $rs->cat_id . ']" value="' . __('OK') . '"/>';
+                    ' <input type="submit" class="reset" name="mov[' . $rs->cat_id . ']" value="' . __('OK') . '">';
 
                     $attr_disabled = ' disabled="disabled"';
                     $input_class   = 'disabled ';
@@ -210,7 +210,7 @@ class Categories extends Process
                     $input_class   = '';
                 }
                 echo
-                ' <input type="submit"' . $attr_disabled . ' class="' . $input_class . 'delete" name="delete[' . $rs->cat_id . ']" value="' . __('Delete category') . '"/>' .
+                ' <input type="submit"' . $attr_disabled . ' class="' . $input_class . 'delete" name="delete[' . $rs->cat_id . ']" value="' . __('Delete category') . '">' .
                 '</p>';
 
                 $level = $rs->level;
@@ -232,16 +232,16 @@ class Categories extends Process
                 }
                 echo
                 '<p><span class="hidden-if-no-js">' .
-                '<input type="hidden" id="categories_order" name="categories_order" value=""/>' .
-                '<input type="submit" name="save_order" id="save-set-order" value="' . __('Save categories order') . '" />' .
+                '<input type="hidden" id="categories_order" name="categories_order" value="">' .
+                '<input type="submit" name="save_order" id="save-set-order" value="' . __('Save categories order') . '">' .
                 '</span> ';
             } else {
                 echo '<p>';
             }
 
             echo
-            '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '" />' .
-            '<input type="hidden" name="process" value="Categories"/>' .
+            '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '">' .
+            '<input type="hidden" name="process" value="Categories">' .
             App::nonce()->getFormNonce() .
             '</p>' .
             '</div></form>';

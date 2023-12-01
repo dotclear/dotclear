@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "Nem sikerült betölteni az elavult magot"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Elnézést kérünk ezért az ideiglenes elérhetetlenségért.<br />Köszönjük megértésüket.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Elnézést kérünk ezért az ideiglenes elérhetetlenségért.<br>Köszönjük megértésüket.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

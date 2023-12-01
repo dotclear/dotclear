@@ -159,7 +159,7 @@ class Task implements TaskInterface
                 throw new ProcessException(
                     $this->checkContext('BACKEND') ?
                     __('Unable to load deprecated core') :
-                    __('<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>')
+                    __('<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>')
                 );
             }
 

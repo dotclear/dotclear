@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "לא ניתן לטעון את הליבה שהתיישן."
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>אנחנו מתנצלים על אי זמינות זמנית זו.<br />תודה לך על ההבנה שלך.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>אנחנו מתנצלים על אי זמינות זמנית זו.<br>תודה לך על ההבנה שלך.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

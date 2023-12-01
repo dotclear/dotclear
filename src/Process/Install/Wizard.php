@@ -222,14 +222,14 @@ class Wizard extends Process
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Script-Type" content="text/javascript" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta http-equiv="Content-Language" content="en" />
-  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
-  <meta name="GOOGLEBOT" content="NOSNIPPET" />
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
+  <meta name="GOOGLEBOT" content="NOSNIPPET">
   <title><?php echo __('Dotclear installation wizard'); ?></title>
-    <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen">
 </head>
 
 <body id="dotclear-admin" class="install">
@@ -291,7 +291,7 @@ class Wizard extends Process
         ]) .
         '</p>' .
 
-        '<p><input type="submit" value="' . __('Continue') . '" /></p>' .
+        '<p><input type="submit" value="' . __('Continue') . '"></p>' .
             '</form>';
         ?>
 </div>

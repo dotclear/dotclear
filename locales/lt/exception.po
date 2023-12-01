@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "Nepavyksta įkelti pasenusio branduolio"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Atsiprašome už laikiną negalėjimą naudotis.<br />Dėkojame už supratimą.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Atsiprašome už laikiną negalėjimą naudotis.<br>Dėkojame už supratimą.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

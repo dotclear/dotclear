@@ -50,9 +50,9 @@ class BackendList extends Listing
                 'date'     => '<th scope="col">' . __('Date') . '</th>',
                 'author'   => '<th scope="col">' . __('Author') . '</th>',
                 'comments' => '<th scope="col"><img src="images/comments.png" alt="" title="' . __('Comments') .
-                '" /><span class="hidden">' . __('Comments') . '</span></th>',
+                '"><span class="hidden">' . __('Comments') . '</span></th>',
                 'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="" title="' . __('Trackbacks') .
-                '" /><span class="hidden">' . __('Trackbacks') . '</span></th>',
+                '"><span class="hidden">' . __('Trackbacks') . '</span></th>',
                 'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
 
@@ -84,7 +84,7 @@ class BackendList extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'check-on.png') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
@@ -111,7 +111,7 @@ class BackendList extends Listing
      */
     private function postLine(int $count, bool $checked): string
     {
-        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" class="mark mark-%3$s" />';
+        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" class="mark mark-%3$s">';
         $sts_class  = '';
         $img_status = '';
         switch ($this->rs->post_status) {

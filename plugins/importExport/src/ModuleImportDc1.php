@@ -288,7 +288,7 @@ class ModuleImportDc1 extends Module
         '<div>' . App::nonce()->getFormNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
-        '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '" /></p>' .
+        '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '"></p>' .
         '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
         '</form>';
     }

@@ -305,17 +305,17 @@ class Auth extends Process
         $buffer = '<!DOCTYPE html>' . "\n" .
             '<html lang="' . $dlang . '">' . "\n" .
             '<head>' . "\n" .
-            '  <meta charset="UTF-8" />' . "\n" .
-            '  <meta http-equiv="Content-Script-Type" content="text/javascript" />' . "\n" .
-            '  <meta http-equiv="Content-Style-Type" content="text/css" />' . "\n" .
-            '  <meta http-equiv="Content-Language" content="' . $dlang . '" />' . "\n" .
-            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-            '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
-            '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
+            '  <meta charset="UTF-8">' . "\n" .
+            '  <meta http-equiv="Content-Script-Type" content="text/javascript">' . "\n" .
+            '  <meta http-equiv="Content-Style-Type" content="text/css">' . "\n" .
+            '  <meta http-equiv="Content-Language" content="' . $dlang . '">' . "\n" .
+            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+            '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+            '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
             '  <title>' . $vendor . '</title>' . "\n" .
-            '  <link rel="icon" type="image/png" href="images/favicon96-logout.png" />' . "\n" .
-            '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n" .
-            '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />';
+            '  <link rel="icon" type="image/png" href="images/favicon96-logout.png">' . "\n" .
+            '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n" .
+            '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">';
 
         echo
         $buffer . Page::jsCommon();
@@ -383,7 +383,7 @@ class Auth extends Process
             ) .
             '</p>' .
 
-            '<p><input type="submit" value="' . __('recover') . '" />' .
+            '<p><input type="submit" value="' . __('recover') . '">' .
             form::hidden('recover', 1) . '</p>' .
             '</fieldset>' .
 
@@ -416,7 +416,7 @@ class Auth extends Process
                     'autocomplete' => 'new-password',
                 ]
             ) . '</p>' .
-            '<p><input type="submit" value="' . __('change') . '" />' .
+            '<p><input type="submit" value="' . __('change') . '">' .
             form::hidden('login_data', App::backend()->login_data) . '</p>' .
             '</fieldset>';
         } else {
@@ -465,7 +465,7 @@ class Auth extends Process
                 ) . '</p>' .
                 '<p>' . form::checkbox('user_remember', 1) . '<label for="user_remember" class="classic">' .
                 __('Remember my ID on this device') . '</label></p>' .
-                '<p><input type="submit" value="' . __('log in') . '" class="login" /></p>';
+                '<p><input type="submit" value="' . __('log in') . '" class="login"></p>';
 
                 if (!empty($_REQUEST['blog'])) {
                     echo

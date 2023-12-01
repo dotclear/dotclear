@@ -290,7 +290,7 @@ class BackendBehaviors
             App::nonce()->getFormNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags') .
             '<p><input type="submit" value="' . __('Save') . '" ' .
-                'name="save_tags" /></p>' .
+                'name="save_tags"></p>' .
                 '</form>';
             $ap->endPage();
         }
@@ -373,7 +373,7 @@ class BackendBehaviors
             }
 
             echo
-            '<p><input type="submit" value="' . __('ok') . '" />' .
+            '<p><input type="submit" value="' . __('ok') . '">' .
 
             App::nonce()->getFormNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags_remove') .

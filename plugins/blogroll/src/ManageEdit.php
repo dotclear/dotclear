@@ -158,7 +158,7 @@ class ManageEdit extends Process
                 form::hidden('edit', 1) .
                 form::hidden('id', App::backend()->id) .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" name="edit_cat" value="' . __('Save') . '"/></p>' .
+                '<input type="submit" name="edit_cat" value="' . __('Save') . '"></p>' .
                 '</form>';
             } else {
                 echo
@@ -344,7 +344,7 @@ class ManageEdit extends Process
                 form::hidden('edit', 1) .
                 form::hidden('id', App::backend()->id) .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" name="edit_link" value="' . __('Save') . '"/></p>' .
+                '<input type="submit" name="edit_link" value="' . __('Save') . '"></p>' .
                 '</form>';
             }
         }

@@ -110,7 +110,7 @@ msgid "Unable to load deprecated core"
 msgstr ""
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
 msgstr ""
 
 # in Dotclear\Core\Task

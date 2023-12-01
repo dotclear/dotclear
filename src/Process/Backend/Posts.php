@@ -55,7 +55,7 @@ class Posts extends Process
             'user_id'    => 'P.user_id', ];
 
         # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
-        App::behavior()->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
+        App::behavior()->callBehavior('adminPostsSortbyLexCombo', [&$sortby_lex]);
 
         $params['order'] = (array_key_exists(App::backend()->post_filter->sortby, $sortby_lex) ?
             App::con()->lexFields($sortby_lex[App::backend()->post_filter->sortby]) :
@@ -116,7 +116,7 @@ class Posts extends Process
                 // Actions
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
                 form::combo('action', App::backend()->posts_actions_page->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
+                '<input id="do-action" type="submit" value="' . __('ok') . '" disabled></p>' .
                 App::backend()->url()->getHiddenFormFields('admin.posts', App::backend()->post_filter->values()) .
                 App::nonce()->getFormNonce() .
                 '</div>' .

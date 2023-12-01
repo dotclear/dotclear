@@ -7,7 +7,7 @@ if (typeof dotclear.post_remember_str === 'undefined' && typeof dotclear.getData
 
 window.addEventListener('load', () => {
   const bloc = new DOMParser().parseFromString(
-    `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> <label for="c_remember">${dotclear.post_remember_str}</label></p>`,
+    `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember"> <label for="c_remember">${dotclear.post_remember_str}</label></p>`,
     'text/html',
   ).body.firstChild;
   // Looks for a preview input

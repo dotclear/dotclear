@@ -188,8 +188,8 @@ class Manage extends Process
             '<p class="anchor-nav">' .
             '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
             form::combo($nav_id, $ws_combo, ['class' => 'navigation']) .
-            ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '" />' .
-            '<input type="hidden" name="p" value="' . My::id() . '" />' .
+            ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '">' .
+            '<input type="hidden" name="p" value="' . My::id() . '">' .
             App::nonce()->getFormNonce() .
             '</p></form>';
         }
@@ -207,9 +207,9 @@ class Manage extends Process
         }
 
         echo
-        '<p><input type="submit" value="' . __('Save') . '" />' .
-        '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        '<input type="hidden" name="p" value="' . My::id() . '" />' .
+        '<p><input type="submit" value="' . __('Save') . '">' .
+        '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        '<input type="hidden" name="p" value="' . My::id() . '">' .
         App::nonce()->getFormNonce() .
         '</p></form>';
     }

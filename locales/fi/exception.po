@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "Ei voida ladata vanhentunutta ydintä"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Valitamme tätä tilapäistä häiriötä.<br />Kiitos, että ymmärrätte tilanteen.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Valitamme tätä tilapäistä häiriötä.<br>Kiitos, että ymmärrätte tilanteen.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

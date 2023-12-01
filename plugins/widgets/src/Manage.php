@@ -285,7 +285,7 @@ class Manage extends Process
             ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
             '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
             form::combo(['addw[' . $w->id() . ']'], App::backend()->append_combo) .
-            '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '" /></p>' .
+            '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '"></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings('w[void][0]', $j) . '</div>' .
             '</li>';
             $j++;
@@ -294,7 +294,7 @@ class Manage extends Process
         echo
         '</ul>' .
         '<p>' . App::nonce()->getFormNonce() . '</p>' .
-        '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
+        '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '"></p>' .
         '</form>' .
 
         '<form id="sidebarsWidgets" action="' . App::backend()->getPageURL() . '" method="post">' .
@@ -316,9 +316,9 @@ class Manage extends Process
 
         '<p id="sidebarsControl">' .
         App::nonce()->getFormNonce() .
-        '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
-        '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
-        '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .
+        '<input type="submit" name="wup" value="' . __('Update sidebars') . '"> ' .
+        '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js"> ' .
+        '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '">' .
         '</p>' .
         '</form>';
 
@@ -414,11 +414,11 @@ class Manage extends Process
             ' ' . $w->name() .
             ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') .
             '<span class="toolsWidget remove-if-drag">' .
-            '<input type="image" class="upWidget' . $upDisabled . 'up.png" name="' . $iname . '[_up]" value="' . __('Up the widget') . '"' . $altUp . ' /> ' .
-            '<input type="image" class="downWidget' . $downDisabled . 'down.png" name="' . $iname . '[_down]" value="' . __('Down the widget') . '"' . $altDown . ' /> ' . ' ' .
-            '<input type="image" class="removeWidget" src="images/trash.png" name="' . $iname . '[_rem]" value="' . __('Remove widget') . '" alt="' . __('Remove the widget') . '" />' .
+            '<input type="image" class="upWidget' . $upDisabled . 'up.png" name="' . $iname . '[_up]" value="' . __('Up the widget') . '"' . $altUp . '> ' .
+            '<input type="image" class="downWidget' . $downDisabled . 'down.png" name="' . $iname . '[_down]" value="' . __('Down the widget') . '"' . $altDown . '> ' . ' ' .
+            '<input type="image" class="removeWidget" src="images/trash.png" name="' . $iname . '[_rem]" value="' . __('Remove widget') . '" alt="' . __('Remove the widget') . '">' .
             '</span>' .
-            '<br class="clear"/></p>' .
+            '<br class="clear"></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings($iname, $j) . '</div>' .
             '</li>';
 

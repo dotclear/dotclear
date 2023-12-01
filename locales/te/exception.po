@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "దిగుమతి కోర్ లోడ్ చేయలేకపొయాను"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>మేము ఈ తాత్కాలిక అలభ్యత కోసం క్షమాపణ.<br />మీ బుద్ధి కోసం ధన్యవాదాలు.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>మేము ఈ తాత్కాలిక అలభ్యత కోసం క్షమాపణ.<br>మీ బుద్ధి కోసం ధన్యవాదాలు.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

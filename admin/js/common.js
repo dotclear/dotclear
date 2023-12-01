@@ -510,7 +510,7 @@ dotclear.outgoingLinks = (target) => {
     }
     element.title = `${element.title} (${dotclear.msg.new_window})`;
     if (!element.classList.contains('outgoing')) {
-      element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>';
+      element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt="">';
     }
     element.addEventListener('click', (e) => {
       e.preventDefault();
@@ -926,7 +926,7 @@ $(() => {
         return;
       }
       let { data } = this;
-      data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br />').replace(/\n/g, '<br/>');
+      data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br>').replace(/\n/g, '<br>');
       $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
     });
 

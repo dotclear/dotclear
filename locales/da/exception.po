@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "Kunne ikke indlæse forældet kerne"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Vi undskylder for denne midlertidige utilgængelighed.<br />Tak for din forståelse.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Vi undskylder for denne midlertidige utilgængelighed.<br>Tak for din forståelse.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

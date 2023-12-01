@@ -416,7 +416,7 @@ class Config extends Process
                 'class'   => 'position',
             ]) .
             form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>' .
-            '<td>' . form::hidden(['sticker_image[]'], $v['image']) . '<img src="' . My::fileURL('img/' . $v['image']) . '" alt="' . $v['image'] . '" /> ' . '</td>' .
+            '<td>' . form::hidden(['sticker_image[]'], $v['image']) . '<img src="' . My::fileURL('img/' . $v['image']) . '" alt="' . $v['image'] . '"> ' . '</td>' .
             '<td scope="row">' . form::field(['sticker_label[]', 'dsl-' . $i], 20, 255, $v['label']) . '</td>' .
             '<td>' . form::field(['sticker_url[]', 'dsu-' . $i], 40, 255, $v['url']) . '</td>' .
             '</tr>';
@@ -466,8 +466,8 @@ class Config extends Process
         '<p><label for="preview_not_mandatory" class="classic">' . __('Comment preview is not mandatory:') . '</label> ' .
         form::checkbox('preview_not_mandatory', 1, App::backend()->ductile_user['preview_not_mandatory']) . '</p>' .
 
-        '<p><input type="hidden" name="conf_tab" value="html" /></p>' .
-        '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '" />' .
+        '<p><input type="hidden" name="conf_tab" value="html"></p>' .
+        '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '">' .
         App::nonce()->getFormNonce() . '</p>' .
 
         '</form>' .
@@ -641,8 +641,8 @@ class Config extends Process
         '</div>' .
         '</div>' .
 
-        '<p><input type="hidden" name="conf_tab" value="css" /></p>' .
-        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . App::nonce()->getFormNonce() . '</p>' .
+        '<p><input type="hidden" name="conf_tab" value="css"></p>' .
+        '<p class="clear border-top"><input type="submit" value="' . __('Save') . '">' . App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 
         '</div>'; // Close tab

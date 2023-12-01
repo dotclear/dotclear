@@ -417,10 +417,10 @@ class User extends Process
                 'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
-        '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '" />' .
-        (App::backend()->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
+        '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '">' .
+        (App::backend()->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '">') .
         (App::backend()->user_id != '' ? form::hidden('id', App::backend()->user_id) : '') .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         App::nonce()->getFormNonce() .
         '</p>' .
 
@@ -434,7 +434,7 @@ class User extends Process
             if (!App::backend()->user_super) {
                 echo
                 '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">' .
-                '<p><input type="submit" value="' . __('Add new permissions') . '" />' .
+                '<p><input type="submit" value="' . __('Add new permissions') . '">' .
                 form::hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id])) .
                 form::hidden(['action'], 'blogs') .
                 form::hidden(['users[]'], App::backend()->user_id) .
@@ -467,7 +467,7 @@ class User extends Process
                             }
                             echo
                             '</ul>' .
-                            '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
+                            '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '">' .
                             form::hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id])) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], App::backend()->user_id) .

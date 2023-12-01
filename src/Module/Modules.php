@@ -1400,7 +1400,7 @@ class Modules implements ModulesInterface
             $escaped_src = $this->appendVersion($escaped_src, $version);
         }
 
-        return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+        return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '">' . "\n";
     }
 
     /**

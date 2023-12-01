@@ -94,7 +94,7 @@ class ListingBlogs extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('online'), 'check-on.png') . ' - ' .
                 $fmt(__('offline'), 'check-off.png') . ' - ' .
@@ -127,7 +127,7 @@ class ListingBlogs extends Listing
             (App::auth()->isSuperAdmin() ?
                 '<a href="' . App::backend()->url()->get('admin.blog', ['id' => $blog_id]) . '"  ' .
                 'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
-                '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '" /> ' . $blog_id . '</a> ' :
+                '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '"> ' . $blog_id . '</a> ' :
                 $blog_id . ' ') .
             '</td>',
             'name' => '<td class="maximal">' .
@@ -138,7 +138,7 @@ class ListingBlogs extends Listing
             'url' => '<td class="nowrap">' .
             '<a class="outgoing" href="' .
             Html::escapeHTML($this->rs->blog_url) . '">' . Html::escapeHTML($this->rs->blog_url) .
-            ' <img src="images/outgoing-link.svg" alt="" /></a></td>',
+            ' <img src="images/outgoing-link.svg" alt=""></a></td>',
             'posts' => '<td class="nowrap count">' .
             App::blogs()->countBlogPosts($this->rs->blog_id) .
             '</td>',
@@ -149,7 +149,7 @@ class ListingBlogs extends Listing
             '</td>',
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
-                '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
+                '<img src="images/%1$s.png" alt="%2$s" title="%2$s">',
                 ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
                 App::blogs()->getBlogStatus((int) $this->rs->blog_status)
             ) .

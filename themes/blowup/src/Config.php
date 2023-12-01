@@ -330,12 +330,12 @@ class Config extends Process
 
             '<p id="uploader"><label for="upfile">' . __('Add your image:') . '</label> ' .
             ' (' . sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' .
-            '<input type="file" name="upfile" id="upfile" size="35" />' .
+            '<input type="file" name="upfile" id="upfile" size="35">' .
             '</p>' .
 
             '<h5>' . __('Preview') . '</h5>' .
             '<div class="grid" style="width:800px;border:1px solid #ccc;">' .
-            '<img style="display:block;" src="' . $preview_image . '" alt="" id="image-preview" />' .
+            '<img style="display:block;" src="' . $preview_image . '" alt="" id="image-preview">' .
             '</div>';
         }
 
@@ -472,7 +472,7 @@ class Config extends Process
         '</div>' .
         '</div>' .
 
-        '<p class="clear"><input type="submit" value="' . __('Save') . '" />' .
+        '<p class="clear"><input type="submit" value="' . __('Save') . '">' .
         App::nonce()->getFormNonce() .
         '</p>' .
         '</form>';

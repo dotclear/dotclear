@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "No se puede cargar el núcleo obsoleto"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Le pedimos disculpas por esta indisponibilidad temporal.<br />Gracias por su comprensión.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Le pedimos disculpas por esta indisponibilidad temporal.<br>Gracias por su comprensión.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

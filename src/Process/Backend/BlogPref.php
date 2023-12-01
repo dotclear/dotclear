@@ -574,13 +574,13 @@ class BlogPref extends Process
             form::checkbox('comments_nofollow', '1', $da->blog_settings->system->comments_nofollow) .
             __('Add "nofollow" relation on comments and trackbacks links') . '</label></p>' .
 
-            '</div>' . '<br class="clear" />' . //Opera sucks
+            '</div>' . '<br class="clear">' . //Opera sucks
 
             '<p><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
             form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
             '</p>' .
 
-            '</div>' . '<br class="clear" />' . //Opera sucks
+            '</div>' . '<br class="clear">' . //Opera sucks
             '</div>' .
 
             '<div class="fieldset"><h4>' . __('Blog presentation') . '</h4>' .
@@ -671,9 +671,9 @@ class BlogPref extends Process
             __('Include sub-categories in category page and category posts feed') . '</label></p>' .
             '</div>' .
             '</div>' .
-            '<br class="clear" />' . //Opera sucks
+            '<br class="clear">' . //Opera sucks
 
-            '<hr />' .
+            '<hr>' .
 
             '<p><label for="static_home" class="classic">' .
             form::checkbox('static_home', '1', $da->blog_settings->system->static_home) .
@@ -690,7 +690,7 @@ class BlogPref extends Process
             '<div class="fieldset"><h4 id="medias-settings">' . __('Media and images') . '</h4>' .
             '<p class="form-note warning">' .
             __('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.') .
-            ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br />' .
+            ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br>' .
             __('Set -1 to use the default size, set 0 to ignore this thumbnail size (images only).') . '</p>' .
 
             '<div class="two-cols">' .
@@ -767,7 +767,7 @@ class BlogPref extends Process
             form::combo('media_img_default_legend', $da->img_default_legend_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
             '</p>' .
             '</div>' .
-            '</div>' . '<br class="clear" />' . //Opera sucks
+            '</div>' . '<br class="clear">' . //Opera sucks
 
             '</div>' .
             '</div>' .
@@ -873,7 +873,7 @@ class BlogPref extends Process
 
             '<p><label for="jquery_version" class="classic">' . __('jQuery version to be loaded for this blog:') . '</label>' . ' ' .
             form::combo('jquery_version', $da->jquery_versions_combo, $da->blog_settings->system->jquery_version) .
-            '</p>' . '<br class="clear" />' . //Opera sucks
+            '</p>' . '<br class="clear">' . //Opera sucks
 
             '</div>' .
 
@@ -883,7 +883,7 @@ class BlogPref extends Process
             form::checkbox('prevents_clickjacking', '1', $da->blog_settings->system->prevents_clickjacking) .
             __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' .
 
-            '<br class="clear" />' . //Opera sucks
+            '<br class="clear">' . //Opera sucks
 
             '</div>' .
 
@@ -896,8 +896,8 @@ class BlogPref extends Process
 
             echo '</div>' . // End 3rd party, aka plugins
 
-            '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+            '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
             (!$da->standalone ? form::hidden('id', $da->blog_id) : '') .
             '</p>' .
             '</form>';
@@ -905,7 +905,7 @@ class BlogPref extends Process
             if (App::auth()->isSuperAdmin() && $da->blog_id != App::blog()->id()) {
                 echo
                 '<form action="' . App::backend()->url()->get('admin.blog.del') . '" method="post">' .
-                '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
+                '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '">' .
                 form::hidden(['blog_id'], $da->blog_id) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
@@ -986,7 +986,7 @@ class BlogPref extends Process
                         '<h5>' . __('Permissions:') . '</h5>' .
                         '<ul>';
                         if ($v['super']) {
-                            echo '<li class="user_super">' . __('Super administrator') . '<br />' .
+                            echo '<li class="user_super">' . __('Super administrator') . '<br>' .
                             '<span class="form-note">' . __('All rights on all blogs.') . '</span></li>';
                         } else {
                             foreach ($v['p'] as $p => $V) {
@@ -997,7 +997,7 @@ class BlogPref extends Process
                                 }
 
                                 if ($p == 'admin') {
-                                    echo '<br /><span class="form-note">' . __('All rights on this blog.') . '</span>';
+                                    echo '<br><span class="form-note">' . __('All rights on this blog.') . '</span>';
                                 }
                                 echo '</li>';
                             }
@@ -1008,7 +1008,7 @@ class BlogPref extends Process
                         if (!$v['super'] && App::auth()->isSuperAdmin()) {
                             echo
                             '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">' .
-                            '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
+                            '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '">' .
                             form::hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&')) .
                             form::hidden(['action'], 'perms') .
                             form::hidden(['users[]'], $k) .

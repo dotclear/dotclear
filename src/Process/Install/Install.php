@@ -399,15 +399,15 @@ class Install extends Process
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Script-Type" content="text/javascript" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta http-equiv="Content-Language" content="en" />
-  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
-  <meta name="GOOGLEBOT" content="NOSNIPPET" />
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
+  <meta name="GOOGLEBOT" content="NOSNIPPET">
   <title><?php echo __('Dotclear Install'); ?></title>
 
-    <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen">
 
           <?php
           echo
@@ -495,7 +495,7 @@ class Install extends Process
             '</label></p>' .
             '</fieldset>' .
 
-            '<p><input type="submit" value="' . __('Save') . '" /></p>' .
+            '<p><input type="submit" value="' . __('Save') . '"></p>' .
                 '</form>';
         } elseif (self::$can_install && self::$step == 1) {
             # Plugins install messages
@@ -535,7 +535,7 @@ class Install extends Process
             '</ul>' .
 
             '<form action="../index.php" method="post">' .
-            '<p><input type="submit" value="' . __('Manage your blog now') . '" />' .
+            '<p><input type="submit" value="' . __('Manage your blog now') . '">' .
             form::hidden(['user_id'], Html::escapeHTML(self::$u_login)) .
             form::hidden(['user_pwd'], Html::escapeHTML(self::$u_pwd)) .
             form::hidden(['process'], 'Auth') .

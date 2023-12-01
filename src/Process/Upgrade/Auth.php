@@ -169,17 +169,17 @@ class Auth extends Process
      '<!DOCTYPE html>' . "\n" .
         '<html lang="' . self::$dlang . '">' . "\n" .
         '<head>' . "\n" .
-        '  <meta charset="UTF-8" />' . "\n" .
-        '  <meta http-equiv="Content-Script-Type" content="text/javascript" />' . "\n" .
-        '  <meta http-equiv="Content-Style-Type" content="text/css" />' . "\n" .
-        '  <meta http-equiv="Content-Language" content="' . self::$dlang . '" />' . "\n" .
-        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-        '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
+        '  <meta charset="UTF-8">' . "\n" .
+        '  <meta http-equiv="Content-Script-Type" content="text/javascript">' . "\n" .
+        '  <meta http-equiv="Content-Style-Type" content="text/css">' . "\n" .
+        '  <meta http-equiv="Content-Language" content="' . self::$dlang . '">' . "\n" .
+        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+        '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
         '  <title>' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . __('Upgrade') . '</title>' . "\n" .
-        '  <link rel="icon" type="image/png" href="images/favicon96-logout.png" />' . "\n" .
-        '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n" .
-        '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />' .
+        '  <link rel="icon" type="image/png" href="images/favicon96-logout.png">' . "\n" .
+        '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n" .
+        '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">' .
 
         Page::jsCommon() .
         Page::jsLoad('js/_auth.js') .
@@ -232,7 +232,7 @@ class Auth extends Process
             ) . '</p>' .
             '<p>' . form::checkbox('user_remember', 1) . '<label for="user_remember" class="classic">' .
             __('Remember my ID on this device') . '</label></p>' .
-            '<p><input type="submit" value="' . __('log in') . '" class="login" /></p>' .
+            '<p><input type="submit" value="' . __('log in') . '" class="login"></p>' .
             '</fieldset>' .
             '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>' .
             '<p><a href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Back to normal dashboard') . '</a><p>';

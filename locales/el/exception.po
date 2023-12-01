@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "Αδυναμία φόρτωσης απαρχαιωμένου πυρήνα"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Ζητούμε συγγνώμη για αυτή την προσωρινή μη διαθεσιμότητα.<br />Σας ευχαριστούμε για την κατανόησή σας.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Ζητούμε συγγνώμη για αυτή την προσωρινή μη διαθεσιμότητα.<br>Σας ευχαριστούμε για την κατανόησή σας.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

@@ -52,7 +52,7 @@ dotclear.dbStoreUpdate = (store, icon) => {
             .replace(/([^\/]+)(\..*)$/g, '$1-update$2'),
         );
       // add icon text says there is an update
-      icon.children('a').children('.db-icon-title').append('<br />').append(data.ret);
+      icon.children('a').children('.db-icon-title').append('<br>').append(data.ret);
       // Badge (info) on dashboard icon
       dotclear.badge(icon, {
         id: `mu-${store}`,
@@ -124,7 +124,7 @@ $(() => {
     });
 
     if ($('input[name=save-publish]', f).length > 0) {
-      const btn = $(`<input type="submit" value="${$('input[name=save-publish]', f).val()}" />`);
+      const btn = $(`<input type="submit" value="${$('input[name=save-publish]', f).val()}" name="save-and-publish">`);
       $('input[name=save-publish]', f).remove();
       $('input[name=save]', f).after(btn).after(' ');
       btn.on('click', () => {

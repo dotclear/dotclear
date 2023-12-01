@@ -65,7 +65,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
       <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => Html::escapeHTML(App::backend()->editor_cke_custom_color_list)]); ?>
     </p>
     <p class="clear form-note">
-      <?php echo __('Add colors without # separated by a comma.'); ?><br />
+      <?php echo __('Add colors without # separated by a comma.'); ?><br>
       <?php echo __('Leave empty to use the default palette:'); ?>
       <blockquote><pre><code>1abc9c,2ecc71,3498db,9b59b6,4e5f70,f1c40f,16a085,27ae60,2980b9,8e44ad,2c3e50,f39c12,e67e22,e74c3c,ecf0f1,95a5a6,dddddd,ffffff,d35400,c0392b,bdc3c7,7f8c8d,999999,000000</code></pre></blockquote>
       <?php echo __('Example of custom color list:'); ?>
@@ -131,10 +131,10 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
   </div>
   <?php endif;?>
   <p>
-    <input name="p" type="hidden" value="dcCKEditor"/>
+    <input name="p" type="hidden" value="dcCKEditor">
     <?php echo \Dotclear\App::nonce()->getFormNonce(); ?>
-    <input name="saveconfig" type="submit" value="<?php echo __('Save configuration'); ?>"/>
-    <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
+    <input name="saveconfig" type="submit" value="<?php echo __('Save configuration'); ?>">
+    <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js">
   </p>
 </form>
 <?php endif;?>

@@ -49,11 +49,11 @@ class Pager extends HelperPager
     protected function getLink(string $li_class, string $href, string $img_src, string $img_src_nolink, string $img_alt, bool $enable_link): string
     {
         if ($enable_link) {
-            $formatter = '<li class="%s btn"><a href="%s"><img src="%s" alt="%s"/></a><span class="hidden">%s</span></li>';
+            $formatter = '<li class="%s btn"><a href="%s"><img src="%s" alt="%s"></a><span class="hidden">%s</span></li>';
 
             return sprintf($formatter, $li_class, $href, $img_src, $img_alt, $img_alt);
         }
-        $formatter = '<li class="%s no-link btn"><img src="%s" alt="%s"/></li>';
+        $formatter = '<li class="%s no-link btn"><img src="%s" alt="%s"></li>';
 
         return sprintf($formatter, $li_class, $img_src_nolink, $img_alt);
     }
@@ -149,7 +149,7 @@ class Pager extends HelperPager
                 form::number([$this->var_page], 1, $this->nb_pages, (string) $this->env)
             ) .
             '<input type="submit" value="' . __('ok') . '" class="reset" ' .
-            'name="ok" />' . $this->form_hidden . '</li>' : '');
+            'name="ok">' . $this->form_hidden . '</li>' : '');
 
         $res = '<form action="' . $this->form_action . '" method="get">' .
             '<div class="pager"><ul>' .

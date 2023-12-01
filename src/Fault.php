@@ -143,9 +143,9 @@ class Fault
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
-  <meta name="GOOGLEBOT" content="NOSNIPPET" />
+  <meta charset="UTF-8">
+  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
+  <meta name="GOOGLEBOT" content="NOSNIPPET">
   <title><?php echo $vendor; ?> - Error</title>
   <style media="screen" type="text/css">
   <!--

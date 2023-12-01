@@ -231,16 +231,16 @@ class AntispamFilterAkismet extends SpamFilter
 
         if ($ak_verified !== null) {
             if ($ak_verified) {
-                $res .= ' <img src="images/check-on.png" alt="" /> ' . __('API key verified');
+                $res .= ' <img src="images/check-on.png" alt=""> ' . __('API key verified');
             } else {
-                $res .= ' <img src="images/check-off.png" alt="" /> ' . __('API key not verified');
+                $res .= ' <img src="images/check-off.png" alt=""> ' . __('API key not verified');
             }
         }
 
         $res .= '</p>';
 
         $res .= '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
-        '<p><input type="submit" value="' . __('Save') . '" />' .
+        '<p><input type="submit" value="' . __('Save') . '">' .
         App::nonce()->getFormNonce() . '</p>' .
             '</form>';
 

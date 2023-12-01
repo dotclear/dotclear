@@ -610,8 +610,8 @@ class UserPreferences extends Process
         echo
         '<p class="clear vertical-separator">' .
         App::nonce()->getFormNonce() .
-        '<input type="submit" accesskey="s" value="' . __('Update my profile') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="submit" accesskey="s" value="' . __('Update my profile') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -707,7 +707,7 @@ class UserPreferences extends Process
         foreach (App::backend()->sorts as $sort_type => $sort_data) {
             if ($odd) {
                 echo
-                '<hr />';
+                '<hr>';
             }
             echo
             '<div class="two-boxes ' . ($odd ? 'odd' : 'even') . '">' .
@@ -789,8 +789,8 @@ class UserPreferences extends Process
         echo
         '<p class="clear vertical-separator">' .
         App::nonce()->getFormNonce() .
-        '<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -845,18 +845,18 @@ class UserPreferences extends Process
             '<div class="clear">' .
             '<p>' . form::hidden('favs_order', '') .
             App::nonce()->getFormNonce() .
-            '<input type="submit" name="saveorder" value="' . __('Save order') . '" /> ' .
+            '<input type="submit" name="saveorder" value="' . __('Save order') . '"> ' .
 
             '<input type="submit" class="delete" name="removeaction" ' .
             'value="' . __('Delete selected favorites') . '" ' .
             'onclick="return window.confirm(\'' . Html::escapeJS(
                 __('Are you sure you want to remove selected favorites?')
-            ) . '\');" /></p>' .
+            ) . '\');"></p>' .
 
             (App::auth()->isSuperAdmin() ?
                 '<div class="info">' .
                 '<p>' . __('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.') . '</p>' .
-                '<p><input class="reset action" type="submit" name="replace" value="' . __('Define as default favorites') . '" />' . '</p>' .
+                '<p><input class="reset action" type="submit" name="replace" value="' . __('Define as default favorites') . '">' . '</p>' .
                 '</div>' :
                 '') .
 
@@ -905,7 +905,7 @@ class UserPreferences extends Process
             '<li id="fa-' . $k . '">' . '<label for="fak-' . $k . '">' . $icon .
             form::checkbox(['append[]', 'fak-' . $k], $k) .
             $fav['title'] . '</label>' .
-            (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="' . __('(default favorite)') . '" /></span>' : '') .
+            (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="' . __('(default favorite)') . '"></span>' : '') .
             '</li>';
         }
         if ($count > 0) {
@@ -916,7 +916,7 @@ class UserPreferences extends Process
         echo
         '<p>' .
         App::nonce()->getFormNonce() .
-        '<input type="submit" name="appendaction" value="' . __('Add to my favorites') . '" /></p>' .
+        '<input type="submit" name="appendaction" value="' . __('Add to my favorites') . '"></p>' .
         '</div>' . // /available favorites
 
         '</form>' .
@@ -969,8 +969,8 @@ class UserPreferences extends Process
         '<p>' .
         form::hidden('db-options', '-') .
         App::nonce()->getFormNonce() .
-        '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
 
@@ -979,7 +979,7 @@ class UserPreferences extends Process
         '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>' .
         '<p>' .
         App::nonce()->getFormNonce() .
-        '<input type="submit" name="resetorder" value="' . __('Reset dashboard items order') . '" /></p>' .
+        '<input type="submit" name="resetorder" value="' . __('Reset dashboard items order') . '"></p>' .
         '</div>' .
         '</form>' .
         '</div>'; // /multipart-user-favorites

@@ -190,7 +190,7 @@ class Words extends SpamFilter
 
         $res .= App::nonce()->getFormNonce() .
         '</p>' .
-        '<p><input type="submit" value="' . __('Add') . '"/></p>' .
+        '<p><input type="submit" value="' . __('Add') . '"></p>' .
             '</form>';
 
         $rs = $this->getRules();
@@ -244,13 +244,13 @@ class Words extends SpamFilter
             $res .= '</div>' .
             '<p>' . form::hidden(['spamwords'], 1) .
             App::nonce()->getFormNonce() .
-            '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>' .
+            '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"></p>' .
                 '</form>';
         }
 
         if (App::auth()->isSuperAdmin()) {
             $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
-            '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
+            '<p><input type="submit" value="' . __('Create default wordlist') . '">' .
             form::hidden(['spamwords'], 1) .
             form::hidden(['createlist'], 1) .
             App::nonce()->getFormNonce() . '</p>' .

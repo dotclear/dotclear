@@ -58,7 +58,7 @@ class BackendBehaviors
                 }
                 $item .= '<div class="media-item s-attachments">' .
                 '<a class="media-icon" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '">' .
-                '<img src="' . $file->media_icon . '" alt="" title="' . $file->basename . '" /></a>' .
+                '<img src="' . $file->media_icon . '" alt="" title="' . $file->basename . '"></a>' .
                 '<ul>' .
                 '<li><a class="media-link" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '" ' .
                 'title="' . $file->basename . '">' . $ftitle . '</a></li>' .
@@ -73,7 +73,7 @@ class BackendBehaviors
                     'link_type' => 'attachment',
                     'remove'    => '1',
                 ]) . '">' .
-                '<img src="images/trash.png" alt="' . __('remove') . '" /></a>' .
+                '<img src="images/trash.png" alt="' . __('remove') . '"></a>' .
                     '</li>' .
 
                     '</ul>' .

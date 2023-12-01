@@ -95,7 +95,7 @@ class FrontendUrl extends Url
 
             $content = '';
             if (trim((string) $rs->comment_site)) {
-                $content .= '<p>URL: <a href="' . $rs->comment_site . '">' . $rs->comment_site . '</a></p><hr />' . "\n";
+                $content .= '<p>URL: <a href="' . $rs->comment_site . '">' . $rs->comment_site . '</a></p><hr>' . "\n";
             }
             $content .= $rs->comment_content;
 

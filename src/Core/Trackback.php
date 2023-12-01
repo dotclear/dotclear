@@ -747,7 +747,7 @@ class Trackback implements TrackbackInterface
             return $clean($m[1]);
         }
 
-        // Try to find a <meta name="author" content="???" />
+        // Try to find a <meta name="author" content="???">
         if (preg_match('!<meta\sname="author"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
             return $clean($m[1]);
         }
@@ -875,7 +875,7 @@ class Trackback implements TrackbackInterface
             }
         }
 
-        # Else check content for <link href="ENDPOINT_URL" rel="webmention" />
+        # Else check content for <link href="ENDPOINT_URL" rel="webmention">
         if ($wm_url && !$wm_api) {
             $content = (string) preg_replace('/<!--(.*)-->/Us', '', $page_content);
             if (preg_match('/<(?:link|a)[ ]+href="([^"]*)"[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]*\/?>/i', $content, $match)

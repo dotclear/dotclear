@@ -158,8 +158,8 @@ class ManagePosts extends Process
                 '<form action="' . $this_url . '" method="post" id="tag_rename">' .
                 '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
                 form::field('new_tag_id', 20, 255, Html::escapeHTML(App::backend()->tag)) .
-                '<input type="submit" value="' . __('OK') . '" />' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+                '<input type="submit" value="' . __('OK') . '">' .
+                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
                 App::nonce()->getFormNonce() .
                 '</p></form>';
 
@@ -169,7 +169,7 @@ class ManagePosts extends Process
                 ]), App::blog()->id())) {
                     echo
                     '<form id="tag_delete" action="' . $this_url . '" method="post">' .
-                    '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
+                    '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '">' .
                     App::nonce()->getFormNonce() .
                     '</p></form>';
                 }
@@ -190,7 +190,7 @@ class ManagePosts extends Process
                 '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
                 form::combo('action', App::backend()->posts_actions_page->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('OK') . '" /></p>' .
+                '<input id="do-action" type="submit" value="' . __('OK') . '"></p>' .
                 form::hidden('post_type', '') .
                 form::hidden('p', My::id()) .
                 form::hidden('m', 'tag_posts') .

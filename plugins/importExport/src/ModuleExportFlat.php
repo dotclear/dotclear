@@ -217,7 +217,7 @@ class ModuleExportFlat extends Module
         '<p class="zip-dl"><a href="' . App::backend()->url()->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
         __('You may also want to download your media directory as a zip file') . '</a></p>' .
 
-        '<p><input type="submit" value="' . __('Export') . '" />' .
+        '<p><input type="submit" value="' . __('Export') . '">' .
         form::hidden(['do'], 'export_blog') .
         App::nonce()->getFormNonce() .
         '</p>' .
@@ -238,7 +238,7 @@ class ModuleExportFlat extends Module
             __('Compress file') . '</label>' .
             '</p>' .
 
-            '<p><input type="submit" value="' . __('Export') . '" />' .
+            '<p><input type="submit" value="' . __('Export') . '">' .
             form::hidden(['do'], 'export_all') .
             App::nonce()->getFormNonce() .
             '</p>' .

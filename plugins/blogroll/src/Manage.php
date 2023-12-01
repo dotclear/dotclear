@@ -305,10 +305,10 @@ class Manage extends Process
             form::hidden(['p'], My::id()) .
             App::nonce()->getFormNonce() .
 
-            '<input type="submit" name="saveorder" value="' . __('Save order') . '" />' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+            '<input type="submit" name="saveorder" value="' . __('Save order') . '">' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
-            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');" /></p>' .
+            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');"></p>' .
             '</div>' .
             '</form>';
         } else {
@@ -345,8 +345,8 @@ class Manage extends Process
         '</p>' .
         '<p>' . form::hidden(['p'], 'blogroll') .
         App::nonce()->getFormNonce() .
-        '<input type="submit" name="add_link" value="' . __('Save') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="submit" name="add_link" value="' . __('Save') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -362,8 +362,8 @@ class Manage extends Process
         '</p>' .
         '<p>' . form::hidden(['p'], My::id()) .
         App::nonce()->getFormNonce() .
-        '<input type="submit" name="add_cat" value="' . __('Save') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<input type="submit" name="add_cat" value="' . __('Save') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -375,11 +375,11 @@ class Manage extends Process
             '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
             '<h3>' . __('Import links') . '</h3>' .
             '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
-            '<input type="file" id="links_file" name="links_file" required /></p>' .
+            '<input type="file" id="links_file" name="links_file" required></p>' .
             '<p>' . form::hidden(['p'], My::id()) .
             App::nonce()->getFormNonce() .
-            '<input type="submit" name="import_links" value="' . __('Import') . '" />' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+            '<input type="submit" name="import_links" value="' . __('Import') . '">' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
             '</form>';
         } else {
@@ -405,11 +405,11 @@ class Manage extends Process
                     echo
                     '<tr><td>' . form::checkbox(['entries[]'], $i) . '</td>' .
                     '<td nowrap><a href="' . $url . '">' . $title . '</a>' .
-                    '<input type="hidden" name="url[' . $i . ']" value="' . $url . '" />' .
-                    '<input type="hidden" name="title[' . $i . ']" value="' . $title . '" />' .
+                    '<input type="hidden" name="url[' . $i . ']" value="' . $url . '">' .
+                    '<input type="hidden" name="title[' . $i . ']" value="' . $title . '">' .
                     '</td>' .
                     '<td>' . $desc .
-                    '<input type="hidden" name="desc[' . $i . ']" value="' . $desc . '" />' .
+                    '<input type="hidden" name="desc[' . $i . ']" value="' . $desc . '">' .
                     '</td></tr>' . "\n";
                     $i++;
                 }
@@ -421,8 +421,8 @@ class Manage extends Process
                 '<p class="col right">' .
                 form::hidden(['p'], My::id()) .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" name="cancel_import" value="' . __('Cancel') . '" />&nbsp;' .
-                '<input type="submit" name="import_links_do" value="' . __('Import') . '" /></p>' .
+                '<input type="submit" name="cancel_import" value="' . __('Cancel') . '">&nbsp;' .
+                '<input type="submit" name="import_links_do" value="' . __('Import') . '"></p>' .
                 '</div>';
             }
             echo

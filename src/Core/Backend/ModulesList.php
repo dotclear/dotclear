@@ -395,10 +395,10 @@ class ModulesList
         echo
         '<div class="modules-search">' .
         '<form action="' . $this->getURL() . '" method="get">' .
-        '<p><label for="m_search" class="classic">' . __('Search in repository:') . '&nbsp;</label><br />' .
+        '<p><label for="m_search" class="classic">' . __('Search in repository:') . '&nbsp;</label><br>' .
         form::hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins') .
         form::field('m_search', 30, 255, Html::escapeHTML($query)) .
-        '<input type="submit" value="' . __('OK') . '" /> ';
+        '<input type="submit" value="' . __('OK') . '"> ';
 
         if ($query) {
             echo
@@ -958,11 +958,11 @@ class ModulesList
                     '<td class="module-distrib">' . ($define->get('distributed') ?
                     '<img src="images/dotclear-leaf.svg" alt="' .
                     __('Plugin from official distribution') . '" title="' .
-                    __('Plugin from official distribution') . '" />'
+                    __('Plugin from official distribution') . '">'
                     : ($git ?
                         '<img src="images/git-branch.svg" alt="' .
                         __('Plugin in development') . '" title="' .
-                        __('Plugin in development') . '" />'
+                        __('Plugin in development') . '">'
                         : '')) . '</td>';
             }
 
@@ -1188,7 +1188,7 @@ class ModulesList
 
         // mark module state
         if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
+            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1">';
         }
 
         # Use loop to keep requested order
@@ -1199,7 +1199,7 @@ class ModulesList
                     // do not allow activation of duplciate modules already activated
                     $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
-                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
+                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '">';
                     }
 
                     break;
@@ -1207,7 +1207,7 @@ class ModulesList
                     # Activate
                 case 'deactivate':
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getUsing())) {
-                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
+                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset">';
                     }
 
                     break;
@@ -1216,7 +1216,7 @@ class ModulesList
                 case 'delete':
                     if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
-                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
+                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '">';
                     }
 
                     break;
@@ -1224,7 +1224,7 @@ class ModulesList
                     # Clone
                 case 'clone':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" class="button clone" name="clone[' . Html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
+                        $submits[] = '<input type="submit" class="button clone" name="clone[' . Html::escapeHTML($id) . ']" value="' . __('Clone') . '">';
                     }
 
                     break;
@@ -1232,7 +1232,7 @@ class ModulesList
                     # Install (from store)
                 case 'install':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
+                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '">';
                     }
 
                     break;
@@ -1240,7 +1240,7 @@ class ModulesList
                     # Update (from store)
                 case 'update':
                     if (App::auth()->isSuperAdmin() && $this->path_writable && !$define->updLocked()) {
-                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
+                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '">';
                     }
 
                     break;
@@ -1284,7 +1284,7 @@ class ModulesList
                             $with_selection ?
                             __('Activate selected plugins') :
                             __('Activate all plugins from this list')
-                        ) . '" />';
+                        ) . '">';
                     }
 
                     break;
@@ -1296,7 +1296,7 @@ class ModulesList
                             $with_selection ?
                             __('Deactivate selected plugins') :
                             __('Deactivate all plugins from this list')
-                        ) . '" />';
+                        ) . '">';
                     }
 
                     break;
@@ -1308,7 +1308,7 @@ class ModulesList
                             $with_selection ?
                             __('Update selected plugins') :
                             __('Update all plugins from this list')
-                        ) . '" />';
+                        ) . '">';
                     }
 
                     break;
@@ -1603,7 +1603,7 @@ class ModulesList
         '<form method="post" action="' . $this->getURL() . '" id="uploadpkg" enctype="multipart/form-data" class="fieldset">' .
         '<h4>' . __('Upload a zip file') . '</h4>' .
         '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file path:') . '</label> ' .
-        '<input type="file" name="pkg_file" id="pkg_file" required /></p>' .
+        '<input type="file" name="pkg_file" id="pkg_file" required></p>' .
         '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
         form::password(
             ['your_pwd', 'your_pwd1'],
@@ -1614,7 +1614,7 @@ class ModulesList
                 'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
-        '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '" />' .
+        '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '">' .
         App::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
@@ -1637,7 +1637,7 @@ class ModulesList
                 'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
-        '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '" />' .
+        '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '">' .
         App::nonce()->getFormNonce() . '</p>' .
             '</form>';
 
@@ -1779,7 +1779,7 @@ class ModulesList
 
             if (!$this->config_define->get('standalone_config')) {
                 echo
-                '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '" />' .
+                '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '">' .
                 form::hidden('module', $this->config_define->getId()) .
                 form::hidden('redir', $this->getRedir()) .
                 App::nonce()->getFormNonce() . '</p>' .

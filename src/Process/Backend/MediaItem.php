@@ -508,12 +508,12 @@ class MediaItem extends Process
                     echo
                     '<label class="classic">' .
                     form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    App::media()->getThumbSizes()[$s][2] . '</label><br /> ';
+                    App::media()->getThumbSizes()[$s][2] . '</label><br> ';
                 }
                 $s_checked = (!isset(App::backend()->file->media_thumb[$defaults['size']]));
                 echo
                 '<label class="classic">' .
-                form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ' .
+                form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br> ' .
                 '</p>';
             } elseif (App::backend()->file_type[0] == 'audio') {
                 $media_type = 'mp3';
@@ -576,12 +576,12 @@ class MediaItem extends Process
                     echo
                     '<label class="classic">' .
                     form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    App::media()->getThumbSizes()[$s][2] . '</label><br /> ';
+                    App::media()->getThumbSizes()[$s][2] . '</label><br> ';
                 }
                 $s_checked = (!isset(App::backend()->file->media_thumb[$defaults['size']]));
                 echo
                 '<label class="classic">' .
-                form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ' .
+                form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br> ' .
                 '</p>' .
                 '</div>' .
 
@@ -593,13 +593,13 @@ class MediaItem extends Process
                     'legend',
                     ($defaults['legend'] == 'legend')
                 ) .
-                __('Legend and title') . '</label><br />' .
+                __('Legend and title') . '</label><br>' .
                 '<label for="legend2" class="classic">' . form::radio(
                     ['legend', 'legend2'],
                     'title',
                     ($defaults['legend'] == 'title')
                 ) .
-                __('Title') . '</label><br />' .
+                __('Title') . '</label><br>' .
                 '<label for="legend3" class="classic">' . form::radio(
                     ['legend', 'legend3'],
                     'none',
@@ -609,7 +609,7 @@ class MediaItem extends Process
                 '</p>' .
                 '<p id="media-attribute">' .
                 __('Title: ') . ($media_title != '' ? '<span class="media-title">' . $media_title . '</span>' : __('(none)')) .
-                '<br />' .
+                '<br>' .
                 __('Legend: ') . ($media_desc != '' ? ' <span class="media-desc">' . $media_desc . '</span>' : __('(none)')) .
                 '</p>' .
                 '</div>' .
@@ -628,7 +628,7 @@ class MediaItem extends Process
                 foreach ($i_align as $k => $v) {
                     echo
                     '<label class="classic">' .
-                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
+                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br> ';
                 }
                 echo
                 '</p>' .
@@ -638,7 +638,7 @@ class MediaItem extends Process
                 '<h3>' . __('Image insertion') . '</h3>' .
                 '<p>' .
                 '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$defaults['link']) .
-                __('As a single image') . '</label><br />' .
+                __('As a single image') . '</label><br>' .
                 '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link']) .
                 __('As a link to the original image') . '</label>' .
                 '</p>' .
@@ -662,7 +662,7 @@ class MediaItem extends Process
                 foreach ($i_align as $k => $v) {
                     echo
                     '<label class="classic">' .
-                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
+                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br> ';
                 }
 
                 $url = App::backend()->file->file_url;
@@ -704,7 +704,7 @@ class MediaItem extends Process
                 foreach ($i_align as $k => $v) {
                     echo
                     '<label class="classic">' .
-                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
+                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br> ';
                 }
 
                 $url = App::backend()->file->file_url;
@@ -741,8 +741,8 @@ class MediaItem extends Process
                 '<div class="border-top">' .
                 '<form id="save_settings" action="' . App::backend()->url()->getBase('admin.media.item') . '" method="post">' .
                 '<p>' . __('Make current settings as default') . ' ' .
-                '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '" /> ' . __('or') . ' ' .
-                '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '" />';
+                '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '"> ' . __('or') . ' ' .
+                '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '">';
 
                 $local = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
@@ -752,7 +752,7 @@ class MediaItem extends Process
                     echo
                     '</p>' .
                     '<p>' . __('Settings exist for this folder:') . ' ' .
-                    '<input class="delete" type="submit" name="remove_folder_prefs" value="' . __('Remove them') . '" /> ';
+                    '<input class="delete" type="submit" name="remove_folder_prefs" value="' . __('Remove them') . '"> ';
                 }
 
                 echo
@@ -778,7 +778,7 @@ class MediaItem extends Process
         }
 
         echo
-        '<p id="media-icon"><img class="media-icon-square' . (App::backend()->file->media_preview ? ' media-icon-preview' : '') . '" src="' . App::backend()->file->media_icon . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="" /></p>' .
+        '<p id="media-icon"><img class="media-icon-square' . (App::backend()->file->media_preview ? ' media-icon-preview' : '') . '" src="' . App::backend()->file->media_icon . '?' . time() * random_int(0, mt_getrandmax()) . '" alt=""></p>' .
 
         '<div id="media-details">' .
         '<div class="near-icon">';
@@ -794,14 +794,14 @@ class MediaItem extends Process
                 $url = App::backend()->file->file_url;    // @phpstan-ignore-line
                 echo
                 '<p><a class="modal-image" href="' . $url . '">' .
-                '<img src="' . App::backend()->file->media_thumb[$thumb_size] . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="" />' .
+                '<img src="' . App::backend()->file->media_thumb[$thumb_size] . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="">' .
                 '</a></p>';
             } elseif ($thumb_size === 'o') {
                 $image_size = getimagesize(App::backend()->file->file);
                 $class      = !$image_size || ($image_size[1] > 500) ? ' class="overheight"' : '';
                 echo
                 '<p id="media-original-image"' . $class . '><a class="modal-image" href="' . App::backend()->file->file_url . '">' .
-                '<img src="' . App::backend()->file->file_url . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="" />' .
+                '<img src="' . App::backend()->file->file_url . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="">' .
                 '</a></p>';
             }
 
@@ -927,7 +927,7 @@ class MediaItem extends Process
                 echo
                 '<ul>';
                 while ($rs->fetch()) {
-                    $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+                    $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
                     $img_status = match ((int) $rs->post_status) {
                         App::blog()::POST_PUBLISHED   => sprintf($img, __('published'), 'check-on.png'),
                         App::blog()::POST_UNPUBLISHED => sprintf($img, __('unpublished'), 'check-off.png'),
@@ -979,7 +979,7 @@ class MediaItem extends Process
                 '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
                 '<h4>' . __('Update thumbnails') . '</h4>' .
                 '<p class="more-info">' . __('This will create or update thumbnails for this image.') . '</p>' .
-                '<p><input type="submit" name="thumbs" value="' . __('Update thumbnails') . '" />' .
+                '<p><input type="submit" name="thumbs" value="' . __('Update thumbnails') . '">' .
                 App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
@@ -1002,7 +1002,7 @@ class MediaItem extends Process
                 '</ul>' .
                 '<p><label for="inflate_mode" class="classic">' . __('Extract mode:') . '</label> ' .
                 form::combo('inflate_mode', $inflate_combo, 'new') .
-                '<input type="submit" name="unzip" value="' . __('Extract') . '" />' .
+                '<input type="submit" name="unzip" value="' . __('Extract') . '">' .
                 App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
@@ -1046,7 +1046,7 @@ class MediaItem extends Process
             __('Private') . '</label></p>' .
             '<p><label for="media_path">' . __('New directory:') . '</label>' .
             form::combo('media_path', App::backend()->dirs_combo, dirname(App::backend()->file->relname)) . '</p>' .
-            '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
+            '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
             App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
             App::nonce()->getFormNonce() . '</p>' .
             '</form>' .
@@ -1056,9 +1056,9 @@ class MediaItem extends Process
             '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) . '</div>' .
             '<p><label for="upfile">' . __('Choose a file:') .
             ' (' . sprintf(__('Maximum size %s'), Files::size(App::config()->maxUploadSize())) . ') ' .
-            '<input type="file" id="upfile" name="upfile" size="35" />' .
+            '<input type="file" id="upfile" name="upfile" size="35">' .
             '</label></p>' .
-            '<p><input type="submit" value="' . __('Send') . '" />' .
+            '<p><input type="submit" value="' . __('Send') . '">' .
             App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
             App::nonce()->getFormNonce() . '</p>' .
             '</form>';
@@ -1066,7 +1066,7 @@ class MediaItem extends Process
             if (App::backend()->file->del) {
                 echo
                 '<form id="delete-form" method="post" action="' . App::backend()->url()->getBase('admin.media.item') . '">' .
-                '<p><input name="delete" type="submit" class="delete" value="' . __('Delete this media') . '" />' .
+                '<p><input name="delete" type="submit" class="delete" value="' . __('Delete this media') . '">' .
                 form::hidden('remove', rawurlencode(App::backend()->file->basename)) .
                 form::hidden('rmyes', 1) .
                 App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->media_page_url_params) .
@@ -1087,7 +1087,7 @@ class MediaItem extends Process
         } else {
             // Go back button
             echo
-            '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /></p>';
+            '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js"></p>';
         }
 
         call_user_func(App::backend()->close_function);

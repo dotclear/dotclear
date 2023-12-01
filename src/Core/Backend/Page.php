@@ -131,7 +131,7 @@ class Page
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
             App::nonce()->getFormNonce() . form::combo('switchblog', $blogs, App::blog()->id()) .
             form::hidden(['redir'], $_SERVER['REQUEST_URI']) .
-            '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
+            '<input type="submit" value="' . __('ok') . '" class="hidden-if-js"></p>';
         }
 
         $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -224,10 +224,10 @@ class Page
         '<!DOCTYPE html>' .
         '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
-        '  <meta charset="UTF-8" />' . "\n" .
-        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-        '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
+        '  <meta charset="UTF-8">' . "\n" .
+        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+        '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
         '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
 
         echo static::cssLoad('style/default.css');
@@ -238,8 +238,8 @@ class Page
 
         if (!App::auth()->prefs()->interface->hide_std_favicon) {
             echo
-                '<link rel="icon" type="image/png" href="images/favicon96-login.png" />' . "\n" .
-                '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n";
+                '<link rel="icon" type="image/png" href="images/favicon96-login.png">' . "\n" .
+                '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n";
         }
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
@@ -289,21 +289,21 @@ class Page
         '<form action="' . App::backend()->url()->get('admin.home') . '" method="post" id="top-info-blog">' .
         $blog_box .
         '<p><a href="' . App::blog()->url() . '" class="outgoing" title="' . __('Go to site') .
-        '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
+        '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt=""></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . App::backend()->url()->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
         '<li><a href="' . App::backend()->url()->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
-            '</span><img src="images/logout.svg" alt="" /></a></li>' .
+            '</span><img src="images/logout.svg" alt=""></a></li>' .
             '</ul>' .
             '</header>'; // end header
 
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
         '<div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">' .
-        '<img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="' . __('Hide main menu') . '" />' .
-        '<img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="' . __('Show main menu') . '" />' .
+        '<img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="' . __('Hide main menu') . '">' .
+        '<img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="' . __('Show main menu') . '">' .
             '</button></div>' .
             '<main id="main" role="main">' . "\n" .
             '<div id="content" class="clearfix">' . "\n";
@@ -344,15 +344,15 @@ class Page
 
         '<form id="search-menu" action="' . App::backend()->url()->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
-        '<input type="hidden" name="process" value="Search" />' .
-        '<input type="submit" value="' . __('OK') . '" /></p>' .
+        '<input type="hidden" name="process" value="Search">' .
+        '<input type="submit" value="' . __('OK') . '"></p>' .
             '</form>';
 
         foreach (array_keys((array) App::backend()->menus()) as $k) {
             echo App::backend()->menus()[$k]?->draw();
         }
 
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br />(Codename: ' . App::config()->dotclearName() . ')');
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br>(Codename: ' . App::config()->dotclearName() . ')');
 
         # --BEHAVIOR-- adminPageFooter --
         $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
@@ -377,8 +377,8 @@ class Page
         echo
             '<footer id="footer" role="contentinfo">' .
             '<a href="https://dotclear.org/" title="' . $text . '">' .
-            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '" />' .
-            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '" />' .
+            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '">' .
+            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '">' .
             '</a></footer>' . "\n" .
             '<!-- ' . "\n" .
             $figure .
@@ -420,11 +420,11 @@ class Page
         '<!DOCTYPE html>' .
         '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
-        '  <meta charset="UTF-8" />' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
+        '  <meta charset="UTF-8">' . "\n" .
+        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
         '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
-            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-            '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
+            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+            '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n";
 
         echo static::cssLoad('style/default.css');
 
@@ -684,11 +684,11 @@ class Page
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2 role="navigation">' . ($with_home_link ?
             '<a class="go_home" href="' . App::backend()->url()->get('admin.home') . '">' .
-            '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '" />' .
-            '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '" />' .
+            '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '">' .
+            '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '">' .
             '</a>' :
-            '<img class="go_home light-only" src="style/dashboard-alt.svg" alt="" />' .
-            '<img class="go_home dark-only" src="style/dashboard-alt-dark.svg" alt="" />');
+            '<img class="go_home light-only" src="style/dashboard-alt.svg" alt="">' .
+            '<img class="go_home dark-only" src="style/dashboard-alt-dark.svg" alt="">');
 
         $index = 0;
         if ($hl_pos < 0) {
@@ -844,10 +844,10 @@ class Page
         App::backend()->resources()->context(true);
 
         echo
-        '<div id="help"><hr /><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .
+        '<div id="help"><hr><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .
         $content .
         '</div>' .
-        '<div id="helplink"><hr />' .
+        '<div id="helplink"><hr>' .
         '<p>' .
         sprintf(__('See also %s'), sprintf('<a href="' . App::backend()->url()->get('admin.help') . '">%s</a>', __('the global help'))) .
             '.</p>' .
@@ -869,7 +869,7 @@ class Page
         if (!isset(self::$preloaded[$escaped_src])) {
             self::$preloaded[$escaped_src] = true;
 
-            return '<link rel="preload" href="' . static::appendVersion($escaped_src, $version) . '" as="' . $type . '" />' . "\n";
+            return '<link rel="preload" href="' . static::appendVersion($escaped_src, $version) . '" as="' . $type . '">' . "\n";
         }
 
         return '';
@@ -890,7 +890,7 @@ class Page
         if (!isset(self::$loaded_css[$escaped_src])) {
             self::$loaded_css[$escaped_src] = true;
 
-            return '<link rel="stylesheet" href="' . static::appendVersion($escaped_src, $version) . '" type="text/css" media="' . $media . '" />' . "\n";
+            return '<link rel="stylesheet" href="' . static::appendVersion($escaped_src, $version) . '" type="text/css" media="' . $media . '">' . "\n";
         }
 
         return '';

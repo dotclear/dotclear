@@ -29,7 +29,7 @@ use Dotclear\Helper\L10n;
  * echo \Dotclear\Exception\ExceptionEnum::tryFrom(503)?->label();
  * // List exceptions informations
  * foreach(\Dotclear\Exception\ExceptionEnum::cases() as $enum) {
- *   echo $enum->name . ' : ' . $enum->value . ' : ' . $enum->code() . ' : ' . $enum->label() . '<br />';
+ *   echo $enum->name . ' : ' . $enum->value . ' : ' . $enum->code() . ' : ' . $enum->label() . '<br>';
  * }
  * @endcode
  *

@@ -165,7 +165,7 @@ class ListingMedia extends Listing
                 if ($filters->select == 1) {
                     // Single media selection button
                     $act .= '<a href="' . $link . '"><img src="images/plus.png" alt="' . __('Select this file') . '" ' .
-                    'title="' . __('Select this file') . '" /></a> ';
+                    'title="' . __('Select this file') . '"></a> ';
                 } else {
                     // Multiple media selection checkbox
                     $act .= form::checkbox(['medias[]', 'media_' . rawurlencode($filename)], $filename);
@@ -180,13 +180,13 @@ class ListingMedia extends Listing
                         ['media_id' => $file->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
                     '">' .
-                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '"/>' .
+                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '">' .
                         '</a>';
                 }
                 if ($filters->popup) {
                     // Media insertion button
                     $act .= '<a href="' . $link . '"><img src="images/plus.png" alt="' . __('Insert this file into entry') . '" ' .
-                    'title="' . __('Insert this file into entry') . '" /></a> ';
+                    'title="' . __('Insert this file into entry') . '"></a> ';
                 }
             }
         }
@@ -200,7 +200,7 @@ class ListingMedia extends Listing
             } else {
                 $act .= '<a class="media-remove" ' .
                 'href="' . App::backend()->url()->get($page_adminurl, [...$filters->values(), 'remove' => rawurlencode($filename)]) . '">' .
-                '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
+                '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '"></a>';
             }
         }
 
@@ -210,7 +210,7 @@ class ListingMedia extends Listing
         // Render markup
         if ($filters->file_mode != 'list') {
             $res = '<div class="' . $class . '"><p><a class="media-icon media-link" href="' . rawurldecode($link) . '">' .
-            '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="" />' . ($query ? $filename : $display_name) . '</a></p>';
+            '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="">' . ($query ? $filename : $display_name) . '</a></p>';
 
             $lst = '';
             if (!$file->d) {
@@ -237,8 +237,8 @@ class ListingMedia extends Listing
             $res = '<tr class="' . $class . '">';
             $res .= '<td class="media-action">' . $act . '</td>';
             $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
-            '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="" />' . ($query ? $file : $display_name) . '</a>' .
-                '<br />' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
+            '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="">' . ($query ? $file : $display_name) . '</a>' .
+                '<br>' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
             $res .= '<td class="nowrap count">' . (
                 $file->d ? '' :
                 '<time datetime="' . Date::iso8601((int) strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .

@@ -136,8 +136,8 @@ class Manage extends Process
             '<form id="lock-update" method="post" action="' . App::backend()->getPageURL() . '">' .
                 '<p>' .
                 (App::backend()->theme->updLocked() ?
-                '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '" />' :
-                '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '" />') .
+                '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '">' :
+                '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '">') .
                 App::nonce()->getFormNonce() .
                 '</p>' .
                 '<p class="info">' .
@@ -204,8 +204,8 @@ class Manage extends Process
 
                 if (App::backend()->file['w']) {
                     echo
-                    '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
-                    (App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
+                    '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s"> ' .
+                    (App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '">' : '') .
                     App::nonce()->getFormNonce() .
                         (App::backend()->file['type'] ? form::hidden([App::backend()->file['type']], App::backend()->file['f']) : '') .
                         '</p>';

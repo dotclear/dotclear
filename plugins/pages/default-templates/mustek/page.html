@@ -1,10 +1,10 @@
 {{tpl:extends parent="post.html"}}
 <tpl:Block name="head-linkrel">
-  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}">
   <tpl:EntryIf pings_active="1">
-    <link rel="pingback" href="{{tpl:BlogXMLRPCURL}}" />
+    <link rel="pingback" href="{{tpl:BlogXMLRPCURL}}">
   </tpl:EntryIf>
-  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}">
 </tpl:Block>
 <tpl:Block name="body-tag">
 
@@ -92,7 +92,7 @@
           <dl>
             <dd class="comment-preview">{{tpl:CommentPreviewContent}}</dd>
           </dl>
-          <p class="buttons"><input type="submit" class="submit" value="{{tpl:lang send}}" /></p>
+          <p class="buttons"><input type="submit" class="submit" value="{{tpl:lang send}}"></p>
         </div>
       </tpl:IfCommentPreview>
       <h3>{{tpl:lang Add a comment}}</h3>
@@ -100,15 +100,15 @@
         <!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
         {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
         <p class="field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
-          <input name="c_name" id="c_name" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewName encode_html="1"}}" />
+          <input name="c_name" id="c_name" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewName encode_html="1"}}">
         </p>
         <p class="field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
-          <input name="c_mail" id="c_mail" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
+          <input name="c_mail" id="c_mail" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewEmail encode_html="1"}}">
         </p>
         <p class="field"><label for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
-          <input name="c_site" id="c_site" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewSite encode_html="1"}}" />
+          <input name="c_site" id="c_site" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewSite encode_html="1"}}">
         </p>
-        <p style="display:none"><input name="f_mail" type="text" size="30" maxlength="255" value="" /></p>
+        <p style="display:none"><input name="f_mail" type="text" size="30" maxlength="255" value=""></p>
         <p class="field"><label for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
           <textarea name="c_content" id="c_content" cols="35" rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
         </p>
@@ -117,8 +117,8 @@
         {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
       </fieldset>
       <fieldset>
-        <p class="buttons"><input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}" />
-          <tpl:IfCommentPreviewOptional><input type="submit" class="submit" value="{{tpl:lang send}}" /></tpl:IfCommentPreviewOptional>
+        <p class="buttons"><input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}">
+          <tpl:IfCommentPreviewOptional><input type="submit" class="submit" value="{{tpl:lang send}}"></tpl:IfCommentPreviewOptional>
         </p>
       </fieldset>
     </form>

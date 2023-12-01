@@ -110,8 +110,8 @@ msgid "Unable to load deprecated core"
 msgstr "Nu se poate încărca nucleul depreciat"
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
-msgstr "<p>Ne cerem scuze pentru această indisponibilitate temporară.<br />Vă mulțumim pentru înțelegere.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
+msgstr "<p>Ne cerem scuze pentru această indisponibilitate temporară.<br>Vă mulțumim pentru înțelegere.</p>"
 
 # in Dotclear\Core\Task
 #, php-format

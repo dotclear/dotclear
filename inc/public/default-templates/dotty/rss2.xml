@@ -26,7 +26,7 @@
         </tpl:EntryTags>
         <description>{{tpl:EntryExcerpt absolute_urls="1" encode_xml="1"}} {{tpl:EntryContent absolute_urls="1" encode_xml="1"}}</description>
         <tpl:Attachments>
-          <enclosure url="{{tpl:AttachmentURL}}" length="{{tpl:AttachmentSize full=" 1 "}}" type="{{tpl:AttachmentMimeType}}" />
+          <enclosure url="{{tpl:AttachmentURL}}" length="{{tpl:AttachmentSize full="1"}}" type="{{tpl:AttachmentMimeType}}" />
         </tpl:Attachments>
         <tpl:EntryIf comments_active="1">
           <comments>{{tpl:EntryURL}}#comment-form</comments>

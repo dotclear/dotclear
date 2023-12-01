@@ -99,9 +99,9 @@ class Manage extends Process
             if (!empty($_GET['test'])) {
                 try {
                     PingsAPI::doPings($uri, 'Example site', 'http://example.com');
-                    echo ' <img src="images/check-on.png" alt="OK" />';
+                    echo ' <img src="images/check-on.png" alt="OK">';
                 } catch (Exception $e) {
-                    echo ' <img src="images/check-off.png" alt="' . __('Error') . '" /> ' . $e->getMessage();
+                    echo ' <img src="images/check-off.png" alt="' . __('Error') . '"> ' . $e->getMessage();
                 }
             }
 
@@ -120,8 +120,8 @@ class Manage extends Process
         form::checkbox('pings_auto', 1, My::settings()->pings_auto) .
         __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
 
-        '<p><input type="submit" value="' . __('Save') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<p><input type="submit" value="' . __('Save') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 

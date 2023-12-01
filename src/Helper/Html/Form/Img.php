@@ -63,7 +63,7 @@ class Img extends Component
             (isset($this->sizes) ? ' sizes="' . $this->sizes . '"' : '') .
             (isset($this->srcset) ? ' srcset="' . $this->srcset . '"' : '') .
             (isset($this->width) ? ' width="' . strval((int) $this->width) . '"' : '') .
-            $this->renderCommonAttributes() . '/>';
+            $this->renderCommonAttributes() . '>';
     }
 
     /**

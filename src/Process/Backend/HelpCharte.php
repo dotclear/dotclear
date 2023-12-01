@@ -68,12 +68,12 @@ class HelpCharte extends Process
 <html lang="fr" data-theme="<?php echo self::getTheme(); ?>">
 <!-- included by ../_charte.php -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
-  <meta name="GOOGLEBOT" content="NOSNIPPET" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
+  <meta name="GOOGLEBOT" content="NOSNIPPET">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bibliothèque de styles - Dotclear - 2.7</title>
-  <link rel="icon" type="image/png" href="images/favicon96-login.png" />
+  <link rel="icon" type="image/png" href="images/favicon96-login.png">
 <?php
             echo
             Page::cssLoad('style/default.css') . // Set some JSON data
@@ -106,8 +106,8 @@ class HelpCharte extends Process
   </div>
   <div id="wrapper" class="clearfix">
     <div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">
-        <img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="Cacher le menu" />
-        <img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="Montrer le menu" />
+        <img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="Cacher le menu">
+        <img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="Montrer le menu">
         </button></div>
     <div id="main">
       <div id="content" class="clearfix">
@@ -266,36 +266,36 @@ class HelpCharte extends Process
             </div>
           </div>
         </div>
-        <hr />
+        <hr>
         <p><strong>Note :</strong> dans les exemples les valeurs et les numérotations sont placées dans un <code>span class="step"</code> (et ressortent donc dans un petit bloc à fond gris).</p>
         <h2>Interactions</h2>
         <h3 id="elements">Éléments de formulaire</h3>
         <form class="two-cols clearfix" action="#">
           <div class="col">
-            <p><label for="ex1">Label simple + input text :</label><input id="ex1" type="text" /></p>
+            <p><label for="ex1">Label simple + input text :</label><input id="ex1" type="text"></p>
             <p class="form-note">p class="form-note".</p>
-            <p><label for="ex4" class="classic">Label class="classic" + input text :</label> <input id="ex4" type="text" /></p>
-            <p><label for="ex2" class="required"><abbr title="Champ obligatoire">*</abbr> Label class="required" :</label> <input id="ex2" type="text" required placeholder="exemple" /><span class="form-note">span class="form-note"</span></p>
-            <p><label for="ex11" class="bold">Label class="bold" :</label> <input id="ex11" type="text" /></p>
+            <p><label for="ex4" class="classic">Label class="classic" + input text :</label> <input id="ex4" type="text"></p>
+            <p><label for="ex2" class="required"><abbr title="Champ obligatoire">*</abbr> Label class="required" :</label> <input id="ex2" type="text" required placeholder="exemple"><span class="form-note">span class="form-note"</span></p>
+            <p><label for="ex11" class="bold">Label class="bold" :</label> <input id="ex11" type="text"></p>
             <p class="form-note">La class="bold" est bien sûr à écrire en minuscules.</p>
-            <p><label for="ex3">Input class="maximal" :</label> <input id="ex3" type="text" class="maximal" /></p>
+            <p><label for="ex3">Input class="maximal" :</label> <input id="ex3" type="text" class="maximal"></p>
           </div>
           <div class="col">
-            <p class="field"><label for="ex5">p.field label + input :</label><input id="ex5" type="text" /></p>
+            <p class="field"><label for="ex5">p.field label + input :</label><input id="ex5" type="text"></p>
             <p class="field"><label for="ex6">p.field label + select :</label>
               <select id="ex6">
                 <option value="opt2">Option 2</option>
                 <option selected="selected" value="opt2">Option 2</option>
               </select>
             </p>
-            <p><label class="classic" for="ex7"><input type="checkbox" checked="checked" id="ex7" value="1" name="ex7" />
+            <p><label class="classic" for="ex7"><input type="checkbox" checked="checked" id="ex7" value="1" name="ex7">
                 Checkbox (label.classic)</label></p>
-            <p><label class="classic" for="ex8-1"><input type="radio" checked="checked" id="ex8-1" value="ex8-1" name="ex8-1" />
+            <p><label class="classic" for="ex8-1"><input type="radio" checked="checked" id="ex8-1" value="ex8-1" name="ex8-1">
                 Bouton radio 1 (label.classic)</label></p>
-            <p><label class="classic" for="ex8-2"><input type="radio" id="ex8-2" value="ex8-2" name="ex8-2" />
+            <p><label class="classic" for="ex8-2"><input type="radio" id="ex8-2" value="ex8-2" name="ex8-2">
                 Bouton radio 2 (label.classic)</label></p>
             <p class="form-note">Les checkboxes et les boutons radio sont dans la balise &lt;label&gt;.</p>
-            <p><label class="classic" for="ex9"><input type="checkbox" checked="checked" id="ex9" value="1" title="intitulé du champ" /></label> <label for="ex10" class="classic">checkbox.classic + label class="classic" :</label> <input id="ex10" type="text" /></p>
+            <p><label class="classic" for="ex9"><input type="checkbox" checked="checked" id="ex9" value="1" title="intitulé du champ"></label> <label for="ex10" class="classic">checkbox.classic + label class="classic" :</label> <input id="ex10" type="text"></p>
           </div>
         </form>
         <form action="#" class="clear">
@@ -307,9 +307,9 @@ class HelpCharte extends Process
         <h3 id="boutons">Boutons</h3>
         <div class="clearfix">
           <p><a class="button add">a.button.add</a> Se place en haut à droite (dans un p.top-add)</p>
-          <p><input type="button" value="Type button" /> <a href="#" class="button">a.button</a> <input type="reset" value="Type reset" /> <a href="#" class="button reset">a.reset</a></p>
-          <p><input type="submit" value="Type submit" /> <input type="submit" class="delete" value="Type submit class delete" /> <a href="#" class="button delete">a.button delete</a></p>
-          <p><input type="submit" value="Type submit class disabled" class="disabled" /></p>
+          <p><input type="button" value="Type button"> <a href="#" class="button">a.button</a> <input type="reset" value="Type reset"> <a href="#" class="button reset">a.reset</a></p>
+          <p><input type="submit" value="Type submit"> <input type="submit" class="delete" value="Type submit class delete"> <a href="#" class="button delete">a.button delete</a></p>
+          <p><input type="submit" value="Type submit class disabled" class="disabled"></p>
         </div>
         <h3 id="messages">Messages</h3>
         <h4 class="smart-title">Messages système</h4>
@@ -357,17 +357,17 @@ class HelpCharte extends Process
             <option value="#l_lists">lists</option>
             <option value="#l_toggles">toggles</option>
           </select>
-          <input type="submit" id="lp_submit" value="Ok" style="display: none;" />
-          <input type="hidden" value="aboutConfig" name="p" />
+          <input type="submit" id="lp_submit" value="Ok" style="display: none;">
+          <input type="hidden" value="aboutConfig" name="p">
         </p>
         <h3 id="prevnext">Navigation contextuelle</h3>
-        <p><a title="Titre du lien" href="https://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-link.svg" /></a></p>
+        <p><a title="Titre du lien" href="https://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-link.svg"></a></p>
         <p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
         <h3 id="pseudo-tabs">Pseudo-onglets </h3>
         <p>Les pseudo-onglets permettent d'ajouter des sous-pages qui sont des liens vers d'autres pages, par opposition aux onglets qui sont des sections internes à la page.</p>
         <p>Les pseudo-onglets sont à positionner immédiatement après le breadcrumb (ici un hr simule le trait sous le breadcrumb).</p>
         <p>Ces pseudo-onglets doivent être définis avec un <code>&lt;ul class="pseudo-tabs"&gt;</code> et des <code>&lt;li&gt;</code>.</p>
-        <hr style="margin-bottom: .75em;" />
+        <hr style="margin-bottom: .75em;">
         <ul class="pseudo-tabs">
           <li><a href="#">Page 1</a></li>
           <li><a href="#">Autre faux onglet</a></li>
@@ -416,64 +416,64 @@ class HelpCharte extends Process
               <th scope="col">État</th>
             </tr>
             <tr class="line">
-              <td class="nowrap"><input type="checkbox" name="name1" value="value1" /></td>
+              <td class="nowrap"><input type="checkbox" name="name1" value="value1"></td>
               <td class="maximal"><a href="#">Mon cher Franck</a></td>
               <td class="nowrap count">06/08/2013 19:16</td>
               <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">4</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" /> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png" />  </td>
+              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
             </tr>
             <tr class="line offline">
-              <td class="nowrap"><input type="checkbox" name="name2" value="value2" /></td>
+              <td class="nowrap"><input type="checkbox" name="name2" value="value2"></td>
               <td class="maximal"><a href="#">Dotclear 2.3.0</a></td>
               <td class="nowrap count">16/05/2011 22:29</td>
               <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">5</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Non publié" title="Non publié" src="images/check-off.png" /> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png" />  </td>
+              <td class="nowrap status"><img alt="Non publié" title="Non publié" src="images/check-off.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
             </tr>
             <tr class="line">
-              <td class="nowrap"><input type="checkbox" name="entries[]" value="2148" /></td>
+              <td class="nowrap"><input type="checkbox" name="entries[]" value="2148"></td>
               <td class="maximal"><a href="#">Causons opéra au Tamm Bara</a></td>
               <td class="nowrap count">24/11/2009 23:10</td>
               <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">4</td>
               <td class="nowrap count">1</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
             </tr>
             <tr class="line">
-              <td class="nowrap"><input type="checkbox" name="entries[]" value="2136" /></td>
+              <td class="nowrap"><input type="checkbox" name="entries[]" value="2136"></td>
               <td class="maximal"><a href="#">Souffler six bougies</a></td>
               <td class="nowrap count">14/08/2009 00:00</td>
               <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">4</td>
               <td class="nowrap count">2</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
             </tr>
             <tr class="line">
-              <td class="nowrap"><input type="checkbox" name="entries[]" value="2129" /></td>
+              <td class="nowrap"><input type="checkbox" name="entries[]" value="2129"></td>
               <td class="maximal"><a href="#">Dotclear et grenadine, troisième édition</a></td>
               <td class="nowrap count">15/06/2009 07:39</td>
               <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">9</td>
               <td class="nowrap count">1</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
             </tr>
             <tr class="line">
-              <td class="nowrap"><input type="checkbox" name="entries[]" value="2111" /></td>
+              <td class="nowrap"><input type="checkbox" name="entries[]" value="2111"></td>
               <td class="maximal"><a href="#">L'abc dotclear est né</a></td>
               <td class="nowrap count">19/03/2009 10:31</td>
               <td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">1</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
             </tr>
           </table>
         </div>
@@ -497,10 +497,10 @@ class HelpCharte extends Process
             <tbody id="pageslist">
               <tr class="line" id="p10899">
                 <td class="nowrap handle minimal">
-                  <input type="text" size="2" name="order[10899]" maxlength="3" value="1" class="position" title="position de Mentions légales" />
+                  <input type="text" size="2" name="order[10899]" maxlength="3" value="1" class="position" title="position de Mentions légales">
                 </td>
                 <td class="nowrap">
-                  <input type="checkbox" name="entries[]" value="10899" title="Sélectionner cette page" />
+                  <input type="checkbox" name="entries[]" value="10899" title="Sélectionner cette page">
                 </td>
                 <td class="maximal"><a href="#">Mentions légales</a>
                 </td>
@@ -509,15 +509,15 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="Publié" title="Publié" src="images/check-on.png" />
+                  <img alt="Publié" title="Publié" src="images/check-on.png">
                                     </td>
               </tr>
               <tr class="line" id="p10937">
                 <td class="nowrap handle minimal">
-                  <input type="text" size="2" name="order[10937]" maxlength="3" value="2" class="position" title="position de Page active et cachée" />
+                  <input type="text" size="2" name="order[10937]" maxlength="3" value="2" class="position" title="position de Page active et cachée">
                 </td>
                 <td class="nowrap">
-                  <input type="checkbox" name="entries[]" value="10937" title="Sélectionner cette page" />
+                  <input type="checkbox" name="entries[]" value="10937" title="Sélectionner cette page">
                 </td>
                 <td class="maximal"><a href="#">Page active et cachée</a>
                 </td>
@@ -526,16 +526,16 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="Publié" title="Publié" src="images/check-on.png" />
-                  <img alt="Masqué" title="Masqué" src="images/hidden.png" />
+                  <img alt="Publié" title="Publié" src="images/check-on.png">
+                  <img alt="Masqué" title="Masqué" src="images/hidden.png">
                                     </td>
               </tr>
               <tr class="line offline" id="p11047">
                 <td class="nowrap handle minimal">
-                  <input type="text" size="2" name="order[11047]" maxlength="3" value="3" class="position" title="position de Page révisionnable" />
+                  <input type="text" size="2" name="order[11047]" maxlength="3" value="3" class="position" title="position de Page révisionnable">
                 </td>
                 <td class="nowrap">
-                  <input type="checkbox" name="entries[]" value="11047" title="Sélectionner cette page" />
+                  <input type="checkbox" name="entries[]" value="11047" title="Sélectionner cette page">
                 </td>
                 <td class="maximal"><a href="#">Page révisionnable</a>
                 </td>
@@ -544,15 +544,15 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" title="En attente" src="images/check-wrn.png" />
+                  <img alt="En attente" title="En attente" src="images/check-wrn.png">
                                     </td>
               </tr>
               <tr class="line offline" id="p10939">
                 <td class="nowrap handle minimal">
-                  <input type="text" size="2" name="order[10939]" maxlength="3" value="4" class="position" title="position de Programme" />
+                  <input type="text" size="2" name="order[10939]" maxlength="3" value="4" class="position" title="position de Programme">
                 </td>
                 <td class="nowrap">
-                  <input type="checkbox" name="entries[]" value="10939" title="Sélectionner cette page" />
+                  <input type="checkbox" name="entries[]" value="10939" title="Sélectionner cette page">
                 </td>
                 <td class="maximal"><a href="#">Programme</a>
                 </td>
@@ -561,15 +561,15 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="Programmé" title="Programmé" src="images/scheduled.png" />
+                  <img alt="Programmé" title="Programmé" src="images/scheduled.png">
                                     </td>
               </tr>
               <tr class="line offline" id="p10940">
                 <td class="nowrap handle minimal">
-                  <input type="text" size="2" name="order[10940]" maxlength="3" value="5" class="position" title="position de Protégée" />
+                  <input type="text" size="2" name="order[10940]" maxlength="3" value="5" class="position" title="position de Protégée">
                 </td>
                 <td class="nowrap">
-                  <input type="checkbox" name="entries[]" value="10940" title="Sélectionner cette page" />
+                  <input type="checkbox" name="entries[]" value="10940" title="Sélectionner cette page">
                 </td>
                 <td class="maximal"><a href="#">Protégée</a>
                 </td>
@@ -578,8 +578,8 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" title="En attente" src="images/check-wrn.png" />
-                  <img alt="Protégé" title="Protégé" src="images/locker.png" />
+                  <img alt="En attente" title="En attente" src="images/check-wrn.png">
+                  <img alt="Protégé" title="Protégé" src="images/locker.png">
                                     </td>
               </tr>
             </tbody>
@@ -591,7 +591,7 @@ class HelpCharte extends Process
           16*16px pour les petits formats.</p>
         <p>La plupart sont dérivées de la fonte d'icônes <a href="https://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées
           par la DC Team. Nous les avons nommées <em>Traviata</em>. La palette de couleurs utilisée est la suivante&nbsp;:</p>
-        <p class="txt-center"><img src="images/palette-traviata.png" alt="palette des couleurs utilisées pour les icônes" /></p>
+        <p class="txt-center"><img src="images/palette-traviata.png" alt="palette des couleurs utilisées pour les icônes"></p>
           <p class="txt-center">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec -
             Gris moyen&nbsp;: #b2b2b2 - Gris foncé&nbsp;: #676e78.</p>
       </div><!-- /content -->
@@ -639,7 +639,7 @@ class HelpCharte extends Process
       </div>
     </div>
     <div id="footer">
-      <a href="https://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="" /><img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="" /></a>
+      <a href="https://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/dotclear-light.svg" class="light-only" alt=""><img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt=""></a>
     </div>
   </div>
 </body>

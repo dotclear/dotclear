@@ -102,7 +102,7 @@ class Backend extends Process
             // If direct actions are made, do not execute dotclear delete action.
             if (!empty($done)) {
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
-                Notices::addSuccessNotice(implode('<br />', $done));
+                Notices::addSuccessNotice(implode('<br>', $done));
                 if ($define->get('type') == 'theme') {
                     App::backend()->url()->redirect(name: 'admin.blog.theme', suffix: '#themes');
                 } else {

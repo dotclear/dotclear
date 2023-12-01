@@ -41,12 +41,12 @@ class Helper
         $title = $title !== '' ? ' title="' . $title . '"' : '';
         if ($light_img !== '' && $dark_img !== '') {
             $icon = '<img src="' . $light_img .
-            '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />' .
+            '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . '>' .
                 '<img src="' . $dark_img .
-            '" class="dark-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />';
+            '" class="dark-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . '>';
         } elseif ($light_img !== '') {
             $icon = '<img src="' . $light_img .
-            '" class="' . ($class !== '' ? $class : '') . '" alt="' . $alt . '"' . $title . ' />';
+            '" class="' . ($class !== '' ? $class : '') . '" alt="' . $alt . '"' . $title . '>';
         } else {
             $icon = '';
         }

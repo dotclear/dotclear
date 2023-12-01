@@ -89,7 +89,7 @@ class PluginsList extends ModulesList
 
         // mark module state
         if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1" />';
+            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1">';
         }
 
         # Use loop to keep requested order
@@ -100,7 +100,7 @@ class PluginsList extends ModulesList
                     // do not allow activation of duplciate modules already activated
                     $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
                     if ($define->get('root_writable') && empty($define->getMissing()) && !$multi) {
-                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
+                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '">';
                     }
 
                     break;
@@ -108,7 +108,7 @@ class PluginsList extends ModulesList
                     # Activate
                 case 'deactivate':
                     if ($define->get('root_writable') && empty($define->getUsing())) {
-                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
+                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset">';
                     }
 
                     break;
@@ -117,7 +117,7 @@ class PluginsList extends ModulesList
                 case 'delete':
                     if (!$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
-                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
+                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '">';
                     }
 
                     break;
@@ -125,7 +125,7 @@ class PluginsList extends ModulesList
                     # Install (from store)
                 case 'install':
                     if ($this->path_writable) {
-                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
+                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '">';
                     }
 
                     break;
@@ -133,7 +133,7 @@ class PluginsList extends ModulesList
                     # Update (from store)
                 case 'update':
                     if ($this->path_writable && !$define->updLocked()) {
-                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
+                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '">';
                     }
 
                     break;
@@ -165,7 +165,7 @@ class PluginsList extends ModulesList
                             $with_selection ?
                             __('Activate selected plugins') :
                             __('Activate all plugins from this list')
-                        ) . '" />';
+                        ) . '">';
                     }
 
                     break;
@@ -177,7 +177,7 @@ class PluginsList extends ModulesList
                             $with_selection ?
                             __('Deactivate selected plugins') :
                             __('Deactivate all plugins from this list')
-                        ) . '" />';
+                        ) . '">';
                     }
 
                     break;
@@ -189,7 +189,7 @@ class PluginsList extends ModulesList
                             $with_selection ?
                             __('Update selected plugins') :
                             __('Update all plugins from this list')
-                        ) . '" />';
+                        ) . '">';
                     }
 
                     break;

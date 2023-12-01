@@ -131,7 +131,7 @@ class Home extends Process
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
             foreach (App::backend()->resources()->entries('doc') as $k => $v) {
-                $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
+                $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt=""></a></li>';
             }
 
             $doc_links .= '</ul></div>';
@@ -177,7 +177,7 @@ class Home extends Process
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
             ];
             $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
-            $dragndrop      = '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
+            $dragndrop      = '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '">' .
                 '<label for="dragndrop">' .
                 '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
                 '<use xlink:href="images/dragndrop.svg#mask"></use>' .
@@ -404,7 +404,7 @@ class Home extends Process
             $dashboardIcons = '<div id="icons">';
             foreach ($__dashboard_icons as $k => $i) {
                 $dashboardIcons .= '<p><a href="' . $i[1] . '" id="icon-process-' . $k . '-fav">' . Helper::adminIcon($i[2]) .
-            '<br /><span class="db-icon-title">' . $i[0] . '</span></a></p>';
+            '<br><span class="db-icon-title">' . $i[0] . '</span></a></p>';
             }
             $dashboardIcons .= '</div>';
             $__dashboard_main[] = $dashboardIcons;
@@ -450,11 +450,11 @@ class Home extends Process
                     '<p class="form-note info clear">' . __('This category will be created when you will save your post.') . '</p>' .
                     '</div>'
                     : '') .
-                '<p><input type="submit" value="' . __('Save') . '" name="save" /> ' .
+                '<p><input type="submit" value="' . __('Save') . '" name="save"> ' .
                 (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_PUBLISH,
                 ]), App::blog()->id())
-                    ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
+                    ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish">'
                     : '') .
                 App::nonce()->getFormNonce() .
                 form::hidden('post_status', App::blog()::POST_PENDING) .

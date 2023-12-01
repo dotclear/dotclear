@@ -224,7 +224,7 @@ class ModuleImportFeed extends Module
         '<p>' .
         App::nonce()->getFormNonce() .
         form::hidden(['do'], 1) .
-        '<input type="submit" value="' . __('Import') . '" /></p>' .
+        '<input type="submit" value="' . __('Import') . '"></p>' .
 
         '</form>';
     }

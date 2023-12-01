@@ -281,7 +281,7 @@ class WikiToHtml
         # Mise en place des options
         $this->setOpt('active_title', 1); # Activation des titres !!!
         $this->setOpt('active_setext_title', 0); # Activation des titres setext (EXPERIMENTAL)
-        $this->setOpt('active_hr', 1); # Activation des <hr />
+        $this->setOpt('active_hr', 1); # Activation des <hr>
         $this->setOpt('active_lists', 1); # Activation des listes
         $this->setOpt('active_defl', 1); # Activation des listes de définition
         $this->setOpt('active_quote', 1); # Activation du <blockquote>
@@ -296,7 +296,7 @@ class WikiToHtml
         $this->setOpt('active_anchor', 1); # Activation des ancres ~...~
         $this->setOpt('active_em', 1); # Activation du <em> ''...''
         $this->setOpt('active_strong', 1); # Activation du <strong> __...__
-        $this->setOpt('active_br', 1); # Activation du <br /> %%%
+        $this->setOpt('active_br', 1); # Activation du <br> %%%
         $this->setOpt('active_q', 1); # Activation du <q> {{...}}
         $this->setOpt('active_code', 1); # Activation du <code> @@...@@
         $this->setOpt('active_acronym', 1); # Activation des acronymes
@@ -480,7 +480,7 @@ class WikiToHtml
 
         # Line break
         if ($this->getOpt('active_br')) {
-            $html             = preg_replace('/(?<!\\\)%%%/', '<br />', $html);
+            $html             = preg_replace('/(?<!\\\)%%%/', '<br>', $html);
             $escape_pattern[] = '%%%';
         }
 
@@ -878,7 +878,7 @@ class WikiToHtml
             if (!$valid) {
                 $type = 'p';
                 $mode = null;
-                $line = '<br />' . $line;
+                $line = '<br>' . $line;
             } else {
                 $line = trim((string) $cap[2]);
             }
@@ -980,7 +980,7 @@ class WikiToHtml
         } elseif ($open && $type == 'details' && $mode == '1') {
             return "\n<details" . $attr_child . '><summary>';
         } elseif ($open && $type == 'hr') {
-            return "\n<hr" . $attr_child . ' />';
+            return "\n<hr" . $attr_child . '>';
         } elseif ($type == 'list') {
             $dl    = ($open) ? 0 : strlen((string) $previous_mode);
             $d     = strlen((string) $mode);
@@ -1106,8 +1106,7 @@ class WikiToHtml
 
                 if (($tidy = $this->__makeTag($tree, $tag, (int) $i, $i, $attr, $tag_type)) !== false) {
                     if ($tag != '') {
-                        $html .= '<' . $tag . $attr;
-                        $html .= ($tag_type == 'open') ? '>' : ' />';
+                        $html .= '<' . $tag . $attr . '>';
                     }
                     $html .= $tidy;
                 } else {
@@ -1413,7 +1412,7 @@ class WikiToHtml
 
         if (!empty($data[4])) {
             $tag = 'figure';
-            $img = '<img' . $attr . ' />';
+            $img = '<img' . $attr . '>';
             $img .= '<figcaption>' . $this->protectAttr($data[4]) . '</figcaption>';
 
             $attr = $current_attr . $align_attr;
@@ -1633,7 +1632,7 @@ class WikiToHtml
      */
     private function __autoBR(array $matches): string
     {
-        return $matches[1] . str_replace("\n", "<br />\n", $matches[2]) . $matches[3];
+        return $matches[1] . str_replace("\n", "<br>\n", $matches[2]) . $matches[3];
     }
 
     /* Macro
@@ -1806,10 +1805,10 @@ class WikiToHtml
                 '<code>[nom|url|langue]</code> ou <code>[nom|url|langue|titre]</code>.';
 
             $help['i'][] = '<strong>Image</strong> : comme un lien mais avec une extension d\'image.' .
-                '<br />Pour désactiver la reconnaissance d\'image mettez 0 dans un dernier ' .
+                '<br>Pour désactiver la reconnaissance d\'image mettez 0 dans un dernier ' .
                 'argument. Par exemple <code>[image|image.gif||0]</code> fera un lien vers l\'image au ' .
                 'lieu de l\'afficher.' .
-                '<br />Il est conseillé d\'utiliser la nouvelle syntaxe.';
+                '<br>Il est conseillé d\'utiliser la nouvelle syntaxe.';
         }
 
         if ($this->getOpt('active_img')) {
@@ -1817,7 +1816,7 @@ class WikiToHtml
                 '<code>((url|texte alternatif))</code>, ' .
                 '<code>((url|texte alternatif|position))</code> ou ' .
                 '<code>((url|texte alternatif|position|description longue))</code>. ' .
-                '<br />La position peut prendre les valeur L ou G (gauche), R ou D (droite) ou C (centré).';
+                '<br>La position peut prendre les valeur L ou G (gauche), R ou D (droite) ou C (centré).';
         }
 
         if ($this->getOpt('active_anchor')) {

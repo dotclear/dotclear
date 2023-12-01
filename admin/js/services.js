@@ -45,7 +45,7 @@ dotclear.getEntryContent = (postId, callback, options) => {
         }
         // Compose full content
         if (!opt.clean) {
-          content = (excerpt ? `${excerpt}<hr />` : '') + content;
+          content = (excerpt ? `${excerpt}<hr>` : '') + content;
         }
         // Cut content if requested
         if (opt.length > -1) {
@@ -115,10 +115,10 @@ dotclear.getCommentContent = (commentId, callback, options) => {
         // Get metadata (if requested)
         if (opt.metadata) {
           content += `<p>
-              <strong>${dotclear.msg.website}</strong> ${data.comment_site}<br />
+              <strong>${dotclear.msg.website}</strong> ${data.comment_site}<br>
               <strong>${dotclear.msg.email}</strong> ${data.comment_email}`;
           if (opt.ip && dotclear.data.showIp) {
-            content += `<br />
+            content += `<br>
                 <strong>${dotclear.msg.ip_address}</strong> <a href="comments.php?ip=${data.comment_ip}">${data.comment_ip}</a>`;
           }
           content += `</p>${data.comment_spam_disp}`;

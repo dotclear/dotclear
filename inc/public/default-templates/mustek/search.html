@@ -4,24 +4,24 @@
   </title>
 </tpl:Block>
 <tpl:Block name="meta-robots">
-  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}">
 </tpl:Block>
 <tpl:Block name="head-linkrel">
-  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}">
   <tpl:Entries no_content="1">
     <tpl:EntriesHeader>
       <tpl:Pagination>
         <tpl:PaginationIf end="0">
-          <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
+          <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}">
         </tpl:PaginationIf>
         <tpl:PaginationIf start="0">
-          <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
+          <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}">
         </tpl:PaginationIf>
       </tpl:Pagination>
     </tpl:EntriesHeader>
-    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}">
   </tpl:Entries>
-  <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
+  <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}">
 </tpl:Block>
 <tpl:Block name="body-tag">
 

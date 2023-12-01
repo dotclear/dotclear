@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="{{tpl:BlogLanguage}}">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}" />
+	<meta charset="UTF-8">
+	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}">
 
 	<title>{{tpl:lang Search}} - {{tpl:SysSearchString encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
-	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
-	<meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}">
+	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}">
+	<meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}">
 
-	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}">
 
 	{{tpl:ductileNbEntryPerPage}}
 	<tpl:Entries no_content="1">
 		<tpl:EntriesHeader>
 			<tpl:Pagination>
 				<tpl:PaginationIf end="0">
-					<link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
+					<link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}">
 				</tpl:PaginationIf>
 
 				<tpl:PaginationIf start="0">
-					<link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
+					<link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}">
 				</tpl:PaginationIf>
 			</tpl:Pagination>
 		</tpl:EntriesHeader>
 
-		<link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+		<link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}">
 	</tpl:Entries>
 
-	<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
+	<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}">
 
 	{{tpl:include src="_head.html"}}
 </head>

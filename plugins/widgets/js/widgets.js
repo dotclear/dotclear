@@ -6,7 +6,7 @@ dotclear.widgetExpander = (line) => {
   title.find('.form-note').remove();
 
   const order = title.find('input[name*=order]');
-  const link = $('<a href="#" alt="expand" class="aexpand"/>').append(title.text());
+  const link = $('<a href="#" alt="expand" class="aexpand">').append(title.text());
   const tools = title.find('.toolsWidget');
   const br = title.find('br');
   title.empty().append(order).append(link).append(tools).append(br);

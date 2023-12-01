@@ -72,7 +72,7 @@ class Search extends Process
 
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
-        App::behavior()->callBehavior('adminSearchPageComboV2', [& $qtype_combo]);
+        App::behavior()->callBehavior('adminSearchPageComboV2', [&$qtype_combo]);
         App::backend()->qtype_combo = $qtype_combo;
 
         return self::status(true);
@@ -126,8 +126,8 @@ class Search extends Process
         form::field('q', 30, 255, Html::escapeHTML(App::backend()->q)) . '</p>' .
         '<p><label for="qtype">' . __('In:') . '</label> ' .
         form::combo('qtype', App::backend()->qtype_combo, App::backend()->qtype) . '</p>' .
-        '<p><input type="submit" value="' . __('Search') . '" />' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+        '<p><input type="submit" value="' . __('Search') . '">' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
         form::hidden('process', 'Search') .
         '</p>' .
         '</div>' .
@@ -241,7 +241,7 @@ class Search extends Process
 
                 '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
                 form::combo('action', self::$actions->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
+                '<input id="do-action" type="submit" value="' . __('ok') . '"></p>' .
                 App::nonce()->getFormNonce() .
                 str_replace('%', '%%', self::$actions->getHiddenFields()) .
                 '</div>' .
@@ -320,7 +320,7 @@ class Search extends Process
 
                 '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
                 form::combo('action', self::$actions->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
+                '<input id="do-action" type="submit" value="' . __('ok') . '"></p>' .
                 App::nonce()->getFormNonce() .
                 str_replace('%', '%%', self::$actions->getHiddenFields()) .
                 '</div>' .

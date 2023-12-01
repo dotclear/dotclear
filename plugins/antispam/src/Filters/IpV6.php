@@ -201,7 +201,7 @@ class IpV6 extends SpamFilter
 
         $res .= App::nonce()->getFormNonce() .
         '</p>' .
-        '<p><input type="submit" value="' . __('Add') . '"/></p>' .
+        '<p><input type="submit" value="' . __('Add') . '"></p>' .
             '</form>';
 
         $rs = $this->getRules($type);
@@ -253,7 +253,7 @@ class IpV6 extends SpamFilter
             $res .= $res_local . $res_global;
 
             $res .= '</div>' .
-            '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
+            '<p><input class="submit delete" type="submit" value="' . __('Delete') . '">' .
             App::nonce()->getFormNonce() .
             form::hidden(['ip_type'], $type) .
                 '</p>' .

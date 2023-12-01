@@ -80,7 +80,7 @@ class Post extends Process
         ]), App::blog()->id());
         App::backend()->can_delete = false;
 
-        $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
+        $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '">';
         App::backend()->post_link = '<a href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
 
         App::backend()->next_link     = null;
@@ -469,7 +469,7 @@ class Post extends Process
         }
 
         if (App::backend()->post_id) {
-            $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
+            $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s">';
 
             $img_status = match ((int) App::backend()->post_status) {
                 App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
@@ -577,7 +577,7 @@ class Post extends Process
 
         if (App::backend()->post_id && App::backend()->post->post_status == App::blog()::POST_PUBLISHED) {
             echo
-            '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+            '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt=""></a></p>';
         }
         if (App::backend()->post_id) {
             echo
@@ -777,7 +777,7 @@ class Post extends Process
             '<p class="border-top">' .
             (App::backend()->post_id ? form::hidden('id', App::backend()->post_id) : '') .
             '<input type="submit" value="' . __('Save') . ' (s)" ' .
-            'accesskey="s" name="save" /> ';
+            'accesskey="s" name="save"> ';
 
             if (App::backend()->post_id) {
                 $preview_url = App::blog()->url() . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) . '/' . App::backend()->post->post_url);
@@ -792,13 +792,13 @@ class Post extends Process
 
                 echo
                 '<a id="post-preview" href="' . $preview_url . '" class="button' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . ' (p)' . '</a>' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
+                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">';
             } else {
                 echo
                 '<a id="post-cancel" href="' . App::backend()->url()->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
-            echo(App::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
+            echo(App::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete">' : '') .
             App::nonce()->getFormNonce() .
             '</p>';
 
@@ -871,7 +871,7 @@ class Post extends Process
                 form::hidden(['section'], 'comments') .
                 form::hidden(['id'], App::backend()->post_id) .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" value="' . __('ok') . '" /></p>' .
+                '<input type="submit" value="' . __('ok') . '"></p>' .
                 '</div>' .
                 '</form>';
             }
@@ -912,7 +912,7 @@ class Post extends Process
             '<p>' .
             form::hidden('post_id', App::backend()->post_id) .
             App::nonce()->getFormNonce() .
-            '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
+            '<input type="submit" name="add" value="' . __('Save') . '"></p>' .
             '</div>' . #constrained
 
             '</form>' .
@@ -963,7 +963,7 @@ class Post extends Process
                 form::hidden('id', App::backend()->post_id) .
                 form::hidden(['section'], 'trackbacks') .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" value="' . __('ok') . '" /></p>' .
+                '<input type="submit" value="' . __('ok') . '"></p>' .
                 '</div>' .
                 '</form>';
             }
@@ -986,7 +986,7 @@ class Post extends Process
 
                 '<p>' .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
+                '<input type="submit" name="ping" value="' . __('Ping blogs') . '">' .
                 (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
                     '') .
                 '</p>' .
@@ -1074,7 +1074,7 @@ class Post extends Process
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
-            $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+            $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
             $img_status = '';
             $sts_class  = '';
             switch ($rs->comment_status) {
@@ -1132,7 +1132,7 @@ class Post extends Process
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '">' .
-            '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .
+            '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '"> ' . __('Edit') . '</a></td>' .
             '</tr>';
         }
 

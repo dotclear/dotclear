@@ -121,7 +121,7 @@
 			<div id="pr">
 				<h3>{{tpl:lang Your comment}}</h3>
 				<div class="comment-preview">{{tpl:CommentPreviewContent}}</div>
-				<p class="buttons"><input type="submit" class="submit" value="{{tpl:lang send}}" /></p>
+				<p class="buttons"><input type="submit" class="submit" value="{{tpl:lang send}}"></p>
 			</div>
 		</tpl:IfCommentPreview>
 
@@ -132,21 +132,21 @@
 
 			<p class="field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
 				<input name="c_name" id="c_name" type="text" size="30" maxlength="255"
-				 value="{{tpl:CommentPreviewName encode_html="1"}}" />
+				 value="{{tpl:CommentPreviewName encode_html="1"}}">
 			</p>
 
 			<p class="field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
 				<input name="c_mail" id="c_mail" type="text" size="30" maxlength="255"
-				 value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
+				 value="{{tpl:CommentPreviewEmail encode_html="1"}}">
 			</p>
 
 			<p class="field"><label for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
 				<input name="c_site" id="c_site" type="text" size="30" maxlength="255"
-				 value="{{tpl:CommentPreviewSite encode_html="1"}}" />
+				 value="{{tpl:CommentPreviewSite encode_html="1"}}">
 			</p>
 
 			<p style="display:none">
-				<input name="f_mail" type="text" size="30" maxlength="255" value="" />
+				<input name="f_mail" type="text" size="30" maxlength="255" value="">
 			</p>
 
 			<p class="field"><label for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
@@ -162,9 +162,9 @@
 
 		<fieldset>
 			<p class="buttons">
-				<input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}" />
+				<input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}">
 				<tpl:IfPreviewIsNotMandatory>
-					<input type="submit" class="submit" value="{{tpl:lang send}}" />
+					<input type="submit" class="submit" value="{{tpl:lang send}}">
 				</tpl:IfPreviewIsNotMandatory>
 			</p>
 		</fieldset>

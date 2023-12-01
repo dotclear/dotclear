@@ -161,7 +161,7 @@ class IpLookup extends SpamFilter
             '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
                 form::textarea('bls', 40, 3, Html::escapeHTML($bls), 'maximal') .
             '</p>' .
-            '<p><input type="submit" value="' . __('Save') . '" />' . App::nonce()->getFormNonce() . '</p>' .
+            '<p><input type="submit" value="' . __('Save') . '">' . App::nonce()->getFormNonce() . '</p>' .
         '</form>';
     }
 

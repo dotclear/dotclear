@@ -93,7 +93,7 @@ class Manage extends Process
             // list success actions
             if (!empty($done)) {
                 array_unshift($done, __('Uninstall action successfuly excecuted'));
-                Notices::addSuccessNotice(implode('<br />', $done));
+                Notices::addSuccessNotice(implode('<br>', $done));
             } else {
                 Notices::addWarningNotice(__('No uninstall action done'));
             }
@@ -146,7 +146,7 @@ class Manage extends Process
                     ->class('button')
                     ->text(__('Cancel'))
                     ->href(self::getRedirect()),
-                ... My::hiddenFields([
+                ...My::hiddenFields([
                     'type' => self::getType(),
                     'id'   => $define->getId(),
                 ]),

@@ -227,8 +227,8 @@ class Media extends Process
                 __('Are you sure you want to remove %s?'),
                 Html::escapeHTML($_GET['remove'])
             ) . '</p>' .
-            '<p><input type="submit" value="' . __('Cancel') . '" /> ' .
-            ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '" />' .
+            '<p><input type="submit" value="' . __('Cancel') . '"> ' .
+            ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '">' .
             App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
             App::nonce()->getFormNonce() .
             form::hidden('remove', Html::escapeHTML($_GET['remove'])) . '</p>' .
@@ -299,7 +299,7 @@ class Media extends Process
                     '<select name="switchfolder" id="switchfolder">' .
                     $last_folders_item .
                     '</select>' .
-                    ' <a id="media-fav-dir" href="' . $fav_url . '" title="' . $fav_alt . '"><img src="' . $fav_img . '" alt="' . $fav_alt . '" /></a>' .
+                    ' <a id="media-fav-dir" href="' . $fav_url . '" title="' . $fav_alt . '"><img src="' . $fav_img . '" alt="' . $fav_alt . '"></a>' .
                     '</p>';
             }
         }
@@ -339,7 +339,7 @@ class Media extends Process
             '<div class="' . (App::backend()->page->popup ? 'form-note ' : '') . 'info"><p>';
             if (App::backend()->page->select == 1) {
                 echo
-                sprintf(__('Select a file by clicking on %s'), '<img src="images/plus.png" alt="' . __('Select this file') . '" />');
+                sprintf(__('Select a file by clicking on %s'), '<img src="images/plus.png" alt="' . __('Select this file') . '">');
             } else {
                 echo
                 sprintf(__('Select files and click on <strong>%s</strong> button'), __('Choose selected medias'));
@@ -355,7 +355,7 @@ class Media extends Process
                 '<div class="form-note info"><p>' . sprintf(
                     __('Choose a file to attach to entry %s by clicking on %s'),
                     '<a href="' . App::postTypes()->get(App::backend()->page->getPostType())->adminUrl(App::backend()->page->post_id) . '">' . Html::escapeHTML(App::backend()->page->getPostTitle()) . '</a>',
-                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
+                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '">'
                 );
                 if (App::backend()->page->mediaWritable()) {
                     echo
@@ -368,7 +368,7 @@ class Media extends Process
                 echo
                 '<div class="info"><p>' . sprintf(
                     __('Choose a file to insert into entry by clicking on %s'),
-                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
+                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '">'
                 );
                 if (App::backend()->page->mediaWritable()) {
                     echo
@@ -386,10 +386,10 @@ class Media extends Process
         App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
             '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
-            '<img src="images/grid-' . (App::backend()->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '" />' .
+            '<img src="images/grid-' . (App::backend()->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '">' .
             '</a>' .
             '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
-            '<img src="images/list-' . (App::backend()->page->file_mode == 'list' ? 'on' : 'off') . '.png" alt="' . __('List display mode') . '" />' .
+            '<img src="images/list-' . (App::backend()->page->file_mode == 'list' ? 'on' : 'off') . '.png" alt="' . __('List display mode') . '">' .
             '</a>' .
             '</span></p>',
             false
@@ -408,10 +408,10 @@ class Media extends Process
                 '<p class="checkboxes-helpers"></p>' .
                 '<p>';
             if (App::backend()->page->select > 1) {
-                $fmt_form_media .= '<input type="submit" class="select" id="select_medias" name="select_medias" value="' . __('Choose selected medias') . '"/> ';
+                $fmt_form_media .= '<input type="submit" class="select" id="select_medias" name="select_medias" value="' . __('Choose selected medias') . '"> ';
             }
             if (!App::backend()->page->popup) {
-                $fmt_form_media .= '<input type="submit" class="delete" id="delete_medias" name="delete_medias" value="' . __('Remove selected medias') . '"/>';
+                $fmt_form_media .= '<input type="submit" class="delete" id="delete_medias" name="delete_medias" value="' . __('Remove selected medias') . '">';
             }
             $fmt_form_media .= '</p></div>';
         }
@@ -454,7 +454,7 @@ class Media extends Process
                 App::nonce()->getFormNonce() .
                 '<p><label for="newdir">' . __('Directory Name:') . '</label>' .
                 form::field('newdir', 35, 255) . '</p>' .
-                '<p><input type="submit" value="' . __('Create') . '" />' .
+                '<p><input type="submit" value="' . __('Create') . '">' .
                 App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
                 '</p>' .
                 '</div>' .
@@ -467,7 +467,7 @@ class Media extends Process
                 '<form action="' . App::backend()->url()->getBase('admin.media') . '" method="post" class="fieldset">' .
                 '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .
                 App::nonce()->getFormNonce() .
-                '<p><input type="submit" value="' . __('Build') . '" />' .
+                '<p><input type="submit" value="' . __('Build') . '">' .
                 App::backend()->url()->getHiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])) .
                 '</p>' .
                 '</form>';
@@ -512,7 +512,7 @@ class Media extends Process
 
             '<p><label for="upfile">' . '<span class="add-label one-file">' . __('Choose file') . '</span>' . '</label>' .
             '<button class="button choose_files">' . __('Choose files') . '</button>' .
-            '<input type="file" id="upfile" name="upfile[]"' . (App::backend()->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '" /></p>' .
+            '<input type="file" id="upfile" name="upfile[]"' . (App::backend()->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '"></p>' .
 
             '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(App::config()->maxUploadSize()) . '</p>' .
 
@@ -528,8 +528,8 @@ class Media extends Process
 
             echo
             '<p class="clear"><button class="button clean">' . __('Refresh') . '</button>' .
-            '<input class="button cancel one-file" type="reset" value="' . __('Clear all') . '"/>' .
-            '<input class="button start" type="submit" value="' . __('Upload') . '"/></p>' .
+            '<input class="button cancel one-file" type="reset" value="' . __('Clear all') . '">' .
+            '<input class="button start" type="submit" value="' . __('Upload') . '"></p>' .
             '</div>';
 
             echo
@@ -566,7 +566,7 @@ class Media extends Process
 
             // Go back button
             echo
-            '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /></p>';
+            '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js"></p>';
         }
 
         App::backend()->page->closePage();

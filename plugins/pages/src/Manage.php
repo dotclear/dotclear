@@ -139,7 +139,7 @@ class Manage extends Process
 
                 '<p class="col right"><label for="action" class="classic">' . __('Selected pages action:') . '</label> ' .
                 form::combo('action', App::backend()->pages_actions_page->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
+                '<input id="do-action" type="submit" value="' . __('ok') . '">' .
                 form::hidden(['post_type'], 'page') .
                 form::hidden(['p'], My::id()) .
                 form::hidden(['act'], 'list') .
@@ -149,7 +149,7 @@ class Manage extends Process
                 __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .
                 '<p class="clear form-note hidden-if-no-js">' .
                 __('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.') . '</p>' .
-                '<p><input type="submit" value="' . __('Save pages order') . '" name="reorder" class="clear" /></p>' .
+                '<p><input type="submit" value="' . __('Save pages order') . '" name="reorder" class="clear"></p>' .
                 '</form>'
             );
         }

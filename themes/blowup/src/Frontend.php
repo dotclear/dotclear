@@ -31,7 +31,7 @@ class Frontend extends Process
         App::behavior()->addBehavior('publicHeadContent', function () {
             $url = Blowup::publicCssUrlHelper();
             if ($url) {
-                echo '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+                echo '<link rel="stylesheet" href="' . $url . '" type="text/css">';
             }
         });
 

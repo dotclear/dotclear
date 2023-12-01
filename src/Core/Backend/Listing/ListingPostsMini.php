@@ -80,7 +80,7 @@ class ListingPostsMini extends Listing
      */
     private function postLine(): string
     {
-        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {

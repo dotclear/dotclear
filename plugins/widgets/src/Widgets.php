@@ -235,8 +235,8 @@ class Widgets
             '<form action="' . App::blog()->url() . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
             ($widget->get('placeholder') ? 'placeholder="' . Html::escapeHTML($widget->get('placeholder')) . '"' : '') .
-            ' aria-label="' . __('Search') . '"/> ' .
-            '<input type="submit" class="submit" value="ok" title="' . __('Search') . '" /></p>' .
+            ' aria-label="' . __('Search') . '"> ' .
+            '<input type="submit" class="submit" value="ok" title="' . __('Search') . '"></p>' .
             '</form>'
         );
     }

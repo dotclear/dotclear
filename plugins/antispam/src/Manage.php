@@ -189,7 +189,7 @@ class Manage extends Process
                 echo
                 '<p>' . App::nonce()->getFormNonce() .
                 form::hidden('ts', time()) .
-                '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
+                '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '"></p>';
             }
             if ($moderationTTL != null && $moderationTTL >= 0) {
                 echo
@@ -227,7 +227,7 @@ class Manage extends Process
                 if ($f->hasGUI()) {
                     $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '">' .
                         '<img src="images/edit-mini.png" alt="' . __('Filter configuration') . '" ' .
-                        'title="' . __('Filter configuration') . '" /></a>';
+                        'title="' . __('Filter configuration') . '"></a>';
                 }
 
                 echo
@@ -266,8 +266,8 @@ class Manage extends Process
             '</tbody></table></div>' .
             '<p>' . form::hidden('filters_order', '') .
             App::nonce()->getFormNonce() .
-            '<input type="submit" name="filters_upd" value="' . __('Save') . '" />' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+            '<input type="submit" name="filters_upd" value="' . __('Save') . '">' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
             '</form>';
 

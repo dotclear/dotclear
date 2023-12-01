@@ -275,7 +275,7 @@ class Langs extends Process
                     '<div>' .
                     App::nonce()->getFormNonce() .
                     form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
-                    '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
+                    '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '"> ' .
                     '</div>' .
                     '</form>';
                 }
@@ -318,7 +318,7 @@ class Langs extends Process
                     'extra_html'   => 'required placeholder="' . __('Password') . '"',
                     'autocomplete' => 'current-password', ]
             ) . '</p>' .
-            '<p><input type="submit" value="' . __('Install language') . '" />' .
+            '<p><input type="submit" value="' . __('Install language') . '">' .
             App::nonce()->getFormNonce() .
             '</p>' .
             '</form>';
@@ -331,7 +331,7 @@ class Langs extends Process
             '<h4>' . __('Upload a zip file') . '</h4>' .
             '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
             '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .
-            '<input type="file" id="pkg_file" name="pkg_file" required /></p>' .
+            '<input type="file" id="pkg_file" name="pkg_file" required></p>' .
             '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
             form::password(
                 ['your_pwd', 'your_pwd2'],
@@ -341,7 +341,7 @@ class Langs extends Process
                     'extra_html'   => 'required placeholder="' . __('Password') . '"',
                     'autocomplete' => 'current-password', ]
             ) . '</p>' .
-            '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
+            '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '">' .
             App::nonce()->getFormNonce() .
             '</p>' .
             '</form>';

@@ -123,7 +123,7 @@ class Rest extends Process
                     $i   = 1;
                     foreach ($feed->items as $item) {
                         $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
-                        $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
+                        $item->title . ' <img src="images/outgoing-link.svg" alt=""></a>' : $item->title;
                         $ret .= '<dt>' . $dt . '</dt>' .
                         '<dd><p><strong>' . Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
                         '<em>' . Text::cutString(Html::clean($item->content), 120) . '...</em></p></dd>';

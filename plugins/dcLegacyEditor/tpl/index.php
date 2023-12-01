@@ -9,7 +9,6 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   GPL-2.0-only
  */
-
 echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
 
 <?php if (\Dotclear\App::backend()->editor_is_admin): ?>
@@ -26,10 +25,10 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyE
     </div>
 
     <p>
-    <input type="hidden" name="p" value="dcLegacyEditor"/>
+    <input type="hidden" name="p" value="dcLegacyEditor">
     <?php echo \Dotclear\App::nonce()->getFormNonce(); ?>
-    <input type="submit" name="saveconfig" value="<?php echo __('Save configuration'); ?>" />
-    <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
+    <input type="submit" name="saveconfig" value="<?php echo __('Save configuration'); ?>">
+    <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js">
     </p>
   </form>
 <?php endif;?>

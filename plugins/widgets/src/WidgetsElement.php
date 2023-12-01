@@ -453,10 +453,10 @@ class WidgetsElement
 
                 break;
             case 'radio':
-                $res .= '<p>' . ($s['title'] ? '<label class="classic">' . $s['title'] . '</label><br/>' : '');
+                $res .= '<p>' . ($s['title'] ? '<label class="classic">' . $s['title'] . '</label><br>' : '');
                 if (!empty($s['options'])) {
                     foreach ($s['options'] as $k => $v) {
-                        $res .= $k > 0 ? '<br/>' : '';
+                        $res .= $k > 0 ? '<br>' : '';
                         $res .= '<label class="classic" for="' . $wfid . '-' . $k . '">' .
                         form::radio([$iname, $wfid . '-' . $k], $v[1], $s['value'] == $v[1], $class) . ' ' . $v[0] .
                             '</label>';

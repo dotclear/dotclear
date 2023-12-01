@@ -218,7 +218,7 @@ class Manage extends Process
             '<form action="' . App::backend()->getPageURL() . '" method="post">' .
             $res .
             '<p class="step-submit">' .
-            '<input type="submit" value="' . App::backend()->task->task() . '" /> ' .
+            '<input type="submit" value="' . App::backend()->task->task() . '"> ' .
             form::hidden(['task'], App::backend()->task->id()) .
             form::hidden(['code'], (int) App::backend()->code) .
             App::nonce()->getFormNonce() .
@@ -258,11 +258,11 @@ class Manage extends Process
                         $ts = $t->expired();
                         if (My::settings()->plugin_message && $ts !== false) {
                             if ($ts === null) {
-                                $res_task .= '<br /> <span class="warn">' .
+                                $res_task .= '<br> <span class="warn">' .
                                     __('This task has never been executed.') . ' ' .
                                     __('You should execute it now.') . '</span>';
                             } else {
-                                $res_task .= '<br /> <span class="warn">' .
+                                $res_task .= '<br> <span class="warn">' .
                                     sprintf(
                                         __('Last execution of this task was on %s.'),
                                         Date::str(App::blog()->settings()->system->date_format, $ts) . ' ' .
@@ -290,8 +290,8 @@ class Manage extends Process
                     // ($tab_obj->option('summary') ? '<p>'.$tab_obj->option('summary').'</p>' : '').
                     '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                     $res_group .
-                    '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
-                    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+                    '<p><input type="submit" value="' . __('Execute task') . '"> ' .
+                    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
                     form::hidden(['tab'], $tab_obj->id()) .
                     App::nonce()->getFormNonce() . '</p>' .
                     '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
@@ -312,8 +312,8 @@ class Manage extends Process
                 '<h3>' . $t->name() . '</h3>' .
                 '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                 $t->content() .
-                '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+                '<p><input type="submit" value="' . __('Execute task') . '"> ' .
+                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
                 form::hidden(['task'], $t->id()) .
                 form::hidden(['tab'], $t->id()) .
                 App::nonce()->getFormNonce() . '</p>' .
@@ -366,8 +366,8 @@ class Manage extends Process
             }
             echo
             '</div>' .
-            '<p class="field wide"><input type="submit" value="' . __('Save') . '" /> ' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+            '<p class="field wide"><input type="submit" value="' . __('Save') . '"> ' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
             form::hidden(['tab'], 'settings') .
             form::hidden(['save_settings'], 1) .
             App::nonce()->getFormNonce() . '</p>' .
@@ -408,8 +408,8 @@ class Manage extends Process
                 '</div>';
 
                 echo
-                '<p class="field wide"><input type="submit" value="' . __('Save') . '" /> ' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+                '<p class="field wide"><input type="submit" value="' . __('Save') . '"> ' .
+                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
                 form::hidden(['tab'], 'system') .
                 form::hidden(['save_system'], 1) .
                 App::nonce()->getFormNonce() . '</p>' .

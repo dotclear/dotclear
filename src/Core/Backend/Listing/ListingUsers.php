@@ -82,7 +82,7 @@ class ListingUsers extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('admin'), 'admin.png') . ' - ' .
                 $fmt(__('superadmin'), 'superadmin.png') .
@@ -101,7 +101,7 @@ class ListingUsers extends Listing
      */
     private function userLine(): string
     {
-        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
         $img_status = '';
 
         $p = App::users()->getUserPermissions($this->rs->user_id);

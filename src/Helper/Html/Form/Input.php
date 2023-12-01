@@ -47,7 +47,7 @@ class Input extends Component
             return '';
         }
 
-        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '/>';
+        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>';
 
         if ($this->renderLabel && isset($this->label) && isset($this->id)) {
             $this->label->for = $this->id;

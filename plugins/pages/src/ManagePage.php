@@ -86,7 +86,7 @@ class ManagePage extends Process
         ]), App::blog()->id());
         App::backend()->can_delete = false;
 
-        $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" />';
+        $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '">';
 
         App::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
 
@@ -440,7 +440,7 @@ class ManagePage extends Process
         );
 
         $img_status         = '';
-        $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
+        $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s">';
 
         if (App::backend()->post_id) {
             try {
@@ -485,7 +485,7 @@ class ManagePage extends Process
 
         if (App::backend()->post_id && App::backend()->post->post_status == App::blog()::POST_PUBLISHED) {
             echo
-            '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+            '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt=""></a></p>';
         }
 
         echo '';
@@ -666,7 +666,7 @@ class ManagePage extends Process
             echo
             '<p class="border-top">' .
             (App::backend()->post_id ? form::hidden('id', App::backend()->post_id) : '') .
-            '<input type="submit" value="' . __('Save') . ' (s)" accesskey="s" name="save" /> ';
+            '<input type="submit" value="' . __('Save') . ' (s)" accesskey="s" name="save"> ';
 
             if (App::backend()->post_id) {
                 $preview_url = App::blog()->url() .
@@ -687,14 +687,14 @@ class ManagePage extends Process
 
                 echo
                 '<a id="post-preview" href="' . $preview_url . '" class="button' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . ' (p)' . '</a>' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
+                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">';
             } else {
                 echo
                 '<a id="post-cancel" href="' . App::backend()->url()->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
             echo(App::backend()->can_delete ?
-                ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' :
+                ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete">' :
                 '') .
             App::nonce()->getFormNonce() .
             '</p>';
@@ -800,7 +800,7 @@ class ManagePage extends Process
                         'co'  => '1',
                     ]),
                 ]) .
-                '<input type="submit" value="' . __('ok') . '" /></p>' .
+                '<input type="submit" value="' . __('ok') . '"></p>' .
                 '</div>' .
                 '</form>';
             }
@@ -843,7 +843,7 @@ class ManagePage extends Process
 
             '<p>' . form::hidden('post_id', App::backend()->post_id) .
             App::nonce()->getFormNonce() .
-            '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
+            '<input type="submit" name="add" value="' . __('Save') . '"></p>' .
             '</div>' . #constrained
 
             '</form>' .
@@ -918,7 +918,7 @@ class ManagePage extends Process
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
-            $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+            $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
             $sts_class = '';
             switch ($rs->comment_status) {
                 case 1:
@@ -973,7 +973,7 @@ class ManagePage extends Process
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '">' .
-            '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .
+            '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '"> ' . __('Edit') . '</a></td>' .
             '</tr>';
         }
 

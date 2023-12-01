@@ -345,7 +345,7 @@ class Frontend extends Process
     {
         return '<li id="sticker' . $position . '"' . ($last ? ' class="last"' : '') . '>' . "\n" .
             '<a href="' . $url . '">' . "\n" .
-            '<img alt="" src="' . $image . '" />' . "\n" .
+            '<img alt="" src="' . $image . '">' . "\n" .
             '<span>' . $label . '</span>' . "\n" .
             '</a>' . "\n" .
             '</li>' . "\n";
@@ -411,7 +411,7 @@ class Frontend extends Process
 
                     break;
                 case 'css':
-                    $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['body_webfont_url']) . "\n";
+                    $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet">', $s['body_webfont_url']) . "\n";
 
                     break;
             }
@@ -428,7 +428,7 @@ class Frontend extends Process
 
                         break;
                     case 'css':
-                        $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['alternate_webfont_url']) . "\n";
+                        $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet">', $s['alternate_webfont_url']) . "\n";
 
                         break;
                 }

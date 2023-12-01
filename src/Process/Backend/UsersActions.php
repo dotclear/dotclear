@@ -238,7 +238,7 @@ class UsersActions extends Process
                     while ($rs->fetch()) {
                         $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
                         $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
-                        $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
+                        $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s">', $img_status, $txt_status);
 
                         echo
                         '<tr class="line">' .
@@ -254,7 +254,7 @@ class UsersActions extends Process
                         '<td class="nowrap">' . $rs->blog_id . '</td>' .
                         '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
                         '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
-                        ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
+                        ' <img src="images/outgoing-link.svg" alt=""></a></td>' .
                         '<td class="nowrap">' . App::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
                         '<td class="status">' . $img_status . '</td>' .
                         '</tr>';
@@ -264,7 +264,7 @@ class UsersActions extends Process
                 echo
                 '</table></div>' .
                 '<p class="checkboxes-helpers"></p>' .
-                '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '" />' .
+                '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '">' .
                 $hidden_fields .
                 form::hidden(['action'], 'perms') .
                 App::nonce()->getFormNonce() . '</p>' .
@@ -353,7 +353,7 @@ class UsersActions extends Process
                     'autocomplete' => 'current-password',
                 ]
             ) . '</p>' .
-            '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
+            '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
             $hidden_fields .
             form::hidden(['action'], 'updateperm') .
             App::nonce()->getFormNonce() . '</p>' .

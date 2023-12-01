@@ -15,7 +15,7 @@ $(() => {
 
   $('#u_login')
     .parent()
-    .after($(`<input type="hidden" name="u_date" value="${Date().toLocaleString()}" />`));
+    .after($(`<input type="hidden" name="u_date" value="${Date().toLocaleString()}">`));
 
   const show = dotclear.getData('install_show');
   const password_link = $(`<a href="#" id="obfus">${show}</a>`).on('click', function () {
