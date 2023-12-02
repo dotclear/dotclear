@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-30 18:01\n"
+"PO-Revision-Date: 2023-12-02 08:49\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -4505,7 +4505,7 @@ msgstr "కొత్త ఫైలును అప్లోడ్ చేయుమ
 #: src/Process/Backend/Media.php:356
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr ""
+msgstr "%s పై నొక్కిన ప్రవేశమును ప్రవేశపెట్టటానికి ఒక ఫైలు ఎంచుకోండి"
 
 #: src/Process/Backend/Media.php:370
 #, php-format
