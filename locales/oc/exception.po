@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 07:05\n"
+"PO-Revision-Date: 2023-12-02 04:45\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgid "Unable to load deprecated core"
 msgstr ""
 
 # in Dotclear\Core\Task
-msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
 msgstr ""
 
 # in Dotclear\Core\Task
