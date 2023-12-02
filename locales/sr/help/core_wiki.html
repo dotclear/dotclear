@@ -1,21 +1,21 @@
 <html>
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Референца на викију</title>
 </head>
 
 <body>
 
-<h4>Wiki syntax reference</h4>
+<h4>Референца на викију</h4>
 
 <p>The wiki syntax is a way to enhance your text with a minimal set
 of tags, studied to cover the basic needs (titles, paragraphs, quotes,
 lists...)</p>
 
 <dl>
-<dt>Block elements</dt>
+<dt>Блокирај елементе</dt>
 <dd>
 <ul>
-  <li>Leave an empty line between two similar blocks.</li>
+  <li>Оставите празну линију између два слична блока.</li>
   <li><strong>Paragraph</strong>: free text, ended by an empty line if
   another paragraph is to follow.</li>
   <li><strong>Title</strong>: <code>!!! title</code>, <code>!! title</code>
@@ -35,17 +35,17 @@ lists...)</p>
   </li>
   <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
   <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> члан
+  <code>:</code> опис термина
   </pre>
   </li>
   <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
   <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-  <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+  <li><strong>страна блок:</strong> Свака линија мора почети са <code>.</code>.</li>
 </ul>
 </dd>
 
-<dt>Formatting tags</dt>
+<dt>Форматирање ознака</dt>
 <dd>
 <ul>
   <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
@@ -59,8 +59,12 @@ lists...)</p>
     <code>((url|alternative text))</code>,
     <code>((url|alternative text|position))</code> or
     <code>((url|alternative text|position|long description))</code>.
-    <br>The position can be either L or G (left), R or D (right) or C (centered).</li>
-  <li><strong>Anchor</strong>: <code>~anchor~</code></li>
+    <br />The position can be either L or G (left), R or D (right) or C (centered).</li>
+  <li><strong>Image:</strong>
+    <code>((url|alternative text))</code>,
+    <code>((url|alternative text|position))</code> or
+    <code>((url|alternative text|position|long description))</code>.
+    <br>The position can be either L (left), R (right) or C (centered).</li>
   <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
   <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
   <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
@@ -73,7 +77,7 @@ lists...)</p>
 </ul>
 </dd>
 
-<dt>Unformatted text</dt>
+<dt>Неформатирани текст</dt>
 <dd>If you don't want one formatting character to be interpreted as such, add a
 <code>\</code> just before it. This way:
 <code>\[text in brackets without being a link\]</code>

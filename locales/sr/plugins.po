@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:23+0100\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"PO-Revision-Date: 2023-12-02 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -19,1061 +19,1061 @@ msgstr ""
 
 #: plugins/Uninstaller/src/Backend.php:46
 msgid "Uninstall"
-msgstr ""
+msgstr "Деинсталирај"
 
 #: plugins/Uninstaller/src/Backend.php:104
 msgid "Plugin has been successfully uninstalled."
-msgstr ""
+msgstr "Плугин је успешно неинсталиран."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:38
 msgid "Folders from cache directory"
-msgstr ""
+msgstr "Фасцикле из кеш директоријума"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:43
 msgid "delete selected cache directories"
-msgstr ""
+msgstr "брисање изабраних директоријума кеша"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
-msgstr ""
+msgstr "избриши \"%s\" кеш директоријум"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "\"%s\" cache directory deleted"
-msgstr ""
+msgstr "\"%s\" кеш директоријум је избрисао"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
-msgstr ""
+msgstr "Није успело брисање \"%s\" кеш директоријум"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:52
 msgid "empty selected cache directories"
-msgstr ""
+msgstr "празни изабрани кеш директоријуми"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "empty \"%s\" cache directory"
-msgstr ""
+msgstr "испразни \"%s\" кеш директоријум"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "\"%s\" cache directory emptied"
-msgstr ""
+msgstr "\"%s\" испразни директоријум кеша"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
-msgstr ""
+msgstr "Није успело празно \"%s\" кеш директоријум"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:37
 msgid "Logs"
-msgstr ""
+msgstr "Евиденције"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs in Dotclear logs table"
-msgstr ""
+msgstr "Евиденције у табели Дотјаст евиденције"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:43
 msgid "delete selected logs tables"
-msgstr ""
+msgstr "избриши изабране табеле евиденције"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:44
 #, php-format
 msgid "delete \"%s\" logs table"
-msgstr ""
+msgstr "избриши \"%s\" табела евиденције"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
-msgstr ""
+msgstr "\"%s\" избрисан сто је"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
-msgstr ""
+msgstr "Није успело брисање \"%s\" табела евиденције"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:36
 msgid "Folders from plugins directories"
-msgstr ""
+msgstr "Фасцикле из прикључака директоријумима"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:41
 msgid "delete selected plugins files and directories"
-msgstr ""
+msgstr "избриши изабране додатне датотеке и директоријуме"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:42
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
-msgstr ""
+msgstr "избриши \"%s\" plugin датотеке и директоријуми"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
-msgstr ""
+msgstr "\"%s\" плугин фајлови и директоријуми избрисани"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr ""
+msgstr "Није успело брисање \"%s\" plugin датотеке и директоријуми"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:37
 msgid "Preferences"
-msgstr ""
+msgstr "Лична подешавања"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Users preferences workspaces"
-msgstr ""
+msgstr "Радни простори за кориснике"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:43
 msgid "delete selected global preferences workspaces"
-msgstr ""
+msgstr "избриши изабране глобалне радне просторе"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:44
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
-msgstr ""
+msgstr "избриши \"%s\" глобална лична подешавања радног простора"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
-msgstr ""
+msgstr "\"%s\" глобална лична подешавања радног простора"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr ""
+msgstr "Није успело брисање \"%s\" глобална лична подешавања радног простора"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:52
 msgid "delete selected users preferences workspaces"
-msgstr ""
+msgstr "избриши изабране радне просторе изабраних корисника"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
-msgstr ""
+msgstr "избриши \"%s\" радни простор корисника"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
-msgstr ""
+msgstr "\"%s\" Избрисани радни простор корисника"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr ""
+msgstr "Није успело брисање \"%s\" радни простор корисника"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:61
 msgid "delete selected preferences workspaces"
-msgstr ""
+msgstr "избриши изабране радне просторе"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 #, php-format
 msgid "delete \"%s\" preferences workspace"
-msgstr ""
+msgstr "избриши \"%s\" параметри радног простора"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
-msgstr ""
+msgstr "\"%s\" параметри радног простора избрисани"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
-msgstr ""
+msgstr "Није успело брисање \"%s\" параметри радног простора"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:70
 msgid "delete related preferences"
-msgstr ""
+msgstr "брисање повезаних личних подешавања"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "related preferences deleted"
-msgstr ""
+msgstr "избрисане параметре"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "Failed to delete related preferences"
-msgstr ""
+msgstr "Није успело брисање повезаних личних подешавања"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:37
 #: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Поставке"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:38
 msgid "Namespaces registered in dcSettings"
-msgstr ""
+msgstr "Именски простори регистровани у dcПоставке"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:43
 msgid "delete selected global settings namespaces"
-msgstr ""
+msgstr "избриши изабране глобалне поставке именског простора"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:44
 #, php-format
 msgid "delete \"%s\" global settings namespace"
-msgstr ""
+msgstr "избриши \"%s\" глобалне поставке именског простора"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
-msgstr ""
+msgstr "\"%s\" глобално подешавање именског простора избрисано"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
-msgstr ""
+msgstr "Није успело брисање \"%s\" глобалне поставке именског простора"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:52
 msgid "delete selected blog settings namespaces"
-msgstr ""
+msgstr "избриши изабрани именски простор за поставке блога"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:53
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
-msgstr ""
+msgstr "избриши \"%s\" Простор за поставке блога"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
-msgstr ""
+msgstr "\"%s\" Брисање именског простора за блог"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr ""
+msgstr "Није успело брисање \"%s\" Простор за поставке блога"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:61
 msgid "delete selected settings namespaces"
-msgstr ""
+msgstr "избриши изабране поставке именског простора"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:62
 #, php-format
 msgid "delete \"%s\" settings namespace"
-msgstr ""
+msgstr "избриши \"%s\" поставке именског простора"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted"
-msgstr ""
+msgstr "\"%s\" поставке именског простора избрисане"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
-msgstr ""
+msgstr "Није успело брисање \"%s\" поставке именског простора"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:70
 msgid "delete related settings"
-msgstr ""
+msgstr "избриши повезане поставке"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "related settings deleted"
-msgstr ""
+msgstr "избрисане поставке"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "Failed to delete related settings"
-msgstr ""
+msgstr "Није успело брисање повезаних поставки"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
-msgstr ""
+msgstr "Табеле"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
-msgstr ""
+msgstr "Све табеле базе података Dotacase"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:44
 msgid "delete selected tables"
-msgstr ""
+msgstr "избриши изабране табеле"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "delete \"%s\" table"
-msgstr ""
+msgstr "избриши \"%s\" табела"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "\"%s\" table deleted"
-msgstr ""
+msgstr "\"%s\" табела избрисана"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
-msgstr ""
+msgstr "Није успело брисање \"%s\" табела"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:53
 msgid "empty selected tables"
-msgstr ""
+msgstr "испразни изабране табеле"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "empty \"%s\" table"
-msgstr ""
+msgstr "испразни \"%s\" табела"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "\"%s\" table emptied"
-msgstr ""
+msgstr "\"%s\" испразни сто"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
-msgstr ""
+msgstr "Није успело празно \"%s\" табела"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:35
 msgid "Themes"
-msgstr ""
+msgstr "Теме"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Folders from blog themes directory"
-msgstr ""
+msgstr "Фасцикле из директоријума тема блога"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:41
 msgid "delete selected themes files and directories"
-msgstr ""
+msgstr "избриши изабране теме датотеке и директоријуме"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:42
 #, php-format
 msgid "delete \"%s\" theme files and directories"
-msgstr ""
+msgstr "избриши \"%s\" тематски фајлови и директоријуми"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
-msgstr ""
+msgstr "\"%s\" тематски фајлови и директоријуми"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
-msgstr ""
+msgstr "Није успело брисање \"%s\" тематски фајлови и директоријуми"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:36
 msgid "Var"
-msgstr ""
+msgstr "Вар"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Folders from Dotclear VAR directory"
-msgstr ""
+msgstr "Фасцикле из Dotace VAR директоријума"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:42
 msgid "delete selected var directories"
-msgstr ""
+msgstr "избриши изабране var фасцикле"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:43
 #, php-format
 msgid "delete \"%s\" var directory"
-msgstr ""
+msgstr "избриши \"%s\" варски директоријум"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted"
-msgstr ""
+msgstr "\"%s\" Директоријум је избрисао"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
-msgstr ""
+msgstr "Није успело брисање \"%s\" варски директоријум"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:35
 msgid "Versions"
-msgstr ""
+msgstr "Верзије"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions registered in table \"version\" of Dotclear"
-msgstr ""
+msgstr "Верзије регистроване у табели \"верзија\" Dotcit-а"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:41
 msgid "delete selected versions numbers"
-msgstr ""
+msgstr "избриши изабране бројеве верзија"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:42
 #, php-format
 msgid "delete \"%s\" version number"
-msgstr ""
+msgstr "избриши \"%s\" број верзије"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted"
-msgstr ""
+msgstr "\"%s\" број избрисаних верзија"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
-msgstr ""
+msgstr "Није успело брисање \"%s\" број верзије"
 
 #: plugins/Uninstaller/src/CleanersStack.php:120
 #, php-format
 msgid "Unknown cleaner \"%s\""
-msgstr ""
+msgstr "Непознати чистач \"%s\""
 
 #: plugins/Uninstaller/src/CleanersStack.php:123
 msgid "Unsintaller can't remove itself"
-msgstr ""
+msgstr "Унсивиши не може да се уклони"
 
 #: plugins/Uninstaller/src/Manage.php:62
 msgid "Unknown module id to uninstall"
-msgstr ""
+msgstr "Непознати ИД модула за деинсталирање"
 
 #: plugins/Uninstaller/src/Manage.php:70
 msgid "There are no uninstall actions for this module"
-msgstr ""
+msgstr "За овај модул не постоје неинсталираће радње"
 
 #: plugins/Uninstaller/src/Manage.php:95
 msgid "Uninstall action successfuly excecuted"
-msgstr ""
+msgstr "Неинсталирање радње је успешно узбуђено"
 
 #: plugins/Uninstaller/src/Manage.php:98
 msgid "No uninstall action done"
-msgstr ""
+msgstr "Нема деинсталирања радње"
 
 #: plugins/Uninstaller/src/Manage.php:143
 msgid "Perform selected actions"
-msgstr ""
+msgstr "Извршите изабране радње"
 
 #: plugins/Uninstaller/src/Manage.php:158
 msgid "Are you sure you perform these ations?"
-msgstr ""
+msgstr "Да ли сте сигурни да обављате ове ације?"
 
 #: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall plugin \"%s\""
-msgstr ""
+msgstr "Деинсталирај прикључак \"%s\""
 
 #: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall theme \"%s\""
-msgstr ""
+msgstr "Деинсталирај тему \"%s\""
 
 #: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
-msgstr ""
+msgstr "Модул \"%s %s\" нуди напредни несинусан процес:"
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgstr "Избори се са старим основним класама (< 2.26)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:28
 msgid "Generic antispam plugin for Dotclear"
-msgstr ""
+msgstr "Генерички антиспам прикључак за Dotife"
 
 #: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
 msgid "Akismet interface for Dotclear"
-msgstr ""
+msgstr "Акисмет интерфејс за Dotcase"
 
 #: plugins/_fake_plugin/_fake_l10n.php:9
 #: plugins/fairTrackbacks/src/Prepend.php:25
 msgid "Trackback validity check"
-msgstr ""
+msgstr "Провера ваљаности за праћење"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
 #: plugins/attachments/src/Backend.php:24
 msgid "Manage post attachments"
-msgstr ""
+msgstr "Управљај прилозима поште"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
-msgstr ""
+msgstr "Служи уносе као једноставне веб странице"
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
 #: plugins/aboutConfig/src/Backend.php:24
 msgid "Manage every blog configuration directive"
-msgstr ""
+msgstr "Управљајте свим директивом конфигурације блога"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
 #: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
-msgstr ""
+msgstr "Уређивач уредног наслеђа"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
 #: plugins/themeEditor/src/Backend.php:24
 msgid "Theme Editor"
-msgstr ""
+msgstr "Уредник тема"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
-msgstr ""
+msgstr "Једноставан мени за Doutcese"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
 #: plugins/importExport/src/Backend.php:26
 msgid "Import and Export your blog"
-msgstr ""
+msgstr "Увези и Извези свој блог"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:24
 msgid "Manage every user preference directive"
-msgstr ""
+msgstr "Управљај свим директивом личних подешавања"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:24
 msgid "dotclear CKEditor integration"
-msgstr ""
+msgstr "Јасна интеграција CKEdor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:19
 #: plugins/maintenance/src/Backend.php:24
 msgid "Maintain your installation"
-msgstr ""
+msgstr "Одржавајте инсталацију"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb for Dotclear"
-msgstr ""
+msgstr "Мрвица за Dotcre"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:25
 msgid "Manage your blogroll"
-msgstr ""
+msgstr "Управљај својим блогролом"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
 msgid "Ping services"
-msgstr ""
+msgstr "Услуге пинг"
 
 #: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
-msgstr ""
+msgstr "Ознаке за постове"
 
 #: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
-msgstr ""
+msgstr "Виџети за своје бочне траке на блогу"
 
 #: plugins/_fake_plugin/_fake_l10n.php:25
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
+msgstr "Избори се са функцијама/методом отисака стопала V1 (< 2.24, 2.25)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Search engine form"
-msgstr ""
+msgstr "Образац за претраживање"
 
 #: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "List of navigation links"
-msgstr ""
+msgstr "Листа линкова за навигацију"
 
 #: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of selected entries"
-msgstr ""
+msgstr "Листа изабраних уноса"
 
 #: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of available languages"
-msgstr ""
+msgstr "Листа доступних језика"
 
 #: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:121
 msgid "List of categories"
-msgstr ""
+msgstr "Листа категорија"
 
 #: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "Feed subscription links (RSS or Atom)"
-msgstr ""
+msgstr "Фид претплата за претплату (RSS или Atom)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr ""
+msgstr "Листа последњих уноса из фида (RSS или Atom)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Simple text"
-msgstr ""
+msgstr "Једноставан текст"
 
 #: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries published"
-msgstr ""
+msgstr "Листа последњих уноса објављених"
 
 #: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last comments published"
-msgstr ""
+msgstr "Листа последњих коментара објављених"
 
 #: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
-msgstr ""
+msgstr "Листа објављених страница"
 
 #: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
-msgstr ""
+msgstr "Листа једноставних ставки менија"
 
 #: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "Blogroll list"
-msgstr ""
+msgstr "Листа блокада"
 
 #: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Tags cloud"
-msgstr ""
+msgstr "Облак са ознакама"
 
 #: plugins/aboutConfig/src/Backend.php:24
 msgid "about:config"
-msgstr ""
+msgstr "у вези: конфигурација"
 
 #: plugins/aboutConfig/src/Manage.php:68 plugins/aboutConfig/src/Manage.php:88
 msgid "Configuration successfully updated"
-msgstr ""
+msgstr "Конфигурација успешно ажурирана"
 
 #: plugins/aboutConfig/src/Manage.php:124
 #: plugins/aboutConfig/src/Manage.php:125
 #, php-format
 msgid "Settings for %s"
-msgstr ""
+msgstr "Поставке за %s"
 
 #: plugins/aboutConfig/src/Manage.php:132
 #: plugins/aboutConfig/src/Manage.php:133
 msgid "Global settings"
-msgstr ""
+msgstr "Глобалне поставке"
 
 #: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:142
 msgid "Setting ID"
-msgstr ""
+msgstr "Подешавање идентификатора"
 
 #: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:143
 msgid "Value"
-msgstr ""
+msgstr "Вредност"
 
 #: plugins/aboutConfig/src/Manage.php:159 plugins/antispam/src/Manage.php:217
 #: plugins/blogroll/src/Manage.php:253 plugins/blogroll/src/Manage.php:396
 #: plugins/simpleMenu/src/Manage.php:227 plugins/simpleMenu/src/Manage.php:672
 #: plugins/userPref/src/Manage.php:145
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:189
 msgid "Goto:"
-msgstr ""
+msgstr "Гото:"
 
 #: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
 msgid "no"
-msgstr ""
+msgstr "не"
 
 #: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
 msgid "yes"
-msgstr ""
+msgstr "да"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:79
 msgid "Akismet spam filter"
-msgstr ""
+msgstr "Акисмет спам филтер"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:92
 #, php-format
 msgid "Filtered by %s."
-msgstr ""
+msgstr "Филтрирано од %s."
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:210
 msgid "Filter configuration have been successfully saved."
-msgstr ""
+msgstr "Конфигурација филтера је успешно сачувана."
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:229
 msgid "Akismet API key:"
-msgstr ""
+msgstr "Акисмет АПИ кључ:"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:234
 msgid "API key verified"
-msgstr ""
+msgstr "АПИ кључ верификован"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:236
 msgid "API key not verified"
-msgstr ""
+msgstr "АПИ кључ није верификован"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:242
 msgid "Get your own API key"
-msgstr ""
+msgstr "Набавите свој API кључ"
 
 #: plugins/akismet/src/Prepend.php:25
 msgid "Akismet"
-msgstr ""
+msgstr "Акисмет"
 
 #: plugins/antispam/src/Antispam.php:140
 msgid "This comment is a spam:"
-msgstr ""
+msgstr "Овај коментар је спам:"
 
 #: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
-msgstr ""
+msgstr "(укључујући %d spam коментар)"
 
 #: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
-msgstr ""
+msgstr "(укључујући %d spam коментара)"
 
 #: plugins/antispam/src/Backend.php:28
 msgid "Antispam"
-msgstr ""
+msgstr "Антиспам"
 
 #: plugins/antispam/src/BackendBehaviors.php:42
 #: plugins/antispam/src/Manage.php:193
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
+msgstr "Сви spam коментари старији од %s дана (а) ће бити аутоматски избрисани."
 
 #: plugins/antispam/src/BackendBehaviors.php:43
 #: plugins/antispam/src/Manage.php:194
 #, php-format
 msgid "You can modify this duration in the %s"
-msgstr ""
+msgstr "Ово трајање можете изменити у %s"
 
 #: plugins/antispam/src/BackendBehaviors.php:58
 msgid "Delete junk comments older than"
-msgstr ""
+msgstr "Брисање нежељених коментара од"
 
 #: plugins/antispam/src/BackendBehaviors.php:64
 msgid "days"
-msgstr ""
+msgstr "дана"
 
 #: plugins/antispam/src/BackendBehaviors.php:66
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr ""
+msgstr "Подесите -1 да бисте онемогућили ову функцију; Оставите празно да бисте користили подразумевану вредност за 7 дана."
 
 #: plugins/antispam/src/BackendBehaviors.php:67
 msgid "Set spam filters."
-msgstr ""
+msgstr "Подесите spam филтере."
 
 #: plugins/antispam/src/Filters/Ip.php:80
 msgid "IP Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "Филтер IP блоклиста/Allowlist"
 
 #: plugins/antispam/src/Filters/Ip.php:93
 #: plugins/antispam/src/Filters/IpV6.php:93
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
-msgstr ""
+msgstr "Филтрирано од %1$s са правилом %2$s."
 
 #: plugins/antispam/src/Filters/Ip.php:154
 #: plugins/antispam/src/Filters/IpV6.php:154
 msgid "IP address has been successfully added."
-msgstr ""
+msgstr "IP адреса је успешно додата."
 
 #: plugins/antispam/src/Filters/Ip.php:165
 #: plugins/antispam/src/Filters/IpV6.php:165
 msgid "IP addresses have been successfully removed."
-msgstr ""
+msgstr "ИП адресе су успешно уклоњене."
 
 #: plugins/antispam/src/Filters/Ip.php:175
 #: plugins/antispam/src/Filters/IpV6.php:174
 msgid "Blocklist"
-msgstr ""
+msgstr "Листа блокада"
 
 #: plugins/antispam/src/Filters/Ip.php:176
 #: plugins/antispam/src/Filters/IpV6.php:175
 msgid "Allowlist"
-msgstr ""
+msgstr "Листа алоwлиста"
 
 #: plugins/antispam/src/Filters/Ip.php:196
 #: plugins/antispam/src/Filters/IpV6.php:195
 msgid "Add an IP address: "
-msgstr ""
+msgstr "Додај IP адресу: "
 
 #: plugins/antispam/src/Filters/Ip.php:200
 #: plugins/antispam/src/Filters/IpV6.php:199
 msgid "Global IP (used for all blogs)"
-msgstr ""
+msgstr "Глобални IP (користи се за све блогове)"
 
 #: plugins/antispam/src/Filters/Ip.php:205
 #: plugins/antispam/src/Filters/IpV6.php:204
 #: plugins/antispam/src/Filters/Words.php:193
 #: plugins/widgets/src/Manage.php:288
 msgid "Add"
-msgstr ""
+msgstr "Додај"
 
 #: plugins/antispam/src/Filters/Ip.php:211
 #: plugins/antispam/src/Filters/IpV6.php:210
 msgid "No IP address in list."
-msgstr ""
+msgstr "Нема ИП адресе у листи."
 
 #: plugins/antispam/src/Filters/Ip.php:214
 #: plugins/antispam/src/Filters/IpV6.php:213
 msgid "IP list"
-msgstr ""
+msgstr "IP листа"
 
 #: plugins/antispam/src/Filters/Ip.php:244
 #: plugins/antispam/src/Filters/IpV6.php:242
 msgid "Local IPs (used only for this blog)"
-msgstr ""
+msgstr "Локални IPs (користи се само за овај блог)"
 
 #: plugins/antispam/src/Filters/Ip.php:250
 #: plugins/antispam/src/Filters/IpV6.php:248
 msgid "Global IPs (used for all blogs)"
-msgstr ""
+msgstr "Глобални IPs (користи се за све блогове)"
 
 #: plugins/antispam/src/Filters/IpLookup.php:78
 msgid "Checks sender IP address against DNSBL servers"
-msgstr ""
+msgstr "Проверава ИП адресу пошиљаоца против DNSBL сервера"
 
 #: plugins/antispam/src/Filters/IpLookup.php:91
 #: plugins/antispam/src/Filters/LinksLookup.php:73
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
-msgstr ""
+msgstr "Филтрирано од %1$s са сервером %2$s."
 
 #: plugins/antispam/src/Filters/IpLookup.php:149
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr ""
+msgstr "Листа DNSBL сервера је успешно ажурирана."
 
 #: plugins/antispam/src/Filters/IpLookup.php:160
 msgid "IP Lookup servers"
-msgstr ""
+msgstr "Сервери IP-а"
 
 #: plugins/antispam/src/Filters/IpLookup.php:161
 msgid "Add here a coma separated list of servers."
-msgstr ""
+msgstr "Додајте овде, листу сервера раздвојене коме."
 
 #: plugins/antispam/src/Filters/IpV6.php:80
 msgid "IP v6 Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "IP v6 блоклиста/Allowist филтер"
 
 #: plugins/antispam/src/Filters/LinksLookup.php:60
 msgid "Checks links in comments against surbl.org"
-msgstr ""
+msgstr "Проверава линкове у коментарима на surbl.org"
 
 #: plugins/antispam/src/Filters/Words.php:80
 msgid "Words Blocklist"
-msgstr ""
+msgstr "Блоклиста речи"
 
 #: plugins/antispam/src/Filters/Words.php:93
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
-msgstr ""
+msgstr "Филтрирано од %1$s са речју %2$s."
 
 #: plugins/antispam/src/Filters/Words.php:150
 msgid "Words have been successfully added."
-msgstr ""
+msgstr "Речи су успешно додате."
 
 #: plugins/antispam/src/Filters/Words.php:163
 msgid "Word has been successfully added."
-msgstr ""
+msgstr "Реч је успешно додата."
 
 #: plugins/antispam/src/Filters/Words.php:174
 msgid "Words have been successfully removed."
-msgstr ""
+msgstr "Речи су успешно уклоњене."
 
 #: plugins/antispam/src/Filters/Words.php:184
 msgid "Add a word "
-msgstr ""
+msgstr "Додај реч "
 
 #: plugins/antispam/src/Filters/Words.php:188
 msgid "Global word (used for all blogs)"
-msgstr ""
+msgstr "Глобална реч (користи се за све блогове)"
 
 #: plugins/antispam/src/Filters/Words.php:198
 msgid "No word in list."
-msgstr ""
+msgstr "Нема речи у листи."
 
 #: plugins/antispam/src/Filters/Words.php:201
 msgid "List of bad words"
-msgstr ""
+msgstr "Листа лоших речи"
 
 #: plugins/antispam/src/Filters/Words.php:230
 msgid "Local words (used only for this blog)"
-msgstr ""
+msgstr "Локалне речи (коришћене само за овај блог)"
 
 #: plugins/antispam/src/Filters/Words.php:236
 msgid "Global words (used for all blogs)"
-msgstr ""
+msgstr "Глобалне речи (које се користе за све блогове)"
 
 #: plugins/antispam/src/Filters/Words.php:247
 msgid "Delete selected words"
-msgstr ""
+msgstr "Избриши изабране речи"
 
 #: plugins/antispam/src/Filters/Words.php:253
 msgid "Create default wordlist"
-msgstr ""
+msgstr "Креирај подразумевану листу речи"
 
 #: plugins/antispam/src/Filters/Words.php:315
 msgid "This word exists"
-msgstr ""
+msgstr "Ова реч постоји"
 
 #: plugins/antispam/src/FrontendUrl.php:60
 msgid "Spam moderation"
-msgstr ""
+msgstr "Spam модерација"
 
 #: plugins/antispam/src/FrontendUrl.php:64
 msgid "Spam"
-msgstr ""
+msgstr "Спам"
 
 #: plugins/antispam/src/FrontendUrl.php:68
 msgid "Ham"
-msgstr ""
+msgstr "Хам"
 
 #: plugins/antispam/src/Manage.php:50
 msgid "Filter does not exist."
-msgstr ""
+msgstr "Филтер не постоји."
 
 #: plugins/antispam/src/Manage.php:54
 msgid "Filter has no user interface."
-msgstr ""
+msgstr "Филтер нема кориснички интерфејс."
 
 #: plugins/antispam/src/Manage.php:112 plugins/antispam/src/Manage.php:205
 msgid "Filters configuration has been successfully saved."
-msgstr ""
+msgstr "Конфигурација филтера је успешно сачувана."
 
 #: plugins/antispam/src/Manage.php:129
 #, php-format
 msgid "%s configuration"
-msgstr ""
+msgstr "%s конфигурација"
 
 #: plugins/antispam/src/Manage.php:149
 #, php-format
 msgid "%s filter configuration"
-msgstr ""
+msgstr "Конфигурација филтера %s"
 
 #: plugins/antispam/src/Manage.php:153
 msgid "Back to filters list"
-msgstr ""
+msgstr "Назад на листу филтера"
 
 #: plugins/antispam/src/Manage.php:177
 msgid "Information"
-msgstr ""
+msgstr "Информације"
 
 #: plugins/antispam/src/Manage.php:179
 msgid "Junk comments:"
-msgstr ""
+msgstr "Нежељене коментаре:"
 
 #: plugins/antispam/src/Manage.php:181
 msgid "Published comments:"
-msgstr ""
+msgstr "Објављени коментари:"
 
 #: plugins/antispam/src/Manage.php:211
 msgid "Available spam filters"
-msgstr ""
+msgstr "Доступни spam филтери"
 
 #: plugins/antispam/src/Manage.php:213
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
-msgstr ""
+msgstr "Редослед"
 
 #: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:245
 msgid "Active"
-msgstr ""
+msgstr "Активно"
 
 #: plugins/antispam/src/Manage.php:215 plugins/antispam/src/Manage.php:253
 msgid "Auto Del."
-msgstr ""
+msgstr "Ауто Дел."
 
 #: plugins/antispam/src/Manage.php:216
 msgid "Filter name"
-msgstr ""
+msgstr "Име филтера"
 
 #: plugins/antispam/src/Manage.php:226 plugins/antispam/src/Manage.php:227
 msgid "Filter configuration"
-msgstr ""
+msgstr "Подешавање филтера"
 
 #: plugins/antispam/src/Manage.php:237 plugins/blogroll/src/Manage.php:270
 msgid "position"
-msgstr ""
+msgstr "положај"
 
 #: plugins/antispam/src/Manage.php:283
 msgid "Syndication"
-msgstr ""
+msgstr "Синхроникација"
 
 #: plugins/antispam/src/Manage.php:285
 msgid "Junk comments RSS feed"
-msgstr ""
+msgstr "Отпад коментара RSS-а"
 
 #: plugins/antispam/src/Manage.php:286
 msgid "Published comments RSS feed"
-msgstr ""
+msgstr "Објављени коментари RSS фида"
 
 #: plugins/antispam/src/SpamFilter.php:107
 msgid "No description"
-msgstr ""
+msgstr "Нема описа"
 
 #: plugins/antispam/src/SpamFilter.php:166
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
-msgstr ""
+msgstr "Филтрирано од %1$s (%2$s)"
 
 #: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
-msgstr ""
+msgstr "Непознат филтер."
 
 #: plugins/attachments/src/Backend.php:24
 msgid "attachments"
-msgstr ""
+msgstr "прилози"
 
 #: plugins/attachments/src/BackendBehaviors.php:52
 #, php-format
 msgid "Attachments (%d)"
-msgstr ""
+msgstr "Прилози (%d)"
 
 #: plugins/attachments/src/BackendBehaviors.php:76
 msgid "remove"
-msgstr ""
+msgstr "уклони"
 
 #: plugins/attachments/src/BackendBehaviors.php:84
 msgid "No attachment."
-msgstr ""
+msgstr "Нема прилога."
 
 #: plugins/attachments/src/BackendBehaviors.php:87
 msgid "Add files to this entry"
-msgstr ""
+msgstr "Додај датотеке у ову ставку"
 
 #: plugins/blogroll/src/Backend.php:25
 msgid "Blogroll"
-msgstr ""
+msgstr "Блогрол"
 
 #: plugins/blogroll/src/Backend.php:36
 msgid "manage blogroll"
-msgstr ""
+msgstr "управљање блогролом"
 
 #: plugins/blogroll/src/Blogroll.php:171 plugins/blogroll/src/Blogroll.php:214
 msgid "You must provide a link title"
-msgstr ""
+msgstr "Потребно је да унесете наслов линка"
 
 #: plugins/blogroll/src/Blogroll.php:175 plugins/blogroll/src/Blogroll.php:218
 msgid "You must provide a link URL"
-msgstr ""
+msgstr "Потребно је да унесете URL линка"
 
 #: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:391
 msgid "Nothing to import"
-msgstr ""
+msgstr "Ништа за увоз"
 
 #: plugins/blogroll/src/Manage.php:106
 msgid "links have been successfully imported."
-msgstr ""
+msgstr "линкови су успешно увезени."
 
 #: plugins/blogroll/src/Manage.php:113
 msgid "Import operation cancelled."
-msgstr ""
+msgstr "Операција увоза отказана."
 
 #: plugins/blogroll/src/Manage.php:128
 msgid "Link has been successfully created."
-msgstr ""
+msgstr "Линк је успешно креиран."
 
 #: plugins/blogroll/src/Manage.php:143
 msgid "category has been successfully created."
-msgstr ""
+msgstr "Категорија је успешно креирана."
 
 #: plugins/blogroll/src/Manage.php:165
 msgid "Items have been successfully removed."
-msgstr ""
+msgstr "Ставке су успешно уклоњене."
 
 #: plugins/blogroll/src/Manage.php:195
 msgid "Items order has been successfully updated"
-msgstr ""
+msgstr "Редослед ставки је успешно ажуриран"
 
 #: plugins/blogroll/src/Manage.php:255
 msgid "Lang"
-msgstr ""
+msgstr "Ланг"
 
 #: plugins/blogroll/src/Manage.php:277
 msgid "select this link"
-msgstr ""
+msgstr "изаберите ову везу"
 
 #: plugins/blogroll/src/Manage.php:311
 msgid "Are you sure you want to delete selected links?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да избришете изабране линкове?"
 
 #: plugins/blogroll/src/Manage.php:311
 msgid "Delete selected links"
-msgstr ""
+msgstr "Избриши изабране линкове"
 
 #: plugins/blogroll/src/Manage.php:316
 msgid "The link list is empty."
-msgstr ""
+msgstr "Листа линка је празна."
 
 #: plugins/blogroll/src/Manage.php:324
 msgid "Add a new link"
-msgstr ""
+msgstr "Додај нову везу"
 
 #: plugins/blogroll/src/Manage.php:354
 msgid "Add a category"
-msgstr ""
+msgstr "Додај категорију"
 
 #: plugins/blogroll/src/Manage.php:371 plugins/blogroll/src/Manage.php:376
 #: plugins/blogroll/src/Manage.php:388
 msgid "Import links"
-msgstr ""
+msgstr "Увези везе"
 
 #: plugins/blogroll/src/Manage.php:377
 msgid "OPML or XBEL File:"
-msgstr ""
+msgstr "OPML или XBEL датотеку:"
 
 #: plugins/blogroll/src/Manage.php:381 plugins/blogroll/src/Manage.php:425
 #: plugins/importExport/src/Manage.php:116
@@ -1081,172 +1081,172 @@ msgstr ""
 #: plugins/importExport/src/ModuleImportFlat.php:213
 #: plugins/importExport/src/ModuleImportFlat.php:251
 msgid "Import"
-msgstr ""
+msgstr "Увези"
 
 #: plugins/blogroll/src/ManageEdit.php:48
 msgid "No such link or title"
-msgstr ""
+msgstr "Нема такве везе или наслова"
 
 #: plugins/blogroll/src/ManageEdit.php:98
 msgid "Link has been successfully updated"
-msgstr ""
+msgstr "Линк је успешно ажуриран"
 
 #: plugins/blogroll/src/ManageEdit.php:115
 msgid "Category has been successfully updated"
-msgstr ""
+msgstr "Категорија је успешно ажурирана"
 
 #: plugins/blogroll/src/ManageEdit.php:144
 msgid "Return to blogroll"
-msgstr ""
+msgstr "Врати се у blogrol"
 
 #: plugins/blogroll/src/ManageEdit.php:150
 msgid "Edit category"
-msgstr ""
+msgstr "Уреди категорију"
 
 #: plugins/blogroll/src/ManageEdit.php:168
 msgid "Edit link"
-msgstr ""
+msgstr "Уреди линк"
 
 #: plugins/blogroll/src/ManageEdit.php:204
 msgid "XFN information"
-msgstr ""
+msgstr "XFN информације"
 
 #: plugins/blogroll/src/ManageEdit.php:205
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
-msgstr ""
+msgstr "Више информација о <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Википедији</a>"
 
 #: plugins/blogroll/src/ManageEdit.php:211
 msgid "_xfn_Me"
-msgstr ""
+msgstr "_xfn_Me"
 
 #: plugins/blogroll/src/ManageEdit.php:214
 msgid "_xfn_Another link for myself"
-msgstr ""
+msgstr "_xfn_Друга веза за мене"
 
 #: plugins/blogroll/src/ManageEdit.php:218
 msgid "_xfn_Friendship"
-msgstr ""
+msgstr "_xfn_Пријатељство"
 
 #: plugins/blogroll/src/ManageEdit.php:224
 msgid "_xfn_Contact"
-msgstr ""
+msgstr "_xfn_Контакт"
 
 #: plugins/blogroll/src/ManageEdit.php:229
 msgid "_xfn_Acquaintance"
-msgstr ""
+msgstr "_xfn_Acquepore"
 
 #: plugins/blogroll/src/ManageEdit.php:234
 msgid "_xfn_Friend"
-msgstr ""
+msgstr "_xfn_Пријатељица"
 
 #: plugins/blogroll/src/ManageEdit.php:240
 msgid "_xfn_Physical"
-msgstr ""
+msgstr "_xfn_физичко"
 
 #: plugins/blogroll/src/ManageEdit.php:246
 msgid "_xfn_Met"
-msgstr ""
+msgstr "_xfn_Мет"
 
 #: plugins/blogroll/src/ManageEdit.php:251
 msgid "_xfn_Professional"
-msgstr ""
+msgstr "_xfn_Професионални"
 
 #: plugins/blogroll/src/ManageEdit.php:257
 msgid "_xfn_Co-worker"
-msgstr ""
+msgstr "_xfn_co-радник"
 
 #: plugins/blogroll/src/ManageEdit.php:262
 msgid "_xfn_Colleague"
-msgstr ""
+msgstr "_xfn_Колелига"
 
 #: plugins/blogroll/src/ManageEdit.php:267
 msgid "_xfn_Geographical"
-msgstr ""
+msgstr "_xfn_Географија"
 
 #: plugins/blogroll/src/ManageEdit.php:273
 msgid "_xfn_Co-resident"
-msgstr ""
+msgstr "_xfn_Co-становник"
 
 #: plugins/blogroll/src/ManageEdit.php:278
 msgid "_xfn_Neighbor"
-msgstr ""
+msgstr "_xfn_комшиница"
 
 #: plugins/blogroll/src/ManageEdit.php:284
 msgid "_xfn_Family"
-msgstr ""
+msgstr "_xfn_Family"
 
 #: plugins/blogroll/src/ManageEdit.php:290
 msgid "_xfn_Child"
-msgstr ""
+msgstr "_xfn_Child"
 
 #: plugins/blogroll/src/ManageEdit.php:295
 msgid "_xfn_Parent"
-msgstr ""
+msgstr "_xfn_Parent"
 
 #: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Sibling"
-msgstr ""
+msgstr "_xfn_Сиблинг"
 
 #: plugins/blogroll/src/ManageEdit.php:305
 msgid "_xfn_Spouse"
-msgstr ""
+msgstr "_xfn_Спајс"
 
 #: plugins/blogroll/src/ManageEdit.php:310
 msgid "_xfn_Kin"
-msgstr ""
+msgstr "_xfn_Kин"
 
 #: plugins/blogroll/src/ManageEdit.php:316
 msgid "_xfn_Romantic"
-msgstr ""
+msgstr "_xfn_романтично"
 
 #: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Muse"
-msgstr ""
+msgstr "_xfn_Mупотреба"
 
 #: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Crush"
-msgstr ""
+msgstr "_xfn_Crut"
 
 #: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Date"
-msgstr ""
+msgstr "_xfn_Date"
 
 #: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Sweetheart"
-msgstr ""
+msgstr "_xfn_Срце"
 
 #: plugins/blogroll/src/UtilsImport.php:38
 msgid "You need to provide a XBEL or OPML file."
-msgstr ""
+msgstr "Потребно је да унесете XBEL или OPML датотеку."
 
 #: plugins/blogroll/src/UtilsImport.php:56
 #: plugins/blogroll/src/UtilsImport.php:98
 msgid "File is not in XML format."
-msgstr ""
+msgstr "Датотека није у XML формату."
 
 #: plugins/blogroll/src/Widgets.php:35
 msgid "All categories"
-msgstr ""
+msgstr "Све категорије"
 
 #: plugins/blogroll/src/Widgets.php:44
 msgid "Links"
-msgstr ""
+msgstr "Линкови"
 
 #: plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Мрвица хлеба"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:32
 msgid "Enable breadcrumb for this blog"
-msgstr ""
+msgstr "Омогући мрву хлеба за овај блог"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:33
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr ""
+msgstr "{{tpl: Bredracb [сепаратор = \" &amp;rsaquo; \"]} би требало да буде присутан (или уметнути ако није) у предлошку."
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:35
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr ""
+msgstr "Немојте да обухвате мрвицу хлеба у &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; ознака."
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:74
 #: plugins/breadcrumb/src/FrontendTemplate.php:79
@@ -1266,7 +1266,7 @@ msgstr ""
 #: plugins/simpleMenu/src/Manage.php:120 plugins/simpleMenu/src/Manage.php:231
 #: plugins/widgets/src/Widgets.php:267
 msgid "Home"
-msgstr ""
+msgstr "Дом"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:110
 #: plugins/breadcrumb/src/FrontendTemplate.php:125
@@ -1274,206 +1274,206 @@ msgstr ""
 #: plugins/breadcrumb/src/FrontendTemplate.php:203
 #, php-format
 msgid "page %d"
-msgstr ""
+msgstr "страница %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:160
 #: plugins/breadcrumb/src/FrontendTemplate.php:163
 #: plugins/simpleMenu/src/Manage.php:258 plugins/widgets/src/Widgets.php:284
 msgid "Archives"
-msgstr ""
+msgstr "Архива"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:179
 #: plugins/breadcrumb/src/FrontendTemplate.php:186
 #: plugins/simpleMenu/src/Manage.php:104 plugins/simpleMenu/src/Manage.php:278
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
-msgstr ""
+msgstr "Све ознаке"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
 msgid "404"
-msgstr ""
+msgstr "404"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "Generate fake l10n"
-msgstr ""
+msgstr "Генериши лажни л10н"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "fake l10n file generated."
-msgstr ""
+msgstr "Фалсификат је генерисан L10n."
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Failed to generate fake l10n file."
-msgstr ""
+msgstr "Није успело генерисање лажног l10n датотеке."
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:43
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
-msgstr ""
+msgstr "Генеришите php датотеку која садржи ниске за превод које се не раде са основним алатима."
 
 #: plugins/dcCKEditor/src/Backend.php:24 plugins/dcCKEditor/tpl/index.php:15
 msgid "dcCKEditor"
-msgstr ""
+msgstr "Уредник"
 
 #: plugins/dcCKEditor/src/Backend.php:39
 #: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:157
 msgid "Media chooser"
-msgstr ""
+msgstr "Бирач медија"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "m"
-msgstr ""
+msgstr "м"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:161
 msgid "Link to an entry"
-msgstr ""
+msgstr "Линк ка уносу"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
 msgid "Link"
-msgstr ""
+msgstr "Линк"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "l"
-msgstr ""
+msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:65
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "External image"
-msgstr ""
+msgstr "Спољашња слика"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:66
 msgid "URL field cannot be empty."
-msgstr ""
+msgstr "Поље URL-а не може бити празно."
 
 #: plugins/dcCKEditor/src/Manage.php:128
 #: plugins/dcLegacyEditor/src/Manage.php:43
 msgid "The configuration has been updated."
-msgstr ""
+msgstr "Конфигурација је ажурирана."
 
 #: plugins/dcCKEditor/src/ManagePostConfig.php:238
 msgid "Note(s)"
-msgstr ""
+msgstr "Напомена (е)"
 
 #: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:19
 msgid "Plugin activation"
-msgstr ""
+msgstr "Активација прикључка"
 
 #: plugins/dcCKEditor/tpl/index.php:28
 msgid "Enable dcCKEditor plugin"
-msgstr ""
+msgstr "Укључи додатну компоненту dcCKEdit"
 
 #: plugins/dcCKEditor/tpl/index.php:40
 msgid "Add alignment buttons"
-msgstr ""
+msgstr "Додај дугмад поравнања"
 
 #: plugins/dcCKEditor/tpl/index.php:46
 msgid "Add lists buttons"
-msgstr ""
+msgstr "Додај листе дугмади"
 
 #: plugins/dcCKEditor/tpl/index.php:52
 msgid "Add text color button"
-msgstr ""
+msgstr "Дугме за боју текста додајте"
 
 #: plugins/dcCKEditor/tpl/index.php:58
 msgid "Add background text color button"
-msgstr ""
+msgstr "Додај дугме за боју позадине"
 
 #: plugins/dcCKEditor/tpl/index.php:63
 msgid "Custom colors list:"
-msgstr ""
+msgstr "Листа прилагођених боја:"
 
 #: plugins/dcCKEditor/tpl/index.php:68
 msgid "Add colors without # separated by a comma."
-msgstr ""
+msgstr "Додај боје без # раздвојене зарезом."
 
 #: plugins/dcCKEditor/tpl/index.php:69
 msgid "Leave empty to use the default palette:"
-msgstr ""
+msgstr "Оставите празно да бисте користили подразумевану палету:"
 
 #: plugins/dcCKEditor/tpl/index.php:71
 msgid "Example of custom color list:"
-msgstr ""
+msgstr "Пример листе прилагођених боја:"
 
 #: plugins/dcCKEditor/tpl/index.php:76
 msgid "Colors per row in palette:"
-msgstr ""
+msgstr "Боје по реду у палети:"
 
 #: plugins/dcCKEditor/tpl/index.php:81
 msgid "Valid range: 4 to 16"
-msgstr ""
+msgstr "Важећи опсег: 4 према 16"
 
 #: plugins/dcCKEditor/tpl/index.php:86
 msgid "Add collapse button"
-msgstr ""
+msgstr "Додај дугме за колапс"
 
 #: plugins/dcCKEditor/tpl/index.php:92
 msgid "Add format selection"
-msgstr ""
+msgstr "Додај избор формата"
 
 #: plugins/dcCKEditor/tpl/index.php:97
 msgid "Custom formats"
-msgstr ""
+msgstr "Прилагођени формат"
 
 #: plugins/dcCKEditor/tpl/index.php:102
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr ""
+msgstr "Подразумевани формати су p; h1; h2; h3; h4; h6; h6; pre; адреса"
 
 #: plugins/dcCKEditor/tpl/index.php:107
 msgid "Add table button"
-msgstr ""
+msgstr "Додај дугме табеле"
 
 #: plugins/dcCKEditor/tpl/index.php:113
 msgid "Add clipboard buttons"
-msgstr ""
+msgstr "Додај дугмад клипборд"
 
 #: plugins/dcCKEditor/tpl/index.php:117
 msgid "Copy, Paste, Paste Text, Paste from Word"
-msgstr ""
+msgstr "Копирај, налепи, налепи текст, налепи од речи"
 
 #: plugins/dcCKEditor/tpl/index.php:122
 msgid "Add undo/redo buttons"
-msgstr ""
+msgstr "Додај опозив/понављајте дугмад"
 
 #: plugins/dcCKEditor/tpl/index.php:128
 msgid "Disables the built-in spell checker if the browser provides one"
-msgstr ""
+msgstr "Онемогућава уграђену проверу правописа ако прегледач даје један"
 
 #: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:31
 #: plugins/simpleMenu/src/Manage.php:635
 msgid "Save configuration"
-msgstr ""
+msgstr "Сачувај конфигурацију"
 
 #: plugins/dcLegacyEditor/src/Backend.php:24
 #: plugins/dcLegacyEditor/tpl/index.php:13
 msgid "dcLegacyEditor"
-msgstr ""
+msgstr "dcLegacyditor"
 
 #: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "Dotclear wiki"
-msgstr ""
+msgstr "Дотчисти вики"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "visual"
-msgstr ""
+msgstr "визуелно"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "source"
-msgstr ""
+msgstr "извор"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "You can use the following shortcuts to format your text."
-msgstr ""
+msgstr "Можете да користите следеће пречице да бисте форматирали текст."
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Block format"
-msgstr ""
+msgstr "Формат блока"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
 msgid "-- none --"
@@ -1481,79 +1481,79 @@ msgstr "-- aucun --"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- block format --"
-msgstr ""
+msgstr "-- блок формат-"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "Paragraph"
-msgstr ""
+msgstr "Параграф"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Level 1 header"
-msgstr ""
+msgstr "Ниво 1 заглавља"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 2 header"
-msgstr ""
+msgstr "Ниво 2 заглавља"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 3 header"
-msgstr ""
+msgstr "Ниво 3 заглавља"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 4 header"
-msgstr ""
+msgstr "Ниво 4 заглавља"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 5 header"
-msgstr ""
+msgstr "Ниво 5 заглавља"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 6 header"
-msgstr ""
+msgstr "Ниво 6 заглавља"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "Strong emphasis"
-msgstr ""
+msgstr "Јак нагласак"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
 msgid "Emphasis"
-msgstr ""
+msgstr "Нагласак"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
-msgstr ""
+msgstr "Уметнуто"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Deleted"
-msgstr ""
+msgstr "Избрисано"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Inline quote"
-msgstr ""
+msgstr "Inine цитат"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Code"
-msgstr ""
+msgstr "кôд"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Line break"
-msgstr ""
+msgstr "Прекид реда"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "Blockquote"
-msgstr ""
+msgstr "Цитат блокада"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "Preformated text"
-msgstr ""
+msgstr "Преформулисан текст"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "Unordered list"
-msgstr ""
+msgstr "Неуређена листа"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "Ordered list"
-msgstr ""
+msgstr "Уређена листа"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
@@ -1566,258 +1566,258 @@ msgstr "Langue?"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:162
 msgid "Remove text formating"
-msgstr ""
+msgstr "Уклони текст за парење"
 
 #: plugins/dcLegacyEditor/tpl/index.php:23
 msgid "Enable dcLegacyEditor plugin"
-msgstr ""
+msgstr "Укључи додатну компоненту dcLegacyEditor"
 
 #: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
-msgstr ""
+msgstr "Проверава извор линкова за линк ка постави"
 
 #: plugins/fairTrackbacks/src/Prepend.php:25
 msgid "Fair Trackbacks"
-msgstr ""
+msgstr "Фер линкови"
 
 #: plugins/importExport/src/Backend.php:26
 msgid "Import / Export"
-msgstr ""
+msgstr "Увези/извоз"
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:33
 msgid "Database export"
-msgstr ""
+msgstr "Извоз базе података"
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:36
 msgid "Download database of current blog"
-msgstr ""
+msgstr "Преузми базу података актуелног блога"
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:83
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:81
 #: plugins/importExport/src/ModuleExportFlat.php:214
 #: plugins/importExport/src/ModuleExportFlat.php:238
 msgid "Compress file"
-msgstr ""
+msgstr "Комприза датотеку"
 
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:34
 msgid "Download database of all blogs"
-msgstr ""
+msgstr "Преузми базу података свих блогова"
 
 #: plugins/importExport/src/FlatBackup.php:49
 msgid "No file to read."
-msgstr ""
+msgstr "Нема датотеке за читање."
 
 #: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
-msgstr ""
+msgstr "Није могуће креирати излазни фајл."
 
 #: plugins/importExport/src/FlatImportV2.php:96
 msgid "Unable to read the DotClear backup file."
-msgstr ""
+msgstr "Не могу да прочитам DotЦлеар резервну датотеку."
 
 #: plugins/importExport/src/FlatImportV2.php:100
 msgid "File is not a DotClear backup."
-msgstr ""
+msgstr "Датотека није DotЦлеар бацкуп."
 
 #: plugins/importExport/src/FlatImportV2.php:176
 msgid "File is not a single blog export."
-msgstr ""
+msgstr "Датотека није појединачни извоз блога."
 
 #: plugins/importExport/src/FlatImportV2.php:290
 #: plugins/importExport/src/FlatImportV2.php:344
 #, php-format
 msgid "Error raised at line %s"
-msgstr ""
+msgstr "Дошло је до грешке при реду %s"
 
 #: plugins/importExport/src/FlatImportV2.php:299
 msgid "File is not a full export."
-msgstr ""
+msgstr "Датотека није потпуни извоз."
 
 #: plugins/importExport/src/FlatImportV2.php:755
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
+msgstr "Идентификатор \"%3$s\" не подудара се са плочу \"%1$s\" на линији %2$s резервног фајла."
 
 #: plugins/importExport/src/Manage.php:86
 #: plugins/maintenance/src/Manage.php:170
 msgid "Please wait..."
-msgstr ""
+msgstr "Молим вас сачекајте ..."
 
 #: plugins/importExport/src/Manage.php:119
 #: plugins/importExport/src/ModuleExportFlat.php:220
 #: plugins/importExport/src/ModuleExportFlat.php:241
 msgid "Export"
-msgstr ""
+msgstr "Извези"
 
 #: plugins/importExport/src/Manage.php:121
 #, php-format
 msgid "Export functions are in the page %s."
-msgstr ""
+msgstr "Извозне функције су на страници %s."
 
 #: plugins/importExport/src/Manage.php:123
 #: plugins/maintenance/src/Backend.php:24
 #: plugins/maintenance/src/BackendBehaviors.php:173
 msgid "Maintenance"
-msgstr ""
+msgstr "Одржавање"
 
 #: plugins/importExport/src/Module.php:161
 msgid "Congratulation!"
-msgstr ""
+msgstr "Честитке!"
 
 #: plugins/importExport/src/Module.php:162
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr ""
+msgstr "Ваш блог је успешно увезен. Добродошли на Доцик 2!"
 
 #: plugins/importExport/src/Module.php:166
 msgid "Why don't you blog this now?"
-msgstr ""
+msgstr "Зашто не блог ово сада?"
 
 #: plugins/importExport/src/Module.php:171
 msgid "visit your dashboard"
-msgstr ""
+msgstr "посетите контролну таблу"
 
 #: plugins/importExport/src/ModuleExportFlat.php:29
 msgid "Flat file export"
-msgstr ""
+msgstr "Извозни извоз датотеке"
 
 #: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Exports a blog or a full Dotclear installation to flat file."
-msgstr ""
+msgstr "Извози блог или потпуну Dotfe инсталацију у равну датотеку."
 
 #: plugins/importExport/src/ModuleExportFlat.php:155
 msgid "Export file not found."
-msgstr ""
+msgstr "Извоз датотека није пронађен."
 
 #: plugins/importExport/src/ModuleExportFlat.php:194
 msgid "Failed to compress export file."
-msgstr ""
+msgstr "Компримска датотека за извоз није успела."
 
 #: plugins/importExport/src/ModuleExportFlat.php:205
 #: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog"
-msgstr ""
+msgstr "Један блог"
 
 #: plugins/importExport/src/ModuleExportFlat.php:206
 #, php-format
 msgid "This will create an export of your current blog: %s"
-msgstr ""
+msgstr "Ово ће створити извоз вашег актуелног блога: %s"
 
 #: plugins/importExport/src/ModuleExportFlat.php:218
 msgid "You may also want to download your media directory as a zip file"
-msgstr ""
+msgstr "Такође можете да преузмете медијски директоријум као поштански фајл"
 
 #: plugins/importExport/src/ModuleExportFlat.php:229
 #: plugins/importExport/src/ModuleImportFlat.php:220
 msgid "Multiple blogs"
-msgstr ""
+msgstr "Више блогова"
 
 #: plugins/importExport/src/ModuleExportFlat.php:230
 msgid "This will create an export of all the content of your database."
-msgstr ""
+msgstr "Ово ће створити извоз свих садржаја ваше базе података."
 
 #: plugins/importExport/src/ModuleImportDc1.php:68
 msgid "Dotclear 1.2 import"
-msgstr ""
+msgstr "Очисти 1.2 увоз"
 
 #: plugins/importExport/src/ModuleImportDc1.php:69
 msgid "Import a Dotclear 1.2 installation into your current blog."
-msgstr ""
+msgstr "Увезите Dotsfe 1.2 инсталацију у актуелни блог."
 
 #: plugins/importExport/src/ModuleImportDc1.php:187
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
-msgstr ""
+msgstr "Увези садржај блога Дотчисти 1.2 у текућем блогу: %s."
 
 #: plugins/importExport/src/ModuleImportDc1.php:190
 #: plugins/importExport/src/ModuleImportWp.php:220
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr ""
+msgstr "Имајте у виду да ће овај процес испразнити ваше категорије, блогрол, уносе и коментаре на актуелни блог."
 
 #: plugins/importExport/src/ModuleImportDc1.php:194
 #: plugins/importExport/src/ModuleImportWp.php:224
 msgid "General information"
-msgstr ""
+msgstr "Опште информације"
 
 #: plugins/importExport/src/ModuleImportDc1.php:194
 #: plugins/importExport/src/ModuleImportWp.php:224
 msgid "Import my blog now"
-msgstr ""
+msgstr "Увези мој блог сада"
 
 #: plugins/importExport/src/ModuleImportDc1.php:195
 msgid "We first need some information about your old Dotclear 1.2 installation."
-msgstr ""
+msgstr "Прво нам требају неке информације о вашем старом Дотјагу 1.2 инсталацију."
 
 #: plugins/importExport/src/ModuleImportDc1.php:196
 msgid "Database driver:"
-msgstr ""
+msgstr "Возач базе података:"
 
 #: plugins/importExport/src/ModuleImportDc1.php:208
 #: plugins/importExport/src/ModuleImportWp.php:237
 msgid "Entries import options"
-msgstr ""
+msgstr "Опције увоза уноса"
 
 #: plugins/importExport/src/ModuleImportDc1.php:209
 #: plugins/importExport/src/ModuleImportWp.php:262
 msgid "Number of entries to import at once:"
-msgstr ""
+msgstr "Број уноса за увоз одједном:"
 
 #: plugins/importExport/src/ModuleImportDc1.php:216
 #: plugins/importExport/src/ModuleImportWp.php:279
 msgid "Importing users"
-msgstr ""
+msgstr "Увоз корисника"
 
 #: plugins/importExport/src/ModuleImportDc1.php:223
 #: plugins/importExport/src/ModuleImportWp.php:286
 msgid "Importing categories"
-msgstr ""
+msgstr "Увоз категорија"
 
 #: plugins/importExport/src/ModuleImportDc1.php:230
 #: plugins/importExport/src/ModuleImportWp.php:293
 msgid "Importing blogroll"
-msgstr ""
+msgstr "Увоз блогрола"
 
 #: plugins/importExport/src/ModuleImportDc1.php:237
 #: plugins/importExport/src/ModuleImportWp.php:300
 #, php-format
 msgid "Importing entries from %d to %d / %d"
-msgstr ""
+msgstr "Увоз уноса са %d на %d / %d"
 
 #: plugins/importExport/src/ModuleImportDc1.php:251
 msgid "Please read carefully"
-msgstr ""
+msgstr "Пажљиво прочитајте пажљиво"
 
 #: plugins/importExport/src/ModuleImportDc1.php:253
 #: plugins/importExport/src/ModuleImportWp.php:314
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr ""
+msgstr "Сваки нови корисник је примио насумичну лозинку и мораће да тражи нову лозинку након што је \"заборавио моју лозинку\" линк на страници за пријављивање (њихова регистрована адреса е-поште мора бити важећа.)"
 
 #: plugins/importExport/src/ModuleImportDc1.php:258
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr ""
+msgstr "Имајте на уму да Дотјад 2 има нови распоред URL адресе. Можете избећи прекинуте везе инсталирањем <a href=\"%s\">DC1 преусмеравања</a> прикључка и активирајте га у свом конфигурацији блога."
 
 #: plugins/importExport/src/ModuleImportDc1.php:282
 #: plugins/importExport/src/ModuleImportWp.php:335
 msgid "next step"
-msgstr ""
+msgstr "следећи корак"
 
 #: plugins/importExport/src/ModuleImportDc1.php:292
 #: plugins/importExport/src/ModuleImportWp.php:345
 msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr ""
+msgstr "У зависности од величине блога, може потрајати неколико минута."
 
 #: plugins/importExport/src/ModuleImportDc1.php:320
 msgid "Dotclear tables not found"
-msgstr ""
+msgstr "Непронађене табеле за доталe"
 
 #: plugins/importExport/src/ModuleImportFeed.php:121
 msgid "RSS or Atom feed import"
-msgstr ""
+msgstr "Увези rSS или Atom фида"
 
 #: plugins/importExport/src/ModuleImportFeed.php:122
 msgid "Add a feed content to the blog."
-msgstr ""
+msgstr "Додајте садржај фида на блог."
 
 #: plugins/importExport/src/ModuleImportFeed.php:144
 #: plugins/importExport/src/ModuleImportFeed.php:150
@@ -1826,1197 +1826,1197 @@ msgstr ""
 #: plugins/importExport/src/ModuleImportFeed.php:170
 #: plugins/importExport/src/ModuleImportFeed.php:177
 msgid "Cannot retrieve feed URL."
-msgstr ""
+msgstr "Није могуће преузети URL адресу фида."
 
 #: plugins/importExport/src/ModuleImportFeed.php:180
 msgid "No items in feed."
-msgstr ""
+msgstr "Нема ставки у фиду."
 
 #: plugins/importExport/src/ModuleImportFeed.php:214
 #: plugins/importExport/src/ModuleImportFlat.php:177
 msgid "Content successfully imported."
-msgstr ""
+msgstr "Садржај је успешно увезен."
 
 #: plugins/importExport/src/ModuleImportFeed.php:219
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "Додај садржај фида на актуелни блог: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:221
 #: plugins/widgets/src/Widgets.php:143
 msgid "Feed URL:"
-msgstr ""
+msgstr "URL адреса фида:"
 
 #: plugins/importExport/src/ModuleImportFlat.php:39
 msgid "Flat file import"
-msgstr ""
+msgstr "Увоз равног фајла"
 
 #: plugins/importExport/src/ModuleImportFlat.php:40
 msgid "Imports a blog or a full Dotclear installation from flat file."
-msgstr ""
+msgstr "Увози блог или потпуну Dotfe инсталацију из равног фајла."
 
 #: plugins/importExport/src/ModuleImportFlat.php:172
 msgid "Single blog successfully imported."
-msgstr ""
+msgstr "Један блог је успешно увезен."
 
 #: plugins/importExport/src/ModuleImportFlat.php:188
 msgid "Are you sure you want to import a full backup file?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да увезете пуну резервну датотеку?"
 
 #: plugins/importExport/src/ModuleImportFlat.php:194
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "Ово ће увести један blog backup као нови садржај у текућем блогу: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFlat.php:196
 #: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Upload a backup file"
-msgstr ""
+msgstr "Отпреми резервну датотеку"
 
 #: plugins/importExport/src/ModuleImportFlat.php:197
 #: plugins/importExport/src/ModuleImportFlat.php:224
 #, php-format
 msgid "maximum size %s"
-msgstr ""
+msgstr "максимална величина %s"
 
 #: plugins/importExport/src/ModuleImportFlat.php:203
 #: plugins/importExport/src/ModuleImportFlat.php:230
 msgid "or pick up a local file in your public directory"
-msgstr ""
+msgstr "или да бисте покупили локалну датотеку у јавном директоријуму"
 
 #: plugins/importExport/src/ModuleImportFlat.php:221
 msgid "This will reset all the content of your database, except users."
-msgstr ""
+msgstr "Ово ће поново поставити сав садржај ваше базе података, осим корисника."
 
 #: plugins/importExport/src/ModuleImportFlat.php:342
 msgid "Another file with same name exists."
-msgstr ""
+msgstr "Постоји још једна датотека са истим именом."
 
 #: plugins/importExport/src/ModuleImportFlat.php:350
 msgid "Failed to extract backup file."
-msgstr ""
+msgstr "Није успело издвајање резервне копије датотеке."
 
 #: plugins/importExport/src/ModuleImportFlat.php:362
 msgid "No backup in compressed file."
-msgstr ""
+msgstr "Нема подршке у компресованој датотеци."
 
 #: plugins/importExport/src/ModuleImportWp.php:96
 msgid "WordPress import"
-msgstr ""
+msgstr "Увези речи за речи"
 
 #: plugins/importExport/src/ModuleImportWp.php:97
 msgid "Import a WordPress installation into your current blog."
-msgstr ""
+msgstr "Увезите инсталацију WordPress у актуелни блог."
 
 #: plugins/importExport/src/ModuleImportWp.php:217
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
-msgstr ""
+msgstr "Ово ће увести ваш садржај WordPress као нови садржај у текућем блогу: %s."
 
 #: plugins/importExport/src/ModuleImportWp.php:225
 msgid "We first need some information about your old WordPress installation."
-msgstr ""
+msgstr "Прво нам требају неке информације о вашој старој Вордпрес инсталацији."
 
 #: plugins/importExport/src/ModuleImportWp.php:241
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr ""
+msgstr "Вордпрес и Дотјастово руковање категоријама су сасвим различите. Можете доделити неколико категорија у један пост у Вордпресу. У ведском свету, видимо то више као \"Једна категорија, неколико ознака.\" Дакле, Дот може да увози само једну категорију по пост и изабраће најнижи број један. Ако желите да задржите праћење сваке категорије, можете да их увезете као ознаке, са опционим префиксом."
 
 #: plugins/importExport/src/ModuleImportWp.php:246
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "Са друге стране, у Вордпресу, пост не може бити некатегорисан, а подразумевана инсталација има прву категорију labelsed <i>\"Некатегоризовано\"</i>. Ако нисте променили ту категорију, можете једноставно игнорисати то док увозите свој блог, као што Доцит омогућава да заправо држите своје постове некатегоризовано."
 
 #: plugins/importExport/src/ModuleImportWp.php:255
 msgid "Ignore the first category:"
-msgstr ""
+msgstr "Игнориши прву категорију:"
 
 #: plugins/importExport/src/ModuleImportWp.php:257
 msgid "Import lowest numbered category on posts:"
-msgstr ""
+msgstr "Увоз најниже нумерисане категорије на постове:"
 
 #: plugins/importExport/src/ModuleImportWp.php:259
 msgid "Import all categories as tags:"
-msgstr ""
+msgstr "Увези све категорије као ознаке:"
 
 #: plugins/importExport/src/ModuleImportWp.php:260
 msgid "Prefix such tags with:"
-msgstr ""
+msgstr "Префикс такве ознаке са:"
 
 #: plugins/importExport/src/ModuleImportWp.php:268
 msgid "Content filters"
-msgstr ""
+msgstr "Филтери садржаја"
 
 #: plugins/importExport/src/ModuleImportWp.php:269
 msgid "You may want to process your post and/or comment content with the following filters."
-msgstr ""
+msgstr "Можда ћете желети да обрадите свој пост и/или садржај коментара са следећим филтерима."
 
 #: plugins/importExport/src/ModuleImportWp.php:270
 msgid "Post content formatter:"
-msgstr ""
+msgstr "Постави садржај за материју:"
 
 #: plugins/importExport/src/ModuleImportWp.php:272
 msgid "Comment content formatter:"
-msgstr ""
+msgstr "Садржај коментара на коментар:"
 
 #: plugins/importExport/src/ModuleImportWp.php:374
 msgid "WordPress tables not found"
-msgstr ""
+msgstr "Табеле речи за речи нису пронађене"
 
 #: plugins/maintenance/src/BackendBehaviors.php:33
 msgid "Servicing"
-msgstr ""
+msgstr "Сервисирање"
 
 #: plugins/maintenance/src/BackendBehaviors.php:33
 msgid "Tools to maintain the performance of your blogs."
-msgstr ""
+msgstr "Алатке за одржавање перформанси блогова."
 
 #: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Backup"
-msgstr ""
+msgstr "Резерва"
 
 #: plugins/maintenance/src/BackendBehaviors.php:34
 msgid "Tools to back up your content."
-msgstr ""
+msgstr "Алатке да бисте подрзале ваш садржај."
 
 #: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Development"
-msgstr ""
+msgstr "Развој"
 
 #: plugins/maintenance/src/BackendBehaviors.php:35
 msgid "Tools to assist in development of plugins, themes and core."
-msgstr ""
+msgstr "Алатке за помоћ у развоју прикључака, тема и језгра."
 
 #: plugins/maintenance/src/BackendBehaviors.php:37
 msgid "Optimize"
-msgstr ""
+msgstr "Оптимизуј"
 
 #: plugins/maintenance/src/BackendBehaviors.php:38
 msgid "Count and index"
-msgstr ""
+msgstr "Број и индекс"
 
 #: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Purge"
-msgstr ""
+msgstr "Чишћење"
 
 #: plugins/maintenance/src/BackendBehaviors.php:40
 msgid "Other"
-msgstr ""
+msgstr "Остало"
 
 #: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Current blog"
-msgstr ""
+msgstr "Актуелни блог"
 
 #: plugins/maintenance/src/BackendBehaviors.php:42
 msgid "All blogs"
-msgstr ""
+msgstr "Сви блогови"
 
 #: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "Maintain translations"
-msgstr ""
+msgstr "Задржи преводе"
 
 #: plugins/maintenance/src/BackendBehaviors.php:44
 msgid "Translations"
-msgstr ""
+msgstr "Преводи"
 
 #: plugins/maintenance/src/BackendBehaviors.php:120
 #: plugins/maintenance/src/Rest.php:75
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Један задатак за извршавање"
+msgstr[1] "%s задатака које треба извршити"
+msgstr[2] "%s задатака које треба извршити"
 
 #: plugins/maintenance/src/BackendBehaviors.php:156
 #: plugins/maintenance/src/Manage.php:262
 msgid "This task has never been executed."
-msgstr ""
+msgstr "Овај задатак никада није извршен."
 
 #: plugins/maintenance/src/BackendBehaviors.php:159
 #: plugins/maintenance/src/Manage.php:267
 #, php-format
 msgid "Last execution of this task was on %s."
-msgstr ""
+msgstr "Последње извршење овог задатка је било на %s."
 
 #: plugins/maintenance/src/BackendBehaviors.php:174
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Постоји задатак за извршавање."
+msgstr[1] "Постоји %s задатака које треба извршити."
+msgstr[2] "Постоји %s задатака које треба извршити."
 
 #: plugins/maintenance/src/BackendBehaviors.php:176
 msgid "Manage tasks"
-msgstr ""
+msgstr "Управљај задацима"
 
 #: plugins/maintenance/src/BackendBehaviors.php:195
 msgid "Display overdue tasks counter on maintenance dashboard icon"
-msgstr ""
+msgstr "Прикажи закаснеле задатке на контролној табли одржавања"
 
 #: plugins/maintenance/src/BackendBehaviors.php:199
 msgid "Display overdue tasks list on dashboard items"
-msgstr ""
+msgstr "Прикажи листу задужених за задатке на контролној табли"
 
 #: plugins/maintenance/src/MaintenanceTask.php:155
 msgid "Failed to execute task."
-msgstr ""
+msgstr "Извршавање задатка није успело."
 
 #: plugins/maintenance/src/MaintenanceTask.php:158
 msgid "Task successfully executed."
-msgstr ""
+msgstr "Задатак је успешно извршен."
 
 #: plugins/maintenance/src/Manage.php:114
 msgid "Maintenance plugin has been successfully configured."
-msgstr ""
+msgstr "Прикључак за одржавање је успешно конфигурисан."
 
 #: plugins/maintenance/src/Manage.php:132
 msgid "System settings have been saved."
-msgstr ""
+msgstr "Системске поставке су сачуване."
 
 #: plugins/maintenance/src/Manage.php:137
 msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
+msgstr "Све поставке Content-Security-смернице за смернице су поново постављене на подразумевану вредност."
 
 #: plugins/maintenance/src/Manage.php:159
 msgid "Every week"
-msgstr ""
+msgstr "Сваке седмице"
 
 #: plugins/maintenance/src/Manage.php:160
 msgid "Every two weeks"
-msgstr ""
+msgstr "Сваке две недеље"
 
 #: plugins/maintenance/src/Manage.php:161
 msgid "Every month"
-msgstr ""
+msgstr "Сваког месеца"
 
 #: plugins/maintenance/src/Manage.php:162
 msgid "Every two months"
-msgstr ""
+msgstr "Свака два месеца"
 
 #: plugins/maintenance/src/Manage.php:186
 msgid "You have not sufficient permissions to view this page."
-msgstr ""
+msgstr "Немате довољне дозволе да бисте приказали ову страницу."
 
 #: plugins/maintenance/src/Manage.php:263
 #: plugins/maintenance/src/Manage.php:271
 msgid "You should execute it now."
-msgstr ""
+msgstr "Требало би да га извршите сада."
 
 #: plugins/maintenance/src/Manage.php:293
 #: plugins/maintenance/src/Manage.php:315
 msgid "Execute task"
-msgstr ""
+msgstr "Задатак извршавања"
 
 #: plugins/maintenance/src/Manage.php:297
 msgid "This may take a very long time."
-msgstr ""
+msgstr "Ово може потрајати веома дуго."
 
 #: plugins/maintenance/src/Manage.php:327
 #: plugins/maintenance/src/Manage.php:328
 msgid "Alert settings"
-msgstr ""
+msgstr "Поставке упозорења"
 
 #: plugins/maintenance/src/Manage.php:332
 msgid "Activation"
-msgstr ""
+msgstr "Активација"
 
 #: plugins/maintenance/src/Manage.php:335
 msgid "Display alert messages on late tasks"
-msgstr ""
+msgstr "Прикажи поруке упозорења у касним задацима"
 
 #: plugins/maintenance/src/Manage.php:338
 #, php-format
 msgid "You can place list of late tasks on your %s."
-msgstr ""
+msgstr "Можете поставити листу каснијег задатка на вашем %s."
 
 #: plugins/maintenance/src/Manage.php:344
 msgid "Frequency"
-msgstr ""
+msgstr "Фреквенција"
 
 #: plugins/maintenance/src/Manage.php:347
 msgid "Use one recall time for all tasks"
-msgstr ""
+msgstr "Користите време за опомене за све задатке"
 
 #: plugins/maintenance/src/Manage.php:349
 msgid "Recall time for all tasks:"
-msgstr ""
+msgstr "Време позива за све задатке:"
 
 #: plugins/maintenance/src/Manage.php:355
 msgid "Use one recall time per task"
-msgstr ""
+msgstr "Користите један позив за опозив по задатку"
 
 #: plugins/maintenance/src/Manage.php:386
 msgid "Content-Security-Policy"
-msgstr ""
+msgstr "Садржај-Безбедност-смернице"
 
 #: plugins/maintenance/src/Manage.php:391
 msgid "Enable Content-Security-Policy system"
-msgstr ""
+msgstr "Омогући систем-Безбедност-смернице"
 
 #: plugins/maintenance/src/Manage.php:394
 msgid "Enable Content-Security-Policy report only"
-msgstr ""
+msgstr "Омогући само извештај о садржају садржаја-Безбедност"
 
 #: plugins/maintenance/src/Manage.php:400
 msgid "Enable Content-Security-Policy system by default"
-msgstr ""
+msgstr "Подразумевано омогући систем-Безбедност-смернице-смернице"
 
 #: plugins/maintenance/src/Manage.php:403
 msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
+msgstr "Омогући извештај о садржају-Безбедност-Политика само подразумевано"
 
 #: plugins/maintenance/src/Manage.php:406
 msgid "Also apply these settings to all blogs"
-msgstr ""
+msgstr "Примените и ове поставке на све блогове"
 
 #: plugins/maintenance/src/Task/CSP.php:41
 msgid "Delete the Content-Security-Policy report file"
-msgstr ""
+msgstr "Избриши датотеку извештаја о садржају-Безбедност-смернице"
 
 #: plugins/maintenance/src/Task/CSP.php:42
 msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
+msgstr "Датотека извештаја о садржају-Безбедност-Политика је избрисана."
 
 #: plugins/maintenance/src/Task/CSP.php:43
 msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
+msgstr "Није успело брисање датотеке извештаја о садржају садржаја-Безбедност-смернице."
 
 #: plugins/maintenance/src/Task/CSP.php:45
 msgid "Remove the Content-Security-Policy report file."
-msgstr ""
+msgstr "Уклоните датотеку извештаја о садржају садржаја-Безбедност-Безбедност."
 
 #: plugins/maintenance/src/Task/Cache.php:43
 msgid "Failed to empty templates cache directory."
-msgstr ""
+msgstr "Није успело испразнити директоријум кеша шаблона."
 
 #: plugins/maintenance/src/Task/Cache.php:45
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "Може бити корисно да се испразни овај кеш када мења тему .html или .cs датотеке (или када се ажурира тема или прикључак). Приметите: са неким хостерима, кеш шаблона не може бити испражњен са овим прикључком. Затим можете да избришете директоријум <strong>%s</strong> директно на серверу са вашим ФТП софтвером."
 
 #: plugins/maintenance/src/Task/CountComments.php:42
 msgid "Count again comments and trackbacks"
-msgstr ""
+msgstr "Број поново број коментара и линкова за праћење"
 
 #: plugins/maintenance/src/Task/CountComments.php:43
 msgid "Comments and trackback counted."
-msgstr ""
+msgstr "Рачунати и рачунати за праћење."
 
 #: plugins/maintenance/src/Task/CountComments.php:44
 msgid "Failed to count comments and trackbacks."
-msgstr ""
+msgstr "Број коментара и линкова за праћење није успео."
 
 #: plugins/maintenance/src/Task/CountComments.php:46
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
+msgstr "Број поново број коментара и линкова за праћење омогућава да проверите тачне бројеве. Ова операција може бити корисна када се увоз са другог блога (или када се мигрира из dotack 1 dotacie 2)."
 
 #: plugins/maintenance/src/Task/IndexComments.php:63
 #: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Search engine index"
-msgstr ""
+msgstr "Индекс претраживача претраге"
 
 #: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Index all comments for search engine"
-msgstr ""
+msgstr "Индекс свих коментара за претраживач претраге"
 
 #: plugins/maintenance/src/Task/IndexComments.php:65
 #: plugins/maintenance/src/Task/IndexPosts.php:65
 #: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Next"
-msgstr ""
+msgstr "Следећи"
 
 #: plugins/maintenance/src/Task/IndexComments.php:66
 #, php-format
 msgid "Indexing comment %d to %d."
-msgstr ""
+msgstr "Коментар на индексирање %d на %d."
 
 #: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Comments index done."
-msgstr ""
+msgstr "Индекс коментара је учињено."
 
 #: plugins/maintenance/src/Task/IndexComments.php:68
 msgid "Failed to index comments."
-msgstr ""
+msgstr "Није успело индексирање коментара."
 
 #: plugins/maintenance/src/Task/IndexComments.php:70
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "Индексирање свих коментара и линкова за праћење у индексу мотора претраге. Ова операција је неопходна, након увоза садржаја у вашем блогу, да бисте користили интерни претраживач, на јавним и приватним страницама."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Index all entries for search engine"
-msgstr ""
+msgstr "Индекс свих уноса за претраживач"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:66
 #, php-format
 msgid "Indexing entry %d to %d."
-msgstr ""
+msgstr "Унос индексирања %d на %d."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Entries index done."
-msgstr ""
+msgstr "Индекс уноса је учињено."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:68
 msgid "Failed to index entries."
-msgstr ""
+msgstr "Није успело индексирање уноса."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:70
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "Индекс свих уноса у индексу мотора претраге. Ова операција је неопходна, након увоза садржаја у вашем блогу, да бисте користили интерни претраживач, на јавним и приватним страницама."
 
 #: plugins/maintenance/src/Task/Logs.php:48
 msgid "Delete all logs"
-msgstr ""
+msgstr "Избриши све евиденције"
 
 #: plugins/maintenance/src/Task/Logs.php:49
 msgid "Logs deleted."
-msgstr ""
+msgstr "Евиденција је избрисана."
 
 #: plugins/maintenance/src/Task/Logs.php:50
 msgid "Failed to delete logs."
-msgstr ""
+msgstr "Брисање евиденције није успело."
 
 #: plugins/maintenance/src/Task/Logs.php:52
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr ""
+msgstr "Евиденција записа све активности и повезивање са историјом блога. Уколико не желите да задржите ову историју, размотрите брисање ових евиденција с времена на време."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Entries metadata"
-msgstr ""
+msgstr "Метаподаци уноса"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Synchronize entries metadata"
-msgstr ""
+msgstr "Синхронизуј уносе метаподатака"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:66
 #, php-format
 msgid "Synchronize entry %d to %d."
-msgstr ""
+msgstr "Синхронизуј унос %d на %d."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Entries metadata synchronize done."
-msgstr ""
+msgstr "Уноси метаподатака се синхронизују."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:68
 msgid "Failed to synchronize entries metadata."
-msgstr ""
+msgstr "Синхронизовање уноса метаподатака није успело."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:70
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
-msgstr ""
+msgstr "Синхронизуј све ставке метаподатака може бити корисно након увоза садржаја на блогу или ради лоше операције на столовима базе података."
 
 #: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "Optimise database"
-msgstr ""
+msgstr "База података оптимизовања"
 
 #: plugins/maintenance/src/Task/Vacuum.php:41
 msgid "optimize tables"
-msgstr ""
+msgstr "оптимизовати табеле"
 
 #: plugins/maintenance/src/Task/Vacuum.php:42
 msgid "Optimization successful."
-msgstr ""
+msgstr "Оптимизација је успешна."
 
 #: plugins/maintenance/src/Task/Vacuum.php:43
 msgid "Failed to optimize tables."
-msgstr ""
+msgstr "Није успело оптимизовање табела."
 
 #: plugins/maintenance/src/Task/Vacuum.php:45
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
-msgstr ""
+msgstr "Након бројних операција брисања или ажурирања у бази података Dotscey-а, фрагментирани су. Оптимизација ће омогућити да га деактивирају. То нема никакве инциденце на интегритету података. Препоручује се оптимизовање пре сваког извоза блога."
 
 #: plugins/maintenance/src/Task/ZipMedia.php:62
 msgid "Download media folder of current blog"
-msgstr ""
+msgstr "Преузми медијску фасциклу актуелног блога"
 
 #: plugins/maintenance/src/Task/ZipMedia.php:64
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
-msgstr ""
+msgstr "Можда је корисно да подрзате вашу медијску фасциклу. Ово компресију сав садржај медијске фасцикле у један поштански фајл. Напомена: са неким хостерима, медијска фасцикла не може бити компресована са овим прикључком ако је превелика."
 
 #: plugins/maintenance/src/Task/ZipTheme.php:63
 msgid "Download active theme of current blog"
-msgstr ""
+msgstr "Преузми активну тему актуелног блога"
 
 #: plugins/maintenance/src/Task/ZipTheme.php:65
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
-msgstr ""
+msgstr "Може бити корисно да се резервише активна тема пре било које промене или ажурирања. Ова фасцикла за компресију је фасцикла у један поштански фајл."
 
 #: plugins/pages/src/Backend.php:38
 msgid "manage pages"
-msgstr ""
+msgstr "управљање страницама"
 
 #: plugins/pages/src/Backend.php:85
 #, php-format
 msgid "%d page"
-msgstr ""
+msgstr "%d страница"
 
 #: plugins/pages/src/Backend.php:85
 #, php-format
 msgid "%d pages"
-msgstr ""
+msgstr "%d страница"
 
 #: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
 #: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
-msgstr ""
+msgstr "Нова страница"
 
 #: plugins/pages/src/BackendActions.php:53
 msgid "Pages actions"
-msgstr ""
+msgstr "Радње странице"
 
 #: plugins/pages/src/BackendActions.php:69
 msgid "Back to pages list"
-msgstr ""
+msgstr "Назад на листу страница"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
 #: plugins/pages/src/Manage.php:123
 msgid "Selected pages have been successfully reordered."
-msgstr ""
+msgstr "Изабране странице су успешно преправљене."
 
 #: plugins/pages/src/BackendList.php:36
 msgid "No page"
-msgstr ""
+msgstr "Нема странице"
 
 #: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
 msgid "Hidden"
-msgstr ""
+msgstr "Сакривено"
 
 #: plugins/pages/src/BackendList.php:176
 msgid "Select this page"
-msgstr ""
+msgstr "Изаберите ову страницу"
 
 #: plugins/pages/src/Frontend.php:36
 msgid "Published on"
-msgstr ""
+msgstr "Објављено на"
 
 #: plugins/pages/src/Frontend.php:37
 msgid "This page's comments feed"
-msgstr ""
+msgstr "Фид коментара ове странице"
 
 #: plugins/pages/src/Install.php:48
 msgid "My first page"
-msgstr ""
+msgstr "Моја прва страница"
 
 #: plugins/pages/src/Install.php:49
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+msgstr "Ово је ваша прва страница. Када сте спремни за блог, пријавите се да бисте га уредили или избрисали."
 
 #: plugins/pages/src/Manage.php:105
 msgid "Are you sure you want to delete selected pages?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да избришете изабране странице?"
 
 #: plugins/pages/src/Manage.php:119
 msgid "Selected pages have been successfully updated."
-msgstr ""
+msgstr "Изабране странице су успешно ажуриране."
 
 #: plugins/pages/src/Manage.php:121
 msgid "Selected pages have been successfully deleted."
-msgstr ""
+msgstr "Изабране странице су успешно избрисане."
 
 #: plugins/pages/src/Manage.php:140
 msgid "Selected pages action:"
-msgstr ""
+msgstr "Изабране странице радње:"
 
 #: plugins/pages/src/Manage.php:149
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
-msgstr ""
+msgstr "Да бисте променили редослед страница, мењајте број на почетку реда, а затим кликните на дугме \"Сачувај редослед страница\"."
 
 #: plugins/pages/src/Manage.php:151
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
-msgstr ""
+msgstr "Да бисте преуредили редослед страница, преместите ставке тако што ћете превлачити и пасти, а затим кликните на дугме \"Сачувај редослед страница\"."
 
 #: plugins/pages/src/Manage.php:152
 msgid "Save pages order"
-msgstr ""
+msgstr "Сачувај редослед страница"
 
 #: plugins/pages/src/ManagePage.php:132
 msgid "This page does not exist."
-msgstr ""
+msgstr "Ова страница не постоји."
 
 #: plugins/pages/src/ManagePage.php:153 plugins/pages/src/ManagePage.php:652
 #: plugins/pages/src/ManagePage.php:657
 msgid "Edit page"
-msgstr ""
+msgstr "Уреди страницу"
 
 #: plugins/pages/src/ManagePage.php:431
 msgid "Are you sure you want to delete this page?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да избришете ову страницу?"
 
 #: plugins/pages/src/ManagePage.php:468
 msgid "Page has been successfully updated."
-msgstr ""
+msgstr "Страница је успешно ажурирана."
 
 #: plugins/pages/src/ManagePage.php:470
 msgid "Page has been successfully created."
-msgstr ""
+msgstr "Страница је успешно креирана."
 
 #: plugins/pages/src/ManagePage.php:483
 msgid "Don't forget to validate your HTML conversion by saving your post."
-msgstr ""
+msgstr "Не заборавите да потврдите вашу HTML конверзију тако што сте сачували свој пост."
 
 #: plugins/pages/src/ManagePage.php:488
 msgid "Go to this page on the site"
-msgstr ""
+msgstr "Иди на ову страницу на сајту"
 
 #: plugins/pages/src/ManagePage.php:530
 msgid "Page status"
-msgstr ""
+msgstr "Статус странице"
 
 #: plugins/pages/src/ManagePage.php:543
 msgid "Page language"
-msgstr ""
+msgstr "Језик странице"
 
 #: plugins/pages/src/ManagePage.php:556 plugins/pages/src/Widgets.php:40
 msgid "Page position"
-msgstr ""
+msgstr "Позиција странице"
 
 #: plugins/pages/src/ManagePage.php:583
 msgid "Hide in widget Pages"
-msgstr ""
+msgstr "Сакриј се у Pages-у"
 
 #: plugins/pages/src/ManagePage.php:593
 msgid "Warning: If you set the URL manually, it may conflict with another page."
-msgstr ""
+msgstr "Упозорење: Ако подесите URL ручно, може се сукобити са другом страницом."
 
 #: plugins/pages/src/ManagePage.php:608
 msgid "Introduction to the page."
-msgstr ""
+msgstr "Увод у страницу."
 
 #: plugins/pages/src/ManagePage.php:958
 msgid "Select this comment"
-msgstr ""
+msgstr "Изаберите овај коментар"
 
 #: plugins/pages/src/Widgets.php:39
 msgid "Page title"
-msgstr ""
+msgstr "Наслов странице"
 
 #: plugins/pages/src/Widgets.php:41
 msgid "Publication date"
-msgstr ""
+msgstr "Датум објављивања"
 
 #: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:51
 msgid "Pings"
-msgstr ""
+msgstr "Пингови"
 
 #: plugins/pings/src/Manage.php:62
 msgid "Settings have been successfully updated."
-msgstr ""
+msgstr "Поставке су успешно ажуриране."
 
 #: plugins/pings/src/Manage.php:80
 msgid "Pings configuration"
-msgstr ""
+msgstr "Конфигурација пинга"
 
 #: plugins/pings/src/Manage.php:86
 msgid "Activate pings extension"
-msgstr ""
+msgstr "Активирај екстензију"
 
 #: plugins/pings/src/Manage.php:91 plugins/pings/src/Manage.php:113
 msgid "Service name:"
-msgstr ""
+msgstr "Име услуге:"
 
 #: plugins/pings/src/Manage.php:93 plugins/pings/src/Manage.php:115
 msgid "Service URI:"
-msgstr ""
+msgstr "URI услуге:"
 
 #: plugins/pings/src/Manage.php:104
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: plugins/pings/src/Manage.php:121
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr ""
+msgstr "Аутоматско чување свих услуга на првој публикацији уноса (само на актуелном блогу)"
 
 #: plugins/pings/src/Manage.php:128
 msgid "Test ping services"
-msgstr ""
+msgstr "Услуге пробних пинг"
 
 #: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:47
 #: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
-msgstr ""
+msgstr "Једноставан мени"
 
 #: plugins/simpleMenu/src/FrontendTemplate.php:169
 msgid "Active page"
-msgstr ""
+msgstr "Активна страница"
 
 #: plugins/simpleMenu/src/FrontendTemplate.php:169
 msgid "active page"
-msgstr ""
+msgstr "активна страница"
 
 #: plugins/simpleMenu/src/Manage.php:70
 msgid "All months"
-msgstr ""
+msgstr "Свих месеци"
 
 #: plugins/simpleMenu/src/Manage.php:133
 msgid "Archive"
-msgstr ""
+msgstr "Архива"
 
 #: plugins/simpleMenu/src/Manage.php:136
 msgid "Page"
-msgstr ""
+msgstr "Страница"
 
 #: plugins/simpleMenu/src/Manage.php:139 plugins/tags/src/Backend.php:24
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
-msgstr ""
+msgstr "Ознаке"
 
 #: plugins/simpleMenu/src/Manage.php:146
 msgid "User defined"
-msgstr ""
+msgstr "Кориснички дефинисан"
 
 #: plugins/simpleMenu/src/Manage.php:187
 msgid "Configuration successfully updated."
-msgstr ""
+msgstr "Конфигурација успешно ажурирана."
 
 #: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:593
 #: plugins/simpleMenu/src/Manage.php:671
 msgid "Label"
-msgstr ""
+msgstr "Ознака"
 
 #: plugins/simpleMenu/src/Manage.php:232
 msgid "Home page"
-msgstr ""
+msgstr "Почетна страница"
 
 #: plugins/simpleMenu/src/Manage.php:232 plugins/simpleMenu/src/Manage.php:237
 #: plugins/widgets/src/Widgets.php:271 plugins/widgets/src/Widgets.php:278
 msgid "Recent posts"
-msgstr ""
+msgstr "Недавни пост"
 
 #: plugins/simpleMenu/src/Manage.php:244
 #, php-format
 msgid "Switch to %s language"
-msgstr ""
+msgstr "Пребаците на %s језика"
 
 #: plugins/simpleMenu/src/Manage.php:251
 msgid "Recent Posts from this category"
-msgstr ""
+msgstr "Недавни постови из ове категорије"
 
 #: plugins/simpleMenu/src/Manage.php:263
 #, php-format
 msgid "Posts from %s"
-msgstr ""
+msgstr "Постови од %s"
 
 #: plugins/simpleMenu/src/Manage.php:283
 #, php-format
 msgid "Recent posts for %s tag"
-msgstr ""
+msgstr "Недавни постови за %s ознака"
 
 #: plugins/simpleMenu/src/Manage.php:343
 msgid "Menu item has been successfully added."
-msgstr ""
+msgstr "Ставка менија је успешно додата."
 
 #: plugins/simpleMenu/src/Manage.php:348
 msgid "Label and URL of menu item are mandatory."
-msgstr ""
+msgstr "Ознака и URL ставке менија су обавезни."
 
 #: plugins/simpleMenu/src/Manage.php:381
 msgid "Menu items have been successfully removed."
-msgstr ""
+msgstr "Ставке менија су успешно уклоњене."
 
 #: plugins/simpleMenu/src/Manage.php:384
 msgid "No menu items selected."
-msgstr ""
+msgstr "Нема изабраних ставки менија."
 
 #: plugins/simpleMenu/src/Manage.php:396
 msgid "Label is mandatory."
-msgstr ""
+msgstr "Етикета је обавезна."
 
 #: plugins/simpleMenu/src/Manage.php:401
 msgid "URL is mandatory."
-msgstr ""
+msgstr "URL је обавезан."
 
 #: plugins/simpleMenu/src/Manage.php:446
 msgid "Menu items have been successfully updated."
-msgstr ""
+msgstr "Ставке менија су успешно ажуриране."
 
 #: plugins/simpleMenu/src/Manage.php:481
 msgid "Step #1"
-msgstr ""
+msgstr "Корак #1"
 
 #: plugins/simpleMenu/src/Manage.php:486 plugins/simpleMenu/src/Manage.php:494
 msgid "Step #2"
-msgstr ""
+msgstr "Корак #2"
 
 #: plugins/simpleMenu/src/Manage.php:492
 msgid "Step #3"
-msgstr ""
+msgstr "Корак #3"
 
 #: plugins/simpleMenu/src/Manage.php:504
 msgid "Add item"
-msgstr ""
+msgstr "Додај ставку"
 
 #: plugins/simpleMenu/src/Manage.php:532
 msgid "Select type"
-msgstr ""
+msgstr "Изаберите тип"
 
 #: plugins/simpleMenu/src/Manage.php:533
 msgid "Type of item menu:"
-msgstr ""
+msgstr "Тип ставке ставке:"
 
 #: plugins/simpleMenu/src/Manage.php:536 plugins/simpleMenu/src/Manage.php:575
 msgid "Continue..."
-msgstr ""
+msgstr "Настави ..."
 
 #: plugins/simpleMenu/src/Manage.php:552
 msgid "Select language:"
-msgstr ""
+msgstr "Изаберите језик:"
 
 #: plugins/simpleMenu/src/Manage.php:555
 msgid "Select category:"
-msgstr ""
+msgstr "Изаберите категорију:"
 
 #: plugins/simpleMenu/src/Manage.php:558
 msgid "Select month (if necessary):"
-msgstr ""
+msgstr "Изаберите месец (ако је потребно):"
 
 #: plugins/simpleMenu/src/Manage.php:561
 msgid "Select page:"
-msgstr ""
+msgstr "Изабери страницу:"
 
 #: plugins/simpleMenu/src/Manage.php:564
 msgid "Select tag (if necessary):"
-msgstr ""
+msgstr "Изаберите ознаку (ако је потребно):"
 
 #: plugins/simpleMenu/src/Manage.php:590
 msgid "Label of item menu:"
-msgstr ""
+msgstr "Ознака менија ставке:"
 
 #: plugins/simpleMenu/src/Manage.php:597
 msgid "Description of item menu:"
-msgstr ""
+msgstr "Опис менија ставке:"
 
 #: plugins/simpleMenu/src/Manage.php:608
 msgid "URL of item menu:"
-msgstr ""
+msgstr "URL ставке менија ставке:"
 
 #: plugins/simpleMenu/src/Manage.php:617 plugins/simpleMenu/src/Manage.php:674
 msgid "Open URL on a new tab"
-msgstr ""
+msgstr "Отвори URL на новој картици"
 
 #: plugins/simpleMenu/src/Manage.php:619
 msgid "Add this item"
-msgstr ""
+msgstr "Додај ову ставку"
 
 #: plugins/simpleMenu/src/Manage.php:633
 msgid "Enable simple menu for this blog"
-msgstr ""
+msgstr "Омогући једноставан мени за овај блог"
 
 #: plugins/simpleMenu/src/Manage.php:646
 msgid "Add an item"
-msgstr ""
+msgstr "Додај ставку"
 
 #: plugins/simpleMenu/src/Manage.php:660
 msgid "Menu items list"
-msgstr ""
+msgstr "Листа ставки менија"
 
 #: plugins/simpleMenu/src/Manage.php:743
 msgid "Update menu"
-msgstr ""
+msgstr "Ажурирај мени"
 
 #: plugins/simpleMenu/src/Manage.php:745
 msgid "Delete selected menu items"
-msgstr ""
+msgstr "Избриши изабране ставке менија"
 
 #: plugins/simpleMenu/src/Manage.php:746
 msgid "Are you sure you want to remove selected menu items?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да уклоните изабране ставке менија?"
 
 #: plugins/simpleMenu/src/Manage.php:753
 msgid "No menu items so far."
-msgstr ""
+msgstr "Нема ставки за мени до сада."
 
 #: plugins/simpleMenu/src/Widgets.php:32
 msgid "Item description"
-msgstr ""
+msgstr "Опис ставке"
 
 #: plugins/simpleMenu/src/Widgets.php:36
 msgid "Displayed in link"
-msgstr ""
+msgstr "Приказано у вези"
 
 #: plugins/simpleMenu/src/Widgets.php:37
 msgid "Used as link title"
-msgstr ""
+msgstr "Користи као наслов линка"
 
 #: plugins/simpleMenu/src/Widgets.php:38
 msgid "Displayed in link and used as title"
-msgstr ""
+msgstr "Приказано у вези и коришћено као наслов"
 
 #: plugins/simpleMenu/src/Widgets.php:39
 msgid "Not displayed nor used"
-msgstr ""
+msgstr "Није приказана нити коришћена"
 
 #: plugins/tags/src/BackendBehaviors.php:52
 #: plugins/tags/src/BackendBehaviors.php:63
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
 msgid "Tag"
-msgstr ""
+msgstr "Ознака"
 
 #: plugins/tags/src/BackendBehaviors.php:199
 msgid "Add tags"
-msgstr ""
+msgstr "Додај ознаке"
 
 #: plugins/tags/src/BackendBehaviors.php:208
 msgid "Remove tags"
-msgstr ""
+msgstr "Уклони ознаке"
 
 #: plugins/tags/src/BackendBehaviors.php:243
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ознака је успешно додата у изабране уносе"
+msgstr[1] "Ознаке су успешно додате у изабране уносе"
+msgstr[2] "Ознаке су успешно додате у изабране уносе"
 
 #: plugins/tags/src/BackendBehaviors.php:256
 #: plugins/tags/src/BackendBehaviors.php:396
 msgid "Are you sure you want to remove this tag?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да уклоните ову ознаку?"
 
 #: plugins/tags/src/BackendBehaviors.php:257
 #: plugins/tags/src/BackendBehaviors.php:397
 msgid "Add a tag to this entry"
-msgstr ""
+msgstr "Додај ознаку на ову ставку"
 
 #: plugins/tags/src/BackendBehaviors.php:258
 #: plugins/tags/src/BackendBehaviors.php:398
 msgid "Choose from list"
-msgstr ""
+msgstr "Изабери са листе"
 
 #: plugins/tags/src/BackendBehaviors.php:259
 #: plugins/tags/src/BackendBehaviors.php:399
 msgid "all"
-msgstr ""
+msgstr "све"
 
 #: plugins/tags/src/BackendBehaviors.php:260
 #: plugins/tags/src/BackendBehaviors.php:400
 msgid "Enter tags separated by comma"
-msgstr ""
+msgstr "Унесите ознаке раздвојене зарезом"
 
 #: plugins/tags/src/BackendBehaviors.php:264
 #: plugins/tags/src/BackendBehaviors.php:404
 msgid "used in %e - frequency %p%"
-msgstr ""
+msgstr "Користи се у %e -учесталост %p%"
 
 #: plugins/tags/src/BackendBehaviors.php:265
 #: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
 msgid "entry"
-msgstr ""
+msgstr "унос"
 
 #: plugins/tags/src/BackendBehaviors.php:266
 #: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
 msgid "entries"
-msgstr ""
+msgstr "уноси"
 
 #: plugins/tags/src/BackendBehaviors.php:274
 msgid "Add tags to this selection"
-msgstr ""
+msgstr "Додај ознаке на овај избор"
 
 #: plugins/tags/src/BackendBehaviors.php:287
 msgid "Tags to add:"
-msgstr ""
+msgstr "Ознаке за додавање:"
 
 #: plugins/tags/src/BackendBehaviors.php:320
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ознака је успешно уклоњена из изабраних ставки"
+msgstr[1] "Ознаке су успешно уклоњене из изабраних ставки"
+msgstr[2] "Ознаке су успешно уклоњене из изабраних ставки"
 
 #: plugins/tags/src/BackendBehaviors.php:343
 msgid "No tags for selected entries"
-msgstr ""
+msgstr "Нема ознака за изабране уносе"
 
 #: plugins/tags/src/BackendBehaviors.php:350
 msgid "Remove selected tags from this selection"
-msgstr ""
+msgstr "Уклони изабране ознаке из овог избора"
 
 #: plugins/tags/src/BackendBehaviors.php:359
 msgid "Following tags have been found in selected entries:"
-msgstr ""
+msgstr "Следеће ознаке су пронађене у изабраним уносима:"
 
 #: plugins/tags/src/BackendBehaviors.php:425
 msgid "Short"
-msgstr ""
+msgstr "Кратко"
 
 #: plugins/tags/src/BackendBehaviors.php:426
 msgid "Extended"
-msgstr ""
+msgstr "Проширено"
 
 #: plugins/tags/src/BackendBehaviors.php:433
 msgid "Tags list format:"
-msgstr ""
+msgstr "Формат листе ознака:"
 
 #: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's comments Atom feed"
-msgstr ""
+msgstr "Коментари о Atom фиду ове ознаке"
 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
-msgstr ""
+msgstr "Уноси Atom-а ове ознаке"
 
 #: plugins/tags/src/Manage.php:112
 msgid "No tags on this blog."
-msgstr ""
+msgstr "Нема ознака на овом блогу."
 
 #: plugins/tags/src/ManagePosts.php:86
 msgid "Tag has been successfully renamed"
-msgstr ""
+msgstr "Ознака је успешно преименована"
 
 #: plugins/tags/src/ManagePosts.php:105
 msgid "Tag has been successfully removed"
-msgstr ""
+msgstr "Ознака је успешно уклоњена"
 
 #: plugins/tags/src/ManagePosts.php:136
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да уклоните ознаку: \"%s\"?"
 
 #: plugins/tags/src/ManagePosts.php:151
 msgid "Back to tags list"
-msgstr ""
+msgstr "Назад на листу ознака"
 
 #: plugins/tags/src/ManagePosts.php:159
 msgid "Rename"
-msgstr ""
+msgstr "Преименовање"
 
 #: plugins/tags/src/ManagePosts.php:172
 msgid "Delete this tag"
-msgstr ""
+msgstr "Избриши ову ознаку"
 
 #: plugins/tags/src/ManagePosts.php:183
 #, php-format
 msgid "List of entries with the tag “%s”"
-msgstr ""
+msgstr "Листа уноса са ознаком \"%s\""
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
-msgstr ""
+msgstr "Ограничење (празно значи без ограничења):"
 
 #: plugins/tags/src/Widgets.php:40
 msgid "Tag name"
-msgstr ""
+msgstr "Име ознаке"
 
 #: plugins/tags/src/Widgets.php:41
 msgid "Entries count"
-msgstr ""
+msgstr "Број уноса"
 
 #: plugins/tags/src/Widgets.php:42
 msgid "Newest entry"
-msgstr ""
+msgstr "Најновији унос"
 
 #: plugins/tags/src/Widgets.php:43
 msgid "Oldest entry"
-msgstr ""
+msgstr "Најстарији унос"
 
 #: plugins/tags/src/Widgets.php:56
 msgid "Link to all tags:"
-msgstr ""
+msgstr "Линк ка свим ознакама:"
 
 #: plugins/themeEditor/src/Backend.php:24
 msgid "themeEditor"
-msgstr ""
+msgstr "Уредник"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:37
 #: plugins/themeEditor/src/Manage.php:168
 #: plugins/themeEditor/src/Manage.php:175
 msgid "Edit theme files"
-msgstr ""
+msgstr "Уредите датотеке теме"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:77
 msgid "Syntax highlighting"
-msgstr ""
+msgstr "Истицање синтаксе"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:82
 msgid "Syntax highlighting in theme editor"
-msgstr ""
+msgstr "Истицање синтаксе у уреднику теме"
 
 #: plugins/themeEditor/src/Manage.php:85
 msgid "The theme update has been locked."
-msgstr ""
+msgstr "Ажурирање теме је закључано."
 
 #: plugins/themeEditor/src/Manage.php:93
 msgid "The theme update has been unocked."
-msgstr ""
+msgstr "Ажурирање теме није било упаљено."
 
 #: plugins/themeEditor/src/Manage.php:116
 msgid "The file has been reset."
-msgstr ""
+msgstr "Датотека је поново постављена."
 
 #: plugins/themeEditor/src/Manage.php:139
 msgid "Unlock update"
-msgstr ""
+msgstr "Откључај ажурирање"
 
 #: plugins/themeEditor/src/Manage.php:140
 msgid "Lock update"
-msgstr ""
+msgstr "Закључај ажурирање"
 
 #: plugins/themeEditor/src/Manage.php:144
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr ""
+msgstr "Ажурирање теме не спречава да измените њене датотеке, само да би се ажурирали глобално."
 
 #: plugins/themeEditor/src/Manage.php:156
 msgid "Saving document..."
-msgstr ""
+msgstr "Чување документа ..."
 
 #: plugins/themeEditor/src/Manage.php:157
 msgid "Document saved"
-msgstr ""
+msgstr "Документ сачуван"
 
 #: plugins/themeEditor/src/Manage.php:158
 msgid "An error occurred:"
-msgstr ""
+msgstr "Дошло је до грешке:"
 
 #: plugins/themeEditor/src/Manage.php:159
 msgid "Are you sure you want to reset this file?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да поново поставите ову датотеку?"
 
 #: plugins/themeEditor/src/Manage.php:181
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
-msgstr ""
+msgstr "Ваша актуелна тема на овом блогу је \"%s\"."
 
 #: plugins/themeEditor/src/Manage.php:192
 msgid "Please select a file to edit."
-msgstr ""
+msgstr "Изаберите датотеку за уређивање."
 
 #: plugins/themeEditor/src/Manage.php:197
 msgid "File editor"
-msgstr ""
+msgstr "Уредник датотеке"
 
 #: plugins/themeEditor/src/Manage.php:198
 #, php-format
 msgid "Editing file %s"
-msgstr ""
+msgstr "Уређивање датотеке %s"
 
 #: plugins/themeEditor/src/Manage.php:208
 msgid "Reset"
-msgstr ""
+msgstr "Поново постави"
 
 #: plugins/themeEditor/src/Manage.php:214
 msgid "This file is not writable. Please check your theme files permissions."
-msgstr ""
+msgstr "Ова датотека није упитна. Проверите дозволе за датотеке теме."
 
 #: plugins/themeEditor/src/Manage.php:241
 msgid "Templates files"
-msgstr ""
+msgstr "Датотеке предлошка"
 
 #: plugins/themeEditor/src/Manage.php:244
 msgid "CSS files"
-msgstr ""
+msgstr "CSS датотеке"
 
 #: plugins/themeEditor/src/Manage.php:247
 msgid "JavaScript files"
-msgstr ""
+msgstr "~ @ ¦"
 
 #: plugins/themeEditor/src/Manage.php:250
 msgid "Locales files"
-msgstr ""
+msgstr "Датотеке локала"
 
 #: plugins/themeEditor/src/Manage.php:253
 msgid "PHP files"
-msgstr ""
+msgstr "PHP датотеке"
 
 #: plugins/themeEditor/src/Manage.php:262
 msgid "You can't edit a distributed theme."
-msgstr ""
+msgstr "Не можете уредити дистрибуирану тему."
 
 #: plugins/themeEditor/src/ThemeEditor.php:145
 msgid "No file"
@@ -3024,320 +3024,320 @@ msgstr "Aucun fichier"
 
 #: plugins/themeEditor/src/ThemeEditor.php:165
 msgid "From theme:"
-msgstr ""
+msgstr "Од теме:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:167
 msgid "From parent:"
-msgstr ""
+msgstr "Од родитеља:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:172
 msgid "From template set:"
-msgstr ""
+msgstr "Од скупа предложака:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:207
 #: plugins/themeEditor/src/ThemeEditor.php:237
 #: plugins/themeEditor/src/ThemeEditor.php:326
 msgid "File does not exist."
-msgstr ""
+msgstr "Датотека не постоји."
 
 #: plugins/themeEditor/src/ThemeEditor.php:212
 #, php-format
 msgid "File %s is not readable"
-msgstr ""
+msgstr "Датотека %s није читљива"
 
 #: plugins/themeEditor/src/ThemeEditor.php:274
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr ""
+msgstr "Није могуће написати датотеку %s. Проверите дозволе за тему и фасцикле за тему."
 
 #: plugins/themeEditor/src/ThemeEditor.php:339
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr ""
+msgstr "Није могуће избрисати датотеку %s. Проверите дозволе за тему и фасцикле за тему."
 
 #: plugins/userPref/src/Backend.php:24
 msgid "user:preferences"
-msgstr ""
+msgstr "корисник: лична подешавања"
 
 #: plugins/userPref/src/Manage.php:65 plugins/userPref/src/Manage.php:84
 msgid "Preferences successfully updated"
-msgstr ""
+msgstr "Лична подешавања успешно ажурирана"
 
 #: plugins/userPref/src/Manage.php:111 plugins/userPref/src/Manage.php:112
 msgid "User preferences"
-msgstr ""
+msgstr "Лична подешавања корисника"
 
 #: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
 msgid "Global preferences"
-msgstr ""
+msgstr "Глобалне параметре"
 
 #: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
-msgstr ""
+msgstr "Виџети"
 
 #: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
-msgstr ""
+msgstr "Текстуре виџета"
 
 #: plugins/widgets/src/Install.php:35
 msgid "Unable to initialize default widgets."
-msgstr ""
+msgstr "Није могуће иницијализовати подразумеване виџете."
 
 #: plugins/widgets/src/Manage.php:58
 msgid "navigation"
-msgstr ""
+msgstr "навигација"
 
 #: plugins/widgets/src/Manage.php:59
 msgid "extra"
-msgstr ""
+msgstr "екстра"
 
 #: plugins/widgets/src/Manage.php:60
 msgid "custom"
-msgstr ""
+msgstr "прилагођено"
 
 #: plugins/widgets/src/Manage.php:196
 msgid "Sidebars and their widgets have been saved."
-msgstr ""
+msgstr "Бочне траке и њихови виџети су сачувани."
 
 #: plugins/widgets/src/Manage.php:210
 msgid "Sidebars have been resetting."
-msgstr ""
+msgstr "Бочне траке су репоставке."
 
 #: plugins/widgets/src/Manage.php:238
 msgid "Are you sure you want to reset sidebars?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да поново поставите споредне траке?"
 
 #: plugins/widgets/src/Manage.php:271
 msgid "Available widgets"
-msgstr ""
+msgstr "Доступни виџети"
 
 #: plugins/widgets/src/Manage.php:272
 msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+msgstr "Превуците виџете са ове листе у један од споредних трака, за додавање."
 
 #: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
 msgid "order"
-msgstr ""
+msgstr "редослед"
 
 #: plugins/widgets/src/Manage.php:286
 msgid "Append to:"
-msgstr ""
+msgstr "Додај на:"
 
 #: plugins/widgets/src/Manage.php:297
 msgid "Add widgets to sidebars"
-msgstr ""
+msgstr "Додај виџете у бочне траке"
 
 #: plugins/widgets/src/Manage.php:304
 msgid "Navigation sidebar"
-msgstr ""
+msgstr "Трака за навигацију"
 
 #: plugins/widgets/src/Manage.php:309
 msgid "Extra sidebar"
-msgstr ""
+msgstr "Додатна трака"
 
 #: plugins/widgets/src/Manage.php:314
 msgid "Custom sidebar"
-msgstr ""
+msgstr "Прилагођена трака"
 
 #: plugins/widgets/src/Manage.php:319
 msgid "Update sidebars"
-msgstr ""
+msgstr "Ажурирај бочне траке"
 
 #: plugins/widgets/src/Manage.php:321
 msgid "Reset sidebars"
-msgstr ""
+msgstr "Поново постави бочне траке"
 
 #: plugins/widgets/src/Manage.php:329
 msgid "Widget ID:"
-msgstr ""
+msgstr "ИД виџета:"
 
 #: plugins/widgets/src/Manage.php:335
 msgid "No setting for this widget"
-msgstr ""
+msgstr "Нема поставки за овај виџет"
 
 #: plugins/widgets/src/Manage.php:341
 msgid "boolean"
-msgstr ""
+msgstr "булов"
 
 #: plugins/widgets/src/Manage.php:341 plugins/widgets/src/Manage.php:346
 msgid "possible values:"
-msgstr ""
+msgstr "могуће вредности:"
 
 #: plugins/widgets/src/Manage.php:345
 msgid "empty string"
-msgstr ""
+msgstr "празна ниска"
 
 #: plugins/widgets/src/Manage.php:346
 msgid "listitem"
-msgstr ""
+msgstr "листа"
 
 #: plugins/widgets/src/Manage.php:352
 msgid "string"
-msgstr ""
+msgstr "стринг"
 
 #: plugins/widgets/src/Manage.php:358
 msgid "Setting name:"
-msgstr ""
+msgstr "Име поставке:"
 
 #: plugins/widgets/src/Manage.php:395
 msgid "No widget as far."
-msgstr ""
+msgstr "Нема виџета до сада."
 
 #: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
 msgid "Up the widget"
-msgstr ""
+msgstr "Горе виџет"
 
 #: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
 msgid "Down the widget"
-msgstr ""
+msgstr "Доле виџет"
 
 #: plugins/widgets/src/Manage.php:419
 msgid "Remove the widget"
-msgstr ""
+msgstr "Уклони виџет"
 
 #: plugins/widgets/src/Manage.php:419
 msgid "Remove widget"
-msgstr ""
+msgstr "Уклони виџет"
 
 #: plugins/widgets/src/Manage.php:431
 msgid "Drag widgets here to remove."
-msgstr ""
+msgstr "Превуците виџете овде да бисте уклонили."
 
 #: plugins/widgets/src/Widgets.php:87
 msgid "Search engine"
-msgstr ""
+msgstr "Претраживач претраге"
 
 #: plugins/widgets/src/Widgets.php:89
 msgid "Placeholder (HTML5 only, optional):"
-msgstr ""
+msgstr "Чувар места (само HTML5, опционо):"
 
 #: plugins/widgets/src/Widgets.php:96
 msgid "Navigation links"
-msgstr ""
+msgstr "Навигационе везе"
 
 #: plugins/widgets/src/Widgets.php:104
 msgid "Selected entries"
-msgstr ""
+msgstr "Изабрани уноси"
 
 #: plugins/widgets/src/Widgets.php:105
 msgid "Best of me"
-msgstr ""
+msgstr "Најбоље од мене"
 
 #: plugins/widgets/src/Widgets.php:113
 msgid "Blog languages"
-msgstr ""
+msgstr "Језици блога"
 
 #: plugins/widgets/src/Widgets.php:123
 msgid "With entries counts"
-msgstr ""
+msgstr "Пребројавање ставки"
 
 #: plugins/widgets/src/Widgets.php:124
 msgid "Include sub cats in count"
-msgstr ""
+msgstr "Укључи и под-мачке у број"
 
 #: plugins/widgets/src/Widgets.php:125
 msgid "Include empty categories"
-msgstr ""
+msgstr "Обухвати празне категорије"
 
 #: plugins/widgets/src/Widgets.php:132
 msgid "Subscribe links"
-msgstr ""
+msgstr "Пријави линкове"
 
 #: plugins/widgets/src/Widgets.php:133
 msgid "Subscribe"
-msgstr ""
+msgstr "Пријави се"
 
 #: plugins/widgets/src/Widgets.php:134
 msgid "Feeds type:"
-msgstr ""
+msgstr "Тип фидова:"
 
 #: plugins/widgets/src/Widgets.php:141
 msgid "Feed reader"
-msgstr ""
+msgstr "Читалачки"
 
 #: plugins/widgets/src/Widgets.php:142
 msgid "Somewhere else"
-msgstr ""
+msgstr "Негде другде"
 
 #: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
 msgid "Entries limit:"
-msgstr ""
+msgstr "Ограничење уноса:"
 
 #: plugins/widgets/src/Widgets.php:151
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: plugins/widgets/src/Widgets.php:153
 msgid "Text:"
-msgstr ""
+msgstr "Текст:"
 
 #: plugins/widgets/src/Widgets.php:160
 msgid "Uncategorized"
-msgstr ""
+msgstr "Некатегоризовано"
 
 #: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
 msgid "Last entries"
-msgstr ""
+msgstr "Последњи уноси"
 
 #: plugins/widgets/src/Widgets.php:169
 msgid "Tag:"
-msgstr ""
+msgstr "Ознака:"
 
 #: plugins/widgets/src/Widgets.php:181
 msgid "Last comments"
-msgstr ""
+msgstr "Последњи коментари"
 
 #: plugins/widgets/src/Widgets.php:182
 msgid "Comments limit:"
-msgstr ""
+msgstr "Ограничење коментара:"
 
 #: plugins/widgets/src/Widgets.php:461
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr ""
+msgstr "Уноси овог блога %s фида"
 
 #: plugins/widgets/src/Widgets.php:462
 #, php-format
 msgid "This blog's comments %s feed"
-msgstr ""
+msgstr "Коментари овог блога %s"
 
 #: plugins/widgets/src/Widgets.php:470
 msgid "Entries feed"
-msgstr ""
+msgstr "Фид уноса"
 
 #: plugins/widgets/src/Widgets.php:476
 msgid "Comments feed"
-msgstr ""
+msgstr "Фид коментара"
 
 #: plugins/widgets/src/WidgetsElement.php:535
 msgid "Title (optional)"
-msgstr ""
+msgstr "Наслов (опционо)"
 
 #: plugins/widgets/src/WidgetsElement.php:548
 msgid "All pages"
-msgstr ""
+msgstr "Све странице"
 
 #: plugins/widgets/src/WidgetsElement.php:549
 msgid "Home page only"
-msgstr ""
+msgstr "Само почетна страница"
 
 #: plugins/widgets/src/WidgetsElement.php:550
 msgid "Except on home page"
-msgstr ""
+msgstr "Осим на почетној страници"
 
 #: plugins/widgets/src/WidgetsElement.php:558
 msgid "Display on:"
-msgstr ""
+msgstr "Прикажи на:"
 
 #: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
-msgstr ""
+msgstr "Само садржај"
 
 #: plugins/widgets/src/WidgetsElement.php:606
 msgid "CSS class:"
-msgstr ""
+msgstr "CSS класа:"
 
 #: plugins/widgets/src/WidgetsElement.php:618
 msgid "Offline"
-msgstr ""
+msgstr "Ван мреже"
 

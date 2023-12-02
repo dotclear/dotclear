@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 07:05\n"
+"PO-Revision-Date: 2023-12-02 09:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgstr "无法加载过时的核心"
 
 # in Dotclear\Core\Task
 msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
-msgstr "<p>我们对这种暂时性的无法使用表示歉意。<br>谢谢你的理解。</p>"
+msgstr "<p>对于暂时无法提供服务，我们深表歉意。<br>感谢您的理解。</p>"
 
 # in Dotclear\Core\Task
 #, php-format
