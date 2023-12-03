@@ -145,11 +145,11 @@ class BlogPref extends Process
 
         // Image title combo
         $da->img_title_combo = [
-            __('(none)')                     => '',
-            __('Title')                      => 'Title ;; separator(, )',
-            __('Title, Date')                => 'Title ;; Date(%b %Y) ;; separator(, )',
-            __('Title, Country, Date')       => 'Title ;; Country ;; Date(%b %Y) ;; separator(, )',
-            __('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
+            __('(none)')                           => '',
+            __('Description')                      => 'Description ;; separator(, )',
+            __('Description, Date')                => 'Description ;; Date(%b %Y) ;; separator(, )',
+            __('Description, Country, Date')       => 'Description ;; Country ;; Date(%b %Y) ;; separator(, )',
+            __('Description, City, Country, Date') => 'Description ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
         ];
         if (!in_array($da->blog_settings?->system->media_img_title_pattern, $da->img_title_combo)) {
             $da->img_title_combo[Html::escapeHTML($da->blog_settings?->system->media_img_title_pattern)] = Html::escapeHTML($da->blog_settings?->system->media_img_title_pattern);
@@ -178,11 +178,11 @@ class BlogPref extends Process
             __('Center') => 'center',
         ];
 
-        // Image default legend and title combo
+        // Image default legend and alternate text combo
         $da->img_default_legend_combo = [
-            __('Legend and title') => 'legend',
-            __('Title')            => 'title',
-            __('None')             => 'none',
+            __('Legend and alternate text') => 'legend',
+            __('Alternate text')            => 'title',
+            __('None')                      => 'none',
         ];
 
         // Robots policy options
@@ -740,7 +740,7 @@ class BlogPref extends Process
 
             '<div class="col">' .
             '<h5>' . __('Default image insertion attributes') . '</h5>' .
-            '<p class="vertical-separator"><label for="media_img_title_pattern">' . __('Inserted image title') . '</label>' .
+            '<p class="vertical-separator"><label for="media_img_title_pattern">' . __('Inserted image legend:') . '</label>' .
             form::combo('media_img_title_pattern', $da->img_title_combo, Html::escapeHTML($da->blog_settings->system->media_img_title_pattern)) . '</p>' .
             '<p><label for="media_img_use_dto_first" class="classic">' .
             form::checkbox('media_img_use_dto_first', '1', $da->blog_settings->system->media_img_use_dto_first) .
@@ -763,7 +763,7 @@ class BlogPref extends Process
             '<p><label for="media_img_default_link">' .
             form::checkbox('media_img_default_link', '1', $da->blog_settings->system->media_img_default_link) .
             __('Insert a link to the original image') . '</label></p>' .
-            '<p class="field"><label for="media_img_default_legend">' . __('Image legend and title:') . '</label>' .
+            '<p class="field"><label for="media_img_default_legend">' . __('Image legend and alternate text:') . '</label>' .
             form::combo('media_img_default_legend', $da->img_default_legend_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
             '</p>' .
             '</div>' .
