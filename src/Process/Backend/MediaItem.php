@@ -317,8 +317,11 @@ class MediaItem extends Process
     {
         // Display helpers
 
-        # Function to get image title based on meta
-        $getImageTitle = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
+        # Function to get image alternate text
+        $getImageAlt = fn (?File $file): string => ($file && $file->media_title !== '' ? $file->media_title : '');
+
+        # Function to get image legend
+        $getImageLegend = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
             if (!$file) {
                 return '';
             }
@@ -331,11 +334,17 @@ class MediaItem extends Process
 
             if ($pattern) {
                 foreach ($pattern as $v) {
-                    if ($v == 'Title') {
-                        if ($file->media_title != '') {
-                            $res[] = $file->media_title;
+                    if ($v == 'Title' || $v == 'Description') { // Keep Title for compatibility purpose
+                        if (is_countable($file->media_meta) && count($file->media_meta)) {
+                            foreach ($file->media_meta as $k => $v) {
+                                if ((string) $v && ($k == 'Description')) {
+                                    $res[] = $v;
+                                    $items++;
+
+                                    break;
+                                }
+                            }
                         }
-                        $items++;
                     } elseif ($file->media_meta->{$v}) {
                         if ((string) $file->media_meta->{$v} != '') {
                             $res[] = (string) $file->media_meta->{$v};
@@ -364,22 +373,6 @@ class MediaItem extends Process
             }
 
             return implode($sep, $res);
-        };
-
-        $getImageDescription = function (?File $file, string $default = ''): string {
-            if (!$file) {
-                return (string) $default;
-            }
-
-            if ((is_countable($file->media_meta) ? count($file->media_meta) : 0) > 0) {
-                foreach ($file->media_meta as $k => $v) {
-                    if ((string) $v && ($k == 'Description')) {
-                        return (string) $v;
-                    }
-                }
-            }
-
-            return (string) $default;
         };
 
         $getImageDefaults = function (?File $file): array {
@@ -471,14 +464,24 @@ class MediaItem extends Process
         if (App::backend()->select === 1) {
             // Selection mode
 
-            // Let user choose thumbnail size if image
-            $media_title = App::backend()->file->media_title;
-            if ($media_title == App::backend()->file->basename || Files::tidyFileName($media_title) == App::backend()->file->basename) {
-                $media_title = '';
+            // Get alternate text
+            $media_alt = App::backend()->file->media_title;
+            if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
+                $media_alt = '';
             }
 
-            $media_desc = $getImageDescription(App::backend()->file, (string) $media_title);
-            $defaults   = $getImageDefaults(App::backend()->file);
+            // Get legend
+            $media_legend = $getImageLegend(
+                App::backend()->file,
+                App::blog()->settings()->system->media_img_title_pattern,
+                (bool) App::blog()->settings()->system->media_img_use_dto_first,
+                (bool) App::blog()->settings()->system->media_img_no_date_alone
+            );
+            if ($media_legend === $media_alt) {
+                $media_legend = '';
+            }
+
+            $defaults = $getImageDefaults(App::backend()->file);
 
             echo
             '<div id="media-select" class="multi-part" title="' . __('Select media item') . '">' .
@@ -486,15 +489,10 @@ class MediaItem extends Process
             '<form id="media-select-form" action="" method="get">';
 
             if (App::backend()->file->media_type == 'image') {
-                $media_type  = 'image';
-                $media_title = $getImageTitle(
-                    App::backend()->file,
-                    App::blog()->settings()->system->media_img_title_pattern,
-                    (bool) App::blog()->settings()->system->media_img_use_dto_first,
-                    (bool) App::blog()->settings()->system->media_img_no_date_alone
-                );
-                if ($media_title == App::backend()->file->basename || Files::tidyFileName($media_title) == App::backend()->file->basename) {
-                    $media_title = '';
+                $media_type = 'image';
+                $media_alt  = $getImageAlt(App::backend()->file);
+                if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
+                    $media_alt = '';
                 }
 
                 echo
@@ -528,8 +526,8 @@ class MediaItem extends Process
             '<button type="button" id="media-select-ok" class="submit">' . __('Select') . '</button> ' .
             '<button type="button" id="media-select-cancel">' . __('Cancel') . '</button>' .
             form::hidden(['type'], Html::escapeHTML($media_type)) .
-            form::hidden(['title'], Html::escapeHTML($media_title)) .
-            form::hidden(['description'], Html::escapeHTML($media_desc)) .
+            form::hidden(['title'], Html::escapeHTML($media_alt)) .
+            form::hidden(['description'], Html::escapeHTML($media_legend)) .
             form::hidden(['url'], App::backend()->file->file_url) .
             '</p>' .
 
@@ -540,13 +538,24 @@ class MediaItem extends Process
         if (App::backend()->popup && (App::backend()->select === 0)) {
             // Insertion popup
 
-            $media_title = App::backend()->file->media_title;
-            if ($media_title == App::backend()->file->basename || Files::tidyFileName($media_title) == App::backend()->file->basename) {
-                $media_title = '';
+            // Get alternate text
+            $media_alt = App::backend()->file->media_title;
+            if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
+                $media_alt = '';
             }
 
-            $media_desc = $getImageDescription(App::backend()->file, (string) $media_title);
-            $defaults   = $getImageDefaults(App::backend()->file);
+            // Get legend
+            $media_legend = $getImageLegend(
+                App::backend()->file,
+                App::blog()->settings()->system->media_img_title_pattern,
+                (bool) App::blog()->settings()->system->media_img_use_dto_first,
+                (bool) App::blog()->settings()->system->media_img_no_date_alone
+            );
+            if ($media_legend === $media_alt) {
+                $media_legend = '';
+            }
+
+            $defaults = $getImageDefaults(App::backend()->file);
 
             echo
             '<div id="media-insert" class="multi-part" title="' . __('Insert media item') . '">' .
@@ -554,15 +563,10 @@ class MediaItem extends Process
             '<form id="media-insert-form" action="" method="get">';
 
             if (App::backend()->file->media_type == 'image') {
-                $media_type  = 'image';
-                $media_title = $getImageTitle(
-                    App::backend()->file,
-                    App::blog()->settings()->system->media_img_title_pattern,
-                    (bool) App::blog()->settings()->system->media_img_use_dto_first,
-                    (bool) App::blog()->settings()->system->media_img_no_date_alone
-                );
-                if ($media_title == App::backend()->file->basename || Files::tidyFileName($media_title) == App::backend()->file->basename) {
-                    $media_title = '';
+                $media_type = 'image';
+                $media_alt  = $getImageAlt(App::backend()->file);
+                if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
+                    $media_alt = '';
                 }
 
                 echo
@@ -586,20 +590,20 @@ class MediaItem extends Process
                 '</div>' .
 
                 '<div class="two-boxes">' .
-                '<h3>' . __('Image legend and title') . '</h3>' .
+                '<h3>' . __('Image legend and alternate text') . '</h3>' .
                 '<p>' .
                 '<label for="legend1" class="classic">' . form::radio(
                     ['legend', 'legend1'],
                     'legend',
                     ($defaults['legend'] == 'legend')
                 ) .
-                __('Legend and title') . '</label><br>' .
+                __('Legend and alternate text') . '</label><br>' .
                 '<label for="legend2" class="classic">' . form::radio(
                     ['legend', 'legend2'],
                     'title',
                     ($defaults['legend'] == 'title')
                 ) .
-                __('Title') . '</label><br>' .
+                __('Alternate text') . '</label><br>' .
                 '<label for="legend3" class="classic">' . form::radio(
                     ['legend', 'legend3'],
                     'none',
@@ -608,9 +612,9 @@ class MediaItem extends Process
                 __('None') . '</label>' .
                 '</p>' .
                 '<p id="media-attribute">' .
-                __('Title: ') . ($media_title != '' ? '<span class="media-title">' . $media_title . '</span>' : __('(none)')) .
+                __('Alternate text: ') . ($media_alt != '' ? '<span class="media-title">' . $media_alt . '</span>' : __('(none)')) .
                 '<br>' .
-                __('Legend: ') . ($media_desc != '' ? ' <span class="media-desc">' . $media_desc . '</span>' : __('(none)')) .
+                __('Legend: ') . ($media_legend != '' ? ' <span class="media-desc">' . $media_legend . '</span>' : __('(none)')) .
                 '</p>' .
                 '</div>' .
 
@@ -717,8 +721,8 @@ class MediaItem extends Process
                 '</p>' .
                 '</div>';
             } else {
-                $media_type  = 'default';
-                $media_title = App::backend()->file->media_title;
+                $media_type = 'default';
+                $media_alt  = App::backend()->file->media_title;
                 echo
                 '<p>' . __('Media item will be inserted as a link.') . '</p>';
             }
@@ -728,8 +732,8 @@ class MediaItem extends Process
             '<button type="button" id="media-insert-ok" class="submit">' . __('Insert') . '</button> ' .
             '<button type="button" id="media-insert-cancel">' . __('Cancel') . '</button>' .
             form::hidden(['type'], Html::escapeHTML($media_type)) .
-            form::hidden(['title'], Html::escapeHTML($media_title)) .
-            form::hidden(['description'], Html::escapeHTML($media_desc)) .
+            form::hidden(['title'], Html::escapeHTML($media_alt)) .
+            form::hidden(['description'], Html::escapeHTML($media_legend)) .
             form::hidden(['url'], App::backend()->file->file_url) .
             '</p>';
 
@@ -952,6 +956,9 @@ class MediaItem extends Process
             '<h3>' . __('Image details') . '</h3>';
 
             $details = '';
+            if (App::backend()->file->media_title !== '') {
+                $details .= '<li><strong>' . __('Alternate text :') . '</strong> ' . Html::escapeHTML((string) App::backend()->file->media_title) . '</li>';
+            }
             if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
                 foreach (App::backend()->file->media_meta as $k => $v) {
                     if ((string) $v) {
@@ -1013,10 +1020,10 @@ class MediaItem extends Process
             '<h4>' . __('Change media properties') . '</h4>' .
             '<p><label for="media_file">' . __('File name:') . '</label>' .
             form::field('media_file', 30, 255, Html::escapeHTML(App::backend()->file->basename)) . '</p>' .
-            '<p><label for="media_title">' . __('File title:') . '</label>' .
+            '<p><label for="media_title">' . __('Alternate text:') . '</label>' .
             form::field(
                 'media_title',
-                30,
+                80,
                 255,
                 [
                     'default'    => Html::escapeHTML(App::backend()->file->media_title),
@@ -1026,13 +1033,13 @@ class MediaItem extends Process
 
             if (App::backend()->file->media_image) {
                 echo
-                '<p><label for="media_desc">' . __('File description:') . '</label>' .
+                '<p><label for="media_desc">' . __('Description:') . '</label>' .
                 form::field(
                     'media_desc',
-                    60,
+                    80,
                     255,
                     [
-                        'default'    => Html::escapeHTML($getImageDescription(App::backend()->file, '')),
+                        'default'    => Html::escapeHTML($getImageLegend(App::backend()->file, 'Description')),
                         'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                     ]
                 ) . '</p>' .
