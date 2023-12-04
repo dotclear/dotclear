@@ -317,25 +317,25 @@ class MediaItem extends Process
     {
         // Display helpers
 
-        # Function to get image alternate text
+        // Function to get image alternate text
         $getImageAlt = fn (?File $file): string => ($file && $file->media_title !== '' ? $file->media_title : '');
 
-        # Function to get image legend
+        // Function to get image legend
         $getImageLegend = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
             if (!$file) {
                 return '';
             }
 
             $res     = [];
-            $pattern = preg_split('/\s*;;\s*/', $pattern);
+            $pattern = preg_split('/\s*;;\s*/', (string) $pattern);
             $sep     = ', ';
             $dates   = 0;
             $items   = 0;
 
             if ($pattern) {
                 foreach ($pattern as $v) {
-                    if ($v == 'Title' || $v == 'Description') { // Keep Title for compatibility purpose
-                        if (is_countable($file->media_meta) && count($file->media_meta)) {
+                    if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
+                        if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
                             foreach ($file->media_meta as $k => $v) {
                                 if ((string) $v && ($k == 'Description')) {
                                     $res[] = $v;

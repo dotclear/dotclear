@@ -162,7 +162,7 @@ class BlogPref extends Process
             ];
             if (in_array($da->media_img_title_pattern, $old_img_title_combo)) {
                 // Store new pattern (with Description ;;)
-                $da->blog_settings->system->put('media_img_title_pattern', $old_img_title_combo[$da->media_img_title_pattern]);
+                $da->blog_settings?->system->put('media_img_title_pattern', $old_img_title_combo[$da->media_img_title_pattern]);
                 $da->media_img_title_pattern = $old_img_title_combo[$da->media_img_title_pattern];
             } else {
                 // Add custom pattern to combo
