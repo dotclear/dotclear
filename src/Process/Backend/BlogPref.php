@@ -151,8 +151,23 @@ class BlogPref extends Process
             __('Description, Country, Date')       => 'Description ;; Country ;; Date(%b %Y) ;; separator(, )',
             __('Description, City, Country, Date') => 'Description ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
         ];
-        if (!in_array($da->blog_settings?->system->media_img_title_pattern, $da->img_title_combo)) {
-            $da->img_title_combo[Html::escapeHTML($da->blog_settings?->system->media_img_title_pattern)] = Html::escapeHTML($da->blog_settings?->system->media_img_title_pattern);
+        $da->media_img_title_pattern = $da->blog_settings?->system->media_img_title_pattern;
+        if (!in_array($da->media_img_title_pattern, $da->img_title_combo)) {
+            // Convert old patterns (with Title ;;) to new ones (with Description ;;)
+            $old_img_title_combo = [
+                'Title ;; separator(, )'                                   => 'Description ;; separator(, )',
+                'Title ;; Date(%b %Y) ;; separator(, )'                    => 'Description ;; Date(%b %Y) ;; separator(, )',
+                'Title ;; Country ;; Date(%b %Y) ;; separator(, )'         => 'Description ;; Country ;; Date(%b %Y) ;; separator(, )',
+                'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )' => 'Description ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
+            ];
+            if (in_array($da->media_img_title_pattern, $old_img_title_combo)) {
+                // Store new pattern (with Description ;;)
+                $da->blog_settings->system->put('media_img_title_pattern', $old_img_title_combo[$da->media_img_title_pattern]);
+                $da->media_img_title_pattern = $old_img_title_combo[$da->media_img_title_pattern];
+            } else {
+                // Add custom pattern to combo
+                $da->img_title_combo[Html::escapeHTML($da->media_img_title_pattern)] = Html::escapeHTML($da->media_img_title_pattern);
+            }
         }
 
         // Image default size combo
@@ -741,7 +756,7 @@ class BlogPref extends Process
             '<div class="col">' .
             '<h5>' . __('Default image insertion attributes') . '</h5>' .
             '<p class="vertical-separator"><label for="media_img_title_pattern">' . __('Inserted image legend:') . '</label>' .
-            form::combo('media_img_title_pattern', $da->img_title_combo, Html::escapeHTML($da->blog_settings->system->media_img_title_pattern)) . '</p>' .
+            form::combo('media_img_title_pattern', $da->img_title_combo, Html::escapeHTML($da->media_img_title_pattern)) . '</p>' .
             '<p><label for="media_img_use_dto_first" class="classic">' .
             form::checkbox('media_img_use_dto_first', '1', $da->blog_settings->system->media_img_use_dto_first) .
             __('Use original media date if possible') . '</label></p>' .
@@ -763,7 +778,7 @@ class BlogPref extends Process
             '<p><label for="media_img_default_link">' .
             form::checkbox('media_img_default_link', '1', $da->blog_settings->system->media_img_default_link) .
             __('Insert a link to the original image') . '</label></p>' .
-            '<p class="field"><label for="media_img_default_legend">' . __('Image legend and alternate text:') . '</label>' .
+            '<p><label for="media_img_default_legend">' . __('Image legend and alternate text:') . '</label>' .
             form::combo('media_img_default_legend', $da->img_default_legend_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
             '</p>' .
             '</div>' .
