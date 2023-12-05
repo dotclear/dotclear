@@ -64,7 +64,7 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
   } else {
     this.validBlockquote();
     let html = this.applyHtmlFilters(this.ibody.innerHTML);
-    if (html == '<br />') {
+    if (html == '<br />' || html == '<br>') {
       html = '<p></p>';
     }
     this.textarea.value = html;
@@ -163,9 +163,9 @@ jsToolBar.prototype.initWindow = function () {
     doc.open();
     const html = `<html>
   <head>
-    <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">
     <style type="text/css">${This.iframe_css}</style>
-    ${This.base_url == '' ? '' : `<base href="${This.base_url}" />`}
+    ${This.base_url == '' ? '' : `<base href="${This.base_url}">`}
   </head>
   <body id="${This.textarea.id}-jstEditorIframe"></body>
 </html>`;

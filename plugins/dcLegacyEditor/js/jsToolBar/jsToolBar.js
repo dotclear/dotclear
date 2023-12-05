@@ -520,7 +520,7 @@ jsToolBar.prototype.elements.br = {
       this.encloseSelection('%%%\n', '');
     },
     xhtml() {
-      this.encloseSelection('<br />\n', '');
+      this.encloseSelection('<br>\n', '');
     },
   },
 };
@@ -669,7 +669,7 @@ jsToolBar.prototype.elements.img = {
 jsToolBar.prototype.elements.img.fn.xhtml = function () {
   const src = this.elements.img.prompt.call(this);
   if (src) {
-    this.encloseSelection('', '', (str) => (str ? `<img src="${src}" alt="${str}" />` : `<img src="${src}" alt="" />`));
+    this.encloseSelection('', '', (str) => (str ? `<img src="${src}" alt="${str}">` : `<img src="${src}" alt="">`));
   }
 };
 jsToolBar.prototype.elements.img.fn.wiki = function () {

@@ -252,7 +252,7 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
       res += ` title="${d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"`;
     }
 
-    res += ' />';
+    res += '>';
 
     if (d.link) {
       const ltitle = alt

@@ -53,7 +53,7 @@ $(() => {
           }
           template_figure[1] = `${template_figure[1]}</figure$>`;
         }
-        template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}/>`;
+        template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}>`;
         if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {
           // With a link to original
           template_link[0] = '<a class="media-link" href="{aHref}"';

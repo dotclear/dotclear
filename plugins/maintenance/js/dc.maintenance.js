@@ -22,7 +22,7 @@ $(() => {
             dcMaintenanceStep(box, next);
             return;
           }
-          $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));
+          $('#content h2').after($('<div>').addClass('success').append($('.step-msg', box)));
           $('.step-wait', box).remove();
           $('.step-back', box).show();
         },

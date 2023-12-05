@@ -14,7 +14,7 @@ $(() => {
 
   mEdit.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
 
-  mEdit.meta_dialog = $('<input type="text" />');
+  mEdit.meta_dialog = $('<input type="text">');
   mEdit.meta_dialog.attr('title', mEdit.text_add_meta.replace(/%s/, mEdit.meta_type));
   mEdit.meta_dialog.attr('id', 'post_meta_tag_input');
   mEdit.meta_dialog.css('width', '90%');
