@@ -193,30 +193,33 @@ jsToolBar.prototype.elements.img_select.fncall.wiki = function () {
     return;
   }
 
+  const that = this;
   this.encloseSelection('', '', (str) => {
-    const alt = str ? str : d.title;
-    let res = `((${d.src}|${alt}`;
+    const alt = (str ? str : d.title).replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;');
+    let legend =
+      d.description !== '' && alt.length // No legend if no alt
+        ? d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+        : false;
 
+    let res = `((${d.src}|${alt}`;
     if (d.alignment == 'left') {
       res += '|L';
     } else if (d.alignment == 'right') {
       res += '|R';
     } else if (d.alignment == 'center') {
       res += '|C';
-    } else if (d.description) {
+    } else if (legend) {
       res += '|';
     }
-    if (d.title) {
-      res += `|${d.title}`;
+    if (legend) {
+      res += `|`; // no title in img
+      res += `|${legend}`;
     }
-    if (d.description) {
-      res += `|${d.description}`;
-    }
-
     res += '))';
 
-    if (d.link) {
-      return `[${res}|${d.url}${alt ? `||${alt}` : ''}]`;
+    if (d.link && alt.length) {
+      // Link only if alt not empty
+      return `[${res}|${d.url}${that.img_link_title ? `||${that.img_link_title}` : ''}]`;
     }
 
     return res;
@@ -233,35 +236,47 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
 
   const that = this;
   this.encloseSelection('', '', (str) => {
-    const alt = str ? str : d.title;
-    let res = `<img src="${d.src}" alt="${alt
-      .replace('&', '&amp;')
-      .replace('>', '&gt;')
-      .replace('<', '&lt;')
-      .replace('"', '&quot;')}"`;
+    const alignments = {
+      left: that.style.left,
+      right: that.style.right,
+      center: that.style.center,
+    };
+    const alt = (str ? str : d.title).replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;');
+    let legend =
+      d.description !== '' && alt.length // No legend if no alt
+        ? d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+        : false;
+    // Do not duplicate information
+    if (alt === legend) legend = false;
+    let img = `<img src="${d.src}" alt="${alt}"`;
+    let figure = '<figure';
+    const caption = legend ? `<figcaption>${legend}</figcaption>\n` : '';
 
-    if (d.alignment == 'left') {
-      res += ' class="' + that.style.left + '"';
-    } else if (d.alignment == 'right') {
-      res += ' class="' + that.style.right + '"';
-    } else if (d.alignment == 'center') {
-      res += ' class="' + that.style.center + '"';
+    // Cope with required alignment
+    if (d.alignment in alignments) {
+      if (legend) {
+        figure = `${figure} class="${alignments[d.alignment]}"`;
+      } else {
+        img = `${img} class="${alignments[d.alignment]}"`;
+      }
     }
 
-    if (d.description) {
-      res += ` title="${d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"`;
-    }
+    img = `${img}>`;
+    figure = `${figure}>`;
 
-    res += '>';
-
-    if (d.link) {
+    if (d.link && alt.length) {
+      // Enclose image with link (only if non empty alt)
       const ltitle = alt
-        ? ` title="${alt.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"`
+        ? ` title="${that.img_link_title
+            .replace('&', '&amp;')
+            .replace('>', '&gt;')
+            .replace('<', '&lt;')
+            .replace('"', '&quot;')}"`
         : '';
-      return `<a href="${d.url}"${ltitle}>${res}</a>`;
+      img = `<a href="${d.url}"${ltitle}>${img}</a>`;
     }
 
-    return res;
+    return legend ? `${figure}\n${img}\n${caption}</figure>` : img;
   });
 };
 
@@ -283,41 +298,54 @@ jsToolBar.prototype.elements.img_select.fn.wysiwyg = function () {
 };
 jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function () {
   const d = this.elements.img_select.data;
-  const alt = this.getSelectedText() ? this.getSelectedText() : d.title;
   if (d.src == undefined) {
     return;
   }
 
-  const fig = d.description ? this.iwin.document.createElement('figure') : null;
-  const img = this.iwin.document.createElement('img');
-  const block = d.description ? fig : img;
+  const alignments = {
+    left: this.style.left,
+    right: this.style.right,
+    center: this.style.center,
+  };
+  const alt = (this.getSelectedText() ? this.getSelectedText() : d.title)
+    .replace('&', '&amp;')
+    .replace('>', '&gt;')
+    .replace('<', '&lt;')
+    .replace('"', '&quot;');
+  let legend =
+    d.description !== '' && alt.length // No legend if no alt
+      ? d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+      : false;
 
-  if (d.alignment == 'left') {
-    block.classList.add(this.style.left);
-  } else if (d.alignment == 'right') {
-    block.classList.add(this.style.right);
-  } else if (d.alignment == 'center') {
-    block.classList.add(this.style.center);
+  // Do not duplicate information
+  if (alt === legend) legend = false;
+
+  const fig = legend ? this.iwin.document.createElement('figure') : null;
+  const img = this.iwin.document.createElement('img');
+  const block = legend ? fig : img;
+
+  // Cope with required alignment
+  if (d.alignment in alignments) {
+    block.classList.add(alignments[d.alignment]);
   }
 
   img.src = d.src;
   img.setAttribute('alt', alt);
-  if (d.title) {
-    img.setAttribute('title', d.title);
-  }
-  if (d.description) {
+  if (legend) {
     const figcaption = this.iwin.document.createElement('figcaption');
-    figcaption.appendChild(this.iwin.document.createTextNode(d.description));
+    figcaption.appendChild(this.iwin.document.createTextNode(legend));
     fig.appendChild(img);
     fig.appendChild(figcaption);
   }
 
-  if (d.link) {
+  if (d.link && alt.length) {
+    // Enclose image with link (only if non empty alt)
+    const ltitle = alt
+      ? this.img_link_title.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+      : '';
     const a = this.iwin.document.createElement('a');
     a.href = d.url;
-    if (alt) {
-      a.setAttribute('title', alt);
-    }
+    a.setAttribute('title', ltitle);
     a.appendChild(block);
     this.insertNode(a);
   } else {

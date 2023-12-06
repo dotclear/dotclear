@@ -168,6 +168,7 @@ class BackendBehaviors
                 'center' => 'media-center',
                 'right'  => 'media-right',
             ],
+            'img_link_title' => __('Open the media'),
         ];
 
         $rtl              = L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl' ? 'direction: rtl;' : '';
