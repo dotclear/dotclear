@@ -238,7 +238,7 @@ class UsersActions extends Process
                     while ($rs->fetch()) {
                         $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
                         $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
-                        $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s">', $img_status, $txt_status);
+                        $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s">', $img_status, $txt_status);
 
                         echo
                         '<tr class="line">' .

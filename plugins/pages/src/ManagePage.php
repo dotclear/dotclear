@@ -440,7 +440,7 @@ class ManagePage extends Process
         );
 
         $img_status         = '';
-        $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s">';
+        $img_status_pattern = '<img class="img_select_option" alt="%1$s" src="images/%2$s">';
 
         if (App::backend()->post_id) {
             try {
@@ -918,7 +918,7 @@ class ManagePage extends Process
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
-            $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
+            $img       = '<img alt="%1$s" src="images/%2$s">';
             $sts_class = '';
             switch ($rs->comment_status) {
                 case 1:
@@ -972,8 +972,8 @@ class ManagePage extends Process
 
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .
-            '<td class="nowrap status"><a href="' . $comment_url . '">' .
-            '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '"> ' . __('Edit') . '</a></td>' .
+            '<td class="nowrap status"><a href="' . $comment_url . '" title="' . __('Edit this comment') . '">' .
+            '<img src="images/edit-mini.png" alt=""> ' . __('Edit') . '</a></td>' .
             '</tr>';
         }
 

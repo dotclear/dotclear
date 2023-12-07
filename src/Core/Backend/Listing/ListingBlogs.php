@@ -94,7 +94,7 @@ class ListingBlogs extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s"> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('online'), 'check-on.png') . ' - ' .
                 $fmt(__('offline'), 'check-off.png') . ' - ' .
@@ -149,7 +149,7 @@ class ListingBlogs extends Listing
             '</td>',
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
-                '<img src="images/%1$s.png" alt="%2$s" title="%2$s">',
+                '<img src="images/%1$s.png" alt="%2$s">',
                 ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
                 App::blogs()->getBlogStatus((int) $this->rs->blog_status)
             ) .

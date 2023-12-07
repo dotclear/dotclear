@@ -956,13 +956,9 @@ class ModulesList
                 $tds++;
                 echo
                     '<td class="module-distrib">' . ($define->get('distributed') ?
-                    '<img src="images/dotclear-leaf.svg" alt="' .
-                    __('Plugin from official distribution') . '" title="' .
-                    __('Plugin from official distribution') . '">'
+                    '<img src="images/dotclear-leaf.svg" alt="' . __('Plugin from official distribution') . '">'
                     : ($git ?
-                        '<img src="images/git-branch.svg" alt="' .
-                        __('Plugin in development') . '" title="' .
-                        __('Plugin in development') . '">'
+                        '<img src="images/git-branch.svg" alt="' . __('Plugin in development') . '">'
                         : '')) . '</td>';
             }
 

@@ -931,7 +931,7 @@ class MediaItem extends Process
                 echo
                 '<ul>';
                 while ($rs->fetch()) {
-                    $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
+                    $img        = '<img alt="%1$s" src="images/%2$s">';
                     $img_status = match ((int) $rs->post_status) {
                         App::blog()::POST_PUBLISHED   => sprintf($img, __('published'), 'check-on.png'),
                         App::blog()::POST_UNPUBLISHED => sprintf($img, __('unpublished'), 'check-off.png'),

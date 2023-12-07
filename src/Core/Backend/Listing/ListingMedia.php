@@ -198,9 +198,9 @@ class ListingMedia extends Listing
                     $act .= form::checkbox(['medias[]', 'media_' . rawurlencode($filename)], $filename);
                 }
             } else {
-                $act .= '<a class="media-remove" ' .
+                $act .= '<a class="media-remove" title="' . __('delete') . '" ' .
                 'href="' . App::backend()->url()->get($page_adminurl, [...$filters->values(), 'remove' => rawurlencode($filename)]) . '">' .
-                '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '"></a>';
+                '<img src="images/trash.png" alt="' . __('Delete') . '"></a>';
             }
         }
 

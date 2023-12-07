@@ -90,9 +90,9 @@ class ListingPosts extends Listing
                 'date'     => '<th scope="col">' . __('Date') . '</th>',
                 'category' => '<th scope="col">' . __('Category') . '</th>',
                 'author'   => '<th scope="col">' . __('Author') . '</th>',
-                'comments' => '<th scope="col"><img src="images/comments.png" alt="" title="' . __('Comments') .
+                'comments' => '<th scope="col"><img src="images/comments.png" alt="' . __('Comments') .
                 '"><span class="hidden">' . __('Comments') . '</span></th>',
-                'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="" title="' . __('Trackbacks') .
+                'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="' . __('Trackbacks') .
                 '"><span class="hidden">' . __('Trackbacks') . '</span></th>',
                 'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
@@ -120,7 +120,7 @@ class ListingPosts extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s"> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'check-on.png') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
@@ -164,7 +164,7 @@ class ListingPosts extends Listing
             $cat_title = __('(No cat)');
         }
 
-        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" class="mark mark-%3$s">';
+        $img        = '<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s">';
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {

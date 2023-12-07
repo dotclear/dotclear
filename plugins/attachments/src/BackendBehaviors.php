@@ -57,8 +57,8 @@ class BackendBehaviors
                     $ftitle = substr($ftitle, 0, 16) . '...';
                 }
                 $item .= '<div class="media-item s-attachments">' .
-                '<a class="media-icon" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '">' .
-                '<img src="' . $file->media_icon . '" alt="" title="' . $file->basename . '"></a>' .
+                '<a class="media-icon" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '" title="' . $file->basename . '">' .
+                '<img src="' . $file->media_icon . '" alt=""></a>' .
                 '<ul>' .
                 '<li><a class="media-link" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '" ' .
                 'title="' . $file->basename . '">' . $ftitle . '</a></li>' .

@@ -146,7 +146,7 @@ class ListingComments extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s"> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'check-on.png') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
@@ -179,7 +179,7 @@ class ListingComments extends Listing
 
         $comment_url = App::backend()->url()->get('admin.comment', ['id' => $this->rs->comment_id]);
 
-        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s">';
+        $img        = '<img alt="%1$s" src="images/%2$s">';
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->comment_status) {

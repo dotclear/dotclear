@@ -423,7 +423,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">4</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
+              <td class="nowrap status"><img alt="Publié" src="images/check-on.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
             </tr>
             <tr class="line offline">
               <td class="nowrap"><input type="checkbox" name="name2" value="value2"></td>
@@ -433,7 +433,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">5</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Non publié" title="Non publié" src="images/check-off.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
+              <td class="nowrap status"><img alt="Non publié" src="images/check-off.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
             </tr>
             <tr class="line">
               <td class="nowrap"><input type="checkbox" name="entries[]" value="2148"></td>
@@ -443,7 +443,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">4</td>
               <td class="nowrap count">1</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
+              <td class="nowrap status"><img alt="Publié" src="images/check-on.png">   </td>
             </tr>
             <tr class="line">
               <td class="nowrap"><input type="checkbox" name="entries[]" value="2136"></td>
@@ -453,7 +453,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">4</td>
               <td class="nowrap count">2</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
+              <td class="nowrap status"><img alt="Publié" src="images/check-on.png">   </td>
             </tr>
             <tr class="line">
               <td class="nowrap"><input type="checkbox" name="entries[]" value="2129"></td>
@@ -463,7 +463,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">9</td>
               <td class="nowrap count">1</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
+              <td class="nowrap status"><img alt="Publié" src="images/check-on.png">   </td>
             </tr>
             <tr class="line">
               <td class="nowrap"><input type="checkbox" name="entries[]" value="2111"></td>
@@ -473,7 +473,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">1</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png">   </td>
+              <td class="nowrap status"><img alt="Publié" src="images/check-on.png">   </td>
             </tr>
           </table>
         </div>
@@ -509,7 +509,7 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="Publié" title="Publié" src="images/check-on.png">
+                  <img alt="Publié" src="images/check-on.png">
                                     </td>
               </tr>
               <tr class="line" id="p10937">
@@ -526,8 +526,8 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="Publié" title="Publié" src="images/check-on.png">
-                  <img alt="Masqué" title="Masqué" src="images/hidden.png">
+                  <img alt="Publié" src="images/check-on.png">
+                  <img alt="Masqué" src="images/hidden.png">
                                     </td>
               </tr>
               <tr class="line offline" id="p11047">
@@ -544,7 +544,7 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" title="En attente" src="images/check-wrn.png">
+                  <img alt="En attente" src="images/check-wrn.png">
                                     </td>
               </tr>
               <tr class="line offline" id="p10939">
@@ -561,7 +561,7 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="Programmé" title="Programmé" src="images/scheduled.png">
+                  <img alt="Programmé" src="images/scheduled.png">
                                     </td>
               </tr>
               <tr class="line offline" id="p10940">
@@ -578,8 +578,8 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" title="En attente" src="images/check-wrn.png">
-                  <img alt="Protégé" title="Protégé" src="images/locker.png">
+                  <img alt="En attente" src="images/check-wrn.png">
+                  <img alt="Protégé" src="images/locker.png">
                                     </td>
               </tr>
             </tbody>

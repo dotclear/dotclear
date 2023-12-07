@@ -225,9 +225,8 @@ class Manage extends Process
             foreach (App::backend()->filters as $fid => $f) {
                 $gui_link = '&nbsp;';
                 if ($f->hasGUI()) {
-                    $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '">' .
-                        '<img src="images/edit-mini.png" alt="' . __('Filter configuration') . '" ' .
-                        'title="' . __('Filter configuration') . '"></a>';
+                    $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '" title="' . __('Filter configuration') . '">' .
+                        '<img src="images/edit-mini.png" alt="' . __('Filter configuration') . '"></a>';
                 }
 
                 echo

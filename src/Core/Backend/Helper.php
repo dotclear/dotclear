@@ -38,7 +38,7 @@ class Helper
             $light_img = $img ?: ($fallback ? $unknown_img : '');  // Fallback to no icon if necessary
         }
 
-        $title = $title !== '' ? ' title="' . $title . '"' : '';
+        $title = '';    // No title on img, @since 2.29
         if ($light_img !== '' && $dark_img !== '') {
             $icon = '<img src="' . $light_img .
             '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . '>' .
