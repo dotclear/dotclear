@@ -86,9 +86,10 @@ class BackendBehaviors
 
         return
         Page::jsJson('ck_editor_media', [
-            'left'   => 'media-left',
-            'center' => 'media-center',
-            'right'  => 'media-right',
+            'left'           => 'media-left',
+            'center'         => 'media-center',
+            'right'          => 'media-right',
+            'img_link_title' => __('Open the media'),
         ]) .
         My::jsLoad('popup_media');
     }

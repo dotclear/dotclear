@@ -17,7 +17,7 @@ $(() => {
     const editor_name = window.opener.$.getEditorName();
     const editor = window.opener.CKEDITOR.instances[editor_name];
     const type = insert_form.elements.type.value;
-    const media_align_grid = {
+    const alignments = {
       left: styles.left,
       right: styles.right,
       center: styles.center,
@@ -27,66 +27,73 @@ $(() => {
       if (editor.mode == 'wysiwyg') {
         const align = $('input[name="alignment"]:checked', insert_form).val();
         let media_legend = $('input[name="legend"]:checked', insert_form).val();
-        const img_title = $('input[name="title"]', insert_form).val();
-        const img_description = $('input[name="description"]', insert_form).val();
+        const description = $('input[name="description"]', insert_form).val();
         let style = '';
         let template = '';
         const template_figure = ['', ''];
         const template_link = ['', ''];
         let template_image = '';
 
-        if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
-          media_legend = 'legend';
-        }
+        const alt =
+          media_legend != 'none'
+            ? $('input[name="title"]', insert_form)
+                .val()
+                .replace('&', '&amp;')
+                .replace('>', '&gt;')
+                .replace('<', '&lt;')
+                .replace('"', '&quot;')
+            : '';
+        let legend =
+          media_legend == 'legend' && description !== '' && alt.length // No legend if no alt
+            ? description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
+            : false;
+
+        // Do not duplicate information
+        if (alt === legend) legend = false;
 
         // Build template
         if (align != '' && align != 'none') {
           // Set alignment
           style = ' class="{figureStyle}"';
         }
-        if (media_legend == 'legend') {
+
+        if (media_legend == 'legend' && legend) {
           // With a legend
           template_figure[0] = `<figure${style}>`;
           style = ''; // Do not use style further
-          if (img_description != '') {
+          if (legend != '') {
             template_figure[1] = '<figcaption>{figCaption}</figcaption>';
           }
           template_figure[1] = `${template_figure[1]}</figure$>`;
         }
+
         template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}>`;
-        if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {
-          // With a link to original
+
+        if ($('input[name="insertion"]:checked', insert_form).val() == 'link' && alt.length) {
+          // Enclose image with link (only if non empty alt)
           template_link[0] = '<a class="media-link" href="{aHref}"';
-          let title = '';
-          if (media_legend == 'legend') {
-            if (img_description != '') {
-              title = ' title="{figCaption}"';
-            } else if (img_title != '') {
-              title = ' title="{imgAlt}"';
-            }
-          } else if (media_legend == 'title' && img_title != '') {
-            title = ' title="{imgAlt}"';
-          }
-          template_link[0] = `${template_link[0] + title}>`;
+          const ltitle = ` title="${styles.img_link_title
+            .replace('&', '&amp;')
+            .replace('>', '&gt;')
+            .replace('<', '&lt;')
+            .replace('"', '&quot;')}"`;
+          template_link[0] = `${template_link[0] + ltitle}>`;
           template_link[1] = '</a>';
         }
+
+        // Compose final template
         template = template_figure[0] + template_link[0] + template_image + template_link[1] + template_figure[1];
 
         const block = new window.opener.CKEDITOR.template(template);
         const params = {};
 
         // Set parameters for template
-        params.imgAlt =
-          media_legend != '' && media_legend != 'none'
-            ? window.opener.CKEDITOR.tools.htmlEncodeAttr(
-                window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val()),
-              )
-            : '';
+        params.imgAlt = window.opener.CKEDITOR.tools.htmlEncodeAttr(alt);
         params.imgSrc = window.opener.$.stripBaseURL($('input[name="src"]:checked', insert_form).val());
         if (align != '' && align != 'none') {
-          params.figureStyle = media_align_grid[align];
+          params.figureStyle = alignments[align];
         }
-        params.figCaption = window.opener.CKEDITOR.tools.htmlEncodeAttr(img_description);
+        params.figCaption = window.opener.CKEDITOR.tools.htmlEncodeAttr(legend);
         if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {
           params.aHref = window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());
         }
@@ -94,7 +101,7 @@ $(() => {
         // Insert element
         const figure = window.opener.CKEDITOR.dom.element.createFromHtml(block.output(params), editor.document);
         if (align != '' && align != 'none') {
-          figure.addClass(media_align_grid[align]);
+          figure.addClass(alignments[align]);
         }
         editor.insertElement(figure);
       }
@@ -109,11 +116,11 @@ $(() => {
       const align_audio = $('input[name="alignment"]:checked', insert_form).val();
 
       if (align_audio != undefined && align_audio != 'none') {
-        player_audio = `<div class="${media_align_grid[align_audio]}">${player_audio}</div>`;
+        player_audio = `<div class="${alignments[align_audio]}">${player_audio}</div>`;
       }
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_audio);
       if (align != '' && align != 'none') {
-        element.addClass(media_align_grid[align]);
+        element.addClass(alignments[align]);
       }
       editor.insertElement(element);
     } else if (type == 'flv') {
@@ -143,11 +150,11 @@ $(() => {
       let player_video = oplayer.html();
 
       if (align_video != undefined && align_video != 'none') {
-        player_video = `<div class="${media_align_grid[align_video]}">${player_video}</div>`;
+        player_video = `<div class="${alignments[align_video]}">${player_video}</div>`;
       }
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_video);
       if (align != '' && align != 'none') {
-        element.addClass(media_align_grid[align]);
+        element.addClass(alignments[align]);
       }
       editor.insertElement(element);
     } else {
