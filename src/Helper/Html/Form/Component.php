@@ -27,6 +27,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this data(array<string, string> $data)
  * @method      $this dir(string $dir)
  * @method      $this disabled(bool $disabled)
+ * @method      $this enterkeyhint(string $enterkeyhint)
  * @method      $this extra(string|array<string> $extra)
  * @method      $this form(string $form)
  * @method      $this id(string $id)
@@ -61,6 +62,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    null|string|int|float $default
  * @property    string $dir
  * @property    bool $disabled
+ * @property    string $enterkeyhint
  * @property    string|array<string> $extra
  * @property    string $form
  * @property    string $id
@@ -359,6 +361,7 @@ abstract class Component
      *          contenteditable => boolean content editable.
      *          dir             => string direction.
      *          disabled        => boolean disabled.
+     *          enterkeyhint    => string enter key hint.
      *          form            => string form id.
      *          inputmode       => string inputmode.
      *          lang            => string lang.
@@ -430,6 +433,8 @@ abstract class Component
                 ' dir="' . $this->dir . '"' : '') .
             (isset($this->disabled) && $this->disabled ?
                 ' disabled' : '') .
+            (isset($this->enterkeyhint) ?
+                ' enterkeyhint="' . $this->enterkeyhint . '"' : '') .
             (isset($this->form) ?
                 ' form="' . $this->form . '"' : '') .
             (isset($this->inputmode) ?
