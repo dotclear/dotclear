@@ -31,6 +31,13 @@ class Update
     public const ERR_FILES_UNWRITALBE = 103;
 
     /**
+     * Versions cache subdirectory.
+     *
+     * @var     string  CACHE_FOLDER
+     */
+    public const CACHE_FOLDER = 'versions';
+
+    /**
      * Version file URL
      *
      * @var string

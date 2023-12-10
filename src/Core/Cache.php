@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Network\HttpCacheStack;
@@ -57,6 +58,16 @@ class Cache extends HttpCacheStack implements CacheInterface
     {
         if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER)) {
             Files::deltree($this->cache_dir . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER);
+        }
+    }
+
+    /**
+     * Empty Dotclear versions cache directory.
+     */
+    public function emptyDotclearVersionsCache(): void
+    {
+        if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER)) {
+            Files::deltree($this->cache_dir . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);
         }
     }
 }
