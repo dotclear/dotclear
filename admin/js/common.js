@@ -1,4 +1,4 @@
-/*global $, dotclear */
+/*global $, jQuery, dotclear */
 'use strict';
 
 /* Get PreInit JSON data */
@@ -30,6 +30,28 @@ document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme ==
 
 /* jQuery extensions
 -------------------------------------------------------- */
+
+/**
+ * @name jQuery
+ * @class
+ * @typedef {jQuery} $
+ * @external "jQuery"
+ */
+
+/**
+ * @name fn
+ * @class
+ * @memberOf jQuery
+ * @external "jQuery.fn"
+ */
+
+/**
+ * jQuery helper to check a list of elements
+ *
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
 $.fn.check = function () {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -38,6 +60,13 @@ $.fn.check = function () {
   });
 };
 
+/**
+ * jQuery helper to unckeck a list of elements
+ *
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
 $.fn.unCheck = function () {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -46,6 +75,14 @@ $.fn.unCheck = function () {
   });
 };
 
+/**
+ * Sets the checked status of a list of elements
+ *
+ * @param       {boolean}  status  The status
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
 $.fn.setChecked = function (status) {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -54,6 +91,13 @@ $.fn.setChecked = function (status) {
   });
 };
 
+/**
+ * Reverse the checked status of a list of elements
+ *
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
 $.fn.toggleCheck = function () {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -62,6 +106,12 @@ $.fn.toggleCheck = function () {
   });
 };
 
+/**
+ * Enables the shift click of a list of elements
+ *
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
 $.fn.enableShiftClick = function () {
   this.on('click', function (event) {
     if (event.shiftKey) {
@@ -81,7 +131,16 @@ $.fn.enableShiftClick = function () {
   });
 };
 
-$.fn.toggleWithLegend = function (target, s) {
+/**
+ * Add toggle mecanism for a target element
+ *
+ * @param       {jQuery}  target   The target
+ * @param       {Object}  options  The options
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
+$.fn.toggleWithLegend = function (target, options) {
   const defaults = {
     img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
@@ -94,7 +153,7 @@ $.fn.toggleWithLegend = function (target, s) {
     user_pref: false,
     reverse_user_pref: false, // Reverse user pref behavior
   };
-  const p = $.extend(defaults, s);
+  const p = Object.assign(defaults, options);
   if (!target) {
     return this;
   }
@@ -153,7 +212,15 @@ $.fn.toggleWithLegend = function (target, s) {
   });
 };
 
-$.fn.toggleWithDetails = function (s) {
+/**
+ * Add toggle mecanism for a details element
+ *
+ * @param       {Object}  options       The options
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
+$.fn.toggleWithDetails = function (options) {
   const defaults = {
     unfolded_sections: dotclear.unfolded_sections,
     hide: true, // Is section unfolded?
@@ -161,7 +228,7 @@ $.fn.toggleWithDetails = function (s) {
     user_pref: false,
     reverse_user_pref: false, // Reverse user pref behavior
   };
-  const p = $.extend(defaults, s);
+  const p = Object.assign(defaults, options);
   if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
     p.hide = p.reverse_user_pref;
   }
@@ -194,17 +261,32 @@ $.fn.toggleWithDetails = function (s) {
   });
 };
 
-(() => {
-  $.expandContent = (opts) => {
-    if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
-      return;
+/**
+ * Expands element using callback to get content.
+ *
+ * @param      {Object}           opts    The options
+ * @function
+ * @memberof    external:"jQuery"
+ */
+$.expandContent = (opts) => {
+  const toggleArrow = (button, action = '') => {
+    if (action == '') {
+      action = button.getAttribute('aria-label') == dotclear.img_plus_alt ? 'open' : 'close';
     }
-    if (opts.line != undefined) {
-      multipleExpander(opts.line, opts.lines, opts.callback);
+    if (action == 'open' && button.getAttribute('aria-expanded') == 'false') {
+      button.firstChild.data = dotclear.img_minus_txt;
+      button.setAttribute('value', dotclear.img_minus_txt);
+      button.setAttribute('aria-label', dotclear.img_minus_alt);
+      button.setAttribute('aria-expanded', true);
+    } else if (action == 'close' && button.getAttribute('aria-expanded') == 'true') {
+      button.firstChild.data = dotclear.img_plus_txt;
+      button.setAttribute('value', dotclear.img_plus_txt);
+      button.setAttribute('aria-label', dotclear.img_plus_alt);
+      button.setAttribute('aria-expanded', false);
+    } else {
+      return '';
     }
-    opts.lines.each(function () {
-      singleExpander(this, opts.callback);
-    });
+    return action;
   };
   const singleExpander = (line, callback) => {
     $(
@@ -233,27 +315,24 @@ $.fn.toggleWithDetails = function (s) {
       })
       .prependTo($(line).children().get(0)); // first td
   };
-  const toggleArrow = (button, action = '') => {
-    if (action == '') {
-      action = button.getAttribute('aria-label') == dotclear.img_plus_alt ? 'open' : 'close';
-    }
-    if (action == 'open' && button.getAttribute('aria-expanded') == 'false') {
-      button.firstChild.data = dotclear.img_minus_txt;
-      button.setAttribute('value', dotclear.img_minus_txt);
-      button.setAttribute('aria-label', dotclear.img_minus_alt);
-      button.setAttribute('aria-expanded', true);
-    } else if (action == 'close' && button.getAttribute('aria-expanded') == 'true') {
-      button.firstChild.data = dotclear.img_plus_txt;
-      button.setAttribute('value', dotclear.img_plus_txt);
-      button.setAttribute('aria-label', dotclear.img_plus_alt);
-      button.setAttribute('aria-expanded', false);
-    } else {
-      return '';
-    }
-    return action;
-  };
-})();
+  if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
+    return;
+  }
+  if (opts.line != undefined) {
+    multipleExpander(opts.line, opts.lines, opts.callback);
+  }
+  opts.lines.each(function () {
+    singleExpander(this, opts.callback);
+  });
+};
 
+/**
+ * Show help viewer
+ *
+ * @return      {jQuery}
+ * @function
+ * @memberof    external:"jQuery.fn"
+ */
 $.fn.helpViewer = function () {
   if (this.length < 1) {
     return this;
@@ -335,6 +414,14 @@ $.fn.helpViewer = function () {
 
 /* Dotclear common methods
 -------------------------------------------------------- */
+
+/**
+ * Cope with the enter key in a form.
+ *
+ * @param      {string}  frm_id     The form identifier
+ * @param      {string}  ok_id      The ok identifier
+ * @param      {string}  cancel_id  The cancel identifier
+ */
 dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
   $(`${frm_id}:not(${cancel_id})`).on('keyup', (e) => {
     if (!(e.key == 'Enter' && $(ok_id).prop('disabled') !== true)) {
@@ -346,6 +433,12 @@ dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
   });
 };
 
+/**
+ * Control the activation of a submit button depending on a list of checkboxes
+ *
+ * @param      {string}          chkboxes    The CSS string selector for checkboxes to control submit
+ * @param      {string}          target      The CSS string selector of the submit button
+ */
 dotclear.condSubmit = (chkboxes, target) => {
   const checkboxes = Array.from(document.querySelectorAll(chkboxes));
   const submitButt = document.querySelector(target);
@@ -374,6 +467,11 @@ dotclear.condSubmit = (chkboxes, target) => {
   });
 };
 
+/**
+ * Hides the lockable div in a page.
+ *
+ * The given div must have a `.lockable` class
+ */
 dotclear.hideLockable = () => {
   const lockableDivs = document.querySelectorAll('div.lockable');
   lockableDivs.forEach((lockableDiv) => {
@@ -402,52 +500,63 @@ dotclear.hideLockable = () => {
   });
 };
 
-dotclear.checkboxesHelpers = (e, target, c, s) => {
-  $(e).append(document.createTextNode(dotclear.msg.to_select));
-  $(e).append(document.createTextNode(' '));
+/**
+ * Add checkboxes helper buttons at the end in an area
+ *
+ * @param      {(Element|string)}  area        The jQuery, DOM Element or string selector for area element
+ * @param      {!(jQuery)=}        target      The jQuery objet for target checkboxes
+ * @param      {!string=}          checkboxes  The CSS string selector for checkboxes to control submit
+ * @param      {!string=}          submit      The CSS string selector of the submit button
+ */
+dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
+  $(area).append(document.createTextNode(dotclear.msg.to_select));
+  $(area).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
     .on('click', () => {
       if (target === undefined) {
-        $(e).parents('form').find('input[type="checkbox"]:not(:disabled)').check();
+        $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').check();
       } else {
         target.check();
       }
-      if (c !== undefined && s !== undefined) {
-        dotclear.condSubmit(c, s);
+      if (checkboxes !== undefined && submit !== undefined) {
+        dotclear.condSubmit(checkboxes, submit);
       }
       return false;
     })
-    .appendTo($(e));
-  $(e).append(document.createTextNode(' '));
+    .appendTo($(area));
+  $(area).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
     .on('click', () => {
       if (target === undefined) {
-        $(e).parents('form').find('input[type="checkbox"]:not(:disabled)').unCheck();
+        $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').unCheck();
       } else {
         target.unCheck();
       }
-      if (c !== undefined && s !== undefined) {
-        dotclear.condSubmit(c, s);
+      if (checkboxes !== undefined && submit !== undefined) {
+        dotclear.condSubmit(checkboxes, submit);
       }
       return false;
     })
-    .appendTo($(e));
-  $(e).append(document.createTextNode(' '));
+    .appendTo($(area));
+  $(area).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
     .on('click', () => {
       if (target === undefined) {
-        $(e).parents('form').find('input[type="checkbox"]:not(:disabled)').toggleCheck();
+        $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').toggleCheck();
       } else {
         target.toggleCheck();
       }
-      if (c !== undefined && s !== undefined) {
-        dotclear.condSubmit(c, s);
+      if (checkboxes !== undefined && submit !== undefined) {
+        dotclear.condSubmit(checkboxes, submit);
       }
       return false;
     })
-    .appendTo($(e));
+    .appendTo($(area));
 };
 
+/**
+ * Ask confirmation before destructive operation (posts deletion)
+ */
 dotclear.postsActionsHelper = () => {
   $('#form-entries').on('submit', function () {
     const action = $(this).find('select[name="action"]').val();
@@ -472,6 +581,9 @@ dotclear.postsActionsHelper = () => {
   });
 };
 
+/**
+ * Ask confirmation before destructive operation (comments deletion)
+ */
 dotclear.commentsActionsHelper = () => {
   $('#form-comments').on('submit', function () {
     const action = $(this).find('select[name="action"]').val();
@@ -493,7 +605,11 @@ dotclear.commentsActionsHelper = () => {
   });
 };
 
-// Outgoing links
+/**
+ * Add outgoing link indicators
+ *
+ * @param      {string}  target  The CSS selector target
+ */
 dotclear.outgoingLinks = (target) => {
   const elements = document.querySelectorAll(target);
   elements.forEach((element) => {
@@ -522,10 +638,10 @@ dotclear.outgoingLinks = (target) => {
 /**
  * Add headers on each cells (responsive tables)
  *
- * @param      DOM elt   table         The table
- * @param      string    selector      The selector
- * @param      number    [offset=0]    The offset = number of firsts columns to ignore
- * @param      boolean   [thead=false] True if titles are in thead rather than in the first tr of the body
+ * @param      {Element}   table         The table
+ * @param      {string}    selector      The selector
+ * @param      {number}    [offset=0]    The offset = number of firsts columns to ignore
+ * @param      {boolean}   [thead=false] True if titles are in thead rather than in the first tr of the body
  */
 dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) => {
   if (table) {
@@ -555,6 +671,46 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
 };
 
 // Badge helper
+
+/**
+ * Badge helper
+ *
+ * @param      {(string|Element|jQuery)}  $elt            The element (selector string as in CSS, DOM Element, jQuery object)
+ * @param      {{sibling: boolean,
+ *               id: string,
+ *               remove: boolean,
+ *               value: string|number,
+ *               inline: boolean,
+ *               icon: boolean,
+ *               type: string,
+ *               left: boolean,
+ *               noborder: boolean,
+ *               small: boolean,
+ *               classes: string}}        [options=null]  The options
+ *
+ * @param      [options.sibling=false]    Define if the given element is a sibling of the badge or it's parent
+ *                                        true: use $elt.after() to add badge
+ *                                        false: use $elt.parent().append() to add badge (default)
+ * @param      [options.id='default']     Badge unique class
+ *                                        this class will be used to delete all
+ *                                        corresponding badge (used for removing and updating)
+ * @param      [options.remove=false]     Will remove the badge if set to true
+ * @param      [options.value=null]       Badge value
+ * @param      [options.inline=false]     If set to true, the badge is an inline element (useful for menu item)
+ *                                        rather than a block
+ * @param      [options.icon=false]       If set to true, the badge is attached to a dashboard icon
+ *                                        (needed for correct positionning)
+ * @param      [options.type='']          Override default background (which may vary)
+ *                                        by default badge background are soft grey for dashboard icons (see opt.icon) and
+ *                                        bright red for all other elements, possible values:
+ *                                        'std':  bright red
+ *                                        'info': blue
+ *                                        'soft': soft grey
+ * @param      [options.left=false]       Display badge on the left rather than on the right (unused for inline badge)
+ * @param      [options.noborder=false]   Do not display the badge border
+ * @param      [options.small=false]      Use a smaller font-size
+ * @param      [options.classes='']       Additionnal badge classes
+ */
 dotclear.badge = ($elt, options = null) => {
   // Cope with selector given as string or DOM element rather than a jQuery object
   if (typeof $elt === 'string' || $elt instanceof Element) {
@@ -565,40 +721,18 @@ dotclear.badge = ($elt, options = null) => {
   if (!$elt.length) return;
 
   // Cope with options
-  const opt = $.extend(
+  const opt = Object.assign(
     {
-      /* sibling: define if the given element is a sibling of the badge or it's parent
-       *  true: use $elt.after() to add badge
-       *  false: use $elt.parent().append() to add badge (default)
-       */
       sibling: false,
-      /* id: badge unique class
-       *  this class will be used to delete all corresponding badge (used for removing and updating)
-       */
       id: 'default',
-      /* remove: will remove the badge if set to true */
       remove: false,
-      /* value: badge value */
       value: null,
-      /* inline: if set to true, the badge is an inline element (useful for menu item) rather than a block */
       inline: false,
-      /* icon: if set to true, the badge is attached to a dashboard icon (needed for correct positionning) */
       icon: false,
-      /* type: Override default background (which may vary)
-       *  by default badge background are soft grey for dashboard icons (see opt.icon) and bright red for all other elements
-       *  possible values:
-       *    'std':  bright red
-       *    'info': blue
-       *    'soft': soft grey
-       */
       type: '',
-      /* left: display badge on the left rather than on the right (unused for inline badge) */
       left: false,
-      /* noborder: do not display the badge border */
       noborder: false,
-      /* small: use a smaller font-size */
       small: false,
-      /* classes: additionnal badge classes */
       classes: '',
     },
     options,
@@ -657,7 +791,11 @@ dotclear.badge = ($elt, options = null) => {
   }
 };
 
-// Password helper
+/**
+ * Password helper
+ *
+ * Add a show/hide button to each password field in a page
+ */
 dotclear.passwordHelpers = () => {
   const togglePasswordHelper = (e) => {
     e.preventDefault();
@@ -693,6 +831,15 @@ dotclear.passwordHelpers = () => {
 dotclear.servicesOff = dotclear.data.servicesOff || false;
 dotclear.servicesUri = dotclear.data.servicesUri || 'index.php?process=Rest';
 
+/**
+ * Call REST service function
+ *
+ * @param      {string}            fn                                                            The REST function name
+ * @param      {Function}          [onSuccess=(_data)=>{}]                                       On success
+ * @param      {Function}          [onError=(_error)=>{if(dotclear.debug)console.log(_error);}]  On error
+ * @param      {(boolean|string)}  [get=true]                                                    True if GET, false if POST method
+ * @param      {Object}            [params={}]                                                   The parameters
+ */
 dotclear.services = (
   fn, // REST method
   onSuccess = (_data) => {
@@ -737,6 +884,14 @@ dotclear.services = (
     .catch((error) => onError(error));
 };
 
+/**
+ * Call REST service function, using GET method
+ *
+ * @param      {string}      fn                                                            The function
+ * @param      {Function}    [onSuccess=(_payload)=>{}]                                    On success
+ * @param      {Object}      [params={}]                                                   The parameters
+ * @param      {Function}    [onError=(_error)=>{if(dotclear.debug)console.log(_error);}]  On error
+ */
 dotclear.servicesGet = (
   fn, // REST method
   onSuccess = (_payload) => {
@@ -751,6 +906,14 @@ dotclear.servicesGet = (
   dotclear.services(fn, onSuccess, onError, true, params);
 };
 
+/**
+ * Call REST service function, using POST method
+ *
+ * @param      {string}      fn                                                            The function
+ * @param      {Function}    [onSuccess=(_payload)=>{}]                                    On success
+ * @param      {Object}      [params={}]                                                   The parameters
+ * @param      {Function}    [onError=(_error)=>{if(dotclear.debug)console.log(_error);}]  On error
+ */
 dotclear.servicesPost = (
   fn, // REST method
   onSuccess = (_payload) => {
@@ -766,6 +929,16 @@ dotclear.servicesPost = (
 };
 
 // REST services helpers, JSON only aliases
+
+/**
+ * Call REST service function, using JSON format
+ *
+ * @param      {string}            fn                                                            The REST function name
+ * @param      {Function}          [onSuccess=(_data)=>{}]                                       On success
+ * @param      {Function}          [onError=(_error)=>{if(dotclear.debug)console.log(_error);}]  On error
+ * @param      {(boolean|string)}  [get=true]                                                    True if GET, false if POST method
+ * @param      {Object}            [params={}]                                                   The parameters
+ */
 dotclear.jsonServices = (
   fn, // REST method
   onSuccess = (_payload) => {
@@ -803,6 +976,14 @@ dotclear.jsonServices = (
   );
 };
 
+/**
+ * Call REST service function, using GET method and JSON format
+ *
+ * @param      {string}      fn                                                            The function
+ * @param      {Function}    [onSuccess=(_payload)=>{}]                                    On success
+ * @param      {Object}      [params={}]                                                   The parameters
+ * @param      {Function}    [onError=(_error)=>{if(dotclear.debug)console.log(_error);}]  On error
+ */
 dotclear.jsonServicesGet = (
   fn, // REST method
   onSuccess = (_payload) => {
@@ -817,6 +998,14 @@ dotclear.jsonServicesGet = (
   dotclear.jsonServices(fn, onSuccess, onError, true, params);
 };
 
+/**
+ * Call REST service function, using POST method and JSON format
+ *
+ * @param      {string}      fn                                                            The function
+ * @param      {Function}    [onSuccess=(_payload)=>{}]                                    On success
+ * @param      {Object}      [params={}]                                                   The parameters
+ * @param      {Function}    [onError=(_error)=>{if(dotclear.debug)console.log(_error);}]  On error
+ */
 dotclear.jsonServicesPost = (
   fn, // REST method
   onSuccess = (_payload) => {
@@ -955,41 +1144,29 @@ $(() => {
   };
   $('#blog-menu h3:first').toggleWithLegend(
     $('#blog-menu ul:first'),
-    $.extend(
-      {
-        user_pref: 'dc_blog_menu',
-      },
-      menu_settings,
-    ),
+    Object.assign(menu_settings, {
+      user_pref: 'dc_blog_menu',
+    }),
   );
   $('#system-menu h3:first').toggleWithLegend(
     $('#system-menu ul:first'),
-    $.extend(
-      {
-        user_pref: 'dc_system_menu',
-      },
-      menu_settings,
-    ),
+    Object.assign(menu_settings, {
+      user_pref: 'dc_system_menu',
+    }),
   );
   $('#plugins-menu h3:first').toggleWithLegend(
     $('#plugins-menu ul:first'),
-    $.extend(
-      {
-        user_pref: 'dc_plugins_menu',
-      },
-      menu_settings,
-    ),
+    Object.assign(menu_settings, {
+      user_pref: 'dc_plugins_menu',
+    }),
   );
   $('#favorites-menu h3:first').toggleWithLegend(
     $('#favorites-menu ul:first'),
-    $.extend(
-      {
-        user_pref: 'dc_favorites_menu',
-        hide: false,
-        reverse_user_pref: true,
-      },
-      menu_settings,
-    ),
+    Object.assign(menu_settings, {
+      user_pref: 'dc_favorites_menu',
+      hide: false,
+      reverse_user_pref: true,
+    }),
   );
 
   $('#help').helpViewer();
