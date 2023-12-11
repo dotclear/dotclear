@@ -6267,7 +6267,7 @@ msgstr "La version installée de Dotclear est %s"
 #: src/Process/Upgrade/Home.php:54
 #, php-format
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr "La version de PHP installée est %s, la prochaine version de Dotclear doit être %s ou antérieure."
+msgstr "La version de PHP installée est %s, la prochaine version de Dotclear nécessitera la %s ou plus récente."
 
 #: src/Process/Upgrade/Home.php:71
 #, php-format

@@ -27,10 +27,11 @@ dotclear.readLocalData = (id) => {
 
 /**
  * Gets application/json data (JSON format).
+ *
  * @param      {string}   id              element identifier
  * @param      {boolean}  [clear=true]    clear content
  * @param      {boolean}  [remove=false]  remove element
- * @return     {object}   data object
+ * @return     {Object}   data object
  */
 dotclear.getData = (id, clear = true, remove = false) => {
   let data = {};
@@ -58,6 +59,7 @@ dotclear.isEmptyObject = (item) => dotclear.isObject(item) && Object.keys(item).
 
 /**
  * Deep merge two objects.
+ *
  * @param target
  * @param ...sources
  */
@@ -84,6 +86,7 @@ dotclear.mergeDeep = (target, ...sources) => {
 
 /**
  * Gracefully cut an HTML string
+ *
  * @param      {string}  html     The html
  * @param      {Object}  options  The options
  * @return     {Object}  cutted HTML string

@@ -93,7 +93,7 @@ class Upgrade extends Process
             exit;
         }
 
-        self::$updater = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
+        self::$updater = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);
         self::$new_ver = self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
         if (self::$new_ver) {

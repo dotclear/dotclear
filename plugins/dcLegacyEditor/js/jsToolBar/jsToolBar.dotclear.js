@@ -200,6 +200,7 @@ jsToolBar.prototype.elements.img_select.fncall.wiki = function () {
       d.description !== '' && alt.length // No legend if no alt
         ? d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
         : false;
+    if (alt === legend) legend = false;
 
     let res = `((${d.src}|${alt}`;
     if (d.alignment == 'left') {

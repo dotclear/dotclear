@@ -4,9 +4,14 @@
 /**
  * Gets the entry (post, page, …) content.
  *
- * @param      numeric     postId    The post identifier
- * @param      function    callback  The callback
- * @param      object      options   The options
+ * @param      {number}    postId    The post identifier
+ * @param      {Function}  callback  The callback
+ * @param      {{type: string, alert: boolean, clean: boolean, length: number}} options   The options
+ *
+ * @param      options.type     Entry type (default = '' => post)
+ * @param      options.alert    Alert on error (default = true)
+ * @param      options.clean    Clean content (default = false, useful for potential XSS in spam)
+ * @param      options.length   Cut content after length chars (default = -1 to not cut)
  */
 dotclear.getEntryContent = (postId, callback, options) => {
   // Check callback fn()
@@ -72,9 +77,15 @@ dotclear.getEntryContent = (postId, callback, options) => {
 /**
  * Gets the comment content.
  *
- * @param      numeric     commentId  The comment identifier
- * @param      function    callback   The callback
- * @param      object      options    The options
+ * @param      {number}    commentId    The post identifier
+ * @param      {Function}  callback  The callback
+ * @param      {{metadata: boolean, ip: boolean, alert: boolean, clean: boolean, length: number}} options   The options
+ *
+ * @parma      options.metadata Get comment metadata (email, site, …, default = true)
+ * @param      options.ip       Show IP in metadata (default = true)
+ * @param      options.alert    Alert on error (default = true)
+ * @param      options.clean    Clean content (default = false, useful for potential XSS in spam)
+ * @param      options.length   Cut content after length chars (default = -1 to not cut)
  */
 dotclear.getCommentContent = (commentId, callback, options) => {
   // Check callback fn()

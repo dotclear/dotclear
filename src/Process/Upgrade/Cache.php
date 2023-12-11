@@ -51,6 +51,11 @@ class Cache extends Process
                 Notices::addSuccessNotice(__('Repositories cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
+            if (!empty($_POST['clearversionscache'])) {
+                App::cache()->emptyDotclearVersionsCache();
+                Notices::addSuccessNotice(__('Dotclear versions cache directory emptied.'));
+                App::upgrade()->url()->redirect('upgrade.cache');
+            }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -89,6 +94,8 @@ class Cache extends Process
                                     ->value(__('Empty templates cache directory')),
                                 (new Submit(['clearrepocache']))
                                     ->value(__('Empty repositories cache directory')),
+                                (new Submit(['clearversionscache']))
+                                    ->value(__('Empty Dotclear versions cache directory')),
                                 App::nonce()->formNonce(),
                             ]),
                     ]),

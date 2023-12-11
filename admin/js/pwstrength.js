@@ -1,12 +1,21 @@
 /*global dotclear */
 'use strict';
 
+/**
+ * Add a password strength meter under every input type password with `pw-strength` class
+ *
+ * @param      {{min: string, avg: string, max: string}}  opts    The options
+ *
+ * @param       opts.min  Label used to indicate low quality password (default = '-')
+ * @param       opts.avg  Label used to indicate average quality password (default = '~')
+ * @param       opts.max  Label used to indicate high quality password (default = '+')
+ */
 dotclear.passwordStrength = (opts) => {
   /**
    * Calculates the entropy (source: https://github.com/autonomoussoftware/fast-password-entropy).
    *
-   * @param      DOMElement   e       input password field
-   * @return     integer              The entropy (from 0 to 99).
+   * @param      {Element}   e       input password field
+   * @return     {number}            The entropy (from 0 to 99).
    */
   const computeEntropy = (e) => {
     const stdCharsets = [
