@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2023-11-30 18:01\n"
+"POT-Creation-Date: 2023-12-11 15:13+0100\n"
+"PO-Revision-Date: 2023-12-11 14:17\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:329
-#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:495
 #: src/Process/Install/Install.php:417
 msgid "medium"
 msgstr "Vidutinis:"
@@ -93,9 +93,7 @@ msgstr "Šis požymis neegzistuoja duomenų bazėje."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:277 src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:42
-#: src/Process/Backend/BlogPref.php:149 src/Process/Backend/BlogPref.php:184
-#: src/Process/Backend/Home.php:431 src/Process/Backend/MediaItem.php:602
-#: src/Process/Backend/Post.php:713
+#: src/Process/Backend/Home.php:431 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "Antraštė"
 
@@ -106,7 +104,7 @@ msgstr "Antraštė"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:414
+#: src/Process/Backend/BlogPref.php:429
 msgid "Blogs"
 msgstr "Blogai"
 
@@ -126,7 +124,7 @@ msgstr "Tinklaraščio ID"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:333
 #: src/Core/Backend/Listing/ListingBlogs.php:55
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:138
-#: src/Process/Backend/BlogPref.php:467
+#: src/Process/Backend/BlogPref.php:482
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "Blogo pavadinimas"
@@ -164,7 +162,7 @@ msgstr "Nustatyti kaip pašalintas"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
 #: src/Core/Backend/Listing/ListingMedia.php:203
-#: src/Core/Backend/ModulesList.php:1219 src/Core/Upgrade/PluginsList.php:120
+#: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:311 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:801 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
@@ -181,7 +179,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Pasirinkti tinklaraščiai buvo sėkmingai atnaujinti."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
-#: src/Core/Backend/ModulesList.php:1554 src/Core/Backend/ThemesList.php:643
+#: src/Core/Backend/ModulesList.php:1550 src/Core/Backend/ThemesList.php:643
 #: src/Core/Upgrade/PluginsList.php:392 src/Process/Backend/BlogDel.php:67
 #: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
 #: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
@@ -190,7 +188,7 @@ msgid "Password verification failed"
 msgstr "Slaptažodžio patvirtinti nepavyko."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:914
+#: src/Process/Backend/BlogPref.php:929
 msgid "The current blog cannot be deleted."
 msgstr "Dabartinio tinklaraščio negalima ištrinti."
 
@@ -447,10 +445,10 @@ msgstr "Pozicija:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1782 src/Process/Backend/BlogPref.php:899
+#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:914
 #: src/Process/Backend/Category.php:275 src/Process/Backend/Category.php:307
 #: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:307
-#: src/Process/Backend/Home.php:453 src/Process/Backend/MediaItem.php:1049
+#: src/Process/Backend/Home.php:453 src/Process/Backend/MediaItem.php:1056
 #: src/Process/Backend/Post.php:779 src/Process/Backend/Post.php:915
 #: src/Process/Backend/User.php:420 src/Process/Backend/UsersActions.php:356
 #: src/Process/Install/Install.php:498
@@ -509,11 +507,11 @@ msgstr "Dažniausiai naudojamas"
 msgid "Entry language:"
 msgstr "Įvedimo kalba:"
 
-#: src/Core/Backend/Combos.php:263 src/Process/Backend/UserPreferences.php:165
+#: src/Core/Backend/Combos.php:263 src/Process/Backend/UserPreferences.php:164
 msgid "Descending"
 msgstr "Mažėjantis"
 
-#: src/Core/Backend/Combos.php:264 src/Process/Backend/UserPreferences.php:166
+#: src/Core/Backend/Combos.php:264 src/Process/Backend/UserPreferences.php:165
 msgid "Ascending"
 msgstr "Didėjantis"
 
@@ -573,7 +571,7 @@ msgid "Last update"
 msgstr "Paskutinis atnaujinimas"
 
 #: src/Core/Backend/Combos.php:334 src/Process/Backend/Blog.php:119
-#: src/Process/Backend/BlogPref.php:781
+#: src/Process/Backend/BlogPref.php:796
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "Blogo ID"
@@ -603,12 +601,12 @@ msgid "Number of entries"
 msgstr "Įrašų skaičius"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:810
+#: src/Process/Backend/UserPreferences.php:804
 msgid "My favorites"
 msgstr "Mano mėgstamiausi"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:297 src/Process/Backend/Media.php:526
+#: src/Core/Backend/Page.php:296 src/Process/Backend/Media.php:526
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Mano pageidavimai"
@@ -619,7 +617,7 @@ msgstr "Mano pageidavimai"
 msgid "New post"
 msgstr "Naujas įrašas"
 
-#: src/Core/Backend/Favorites.php:433 src/Process/Backend/Rest.php:78
+#: src/Core/Backend/Favorites.php:433 src/Process/Backend/Rest.php:77
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
@@ -628,7 +626,7 @@ msgstr[1] "%d pranešimai"
 msgstr[2] "%d pranešimai"
 msgstr[3] "%d pranešimai"
 
-#: src/Core/Backend/Favorites.php:448 src/Process/Backend/Rest.php:92
+#: src/Core/Backend/Favorites.php:448 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -654,13 +652,13 @@ msgstr "Kategorijos"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:441 src/Process/Backend/Media.php:480
-#: src/Process/Backend/MediaItem.php:432 src/Process/Backend/MediaItem.php:438
+#: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
 msgid "Media manager"
 msgstr "Media tvarkyklė"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:407 src/Process/Backend/BlogPref.php:415
-#: src/Process/Backend/BlogPref.php:428
+#: src/Process/Backend/BlogPref.php:422 src/Process/Backend/BlogPref.php:430
+#: src/Process/Backend/BlogPref.php:443
 msgid "Blog settings"
 msgstr "Blogo nustatymai"
 
@@ -672,7 +670,7 @@ msgstr "Blogo vaizdavimas"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:929 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:944 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -692,9 +690,9 @@ msgstr "Plugin'ų valdymas"
 msgid "Languages"
 msgstr "Kalbos"
 
-#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:336
-#: src/Core/Upgrade/Page.php:174 src/Process/Backend/Help.php:107
-#: src/Process/Backend/Help.php:114 src/Process/Backend/Help.php:120
+#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:335
+#: src/Process/Backend/Help.php:107 src/Process/Backend/Help.php:114
+#: src/Process/Backend/Help.php:120
 msgid "Global help"
 msgstr "Visuotinė pagalba"
 
@@ -705,22 +703,22 @@ msgstr "Visuotinė pagalba"
 msgid "Status:"
 msgstr "Statusas:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1004
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:968
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1002
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:983
 #: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:894
-#: src/Process/Backend/User.php:344 src/Process/Backend/UserPreferences.php:543
+#: src/Process/Backend/User.php:344 src/Process/Backend/UserPreferences.php:541
 #: src/Process/Install/Install.php:465
 msgid "Email:"
 msgstr "El. paštas:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1003
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1001
 #: src/Process/Backend/Comment.php:278 src/Process/Backend/Post.php:898
 msgid "Web site:"
 msgstr "Asmeninis tinklapis:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:995 src/Core/Backend/Page.php:1045
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1043
 #: src/Process/Backend/Comment.php:266
 msgid "Author:"
 msgstr "Autorius:"
@@ -739,7 +737,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1005 src/Process/Backend/Comment.php:256
+#: src/Core/Backend/Page.php:1003 src/Process/Backend/Comment.php:256
 msgid "IP address:"
 msgstr "IP adresas:"
 
@@ -827,7 +825,7 @@ msgstr "Uždaras"
 msgid "Trackbacks:"
 msgstr "Trackbacks:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1224
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1222
 msgid "Show filters and display options"
 msgstr "Rodyti filtrus ir rodymo parinktis"
 
@@ -840,17 +838,17 @@ msgid "Display options"
 msgstr "Rodymo parinktys"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:723
+#: src/Process/Backend/UserPreferences.php:717
 msgid "Order by:"
 msgstr "Rikiuoti pagal:"
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:728
+#: src/Process/Backend/UserPreferences.php:722
 msgid "Sort:"
 msgstr "Rūšiuoti:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:733
+#: src/Process/Backend/UserPreferences.php:727
 msgid "Show"
 msgstr "Rodyti"
 
@@ -863,7 +861,7 @@ msgid "Apply filters and display options"
 msgstr "Taikykite filtrus ir rodymo parinktis"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:84
-#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:347
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:346
 msgid "Search:"
 msgstr "Ieškoti:"
 
@@ -885,7 +883,7 @@ msgid "No blog"
 msgstr "Nėra blogo"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
-#: src/Core/Backend/ModulesList.php:1627 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:61
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
@@ -914,7 +912,7 @@ msgstr "Tinklaraščių sąrašas"
 #: src/Core/Backend/Listing/ListingComments.php:150
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingUsers.php:86
-#: src/Process/Backend/MediaItem.php:613
+#: src/Process/Backend/MediaItem.php:617
 msgid "Legend: "
 msgstr "Legenda: "
 
@@ -1130,7 +1128,7 @@ msgstr "Prisegti šį failą prie įrašo"
 msgid "Insert this file into entry"
 msgstr "Pridėti šį failą prie įrašo"
 
-#: src/Core/Backend/Listing/ListingMedia.php:203
+#: src/Core/Backend/Listing/ListingMedia.php:201
 msgid "delete"
 msgstr "trinti"
 
@@ -1293,7 +1291,7 @@ msgstr "Sistemos nustatymai"
 msgid "Plugins"
 msgstr "Plugin'ai"
 
-#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1243
+#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1239
 #: src/Core/Upgrade/PluginsList.php:136 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
@@ -1308,7 +1306,7 @@ msgstr "kiti"
 msgid "Search in repository:"
 msgstr "Paieška saugykloje:"
 
-#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:349
+#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:348
 #: src/Process/Backend/Categories.php:204
 msgid "OK"
 msgstr "GERAI"
@@ -1367,8 +1365,8 @@ msgstr "Versija"
 msgid "Current version"
 msgstr "Dabartinė versija"
 
-#: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:1000
-#: src/Core/Backend/Page.php:1046 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
+#: src/Core/Backend/Page.php:1044 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "Detalės"
@@ -1402,117 +1400,117 @@ msgstr "Šis modulis negali būti įjungtas dėl šių priežasčių :"
 msgid "Official repository"
 msgstr "Oficiali saugykla"
 
-#: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1036
+#: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
 #: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:411
 msgid "Third-party repository"
 msgstr "Trečiosios šalies saugykla"
 
-#: src/Core/Backend/ModulesList.php:960 src/Core/Backend/ModulesList.php:961
+#: src/Core/Backend/ModulesList.php:959
 msgid "Plugin from official distribution"
 msgstr "Įskiepis iš oficialaus platinimo"
 
-#: src/Core/Backend/ModulesList.php:964 src/Core/Backend/ModulesList.php:965
+#: src/Core/Backend/ModulesList.php:961
 msgid "Plugin in development"
 msgstr "Kuriant įskiepį"
 
-#: src/Core/Backend/ModulesList.php:1004 src/Core/Backend/Page.php:1047
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1045
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "Parama"
 
-#: src/Core/Backend/ModulesList.php:1008 src/Core/Backend/ThemesList.php:182
+#: src/Core/Backend/ModulesList.php:1004 src/Core/Backend/ThemesList.php:182
 msgid "update locked"
 msgstr "atnaujinimas užrakintas"
 
-#: src/Core/Backend/ModulesList.php:1041 src/Core/Backend/Page.php:1049
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1047
 msgid "Section:"
 msgstr "Skyrius:"
 
-#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1050
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1048
 msgid "Tags:"
 msgstr "Žymos:"
 
-#: src/Core/Backend/ModulesList.php:1064
+#: src/Core/Backend/ModulesList.php:1060
 msgid "No plugins matched your search."
 msgstr "Jūsų paieška neatitiko jokių įskiepių."
 
-#: src/Core/Backend/ModulesList.php:1114
+#: src/Core/Backend/ModulesList.php:1110
 msgid "Configure plugin"
 msgstr "Konfigūruoti įskiepį"
 
-#: src/Core/Backend/ModulesList.php:1126
+#: src/Core/Backend/ModulesList.php:1122
 msgid "Plugin settings (in blog parameters)"
 msgstr "Įskiepio nustatymai (tinklaraščio parametrai)"
 
-#: src/Core/Backend/ModulesList.php:1137
+#: src/Core/Backend/ModulesList.php:1133
 msgid "Plugin settings (in user preferences)"
 msgstr "Įskiepio nustatymai (naudotojo nustatymuose)"
 
-#: src/Core/Backend/ModulesList.php:1146 src/Core/Backend/ModulesList.php:1157
+#: src/Core/Backend/ModulesList.php:1142 src/Core/Backend/ModulesList.php:1153
 msgid "Plugin settings"
 msgstr "Įskiepio nustatymai"
 
-#: src/Core/Backend/ModulesList.php:1168
+#: src/Core/Backend/ModulesList.php:1164
 msgid "Plugin main page"
 msgstr "Pagrindinis įskiepio puslapis"
 
-#: src/Core/Backend/ModulesList.php:1202 src/Core/Upgrade/PluginsList.php:103
+#: src/Core/Backend/ModulesList.php:1198 src/Core/Upgrade/PluginsList.php:103
 msgid "Activate"
 msgstr "Įjungti"
 
-#: src/Core/Backend/ModulesList.php:1210 src/Core/Upgrade/PluginsList.php:111
+#: src/Core/Backend/ModulesList.php:1206 src/Core/Upgrade/PluginsList.php:111
 msgid "Deactivate"
 msgstr "Išjungti"
 
-#: src/Core/Backend/ModulesList.php:1227
+#: src/Core/Backend/ModulesList.php:1223
 msgid "Clone"
 msgstr "Klonas"
 
-#: src/Core/Backend/ModulesList.php:1235 src/Core/Upgrade/PluginsList.php:128
+#: src/Core/Backend/ModulesList.php:1231 src/Core/Upgrade/PluginsList.php:128
 msgid "Install"
 msgstr "Įdiekite"
 
-#: src/Core/Backend/ModulesList.php:1285 src/Core/Upgrade/PluginsList.php:166
+#: src/Core/Backend/ModulesList.php:1281 src/Core/Upgrade/PluginsList.php:166
 msgid "Activate selected plugins"
 msgstr "Įjungti pasirinktus įskiepius"
 
-#: src/Core/Backend/ModulesList.php:1286 src/Core/Upgrade/PluginsList.php:167
+#: src/Core/Backend/ModulesList.php:1282 src/Core/Upgrade/PluginsList.php:167
 msgid "Activate all plugins from this list"
 msgstr "Įjunkite visus šio sąrašo įskiepius"
 
-#: src/Core/Backend/ModulesList.php:1297 src/Core/Upgrade/PluginsList.php:178
+#: src/Core/Backend/ModulesList.php:1293 src/Core/Upgrade/PluginsList.php:178
 msgid "Deactivate selected plugins"
 msgstr "Deaktyvuoti pasirinktus įskiepius"
 
-#: src/Core/Backend/ModulesList.php:1298 src/Core/Upgrade/PluginsList.php:179
+#: src/Core/Backend/ModulesList.php:1294 src/Core/Upgrade/PluginsList.php:179
 msgid "Deactivate all plugins from this list"
 msgstr "Išjungti visus šio sąrašo įskiepius"
 
-#: src/Core/Backend/ModulesList.php:1309 src/Core/Upgrade/PluginsList.php:190
+#: src/Core/Backend/ModulesList.php:1305 src/Core/Upgrade/PluginsList.php:190
 msgid "Update selected plugins"
 msgstr "Atnaujinti pasirinktus įskiepius"
 
-#: src/Core/Backend/ModulesList.php:1310 src/Core/Upgrade/PluginsList.php:191
+#: src/Core/Backend/ModulesList.php:1306 src/Core/Upgrade/PluginsList.php:191
 msgid "Update all plugins from this list"
 msgstr "Atnaujinti visus šio sąrašo įskiepius"
 
-#: src/Core/Backend/ModulesList.php:1361 src/Core/Backend/ModulesList.php:1415
-#: src/Core/Backend/ModulesList.php:1446 src/Core/Backend/ModulesList.php:1484
-#: src/Core/Backend/ModulesList.php:1545 src/Core/Upgrade/PluginsList.php:230
+#: src/Core/Backend/ModulesList.php:1357 src/Core/Backend/ModulesList.php:1411
+#: src/Core/Backend/ModulesList.php:1442 src/Core/Backend/ModulesList.php:1480
+#: src/Core/Backend/ModulesList.php:1541 src/Core/Upgrade/PluginsList.php:230
 #: src/Core/Upgrade/PluginsList.php:272 src/Core/Upgrade/PluginsList.php:297
 #: src/Core/Upgrade/PluginsList.php:329 src/Core/Upgrade/PluginsList.php:383
 msgid "No such plugin."
 msgstr "Nėra tokio plugin'o"
 
-#: src/Core/Backend/ModulesList.php:1381 src/Core/Upgrade/PluginsList.php:244
+#: src/Core/Backend/ModulesList.php:1377 src/Core/Upgrade/PluginsList.php:244
 msgid "You don't have permissions to delete this plugin."
 msgstr "Neturite teisių ištrinti šį plugin'ą."
 
-#: src/Core/Backend/ModulesList.php:1383 src/Core/Upgrade/PluginsList.php:246
+#: src/Core/Backend/ModulesList.php:1379 src/Core/Upgrade/PluginsList.php:246
 msgid "Some plugins have not been delete."
 msgstr "Kai kurie įskiepiai nebuvo ištrinti."
 
-#: src/Core/Backend/ModulesList.php:1386 src/Core/Upgrade/PluginsList.php:249
+#: src/Core/Backend/ModulesList.php:1382 src/Core/Upgrade/PluginsList.php:249
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Įskiepis sėkmingai ištrintas."
@@ -1520,7 +1518,7 @@ msgstr[1] "Įskiepiai buvo sėkmingai ištrinti."
 msgstr[2] "Įskiepiai buvo sėkmingai ištrinti."
 msgstr[3] "Įskiepiai buvo sėkmingai ištrinti."
 
-#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:276
+#: src/Core/Backend/ModulesList.php:1415 src/Core/Upgrade/PluginsList.php:276
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Įskiepis sėkmingai įdiegtas."
@@ -1528,7 +1526,7 @@ msgstr[1] "Įskiepiai sėkmingai įdiegti."
 msgstr[2] "Įskiepiai sėkmingai įdiegti."
 msgstr[3] "Įskiepiai sėkmingai įdiegti."
 
-#: src/Core/Backend/ModulesList.php:1450 src/Core/Upgrade/PluginsList.php:301
+#: src/Core/Backend/ModulesList.php:1446 src/Core/Upgrade/PluginsList.php:301
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Įskiepis sėkmingai įjungtas."
@@ -1536,11 +1534,11 @@ msgstr[1] "Įskiepiai buvo sėkmingai aktyvuoti."
 msgstr[2] "Įskiepiai buvo sėkmingai aktyvuoti."
 msgstr[3] "Įskiepiai buvo sėkmingai aktyvuoti."
 
-#: src/Core/Backend/ModulesList.php:1488 src/Core/Upgrade/PluginsList.php:333
+#: src/Core/Backend/ModulesList.php:1484 src/Core/Upgrade/PluginsList.php:333
 msgid "Some plugins have not been deactivated."
 msgstr "Kai kurie įskiepiai nebuvo išjungti."
 
-#: src/Core/Backend/ModulesList.php:1491 src/Core/Upgrade/PluginsList.php:336
+#: src/Core/Backend/ModulesList.php:1487 src/Core/Upgrade/PluginsList.php:336
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Įskiepis sėkmingai išjungtas."
@@ -1548,7 +1546,7 @@ msgstr[1] "Įskiepiai buvo sėkmingai deaktyvuoti."
 msgstr[2] "Įskiepiai buvo sėkmingai deaktyvuoti."
 msgstr[3] "Įskiepiai buvo sėkmingai deaktyvuoti."
 
-#: src/Core/Backend/ModulesList.php:1538 src/Core/Upgrade/PluginsList.php:376
+#: src/Core/Backend/ModulesList.php:1534 src/Core/Upgrade/PluginsList.php:376
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Įskiepis sėkmingai atnaujintas."
@@ -1556,34 +1554,34 @@ msgstr[1] "Įskiepiai sėkmingai atnaujinti."
 msgstr[2] "Įskiepiai sėkmingai atnaujinti."
 msgstr[3] "Įskiepiai sėkmingai atnaujinti."
 
-#: src/Core/Backend/ModulesList.php:1542 src/Core/Upgrade/PluginsList.php:380
+#: src/Core/Backend/ModulesList.php:1538 src/Core/Upgrade/PluginsList.php:380
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Šie įskiepių atnaujinimai yra užrakinti: %s"
 
-#: src/Core/Backend/ModulesList.php:1562 src/Core/Backend/ThemesList.php:651
+#: src/Core/Backend/ModulesList.php:1558 src/Core/Backend/ThemesList.php:651
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
 msgstr "Nepavyksta perkelti atsiųsto failo."
 
-#: src/Core/Backend/ModulesList.php:1580 src/Core/Upgrade/PluginsList.php:412
+#: src/Core/Backend/ModulesList.php:1576 src/Core/Upgrade/PluginsList.php:412
 msgid "The plugin has been successfully updated."
 msgstr "Įskiepis sėkmingai atnaujintas."
 
-#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:413
+#: src/Core/Backend/ModulesList.php:1577 src/Core/Upgrade/PluginsList.php:413
 msgid "The plugin has been successfully installed."
 msgstr "Įskiepis sėkmingai įdiegtas."
 
-#: src/Core/Backend/ModulesList.php:1604 src/Process/Backend/Langs.php:331
+#: src/Core/Backend/ModulesList.php:1600 src/Process/Backend/Langs.php:331
 msgid "Upload a zip file"
 msgstr "Įkelti zip failą"
 
-#: src/Core/Backend/ModulesList.php:1605 src/Core/Backend/ModulesList.php:1607
-#: src/Core/Backend/ModulesList.php:1625 src/Core/Backend/ModulesList.php:1630
+#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
+#: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
 #: src/Process/Backend/Blog.php:122 src/Process/Backend/Blog.php:143
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:460
-#: src/Process/Backend/BlogPref.php:780 src/Process/Backend/BlogPref.php:785
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:475
+#: src/Process/Backend/BlogPref.php:795 src/Process/Backend/BlogPref.php:800
 #: src/Process/Backend/Category.php:233 src/Process/Backend/Comment.php:266
 #: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:435
 #: src/Process/Backend/Langs.php:312 src/Process/Backend/Langs.php:333
@@ -1599,11 +1597,11 @@ msgstr "Įkelti zip failą"
 msgid "Required field"
 msgstr "Būtinas laukelis"
 
-#: src/Core/Backend/ModulesList.php:1605
+#: src/Core/Backend/ModulesList.php:1601
 msgid "Zip file path:"
 msgstr "Zip failo kelias:"
 
-#: src/Core/Backend/ModulesList.php:1607 src/Core/Backend/ModulesList.php:1630
+#: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:312
 #: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:410
 #: src/Process/Backend/UsersActions.php:346 src/Process/Upgrade/Langs.php:375
@@ -1611,7 +1609,7 @@ msgstr "Zip failo kelias:"
 msgid "Your password:"
 msgstr "Jūsų slaptažodis:"
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/ModulesList.php:1636
+#: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
 #: src/Process/Backend/Langs.php:318 src/Process/Backend/Langs.php:341
 #: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:283
 #: src/Process/Backend/User.php:296 src/Process/Backend/User.php:416
@@ -1620,47 +1618,47 @@ msgstr "Jūsų slaptažodis:"
 msgid "Password"
 msgstr "Slaptažodis"
 
-#: src/Core/Backend/ModulesList.php:1617 src/Core/Backend/Page.php:1176
+#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1174
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "Įkelti"
 
-#: src/Core/Backend/ModulesList.php:1624
+#: src/Core/Backend/ModulesList.php:1620
 msgid "Download a zip file"
 msgstr "Atsisiųsti zip failą"
 
-#: src/Core/Backend/ModulesList.php:1625
+#: src/Core/Backend/ModulesList.php:1621
 msgid "Zip file URL:"
 msgstr "Zip failo URL:"
 
-#: src/Core/Backend/ModulesList.php:1640
+#: src/Core/Backend/ModulesList.php:1636
 msgid "Download"
 msgstr "Atsisiųsti"
 
-#: src/Core/Backend/ModulesList.php:1681
+#: src/Core/Backend/ModulesList.php:1677
 msgid "Unknown plugin ID"
 msgstr "Nežinomas įskiepio ID"
 
-#: src/Core/Backend/ModulesList.php:1692
+#: src/Core/Backend/ModulesList.php:1688
 msgid "This plugin has no configuration file."
 msgstr "Šis įskiepis neturi konfigūracijos failo."
 
-#: src/Core/Backend/ModulesList.php:1700 src/Process/Backend/Auth.php:273
+#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:273
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Nepakankami leidimai"
 
-#: src/Core/Backend/ModulesList.php:1774
+#: src/Core/Backend/ModulesList.php:1770
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Konfigūruoti \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1775
+#: src/Core/Backend/ModulesList.php:1771
 msgid "Back"
 msgstr "Atgal"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1006
-#: src/Core/Backend/Page.php:1171 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1004
+#: src/Core/Backend/Page.php:1169 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Klaida:"
@@ -1687,383 +1685,383 @@ msgstr "Keisti blogą"
 msgid "Blogs:"
 msgstr "Blogai:"
 
-#: src/Core/Backend/Page.php:282 src/Core/Upgrade/Page.php:131
+#: src/Core/Backend/Page.php:281 src/Core/Upgrade/Page.php:130
 msgid "Go to the content"
 msgstr "Eikite į turinį"
 
-#: src/Core/Backend/Page.php:283 src/Core/Upgrade/Page.php:132
+#: src/Core/Backend/Page.php:282 src/Core/Upgrade/Page.php:131
 msgid "Go to the menu"
 msgstr "Eikite į meniu"
 
-#: src/Core/Backend/Page.php:284 src/Core/Upgrade/Page.php:133
+#: src/Core/Backend/Page.php:283 src/Core/Upgrade/Page.php:132
 msgid "Go to help"
 msgstr "Eiti į pagalbą"
 
-#: src/Core/Backend/Page.php:287 src/Core/Upgrade/Page.php:136
-#: src/Process/Backend/UserPreferences.php:805
-#: src/Process/Backend/UserPreferences.php:806
+#: src/Core/Backend/Page.php:286 src/Core/Upgrade/Page.php:135
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:800
 msgid "My dashboard"
 msgstr "Mano prietaisų skydelis"
 
-#: src/Core/Backend/Page.php:292 src/Core/Backend/Page.php:293
+#: src/Core/Backend/Page.php:291 src/Core/Backend/Page.php:292
 msgid "Go to site"
 msgstr "Eiti į svetainę"
 
-#: src/Core/Backend/Page.php:298 src/Core/Upgrade/Page.php:144
+#: src/Core/Backend/Page.php:297 src/Core/Upgrade/Page.php:143
 #, php-format
 msgid "Logout %s"
 msgstr "Atsijungimas %s"
 
-#: src/Core/Backend/Page.php:306 src/Core/Upgrade/Page.php:152
+#: src/Core/Backend/Page.php:305 src/Core/Upgrade/Page.php:151
 msgid "Hide main menu"
 msgstr "Paslėpti pagrindinį meniu"
 
-#: src/Core/Backend/Page.php:307 src/Core/Upgrade/Page.php:153
+#: src/Core/Backend/Page.php:306 src/Core/Upgrade/Page.php:152
 msgid "Show main menu"
 msgstr "Rodyti pagrindinį meniu"
 
-#: src/Core/Backend/Page.php:318
+#: src/Core/Backend/Page.php:317
 msgid "Safe mode"
 msgstr "Saugusis režimas"
 
-#: src/Core/Backend/Page.php:319
+#: src/Core/Backend/Page.php:318
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Esate įjungę saugųjį režimą. Visi įskiepiai laikinai išjungti. Primename, kad norėdami susigrąžinti visas funkcijas, atsijunkite ir vėl įprastai prisijunkite."
 
-#: src/Core/Backend/Page.php:356 src/Core/Upgrade/Page.php:191
+#: src/Core/Backend/Page.php:355 src/Core/Upgrade/Page.php:182
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Ačiū, kad naudojatės %s."
 
-#: src/Core/Backend/Page.php:369 src/Core/Backend/Page.php:493
-#: src/Core/Upgrade/Page.php:198
+#: src/Core/Backend/Page.php:368 src/Core/Backend/Page.php:491
+#: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "Puslapio viršus"
 
-#: src/Core/Backend/Page.php:689 src/Core/Backend/Page.php:690
-#: src/Core/Upgrade/Page.php:242 src/Core/Upgrade/Page.php:243
+#: src/Core/Backend/Page.php:687 src/Core/Backend/Page.php:688
+#: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
 msgid "Go to dashboard"
 msgstr "Eikite į prietaisų skydelį"
 
-#: src/Core/Backend/Page.php:849 src/Core/Upgrade/Page.php:315
+#: src/Core/Backend/Page.php:847 src/Core/Upgrade/Page.php:306
 msgid "Help about this page"
 msgstr "Pagalba apie šį puslapį"
 
-#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:320
+#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:311
 #, php-format
 msgid "See also %s"
 msgstr "Taip pat žr. %s"
 
-#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:320
+#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:311
 msgid "the global help"
 msgstr "visuotinė pagalba"
 
-#: src/Core/Backend/Page.php:988
+#: src/Core/Backend/Page.php:986
 msgid "uncover"
 msgstr "rodyti"
 
-#: src/Core/Backend/Page.php:992
+#: src/Core/Backend/Page.php:990
 msgid "hide"
 msgstr "slėpti"
 
-#: src/Core/Backend/Page.php:996
+#: src/Core/Backend/Page.php:994
 msgid "Need help?"
 msgstr "Reikia pagalbos?"
 
-#: src/Core/Backend/Page.php:997
+#: src/Core/Backend/Page.php:995
 msgid "new window"
 msgstr "naujas langas"
 
-#: src/Core/Backend/Page.php:998
+#: src/Core/Backend/Page.php:996
 msgid "Hide"
 msgstr "Paslėpti"
 
-#: src/Core/Backend/Page.php:999
+#: src/Core/Backend/Page.php:997
 msgid "Select:"
 msgstr "Pasirinkite:"
 
-#: src/Core/Backend/Page.php:1000
+#: src/Core/Backend/Page.php:998
 msgid "No selection"
 msgstr "Nėra pasirinkimo"
 
-#: src/Core/Backend/Page.php:1001
+#: src/Core/Backend/Page.php:999
 msgid "Select all"
 msgstr "Pasirinkite visus"
 
-#: src/Core/Backend/Page.php:1002
+#: src/Core/Backend/Page.php:1000
 msgid "Invert selection"
 msgstr "atvirkščias pasirinkimas"
 
-#: src/Core/Backend/Page.php:1007 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1005 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:555
 msgid "Entry has been successfully created."
 msgstr "Įrašas sėkmingai sukurtas."
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1006
 msgid "Edit entry"
 msgstr "Redaguoti įrašą"
 
-#: src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Page.php:1007
 msgid "view entry"
 msgstr "žiūrėti įrašą"
 
-#: src/Core/Backend/Page.php:1010
+#: src/Core/Backend/Page.php:1008
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Ar tikrai norite ištrinti pasirinktus įrašus (%s)?"
 
-#: src/Core/Backend/Page.php:1011
+#: src/Core/Backend/Page.php:1009
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Ar tikrai norite ištrinti pasirinktas laikmenas (%d)?"
 
-#: src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1010
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Ar tikrai norite ištrinti pasirinktas kategorijas (%s)?"
 
-#: src/Core/Backend/Page.php:1013
+#: src/Core/Backend/Page.php:1011
 msgid "Are you sure you want to delete this entry?"
 msgstr "Ar tikrai norite ištrinti šį įrašą?"
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1012
 msgid "Click here to unlock the field"
 msgstr "Spustelėkite čia, jei norite atrakinti lauką"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1013
 msgid "Are you sure you want to delete all spams?"
 msgstr "Ar tikrai norite ištrinti visus šlamštlaiškius?"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1014
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Ar tikrai norite ištrinti pasirinktus komentarus (%s)?"
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1015
 msgid "Are you sure you want to delete this comment?"
 msgstr "Ar tikrai norite ištrinti šį komentarą?"
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1016
 msgid "Users with posts cannot be deleted."
 msgstr "Dalyviai turintys įrašų negali būti ištrinti."
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1017
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Ar tikrai norite ištrinti pasirinktus dalyvius (%s)?"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1018
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Ar tikrai norite ištrinti pasirinktus tinklaraščius (%s)?"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1019
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Ar tikrai norite ištrinti kategoriją \"%s\"?"
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1020
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Ar tikrai norite pertvarkyti visas kategorijas?"
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1021
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Ar tikrai norite pašalinti media \"%s\"?"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1022
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Ar tikrai norite pašalinti katalogą \"%s\"?"
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1023
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Ar tikrai norite išarchyvuoti šioje direktorijoje?"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1024
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Ar tikrai norite pašalinti prisegimą \"%s\"?"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1025
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Ar tikrai norite ištrinti \"%s\" kalbą?"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Ar tikrai norite ištrinti \"%s\" plugin'ą?"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1027
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Ar tikrai norite ištrinti pasirinktus įskiepius?"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1028
 msgid "Use this theme"
 msgstr "Naudoti šią temą"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1029
 msgid "Remove this theme"
 msgstr "Pašalinti šią temą"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1030
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Ar tikrai norite ištrinti \"%s\" temą?"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1031
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Ar tikrai norite ištrinti pasirinktas temas?"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1032
 msgid "Are you sure you want to delete this backup?"
 msgstr "Ar tikrai norite ištrinti šią atsarginę kopiją?"
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1033
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Ar tikrai norite grįžti prie šios atsarginės kopijos?"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1034
 msgid "Zip file content"
 msgstr "Zip failo turinys"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1035
 msgid "HTML markup validator"
 msgstr "HTML žymėjimo tikrintuvas"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1036
 msgid "HTML content is valid."
 msgstr "HTML turinys tinkamas."
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1037
 msgid "There are HTML markup errors."
 msgstr "Yra HTML markup klaidų."
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1038
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Dėmesio: dar neužregistruoto turinio auditas."
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1039
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Yra neišsaugotų pakeitimų. Įrašo formato keitimas panaikins visus atnaujinimus. Tęsti?"
 
-#: src/Core/Backend/Page.php:1042
+#: src/Core/Backend/Page.php:1040
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Įspėjimas: pakeitus pranešimo formatą, esamas turinys nebus konvertuojamas. Naująjį formatą turėsite taikyti patys. Vis tiek tęsti?"
 
-#: src/Core/Backend/Page.php:1043
+#: src/Core/Backend/Page.php:1041
 msgid "Loading enhanced uploader, please wait."
 msgstr "Įkeliamas patobulintas įkėlėjas, palaukite."
 
-#: src/Core/Backend/Page.php:1048
+#: src/Core/Backend/Page.php:1046
 msgid "Help:"
 msgstr "Pagalba:"
 
-#: src/Core/Backend/Page.php:1052
+#: src/Core/Backend/Page.php:1050
 msgid "Hide this notice"
 msgstr "Paslėpti šį pranešimą"
 
-#: src/Core/Backend/Page.php:1054
+#: src/Core/Backend/Page.php:1052
 msgid "Show password"
 msgstr "Rodyti slaptažodį"
 
-#: src/Core/Backend/Page.php:1055
+#: src/Core/Backend/Page.php:1053
 msgid "Hide password"
 msgstr "Paslėpti slaptažodį"
 
-#: src/Core/Backend/Page.php:1057
+#: src/Core/Backend/Page.php:1055
 msgid "Reset to now"
 msgstr "Iš naujo nustatyti į dabar"
 
-#: src/Core/Backend/Page.php:1059
+#: src/Core/Backend/Page.php:1057
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Šiame \"Dotclear\" prietaisų skydelyje aptiktas skelbimų blokatorius (Ghostery, Adblock plus, uBlock origin, …), kuris gali trukdyti naudotis kai kuriomis funkcijomis. Tokiu atveju turėtumėte jį išjungti. Atkreipkite dėmesį, kad šis aptikimas gali būti išjungtas jūsų nustatymuose."
 
-#: src/Core/Backend/Page.php:1114
+#: src/Core/Backend/Page.php:1112
 msgid "You have unsaved changes."
 msgstr "Yra neišsaugotų pakeitimų. "
 
-#: src/Core/Backend/Page.php:1115
+#: src/Core/Backend/Page.php:1113
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "akumuliatoriaus įkrovos lygis atrodo žemas (%d%) ir turite neišsaugotų pakeitimų, turėtumėte juos išsaugoti."
 
-#: src/Core/Backend/Page.php:1162
+#: src/Core/Backend/Page.php:1160
 msgid "Temporarily activate enhanced uploader"
 msgstr "Įjungti enhanced Uploader"
 
-#: src/Core/Backend/Page.php:1163
+#: src/Core/Backend/Page.php:1161
 msgid "Temporarily disable enhanced uploader"
 msgstr "Išjungti enhanced uploader"
 
-#: src/Core/Backend/Page.php:1167
+#: src/Core/Backend/Page.php:1165
 msgid "Limit exceeded."
 msgstr "Limitas viršytas."
 
-#: src/Core/Backend/Page.php:1168
+#: src/Core/Backend/Page.php:1166
 msgid "File size exceeds allowed limit."
 msgstr "Failo dydis viršija leistiną ribą."
 
-#: src/Core/Backend/Page.php:1169
+#: src/Core/Backend/Page.php:1167
 msgid "Canceled."
 msgstr "Atšaukta."
 
-#: src/Core/Backend/Page.php:1170
+#: src/Core/Backend/Page.php:1168
 msgid "HTTP Error:"
 msgstr "HTTP klaida:"
 
-#: src/Core/Backend/Page.php:1172 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Page.php:1170 src/Process/Backend/Media.php:513
 msgid "Choose file"
 msgstr "Pasirinkti failą"
 
-#: src/Core/Backend/Page.php:1173 src/Process/Backend/Media.php:514
+#: src/Core/Backend/Page.php:1171 src/Process/Backend/Media.php:514
 msgid "Choose files"
 msgstr "Pasirinkti failus"
 
-#: src/Core/Backend/Page.php:1174 src/Process/Backend/Blog.php:189
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:900
+#: src/Core/Backend/Page.php:1172 src/Process/Backend/Blog.php:189
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:915
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Comment.php:308
 #: src/Process/Backend/LinkPopup.php:72 src/Process/Backend/Media.php:230
-#: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:529
-#: src/Process/Backend/MediaItem.php:729 src/Process/Backend/MediaItem.php:1090
+#: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:527
+#: src/Process/Backend/MediaItem.php:733 src/Process/Backend/MediaItem.php:1097
 #: src/Process/Backend/Post.php:795 src/Process/Backend/Post.php:798
 #: src/Process/Backend/PostMedia.php:110 src/Process/Backend/Search.php:130
-#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:799
-#: src/Process/Backend/UserPreferences.php:979
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:614
+#: src/Process/Backend/UserPreferences.php:793
+#: src/Process/Backend/UserPreferences.php:973
 msgid "Cancel"
 msgstr "Atšaukti"
 
-#: src/Core/Backend/Page.php:1175
+#: src/Core/Backend/Page.php:1173
 msgid "Clean"
 msgstr "Išvalyti"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/MediaItem.php:1061
+#: src/Core/Backend/Page.php:1175 src/Process/Backend/MediaItem.php:1068
 msgid "Send"
 msgstr "Siųsti"
 
-#: src/Core/Backend/Page.php:1178
+#: src/Core/Backend/Page.php:1176
 msgid "File successfully uploaded."
 msgstr "Failas sėkmingai įkeltas"
 
-#: src/Core/Backend/Page.php:1179
+#: src/Core/Backend/Page.php:1177
 msgid "No file in queue."
 msgstr "Eilėje failo nėra."
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1178
 msgid "1 file in queue."
 msgstr "Eilėje 1 failas."
 
-#: src/Core/Backend/Page.php:1181
+#: src/Core/Backend/Page.php:1179
 #, php-format
 msgid "%d files in queue."
 msgstr "%d failai eilėje."
 
-#: src/Core/Backend/Page.php:1182
+#: src/Core/Backend/Page.php:1180
 msgid "Queue error:"
 msgstr "Eilės klaida:"
 
-#: src/Core/Backend/Page.php:1225
+#: src/Core/Backend/Page.php:1223
 msgid "Cancel filters and display options"
 msgstr "Atšaukti filtrus ir rodymo parinktis"
 
@@ -2290,120 +2288,120 @@ msgstr "rezultatai viename puslapyje"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Jūsų duomenų bazėje nėra Session table . Ar Dotclear yra pilkai instaliuotas?"
 
-#: src/Core/Blog.php:793
+#: src/Core/Blog.php:792
 msgid "You are not allowed to add categories"
 msgstr "Jums nėra leidžiama pridėti kategorijas"
 
-#: src/Core/Blog.php:841
+#: src/Core/Blog.php:840
 msgid "You are not allowed to update categories"
 msgstr "Jums nėra leidžiama atnaujinti kategorijų"
 
-#: src/Core/Blog.php:898
+#: src/Core/Blog.php:897
 msgid "You are not allowed to delete categories"
 msgstr "Jums nėra leidžiama trinti kategorijų"
 
-#: src/Core/Blog.php:911
+#: src/Core/Blog.php:910
 msgid "This category is not empty."
 msgstr "Ši kategorija nėra tuščia"
 
-#: src/Core/Blog.php:924
+#: src/Core/Blog.php:923
 msgid "You are not allowed to reset categories order"
 msgstr "Negalima iš naujo nustatyti kategorijų eiliškumo"
 
-#: src/Core/Blog.php:995
+#: src/Core/Blog.php:994
 msgid "Empty category URL"
 msgstr "Tuščias kategorijos URL adresas"
 
-#: src/Core/Blog.php:1012
+#: src/Core/Blog.php:1011
 msgid "You must provide a category title"
 msgstr "Turite nurodyti kategorijos pavadinimą"
 
-#: src/Core/Blog.php:1022
+#: src/Core/Blog.php:1021
 msgid "You must provide a category URL"
 msgstr "Turite nurodyti kategorijos URL"
 
-#: src/Core/Blog.php:1517
+#: src/Core/Blog.php:1516
 msgid "You are not allowed to create an entry"
 msgstr "Jums neleidžiama kurti įrašų"
 
-#: src/Core/Blog.php:1577
+#: src/Core/Blog.php:1576
 msgid "You are not allowed to update entries"
 msgstr "Jums neleidžiama kurti atnaujinti įrašų"
 
-#: src/Core/Blog.php:1583 src/Core/Blog.php:1839
+#: src/Core/Blog.php:1582 src/Core/Blog.php:1838
 msgid "No such entry ID"
 msgstr "Tokio įrašo ID nėra"
 
-#: src/Core/Blog.php:1617
+#: src/Core/Blog.php:1616
 msgid "You are not allowed to edit this entry"
 msgstr "Jums neleidžiama redaguoti šio įrašo"
 
-#: src/Core/Blog.php:1645 src/Core/Blog.php:1680 src/Core/Meta.php:143
+#: src/Core/Blog.php:1644 src/Core/Blog.php:1679 src/Core/Meta.php:143
 #: src/Core/Meta.php:160
 msgid "You are not allowed to change this entry status"
 msgstr "Jums neleidžiama keisti šio įrašo statuso"
 
-#: src/Core/Blog.php:1726 src/Core/Blog.php:1764
+#: src/Core/Blog.php:1725 src/Core/Blog.php:1763
 msgid "You are not allowed to change this entry category"
 msgstr "Jums neleidžiama keisti šio įrašo kategorijos"
 
-#: src/Core/Blog.php:1797
+#: src/Core/Blog.php:1796
 msgid "You are not allowed to change entries category"
 msgstr "Negalima keisti įrašų kategorijos"
 
-#: src/Core/Blog.php:1833
+#: src/Core/Blog.php:1832
 msgid "You are not allowed to delete entries"
 msgstr "Jums neleidžiama trinti įrašų"
 
-#: src/Core/Blog.php:2079
+#: src/Core/Blog.php:2078
 msgid "No entry title"
 msgstr "Nėra įrašo pavadinimo"
 
-#: src/Core/Blog.php:2083 src/Core/Blog.php:2099
+#: src/Core/Blog.php:2082 src/Core/Blog.php:2098
 msgid "No entry content"
 msgstr "Nėra įrašo turinio"
 
-#: src/Core/Blog.php:2165
+#: src/Core/Blog.php:2164
 msgid "Notes"
 msgstr "Pastabos"
 
-#: src/Core/Blog.php:2167
+#: src/Core/Blog.php:2166
 msgid "Note"
 msgstr "Pastaba"
 
-#: src/Core/Blog.php:2266
+#: src/Core/Blog.php:2265
 msgid "Empty entry URL"
 msgstr "Tuščias įrašo URL"
 
-#: src/Core/Blog.php:2527
+#: src/Core/Blog.php:2526
 msgid "You are not allowed to update comments"
 msgstr "Jums neleidžiama atnaujinti komentarų"
 
-#: src/Core/Blog.php:2533 src/Core/Blog.php:2539 src/Core/Blog.php:2635
+#: src/Core/Blog.php:2532 src/Core/Blog.php:2538 src/Core/Blog.php:2634
 msgid "No such comment ID"
 msgstr "Tokio komentaro ID nėra"
 
-#: src/Core/Blog.php:2547
+#: src/Core/Blog.php:2546
 msgid "You are not allowed to update this comment"
 msgstr "Jums neleidžiama atnaujinti šio komentaro"
 
-#: src/Core/Blog.php:2588
+#: src/Core/Blog.php:2587
 msgid "You are not allowed to change this comment's status"
 msgstr "Jums neleidžiama keisti šio komentaro statuso"
 
-#: src/Core/Blog.php:2629 src/Core/Blog.php:2682
+#: src/Core/Blog.php:2628 src/Core/Blog.php:2681
 msgid "You are not allowed to delete comments"
 msgstr "Jums neleidžiama trinti komentarų"
 
-#: src/Core/Blog.php:2717
+#: src/Core/Blog.php:2716
 msgid "You must provide a comment"
 msgstr "Turite pateikti komentarą"
 
-#: src/Core/Blog.php:2721
+#: src/Core/Blog.php:2720
 msgid "You must provide an author name"
 msgstr "Turite pateikti autoriaus vardą"
 
-#: src/Core/Blog.php:2725
+#: src/Core/Blog.php:2724
 msgid "Email address is not valid."
 msgstr "El. pašto adresas negalioja"
 
@@ -2656,51 +2654,51 @@ msgstr "Nepateiktas galiojantis tikslinis URL? Bandykite dar kartą!"
 msgid "LOL!"
 msgstr "LOL!"
 
-#: src/Core/Upgrade/Page.php:140
+#: src/Core/Upgrade/Page.php:139
 msgid "Dotclear's update dashboard"
 msgstr "\"Dotclear\" atnaujinimo prietaisų skydelis"
 
-#: src/Core/Upgrade/Page.php:143
+#: src/Core/Upgrade/Page.php:142
 msgid "Go to normal dashboard"
 msgstr "Pereikite į įprastą prietaisų skydelį"
 
-#: src/Core/Upgrade/Update.php:336
+#: src/Core/Upgrade/Update.php:343
 msgid "Digests file not found."
 msgstr "Digests failas nerastas."
 
-#: src/Core/Upgrade/Update.php:373
+#: src/Core/Upgrade/Update.php:380
 msgid "No file to download"
 msgstr "Nėra failo atsisiuntimui"
 
-#: src/Core/Upgrade/Update.php:377 src/Core/Upgrade/Update.php:460
+#: src/Core/Upgrade/Update.php:384 src/Core/Upgrade/Update.php:467
 msgid "Root directory is not writable."
 msgstr "Root direktorijai nesuteiktos rašymo teisės."
 
-#: src/Core/Upgrade/Update.php:415
+#: src/Core/Upgrade/Update.php:422
 msgid "An error occurred while downloading archive."
 msgstr "Atisiunčiant archyvą įvykl klaida."
 
-#: src/Core/Upgrade/Update.php:449 src/Core/Upgrade/Update.php:538
+#: src/Core/Upgrade/Update.php:456 src/Core/Upgrade/Update.php:545
 msgid "Archive not found."
 msgstr "Archyvas nerastas."
 
-#: src/Core/Upgrade/Update.php:455 src/Core/Upgrade/Update.php:544
+#: src/Core/Upgrade/Update.php:462 src/Core/Upgrade/Update.php:551
 msgid "Unable to read current digests file."
 msgstr "Nepavyksta perskaityti dabartinio digests failo."
 
-#: src/Core/Upgrade/Update.php:478 src/Core/Upgrade/Update.php:552
+#: src/Core/Upgrade/Update.php:485 src/Core/Upgrade/Update.php:559
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "Atsiųstas archyvas yra netinkamo formato."
 
-#: src/Core/Upgrade/Update.php:578
+#: src/Core/Upgrade/Update.php:585
 msgid "Incomplete archive."
 msgstr "Nepilnas archyvas."
 
-#: src/Core/Upgrade/Update.php:682 src/Process/Upgrade/Digests.php:300
+#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:300
 msgid "Unable to read digests file."
 msgstr "Nepavyksta perskaityti digests failo."
 
-#: src/Core/Upgrade/Update.php:708 src/Process/Upgrade/Digests.php:340
+#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:340
 msgid "Invalid digests file."
 msgstr "Negaliojantis digests failas."
 
@@ -2721,11 +2719,11 @@ msgstr "Palėpė"
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Šiame puslapyje galite atnaujinti \"dotclear\" į versiją tarp jūsų ir naujausios."
 
-#: src/Core/Upgrade/Utility.php:282 src/Process/Upgrade/Backup.php:183
+#: src/Core/Upgrade/Utility.php:282 src/Process/Upgrade/Backup.php:207
 msgid "Backups"
 msgstr "Atsarginės kopijos"
 
-#: src/Core/Upgrade/Utility.php:288 src/Process/Upgrade/Backup.php:197
+#: src/Core/Upgrade/Utility.php:288 src/Process/Upgrade/Backup.php:221
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "Šiame puslapyje galite sugrąžinti ankstesnį diegimą arba ištrinti šiuos failus."
 
@@ -2738,11 +2736,11 @@ msgstr "Čia jūs galite instaliuoti, atnaujinti arba pašalinti kalbas iš Dotc
 msgid "On this page you will manage plugins."
 msgstr "Šiame puslapyje valdysite įskiepius."
 
-#: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:64
+#: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:69
 msgid "Cache"
 msgstr "Talpykla"
 
-#: src/Core/Upgrade/Utility.php:315 src/Process/Upgrade/Cache.php:80
+#: src/Core/Upgrade/Utility.php:315 src/Process/Upgrade/Cache.php:85
 msgid "On this page, you can clear templates and repositories cache."
 msgstr "Šiame puslapyje galite išvalyti šablonų ir saugyklų talpyklą."
 
@@ -2992,25 +2990,25 @@ msgstr "Direktorija nėra užrakinta."
 msgid "Directory cannot be removed."
 msgstr "Direktorija negali būti pašakinta"
 
-#: src/Helper/File/Zip/Unzip.php:159
+#: src/Helper/File/Zip/Unzip.php:154
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Failas %s nėra suarchyvuotas zip formatu."
 
-#: src/Helper/File/Zip/Unzip.php:167
+#: src/Helper/File/Zip/Unzip.php:162
 #, php-format
 msgid "Trying to unzip a folder name %s"
 msgstr " Bandoma išarchyvuoti bylą pavadinimu %s"
 
-#: src/Helper/File/Zip/Unzip.php:357
+#: src/Helper/File/Zip/Unzip.php:352
 msgid "Unable to write destination file."
 msgstr "Nepavyksta įrašyti į paskirtą failą."
 
-#: src/Helper/File/Zip/Unzip.php:377
+#: src/Helper/File/Zip/Unzip.php:372
 msgid "Unable to write in target directory, permission denied."
 msgstr "Nepavyksta įrašyti į adresuotą direktoriją, priėjimas draudžiamas."
 
-#: src/Helper/File/Zip/Unzip.php:759 src/Helper/File/Zip/Zip.php:470
+#: src/Helper/File/Zip/Unzip.php:754 src/Helper/File/Zip/Zip.php:470
 msgid "Not enough memory to open file."
 msgstr "Nepakanka atminties atidaryti failui."
 
@@ -3064,67 +3062,67 @@ msgstr "Reikalinga %s versija %s, tačiau %s versija yra įdiegta."
 msgid "Requires %s module which is disabled"
 msgstr "Reikalingas %s modulis, kuris yra išjungtas"
 
-#: src/Module/Modules.php:635
+#: src/Module/Modules.php:637
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr "Modulis \"%s\" turi tipą \"%s\", kuris neatitinka reikalaujamo modulio tipo \"%s\"."
 
-#: src/Module/Modules.php:663
+#: src/Module/Modules.php:665
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
 msgstr "Modulis \"%s\" įdiegtas du kartus \"%s\" ir \"%s\"."
 
-#: src/Module/Modules.php:740
+#: src/Module/Modules.php:742
 msgid "Empty module zip file."
 msgstr "Tuščias modulio zip failas"
 
-#: src/Module/Modules.php:747
+#: src/Module/Modules.php:749
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Tai nėra tinkamas Dotclear modulio zip failas."
 
-#: src/Module/Modules.php:781 src/Module/Modules.php:817
+#: src/Module/Modules.php:783 src/Module/Modules.php:819
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Modulis neįdiegtas: %s"
 
-#: src/Module/Modules.php:832
+#: src/Module/Modules.php:834
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Nepavyksta atnaujinti \"%s\". (atnaujinimas užrakintas)"
 
-#: src/Module/Modules.php:836
+#: src/Module/Modules.php:838
 msgid "An error occurred during module deletion."
 msgstr "Modulio trynimo metu įvykl klaida."
 
-#: src/Module/Modules.php:844
+#: src/Module/Modules.php:846
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Nepavyko atnaujinti \"%s\". (ta pati versija)"
 
-#: src/Module/Modules.php:850
+#: src/Module/Modules.php:852
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Nepavyksta perskaityti naujo %s failo"
 
-#: src/Module/Modules.php:860 src/Module/Modules.php:980
-#: src/Module/Modules.php:984
+#: src/Module/Modules.php:862 src/Module/Modules.php:982
+#: src/Module/Modules.php:986
 msgid "Cannot deactivate plugin."
 msgstr "Negalima išjungti plugin'o"
 
-#: src/Module/Modules.php:956 src/Module/Modules.php:976
-#: src/Module/Modules.php:1000
+#: src/Module/Modules.php:958 src/Module/Modules.php:978
+#: src/Module/Modules.php:1002
 msgid "No such module."
 msgstr "Nėra tokio modulio."
 
-#: src/Module/Modules.php:960
+#: src/Module/Modules.php:962
 msgid "Cannot remove module files"
 msgstr "Negalima pašalinti modulio failų"
 
-#: src/Module/Modules.php:1004 src/Module/Modules.php:1008
+#: src/Module/Modules.php:1006 src/Module/Modules.php:1010
 msgid "Cannot activate plugin."
 msgstr "Negalima įjungti plugin'o"
 
-#: src/Module/Store.php:373 src/Module/Store.php:376
+#: src/Module/Store.php:360 src/Module/Store.php:363
 msgid "An error occurred while downloading the file."
 msgstr "Atsisiunčiant failą įvyko klaida"
 
@@ -3194,7 +3192,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Naujas slaptažodis yra jūsų elektroniniame pašte."
 
 #: src/Process/Backend/Auth.php:184 src/Process/Backend/User.php:126
-#: src/Process/Backend/UserPreferences.php:204
+#: src/Process/Backend/UserPreferences.php:203
 #: src/Process/Install/Install.php:191
 msgid "Passwords don't match"
 msgstr "Slaptažodžiai nesutampa"
@@ -3226,9 +3224,9 @@ msgstr "Klaidingas prisijungimo vardas ir slaptažodis"
 #: src/Process/Backend/Auth.php:328 src/Process/Backend/Auth.php:329
 #: src/Process/Backend/Auth.php:330 src/Process/Backend/User.php:224
 #: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/UserPreferences.php:495
 #: src/Process/Backend/UserPreferences.php:496
-#: src/Process/Backend/UserPreferences.php:497
-#: src/Process/Backend/UserPreferences.php:498
 #: src/Process/Install/Install.php:416 src/Process/Install/Install.php:417
 #: src/Process/Install/Install.php:418
 #, php-format
@@ -3236,13 +3234,13 @@ msgid "Password strength: %s"
 msgstr "Slaptažodžio stiprumas: %s"
 
 #: src/Process/Backend/Auth.php:328 src/Process/Backend/User.php:224
-#: src/Process/Backend/UserPreferences.php:496
+#: src/Process/Backend/UserPreferences.php:494
 #: src/Process/Install/Install.php:416
 msgid "weak"
 msgstr "silpnas"
 
 #: src/Process/Backend/Auth.php:330 src/Process/Backend/User.php:226
-#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:496
 #: src/Process/Install/Install.php:418
 msgid "strong"
 msgstr "stiprus"
@@ -3268,7 +3266,7 @@ msgid "Change your password"
 msgstr "Slaptawodžio keitimas"
 
 #: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:276
-#: src/Process/Backend/UserPreferences.php:581
+#: src/Process/Backend/UserPreferences.php:579
 #: src/Process/Install/Install.php:483
 msgid "New password:"
 msgstr "Naujas slaptažodis:"
@@ -3332,7 +3330,7 @@ msgid "New blog"
 msgstr "Naujas blogas"
 
 #: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
-#: src/Process/Backend/BlogPref.php:413 src/Process/Backend/Blogs.php:100
+#: src/Process/Backend/BlogPref.php:428 src/Process/Backend/Blogs.php:100
 #: src/Process/Backend/Langs.php:215 src/Process/Backend/Plugin.php:134
 #: src/Process/Backend/Plugins.php:105 src/Process/Backend/Update.php:36
 #: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
@@ -3342,28 +3340,28 @@ msgstr "Naujas blogas"
 msgid "System"
 msgstr "Sistema"
 
-#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:780
+#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:795
 msgid "Blog ID:"
 msgstr "Blogo ID:"
 
-#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:782
+#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:797
 #: src/Process/Backend/User.php:263
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Naudokite raidžių, skaičių ir simbolių kombinaciją iš mažiausiai 2 ženklų."
 
-#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:460
+#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:475
 msgid "Blog name:"
 msgstr "Blogo pavadinimas:"
 
-#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:790
+#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:805
 msgid "Blog URL"
 msgstr "Tinklaraščio URL"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:785
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:800
 msgid "Blog URL:"
 msgstr "Blogo URL:"
 
-#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:470
+#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:485
 msgid "Blog description:"
 msgstr "Blogo aprašymas:"
 
@@ -3397,7 +3395,7 @@ msgstr "Jūs ketinate ištrinti %s blogą. Visi įrašai, komentarai ir kategori
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Įveskite savo slaptažodį, kad patvirtintumėte blogo ištrynimą."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:908
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:923
 msgid "Delete this blog"
 msgstr "Trinti šį blogą."
 
@@ -3445,469 +3443,477 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:969
-#: src/Process/Backend/Category.php:245 src/Process/Backend/MediaItem.php:611
-#: src/Process/Backend/MediaItem.php:613
+#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:984
+#: src/Process/Backend/Category.php:245 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:617
 msgid "(none)"
 msgstr "(nėra)"
 
+#: src/Process/Backend/BlogPref.php:149
+msgid "Description"
+msgstr "Aprašymas"
+
 #: src/Process/Backend/BlogPref.php:150
-msgid "Title, Date"
-msgstr "Antraštė, Data"
+msgid "Description, Date"
+msgstr ""
 
 #: src/Process/Backend/BlogPref.php:151
-msgid "Title, Country, Date"
-msgstr "Antraštė, Šalis, Data"
+msgid "Description, Country, Date"
+msgstr ""
 
 #: src/Process/Backend/BlogPref.php:152
-msgid "Title, City, Country, Date"
-msgstr "Antraštė, Miestas, Šalis, Data"
+msgid "Description, City, Country, Date"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:164 src/Process/Backend/MediaItem.php:516
-#: src/Process/Backend/MediaItem.php:584 src/Process/Backend/MediaItem.php:820
+#: src/Process/Backend/BlogPref.php:179 src/Process/Backend/MediaItem.php:514
+#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:824
 msgid "original"
 msgstr "originalas"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/BlogPref.php:185
-#: src/Process/Backend/MediaItem.php:608 src/Process/Backend/MediaItem.php:620
-#: src/Process/Backend/MediaItem.php:655 src/Process/Backend/MediaItem.php:697
+#: src/Process/Backend/BlogPref.php:190 src/Process/Backend/BlogPref.php:200
+#: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
+#: src/Process/Backend/MediaItem.php:659 src/Process/Backend/MediaItem.php:701
 msgid "None"
 msgstr "Jokio"
 
-#: src/Process/Backend/BlogPref.php:176 src/Process/Backend/MediaItem.php:621
-#: src/Process/Backend/MediaItem.php:656 src/Process/Backend/MediaItem.php:698
+#: src/Process/Backend/BlogPref.php:191 src/Process/Backend/MediaItem.php:625
+#: src/Process/Backend/MediaItem.php:660 src/Process/Backend/MediaItem.php:702
 msgid "Left"
 msgstr "Kairė"
 
-#: src/Process/Backend/BlogPref.php:177 src/Process/Backend/MediaItem.php:622
-#: src/Process/Backend/MediaItem.php:657 src/Process/Backend/MediaItem.php:699
+#: src/Process/Backend/BlogPref.php:192 src/Process/Backend/MediaItem.php:626
+#: src/Process/Backend/MediaItem.php:661 src/Process/Backend/MediaItem.php:703
 msgid "Right"
 msgstr "Dešinė"
 
-#: src/Process/Backend/BlogPref.php:178 src/Process/Backend/MediaItem.php:623
-#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:700
+#: src/Process/Backend/BlogPref.php:193 src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:704
 msgid "Center"
 msgstr "Centras"
 
-#: src/Process/Backend/BlogPref.php:183 src/Process/Backend/MediaItem.php:596
-msgid "Legend and title"
-msgstr "Legenda ir pavadinimas"
+#: src/Process/Backend/BlogPref.php:198 src/Process/Backend/MediaItem.php:600
+msgid "Legend and alternate text"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:190
+#: src/Process/Backend/BlogPref.php:199 src/Process/Backend/MediaItem.php:606
+msgid "Alternate text"
+msgstr ""
+
+#: src/Process/Backend/BlogPref.php:205
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Noriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir archyvuotų mano blogo turinį."
 
-#: src/Process/Backend/BlogPref.php:191
+#: src/Process/Backend/BlogPref.php:206
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "Noriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir bet ne archyvuotų mano blogo turinio."
 
-#: src/Process/Backend/BlogPref.php:192
+#: src/Process/Backend/BlogPref.php:207
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Nenoriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir archyvuotų mano blogo turinio."
 
-#: src/Process/Backend/BlogPref.php:197
-#: src/Process/Backend/UserPreferences.php:127
+#: src/Process/Backend/BlogPref.php:212
+#: src/Process/Backend/UserPreferences.php:126
 msgid "Default"
 msgstr "Numatytoji"
 
-#: src/Process/Backend/BlogPref.php:209
+#: src/Process/Backend/BlogPref.php:224
 msgid "Never"
 msgstr "Niekada"
 
-#: src/Process/Backend/BlogPref.php:210
+#: src/Process/Backend/BlogPref.php:225
 msgid "Three months"
 msgstr "Trys mėnesiai"
 
-#: src/Process/Backend/BlogPref.php:211
+#: src/Process/Backend/BlogPref.php:226
 msgid "Six months"
 msgstr "Šeši mėnesiai"
 
-#: src/Process/Backend/BlogPref.php:212
+#: src/Process/Backend/BlogPref.php:227
 msgid "One year"
 msgstr "Vieneri metai"
 
-#: src/Process/Backend/BlogPref.php:213
+#: src/Process/Backend/BlogPref.php:228
 msgid "Two years"
 msgstr "Dveji metai"
 
-#: src/Process/Backend/BlogPref.php:294
+#: src/Process/Backend/BlogPref.php:309
 msgid "This blog ID is already used."
 msgstr "Šito blogo ID jau yra naudojamas."
 
-#: src/Process/Backend/BlogPref.php:302
+#: src/Process/Backend/BlogPref.php:317
 msgid "Invalid language code"
 msgstr "Netinkamas kalbos kodas"
 
-#: src/Process/Backend/BlogPref.php:382 src/Process/Backend/BlogPref.php:451
+#: src/Process/Backend/BlogPref.php:397 src/Process/Backend/BlogPref.php:466
 msgid "Blog has been successfully updated."
 msgstr "Blogas sėkmingai atnaujintas."
 
-#: src/Process/Backend/BlogPref.php:430
+#: src/Process/Backend/BlogPref.php:445
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Dėmesio: blogo adreso URL gale rekomenduojama naudoti \"/\" pasirinkus PATH_INFO, išskyrus specialius konfigūravimo atvejus."
 
-#: src/Process/Backend/BlogPref.php:431
+#: src/Process/Backend/BlogPref.php:446
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Įspėjimas: išskyrus specialias konfigūracijas, paprastai rekomenduojama, kad jūsų tinklaraščio URL QUERY_STRING režimu būtų galinis \"?\"."
 
-#: src/Process/Backend/BlogPref.php:447
+#: src/Process/Backend/BlogPref.php:462
 msgid "Blog has been successfully created."
 msgstr "Blogas sėkmingai sukurtas."
 
-#: src/Process/Backend/BlogPref.php:455
+#: src/Process/Backend/BlogPref.php:470
 msgid "Parameters"
 msgstr "Parametrai"
 
-#: src/Process/Backend/BlogPref.php:456 src/Process/Backend/Media.php:564
+#: src/Process/Backend/BlogPref.php:471 src/Process/Backend/Media.php:564
 msgid "Blog parameters"
 msgstr "Tinklaraščio parametrai"
 
-#: src/Process/Backend/BlogPref.php:458 src/Process/Backend/BlogPref.php:778
+#: src/Process/Backend/BlogPref.php:473 src/Process/Backend/BlogPref.php:793
 msgid "Blog details"
 msgstr "Blogas išsamiau"
 
-#: src/Process/Backend/BlogPref.php:483
+#: src/Process/Backend/BlogPref.php:498
 msgid "Blog status:"
 msgstr "Blogo būklė:"
 
-#: src/Process/Backend/BlogPref.php:499 src/Process/Backend/BlogPref.php:841
+#: src/Process/Backend/BlogPref.php:514 src/Process/Backend/BlogPref.php:856
 msgid "Blog configuration"
 msgstr "Blogo konfigūracija"
 
-#: src/Process/Backend/BlogPref.php:500
+#: src/Process/Backend/BlogPref.php:515
 msgid "Blog editor name:"
 msgstr "Blogo autoriaus vardas:"
 
-#: src/Process/Backend/BlogPref.php:503
+#: src/Process/Backend/BlogPref.php:518
 msgid "Default language:"
 msgstr "Pagrindinė kalba:"
 
-#: src/Process/Backend/BlogPref.php:506
+#: src/Process/Backend/BlogPref.php:521
 msgid "Blog timezone:"
 msgstr "Blogo laiko juosta:"
 
-#: src/Process/Backend/BlogPref.php:509
+#: src/Process/Backend/BlogPref.php:524
 msgid "Copyright notice:"
 msgstr "Copyright:"
 
-#: src/Process/Backend/BlogPref.php:522 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:537 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "Komentarai ir trackback'ai"
 
-#: src/Process/Backend/BlogPref.php:528 src/Process/Backend/Post.php:678
+#: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Post.php:678
 msgid "Accept comments"
 msgstr "Leisti komentuoti"
 
-#: src/Process/Backend/BlogPref.php:531
+#: src/Process/Backend/BlogPref.php:546
 msgid "Moderate comments"
 msgstr "Tvarkyti komentarus"
 
-#: src/Process/Backend/BlogPref.php:533
+#: src/Process/Backend/BlogPref.php:548
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "Komentarus palikti atvirus %s dienų"
 
-#: src/Process/Backend/BlogPref.php:544 src/Process/Backend/BlogPref.php:572
+#: src/Process/Backend/BlogPref.php:559 src/Process/Backend/BlogPref.php:587
 msgid "No limit: leave blank."
 msgstr "Be apribojimų: palikite tuščią langelį."
 
-#: src/Process/Backend/BlogPref.php:547
+#: src/Process/Backend/BlogPref.php:562
 msgid "Wiki syntax for comments"
 msgstr "Wiki syntax komentarams"
 
-#: src/Process/Backend/BlogPref.php:550
+#: src/Process/Backend/BlogPref.php:565
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Komentaro peržiūra prieš pateikiant nėra privaloma"
 
-#: src/Process/Backend/BlogPref.php:556 src/Process/Backend/Post.php:686
+#: src/Process/Backend/BlogPref.php:571 src/Process/Backend/Post.php:686
 msgid "Accept trackbacks"
 msgstr "Leisti trackback'us"
 
-#: src/Process/Backend/BlogPref.php:559
+#: src/Process/Backend/BlogPref.php:574
 msgid "Moderate trackbacks"
 msgstr "Tvarkyti trackback'us"
 
-#: src/Process/Backend/BlogPref.php:561
+#: src/Process/Backend/BlogPref.php:576
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "Trackback'us palikti atvirus %s dienų"
 
-#: src/Process/Backend/BlogPref.php:575
+#: src/Process/Backend/BlogPref.php:590
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Pridėti \"nofollow\" prie komentarų ir trackback'ų nuorodų."
 
-#: src/Process/Backend/BlogPref.php:579
+#: src/Process/Backend/BlogPref.php:594
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Po tam tikro laiko, kai tinklaraštyje nėra naujų įrašų, išjunkite visus komentarus ir sekimo grįžtamąsias nuorodas:"
 
-#: src/Process/Backend/BlogPref.php:586
+#: src/Process/Backend/BlogPref.php:601
 msgid "Blog presentation"
 msgstr "Blogo pristatymas"
 
-#: src/Process/Backend/BlogPref.php:589
+#: src/Process/Backend/BlogPref.php:604
 msgid "Date format:"
 msgstr "Datos formatas:"
 
-#: src/Process/Backend/BlogPref.php:591
+#: src/Process/Backend/BlogPref.php:606
 msgid "Pattern of date"
 msgstr "Datos modelis"
 
-#: src/Process/Backend/BlogPref.php:593 src/Process/Backend/BlogPref.php:599
-#: src/Process/Backend/BlogPref.php:846
+#: src/Process/Backend/BlogPref.php:608 src/Process/Backend/BlogPref.php:614
+#: src/Process/Backend/BlogPref.php:861
 msgid "Sample:"
 msgstr "Pavyzdys:"
 
-#: src/Process/Backend/BlogPref.php:595
+#: src/Process/Backend/BlogPref.php:610
 msgid "Time format:"
 msgstr "Laiko formatas:"
 
-#: src/Process/Backend/BlogPref.php:597
+#: src/Process/Backend/BlogPref.php:612
 msgid "Pattern of time"
 msgstr "Laiko modelis"
 
-#: src/Process/Backend/BlogPref.php:603
+#: src/Process/Backend/BlogPref.php:618
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "Neįkelti standartinio stilių rinkinio (naudojamas medijos suderinimui)"
 
-#: src/Process/Backend/BlogPref.php:607
+#: src/Process/Backend/BlogPref.php:622
 msgid "Display smilies on entries and comments"
 msgstr "Įrašuose ir komentaruose rodyti veidelius"
 
-#: src/Process/Backend/BlogPref.php:611
+#: src/Process/Backend/BlogPref.php:626
 msgid "Disable internal search system"
 msgstr "Išjungti vidinę paieškos sistemą"
 
-#: src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:633
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "Rodyti %s įrašus pirmajame puslapyje"
 
-#: src/Process/Backend/BlogPref.php:630
+#: src/Process/Backend/BlogPref.php:645
 #, php-format
 msgid "Display %s entries per page"
 msgstr "Rodyti %s įrašus puslapyje"
 
-#: src/Process/Backend/BlogPref.php:642
+#: src/Process/Backend/BlogPref.php:657
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "Rodyti %s įrašus kanale"
 
-#: src/Process/Backend/BlogPref.php:654
+#: src/Process/Backend/BlogPref.php:669
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "Rodyti %s komentarus kanale"
 
-#: src/Process/Backend/BlogPref.php:667
+#: src/Process/Backend/BlogPref.php:682
 msgid "Truncate feeds"
 msgstr "Trumpinti kanalus"
 
-#: src/Process/Backend/BlogPref.php:671
+#: src/Process/Backend/BlogPref.php:686
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Įtraukti subkategorijas į kategorijos puslapį ir kategorijos pranešimų kanalą"
 
-#: src/Process/Backend/BlogPref.php:680
+#: src/Process/Backend/BlogPref.php:695
 msgid "Display an entry as static home page"
 msgstr "Rodyti įrašą kaip statinį pagrindinį puslapį"
 
-#: src/Process/Backend/BlogPref.php:682
+#: src/Process/Backend/BlogPref.php:697
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "Įrašo URL (jo turinys bus naudojamas statiniame pagrindiniame puslapyje):"
 
-#: src/Process/Backend/BlogPref.php:684
+#: src/Process/Backend/BlogPref.php:699
 msgid "Choose an entry"
 msgstr "Pasirinkite įrašą"
 
-#: src/Process/Backend/BlogPref.php:686
+#: src/Process/Backend/BlogPref.php:701
 msgid "Leave empty to use the default presentation."
 msgstr "Palikite tuščią, jei norite naudoti numatytąjį pateikimą."
 
-#: src/Process/Backend/BlogPref.php:690
+#: src/Process/Backend/BlogPref.php:705
 msgid "Media and images"
 msgstr "Media ir paveikslėliai"
 
-#: src/Process/Backend/BlogPref.php:692
+#: src/Process/Backend/BlogPref.php:707
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Atkreipkite dėmesį, kad jei pakeisite esamus toliau nurodytus nustatymus, jie bus taikomi visiems naujiems vaizdams medijos tvarkyklėje."
 
-#: src/Process/Backend/BlogPref.php:693
+#: src/Process/Backend/BlogPref.php:708
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Būkite atsargūs, jei dalijatės juo su kitais tinklaraščiais savo įrenginyje."
 
-#: src/Process/Backend/BlogPref.php:694
+#: src/Process/Backend/BlogPref.php:709
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Nustatykite -1, jei norite naudoti numatytąjį dydį, nustatykite 0, jei norite ignoruoti šį miniatiūros dydį (tik paveikslėliai)."
 
-#: src/Process/Backend/BlogPref.php:698
+#: src/Process/Backend/BlogPref.php:713
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Generuojamų vaizdų dydžiai (didžiausias matmuo pikseliais)"
 
-#: src/Process/Backend/BlogPref.php:699
+#: src/Process/Backend/BlogPref.php:714
 msgid "Thumbnail"
 msgstr "Miniatiūros"
 
-#: src/Process/Backend/BlogPref.php:707
+#: src/Process/Backend/BlogPref.php:722
 msgid "Small"
 msgstr "Mažas"
 
-#: src/Process/Backend/BlogPref.php:715
+#: src/Process/Backend/BlogPref.php:730
 msgid "Medium"
 msgstr "Vidutinis"
 
-#: src/Process/Backend/BlogPref.php:723
+#: src/Process/Backend/BlogPref.php:738
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Numatytasis įdėto vaizdo įrašo dydis (pikseliais)"
 
-#: src/Process/Backend/BlogPref.php:724
+#: src/Process/Backend/BlogPref.php:739
 msgid "Width"
 msgstr "Plotis"
 
-#: src/Process/Backend/BlogPref.php:732
+#: src/Process/Backend/BlogPref.php:747
 msgid "Height"
 msgstr "Aukštis"
 
-#: src/Process/Backend/BlogPref.php:742
+#: src/Process/Backend/BlogPref.php:757
 msgid "Default image insertion attributes"
 msgstr "Numatytieji vaizdo įterpimo atributai"
 
-#: src/Process/Backend/BlogPref.php:743
-msgid "Inserted image title"
-msgstr "Įrašykite paveikslėlio pavadinimą"
+#: src/Process/Backend/BlogPref.php:758
+msgid "Inserted image legend:"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:747
+#: src/Process/Backend/BlogPref.php:762
 msgid "Use original media date if possible"
 msgstr "Jei įmanoma, naudokite originalios laikmenos datą"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:765
 msgid "Do not display date if alone in title"
 msgstr "Nerodyti datos, jei pavadinime yra tik viena data"
 
-#: src/Process/Backend/BlogPref.php:751
+#: src/Process/Backend/BlogPref.php:766
 msgid "It is retrieved from the picture's metadata."
 msgstr "Jis gaunamas iš paveikslėlio metaduomenų."
 
-#: src/Process/Backend/BlogPref.php:753
+#: src/Process/Backend/BlogPref.php:768
 msgid "Size of inserted image:"
 msgstr "Įterpto vaizdo dydis:"
 
-#: src/Process/Backend/BlogPref.php:760
+#: src/Process/Backend/BlogPref.php:775
 msgid "Image alignment:"
 msgstr "Vaizdų lyginimas:"
 
-#: src/Process/Backend/BlogPref.php:765
+#: src/Process/Backend/BlogPref.php:780
 msgid "Insert a link to the original image"
 msgstr "Įterpkite nuorodą į originalų paveikslėlį"
 
-#: src/Process/Backend/BlogPref.php:766
-msgid "Image legend and title:"
-msgstr "Paveikslėlio legenda ir pavadinimas:"
+#: src/Process/Backend/BlogPref.php:781
+msgid "Image legend and alternate text:"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:775
+#: src/Process/Backend/BlogPref.php:790
 msgid "Advanced parameters"
 msgstr "Išplėstiniai parametrai"
 
-#: src/Process/Backend/BlogPref.php:783
+#: src/Process/Backend/BlogPref.php:798
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Jei keičiate savo blogo ID, gali tekti atlikti pakeitimus index.php faile."
 
-#: src/Process/Backend/BlogPref.php:794
+#: src/Process/Backend/BlogPref.php:809
 msgid "URL scan method:"
 msgstr "URL skaitymo metodas:"
 
-#: src/Process/Backend/BlogPref.php:817
+#: src/Process/Backend/BlogPref.php:832
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "Tinklaraščio URL arba URL nuskaitymo metodas gali būti netinkamai nustatyti (<code>%s</code> grąžina <strong>%s</strong> būseną)."
 
-#: src/Process/Backend/BlogPref.php:828
+#: src/Process/Backend/BlogPref.php:843
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "Tinklaraščio URL arba URL nuskaitymo metodas gali būti netinkamai nustatytas (<code>%s</code> negrąžina ATOM kanalo)."
 
-#: src/Process/Backend/BlogPref.php:843
+#: src/Process/Backend/BlogPref.php:858
 msgid "New post URL format:"
 msgstr "Naujo įrašo URL formatas:"
 
-#: src/Process/Backend/BlogPref.php:846
+#: src/Process/Backend/BlogPref.php:861
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:849
+#: src/Process/Backend/BlogPref.php:864
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "HTML žyma, skirta tinklaraščio užrašų pavadinimui:"
 
-#: src/Process/Backend/BlogPref.php:856
+#: src/Process/Backend/BlogPref.php:871
 msgid "Search engines robots policy"
 msgstr "Paieškos variklių nustatymai"
 
-#: src/Process/Backend/BlogPref.php:869
+#: src/Process/Backend/BlogPref.php:884
 msgid "jQuery javascript library"
 msgstr "jQuery javascript biblioteka"
 
-#: src/Process/Backend/BlogPref.php:872
+#: src/Process/Backend/BlogPref.php:887
 msgid "Load the jQuery library"
 msgstr "Įkelti jQuery biblioteką"
 
-#: src/Process/Backend/BlogPref.php:874
+#: src/Process/Backend/BlogPref.php:889
 msgid "jQuery version to be loaded for this blog:"
 msgstr "\"jQuery\" versija, kurią reikia įkelti į šį tinklaraštį:"
 
-#: src/Process/Backend/BlogPref.php:880
+#: src/Process/Backend/BlogPref.php:895
 msgid "Blog security"
 msgstr "Tinklaraščio saugumas"
 
-#: src/Process/Backend/BlogPref.php:884
+#: src/Process/Backend/BlogPref.php:899
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Apsaugokite tinklaraštį nuo \"Clickjacking\" (žr. <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Vikipedija</a>)"
 
-#: src/Process/Backend/BlogPref.php:892
+#: src/Process/Backend/BlogPref.php:907
 msgid "Plugins parameters"
 msgstr "Įskiepių parametrai"
 
-#: src/Process/Backend/BlogPref.php:916
+#: src/Process/Backend/BlogPref.php:931
 msgid "Only superadmin can delete a blog."
 msgstr "Tik superadministratorius gali ištrinti tinklaraštį."
 
-#: src/Process/Backend/BlogPref.php:930
+#: src/Process/Backend/BlogPref.php:945
 msgid "Users on this blog"
 msgstr "Dalyviai šiame bloge"
 
-#: src/Process/Backend/BlogPref.php:933
+#: src/Process/Backend/BlogPref.php:948
 msgid "No users"
 msgstr "Dalyvių nėra"
 
-#: src/Process/Backend/BlogPref.php:974
+#: src/Process/Backend/BlogPref.php:989
 msgid "Publications on this blog:"
 msgstr "Šio tinklaraščio publikacijos:"
 
-#: src/Process/Backend/BlogPref.php:981
+#: src/Process/Backend/BlogPref.php:996
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:986
+#: src/Process/Backend/BlogPref.php:1001
 msgid "Permissions:"
 msgstr "Leidimai:"
 
-#: src/Process/Backend/BlogPref.php:989 src/Process/Backend/User.php:320
+#: src/Process/Backend/BlogPref.php:1004 src/Process/Backend/User.php:320
 msgid "Super administrator"
 msgstr "Super administratorius"
 
-#: src/Process/Backend/BlogPref.php:990
+#: src/Process/Backend/BlogPref.php:1005
 msgid "All rights on all blogs."
 msgstr "Visos teisės į visus tinklaraščius."
 
-#: src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/BlogPref.php:1011
 #: src/Process/Backend/UsersActions.php:337
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (leidimas be nuorodų)"
 
-#: src/Process/Backend/BlogPref.php:1000
+#: src/Process/Backend/BlogPref.php:1015
 msgid "All rights on this blog."
 msgstr "Visos teisės šiame tinklaraštyje."
 
-#: src/Process/Backend/BlogPref.php:1011 src/Process/Backend/User.php:470
+#: src/Process/Backend/BlogPref.php:1026 src/Process/Backend/User.php:470
 msgid "Change permissions"
 msgstr "Pakeisti leidimus"
 
@@ -4084,7 +4090,7 @@ msgid "total:"
 msgstr "viso:"
 
 #: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:256
-#: src/Process/Backend/User.php:360 src/Process/Backend/UserPreferences.php:557
+#: src/Process/Backend/User.php:360 src/Process/Backend/UserPreferences.php:555
 msgid "URL:"
 msgstr "URL:"
 
@@ -4141,7 +4147,7 @@ msgstr "Vardas:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Dėmesio: rankinis URL nustatymas gali sukurti neatitikimą su kita kategoriją."
 
-#: src/Process/Backend/Category.php:263
+#: src/Process/Backend/Category.php:263 src/Process/Backend/MediaItem.php:1036
 msgid "Description:"
 msgstr "Aprašymas:"
 
@@ -4477,7 +4483,7 @@ msgstr "Nuorodos pavadinimas:"
 msgid "Link language:"
 msgstr "Nuorodos kalba:"
 
-#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/MediaItem.php:728
+#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/MediaItem.php:732
 msgid "Insert"
 msgstr "Įkelti"
 
@@ -4565,7 +4571,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Pasirinkite failus ir spustelėkite mygtuką <strong>%s</strong>"
 
 #: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375 src/Process/Backend/MediaItem.php:744
+#: src/Process/Backend/Media.php:375 src/Process/Backend/MediaItem.php:748
 msgid "or"
 msgstr "arba"
 
@@ -4638,7 +4644,7 @@ msgstr "Prašome atsakingai skelbti turimus media elementus, kurie gali būti sa
 msgid "Maximum file size allowed:"
 msgstr "Maksimalus leistinas failo dydis:"
 
-#: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1046
+#: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1053
 msgid "Private"
 msgstr "Privatus"
 
@@ -4664,11 +4670,11 @@ msgid "Not a valid file"
 msgstr "Netinkamas failas"
 
 #: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:207
-#: src/Process/Backend/MediaItem.php:459
+#: src/Process/Backend/MediaItem.php:452
 msgid "File has been successfully updated."
 msgstr "Failas sėkmingai atnaujintas"
 
-#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:462
+#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:455
 msgid "Thumbnails have been successfully updated."
 msgstr "Miniatiūra sėkmingai atnaujinta"
 
@@ -4676,7 +4682,7 @@ msgstr "Miniatiūra sėkmingai atnaujinta"
 msgid "Zip file has been successfully extracted."
 msgstr "Sėkmingai išarchyvuotas zip failas."
 
-#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:465
+#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:458
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Numatytuosius medijos įterpimo nustatymus pavyko sėkmingai atnaujinti."
 
@@ -4688,249 +4694,249 @@ msgstr "Medijos įterpimo nustatymai sėkmingai užregistruoti šiam aplankui."
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Šio aplanko medijos įterpimo nustatymai sėkmingai pašalinti."
 
-#: src/Process/Backend/MediaItem.php:484 src/Process/Backend/MediaItem.php:485
+#: src/Process/Backend/MediaItem.php:487 src/Process/Backend/MediaItem.php:488
 msgid "Select media item"
 msgstr "Pasirinkite medijos elementą"
 
-#: src/Process/Backend/MediaItem.php:501 src/Process/Backend/MediaItem.php:570
+#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:574
 msgid "Image size:"
 msgstr "Paveikslėlio dydis:"
 
-#: src/Process/Backend/MediaItem.php:528 src/Process/Upgrade/Attic.php:303
+#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:303
 msgid "Select"
 msgstr "Pasirinkite"
 
-#: src/Process/Backend/MediaItem.php:552 src/Process/Backend/MediaItem.php:553
+#: src/Process/Backend/MediaItem.php:561 src/Process/Backend/MediaItem.php:562
 msgid "Insert media item"
 msgstr "Pridėti media elementą"
 
-#: src/Process/Backend/MediaItem.php:589
-msgid "Image legend and title"
-msgstr "Paveikslėlio legenda ir pavadinimas"
+#: src/Process/Backend/MediaItem.php:593
+msgid "Image legend and alternate text"
+msgstr ""
 
-#: src/Process/Backend/MediaItem.php:611
-msgid "Title: "
-msgstr "Pavadinimas: "
+#: src/Process/Backend/MediaItem.php:615
+msgid "Alternate text: "
+msgstr ""
 
-#: src/Process/Backend/MediaItem.php:618
+#: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
 msgstr "Paveikslėlio lygiavimas"
 
-#: src/Process/Backend/MediaItem.php:638
+#: src/Process/Backend/MediaItem.php:642
 msgid "Image insertion"
 msgstr "Paveikslėlio įdėjimas"
 
-#: src/Process/Backend/MediaItem.php:641
+#: src/Process/Backend/MediaItem.php:645
 msgid "As a single image"
 msgstr "Kaip vieną paveikslėlį"
 
-#: src/Process/Backend/MediaItem.php:643
+#: src/Process/Backend/MediaItem.php:647
 msgid "As a link to the original image"
 msgstr "Nuoroda į originalų vaizdą"
 
-#: src/Process/Backend/MediaItem.php:651
+#: src/Process/Backend/MediaItem.php:655
 msgid "MP3 disposition"
 msgstr "MP3 dispozicija"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:656
 msgid "Please note that you cannot insert mp3 files with visual editor."
 msgstr "Dėmesio, MP3 failai negali būti įkeliami su Visual Editor"
 
-#: src/Process/Backend/MediaItem.php:680
+#: src/Process/Backend/MediaItem.php:684
 msgid "Please note that you cannot insert video files with visual editor."
 msgstr "Dėmesio, video failai negali būti įkeliami su Visual Editor"
 
-#: src/Process/Backend/MediaItem.php:684
+#: src/Process/Backend/MediaItem.php:688
 msgid "Video size"
 msgstr "Video dydis"
 
-#: src/Process/Backend/MediaItem.php:685
+#: src/Process/Backend/MediaItem.php:689
 msgid "Width:"
 msgstr "Plotis:"
 
-#: src/Process/Backend/MediaItem.php:687
+#: src/Process/Backend/MediaItem.php:691
 msgid "Height:"
 msgstr "Aukštis:"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:698
 msgid "Video disposition"
 msgstr "Video dispozicija"
 
-#: src/Process/Backend/MediaItem.php:723
+#: src/Process/Backend/MediaItem.php:727
 msgid "Media item will be inserted as a link."
 msgstr "Medien elementas bus įkeltas kaip nuoroda."
 
-#: src/Process/Backend/MediaItem.php:743
+#: src/Process/Backend/MediaItem.php:747
 msgid "Make current settings as default"
 msgstr "Dabartinius nustatymus paverskite numatytaisiais"
 
-#: src/Process/Backend/MediaItem.php:744
+#: src/Process/Backend/MediaItem.php:748
 msgid "For the blog"
 msgstr "Tinklaraščiui"
 
-#: src/Process/Backend/MediaItem.php:745
+#: src/Process/Backend/MediaItem.php:749
 msgid "For this folder only"
 msgstr "Tik šiame aplanke"
 
-#: src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:758
 msgid "Settings exist for this folder:"
 msgstr "Yra šio aplanko nustatymų:"
 
-#: src/Process/Backend/MediaItem.php:755
+#: src/Process/Backend/MediaItem.php:759
 msgid "Remove them"
 msgstr "Pašalinkite juos"
 
-#: src/Process/Backend/MediaItem.php:774 src/Process/Backend/MediaItem.php:777
-#: src/Process/Backend/MediaItem.php:865
+#: src/Process/Backend/MediaItem.php:778 src/Process/Backend/MediaItem.php:781
+#: src/Process/Backend/MediaItem.php:869
 msgid "Media details"
 msgstr "Media detalės"
 
-#: src/Process/Backend/MediaItem.php:809
+#: src/Process/Backend/MediaItem.php:813
 msgid "Available sizes:"
 msgstr "Galimi dydžiai:"
 
-#: src/Process/Backend/MediaItem.php:837
+#: src/Process/Backend/MediaItem.php:841
 msgid "Thumbnail details"
 msgstr "Miniatiūrų informacija"
 
-#: src/Process/Backend/MediaItem.php:842 src/Process/Backend/MediaItem.php:873
+#: src/Process/Backend/MediaItem.php:846 src/Process/Backend/MediaItem.php:877
 msgid "Image width:"
 msgstr "Vaizdo plotis:"
 
-#: src/Process/Backend/MediaItem.php:843 src/Process/Backend/MediaItem.php:874
+#: src/Process/Backend/MediaItem.php:847 src/Process/Backend/MediaItem.php:878
 msgid "Image height:"
 msgstr "Vaizdo aukštis:"
 
-#: src/Process/Backend/MediaItem.php:847 src/Process/Backend/MediaItem.php:878
+#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/MediaItem.php:882
 msgid "File size:"
 msgstr "Failo dydis:"
 
-#: src/Process/Backend/MediaItem.php:850 src/Process/Backend/MediaItem.php:879
+#: src/Process/Backend/MediaItem.php:854 src/Process/Backend/MediaItem.php:883
 msgid "File URL:"
 msgstr "Failo URL:"
 
-#: src/Process/Backend/MediaItem.php:867
+#: src/Process/Backend/MediaItem.php:871
 msgid "File owner:"
 msgstr "Failo savininkas:"
 
-#: src/Process/Backend/MediaItem.php:868
+#: src/Process/Backend/MediaItem.php:872
 msgid "File type:"
 msgstr "Failo tipas:"
 
-#: src/Process/Backend/MediaItem.php:885
+#: src/Process/Backend/MediaItem.php:889
 msgid "Show entries containing this media"
 msgstr "Rodyti įrašus su šiuo media elementu"
 
-#: src/Process/Backend/MediaItem.php:888
+#: src/Process/Backend/MediaItem.php:892
 msgid "Entries containing this media"
 msgstr "Įrašai su šiuo media elementu"
 
-#: src/Process/Backend/MediaItem.php:925
+#: src/Process/Backend/MediaItem.php:929
 msgid "No entry seems contain this media."
 msgstr "Nėra įrašų su šiuo media elementu"
 
-#: src/Process/Backend/MediaItem.php:932
+#: src/Process/Backend/MediaItem.php:936
 msgid "published"
 msgstr "publikuojamas"
 
-#: src/Process/Backend/MediaItem.php:933
+#: src/Process/Backend/MediaItem.php:937
 msgid "unpublished"
 msgstr "nepublikuojamas"
 
-#: src/Process/Backend/MediaItem.php:934
+#: src/Process/Backend/MediaItem.php:938
 msgid "scheduled"
 msgstr "suplanuotas"
 
-#: src/Process/Backend/MediaItem.php:935
+#: src/Process/Backend/MediaItem.php:939
 msgid "pending"
 msgstr "laukiantis"
 
-#: src/Process/Backend/MediaItem.php:952
+#: src/Process/Backend/MediaItem.php:956
 msgid "Image details"
 msgstr "Pavekslėlio detalės"
 
-#: src/Process/Backend/MediaItem.php:967
+#: src/Process/Backend/MediaItem.php:960
+msgid "Alternate text :"
+msgstr ""
+
+#: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
 msgstr "Nėra detalių"
 
-#: src/Process/Backend/MediaItem.php:974
+#: src/Process/Backend/MediaItem.php:981
 msgid "Updates and modifications"
 msgstr "Atnaujinimai ir pakeitimai"
 
-#: src/Process/Backend/MediaItem.php:980 src/Process/Backend/MediaItem.php:982
+#: src/Process/Backend/MediaItem.php:987 src/Process/Backend/MediaItem.php:989
 msgid "Update thumbnails"
 msgstr "Atnaujinti miniatiūras"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:988
 msgid "This will create or update thumbnails for this image."
 msgstr "Šio paveikslėlio miniatiūros bus sukurtos arba atnaujintos."
 
-#: src/Process/Backend/MediaItem.php:990 src/Process/Backend/MediaItem.php:998
+#: src/Process/Backend/MediaItem.php:997 src/Process/Backend/MediaItem.php:1005
 msgid "Extract in a new directory"
 msgstr "Išarchyvuoti naujoje direktorijoje"
 
-#: src/Process/Backend/MediaItem.php:991 src/Process/Backend/MediaItem.php:1000
+#: src/Process/Backend/MediaItem.php:998 src/Process/Backend/MediaItem.php:1007
 msgid "Extract in current directory"
 msgstr "Išarchyvuoti šioje direktorijoje"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:1003
 msgid "Extract archive"
 msgstr "Išarchyvuoti"
 
-#: src/Process/Backend/MediaItem.php:999
+#: src/Process/Backend/MediaItem.php:1006
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Išarchyvuojama naujoje direktorijoje, kuri neturėtų egzistuoti."
 
-#: src/Process/Backend/MediaItem.php:1001
+#: src/Process/Backend/MediaItem.php:1008
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Išarchyvuojama šioje direktorijoje, kuri bus perrašyta kartu su egzistuojančiais failais."
 
-#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1010
 msgid "Extract mode:"
 msgstr "Išarchyvavimo būdas:"
 
-#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1012
 msgid "Extract"
 msgstr "Ištrauka"
 
-#: src/Process/Backend/MediaItem.php:1013
+#: src/Process/Backend/MediaItem.php:1020
 msgid "Change media properties"
 msgstr "Keisti media savybes"
 
-#: src/Process/Backend/MediaItem.php:1014
+#: src/Process/Backend/MediaItem.php:1021
 msgid "File name:"
 msgstr "Failo pavadinimas:"
 
-#: src/Process/Backend/MediaItem.php:1016
-msgid "File title:"
-msgstr "Failo antraštė:"
+#: src/Process/Backend/MediaItem.php:1023
+msgid "Alternate text:"
+msgstr ""
 
-#: src/Process/Backend/MediaItem.php:1029
-msgid "File description:"
-msgstr "Failo aprašymas:"
-
-#: src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
 msgstr "Failo data:"
 
-#: src/Process/Backend/MediaItem.php:1047
+#: src/Process/Backend/MediaItem.php:1054
 msgid "New directory:"
 msgstr "Nauja direktorija:"
 
-#: src/Process/Backend/MediaItem.php:1055
+#: src/Process/Backend/MediaItem.php:1062
 msgid "Change file"
 msgstr "Keisti failą"
 
-#: src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:1064
 msgid "Choose a file:"
 msgstr "Pasirinkite failą:"
 
-#: src/Process/Backend/MediaItem.php:1058
+#: src/Process/Backend/MediaItem.php:1065
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maksimalus dydis: %s"
 
-#: src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/MediaItem.php:1076
 msgid "Delete this media"
 msgstr "Ištrinkite šią laikmeną"
 
@@ -5188,7 +5194,7 @@ msgstr "pasirinkite šį komentarą"
 msgid "select this trackback"
 msgstr "pasirinkite šį Trackback"
 
-#: src/Process/Backend/Post.php:1135
+#: src/Process/Backend/Post.php:1134
 msgid "Edit this comment"
 msgstr "Redaguoti šį komentarą"
 
@@ -5240,56 +5246,56 @@ msgstr "Ieškoti įraše:"
 msgid "cancel"
 msgstr "atšaukti"
 
-#: src/Process/Backend/Rest.php:109
+#: src/Process/Backend/Rest.php:108
 msgid "Dotclear news not available"
 msgstr "Dotclear naujienos nėra prieinamos"
 
-#: src/Process/Backend/Rest.php:123
+#: src/Process/Backend/Rest.php:122
 msgid "Dotclear news"
 msgstr "\"Dotclear\" naujienos"
 
-#: src/Process/Backend/Rest.php:131
+#: src/Process/Backend/Rest.php:128
 msgid "%d %B %Y:"
 msgstr "%d %B %Y:"
 
-#: src/Process/Backend/Rest.php:163
+#: src/Process/Backend/Rest.php:160
 msgid "Dotclear update not available"
 msgstr "\"Dotclear\" atnaujinimas nepasiekiamas"
 
-#: src/Process/Backend/Rest.php:174
+#: src/Process/Backend/Rest.php:171
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Pasirodė naujas Dotclear %s!"
 
-#: src/Process/Backend/Rest.php:175
+#: src/Process/Backend/Rest.php:172
 msgid "Upgrade now"
 msgstr "Atnaujinti dabar"
 
-#: src/Process/Backend/Rest.php:176
+#: src/Process/Backend/Rest.php:173
 msgid "Remind me later"
 msgstr "Priminti vėliau"
 
-#: src/Process/Backend/Rest.php:178 src/Process/Upgrade/Upgrade.php:244
+#: src/Process/Backend/Rest.php:175 src/Process/Upgrade/Upgrade.php:244
 #: src/Process/Upgrade/Upgrade.php:245
 msgid "Information about this version"
 msgstr "Informacija apie šią versiją"
 
-#: src/Process/Backend/Rest.php:183
+#: src/Process/Backend/Rest.php:180
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Yra nauja \"Dotclear\" versija, tačiau jai reikia PHP versijos ≥ %s, jūsų versija šiuo metu yra %s."
 
-#: src/Process/Backend/Rest.php:198 src/Process/Backend/Update.php:140
+#: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
 #: src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Kitos \"Dotclear\" versijos nepalaikys PHP versijos < %s, jūsų versija šiuo metu yra %s."
 
-#: src/Process/Backend/Rest.php:230
+#: src/Process/Backend/Rest.php:227
 msgid "No updates are available"
 msgstr "Nėra jokių atnaujinimų"
 
-#: src/Process/Backend/Rest.php:273
+#: src/Process/Backend/Rest.php:270
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
@@ -5298,7 +5304,7 @@ msgstr[1] "%s galima gauti atnaujinimus."
 msgstr[2] "%s galima gauti atnaujinimus."
 msgstr[3] "%s galima gauti atnaujinimus."
 
-#: src/Process/Backend/Rest.php:834
+#: src/Process/Backend/Rest.php:833
 msgid "List options saved"
 msgstr "Išsaugotos sąrašo parinktys"
 
@@ -5352,7 +5358,7 @@ msgstr[3] "%d rasti komentarai"
 #: src/Process/Upgrade/Attic.php:102 src/Process/Upgrade/Attic.php:106
 #: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:187 src/Process/Upgrade/Cache.php:68
+#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
 #: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
@@ -5460,17 +5466,17 @@ msgstr "Pakeitęs savo prisijungimo vardą turėsite iš naujo prisijungti."
 msgid "Password change required to connect"
 msgstr "Prisijungimui reikalingas slaptažodžio pakeitimas."
 
-#: src/Process/Backend/User.php:323 src/Process/Backend/UserPreferences.php:522
+#: src/Process/Backend/User.php:323 src/Process/Backend/UserPreferences.php:520
 #: src/Process/Install/Install.php:459
 msgid "Last Name:"
 msgstr "Pavardė:"
 
-#: src/Process/Backend/User.php:330 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:330 src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:453
 msgid "First Name:"
 msgstr "Vardas:"
 
-#: src/Process/Backend/User.php:337 src/Process/Backend/UserPreferences.php:536
+#: src/Process/Backend/User.php:337 src/Process/Backend/UserPreferences.php:534
 msgid "Display name:"
 msgstr "Rodyti vardą:"
 
@@ -5478,23 +5484,23 @@ msgstr "Rodyti vardą:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Privaloma slaptažodžio atkūrimo procedūrai."
 
-#: src/Process/Backend/User.php:353 src/Process/Backend/UserPreferences.php:550
+#: src/Process/Backend/User.php:353 src/Process/Backend/UserPreferences.php:548
 msgid "Alternate emails (comma separated list):"
 msgstr "Pakaitiniai el. pašto adresai (kableliais atskirtas sąrašas):"
 
-#: src/Process/Backend/User.php:358 src/Process/Backend/UserPreferences.php:555
+#: src/Process/Backend/User.php:358 src/Process/Backend/UserPreferences.php:553
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Netinkami el. laiškai bus automatiškai pašalinti iš sąrašo."
 
-#: src/Process/Backend/User.php:368 src/Process/Backend/UserPreferences.php:565
+#: src/Process/Backend/User.php:368 src/Process/Backend/UserPreferences.php:563
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatyvūs URL adresai (kableliais atskirtas sąrašas):"
 
-#: src/Process/Backend/User.php:373 src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/User.php:373 src/Process/Backend/UserPreferences.php:568
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Netinkami URL adresai bus automatiškai pašalinti iš sąrašo."
 
-#: src/Process/Backend/User.php:379 src/Process/Backend/UserPreferences.php:629
+#: src/Process/Backend/User.php:379 src/Process/Backend/UserPreferences.php:627
 msgid "Interface"
 msgstr "Sąsaja"
 
@@ -5502,19 +5508,19 @@ msgstr "Sąsaja"
 msgid "Timezone:"
 msgstr "Laiko juosta:"
 
-#: src/Process/Backend/User.php:388 src/Process/Backend/UserPreferences.php:745
+#: src/Process/Backend/User.php:388 src/Process/Backend/UserPreferences.php:739
 msgid "Edition"
 msgstr "Leidinys"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:753
 msgid "Preferred format:"
 msgstr "Pageidaujamas formatas:"
 
-#: src/Process/Backend/User.php:393 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:393 src/Process/Backend/UserPreferences.php:756
 msgid "Default entry status:"
 msgstr "Tipinė įrašo būklė:"
 
-#: src/Process/Backend/User.php:397 src/Process/Backend/UserPreferences.php:765
+#: src/Process/Backend/User.php:397 src/Process/Backend/UserPreferences.php:759
 msgid "Entry edit field height:"
 msgstr "Įrašo laukelio aukščio redagavimas:"
 
@@ -5551,309 +5557,309 @@ msgstr "Pranešimų sąrašas"
 msgid "List of comments"
 msgstr "Pastabų sąrašas"
 
-#: src/Process/Backend/UserPreferences.php:118
+#: src/Process/Backend/UserPreferences.php:117
 msgid "Light"
 msgstr "Šviesa"
 
-#: src/Process/Backend/UserPreferences.php:119
+#: src/Process/Backend/UserPreferences.php:118
 msgid "Dark"
 msgstr "Tamsus"
 
-#: src/Process/Backend/UserPreferences.php:120
+#: src/Process/Backend/UserPreferences.php:119
 msgid "Automatic"
 msgstr "Automatinis"
 
-#: src/Process/Backend/UserPreferences.php:125
+#: src/Process/Backend/UserPreferences.php:124
 msgid "Smallest"
 msgstr "Mažiausias"
 
-#: src/Process/Backend/UserPreferences.php:126
+#: src/Process/Backend/UserPreferences.php:125
 msgid "Smaller"
 msgstr "Mažesnis"
 
-#: src/Process/Backend/UserPreferences.php:128
+#: src/Process/Backend/UserPreferences.php:127
 msgid "Larger"
 msgstr "Didesnis"
 
-#: src/Process/Backend/UserPreferences.php:129
+#: src/Process/Backend/UserPreferences.php:128
 msgid "Largest"
 msgstr "Didžiausias"
 
-#: src/Process/Backend/UserPreferences.php:141
+#: src/Process/Backend/UserPreferences.php:140
 msgid "Blog description (in blog parameters)"
 msgstr "Tinklaraščio aprašymas (tinklaraščio parametruose)"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:141
 msgid "Category description"
 msgstr "Kategorijos aprašymas"
 
-#: src/Process/Backend/UserPreferences.php:183
-#: src/Process/Backend/UserPreferences.php:200
+#: src/Process/Backend/UserPreferences.php:182
+#: src/Process/Backend/UserPreferences.php:199
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Norėdami pakeisti savo el. paštą ar slaptažodį privalote pateikti dabartinį savo slaptažodį."
 
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/UserPreferences.php:230
 msgid "Personal information has been successfully updated."
 msgstr "Asmeninė informacija sėkmingai atnaujinta."
 
-#: src/Process/Backend/UserPreferences.php:348
+#: src/Process/Backend/UserPreferences.php:346
 msgid "Personal options has been successfully updated."
 msgstr "Asmeninės parinktys sėkmingai atnaujintos."
 
-#: src/Process/Backend/UserPreferences.php:375
+#: src/Process/Backend/UserPreferences.php:373
 msgid "Dashboard options has been successfully updated."
 msgstr "Prietaisų skydelio parinktys sėkmingai atnaujintos."
 
-#: src/Process/Backend/UserPreferences.php:387
-#: src/Process/Backend/UserPreferences.php:411
+#: src/Process/Backend/UserPreferences.php:385
+#: src/Process/Backend/UserPreferences.php:409
 msgid "No favorite selected"
 msgstr "Nėra pasirinkta mėgstamiausia"
 
-#: src/Process/Backend/UserPreferences.php:398
+#: src/Process/Backend/UserPreferences.php:396
 msgid "Favorites have been successfully added."
 msgstr "Mėgstamiausios vietos sėkmingai pridėtos."
 
-#: src/Process/Backend/UserPreferences.php:424
+#: src/Process/Backend/UserPreferences.php:422
 msgid "Favorites have been successfully removed."
 msgstr "Mėgstamiausios parinktys sėkmingai pašalintos."
 
-#: src/Process/Backend/UserPreferences.php:454
+#: src/Process/Backend/UserPreferences.php:452
 msgid "Favorites have been successfully updated."
 msgstr "Parankiniai sėkmingai atnaujinti."
 
-#: src/Process/Backend/UserPreferences.php:466
+#: src/Process/Backend/UserPreferences.php:464
 msgid "Default favorites have been successfully updated."
 msgstr "Numatytosios mėgstamiausios parinktys sėkmingai atnaujintos."
 
-#: src/Process/Backend/UserPreferences.php:480
+#: src/Process/Backend/UserPreferences.php:478
 msgid "Dashboard items order have been successfully reset."
 msgstr "Prietaisų skydelio elementų užsakymas sėkmingai iš naujo nustatytas."
 
+#: src/Process/Backend/UserPreferences.php:515
 #: src/Process/Backend/UserPreferences.php:517
-#: src/Process/Backend/UserPreferences.php:519
 msgid "My profile"
 msgstr "Mano profilis"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:570
 msgid "Language for my interface:"
 msgstr "Mano sąsajos kalba:"
 
-#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:573
 msgid "My timezone:"
 msgstr "Mano laiko juosta:"
 
-#: src/Process/Backend/UserPreferences.php:580
+#: src/Process/Backend/UserPreferences.php:578
 msgid "Change my password"
 msgstr "Pakeisti slaptažodį"
 
-#: src/Process/Backend/UserPreferences.php:590
+#: src/Process/Backend/UserPreferences.php:588
 msgid "Confirm new password:"
 msgstr "Patvirtinkite naują slaptažodį:"
 
-#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:596
 msgid "Your current password:"
 msgstr "Jūsų dabartinis slaptažodis:"
 
-#: src/Process/Backend/UserPreferences.php:609
+#: src/Process/Backend/UserPreferences.php:607
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Jei pakeitėte el. pašto adresą arba slaptažodį, turite nurodyti dabartinį slaptažodį, kad šie pakeitimai būtų išsaugoti."
 
-#: src/Process/Backend/UserPreferences.php:615
+#: src/Process/Backend/UserPreferences.php:613
 msgid "Update my profile"
 msgstr "Atnaujinti mano profilį"
 
-#: src/Process/Backend/UserPreferences.php:623
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:621
+#: src/Process/Backend/UserPreferences.php:624
 msgid "My options"
 msgstr "Mano galimybės"
 
-#: src/Process/Backend/UserPreferences.php:631
+#: src/Process/Backend/UserPreferences.php:629
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:636
+#: src/Process/Backend/UserPreferences.php:634
 msgid "Activate enhanced uploader in media manager"
 msgstr "Suaktyvinkite patobulintą įkėlimo įrankį medijos tvarkytuve"
 
-#: src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/UserPreferences.php:638
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Redaguojamą įrašą peržiūrėkite tuščiame lange arba skirtuke (priklausomai nuo naršyklės nustatymų)."
 
-#: src/Process/Backend/UserPreferences.php:644
+#: src/Process/Backend/UserPreferences.php:642
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Išjungti \"javascript\" valdomą elementų užsakymo vilkimą ir nuleidimą"
 
-#: src/Process/Backend/UserPreferences.php:645
+#: src/Process/Backend/UserPreferences.php:643
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Jei pažymėta, skaitiniuose laukuose bus galima įvesti elementų eilės numerį."
 
-#: src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/UserPreferences.php:647
 msgid "Hide all secondary information and notes"
 msgstr "Paslėpti visą antrinę informaciją ir pastabas"
 
-#: src/Process/Backend/UserPreferences.php:653
+#: src/Process/Backend/UserPreferences.php:651
 msgid "Hide help button"
 msgstr "Paslėpti pagalbos mygtuką"
 
-#: src/Process/Backend/UserPreferences.php:659
+#: src/Process/Backend/UserPreferences.php:653
 msgid "Font size:"
 msgstr "Šrifto dydis:"
 
-#: src/Process/Backend/UserPreferences.php:664
+#: src/Process/Backend/UserPreferences.php:658
 msgid "Use operating system font"
 msgstr "Naudokite operacinės sistemos šriftą"
 
-#: src/Process/Backend/UserPreferences.php:666
+#: src/Process/Backend/UserPreferences.php:660
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Žiniasklaidos tvarkyklėje siūlomų naujausių aplankų skaičius:"
 
-#: src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/UserPreferences.php:662
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Palikite tuščią, kad ignoruotumėte, rodoma tik jei naršyklėje įjungtas Javascript."
 
-#: src/Process/Backend/UserPreferences.php:674
+#: src/Process/Backend/UserPreferences.php:668
 msgid "Do not use standard favicon"
 msgstr "Nenaudokite standartinės favikonos"
 
-#: src/Process/Backend/UserPreferences.php:675
+#: src/Process/Backend/UserPreferences.php:669
 msgid "This will be applied for all users"
 msgstr "Tai bus taikoma visiems naudotojams"
 
-#: src/Process/Backend/UserPreferences.php:682
+#: src/Process/Backend/UserPreferences.php:676
 msgid "Disable Ad-blocker check"
 msgstr "Išjungti \"Ad-blocker\" tikrinimą"
 
-#: src/Process/Backend/UserPreferences.php:683
+#: src/Process/Backend/UserPreferences.php:677
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Kai kurie reklamos blokatoriai (Ghostery, Adblock plus, uBloc origin, …) gali trukdyti kai kurioms funkcijoms, pvz., nuorodų ar medijos įterpimui į įrašus su CKEditor; tokiu atveju turėtumėte jį išjungti šiam Dotclear įrenginiui (tik backend). Atkreipkite dėmesį, kad \"Dotclear\" neprideda reklamų ot sekėjų į galinę versiją."
 
-#: src/Process/Backend/UserPreferences.php:688
+#: src/Process/Backend/UserPreferences.php:682
 msgid "Optional columns displayed in lists"
 msgstr "Sąrašuose rodomi pasirenkamieji stulpeliai"
 
-#: src/Process/Backend/UserPreferences.php:707
+#: src/Process/Backend/UserPreferences.php:701
 msgid "Options for lists"
 msgstr "Sąrašų parinktys"
 
-#: src/Process/Backend/UserPreferences.php:710
+#: src/Process/Backend/UserPreferences.php:704
 msgid "Apply filters on the fly"
 msgstr "Pritaikykite filtrus skrydžio metu"
 
-#: src/Process/Backend/UserPreferences.php:750
+#: src/Process/Backend/UserPreferences.php:744
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Pageidaujamas %sredaktorius :"
 
-#: src/Process/Backend/UserPreferences.php:753
+#: src/Process/Backend/UserPreferences.php:747
 msgid "Choose an editor"
 msgstr "Pasirinkite redaktorių"
 
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:764
 msgid "Enable WYSIWYG mode"
 msgstr "Įjungti WYSIWYG rėžimą"
 
-#: src/Process/Backend/UserPreferences.php:774
+#: src/Process/Backend/UserPreferences.php:768
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Rodyti redaktoriaus įrankių juostą tekstinės srities apačioje (jei įmanoma)"
 
-#: src/Process/Backend/UserPreferences.php:780
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Use HTML editor for:"
 msgstr "Naudokite HTML redaktorių:"
 
-#: src/Process/Backend/UserPreferences.php:790
+#: src/Process/Backend/UserPreferences.php:784
 msgid "Other options"
 msgstr "Kitos galimybės"
 
-#: src/Process/Backend/UserPreferences.php:798
+#: src/Process/Backend/UserPreferences.php:792
 msgid "Save my options"
 msgstr "Išsaugoti mano parinktis"
 
-#: src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/UserPreferences.php:831
 #, php-format
 msgid "position of %s"
 msgstr "%spozicija"
 
-#: src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/UserPreferences.php:848
 msgid "Save order"
 msgstr "Išsaugoti užsakymą"
 
-#: src/Process/Backend/UserPreferences.php:857
+#: src/Process/Backend/UserPreferences.php:851
 msgid "Delete selected favorites"
 msgstr "Ištrinti pasirinktus mėgstamiausius"
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:853
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Ar tikrai norite pašalinti pasirinktas mėgstamiausias vietas?"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:858
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Jei esate vyriausiasis administratorius, galite nustatyti, kad šis mėgstamiausiųjų rinkinys būtų naudojamas pagal numatytuosius nustatymus visuose šio įrenginio tinklaraščiuose."
 
-#: src/Process/Backend/UserPreferences.php:865
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Define as default favorites"
 msgstr "Apibrėžti kaip numatytuosius mėgstamiausius"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Currently no personal favorites."
 msgstr "Šiuo metu nėra asmeninių mėgstamiausių."
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:880
 msgid "Other available favorites"
 msgstr "Kiti galimi mėgstamiausi produktai"
 
-#: src/Process/Backend/UserPreferences.php:914
+#: src/Process/Backend/UserPreferences.php:908
 msgid "(default favorite)"
 msgstr "(numatytoji mėgstamiausia)"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:919
 msgid "Add to my favorites"
 msgstr "Pridėti prie mėgstamiausių"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Menu"
 msgstr "Meniu"
 
-#: src/Process/Backend/UserPreferences.php:937
+#: src/Process/Backend/UserPreferences.php:931
 msgid "Display favorites at the top of the menu"
 msgstr "Meniu viršuje rodyti mėgstamiausius"
 
-#: src/Process/Backend/UserPreferences.php:940
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Dashboard icons"
 msgstr "Prietaisų skydelio piktogramos"
 
-#: src/Process/Backend/UserPreferences.php:943
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Display dashboard icons"
 msgstr "Rodyti prietaisų skydelio piktogramas"
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:941
 msgid "Dashboard modules"
 msgstr "Prietaisų skydelio moduliai"
 
-#: src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/UserPreferences.php:945
 msgid "Display documentation links"
 msgstr "Rodyti dokumentų nuorodas"
 
-#: src/Process/Backend/UserPreferences.php:955
+#: src/Process/Backend/UserPreferences.php:949
 msgid "Display Dotclear news"
 msgstr "Rodyti Dotclear naujienas"
 
-#: src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/UserPreferences.php:953
 msgid "Display quick entry form"
 msgstr "Rodyti greitojo įvesties formą"
 
-#: src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/UserPreferences.php:959
 msgid "Do not display Dotclear updates"
 msgstr "Nerodyti \"Dotclear\" atnaujinimų"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:972
 msgid "Save my dashboard options"
 msgstr "Išsaugoti mano prietaisų skydelio parinktis"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Dashboard items order"
 msgstr "Prietaisų skydelio elementų tvarka"
 
-#: src/Process/Backend/UserPreferences.php:988
+#: src/Process/Backend/UserPreferences.php:982
 msgid "Reset dashboard items order"
 msgstr "Iš naujo nustatyti prietaisų skydelio elementų tvarką"
 
@@ -6205,47 +6211,51 @@ msgstr "Atnaujinti"
 msgid "Back to normal dashboard"
 msgstr "Grįžimas į įprastą prietaisų skydelį"
 
-#: src/Process/Upgrade/Backup.php:61 src/Process/Upgrade/Backup.php:188
+#: src/Process/Upgrade/Backup.php:61 src/Process/Upgrade/Backup.php:212
 msgid "Backups and restore"
 msgstr "Atsarginės kopijos ir atkūrimas"
 
-#: src/Process/Upgrade/Backup.php:101
+#: src/Process/Upgrade/Backup.php:104 src/Process/Upgrade/Backup.php:120
 #, php-format
 msgid "Unable to delete file %s"
 msgstr "Nepavyko ištrinti failo %s"
 
-#: src/Process/Upgrade/Backup.php:103
+#: src/Process/Upgrade/Backup.php:108 src/Process/Upgrade/Backup.php:122
 msgid "Backup deleted."
 msgstr "Atsarginė kopija ištrinta."
 
-#: src/Process/Upgrade/Backup.php:111
+#: src/Process/Upgrade/Backup.php:130
 msgid "Backup restored."
 msgstr "Atkurta atsarginė kopija."
 
-#: src/Process/Upgrade/Backup.php:125
+#: src/Process/Upgrade/Backup.php:144
 msgid "There are no backups available."
 msgstr "Atsarginių kopijų nėra."
 
-#: src/Process/Upgrade/Backup.php:157
+#: src/Process/Upgrade/Backup.php:176
 msgid "Backups of previously updates"
 msgstr "Anksčiau atliktų atnaujinimų atsarginės kopijos"
 
-#: src/Process/Upgrade/Backup.php:168
-msgid "Delete selected file"
-msgstr "Trinti pasirinktą failą"
-
-#: src/Process/Upgrade/Backup.php:170
+#: src/Process/Upgrade/Backup.php:187
 msgid "Revert to selected file"
 msgstr "Atstatyti pasirinktą failą"
 
-#: src/Process/Upgrade/Backup.php:176
+#: src/Process/Upgrade/Backup.php:188
+msgid "Delete selected file"
+msgstr "Trinti pasirinktą failą"
+
+#: src/Process/Upgrade/Backup.php:195
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
 msgstr "Dėmesio, ankstesnės Dotclear versijos atstatymas gali turėti tam tikrų nepageidaujamų šalutinių padarinių. Atstatinėkite ankstesnę versiją tik jei turite rimtų problemų su naujaja versija."
 
-#: src/Process/Upgrade/Backup.php:177
+#: src/Process/Upgrade/Backup.php:196
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
 msgstr "Neturėtumėte atstatinėti ankstesnės nei prieš tai buvusi versija (%s)."
+
+#: src/Process/Upgrade/Backup.php:200
+msgid "Delete all files but last"
+msgstr ""
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
@@ -6255,21 +6265,29 @@ msgstr "Šablonų cache direktorija išvalyta."
 msgid "Repositories cache directory emptied."
 msgstr "Ištuštintas saugyklų talpyklos katalogas."
 
-#: src/Process/Upgrade/Cache.php:69
+#: src/Process/Upgrade/Cache.php:56
+msgid "Dotclear versions cache directory emptied."
+msgstr ""
+
+#: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
 msgstr "Spartinančiosios atmintinės valdymas"
 
-#: src/Process/Upgrade/Cache.php:84
+#: src/Process/Upgrade/Cache.php:89
 msgid "Cache folders"
 msgstr "Talpyklos aplankai"
 
-#: src/Process/Upgrade/Cache.php:89
+#: src/Process/Upgrade/Cache.php:94
 msgid "Empty templates cache directory"
 msgstr "Trinti šablonų cache direktoriją"
 
-#: src/Process/Upgrade/Cache.php:91
+#: src/Process/Upgrade/Cache.php:96
 msgid "Empty repositories cache directory"
 msgstr "Tuščias saugyklų talpyklų talpyklos katalogas"
+
+#: src/Process/Upgrade/Cache.php:98
+msgid "Empty Dotclear versions cache directory"
+msgstr ""
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
