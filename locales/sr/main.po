@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 14:17\n"
+"PO-Revision-Date: 2023-12-11 15:57\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -3460,11 +3460,11 @@ msgstr "Centré"
 
 #: src/Process/Backend/BlogPref.php:198 src/Process/Backend/MediaItem.php:600
 msgid "Legend and alternate text"
-msgstr ""
+msgstr "Легенда и алтернативни текст"
 
 #: src/Process/Backend/BlogPref.php:199 src/Process/Backend/MediaItem.php:606
 msgid "Alternate text"
-msgstr ""
+msgstr "Алтернативни текст"
 
 #: src/Process/Backend/BlogPref.php:205
 msgid "I would like search engines and archivers to index and archive my blog's content."
@@ -3745,7 +3745,7 @@ msgstr "Подразумевана својства уметања слика"
 
 #: src/Process/Backend/BlogPref.php:758
 msgid "Inserted image legend:"
-msgstr ""
+msgstr "Уметнута легенда о слици:"
 
 #: src/Process/Backend/BlogPref.php:762
 msgid "Use original media date if possible"
@@ -3773,7 +3773,7 @@ msgstr "Уметни линк ка оригиналној слици"
 
 #: src/Process/Backend/BlogPref.php:781
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "Легенда о слици и алтернативни текст:"
 
 #: src/Process/Backend/BlogPref.php:790
 msgid "Advanced parameters"
@@ -4675,11 +4675,11 @@ msgstr "Insérer un média"
 
 #: src/Process/Backend/MediaItem.php:593
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "Легенда о слици и алтернативни текст"
 
 #: src/Process/Backend/MediaItem.php:615
 msgid "Alternate text: "
-msgstr ""
+msgstr "Алтернативни текст: "
 
 #: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
@@ -4820,7 +4820,7 @@ msgstr "Détails de l'image"
 
 #: src/Process/Backend/MediaItem.php:960
 msgid "Alternate text :"
-msgstr ""
+msgstr "Алтернативни текст :"
 
 #: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
@@ -4876,7 +4876,7 @@ msgstr "Nom du fichier :"
 
 #: src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
-msgstr ""
+msgstr "Алтернативни текст:"
 
 #: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
@@ -6213,7 +6213,7 @@ msgstr "Не треба да се враћате на верзију пре по
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
-msgstr ""
+msgstr "Избриши све фајлове, али последњи"
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
@@ -6225,7 +6225,7 @@ msgstr "Спремиште складишта кеша је испражњено
 
 #: src/Process/Upgrade/Cache.php:56
 msgid "Dotclear versions cache directory emptied."
-msgstr ""
+msgstr "Dotsfe верзија кеш директоријума је празна."
 
 #: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
@@ -6245,7 +6245,7 @@ msgstr "Празан директоријум складишта репозит�
 
 #: src/Process/Upgrade/Cache.php:98
 msgid "Empty Dotclear versions cache directory"
-msgstr ""
+msgstr "Испразни директоријум кеша Dotcie верзије"
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
