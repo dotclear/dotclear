@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 14:17\n"
+"PO-Revision-Date: 2023-12-11 15:57\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -3455,15 +3455,15 @@ msgstr "Opis"
 
 #: src/Process/Backend/BlogPref.php:150
 msgid "Description, Date"
-msgstr ""
+msgstr "Opis, data"
 
 #: src/Process/Backend/BlogPref.php:151
 msgid "Description, Country, Date"
-msgstr ""
+msgstr "Opis, kraj, data"
 
 #: src/Process/Backend/BlogPref.php:152
 msgid "Description, City, Country, Date"
-msgstr ""
+msgstr "Opis, miasto, kraj, data"
 
 #: src/Process/Backend/BlogPref.php:179 src/Process/Backend/MediaItem.php:514
 #: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:824
@@ -3493,11 +3493,11 @@ msgstr "Środek"
 
 #: src/Process/Backend/BlogPref.php:198 src/Process/Backend/MediaItem.php:600
 msgid "Legend and alternate text"
-msgstr ""
+msgstr "Legenda i tekst alternatywny"
 
 #: src/Process/Backend/BlogPref.php:199 src/Process/Backend/MediaItem.php:606
 msgid "Alternate text"
-msgstr ""
+msgstr "Tekst alternatywny"
 
 #: src/Process/Backend/BlogPref.php:205
 msgid "I would like search engines and archivers to index and archive my blog's content."
@@ -3778,7 +3778,7 @@ msgstr "Domyślne atrybuty wstawiania obrazu"
 
 #: src/Process/Backend/BlogPref.php:758
 msgid "Inserted image legend:"
-msgstr ""
+msgstr "Wstawiona legenda obrazu:"
 
 #: src/Process/Backend/BlogPref.php:762
 msgid "Use original media date if possible"
@@ -3806,7 +3806,7 @@ msgstr "Wstaw link do oryginalnego obrazu"
 
 #: src/Process/Backend/BlogPref.php:781
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "Legenda obrazu i tekst alternatywny:"
 
 #: src/Process/Backend/BlogPref.php:790
 msgid "Advanced parameters"
@@ -4712,11 +4712,11 @@ msgstr "Wstaw media"
 
 #: src/Process/Backend/MediaItem.php:593
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "Legenda obrazu i tekst alternatywny"
 
 #: src/Process/Backend/MediaItem.php:615
 msgid "Alternate text: "
-msgstr ""
+msgstr "Tekst alternatywny: "
 
 #: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
@@ -4857,7 +4857,7 @@ msgstr "Szczegóły obrazu"
 
 #: src/Process/Backend/MediaItem.php:960
 msgid "Alternate text :"
-msgstr ""
+msgstr "Tekst alternatywny :"
 
 #: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
@@ -4913,7 +4913,7 @@ msgstr "Nazwa pliku:"
 
 #: src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
-msgstr ""
+msgstr "Tekst alternatywny:"
 
 #: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
@@ -6255,7 +6255,7 @@ msgstr "Nie powinieneś przywracać wersji wcześniejszej niż ostatnio (%s)."
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
-msgstr ""
+msgstr "Usuń wszystkie pliki oprócz ostatniego"
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
@@ -6267,7 +6267,7 @@ msgstr "Opróżniono katalog pamięci podręcznej repozytoriów."
 
 #: src/Process/Upgrade/Cache.php:56
 msgid "Dotclear versions cache directory emptied."
-msgstr ""
+msgstr "Katalog pamięci podręcznej wersji Dotclear opróżniony."
 
 #: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
@@ -6287,7 +6287,7 @@ msgstr "Pusty katalog pamięci podręcznej repozytoriów"
 
 #: src/Process/Upgrade/Cache.php:98
 msgid "Empty Dotclear versions cache directory"
-msgstr ""
+msgstr "Opróżnij katalog pamięci podręcznej wersji Dotclear"
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
