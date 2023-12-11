@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 14:17\n"
+"PO-Revision-Date: 2023-12-11 15:56\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -3356,15 +3356,15 @@ msgstr "설명"
 
 #: src/Process/Backend/BlogPref.php:150
 msgid "Description, Date"
-msgstr ""
+msgstr "설명, 날짜"
 
 #: src/Process/Backend/BlogPref.php:151
 msgid "Description, Country, Date"
-msgstr ""
+msgstr "설명, 국가, 날짜"
 
 #: src/Process/Backend/BlogPref.php:152
 msgid "Description, City, Country, Date"
-msgstr ""
+msgstr "설명, 도시, 국가, 날짜"
 
 #: src/Process/Backend/BlogPref.php:179 src/Process/Backend/MediaItem.php:514
 #: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:824
@@ -3394,11 +3394,11 @@ msgstr "가운데"
 
 #: src/Process/Backend/BlogPref.php:198 src/Process/Backend/MediaItem.php:600
 msgid "Legend and alternate text"
-msgstr ""
+msgstr "범례 및 대체 텍스트"
 
 #: src/Process/Backend/BlogPref.php:199 src/Process/Backend/MediaItem.php:606
 msgid "Alternate text"
-msgstr ""
+msgstr "대체 텍스트"
 
 #: src/Process/Backend/BlogPref.php:205
 msgid "I would like search engines and archivers to index and archive my blog's content."
@@ -3679,7 +3679,7 @@ msgstr "기본 이미지 삽입 속성"
 
 #: src/Process/Backend/BlogPref.php:758
 msgid "Inserted image legend:"
-msgstr ""
+msgstr "이미지 범례를 삽입했습니다:"
 
 #: src/Process/Backend/BlogPref.php:762
 msgid "Use original media date if possible"
@@ -3707,7 +3707,7 @@ msgstr "원본 이미지에 대한 링크 삽입"
 
 #: src/Process/Backend/BlogPref.php:781
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "이미지 범례 및 대체 텍스트:"
 
 #: src/Process/Backend/BlogPref.php:790
 msgid "Advanced parameters"
@@ -4607,11 +4607,11 @@ msgstr "미디어 삽입"
 
 #: src/Process/Backend/MediaItem.php:593
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "이미지 범례 및 대체 텍스트"
 
 #: src/Process/Backend/MediaItem.php:615
 msgid "Alternate text: "
-msgstr ""
+msgstr "대체 텍스트: "
 
 #: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
@@ -4752,7 +4752,7 @@ msgstr "이미지 상세정보"
 
 #: src/Process/Backend/MediaItem.php:960
 msgid "Alternate text :"
-msgstr ""
+msgstr "대체 텍스트 :"
 
 #: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
@@ -4808,7 +4808,7 @@ msgstr "파일 이름 :"
 
 #: src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
-msgstr ""
+msgstr "대체 텍스트:"
 
 #: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
@@ -6138,7 +6138,7 @@ msgstr "마지막 백업 버전 (%s) 이전으로 되돌리기하셔선 안됩�
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
-msgstr ""
+msgstr "마지막 파일을 제외한 모든 파일 삭제"
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
@@ -6150,7 +6150,7 @@ msgstr "리포지토리 캐시 디렉터리가 비워졌습니다."
 
 #: src/Process/Upgrade/Cache.php:56
 msgid "Dotclear versions cache directory emptied."
-msgstr ""
+msgstr "도트클리어 버전 캐시 디렉터리가 비워졌습니다."
 
 #: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
@@ -6170,7 +6170,7 @@ msgstr "리포지토리 캐시 디렉터리 비우기"
 
 #: src/Process/Upgrade/Cache.php:98
 msgid "Empty Dotclear versions cache directory"
-msgstr ""
+msgstr "도트클리어 버전 캐시 디렉터리 비우기"
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
