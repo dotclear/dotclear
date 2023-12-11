@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 08:23+0100\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2023-12-11 15:13+0100\n"
+"PO-Revision-Date: 2023-12-11 14:23\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -195,7 +195,7 @@ msgid "Failed to delete related preferences"
 msgstr "Απέτυχε η διαγραφή σχετικών προτιμήσεων"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:37
-#: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:16
+#: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:15
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -617,13 +617,6 @@ msgstr "Ρύθμιση ID"
 msgid "Value"
 msgstr "Τιμή"
 
-#: plugins/aboutConfig/src/Manage.php:159 plugins/antispam/src/Manage.php:217
-#: plugins/blogroll/src/Manage.php:253 plugins/blogroll/src/Manage.php:396
-#: plugins/simpleMenu/src/Manage.php:227 plugins/simpleMenu/src/Manage.php:672
-#: plugins/userPref/src/Manage.php:145
-msgid "Description"
-msgstr "Περιγραφή"
-
 #: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:189
 msgid "Goto:"
 msgstr "Γκότο:"
@@ -688,13 +681,13 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: plugins/antispam/src/BackendBehaviors.php:42
-#: plugins/antispam/src/Manage.php:193
+#: plugins/antispam/src/Manage.php:196
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Όλα τα σχόλια spam παλαιότερα από %s ημέρες θα διαγραφούν αυτόματα."
 
 #: plugins/antispam/src/BackendBehaviors.php:43
-#: plugins/antispam/src/Manage.php:194
+#: plugins/antispam/src/Manage.php:197
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Μπορείτε να τροποποιήσετε αυτή τη διάρκεια στο %s"
@@ -889,74 +882,74 @@ msgstr "Το φίλτρο δεν υπάρχει."
 msgid "Filter has no user interface."
 msgstr "Το φίλτρο δεν έχει διεπαφή χρήστη."
 
-#: plugins/antispam/src/Manage.php:112 plugins/antispam/src/Manage.php:205
+#: plugins/antispam/src/Manage.php:115 plugins/antispam/src/Manage.php:208
 msgid "Filters configuration has been successfully saved."
 msgstr "Οι ρυθμίσεις των φίλτρων αποθηκεύτηκαν επιτυχώς."
 
-#: plugins/antispam/src/Manage.php:129
+#: plugins/antispam/src/Manage.php:132
 #, php-format
 msgid "%s configuration"
 msgstr "%s ρύθμιση παραμέτρων"
 
-#: plugins/antispam/src/Manage.php:149
+#: plugins/antispam/src/Manage.php:152
 #, php-format
 msgid "%s filter configuration"
 msgstr "ρύθμιση παραμέτρων φίλτρου %s"
 
-#: plugins/antispam/src/Manage.php:153
+#: plugins/antispam/src/Manage.php:156
 msgid "Back to filters list"
 msgstr "Πίσω στη λίστα φίλτρων"
 
-#: plugins/antispam/src/Manage.php:177
+#: plugins/antispam/src/Manage.php:180
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: plugins/antispam/src/Manage.php:179
+#: plugins/antispam/src/Manage.php:182
 msgid "Junk comments:"
 msgstr "Ανεπιθύμητα σχόλια:"
 
-#: plugins/antispam/src/Manage.php:181
+#: plugins/antispam/src/Manage.php:184
 msgid "Published comments:"
 msgstr "Δημοσιευμένα σχόλια:"
 
-#: plugins/antispam/src/Manage.php:211
+#: plugins/antispam/src/Manage.php:214
 msgid "Available spam filters"
 msgstr "Διαθέσιμα φίλτρα spam"
 
-#: plugins/antispam/src/Manage.php:213
+#: plugins/antispam/src/Manage.php:216
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
 msgstr "Σειρά"
 
-#: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:245
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
 msgid "Active"
 msgstr "Ενεργό"
 
-#: plugins/antispam/src/Manage.php:215 plugins/antispam/src/Manage.php:253
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:216
+#: plugins/antispam/src/Manage.php:219
 msgid "Filter name"
 msgstr "Όνομα φίλτρου"
 
-#: plugins/antispam/src/Manage.php:226 plugins/antispam/src/Manage.php:227
+#: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
 msgid "Filter configuration"
 msgstr "Ρύθμιση παραμέτρων φίλτρου"
 
-#: plugins/antispam/src/Manage.php:237 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "θέση"
 
-#: plugins/antispam/src/Manage.php:283
+#: plugins/antispam/src/Manage.php:285
 msgid "Syndication"
 msgstr "Κοινοποίηση"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Junk comments RSS feed"
 msgstr "Ανεπιθύμητα σχόλια RSS feed"
 
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:288
 msgid "Published comments RSS feed"
 msgstr "Δημοσιευμένα σχόλια RSS feed"
 
@@ -1002,11 +995,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "διαχείριση blogroll"
 
-#: plugins/blogroll/src/Blogroll.php:171 plugins/blogroll/src/Blogroll.php:214
+#: plugins/blogroll/src/Blogroll.php:164 plugins/blogroll/src/Blogroll.php:207
 msgid "You must provide a link title"
 msgstr "Πρέπει να δώσετε έναν τίτλο συνδέσμου"
 
-#: plugins/blogroll/src/Blogroll.php:175 plugins/blogroll/src/Blogroll.php:218
+#: plugins/blogroll/src/Blogroll.php:168 plugins/blogroll/src/Blogroll.php:211
 msgid "You must provide a link URL"
 msgstr "Πρέπει να δώσετε ένα URL συνδέσμου"
 
@@ -1352,6 +1345,11 @@ msgstr "Εξωτερική εικόνα"
 msgid "URL field cannot be empty."
 msgstr "Το πεδίο URL δεν μπορεί να είναι κενό."
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:92
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:171
+msgid "Open the media"
+msgstr ""
+
 #: plugins/dcCKEditor/src/Manage.php:128
 #: plugins/dcLegacyEditor/src/Manage.php:43
 msgid "The configuration has been updated."
@@ -1361,7 +1359,7 @@ msgstr "Οι ρυθμίσεις έχουν ενημερωθεί."
 msgid "Note(s)"
 msgstr "Σημείωση(-εις)"
 
-#: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:18
 msgid "Plugin activation"
 msgstr "Ενεργοποίηση πρόσθετων"
 
@@ -1445,17 +1443,17 @@ msgstr "Προσθήκη κουμπιών αναίρεσης/επανάληψη�
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Απενεργοποιεί τον ενσωματωμένο ορθογραφικό έλεγχο αν ο περιηγητής παρέχει ένα"
 
-#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:31
+#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:30
 #: plugins/simpleMenu/src/Manage.php:635
 msgid "Save configuration"
 msgstr "Αποθήκευση διαμόρφωσης"
 
 #: plugins/dcLegacyEditor/src/Backend.php:24
-#: plugins/dcLegacyEditor/tpl/index.php:13
+#: plugins/dcLegacyEditor/tpl/index.php:12
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcLegacyEditor/src/Backend.php:47
 msgid "Dotclear wiki"
 msgstr "Wiki Dotclear"
 
@@ -1568,7 +1566,7 @@ msgstr "Γλώσσα?"
 msgid "Remove text formating"
 msgstr "Αφαίρεση μορφοποίησης κειμένου"
 
-#: plugins/dcLegacyEditor/tpl/index.php:23
+#: plugins/dcLegacyEditor/tpl/index.php:22
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Ενεργοποίηση του dcLegacyEditor plugin"
 
@@ -3305,35 +3303,35 @@ msgstr "Τροφοδοσία καταχωρήσεων"
 msgid "Comments feed"
 msgstr "Ροή σχολίων"
 
-#: plugins/widgets/src/WidgetsElement.php:535
+#: plugins/widgets/src/WidgetsElement.php:515
 msgid "Title (optional)"
 msgstr "Τίτλος (προαιρετικό)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:528
 msgid "All pages"
 msgstr "Όλες οι σελίδες"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:529
 msgid "Home page only"
 msgstr "Αρχική σελίδα μόνο"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:530
 msgid "Except on home page"
 msgstr "Εκτός από την αρχική σελίδα"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:538
 msgid "Display on:"
 msgstr "Εμφάνιση σε:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:574
 msgid "Content only"
 msgstr "Μόνο περιεχόμενο"
 
-#: plugins/widgets/src/WidgetsElement.php:606
+#: plugins/widgets/src/WidgetsElement.php:586
 msgid "CSS class:"
 msgstr "Τάξη CSS:"
 
-#: plugins/widgets/src/WidgetsElement.php:618
+#: plugins/widgets/src/WidgetsElement.php:598
 msgid "Offline"
 msgstr "Αποσυνδεδεμένος"
 
