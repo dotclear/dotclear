@@ -1,0 +1,3337 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-11 15:13+0100\n"
+"PO-Revision-Date: 2023-12-11 16:23\n"
+"Last-Translator: \n"
+"Language-Team: Hindi\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: hi\n"
+"X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
+"X-Crowdin-File-ID: 264\n"
+
+#: plugins/Uninstaller/src/Backend.php:46
+msgid "Uninstall"
+msgstr "असंस्थापित करें"
+
+#: plugins/Uninstaller/src/Backend.php:104
+msgid "Plugin has been successfully uninstalled."
+msgstr "प्लगइन सफलतापूर्वक अनइंस्टॉल किया गया है."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Folders from cache directory"
+msgstr "कैश निर्देशिका से फ़ोल्डर"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+msgid "delete selected cache directories"
+msgstr "चयनित कैश निर्देशिका मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+msgid "empty selected cache directories"
+msgstr "खाली चयनित कैश निर्देशिका"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:37
+msgid "Logs"
+msgstr "लॉग"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:38
+msgid "Logs in Dotclear logs table"
+msgstr "डलॉग के लॉग में लॉग इन करें"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:43
+msgid "delete selected logs tables"
+msgstr "चयनित लॉग तालिका को मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:44
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:36
+msgid "Folders from plugins directories"
+msgstr "प्लगिन से फ़ोल्डर"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:41
+msgid "delete selected plugins files and directories"
+msgstr "चुने गए प्लगइन्स फ़ाइलों और निर्देशिकाओं"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:37
+msgid "Preferences"
+msgstr "वरीयताएं"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
+msgid "Users preferences workspaces"
+msgstr "उपयोक्ता प्राथमिकताएँ वर्कस्पेस"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:43
+msgid "delete selected global preferences workspaces"
+msgstr "चयनित वैश्विक वरीयता वर्कस्पेस को मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:52
+msgid "delete selected users preferences workspaces"
+msgstr "चुने गए उपयोक्ता वरीयता कार्यस्थान मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:61
+msgid "delete selected preferences workspaces"
+msgstr "चयनित वरीयता कार्यस्थान मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:70
+msgid "delete related preferences"
+msgstr "संबंधित वरीयताएँ मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
+msgid "related preferences deleted"
+msgstr "संबंधित वरीयता मिटाया"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "Failed to delete related preferences"
+msgstr "संबंधित वरीयताओं को मिटाने में असफल"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:37
+#: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:15
+msgid "Settings"
+msgstr "विन्यास"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:38
+msgid "Namespaces registered in dcSettings"
+msgstr "Dcsettings में पंजीकृत नामसूची"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:43
+msgid "delete selected global settings namespaces"
+msgstr "चयनित वैश्विक सेटिंग्स नेमस्पेसेस मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:44
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:52
+msgid "delete selected blog settings namespaces"
+msgstr "चयनित ब्लॉग सेटिंग्स नेमस्पेसेस मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:61
+msgid "delete selected settings namespaces"
+msgstr "चयनित सेटिंग नेमस्पेसेस मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:70
+msgid "delete related settings"
+msgstr "संबंधित सेटिंग्स मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:71
+msgid "related settings deleted"
+msgstr "संबंधित सेटिंग मिटाया"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "Failed to delete related settings"
+msgstr "संबंधित सेटिंग को मिटाने में असफल"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:38
+msgid "Tables"
+msgstr "तालिकाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+msgid "All database tables of Dotclear"
+msgstr "डैटक्लियर के सभी डेटाबेस टेबलें"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+msgid "delete selected tables"
+msgstr "चयनित टेबल मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#, php-format
+msgid "delete \"%s\" table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:53
+msgid "empty selected tables"
+msgstr "खाली चयनित टेबल"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#, php-format
+msgid "empty \"%s\" table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:35
+msgid "Themes"
+msgstr "प्रसंग"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:36
+msgid "Folders from blog themes directory"
+msgstr "ब्लॉग थीम निर्देशिका से फ़ोल्डर"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:41
+msgid "delete selected themes files and directories"
+msgstr "चयनित प्रसंग फ़ाइलों और निर्देशिकाओं को मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:42
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:36
+msgid "Var"
+msgstr "वार"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Folders from Dotclear VAR directory"
+msgstr "डैटक्लियर VAR निर्देशिका से फ़ोल्डर"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:42
+msgid "delete selected var directories"
+msgstr "चयनित var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:35
+msgid "Versions"
+msgstr "संस्करण"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:36
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "डीओटेड के तालिका \"संस्करण\" में पंजीकृत संस्करण"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:41
+msgid "delete selected versions numbers"
+msgstr "चयनित संस्करण संख्या को मिटाएँ"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:42
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr ""
+
+#: plugins/Uninstaller/src/CleanersStack.php:120
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr ""
+
+#: plugins/Uninstaller/src/CleanersStack.php:123
+msgid "Unsintaller can't remove itself"
+msgstr "Unsintlller खुद को नहीं हटा सकता है"
+
+#: plugins/Uninstaller/src/Manage.php:62
+msgid "Unknown module id to uninstall"
+msgstr "अज्ञात मॉड्यूल आईडी अनइंस्टॉल करने के लिए"
+
+#: plugins/Uninstaller/src/Manage.php:70
+msgid "There are no uninstall actions for this module"
+msgstr "इस मॉड्यूल के लिए कोई अनइंस्टॉल क्रियाएँ नहीं हैं"
+
+#: plugins/Uninstaller/src/Manage.php:95
+msgid "Uninstall action successfuly excecuted"
+msgstr "किसी भी तरह की कार्रवाई को सफल नहीं किया जा सकता है"
+
+#: plugins/Uninstaller/src/Manage.php:98
+msgid "No uninstall action done"
+msgstr "कोई असंस्थापित क्रिया नहीं की गई"
+
+#: plugins/Uninstaller/src/Manage.php:143
+msgid "Perform selected actions"
+msgstr "चयनित क्रिया संपादित करें"
+
+#: plugins/Uninstaller/src/Manage.php:158
+msgid "Are you sure you perform these ations?"
+msgstr "क्या आप सुनिश्चित हैं कि आप इन उपायों को करते हैं?"
+
+#: plugins/Uninstaller/src/Manage.php:174
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr ""
+
+#: plugins/Uninstaller/src/Manage.php:174
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr ""
+
+#: plugins/Uninstaller/src/Manage.php:175
+#, php-format
+msgid "The module \"%s %s\" offers advanced unsintall process:"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:6
+msgid "Cope with old core classes (< 2.26)"
+msgstr "पुराने कोर कक्षाओं के साथ मुकाबला (< 2.26)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:28
+msgid "Generic antispam plugin for Dotclear"
+msgstr "डाटासाफ़ के लिए जेनेरिक एंटीस्पैम प्लगइनName"
+
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
+msgid "Akismet interface for Dotclear"
+msgstr "डीओटेड के लिए एकॉमेट इंटरफेस"
+
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:25
+msgid "Trackback validity check"
+msgstr "ट्रेकबैक वैधता जाँच"
+
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:24
+msgid "Manage post attachments"
+msgstr "पोस्ट संलग्नक प्रबंधित करें"
+
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
+msgid "Serve entries as simple web pages"
+msgstr "साधारण वेब पृष्ठ के रूप में प्रविष्टियों की सेवा"
+
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:24
+msgid "Manage every blog configuration directive"
+msgstr "प्रत्येक ब्लॉग विन्यास निर्देश प्रबंधित करें"
+
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/dcLegacyEditor/src/Backend.php:24
+msgid "dotclear legacy editor"
+msgstr "डॉटकॉम स्पष्ट विरासत संपादक"
+
+#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/themeEditor/src/Backend.php:24
+msgid "Theme Editor"
+msgstr "प्रसंग संपादक"
+
+#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
+msgid "Simple menu for Dotclear"
+msgstr "डीओटेड के लिए सरल मेनू"
+
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/importExport/src/Backend.php:26
+msgid "Import and Export your blog"
+msgstr "आयात और निर्यात आपका ब्लॉग"
+
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:24
+msgid "Manage every user preference directive"
+msgstr "प्रत्येक उपयोगकर्ता वरीयता निर्देश प्रबंधित करें"
+
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:24
+msgid "dotclear CKEditor integration"
+msgstr "के-स्पष्ट सीकेसंपादक"
+
+#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/maintenance/src/Backend.php:24
+msgid "Maintain your installation"
+msgstr "अपनी स्थापना बनाए रखें"
+
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:24
+msgid "Breadcrumb for Dotclear"
+msgstr "डीओटेड के लिए रोजी-क्रैब"
+
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:25
+msgid "Manage your blogroll"
+msgstr "अपने ब्लॉगकल का प्रबंधन करें"
+
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
+msgid "Ping services"
+msgstr "पिंग सेवा"
+
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
+msgid "Tags for posts"
+msgstr "पदों के लिए टैग"
+
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
+msgid "Widgets for your blog sidebars"
+msgstr "अपने ब्लॉग सिडेारों के लिए विजेट्स"
+
+#: plugins/_fake_plugin/_fake_l10n.php:25
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr "फंक्शन/विधि पदचिह्न V1 (< 2.24, 2.25) से सामना"
+
+#: plugins/_fake_plugin/_fake_l10n.php:29
+msgid "Search engine form"
+msgstr "खोज इंजन रूप"
+
+#: plugins/_fake_plugin/_fake_l10n.php:30
+msgid "List of navigation links"
+msgstr "नेविगेशन लिंक की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:31
+msgid "List of selected entries"
+msgstr "चयनित प्रविष्टियों की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:32
+msgid "List of available languages"
+msgstr "उपलब्ध भाषाओं की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:121
+msgid "List of categories"
+msgstr "श्रेणियों की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:34
+msgid "Feed subscription links (RSS or Atom)"
+msgstr "फीड सदस्यता लिंक (आरएसएस या एटम)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:35
+msgid "List of last entries from feed (RSS or Atom)"
+msgstr "फीड से अंतिम प्रविष्टियों की सूची (आरएसएस या एटम)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:36
+msgid "Simple text"
+msgstr "सरल पाठ"
+
+#: plugins/_fake_plugin/_fake_l10n.php:37
+msgid "List of last entries published"
+msgstr "प्रकाशित अंतिम प्रविष्टियों की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:38
+msgid "List of last comments published"
+msgstr "प्रकाशित अंतिम टिप्पणियों की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:39
+msgid "List of published pages"
+msgstr "प्रकाशित पृष्ठों की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:40
+msgid "List of simple menu items"
+msgstr "सरल मेनू मद की सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:41
+msgid "Blogroll list"
+msgstr "ब्लॉगलेल सूची"
+
+#: plugins/_fake_plugin/_fake_l10n.php:42
+msgid "Tags cloud"
+msgstr "टैग बादल"
+
+#: plugins/aboutConfig/src/Backend.php:24
+msgid "about:config"
+msgstr "के बारे में"
+
+#: plugins/aboutConfig/src/Manage.php:68 plugins/aboutConfig/src/Manage.php:88
+msgid "Configuration successfully updated"
+msgstr "कॉन्फ़िगरेशन सफलतापूर्वक अद्यतन किया गया"
+
+#: plugins/aboutConfig/src/Manage.php:124
+#: plugins/aboutConfig/src/Manage.php:125
+#, php-format
+msgid "Settings for %s"
+msgstr ""
+
+#: plugins/aboutConfig/src/Manage.php:132
+#: plugins/aboutConfig/src/Manage.php:133
+msgid "Global settings"
+msgstr "वैश्विक सेटिंग्स"
+
+#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:142
+msgid "Setting ID"
+msgstr "ID सेट करें"
+
+#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:143
+msgid "Value"
+msgstr "मान"
+
+#: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:189
+msgid "Goto:"
+msgstr "गुटो:"
+
+#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
+msgid "no"
+msgstr "कोई"
+
+#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
+msgid "yes"
+msgstr "जी हाँ"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:79
+msgid "Akismet spam filter"
+msgstr "अइस्मेट स्पैम फिल्टर"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:92
+#, php-format
+msgid "Filtered by %s."
+msgstr ""
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:210
+msgid "Filter configuration have been successfully saved."
+msgstr "फ़िल्टर विन्यास सफलतापूर्वक सहेजा गया है."
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:229
+msgid "Akismet API key:"
+msgstr "एआईएससी एपीआई कुंजी:"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:234
+msgid "API key verified"
+msgstr "API कुंजी सत्यापित"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:236
+msgid "API key not verified"
+msgstr "API कुंजी सत्यापित नहीं"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:242
+msgid "Get your own API key"
+msgstr "अपने स्वयं के एपीआई कुंजी प्राप्त करें"
+
+#: plugins/akismet/src/Prepend.php:25
+msgid "Akismet"
+msgstr "आइस्मेट"
+
+#: plugins/antispam/src/Antispam.php:140
+msgid "This comment is a spam:"
+msgstr "यह टिप्पणी एक स्पैम है:"
+
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#, php-format
+msgid "(including %d spam comment)"
+msgstr ""
+
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#, php-format
+msgid "(including %d spam comments)"
+msgstr ""
+
+#: plugins/antispam/src/Backend.php:28
+msgid "Antispam"
+msgstr "एंटीस्पैम"
+
+#: plugins/antispam/src/BackendBehaviors.php:42
+#: plugins/antispam/src/Manage.php:196
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr ""
+
+#: plugins/antispam/src/BackendBehaviors.php:43
+#: plugins/antispam/src/Manage.php:197
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
+#: plugins/antispam/src/BackendBehaviors.php:58
+msgid "Delete junk comments older than"
+msgstr "इससे पुरानी डाक टिप्पणियों को मिटाएँ"
+
+#: plugins/antispam/src/BackendBehaviors.php:64
+msgid "days"
+msgstr "दिन"
+
+#: plugins/antispam/src/BackendBehaviors.php:66
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr "इस सुविधा को अक्षम करने के लिए सेट -1; डिफ़ॉल्ट 7 दिनों की देरी का उपयोग करने के लिए खाली छोड़ दें."
+
+#: plugins/antispam/src/BackendBehaviors.php:67
+msgid "Set spam filters."
+msgstr "स्पैम फ़िल्टर सेट करें."
+
+#: plugins/antispam/src/Filters/Ip.php:80
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "आईपी ब्लॉकलिस्ट/अनुमति सूची फिल्टर"
+
+#: plugins/antispam/src/Filters/Ip.php:93
+#: plugins/antispam/src/Filters/IpV6.php:93
+#, php-format
+msgid "Filtered by %1$s with rule %2$s."
+msgstr ""
+
+#: plugins/antispam/src/Filters/Ip.php:154
+#: plugins/antispam/src/Filters/IpV6.php:154
+msgid "IP address has been successfully added."
+msgstr "आईपी पता सफलतापूर्वक जोड़ा गया है."
+
+#: plugins/antispam/src/Filters/Ip.php:165
+#: plugins/antispam/src/Filters/IpV6.php:165
+msgid "IP addresses have been successfully removed."
+msgstr "आईपी पता सफलतापूर्वक हटा दिया गया है."
+
+#: plugins/antispam/src/Filters/Ip.php:175
+#: plugins/antispam/src/Filters/IpV6.php:174
+msgid "Blocklist"
+msgstr "ब्लॉकसूची"
+
+#: plugins/antispam/src/Filters/Ip.php:176
+#: plugins/antispam/src/Filters/IpV6.php:175
+msgid "Allowlist"
+msgstr "स्वीकार्य सूची"
+
+#: plugins/antispam/src/Filters/Ip.php:196
+#: plugins/antispam/src/Filters/IpV6.php:195
+msgid "Add an IP address: "
+msgstr "आईपी पता जोड़ें: "
+
+#: plugins/antispam/src/Filters/Ip.php:200
+#: plugins/antispam/src/Filters/IpV6.php:199
+msgid "Global IP (used for all blogs)"
+msgstr "वैश्विक आईपी (सभी ब्लॉग के लिए प्रयुक्त)"
+
+#: plugins/antispam/src/Filters/Ip.php:205
+#: plugins/antispam/src/Filters/IpV6.php:204
+#: plugins/antispam/src/Filters/Words.php:193
+#: plugins/widgets/src/Manage.php:288
+msgid "Add"
+msgstr "जोड़ें"
+
+#: plugins/antispam/src/Filters/Ip.php:211
+#: plugins/antispam/src/Filters/IpV6.php:210
+msgid "No IP address in list."
+msgstr "कोई आईपी पता सूची में नहीं है."
+
+#: plugins/antispam/src/Filters/Ip.php:214
+#: plugins/antispam/src/Filters/IpV6.php:213
+msgid "IP list"
+msgstr "आईपी सूची"
+
+#: plugins/antispam/src/Filters/Ip.php:244
+#: plugins/antispam/src/Filters/IpV6.php:242
+msgid "Local IPs (used only for this blog)"
+msgstr "स्थानीय वीआईपी (केवल इस ब्लॉग के लिए इस्तेमाल किया)"
+
+#: plugins/antispam/src/Filters/Ip.php:250
+#: plugins/antispam/src/Filters/IpV6.php:248
+msgid "Global IPs (used for all blogs)"
+msgstr "वैश्विक बीमाकृत (सभी ब्लॉग के लिए प्रयुक्त)"
+
+#: plugins/antispam/src/Filters/IpLookup.php:78
+msgid "Checks sender IP address against DNSBL servers"
+msgstr "DNSBL सर्वर के खिलाफ प्रेषक आईपी पता को चेक करें"
+
+#: plugins/antispam/src/Filters/IpLookup.php:91
+#: plugins/antispam/src/Filters/LinksLookup.php:73
+#, php-format
+msgid "Filtered by %1$s with server %2$s."
+msgstr ""
+
+#: plugins/antispam/src/Filters/IpLookup.php:149
+msgid "The list of DNSBL servers has been succesfully updated."
+msgstr "डीएनएसबीएल सर्वर की सूची को पूरी तरह से अद्यतन किया गया है ।"
+
+#: plugins/antispam/src/Filters/IpLookup.php:160
+msgid "IP Lookup servers"
+msgstr "आईपी लुकअप सर्वर"
+
+#: plugins/antispam/src/Filters/IpLookup.php:161
+msgid "Add here a coma separated list of servers."
+msgstr "यहाँ एक कोमा से अलग सर्वर की सूची जोड़ें."
+
+#: plugins/antispam/src/Filters/IpV6.php:80
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "आईपी v6 Blocklist/अनुमति सूची फिल्टर"
+
+#: plugins/antispam/src/Filters/LinksLookup.php:60
+msgid "Checks links in comments against surbl.org"
+msgstr "surbl.org के खिलाफ टिप्पणी में लिंक की जाँच करें"
+
+#: plugins/antispam/src/Filters/Words.php:80
+msgid "Words Blocklist"
+msgstr "शब्द ब्लॉकलिस्ट"
+
+#: plugins/antispam/src/Filters/Words.php:93
+#, php-format
+msgid "Filtered by %1$s with word %2$s."
+msgstr ""
+
+#: plugins/antispam/src/Filters/Words.php:150
+msgid "Words have been successfully added."
+msgstr "शब्दों को सफलतापूर्वक जोड़ा गया है ।"
+
+#: plugins/antispam/src/Filters/Words.php:163
+msgid "Word has been successfully added."
+msgstr "शब्द सफलतापूर्वक जोड़ा गया है."
+
+#: plugins/antispam/src/Filters/Words.php:174
+msgid "Words have been successfully removed."
+msgstr "शब्दों को सफलतापूर्वक हटा दिया गया है।"
+
+#: plugins/antispam/src/Filters/Words.php:184
+msgid "Add a word "
+msgstr "एक शब्द जोड़ें "
+
+#: plugins/antispam/src/Filters/Words.php:188
+msgid "Global word (used for all blogs)"
+msgstr "वैश्विक शब्द (सभी ब्लॉग के लिए प्रयुक्त)"
+
+#: plugins/antispam/src/Filters/Words.php:198
+msgid "No word in list."
+msgstr "सूची में कोई शब्द नहीं."
+
+#: plugins/antispam/src/Filters/Words.php:201
+msgid "List of bad words"
+msgstr "बुरे शब्दों की सूची"
+
+#: plugins/antispam/src/Filters/Words.php:230
+msgid "Local words (used only for this blog)"
+msgstr "स्थानीय शब्द (केवल इस ब्लॉग के लिए इस्तेमाल किया)"
+
+#: plugins/antispam/src/Filters/Words.php:236
+msgid "Global words (used for all blogs)"
+msgstr "वैश्विक शब्द (सभी ब्लॉग के लिए इस्तेमाल किया)"
+
+#: plugins/antispam/src/Filters/Words.php:247
+msgid "Delete selected words"
+msgstr "चुने गए शब्दों को मिटाएँ"
+
+#: plugins/antispam/src/Filters/Words.php:253
+msgid "Create default wordlist"
+msgstr "तयशुदा शब्दसूची बनाएँ"
+
+#: plugins/antispam/src/Filters/Words.php:315
+msgid "This word exists"
+msgstr "यह शब्द मौजूद है"
+
+#: plugins/antispam/src/FrontendUrl.php:60
+msgid "Spam moderation"
+msgstr "स्पैम मॉडरेशन"
+
+#: plugins/antispam/src/FrontendUrl.php:64
+msgid "Spam"
+msgstr "स्पैम"
+
+#: plugins/antispam/src/FrontendUrl.php:68
+msgid "Ham"
+msgstr "हैम"
+
+#: plugins/antispam/src/Manage.php:50
+msgid "Filter does not exist."
+msgstr "फ़िल्टर मौजूद नहीं है."
+
+#: plugins/antispam/src/Manage.php:54
+msgid "Filter has no user interface."
+msgstr "फिल्टर का कोई उपयोक्ता अंतरफलक नहीं है."
+
+#: plugins/antispam/src/Manage.php:115 plugins/antispam/src/Manage.php:208
+msgid "Filters configuration has been successfully saved."
+msgstr "फ़िल्टर विन्यास सफलतापूर्वक सहेजा गया है."
+
+#: plugins/antispam/src/Manage.php:132
+#, php-format
+msgid "%s configuration"
+msgstr ""
+
+#: plugins/antispam/src/Manage.php:152
+#, php-format
+msgid "%s filter configuration"
+msgstr ""
+
+#: plugins/antispam/src/Manage.php:156
+msgid "Back to filters list"
+msgstr "फिल्टर सूची में वापस जाएँ"
+
+#: plugins/antispam/src/Manage.php:180
+msgid "Information"
+msgstr "सूचना"
+
+#: plugins/antispam/src/Manage.php:182
+msgid "Junk comments:"
+msgstr "कचरा डाक टिप्पणी:"
+
+#: plugins/antispam/src/Manage.php:184
+msgid "Published comments:"
+msgstr "प्रकाशित टिप्पणी:"
+
+#: plugins/antispam/src/Manage.php:214
+msgid "Available spam filters"
+msgstr "उपलब्ध स्पैम फिल्टर"
+
+#: plugins/antispam/src/Manage.php:216
+#: plugins/pages/src/BackendDefaultActions.php:78
+msgid "Order"
+msgstr "आदेश"
+
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
+msgid "Active"
+msgstr "सक्रिय"
+
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
+msgid "Auto Del."
+msgstr "ऑटो डेला।"
+
+#: plugins/antispam/src/Manage.php:219
+msgid "Filter name"
+msgstr "फ़िल्टर नाम"
+
+#: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
+msgid "Filter configuration"
+msgstr "फ़िल्टर विन्यास"
+
+#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
+msgid "position"
+msgstr "स्थिति"
+
+#: plugins/antispam/src/Manage.php:285
+msgid "Syndication"
+msgstr "समूहन"
+
+#: plugins/antispam/src/Manage.php:287
+msgid "Junk comments RSS feed"
+msgstr "कचरा डाक टिप्पणी आरएसएस फ़ीड"
+
+#: plugins/antispam/src/Manage.php:288
+msgid "Published comments RSS feed"
+msgstr "प्रकाशित टिप्पणी आरएसएस फ़ीड"
+
+#: plugins/antispam/src/SpamFilter.php:107
+msgid "No description"
+msgstr "कोई विवरण नहीं"
+
+#: plugins/antispam/src/SpamFilter.php:166
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr ""
+
+#: plugins/antispam/src/SpamFilters.php:158
+msgid "Unknown filter."
+msgstr "अज्ञात फ़िल्टर."
+
+#: plugins/attachments/src/Backend.php:24
+msgid "attachments"
+msgstr "संलग्नक"
+
+#: plugins/attachments/src/BackendBehaviors.php:52
+#, php-format
+msgid "Attachments (%d)"
+msgstr ""
+
+#: plugins/attachments/src/BackendBehaviors.php:76
+msgid "remove"
+msgstr "दूर करना"
+
+#: plugins/attachments/src/BackendBehaviors.php:84
+msgid "No attachment."
+msgstr "कोई संलग्नक नहीं."
+
+#: plugins/attachments/src/BackendBehaviors.php:87
+msgid "Add files to this entry"
+msgstr "इस प्रविष्टि में फ़ाइलें जोड़ें"
+
+#: plugins/blogroll/src/Backend.php:25
+msgid "Blogroll"
+msgstr "ब्लॉगऊल"
+
+#: plugins/blogroll/src/Backend.php:36
+msgid "manage blogroll"
+msgstr "ब्लॉग्ग्रोल"
+
+#: plugins/blogroll/src/Blogroll.php:164 plugins/blogroll/src/Blogroll.php:207
+msgid "You must provide a link title"
+msgstr "आप एक लिंक शीर्षक प्रदान करना चाहिए"
+
+#: plugins/blogroll/src/Blogroll.php:168 plugins/blogroll/src/Blogroll.php:211
+msgid "You must provide a link URL"
+msgstr "आपको एक लिंक URL प्रदान करना होगा"
+
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:391
+msgid "Nothing to import"
+msgstr "आयात के लिए कुछ नहीं"
+
+#: plugins/blogroll/src/Manage.php:106
+msgid "links have been successfully imported."
+msgstr "लिंक सफलतापूर्वक आयात किया गया है."
+
+#: plugins/blogroll/src/Manage.php:113
+msgid "Import operation cancelled."
+msgstr "आयात ऑपरेशन रद्द."
+
+#: plugins/blogroll/src/Manage.php:128
+msgid "Link has been successfully created."
+msgstr "लिंक सफलतापूर्वक बनाया गया है."
+
+#: plugins/blogroll/src/Manage.php:143
+msgid "category has been successfully created."
+msgstr "श्रेणी सफलतापूर्वक बनाया गया है."
+
+#: plugins/blogroll/src/Manage.php:165
+msgid "Items have been successfully removed."
+msgstr "मदों को सफलतापूर्वक हटा दिया गया है."
+
+#: plugins/blogroll/src/Manage.php:195
+msgid "Items order has been successfully updated"
+msgstr "मद क्रम सफलतापूर्वक अद्यतन किया गया है"
+
+#: plugins/blogroll/src/Manage.php:255
+msgid "Lang"
+msgstr "लैंग"
+
+#: plugins/blogroll/src/Manage.php:277
+msgid "select this link"
+msgstr "यह लिंक चुनें"
+
+#: plugins/blogroll/src/Manage.php:311
+msgid "Are you sure you want to delete selected links?"
+msgstr "क्या आप निश्चित हैं कि आप चयनित लिंक मिटाना चाहते हैं?"
+
+#: plugins/blogroll/src/Manage.php:311
+msgid "Delete selected links"
+msgstr "चयनित लिंक मिटाएँ"
+
+#: plugins/blogroll/src/Manage.php:316
+msgid "The link list is empty."
+msgstr "लिंक सूची खाली है."
+
+#: plugins/blogroll/src/Manage.php:324
+msgid "Add a new link"
+msgstr "जोड़ें a नया लिंक"
+
+#: plugins/blogroll/src/Manage.php:354
+msgid "Add a category"
+msgstr "एक श्रेणी जोड़ें"
+
+#: plugins/blogroll/src/Manage.php:371 plugins/blogroll/src/Manage.php:376
+#: plugins/blogroll/src/Manage.php:388
+msgid "Import links"
+msgstr "कड़ियाँ आयात करें"
+
+#: plugins/blogroll/src/Manage.php:377
+msgid "OPML or XBEL File:"
+msgstr "ओपीएमएल या एक्सबीएल फ़ाइल:"
+
+#: plugins/blogroll/src/Manage.php:381 plugins/blogroll/src/Manage.php:425
+#: plugins/importExport/src/Manage.php:116
+#: plugins/importExport/src/ModuleImportFeed.php:227
+#: plugins/importExport/src/ModuleImportFlat.php:213
+#: plugins/importExport/src/ModuleImportFlat.php:251
+msgid "Import"
+msgstr "आयात करें"
+
+#: plugins/blogroll/src/ManageEdit.php:48
+msgid "No such link or title"
+msgstr "ऐसा कोई लिंक या शीर्षक नहीं"
+
+#: plugins/blogroll/src/ManageEdit.php:98
+msgid "Link has been successfully updated"
+msgstr "लिंक सफलतापूर्वक अद्यतन किया गया है"
+
+#: plugins/blogroll/src/ManageEdit.php:115
+msgid "Category has been successfully updated"
+msgstr "श्रेणी सफलतापूर्वक अद्यतन किया गया है"
+
+#: plugins/blogroll/src/ManageEdit.php:144
+msgid "Return to blogroll"
+msgstr "ब्लोग्रोल में वापस लौटें"
+
+#: plugins/blogroll/src/ManageEdit.php:150
+msgid "Edit category"
+msgstr "श्रेणी संपादित करें"
+
+#: plugins/blogroll/src/ManageEdit.php:168
+msgid "Edit link"
+msgstr "कड़ी संपादित करें"
+
+#: plugins/blogroll/src/ManageEdit.php:204
+msgid "XFN information"
+msgstr "XFN जानकारी"
+
+#: plugins/blogroll/src/ManageEdit.php:205
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
+
+#: plugins/blogroll/src/ManageEdit.php:211
+msgid "_xfn_Me"
+msgstr "_xfn_MO"
+
+#: plugins/blogroll/src/ManageEdit.php:214
+msgid "_xfn_Another link for myself"
+msgstr "अपने लिए एक और लिंक करें"
+
+#: plugins/blogroll/src/ManageEdit.php:218
+msgid "_xfn_Friendship"
+msgstr "_xfn_फ्रेंडशिप"
+
+#: plugins/blogroll/src/ManageEdit.php:224
+msgid "_xfn_Contact"
+msgstr "_xfn_संपर्क"
+
+#: plugins/blogroll/src/ManageEdit.php:229
+msgid "_xfn_Acquaintance"
+msgstr "_xfn_अधिग्रहण (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:234
+msgid "_xfn_Friend"
+msgstr "_xfn_फ्रेंड"
+
+#: plugins/blogroll/src/ManageEdit.php:240
+msgid "_xfn_Physical"
+msgstr "भौतिक (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:246
+msgid "_xfn_Met"
+msgstr "एक्सफ़्न_मेट (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:251
+msgid "_xfn_Professional"
+msgstr "Xfn_व्यावसायिक (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:257
+msgid "_xfn_Co-worker"
+msgstr "_xfn_सह-कार्यकर्ता (_s)"
+
+#: plugins/blogroll/src/ManageEdit.php:262
+msgid "_xfn_Colleague"
+msgstr "_xfn_Colllems"
+
+#: plugins/blogroll/src/ManageEdit.php:267
+msgid "_xfn_Geographical"
+msgstr "Xfn_भौगोलिक (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:273
+msgid "_xfn_Co-resident"
+msgstr "_xfn_सह-निवासी (_s)"
+
+#: plugins/blogroll/src/ManageEdit.php:278
+msgid "_xfn_Neighbor"
+msgstr "Xfn_Newbor (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:284
+msgid "_xfn_Family"
+msgstr "_xfn_फैमिली"
+
+#: plugins/blogroll/src/ManageEdit.php:290
+msgid "_xfn_Child"
+msgstr "_xfn_Child"
+
+#: plugins/blogroll/src/ManageEdit.php:295
+msgid "_xfn_Parent"
+msgstr "जनक (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:300
+msgid "_xfn_Sibling"
+msgstr "Xfn_siging (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:305
+msgid "_xfn_Spouse"
+msgstr "_xfn_Spres"
+
+#: plugins/blogroll/src/ManageEdit.php:310
+msgid "_xfn_Kin"
+msgstr "_xfn_Kin (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:316
+msgid "_xfn_Romantic"
+msgstr "_xfn_Romantic"
+
+#: plugins/blogroll/src/ManageEdit.php:322
+msgid "_xfn_Muse"
+msgstr "_xfn_Muse"
+
+#: plugins/blogroll/src/ManageEdit.php:327
+msgid "_xfn_Crush"
+msgstr "_xf_Crh (_x)"
+
+#: plugins/blogroll/src/ManageEdit.php:332
+msgid "_xfn_Date"
+msgstr "_xfn_Date"
+
+#: plugins/blogroll/src/ManageEdit.php:337
+msgid "_xfn_Sweetheart"
+msgstr "_xfn_Svedin"
+
+#: plugins/blogroll/src/UtilsImport.php:38
+msgid "You need to provide a XBEL or OPML file."
+msgstr "आप एक XBEL या OPML फ़ाइल प्रदान करने की जरूरत है."
+
+#: plugins/blogroll/src/UtilsImport.php:56
+#: plugins/blogroll/src/UtilsImport.php:98
+msgid "File is not in XML format."
+msgstr "फ़ाइल एक्सएमएल फॉर्मेट में नहीं है."
+
+#: plugins/blogroll/src/Widgets.php:35
+msgid "All categories"
+msgstr "सभी श्रेणियाँ"
+
+#: plugins/blogroll/src/Widgets.php:44
+msgid "Links"
+msgstr "लिंक्स"
+
+#: plugins/breadcrumb/src/Backend.php:24
+msgid "Breadcrumb"
+msgstr "रोजी-रोटी"
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:32
+msgid "Enable breadcrumb for this blog"
+msgstr "इस ब्लॉग के लिए ब्रेड क्रैम्ब सक्षम करें"
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:33
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:35
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:74
+#: plugins/breadcrumb/src/FrontendTemplate.php:79
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:90
+#: plugins/breadcrumb/src/FrontendTemplate.php:101
+#: plugins/breadcrumb/src/FrontendTemplate.php:116
+#: plugins/breadcrumb/src/FrontendTemplate.php:132
+#: plugins/breadcrumb/src/FrontendTemplate.php:149
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/breadcrumb/src/FrontendTemplate.php:171
+#: plugins/breadcrumb/src/FrontendTemplate.php:178
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
+#: plugins/breadcrumb/src/FrontendTemplate.php:216
+#: plugins/simpleMenu/src/Manage.php:120 plugins/simpleMenu/src/Manage.php:231
+#: plugins/widgets/src/Widgets.php:267
+msgid "Home"
+msgstr "घर"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:125
+#: plugins/breadcrumb/src/FrontendTemplate.php:191
+#: plugins/breadcrumb/src/FrontendTemplate.php:203
+#, php-format
+msgid "page %d"
+msgstr ""
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:160
+#: plugins/breadcrumb/src/FrontendTemplate.php:163
+#: plugins/simpleMenu/src/Manage.php:258 plugins/widgets/src/Widgets.php:284
+msgid "Archives"
+msgstr "अभिलेखागार"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/simpleMenu/src/Manage.php:104 plugins/simpleMenu/src/Manage.php:278
+#: plugins/tags/src/Widgets.php:56
+msgid "All tags"
+msgstr "सभी टैग"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+msgid "404"
+msgstr "404"
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
+msgid "Generate fake l10n"
+msgstr "नकली l10n उत्पन्न करें"
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
+msgid "fake l10n file generated."
+msgstr "नकली L10n फ़ाइल उत्पन्न."
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
+msgid "Failed to generate fake l10n file."
+msgstr "नकली l10n फ़ाइल उत्पन्न करने में विफल."
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:43
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr "एक php फ़ाइल उत्पन्न करें जो अनुवाद करने के लिए सामग्री स्ट्रिंग है कि कोर उपकरण के साथ नहीं किया जा रहा है."
+
+#: plugins/dcCKEditor/src/Backend.php:24 plugins/dcCKEditor/tpl/index.php:15
+msgid "dcCKEditor"
+msgstr "डीसीकेएडीटर"
+
+#: plugins/dcCKEditor/src/Backend.php:39
+#: plugins/dcLegacyEditor/src/Backend.php:43
+msgid "HTML"
+msgstr "एचटीएमएल"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:157
+msgid "Media chooser"
+msgstr "मीडिया चयनक"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+msgid "m"
+msgstr "एम"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:161
+msgid "Link to an entry"
+msgstr "एक प्रविष्टि के लिए लिंक"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+msgid "Link"
+msgstr "लिंक"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
+msgid "l"
+msgstr "एल"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+msgid "External image"
+msgstr "बाहरी छवि"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:66
+msgid "URL field cannot be empty."
+msgstr "यूआरएल क्षेत्र रिक्त नहीं हो सकता."
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:92
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:171
+msgid "Open the media"
+msgstr "मीडिया खोलें"
+
+#: plugins/dcCKEditor/src/Manage.php:128
+#: plugins/dcLegacyEditor/src/Manage.php:43
+msgid "The configuration has been updated."
+msgstr "विन्यास को अद्यतन किया गया है."
+
+#: plugins/dcCKEditor/src/ManagePostConfig.php:238
+msgid "Note(s)"
+msgstr "नोट (ओं)"
+
+#: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:18
+msgid "Plugin activation"
+msgstr "प्लगिन सक्रियकरण"
+
+#: plugins/dcCKEditor/tpl/index.php:28
+msgid "Enable dcCKEditor plugin"
+msgstr "DcckEdd प्लगिन सक्रिय करें"
+
+#: plugins/dcCKEditor/tpl/index.php:40
+msgid "Add alignment buttons"
+msgstr "संरेखण बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:46
+msgid "Add lists buttons"
+msgstr "सूची बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:52
+msgid "Add text color button"
+msgstr "पाठ रंग बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:58
+msgid "Add background text color button"
+msgstr "पृष्ठभूमि पाठ रंग बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:63
+msgid "Custom colors list:"
+msgstr "पसंदीदा रंग सूची:"
+
+#: plugins/dcCKEditor/tpl/index.php:68
+msgid "Add colors without # separated by a comma."
+msgstr "बिना एक अल्पविराम द्वारा अलग किए गए रंग जोड़ें."
+
+#: plugins/dcCKEditor/tpl/index.php:69
+msgid "Leave empty to use the default palette:"
+msgstr "डिफ़ॉल्ट पैलेट का उपयोग करने के लिए खाली छोड़ें:"
+
+#: plugins/dcCKEditor/tpl/index.php:71
+msgid "Example of custom color list:"
+msgstr "कस्टम रंग सूची का उदाहरण:"
+
+#: plugins/dcCKEditor/tpl/index.php:76
+msgid "Colors per row in palette:"
+msgstr "रंग प्रति पंक्ति पैलेट में:"
+
+#: plugins/dcCKEditor/tpl/index.php:81
+msgid "Valid range: 4 to 16"
+msgstr "वैध रेंज: 4 से 16"
+
+#: plugins/dcCKEditor/tpl/index.php:86
+msgid "Add collapse button"
+msgstr "पतन बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:92
+msgid "Add format selection"
+msgstr "प्रारूप चयन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:97
+msgid "Custom formats"
+msgstr "पसंदीदा फार्मेट्स"
+
+#: plugins/dcCKEditor/tpl/index.php:102
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr "डिफ़ॉल्ट फ़ॉर्मेट्स p; h1; h2; h3; h4; h5; h6; hri; address"
+
+#: plugins/dcCKEditor/tpl/index.php:107
+msgid "Add table button"
+msgstr "तालिका बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:113
+msgid "Add clipboard buttons"
+msgstr "क्लिपबोर्ड बटन जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:117
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr "प्रतिलिपि, चिपकाएँ, चिपकाएँ पाठ, वर्ड से चिपकाएँ"
+
+#: plugins/dcCKEditor/tpl/index.php:122
+msgid "Add undo/redo buttons"
+msgstr "पहले जैसा बटन जोड़ें/फिर से जोड़ें"
+
+#: plugins/dcCKEditor/tpl/index.php:128
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr "अंतर्निहित वर्तनी जाँचकर्ता को अक्षम करता है यदि ब्राउज़र एक प्रदान करता है"
+
+#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:30
+#: plugins/simpleMenu/src/Manage.php:635
+msgid "Save configuration"
+msgstr "कॉन्फ़िगरेशन सहेजें"
+
+#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/tpl/index.php:12
+msgid "dcLegacyEditor"
+msgstr "DclegacyEds"
+
+#: plugins/dcLegacyEditor/src/Backend.php:47
+msgid "Dotclear wiki"
+msgstr "साफ-साफ विकि"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+msgid "visual"
+msgstr "दृश्य"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+msgid "source"
+msgstr "उद्गम स्थल"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+msgid "You can use the following shortcuts to format your text."
+msgstr "आप अपने पाठ को फ़ॉर्मेट करने के लिए निम्नलिखित शॉर्टकट का उपयोग कर सकते हैं."
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+msgid "Block format"
+msgstr "ब्लॉक फॉर्मेट"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+msgid "-- none --"
+msgstr "-कोई नहीं-"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+msgid "-- block format --"
+msgstr "-ब्लॉक प्रारूप-"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+msgid "Paragraph"
+msgstr "पैराग्राफ"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+msgid "Level 1 header"
+msgstr "स्तर 1 हैडर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+msgid "Level 2 header"
+msgstr "स्तर 2 हैडर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+msgid "Level 3 header"
+msgstr "स्तर 3 हैडर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+msgid "Level 4 header"
+msgstr "स्तर 4 हैडर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+msgid "Level 5 header"
+msgstr "स्तर 5 हैडर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+msgid "Level 6 header"
+msgstr "स्तर 6 हैडर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+msgid "Strong emphasis"
+msgstr "मजबूत जोर"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+msgid "Emphasis"
+msgstr "जोर देना"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+msgid "Inserted"
+msgstr "प्रविष्ट किया"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
+msgid "Deleted"
+msgstr "मिटाया"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
+msgid "Inline quote"
+msgstr "इनलाइल उद्धरण"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+msgid "Code"
+msgstr "कोड"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+msgid "Line break"
+msgstr "लाइन ब्रेक"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+msgid "Blockquote"
+msgstr "ब्लॉककोट"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+msgid "Preformated text"
+msgstr "पूर्वकृत पाठ (T)"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+msgid "Unordered list"
+msgstr "अआदेश सूची"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+msgid "Ordered list"
+msgstr "आदेश सूची"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+msgid "URL?"
+msgstr "यूआरएल?"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+msgid "Language?"
+msgstr "भाषा?"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:162
+msgid "Remove text formating"
+msgstr "पाठ फॉर्मेटिंग हटाएँ"
+
+#: plugins/dcLegacyEditor/tpl/index.php:22
+msgid "Enable dcLegacyEditor plugin"
+msgstr "Dclegacyसंपादक प्लगिन सक्रिय करें"
+
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
+msgid "Checks trackback source for a link to the post"
+msgstr "पोस्ट करने के लिए लिंक के लिए ट्रैकबैक स्रोत की जाँच करें"
+
+#: plugins/fairTrackbacks/src/Prepend.php:25
+msgid "Fair Trackbacks"
+msgstr "उचित ट्रेकबैक"
+
+#: plugins/importExport/src/Backend.php:26
+msgid "Import / Export"
+msgstr "आयात/निर्यात"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:35
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:33
+msgid "Database export"
+msgstr "डाटाबेस निर्यात"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:36
+msgid "Download database of current blog"
+msgstr "वर्तमान ब्लॉग का डेटाबेस डाउनलोड करें"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:83
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:81
+#: plugins/importExport/src/ModuleExportFlat.php:214
+#: plugins/importExport/src/ModuleExportFlat.php:238
+msgid "Compress file"
+msgstr "फ़ाइल संपीडित करें"
+
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:34
+msgid "Download database of all blogs"
+msgstr "सभी ब्लॉग का डेटाबेस डाउनलोड करें"
+
+#: plugins/importExport/src/FlatBackup.php:49
+msgid "No file to read."
+msgstr "पढ़ने के लिए कोई फ़ाइल नहीं."
+
+#: plugins/importExport/src/FlatExport.php:47
+msgid "Unable to create output file."
+msgstr "आउटपुट फ़ाइल बनाने में अक्षम."
+
+#: plugins/importExport/src/FlatImportV2.php:96
+msgid "Unable to read the DotClear backup file."
+msgstr "डीओक्लियर बैकअप फ़ाइल को पढ़ने में अक्षम."
+
+#: plugins/importExport/src/FlatImportV2.php:100
+msgid "File is not a DotClear backup."
+msgstr "फ़ाइल एक डीओटेड बैकअप नहीं है."
+
+#: plugins/importExport/src/FlatImportV2.php:176
+msgid "File is not a single blog export."
+msgstr "फ़ाइल एक एकल ब्लॉग निर्यात नहीं है."
+
+#: plugins/importExport/src/FlatImportV2.php:290
+#: plugins/importExport/src/FlatImportV2.php:344
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+#: plugins/importExport/src/FlatImportV2.php:299
+msgid "File is not a full export."
+msgstr "फ़ाइल पूर्ण निर्यात नहीं है."
+
+#: plugins/importExport/src/FlatImportV2.php:755
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+#: plugins/importExport/src/Manage.php:86
+#: plugins/maintenance/src/Manage.php:170
+msgid "Please wait..."
+msgstr "कृपया प्रतीक्षा करें ..."
+
+#: plugins/importExport/src/Manage.php:119
+#: plugins/importExport/src/ModuleExportFlat.php:220
+#: plugins/importExport/src/ModuleExportFlat.php:241
+msgid "Export"
+msgstr "निर्यात"
+
+#: plugins/importExport/src/Manage.php:121
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+#: plugins/importExport/src/Manage.php:123
+#: plugins/maintenance/src/Backend.php:24
+#: plugins/maintenance/src/BackendBehaviors.php:173
+msgid "Maintenance"
+msgstr "अनुरक्षण"
+
+#: plugins/importExport/src/Module.php:161
+msgid "Congratulation!"
+msgstr "बधाई!"
+
+#: plugins/importExport/src/Module.php:162
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "आपका ब्लॉग सफलतापूर्वक आयात किया गया है. डोटक्लियर 2 पर आपका स्वागत है!"
+
+#: plugins/importExport/src/Module.php:166
+msgid "Why don't you blog this now?"
+msgstr "तुम क्यों इस अब ब्लॉग नहीं है?"
+
+#: plugins/importExport/src/Module.php:171
+msgid "visit your dashboard"
+msgstr "अपने डैशबोर्ड का दौरा"
+
+#: plugins/importExport/src/ModuleExportFlat.php:29
+msgid "Flat file export"
+msgstr "फ्लैट फ़ाइल निर्यात"
+
+#: plugins/importExport/src/ModuleExportFlat.php:30
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "एक ब्लॉग को निर्यात करें या फ्लैट फ़ाइल में पूर्ण डीओटेसाफ़ इंस्टॉलेशन."
+
+#: plugins/importExport/src/ModuleExportFlat.php:155
+msgid "Export file not found."
+msgstr "निर्यात फ़ाइल नहीं मिला."
+
+#: plugins/importExport/src/ModuleExportFlat.php:194
+msgid "Failed to compress export file."
+msgstr "निर्यात फ़ाइल को संपीडित करने में विफल."
+
+#: plugins/importExport/src/ModuleExportFlat.php:205
+#: plugins/importExport/src/ModuleImportFlat.php:193
+msgid "Single blog"
+msgstr "एकल ब्लॉग"
+
+#: plugins/importExport/src/ModuleExportFlat.php:206
+#, php-format
+msgid "This will create an export of your current blog: %s"
+msgstr ""
+
+#: plugins/importExport/src/ModuleExportFlat.php:218
+msgid "You may also want to download your media directory as a zip file"
+msgstr "आप भी एक ज़िप फ़ाइल के रूप में अपने मीडिया निर्देशिका डाउनलोड करना चाहते हो सकता है"
+
+#: plugins/importExport/src/ModuleExportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:220
+msgid "Multiple blogs"
+msgstr "बहु ब्लॉग"
+
+#: plugins/importExport/src/ModuleExportFlat.php:230
+msgid "This will create an export of all the content of your database."
+msgstr "यह आपके डेटाबेस के सभी सामग्री का निर्यात पैदा करेगा."
+
+#: plugins/importExport/src/ModuleImportDc1.php:68
+msgid "Dotclear 1.2 import"
+msgstr "डॉटकॉम साफ 1.2 आयात"
+
+#: plugins/importExport/src/ModuleImportDc1.php:69
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "अपने मौजूदा ब्लॉग में एक Dotbd 1.2 अधिष्ठापन आयात करें."
+
+#: plugins/importExport/src/ModuleImportDc1.php:187
+#, php-format
+msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportDc1.php:190
+#: plugins/importExport/src/ModuleImportWp.php:220
+msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
+msgstr "कृपया ध्यान दें कि यह प्रक्रिया आपके श्रेणियों, ब्लॉगनेप, प्रविष्टियों और वर्तमान ब्लॉग पर टिप्पणियों को खाली कर देगी."
+
+#: plugins/importExport/src/ModuleImportDc1.php:194
+#: plugins/importExport/src/ModuleImportWp.php:224
+msgid "General information"
+msgstr "सामान्य जानकारी"
+
+#: plugins/importExport/src/ModuleImportDc1.php:194
+#: plugins/importExport/src/ModuleImportWp.php:224
+msgid "Import my blog now"
+msgstr "मेरा ब्लॉग आयात करें अब"
+
+#: plugins/importExport/src/ModuleImportDc1.php:195
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "हम पहली बार अपने पुराने Dotold 1.2 अधिष्ठापन के बारे में कुछ जानकारी की जरूरत है."
+
+#: plugins/importExport/src/ModuleImportDc1.php:196
+msgid "Database driver:"
+msgstr "डाटाबेस ड्राइवरः"
+
+#: plugins/importExport/src/ModuleImportDc1.php:208
+#: plugins/importExport/src/ModuleImportWp.php:237
+msgid "Entries import options"
+msgstr "प्रविष्टियों का आयात विकल्प"
+
+#: plugins/importExport/src/ModuleImportDc1.php:209
+#: plugins/importExport/src/ModuleImportWp.php:262
+msgid "Number of entries to import at once:"
+msgstr "प्रविष्टियों की संख्या जो एक बार में आयात करने के लिए:"
+
+#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportWp.php:279
+msgid "Importing users"
+msgstr "उपयोक्ता आयात करें"
+
+#: plugins/importExport/src/ModuleImportDc1.php:223
+#: plugins/importExport/src/ModuleImportWp.php:286
+msgid "Importing categories"
+msgstr "श्रेणी आयात करें"
+
+#: plugins/importExport/src/ModuleImportDc1.php:230
+#: plugins/importExport/src/ModuleImportWp.php:293
+msgid "Importing blogroll"
+msgstr "ब्लूमग्रोल आयात करें"
+
+#: plugins/importExport/src/ModuleImportDc1.php:237
+#: plugins/importExport/src/ModuleImportWp.php:300
+#, php-format
+msgid "Importing entries from %d to %d / %d"
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportDc1.php:251
+msgid "Please read carefully"
+msgstr "कृपया ध्यान से पढ़ें"
+
+#: plugins/importExport/src/ModuleImportDc1.php:253
+#: plugins/importExport/src/ModuleImportWp.php:314
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "हर नए आयातित उपयोगकर्ता को एक यादृच्छिक पासवर्ड मिला है और \"मैं अपना पासवर्ड भूल गया\" लॉगिन पेज पर लिंक (उनके पंजीकृत ईमेल पता वैध होने के लिए) के बाद से एक नया के लिए पूछने के लिए की जरूरत होगी."
+
+#: plugins/importExport/src/ModuleImportDc1.php:258
+#, php-format
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:335
+msgid "next step"
+msgstr "अगला कदम"
+
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:345
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "अपने ब्लॉग के आकार पर निर्भर करता है, यह कुछ मिनट लग सकता है."
+
+#: plugins/importExport/src/ModuleImportDc1.php:320
+msgid "Dotclear tables not found"
+msgstr "डॉटकॉम साफ टेबल नहीं मिला"
+
+#: plugins/importExport/src/ModuleImportFeed.php:121
+msgid "RSS or Atom feed import"
+msgstr "आरएसएस या एटम फ़ीड आयात"
+
+#: plugins/importExport/src/ModuleImportFeed.php:122
+msgid "Add a feed content to the blog."
+msgstr "ब्लॉग के लिए एक फ़ीड सामग्री जोड़ें."
+
+#: plugins/importExport/src/ModuleImportFeed.php:144
+#: plugins/importExport/src/ModuleImportFeed.php:150
+#: plugins/importExport/src/ModuleImportFeed.php:159
+#: plugins/importExport/src/ModuleImportFeed.php:164
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:177
+msgid "Cannot retrieve feed URL."
+msgstr "फीड यूआरएल प्राप्त नहीं कर सकता है."
+
+#: plugins/importExport/src/ModuleImportFeed.php:180
+msgid "No items in feed."
+msgstr "फीड में कोई मद नहीं."
+
+#: plugins/importExport/src/ModuleImportFeed.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:177
+msgid "Content successfully imported."
+msgstr "सामग्री सफलतापूर्वक आयात किया."
+
+#: plugins/importExport/src/ModuleImportFeed.php:219
+#, php-format
+msgid "Add a feed content to the current blog: <strong>%s</strong>."
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportFeed.php:221
+#: plugins/widgets/src/Widgets.php:143
+msgid "Feed URL:"
+msgstr "फीड यूआरएलः"
+
+#: plugins/importExport/src/ModuleImportFlat.php:39
+msgid "Flat file import"
+msgstr "फ्लैट फ़ाइल आयात"
+
+#: plugins/importExport/src/ModuleImportFlat.php:40
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "एक ब्लॉग को आयात करें या फ्लैट फ़ाइल से पूर्ण Dottred अधिष्ठापन."
+
+#: plugins/importExport/src/ModuleImportFlat.php:172
+msgid "Single blog successfully imported."
+msgstr "एकल ब्लॉग सफलतापूर्वक आयात किया."
+
+#: plugins/importExport/src/ModuleImportFlat.php:188
+msgid "Are you sure you want to import a full backup file?"
+msgstr "क्या आप निश्चित हैं कि आप एक पूर्ण बैकअप फ़ाइल आयात करना चाहते हैं?"
+
+#: plugins/importExport/src/ModuleImportFlat.php:194
+#, php-format
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportFlat.php:196
+#: plugins/importExport/src/ModuleImportFlat.php:223
+msgid "Upload a backup file"
+msgstr "एक बैकअप फ़ाइल अपलोड करें"
+
+#: plugins/importExport/src/ModuleImportFlat.php:197
+#: plugins/importExport/src/ModuleImportFlat.php:224
+#, php-format
+msgid "maximum size %s"
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportFlat.php:203
+#: plugins/importExport/src/ModuleImportFlat.php:230
+msgid "or pick up a local file in your public directory"
+msgstr "या अपनी सार्वजनिक निर्देशिका में एक स्थानीय फ़ाइल चुनें"
+
+#: plugins/importExport/src/ModuleImportFlat.php:221
+msgid "This will reset all the content of your database, except users."
+msgstr "यह उपयोगकर्ताओं को छोड़कर आपके डेटाबेस की सभी सामग्री को रीसेट करेगा."
+
+#: plugins/importExport/src/ModuleImportFlat.php:342
+msgid "Another file with same name exists."
+msgstr "एक ही नाम के साथ एक अन्य फ़ाइल मौजूद है."
+
+#: plugins/importExport/src/ModuleImportFlat.php:350
+msgid "Failed to extract backup file."
+msgstr "बैकअप फ़ाइल निकालने में विफल."
+
+#: plugins/importExport/src/ModuleImportFlat.php:362
+msgid "No backup in compressed file."
+msgstr "संकुचित फ़ाइल में कोई बैकअप नहीं."
+
+#: plugins/importExport/src/ModuleImportWp.php:96
+msgid "WordPress import"
+msgstr "वर्डप्रेस आयात"
+
+#: plugins/importExport/src/ModuleImportWp.php:97
+msgid "Import a WordPress installation into your current blog."
+msgstr "अपने मौजूदा ब्लॉग में वर्डप्रेस अधिष्ठापन आयात करें."
+
+#: plugins/importExport/src/ModuleImportWp.php:217
+#, php-format
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportWp.php:225
+msgid "We first need some information about your old WordPress installation."
+msgstr "हम पहली बार अपने पुराने वर्डप्रेस अधिष्ठापन के बारे में कुछ जानकारी की जरूरत है."
+
+#: plugins/importExport/src/ModuleImportWp.php:241
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "वर्डप्रेस और डीओटेड की श्रेणियों की हैंडलिंग काफी अलग है। आप वर्डप्रेस में कई श्रेणियों को एक ही पोस्ट में नियुक्त कर सकते हैं. दुसाफ दुनिया में, हम इसे अधिक \"एक श्रेणी, कई टैग की तरह देखते हैं.\" इसलिए डॉटकॉम स्पष्ट रूप से एक श्रेणी प्रति पद का आयात कर सकता है और सबसे कम गिने जाने वाले व्यक्ति को चुना जाएगा. यदि आप प्रत्येक श्रेणी का एक ट्रेस रखना चाहते हैं, तो आप उन्हें टैग के रूप में आयात कर सकते हैं, एक वैकल्पिक उपसर्ग के साथ."
+
+#: plugins/importExport/src/ModuleImportWp.php:246
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr ""
+
+#: plugins/importExport/src/ModuleImportWp.php:255
+msgid "Ignore the first category:"
+msgstr "पहली श्रेणी की उपेक्षा करें:"
+
+#: plugins/importExport/src/ModuleImportWp.php:257
+msgid "Import lowest numbered category on posts:"
+msgstr "पदों पर सबसे कम संख्यांकित श्रेणी का आयात करें:"
+
+#: plugins/importExport/src/ModuleImportWp.php:259
+msgid "Import all categories as tags:"
+msgstr "टैग की तरह सभी श्रेणियों को आयात करें:"
+
+#: plugins/importExport/src/ModuleImportWp.php:260
+msgid "Prefix such tags with:"
+msgstr "के साथ इस तरह के टैग उपसर्ग:"
+
+#: plugins/importExport/src/ModuleImportWp.php:268
+msgid "Content filters"
+msgstr "सामग्री फिल्टर"
+
+#: plugins/importExport/src/ModuleImportWp.php:269
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr "आप निम्नलिखित फ़िल्टर के साथ अपने पोस्ट और/या टिप्पणी सामग्री की प्रक्रिया करने के लिए चाहते हो सकता है."
+
+#: plugins/importExport/src/ModuleImportWp.php:270
+msgid "Post content formatter:"
+msgstr "पोस्ट सामग्री फार्मेटर:"
+
+#: plugins/importExport/src/ModuleImportWp.php:272
+msgid "Comment content formatter:"
+msgstr "टिप्पणी सामग्री फार्मेटर:"
+
+#: plugins/importExport/src/ModuleImportWp.php:374
+msgid "WordPress tables not found"
+msgstr "वर्डप्रेस टेबल नहीं मिला"
+
+#: plugins/maintenance/src/BackendBehaviors.php:33
+msgid "Servicing"
+msgstr "सर्विसिंग"
+
+#: plugins/maintenance/src/BackendBehaviors.php:33
+msgid "Tools to maintain the performance of your blogs."
+msgstr "अपने ब्लॉग के प्रदर्शन को बनाए रखने के लिए उपकरण."
+
+#: plugins/maintenance/src/BackendBehaviors.php:34
+msgid "Backup"
+msgstr "बैकअप"
+
+#: plugins/maintenance/src/BackendBehaviors.php:34
+msgid "Tools to back up your content."
+msgstr "अपनी सामग्री को वापस करने के लिए उपकरण."
+
+#: plugins/maintenance/src/BackendBehaviors.php:35
+msgid "Development"
+msgstr "विकास"
+
+#: plugins/maintenance/src/BackendBehaviors.php:35
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr "प्लगइन, थीम और कोर के विकास में सहायता करने के लिए उपकरण."
+
+#: plugins/maintenance/src/BackendBehaviors.php:37
+msgid "Optimize"
+msgstr "अनुकूलित करें"
+
+#: plugins/maintenance/src/BackendBehaviors.php:38
+msgid "Count and index"
+msgstr "गिनती और सूचकांक"
+
+#: plugins/maintenance/src/BackendBehaviors.php:39
+msgid "Purge"
+msgstr "शुद्धिकरण"
+
+#: plugins/maintenance/src/BackendBehaviors.php:40
+msgid "Other"
+msgstr "अन्य"
+
+#: plugins/maintenance/src/BackendBehaviors.php:41
+msgid "Current blog"
+msgstr "वर्तमान ब्लॉग"
+
+#: plugins/maintenance/src/BackendBehaviors.php:42
+msgid "All blogs"
+msgstr "सभी ब्लॉग"
+
+#: plugins/maintenance/src/BackendBehaviors.php:44
+msgid "Maintain translations"
+msgstr "अनुवाद बनाए रखें"
+
+#: plugins/maintenance/src/BackendBehaviors.php:44
+msgid "Translations"
+msgstr "अनुवाद"
+
+#: plugins/maintenance/src/BackendBehaviors.php:120
+#: plugins/maintenance/src/Rest.php:75
+#, php-format
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] "निष्पादित करने के लिए एक कार्य"
+msgstr[1] ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:156
+#: plugins/maintenance/src/Manage.php:262
+msgid "This task has never been executed."
+msgstr "यह कार्य कभी निष्पादित नहीं किया गया है."
+
+#: plugins/maintenance/src/BackendBehaviors.php:159
+#: plugins/maintenance/src/Manage.php:267
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:174
+#, php-format
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] "निष्पादित करने के लिए एक कार्य है."
+msgstr[1] ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:176
+msgid "Manage tasks"
+msgstr "कार्य प्रबंधित करें"
+
+#: plugins/maintenance/src/BackendBehaviors.php:195
+msgid "Display overdue tasks counter on maintenance dashboard icon"
+msgstr "रखरखाव डैशबोर्ड प्रतीक पर अतिदेय कार्य काउंटर दिखाएँ"
+
+#: plugins/maintenance/src/BackendBehaviors.php:199
+msgid "Display overdue tasks list on dashboard items"
+msgstr "डैशबोर्ड मद पर अतिदेय कार्य सूची को प्रदर्शित करें"
+
+#: plugins/maintenance/src/MaintenanceTask.php:155
+msgid "Failed to execute task."
+msgstr "कार्य निष्पादित करने में विफल."
+
+#: plugins/maintenance/src/MaintenanceTask.php:158
+msgid "Task successfully executed."
+msgstr "कार्य सफलतापूर्वक निष्पादित किया."
+
+#: plugins/maintenance/src/Manage.php:114
+msgid "Maintenance plugin has been successfully configured."
+msgstr "रखरखाव प्लगिन सफलतापूर्वक विन्यस्त किया गया है."
+
+#: plugins/maintenance/src/Manage.php:132
+msgid "System settings have been saved."
+msgstr "सिस्टम सेटिंग सहेजा गया है."
+
+#: plugins/maintenance/src/Manage.php:137
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr "सभी ब्लॉग की सामग्री-सुरक्षा-नीति सेटिंग्स डिफ़ॉल्ट रूप से रीसेट कर दिया गया है."
+
+#: plugins/maintenance/src/Manage.php:159
+msgid "Every week"
+msgstr "हर सप्ताह"
+
+#: plugins/maintenance/src/Manage.php:160
+msgid "Every two weeks"
+msgstr "हर दो सप्ताह"
+
+#: plugins/maintenance/src/Manage.php:161
+msgid "Every month"
+msgstr "हर महीने"
+
+#: plugins/maintenance/src/Manage.php:162
+msgid "Every two months"
+msgstr "हर दो महीने"
+
+#: plugins/maintenance/src/Manage.php:186
+msgid "You have not sufficient permissions to view this page."
+msgstr "इस पृष्ठ को देखने के लिए आपके पास पर्याप्त अनुमतियाँ नहीं हैं."
+
+#: plugins/maintenance/src/Manage.php:263
+#: plugins/maintenance/src/Manage.php:271
+msgid "You should execute it now."
+msgstr "आप इसे अब चलाना चाहिए."
+
+#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:315
+msgid "Execute task"
+msgstr "कार्य निष्पादित करें"
+
+#: plugins/maintenance/src/Manage.php:297
+msgid "This may take a very long time."
+msgstr "यह बहुत लंबा समय ले सकता है."
+
+#: plugins/maintenance/src/Manage.php:327
+#: plugins/maintenance/src/Manage.php:328
+msgid "Alert settings"
+msgstr "चेतावनी सेटिंग्स"
+
+#: plugins/maintenance/src/Manage.php:332
+msgid "Activation"
+msgstr "सक्रियकरण"
+
+#: plugins/maintenance/src/Manage.php:335
+msgid "Display alert messages on late tasks"
+msgstr "देर के कार्यों पर चेतावनी संदेश प्रदर्शित करें"
+
+#: plugins/maintenance/src/Manage.php:338
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+#: plugins/maintenance/src/Manage.php:344
+msgid "Frequency"
+msgstr "आवृत्ति"
+
+#: plugins/maintenance/src/Manage.php:347
+msgid "Use one recall time for all tasks"
+msgstr "सभी कार्यों के लिए एक याद करने का समय उपयोग करें"
+
+#: plugins/maintenance/src/Manage.php:349
+msgid "Recall time for all tasks:"
+msgstr "सभी कार्यों के लिए समय याद करें:"
+
+#: plugins/maintenance/src/Manage.php:355
+msgid "Use one recall time per task"
+msgstr "एक याद करें समय प्रति कार्य का उपयोग करें"
+
+#: plugins/maintenance/src/Manage.php:386
+msgid "Content-Security-Policy"
+msgstr "सामग्री-सुरक्षा-नीति"
+
+#: plugins/maintenance/src/Manage.php:391
+msgid "Enable Content-Security-Policy system"
+msgstr "सामग्री सुरक्षा-नीति प्रणाली सक्षम करें"
+
+#: plugins/maintenance/src/Manage.php:394
+msgid "Enable Content-Security-Policy report only"
+msgstr "सामग्री-सुरक्षा-नीति की रिपोर्ट सक्षम करें"
+
+#: plugins/maintenance/src/Manage.php:400
+msgid "Enable Content-Security-Policy system by default"
+msgstr "डिफ़ॉल्ट रूप से सामग्री-सुरक्षा-नीति प्रणाली सक्षम करें"
+
+#: plugins/maintenance/src/Manage.php:403
+msgid "Enable Content-Security-Policy report only by default"
+msgstr "सामग्री-सुरक्षा-नीति की रिपोर्ट केवल तयशुदा से सक्रिय करें"
+
+#: plugins/maintenance/src/Manage.php:406
+msgid "Also apply these settings to all blogs"
+msgstr "इन सेटिंग्स को सभी ब्लॉगों में भी लागू करें"
+
+#: plugins/maintenance/src/Task/CSP.php:41
+msgid "Delete the Content-Security-Policy report file"
+msgstr "सामग्री सुरक्षा-नीति रिपोर्ट फ़ाइल को मिटाएँ"
+
+#: plugins/maintenance/src/Task/CSP.php:42
+msgid "Content-Security-Policy report file has been deleted."
+msgstr "सामग्री-सुरक्षा-नीति रिपोर्ट फ़ाइल हटा दिया गया है."
+
+#: plugins/maintenance/src/Task/CSP.php:43
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr "सामग्री-सुरक्षा-नीति रिपोर्ट फ़ाइल को नष्ट करने में विफल."
+
+#: plugins/maintenance/src/Task/CSP.php:45
+msgid "Remove the Content-Security-Policy report file."
+msgstr "सामग्री-सुरक्षा-नीति रिपोर्ट फ़ाइल निकालें."
+
+#: plugins/maintenance/src/Task/Cache.php:43
+msgid "Failed to empty templates cache directory."
+msgstr "टेम्पलेट्स कैश निर्देशिका को खाली करने में विफल."
+
+#: plugins/maintenance/src/Task/Cache.php:45
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr ""
+
+#: plugins/maintenance/src/Task/CountComments.php:42
+msgid "Count again comments and trackbacks"
+msgstr "पुनः टिप्पणी और ट्रैकबैक गिनती करें"
+
+#: plugins/maintenance/src/Task/CountComments.php:43
+msgid "Comments and trackback counted."
+msgstr "टिप्पणियाँ और ट्रेकबैक गिना जाता है."
+
+#: plugins/maintenance/src/Task/CountComments.php:44
+msgid "Failed to count comments and trackbacks."
+msgstr "टिप्पणियाँ और ट्रैकबैक गिनती करने में विफल."
+
+#: plugins/maintenance/src/Task/CountComments.php:46
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr "फिर से टिप्पणी करें और ट्रैकबैक अपनी सटीक संख्या की जाँच करने की अनुमति देता है. यह संक्रिया एक अन्य ब्लॉग मंच से आयात करने के दौरान उपयोगी हो सकती है (या जब डॉटसाइट से स्पष्ट 2 से बाहर हो जाने पर 2)."
+
+#: plugins/maintenance/src/Task/IndexComments.php:63
+#: plugins/maintenance/src/Task/IndexPosts.php:63
+msgid "Search engine index"
+msgstr "खोज इंजन सूचकांक"
+
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Index all comments for search engine"
+msgstr "खोज इंजन के लिए सभी टिप्पणियों का सूचकांक"
+
+#: plugins/maintenance/src/Task/IndexComments.php:65
+#: plugins/maintenance/src/Task/IndexPosts.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+msgid "Next"
+msgstr "अगला"
+
+#: plugins/maintenance/src/Task/IndexComments.php:66
+#, php-format
+msgid "Indexing comment %d to %d."
+msgstr ""
+
+#: plugins/maintenance/src/Task/IndexComments.php:67
+msgid "Comments index done."
+msgstr "टिप्पणी सूचकांक किया गया."
+
+#: plugins/maintenance/src/Task/IndexComments.php:68
+msgid "Failed to index comments."
+msgstr "टिप्पणी सूची में विफल."
+
+#: plugins/maintenance/src/Task/IndexComments.php:70
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "खोज इंजन सूचकांक में सभी टिप्पणी और ट्रेकबैक इंडेक्स. यह ऑपरेशन आवश्यक है, अपने ब्लॉग में सामग्री का आयात करने के बाद, आंतरिक खोज इंजन का उपयोग करने के लिए सार्वजनिक और निजी पृष्ठों पर."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Index all entries for search engine"
+msgstr "खोज इंजन के लिए सभी प्रविष्टियों का सूचकांक"
+
+#: plugins/maintenance/src/Task/IndexPosts.php:66
+#, php-format
+msgid "Indexing entry %d to %d."
+msgstr ""
+
+#: plugins/maintenance/src/Task/IndexPosts.php:67
+msgid "Entries index done."
+msgstr "प्रविष्टियों सूचकांक किया गया."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:68
+msgid "Failed to index entries."
+msgstr "प्रविष्टियों को सूची में डालने में असफल."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:70
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "खोज इंजन सूचकांक में सभी प्रविष्टियों का सूचकांक. यह ऑपरेशन आवश्यक है, अपने ब्लॉग में सामग्री का आयात करने के बाद, आंतरिक खोज इंजन का उपयोग करने के लिए सार्वजनिक और निजी पृष्ठों पर."
+
+#: plugins/maintenance/src/Task/Logs.php:48
+msgid "Delete all logs"
+msgstr "सभी लॉग को मिटाएँ"
+
+#: plugins/maintenance/src/Task/Logs.php:49
+msgid "Logs deleted."
+msgstr "लॉग्स मिटाया."
+
+#: plugins/maintenance/src/Task/Logs.php:50
+msgid "Failed to delete logs."
+msgstr "लॉग को मिटाने में असफल."
+
+#: plugins/maintenance/src/Task/Logs.php:52
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr "अपने ब्लॉग इतिहास के लिए सभी गतिविधि और कनेक्शन का रिकॉर्ड लॉग इन करें. जब तक आप इस इतिहास को बनाए रखने की जरूरत है, इन लॉग को समय समय पर हटाने पर विचार करें."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+msgid "Entries metadata"
+msgstr "प्रविष्टियों का मेटाडाटा"
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+msgid "Synchronize entries metadata"
+msgstr "प्रविष्टियों को तुल्यकालित करें"
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:66
+#, php-format
+msgid "Synchronize entry %d to %d."
+msgstr ""
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+msgid "Entries metadata synchronize done."
+msgstr "प्रविष्टि मेटाडाटा सिंक्रोनाइज़ करें."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:68
+msgid "Failed to synchronize entries metadata."
+msgstr "प्रविष्टियों के मेटाडाटा को तुल्यकालित करने में विफल."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:70
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr "सभी प्रविष्टियों मेटाडाटा को तुल्यकालित करता है अपने ब्लॉग में सामग्री का आयात करने के बाद या डेटाबेस टेबल पर बुरा ऑपरेशन करने के बाद उपयोगी हो सकता है."
+
+#: plugins/maintenance/src/Task/Vacuum.php:40
+msgid "Optimise database"
+msgstr "डाटाबेस को ऑप्ट करना"
+
+#: plugins/maintenance/src/Task/Vacuum.php:41
+msgid "optimize tables"
+msgstr "तालिका का अनुकूलन"
+
+#: plugins/maintenance/src/Task/Vacuum.php:42
+msgid "Optimization successful."
+msgstr "अनुकूलन सफल."
+
+#: plugins/maintenance/src/Task/Vacuum.php:43
+msgid "Failed to optimize tables."
+msgstr "तालिका को अनुकूलित करने में विफल."
+
+#: plugins/maintenance/src/Task/Vacuum.php:45
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr "डीओफोड के डेटाबेस पर कई मिटाए या अद्यतन संचालन के बाद, यह विखंडित हो जाता है. अनुकूलन इसे नष्ट करने के लिए अनुमति देगा. यह आपके डेटा की अखंडता पर कोई मामला नहीं है. इसे किसी भी ब्लॉग निर्यात से पहले अनुकूलित करने की सिफारिश की जाती है."
+
+#: plugins/maintenance/src/Task/ZipMedia.php:62
+msgid "Download media folder of current blog"
+msgstr "वर्तमान ब्लॉग का मीडिया फ़ोल्डर डाउनलोड करें"
+
+#: plugins/maintenance/src/Task/ZipMedia.php:64
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr "यह आपके मीडिया फ़ोल्डर को बैकअप करने के लिए उपयोगी हो सकता है. यह मीडिया फ़ोल्डर की सभी सामग्री एक एकल ज़िप फ़ाइल में दबाएँ. ध्यान दें: कुछ hosts के साथ, मीडिया फ़ोल्डर इस प्लगइन के साथ संकुचित नहीं हो सकता है अगर यह बहुत बड़ा है."
+
+#: plugins/maintenance/src/Task/ZipTheme.php:63
+msgid "Download active theme of current blog"
+msgstr "वर्तमान ब्लॉग का सक्रिय विषय डाउनलोड करें"
+
+#: plugins/maintenance/src/Task/ZipTheme.php:65
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr "यह किसी भी परिवर्तन या अद्यतन से पहले सक्रिय विषय को बैकअप करने के लिए उपयोगी हो सकता है. एक एकल ज़िप फ़ाइल में इस कम्प्रेस प्रसंग फ़ोल्डर."
+
+#: plugins/pages/src/Backend.php:38
+msgid "manage pages"
+msgstr "प्रबन्ध पृष्ठ"
+
+#: plugins/pages/src/Backend.php:85
+#, php-format
+msgid "%d page"
+msgstr ""
+
+#: plugins/pages/src/Backend.php:85
+#, php-format
+msgid "%d pages"
+msgstr ""
+
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
+msgid "New page"
+msgstr "नया पृष्ठ"
+
+#: plugins/pages/src/BackendActions.php:53
+msgid "Pages actions"
+msgstr "पृष्ठ क्रिया"
+
+#: plugins/pages/src/BackendActions.php:69
+msgid "Back to pages list"
+msgstr "पृष्ठ सूची में वापस जाएँ"
+
+#: plugins/pages/src/BackendDefaultActions.php:123
+#: plugins/pages/src/Manage.php:123
+msgid "Selected pages have been successfully reordered."
+msgstr "चुने गए पृष्ठों को सफलतापूर्वक पुनःक्रमित किया गया है."
+
+#: plugins/pages/src/BackendList.php:36
+msgid "No page"
+msgstr "कोई पृष्ठ नहीं"
+
+#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
+msgid "Hidden"
+msgstr "छुपा हुआ"
+
+#: plugins/pages/src/BackendList.php:176
+msgid "Select this page"
+msgstr "इस पृष्ठ को चुनें"
+
+#: plugins/pages/src/Frontend.php:36
+msgid "Published on"
+msgstr "पर प्रकाशित"
+
+#: plugins/pages/src/Frontend.php:37
+msgid "This page's comments feed"
+msgstr "यह पृष्ठ की टिप्पणी फीड"
+
+#: plugins/pages/src/Install.php:48
+msgid "My first page"
+msgstr "मेरा पहला पृष्ठ"
+
+#: plugins/pages/src/Install.php:49
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr "यह आपका पहला पन्ना है. जब आप ब्लॉग करने के लिए तैयार हैं, संपादित करने के लिए लॉग इन करें या इसे हटा दें."
+
+#: plugins/pages/src/Manage.php:105
+msgid "Are you sure you want to delete selected pages?"
+msgstr "क्या आप निश्चित हैं कि आप चयनित पृष्ठों को मिटाना चाहते हैं?"
+
+#: plugins/pages/src/Manage.php:119
+msgid "Selected pages have been successfully updated."
+msgstr "चुने गए पृष्ठों को सफलतापूर्वक अद्यतन किया गया है."
+
+#: plugins/pages/src/Manage.php:121
+msgid "Selected pages have been successfully deleted."
+msgstr "चुने गए पृष्ठों को सफलतापूर्वक नष्ट कर दिया गया है."
+
+#: plugins/pages/src/Manage.php:140
+msgid "Selected pages action:"
+msgstr "चुने हुए पृष्ठ क्रिया:"
+
+#: plugins/pages/src/Manage.php:149
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr "पृष्ठ क्रम को पुनः व्यवस्थित करने के लिए, पंक्ति के प्रारंभ में संख्या बदलें, फिर \"सहेजें पृष्ठ आदेश\" बटन पर क्लिक करें."
+
+#: plugins/pages/src/Manage.php:151
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr "पृष्ठ क्रम को फिर से व्यवस्थित करने के लिए, खींचें और ड्रॉप द्वारा आइटम को स्थानांतरित करें, फिर \"सहेजें पृष्ठ क्रम\" बटन पर क्लिक करें."
+
+#: plugins/pages/src/Manage.php:152
+msgid "Save pages order"
+msgstr "पृष्ठ क्रम सहेजें"
+
+#: plugins/pages/src/ManagePage.php:132
+msgid "This page does not exist."
+msgstr "यह पृष्ठ मौजूद नहीं है."
+
+#: plugins/pages/src/ManagePage.php:153 plugins/pages/src/ManagePage.php:652
+#: plugins/pages/src/ManagePage.php:657
+msgid "Edit page"
+msgstr "पृष्ठ संपादित करें"
+
+#: plugins/pages/src/ManagePage.php:431
+msgid "Are you sure you want to delete this page?"
+msgstr "क्या आप निश्चित हैं कि आप इस पृष्ठ को मिटाना चाहते हैं?"
+
+#: plugins/pages/src/ManagePage.php:468
+msgid "Page has been successfully updated."
+msgstr "पृष्ठ सफलतापूर्वक अद्यतन किया गया है."
+
+#: plugins/pages/src/ManagePage.php:470
+msgid "Page has been successfully created."
+msgstr "पृष्ठ सफलतापूर्वक बनाया गया है."
+
+#: plugins/pages/src/ManagePage.php:483
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "अपने पोस्ट को बचाने के द्वारा अपने HTML रूपांतरण को वैध बनाने के लिए मत भूलना."
+
+#: plugins/pages/src/ManagePage.php:488
+msgid "Go to this page on the site"
+msgstr "साइट पर इस पृष्ठ पर जाएँ"
+
+#: plugins/pages/src/ManagePage.php:530
+msgid "Page status"
+msgstr "पृष्ठ स्थिति"
+
+#: plugins/pages/src/ManagePage.php:543
+msgid "Page language"
+msgstr "पृष्ठ भाषा"
+
+#: plugins/pages/src/ManagePage.php:556 plugins/pages/src/Widgets.php:40
+msgid "Page position"
+msgstr "पृष्ठ स्थिति"
+
+#: plugins/pages/src/ManagePage.php:583
+msgid "Hide in widget Pages"
+msgstr "विज़ेट पृष्ठों में छुपाएं"
+
+#: plugins/pages/src/ManagePage.php:593
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "चेतावनी: यदि आप URL को दस्ती रूप से सेट करते हैं, यह किसी अन्य पृष्ठ के साथ संघर्ष कर सकता है."
+
+#: plugins/pages/src/ManagePage.php:608
+msgid "Introduction to the page."
+msgstr "पृष्ठ के लिए परिचय."
+
+#: plugins/pages/src/ManagePage.php:958
+msgid "Select this comment"
+msgstr "इस टिप्पणी को चुनें"
+
+#: plugins/pages/src/Widgets.php:39
+msgid "Page title"
+msgstr "पृष्ठ शीर्षक"
+
+#: plugins/pages/src/Widgets.php:41
+msgid "Publication date"
+msgstr "प्रकाशन तिथि"
+
+#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:51
+msgid "Pings"
+msgstr "पेटिंग्स"
+
+#: plugins/pings/src/Manage.php:62
+msgid "Settings have been successfully updated."
+msgstr "सेटिंग्स सफलतापूर्वक अद्यतन किया गया है."
+
+#: plugins/pings/src/Manage.php:80
+msgid "Pings configuration"
+msgstr "Pings विन्यास"
+
+#: plugins/pings/src/Manage.php:86
+msgid "Activate pings extension"
+msgstr "Pings विस्तार सक्रिय करें"
+
+#: plugins/pings/src/Manage.php:91 plugins/pings/src/Manage.php:113
+msgid "Service name:"
+msgstr "सेवा का नाम:"
+
+#: plugins/pings/src/Manage.php:93 plugins/pings/src/Manage.php:115
+msgid "Service URI:"
+msgstr "सेवा URI:"
+
+#: plugins/pings/src/Manage.php:104
+msgid "Error"
+msgstr "त्रुटि"
+
+#: plugins/pings/src/Manage.php:121
+msgid "Auto pings all services on first publication of entry (current blog only)"
+msgstr "प्रवेश के पहले प्रकाशन पर सभी सेवाओं का ऑटो पेटिंग्स (वर्तमान ब्लॉग केवल)"
+
+#: plugins/pings/src/Manage.php:128
+msgid "Test ping services"
+msgstr "पिंग सेवाओं का परीक्षण"
+
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:47
+#: plugins/simpleMenu/src/Widgets.php:28
+msgid "Simple menu"
+msgstr "सरल मेनू"
+
+#: plugins/simpleMenu/src/FrontendTemplate.php:169
+msgid "Active page"
+msgstr "सक्रिय पृष्ठ"
+
+#: plugins/simpleMenu/src/FrontendTemplate.php:169
+msgid "active page"
+msgstr "सक्रिय पृष्ठ"
+
+#: plugins/simpleMenu/src/Manage.php:70
+msgid "All months"
+msgstr "सभी महीने"
+
+#: plugins/simpleMenu/src/Manage.php:133
+msgid "Archive"
+msgstr "अभिलेखागार"
+
+#: plugins/simpleMenu/src/Manage.php:136
+msgid "Page"
+msgstr "पृष्ठ"
+
+#: plugins/simpleMenu/src/Manage.php:139 plugins/tags/src/Backend.php:24
+#: plugins/tags/src/Widgets.php:32
+msgid "Tags"
+msgstr "टैग"
+
+#: plugins/simpleMenu/src/Manage.php:146
+msgid "User defined"
+msgstr "उपयोक्ता पारिभाषित"
+
+#: plugins/simpleMenu/src/Manage.php:187
+msgid "Configuration successfully updated."
+msgstr "कॉन्फ़िगरेशन सफलतापूर्वक अद्यतन किया गया."
+
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:593
+#: plugins/simpleMenu/src/Manage.php:671
+msgid "Label"
+msgstr "लेबल"
+
+#: plugins/simpleMenu/src/Manage.php:232
+msgid "Home page"
+msgstr "घर पृष्ठ"
+
+#: plugins/simpleMenu/src/Manage.php:232 plugins/simpleMenu/src/Manage.php:237
+#: plugins/widgets/src/Widgets.php:271 plugins/widgets/src/Widgets.php:278
+msgid "Recent posts"
+msgstr "हाल के डाक"
+
+#: plugins/simpleMenu/src/Manage.php:244
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+#: plugins/simpleMenu/src/Manage.php:251
+msgid "Recent Posts from this category"
+msgstr "इस श्रेणी से हाल के डाक"
+
+#: plugins/simpleMenu/src/Manage.php:263
+#, php-format
+msgid "Posts from %s"
+msgstr ""
+
+#: plugins/simpleMenu/src/Manage.php:283
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+#: plugins/simpleMenu/src/Manage.php:343
+msgid "Menu item has been successfully added."
+msgstr "मेन्यू मद सफलतापूर्वक जोड़ा गया है."
+
+#: plugins/simpleMenu/src/Manage.php:348
+msgid "Label and URL of menu item are mandatory."
+msgstr "मेनू मद का लेबल और यूआरएल अनिवार्य है."
+
+#: plugins/simpleMenu/src/Manage.php:381
+msgid "Menu items have been successfully removed."
+msgstr "मेन्यू मद सफलतापूर्वक हटा दिया गया है."
+
+#: plugins/simpleMenu/src/Manage.php:384
+msgid "No menu items selected."
+msgstr "कोई मेनू आइटम चयनित नहीं है."
+
+#: plugins/simpleMenu/src/Manage.php:396
+msgid "Label is mandatory."
+msgstr "लेबल अनिवार्य है."
+
+#: plugins/simpleMenu/src/Manage.php:401
+msgid "URL is mandatory."
+msgstr "यूआरएल अनिवार्य है."
+
+#: plugins/simpleMenu/src/Manage.php:446
+msgid "Menu items have been successfully updated."
+msgstr "मेनू आइटम सफलतापूर्वक अद्यतन किया गया है."
+
+#: plugins/simpleMenu/src/Manage.php:481
+msgid "Step #1"
+msgstr "चरण #1"
+
+#: plugins/simpleMenu/src/Manage.php:486 plugins/simpleMenu/src/Manage.php:494
+msgid "Step #2"
+msgstr "चरण #2"
+
+#: plugins/simpleMenu/src/Manage.php:492
+msgid "Step #3"
+msgstr "चरण #3"
+
+#: plugins/simpleMenu/src/Manage.php:504
+msgid "Add item"
+msgstr "मद जोड़ें"
+
+#: plugins/simpleMenu/src/Manage.php:532
+msgid "Select type"
+msgstr "क़िस्म चुनें"
+
+#: plugins/simpleMenu/src/Manage.php:533
+msgid "Type of item menu:"
+msgstr "आइटम मेनू का प्रकार:"
+
+#: plugins/simpleMenu/src/Manage.php:536 plugins/simpleMenu/src/Manage.php:575
+msgid "Continue..."
+msgstr "जारी रखें ..."
+
+#: plugins/simpleMenu/src/Manage.php:552
+msgid "Select language:"
+msgstr "भाषा चुनें:"
+
+#: plugins/simpleMenu/src/Manage.php:555
+msgid "Select category:"
+msgstr "श्रेणी चुनें:"
+
+#: plugins/simpleMenu/src/Manage.php:558
+msgid "Select month (if necessary):"
+msgstr "माह चुनें (यदि आवश्यक हो):"
+
+#: plugins/simpleMenu/src/Manage.php:561
+msgid "Select page:"
+msgstr "चुनें पृष्ठ:"
+
+#: plugins/simpleMenu/src/Manage.php:564
+msgid "Select tag (if necessary):"
+msgstr "टैग का चयन करें (यदि आवश्यक हो):"
+
+#: plugins/simpleMenu/src/Manage.php:590
+msgid "Label of item menu:"
+msgstr "आइटम मेनू का लेबल:"
+
+#: plugins/simpleMenu/src/Manage.php:597
+msgid "Description of item menu:"
+msgstr "आइटम मेनू का विवरण:"
+
+#: plugins/simpleMenu/src/Manage.php:608
+msgid "URL of item menu:"
+msgstr "आइटम मेनू का यूआरएल:"
+
+#: plugins/simpleMenu/src/Manage.php:617 plugins/simpleMenu/src/Manage.php:674
+msgid "Open URL on a new tab"
+msgstr "यूआरएल नए टैब पर खोलें"
+
+#: plugins/simpleMenu/src/Manage.php:619
+msgid "Add this item"
+msgstr "इस मद को जोड़ें"
+
+#: plugins/simpleMenu/src/Manage.php:633
+msgid "Enable simple menu for this blog"
+msgstr "इस ब्लॉग के लिए सरल मेनू सक्षम करें"
+
+#: plugins/simpleMenu/src/Manage.php:646
+msgid "Add an item"
+msgstr "एक मद जोड़ें"
+
+#: plugins/simpleMenu/src/Manage.php:660
+msgid "Menu items list"
+msgstr "मेन्यू मद सूची"
+
+#: plugins/simpleMenu/src/Manage.php:743
+msgid "Update menu"
+msgstr "अद्यतन मेनू"
+
+#: plugins/simpleMenu/src/Manage.php:745
+msgid "Delete selected menu items"
+msgstr "चयनित मेनू मद को मिटाएँ"
+
+#: plugins/simpleMenu/src/Manage.php:746
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "क्या आप निश्चित हैं कि आप चयनित मेनू आइटम को मिटाना चाहते हैं?"
+
+#: plugins/simpleMenu/src/Manage.php:753
+msgid "No menu items so far."
+msgstr "अभी तक कोई मेन्यू आइटम नहीं है."
+
+#: plugins/simpleMenu/src/Widgets.php:32
+msgid "Item description"
+msgstr "मद विवरण"
+
+#: plugins/simpleMenu/src/Widgets.php:36
+msgid "Displayed in link"
+msgstr "प्रदर्शित किया गया लिंक में"
+
+#: plugins/simpleMenu/src/Widgets.php:37
+msgid "Used as link title"
+msgstr "लिंक शीर्षक के रूप में प्रयुक्त"
+
+#: plugins/simpleMenu/src/Widgets.php:38
+msgid "Displayed in link and used as title"
+msgstr "लिंक में प्रदर्शित और शीर्षक के रूप में प्रयुक्त"
+
+#: plugins/simpleMenu/src/Widgets.php:39
+msgid "Not displayed nor used"
+msgstr "न दिखाया गया और न ही"
+
+#: plugins/tags/src/BackendBehaviors.php:52
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
+msgid "Tag"
+msgstr "टैग"
+
+#: plugins/tags/src/BackendBehaviors.php:199
+msgid "Add tags"
+msgstr "टैग जोड़ें"
+
+#: plugins/tags/src/BackendBehaviors.php:208
+msgid "Remove tags"
+msgstr "टैग हटाएँ"
+
+#: plugins/tags/src/BackendBehaviors.php:243
+msgid "Tag has been successfully added to selected entries"
+msgid_plural "Tags have been successfully added to selected entries"
+msgstr[0] "चयनित प्रविष्टियों के लिए टैग सफलतापूर्वक जोड़ा गया है"
+msgstr[1] "चुने गए प्रविष्टियों में टैग सफलतापूर्वक जोड़ा गया है"
+
+#: plugins/tags/src/BackendBehaviors.php:256
+#: plugins/tags/src/BackendBehaviors.php:396
+msgid "Are you sure you want to remove this tag?"
+msgstr "क्या आप निश्चित हैं कि आप इस टैग को हटाना चाहते हैं?"
+
+#: plugins/tags/src/BackendBehaviors.php:257
+#: plugins/tags/src/BackendBehaviors.php:397
+msgid "Add a tag to this entry"
+msgstr "इस प्रविष्टि में एक टैग जोड़ें"
+
+#: plugins/tags/src/BackendBehaviors.php:258
+#: plugins/tags/src/BackendBehaviors.php:398
+msgid "Choose from list"
+msgstr "सूची से चुनें"
+
+#: plugins/tags/src/BackendBehaviors.php:259
+#: plugins/tags/src/BackendBehaviors.php:399
+msgid "all"
+msgstr "सभी"
+
+#: plugins/tags/src/BackendBehaviors.php:260
+#: plugins/tags/src/BackendBehaviors.php:400
+msgid "Enter tags separated by comma"
+msgstr "अल्पविराम द्वारा अलग टैग दर्ज करें"
+
+#: plugins/tags/src/BackendBehaviors.php:264
+#: plugins/tags/src/BackendBehaviors.php:404
+msgid "used in %e - frequency %p%"
+msgstr ""
+
+#: plugins/tags/src/BackendBehaviors.php:265
+#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
+msgid "entry"
+msgstr "प्रविष्टि"
+
+#: plugins/tags/src/BackendBehaviors.php:266
+#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
+msgid "entries"
+msgstr "प्रविष्टियां"
+
+#: plugins/tags/src/BackendBehaviors.php:274
+msgid "Add tags to this selection"
+msgstr "इस चयन में टैग जोड़ें"
+
+#: plugins/tags/src/BackendBehaviors.php:287
+msgid "Tags to add:"
+msgstr "जोड़ने के लिए टैग:"
+
+#: plugins/tags/src/BackendBehaviors.php:320
+msgid "Tag has been successfully removed from selected entries"
+msgid_plural "Tags have been successfully removed from selected entries"
+msgstr[0] "टैग सफलतापूर्वक चयनित प्रविष्टियों से हटा दिया गया है"
+msgstr[1] "चुने गए प्रविष्टियों से टैग सफलतापूर्वक हटा दिया गया है"
+
+#: plugins/tags/src/BackendBehaviors.php:343
+msgid "No tags for selected entries"
+msgstr "चयनित प्रविष्टियों के लिए कोई टैग नहीं"
+
+#: plugins/tags/src/BackendBehaviors.php:350
+msgid "Remove selected tags from this selection"
+msgstr "इस चयन से चयनित टैग हटाएँ"
+
+#: plugins/tags/src/BackendBehaviors.php:359
+msgid "Following tags have been found in selected entries:"
+msgstr "चुने गए प्रविष्टियों में निम्नलिखित टैग की गईं हैं:"
+
+#: plugins/tags/src/BackendBehaviors.php:425
+msgid "Short"
+msgstr "छोटा"
+
+#: plugins/tags/src/BackendBehaviors.php:426
+msgid "Extended"
+msgstr "विस्तारित"
+
+#: plugins/tags/src/BackendBehaviors.php:433
+msgid "Tags list format:"
+msgstr "टैग सूची प्रारूप:"
+
+#: plugins/tags/src/FrontendBehaviors.php:29
+msgid "This tag's comments Atom feed"
+msgstr "यह टैग की टिप्पणी एटम फ़ीड"
+
+#: plugins/tags/src/FrontendBehaviors.php:30
+msgid "This tag's entries Atom feed"
+msgstr "इस टैग की प्रविष्टियों एटॉम फ़ीड"
+
+#: plugins/tags/src/Manage.php:112
+msgid "No tags on this blog."
+msgstr "इस ब्लॉग पर कोई टैग नहीं है."
+
+#: plugins/tags/src/ManagePosts.php:86
+msgid "Tag has been successfully renamed"
+msgstr "टैग सफलतापूर्वक नया नाम दिया गया है"
+
+#: plugins/tags/src/ManagePosts.php:105
+msgid "Tag has been successfully removed"
+msgstr "टैग सफलतापूर्वक हटा दिया गया है"
+
+#: plugins/tags/src/ManagePosts.php:136
+#, php-format
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr ""
+
+#: plugins/tags/src/ManagePosts.php:151
+msgid "Back to tags list"
+msgstr "के टैग सूची में वापस जाएँ"
+
+#: plugins/tags/src/ManagePosts.php:159
+msgid "Rename"
+msgstr "नाम बदलें"
+
+#: plugins/tags/src/ManagePosts.php:172
+msgid "Delete this tag"
+msgstr "इस टैग को मिटाएँ"
+
+#: plugins/tags/src/ManagePosts.php:183
+#, php-format
+msgid "List of entries with the tag “%s”"
+msgstr ""
+
+#: plugins/tags/src/Widgets.php:33
+msgid "Limit (empty means no limit):"
+msgstr "सीमा (खाली का अर्थ कोई सीमा नहीं है):"
+
+#: plugins/tags/src/Widgets.php:40
+msgid "Tag name"
+msgstr "टैग नाम"
+
+#: plugins/tags/src/Widgets.php:41
+msgid "Entries count"
+msgstr "प्रविष्टियां गिनती"
+
+#: plugins/tags/src/Widgets.php:42
+msgid "Newest entry"
+msgstr "नवीनतम प्रविष्टि"
+
+#: plugins/tags/src/Widgets.php:43
+msgid "Oldest entry"
+msgstr "सबसे पुरानी प्रविष्टि"
+
+#: plugins/tags/src/Widgets.php:56
+msgid "Link to all tags:"
+msgstr "सभी टैग के लिए लिंक:"
+
+#: plugins/themeEditor/src/Backend.php:24
+msgid "themeEditor"
+msgstr "मुख्य-संपादक"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:37
+#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:175
+msgid "Edit theme files"
+msgstr "प्रसंग फ़ाइल संपादित करें"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:77
+msgid "Syntax highlighting"
+msgstr "वाक्यविन्यास उभारें"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:82
+msgid "Syntax highlighting in theme editor"
+msgstr "प्रसंग संपादक में सिंटेक्स हाइलाइटिंग"
+
+#: plugins/themeEditor/src/Manage.php:85
+msgid "The theme update has been locked."
+msgstr "प्रसंग अद्यतन बंद कर दिया गया है."
+
+#: plugins/themeEditor/src/Manage.php:93
+msgid "The theme update has been unocked."
+msgstr "विषय अद्यतन गैर-बाधित किया गया है."
+
+#: plugins/themeEditor/src/Manage.php:116
+msgid "The file has been reset."
+msgstr "फ़ाइल रीसेट कर दिया गया है."
+
+#: plugins/themeEditor/src/Manage.php:139
+msgid "Unlock update"
+msgstr "अद्यतन अनलॉक करें"
+
+#: plugins/themeEditor/src/Manage.php:140
+msgid "Lock update"
+msgstr "तालाबंद करें"
+
+#: plugins/themeEditor/src/Manage.php:144
+msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
+msgstr "प्रसंग का लॉक अद्यतन अपनी फ़ाइलों को संशोधित करने के लिए नहीं रोकता है, केवल इसे वैश्विक रूप से अद्यतन करने के लिए."
+
+#: plugins/themeEditor/src/Manage.php:156
+msgid "Saving document..."
+msgstr "दस्तावेज़ सहेज रहा है ..."
+
+#: plugins/themeEditor/src/Manage.php:157
+msgid "Document saved"
+msgstr "दस्तावेज़ सहेजा गया"
+
+#: plugins/themeEditor/src/Manage.php:158
+msgid "An error occurred:"
+msgstr "एक त्रुटि हुईः"
+
+#: plugins/themeEditor/src/Manage.php:159
+msgid "Are you sure you want to reset this file?"
+msgstr "क्या आप निश्चित हैं कि आप इस फ़ाइल को रीसेट करना चाहते हैं?"
+
+#: plugins/themeEditor/src/Manage.php:181
+#, php-format
+msgid "Your current theme on this blog is \"%s\"."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:192
+msgid "Please select a file to edit."
+msgstr "संपादन करने के लिए एक फ़ाइल का चयन करें."
+
+#: plugins/themeEditor/src/Manage.php:197
+msgid "File editor"
+msgstr "फ़ाइल संपादक"
+
+#: plugins/themeEditor/src/Manage.php:198
+#, php-format
+msgid "Editing file %s"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:208
+msgid "Reset"
+msgstr "रीसेट करें"
+
+#: plugins/themeEditor/src/Manage.php:214
+msgid "This file is not writable. Please check your theme files permissions."
+msgstr "यह फ़ाइल लिखने योग्य नहीं है. कृपया अपनी प्रसंग फ़ाइलें अनुमतियाँ जाँचें."
+
+#: plugins/themeEditor/src/Manage.php:241
+msgid "Templates files"
+msgstr "टैम्प्लेट्स"
+
+#: plugins/themeEditor/src/Manage.php:244
+msgid "CSS files"
+msgstr "CSS फ़ाइलें"
+
+#: plugins/themeEditor/src/Manage.php:247
+msgid "JavaScript files"
+msgstr "JavaScript फ़ाइलें"
+
+#: plugins/themeEditor/src/Manage.php:250
+msgid "Locales files"
+msgstr "स्थानीय फ़ाइलें"
+
+#: plugins/themeEditor/src/Manage.php:253
+msgid "PHP files"
+msgstr "पीएचपी फ़ाइलें"
+
+#: plugins/themeEditor/src/Manage.php:262
+msgid "You can't edit a distributed theme."
+msgstr "आप एक वितरित थीम संपादित नहीं कर सकते."
+
+#: plugins/themeEditor/src/ThemeEditor.php:145
+msgid "No file"
+msgstr "कोई फ़ाइल नहीं"
+
+#: plugins/themeEditor/src/ThemeEditor.php:165
+msgid "From theme:"
+msgstr "प्रसंग से:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:167
+msgid "From parent:"
+msgstr "माता-पिता से:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:172
+msgid "From template set:"
+msgstr "टेम्पलेट सेट से:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:207
+#: plugins/themeEditor/src/ThemeEditor.php:237
+#: plugins/themeEditor/src/ThemeEditor.php:326
+msgid "File does not exist."
+msgstr "फ़ाइल मौज़ूद नहीं है."
+
+#: plugins/themeEditor/src/ThemeEditor.php:212
+#, php-format
+msgid "File %s is not readable"
+msgstr ""
+
+#: plugins/themeEditor/src/ThemeEditor.php:274
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+#: plugins/themeEditor/src/ThemeEditor.php:339
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+#: plugins/userPref/src/Backend.php:24
+msgid "user:preferences"
+msgstr "उपयोक्ता: वरीयताएँ"
+
+#: plugins/userPref/src/Manage.php:65 plugins/userPref/src/Manage.php:84
+msgid "Preferences successfully updated"
+msgstr "वरीयताएँ सफलतापूर्वक अद्यतन किया गया"
+
+#: plugins/userPref/src/Manage.php:111 plugins/userPref/src/Manage.php:112
+msgid "User preferences"
+msgstr "उपयोक्ता पसंद"
+
+#: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
+msgid "Global preferences"
+msgstr "वैश्विक वरीयताएँ"
+
+#: plugins/widgets/src/Backend.php:26
+msgid "Widgets"
+msgstr "विजेट्स"
+
+#: plugins/widgets/src/Backend.php:47
+msgid "Widget's textareas"
+msgstr "विजेट का textfield"
+
+#: plugins/widgets/src/Install.php:35
+msgid "Unable to initialize default widgets."
+msgstr "डिफ़ॉल्ट विजेट आरंभीकृत करने में असमर्थ."
+
+#: plugins/widgets/src/Manage.php:58
+msgid "navigation"
+msgstr "नौचालन"
+
+#: plugins/widgets/src/Manage.php:59
+msgid "extra"
+msgstr "अतिरिक्त"
+
+#: plugins/widgets/src/Manage.php:60
+msgid "custom"
+msgstr "रिवाज"
+
+#: plugins/widgets/src/Manage.php:196
+msgid "Sidebars and their widgets have been saved."
+msgstr "साइडपट्टी और उनके विजेट को बचाया गया है."
+
+#: plugins/widgets/src/Manage.php:210
+msgid "Sidebars have been resetting."
+msgstr "साइडबार्स पुनर्निर्धारित किया जा रहा है."
+
+#: plugins/widgets/src/Manage.php:238
+msgid "Are you sure you want to reset sidebars?"
+msgstr "क्या आप निश्चित हैं कि आप साइडेर्स रीसेट करना चाहते हैं?"
+
+#: plugins/widgets/src/Manage.php:271
+msgid "Available widgets"
+msgstr "उपलब्ध विजेट्स"
+
+#: plugins/widgets/src/Manage.php:272
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr "इस सूची में से किसी एक को खींचें करने के लिए विजेट को खींचें, जोड़ने के लिए."
+
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
+msgid "order"
+msgstr "आदेश"
+
+#: plugins/widgets/src/Manage.php:286
+msgid "Append to:"
+msgstr "में जोड़ें:"
+
+#: plugins/widgets/src/Manage.php:297
+msgid "Add widgets to sidebars"
+msgstr "विजेटों में विजेट जोड़ें"
+
+#: plugins/widgets/src/Manage.php:304
+msgid "Navigation sidebar"
+msgstr "नेविगेशन पट्टी"
+
+#: plugins/widgets/src/Manage.php:309
+msgid "Extra sidebar"
+msgstr "अतिरिक्त साइडबार"
+
+#: plugins/widgets/src/Manage.php:314
+msgid "Custom sidebar"
+msgstr "मनपसंद बाजू पट्टी"
+
+#: plugins/widgets/src/Manage.php:319
+msgid "Update sidebars"
+msgstr "अद्यतन सीडेर्स"
+
+#: plugins/widgets/src/Manage.php:321
+msgid "Reset sidebars"
+msgstr "सीडेर्स रीसेट करें"
+
+#: plugins/widgets/src/Manage.php:329
+msgid "Widget ID:"
+msgstr "विजेट आईडीः"
+
+#: plugins/widgets/src/Manage.php:335
+msgid "No setting for this widget"
+msgstr "इस विजेट के लिए कोई सेटिंग नहीं"
+
+#: plugins/widgets/src/Manage.php:341
+msgid "boolean"
+msgstr "बूलीय"
+
+#: plugins/widgets/src/Manage.php:341 plugins/widgets/src/Manage.php:346
+msgid "possible values:"
+msgstr "संभावित मान:"
+
+#: plugins/widgets/src/Manage.php:345
+msgid "empty string"
+msgstr "खाली स्ट्रिंग"
+
+#: plugins/widgets/src/Manage.php:346
+msgid "listitem"
+msgstr "लिस्टिटेम"
+
+#: plugins/widgets/src/Manage.php:352
+msgid "string"
+msgstr "तार"
+
+#: plugins/widgets/src/Manage.php:358
+msgid "Setting name:"
+msgstr "नाम सेट करें:"
+
+#: plugins/widgets/src/Manage.php:395
+msgid "No widget as far."
+msgstr "जहाँ तक कोई विजेट नहीं है."
+
+#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+msgid "Up the widget"
+msgstr "विजेट ऊपर"
+
+#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+msgid "Down the widget"
+msgstr "विजेट नीचे"
+
+#: plugins/widgets/src/Manage.php:419
+msgid "Remove the widget"
+msgstr "विजेट मिटाएँ"
+
+#: plugins/widgets/src/Manage.php:419
+msgid "Remove widget"
+msgstr "विजेट मिटाएँ"
+
+#: plugins/widgets/src/Manage.php:431
+msgid "Drag widgets here to remove."
+msgstr "विजेटों को यहाँ हटाने के लिए खींचें."
+
+#: plugins/widgets/src/Widgets.php:87
+msgid "Search engine"
+msgstr "खोज इंजन"
+
+#: plugins/widgets/src/Widgets.php:89
+msgid "Placeholder (HTML5 only, optional):"
+msgstr "प्लेसहोल्डर (HTML5 केवल, वैकल्पिक):"
+
+#: plugins/widgets/src/Widgets.php:96
+msgid "Navigation links"
+msgstr "नेविगेशन लिंक"
+
+#: plugins/widgets/src/Widgets.php:104
+msgid "Selected entries"
+msgstr "चयनित प्रविष्टियां"
+
+#: plugins/widgets/src/Widgets.php:105
+msgid "Best of me"
+msgstr "मुझ में से सर्वश्रेष्ठ"
+
+#: plugins/widgets/src/Widgets.php:113
+msgid "Blog languages"
+msgstr "ब्लॉग भाषाएँ"
+
+#: plugins/widgets/src/Widgets.php:123
+msgid "With entries counts"
+msgstr "प्रविष्टियों की गणना के साथ"
+
+#: plugins/widgets/src/Widgets.php:124
+msgid "Include sub cats in count"
+msgstr "सब बिल्लियाँ गिनती में शामिल करें"
+
+#: plugins/widgets/src/Widgets.php:125
+msgid "Include empty categories"
+msgstr "खाली श्रेणियां शामिल करें"
+
+#: plugins/widgets/src/Widgets.php:132
+msgid "Subscribe links"
+msgstr "सदस्यता लें"
+
+#: plugins/widgets/src/Widgets.php:133
+msgid "Subscribe"
+msgstr "सदस्यता लें"
+
+#: plugins/widgets/src/Widgets.php:134
+msgid "Feeds type:"
+msgstr "फ़ीड्स प्रकार:"
+
+#: plugins/widgets/src/Widgets.php:141
+msgid "Feed reader"
+msgstr "फीड रीडर"
+
+#: plugins/widgets/src/Widgets.php:142
+msgid "Somewhere else"
+msgstr "कहीं और"
+
+#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
+msgid "Entries limit:"
+msgstr "प्रविष्टियों की सीमा:"
+
+#: plugins/widgets/src/Widgets.php:151
+msgid "Text"
+msgstr "पाठ"
+
+#: plugins/widgets/src/Widgets.php:153
+msgid "Text:"
+msgstr "पाठः"
+
+#: plugins/widgets/src/Widgets.php:160
+msgid "Uncategorized"
+msgstr "अवर्गीकृत"
+
+#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
+msgid "Last entries"
+msgstr "अंतिम प्रविष्टियां"
+
+#: plugins/widgets/src/Widgets.php:169
+msgid "Tag:"
+msgstr "टैग:"
+
+#: plugins/widgets/src/Widgets.php:181
+msgid "Last comments"
+msgstr "पिछली टिप्पणी"
+
+#: plugins/widgets/src/Widgets.php:182
+msgid "Comments limit:"
+msgstr "टिप्पणियाँ सीमा:"
+
+#: plugins/widgets/src/Widgets.php:461
+#, php-format
+msgid "This blog's entries %s feed"
+msgstr ""
+
+#: plugins/widgets/src/Widgets.php:462
+#, php-format
+msgid "This blog's comments %s feed"
+msgstr ""
+
+#: plugins/widgets/src/Widgets.php:470
+msgid "Entries feed"
+msgstr "प्रविष्टियाँ फीड"
+
+#: plugins/widgets/src/Widgets.php:476
+msgid "Comments feed"
+msgstr "टिप्पणियाँ फीड"
+
+#: plugins/widgets/src/WidgetsElement.php:515
+msgid "Title (optional)"
+msgstr "शीर्षक (वैकल्पिक)"
+
+#: plugins/widgets/src/WidgetsElement.php:528
+msgid "All pages"
+msgstr "सभी पृष्ठ"
+
+#: plugins/widgets/src/WidgetsElement.php:529
+msgid "Home page only"
+msgstr "सिर्फ घर पृष्ठ"
+
+#: plugins/widgets/src/WidgetsElement.php:530
+msgid "Except on home page"
+msgstr "घर के पृष्ठ को छोड़कर"
+
+#: plugins/widgets/src/WidgetsElement.php:538
+msgid "Display on:"
+msgstr "पर प्रदर्शन:"
+
+#: plugins/widgets/src/WidgetsElement.php:574
+msgid "Content only"
+msgstr "केवल सामग्री"
+
+#: plugins/widgets/src/WidgetsElement.php:586
+msgid "CSS class:"
+msgstr "सीएसएस वर्गः"
+
+#: plugins/widgets/src/WidgetsElement.php:598
+msgid "Offline"
+msgstr "ऑफ़लाइन"
+
