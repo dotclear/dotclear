@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 08:23+0100\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2023-12-11 15:13+0100\n"
+"PO-Revision-Date: 2023-12-11 16:14\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -195,7 +195,7 @@ msgid "Failed to delete related preferences"
 msgstr "Не вдалося видалити пов'язані налаштування"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:37
-#: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:16
+#: plugins/dcCKEditor/tpl/index.php:18 plugins/dcLegacyEditor/tpl/index.php:15
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -617,13 +617,6 @@ msgstr "Ідентифікатор налаштування"
 msgid "Value"
 msgstr "Значення"
 
-#: plugins/aboutConfig/src/Manage.php:159 plugins/antispam/src/Manage.php:217
-#: plugins/blogroll/src/Manage.php:253 plugins/blogroll/src/Manage.php:396
-#: plugins/simpleMenu/src/Manage.php:227 plugins/simpleMenu/src/Manage.php:672
-#: plugins/userPref/src/Manage.php:145
-msgid "Description"
-msgstr "Опис"
-
 #: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:189
 msgid "Goto:"
 msgstr "Готово:"
@@ -688,13 +681,13 @@ msgid "Antispam"
 msgstr "Антиспам"
 
 #: plugins/antispam/src/BackendBehaviors.php:42
-#: plugins/antispam/src/Manage.php:193
+#: plugins/antispam/src/Manage.php:196
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Усі спам-коментарі, старші за %s днів, будуть автоматично видалені."
 
 #: plugins/antispam/src/BackendBehaviors.php:43
-#: plugins/antispam/src/Manage.php:194
+#: plugins/antispam/src/Manage.php:197
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Ви можете змінити цю тривалість на сторінці %s"
@@ -889,74 +882,74 @@ msgstr "Фільтр не існує."
 msgid "Filter has no user interface."
 msgstr "Фільтр не має користувацького інтерфейсу."
 
-#: plugins/antispam/src/Manage.php:112 plugins/antispam/src/Manage.php:205
+#: plugins/antispam/src/Manage.php:115 plugins/antispam/src/Manage.php:208
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфігурацію фільтрів успішно збережено."
 
-#: plugins/antispam/src/Manage.php:129
+#: plugins/antispam/src/Manage.php:132
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфігурація"
 
-#: plugins/antispam/src/Manage.php:149
+#: plugins/antispam/src/Manage.php:152
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s конфігурація фільтра"
 
-#: plugins/antispam/src/Manage.php:153
+#: plugins/antispam/src/Manage.php:156
 msgid "Back to filters list"
 msgstr "Повернутися до списку фільтрів"
 
-#: plugins/antispam/src/Manage.php:177
+#: plugins/antispam/src/Manage.php:180
 msgid "Information"
 msgstr "Інформація"
 
-#: plugins/antispam/src/Manage.php:179
+#: plugins/antispam/src/Manage.php:182
 msgid "Junk comments:"
 msgstr "Сміттєві коментарі:"
 
-#: plugins/antispam/src/Manage.php:181
+#: plugins/antispam/src/Manage.php:184
 msgid "Published comments:"
 msgstr "Опубліковані коментарі:"
 
-#: plugins/antispam/src/Manage.php:211
+#: plugins/antispam/src/Manage.php:214
 msgid "Available spam filters"
 msgstr "Доступні фільтри спаму"
 
-#: plugins/antispam/src/Manage.php:213
+#: plugins/antispam/src/Manage.php:216
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
 msgstr "Порядок"
 
-#: plugins/antispam/src/Manage.php:214 plugins/antispam/src/Manage.php:245
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
 msgid "Active"
 msgstr "Активний"
 
-#: plugins/antispam/src/Manage.php:215 plugins/antispam/src/Manage.php:253
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
 msgid "Auto Del."
 msgstr "Автозапуск."
 
-#: plugins/antispam/src/Manage.php:216
+#: plugins/antispam/src/Manage.php:219
 msgid "Filter name"
 msgstr "Назва фільтра"
 
-#: plugins/antispam/src/Manage.php:226 plugins/antispam/src/Manage.php:227
+#: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
 msgid "Filter configuration"
 msgstr "Конфігурація фільтра"
 
-#: plugins/antispam/src/Manage.php:237 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "позиція"
 
-#: plugins/antispam/src/Manage.php:283
+#: plugins/antispam/src/Manage.php:285
 msgid "Syndication"
 msgstr "Синдикація"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Junk comments RSS feed"
 msgstr "Небажані коментарі RSS-стрічка"
 
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:288
 msgid "Published comments RSS feed"
 msgstr "Опубліковані коментарі RSS-стрічка"
 
@@ -1002,11 +995,11 @@ msgstr "Список блогів"
 msgid "manage blogroll"
 msgstr "керувати списком блогів"
 
-#: plugins/blogroll/src/Blogroll.php:171 plugins/blogroll/src/Blogroll.php:214
+#: plugins/blogroll/src/Blogroll.php:164 plugins/blogroll/src/Blogroll.php:207
 msgid "You must provide a link title"
 msgstr "Ви повинні вказати назву посилання"
 
-#: plugins/blogroll/src/Blogroll.php:175 plugins/blogroll/src/Blogroll.php:218
+#: plugins/blogroll/src/Blogroll.php:168 plugins/blogroll/src/Blogroll.php:211
 msgid "You must provide a link URL"
 msgstr "Ви повинні вказати URL-адресу посилання"
 
@@ -1352,6 +1345,11 @@ msgstr "Зовнішній імідж"
 msgid "URL field cannot be empty."
 msgstr "Поле URL не може бути порожнім."
 
+#: plugins/dcCKEditor/src/BackendBehaviors.php:92
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:171
+msgid "Open the media"
+msgstr "Відкрийте Змі"
+
 #: plugins/dcCKEditor/src/Manage.php:128
 #: plugins/dcLegacyEditor/src/Manage.php:43
 msgid "The configuration has been updated."
@@ -1361,7 +1359,7 @@ msgstr "Конфігурацію було оновлено."
 msgid "Note(s)"
 msgstr "Примітка(и)"
 
-#: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:19
+#: plugins/dcCKEditor/tpl/index.php:23 plugins/dcLegacyEditor/tpl/index.php:18
 msgid "Plugin activation"
 msgstr "Активація плагіна"
 
@@ -1445,17 +1443,17 @@ msgstr "Додайте кнопки скасування/повторення"
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Вимикає вбудовану перевірку орфографії, якщо браузер надає таку можливість"
 
-#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:31
+#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:30
 #: plugins/simpleMenu/src/Manage.php:635
 msgid "Save configuration"
 msgstr "Зберегти конфігурацію"
 
 #: plugins/dcLegacyEditor/src/Backend.php:24
-#: plugins/dcLegacyEditor/tpl/index.php:13
+#: plugins/dcLegacyEditor/tpl/index.php:12
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcLegacyEditor/src/Backend.php:47
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
@@ -1568,7 +1566,7 @@ msgstr "Мова?"
 msgid "Remove text formating"
 msgstr "Видалити форматування тексту"
 
-#: plugins/dcLegacyEditor/tpl/index.php:23
+#: plugins/dcLegacyEditor/tpl/index.php:22
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Увімкніть плагін dcLegacyEditor"
 
@@ -3313,35 +3311,35 @@ msgstr "Стрічка заявок"
 msgid "Comments feed"
 msgstr "Стрічка коментарів"
 
-#: plugins/widgets/src/WidgetsElement.php:535
+#: plugins/widgets/src/WidgetsElement.php:515
 msgid "Title (optional)"
 msgstr "Назва (необов'язково)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:528
 msgid "All pages"
 msgstr "Всі сторінки"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:529
 msgid "Home page only"
 msgstr "Тільки головна сторінка"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:530
 msgid "Except on home page"
 msgstr "За винятком головної сторінки"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:538
 msgid "Display on:"
 msgstr "Дисплей увімкнено:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:574
 msgid "Content only"
 msgstr "Тільки вміст"
 
-#: plugins/widgets/src/WidgetsElement.php:606
+#: plugins/widgets/src/WidgetsElement.php:586
 msgid "CSS class:"
 msgstr "Клас CSS:"
 
-#: plugins/widgets/src/WidgetsElement.php:618
+#: plugins/widgets/src/WidgetsElement.php:598
 msgid "Offline"
 msgstr "Офлайн"
 

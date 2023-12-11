@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2023-12-11 16:25\n"
+"Last-Translator: \n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: id\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:123
+msgid "Light linear gradient"
+msgstr "Gradien linier ringan"
+
+#: themes/blowup/src/Config.php:124
+msgid "Medium linear gradient"
+msgstr "Gradien linier sedang"
+
+#: themes/blowup/src/Config.php:125
+msgid "Dark linear gradient"
+msgstr "Gradien linier gelap"
+
+#: themes/blowup/src/Config.php:126
+msgid "Solid color"
+msgstr "Warna solid"
+
+#: themes/blowup/src/Config.php:129
+msgid "Custom..."
+msgstr "Kustom..."
+
+#: themes/blowup/src/Config.php:231
+msgid "Theme configuration has been successfully updated."
+msgstr "Konfigurasi tema telah berhasil diperbarui."
+
+#: themes/blowup/src/Config.php:253
+msgid "Back to Blog appearance"
+msgstr "Kembali ke tampilan Blog"
+
+#: themes/blowup/src/Config.php:257
+msgid "Customization"
+msgstr "Kustomisasi"
+
+#: themes/blowup/src/Config.php:258
+msgid "General"
+msgstr "Umum"
+
+#: themes/blowup/src/Config.php:262
+msgid "Background color:"
+msgstr "Warna latar belakang:"
+
+#: themes/blowup/src/Config.php:265
+msgid "Background color fill:"
+msgstr "Isi warna latar belakang:"
+
+#: themes/blowup/src/Config.php:270
+msgid "Main text font:"
+msgstr "Font teks utama:"
+
+#: themes/blowup/src/Config.php:273
+msgid "Main text font size:"
+msgstr "Ukuran font teks utama:"
+
+#: themes/blowup/src/Config.php:276
+msgid "Main text color:"
+msgstr "Warna teks utama:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Text line height:"
+msgstr "Tinggi baris teks:"
+
+#: themes/blowup/src/Config.php:283
+msgid "Links color:"
+msgstr "Warna tautan:"
+
+#: themes/blowup/src/Config.php:286
+msgid "Visited links color:"
+msgstr "Warna tautan yang dikunjungi:"
+
+#: themes/blowup/src/Config.php:289
+msgid "Focus links color:"
+msgstr "Warna tautan fokus:"
+
+#: themes/blowup/src/Config.php:296
+msgid "Prelude color:"
+msgstr "Warna pendahuluan:"
+
+#: themes/blowup/src/Config.php:301
+msgid "Hide main title"
+msgstr "Sembunyikan judul utama"
+
+#: themes/blowup/src/Config.php:304
+msgid "Main title font:"
+msgstr "Font judul utama:"
+
+#: themes/blowup/src/Config.php:307
+msgid "Main title font size:"
+msgstr "Ukuran huruf judul utama:"
+
+#: themes/blowup/src/Config.php:310
+msgid "Main title color:"
+msgstr "Warna judul utama:"
+
+#: themes/blowup/src/Config.php:313
+msgid "Main title alignment:"
+msgstr "Penjajaran judul utama:"
+
+#: themes/blowup/src/Config.php:314
+msgid "center"
+msgstr "pusat"
+
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
+msgid "left"
+msgstr "kiri"
+
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
+msgid "right"
+msgstr "benar"
+
+#: themes/blowup/src/Config.php:316
+msgid "Main title position (x:y)"
+msgstr "Posisi judul utama (x:y)"
+
+#: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
+msgid "Top image"
+msgstr "Gambar atas"
+
+#: themes/blowup/src/Config.php:330
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Pilih \"Custom...\" untuk mengunggah gambar Anda sendiri."
+
+#: themes/blowup/src/Config.php:332
+msgid "Add your image:"
+msgstr "Tambahkan gambar Anda:"
+
+#: themes/blowup/src/Config.php:333
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "File JPEG atau PNG, lebar 800 piksel, ukuran maksimum %s"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar"
+msgstr "Bilah samping"
+
+#: themes/blowup/src/Config.php:345
+msgid "Sidebar position:"
+msgstr "Posisi bilah sisi:"
+
+#: themes/blowup/src/Config.php:348
+msgid "Sidebar text font:"
+msgstr "Font teks bilah sisi:"
+
+#: themes/blowup/src/Config.php:351
+msgid "Sidebar text font size:"
+msgstr "Ukuran font teks bilah sisi:"
+
+#: themes/blowup/src/Config.php:354
+msgid "Sidebar text color:"
+msgstr "Warna teks bilah sisi:"
+
+#: themes/blowup/src/Config.php:357
+msgid "Sidebar titles font:"
+msgstr "Font judul bilah sisi:"
+
+#: themes/blowup/src/Config.php:360
+msgid "Sidebar titles font size:"
+msgstr "Ukuran huruf judul bilah sisi:"
+
+#: themes/blowup/src/Config.php:363
+msgid "Sidebar titles color:"
+msgstr "Warna judul bilah sisi:"
+
+#: themes/blowup/src/Config.php:366
+msgid "Sidebar 2nd level titles font:"
+msgstr "Font judul tingkat 2 pada bilah sisi:"
+
+#: themes/blowup/src/Config.php:369
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Ukuran huruf judul tingkat kedua di bilah sisi:"
+
+#: themes/blowup/src/Config.php:372
+msgid "Sidebar 2nd level titles color:"
+msgstr "Warna judul tingkat kedua pada bilah sisi:"
+
+#: themes/blowup/src/Config.php:375
+msgid "Sidebar lines color:"
+msgstr "Warna garis bilah sisi:"
+
+#: themes/blowup/src/Config.php:378
+msgid "Sidebar links color:"
+msgstr "Warna tautan bilah sisi:"
+
+#: themes/blowup/src/Config.php:381
+msgid "Sidebar visited links color:"
+msgstr "Warna tautan yang dikunjungi di bilah sisi:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Sidebar focus links color:"
+msgstr "Warna tautan fokus bilah sisi:"
+
+#: themes/blowup/src/Config.php:388
+msgid "Date title font:"
+msgstr "Font judul tanggal:"
+
+#: themes/blowup/src/Config.php:391
+msgid "Date title font size:"
+msgstr "Ukuran huruf judul tanggal:"
+
+#: themes/blowup/src/Config.php:394
+msgid "Date title color:"
+msgstr "Warna judul tanggal:"
+
+#: themes/blowup/src/Config.php:397
+msgid "Entry title font:"
+msgstr "Font judul entri:"
+
+#: themes/blowup/src/Config.php:400
+msgid "Entry title font size:"
+msgstr "Ukuran font judul entri:"
+
+#: themes/blowup/src/Config.php:403
+msgid "Entry title color:"
+msgstr "Warna judul entri:"
+
+#: themes/blowup/src/Config.php:408
+msgid "Comment background color:"
+msgstr "Warna latar belakang komentar:"
+
+#: themes/blowup/src/Config.php:413
+msgid "Comment text color:"
+msgstr "Warna teks komentar:"
+
+#: themes/blowup/src/Config.php:418
+msgid "My comment background color:"
+msgstr "Warna latar belakang komentar saya:"
+
+#: themes/blowup/src/Config.php:423
+msgid "My comment text color:"
+msgstr "Warna teks komentar saya:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer"
+msgstr "Footer"
+
+#: themes/blowup/src/Config.php:427
+msgid "Footer font:"
+msgstr "Font footer:"
+
+#: themes/blowup/src/Config.php:430
+msgid "Footer font size:"
+msgstr "Ukuran font footer:"
+
+#: themes/blowup/src/Config.php:433
+msgid "Footer color:"
+msgstr "Warna footer:"
+
+#: themes/blowup/src/Config.php:436
+msgid "Footer links color:"
+msgstr "Warna tautan footer:"
+
+#: themes/blowup/src/Config.php:439
+msgid "Footer background color:"
+msgstr "Warna latar belakang footer:"
+
+#: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
+msgid "Additional CSS"
+msgstr "CSS tambahan"
+
+#: themes/blowup/src/Config.php:443
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Gaya CSS tambahan apa pun (harus ditulis menggunakan sintaksis CSS):"
+
+#: themes/blowup/src/Config.php:465
+msgid "Configuration import / export"
+msgstr "Impor / ekspor konfigurasi"
+
+#: themes/blowup/src/Config.php:467
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Anda dapat membagikan konfigurasi Anda menggunakan kode berikut. Untuk menerapkan konfigurasi, tempelkan kode, klik \"Terapkan kode\" dan simpan."
+
+#: themes/blowup/src/Config.php:471
+msgid "Copy this code:"
+msgstr "Salin kode ini:"
+

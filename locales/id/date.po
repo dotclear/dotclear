@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2023-12-11 16:23\n"
+"Last-Translator: \n"
+"Language-Team: Indonesian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: id\n"
+"X-Crowdin-File: /master/locales/_pot/date.pot\n"
+"X-Crowdin-File-ID: 260\n"
+"Language: id_ID\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "_Jan"
+
+msgid "_Feb"
+msgstr "_Feb"
+
+msgid "_Mar"
+msgstr "Mar"
+
+msgid "_Apr"
+msgstr "April"
+
+msgid "_May"
+msgstr "_May"
+
+msgid "_Jun"
+msgstr "Juni"
+
+msgid "_Jul"
+msgstr "Jul"
+
+msgid "_Aug"
+msgstr "_Aug"
+
+msgid "_Sep"
+msgstr "_Sep"
+
+msgid "_Oct"
+msgstr "Oktober"
+
+msgid "_Nov"
+msgstr "_Nov"
+
+msgid "_Dec"
+msgstr "Desember"
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Maret"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mei"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Agustus"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Desember"
+
+msgid "_Mon"
+msgstr "Mon"
+
+msgid "_Tue"
+msgstr "Selasa."
+
+msgid "_Wed"
+msgstr "Wed."
+
+msgid "_Thu"
+msgstr "Kamis."
+
+msgid "_Fri"
+msgstr "_Fri"
+
+msgid "_Sat"
+msgstr "Sat."
+
+msgid "_Sun"
+msgstr "Matahari"
+
+msgid "Monday"
+msgstr "Senin"
+
+msgid "Tuesday"
+msgstr "Selasa"
+
+msgid "Wednesday"
+msgstr "Rabu"
+
+msgid "Thursday"
+msgstr "Kamis"
+
+msgid "Friday"
+msgstr "Jumat"
+
+msgid "Saturday"
+msgstr "Sabtu"
+
+msgid "Sunday"
+msgstr "Minggu"
+

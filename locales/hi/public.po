@@ -1,0 +1,395 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-07 16:28+0200\n"
+"PO-Revision-Date: 2023-12-11 16:23\n"
+"Last-Translator: \n"
+"Language-Team: Hindi\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: hi\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
+
+msgid "%d attachments"
+msgstr ""
+
+msgid "%d comments"
+msgstr ""
+
+msgid "%d trackbacks"
+msgstr ""
+
+msgid "%s reactions"
+msgstr ""
+
+#: __html_tpl_dummy.php:2
+msgid "Access to content"
+msgstr "सामग्री तक पहुंच"
+
+msgid "Add a comment"
+msgstr "एक टिप्पणी जोड़ें"
+
+#: __html_tpl_dummy.php:5
+msgid "Add ping"
+msgstr "पिंग जोड़ें"
+
+msgid "Additionnal style directives"
+msgstr "Additionlast शैली निर्देश"
+
+msgid "All keywords"
+msgstr "सभी बीजशब्द"
+
+msgid "Archives"
+msgstr "अभिलेखागार"
+
+msgid "Attachments"
+msgstr "संलग्नक"
+
+msgid "Best of me"
+msgstr "मुझ में से सर्वश्रेष्ठ"
+
+#: __html_tpl_dummy.php:8
+msgid "Blog info"
+msgstr "ब्लॉग जानकारी"
+
+#: __html_tpl_dummy.php:9
+msgid "Blog menu"
+msgstr "ब्लॉग मेनू"
+
+#: __html_tpl_dummy.php:13
+msgid "By"
+msgstr "द्वारा"
+
+#: __html_tpl_dummy.php:10
+msgid "By category"
+msgstr "श्रेणी के अनुसार"
+
+#: __html_tpl_dummy.php:11
+msgid "By date"
+msgstr "तारीख़ से"
+
+#: __html_tpl_dummy.php:12
+msgid "By tag"
+msgstr "टैग द्वारा"
+
+msgid "Categories"
+msgstr "श्रेणीः"
+
+msgid "Comment"
+msgstr "टिप्पणी"
+
+msgid "Comments"
+msgstr "टिप्पणी"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr "टिप्पणियाँ एक सरल विकी सिंटेक्स का उपयोग करके फॉर्मेट किया जा सकता है."
+
+msgid "Comments feed"
+msgstr "टिप्पणियाँ फीड"
+
+#: __html_tpl_dummy.php:17
+msgid "Continue reading"
+msgstr "पढ़ना जारी रखें"
+
+#: __html_tpl_dummy.php:18
+msgid "Document not found"
+msgstr "दस्तावेज़ नहीं मिला"
+
+#: __html_tpl_dummy.php:19
+msgid "Email address"
+msgstr "ईमेल पता"
+
+msgid "Email address is not valid"
+msgstr "ईमेल पता वैध नहीं है"
+
+msgid "Entries feed"
+msgstr "प्रविष्टियाँ फीड"
+
+#: __html_tpl_dummy.php:22
+msgid "Explore archives"
+msgstr "अभिलेखागार तलाशना"
+
+#: __html_tpl_dummy.php:23
+msgid "Extra menu"
+msgstr "अतिरिक्त मेनू"
+
+#: __html_tpl_dummy.php:24
+msgid "From"
+msgstr "से"
+
+#: __html_tpl_dummy.php:25
+msgid "FromDay"
+msgstr "फ्रेमडे"
+
+#: __html_tpl_dummy.php:26
+msgid "Go to homepage"
+msgstr "मुखपृष्ठ पर जाएँ"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML कोड को पाठ के रूप में प्रदर्शित किया जाता है और वेब पते स्वचालित रूप से परिवर्तित होते हैं।"
+
+msgid "Home"
+msgstr "घर"
+
+msgid "In"
+msgstr "में"
+
+msgid "Languages"
+msgstr "भाषा"
+
+msgid "Links"
+msgstr "लिंक्स"
+
+#: __html_tpl_dummy.php:28
+msgid "Name or nickname"
+msgstr "उपनाम या उपनाम"
+
+#: __html_tpl_dummy.php:29
+msgid "Next entry:"
+msgstr "अगला प्रविष्टिः"
+
+#: __html_tpl_dummy.php:30
+msgid "On"
+msgstr "पर"
+
+msgid "Page top"
+msgstr "पृष्ठ शीर्ष"
+
+#: __html_tpl_dummy.php:33
+msgid "Pagination"
+msgstr "पृष्ठीकरण"
+
+#: __html_tpl_dummy.php:34
+msgid "Password needed"
+msgstr "कूटशब्द जरूरी"
+
+msgid "Password:"
+msgstr "पासवर्ड:"
+
+#: __html_tpl_dummy.php:36
+msgid "Permalink"
+msgstr "पेरलिंक"
+
+msgid "Powered by %s"
+msgstr ""
+
+msgid "Preview"
+msgstr "पूर्वावलोकन"
+
+#: __html_tpl_dummy.php:38
+msgid "Previous entry:"
+msgstr "पिछली प्रविष्टि:"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+msgid "Read"
+msgstr "पढ़ें"
+
+#: __html_tpl_dummy.php:40
+msgid "Remember me on this blog"
+msgstr "मुझे इस ब्लॉग पर याद रखें"
+
+msgid "Required field"
+msgstr "आवश्यक फ़ील्ड"
+
+msgid "Search"
+msgstr "ढूंढें"
+
+msgid "Send"
+msgstr "भेजें"
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "बस निम्नलिखित यूआरएल को आपके एग्रीगेटर में कॉपी करें:"
+
+#: __html_tpl_dummy.php:45
+msgid "Subcategories"
+msgstr "उपश्रेणियाँ"
+
+msgid "Subscribe"
+msgstr "सदस्यता लें"
+
+msgid "Subscribe to"
+msgstr "सदस्यता लें"
+
+#: __html_tpl_dummy.php:46
+msgid "Suggestions:"
+msgstr "सुझाव:"
+
+#: __html_tpl_dummy.php:47
+msgid "The document you are looking for does not exist."
+msgstr "जो दस्तावेज़ आप देख रहे हैं, वह मौजूद नहीं है."
+
+#: __html_tpl_dummy.php:48
+msgid "The list of recents posts is available"
+msgstr "पदों की सूची उपलब्ध है ।"
+
+#: __html_tpl_dummy.php:49
+msgid "They posted on the same topic"
+msgstr "वे एक ही विषय पर पोस्ट"
+
+msgid "This blog's comments Atom feed"
+msgstr "इस ब्लॉग की टिप्पणी एटम फ़ीड"
+
+#: __html_tpl_dummy.php:50
+msgid "This category's comments Atom feed"
+msgstr "इस श्रेणी की टिप्पणी एटम फ़ीड"
+
+#: __html_tpl_dummy.php:51
+msgid "This category's entries Atom feed"
+msgstr "इस श्रेणी की प्रविष्टियों से एटम फ़ीड"
+
+#: __html_tpl_dummy.php:52
+msgid "This post's comments Atom feed"
+msgstr "यह पोस्ट की टिप्पणी एटम फ़ीड"
+
+#: __html_tpl_dummy.php:53
+msgid "This post's comments feed"
+msgstr "यह पोस्ट की टिप्पणी फ़ीड"
+
+#: __html_tpl_dummy.php:54
+msgid "To content"
+msgstr "सामग्री के लिए"
+
+#: __html_tpl_dummy.php:55
+msgid "To menu"
+msgstr "मेन्यू में"
+
+#: __html_tpl_dummy.php:56
+msgid "To search"
+msgstr "खोजने के लिए"
+
+#: __html_tpl_dummy.php:57
+msgid "Trackback URL"
+msgstr "ट्रैकबैक यूआरएलName"
+
+#: __html_tpl_dummy.php:58
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "URL जो आपने कोशिश की है, वह tpos है, या पृष्ठ को हटा दिया गया है या स्थानांतरित किया गया है."
+
+#: __html_tpl_dummy.php:59
+msgid "Use search form"
+msgstr "खोज फार्म का उपयोग करें"
+
+#: __html_tpl_dummy.php:60
+msgid "Website"
+msgstr "वेबसाइट"
+
+msgid "What is an RSS feed?"
+msgstr "आर एस एस फीड क्या है?"
+
+#: __html_tpl_dummy.php:62
+msgid "You must give a password to access this area."
+msgstr "इस क्षेत्र को एक्सेस करने के लिए आपको एक पासवर्ड अवश्य देना चाहिए।"
+
+msgid "You must provide a comment"
+msgstr "आप एक टिप्पणी प्रदान करना चाहिए"
+
+msgid "You must provide a valid email address."
+msgstr "आप एक मान्य ईमेल पता प्रदान करना चाहिए."
+
+msgid "You must provide an author name"
+msgstr "आप एक लेखक नाम प्रदान करना चाहिए"
+
+#: __html_tpl_dummy.php:65
+msgid "Your comment"
+msgstr "आपकी टिप्पणी"
+
+#: __html_tpl_dummy.php:63
+msgid "Your comment has been published."
+msgstr "आपकी टिप्पणी प्रकाशित हो चुकी है."
+
+#: __html_tpl_dummy.php:64
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "आपकी टिप्पणी प्रस्तुत की गई है और प्रकाशन के लिए समीक्षा की जाएगी."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+#: __html_tpl_dummy.php:66
+msgid "by"
+msgstr "द्वारा"
+
+#: __html_tpl_dummy.php:67
+msgid "here"
+msgstr "यहाँ"
+
+msgid "in"
+msgstr "में"
+
+#: __html_tpl_dummy.php:68
+msgid "next entries"
+msgstr "अगली प्रविष्टियां"
+
+msgid "no attachments"
+msgstr "संलग्नक नहीं"
+
+msgid "no comments"
+msgstr "टिप्पणी नहीं"
+
+msgid "no reactions"
+msgstr "कोई प्रतिक्रिया"
+
+msgid "no trackbacks"
+msgstr "ट्रेकबैक नहीं"
+
+#: __html_tpl_dummy.php:69
+msgid "of"
+msgstr "के"
+
+#: __html_tpl_dummy.php:70
+msgid "on"
+msgstr "पर"
+
+msgid "one attachment"
+msgstr "एक संलग्नक"
+
+msgid "one comment"
+msgstr "एक टिप्पणी"
+
+msgid "one reaction"
+msgstr "एक प्रतिक्रिया"
+
+msgid "one trackback"
+msgstr "एक ट्रैक"
+
+#: __html_tpl_dummy.php:71
+msgid "optional"
+msgstr "वैकल्पिक"
+
+#: __html_tpl_dummy.php:72
+msgid "page"
+msgstr "पृष्ठ"
+
+#: __html_tpl_dummy.php:73
+msgid "preview"
+msgstr "पूर्वालोकन"
+
+#: __html_tpl_dummy.php:74
+msgid "previous entries"
+msgstr "पिछली प्रविष्टियां"
+
+msgid "reactions"
+msgstr "प्रतिक्रियाएँ"
+
+#: __html_tpl_dummy.php:75
+msgid "send"
+msgstr "भेजना"
+
+#: __html_tpl_dummy.php:76
+msgid "toDay"
+msgstr "आज"
+
