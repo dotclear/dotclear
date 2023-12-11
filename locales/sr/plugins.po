@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 14:42\n"
+"PO-Revision-Date: 2023-12-11 16:22\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -1348,7 +1348,7 @@ msgstr "Поље URL-а не може бити празно."
 #: plugins/dcCKEditor/src/BackendBehaviors.php:92
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:171
 msgid "Open the media"
-msgstr ""
+msgstr "Отвори медије"
 
 #: plugins/dcCKEditor/src/Manage.php:128
 #: plugins/dcLegacyEditor/src/Manage.php:43
