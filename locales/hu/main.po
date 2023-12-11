@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 14:17\n"
+"PO-Revision-Date: 2023-12-11 15:56\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -3389,15 +3389,15 @@ msgstr "Leírás"
 
 #: src/Process/Backend/BlogPref.php:150
 msgid "Description, Date"
-msgstr ""
+msgstr "Leírás, dátum"
 
 #: src/Process/Backend/BlogPref.php:151
 msgid "Description, Country, Date"
-msgstr ""
+msgstr "Leírás, ország, dátum"
 
 #: src/Process/Backend/BlogPref.php:152
 msgid "Description, City, Country, Date"
-msgstr ""
+msgstr "Leírás, város, ország, dátum"
 
 #: src/Process/Backend/BlogPref.php:179 src/Process/Backend/MediaItem.php:514
 #: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:824
@@ -3427,11 +3427,11 @@ msgstr "Középre"
 
 #: src/Process/Backend/BlogPref.php:198 src/Process/Backend/MediaItem.php:600
 msgid "Legend and alternate text"
-msgstr ""
+msgstr "Magyarázat és alternatív szöveg"
 
 #: src/Process/Backend/BlogPref.php:199 src/Process/Backend/MediaItem.php:606
 msgid "Alternate text"
-msgstr ""
+msgstr "Alternatív szöveg"
 
 #: src/Process/Backend/BlogPref.php:205
 msgid "I would like search engines and archivers to index and archive my blog's content."
@@ -3712,7 +3712,7 @@ msgstr "Alapértelmezett képbeillesztési attribútumok"
 
 #: src/Process/Backend/BlogPref.php:758
 msgid "Inserted image legend:"
-msgstr ""
+msgstr "Beillesztett képlegenda:"
 
 #: src/Process/Backend/BlogPref.php:762
 msgid "Use original media date if possible"
@@ -3740,7 +3740,7 @@ msgstr "Az eredeti képre mutató link beillesztése"
 
 #: src/Process/Backend/BlogPref.php:781
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "Képmagyarázat és alternatív szöveg:"
 
 #: src/Process/Backend/BlogPref.php:790
 msgid "Advanced parameters"
@@ -4642,11 +4642,11 @@ msgstr "Médiaelem beszúrása"
 
 #: src/Process/Backend/MediaItem.php:593
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "Képmagyarázat és alternatív szöveg"
 
 #: src/Process/Backend/MediaItem.php:615
 msgid "Alternate text: "
-msgstr ""
+msgstr "Alternatív szöveg: "
 
 #: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
@@ -4787,7 +4787,7 @@ msgstr "Kép tulajdonságai"
 
 #: src/Process/Backend/MediaItem.php:960
 msgid "Alternate text :"
-msgstr ""
+msgstr "Alternatív szöveg :"
 
 #: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
@@ -4843,7 +4843,7 @@ msgstr "Fájlnév:"
 
 #: src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
-msgstr ""
+msgstr "Alternatív szöveg:"
 
 #: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
@@ -6177,7 +6177,7 @@ msgstr "Nem ajánlott visszaállítani az előző verzióra a Dotcleart (%s)"
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
-msgstr ""
+msgstr "Az összes fájl törlése az utolsó kivételével"
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
@@ -6189,7 +6189,7 @@ msgstr "A tárolók gyorsítótárának könyvtára kiürült."
 
 #: src/Process/Upgrade/Cache.php:56
 msgid "Dotclear versions cache directory emptied."
-msgstr ""
+msgstr "A Dotclear verziók cache könyvtárát kiürítették."
 
 #: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
@@ -6209,7 +6209,7 @@ msgstr "Repozitóriumok cache könyvtárának kiürítése"
 
 #: src/Process/Upgrade/Cache.php:98
 msgid "Empty Dotclear versions cache directory"
-msgstr ""
+msgstr "A Dotclear verziók cache könyvtárának kiürítése"
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
