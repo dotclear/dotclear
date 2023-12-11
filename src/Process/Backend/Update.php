@@ -63,7 +63,7 @@ class Update extends Process
             exit;
         }
 
-        App::backend()->updater = new CoreUpdate(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
+        App::backend()->updater = new CoreUpdate(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . CoreUpdate::CACHE_FOLDER);
         App::backend()->new_v   = App::backend()->updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
         # Hide "update me" message

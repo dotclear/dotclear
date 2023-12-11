@@ -127,7 +127,7 @@ class Attic extends Process
     public static function process(): bool
     {
         self::$step    = !empty($_REQUEST['step']) && in_array($_REQUEST['step'], ['confirm', 'check', 'download', 'backup', 'unzip']) ? $_REQUEST['step'] : '';
-        self::$updater = new UpdateAttic(App::config()->coreAtticUrl(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . 'versions');
+        self::$updater = new UpdateAttic(App::config()->coreAtticUrl(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . UpdateAttic::CACHE_FOLDER);
         self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
         if (!empty($_REQUEST['version'])) {
             self::$zip_file = self::$updater->selectVersion($_REQUEST['version']);

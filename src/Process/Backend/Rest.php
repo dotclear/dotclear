@@ -161,7 +161,7 @@ class Rest extends Process
         ];
 
         if (App::auth()->isSuperAdmin() && !App::config()->coreNotUpdate() && is_readable(App::config()->digestsRoot()) && !App::auth()->prefs()->dashboard->nodcupdate) {
-            $updater      = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . '/versions');
+            $updater      = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);
             $new_v        = $updater->check(App::config()->dotclearVersion(), false);
             $version_info = $new_v ? $updater->getInfoURL() : '';
 
