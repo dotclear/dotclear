@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 14:17\n"
+"PO-Revision-Date: 2023-12-11 15:56\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -3806,7 +3806,7 @@ msgstr "הוספת קישור לתמונה המקורית."
 
 #: src/Process/Backend/BlogPref.php:781
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "מקרא תמונה ותמליל חלופי:"
 
 #: src/Process/Backend/BlogPref.php:790
 msgid "Advanced parameters"
@@ -4712,11 +4712,11 @@ msgstr "הוספת פריט מדיה"
 
 #: src/Process/Backend/MediaItem.php:593
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "מקרא תמונה ותמליל חלופי"
 
 #: src/Process/Backend/MediaItem.php:615
 msgid "Alternate text: "
-msgstr ""
+msgstr "תמליל חלופי: "
 
 #: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
@@ -4857,7 +4857,7 @@ msgstr "פרטי תמונה"
 
 #: src/Process/Backend/MediaItem.php:960
 msgid "Alternate text :"
-msgstr ""
+msgstr "תמליל חלופי:"
 
 #: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
@@ -4913,7 +4913,7 @@ msgstr "שם קובץ:"
 
 #: src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
-msgstr ""
+msgstr "תמליל חלופי:"
 
 #: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
@@ -6255,7 +6255,7 @@ msgstr "אינכם צריכים לחזור לגרסה הקודמת לגרסה ה
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
-msgstr ""
+msgstr "מחיקת כל הקבצים אך אחרונים"
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
@@ -6267,7 +6267,7 @@ msgstr "מדריך מטמון המאגרים רוקן."
 
 #: src/Process/Upgrade/Cache.php:56
 msgid "Dotclear versions cache directory emptied."
-msgstr ""
+msgstr "מדריך מטמון של גרסאות Dotclear רוקן."
 
 #: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
