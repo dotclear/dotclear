@@ -189,10 +189,6 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('beforeunload', (event) => {
-  if (event == undefined && window.event) {
-    event = window.event;
-  }
-
   if (
     !(
       dotclear.confirmClosePage !== undefined &&

@@ -63,10 +63,6 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
     return $.active_editor;
   };
   window.addEventListener('beforeunload', (e) => {
-    if (e == undefined && window.event) {
-      e = window.event;
-    }
-
     const editor = CKEDITOR.instances[$.getEditorName()];
     if (editor !== undefined && !dotclear.confirmClosePage.form_submit && editor.checkDirty()) {
       e.preventDefault(); // HTML5 specification
