@@ -516,7 +516,7 @@ class BlogPref extends Process
             form::field('editor', 30, 255, Html::escapeHTML($da->blog_settings->system->editor)) .
             '</p>' .
             '<p><label for="lang">' . __('Default language:') . '</label>' .
-            form::combo('lang', $da->lang_combo, $da->blog_settings->system->lang, 'l10n') .
+            form::combo('lang', $da->lang_combo, $da->blog_settings->system->lang) .
             '</p>' .
             '<p><label for="blog_timezone">' . __('Blog timezone:') . '</label>' .
             form::combo('blog_timezone', Date::getZones(true, true), Html::escapeHTML($da->blog_settings->system->blog_timezone)) .

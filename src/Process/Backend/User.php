@@ -378,7 +378,7 @@ class User extends Process
         '<h3>' . __('Options') . '</h3>' .
         '<h4>' . __('Interface') . '</h4>' .
         '<p><label for="user_lang">' . __('Language:') . '</label> ' .
-        form::combo('user_lang', App::backend()->lang_combo, App::backend()->user_lang, 'l10n') .
+        form::combo('user_lang', App::backend()->lang_combo, App::backend()->user_lang) .
         '</p>' .
 
         '<p><label for="user_tz">' . __('Timezone:') . '</label> ' .

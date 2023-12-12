@@ -161,23 +161,25 @@ class Combos
     /**
      * Returns a combo containing all available and installed languages for administration pages.
      *
-     * @return     array<Option>  The admin langs combo.
+     * @return     array<string, array<Option>>  The admin langs combo.
      */
     public static function getAdminLangsCombo(): array
     {
-        $lang_combo = [];
-        $langs      = L10n::getISOcodes(true, true);
+        $lang_combo_avail     = [];
+        $lang_combo_not_avail = [];
+        $langs                = L10n::getISOcodes(true, true);
         foreach ($langs as $k => $v) {
             $lang_avail = $v == 'en' || is_dir(App::config()->l10nRoot() . '/' . $v);
             $option     = new Option($k, $v);
             $option->lang($v);
             if ($lang_avail) {
-                $option->class('avail10n');
+                $lang_combo_avail[] = $option;
+            } else {
+                $lang_combo_not_avail[] = $option;
             }
-            $lang_combo[] = $option;
         }
 
-        return $lang_combo;
+        return [__('Available') => $lang_combo_avail, __('Other') => $lang_combo_not_avail];
     }
 
     /**
