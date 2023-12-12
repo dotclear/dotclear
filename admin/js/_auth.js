@@ -1,30 +1,27 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
-$(window).on('load', () => {
-  const uid = $('input[name=user_id]');
-  const upw = $('input[name=user_pwd]');
-  uid.trigger('focus');
+document.addEventListener('DOMContentLoaded', () => {
+  // DOM ready
+  // Give focus to user field
+  const uid = document.querySelector('input[name=user_id]');
+  uid.focus();
 
-  if (upw.length == 0) {
+  const ckh = document.getElementById('cookie_help');
+  if (ckh) ckh.style.display = navigator.cookieEnabled ? 'none' : '';
+
+  const upw = document.querySelector('input[name=user_pwd]');
+  if (!upw) {
     return;
   }
-  uid.keypress((evt) => {
-    if (evt.which == 13 && upw.val() == '') {
-      upw.trigger('focus');
-      return false;
+
+  // Add an event listener to capture CR key press in user field to give to password field if it is empty
+  uid.addEventListener('keypress', (event) => {
+    if (event.which == 13 && upw.value == '') {
+      // Password is empty, give focus to it
+      upw.focus();
+      // Stop handling of this event (CR keypress)
+      event.preventDefault();
     }
-    return true;
   });
-
-  if (navigator.cookieEnabled) {
-    $('#cookie_help').hide();
-  } else {
-    $('#cookie_help').show();
-  }
-});
-
-$(() => {
-  // Password strength
-  dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });

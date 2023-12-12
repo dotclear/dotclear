@@ -324,12 +324,6 @@ class Auth extends Process
         App::behavior()->callBehavior('loginPageHTMLHead');
 
         echo
-        Page::jsJson('pwstrength', [
-            'min' => sprintf(__('Password strength: %s'), __('weak')),
-            'avg' => sprintf(__('Password strength: %s'), __('medium')),
-            'max' => sprintf(__('Password strength: %s'), __('strong')),
-        ]) .
-        Page::jsLoad('js/pwstrength.js') .
         Page::jsLoad('js/_auth.js');
 
         $action = App::backend()->url()->get('admin.auth');
