@@ -27,6 +27,11 @@ interface CacheInterface
     public function emptyModulesStoreCache(): void;
 
     /**
+     * Empty Dotclear versions cache directory.
+     */
+    public function emptyDotclearVersionsCache(): void;
+
+    /**
      * Reset files list.
      */
     public function resetFiles(): void;
