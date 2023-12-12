@@ -46,67 +46,6 @@ document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme ==
  */
 
 /**
- * jQuery helper to check a list of elements
- *
- * @return      {jQuery}
- * @function
- * @memberof    external:"jQuery.fn"
- */
-$.fn.check = function () {
-  return this.each(function () {
-    if (this.checked != undefined) {
-      this.checked = true;
-    }
-  });
-};
-
-/**
- * jQuery helper to unckeck a list of elements
- *
- * @return      {jQuery}
- * @function
- * @memberof    external:"jQuery.fn"
- */
-$.fn.unCheck = function () {
-  return this.each(function () {
-    if (this.checked != undefined) {
-      this.checked = false;
-    }
-  });
-};
-
-/**
- * Sets the checked status of a list of elements
- *
- * @param       {boolean}  status  The status
- * @return      {jQuery}
- * @function
- * @memberof    external:"jQuery.fn"
- */
-$.fn.setChecked = function (status) {
-  return this.each(function () {
-    if (this.checked != undefined) {
-      this.checked = status;
-    }
-  });
-};
-
-/**
- * Reverse the checked status of a list of elements
- *
- * @return      {jQuery}
- * @function
- * @memberof    external:"jQuery.fn"
- */
-$.fn.toggleCheck = function () {
-  return this.each(function () {
-    if (this.checked != undefined) {
-      this.checked = !this.checked;
-    }
-  });
-};
-
-/**
  * Enables the shift click of a list of elements
  *
  * @function
@@ -120,7 +59,7 @@ $.fn.enableShiftClick = function () {
         const trparent = $(this).parents('tr');
         const id = `#${dotclear.lastclicked}`;
         range = trparent.nextAll(id).length == 0 ? trparent.prevUntil(id) : trparent.nextUntil(id);
-        range.find('input[type=checkbox]').setChecked(dotclear.lastclickedstatus);
+        dotclear.setChecked(range.find('input[type=checkbox]').get(), dotclear.lastclickedstatus);
         this.checked = dotclear.lastclickedstatus;
       }
     } else {
@@ -501,6 +440,71 @@ dotclear.hideLockable = () => {
 };
 
 /**
+ * Reverse the checked status of a list of elements
+ *
+ * @param      {(jQuery|NodeList|string|array)}  target  The target
+ */
+dotclear.toggleCheck = (target) => {
+  let list;
+  if (typeof target === 'string') {
+    list = document.querySelectorAll(target);
+  } else if (target instanceof NodeList) {
+    list = target;
+  } else if (target instanceof jQuery) {
+    list = target.get();
+  } else if (Array.isArray(target)) {
+    list = target;
+  }
+  if (!list) return;
+
+  list.forEach((item) => {
+    if (item?.checked != undefined) {
+      item.checked = !item.checked;
+    }
+  });
+};
+
+/**
+ * Set the checked status of a list of elements
+ *
+ * @param      {(jQuery|NodeList|string|array)}  target  The target
+ * @param      {boolean}                         status  The checked status
+ */
+dotclear.setChecked = (target, status) => {
+  let list;
+  if (typeof target === 'string') {
+    list = document.querySelectorAll(target);
+  } else if (target instanceof NodeList) {
+    list = target;
+  } else if (target instanceof jQuery) {
+    list = target.get();
+  } else if (Array.isArray(target)) {
+    list = target;
+  }
+  if (!list) return;
+
+  list.forEach((item) => {
+    if (item?.checked != undefined) {
+      item.checked = status;
+    }
+  });
+};
+
+/**
+ * Set the checked status of a list of elements to false
+ *
+ * @param      {(jQuery|NodeList|string|array)}  target  The target
+ */
+dotclear.unCheck = (target) => dotclear.setChecked(target, false);
+
+/**
+ * Set the checked status of a list of elements to true
+ *
+ * @param      {(jQuery|NodeList|string|array)}  target  The target
+ */
+dotclear.check = (target) => dotclear.setChecked(target, true);
+
+/**
  * Add checkboxes helper buttons at the end in an area
  *
  * @param      {(Element|string)}  area        The jQuery, DOM Element or string selector for area element
@@ -513,11 +517,9 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
   $(area).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
     .on('click', () => {
-      if (target === undefined) {
-        $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').check();
-      } else {
-        target.check();
-      }
+      dotclear.check(
+        target !== undefined ? target : $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').get(),
+      );
       if (checkboxes !== undefined && submit !== undefined) {
         dotclear.condSubmit(checkboxes, submit);
       }
@@ -527,11 +529,9 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
   $(area).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
     .on('click', () => {
-      if (target === undefined) {
-        $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').unCheck();
-      } else {
-        target.unCheck();
-      }
+      dotclear.unCheck(
+        target !== undefined ? target : $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').get(),
+      );
       if (checkboxes !== undefined && submit !== undefined) {
         dotclear.condSubmit(checkboxes, submit);
       }
@@ -541,11 +541,9 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
   $(area).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
     .on('click', () => {
-      if (target === undefined) {
-        $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').toggleCheck();
-      } else {
-        target.toggleCheck();
-      }
+      dotclear.toggleCheck(
+        target !== undefined ? target : $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').get(),
+      );
       if (checkboxes !== undefined && submit !== undefined) {
         dotclear.condSubmit(checkboxes, submit);
       }
