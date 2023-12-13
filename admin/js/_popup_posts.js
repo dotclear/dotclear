@@ -1,7 +1,9 @@
 /*global $ */
 'use strict';
 
-$(() => {
-  // Set focus on #type input
-  $('#type').trigger('focus');
+window.addEventListener('load', () => {
+  // DOM ready and content loaded
+
+  // Give focus to post type field
+  document.getElementById('type')?.focus();
 });

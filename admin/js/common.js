@@ -556,24 +556,20 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
  * Ask confirmation before destructive operation (posts deletion)
  */
 dotclear.postsActionsHelper = () => {
-  $('#form-entries').on('submit', function () {
+  $('#form-entries').on('submit', function (event) {
     const action = $(this).find('select[name="action"]').val();
     if (action === undefined) {
       return;
     }
-    let checked = false;
-    $(this)
-      .find('input[name="entries[]"]')
-      .each(function () {
-        if (this.checked) {
-          checked = true;
-        }
-      });
-    if (!checked) {
+    const nb = $(this).find('input[name="entries[]"]:checked').length;
+    if (!nb) {
       return false;
     }
     if (action == 'delete') {
-      return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
+      if (!window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) {
+        event.preventDefault();
+        return false;
+      }
     }
     return true;
   });
@@ -583,21 +579,17 @@ dotclear.postsActionsHelper = () => {
  * Ask confirmation before destructive operation (comments deletion)
  */
 dotclear.commentsActionsHelper = () => {
-  $('#form-comments').on('submit', function () {
+  $('#form-comments').on('submit', function (event) {
     const action = $(this).find('select[name="action"]').val();
-    let checked = false;
-    $(this)
-      .find('input[name="comments[]"]')
-      .each(function () {
-        if (this.checked) {
-          checked = true;
-        }
-      });
-    if (!checked) {
+    const nb = $(this).find('input[name="comments[]"]:checked').length;
+    if (!nb) {
       return false;
     }
     if (action == 'delete') {
-      return window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', $('input[name="comments[]"]:checked').length));
+      if (!window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) {
+        event.preventDefault();
+        return false;
+      }
     }
     return true;
   });
