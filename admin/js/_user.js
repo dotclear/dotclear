@@ -1,8 +1,9 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
-$(() => {
-  if ($('#new_pwd').length == 0) {
+window.addEventListener('load', () => {
+  // DOM ready and content loaded
+  if (!document.getElementById('new_pwd')) {
     return;
   }
   // Password strength

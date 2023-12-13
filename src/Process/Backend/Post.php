@@ -530,6 +530,7 @@ class Post extends Process
             Page::jsMetaEditor() .
             $admin_post_behavior .
             Page::jsLoad('js/_post.js') .
+            Page::jsLoad('js/_trackbacks.js') .
             Page::jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPostHeaders --
             App::behavior()->callBehavior('adminPostHeaders') .
