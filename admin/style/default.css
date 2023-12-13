@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+* {
+  min-width: 0;
+}
+
 html {
   font-size: 100%;
   text-size-adjust: 100%;

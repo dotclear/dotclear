@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+// cf https://raphaelgoetter.wordpress.com/2016/11/09/flexbox-min-width-0-is-the-new-zoom-1/
+* {
+  min-width: 0;
+}
+
 html {
   font-size: 100%;
   text-size-adjust: 100%;
