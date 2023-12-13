@@ -65,6 +65,9 @@ tr.line {
 
   &:focus-within {
     background-color: var(--line-focus-background);
+    @media (prefers-contrast: more) {
+      outline: 1px solid var(--fieldset-border);
+    }
   }
 }
 

@@ -20,6 +20,9 @@
 
     #my-favs:focus-within & {
       border-bottom-color: var(--fav-list-border-alt);
+      @media (prefers-contrast: more) {
+        outline: 1px solid var(--fieldset-border);
+      }
     }
 
     span.zoom {

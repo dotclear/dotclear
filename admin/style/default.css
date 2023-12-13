@@ -1978,6 +1978,11 @@ fieldset hr {
 fieldset:focus-within {
   background-color: var(--fieldset-focus-background);
 }
+@media (prefers-contrast: more) {
+  fieldset:focus-within {
+    outline: 1px solid var(--fieldset-border);
+  }
+}
 fieldset > *:last-child {
   margin-bottom: 0;
 }
@@ -3264,6 +3269,11 @@ tr.line:hover {
 tr.line:focus-within {
   background-color: var(--line-focus-background);
 }
+@media (prefers-contrast: more) {
+  tr.line:focus-within {
+    outline: 1px solid var(--fieldset-border);
+  }
+}
 
 td.status {
   vertical-align: middle;
@@ -3456,6 +3466,11 @@ span.ibw {
 }
 #filters-form:focus-within {
   background-color: var(--filter-focus-background);
+}
+@media (prefers-contrast: more) {
+  #filters-form:focus-within {
+    outline: 1px solid var(--fieldset-border);
+  }
 }
 
 /** --------------------------------------------------
@@ -4607,6 +4622,11 @@ div.template-upload {
 .sb-box:focus-within {
   background-color: var(--entry-sb-focus-background);
 }
+@media (prefers-contrast: more) {
+  .sb-box:focus-within {
+    outline: 1px solid var(--fieldset-border);
+  }
+}
 
 #tb_excerpt {
   width: 100%;
@@ -4633,6 +4653,11 @@ div.template-upload {
 }
 #my-favs:focus-within .fav-list li {
   border-bottom-color: var(--fav-list-border-alt);
+}
+@media (prefers-contrast: more) {
+  #my-favs:focus-within .fav-list li {
+    outline: 1px solid var(--fieldset-border);
+  }
 }
 .fav-list li span.zoom {
   display: none;
@@ -5037,6 +5062,11 @@ img.go_home {
 }
 .fieldset:focus-within {
   background-color: var(--fieldset-focus-background);
+}
+@media (prefers-contrast: more) {
+  .fieldset:focus-within {
+    outline: 1px solid var(--fieldset-border);
+  }
 }
 .fieldset > *:last-child {
   margin-bottom: 0;

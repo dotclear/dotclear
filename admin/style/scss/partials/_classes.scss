@@ -325,6 +325,9 @@ img.go_home {
 
   &:focus-within {
     background-color: var(--fieldset-focus-background);
+    @media (prefers-contrast: more) {
+      outline: 1px solid var(--fieldset-border);
+    }
   }
 
   & > *:last-child {
