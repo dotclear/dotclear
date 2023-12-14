@@ -1,8 +1,8 @@
 /*global dotclear, jsToolBar */
 'use strict';
 
-window.addEventListener('load', () => {
-  // DOM ready and content loaded
+dotclear.ready(() => {
+  // DOM ready
 
   if (typeof jsToolBar === 'function') {
     const tbComment = new jsToolBar(document.getElementById('comment_content'));

@@ -1,7 +1,9 @@
-/*global $ */
+/*global dotclear, $ */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready
+
   $.pageTabs('two-boxes');
   $('#pageslist').sortable({
     cursor: 'move',
@@ -17,7 +19,7 @@ $(() => {
       $(this).css({
         cursor: 'auto',
       });
-    }
+    },
   );
   $('#pageslist tr td input.position').hide();
   $('#pageslist tr td.handle').addClass('handler');

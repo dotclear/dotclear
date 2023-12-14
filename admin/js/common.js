@@ -565,11 +565,9 @@ dotclear.postsActionsHelper = () => {
     if (!nb) {
       return false;
     }
-    if (action == 'delete') {
-      if (!window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) {
-        event.preventDefault();
-        return false;
-      }
+    if (action == 'delete' && !window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) {
+      event.preventDefault();
+      return false;
     }
     return true;
   });
@@ -585,11 +583,9 @@ dotclear.commentsActionsHelper = () => {
     if (!nb) {
       return false;
     }
-    if (action == 'delete') {
-      if (!window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) {
-        event.preventDefault();
-        return false;
-      }
+    if (action == 'delete' && !window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) {
+      event.preventDefault();
+      return false;
     }
     return true;
   });
@@ -1012,7 +1008,9 @@ dotclear.jsonServicesPost = (
 
 /* On document ready
 -------------------------------------------------------- */
-$(() => {
+dotclear.ready(() => {
+  // DOM ready
+
   // Debug mode
   dotclear.debug = dotclear.data.debug || false;
 

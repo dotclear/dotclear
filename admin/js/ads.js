@@ -1,7 +1,7 @@
 /*global dotclear */
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+dotclear.ready(() => {
   // DOM ready
   const ads_id = 'WJxYFNKPMRlS';
 
@@ -23,16 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Create pseudo advertising block in page
-  const e = document.createElement('div');
-  e.id = ads_id;
-  e.classList.add('adsbygoogle');
-  e.classList.add('adsbox');
-  e.innerHTML = '&nbsp;';
-  document.body.appendChild(e);
-});
+  const spot = document.createElement('div');
+  if (!spot) return;
 
-window.addEventListener('load', () => {
-  // DOM ready and content loaded
+  spot.id = ads_id;
+  spot.classList.add('adsbygoogle');
+  spot.classList.add('adsbox');
+  spot.innerHTML = '&nbsp;';
+  document.body.appendChild(spot);
+
   // Check adblocker
   new Promise((resolve) => setTimeout(resolve, 1000)).then(() => dotclear.adblockCheck(dotclear.msg.adblocker));
 });

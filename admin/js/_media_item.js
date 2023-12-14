@@ -1,7 +1,9 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready
+
   // Preview media
   $('.modal-image').magnificPopup({
     type: 'image',
@@ -57,9 +59,13 @@ $(() => {
   });
 
   // Confirm for inflating in current directory
-  $('#file-unzip').on('submit', function () {
+  $('#file-unzip').on('submit', function (event) {
     if ($(this).find('#inflate_mode').val() == 'current') {
-      return window.confirm(dotclear.msg.confirm_extract_current);
+      if (!window.confirm(dotclear.msg.confirm_extract_current)) {
+        event.preventDefault();
+        return false;
+      }
+      return true;
     }
     return true;
   });

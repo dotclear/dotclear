@@ -21,7 +21,9 @@ dotclear.dbStoreUpdate = (store, url) => {
   }
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready
+
   // expand a module line
   $('table.modules.expandable tr.line').each(function () {
     $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {
@@ -66,7 +68,7 @@ $(() => {
     const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action
-    $('input[type=submit]', this).on('click', function () {
+    $('input[type=submit]', this).on('click', function (event) {
       const keyword = $(this).attr('name');
       if (!keyword) {
         return true;
@@ -102,7 +104,11 @@ $(() => {
 
         // confirm delete
         if (action == 'delete') {
-          return window.confirm(dotclear.msg.confirm_delete_plugins);
+          if (!window.confirm(dotclear.msg.confirm_delete_plugins)) {
+            event.preventDefault();
+            return false;
+          }
+          return true;
         }
 
         // action on one module

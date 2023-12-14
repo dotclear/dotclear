@@ -21,7 +21,9 @@ dotclear.dbStoreUpdate = (store, url) => {
   }
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready
+
   // expend theme info
   $('.module-sshot')
     .not('.current-theme .module-sshot')

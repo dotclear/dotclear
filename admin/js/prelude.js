@@ -1,6 +1,8 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+dotclear.ready(() => {
+  // DOM ready
+
   const prelude = document.querySelector('#prelude');
   if (!prelude) {
     return;
@@ -13,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelector('body').addEventListener('click', (e) => {
-    if (e.target.matches('#prelude a[href="#help"]')) {
-      e.preventDefault();
+  document.querySelector('body').addEventListener('click', (event) => {
+    if (event.target.matches('#prelude a[href="#help"]')) {
+      event.preventDefault();
       document.querySelector('#help-button a').focus();
     }
   });

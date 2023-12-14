@@ -1,8 +1,8 @@
 /*global dotclear */
 'use strict';
 
-window.addEventListener('load', () => {
-  // DOM ready and content loaded
+dotclear.ready(() => {
+  // DOM ready
 
   const href = document.getElementById('href');
   const liok = document.getElementById('link-insert-ok');

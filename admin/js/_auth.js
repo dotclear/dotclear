@@ -1,8 +1,8 @@
 /*global dotclear */
 'use strict';
 
-window.addEventListener('load', () => {
-  // DOM ready and content loaded
+dotclear.ready(() => {
+  // DOM ready
 
   // Give focus to user field
   const uid = document.querySelector('input[name=user_id]');

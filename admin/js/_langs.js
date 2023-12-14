@@ -1,9 +1,15 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
-$(() => {
-  $('table.plugins form input[type=submit][name=delete]').on('click', function () {
-    const l_name = $(this).parents('tr.line').find('td:first').text();
-    return window.confirm(dotclear.msg.confirm_delete_lang.replace('%s', l_name));
+dotclear.ready(() => {
+  const deleteButtons = document.querySelectorAll('table.langs form input[type=submit][name=delete]');
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', function (event) {
+      const l_name = this.closest('tr.line').querySelector('td:first-child').textContent;
+      if (!window.confirm(dotclear.msg.confirm_delete_lang.replace('%s', l_name))) {
+        event.preventDefault();
+        return false;
+      }
+    });
   });
 });

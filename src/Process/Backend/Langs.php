@@ -255,7 +255,7 @@ class Langs extends Process
         } else {
             echo
             '<div class="table-outer clear">' .
-            '<table class="plugins"><tr>' .
+            '<table class="langs"><tr>' .
             '<th>' . __('Language') . '</th>' .
             '<th class="nowrap">' . __('Action') . '</th>' .
             '</tr>';

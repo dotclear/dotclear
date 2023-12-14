@@ -5,6 +5,24 @@
 var dotclear = dotclear || {};
 Object.assign(dotclear, {
   /**
+   * Wait for DOM content loaded and then fire callback
+   * Instead of:
+   * - document.addEventListener('DOMContentLoaded', fn()); // Vanilla JS flavor
+   * - $(fn()); // jQuery flavor
+   * Do:
+   * - dotclear.ready(fn());
+   *
+   * @param      {Function}  fn      The callback
+   */
+  ready(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  },
+
+  /**
    * Gets application/json data (JSON format).
    * @param      {string}   id              element identifier
    * @param      {boolean}  [clear=true]    clear content

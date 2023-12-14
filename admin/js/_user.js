@@ -1,8 +1,9 @@
 /*global dotclear */
 'use strict';
 
-window.addEventListener('load', () => {
-  // DOM ready and content loaded
+dotclear.ready(() => {
+  // DOM ready
+
   if (!document.getElementById('new_pwd')) {
     return;
   }
