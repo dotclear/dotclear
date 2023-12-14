@@ -166,7 +166,10 @@ class BlogPref extends Process
                 $da->media_img_title_pattern = $old_img_title_combo[$da->media_img_title_pattern];
             } else {
                 // Add custom pattern to combo
-                $da->img_title_combo[Html::escapeHTML($da->media_img_title_pattern)] = Html::escapeHTML($da->media_img_title_pattern);
+                $da->img_title_combo = [
+                    ...$da->img_title_combo,
+                    Html::escapeHTML($da->media_img_title_pattern) => Html::escapeHTML($da->media_img_title_pattern),
+                ];
             }
         }
 
