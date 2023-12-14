@@ -167,6 +167,13 @@ class HttpClient extends Socket
     protected $timeout = 10;
 
     /**
+     * Stream timeout (in seconds)
+     *
+     * @var int
+     */
+    protected $stream_timeout;
+
+    /**
      * Use SSL connection
      *
      * @var bool
@@ -320,8 +327,9 @@ class HttpClient extends Socket
      * @param string    $host            Server host
      * @param int       $port            Server port
      * @param int       $timeout         Connection timeout (in seconds)
+     * @param int       $stream_timeout  Stream timeout (in seconds)
      */
-    public function __construct($host, int $port = 80, ?int $timeout = null)
+    public function __construct($host, int $port = 80, ?int $timeout = null, ?int $stream_timeout = null)
     {
         $this->accept = implode(',', $this->mime_types);
 
@@ -335,6 +343,11 @@ class HttpClient extends Socket
             $this->setTimeout($timeout);
         }
         $this->_timeout = &$this->timeout;
+
+        if ($stream_timeout) {
+            $this->setStreamTimeout($stream_timeout);
+        }
+        $this->_stream_timeout = &$this->stream_timeout;
     }
 
     /**
@@ -829,6 +842,16 @@ class HttpClient extends Socket
     public function setTimeout(int $timeout): void
     {
         $this->timeout = abs($timeout);
+    }
+
+    /**
+     * Sets stream timeout.
+     *
+     * @param int    $timeout                Stream timeout (in seconds)
+     */
+    public function setStreamTimeout(int $timeout): void
+    {
+        $this->stream_timeout = abs($timeout);
     }
 
     /**

@@ -126,6 +126,7 @@ class Config implements ConfigInterface
     private readonly string $plugins_root;
     private readonly int $max_upload_size;
     private readonly int $query_timeout;
+    private readonly ?int $query_stream_timeout;
     private readonly bool $show_hidden_dirs;
     private readonly bool $http_scheme_443;
     private readonly bool $http_revers_proxy;
@@ -369,6 +370,10 @@ class Config implements ConfigInterface
             define('DC_QUERY_TIMEOUT', 4);
         }
 
+        if (!defined('DC_QUERY_STREAM_TIMEOUT')) {
+            define('DC_QUERY_STREAM_TIMEOUT', null);
+        }
+
         if (!defined('DC_SHOW_HIDDEN_DIRS')) {
             define('DC_SHOW_HIDDEN_DIRS', false);
         }
@@ -401,45 +406,46 @@ class Config implements ConfigInterface
             define('DC_ADBLOCKER_CHECK', true);
         }
 
-        $this->debug_mode          = (bool) DC_DEBUG;
-        $this->dev_mode            = (bool) DC_DEV;
-        $this->error_file          = (string) DC_ERRORFILE;
-        $this->master_key          = (string) DC_MASTER_KEY;
-        $this->next_required_php   = (string) DC_NEXT_REQUIRED_PHP;
-        $this->vendor_name         = (string) DC_VENDOR_NAME;
-        $this->xmlrpc_url          = (string) DC_XMLRPC_URL;
-        $this->session_ttl         = (string) (DC_SESSION_TTL ?? '-120 minutes');
-        $this->session_name        = (string) DC_SESSION_NAME;
-        $this->admin_ssl           = (bool) DC_ADMIN_SSL;
-        $this->admin_url           = (string) DC_ADMIN_URL;
-        $this->admin_mailfrom      = (string) DC_ADMIN_MAILFROM;
-        $this->db_driver           = (string) DC_DBDRIVER;
-        $this->db_host             = (string) DC_DBHOST;
-        $this->db_user             = (string) DC_DBUSER;
-        $this->db_password         = (string) DC_DBPASSWORD;
-        $this->db_name             = (string) DC_DBNAME;
-        $this->db_prefix           = (string) DC_DBPREFIX;
-        $this->db_persist          = (bool) DC_DBPERSIST;
-        $this->plugins_root        = (string) DC_PLUGINS_ROOT;
-        $this->core_attic_url      = (string) DC_ATTIC_URL;
-        $this->core_update_url     = (string) DC_UPDATE_URL;
-        $this->core_update_canal   = (string) DC_UPDATE_VERSION;
-        $this->core_not_update     = (bool) DC_NOT_UPDATE;
-        $this->allow_multi_modules = (bool) DC_ALLOW_MULTI_MODULES;
-        $this->store_not_update    = (bool) DC_STORE_NOT_UPDATE;
-        $this->allow_rest_services = (bool) DC_REST_SERVICES;
-        $this->allow_repositories  = (bool) DC_ALLOW_REPOSITORIES;
-        $this->query_timeout       = (int) DC_QUERY_TIMEOUT;
-        $this->show_hidden_dirs    = (bool) DC_SHOW_HIDDEN_DIRS;
-        $this->crypt_algo          = (string) DC_CRYPT_ALGO;
-        $this->cache_root          = (string) DC_TPL_CACHE;
-        $this->var_root            = (string) DC_VAR;
-        $this->backup_root         = (string) DC_BACKUP_PATH;
-        $this->core_upgrade        = (string) DC_UPGRADE;
-        $this->start_time          = DC_START_TIME;
-        $this->http_scheme_443     = (bool) DC_FORCE_SCHEME_443;
-        $this->http_revers_proxy   = (bool) DC_REVERSE_PROXY;
-        $this->check_ads_blocker   = (bool) DC_ADBLOCKER_CHECK;
+        $this->debug_mode           = (bool) DC_DEBUG;
+        $this->dev_mode             = (bool) DC_DEV;
+        $this->error_file           = (string) DC_ERRORFILE;
+        $this->master_key           = (string) DC_MASTER_KEY;
+        $this->next_required_php    = (string) DC_NEXT_REQUIRED_PHP;
+        $this->vendor_name          = (string) DC_VENDOR_NAME;
+        $this->xmlrpc_url           = (string) DC_XMLRPC_URL;
+        $this->session_ttl          = (string) (DC_SESSION_TTL ?? '-120 minutes');
+        $this->session_name         = (string) DC_SESSION_NAME;
+        $this->admin_ssl            = (bool) DC_ADMIN_SSL;
+        $this->admin_url            = (string) DC_ADMIN_URL;
+        $this->admin_mailfrom       = (string) DC_ADMIN_MAILFROM;
+        $this->db_driver            = (string) DC_DBDRIVER;
+        $this->db_host              = (string) DC_DBHOST;
+        $this->db_user              = (string) DC_DBUSER;
+        $this->db_password          = (string) DC_DBPASSWORD;
+        $this->db_name              = (string) DC_DBNAME;
+        $this->db_prefix            = (string) DC_DBPREFIX;
+        $this->db_persist           = (bool) DC_DBPERSIST;
+        $this->plugins_root         = (string) DC_PLUGINS_ROOT;
+        $this->core_attic_url       = (string) DC_ATTIC_URL;
+        $this->core_update_url      = (string) DC_UPDATE_URL;
+        $this->core_update_canal    = (string) DC_UPDATE_VERSION;
+        $this->core_not_update      = (bool) DC_NOT_UPDATE;
+        $this->allow_multi_modules  = (bool) DC_ALLOW_MULTI_MODULES;
+        $this->store_not_update     = (bool) DC_STORE_NOT_UPDATE;
+        $this->allow_rest_services  = (bool) DC_REST_SERVICES;
+        $this->allow_repositories   = (bool) DC_ALLOW_REPOSITORIES;
+        $this->query_timeout        = (int) DC_QUERY_TIMEOUT;
+        $this->query_stream_timeout = DC_QUERY_STREAM_TIMEOUT ?? null;
+        $this->show_hidden_dirs     = (bool) DC_SHOW_HIDDEN_DIRS;
+        $this->crypt_algo           = (string) DC_CRYPT_ALGO;
+        $this->cache_root           = (string) DC_TPL_CACHE;
+        $this->var_root             = (string) DC_VAR;
+        $this->backup_root          = (string) DC_BACKUP_PATH;
+        $this->core_upgrade         = (string) DC_UPGRADE;
+        $this->start_time           = DC_START_TIME;
+        $this->http_scheme_443      = (bool) DC_FORCE_SCHEME_443;
+        $this->http_revers_proxy    = (bool) DC_REVERSE_PROXY;
+        $this->check_ads_blocker    = (bool) DC_ADBLOCKER_CHECK;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
@@ -784,6 +790,11 @@ class Config implements ConfigInterface
     public function queryTimeout(): int
     {
         return $this->query_timeout;
+    }
+
+    public function queryStreamTimeout(): ?int
+    {
+        return $this->query_stream_timeout;
     }
 
     public function showHiddenDirs(): bool

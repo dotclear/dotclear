@@ -121,6 +121,9 @@ class StoreReader extends HttpClient
         parent::__construct('');
         $this->setUserAgent(sprintf('Dotclear/%s', App::config()->dotclearVersion()));
         $this->setTimeout(App::config()->queryTimeout());
+        if (App::config()->queryStreamTimeout() !== null) {
+            $this->setStreamTimeout(App::config()->queryStreamTimeout());
+        }
     }
 
     /**

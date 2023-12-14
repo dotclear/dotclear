@@ -590,7 +590,17 @@ interface ConfigInterface
     public function queryTimeout(): int;
 
     /**
-     * Show hidden direcotries.
+     * Query stream timeout (in seconds).
+     *
+     * From config file or construct in place.
+     * Returns 4 if not set.
+     *
+     * @return  null|int     The query stream timetout
+     */
+    public function queryStreamTimeout(): ?int;
+
+    /**
+     * Show hidden directories.
      *
      * From config file.
      * Returns false if not set.

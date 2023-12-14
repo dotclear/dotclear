@@ -47,6 +47,13 @@ class Socket
     protected $_handle;
 
     /**
+     * Stream timeout
+     *
+     * @var int|null
+     */
+    protected $_stream_timeout;
+
+    /**
      * Class constructor
      *
      * @param string      $_host       Server host
@@ -136,6 +143,27 @@ class Socket
     }
 
     /**
+     * Get / Set stream timeout
+     *
+     * If <var>$timeout</var> is set, set {@link $_stream_timeout} and returns true.
+     * Otherwise, returns {@link $_stream_timeout} value.
+     *
+     * @param null|int    $timeout            Connection timeout
+     *
+     * @return null|int|true
+     */
+    public function streamTimeout(?int $timeout = null)
+    {
+        if ($timeout) {
+            $this->_stream_timeout = abs($timeout);
+
+            return true;
+        }
+
+        return $this->_stream_timeout;
+    }
+
+    /**
      * Set blocking
      *
      * Sets blocking or non-blocking mode on the socket.
@@ -169,6 +197,10 @@ class Socket
             throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ')' . $this->_transport . $this->_host);
         }
         $this->_handle = $handle;
+
+        if (isset($this->_stream_timeout)) {
+            stream_set_timeout($handle, $this->_stream_timeout);
+        }
 
         return $this->iterator();
     }
