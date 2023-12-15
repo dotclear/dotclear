@@ -283,16 +283,6 @@ interface ConfigInterface
     public function vendorName(): string;
 
     /**
-     * XML RPC URL.
-     *
-     * From config file or construct in place.
-     * Returns '%1$sxmlrpc/%2$s' string if not set.
-     *
-     * @return  string  Vendor name
-     */
-    public function xmlrpcUrl(): string;
-
-    /**
      * Session TTl (time to live).
      *
      * From config file.

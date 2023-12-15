@@ -96,13 +96,6 @@ interface ModulesInterface
     public const MODULE_FILE_PUBLIC = '_public.php';
 
     /**
-     * Name of module old style xmlrpc file.
-     *
-     * @var     string  MODULE_FILE_XMLRPC
-     */
-    public const MODULE_FILE_XMLRPC = '_xmlrpc.php';
-
-    /**
      * Name of module hard deactivation file.
      *
      * @var     string  MODULE_FILE_DISABLED
@@ -164,15 +157,6 @@ interface ModulesInterface
      * @var     string  MODULE_CLASS_PUPLIC
      */
     public const MODULE_CLASS_PUPLIC = 'Frontend';
-
-    /**
-     * Name of module XMLRPC services class (ex _xmlrpc.php) - obsolete since 2.24.
-     *
-     * @deprecated  since 2.24, obsolete
-     *
-     * @var     string  MODULE_CLASS_XMLRPC
-     */
-    public const MODULE_CLASS_XMLRPC = 'Xmlrpc';
 
     /**
      * Get first ocurrence of a module's defined properties.
@@ -240,15 +224,15 @@ interface ModulesInterface
      *
      * <var>$ns</var> indicates if an additionnal file needs to be loaded on plugin
      * load, value could be:
-     * - admin (loads module's _admin.php)
-     * - public (loads module's _public.php)
-     * - xmlrpc (loads module's _xmlrpc.php)
+     * - admin (loads module's Backend.php)
+     * - public (loads module's Frontend.php)
+     * - upgrade (loads nothing)
      *
      * <var>$lang</var> indicates if we need to load a lang file on plugin
      * loading.
      *
      * @param   string  $path   The path
-     * @param   string  $ns     The namespace (context as 'public', 'admin', ...)
+     * @param   string  $ns     The namespace (context as 'public', 'admin', 'upgrade', ...)
      * @param   string  $lang   The language
      */
     public function loadModules(string $path, ?string $ns = null, ?string $lang = null): void;

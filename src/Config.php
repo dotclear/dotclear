@@ -96,7 +96,6 @@ class Config implements ConfigInterface
     private readonly string $min_required_pgsql;
     private readonly string $next_required_php;
     private readonly string $vendor_name;
-    private readonly string $xmlrpc_url;
     private readonly ?string $session_ttl;
     private readonly string $session_name;
     private readonly bool $admin_ssl;
@@ -270,10 +269,6 @@ class Config implements ConfigInterface
             define('DC_VENDOR_NAME', 'Dotclear');
         }
 
-        if (!defined('DC_XMLRPC_URL')) {
-            define('DC_XMLRPC_URL', '%1$sxmlrpc/%2$s');
-        }
-
         if (!defined('DC_SESSION_TTL')) {
             define('DC_SESSION_TTL', null);
         }
@@ -412,7 +407,6 @@ class Config implements ConfigInterface
         $this->master_key           = (string) DC_MASTER_KEY;
         $this->next_required_php    = (string) DC_NEXT_REQUIRED_PHP;
         $this->vendor_name          = (string) DC_VENDOR_NAME;
-        $this->xmlrpc_url           = (string) DC_XMLRPC_URL;
         $this->session_ttl          = (string) (DC_SESSION_TTL ?? '-120 minutes');
         $this->session_name         = (string) DC_SESSION_NAME;
         $this->admin_ssl            = (bool) DC_ADMIN_SSL;
@@ -640,11 +634,6 @@ class Config implements ConfigInterface
     public function vendorName(): string
     {
         return $this->vendor_name;
-    }
-
-    public function xmlrpcUrl(): string
-    {
-        return $this->xmlrpc_url;
     }
 
     public function sessionTtl(): ?string

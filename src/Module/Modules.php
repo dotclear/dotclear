@@ -489,7 +489,7 @@ class Modules implements ModulesInterface
 
         // Load modules context
         if (!empty($ns)) {
-            // Give opportunity to do something before loading context (admin,public,xmlrpc) files
+            // Give opportunity to do something before loading context (admin,public,upgrade) files
             # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- Modules, string|null
             App::behavior()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
 
@@ -1208,7 +1208,7 @@ class Modules implements ModulesInterface
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
-        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'xmlrpc'])) {
+        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'upgrade'])) {
             return;
         }
 
@@ -1223,11 +1223,7 @@ class Modules implements ModulesInterface
                 $file  = self::MODULE_FILE_PUBLIC;
 
                 break;
-            case 'xmlrpc':
-                $class = self::MODULE_CLASS_XMLRPC;
-                $file  = self::MODULE_FILE_XMLRPC;
-
-                break;
+            case 'upgrade':
             default:
                 return;
         }
