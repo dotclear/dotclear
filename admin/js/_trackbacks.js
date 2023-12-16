@@ -1,8 +1,7 @@
-/*global dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
+window.addEventListener('load', () => {
+  // DOM ready and content loaded
 
   document.getElementById('tb_excerpt')?.addEventListener('keypress', function () {
     if (this.value.length > 255) {

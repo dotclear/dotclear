@@ -3,9 +3,7 @@
 
 Object.assign(dotclear.msg, dotclear.getData('blog_pref'));
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   const blog_url = $('#blog_url');
   if (blog_url.length > 0 && !blog_url.is(':hidden')) {
     const checkQueryString = () => {

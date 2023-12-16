@@ -1,9 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+(() => {
   $.fn.enhancedUploader = function () {
     return this.each(function () {
       const me = $(this);

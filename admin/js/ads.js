@@ -1,7 +1,7 @@
 /*global dotclear */
 'use strict';
 
-dotclear.ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
   // DOM ready
   const ads_id = 'WJxYFNKPMRlS';
 
@@ -31,7 +31,9 @@ dotclear.ready(() => {
   spot.classList.add('adsbox');
   spot.innerHTML = '&nbsp;';
   document.body.appendChild(spot);
+});
 
-  // Check adblocker
+window.addEventListener('load', () => {
+  // DOM ready and content loaded  // Check adblocker
   new Promise((resolve) => setTimeout(resolve, 1000)).then(() => dotclear.adblockCheck(dotclear.msg.adblocker));
 });

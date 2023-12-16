@@ -1,8 +1,8 @@
 /*global dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
+window.addEventListener('load', () => {
+  // DOM ready and content loaded
 
   // Confirm backup deletion
   document.querySelector('input[name=b_del]')?.addEventListener('click', (event) => {

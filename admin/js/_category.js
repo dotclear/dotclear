@@ -1,9 +1,7 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   dotclear.hideLockable();
 
   if (typeof jsToolBar === 'function') {

@@ -45,9 +45,7 @@ dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
   }
 };
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   // Add today button near publication date entry
   const dtTodayHelper = (e) => {
     e.preventDefault();

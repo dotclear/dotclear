@@ -1,9 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   // Preview media
   $('.modal-image').magnificPopup({
     type: 'image',

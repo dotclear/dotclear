@@ -1,7 +1,7 @@
-/*global dotclear */
+/*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
+$(() => {
   const deleteButtons = document.querySelectorAll('table.langs form input[type=submit][name=delete]');
   deleteButtons.forEach((button) => {
     button.addEventListener('click', function (event) {

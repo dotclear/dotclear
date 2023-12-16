@@ -21,9 +21,7 @@ dotclear.dbStoreUpdate = (store, url) => {
   }
 };
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   // expand a module line
   $('table.modules.expandable tr.line').each(function () {
     $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {

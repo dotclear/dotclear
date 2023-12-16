@@ -4,9 +4,7 @@
 // Get context
 Object.assign(dotclear, dotclear.getData('admin.blog_pref'));
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   $('#link-insert-cancel').on('click', () => {
     window.close();
   });

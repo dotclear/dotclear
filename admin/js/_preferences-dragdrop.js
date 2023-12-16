@@ -1,9 +1,7 @@
 /*global $ */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   $('#user_options_columns div').sortable({
     cursor: 'move',
     items: '> label',

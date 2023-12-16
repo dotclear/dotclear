@@ -1,9 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this, undefined, '#form-users input[type="checkbox"]', '#form-users #do-action');
   });

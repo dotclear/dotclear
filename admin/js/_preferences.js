@@ -1,9 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   if ($('#new_pwd').length == 0) {
     return;
   }

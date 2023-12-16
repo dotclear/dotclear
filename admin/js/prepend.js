@@ -7,24 +7,6 @@ const dotclear = {
   msg: {},
 };
 
-/**
- * Wait for DOM content loaded and then fire callback
- * Instead of:
- * - document.addEventListener('DOMContentLoaded', fn()); // Vanilla JS flavor
- * - $(fn()); // jQuery flavor
- * Do:
- * - dotclear.ready(fn());
- *
- * @param      {Function}  fn      The callback
- */
-dotclear.ready = (fn) => {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fn);
-  } else {
-    fn();
-  }
-};
-
 /* Local storage utilities
 -------------------------------------------------------- */
 dotclear.storeLocalData = (id, value = null) => {

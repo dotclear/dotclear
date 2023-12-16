@@ -1008,9 +1008,7 @@ dotclear.jsonServicesPost = (
 
 /* On document ready
 -------------------------------------------------------- */
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   // Debug mode
   dotclear.debug = dotclear.data.debug || false;
 

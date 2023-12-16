@@ -1,9 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   if ($.fn.nestedSortable !== undefined) {
     $('#categories ul li').css('cursor', 'move');
     $('#save-set-order').prop('disabled', true).addClass('disabled');

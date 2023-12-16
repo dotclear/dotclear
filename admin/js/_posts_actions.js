@@ -1,9 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   const new_auth_id = $('#new_auth_id');
   if (new_auth_id.length) {
     const usersList = dotclear.getData('users_list');

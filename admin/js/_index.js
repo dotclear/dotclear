@@ -64,10 +64,7 @@ dotclear.dbStoreUpdate = (store, icon) => {
     { store },
   );
 };
-
-dotclear.ready(() => {
-  // DOM ready
-
+$(() => {
   function quickPost(f, status) {
     if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
       dotclear.contentTb.syncContents('iframe');
