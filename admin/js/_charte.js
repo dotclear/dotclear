@@ -1,7 +1,9 @@
 /*global $ */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $.pageTabs('two-boxes');
   $('#pageslist').sortable({
     cursor: 'move',

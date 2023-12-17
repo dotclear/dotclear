@@ -1006,15 +1006,17 @@ dotclear.jsonServicesPost = (
   dotclear.jsonServices(fn, onSuccess, onError, false, params);
 };
 
+// Debug mode
+dotclear.debug = dotclear.data.debug || false;
+
+// Get other DATA
+Object.assign(dotclear, dotclear.getData('dotclear'));
+Object.assign(dotclear.msg, dotclear.getData('dotclear_msg'));
+
 /* On document ready
 -------------------------------------------------------- */
-$(() => {
-  // Debug mode
-  dotclear.debug = dotclear.data.debug || false;
-
-  // Get other DATA
-  Object.assign(dotclear, dotclear.getData('dotclear'));
-  Object.assign(dotclear.msg, dotclear.getData('dotclear_msg'));
+dotclear.ready(() => {
+  // DOM ready and content loaded
 
   // set theme class
   $('body').addClass(`${dotclear.data.theme}-mode`);

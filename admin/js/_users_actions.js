@@ -111,7 +111,9 @@ $.fn.updatePermissionsForm = function () {
   });
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this, undefined, '#form-blogs input[type="checkbox"]', '#form-blogs #do-action');
   });

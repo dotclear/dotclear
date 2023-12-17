@@ -1,7 +1,9 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // Get some DATA
   Object.assign(dotclear.msg, dotclear.getData('filter_controls'));
 

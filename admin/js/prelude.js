@@ -1,6 +1,8 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   const prelude = document.querySelector('#prelude');
   if (!prelude) {
     return;

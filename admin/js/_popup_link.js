@@ -1,7 +1,7 @@
 /*global dotclear */
 'use strict';
 
-window.addEventListener('load', () => {
+dotclear.ready(() => {
   // DOM ready and content loaded
 
   const href = document.getElementById('href');

@@ -154,7 +154,9 @@
   };
 })();
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#fileupload').enhancedUploader();
 
   $('.checkboxes-helpers').each(function () {

@@ -1,7 +1,7 @@
 /*global dotclear, jsToolBar */
 'use strict';
 
-window.addEventListener('load', () => {
+dotclear.ready(() => {
   // DOM ready and content loaded
 
   if (typeof jsToolBar === 'function') {

@@ -1,7 +1,9 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   const login_re = /[^A-Za-z0-9@._-]+/g;
   $('#u_firstname').on('keyup', function () {
     $('#u_login').val(this.value.toLowerCase().replace(login_re, '').substring(0, 32));

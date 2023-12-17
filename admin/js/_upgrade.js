@@ -37,7 +37,10 @@ dotclear.dbStoreUpdate = (store, icon) => {
     { store },
   );
 };
-$(() => {
+
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // check if core update available
   dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
     if (data.check) {

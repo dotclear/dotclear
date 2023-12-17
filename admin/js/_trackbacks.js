@@ -1,6 +1,6 @@
 'use strict';
 
-window.addEventListener('load', () => {
+dotclear.ready(() => {
   // DOM ready and content loaded
 
   document.getElementById('tb_excerpt')?.addEventListener('keypress', function () {

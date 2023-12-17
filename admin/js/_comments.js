@@ -44,7 +44,9 @@ dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
   }
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $.expandContent({
     line: $('#form-comments tr:not(.line)'),
     lines: $('#form-comments tr.line'),

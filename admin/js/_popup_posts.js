@@ -1,7 +1,7 @@
 /*global $ */
 'use strict';
 
-window.addEventListener('load', () => {
+dotclear.ready(() => {
   // DOM ready and content loaded
 
   // Give focus to post type field

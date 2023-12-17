@@ -40,7 +40,9 @@ dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
   }
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // Entry type switcher
   $('#type').on('change', function () {
     this.form.submit();
