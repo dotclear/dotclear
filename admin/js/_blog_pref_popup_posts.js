@@ -14,7 +14,7 @@ dotclear.ready(() => {
 
   const posts = document.querySelectorAll('#form-entries tr>td.maximal>a');
   posts.forEach((elt) => {
-    elt.addEventListener('click', function () {
+    elt.addEventListener('click', () => {
       const stripBaseURL = (url) =>
         dotclear.base_url !== '' && url.startsWith(dotclear.base_url) ? url.substr(dotclear.base_url.length) : url;
 
