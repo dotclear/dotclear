@@ -4,10 +4,10 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('.checkboxes-helpers').each(function () {
-    dotclear.checkboxesHelpers(this, undefined, '#form-blogs td input[type=checkbox]', '#form-blogs #do-action');
+  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
+    dotclear.checkboxesHelpers(elt, undefined, '#form-blogs td input[type=checkbox]', '#form-blogs #do-action');
   });
-  $('#form-blogs td input[type=checkbox]').enableShiftClick();
+  dotclear.enableShiftClick('#form-blogs td input[type=checkbox]');
   dotclear.condSubmit('#form-blogs td input[type=checkbox]', '#form-blogs #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-blogs table'), '#form-blogs table', 1);
   $('#form-blogs').on('submit', function (event) {

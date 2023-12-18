@@ -358,6 +358,37 @@ $.fn.helpViewer = function () {
 /* Dotclear common methods
 -------------------------------------------------------- */
 
+dotclear.enableShiftClick = (selector) => {
+  // Inspired by https://codepen.io/danielhoppener/pen/xxKVbey
+  const checkboxes = document.querySelectorAll(selector);
+  let lastChecked;
+
+  function handleCheck(element) {
+    let inBetween = false;
+    if (element.shiftKey) {
+      // Extend selection (on/off)
+      checkboxes.forEach((checkbox) => {
+        if (checkbox === this || checkbox === lastChecked) {
+          inBetween = !inBetween;
+        }
+        if (inBetween) {
+          checkbox.checked = this.checked;
+        }
+      });
+    } else if (element.altKey) {
+      // Reverse selection
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = !checkbox.checked;
+      });
+      this.checked = !this.checked;
+    }
+
+    lastChecked = this;
+  }
+
+  checkboxes.forEach((checkbox) => checkbox.addEventListener('click', handleCheck));
+};
+
 /**
  * Cope with the enter key in a form.
  *

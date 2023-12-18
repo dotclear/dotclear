@@ -52,10 +52,10 @@ dotclear.ready(() => {
     lines: $('#form-comments tr.line'),
     callback: dotclear.viewCommentContent,
   });
-  $('.checkboxes-helpers').each(function () {
-    dotclear.checkboxesHelpers(this, undefined, '#form-comments td input[type=checkbox]', '#form-comments #do-action');
+  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
+    dotclear.checkboxesHelpers(elt, undefined, '#form-comments td input[type=checkbox]', '#form-comments #do-action');
   });
-  $('#form-comments td input[type=checkbox]').enableShiftClick();
+  dotclear.enableShiftClick('#form-comments td input[type=checkbox]');
   dotclear.commentsActionsHelper();
   dotclear.condSubmit('#form-comments td input[type=checkbox]', '#form-comments #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-comments table'), '#form-comments table', 1);

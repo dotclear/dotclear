@@ -56,7 +56,7 @@ $(() => {
     $(this).prepend(p);
     dotclear.checkboxesHelpers(p, undefined, '#pageslist td input[type=checkbox]', '#form-entries #do-action');
   });
-  $('#pageslist td input[type=checkbox]').enableShiftClick();
+  dotclear.enableShiftClick('#pageslist td input[type=checkbox]');
   dotclear.condSubmit('#pageslist td input[type=checkbox]', '#form-entries #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 3, true);
 
