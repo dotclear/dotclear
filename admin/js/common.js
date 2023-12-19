@@ -50,6 +50,8 @@ document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme ==
  *
  * @function
  * @memberof    external:"jQuery.fn"
+ *
+ * @deprecated    use dotclear.enableShiftClick(<selector>)
  */
 $.fn.enableShiftClick = function () {
   const group = this;
@@ -358,6 +360,14 @@ $.fn.helpViewer = function () {
 /* Dotclear common methods
 -------------------------------------------------------- */
 
+/**
+ * Enables the shift/alt click on selection of checkboxes.
+ *
+ * Shift modifier key will extend selection (on/off)
+ * Alt modifier key will reverse selection
+ *
+ * @param      {string}  selector  The selector
+ */
 dotclear.enableShiftClick = (selector) => {
   // Inspired by https://codepen.io/danielhoppener/pen/xxKVbey
   const checkboxes = document.querySelectorAll(selector);
@@ -429,7 +439,7 @@ dotclear.condSubmit = (chkboxes, target) => {
   }
 
   checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('click', () => {
+    checkbox.addEventListener('change', () => {
       // Update target state
       submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
       if (submitButt.disabled) {
