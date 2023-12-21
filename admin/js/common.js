@@ -1063,7 +1063,7 @@ Object.assign(dotclear.msg, dotclear.getData('dotclear_msg'));
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  // set theme class
+  // Set theme class
   $('body').addClass(`${dotclear.data.theme}-mode`);
   dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
   if (document.documentElement.getAttribute('data-theme') === '') {
@@ -1093,6 +1093,15 @@ dotclear.ready(() => {
       }
     }
   }
+
+  // Accssibility flags
+  dotclear.animationisReduced =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  mediaQuery.onchange = (event) => {
+    dotclear.animationisReduced = event.matches;
+  };
 
   // Watch data-theme attribute modification
   const observer = new MutationObserver((mutations) => {
@@ -1206,87 +1215,94 @@ dotclear.ready(() => {
 
   // Password helpers
   dotclear.passwordHelpers();
-  // Password
-  $('form:has(input[type=password][name=your_pwd])').on('submit', function () {
-    const e = this.elements.your_pwd;
-    if (e.value == '') {
-      $(e)
-        .addClass('missing')
-        .on('focusout', function () {
-          $(this).removeClass('missing');
-        });
-      e.focus();
-      return false;
-    }
-    return true;
-  });
 
   // Cope with ellipsis'ed cells
-  $('table .maximal').each(function () {
-    if (this.offsetWidth < this.scrollWidth && this.title == '') {
-      this.title = this.innerText;
-      $(this).addClass('ellipsis');
+  document.querySelectorAll('table .maximal').forEach((element) => {
+    if (element.offsetWidth < element.scrollWidth && element.title === '') {
+      element.title = element.innerText;
+      element.classList.add('ellipsis');
     }
   });
-  $('table .maximal.ellipsis a').each(function () {
-    if (this.title == '') {
-      this.title = this.innerText;
-    }
+  document.querySelectorAll('table .maximal.ellipsis a').forEach((element) => {
+    if (element.title === '') element.title = element.innerText;
   });
 
-  // Advanced users
+  // Advanced users, hide secondary information
   if (dotclear.data.hideMoreInfo) {
-    $('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
+    document
+      .querySelectorAll('.more-info,.form-note:not(.warn,.warning,.info)')
+      .forEach((element) => element.classList.add('no-more-info'));
   }
 
   // Main menu collapser
-  const objMain = $('#wrapper');
+  const dcWrapper = document.getElementById('wrapper');
   const hideMainMenu = 'hide_main_menu';
 
   // Sidebar separator
-  $('#collapser').on('click', (e) => {
-    e.preventDefault();
-    if (objMain.hasClass('hide-mm')) {
+  document.getElementById('collapser')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (dcWrapper.classList.contains('hide-mm')) {
       // Show sidebar
-      objMain.removeClass('hide-mm');
+      dcWrapper.classList.remove('hide-mm');
       dotclear.dropLocalData(hideMainMenu);
-      $('#main-menu input#qx').trigger('focus');
       return;
     }
     // Hide sidebar
-    objMain.addClass('hide-mm');
+    dcWrapper.classList.add('hide-mm');
     dotclear.storeLocalData(hideMainMenu, true);
-    $('#content a.go_home').trigger('focus');
   });
   // Cope with current stored state of collapser
   if (dotclear.readLocalData(hideMainMenu) === true) {
-    objMain.addClass('hide-mm');
+    dcWrapper.classList.add('hide-mm');
   } else {
-    objMain.removeClass('hide-mm');
+    dcWrapper.classList.remove('hide-mm');
   }
 
-  // totop scroll
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() == 0) {
-      $('#gototop').fadeOut();
-    } else {
-      $('#gototop').fadeIn();
-    }
+  // Scroll to top management
+  document.addEventListener('scroll', () => {
+    const gototopButton = document.getElementById('gototop');
+    gototopButton.style.display = document.querySelector('html').scrollTop === 0 ? 'none' : 'block';
   });
-  $('#gototop').on('click', (e) => {
-    const isReduced =
-      window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-      window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-    if (isReduced) {
+  document.getElementById('gototop')?.addEventListener('click', (event) => {
+    if (dotclear.animationisReduced) {
+      // Scroll to top instantly
       document.querySelector('html').scrollTop = 0;
     } else {
-      $('body,html').animate({ scrollTop: 0 }, 800);
+      // Scroll to top smoothly
+      const scrollToTop = (duration) => {
+        // cancel if already on top
+        if (document.scrollingElement.scrollTop === 0) return;
+
+        // if duration is zero, no animation
+        if (duration === 0) {
+          document.scrollingElement.scrollTop = 0;
+          return;
+        }
+
+        const cosParameter = document.scrollingElement.scrollTop / 2;
+        let scrollCount = 0;
+        let oldTimestamp = null;
+
+        const step = (newTimestamp) => {
+          if (oldTimestamp !== null) {
+            scrollCount += (Math.PI * (newTimestamp - oldTimestamp)) / duration;
+            if (scrollCount >= Math.PI) return (document.scrollingElement.scrollTop = 0);
+            document.scrollingElement.scrollTop = cosParameter + cosParameter * Math.cos(scrollCount);
+          }
+          oldTimestamp = newTimestamp;
+          window.requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
+      };
+      scrollToTop(800);
     }
-    e.preventDefault();
+    event.preventDefault();
   });
 
   // Go back (aka Cancel) button
-  $('.go-back').on('click', () => {
-    history.back();
+  document.querySelectorAll('.go-back')?.forEach((button) => {
+    button.addEventListener('click', () => {
+      history.back();
+    });
   });
 });

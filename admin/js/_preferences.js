@@ -1,28 +1,32 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  if ($('#new_pwd').length == 0) {
-    return;
-  }
-  const user_email = $('#user_email').val();
-  $('#user-form').on('submit', function () {
-    const e = this.elements.cur_pwd;
-    if (e.value != '') {
-      return true;
-    }
-    if ($('#user_email').val() != user_email || $('#new_pwd').val() != '') {
-      $(e)
-        .addClass('missing')
-        .on('focusout', function () {
-          $(this).removeClass('missing');
-        });
-      e.focus();
-      return false;
-    }
-    return true;
+  const currentPasswordField = document.getElementById('cur_pwd');
+  if (!currentPasswordField) return;
+
+  const emailField = document.getElementById('user_email');
+  const newPasswordField = document.getElementById('new_pwd');
+
+  const userEmail = emailField?.value; // Keep current user email
+
+  // Helper to check if current password is required
+  const needPassword = () => {
+    if (emailField?.value !== userEmail) return true;
+    if (newPasswordField?.value) return true;
+    return false;
+  };
+
+  emailField?.addEventListener('change', () => {
+    if (needPassword()) currentPasswordField.setAttribute('required', 'true');
+    else currentPasswordField.removeAttribute('required');
+  });
+
+  newPasswordField?.addEventListener('change', () => {
+    if (needPassword()) currentPasswordField.setAttribute('required', 'true');
+    else currentPasswordField.removeAttribute('required');
   });
 
   // Password strength

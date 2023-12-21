@@ -393,7 +393,6 @@ h6 {
   --input-file-color: var(--body-color);
   --input-file-background: var(--body-background);
   --form-note-color: #676e78;
-  --error-background: #ffbaba;
   --required: #ae323b;
   --button-color: #000;
   --button-border: #caced2;
@@ -663,7 +662,6 @@ h6 {
   --input-file-color: var(--body-color);
   --input-file-background: var(--body-background);
   --form-note-color: #bce8f1;
-  --error-background: #ffbaba;
   --required: #f783b3;
   --button-color: #000;
   --button-border: #82878f;
@@ -934,7 +932,6 @@ h6 {
     --input-file-color: var(--body-color);
     --input-file-background: var(--body-background);
     --form-note-color: #bce8f1;
-    --error-background: #ffbaba;
     --required: #f783b3;
     --button-color: #000;
     --button-border: #82878f;
@@ -2222,17 +2219,6 @@ span.form-stats {
   text-transform: none;
 }
 
-.missing {
-  background-color: inherit;
-  animation-name: kf-missing;
-  animation-duration: 1s;
-}
-
-@keyframes kf-missing {
-  50% {
-    background-color: var(--error-background);
-  }
-}
 .focus {
   background-color: inherit;
   animation-name: kf-focus;
