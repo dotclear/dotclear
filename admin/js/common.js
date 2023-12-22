@@ -373,28 +373,31 @@ dotclear.enableShiftClick = (selector) => {
   const checkboxes = document.querySelectorAll(selector);
   let lastChecked;
 
-  function handleCheck(element) {
+  /**
+   * @param      {PointerEvent}  event  The pointer event
+   */
+  const handleCheck = (event) => {
     let inBetween = false;
-    if (element.shiftKey) {
+    if (event.shiftKey) {
       // Extend selection (on/off)
       checkboxes.forEach((checkbox) => {
-        if (checkbox === this || checkbox === lastChecked) {
+        if (checkbox === event.currentTarget || checkbox === lastChecked) {
           inBetween = !inBetween;
         }
         if (inBetween) {
-          checkbox.checked = this.checked;
+          checkbox.checked = event.currentTarget.checked;
         }
       });
-    } else if (element.altKey) {
+    } else if (event.altKey) {
       // Reverse selection
       checkboxes.forEach((checkbox) => {
         checkbox.checked = !checkbox.checked;
       });
-      this.checked = !this.checked;
+      event.currentTarget.checked = !event.currentTarget.checked;
     }
 
-    lastChecked = this;
-  }
+    lastChecked = event.currentTarget;
+  };
 
   checkboxes.forEach((checkbox) => checkbox.addEventListener('click', handleCheck));
 };
@@ -407,14 +410,15 @@ dotclear.enableShiftClick = (selector) => {
  * @param      {string}  cancel_id  The cancel identifier
  */
 dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
-  $(`${frm_id}:not(${cancel_id})`).on('keyup', (e) => {
-    if (!(e.key == 'Enter' && $(ok_id).prop('disabled') !== true)) {
-      return;
-    }
-    e.preventDefault();
-    e.stopPropagation();
-    $(ok_id).trigger('click');
-  });
+  const submitElement = document.querySelector(ok_id);
+  if (submitElement) {
+    document.querySelector(`${frm_id}:not(${cancel_id})`)?.addEventListener('keyup', (event) => {
+      if (event.key !== 'Enter' || submitElement.disabled) return;
+      event.preventDefault();
+      event.stopPropagation();
+      submitElement.click();
+    });
+  }
 };
 
 /**

@@ -3935,19 +3935,6 @@ li.user_admin {
   gap: 0.5em;
 }
 
-.bloc-toggler {
-  text-align: right;
-}
-.bloc-toggler img {
-  opacity: 0.4;
-}
-.bloc-toggler img:hover {
-  opacity: 1;
-}
-.bloc-toggler a:focus img {
-  opacity: 1;
-}
-
 span.module-version::before,
 span.module-locked::before {
   content: "- ";

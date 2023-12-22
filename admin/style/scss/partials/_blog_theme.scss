@@ -37,8 +37,13 @@
     // padding: 5px;
     background: var(--theme-img-background);
     // box-shadow: 1px 1px 2px var(--theme-img-shadow);
-    box-shadow: 0.9px 0.9px 2.2px rgba(0, 0, 0, 0.07), 2.1px 2.1px 5.3px rgba(0, 0, 0, 0.05), 4px 4px 10px rgba(0, 0, 0, 0.042),
-      7.1px 7.1px 17.9px rgba(0, 0, 0, 0.035), 13.4px 13.4px 33.4px rgba(0, 0, 0, 0.028), 32px 32px 80px rgba(0, 0, 0, 0.02);
+    box-shadow:
+      0.9px 0.9px 2.2px rgba(0, 0, 0, 0.07),
+      2.1px 2.1px 5.3px rgba(0, 0, 0, 0.05),
+      4px 4px 10px rgba(0, 0, 0, 0.042),
+      7.1px 7.1px 17.9px rgba(0, 0, 0, 0.035),
+      13.4px 13.4px 33.4px rgba(0, 0, 0, 0.028),
+      32px 32px 80px rgba(0, 0, 0, 0.02);
     border: 1px solid var(--theme-img-border);
     max-width: 100%;
   }
@@ -57,19 +62,6 @@
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.5em;
-}
-
-.bloc-toggler {
-  text-align: right;
-  img {
-    opacity: 0.4;
-    &:hover {
-      opacity: 1;
-    }
-  }
-  a:focus img {
-    opacity: 1;
-  }
 }
 
 span.module-version::before,
