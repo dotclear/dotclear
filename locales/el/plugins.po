@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 16:03\n"
+"POT-Creation-Date: 2023-12-24 21:00+0100\n"
+"PO-Revision-Date: 2023-12-24 22:56\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -1355,7 +1355,7 @@ msgstr "Ανοίξτε τα μέσα ενημέρωσης"
 msgid "The configuration has been updated."
 msgstr "Οι ρυθμίσεις έχουν ενημερωθεί."
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:238
+#: plugins/dcCKEditor/src/ManagePostConfig.php:234
 msgid "Note(s)"
 msgstr "Σημείωση(-εις)"
 
@@ -1994,10 +1994,6 @@ msgstr "Καταμέτρηση και δείκτης"
 #: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Purge"
 msgstr "Purge"
-
-#: plugins/maintenance/src/BackendBehaviors.php:40
-msgid "Other"
-msgstr "Άλλο"
 
 #: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Current blog"
