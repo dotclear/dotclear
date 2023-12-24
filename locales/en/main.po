@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 15:13+0100\n"
+"POT-Creation-Date: 2023-12-24 21:00+0100\n"
 "PO-Revision-Date: 2023-12-11 14:17\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
@@ -294,6 +294,9 @@ msgid "Most used"
 msgstr ""
 
 msgid "Entry language:"
+msgstr ""
+
+msgid "Other"
 msgstr ""
 
 msgid "Descending"
@@ -2159,16 +2162,6 @@ msgstr ""
 msgid "Wrong username or password"
 msgstr ""
 
-#, php-format
-msgid "Password strength: %s"
-msgstr ""
-
-msgid "weak"
-msgstr ""
-
-msgid "strong"
-msgstr ""
-
 msgid "Back to login screen"
 msgstr ""
 
@@ -3337,18 +3330,6 @@ msgstr ""
 msgid "No entry seems contain this media."
 msgstr ""
 
-msgid "published"
-msgstr ""
-
-msgid "unpublished"
-msgstr ""
-
-msgid "scheduled"
-msgstr ""
-
-msgid "pending"
-msgstr ""
-
 msgid "Image details"
 msgstr ""
 
@@ -3745,11 +3726,14 @@ msgstr ""
 msgid "Force checking update Dotclear"
 msgstr ""
 
-#, php-format
-msgid "Dotclear %s is available."
+msgid "Dotclear upgrade dashboard"
 msgstr ""
 
-msgid "Dotclear upgrade dashboard"
+msgid "Go to dedicated upgrade dashboard."
+msgstr ""
+
+#, php-format
+msgid "Dotclear %s is available."
 msgstr ""
 
 msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
@@ -3769,6 +3753,16 @@ msgid "User has been successfully created."
 msgstr ""
 
 msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
+#, php-format
+msgid "Password strength: %s"
+msgstr ""
+
+msgid "weak"
+msgstr ""
+
+msgid "strong"
 msgstr ""
 
 msgid "User profile"

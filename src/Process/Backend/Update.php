@@ -151,6 +151,8 @@ class Update extends Process
             '<p><input type="hidden" name="nocache" value="1">' .
             '<input type="submit" value="' . __('Force checking update Dotclear') . '"></p>' .
             '</form>';
+            echo
+            '<p><a title="' . Html::escapeHTML(__('Dotclear upgrade dashboard')) . '" href="' . App::backend()->url()->get('upgrade.home') . '">' . __('Go to dedicated upgrade dashboard.') . '</a></p>';
         } else {
             echo
             '<p class="static-msg dc-update updt-info">' . sprintf(__('Dotclear %s is available.'), App::backend()->new_v) . '</p>';
