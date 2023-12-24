@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 16:09\n"
+"POT-Creation-Date: 2023-12-24 21:00+0100\n"
+"PO-Revision-Date: 2023-12-24 23:00\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1355,7 +1355,7 @@ msgstr "미디어 열기"
 msgid "The configuration has been updated."
 msgstr "구성이 업데이트되었습니다."
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:238
+#: plugins/dcCKEditor/src/ManagePostConfig.php:234
 msgid "Note(s)"
 msgstr "참고 사항"
 
@@ -1994,10 +1994,6 @@ msgstr "카운트 및 색인"
 #: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Purge"
 msgstr "퍼지"
-
-#: plugins/maintenance/src/BackendBehaviors.php:40
-msgid "Other"
-msgstr "기타"
 
 #: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Current blog"
