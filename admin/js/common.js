@@ -271,94 +271,152 @@ $.expandContent = (opts) => {
   });
 };
 
+/* Dotclear common methods
+-------------------------------------------------------- */
+
 /**
  * Show help viewer
  *
- * @return      {jQuery}
- * @function
- * @memberof    external:"jQuery.fn"
+ * @param      {string}  selector  The help box selector
  */
-$.fn.helpViewer = function () {
-  if (this.length < 1) {
-    return this;
-  }
+dotclear.helpViewer = (selector) => {
+  const helpBox = document.querySelector(selector);
+  if (!helpBox) return;
+
   const p = {
     img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
     img_off_txt: dotclear.img_minus_txt,
     img_off_alt: dotclear.img_minus_alt,
   };
+
+  // Buttons templates
+  const helpButtonTemplate = new DOMParser().parseFromString(
+    `<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`,
+    'text/html',
+  ).body.firstChild;
+  const chapterButtonTemplate = new DOMParser().parseFromString(
+    `<button type="button" class="details-cmd" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`,
+    'text/html',
+  ).body.firstChild;
+
+  // Helpers
+
+  // Toggle help button
   const toggle = () => {
-    $('#content').toggleClass('with-help');
-    $('p#help-button span a').text($('#content').hasClass('with-help') ? dotclear.msg.help_hide : dotclear.msg.help);
+    const content = document.getElementById('content');
+    if (content) {
+      content.classList.toggle('with-help');
+      document.querySelector('p#help-button span a').innerText = content.classList.contains('with-help')
+        ? dotclear.msg.help_hide
+        : dotclear.msg.help;
+    }
     sizeBox();
     return false;
   };
+
+  // Set height size of help box
   const sizeBox = () => {
-    this.css('height', 'auto');
-    if ($('#wrapper').height() > this.height()) {
-      this.css('height', `${$('#wrapper').height()}px`);
-    }
+    const wrapper = document.getElementById('wrapper');
+    helpBox.style.height = 'auto';
+    if (wrapper && wrapper.getBoundingClientRect().height > helpBox.getBoundingClientRect().height)
+      helpBox.style.height = `${wrapper.getBoundingClientRect().height}px`;
   };
-  const textToggler = (o) => {
-    const b = $(`<button type="button" class="details-cmd" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`);
-    o.css('cursor', 'pointer');
+
+  // Cope with help chapters
+  const chapterToggler = (chapterTitle) => {
+    const button = chapterButtonTemplate.cloneNode(true);
     let hide = true;
-    o.prepend(' ').prepend(b);
-    o.on('click', function () {
-      $(this)
-        .nextAll()
-        .each(function () {
-          if ($(this).is('h4')) {
-            return false;
-          }
-          $(this).toggle();
-          sizeBox();
-          return true;
-        });
+
+    chapterTitle.style.cursor = 'pointer';
+    chapterTitle.prepend(button);
+
+    chapterTitle.addEventListener('click', function () {
+      // Show/hide chapter content (finding all siblings until next h4 or end)
+      const nextSiblings = [];
+      let nextSibling = this.nextElementSibling;
+      while (nextSibling) {
+        nextSiblings.push(nextSibling);
+        nextSibling = nextSibling.nextElementSibling;
+      }
+      for (const sibling of nextSiblings) {
+        if (sibling.tagName.toLowerCase() === 'h4') {
+          break;
+        }
+        sibling.style.display = sibling.style.display === 'none' ? '' : 'none';
+        sizeBox();
+      }
+
+      // Change show/hide chapter button
       hide = !hide;
-      const image = $(this).find('button.details-cmd');
+      const chapterButton = chapterTitle.querySelector('button.details-cmd');
       if (hide) {
-        image.html(p.img_on_txt);
-        image.attr('value', p.img_on_txt);
-        image.attr('aria-label', p.img_on_alt);
+        chapterButton.innerHTML = p.img_on_txt;
+        chapterButton.setAttribute('value', p.img_on_txt);
+        chapterButton.setAttribute('aria-label', p.img_on_alt);
         return;
       }
-      image.html(p.img_off_txt);
-      image.attr('value', p.img_off_txt);
-      image.attr('aria-label', p.img_off_alt);
+      chapterButton.innerHTML = p.img_off_txt;
+      chapterButton.setAttribute('value', p.img_off_txt);
+      chapterButton.setAttribute('aria-label', p.img_off_alt);
     });
   };
-  this.addClass('help-box');
-  this.find('>hr').remove();
-  this.find('h4').each(function () {
-    textToggler($(this));
-  });
-  this.find('h4:first').nextAll('*:not(h4)').hide();
+
+  // Compose help box
+
+  helpBox.classList.add('help-box');
+  for (const element of helpBox.querySelectorAll(':scope >hr')) {
+    element.remove();
+  }
+  for (const chapter of helpBox.querySelectorAll(':scope h4')) {
+    chapterToggler(chapter);
+  }
+
+  // Hide help chapters' content
+  const firstH4 = helpBox.querySelector('h4');
+  if (firstH4) {
+    let nextSibling = firstH4.nextElementSibling;
+    while (nextSibling) {
+      if (nextSibling.tagName.toLowerCase() !== 'h4') {
+        nextSibling.style.display = 'none';
+      }
+      nextSibling = nextSibling.nextElementSibling;
+    }
+  }
+
   sizeBox();
-  const img = $(`<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`);
-  img.on('click', (e) => {
-    e.preventDefault();
+
+  // Compose help button
+  const helpButton = helpButtonTemplate.cloneNode(true);
+  helpButton.addEventListener('click', (event) => {
+    event.preventDefault();
     return toggle();
   });
-  $('#content').append(img);
+  document.getElementById('content')?.append(helpButton);
+
   // listen for scroll
-  const peInPage = $('#help-button').offset().top;
-  $('#help-button').addClass('floatable');
-  const peInFloat = $('#help-button').offset().top - $(window).scrollTop();
-  $('#help-button').removeClass('floatable');
-  $(window).on('scroll', () => {
-    if ($(window).scrollTop() >= peInPage - peInFloat) {
-      $('#help-button').addClass('floatable');
+  const helpButtonElement = document.getElementById('help-button');
+  if (!helpButtonElement) {
+    return;
+  }
+  const threshold = helpButtonElement.clientHeight / 2;
+
+  if (window.scrollY >= threshold) {
+    helpButtonElement.classList.add('floatable');
+  } else {
+    helpButtonElement.classList.remove('floatable');
+  }
+
+  // Add scroll event listener
+  window.addEventListener('scroll', () => {
+    // Check if the scroll position is greater than or equal to the target position
+    if (window.scrollY >= threshold) {
+      helpButtonElement.classList.add('floatable');
     } else {
-      $('#help-button').removeClass('floatable');
+      helpButtonElement.classList.remove('floatable');
     }
   });
-  return this;
 };
-
-/* Dotclear common methods
--------------------------------------------------------- */
 
 /**
  * Enables the shift/alt click on selection of checkboxes.
@@ -605,20 +663,17 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
  * Ask confirmation before destructive operation (posts deletion)
  */
 dotclear.postsActionsHelper = () => {
-  $('#form-entries').on('submit', function (event) {
-    const action = $(this).find('select[name="action"]').val();
-    if (action === undefined) {
-      return;
+  document.getElementById('form-entries')?.addEventListener('submit', function (event) {
+    if (this.querySelector('select[name="action"]')?.value === 'delete') {
+      const nb = this.querySelectorAll('input[name="entries[]"]:checked')?.length;
+      if (nb) {
+        if (!window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) {
+          event.preventDefault();
+          return false;
+        }
+        return true;
+      }
     }
-    const nb = $(this).find('input[name="entries[]"]:checked').length;
-    if (!nb) {
-      return false;
-    }
-    if (action == 'delete' && !window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) {
-      event.preventDefault();
-      return false;
-    }
-    return true;
   });
 };
 
@@ -626,17 +681,17 @@ dotclear.postsActionsHelper = () => {
  * Ask confirmation before destructive operation (comments deletion)
  */
 dotclear.commentsActionsHelper = () => {
-  $('#form-comments').on('submit', function (event) {
-    const action = $(this).find('select[name="action"]').val();
-    const nb = $(this).find('input[name="comments[]"]:checked').length;
-    if (!nb) {
-      return false;
+  document.getElementById('form-comments')?.addEventListener('submit', function (event) {
+    if (this.querySelector('select[name="action"]')?.value === 'delete') {
+      const nb = this.querySelectorAll('input[name="comments[]"]:checked')?.length;
+      if (nb) {
+        if (!window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) {
+          event.preventDefault();
+          return false;
+        }
+        return true;
+      }
     }
-    if (action == 'delete' && !window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) {
-      event.preventDefault();
-      return false;
-    }
-    return true;
   });
 };
 
@@ -710,7 +765,7 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
 /**
  * Badge helper
  *
- * @param      {(string|Element|jQuery)}  $elt            The element (selector string as in CSS, DOM Element, jQuery object)
+ * @param      {(string|Element|jQuery)}  elt            The element (selector string as in CSS, DOM Element, jQuery object)
  * @param      {{sibling: boolean,
  *               id: string,
  *               remove: boolean,
@@ -724,8 +779,8 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
  *               classes: string}}        [options=null]  The options
  *
  * @param      [options.sibling=false]    Define if the given element is a sibling of the badge or it's parent
- *                                        true: use $elt.after() to add badge
- *                                        false: use $elt.parent().append() to add badge (default)
+ *                                        true: use elt.after() to add badge
+ *                                        false: use elt.parent().append() to add badge (default)
  * @param      [options.id='default']     Badge unique class
  *                                        this class will be used to delete all
  *                                        corresponding badge (used for removing and updating)
@@ -746,14 +801,14 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
  * @param      [options.small=false]      Use a smaller font-size
  * @param      [options.classes='']       Additionnal badge classes
  */
-dotclear.badge = ($elt, options = null) => {
+dotclear.badge = (elt, options = null) => {
   // Cope with selector given as string or DOM element rather than a jQuery object
-  if (typeof $elt === 'string' || $elt instanceof Element) {
-    $elt = $($elt);
+  if (typeof elt === 'string' || elt instanceof Element) {
+    elt = $(elt);
   }
 
   // Return if elt does not exist
-  if (!$elt.length) return;
+  if (!elt.length) return;
 
   // Cope with options
   const opt = Object.assign(
@@ -777,53 +832,31 @@ dotclear.badge = ($elt, options = null) => {
   const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
 
   // Set badgeable class to elt parent's (if sibling) or elt itself, if it is necessary
-  const $parent = opt.sibling ? $elt.parent() : $elt;
-  if (!opt.inline && !opt.remove && !$parent.hasClass('badgeable')) {
-    $parent.addClass('badgeable');
-  }
+  const parent = opt.sibling ? elt.parent() : elt;
+  if (!opt.inline && !opt.remove && !parent.hasClass('badgeable')) parent.addClass('badgeable');
 
   // Remove existing badge if exists
-  const $badge = opt.sibling ? $parent.children(classid) : $elt.children(classid);
-  if ($badge.length) {
-    $badge.remove();
-  }
+  const badge = opt.sibling ? parent.children(classid) : elt.children(classid);
+  if (badge.length) badge.remove();
 
-  // Add the new badge if any
-  if (!(!opt.remove && opt.value !== null)) {
-    return;
-  }
+  // Return if no new badge to add
+  if (!(!opt.remove && opt.value !== null)) return;
+
   // Compose badge classes
   const classes = ['badge'];
   classes.push(`badge-${opt.id}`);
   classes.push(opt.inline ? 'badge-inline' : 'badge-block');
-  if (opt.icon) {
-    classes.push('badge-icon');
-  }
-  if (opt.type) {
-    classes.push(`badge-${opt.type}`);
-  }
-  if (opt.left) {
-    classes.push('badge-left');
-  }
-  if (opt.noborder) {
-    classes.push('badge-noborder');
-  }
-  if (opt.small) {
-    classes.push('badge-small');
-  }
-  if (opt.classes) {
-    classes.push(`${opt.classes}`);
-  }
-  const cls = classes.join(' ');
+  if (opt.icon) classes.push('badge-icon');
+  if (opt.type) classes.push(`badge-${opt.type}`);
+  if (opt.left) classes.push('badge-left');
+  if (opt.noborder) classes.push('badge-noborder');
+  if (opt.small) classes.push('badge-small');
+  if (opt.classes) classes.push(`${opt.classes}`);
+
   // Compose badge
-  const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
-  if (opt.sibling) {
-    // Add badge after it's sibling
-    $elt.after(xml);
-  } else {
-    // Append badge to the elt
-    $elt.append(xml);
-  }
+  const xml = `<span class="${classes.join(' ')}" aria-hidden="true">${opt.value}</span>`;
+  if (opt.sibling) elt.after(xml);
+  else elt.append(xml);
 };
 
 /**
@@ -1067,8 +1100,11 @@ Object.assign(dotclear.msg, dotclear.getData('dotclear_msg'));
 dotclear.ready(() => {
   // DOM ready and content loaded
 
+  const body = document.querySelector('body');
+  const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
+
   // Set theme class
-  $('body').addClass(`${dotclear.data.theme}-mode`);
+  body.classList.add(`${dotclear.data.theme}-mode`);
   dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
   if (document.documentElement.getAttribute('data-theme') === '') {
     // Theme is set to automatic, keep an eye on system change
@@ -1078,9 +1114,9 @@ dotclear.ready(() => {
       if (theme === dotclear.data.theme) {
         return;
       }
-      $('body').removeClass(`${dotclear.data.theme}-mode`);
+      body.classList.remove(`${dotclear.data.theme}-mode`);
       dotclear.data.theme = theme;
-      $('body').addClass(`${dotclear.data.theme}-mode`);
+      body.classList.add(`${dotclear.data.theme}-mode`);
       document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
     };
     try {
@@ -1116,9 +1152,9 @@ dotclear.ready(() => {
       } else {
         theme = mutation.target.getAttribute('data-theme');
       }
-      $('body').removeClass(`${dotclear.data.theme}-mode`);
+      body.classList.remove(`${dotclear.data.theme}-mode`);
       dotclear.data.theme = theme;
-      $('body').addClass(`${dotclear.data.theme}-mode`);
+      body.classList.add(`${dotclear.data.theme}-mode`);
       document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
     }
   });
@@ -1126,17 +1162,16 @@ dotclear.ready(() => {
     attributeFilter: ['data-theme'],
   });
 
+  // Header double-click event
   if (dotclear.debug) {
     // debug mode: double click on header switch current theme
-    const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
     header.addEventListener('dblclick', (_e) => {
-      const elt = document.documentElement;
-      let { theme } = elt.dataset;
+      let { theme } = document.documentElement.dataset;
       if (theme == null || theme === '') {
         theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
       }
       // Set new theme, the application will be cope by the mutation observer (see above)
-      elt.dataset.theme = theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme === 'dark' ? 'light' : 'dark';
     });
   } else {
     // create canvas element (as sibling before #prelude if exist else before h1)
@@ -1146,40 +1181,47 @@ dotclear.ready(() => {
     canvas.height = 0;
     const sibling = document.querySelector('#prelude') ? document.querySelector('#prelude') : document.querySelector('h1');
     sibling.before(canvas);
-    const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
-    header.addEventListener('dblclick', (_e) => {
+    header.addEventListener('dblclick', () => {
       dotclear.easter();
     });
   }
 
-  // remove class no-js from html tag; cf style/default.css for examples
-  $('body').removeClass('no-js').addClass('with-js');
-  $('body')
-    .contents()
-    .each(function () {
-      if (this.nodeType != 8) {
-        return;
-      }
-      let { data } = this;
-      data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br>').replace(/\n/g, '<br>');
-      $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
-    });
+  // Remove class no-js from html tag; cf style/default.css for examples
+  body.classList.remove('no-js');
+  body.classList.add('with-js');
+
+  // Special management for first HTML comment found in markup (popover in footer), 1st level only
+  body.childNodes.forEach((child) => {
+    if (child.nodeType !== Node.COMMENT_NODE) {
+      return;
+    }
+    const data = child.data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br>').replace(/\n/g, '<br>');
+    const dcnet = document.querySelector('#footer a');
+    if (!dcnet) {
+      return;
+    }
+    const tooltip = document.createElement('span');
+    tooltip.classList.add('tooltip');
+    tooltip.setAttribute('aria-hidden', 'true');
+    tooltip.innerHTML = (dcnet.getAttribute('title') || '') + data;
+    dcnet.append(tooltip);
+  });
 
   // manage outgoing links
   dotclear.outgoingLinks('a');
 
   // Popups: dealing with Escape key fired
-  $('#dotclear-admin.popup').on('keyup', (e) => {
-    if (e.key != 'Escape') {
+  document.querySelector('#dotclear-admin.popup')?.addEventListener('keyup', (event) => {
+    if (event.key !== 'Escape') {
       return;
     }
-    e.preventDefault();
+    event.preventDefault();
     window.close();
     return false;
   });
 
   // Blog switcher
-  $('#switchblog').on('change', function () {
+  document.getElementById('switchblog')?.addEventListener('change', function () {
     this.form.submit();
   });
 
@@ -1215,7 +1257,8 @@ dotclear.ready(() => {
     }),
   );
 
-  $('#help').helpViewer();
+  // Help viewer
+  dotclear.helpViewer('#help');
 
   // Password helpers
   dotclear.passwordHelpers();
@@ -1239,27 +1282,27 @@ dotclear.ready(() => {
   }
 
   // Main menu collapser
-  const dcWrapper = document.getElementById('wrapper');
+  const wrapper = document.getElementById('wrapper');
   const hideMainMenu = 'hide_main_menu';
 
   // Sidebar separator
   document.getElementById('collapser')?.addEventListener('click', (event) => {
     event.preventDefault();
-    if (dcWrapper.classList.contains('hide-mm')) {
+    if (wrapper.classList.contains('hide-mm')) {
       // Show sidebar
-      dcWrapper.classList.remove('hide-mm');
+      wrapper.classList.remove('hide-mm');
       dotclear.dropLocalData(hideMainMenu);
       return;
     }
     // Hide sidebar
-    dcWrapper.classList.add('hide-mm');
+    wrapper.classList.add('hide-mm');
     dotclear.storeLocalData(hideMainMenu, true);
   });
   // Cope with current stored state of collapser
   if (dotclear.readLocalData(hideMainMenu) === true) {
-    dcWrapper.classList.add('hide-mm');
+    wrapper.classList.add('hide-mm');
   } else {
-    dcWrapper.classList.remove('hide-mm');
+    wrapper.classList.remove('hide-mm');
   }
 
   // Scroll to top management
