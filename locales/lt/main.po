@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-24 21:00+0100\n"
-"PO-Revision-Date: 2023-12-24 23:01\n"
+"PO-Revision-Date: 2023-12-25 09:40\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -5378,7 +5378,7 @@ msgstr "Dotclear atnaujinimo prietaisų skydelis"
 
 #: src/Process/Backend/Update.php:155
 msgid "Go to dedicated upgrade dashboard."
-msgstr ""
+msgstr "Eikite į specialų atnaujinimo prietaisų skydelį."
 
 #: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
 #, php-format
