@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 16:17\n"
+"POT-Creation-Date: 2023-12-24 21:00+0100\n"
+"PO-Revision-Date: 2023-12-24 23:08\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -1355,7 +1355,7 @@ msgstr "Abrir el soporte"
 msgid "The configuration has been updated."
 msgstr "Se ha actualizado la configuración."
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:238
+#: plugins/dcCKEditor/src/ManagePostConfig.php:234
 msgid "Note(s)"
 msgstr "Nota(s)"
 
@@ -1994,10 +1994,6 @@ msgstr "Recuento e índice"
 #: plugins/maintenance/src/BackendBehaviors.php:39
 msgid "Purge"
 msgstr "Purga"
-
-#: plugins/maintenance/src/BackendBehaviors.php:40
-msgid "Other"
-msgstr "Otros"
 
 #: plugins/maintenance/src/BackendBehaviors.php:41
 msgid "Current blog"

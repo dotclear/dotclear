@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 15:13+0100\n"
-"PO-Revision-Date: 2023-12-11 16:23\n"
+"POT-Creation-Date: 2023-12-24 21:00+0100\n"
+"PO-Revision-Date: 2023-12-24 23:09\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:329
-#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:495
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/User.php:225
+#: src/Process/Backend/UserPreferences.php:495
 #: src/Process/Install/Install.php:417
 msgid "medium"
 msgstr "माध्यम"
@@ -40,7 +40,7 @@ msgstr "चौकोर करना"
 #: src/Core/Backend/Action/ActionsPosts.php:71
 #: src/Core/Backend/Favorites.php:423 src/Core/Backend/Menus.php:167
 #: src/Core/Backend/UserPref.php:40 src/Core/Backend/UserPref.php:176
-#: src/Process/Backend/Post.php:528 src/Process/Backend/Post.php:541
+#: src/Process/Backend/Post.php:528 src/Process/Backend/Post.php:542
 #: src/Process/Backend/Posts.php:85 src/Process/Backend/Posts.php:90
 msgid "Posts"
 msgstr "पद"
@@ -91,9 +91,9 @@ msgstr "यह कुंजी डेटाबेस में मौजूद �
 
 #: src/Core/Backend/Action/Actions.php:158
 #: src/Core/Backend/Action/ActionsComments.php:159
-#: src/Core/Backend/Combos.php:277 src/Core/Backend/Listing/ListingPosts.php:89
+#: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:42
-#: src/Process/Backend/Home.php:431 src/Process/Backend/Post.php:713
+#: src/Process/Backend/Home.php:431 src/Process/Backend/Post.php:714
 msgid "Title"
 msgstr "शीर्षक"
 
@@ -104,7 +104,7 @@ msgstr "शीर्षक"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:429
+#: src/Process/Backend/BlogPref.php:432
 msgid "Blogs"
 msgstr "चिट्ठों"
 
@@ -121,10 +121,10 @@ msgstr "ब्लॉग क्रियाएँ"
 msgid "Blog id"
 msgstr "ब्लॉग आईडी"
 
-#: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:333
+#: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:55
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:138
-#: src/Process/Backend/BlogPref.php:482
+#: src/Process/Backend/BlogPref.php:485
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "ब्लॉग का नाम"
@@ -132,13 +132,13 @@ msgstr "ब्लॉग का नाम"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:34
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:35
 #: src/Core/Backend/Action/ActionsPostsDefault.php:49
-#: src/Core/Backend/Combos.php:280 src/Core/Backend/Combos.php:303
-#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingBlogs.php:59
+#: src/Core/Backend/Combos.php:282 src/Core/Backend/Combos.php:305
+#: src/Core/Backend/Combos.php:337 src/Core/Backend/Listing/ListingBlogs.php:59
 #: src/Core/Backend/Listing/ListingComments.php:114
 #: src/Core/Backend/Listing/ListingPosts.php:97
 #: src/Core/Backend/Listing/ListingPostsMini.php:45
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
-#: src/Process/Backend/Post.php:617 src/Process/Backend/Post.php:1063
+#: src/Process/Backend/Post.php:618 src/Process/Backend/Post.php:1064
 #: src/Process/Backend/UsersActions.php:234
 msgid "Status"
 msgstr "स्थिति"
@@ -164,7 +164,7 @@ msgstr "के रूप में सेट करें"
 #: src/Core/Backend/Listing/ListingMedia.php:203
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:311 src/Process/Backend/Langs.php:278
-#: src/Process/Backend/Post.php:801 src/Process/Backend/Users.php:42
+#: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
 msgid "Delete"
 msgstr "मिटाएँ"
@@ -188,7 +188,7 @@ msgid "Password verification failed"
 msgstr "कूटशब्द सत्यापन असफल"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:929
+#: src/Process/Backend/BlogPref.php:932
 msgid "The current blog cannot be deleted."
 msgstr "वर्तमान ब्लॉग को मिटाया नहीं जा सकता है."
 
@@ -207,8 +207,8 @@ msgstr[1] ""
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPosts.php:94 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:50
-#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:847
-#: src/Process/Backend/Post.php:856
+#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:848
+#: src/Process/Backend/Post.php:857
 msgid "Comments"
 msgstr "टिप्पणी"
 
@@ -221,13 +221,13 @@ msgid "Comments actions"
 msgstr "टिप्पणी क्रियाएँ"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
-#: src/Core/Backend/Combos.php:279 src/Core/Backend/Combos.php:302
+#: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
 #: src/Core/Backend/Listing/ListingComments.php:112
 #: src/Core/Backend/Listing/ListingPosts.php:92
 #: src/Core/Backend/Listing/ListingPostsMini.php:44
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Post.php:890
-#: src/Process/Backend/Post.php:1060
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:1061
 msgid "Author"
 msgstr "लेखक"
 
@@ -259,7 +259,7 @@ msgid "Blocklist IP (global)"
 msgstr "ब्लॉकलिस्ट आईपी (वैश्विक)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:72
-#: src/Process/Backend/Post.php:1062
+#: src/Process/Backend/Post.php:1063
 msgid "IP address"
 msgstr "आईपी पता"
 
@@ -407,7 +407,7 @@ msgstr "इस चयन के लिए श्रेणी बदलें"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:438
-#: src/Process/Backend/Post.php:653
+#: src/Process/Backend/Post.php:654
 msgid "Category:"
 msgstr "श्रेणी:"
 
@@ -417,25 +417,25 @@ msgstr "पोस्ट (ओं) के लिए एक नई श्रेण�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:445
-#: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:661
-#: src/Process/Backend/Post.php:709
+#: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:662
+#: src/Process/Backend/Post.php:710
 msgid "Title:"
 msgstr "शीर्षक:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:243 src/Process/Backend/Category.php:297
-#: src/Process/Backend/Home.php:447 src/Process/Backend/Post.php:663
+#: src/Process/Backend/Home.php:447 src/Process/Backend/Post.php:664
 msgid "Parent:"
 msgstr "जनक:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:914
+#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:917
 #: src/Process/Backend/Category.php:275 src/Process/Backend/Category.php:307
 #: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:307
 #: src/Process/Backend/Home.php:453 src/Process/Backend/MediaItem.php:1056
-#: src/Process/Backend/Post.php:779 src/Process/Backend/Post.php:915
+#: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:420 src/Process/Backend/UsersActions.php:356
 #: src/Process/Install/Install.php:498
 msgid "Save"
@@ -474,6 +474,7 @@ msgstr "इस चयन के लिए भाषा बदलें"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:563
 #: src/Core/Backend/Action/ActionsPostsDefault.php:567
 #: src/Core/Backend/Combos.php:136 src/Core/Backend/Combos.php:141
+#: src/Core/Backend/Combos.php:182
 msgid "Available"
 msgstr "उपलब्ध"
 
@@ -489,96 +490,100 @@ msgstr "सबसे अधिक प्रयुक्त"
 msgid "Entry language:"
 msgstr "प्रविष्टि भाषा:"
 
-#: src/Core/Backend/Combos.php:263 src/Process/Backend/UserPreferences.php:164
+#: src/Core/Backend/Combos.php:182
+msgid "Other"
+msgstr "अन्य"
+
+#: src/Core/Backend/Combos.php:265 src/Process/Backend/UserPreferences.php:164
 msgid "Descending"
 msgstr "अवरोहण"
 
-#: src/Core/Backend/Combos.php:264 src/Process/Backend/UserPreferences.php:165
+#: src/Core/Backend/Combos.php:266 src/Process/Backend/UserPreferences.php:165
 msgid "Ascending"
 msgstr "आरोही"
 
-#: src/Core/Backend/Combos.php:276 src/Core/Backend/Combos.php:299
+#: src/Core/Backend/Combos.php:278 src/Core/Backend/Combos.php:301
 #: src/Core/Backend/Listing/ListingComments.php:113
 #: src/Core/Backend/Listing/ListingMedia.php:87
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:43
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
-#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1061
+#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
 msgid "Date"
 msgstr "तिथि"
 
-#: src/Core/Backend/Combos.php:278 src/Core/Backend/Listing/ListingPosts.php:91
-#: src/Core/Backend/UserPref.php:43 src/Process/Backend/Post.php:652
+#: src/Core/Backend/Combos.php:280 src/Core/Backend/Listing/ListingPosts.php:91
+#: src/Core/Backend/UserPref.php:43 src/Process/Backend/Post.php:653
 msgid "Category"
 msgstr "श्रेणी"
 
-#: src/Core/Backend/Combos.php:281 src/Core/Backend/Filter/FilterPosts.php:202
+#: src/Core/Backend/Combos.php:283 src/Core/Backend/Filter/FilterPosts.php:202
 #: src/Core/Backend/Listing/ListingPosts.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:200
 #: src/Core/Backend/Listing/ListingPostsMini.php:116
 msgid "Selected"
 msgstr "चुना गया"
 
-#: src/Core/Backend/Combos.php:282
+#: src/Core/Backend/Combos.php:284
 msgid "Number of comments"
 msgstr "टिप्पणियों की संख्या"
 
-#: src/Core/Backend/Combos.php:283
+#: src/Core/Backend/Combos.php:285
 msgid "Number of trackbacks"
 msgstr "ट्रेकबैक की संख्या"
 
-#: src/Core/Backend/Combos.php:300
+#: src/Core/Backend/Combos.php:302
 msgid "Entry title"
 msgstr "प्रवेश शीर्षक"
 
-#: src/Core/Backend/Combos.php:301
+#: src/Core/Backend/Combos.php:303
 msgid "Entry date"
 msgstr "प्रविष्टि तिथि"
 
-#: src/Core/Backend/Combos.php:304
+#: src/Core/Backend/Combos.php:306
 #: src/Core/Backend/Listing/ListingComments.php:120
 #: src/Core/Backend/UserPref.php:56
 msgid "Spam filter"
 msgstr "स्पैम फिल्टर"
 
-#: src/Core/Backend/Combos.php:315
+#: src/Core/Backend/Combos.php:317
 #: src/Core/Backend/Listing/ListingComments.php:117
 #: src/Core/Backend/UserPref.php:55
 msgid "IP"
 msgstr "आईपी"
 
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingBlogs.php:58
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:58
 #: src/Core/Backend/UserPref.php:78
 msgid "Last update"
 msgstr "अंतिम अद्यतन"
 
-#: src/Core/Backend/Combos.php:334 src/Process/Backend/Blog.php:119
-#: src/Process/Backend/BlogPref.php:796
+#: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:119
+#: src/Process/Backend/BlogPref.php:799
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "ब्लॉग आईडी"
 
-#: src/Core/Backend/Combos.php:353 src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
 #: src/Process/Install/Install.php:478
 msgid "Username"
 msgstr "उपयोक्ता नाम"
 
-#: src/Core/Backend/Combos.php:354 src/Core/Backend/Listing/ListingUsers.php:55
+#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:55
 #: src/Core/Backend/UserPref.php:67
 msgid "Last Name"
 msgstr "अंतिम नाम"
 
-#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:54
+#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:54
 #: src/Core/Backend/UserPref.php:66
 msgid "First Name"
 msgstr "प्रथम नाम"
 
-#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:56
 #: src/Core/Backend/UserPref.php:68
 msgid "Display name"
 msgstr "प्रदर्शक नाम"
 
-#: src/Core/Backend/Combos.php:357
+#: src/Core/Backend/Combos.php:359
 msgid "Number of entries"
 msgstr "प्रविष्टियों की संख्या"
 
@@ -595,7 +600,7 @@ msgstr "मेरी वरीयताएँ"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
 #: src/Process/Backend/Home.php:427 src/Process/Backend/Post.php:70
-#: src/Process/Backend/Post.php:762 src/Process/Backend/Posts.php:101
+#: src/Process/Backend/Post.php:763 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "नया पोस्ट"
 
@@ -635,8 +640,8 @@ msgid "Media manager"
 msgstr "मीडिया प्रबंधक"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:422 src/Process/Backend/BlogPref.php:430
-#: src/Process/Backend/BlogPref.php:443
+#: src/Process/Backend/BlogPref.php:425 src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/BlogPref.php:446
 msgid "Blog settings"
 msgstr "ब्लॉग सेटिंग"
 
@@ -648,7 +653,7 @@ msgstr "ब्लॉग प्रकटन"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:944 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:947 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -682,15 +687,15 @@ msgid "Status:"
 msgstr "स्थिति:"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1002
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:983
-#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:894
+#: src/Process/Backend/Auth.php:370 src/Process/Backend/BlogPref.php:986
+#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:344 src/Process/Backend/UserPreferences.php:541
 #: src/Process/Install/Install.php:465
 msgid "Email:"
 msgstr "ईमेलः"
 
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1001
-#: src/Process/Backend/Comment.php:278 src/Process/Backend/Post.php:898
+#: src/Process/Backend/Comment.php:278 src/Process/Backend/Post.php:899
 msgid "Web site:"
 msgstr "वेब साइट:"
 
@@ -706,7 +711,7 @@ msgid "Type:"
 msgstr "प्रकार:"
 
 #: src/Core/Backend/Filter/FilterComments.php:71
-#: src/Process/Backend/Post.php:908
+#: src/Process/Backend/Post.php:909
 msgid "Comment"
 msgstr "टिप्पणी"
 
@@ -744,7 +749,7 @@ msgid "Format:"
 msgstr "प्रारूपः"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:457 src/Process/Backend/User.php:276
+#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:276
 #: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "पासवर्ड:"
@@ -923,7 +928,7 @@ msgid "No comments or trackbacks matches the filter"
 msgstr "कोई टिप्पणी या ट्रैकबैक मैच फिल्टर से मेल खाता है"
 
 #: src/Core/Backend/Listing/ListingComments.php:42
-#: src/Process/Backend/Comment.php:130 src/Process/Backend/Post.php:861
+#: src/Process/Backend/Comment.php:130 src/Process/Backend/Post.php:862
 msgid "No comments"
 msgstr "कोई टिप्पणी नहीं"
 
@@ -984,8 +989,8 @@ msgstr "प्रविष्टि"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:172
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/Post.php:475
-#: src/Process/Backend/Post.php:1082
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:936
+#: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
 msgid "Published"
 msgstr "प्रकाशित"
 
@@ -994,8 +999,8 @@ msgstr "प्रकाशित"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:177
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/Post.php:476
-#: src/Process/Backend/Post.php:1087
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:937
+#: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
 msgid "Unpublished"
 msgstr "अप्रकाशित"
 
@@ -1004,14 +1009,14 @@ msgstr "अप्रकाशित"
 #: src/Core/Backend/Listing/ListingPosts.php:128
 #: src/Core/Backend/Listing/ListingPosts.php:187
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/Post.php:478
-#: src/Process/Backend/Post.php:1092
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:939
+#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
 msgid "Pending"
 msgstr "लंबित"
 
 #: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingComments.php:202 src/Core/Blog.php:272
-#: src/Process/Backend/Post.php:1097
+#: src/Process/Backend/Post.php:1098
 msgid "Junk"
 msgstr "कचरा डाक"
 
@@ -1035,7 +1040,7 @@ msgid "Type and author"
 msgstr "प्रकार और लेखक"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/Post.php:1064 src/Process/Backend/Post.php:1135
+#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1136
 msgid "Edit"
 msgstr "संपादित करें"
 
@@ -1134,14 +1139,14 @@ msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingPosts.php:95
 #: src/Core/Backend/Listing/ListingPosts.php:96
-#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:938
+#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
 msgid "Trackbacks"
 msgstr "ट्रेकबैक"
 
 #: src/Core/Backend/Listing/ListingPosts.php:127
 #: src/Core/Backend/Listing/ListingPosts.php:182
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:938 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "अनुसूचित"
 
@@ -1226,7 +1231,7 @@ msgstr ""
 
 #: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:134
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
-#: src/Process/Backend/Post.php:874 src/Process/Backend/Post.php:966
+#: src/Process/Backend/Post.php:875 src/Process/Backend/Post.php:967
 #: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:244
 #: src/Process/Backend/Search.php:323 src/Process/Backend/Users.php:149
 msgid "ok"
@@ -1526,14 +1531,14 @@ msgstr "एक ज़िप फ़ाइल अपलोड करें"
 #: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
 #: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
 #: src/Process/Backend/Blog.php:122 src/Process/Backend/Blog.php:143
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:475
-#: src/Process/Backend/BlogPref.php:795 src/Process/Backend/BlogPref.php:800
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:798 src/Process/Backend/BlogPref.php:803
 #: src/Process/Backend/Category.php:233 src/Process/Backend/Comment.php:266
 #: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:435
 #: src/Process/Backend/Langs.php:312 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/Langs.php:335 src/Process/Backend/LinkPopup.php:58
-#: src/Process/Backend/Post.php:709 src/Process/Backend/Post.php:731
-#: src/Process/Backend/Post.php:887 src/Process/Backend/Post.php:902
+#: src/Process/Backend/Post.php:710 src/Process/Backend/Post.php:732
+#: src/Process/Backend/Post.php:888 src/Process/Backend/Post.php:903
 #: src/Process/Backend/User.php:256 src/Process/Backend/User.php:275
 #: src/Process/Backend/User.php:290 src/Process/Backend/User.php:410
 #: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
@@ -1557,7 +1562,7 @@ msgstr "आपका पासवर्ड:"
 
 #: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
 #: src/Process/Backend/Langs.php:318 src/Process/Backend/Langs.php:341
-#: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:283
+#: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:283
 #: src/Process/Backend/User.php:296 src/Process/Backend/User.php:416
 #: src/Process/Backend/UsersActions.php:352 src/Process/Install/Install.php:486
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
@@ -1739,7 +1744,7 @@ msgid "Invert selection"
 msgstr "चयन उलटें (n)"
 
 #: src/Core/Backend/Page.php:1005 src/Process/Backend/Post.php:440
-#: src/Process/Backend/Post.php:555
+#: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "प्रविष्टि सफलतापूर्वक बनाई गई है."
 
@@ -1965,12 +1970,12 @@ msgid "Choose files"
 msgstr "फ़ाइल चुनें"
 
 #: src/Core/Backend/Page.php:1172 src/Process/Backend/Blog.php:189
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:915
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:918
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Comment.php:308
 #: src/Process/Backend/LinkPopup.php:72 src/Process/Backend/Media.php:230
 #: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:733 src/Process/Backend/MediaItem.php:1097
-#: src/Process/Backend/Post.php:795 src/Process/Backend/Post.php:798
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Post.php:799
 #: src/Process/Backend/PostMedia.php:110 src/Process/Backend/Search.php:130
 #: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:793
@@ -2109,7 +2114,7 @@ msgstr "कोई प्रसंग आपकी खोज से मेल न
 msgid "Use this one"
 msgstr "इस एक का उपयोग करें"
 
-#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:794
+#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:795
 msgid "Preview"
 msgstr "पूर्वावलोकन"
 
@@ -2417,7 +2422,7 @@ msgstr "अपने ब्लॉग के लिए टेम्पलेट �
 msgid "Can't create template files."
 msgstr "टेम्पलेट फ़ाइल बना नहीं कर सकते हैं."
 
-#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:159
+#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
 #: src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
@@ -3106,7 +3111,7 @@ msgid "To reset your password visit the following address, otherwise just ignore
 msgstr "अपने पासवर्ड को रीसेट करने के लिए निम्न पते पर जाएं, अन्यथा इस ईमेल को अनदेखा करें और कुछ नहीं होगा."
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:446
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:440
 #: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
@@ -3155,102 +3160,78 @@ msgstr "प्रशासन सत्र समाप्त"
 msgid "Wrong username or password"
 msgstr "गलत उपयोगकर्ता नाम या कूटशब्द"
 
-#: src/Process/Backend/Auth.php:328 src/Process/Backend/Auth.php:329
-#: src/Process/Backend/Auth.php:330 src/Process/Backend/User.php:224
-#: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
-#: src/Process/Backend/UserPreferences.php:494
-#: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Backend/UserPreferences.php:496
-#: src/Process/Install/Install.php:416 src/Process/Install/Install.php:417
-#: src/Process/Install/Install.php:418
-#, php-format
-msgid "Password strength: %s"
-msgstr ""
-
-#: src/Process/Backend/Auth.php:328 src/Process/Backend/User.php:224
-#: src/Process/Backend/UserPreferences.php:494
-#: src/Process/Install/Install.php:416
-msgid "weak"
-msgstr "निर्बल"
-
-#: src/Process/Backend/Auth.php:330 src/Process/Backend/User.php:226
-#: src/Process/Backend/UserPreferences.php:496
-#: src/Process/Install/Install.php:418
-msgid "strong"
-msgstr "बलवान"
-
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:386
 msgid "Back to login screen"
 msgstr "वापस लॉगिन स्क्रीन पर"
 
-#: src/Process/Backend/Auth.php:363
+#: src/Process/Backend/Auth.php:357
 msgid "Request a new password"
 msgstr "नया पासवर्ड निवेदित करें"
 
-#: src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:380
 msgid "recover"
 msgstr "ठीक होना"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:489
+#: src/Process/Backend/Auth.php:385 src/Process/Backend/Auth.php:483
 msgid "Other option"
 msgstr "अन्य विकल्प"
 
-#: src/Process/Backend/Auth.php:398
+#: src/Process/Backend/Auth.php:392
 msgid "Change your password"
 msgstr "अपना पासवर्ड बदलें"
 
-#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:276
+#: src/Process/Backend/Auth.php:393 src/Process/Backend/User.php:276
 #: src/Process/Backend/UserPreferences.php:579
 #: src/Process/Install/Install.php:483
 msgid "New password:"
 msgstr "नया पासवर्ड:"
 
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:290
+#: src/Process/Backend/Auth.php:404 src/Process/Backend/User.php:290
 #: src/Process/Install/Install.php:490
 msgid "Confirm password:"
 msgstr "पासवर्ड की पुष्टि करें:"
 
-#: src/Process/Backend/Auth.php:419
+#: src/Process/Backend/Auth.php:413
 msgid "change"
 msgstr "परिवर्तन"
 
-#: src/Process/Backend/Auth.php:435
+#: src/Process/Backend/Auth.php:429
 msgid "Safe mode login"
 msgstr "सुरक्षित मोड लॉगिन"
 
-#: src/Process/Backend/Auth.php:437
+#: src/Process/Backend/Auth.php:431
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "यह मोड आपको आपके प्लगइन से किसी को सक्रिय किए बिना लॉगिन करने देता है. यह संगतता समस्याओं को हल करने के लिए उपयोगी हो सकता है"
 
-#: src/Process/Backend/Auth.php:438
+#: src/Process/Backend/Auth.php:432
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "अद्यतन, अक्षम या किसी भी प्लगइन को मुसीबत का कारण होने के लिए, फिर लॉग आउट और सामान्य रूप से वापस लॉग इन करने के लिए हटाएँ."
 
-#: src/Process/Backend/Auth.php:467 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:461 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "इस उपकरण पर मेरे आईडी याद रखें"
 
-#: src/Process/Backend/Auth.php:468 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:462 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "लॉग इन"
 
-#: src/Process/Backend/Auth.php:483 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:477 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "निजी क्षेत्र का उपयोग करने के लिए आपको कुकीज़ को स्वीकार करना होगा."
 
-#: src/Process/Backend/Auth.php:490
+#: src/Process/Backend/Auth.php:484
 msgid "Get back to normal authentication"
 msgstr "सामान्य सत्यापन के लिए वापस जाओ"
 
-#: src/Process/Backend/Auth.php:493
+#: src/Process/Backend/Auth.php:487
 msgid "Connection issue?"
 msgstr "कनेक्शन मुद्दा?"
 
-#: src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:490
 msgid "I forgot my password"
 msgstr "मैं अपना पासवर्ड भूल गया"
 
-#: src/Process/Backend/Auth.php:499
+#: src/Process/Backend/Auth.php:493
 msgid "I want to log in in safe mode"
 msgstr "मैं सुरक्षित मोड में लॉग करना चाहते हैं"
 
@@ -3264,7 +3245,7 @@ msgid "New blog"
 msgstr "नया ब्लॉग"
 
 #: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
-#: src/Process/Backend/BlogPref.php:428 src/Process/Backend/Blogs.php:100
+#: src/Process/Backend/BlogPref.php:431 src/Process/Backend/Blogs.php:100
 #: src/Process/Backend/Langs.php:215 src/Process/Backend/Plugin.php:134
 #: src/Process/Backend/Plugins.php:105 src/Process/Backend/Update.php:36
 #: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
@@ -3274,28 +3255,28 @@ msgstr "नया ब्लॉग"
 msgid "System"
 msgstr "तंत्र"
 
-#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:795
+#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:798
 msgid "Blog ID:"
 msgstr "ब्लॉग आईडी:"
 
-#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:797
+#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:800
 #: src/Process/Backend/User.php:263
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "कम से कम 2 अक्षर अक्षरों, संख्याओं या प्रतीकों का उपयोग करते हुए."
 
-#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:475
+#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:478
 msgid "Blog name:"
 msgstr "ब्लॉग का नाम:"
 
-#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:805
+#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:808
 msgid "Blog URL"
 msgstr "ब्लॉग यूआरएल"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:800
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:803
 msgid "Blog URL:"
 msgstr "ब्लॉग यूआरएलः"
 
-#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:485
+#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:488
 msgid "Blog description:"
 msgstr "ब्लॉग विवरण:"
 
@@ -3329,7 +3310,7 @@ msgstr ""
 msgid "Please give your password to confirm the blog deletion."
 msgstr "ब्लॉग विलोपन की पुष्टि करने के लिए कृपया अपना पासवर्ड दें."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:923
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:926
 msgid "Delete this blog"
 msgstr "इस ब्लॉग को मिटाएँ"
 
@@ -3377,7 +3358,7 @@ msgstr "H3"
 msgid "P"
 msgstr "पी"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:984
+#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:987
 #: src/Process/Backend/Category.php:245 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:617
 msgid "(none)"
@@ -3399,455 +3380,455 @@ msgstr "विवरण, देश, दिनांक"
 msgid "Description, City, Country, Date"
 msgstr "विवरण, शहर, देश, दिनांक"
 
-#: src/Process/Backend/BlogPref.php:179 src/Process/Backend/MediaItem.php:514
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
 #: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:824
 msgid "original"
 msgstr "मूल"
 
-#: src/Process/Backend/BlogPref.php:190 src/Process/Backend/BlogPref.php:200
+#: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
 #: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
 #: src/Process/Backend/MediaItem.php:659 src/Process/Backend/MediaItem.php:701
 msgid "None"
 msgstr "कुछ नहीं"
 
-#: src/Process/Backend/BlogPref.php:191 src/Process/Backend/MediaItem.php:625
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
 #: src/Process/Backend/MediaItem.php:660 src/Process/Backend/MediaItem.php:702
 msgid "Left"
 msgstr "बायाँ"
 
-#: src/Process/Backend/BlogPref.php:192 src/Process/Backend/MediaItem.php:626
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
 #: src/Process/Backend/MediaItem.php:661 src/Process/Backend/MediaItem.php:703
 msgid "Right"
 msgstr "दाहिना"
 
-#: src/Process/Backend/BlogPref.php:193 src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
 #: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:704
 msgid "Center"
 msgstr "केंद्र"
 
-#: src/Process/Backend/BlogPref.php:198 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:600
 msgid "Legend and alternate text"
 msgstr "किंवदंती और वैकल्पिक पाठ"
 
-#: src/Process/Backend/BlogPref.php:199 src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:606
 msgid "Alternate text"
 msgstr "वैकल्पिक पाठ"
 
-#: src/Process/Backend/BlogPref.php:205
+#: src/Process/Backend/BlogPref.php:208
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "मैं खोज इंजन और पुरालेख के लिए अपने ब्लॉग की सामग्री का संग्रह करने के लिए खोज इंजन की तरह होगा."
 
-#: src/Process/Backend/BlogPref.php:206
+#: src/Process/Backend/BlogPref.php:209
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "मैं खोज इंजन और पुरालेख के लिए लेख की तरह होगा लेकिन मेरे ब्लॉग की सामग्री का संग्रह नहीं है."
 
-#: src/Process/Backend/BlogPref.php:207
+#: src/Process/Backend/BlogPref.php:210
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "मैं खोज इंजन और अनुक्रमण से बचने या मेरे ब्लॉग की सामग्री संग्रहित करने से रोकने के लिए करना चाहते हैं."
 
-#: src/Process/Backend/BlogPref.php:212
+#: src/Process/Backend/BlogPref.php:215
 #: src/Process/Backend/UserPreferences.php:126
 msgid "Default"
 msgstr "डिफ़ॉल्ट"
 
-#: src/Process/Backend/BlogPref.php:224
+#: src/Process/Backend/BlogPref.php:227
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: src/Process/Backend/BlogPref.php:225
+#: src/Process/Backend/BlogPref.php:228
 msgid "Three months"
 msgstr "तीन महीने"
 
-#: src/Process/Backend/BlogPref.php:226
+#: src/Process/Backend/BlogPref.php:229
 msgid "Six months"
 msgstr "छह महीने"
 
-#: src/Process/Backend/BlogPref.php:227
+#: src/Process/Backend/BlogPref.php:230
 msgid "One year"
 msgstr "एक वर्ष"
 
-#: src/Process/Backend/BlogPref.php:228
+#: src/Process/Backend/BlogPref.php:231
 msgid "Two years"
 msgstr "दो साल"
 
-#: src/Process/Backend/BlogPref.php:309
+#: src/Process/Backend/BlogPref.php:312
 msgid "This blog ID is already used."
 msgstr "इस ब्लॉग आईडी पहले से ही उपयोग किया जाता है."
 
-#: src/Process/Backend/BlogPref.php:317
+#: src/Process/Backend/BlogPref.php:320
 msgid "Invalid language code"
 msgstr "अवैध भाषा कोड"
 
-#: src/Process/Backend/BlogPref.php:397 src/Process/Backend/BlogPref.php:466
+#: src/Process/Backend/BlogPref.php:400 src/Process/Backend/BlogPref.php:469
 msgid "Blog has been successfully updated."
 msgstr "ब्लॉग को सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Process/Backend/BlogPref.php:445
+#: src/Process/Backend/BlogPref.php:448
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "चेतावनी: विशेष कॉन्फिगरेशन के अलावा, इसे आम तौर पर इस बात की सलाह दी जाती है कि आपके ब्लॉग URL में PATH_INFO MODE में एक पीछे \"/\" है."
 
-#: src/Process/Backend/BlogPref.php:446
+#: src/Process/Backend/BlogPref.php:449
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "चेतावनी: विशेष कॉन्फिगरेशन के अलावा, इसे आम तौर पर एक पीछे से \"पीछे\" करने की सलाह दी जाती है? \" आपके ब्लॉग में QUYY_STRING मोड में."
 
-#: src/Process/Backend/BlogPref.php:462
+#: src/Process/Backend/BlogPref.php:465
 msgid "Blog has been successfully created."
 msgstr "ब्लॉग को सफलतापूर्वक बनाया गया है."
 
-#: src/Process/Backend/BlogPref.php:470
+#: src/Process/Backend/BlogPref.php:473
 msgid "Parameters"
 msgstr "पैरामीटर्स"
 
-#: src/Process/Backend/BlogPref.php:471 src/Process/Backend/Media.php:564
+#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:564
 msgid "Blog parameters"
 msgstr "ब्लॉग पैरामीटर"
 
-#: src/Process/Backend/BlogPref.php:473 src/Process/Backend/BlogPref.php:793
+#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/BlogPref.php:796
 msgid "Blog details"
 msgstr "ब्लॉग विवरण"
 
-#: src/Process/Backend/BlogPref.php:498
+#: src/Process/Backend/BlogPref.php:501
 msgid "Blog status:"
 msgstr "ब्लॉग स्थिति:"
 
-#: src/Process/Backend/BlogPref.php:514 src/Process/Backend/BlogPref.php:856
+#: src/Process/Backend/BlogPref.php:517 src/Process/Backend/BlogPref.php:859
 msgid "Blog configuration"
 msgstr "ब्लॉग कॉन्फ़िगरेशन"
 
-#: src/Process/Backend/BlogPref.php:515
+#: src/Process/Backend/BlogPref.php:518
 msgid "Blog editor name:"
 msgstr "ब्लॉग संपादक का नाम:"
 
-#: src/Process/Backend/BlogPref.php:518
+#: src/Process/Backend/BlogPref.php:521
 msgid "Default language:"
 msgstr "डिफ़ॉल्ट भाषा:"
 
-#: src/Process/Backend/BlogPref.php:521
+#: src/Process/Backend/BlogPref.php:524
 msgid "Blog timezone:"
 msgstr "ब्लॉग समय क्षेत्र:"
 
-#: src/Process/Backend/BlogPref.php:524
+#: src/Process/Backend/BlogPref.php:527
 msgid "Copyright notice:"
 msgstr "कॉपीराइट सूचना:"
 
-#: src/Process/Backend/BlogPref.php:537 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:540 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "टिप्पणी और ट्रेकबैक"
 
-#: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Post.php:678
+#: src/Process/Backend/BlogPref.php:546 src/Process/Backend/Post.php:679
 msgid "Accept comments"
 msgstr "टिप्पणियाँ स्वीकारें"
 
-#: src/Process/Backend/BlogPref.php:546
+#: src/Process/Backend/BlogPref.php:549
 msgid "Moderate comments"
 msgstr "सामान्य टिप्पणी"
 
-#: src/Process/Backend/BlogPref.php:548
+#: src/Process/Backend/BlogPref.php:551
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:559 src/Process/Backend/BlogPref.php:587
+#: src/Process/Backend/BlogPref.php:562 src/Process/Backend/BlogPref.php:590
 msgid "No limit: leave blank."
 msgstr "कोई सीमा नहीं: खाली छोड़ दें."
 
-#: src/Process/Backend/BlogPref.php:562
+#: src/Process/Backend/BlogPref.php:565
 msgid "Wiki syntax for comments"
 msgstr "टिप्पणियों के लिए विकि वाक्यविन्यास"
 
-#: src/Process/Backend/BlogPref.php:565
+#: src/Process/Backend/BlogPref.php:568
 msgid "Preview of comment before submit is not mandatory"
 msgstr "प्रस्तुत करने से पहले टिप्पणी का पूर्वावलोकन अनिवार्य नहीं है"
 
-#: src/Process/Backend/BlogPref.php:571 src/Process/Backend/Post.php:686
+#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/Post.php:687
 msgid "Accept trackbacks"
 msgstr "ट्रैकबैक स्वीकारें"
 
-#: src/Process/Backend/BlogPref.php:574
+#: src/Process/Backend/BlogPref.php:577
 msgid "Moderate trackbacks"
 msgstr "मध्यम की हल्की-सीमा"
 
-#: src/Process/Backend/BlogPref.php:576
+#: src/Process/Backend/BlogPref.php:579
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:590
+#: src/Process/Backend/BlogPref.php:593
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "टिप्पणी और ट्रैकबैक लिंक पर \"नोअनुवर्ती\" संबंध जोड़ें"
 
-#: src/Process/Backend/BlogPref.php:594
+#: src/Process/Backend/BlogPref.php:597
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "नए पदों के बिना समय की अवधि के बाद ब्लॉग पर सभी टिप्पणी और ट्रेकबैक अक्षम करें:"
 
-#: src/Process/Backend/BlogPref.php:601
+#: src/Process/Backend/BlogPref.php:604
 msgid "Blog presentation"
 msgstr "ब्लॉग प्रस्तुति"
 
-#: src/Process/Backend/BlogPref.php:604
+#: src/Process/Backend/BlogPref.php:607
 msgid "Date format:"
 msgstr "तिथि फार्मेटः"
 
-#: src/Process/Backend/BlogPref.php:606
+#: src/Process/Backend/BlogPref.php:609
 msgid "Pattern of date"
 msgstr "दिनांक का स्वरूप"
 
-#: src/Process/Backend/BlogPref.php:608 src/Process/Backend/BlogPref.php:614
-#: src/Process/Backend/BlogPref.php:861
+#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/BlogPref.php:617
+#: src/Process/Backend/BlogPref.php:864
 msgid "Sample:"
 msgstr "नमूना:"
 
-#: src/Process/Backend/BlogPref.php:610
+#: src/Process/Backend/BlogPref.php:613
 msgid "Time format:"
 msgstr "समय प्रारूप:"
 
-#: src/Process/Backend/BlogPref.php:612
+#: src/Process/Backend/BlogPref.php:615
 msgid "Pattern of time"
 msgstr "समय की बानगी"
 
-#: src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:621
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "मानक स्टाइलशीट लोड नहीं करें (मीडिया लकीर के लिए उपयोग किया जाता है)"
 
-#: src/Process/Backend/BlogPref.php:622
+#: src/Process/Backend/BlogPref.php:625
 msgid "Display smilies on entries and comments"
 msgstr "प्रविष्टियों और टिप्पणियों पर स्माइली प्रदर्शित करें (s)"
 
-#: src/Process/Backend/BlogPref.php:626
+#: src/Process/Backend/BlogPref.php:629
 msgid "Disable internal search system"
 msgstr "आंतरिक खोज प्रणाली अक्षम करें"
 
-#: src/Process/Backend/BlogPref.php:633
+#: src/Process/Backend/BlogPref.php:636
 #, php-format
 msgid "Display %s entries on first page"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:645
+#: src/Process/Backend/BlogPref.php:648
 #, php-format
 msgid "Display %s entries per page"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:657
+#: src/Process/Backend/BlogPref.php:660
 #, php-format
 msgid "Display %s entries per feed"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:669
+#: src/Process/Backend/BlogPref.php:672
 #, php-format
 msgid "Display %s comments per feed"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:682
+#: src/Process/Backend/BlogPref.php:685
 msgid "Truncate feeds"
 msgstr "फीड काट रहा है"
 
-#: src/Process/Backend/BlogPref.php:686
+#: src/Process/Backend/BlogPref.php:689
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "श्रेणी पृष्ठ और श्रेणी पोस्ट फ़ीड में उप-श्रेणियों को शामिल करें"
 
-#: src/Process/Backend/BlogPref.php:695
+#: src/Process/Backend/BlogPref.php:698
 msgid "Display an entry as static home page"
 msgstr "स्थिर घर पृष्ठ के रूप में प्रविष्टि प्रदर्शित करें"
 
-#: src/Process/Backend/BlogPref.php:697
+#: src/Process/Backend/BlogPref.php:700
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "प्रविष्टि यूआरएल (इसकी सामग्री स्थिर घर पृष्ठ के लिए इस्तेमाल किया जाएगा):"
 
-#: src/Process/Backend/BlogPref.php:699
+#: src/Process/Backend/BlogPref.php:702
 msgid "Choose an entry"
 msgstr "प्रविष्टि चुनें"
 
-#: src/Process/Backend/BlogPref.php:701
+#: src/Process/Backend/BlogPref.php:704
 msgid "Leave empty to use the default presentation."
 msgstr "डिफ़ॉल्ट प्रस्तुति का उपयोग करने के लिए खाली छोड़ें."
 
-#: src/Process/Backend/BlogPref.php:705
+#: src/Process/Backend/BlogPref.php:708
 msgid "Media and images"
 msgstr "मीडिया और छवियाँ"
 
-#: src/Process/Backend/BlogPref.php:707
+#: src/Process/Backend/BlogPref.php:710
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "कृपया ध्यान दें कि यदि आप वर्तमान सेटिंग्स बेलो को बदल देते हैं, वे अब मीडिया प्रबंधक में सभी नई छवियों के लिए आवेदन करेंगे."
 
-#: src/Process/Backend/BlogPref.php:708
+#: src/Process/Backend/BlogPref.php:711
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "यदि आप इसे अपने संस्थापन में अन्य ब्लॉगों के साथ साझा करें तो पूरी तरह ध्यान रखें."
 
-#: src/Process/Backend/BlogPref.php:709
+#: src/Process/Backend/BlogPref.php:712
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "सेट -1 डिफ़ॉल्ट आकार का उपयोग करने के लिए, सेट 0 इस थंबनेल आकार (केवल छवियों को अनदेखा करने के लिए)."
 
-#: src/Process/Backend/BlogPref.php:713
+#: src/Process/Backend/BlogPref.php:716
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "छवि आकार उत्पन्न करें (पिक्सेल में अधिकतम आयाम)"
 
-#: src/Process/Backend/BlogPref.php:714
+#: src/Process/Backend/BlogPref.php:717
 msgid "Thumbnail"
 msgstr "लघु छवि"
 
-#: src/Process/Backend/BlogPref.php:722
+#: src/Process/Backend/BlogPref.php:725
 msgid "Small"
 msgstr "छोटा"
 
-#: src/Process/Backend/BlogPref.php:730
+#: src/Process/Backend/BlogPref.php:733
 msgid "Medium"
 msgstr "मध्यम"
 
-#: src/Process/Backend/BlogPref.php:738
+#: src/Process/Backend/BlogPref.php:741
 msgid "Default size of the inserted video (in pixels)"
 msgstr "घुले गए वीडियो का तयशुदा आकार (पिक्सेल में)"
 
-#: src/Process/Backend/BlogPref.php:739
+#: src/Process/Backend/BlogPref.php:742
 msgid "Width"
 msgstr "चौड़ाई"
 
-#: src/Process/Backend/BlogPref.php:747
+#: src/Process/Backend/BlogPref.php:750
 msgid "Height"
 msgstr "ऊँचाई"
 
-#: src/Process/Backend/BlogPref.php:757
+#: src/Process/Backend/BlogPref.php:760
 msgid "Default image insertion attributes"
 msgstr "डिफ़ॉल्ट छवि प्रविष्टि गुण"
 
-#: src/Process/Backend/BlogPref.php:758
+#: src/Process/Backend/BlogPref.php:761
 msgid "Inserted image legend:"
 msgstr "प्रविष्ट छवि कथाएं:"
 
-#: src/Process/Backend/BlogPref.php:762
+#: src/Process/Backend/BlogPref.php:765
 msgid "Use original media date if possible"
 msgstr "यदि संभव हो तो मूल मीडिया तिथि का उपयोग"
 
-#: src/Process/Backend/BlogPref.php:765
+#: src/Process/Backend/BlogPref.php:768
 msgid "Do not display date if alone in title"
 msgstr "यदि केवल शीर्षक में अकेले तिथि प्रदर्शित करें (r)"
 
-#: src/Process/Backend/BlogPref.php:766
+#: src/Process/Backend/BlogPref.php:769
 msgid "It is retrieved from the picture's metadata."
 msgstr "यह चित्र के मेटाडाटा से प्राप्त किया जाता है।"
 
-#: src/Process/Backend/BlogPref.php:768
+#: src/Process/Backend/BlogPref.php:771
 msgid "Size of inserted image:"
 msgstr "प्रवेशित छवि का आकार:"
 
-#: src/Process/Backend/BlogPref.php:775
+#: src/Process/Backend/BlogPref.php:778
 msgid "Image alignment:"
 msgstr "छवि पंक्तिकरण:"
 
-#: src/Process/Backend/BlogPref.php:780
+#: src/Process/Backend/BlogPref.php:783
 msgid "Insert a link to the original image"
 msgstr "मूल छवि के लिए लिंक प्रविष्ट करें"
 
-#: src/Process/Backend/BlogPref.php:781
+#: src/Process/Backend/BlogPref.php:784
 msgid "Image legend and alternate text:"
 msgstr "छवि किंवदंती और वैकल्पिक पाठ:"
 
-#: src/Process/Backend/BlogPref.php:790
+#: src/Process/Backend/BlogPref.php:793
 msgid "Advanced parameters"
 msgstr "उन्नत पैरामीटर"
 
-#: src/Process/Backend/BlogPref.php:798
+#: src/Process/Backend/BlogPref.php:801
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "कृपया ध्यान दें कि आपके ब्लॉग आईडी को बदलने के लिए आपकी सार्वजनिक निर्देशिका .php फ़ाइल में परिवर्तन की आवश्यकता हो सकती है."
 
-#: src/Process/Backend/BlogPref.php:809
+#: src/Process/Backend/BlogPref.php:812
 msgid "URL scan method:"
 msgstr "यूआरएल स्कैन विधि:"
 
-#: src/Process/Backend/BlogPref.php:832
+#: src/Process/Backend/BlogPref.php:835
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:843
+#: src/Process/Backend/BlogPref.php:846
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:858
+#: src/Process/Backend/BlogPref.php:861
 msgid "New post URL format:"
 msgstr "नया पोस्ट URL प्रारूप:"
 
-#: src/Process/Backend/BlogPref.php:861
+#: src/Process/Backend/BlogPref.php:864
 msgid "Dotclear"
 msgstr "डॉल साफ"
 
-#: src/Process/Backend/BlogPref.php:864
+#: src/Process/Backend/BlogPref.php:867
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "ब्लॉग पर नोट्स के शीर्षक के लिए एचटीएमएल टैग:"
 
-#: src/Process/Backend/BlogPref.php:871
+#: src/Process/Backend/BlogPref.php:874
 msgid "Search engines robots policy"
 msgstr "खोज इंजन रोबोट्स पॉलिसी"
 
-#: src/Process/Backend/BlogPref.php:884
+#: src/Process/Backend/BlogPref.php:887
 msgid "jQuery javascript library"
 msgstr "JQ Jaavascript लाइब्रेरी"
 
-#: src/Process/Backend/BlogPref.php:887
+#: src/Process/Backend/BlogPref.php:890
 msgid "Load the jQuery library"
 msgstr "जेक्वेरी लाइब्रेरी लोड करें"
 
-#: src/Process/Backend/BlogPref.php:889
+#: src/Process/Backend/BlogPref.php:892
 msgid "jQuery version to be loaded for this blog:"
 msgstr "जेक्वेरी संस्करण इस ब्लॉग के लिए लोड किया जा करने के लिए:"
 
-#: src/Process/Backend/BlogPref.php:895
+#: src/Process/Backend/BlogPref.php:898
 msgid "Blog security"
 msgstr "ब्लॉग सुरक्षा"
 
-#: src/Process/Backend/BlogPref.php:899
+#: src/Process/Backend/BlogPref.php:902
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:907
+#: src/Process/Backend/BlogPref.php:910
 msgid "Plugins parameters"
 msgstr "प्लग इन पैरामीटर्स"
 
-#: src/Process/Backend/BlogPref.php:931
+#: src/Process/Backend/BlogPref.php:934
 msgid "Only superadmin can delete a blog."
 msgstr "केवल सुपरप्रशासक एक ब्लॉग को मिटा सकता है."
 
-#: src/Process/Backend/BlogPref.php:945
+#: src/Process/Backend/BlogPref.php:948
 msgid "Users on this blog"
 msgstr "इस ब्लॉग पर उपयोगकर्ता"
 
-#: src/Process/Backend/BlogPref.php:948
+#: src/Process/Backend/BlogPref.php:951
 msgid "No users"
 msgstr "कोई उपयोक्ता नहीं"
 
-#: src/Process/Backend/BlogPref.php:989
+#: src/Process/Backend/BlogPref.php:992
 msgid "Publications on this blog:"
 msgstr "इस ब्लॉग पर प्रकाशन:"
 
-#: src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/BlogPref.php:999
 #, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:1001
+#: src/Process/Backend/BlogPref.php:1004
 msgid "Permissions:"
 msgstr "अनुमतियाँ:"
 
-#: src/Process/Backend/BlogPref.php:1004 src/Process/Backend/User.php:320
+#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/User.php:320
 msgid "Super administrator"
 msgstr "सुपर प्रशासक"
 
-#: src/Process/Backend/BlogPref.php:1005
+#: src/Process/Backend/BlogPref.php:1008
 msgid "All rights on all blogs."
 msgstr "सभी ब्लॉग पर सभी अधिकार."
 
-#: src/Process/Backend/BlogPref.php:1011
+#: src/Process/Backend/BlogPref.php:1014
 #: src/Process/Backend/UsersActions.php:337
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:1015
+#: src/Process/Backend/BlogPref.php:1018
 msgid "All rights on this blog."
 msgstr "इस ब्लॉग पर सभी अधिकार."
 
-#: src/Process/Backend/BlogPref.php:1026 src/Process/Backend/User.php:470
+#: src/Process/Backend/BlogPref.php:1029 src/Process/Backend/User.php:470
 msgid "Change permissions"
 msgstr "अनुमतियाँ बदलें"
 
@@ -4071,7 +4052,7 @@ msgstr "श्रेणी को सफलतापूर्वक अद्य
 msgid "Category information"
 msgstr "श्रेणी सूचना"
 
-#: src/Process/Backend/Category.php:233 src/Process/Backend/Post.php:887
+#: src/Process/Backend/Category.php:233 src/Process/Backend/Post.php:888
 msgid "Name:"
 msgstr "नाम:"
 
@@ -4115,7 +4096,7 @@ msgstr "स्थिति: "
 msgid "Entry does not exist."
 msgstr "प्रविष्टि मौजूद नहीं है."
 
-#: src/Process/Backend/Comment.php:90 src/Process/Backend/Post.php:563
+#: src/Process/Backend/Comment.php:90 src/Process/Backend/Post.php:564
 msgid "Comment has been successfully created."
 msgstr "टिप्पणी सफलतापूर्वक बनाई गई है."
 
@@ -4163,7 +4144,7 @@ msgstr "तारीख़ः"
 msgid "Comment submitted"
 msgstr "टिप्पणी प्रस्तुत"
 
-#: src/Process/Backend/Comment.php:293 src/Process/Backend/Post.php:903
+#: src/Process/Backend/Comment.php:293 src/Process/Backend/Post.php:904
 msgid "Comment:"
 msgstr "टिप्पणी:"
 
@@ -4192,7 +4173,7 @@ msgstr "उन्हें दिखाओ."
 msgid "Delete all spams"
 msgstr "सभी spams मिटाएँ"
 
-#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:869
+#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:870
 #: src/Process/Backend/Search.php:321
 msgid "Selected comments action:"
 msgstr "चुने गए टिप्पणियों क्रिया:"
@@ -4267,15 +4248,15 @@ msgstr "त्रुटियाँ निम्नलिखित प्लग-
 msgid "Quick post"
 msgstr "त्वरित पोस्ट"
 
-#: src/Process/Backend/Home.php:435 src/Process/Backend/Post.php:731
+#: src/Process/Backend/Home.php:435 src/Process/Backend/Post.php:732
 msgid "Content:"
 msgstr "सामग्री:"
 
-#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:738
+#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:739
 msgid "Content"
 msgstr "सामग्री"
 
-#: src/Process/Backend/Home.php:444 src/Process/Backend/Post.php:660
+#: src/Process/Backend/Home.php:444 src/Process/Backend/Post.php:661
 msgid "Add a new category"
 msgstr "नया वर्ग जोड़ें"
 
@@ -4763,22 +4744,6 @@ msgstr "इस मीडिया में प्रविष्टियाँ
 msgid "No entry seems contain this media."
 msgstr "इस मीडिया में कोई प्रविष्टि नहीं दिखाई देती है।"
 
-#: src/Process/Backend/MediaItem.php:936
-msgid "published"
-msgstr "प्रकाशित"
-
-#: src/Process/Backend/MediaItem.php:937
-msgid "unpublished"
-msgstr "अप्रकाशित"
-
-#: src/Process/Backend/MediaItem.php:938
-msgid "scheduled"
-msgstr "निर्धारित"
-
-#: src/Process/Backend/MediaItem.php:939
-msgid "pending"
-msgstr "लंबित"
-
 #: src/Process/Backend/MediaItem.php:956
 msgid "Image details"
 msgstr "छवि विवरण"
@@ -4945,8 +4910,8 @@ msgstr "कुछ फंक्शन अक्षम हैं, कृपया 
 msgid "Plugin configuration"
 msgstr "प्लगइन कॉन्फ़िगरेशन"
 
-#: src/Process/Backend/Post.php:131 src/Process/Backend/Post.php:762
-#: src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:131 src/Process/Backend/Post.php:763
+#: src/Process/Backend/Post.php:768
 msgid "Edit post"
 msgstr "पोस्ट संपादित करें"
 
@@ -4962,7 +4927,7 @@ msgstr "अगला प्रविष्टि"
 msgid "Previous entry"
 msgstr "पिछला प्रविष्टि"
 
-#: src/Process/Backend/Post.php:266 src/Process/Backend/Post.php:566
+#: src/Process/Backend/Post.php:266 src/Process/Backend/Post.php:567
 msgid "All pings sent."
 msgstr "सभी pings भेजे गए."
 
@@ -4980,147 +4945,147 @@ msgstr ""
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-#: src/Process/Backend/Post.php:553
+#: src/Process/Backend/Post.php:554
 msgid "Entry has been successfully updated."
 msgstr "प्रविष्टि सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Process/Backend/Post.php:557
+#: src/Process/Backend/Post.php:558
 msgid "File has been successfully attached."
 msgstr "फ़ाइल को सफलतापूर्वक संलग्न किया गया है."
 
-#: src/Process/Backend/Post.php:559 src/Process/Backend/PostMedia.php:87
+#: src/Process/Backend/Post.php:560 src/Process/Backend/PostMedia.php:87
 msgid "Attachment has been successfully removed."
 msgstr "संलग्नक सफलतापूर्वक हटा दिया गया है."
 
-#: src/Process/Backend/Post.php:575
+#: src/Process/Backend/Post.php:576
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "अपने पोस्ट को बचाने के द्वारा अपने XHTML रूपांतरण को वैध बनाने के लिए मत भूलना."
 
-#: src/Process/Backend/Post.php:580
+#: src/Process/Backend/Post.php:581
 msgid "Go to this entry on the site"
 msgstr "साइट पर इस प्रविष्टि पर जाएँ"
 
-#: src/Process/Backend/Post.php:619
+#: src/Process/Backend/Post.php:620
 msgid "Entry status"
 msgstr "प्रवेश स्थिति"
 
-#: src/Process/Backend/Post.php:626
+#: src/Process/Backend/Post.php:627
 msgid "Publication date and hour"
 msgstr "प्रकाशन तिथि और घंटा"
 
-#: src/Process/Backend/Post.php:632
+#: src/Process/Backend/Post.php:633
 msgid "Entry language"
 msgstr "प्रवेश भाषा"
 
-#: src/Process/Backend/Post.php:636
+#: src/Process/Backend/Post.php:637
 msgid "Text formatting"
 msgstr "पाठ स्वरूपण"
 
-#: src/Process/Backend/Post.php:642
+#: src/Process/Backend/Post.php:643
 msgid "Convert to HTML"
 msgstr "HTML में बदलें"
 
-#: src/Process/Backend/Post.php:646
+#: src/Process/Backend/Post.php:647
 msgid "Filing"
 msgstr "फाइल करना"
 
-#: src/Process/Backend/Post.php:650
+#: src/Process/Backend/Post.php:651
 msgid "Selected entry"
 msgstr "चयनित प्रविष्टि"
 
-#: src/Process/Backend/Post.php:672 src/Process/Backend/User.php:378
+#: src/Process/Backend/Post.php:673 src/Process/Backend/User.php:378
 msgid "Options"
 msgstr "विकल्प"
 
-#: src/Process/Backend/Post.php:675
+#: src/Process/Backend/Post.php:676
 msgid "Comments and trackbacks list"
 msgstr "टिप्पणी और ट्रैकबैक सूची"
 
-#: src/Process/Backend/Post.php:681
+#: src/Process/Backend/Post.php:682
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr "चेतावनी: टिप्पणियाँ इस प्रविष्टि के लिए अधिक स्वीकार नहीं कर रहे हैं."
 
-#: src/Process/Backend/Post.php:683
+#: src/Process/Backend/Post.php:684
 msgid "Comments are not accepted on this blog so far."
 msgstr "इस ब्लॉग पर अभी तक टिप्पणियों को स्वीकार नहीं किया गया है."
 
-#: src/Process/Backend/Post.php:689
+#: src/Process/Backend/Post.php:690
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "चेतावनी: ट्रैकबैक इस प्रविष्टि के लिए अधिक स्वीकार नहीं कर रहे हैं."
 
-#: src/Process/Backend/Post.php:690
+#: src/Process/Backend/Post.php:691
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "इस ब्लॉग पर अभी तक ट्रेकबैक स्वीकार नहीं किए गए हैं."
 
-#: src/Process/Backend/Post.php:696
+#: src/Process/Backend/Post.php:697
 msgid "Edit basename"
 msgstr "बेसनाम संपादित करें"
 
-#: src/Process/Backend/Post.php:700
+#: src/Process/Backend/Post.php:701
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "चेतावनी: यदि आप URL को दस्ती रूप से सेट करते हैं, यह किसी अन्य प्रविष्टि के साथ संघर्ष कर सकता है."
 
-#: src/Process/Backend/Post.php:717
+#: src/Process/Backend/Post.php:718
 msgid "Excerpt:"
 msgstr "Excpt:"
 
-#: src/Process/Backend/Post.php:718
+#: src/Process/Backend/Post.php:719
 msgid "Introduction to the post."
 msgstr "पोस्ट करने के लिए परिचय."
 
-#: src/Process/Backend/Post.php:743
+#: src/Process/Backend/Post.php:744
 msgid "Personal notes:"
 msgstr "निजी नोट:"
 
-#: src/Process/Backend/Post.php:744
+#: src/Process/Backend/Post.php:745
 msgid "Unpublished notes."
 msgstr "अप्रकाशित नोट."
 
-#: src/Process/Backend/Post.php:848 src/Process/Backend/Post.php:883
+#: src/Process/Backend/Post.php:849 src/Process/Backend/Post.php:884
 msgid "Add a comment"
 msgstr "एक टिप्पणी जोड़ें"
 
-#: src/Process/Backend/Post.php:947
+#: src/Process/Backend/Post.php:948
 msgid "Trackbacks received"
 msgstr "ट्रेकबैक प्राप्त"
 
-#: src/Process/Backend/Post.php:953
+#: src/Process/Backend/Post.php:954
 msgid "No trackback"
 msgstr "कोई ट्रैकबैक नहीं"
 
-#: src/Process/Backend/Post.php:961
+#: src/Process/Backend/Post.php:962
 msgid "Selected trackbacks action:"
 msgstr "चयनित ट्रैकबैक क्रिया:"
 
-#: src/Process/Backend/Post.php:978 src/Process/Backend/Post.php:989
+#: src/Process/Backend/Post.php:979 src/Process/Backend/Post.php:990
 msgid "Ping blogs"
 msgstr "पिंग ब्लॉग"
 
-#: src/Process/Backend/Post.php:980
+#: src/Process/Backend/Post.php:981
 msgid "URLs to ping:"
 msgstr "यूआरएल पिंग करने के लिए:"
 
-#: src/Process/Backend/Post.php:984
+#: src/Process/Backend/Post.php:985
 msgid "Excerpt to send:"
 msgstr "प्रेषण करने के लिए एक्ससेप्ट:"
 
-#: src/Process/Backend/Post.php:990
+#: src/Process/Backend/Post.php:991
 msgid "Auto discover ping URLs"
 msgstr "URL खोज रहे हैं"
 
-#: src/Process/Backend/Post.php:998
+#: src/Process/Backend/Post.php:999
 msgid "Previously sent pings"
 msgstr "पहले भेजा पांग्स"
 
-#: src/Process/Backend/Post.php:1115
+#: src/Process/Backend/Post.php:1116
 msgid "select this comment"
 msgstr "यह टिप्पणी चुनें"
 
-#: src/Process/Backend/Post.php:1115
+#: src/Process/Backend/Post.php:1116
 msgid "select this trackback"
 msgstr "इस ट्रैकबैक को चुनें"
 
-#: src/Process/Backend/Post.php:1134
+#: src/Process/Backend/Post.php:1135
 msgid "Edit this comment"
 msgstr "इस टिप्पणी को संपादित करें"
 
@@ -5327,16 +5292,20 @@ msgstr "कोई नया डीओटेसाफ़ संस्करण �
 msgid "Force checking update Dotclear"
 msgstr "अद्यतन डीओडीड की जांच कर रहे"
 
-#: src/Process/Backend/Update.php:156 src/Process/Upgrade/Upgrade.php:240
+#: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
+msgid "Dotclear upgrade dashboard"
+msgstr "साफ-साफ अद्यतन डैशबोर्ड"
+
+#: src/Process/Backend/Update.php:155
+msgid "Go to dedicated upgrade dashboard."
+msgstr ""
+
+#: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
 #, php-format
 msgid "Dotclear %s is available."
 msgstr ""
 
-#: src/Process/Backend/Update.php:162
-msgid "Dotclear upgrade dashboard"
-msgstr "साफ-साफ अद्यतन डैशबोर्ड"
-
-#: src/Process/Backend/Update.php:162
+#: src/Process/Backend/Update.php:164
 msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
 msgstr "अपने Dottस्पष्ट अधिष्ठापन को उन्नत करने के लिए डैशबोर्ड को समर्पित और निर्देशों का पालन करें."
 
@@ -5361,6 +5330,26 @@ msgstr "उपयोगकर्ता को सफलतापूर्वक 
 #: src/Process/Backend/User.php:203
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "उपयोगकर्ता की अनुमति नहीं है, वह अभी तक लॉगिन करने में सक्षम नहीं होगा. कुछ जोड़ने के लिए नीचे देखें."
+
+#: src/Process/Backend/User.php:224 src/Process/Backend/User.php:225
+#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:496
+#: src/Process/Install/Install.php:416 src/Process/Install/Install.php:417
+#: src/Process/Install/Install.php:418
+#, php-format
+msgid "Password strength: %s"
+msgstr ""
+
+#: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:494
+#: src/Process/Install/Install.php:416
+msgid "weak"
+msgstr "निर्बल"
+
+#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:496
+#: src/Process/Install/Install.php:418
+msgid "strong"
+msgstr "बलवान"
 
 #: src/Process/Backend/User.php:254
 msgid "User profile"
