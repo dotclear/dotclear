@@ -1,19 +1,27 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
-$(() => {
-  const move = (select) => {
-    const id = $(`${select} option:selected`).val();
-    window.location = id;
-    document.getElementById(id.substring(1)).caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
+  const move = (selection) => {
+    window.location = selection;
+    document
+      .getElementById(selection.substring(1))
+      .caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
-  $('#gs_submit,#ls_submit').hide();
-  $('#gs_nav').on('change', () => {
-    move('#gs_nav');
-  });
-  $('#ls_nav').on('change', () => {
-    move('#ls_nav');
-  });
+
+  // Hide submit buttons
+  document.getElementById('gs_submit').style.display = 'none';
+  document.getElementById('ls_submit').style.display = 'none';
+
+  // Listen for selection change
+  document.getElementById('gs_nav')?.addEventListener('change', (event) => move(event.target.value));
+  document.getElementById('ls_nav')?.addEventListener('change', (event) => move(event.target.value));
+
+  // Prepare mobile display for tables
   dotclear.responsiveCellHeaders(document.querySelector('table.settings'), 'table.settings', 0, true);
-  $('table.settings').addClass('rch rch-thead');
+  document.querySelectorAll('table.settings').forEach((element) => {
+    element.classList.add('rch', 'rch-thead');
+  });
 });
