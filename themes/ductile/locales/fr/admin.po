@@ -120,7 +120,7 @@ msgstr "URL du logo :"
 #: themes/ductile/src/Config.php:388
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr "Pour configurer le menu principal, rendez-vous sur </a>la page d'administration du menu simple <a href=\"%s\">."
+msgstr "Pour configurer le menu principal, rendez-vous sur <a href=\"%s\">la page d'administration du menu simple</a>."
 
 #: themes/ductile/src/Config.php:395
 msgid "Stickers"
