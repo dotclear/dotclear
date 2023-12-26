@@ -361,7 +361,7 @@ class Frontend extends Process
         '/* ' . __('Additionnal style directives') . ' */' . "\n" .
         self::ductileStyleHelper() .
         "</style>\n" .
-        My::jsLoad('/ductile') . // root file
+        My::jsLoad('ductile') .
         self::ductileWebfontHelper();
     }
 

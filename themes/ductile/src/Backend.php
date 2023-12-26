@@ -34,36 +34,17 @@ class Backend extends Process
                 return;
             }
 
+            if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) || $_REQUEST['module'] !== My::id()) {
+                // Not in configuration page (module=ductile&conf=1)
+                return;
+            }
+
             echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
             if (!App::auth()->prefs()->accessibility->nodragdrop) {
                 echo
                 Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
-                echo <<<EOT
-                    <script>
-                    /*global $ */
-                    'use strict';
-
-                    $(() => {
-                        $('#stickerslist').sortable({'cursor':'move'});
-                        $('#stickerslist tr').hover(function () {
-                            $(this).css({'cursor':'move'});
-                        }, function () {
-                            $(this).css({'cursor':'auto'});
-                        });
-                        $('#theme_config').submit(() => {
-                            const order=[];
-                            $('#stickerslist tr td input.position').each(function() {
-                                order.push(this.name.replace(/^order\[([^\]]+)\]$/,'$1'));
-                            });
-                            $('input[name=ds_order]')[0].value = order.join(',');
-                            return true;
-                        });
-                        $('#stickerslist tr td input.position').hide();
-                        $('#stickerslist tr td.handle').addClass('handler');
-                    });
-                    </script>
-                    EOT;
+                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+                My::jsLoad('admin.js');
             }
         });
 
