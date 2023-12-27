@@ -1,4 +1,4 @@
-/*global $ */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {

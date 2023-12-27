@@ -5195,6 +5195,10 @@ div.ui-sortable-handle {
   cursor: move;
 }
 
+tr.ui-sortable-handle:hover {
+  cursor: move;
+}
+
 /* Badges (common.js) */
 .badgeable {
   /* class to set to badge parent's, not mandatory for menu items */

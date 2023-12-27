@@ -27,6 +27,12 @@ div.ui-sortable-handle {
   }
 }
 
+tr.ui-sortable-handle {
+  &:hover {
+    cursor: move;
+  }
+}
+
 /* Badges (common.js) */
 
 .badgeable {
