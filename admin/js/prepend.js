@@ -49,10 +49,10 @@ dotclear.readLocalData = (id) => {
  *
  * @param      {string}   id              element identifier
  * @param      {boolean}  [clear=true]    clear content
- * @param      {boolean}  [remove=false]  remove element
+ * @param      {boolean}  [remove=true]   remove element
  * @return     {Object}   data object
  */
-dotclear.getData = (id, clear = true, remove = false) => {
+dotclear.getData = (id, clear = true, remove = true) => {
   let data = {};
   // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
   // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
@@ -60,7 +60,7 @@ dotclear.getData = (id, clear = true, remove = false) => {
   if (element) {
     try {
       data = JSON.parse(element.textContent);
-      if (remove) {
+      if (clear && remove) {
         // Remove element
         element.remove();
       } else if (clear) {
