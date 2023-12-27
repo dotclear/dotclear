@@ -34,8 +34,7 @@ class Backend extends Process
                 return;
             }
 
-            if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) || $_REQUEST['module'] !== My::id()) {
-                // Not in configuration page (module=ductile&conf=1)
+            if (!My::checkContext(My::CONFIG)) {
                 return;
             }
 
