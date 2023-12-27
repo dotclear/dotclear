@@ -8,9 +8,7 @@ dotclear.ready(() => {
     cursor: 'move',
     items: '> label',
   });
-  $('#my-favs ul').sortable({
-    cursor: 'move',
-  });
+  $('#my-favs ul').sortable();
   $('#my-favs ul, #my-favs ul *').css({
     cursor: 'move',
   });

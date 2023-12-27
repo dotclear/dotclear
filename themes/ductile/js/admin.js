@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#stickerslist').sortable({ cursor: 'move' });
+  $('#stickerslist').sortable();
   $('#theme_config').on('submit', () => {
     const order = [];
     $('#stickerslist tr td input.position').each(function () {

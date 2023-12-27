@@ -4,7 +4,9 @@
 // Get context
 Object.assign(dotclear, dotclear.getData('legacy_editor_ctx'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   if ($('#edit-entry').length == 0) {
     return;
   }

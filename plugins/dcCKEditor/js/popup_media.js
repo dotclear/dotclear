@@ -1,7 +1,9 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#media-insert-cancel').on('click', () => {
     window.close();
   });

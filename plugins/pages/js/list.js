@@ -43,7 +43,9 @@ dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
   }
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#pageslist tr.line').prepend('<td class="expander"></td>');
   $('#form-entries tr:not(.line) th:first').attr('colspan', 4);
   $.expandContent({
@@ -69,24 +71,12 @@ $(() => {
   });
 
   $('#pageslist').sortable({
-    cursor: 'move',
     stop() {
       $('#pageslist tr td input.position').each(function (i) {
         $(this).val(i + 1);
       });
     },
   });
-  $('#pageslist tr')
-    .on('mouseenter', function () {
-      $(this).css({
-        cursor: 'move',
-      });
-    })
-    .on('mouseleave', function () {
-      $(this).css({
-        cursor: 'auto',
-      });
-    });
   $('#pageslist tr td input.position').hide();
   $('#pageslist tr td.handle').addClass('handler');
 

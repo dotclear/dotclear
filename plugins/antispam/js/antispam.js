@@ -3,22 +3,11 @@
 
 Object.assign(dotclear.msg, dotclear.getData('antispam'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   if ($('#filters-list').length) {
-    $('#filters-list').sortable({
-      cursor: 'move',
-    });
-    $('#filters-list tr')
-      .on('mouseenter', function () {
-        $(this).css({
-          cursor: 'move',
-        });
-      })
-      .on('mouseleave', function () {
-        $(this).css({
-          cursor: 'auto',
-        });
-      });
+    $('#filters-list').sortable();
     $('#filters-list-form').on('submit', () => {
       const order = [];
       $('#filters-list tr td input.position').each(function () {
@@ -31,6 +20,8 @@ $(() => {
     $('#filters-list tr td.handle').addClass('handler');
 
     $('form input[type=submit][name=delete_all]').on('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
+
+    // Prepare mobile display for tables
     dotclear.responsiveCellHeaders(document.querySelector('#filters-list-form table'), '#filters-list-form table', 1, true);
   }
 });

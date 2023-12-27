@@ -25,7 +25,9 @@ dotclear.dbSpamsCount = (icon_spam) => {
   });
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // run counters' update on some dashboard icons
   // Spam comments
   const icon_spam = $('#dashboard-main #icons p #icon-process-comments-fav');

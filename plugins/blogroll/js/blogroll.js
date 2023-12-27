@@ -1,21 +1,10 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
-  $('#links-list').sortable({
-    cursor: 'move',
-  });
-  $('#links-list tr')
-    .on('mouseenter', function () {
-      $(this).css({
-        cursor: 'move',
-      });
-    })
-    .on('mouseleave', function () {
-      $(this).css({
-        cursor: 'auto',
-      });
-    });
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
+  $('#links-list').sortable();
   $('#links-form').on('submit', () => {
     const order = [];
     $('#links-list tr td input.position').each(function () {

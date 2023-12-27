@@ -3,7 +3,9 @@
 
 Object.assign(dotclear.msg, dotclear.getData('ie_msg'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   if ($('*.error').length > 0) {
     return;
   }

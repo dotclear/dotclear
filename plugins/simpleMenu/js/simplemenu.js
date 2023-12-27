@@ -1,21 +1,10 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
-  $('#menuitemslist').sortable({
-    cursor: 'move',
-  });
-  $('#menuitemslist tr')
-    .on('mouseenter', function () {
-      $(this).css({
-        cursor: 'move',
-      });
-    })
-    .on('mouseleave', function () {
-      $(this).css({
-        cursor: 'auto',
-      });
-    });
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
+  $('#menuitemslist').sortable();
   $('#menuitems').on('submit', () => {
     const order = [];
     $('#menuitemslist tr td input.position').each(function () {

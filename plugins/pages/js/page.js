@@ -1,7 +1,9 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // Update page/post deletion message
   Object.assign(dotclear.msg, dotclear.getData('pages_page'));
 

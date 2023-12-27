@@ -5,7 +5,9 @@
 Object.assign(dotclear.msg, dotclear.getData('theme_editor_msg'));
 Object.assign(dotclear, dotclear.getData('dotclear_colorsyntax'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // Cope with saving
   let msg = false;
   $('#file-form input[name="write"]').on('click', function (e) {

@@ -86,7 +86,9 @@ dotclear.reorder = (ul) => {
   }
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   dotclear.mergeDeep(dotclear, dotclear.getData('widgets'));
 
   // Blocs

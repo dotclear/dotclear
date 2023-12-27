@@ -1,7 +1,9 @@
 /*global $, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#edit-entry').on('onetabload', () => {
     if ($('p.ping-services').length > 0) {
       const p = $('<p></p>');

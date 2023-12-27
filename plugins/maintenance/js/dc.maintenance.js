@@ -3,7 +3,9 @@
 
 Object.assign(dotclear.msg, dotclear.getData('maintenance'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('.step-box').each(function () {
     const code = $('input[name=code]', this).val();
     $('.step-submit', this).remove();

@@ -3,7 +3,9 @@
 
 dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#edit-entry').on('onetabload', () => {
     const tags_edit = $('#tags-edit');
     let post_id = $('#id');

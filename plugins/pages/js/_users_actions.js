@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, dotclear */
 'use strict';
 
 $.fn.updatePagesPermissionsForm = function () {
@@ -51,6 +51,8 @@ $.fn.updatePagesPermissionsForm = function () {
   });
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#permissions-form').updatePagesPermissionsForm();
 });

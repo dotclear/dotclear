@@ -3,7 +3,9 @@
 
 dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   const tag_field = $('#new_tags');
 
   tag_field.after('<div id="tags_list"></div>');

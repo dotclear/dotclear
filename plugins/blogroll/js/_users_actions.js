@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, dotclear */
 'use strict';
 
 $.fn.updateBlogrollPermissionsForm = function () {
@@ -51,6 +51,8 @@ $.fn.updateBlogrollPermissionsForm = function () {
   });
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#permissions-form').updateBlogrollPermissionsForm();
 });

@@ -1,7 +1,9 @@
 /*global $, CodeMirror, dotclear */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   const current = dotclear.getData('theme_editor_current');
   const elt = document.getElementById('codemirror');
   const editor = CodeMirror.fromTextArea(elt, {

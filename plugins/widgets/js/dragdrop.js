@@ -1,7 +1,9 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // clean
   $('.remove-if-drag').remove();
   $('.hidden-if-drag').hide();

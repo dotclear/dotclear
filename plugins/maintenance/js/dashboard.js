@@ -25,7 +25,9 @@ dotclear.dcMaintenanceTaskExpired = () => {
   });
 };
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   // First pass
   dotclear.dcMaintenanceTaskExpired();
   // Auto refresh requested : Set 300 seconds interval between two checks for expired maintenance task counter

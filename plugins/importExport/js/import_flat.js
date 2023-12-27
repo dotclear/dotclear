@@ -3,7 +3,9 @@
 
 Object.assign(dotclear.msg, dotclear.getData('ie_import_flat_msg'));
 
-$(() => {
+dotclear.ready(() => {
+  // DOM ready and content loaded
+
   $('#up_single_file').on('change', function () {
     if (this.value != '') {
       $('#public_single_file').val('');
