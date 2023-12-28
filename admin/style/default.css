@@ -277,27 +277,27 @@ h6 {
 }
 
 @font-face {
-  font-family: "Atkinson-Hyperlegible";
+  font-family: Atkinson-Hyperlegible;
   src: url("font/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Atkinson-Hyperlegible";
+  font-family: Atkinson-Hyperlegible;
   src: url("font/Atkinson-Hyperlegible-Bold-102a.woff2") format("woff2");
   font-weight: bold;
 }
 @font-face {
-  font-family: "Atkinson-Hyperlegible";
+  font-family: Atkinson-Hyperlegible;
   src: url("font/Atkinson-Hyperlegible-Italic-102a.woff2") format("woff2");
   font-style: italic;
 }
 @font-face {
-  font-family: "Atkinson-Hyperlegible";
+  font-family: Atkinson-Hyperlegible;
   src: url("font/Atkinson-Hyperlegible-BoldItalic-102a.woff2") format("woff2");
   font-weight: bold;
   font-style: italic;
 }
 :root {
-  --dc-font: "Atkinson-Hyperlegible";
+  --dc-font: Atkinson-Hyperlegible;
   --sans-serif: var(--dc-font), system-ui, sans-serif;
   --sans-serif-input: inherit;
   --monospace: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
