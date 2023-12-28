@@ -1,10 +1,10 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('a.uninstall_module_button').each(function () {
-    $(this).parent().find('input.delete').replaceWith($(this));
+  document.querySelectorAll('a.uninstall_module_button').forEach((element) => {
+    element.parentNode.querySelector('input.delete')?.replaceWith(element);
   });
 });
