@@ -29,7 +29,7 @@ interface TaskInterface
      *
      * Method is not case sensitive.
      *
-     * @param   string  $context    The cotenxt to check
+     * @param   string  $context    The context to check
      *
      * @return  bool    True if context is set
      */

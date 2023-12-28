@@ -34,7 +34,8 @@ class Backend extends Process
                 return;
             }
 
-            if (!My::checkContext(My::CONFIG)) {
+            if (!App::task()->checkContext('MODULE')) {
+                // Not on module configuration page
                 return;
             }
 
