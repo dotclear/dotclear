@@ -5,16 +5,21 @@ dotclear.ready(() => {
   // DOM ready and content loaded
 
   $('#menuitemslist').sortable();
-  $('#menuitems').on('submit', () => {
+  document.querySelectorAll('#menuitemslist tr td.handle').forEach((element) => element.classList.add('handler'));
+
+  document.querySelectorAll('#menuitemslist tr td input.position').forEach((element) => {
+    element.style.display = 'none';
+  });
+
+  document.getElementById('menuitems')?.addEventListener('submit', () => {
     const order = [];
-    $('#menuitemslist tr td input.position').each(function () {
-      order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
+    document.querySelectorAll('#menuitemslist tr td input.position').forEach((element) => {
+      order.push(element.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });
-    $('input[name=im_order]')[0].value = order.join(',');
+    document.querySelector('input[name=im_order]').value = order.join(',');
     return true;
   });
-  $('#menuitemslist tr td input.position').hide();
-  $('#menuitemslist tr td.handle').addClass('handler');
+
   dotclear.condSubmit('#menuitems tr td input[name^=items_selected]', '#menuitems #remove-action');
   dotclear.responsiveCellHeaders(document.querySelector('#menuitems table'), '#menuitems table', 2);
 });

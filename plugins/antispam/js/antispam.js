@@ -6,20 +6,27 @@ Object.assign(dotclear.msg, dotclear.getData('antispam'));
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  if ($('#filters-list').length) {
-    $('#filters-list').sortable();
-    $('#filters-list-form').on('submit', () => {
+  const $filters_list = $('#filters-list');
+  if ($filters_list.length) {
+    $filters_list.sortable();
+    document.querySelectorAll('#filters-list tr td.handle').forEach((element) => element.classList.add('handler'));
+
+    document.querySelectorAll('#filters-list tr td input.position').forEach((element) => {
+      element.style.display = 'none';
+    });
+
+    document.getElementById('filters-list-form')?.addEventListener('submit', () => {
       const order = [];
-      $('#filters-list tr td input.position').each(function () {
-        order.push(this.name.replace(/^f_order\[([^\]]+)\]$/, '$1'));
+      document.querySelectorAll('#filters-list tr td input.position').forEach((element) => {
+        order.push(element.name.replace(/^f_order\[([^\]]+)\]$/, '$1'));
       });
-      $('input[name=filters_order]')[0].value = order.join(',');
+      document.querySelector('input[name=filters_order]').value = order.join(',');
       return true;
     });
-    $('#filters-list tr td input.position').hide();
-    $('#filters-list tr td.handle').addClass('handler');
 
-    $('form input[type=submit][name=delete_all]').on('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
+    document
+      .querySelector('form input[type=submit][name=delete_all]')
+      ?.addEventListener('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
 
     // Prepare mobile display for tables
     dotclear.responsiveCellHeaders(document.querySelector('#filters-list-form table'), '#filters-list-form table', 1, true);

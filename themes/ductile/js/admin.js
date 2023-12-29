@@ -7,14 +7,13 @@ dotclear.ready(() => {
   $('#stickerslist').sortable();
   document.querySelectorAll('#stickerslist tr td.handle').forEach((element) => element.classList.add('handler'));
 
-  const positions = document.querySelectorAll('#stickerslist tr td input.position');
-  positions.forEach((element) => {
+  document.querySelectorAll('#stickerslist tr td input.position').forEach((element) => {
     element.style.display = 'none';
   });
 
   document.getElementById('theme_config')?.addEventListener('submit', () => {
     const order = [];
-    positions.forEach((element) => {
+    document.querySelectorAll('#stickerslist tr td input.position').forEach((element) => {
       order.push(element.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });
     document.querySelector('input[name=ds_order]').value = order.join(',');
