@@ -6,6 +6,8 @@ dotclear.ready(() => {
 
   $.pageTabs('two-boxes');
   $('#pageslist').sortable();
-  $('#pageslist tr td input.position').hide();
-  $('#pageslist tr td.handle').addClass('handler');
+  document.querySelectorAll('#pageslist tr td input.position').forEach((element) => {
+    element.style.display = 'none';
+  });
+  document.querySelectorAll('#pageslist tr td.handle').forEach((element) => element.classList.add('handler'));
 });

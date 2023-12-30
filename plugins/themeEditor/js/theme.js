@@ -1,4 +1,4 @@
-/*global $, CodeMirror, dotclear */
+/*global CodeMirror, dotclear */
 'use strict';
 
 dotclear.ready(() => {
@@ -17,7 +17,7 @@ dotclear.ready(() => {
     theme: current.theme || 'default',
   });
 
-  $('#part-tabs-user-options').on('click', () => {
+  document.getElementById('part-tabs-user-options')?.addEventListener('click', () => {
     editor.refresh();
   });
 
@@ -25,9 +25,9 @@ dotclear.ready(() => {
   if (current.theme !== 'default') {
     themes_loaded.push(current.theme);
   }
-  $('#colorsyntax_theme').on('change', () => {
-    const input = document.getElementById('colorsyntax_theme');
-    const theme = input.options[input.selectedIndex].value || 'default';
+
+  document.getElementById('colorsyntax_theme')?.addEventListener('change', (event) => {
+    const theme = event.target.options[event.target.selectedIndex].value || 'default';
     // Dynamically load theme if not default and not already loaded
     if (!themes_loaded.includes(theme)) {
       const style = document.createElement('link');
