@@ -1,4 +1,4 @@
-/*global $, dotclear, CKEDITOR */
+/*global dotclear, CKEDITOR */
 'use strict';
 
 Object.assign(dotclear.msg, dotclear.getData('ck_editor_tags'));
