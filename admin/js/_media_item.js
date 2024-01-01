@@ -70,7 +70,7 @@ dotclear.ready(() => {
     return true;
   });
 
-  // Confirm for deleting current medoa
+  // Confirm for deleting current media
   $('#delete-form input[name="delete"]').on('click', () => {
     const m_name = $('#delete-form input[name="remove"]').val();
     return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', m_name));
