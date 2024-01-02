@@ -25,6 +25,7 @@ class GrowUp_2_29_lt
             ],
             // Folders
             [
+                'admin/js/easter.js',
                 'inc/js/jquery/3.7.0',
             ]
         );

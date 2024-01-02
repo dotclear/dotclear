@@ -1174,16 +1174,7 @@ dotclear.ready(() => {
       document.documentElement.dataset.theme = theme === 'dark' ? 'light' : 'dark';
     });
   } else {
-    // create canvas element (as sibling before #prelude if exist else before h1)
-    const canvas = document.createElement('canvas');
-    canvas.setAttribute('id', 'canvas-layer');
-    canvas.width = 0;
-    canvas.height = 0;
-    const sibling = document.querySelector('#prelude') ? document.querySelector('#prelude') : document.querySelector('h1');
-    sibling.before(canvas);
-    header.addEventListener('dblclick', () => {
-      dotclear.easter();
-    });
+    // production mode: double click on header do ... nothing yet :-p
   }
 
   // Remove class no-js from html tag; cf style/default.css for examples
