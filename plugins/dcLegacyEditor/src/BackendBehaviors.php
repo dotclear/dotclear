@@ -163,6 +163,7 @@ class BackendBehaviors
                 'preview'      => ['title' => __('Preview')],
             ],
             'toolbar_bottom' => (App::task()->checkContext('BACKEND') && App::auth()->getOption('toolbar_bottom')),
+            'dynamic_height' => (App::task()->checkContext('BACKEND') && My::settings()->dynamic),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',

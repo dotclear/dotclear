@@ -14,15 +14,25 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyE
 <?php if (\Dotclear\App::backend()->editor_is_admin): ?>
   <h3 class="hidden-if-js"><?php echo __('Settings'); ?></h3>
   <form action="<?php echo \Dotclear\App::backend()->getPageURL(); ?>" method="post" enctype="multipart/form-data">
-    <div class="fieldset">
-      <h3><?php echo __('Plugin activation'); ?></h3>
+    <fieldset>
+      <legend><?php echo __('Plugin activation'); ?></legend>
       <p>
         <label class="classic" for="dclegacyeditor_active">
           <?php echo form::checkbox('dclegacyeditor_active', 1, \Dotclear\App::backend()->editor_std_active); ?>
           <?php echo __('Enable dcLegacyEditor plugin'); ?>
         </label>
       </p>
-    </div>
+    </fieldset>
+    <fieldset>
+      <legend><?php echo __('Plugin settings'); ?></legend>
+      <p>
+        <label class="classic" for="dclegacyeditor_dynamic">
+          <?php echo form::checkbox('dclegacyeditor_dynamic', 1, \Dotclear\App::backend()->editor_std_dynamic); ?>
+          <?php echo __('Enable dynamic heigth during input'); ?>
+        </label>
+      </p>
+      <p class="form-note"><?php echo __('Not implemented in wysiwyg mode') ?></p>
+    </fieldset>
 
     <p>
     <input type="hidden" name="p" value="dcLegacyEditor">

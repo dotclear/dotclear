@@ -55,6 +55,38 @@ class jsToolBar {
     this.context = null;
     this.toolNodes = {}; // lorsque la toolbar est dessinée , cet objet est garni
     // de raccourcis vers les éléments DOM correspondants aux outils.
+
+    // Dynamic height
+    if (this.textarea && this?.dynamic_height) {
+      // Store initial number of rows
+      this.dynamic = {
+        min: this.textarea.clientHeight + 2, // Keep 1 pixel borders in mind
+        timer: false,
+      };
+      this.debounceFunction = (func, delay) => {
+        if (this.dynamic.timer) {
+          clearTimeout(this.dynamic.timer);
+        }
+        this.dynamic.timer = setTimeout(func, delay);
+      };
+      this.adjustHeight = (el, min) => {
+        // compute the height difference which is caused by border and outline
+        const outerHeight = parseInt(window.getComputedStyle(el).height, 10);
+        const diff = outerHeight - el.clientHeight;
+
+        // set the height to 0 in case of it has to be shrinked
+        el.style.height = 0;
+
+        // set the correct height
+        // el.scrollHeight is the full height of the content, not just the visible part
+        el.style.height = Math.max(min, el.scrollHeight + diff) + 'px';
+      };
+      this.textarea.addEventListener('input', () =>
+        this.debounceFunction(this.adjustHeight(this.textarea, this.dynamic.min), 200),
+      );
+      // First call
+      this.adjustHeight(this.textarea, this.dynamic.min);
+    }
   }
 
   getMode() {
