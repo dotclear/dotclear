@@ -60,7 +60,8 @@ class jsToolBar {
     if (this.textarea && this?.dynamic_height) {
       // Store initial number of rows
       this.dynamic = {
-        min: this.textarea.clientHeight + 2, // Keep 1 pixel borders in mind
+        min: this.textarea.clientHeight + 2, // Keeping 1 pixel borders in mind
+        max: 0,
         timer: false,
       };
       this.debounceFunction = (func, delay) => {
@@ -69,23 +70,28 @@ class jsToolBar {
         }
         this.dynamic.timer = setTimeout(func, delay);
       };
-      this.adjustHeight = (el, min) => {
-        // compute the height difference which is caused by border and outline
+      this.adjustHeight = (el, min, max) => {
+        // Compute the height difference which is caused by border and outline
         const outerHeight = parseInt(window.getComputedStyle(el).height, 10);
         const diff = outerHeight - el.clientHeight;
 
-        // set the height to 0 in case of it has to be shrinked
+        // Set the height to 0 in case of it has to be shrinked
         el.style.height = 0;
 
-        // set the correct height
+        if (max === 0) {
+          // No max limit
+          max = window.innerHeight - 100; // Removing approximative usual height of toolbar
+        }
+
+        // Set the correct height
         // el.scrollHeight is the full height of the content, not just the visible part
-        el.style.height = Math.max(min, el.scrollHeight + diff) + 'px';
+        el.style.height = `${Math.min(max, Math.max(min, el.scrollHeight + diff))}px`;
       };
       this.textarea.addEventListener('input', () =>
-        this.debounceFunction(this.adjustHeight(this.textarea, this.dynamic.min), 200),
+        this.debounceFunction(this.adjustHeight(this.textarea, this.dynamic.min, this.dynamic.max), 300),
       );
       // First call
-      this.adjustHeight(this.textarea, this.dynamic.min);
+      this.adjustHeight(this.textarea, this.dynamic.min, this.dynamic.max);
     }
   }
 
