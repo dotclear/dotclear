@@ -61,7 +61,7 @@ class jsToolBar {
       // Store initial number of rows
       this.dynamic = {
         min: this.textarea.clientHeight + 2, // Keeping 1 pixel borders in mind
-        max: 0,
+        max: 0, // 0 = use as far as height as possible
         timer: false,
       };
       this.debounceFunction = (func, delay) => {
@@ -79,7 +79,7 @@ class jsToolBar {
         el.style.height = 0;
 
         if (max === 0) {
-          // No max limit
+          // No max limit = keep toolbar visible as far as possible
           max = window.innerHeight - 100; // Removing approximative usual height of toolbar
         }
 

@@ -28,10 +28,9 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyE
       <p>
         <label class="classic" for="dclegacyeditor_dynamic">
           <?php echo form::checkbox('dclegacyeditor_dynamic', 1, \Dotclear\App::backend()->editor_std_dynamic); ?>
-          <?php echo __('Enable dynamic heigth during input'); ?>
+          <?php echo __('Adjust height of input area during editing'); ?>
         </label>
       </p>
-      <p class="form-note"><?php echo __('Not implemented in wysiwyg mode') ?></p>
     </fieldset>
 
     <p>

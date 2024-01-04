@@ -1570,6 +1570,10 @@ msgstr "Retirer le formatage du texte"
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Activer le plugin dcLegacyEditor"
 
+#: plugins/dcLegacyEditor/tpl/index.php:31
+msgid "Adjust height of input area during editing"
+msgstr "Adapter la hauteur de la zone de saisie pendant l'édition"
+
 #: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
 msgstr "Contrôle si la source du rétrolien comporte un lien vers le billet"
