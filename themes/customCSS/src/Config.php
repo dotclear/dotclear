@@ -10,6 +10,7 @@ namespace Dotclear\Theme\customCSS;
 
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
@@ -94,5 +95,19 @@ class Config extends Process
         echo
         '<p class="area"><label>' . __('Style sheet:') . '</label> ' .
         form::textarea('css', 60, 20, Html::escapeHTML((string) $css_content)) . '</p>';
+
+        if (App::auth()->prefs()->interface->colorsyntax) {
+            echo
+            Page::jsRunCodeMirror(
+                [
+                    [
+                        'name'  => 'editor_css',
+                        'id'    => 'css',
+                        'mode'  => 'css',
+                        'theme' => App::auth()->prefs()->interface->colorsyntax_theme,
+                    ],
+                ]
+            );
+        }
     }
 }
