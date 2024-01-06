@@ -1,13 +1,3 @@
-/* Removes inner padding and border in FF3+  - Knacss */
-
-button::-moz-focus-inner,
-input[type='button']::-moz-focus-inner,
-input[type='reset']::-moz-focus-inner,
-input[type='submit']::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
 /* tous les boutons */
 
 button,

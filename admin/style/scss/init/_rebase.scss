@@ -1,25 +1,55 @@
-/* largeur des paddings et border compris dans "width" */
-
+/* Josh's Custom CSS Reset - https://www.joshwcomeau.com/css/custom-css-reset/ */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
-// cf https://raphaelgoetter.wordpress.com/2016/11/09/flexbox-min-width-0-is-the-new-zoom-1/
 * {
-  min-width: 0;
+  margin: 0;
+  min-width: 0; /* cf https://raphaelgoetter.wordpress.com/2016/11/09/flexbox-min-width-0-is-the-new-zoom-1/ */
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img {
+  max-width: 100%; /* do not display:block for img! */
+}
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
 }
 
+/* Rebase */
 html {
   font-size: 100%;
   text-size-adjust: 100%;
-  margin: 0;
   padding: 0;
 }
 
 body {
-  margin: 0;
   padding: 0;
 }
 
@@ -108,7 +138,6 @@ pre {
 }
 
 fieldset {
-  margin: 0;
   padding: 0;
   border: none;
 }
@@ -125,7 +154,6 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
-  margin: 0;
 }
 
 button,
@@ -137,7 +165,6 @@ button,
 html input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-  -webkit-appearance: button;
   cursor: pointer;
 }
 
@@ -150,21 +177,6 @@ input[type='checkbox'],
 input[type='radio'] {
   padding: 0;
   border: none;
-}
-
-input[type='search'] {
-  -webkit-appearance: textfield;
-}
-
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
 }
 
 textarea {
@@ -195,46 +207,6 @@ body > script {
   display: none !important;
 }
 
-/* HTML5 for old browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-  display: block;
-}
-
-audio,
-canvas,
-video {
-  display: inline-block;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-figure {
-  margin: 0;
-}
-
-[hidden],
-template {
-  display: none;
-}
-
-svg:not(:root) {
-  overflow: hidden;
-}
-
 /* Headings reset */
 
 h1,
@@ -245,7 +217,6 @@ h5,
 h6 {
   font-size: 1em;
   font-weight: normal;
-  margin: 0;
 }
 
 /* Screen-reader only */
