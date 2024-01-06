@@ -201,6 +201,11 @@ th:first-child {
   empty-cells: hide;
 }
 
+ul {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
 /* scripts */
 
 body > script {

@@ -156,6 +156,11 @@ a.back {
   padding: 2px 1.5em;
   border-radius: 0.75em;
   background-color: var(--nav-prevnext-background);
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--nav-prevnext);
+  }
 }
 
 a.back::before {

@@ -153,12 +153,7 @@ button[type='submit'].disabled {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
-
-  &:hover {
-    color: var(--button-disabled-color);
-    background: var(--button-disabled-background-alt);
-    border: 1px solid var(--button-disabled-border);
-  }
+  cursor: default;
 }
 
 /* Boutons javascript (dépliage/repliage, …) */

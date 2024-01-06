@@ -215,6 +215,11 @@ th:first-child {
   empty-cells: hide;
 }
 
+ul {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
 /* scripts */
 body > script {
   display: none !important;
@@ -406,7 +411,6 @@ h6 {
   --clone-border: #caced2;
   --button-disabled-color: #676e78;
   --button-disabled-background: #f3f3f3;
-  --button-disabled-background-alt: #ececec;
   --button-disabled-border: #caced2;
   --ajax-color: #323232;
   --ajax-background: #fff;
@@ -675,7 +679,6 @@ h6 {
   --clone-border: #82878f;
   --button-disabled-color: #676e78;
   --button-disabled-background: #f3f4f5;
-  --button-disabled-background-alt: #ecedee;
   --button-disabled-border: #82878f;
   --ajax-color: #303236;
   --ajax-background: #fff;
@@ -945,7 +948,6 @@ h6 {
     --clone-border: #82878f;
     --button-disabled-color: #676e78;
     --button-disabled-background: #f3f4f5;
-    --button-disabled-background-alt: #ecedee;
     --button-disabled-border: #82878f;
     --ajax-color: #303236;
     --ajax-background: #fff;
@@ -2403,14 +2405,7 @@ button[type=submit].disabled {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
-}
-input.disabled:hover,
-input[type=submit].disabled:hover,
-button.disabled:hover,
-button[type=submit].disabled:hover {
-  color: var(--button-disabled-color);
-  background: var(--button-disabled-background-alt);
-  border: 1px solid var(--button-disabled-border);
+  cursor: default;
 }
 
 /* Boutons javascript (dépliage/repliage, …) */
@@ -4865,6 +4860,11 @@ a.back {
   padding: 2px 1.5em;
   border-radius: 0.75em;
   background-color: var(--nav-prevnext-background);
+}
+.nav_prevnext a:hover, .nav_prevnext a:focus,
+a.back:hover,
+a.back:focus {
+  border: 1px solid var(--nav-prevnext);
 }
 
 a.back::before {
