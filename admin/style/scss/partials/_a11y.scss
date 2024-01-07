@@ -20,3 +20,9 @@
     transition-duration: 0s !important;
   }
 }
+
+@media (prefers-contrast: more) {
+  *:focus {
+    outline: 2px solid currentcolor !important;
+  }
+}
