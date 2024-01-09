@@ -9,6 +9,7 @@
   flex-grow: 1;
 }
 #file-chooser {
+  min-width: 14em;
   max-width: 20em;
 }
 #file-chooser h3,
@@ -38,7 +39,11 @@
   margin-top: 0.5em;
 }
 textarea {
-  font: 1em Monaco, 'Courier New', Courier, monospace;
+  font:
+    1em Monaco,
+    'Courier New',
+    Courier,
+    monospace;
 }
 .CodeMirror {
   border: 1px solid;

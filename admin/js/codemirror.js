@@ -7,7 +7,9 @@ const codemirror_instance = {};
 // Launch all requested codemirror instance
 for (const i of dotclear.getData('codemirror')) {
   const elt = document.getElementById(i.id);
-  if (elt)
+  if (elt) {
+    // Get current height of textarea
+    const max = elt.clientHeight;
     codemirror_instance[i.name] = CodeMirror.fromTextArea(elt, {
       mode: i.mode,
       tabMode: 'indent',
@@ -23,4 +25,10 @@ for (const i of dotclear.getData('codemirror')) {
       },
       theme: i.theme,
     });
+    // Set CM same height as textarea
+    const cm = codemirror_instance[i.name].getWrapperElement();
+    if (cm) {
+      cm.style.height = `${max}px`;
+    }
+  }
 }

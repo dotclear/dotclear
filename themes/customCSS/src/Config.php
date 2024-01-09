@@ -94,7 +94,7 @@ class Config extends Process
 
         echo
         '<p class="area"><label>' . __('Style sheet:') . '</label> ' .
-        form::textarea('css', 60, 20, Html::escapeHTML((string) $css_content)) . '</p>';
+        form::textarea('css', 72, 25, Html::escapeHTML((string) $css_content)) . '</p>';
 
         if (App::auth()->prefs()->interface->colorsyntax) {
             echo
