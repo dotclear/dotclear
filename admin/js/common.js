@@ -1276,24 +1276,26 @@ dotclear.ready(() => {
   const wrapper = document.getElementById('wrapper');
   const hideMainMenu = 'hide_main_menu';
 
-  // Sidebar separator
-  document.getElementById('collapser')?.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (wrapper.classList.contains('hide-mm')) {
-      // Show sidebar
+  if (wrapper) {
+    // Sidebar separator
+    document.getElementById('collapser')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (wrapper.classList.contains('hide-mm')) {
+        // Show sidebar
+        wrapper.classList.remove('hide-mm');
+        dotclear.dropLocalData(hideMainMenu);
+        return;
+      }
+      // Hide sidebar
+      wrapper.classList.add('hide-mm');
+      dotclear.storeLocalData(hideMainMenu, true);
+    });
+    // Cope with current stored state of collapser
+    if (dotclear.readLocalData(hideMainMenu) === true) {
+      wrapper.classList.add('hide-mm');
+    } else {
       wrapper.classList.remove('hide-mm');
-      dotclear.dropLocalData(hideMainMenu);
-      return;
     }
-    // Hide sidebar
-    wrapper.classList.add('hide-mm');
-    dotclear.storeLocalData(hideMainMenu, true);
-  });
-  // Cope with current stored state of collapser
-  if (dotclear.readLocalData(hideMainMenu) === true) {
-    wrapper.classList.add('hide-mm');
-  } else {
-    wrapper.classList.remove('hide-mm');
   }
 
   // Scroll to top management
