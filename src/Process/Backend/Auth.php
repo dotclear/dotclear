@@ -263,6 +263,13 @@ class Auth extends Process
                     setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
 
+                if (isset($_REQUEST['go'])) {
+                    $url = self::thenGo($_REQUEST['go']);
+                    if ($url) {
+                        Http::redirect($url);
+                    }
+                }
+
                 App::backend()->url()->redirect('admin.home');
             } else {
                 // User cannot login
@@ -434,6 +441,13 @@ class Auth extends Process
                 } else {
                     echo
                     '<fieldset role="main">';
+
+                    if (isset($_REQUEST['go'])) {
+                        echo
+                        '<p>' .
+                        form::hidden('go', Html::escapeHTML($_REQUEST['go'])) .
+                        '</p>';
+                    }
                 }
 
                 echo
@@ -498,6 +512,27 @@ class Auth extends Process
         }
 
         echo self::html_end();
+    }
+
+    private static function thenGo(string $go): string
+    {
+        // Go requested URL (in query params)
+        $url            = App::backend()->url()->get('admin.home');
+        $url_components = parse_url($url);
+        if ($url_components !== false) {
+            // Keep only URL part before query (if any)
+            $url = substr($url, 0, strlen($url) - strlen($url_components['query']));
+
+            // Decode requested go params
+            $query = urldecode($go);
+
+            // Basic check of params
+            if (preg_match('/^process=([A-Z][a-z]*)(&)?/', $query)) {
+                return $url . $query;
+            }
+        }
+
+        return '';
     }
 
     private static function html_end(): string

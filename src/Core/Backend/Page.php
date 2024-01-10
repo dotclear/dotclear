@@ -74,7 +74,15 @@ class Page
         if (session_id()) {
             App::session()->destroy();
         }
-        App::backend()->url()->redirect('admin.auth');
+        // Keep requested URL (in query params)
+        $params         = [];
+        $url_components = parse_url($_SERVER['REQUEST_URI']);
+        if ($url_components !== false && $url_components['query']) {
+            $params['go'] = urlencode($url_components['query']);
+        }
+
+        // Redirect to authentication
+        App::backend()->url()->redirect('admin.auth', $params);
     }
 
     /**
