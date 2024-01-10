@@ -266,10 +266,6 @@ class Auth extends Process
                 if (isset($_REQUEST['go'])) {
                     $url = self::thenGo($_REQUEST['go']);
                     if ($url) {
-                        // Set current blog if requested in query
-                        if (empty($_POST['blog']) && isset($_GET['blog'])) {
-                            $_SESSION['sess_blog_id'] = $_GET['blog'];
-                        }
                         Http::redirect($url);
                     }
                 }
