@@ -266,6 +266,10 @@ class Auth extends Process
                 if (isset($_REQUEST['go'])) {
                     $url = self::thenGo($_REQUEST['go']);
                     if ($url) {
+                        // Set current blog if requested in query
+                        if (empty($_POST['blog']) && isset($_GET['blog'])) {
+                            $_SESSION['sess_blog_id'] = $_GET['blog'];
+                        }
                         Http::redirect($url);
                     }
                 }
@@ -521,13 +525,13 @@ class Auth extends Process
         $url_components = parse_url($url);
         if ($url_components !== false) {
             // Keep only URL part before query (if any)
-            $url = substr($url, 0, strlen($url) - strlen($url_components['query']));
+            $url = substr($url, 0, strlen($url) - strlen($url_components['query'] ?? ''));
 
             // Decode requested go params
             $query = urldecode($go);
 
-            // Basic check of params
-            if (preg_match('/^process=([A-Z][a-z]*)(&)?/', $query)) {
+            // Basic check of params begining with process=…[&…]
+            if (preg_match('/^process=([A-Za-z]+)(&)?/', $query)) {
                 return $url . $query;
             }
         }

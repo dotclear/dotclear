@@ -77,7 +77,7 @@ class Page
         // Keep requested URL (in query params)
         $params         = [];
         $url_components = parse_url($_SERVER['REQUEST_URI']);
-        if ($url_components !== false && $url_components['query']) {
+        if ($url_components !== false && isset($url_components['query'])) {
             $params['go'] = urlencode($url_components['query']);
         }
 
