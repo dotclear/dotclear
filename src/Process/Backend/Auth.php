@@ -264,8 +264,7 @@ class Auth extends Process
                 }
 
                 if (isset($_REQUEST['go'])) {
-                    $url = self::thenGo($_REQUEST['go']);
-                    if ($url) {
+                    if ($url = self::thenGo($_REQUEST['go'])) {
                         Http::redirect($url);
                     }
                 }
@@ -528,6 +527,7 @@ class Auth extends Process
 
             // Basic check of params begining with process=…[&…]
             if (preg_match('/^process=([A-Za-z]+)(&)?/', $query)) {
+                // Return redirect URL
                 return $url . $query;
             }
         }

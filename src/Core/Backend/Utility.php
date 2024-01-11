@@ -185,8 +185,22 @@ class Utility extends Process
                     $redir = (string) preg_replace('/d=(.*?)(&|$)/', '', $redir);
                 }
 
+                // Remove requested blog from URL if any
+                $redir = (string) preg_replace('/(\?|&)blog=(?:[^&.]*)(&|$)/', '', $redir);
+
                 Http::redirect($redir);
                 exit;
+            }
+
+            // Check if requested blog is in URL query (blog=blog_id)
+            if ($url = parse_url($_SERVER['REQUEST_URI'])) {
+                if (isset($url['query'])) {
+                    $params = [];
+                    parse_str($url['query'], $params);
+                    if (isset($params['blog'])) {
+                        $_SESSION['sess_blog_id'] = $params['blog'];
+                    }
+                }
             }
 
             // Check blog to use and log out if no result
