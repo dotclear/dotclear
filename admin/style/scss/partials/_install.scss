@@ -117,17 +117,15 @@ input[type='submit'] {
   border-radius: 0.2em;
   margin-bottom: 0.1em;
   color: #fff;
-  border: 1px solid #2373a8;
-  background: #2373a8;
-  background: linear-gradient(to bottom, #2c8fd1, #2373a8);
+  border: 1px solid #3a539b;
+  background: #3a539b;
   width: 100%;
 }
 
 input[type='submit']:hover,
 input[type='submit']:focus {
-  background: #2373a8;
-  background: linear-gradient(to bottom, #2373a8, #2c8fd1);
-  border: 1px solid #2c8fd1;
+  background: #3f51b5;
+  border: 1px solid #3a539b;
 }
 
 body.install {

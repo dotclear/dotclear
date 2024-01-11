@@ -381,41 +381,31 @@ h6 {
   --form-note-color: #676e78;
   --required: #ae323b;
   --button-color: #000;
-  --button-border: #caced2;
-  --button-shadow: rgba(0, 0, 0, 0.05);
+  --button-border: #3a539b;
   --submit-color: #fff;
-  --submit-background: #25a6e1;
-  --submit-background-alt: #188bc0;
+  --submit-background: #3a539b;
+  --submit-background-alt: #3f51b5;
   --submit-border: #caced2;
   --reset-color: #000;
   --reset-background: #eaeaea;
-  --reset-background-alt: #f9f9f9;
-  --reset-background-ter: #dadada;
-  --reset-border: #caced2;
+  --reset-background-alt: #dadada;
   --delete-color: #ae323b;
   --delete-hover-color: #fff;
   --delete-hover-background: #b33630;
-  --delete-hover-background-alt: #dc5f59;
-  --delete-hover-border: #dc5f59;
   --add-color: #000;
   --add-background: #bee74b;
   --add-background-alt: #9bca1c;
-  --add-border: #bee74b;
-  --add-border-alt: #9bca1c;
   --clone-color: #7e2999;
   --clone-background: #eaeaea;
-  --clone-background-alt: #f9f9f9;
   --clone-hover-color: #fff;
   --clone-hover-background: #9f34c1;
-  --clone-hover-background-alt: #b456d2;
-  --clone-border: #caced2;
   --button-disabled-color: #676e78;
   --button-disabled-background: #f3f3f3;
   --button-disabled-border: #caced2;
   --ajax-color: #323232;
   --ajax-background: #fff;
   --ajax-background-alt: #a2cbe9;
-  --ajax-border: #676e78;
+  --ajax-border: #3a539b;
   --gotop-color: #323232;
   --gotop-background: transparent;
   --gotop-border: none;
@@ -597,9 +587,9 @@ h6 {
   --main-menu-border: #a2cbe9;
   --search-color: #fff;
   --search-border: #c9cbcf;
-  --search-background: #25a6e1;
+  --search-background: #3a539b;
   --search-submit-color: #fff;
-  --search-submit-background: #188bc0;
+  --search-submit-background: #3f51b5;
   --search-outline: #bee74b;
   --footer-background: var(--body-background);
   --footer-border: #caced2;
@@ -650,33 +640,23 @@ h6 {
   --required: #f783b3;
   --button-color: #000;
   --button-border: #82878f;
-  --button-shadow: rgba(0, 0, 0, 0.05);
   --submit-color: #fff;
-  --submit-background: #25a6e1;
-  --submit-background-alt: #188bc0;
+  --submit-background: #3a539b;
+  --submit-background-alt: #3f51b5;
   --submit-border: #82878f;
   --reset-color: #000;
   --reset-background: #eaeaea;
-  --reset-background-alt: #f9f9f9;
-  --reset-background-ter: #dadada;
-  --reset-border: #82878f;
+  --reset-background-alt: #dadada;
   --delete-color: #ae323b;
   --delete-hover-color: #fff;
   --delete-hover-background: #b33630;
-  --delete-hover-background-alt: #dc5f59;
-  --delete-hover-border: #dc5f59;
   --add-color: #000;
   --add-background: #bee74b;
   --add-background-alt: #9bca1c;
-  --add-border: #bee74b;
-  --add-border-alt: #9bca1c;
   --clone-color: #7e2999;
   --clone-background: #eaeaea;
-  --clone-background-alt: #f9f9f9;
   --clone-hover-color: #fff;
   --clone-hover-background: #9f34c1;
-  --clone-hover-background-alt: #b456d2;
-  --clone-border: #82878f;
   --button-disabled-color: #676e78;
   --button-disabled-background: #f3f4f5;
   --button-disabled-border: #82878f;
@@ -733,7 +713,7 @@ h6 {
   --index-link-border: #82878f;
   --index-icon-background: #565a60;
   --index-icon-border: #ecedee;
-  --index-icon-outline: #188bc0;
+  --index-icon-outline: #3f51b5;
   --index-icon-contrast: 130%;
   --quick-background: #303236;
   --quick-border: #dadbde;
@@ -866,9 +846,9 @@ h6 {
     --main-menu-border: #a2cbe9;
     --search-color: #fff;
     --search-border: #c9cbcf;
-    --search-background: #25a6e1;
+    --search-background: #3a539b;
     --search-submit-color: #fff;
-    --search-submit-background: #188bc0;
+    --search-submit-background: #3f51b5;
     --search-outline: #bee74b;
     --footer-background: var(--body-background);
     --footer-border: #caced2;
@@ -919,33 +899,23 @@ h6 {
     --required: #f783b3;
     --button-color: #000;
     --button-border: #82878f;
-    --button-shadow: rgba(0, 0, 0, 0.05);
     --submit-color: #fff;
-    --submit-background: #25a6e1;
-    --submit-background-alt: #188bc0;
+    --submit-background: #3a539b;
+    --submit-background-alt: #3f51b5;
     --submit-border: #82878f;
     --reset-color: #000;
     --reset-background: #eaeaea;
-    --reset-background-alt: #f9f9f9;
-    --reset-background-ter: #dadada;
-    --reset-border: #82878f;
+    --reset-background-alt: #dadada;
     --delete-color: #ae323b;
     --delete-hover-color: #fff;
     --delete-hover-background: #b33630;
-    --delete-hover-background-alt: #dc5f59;
-    --delete-hover-border: #dc5f59;
     --add-color: #000;
     --add-background: #bee74b;
     --add-background-alt: #9bca1c;
-    --add-border: #bee74b;
-    --add-border-alt: #9bca1c;
     --clone-color: #7e2999;
     --clone-background: #eaeaea;
-    --clone-background-alt: #f9f9f9;
     --clone-hover-color: #fff;
     --clone-hover-background: #9f34c1;
-    --clone-hover-background-alt: #b456d2;
-    --clone-border: #82878f;
     --button-disabled-color: #676e78;
     --button-disabled-background: #f3f4f5;
     --button-disabled-border: #82878f;
@@ -1002,7 +972,7 @@ h6 {
     --index-link-border: #82878f;
     --index-icon-background: #565a60;
     --index-icon-border: #ecedee;
-    --index-icon-outline: #188bc0;
+    --index-icon-outline: #3f51b5;
     --index-icon-contrast: 130%;
     --quick-background: #303236;
     --quick-border: #dadbde;
@@ -2238,7 +2208,6 @@ input[type=submit] {
   text-decoration: none;
   cursor: pointer;
   position: relative;
-  box-shadow: 0 1px 3px var(--button-shadow);
   border-style: solid;
   border-width: 1px;
 }
@@ -2255,8 +2224,6 @@ button.submit,
 input.button.start {
   color: var(--submit-color);
   background-color: var(--submit-background);
-  background-image: linear-gradient(to bottom, var(--submit-background), var(--submit-background-alt));
-  border-color: var(--submit-background);
 }
 input[type=submit]:hover, input[type=submit]:focus,
 button[type=submit]:hover,
@@ -2268,8 +2235,6 @@ button.submit:focus,
 input.button.start:hover,
 input.button.start:focus {
   background-color: var(--submit-background-alt);
-  background-image: linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background));
-  border-color: var(--submit-background-alt);
 }
 
 /* suppression, reset, "neutres" fond gris */
@@ -2286,9 +2251,6 @@ a.button.delete,
 a.button.reset {
   color: var(--reset-color);
   background-color: var(--reset-background);
-  background-image: linear-gradient(to bottom, var(--reset-background-alt), var(--reset-background));
-  background-repeat: repeat-x;
-  border-color: var(--reset-border);
 }
 button:hover, button:focus,
 input[type=button]:hover,
@@ -2311,10 +2273,7 @@ a.button.delete:hover,
 a.button.delete:focus,
 a.button.reset:hover,
 a.button.reset:focus {
-  background-color: var(--reset-background-ter);
-  background-image: linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter));
-  background-repeat: repeat-x;
-  border-color: var(--reset-border);
+  background-color: var(--reset-background-alt);
 }
 
 /* suppression */
@@ -2336,9 +2295,6 @@ a.button.delete:hover,
 a.button.delete:focus {
   color: var(--delete-hover-color);
   background-color: var(--delete-hover-background);
-  background-image: linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background));
-  background-repeat: repeat-x;
-  border-color: var(--delete-hover-border);
 }
 
 #info-box a.button,
@@ -2351,17 +2307,13 @@ a.button.delete:focus {
 button.add {
   color: var(--add-color);
   background-color: var(--add-background);
-  background-image: linear-gradient(to bottom, var(--add-background), var(--add-background-alt));
-  border-color: var(--add-border);
-  padding: 0.33em 1.33em 0.5em;
+  padding: 0.4em 1.25em 0.4em;
 }
 .button.add:hover, .button.add:active, .button.add:focus,
 button.add:hover,
 button.add:active,
 button.add:focus {
   background-color: var(--add-background-alt);
-  background-image: linear-gradient(to bottom, var(--add-background-alt), var(--add-background));
-  border-color: var(--add-border-alt);
 }
 
 .button-add:focus {
@@ -2375,8 +2327,6 @@ button[type=submit].clone,
 a.button.clone {
   color: var(--clone-color);
   background-color: var(--clone-background);
-  background-image: linear-gradient(to bottom, var(--clone-background-alt), var(--clone-background));
-  border-color: var(--clone-border);
 }
 input[type=submit].clone:hover, input[type=submit].clone:active, input[type=submit].clone:focus,
 input.clone:hover,
@@ -2393,7 +2343,6 @@ a.button.clone:active,
 a.button.clone:focus {
   color: var(--clone-hover-color);
   background-color: var(--clone-hover-background);
-  background-image: linear-gradient(to bottom, var(--clone-hover-background-alt), var(--clone-hover-background));
 }
 
 /* paragraphe pour bouton Nouveau bidule */
@@ -2462,7 +2411,6 @@ a.metaGetList:hover,
 a.metaGetMore:hover {
   background: var(--ajax-background-alt);
   box-shadow: none;
-  border: 1px solid var(--ajax-border);
 }
 
 #gototop {
@@ -2478,7 +2426,6 @@ a.metaGetMore:hover {
 #gototop a, #gototop a:link, #gototop a:hover, #gototop a:active {
   color: var(--gotop-color);
   background: var(--gotop-background);
-  border: var(--gotop-border);
 }
 
 .metaRemove,

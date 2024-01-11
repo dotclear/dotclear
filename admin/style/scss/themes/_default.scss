@@ -53,8 +53,8 @@
   $code: #fefacd;
   $tooltip: #3a539b;
 
-  $submit: #25a6e1;
-  $submit-alt: #188bc0;
+  $submit: #3a539b;
+  $submit-alt: #3f51b5;
 
   $reset: #eaeaea;
   $reset-alt: #f9f9f9;
@@ -193,8 +193,7 @@
   // Buttons
 
   --button-color: #{$black};
-  --button-border: #{scale-color($gray-dark, $lightness: 66%)};
-  --button-shadow: #{rgba($black, 0.05)};
+  --button-border: #{$marine};
 
   --submit-color: #{$white};
   --submit-background: #{$submit};
@@ -203,29 +202,20 @@
 
   --reset-color: #{$black};
   --reset-background: #{$reset};
-  --reset-background-alt: #{$reset-alt};
-  --reset-background-ter: #{$reset-ter};
-  --reset-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --reset-background-alt: #{$reset-ter};
 
   --delete-color: #{$delete};
   --delete-hover-color: #{$white};
   --delete-hover-background: #{$delete-alt};
-  --delete-hover-background-alt: #{$delete-ter};
-  --delete-hover-border: #{$delete-ter};
 
   --add-color: #{$black};
   --add-background: #{$add};
   --add-background-alt: #{$add-alt};
-  --add-border: #{$add};
-  --add-border-alt: #{$add-alt};
 
   --clone-color: #{$clone};
   --clone-background: #{$reset};
-  --clone-background-alt: #{$reset-alt};
   --clone-hover-color: #{$white};
   --clone-hover-background: #{$clone-ter};
-  --clone-hover-background-alt: #{$clone-alt};
-  --clone-border: #{scale-color($gray-dark, $lightness: 66%)};
 
   --button-disabled-color: #{$gray-dark};
   --button-disabled-background: #{$gray-very-light};
@@ -234,7 +224,7 @@
   --ajax-color: #{$gray-very-dark};
   --ajax-background: #{$white};
   --ajax-background-alt: #{$light-blue};
-  --ajax-border: #{$gray-dark};
+  --ajax-border: #{$marine};
 
   --gotop-color: #{$gray-very-dark};
   --gotop-background: transparent;
