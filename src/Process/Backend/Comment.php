@@ -120,6 +120,9 @@ class Comment extends Process
                     App::backend()->comment_trackback   = (bool) App::backend()->rs->comment_trackback;
                     App::backend()->comment_spam_status = App::backend()->rs->comment_spam_status;
                     //
+                } else {
+                    Notices::addErrorNotice('This comment does not exist.');
+                    App::backend()->url()->redirect('admin.comments');
                 }
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

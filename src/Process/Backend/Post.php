@@ -135,8 +135,8 @@ class Post extends Process
             App::backend()->post = App::blog()->getPosts($params);
 
             if (App::backend()->post->isEmpty()) {
-                App::error()->add(__('This entry does not exist.'));
-                App::backend()->can_view_page = false;
+                Notices::addErrorNotice('This entry does not exist.');
+                App::backend()->url()->redirect('admin.posts');
             } else {
                 App::backend()->post_id            = App::backend()->post->post_id;
                 App::backend()->cat_id             = App::backend()->post->cat_id;
