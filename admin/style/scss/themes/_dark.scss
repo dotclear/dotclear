@@ -54,11 +54,9 @@
   $tooltip: #fff;
 
   $submit: #3a539b;
-  $submit-alt: #3f51b5;
 
   $reset: #eaeaea;
-  $reset-alt: #f9f9f9;
-  $reset-ter: #ffffff;
+  $reset-alt: #ffffff;
 
   $delete: #ae323b;
   $delete-alt: #b33630;
@@ -68,12 +66,11 @@
   $add-alt: #9bca1c;
 
   $clone: #7e2999;
-  $clone-alt: #b456d2;
-  $clone-ter: #9f34c1;
+  $clone-alt: #9f34c1;
 
   $badge: #d54e21;
   $badge-soft: #607d8b;
-  $badge-info: #3f51b5;
+  $badge-info: #3a539b;
 
   // Common
 
@@ -200,7 +197,7 @@
 
   --reset-color: #{$black};
   --reset-background: #{$reset};
-  --reset-background-alt: #{$reset-ter};
+  --reset-background-alt: #{$reset-alt};
 
   --delete-color: #{$delete};
   --delete-hover-color: #{$white};
@@ -213,7 +210,7 @@
   --clone-color: #{$clone};
   --clone-background: #{$reset};
   --clone-hover-color: #{$white};
-  --clone-hover-background: #{$clone-ter};
+  --clone-hover-background: #{$clone-alt};
 
   --button-disabled-color: #{$gray-dark};
   --button-disabled-background: #{$gray-very-light};
@@ -305,7 +302,7 @@
   --index-link-border: #{$gray-semi-dark};
   --index-icon-background: #{$gray-darker};
   --index-icon-border: #{$gray-lighter};
-  --index-icon-outline: #{$submit-alt};
+  --index-icon-outline: #{$submit};
   --index-icon-contrast: 130%;
 
   --quick-background: #{$gray-very-dark};

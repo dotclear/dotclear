@@ -308,7 +308,7 @@ class HelpCharte extends Process
         <div class="clearfix">
           <p><a class="button add">a.button.add</a> Se place en haut à droite (dans un p.top-add)</p>
           <p><input type="button" value="Type button"> <a href="#" class="button">a.button</a> <input type="reset" value="Type reset"> <a href="#" class="button reset">a.reset</a></p>
-          <p><input type="submit" value="Type submit"> <input type="submit" class="delete" value="Type submit class delete"> <a href="#" class="button delete">a.button delete</a></p>
+          <p><input type="submit" value="Type submit"> <input type="submit" class="delete" value="Type submit class delete"> <a href="#" class="button delete">a.button delete</a> <a href="#" class="button clone">a.button clone</a></p><p><a href="#" class="button checkbox-helper">a.button checkbox-helper</a></p>
           <p><input type="submit" value="Type submit class disabled" class="disabled"></p>
         </div>
         <h3 id="messages">Messages</h3>

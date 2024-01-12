@@ -547,7 +547,7 @@ h6 {
   --badge-border: transparent;
   --badge-std-background: #d54e21;
   --badge-soft-background: #607d8b;
-  --badge-info-background: #3f51b5;
+  --badge-info-background: #3a539b;
   --debug-color: #ae323b;
   --debug-background: #ffd478;
   --debug-border: #ffd478;
@@ -709,7 +709,7 @@ h6 {
   --index-link-border: #82878f;
   --index-icon-background: #565a60;
   --index-icon-border: #ecedee;
-  --index-icon-outline: #3f51b5;
+  --index-icon-outline: #3a539b;
   --index-icon-contrast: 130%;
   --quick-background: #303236;
   --quick-border: #dadbde;
@@ -803,7 +803,7 @@ h6 {
   --badge-border: var(--body-color);
   --badge-std-background: #d54e21;
   --badge-soft-background: #607d8b;
-  --badge-info-background: #3f51b5;
+  --badge-info-background: #3a539b;
   --debug-color: #ae323b;
   --debug-background: #ffd478;
   --debug-border: #ffd478;
@@ -966,7 +966,7 @@ h6 {
     --index-link-border: #82878f;
     --index-icon-background: #565a60;
     --index-icon-border: #ecedee;
-    --index-icon-outline: #3f51b5;
+    --index-icon-outline: #3a539b;
     --index-icon-contrast: 130%;
     --quick-background: #303236;
     --quick-border: #dadbde;
@@ -1060,7 +1060,7 @@ h6 {
     --badge-border: var(--body-color);
     --badge-std-background: #d54e21;
     --badge-soft-background: #607d8b;
-    --badge-info-background: #3f51b5;
+    --badge-info-background: #3a539b;
     --debug-color: #ae323b;
     --debug-background: #ffd478;
     --debug-border: #ffd478;
