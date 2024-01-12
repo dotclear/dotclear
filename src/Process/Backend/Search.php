@@ -271,7 +271,7 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = App::blog()->getComments($params, true)->f(0);
+            self::$count   = (int) App::blog()->getComments($params, true)->f(0);
             self::$list    = new ListingComments(App::blog()->getComments($params), self::$count);
             self::$actions = new ActionsComments(App::backend()->url()->get('admin.search'), $args);
             if (self::$actions->process()) {
