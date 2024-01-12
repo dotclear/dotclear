@@ -85,14 +85,15 @@ h1 {
   }
 
   input[type='submit'] {
+    color: var(--submit-color);
     background: var(--submit-background);
-    border-color: var(--submit-border);
+    border-color: var(--submit-color);
     margin-left: 0.33em;
   }
 
   input[type='submit']:hover {
-    color: var(--submit-color);
-    background: var(--submit-background-alt);
+    color: var(--submit-background);
+    background: var(--submit-color);
   }
 
   p {

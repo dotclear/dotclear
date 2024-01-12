@@ -331,7 +331,6 @@ h6 {
   --search-border: #868686;
   --search-background: #c9c9c9;
   --search-submit-color: #fff;
-  --search-submit-background: #868686;
   --search-outline: #bee74b;
   --footer-background: #fff;
   --footer-border: #caced2;
@@ -384,11 +383,10 @@ h6 {
   --button-border: #3a539b;
   --submit-color: #fff;
   --submit-background: #3a539b;
-  --submit-background-alt: #3f51b5;
   --submit-border: #caced2;
   --reset-color: #000;
   --reset-background: #eaeaea;
-  --reset-background-alt: #dadada;
+  --reset-background-alt: #ffffff;
   --delete-color: #ae323b;
   --delete-hover-color: #fff;
   --delete-hover-background: #b33630;
@@ -589,7 +587,6 @@ h6 {
   --search-border: #c9cbcf;
   --search-background: #3a539b;
   --search-submit-color: #fff;
-  --search-submit-background: #3f51b5;
   --search-outline: #bee74b;
   --footer-background: var(--body-background);
   --footer-border: #caced2;
@@ -642,11 +639,10 @@ h6 {
   --button-border: #82878f;
   --submit-color: #fff;
   --submit-background: #3a539b;
-  --submit-background-alt: #3f51b5;
   --submit-border: #82878f;
   --reset-color: #000;
   --reset-background: #eaeaea;
-  --reset-background-alt: #dadada;
+  --reset-background-alt: #ffffff;
   --delete-color: #ae323b;
   --delete-hover-color: #fff;
   --delete-hover-background: #b33630;
@@ -848,7 +844,6 @@ h6 {
     --search-border: #c9cbcf;
     --search-background: #3a539b;
     --search-submit-color: #fff;
-    --search-submit-background: #3f51b5;
     --search-outline: #bee74b;
     --footer-background: var(--body-background);
     --footer-border: #caced2;
@@ -901,11 +896,10 @@ h6 {
     --button-border: #82878f;
     --submit-color: #fff;
     --submit-background: #3a539b;
-    --submit-background-alt: #3f51b5;
     --submit-border: #82878f;
     --reset-color: #000;
     --reset-background: #eaeaea;
-    --reset-background-alt: #dadada;
+    --reset-background-alt: #ffffff;
     --delete-color: #ae323b;
     --delete-hover-color: #fff;
     --delete-hover-background: #b33630;
@@ -2234,7 +2228,8 @@ button.submit:hover,
 button.submit:focus,
 input.button.start:hover,
 input.button.start:focus {
-  background-color: var(--submit-background-alt);
+  color: var(--submit-background);
+  background-color: var(--submit-color);
 }
 
 /* suppression, reset, "neutres" fond gris */
@@ -2777,13 +2772,14 @@ h1 a:link {
   margin-left: 1.5em;
 }
 #top-info-blog input[type=submit] {
+  color: var(--submit-color);
   background: var(--submit-background);
-  border-color: var(--submit-border);
+  border-color: var(--submit-color);
   margin-left: 0.33em;
 }
 #top-info-blog input[type=submit]:hover {
-  color: var(--submit-color);
-  background: var(--submit-background-alt);
+  color: var(--submit-background);
+  background: var(--submit-color);
 }
 #top-info-blog p {
   display: inline-block;

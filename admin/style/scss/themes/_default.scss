@@ -58,7 +58,7 @@
 
   $reset: #eaeaea;
   $reset-alt: #f9f9f9;
-  $reset-ter: #dadada;
+  $reset-ter: #ffffff;
 
   $delete: #ae323b;
   $delete-alt: #b33630;
@@ -119,7 +119,6 @@
   --search-border: #{$gray-semi-dark};
   --search-background: #{$gray-light};
   --search-submit-color: #{$white};
-  --search-submit-background: #{$gray-semi-dark};
   --search-outline: #{$link-outline};
 
   --footer-background: #{$white};
@@ -197,7 +196,6 @@
 
   --submit-color: #{$white};
   --submit-background: #{$submit};
-  --submit-background-alt: #{$submit-alt};
   --submit-border: #{scale-color($gray-dark, $lightness: 66%)};
 
   --reset-color: #{$black};

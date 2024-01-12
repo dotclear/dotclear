@@ -35,7 +35,8 @@ input.button.start {
 
   &:hover,
   &:focus {
-    background-color: var(--submit-background-alt);
+    color: var(--submit-background);
+    background-color: var(--submit-color);
   }
 }
 
