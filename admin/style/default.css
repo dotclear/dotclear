@@ -4800,7 +4800,7 @@ a.back {
   color: var(--nav-prevnext);
   border: 1px solid var(--button-border);
   padding: 0.25em 1.5em;
-  border-radius: 0.75em;
+  border-radius: 0.5em;
   background-color: var(--nav-prevnext-background);
 }
 .nav_prevnext a:hover, .nav_prevnext a:focus,
@@ -4819,7 +4819,7 @@ a.onblog_link {
   float: right;
   border: 1px solid var(--button-border);
   padding: 0.125em 1.5em;
-  border-radius: 0.75em;
+  border-radius: 0.5em;
   background-color: var(--onblog-link-background);
 }
 a.onblog_link:hover, a.onblog_link:focus {
