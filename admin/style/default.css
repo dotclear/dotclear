@@ -2849,6 +2849,7 @@ h1 a:link {
 #main-menu ul li img {
   width: 1em;
   height: 1em;
+  min-width: 1em;
   margin-top: 0.25em;
   outline: 0;
 }
@@ -2860,6 +2861,7 @@ h1 a:link {
 #main-menu ul li a img {
   margin-left: 0.25em;
   margin-right: 0.5em;
+  min-width: 1em;
 }
 #main-menu ul li:hover {
   background-color: var(--main-menu-active-background);
