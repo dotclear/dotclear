@@ -514,11 +514,9 @@ h6 {
   --nav-background: #fff;
   --nav-prevnext: #2373a8;
   --nav-prevnext-background: #f3f3f3;
-  --nav-prevnext-border: #dbdbdb;
   --onblog-link: #323232;
   --onblog-link-background: #ececec;
   --onblog-link-border: #ececec;
-  --onblog-link-shadow: rgba(50, 50, 50, 0.3);
   --pager-link: #2373a8;
   --pager-active: #676e78;
   --pager-background: #f3f3f3;
@@ -770,11 +768,9 @@ h6 {
   --nav-background: var(--body-background);
   --nav-prevnext: #76c2f1;
   --nav-prevnext-background: #303236;
-  --nav-prevnext-border: #dadbde;
   --onblog-link: #303236;
   --onblog-link-background: #ecedee;
   --onblog-link-border: #ecedee;
-  --onblog-link-shadow: rgba(48, 50, 54, 0.3);
   --pager-link: #76c2f1;
   --pager-active: #c9cbcf;
   --pager-background: #f3f4f5;
@@ -1027,11 +1023,9 @@ h6 {
     --nav-background: var(--body-background);
     --nav-prevnext: #76c2f1;
     --nav-prevnext-background: #303236;
-    --nav-prevnext-border: #dadbde;
     --onblog-link: #303236;
     --onblog-link-background: #ecedee;
     --onblog-link-border: #ecedee;
-    --onblog-link-shadow: rgba(48, 50, 54, 0.3);
     --pager-link: #76c2f1;
     --pager-active: #c9cbcf;
     --pager-background: #f3f4f5;
@@ -4804,15 +4798,16 @@ body.auth .pw-hide {
 .nav_prevnext a,
 a.back {
   color: var(--nav-prevnext);
-  border: 1px solid var(--nav-prevnext-border);
-  padding: 2px 1.5em;
+  border: 1px solid var(--button-border);
+  padding: 0.25em 1.5em;
   border-radius: 0.75em;
   background-color: var(--nav-prevnext-background);
 }
 .nav_prevnext a:hover, .nav_prevnext a:focus,
 a.back:hover,
 a.back:focus {
-  border: 1px solid var(--nav-prevnext);
+  color: var(--reset-color);
+  background-color: var(--reset-background-alt);
 }
 
 a.back::before {
@@ -4822,11 +4817,14 @@ a.back::before {
 a.onblog_link {
   color: var(--onblog-link);
   float: right;
-  border: 1px solid var(--onblog-link-border);
-  padding: 2px 1.5em;
+  border: 1px solid var(--button-border);
+  padding: 0.125em 1.5em;
   border-radius: 0.75em;
   background-color: var(--onblog-link-background);
-  box-shadow: 0 1px 1px var(--onblog-link-shadow);
+}
+a.onblog_link:hover, a.onblog_link:focus {
+  color: var(--reset-color);
+  background-color: var(--reset-background-alt);
 }
 
 img.go_home {
@@ -4853,49 +4851,49 @@ img.go_home {
   text-align: center;
 }
 .pager .btn {
-  border: 1px solid var(--pager-border);
+  border: 1px solid var(--button-border);
   background-color: var(--pager-background);
   color: var(--pager-link);
   border-radius: 3px;
   overflow: hidden;
+  padding: 0.125em 0.25em;
+  min-width: 2em;
+}
+.pager .btn:hover, .pager .btn:focus {
+  color: var(--reset-color);
+  background-color: var(--reset-background-alt);
 }
 .pager .btn img {
   width: 1em;
   height: auto;
 }
 .pager .btn.no-link {
+  padding: 0.125em calc(0.25em + 3px);
   border-color: var(--pager-border);
   background-color: var(--pager-off-background);
-  padding: 1px 3px 0;
 }
 .pager .active {
-  padding: 4px 12px;
+  padding: 0.125em 0.25em;
+  min-width: 2em;
   color: var(--pager-active);
 }
 .pager .direct-access {
   margin-left: 2em;
 }
-.pager .direct-access input[type=text] {
-  border: 1px solid var(--pager-border);
-  padding: 3px 8px;
-  margin-left: 0.25em;
-  background-color: var(--pager-input-background);
+.pager .direct-access input[type=number] {
+  padding: 0.25em;
 }
 .pager .direct-access input[type=submit] {
-  padding: 3px 6px;
+  padding: 0.25em 0.5em;
 }
 .pager a {
   display: block;
   padding: 0 3px;
   border: none;
 }
-.pager a:hover, .pager a:focus {
-  background-color: var(--pager-background-over);
-}
 
 .index .btn.no-link,
 .index a {
-  padding: 2px 8px 3px;
   font-variant: small-caps;
 }
 .index li {
@@ -4908,7 +4906,6 @@ img.go_home {
   color: var(--index-no-link);
 }
 .index .active {
-  padding: 4px 8px;
   color: var(--index-active);
   background: var(--index-active-background);
   border-radius: 3px;

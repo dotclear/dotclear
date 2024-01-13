@@ -403,12 +403,10 @@
   --nav-background: #{$white};
   --nav-prevnext: #{$link};
   --nav-prevnext-background: #{$gray-very-light};
-  --nav-prevnext-border: #{scale-color($gray-very-light, $lightness: -10%)};
 
   --onblog-link: #{$gray-very-dark};
   --onblog-link-background: #{$gray-lighter};
   --onblog-link-border: #{$gray-lighter};
-  --onblog-link-shadow: #{rgba($gray-very-dark, 0.3)};
 
   --pager-link: #{$link};
   --pager-active: #{$gray-dark};
