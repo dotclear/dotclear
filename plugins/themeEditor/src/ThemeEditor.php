@@ -442,7 +442,7 @@ class ThemeEditor
      */
     protected function findTemplates(): void
     {
-        $this->tpl = [...$this->getFilesInDir($this->tplset_theme), ...$this->getFilesInDir($this->parent_theme . '/tpl')];
+        $this->tpl       = [...$this->getFilesInDir($this->tplset_theme), ...$this->getFilesInDir($this->parent_theme . '/tpl')];
         $this->tpl_model = $this->tpl;
 
         $this->tpl = [...$this->tpl, ...$this->getFilesInDir($this->user_theme . '/tpl')];
@@ -505,6 +505,7 @@ class ThemeEditor
     protected function findCodes(): void
     {
         $this->php = $this->getFilesInDir($this->user_theme, 'php');
+        $this->php = [...$this->php, ...$this->getFilesInDir($this->user_theme . '/src', 'php', 'src/')];
 
         uksort($this->php, $this->sortFilesHelper(...));
     }
