@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:44\n"
+"PO-Revision-Date: 2024-01-16 10:06\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -3319,7 +3319,7 @@ msgstr "Sistema"
 #: src/Process/Backend/UsersActions.php:346
 #, php-format
 msgid "Fields preceded by %s are mandatory."
-msgstr ""
+msgstr "Laukai, prieš kuriuos rašoma %s, yra privalomi."
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
