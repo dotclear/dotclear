@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:44\n"
+"PO-Revision-Date: 2024-01-16 10:07\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -480,7 +480,7 @@ msgstr "إدارة كل توجيه إعدادات المدونة"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
 msgid "Uninstall cleanly plugins and themes"
-msgstr ""
+msgstr "إلغاء تثبيت الإضافات والسمات بشكل نظيف"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
 #: plugins/dcLegacyEditor/src/Backend.php:24
@@ -1576,7 +1576,7 @@ msgstr "تمكين إضافة dcLegacyEditor"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
-msgstr ""
+msgstr "ضبط ارتفاع منطقة الإدخال أثناء التحرير"
 
 #: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
