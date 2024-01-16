@@ -266,7 +266,8 @@ class Comment extends Process
             '</div>' .
 
             '<h3>' . __('Comment submitted') . '</h3>' .
-            '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr>' . __('Author:') . '</label>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+            '<p><label for="comment_author" class="required"><span>*</span> ' . __('Author:') . '</label>' .
             form::field('comment_author', 30, 255, [
                 'default'    => Html::escapeHTML(App::backend()->comment_author),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',

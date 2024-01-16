@@ -343,7 +343,8 @@ class UsersActions extends Process
             '<p class="checkboxes-helpers"></p>' .
             '<div class="fieldset">' .
             '<h3>' . __('Validate permissions') . '</h3>' .
-            '<p><label for="your_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+            '<p><label for="your_pwd" class="required"><span>*</span> ' . __('Your password:') . '</label>' .
             form::password(
                 'your_pwd',
                 20,

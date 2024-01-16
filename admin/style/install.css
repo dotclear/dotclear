@@ -351,13 +351,21 @@ label span {
   display: block;
 }
 
-label.required {
+label.required,
+span.required {
   font-weight: bold;
 }
 
-label.required abbr {
+label.required abbr,
+label.required span,
+span.required {
   color: #900;
   font-size: 1.3em;
+  text-decoration: none;
+}
+
+label.required span {
+  display: inline-block;
 }
 
 form {

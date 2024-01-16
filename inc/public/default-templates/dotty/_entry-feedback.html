@@ -93,10 +93,11 @@
             <tpl:Block name="_entry-feedback-form-content-fields">
               <!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
               {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
-              <p class="field name-field"><label for="c_name">{{tpl:lang Name or nickname}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
+              <p class="form-help">{{tpl:lang Fields followed by * are mandatory}}</p>
+              <p class="field name-field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;<span>*</span>&nbsp;:</label>
                 <input name="c_name" id="c_name" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewName encode_html="1"}}" required>
               </p>
-              <p class="field mail-field"><label for="c_mail">{{tpl:lang Email address}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
+              <p class="field mail-field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;<span>*</span>&nbsp;:</label>
                 <input name="c_mail" id="c_mail" type="email" size="30" maxlength="255" value="{{tpl:CommentPreviewEmail encode_html="1"}}" required>
               </p>
               <p class="field site-field"><label for="c_site">{{tpl:lang Website}}&nbsp;:</label>
@@ -105,7 +106,7 @@
               <p style="display:none">
                 <input name="f_mail" type="text" size="30" maxlength="255" value="">
               </p>
-              <p class="field field-content"><label for="c_content">{{tpl:lang Comment}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
+              <p class="field field-content"><label for="c_content">{{tpl:lang Comment}}&nbsp;<span>*</span>&nbsp;:</label>
                 <textarea name="c_content" id="c_content" cols="35" rows="7" required aria-describedby="c_help">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
               </p>
               <p class="form-help" id="c_help">{{tpl:CommentHelp}}</p>

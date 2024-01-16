@@ -252,8 +252,9 @@ class User extends Process
 
         '<div class="col">' .
         '<h3>' . __('User profile') . '</h3>' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
 
-        '<p><label for="user_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('User ID:') . '</label> ' .
+        '<p><label for="user_id" class="required"><span>*</span> ' . __('User ID:') . '</label> ' .
         form::field('user_id', 20, 255, [
             'default'      => Html::escapeHTML(App::backend()->user_id),
             'extra_html'   => 'required placeholder="' . __('Login') . '" aria-describedby="user_id_help user_id_warning"',
@@ -272,7 +273,7 @@ class User extends Process
         '<p>' .
         '<label for="new_pwd" ' .
         (App::backend()->user_id != '' ? '' : 'class="required"') . '>' .
-        (App::backend()->user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') .
+        (App::backend()->user_id != '' ? '' : '<span>*</span> ') .
         (App::backend()->user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
         form::password(
             'new_pwd',
@@ -287,7 +288,7 @@ class User extends Process
         '<p class="form-note info" id="new_pwd_help">' . __('Password must contain at least 6 characters.') . '</p>' .
 
         '<p><label for="new_pwd_c" ' . (App::backend()->user_id != '' ? '' : 'class="required"') . '>' .
-        (App::backend()->user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
+        (App::backend()->user_id != '' ? '' : '<span>*</span> ') . __('Confirm password:') . '</label> ' .
         form::password(
             'new_pwd_c',
             20,
@@ -407,7 +408,7 @@ class User extends Process
 
         echo
         '<p class="clear vertical-separator"><label for="your_pwd" class="required">' .
-        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
+        '<span>*</span> ' . __('Your password:') . '</label>' .
         form::password(
             'your_pwd',
             20,

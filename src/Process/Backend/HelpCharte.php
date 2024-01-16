@@ -270,12 +270,13 @@ class HelpCharte extends Process
         <p><strong>Note :</strong> dans les exemples les valeurs et les numérotations sont placées dans un <code>span class="step"</code> (et ressortent donc dans un petit bloc à fond gris).</p>
         <h2>Interactions</h2>
         <h3 id="elements">Éléments de formulaire</h3>
+        <p class="form-note">Les champs précédés par <span class="required">*</span> sont obligatoires.</p>
         <form class="two-cols clearfix" action="#">
           <div class="col">
             <p><label for="ex1">Label simple + input text :</label><input id="ex1" type="text"></p>
             <p class="form-note">p class="form-note".</p>
             <p><label for="ex4" class="classic">Label class="classic" + input text :</label> <input id="ex4" type="text"></p>
-            <p><label for="ex2" class="required"><abbr title="Champ obligatoire">*</abbr> Label class="required" :</label> <input id="ex2" type="text" required placeholder="exemple"><span class="form-note">span class="form-note"</span></p>
+            <p><label for="ex2" class="required"><span title="Champ obligatoire">*</span> Label class="required" :</label> <input id="ex2" type="text" required placeholder="exemple"><span class="form-note">span class="form-note"</span></p>
             <p><label for="ex11" class="bold">Label class="bold" :</label> <input id="ex11" type="text"></p>
             <p class="form-note">La class="bold" est bien sûr à écrire en minuscules.</p>
             <p><label for="ex3">Input class="maximal" :</label> <input id="ex3" type="text" class="maximal"></p>

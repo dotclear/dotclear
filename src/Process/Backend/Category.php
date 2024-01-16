@@ -230,7 +230,8 @@ class Category extends Process
         echo
         '<form action="' . App::backend()->url()->get('admin.category') . '" method="post" id="category-form">' .
         '<h3>' . __('Category information') . '</h3>' .
-        '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p><label class="required" for="cat_title"><span>*</span> ' . __('Name:') . '</label> ' .
         \form::field('cat_title', 40, 255, [
             'default'    => Html::escapeHTML(App::backend()->cat_title),
             'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . App::backend()->blog_lang . '" spellcheck="true"',

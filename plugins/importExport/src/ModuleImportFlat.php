@@ -218,6 +218,7 @@ class ModuleImportFlat extends Module
             echo
             '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" id="formfull" class="fieldset">' .
             '<h3>' . __('Multiple blogs') . '</h3>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
             '<p class="warning">' . __('This will reset all the content of your database, except users.') . '</p>' .
 
             '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
@@ -233,7 +234,7 @@ class ModuleImportFlat extends Module
             }
 
             echo
-            '<p><label for="your_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
+            '<p><label for="your_pwd" class="required"><span>*</span> ' . __('Your password:') . '</label>' .
             form::password(
                 'your_pwd',
                 20,

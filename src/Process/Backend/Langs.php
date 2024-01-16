@@ -305,11 +305,12 @@ class Langs extends Process
             echo
             '<form method="post" action="' . App::backend()->url()->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Available languages') . '</h4>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
             '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
                 'Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>') . '</p>' .
             '<p class="field"><label for="pkg_url" class="classic">' . __('Language:') . '</label> ' .
             form::combo(['pkg_url'], $dc_langs_combo) . '</p>' .
-            '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
+            '<p class="field"><label for="your_pwd1" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
             form::password(
                 ['your_pwd', 'your_pwd1'],
                 20,
@@ -329,10 +330,11 @@ class Langs extends Process
             echo
             '<form method="post" action="' . App::backend()->url()->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
             '<h4>' . __('Upload a zip file') . '</h4>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
             '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
-            '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .
+            '<p class="field"><label for="pkg_file" class="classic required"><span>*</span> ' . __('Language zip file:') . '</label> ' .
             '<input type="file" id="pkg_file" name="pkg_file" required></p>' .
-            '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
+            '<p class="field"><label for="your_pwd2" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
             form::password(
                 ['your_pwd', 'your_pwd2'],
                 20,

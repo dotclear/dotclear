@@ -586,7 +586,8 @@ class Manage extends Process
                     echo
                     '<form id="additem" action="' . App::backend()->getPageURL() . '&amp;add=' . trim((string) self::STEP_ADD) . '" method="post">' .
                     '<fieldset><legend>' . App::backend()->item_type_label . (App::backend()->item_select_label != '' ? ' (' . App::backend()->item_select_label . ')' : '') . '</legend>' .
-                    '<p class="field"><label for="item_label" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
+                    '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+                    '<p class="field"><label for="item_label" class="classic required"><span>*</span> ' .
                     __('Label of item menu:') . '</label>' .
                     form::field('item_label', 20, 255, [
                         'default'    => App::backend()->item_label,
@@ -604,7 +605,7 @@ class Manage extends Process
                         ]
                     ) .
                     '</p>' .
-                    '<p class="field"><label for="item_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
+                    '<p class="field"><label for="item_url" class="classic required"><span>*</span> ' .
                     __('URL of item menu:') . '</label>' .
                     form::field('item_url', 40, 255, [
                         'default'    => App::backend()->item_url,

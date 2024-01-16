@@ -110,6 +110,9 @@ class Blog extends Process
                     // Form Nonce
                     App::nonce()->formNonce(),
                     // Blog ID
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>')),
                     (new Para())
                         ->items([
                             (new Input('blog_id'))
@@ -119,7 +122,7 @@ class Blog extends Process
                                 ->placeholder(__('Blog ID'))
                                 ->label(
                                     (new Label(
-                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:'),
+                                        '<span>*</span> ' . __('Blog ID:'),
                                         Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('required')
@@ -140,7 +143,7 @@ class Blog extends Process
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(
-                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:'),
+                                        '<span>*</span> ' . __('Blog name:'),
                                         Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('required')
@@ -156,7 +159,7 @@ class Blog extends Process
                                 ->placeholder(__('Blog URL'))
                                 ->label(
                                     (new Label(
-                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:'),
+                                        '<span>*</span> ' . __('Blog URL:'),
                                         Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('required')

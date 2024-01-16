@@ -73,6 +73,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
             $ie->process('ok');
         } else {
             return
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
             '<p><label for="file_name">' . __('File name:') . '</label>' .
             form::field('file_name', 50, 255, date('Y-m-d-H-i-') . $this->export_name) .
             '</p>' .
@@ -81,7 +82,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
             __('Compress file') . '</label>' .
             '</p>' .
             '<p><label for="your_pwd" class="required">' .
-            '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
+            '<span>*</span> ' . __('Your password:') . '</label>' .
             form::password(
                 'your_pwd',
                 20,

@@ -322,14 +322,15 @@ class Manage extends Process
         '<div class="multi-part clear" id="add-link" title="' . __('Add a link') . '">' .
         '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="add-link-form">' .
         '<h3>' . __('Add a new link') . '</h3>' .
-        '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p class="col"><label for="link_title" class="required"><span>*</span> ' . __('Title:') . '</label> ' .
         form::field('link_title', 30, 255, [
             'default'    => App::backend()->link_title,
             'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
 
-        '<p class="col"><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
+        '<p class="col"><label for="link_href" class="required"><span>*</span> ' . __('URL:') . '</label> ' .
         form::field('link_href', 30, 255, [
             'default'    => App::backend()->link_href,
             'extra_html' => 'required placeholder="' . __('URL') . '"',
@@ -354,7 +355,8 @@ class Manage extends Process
         '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
         '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="add-category-form">' .
         '<h3>' . __('Add a new category') . '</h3>' .
-        '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p><label for="cat_title" class=" classic required"><span>*</span> ' . __('Title:') . '</label> ' .
         form::field('cat_title', 30, 255, [
             'default'    => App::backend()->cat_title,
             'extra_html' => 'required placeholder="' . __('Title') . '"',
@@ -374,7 +376,8 @@ class Manage extends Process
             echo
             '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
             '<h3>' . __('Import links') . '</h3>' .
-            '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+            '<p><label for="links_file" class=" classic required"><span>*</span> ' . __('OPML or XBEL File:') . '</label> ' .
             '<input type="file" id="links_file" name="links_file" required></p>' .
             '<p>' . form::hidden(['p'], My::id()) .
             App::nonce()->getFormNonce() .

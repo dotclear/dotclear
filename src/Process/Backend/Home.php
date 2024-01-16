@@ -425,7 +425,8 @@ class Home extends Process
                 '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->getOption('post_format'))) . '</h3>' .
                 '<form id="quick-entry" action="' . App::backend()->url()->get('admin.post') . '" method="post" class="fieldset">' .
                 '<h4>' . __('New post') . '</h4>' .
-                '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
+                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+                '<p class="col"><label for="post_title" class="required"><span>*</span> ' . __('Title:') . '</label>' .
                 form::field('post_title', 20, 255, [
                     'class'      => 'maximal',
                     'extra_html' => 'required placeholder="' . __('Title') . '"',

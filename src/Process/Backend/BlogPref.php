@@ -475,7 +475,8 @@ class BlogPref extends Process
             '<form action="' . $da->action . '" method="post" id="blog-form">' .
             '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
             App::nonce()->getFormNonce() .
-            '<p><label for="blog_name" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+            '<p><label for="blog_name" class="required"><span>*</span> ' . __('Blog name:') . '</label>' .
             form::field(
                 'blog_name',
                 30,
@@ -795,12 +796,13 @@ class BlogPref extends Process
             if (App::auth()->isSuperAdmin()) {
                 echo '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
 
-                '<p><label for="blog_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label>' .
+                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+                '<p><label for="blog_id" class="required"><span>*</span> ' . __('Blog ID:') . '</label>' .
                 form::field('blog_id', 30, 32, Html::escapeHTML($da->blog_id), '', '', false, 'required placeholder="' . __('Blog ID') . '" aria-describedby="blog_id_help blog_id_warn"') . '</p>' .
                 '<p class="form-note" id="blog_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p> ' .
                 '<p class="form-note warn" id="blog_id_warn">' . __('Please note that changing your blog ID may require changes in your public index.php file.') . '</p>' .
 
-                '<p><label for="blog_url" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:') . '</label>' .
+                '<p><label for="blog_url" class="required"><span>*</span> ' . __('Blog URL:') . '</label>' .
                 form::url('blog_url', [
                     'size'       => 50,
                     'max'        => 255,

@@ -2108,14 +2108,21 @@ label span select {
   display: inline;
 }
 
-label.required {
+label.required,
+span.required {
   font-weight: bold;
 }
 
-label.required abbr {
+label.required abbr,
+label.required span,
+span.required {
   color: var(--required);
   font-size: 1.3em;
   text-decoration: none;
+}
+
+label.required span {
+  display: inline-block;
 }
 
 label.bold {

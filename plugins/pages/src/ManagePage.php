@@ -596,7 +596,7 @@ class ManagePage extends Process
             $main_items = new ArrayObject(
                 [
                     'post_title' => '<p class="col">' .
-                    '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
+                    '<label class="required no-margin bold" for="post_title"><span>*</span> ' . __('Title:') . '</label>' .
                     form::field('post_title', 20, 255, [
                         'default'    => Html::escapeHTML(App::backend()->post_title),
                         'class'      => 'maximal',
@@ -618,7 +618,7 @@ class ManagePage extends Process
                     '</p>',
 
                     'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
-                    'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
+                    'for="post_content"><span>*</span> ' . __('Content:') . '</label> ' .
                     form::textarea(
                         'post_content',
                         50,
@@ -654,7 +654,8 @@ class ManagePage extends Process
             '<form action="' . My::manageUrl(['act' => 'page']) . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
-            '<h3 class="out-of-screen-if-js">' . __('Edit page') . '</h3>';
+            '<h3 class="out-of-screen-if-js">' . __('Edit page') . '</h3>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>';
 
             foreach ($main_items as $item) {
                 echo $item;
@@ -810,10 +811,11 @@ class ManagePage extends Process
             echo
             '<div class="fieldset clear">' .
             '<h3>' . __('Add a comment') . '</h3>' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
 
             '<form action="' . App::backend()->url()->get('admin.comment') . '" method="post" id="comment-form">' .
             '<div class="constrained">' .
-            '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
+            '<p><label for="comment_author" class="required"><span>*</span> ' . __('Name:') . '</label>' .
             form::field('comment_author', 30, 255, [
                 'default'    => Html::escapeHTML(App::auth()->getInfo('user_cn')),
                 'extra_html' => 'required placeholder="' . __('Author') . '"',
@@ -836,7 +838,7 @@ class ManagePage extends Process
             ]) .
             '</p>' .
 
-            '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
+            '<p class="area"><label for="comment_content" class="required"><span>*</span> ' .
             __('Comment:') . '</label> ' .
             form::textarea('comment_content', 50, 8, ['extra_html' => 'required placeholder="' . __('Comment') . '"']) .
             '</p>' .

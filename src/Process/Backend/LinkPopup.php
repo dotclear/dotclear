@@ -55,7 +55,8 @@ class LinkPopup extends Process
 
         echo
         '<form id="link-insert-form" action="#" method="get">' .
-        '<p><label class="required" for="href"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Link URL:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p><label class="required" for="href"><span>*</span> ' . __('Link URL:') . '</label> ' .
         form::field('href', 35, 512, [
             'default'    => Html::escapeHTML(App::backend()->href),
             'extra_html' => 'required placeholder="' . __('URL') . '"',
