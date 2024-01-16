@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr "Papildomas meniu"
 
 #: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr ""
+
+#: __html_tpl_dummy.php:25
 msgid "From"
 msgstr "Iš"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
 msgstr "NuoDay"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr "Eiti į pagrindinį puslapį"
 
@@ -147,33 +151,33 @@ msgstr "Kalbos"
 msgid "Links"
 msgstr "Nuorodos"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr "Vardas ar slapyvardis"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr "Kitas įrašas:"
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr ", "
 
 msgid "Page top"
 msgstr "Puslapio viršus"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr "Puslapių žymėjimas"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "Reikalingas slaptažodis"
 
 msgid "Password:"
 msgstr "Slaptažodis:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "nuoroda"
 
@@ -183,7 +187,7 @@ msgstr "bogą gamina %s"
 msgid "Preview"
 msgstr "Peržiūra"
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr "Ankstesnis įrašas:"
 
@@ -193,7 +197,7 @@ msgstr "RSS yra nemokama interneto naujienų suvestinė. RSS pateikiamos naujien
 msgid "Read"
 msgstr "Skaityti"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "Prisiminti mane šiame bloge"
 
