@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 09:12\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr "Додатни мени"
 
 #: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr ""
+
+#: __html_tpl_dummy.php:25
 msgid "From"
 msgstr "Од"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
 msgstr "Од дана"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr "Иди на почетну страницу"
 
@@ -147,33 +151,33 @@ msgstr "Langues"
 msgid "Links"
 msgstr "Линкови"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr "Име или надимак"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr "Следећи унос:"
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr "На"
 
 msgid "Page top"
 msgstr "Врх странице"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr "Страничење"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "Потребна лозинка"
 
 msgid "Password:"
 msgstr "Lozinka :"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "Пермалинк"
 
@@ -183,7 +187,7 @@ msgstr "Напаја са %s"
 msgid "Preview"
 msgstr "Преглед"
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr "Претходни унос:"
 
@@ -193,7 +197,7 @@ msgstr ""
 msgid "Read"
 msgstr "Прочитајте"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "Запамти ме на овом блогу"
 
