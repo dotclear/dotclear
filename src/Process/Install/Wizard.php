@@ -259,7 +259,8 @@ class Wizard extends Process
         '<p>' . __('Please provide the following information needed to create your configuration file.') . '</p>' .
 
         '<form action="index.php" method="post">' .
-        '<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p><label class="required" for="DBDRIVER"><span>*</span> ' . __('Database type:') . '</label> ' .
         form::combo(
             'DBDRIVER',
             [
@@ -277,7 +278,7 @@ class Wizard extends Process
         form::field('DBUSER', 30, 255, Html::escapeHTML(self::$DBUSER)) . '</p>' .
         '<p><label for="DBPASSWORD">' . __('Database Password:') . '</label> ' .
         form::password('DBPASSWORD', 30, 255) . '</p>' .
-        '<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
+        '<p><label for="DBPREFIX" class="required"><span>*</span> ' . __('Database Tables Prefix:') . '</label> ' .
         form::field('DBPREFIX', 30, 255, [
             'default'    => Html::escapeHTML(self::$DBPREFIX),
             'extra_html' => 'required placeholder="' . __('Prefix') . '"',

@@ -397,6 +397,9 @@ class Langs extends Process
                 ->enctype('multipart/form-data')
                 ->fields([
                     (new Text('h4', __('Install or upgrade languages from an upload a zip file'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>')),
                     (new Text('p', __('You can install languages by uploading zip files.'))),
                     (new Para())
                         ->class('field')
@@ -406,7 +409,7 @@ class Langs extends Process
                                 ->required(true)
                                 ->label(
                                     (new Label(
-                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:'),
+                                        '<span>*</span> ' . __('Language zip file:'),
                                         Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('classic required')
@@ -423,7 +426,7 @@ class Langs extends Process
                                 ->autocomplete('current-password')
                                 ->label(
                                     (new Label(
-                                        '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:'),
+                                        '<span>*</span> ' . __('Your password:'),
                                         Label::OUTSIDE_LABEL_BEFORE
                                     ))
                                     ->class('classic required')

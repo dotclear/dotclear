@@ -433,7 +433,7 @@ class Home extends Process
                 ]) .
                 '</p>' .
                 '<div class="area"><label class="required" ' .
-                'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
+                'for="post_content"><span>*</span> ' . __('Content:') . '</label> ' .
                 form::textarea('post_content', 50, 10, ['extra_html' => 'required placeholder="' . __('Content') . '"']) .
                 '</div>' .
                 '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .

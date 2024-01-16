@@ -472,7 +472,8 @@ class Install extends Process
             '</fieldset>' .
 
             '<fieldset><legend>' . __('Username and password') . '</legend>' .
-            '<p><label for="u_login" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Username:') . ' ' .
+            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+            '<p><label for="u_login" class="required"><span>*</span> ' . __('Username:') . ' ' .
             form::field('u_login', 30, 32, [
                 'default'      => Html::escapeHTML(self::$u_login),
                 'extra_html'   => 'required placeholder="' . __('Username') . '"',
@@ -480,14 +481,14 @@ class Install extends Process
             ]) .
             '</label></p>' .
             '<p>' .
-            '<label for="u_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('New password:') . '</label>' .
+            '<label for="u_pwd" class="required"><span>*</span> ' . __('New password:') . '</label>' .
             form::password('u_pwd', 30, 255, [
                 'class'        => 'pw-strength',
                 'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
                 'autocomplete' => 'new-password',
             ]) .
             '</p>' .
-            '<p><label for="u_pwd2" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Confirm password:') . ' ' .
+            '<p><label for="u_pwd2" class="required"><span>*</span> ' . __('Confirm password:') . ' ' .
             form::password('u_pwd2', 30, 255, [
                 'extra_html'   => 'required placeholder="' . __('Password') . '"',
                 'autocomplete' => 'new-password',

@@ -1598,9 +1598,10 @@ class ModulesList
         echo
         '<form method="post" action="' . $this->getURL() . '" id="uploadpkg" enctype="multipart/form-data" class="fieldset">' .
         '<h4>' . __('Upload a zip file') . '</h4>' .
-        '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file path:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p class="field"><label for="pkg_file" class="classic required">span>*</span> ' . __('Zip file path:') . '</label> ' .
         '<input type="file" name="pkg_file" id="pkg_file" required></p>' .
-        '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
+        '<p class="field"><label for="your_pwd1" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
         form::password(
             ['your_pwd', 'your_pwd1'],
             20,
@@ -1618,12 +1619,13 @@ class ModulesList
         echo
         '<form method="post" action="' . $this->getURL() . '" id="fetchpkg" class="fieldset">' .
         '<h4>' . __('Download a zip file') . '</h4>' .
-        '<p class="field"><label for="pkg_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file URL:') . '</label> ' .
+        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+        '<p class="field"><label for="pkg_url" class="classic required"><span>*</span> ' . __('Zip file URL:') . '</label> ' .
         form::field('pkg_url', 40, 255, [
             'extra_html' => 'required placeholder="' . __('URL') . '"',
         ]) .
         '</p>' .
-        '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
+        '<p class="field"><label for="your_pwd2" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
         form::password(
             ['your_pwd', 'your_pwd2'],
             20,
@@ -1818,7 +1820,7 @@ class ModulesList
         $class = $ns . Autoloader::NS_SEP . $class;
         if (!empty($ns) && class_exists($class)) {
             $has = $class::init();
-        // by file name
+            // by file name
         } else {
             $root = App::plugins()->moduleInfo($id, 'root');
             $has  = !empty($root) && file_exists((string) Path::real($root . DIRECTORY_SEPARATOR . $file));

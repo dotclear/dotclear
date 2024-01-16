@@ -148,8 +148,9 @@ class ManageEdit extends Process
                 echo
                 '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                 '<h3>' . __('Edit category') . '</h3>' .
+                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
 
-                '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
+                '<p><label for="link_desc" class="required classic"><span>*</span> ' . __('Title:') . '</label> ' .
                 form::field('link_desc', 30, 255, [
                     'default'    => Html::escapeHTML(App::backend()->link_desc),
                     'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
@@ -166,15 +167,16 @@ class ManageEdit extends Process
 
                 '<div class="col30 first-col">' .
                 '<h3>' . __('Edit link') . '</h3>' .
+                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
 
-                '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
+                '<p><label for="link_title" class="required"><span>*</span> ' . __('Title:') . '</label> ' .
                 form::field('link_title', 30, 255, [
                     'default'    => Html::escapeHTML(App::backend()->link_title),
                     'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>' .
 
-                '<p><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
+                '<p><label for="link_href" class="required"><span>*</span> ' . __('URL:') . '</label> ' .
                 form::url('link_href', [
                     'size'       => 30,
                     'default'    => Html::escapeHTML(App::backend()->link_href),
