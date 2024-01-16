@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr "额外菜单"
 
 #: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr ""
+
+#: __html_tpl_dummy.php:25
 msgid "From"
 msgstr "来自"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
 msgstr "从日"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr "转到主页"
 
@@ -147,33 +151,33 @@ msgstr "语言"
 msgid "Links"
 msgstr "链接"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr "姓名或昵称"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr "下一条："
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr "于"
 
 msgid "Page top"
 msgstr "页首"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr "分页"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "需要密码"
 
 msgid "Password:"
 msgstr "密码："
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "永久链接"
 
@@ -183,7 +187,7 @@ msgstr "由 %s。"
 msgid "Preview"
 msgstr "预览"
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr "上一条："
 
@@ -193,7 +197,7 @@ msgstr "RSS feed 是一个免费的博客摘要。它提供内容（文章或者
 msgid "Read"
 msgstr "读取"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "在这个博客上记住我"
 
